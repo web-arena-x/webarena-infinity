@@ -26,25 +26,25 @@ Use the filters on the left of the page to narrow down the displayed results. Fi
 - Keyword search
 - Location search
 - Date (range)
-  - Start Date
-  - End Date
+ - Start Date
+ - End Date
 - Status
-  - Approved
-  - Cancelled
-  - Declined
-  - In Progress
-  - Pending
+ - Approved
+ - Cancelled
+ - Declined
+ - In Progress
+ - Pending
     - *As of 06/06/2022, this filter no longer lists the number of events for each status*.
 - Format
-  - In-Person
-  - Virtual
+ - In-Person
+ - Virtual
 - Type
 - Host
 - Creator
 - Career Center
-  - **Tip: if** your institution has configured career centers, employer-hosted on-campus events must be linked to a career center.
+ - **Tip: if** your institution has configured career centers, employer-hosted on-campus events must be linked to a career center.
 - Employer Host Industry
-  - **Tip:** since employer-hosted virtual events cannot be linked to a career center, use this filter to narrow down results relevant to your career center!
+ - **Tip:** since employer-hosted virtual events cannot be linked to a career center, use this filter to narrow down results relevant to your career center!
 - Labels
 - Not Labels
 - Include Past Events — check this box to display past events as well as events hosted "today" or a future date that are listed on the page by default.
@@ -57,7 +57,7 @@ Use the filters on the left of the page to narrow down the displayed results. Fi
 3. Click on the name of the event you'd like to review, and load the Event Overview page. Information on the Overview page includes:
 
 - A comment box
-  - **Note**: comments posted on the event are viewable by other Career Services staff, the employer, and students (if the event is approved).
+ - **Note**: comments posted on the event are viewable by other Career Services staff, the employer, and students (if the event is approved).
 - A red button **Decline**
 - A green button **Approve**
 - Date
@@ -66,16 +66,16 @@ Use the filters on the left of the page to narrow down the displayed results. Fi
 - Participating Schools
 - Participating Employers
 - Attendees
-  - Registered
-  - Checked In
-  - Invited
+ - Registered
+ - Checked In
+ - Invited
 - Label
 - Preview Link
 - Actions
-  - Join Event
-  - View & Add Notes
-  - Download Attendee CSV
-  - Preview Page
+ - Join Event
+ - View & Add Notes
+ - Download Attendee CSV
+ - Preview Page
 - Attachments
 
 ![pending_event_overview_page.png](https://support.joinhandshake.com/hc/article_attachments/26001362595863)

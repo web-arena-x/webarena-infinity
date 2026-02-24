@@ -20,12 +20,9 @@ The [`generate_e2e_pipelines`](https://gitlab.com/gitlab-org/gitlab/-/blob/maste
 
 This Rake task:
 
-1. Analyzes changes in a particular merge request and determines which specs must be executed using selective test execution with
-   [these criteria](_index.md#selective-test-execution). Based on that, a `dry-run` of every
-   [scenario](https://gitlab.com/gitlab-org/gitlab/-/tree/master/qa/qa/scenario/test) executes and determines if a scenario contains any executable tests.
+1. Analyzes changes in a particular merge request and determines which specs must be executed using selective test execution with [these criteria](_index.md#selective-test-execution). Based on that, a `dry-run` of every [scenario](https://gitlab.com/gitlab-org/gitlab/-/tree/master/qa/qa/scenario/test) executes and determines if a scenario contains any executable tests.
 1. The total run time for each scenario is calculated.
-1. Based on the run time value, [dynamic job scaling](_index.md#dynamic-parallel-job-scaling) calculates the necessary number of parallel CI/CD jobs for each scenario type
-   and generates pipeline YAML file with appropriate values.
+1. Based on the run time value, [dynamic job scaling](_index.md#dynamic-parallel-job-scaling) calculates the necessary number of parallel CI/CD jobs for each scenario type and generates pipeline YAML file with appropriate values.
 
 ## `e2e:perf-on-cng`
 
@@ -38,8 +35,7 @@ The `e2e:perf-on-cng` child pipeline is executed in merge requests and is a non 
 
 ### Setup
 
-This E2E test child pipeline is triggered by the `e2e:perf-on-cng` job using dynamically generated CI/CD YAML file stored as artifacts in the `e2e-test-pipeline-generate`
-CI/CD job. CI/CD YAML files are generated using a [template](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab/ci/test-on-cng/main.gitlab-ci.yml).
+This E2E test child pipeline is triggered by the `e2e:perf-on-cng` job using dynamically generated CI/CD YAML file stored as artifacts in the `e2e-test-pipeline-generate` CI/CD job. CI/CD YAML files are generated using a [template](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab/ci/test-on-cng/main.gitlab-ci.yml).
 
 ### child pipeline jobs
 
@@ -88,7 +84,7 @@ export const LOAD_TEST_START_TIME = '10s'; /* THE TIME TO WAIT AFTER WHICH THE L
                                               USUALLY THIS WOULD BE EQUAL TO WARMUP_TEST_DURATION */
 
 export const options = {
-scenarios:  {
+scenarios: {
     warmup: {
       executor: 'constant-vus',
       vus: WARMUP_TEST_VUS,
@@ -103,20 +99,20 @@ scenarios:  {
       startTime: LOAD_TEST_START_TIME,
       tags: { scenario: 'load_test' },
     },
-  },
-  thresholds: {
+ },
+ thresholds: {
     'http_req_waiting{scenario:load_test}': [
       { threshold: `p(90)<${TTFB_THRESHOLD}`, abortOnFail: false }
     ],
     'http_reqs{scenario:load_test}': [
       { threshold: `rate>=${RPS_THRESHOLD}`, abortOnFail: false }
     ]
-  },
+ },
 };
 
 export default function () {
 
-  // WRITE THE TEST HERE
+ // WRITE THE TEST HERE
 
 
 }
@@ -145,8 +141,8 @@ An example of the error is
 ```shell
 /usr/lib/ruby/gems/3.3.0/gems/bundler-2.6.9/lib/bundler/vendor/pub_grub/lib/pub_grub/version_solver.rb:225:in `resolve_conflict': Could not find compatible versions (Bundler::PubGrub::SolveFailure)
 Because every version of gitlab-backup-cli depends on grpc ~> 1.74.0
-  and Gemfile depends on gitlab-backup-cli >= 0,
-  grpc ~> 1.74.0 is required.
+ and Gemfile depends on gitlab-backup-cli >= 0,
+ grpc ~> 1.74.0 is required.
 ```
 
 This happens because there might have been an update on the Gemfile which your merge request doesn't contain. Rebasing the merge request branch with the master branch should fix this issue.
@@ -158,13 +154,11 @@ The `e2e:test-on-cng` child pipeline runs tests against a [Cloud Native GitLab](
 Deployment is managed by the [`orchestrator`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/qa/gems/gitlab-orchestrator/README.md)
 CLI tool, which you can also use to locally recreate CI/CD deployments.
 
-The `e2e:test-on-cng` child pipeline is executed in merge requests and is part of pre-merge validation lifecycle. If any test fails, you can't merge introduced
-code changes.
+The `e2e:test-on-cng` child pipeline is executed in merge requests and is part of pre-merge validation lifecycle. If any test fails, you can't merge introduced code changes.
 
 ### Setup
 
-This E2E test child pipeline is triggered by the `e2e:test-on-cng` job using dynamically generated CI/CD YAML file stored as artifacts in the `e2e-test-pipeline-generate`
-CI/CD job. CI/CD YAML files are generated using a [template](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab/ci/test-on-cng/main.gitlab-ci.yml).
+This E2E test child pipeline is triggered by the `e2e:test-on-cng` job using dynamically generated CI/CD YAML file stored as artifacts in the `e2e-test-pipeline-generate` CI/CD job. CI/CD YAML files are generated using a [template](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab/ci/test-on-cng/main.gitlab-ci.yml).
 
 ### child pipeline jobs
 
@@ -205,8 +199,7 @@ To help with debugging:
 
 ## `e2e:test-on-omnibus-ee`
 
-The `e2e:test-on-omnibus-ee` child pipeline runs tests against an [Omnibus](https://gitlab.com/gitlab-org/omnibus-gitlab) installation. This pipeline type is not executed
-in merge request pipelines by default and can be triggered manually by triggering the `e2e:test-on-omnibus-ee` job.
+The `e2e:test-on-omnibus-ee` child pipeline runs tests against an [Omnibus](https://gitlab.com/gitlab-org/omnibus-gitlab) installation. This pipeline type is not executed in merge request pipelines by default and can be triggered manually by triggering the `e2e:test-on-omnibus-ee` job.
 
 This pipeline type is allowed to fail and even in the case of a manual trigger inside of a merge request pipeline, failing tests will not block the ability to merge.
 
@@ -214,9 +207,7 @@ Linux package deployment is managed by [`gitlab-qa`](https://gitlab.com/gitlab-o
 
 ### Setup
 
-This E2E test child pipeline is triggered by the `e2e:test-on-omnibus-ee` job using dynamically generated CI/CD YAML file stored as artifacts in
-`e2e-test-pipeline-generate` CI/CD jobs. The CI/CD YAML file is generated using a
-[template](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab/ci/test-on-omnibus/main.gitlab-ci.yml).
+This E2E test child pipeline is triggered by the `e2e:test-on-omnibus-ee` job using dynamically generated CI/CD YAML file stored as artifacts in `e2e-test-pipeline-generate` CI/CD jobs. The CI/CD YAML file is generated using a [template](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab/ci/test-on-omnibus/main.gitlab-ci.yml).
 
 ### child pipeline jobs
 
@@ -241,21 +232,14 @@ This stage is responsible for [allure test report](_index.md#allure-report) gene
 
 ## `e2e:test-on-gdk`
 
-The `e2e:test-on-gdk` child pipeline supports development of the GitLab platform by providing feedback to engineers on
-end-to-end test execution faster than via `e2e:test-on-omnibus-ee`.
+The `e2e:test-on-gdk` child pipeline supports development of the GitLab platform by providing feedback to engineers on end-to-end test execution faster than via `e2e:test-on-omnibus-ee`.
 
-This is achieved by running tests against the [GitLab Development Kit](https://gitlab.com/gitlab-org/gitlab-development-kit) (GDK),
-which can be built and installed in less time than when testing against [Omnibus GitLab](https://gitlab.com/gitlab-org/omnibus-gitlab).
-The trade-off is that Omnibus GitLab can be used to deploy a production installation, whereas the GDK is a development
-environment. Tests that run against the GDK might not catch bugs that depend on part of the process of preparing GitLab
-to run in a production environment, including pre-compiling assets, assigning configuration defaults as part of an official
-installation package, deploying GitLab services to multiple servers, and more. On the other hand, engineers who use the
-GDK day-to-day can benefit from automated tests catching bugs that only appear on the GDK.
+This is achieved by running tests against the [GitLab Development Kit](https://gitlab.com/gitlab-org/gitlab-development-kit) (GDK), which can be built and installed in less time than when testing against [Omnibus GitLab](https://gitlab.com/gitlab-org/omnibus-gitlab).
+The trade-off is that Omnibus GitLab can be used to deploy a production installation, whereas the GDK is a development environment. Tests that run against the GDK might not catch bugs that depend on part of the process of preparing GitLab to run in a production environment, including pre-compiling assets, assigning configuration defaults as part of an official installation package, deploying GitLab services to multiple servers, and more. On the other hand, engineers who use the GDK day-to-day can benefit from automated tests catching bugs that only appear on the GDK.
 
 ### Setup
 
-This E2E test child pipeline is triggered by the `e2e:test-on-gdk` job using dynamically generated CI/CD YAML file stored as artifacts in the `e2e-test-pipeline-generate`
-CI/CD job. The CI/CD YAML file is generated by using a [template](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab/ci/test-on-gdk/main.gitlab-ci.yml).
+This E2E test child pipeline is triggered by the `e2e:test-on-gdk` job using dynamically generated CI/CD YAML file stored as artifacts in the `e2e-test-pipeline-generate` CI/CD job. The CI/CD YAML file is generated by using a [template](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab/ci/test-on-gdk/main.gitlab-ci.yml).
 
 #### `build-gdk-image`
 
@@ -263,8 +247,7 @@ CI/CD job. The CI/CD YAML file is generated by using a [template](https://gitlab
 uses the code from the merge request to build a Docker image that can be used in test jobs to launch a GDK instance in a container. The image is pushed to the container registry.
 
 The job also runs in pipelines on the default branch to build a base image that includes the GDK and GitLab components.
-This avoids building the entire image from scratch in merge requests. However, if the merge request includes changes to
-[certain GitLab components or code](https://gitlab.com/gitlab-org/gitlab/-/blob/24109c1a7ae1f29d4f6f1aeba3a13cbd8ea0e8e6/.gitlab/ci/rules.gitlab-ci.yml#L911)
+This avoids building the entire image from scratch in merge requests. However, if the merge request includes changes to [certain GitLab components or code](https://gitlab.com/gitlab-org/gitlab/-/blob/24109c1a7ae1f29d4f6f1aeba3a13cbd8ea0e8e6/.gitlab/ci/rules.gitlab-ci.yml#L911)
 the job will rebuild the base image before building the image that will be used in the test jobs.
 
 #### child pipeline jobs
@@ -288,29 +271,24 @@ For more information on the licenses these pipelines use, see [test licenses](ht
 
 ## Adding new jobs to E2E test pipelines
 
-E2E test pipelines use dynamic scaling of jobs based on their runtime. To create a mapping between job definitions in pipeline definition YAML files and
-a particular test scenario, `scenario` classes are used. These classes are located in `qa/qa/scenario` folder.
+E2E test pipelines use dynamic scaling of jobs based on their runtime. To create a mapping between job definitions in pipeline definition YAML files and a particular test scenario, `scenario` classes are used. These classes are located in `qa/qa/scenario` folder.
 
 A typical job definition in one of the e2e test pipeline definition YAML files would look like:
 
 ```yaml
 my-new-test-job:
-  # ...
-  variables:
+ # ...
+ variables:
     QA_SCENARIO: Test::Integration::MyNewTestScenario
 ```
 
 In this example:
 
-- `QA_SCENARIO: Test::Integration::MyNewTestScenario`: name of the scenario class that is passed to the `qa/bin/qa` test execution script. While the full class
-  name would be `QA::Scenario::Test:Integration::MyNewTestScenario`, `QA::Scenario` is omitted to have shorted definitions.
+- `QA_SCENARIO: Test::Integration::MyNewTestScenario`: name of the scenario class that is passed to the `qa/bin/qa` test execution script. While the full class name would be `QA::Scenario::Test:Integration::MyNewTestScenario`, `QA::Scenario` is omitted to have shorted definitions.
 
 Considering example above, perform the following steps to create a new job:
 
-1. Create a new scenario `my_new_job.rb` in the [`integration`](https://gitlab.com/gitlab-org/gitlab/-/tree/master/qa/qa/scenario/test/integration) directory
-   of the [`e2e`](https://gitlab.com/gitlab-org/gitlab/-/tree/master/qa) test framework. The scenario class should define a pipeline mapping that couples the
-   scenario to a specific job in a specific pipeline type. If job was added to the [test-on-cng](#e2etest-on-cng) pipeline, this scenario would define RSpec
-   tags that should be executed and pipeline mapping:
+1. Create a new scenario `my_new_job.rb` in the [`integration`](https://gitlab.com/gitlab-org/gitlab/-/tree/master/qa/qa/scenario/test/integration) directory of the [`e2e`](https://gitlab.com/gitlab-org/gitlab/-/tree/master/qa) test framework. The scenario class should define a pipeline mapping that couples the scenario to a specific job in a specific pipeline type. If job was added to the [test-on-cng](#e2etest-on-cng) pipeline, this scenario would define RSpec tags that should be executed and pipeline mapping:
 
    ```ruby
    module QA

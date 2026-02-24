@@ -17,7 +17,7 @@ In this article, we'll take you through how to create and modify text and link o
 
 ## Create a text object
 
-Click  in the toolbar or press `T` to add text to the board.
+Click in the toolbar or press `T` to add text to the board.
 
 Text objects are used to add text on top of other objects or directly to the board.
 
@@ -25,7 +25,7 @@ Text objects are used to add text on top of other objects or directly to the boa
 
 Single click creates a text box that resizes horizontally as you type, also known as point text. Drag the sides of a text box to adjust its width.
 
-1. Select the  **text** tool or press `T` .
+1. Select the **text** tool or press `T` .
 2. Click anywhere on the board to create a text box.
 
 ### Click and drag
@@ -50,7 +50,7 @@ Each kind of object has a specific number properties you can modify.
 Change the font of your text to match the mood and style of your FigJam board.
 
 1. Select the text object, or highlight the specific piece of text you’d like to update.
-2. Click the  dropdown in the toolbar and select a font:
+2. Click the dropdown in the toolbar and select a font:
    - Simple
    - Bookish
    - Technical
@@ -64,7 +64,7 @@ Note: The Bookish and Technical fonts are not available in Japanese.
 
 Apply the bold property to any text you want to stand out.
 
-Click  in the text toolbar, or use the keyboard shortcut:
+Click in the text toolbar, or use the keyboard shortcut:
 
 - **Mac**: `⌘ Command` `B`
 - **Windows**: `Control` `B`
@@ -73,7 +73,7 @@ Click  in the text toolbar, or use the keyboard shortcut:
 
 Apply the strikethrough property on any text you want to cross out. This is great for crossing off tasks in a to-do list or ideas you decided to not pursue, but want to keep a record of.
 
-Click  in the toolbar, or use the keyboard shortcut:
+Click in the toolbar, or use the keyboard shortcut:
 
 - **Mac**: `⌘ Command` `⇧ Shift` `X`
 - **Windows**: `Control` `Shift` `X`
@@ -84,7 +84,7 @@ Lists are great for note-taking, task lists, ideating, or writing step-by-step i
 
 ### Bulleted list
 
-Click  in the toolbar, or use the keyboard shortcut.
+Click in the toolbar, or use the keyboard shortcut.
 
 - **Mac**: `⌘ Command` `⇧ Shift` `8`
 - **Windows**: `Control` `Shift` `8`
@@ -130,7 +130,7 @@ To use a preset text size:
 2. Click the size dropdown menu in the toolbar to change text size.
 3. Pick a size for the selected text or enter a custom size in the field.
 
-Text objects created with the  tool can be given a custom size. To resize a text object:
+Text objects created with the tool can be given a custom size. To resize a text object:
 
 1. Select the text object you want to resize.
 2. Click and drag a corner of the text object.
@@ -141,17 +141,17 @@ Text objects can be resized in increments of 8 pixels, and will display as **Tee
 
 Use Markdown to format any text. FigJam supports the following Markdown syntax:
 
-|  |  |
+| | |
 | --- | --- |
 | **Element** | **Markdown Syntax** |
-| Heading | H1 (#)  H2 (##)  H3 (###)  H4 (####) |
+| Heading | H1 (#) H2 (##) H3 (###) H4 (####) |
 | Bold | \*\*bold text\*\* |
 | Italic | \*italicized text\* |
 | Inline code (monospaced font) | `inline code` |
 | Strikethrough | ~strikethrough text~ |
 | Blockquote | > blockquote |
-| Ordered list | 1. First item  2. Second item  3. Third item |
-| Unordered list | - First item  - Second item  - Third item |
+| Ordered list | 1. First item 2. Second item 3. Third item |
+| Unordered list | - First item - Second item - Third item |
 
 ## Curated colors
 
@@ -240,13 +240,13 @@ Spell check preferences set in the web app are not applied to the desktop app or
 
 ### Enable or disable spell check
 
-1. Click on the  menu.
+1. Click on the menu.
 2. Go to **Text** > **Spell check**.
 3. Click **Check spelling** to enable or disable spell check.
 
 ### Change preferred spell check language
 
-1. Click on the  menu.
+1. Click on the menu.
 2. Go to **Text** > **Spell check**.
 3. Select from the list of available languages.
 

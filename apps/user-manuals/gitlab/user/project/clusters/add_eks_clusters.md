@@ -19,13 +19,11 @@ to create new clusters.
 
 {{< /alert >}}
 
-Through GitLab, you can create new clusters and add existing clusters hosted on Amazon Elastic
-Kubernetes Service (EKS).
+Through GitLab, you can create new clusters and add existing clusters hosted on Amazon Elastic Kubernetes Service (EKS).
 
 ## Connect an existing EKS cluster
 
-If you already have an EKS cluster and want to connect it to GitLab,
-use the [GitLab agent for Kubernetes](../../clusters/agent/_index.md).
+If you already have an EKS cluster and want to connect it to GitLab, use the [GitLab agent for Kubernetes](../../clusters/agent/_index.md).
 
 ## Create a new EKS cluster
 
@@ -60,22 +58,18 @@ Further steps:
 
 #### Create a new EKS cluster in GitLab
 
-To create new a EKS cluster for your project, group, or instance, through
-cluster certificates:
+To create new a EKS cluster for your project, group, or instance, through cluster certificates:
 
 1. Go to your:
    - Project's **Operate** > **Kubernetes clusters** page, for a project-level cluster.
    - Group's **Kubernetes** page, for a group-level cluster.
    - The **Admin** area's **Kubernetes** page, for an instance-level cluster.
 1. Select **Integrate with a cluster certificate**.
-1. Under the **Create new cluster** tab, select **Amazon EKS** to display an
-   `Account ID` and `External ID` needed for later steps.
+1. Under the **Create new cluster** tab, select **Amazon EKS** to display an `Account ID` and `External ID` needed for later steps.
 1. In the [IAM Management Console](https://console.aws.amazon.com/iam/home), create an IAM policy:
    1. From the left panel, select **Policies**.
    1. Select **Create Policy**, which opens a new window.
-   1. Select the **JSON** tab, and paste the following snippet in place of the
-      existing content. These permissions give GitLab the ability to create
-      resources, but not delete them:
+   1. Select the **JSON** tab, and paste the following snippet in place of the existing content. These permissions give GitLab the ability to create resources, but not delete them:
 
       ```json
       {
@@ -123,8 +117,7 @@ cluster certificates:
       }
       ```
 
-      If you get an error during this process, GitLab does not roll back the changes. You must remove resources manually. You can do this by deleting
-      the relevant [CloudFormation stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.html).
+      If you get an error during this process, GitLab does not roll back the changes. You must remove resources manually. You can do this by deleting the relevant [CloudFormation stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-delete-stack.html).
 
    1. Select **Review policy**.
    1. Enter a suitable name for this policy, and select **Create Policy**. You can now close this window.
@@ -136,18 +129,14 @@ cluster certificates:
 
 #### Create an EKS IAM role for your cluster
 
-In the [IAM Management Console](https://console.aws.amazon.com/iam/home),
-create an **EKS IAM role** (**role A**) following the [Amazon EKS cluster IAM role instructions](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html).
-This role is necessary so that Kubernetes clusters managed by Amazon EKS can make calls to other AWS
-services on your behalf to manage the resources that you use with the service.
+In the [IAM Management Console](https://console.aws.amazon.com/iam/home), create an **EKS IAM role** (**role A**) following the [Amazon EKS cluster IAM role instructions](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html).
+This role is necessary so that Kubernetes clusters managed by Amazon EKS can make calls to other AWS services on your behalf to manage the resources that you use with the service.
 
-For GitLab to manage the EKS cluster correctly, you must include `AmazonEKSClusterPolicy` in
-addition to the policies the guide suggests.
+For GitLab to manage the EKS cluster correctly, you must include `AmazonEKSClusterPolicy` in addition to the policies the guide suggests.
 
 #### Create another EKS IAM role for GitLab authentication with Amazon
 
-In the [IAM Management Console](https://console.aws.amazon.com/iam/home),
-create another IAM role (**role B**) for GitLab authentication with AWS:
+In the [IAM Management Console](https://console.aws.amazon.com/iam/home), create another IAM role (**role B**) for GitLab authentication with AWS:
 
 1. On the AWS IAM console, select **Roles** from the left panel.
 1. Select **Create role**.
@@ -159,8 +148,7 @@ create another IAM role (**role B**) for GitLab authentication with AWS:
 1. Select **Next: Tags**, and optionally enter any tags you wish to associate with this role.
 1. Select **Next: Review**.
 1. Enter a role name and optional description into the fields provided.
-1. Select **Create role**. The new role name displays at the top. Select its name and copy the
-   `Role ARN` from the newly created role.
+1. Select **Create role**. The new role name displays at the top. Select its name and copy the `Role ARN` from the newly created role.
 
 ### Configure your cluster's data in GitLab
 
@@ -194,43 +182,33 @@ When you create a new cluster, you have the following settings:
 | Security group          | The [security group](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html) to apply to the EKS-managed Elastic Network Interfaces that are created in your worker node subnets. |
 | Instance type           | The [instance type](https://aws.amazon.com/ec2/instance-types/) of your worker nodes. |
 | Node count              | The number of worker nodes. |
-| GitLab-managed cluster  | Check if you want GitLab to manage namespaces and service accounts for this cluster. |
+| GitLab-managed cluster | Check if you want GitLab to manage namespaces and service accounts for this cluster. |
 
 ## Create a default Storage Class
 
-Amazon EKS doesn't have a default Storage Class out of the box, which means
-requests for persistent volumes are not automatically fulfilled. As part
-of Auto DevOps, the deployed PostgreSQL instance requests persistent storage,
-and without a default storage class it cannot start.
+Amazon EKS doesn't have a default Storage Class out of the box, which means requests for persistent volumes are not automatically fulfilled. As part of Auto DevOps, the deployed PostgreSQL instance requests persistent storage, and without a default storage class it cannot start.
 
 To create a default storage class if one doesn't already exist, see [Storage Classes](https://docs.aws.amazon.com/eks/latest/userguide/storage.html#storage-classes).
 
-Alternatively, disable PostgreSQL by setting the project variable
-[`POSTGRES_ENABLED`](../../../topics/autodevops/cicd_variables.md) to `false`.
+Alternatively, disable PostgreSQL by setting the project variable [`POSTGRES_ENABLED`](../../../topics/autodevops/cicd_variables.md) to `false`.
 
 ## Deploy the app to EKS
 
-With RBAC disabled and services deployed,
-[Auto DevOps](../../../topics/autodevops/_index.md) can now be leveraged
-to build, test, and deploy the app.
+With RBAC disabled and services deployed, [Auto DevOps](../../../topics/autodevops/_index.md) can now be leveraged to build, test, and deploy the app.
 
 [Enable Auto DevOps](../../../topics/autodevops/_index.md#per-project)
-if not already enabled. If a wildcard DNS entry was created resolving to the
-Load Balancer, enter it in the `domain` field under the Auto DevOps settings.
+if not already enabled. If a wildcard DNS entry was created resolving to the Load Balancer, enter it in the `domain` field under the Auto DevOps settings.
 Otherwise, the deployed app isn't externally available outside of the cluster.
 
 ![A pipeline deploying the application to EKS.](img/pipeline_v11_0.png)
 
 GitLab creates a new pipeline, which begins to build, test, and deploy the app.
 
-After the pipeline has finished, your app runs in EKS, and is available
-to users. Select **Operate** > **Environments**.
+After the pipeline has finished, your app runs in EKS, and is available to users. Select **Operate** > **Environments**.
 
 ![The deployed environment status and access options.](img/environment_v11_0.png)
 
-GitLab displays a list of the environments and their deploy status, as well as
-options to browse to the app, view monitoring metrics, and even access a shell
-on the running pod.
+GitLab displays a list of the environments and their deploy status, as well as options to browse to the app, view monitoring metrics, and even access a shell on the running pod.
 
 ## Additional requirements for GitLab Self-Managed instances
 
@@ -241,23 +219,20 @@ on the running pod.
 
 {{< /details >}}
 
-If you are using GitLab Self-Managed, you need to configure
-Amazon credentials. GitLab uses these credentials to assume an Amazon IAM role to create your cluster.
+If you are using GitLab Self-Managed, you need to configure Amazon credentials. GitLab uses these credentials to assume an Amazon IAM role to create your cluster.
 
-Create an IAM user and ensure it has permissions to assume the roles that
-your users need to create EKS clusters.
+Create an IAM user and ensure it has permissions to assume the roles that your users need to create EKS clusters.
 
-For example, the following policy document allows assuming a role whose name starts with
-`gitlab-eks-` in account `123456789012`:
+For example, the following policy document allows assuming a role whose name starts with `gitlab-eks-` in account `123456789012`:
 
 ```json
 {
-  "Version": "2012-10-17",
-  "Statement": {
+ "Version": "2012-10-17",
+ "Statement": {
     "Effect": "Allow",
     "Action": "sts:AssumeRole",
     "Resource": "arn:aws:iam::123456789012:role/gitlab-eks-*"
-  }
+ }
 }
 ```
 
@@ -267,8 +242,7 @@ Prerequisites:
 
 - Administrator access.
 
-To configure Amazon authentication in GitLab, generate an access key for the
-IAM user in the Amazon AWS console, and follow these steps:
+To configure Amazon authentication in GitLab, generate an access key for the IAM user in the Amazon AWS console, and follow these steps:
 
 1. In the upper-right corner, select **Admin**.
 1. Select **Settings** > **General**.
@@ -281,8 +255,7 @@ IAM user in the Amazon AWS console, and follow these steps:
 #### EKS access key and ID
 
 You can use instance profiles to dynamically retrieve temporary credentials from AWS when needed.
-In this case, leave the `Access key ID` and `Secret access key` fields blank
-and [pass an IAM role to an EC2 instance](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html).
+In this case, leave the `Access key ID` and `Secret access key` fields blank and [pass an IAM role to an EC2 instance](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html).
 
 Otherwise, enter your access key credentials into **Access key ID** and **Secret access key**.
 
@@ -300,9 +273,7 @@ arn:aws:iam::123456789012:role/gitlab-eks-provision'
 
 ### Access denied: User is not authorized to perform: `sts:AssumeRole` on resource: `arn:aws:iam::y`
 
-This error occurs when the credentials defined in the
-[Configure Amazon authentication](#configure-amazon-authentication) cannot assume the role defined by the
-Provision Role ARN:
+This error occurs when the credentials defined in the [Configure Amazon authentication](#configure-amazon-authentication) cannot assume the role defined by the Provision Role ARN:
 
 ```plaintext
 User `arn:aws:iam::x` is not authorized to perform: `sts:AssumeRole` on resource: `arn:aws:iam::y`
@@ -312,18 +283,14 @@ Check that:
 
 1. The initial set of AWS credentials [has the AssumeRole policy](#additional-requirements-for-gitlab-self-managed-instances).
 1. The Provision Role has access to create clusters in the given region.
-1. The account ID and
-   [external ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html)
+1. The account ID and [external ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html)
    match the value defined in the **Trust relationships** tab in AWS:
 
    ![Trust relationship settings for the AWS IAM role used for EKS cluster creation.](img/aws_iam_role_trust_v13_7.png)
 
 ### Could not load Security Groups for this VPC
 
-When populating options in the configuration form, GitLab returns this error
-because GitLab has successfully assumed your provided role, but the role has
-insufficient permissions to retrieve the resources needed for the form. Make sure
-you've assigned the role the correct permissions.
+When populating options in the configuration form, GitLab returns this error because GitLab has successfully assumed your provided role, but the role has insufficient permissions to retrieve the resources needed for the form. Make sure you've assigned the role the correct permissions.
 
 ### Key Pairs are not loaded
 
@@ -331,20 +298,14 @@ GitLab loads the key pairs from the **Cluster Region** specified. Ensure that ke
 
 #### `ROLLBACK_FAILED` during cluster creation
 
-The creation process halted because GitLab encountered an error when creating
-one or more resources. You can inspect the associated
-[CloudFormation stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.html)
+The creation process halted because GitLab encountered an error when creating one or more resources. You can inspect the associated [CloudFormation stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-view-stack-data-resources.html)
 to find the specific resources that failed to create.
 
-If the `Cluster` resource failed with the error
-`The provided role doesn't have the Amazon EKS Managed Policies associated with it.`,
-the role specified in **Role name** is not configured correctly.
+If the `Cluster` resource failed with the error `The provided role doesn't have the Amazon EKS Managed Policies associated with it.`, the role specified in **Role name** is not configured correctly.
 
 {{< alert type="note" >}}
 
-This role should be the role you created by following the
-[EKS cluster IAM role](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html) guide.
-In addition to the policies that guide suggests, you must also include the
-`AmazonEKSClusterPolicy` policy for this role in order for GitLab to manage the EKS cluster correctly.
+This role should be the role you created by following the [EKS cluster IAM role](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html) guide.
+In addition to the policies that guide suggests, you must also include the `AmazonEKSClusterPolicy` policy for this role in order for GitLab to manage the EKS cluster correctly.
 
 {{< /alert >}}

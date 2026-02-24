@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408833381402-Working-with
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Explore Professional or Enterprise |
 
@@ -22,32 +22,32 @@ Explore features the following four earliest and latest date functions:
 
 - DATE\_FIRST(*time attribute*)
 
-  Returns the earliest date or timestamp according to attributes added to the report and is affected by all applied filters.
+ Returns the earliest date or timestamp according to attributes added to the report and is affected by all applied filters.
 
-  **Example:** DATE\_FIRST([Update - Timestamp])
+ **Example:** DATE\_FIRST([Update - Timestamp])
 
-  Returns the earliest update timestamp taking into account all attributes you added to the report.
+ Returns the earliest update timestamp taking into account all attributes you added to the report.
 - DATE\_LAST(*time attribute*)
 
-  Returns the latest date or timestamp according to attributes added to the report and is affected by all applied filters.
+ Returns the latest date or timestamp according to attributes added to the report and is affected by all applied filters.
 
-  **Example:** DATE\_LAST([Update - Timestamp])
+ **Example:** DATE\_LAST([Update - Timestamp])
 
-  Returns the latest update timestamp taking into account all attributes you added to the report.
+ Returns the latest update timestamp taking into account all attributes you added to the report.
 - DATE\_FIRST\_FIX(*time attribute, attribute1, attribute2, ...*)
 
-  Returns the earliest date or timestamp according to the attributes specified in the function. Attributes added to the report will not affect the calculation but any filters applied will be taken into account.
+ Returns the earliest date or timestamp according to the attributes specified in the function. Attributes added to the report will not affect the calculation but any filters applied will be taken into account.
 
-  **Example:** DATE\_FIRST\_FIX([Update - Timestamp], [Update ticket ID])
+ **Example:** DATE\_FIRST\_FIX([Update - Timestamp], [Update ticket ID])
 
-  Returns the earliest update timestamp per ticket, regardless of the attributes from the report.
+ Returns the earliest update timestamp per ticket, regardless of the attributes from the report.
 - DATE\_LAST\_FIX(*time attribute, attribute1, attribute2, ...*)
 
-  Returns the latest date or timestamp according to the attributes specified in the function. Attributes added to the report will not affect the calculation but any filters applied will be taken into account.
+ Returns the latest date or timestamp according to the attributes specified in the function. Attributes added to the report will not affect the calculation but any filters applied will be taken into account.
 
-  **Example:** DATE\_LAST\_FIX([Update - Timestamp], [Update ticket ID])
+ **Example:** DATE\_LAST\_FIX([Update - Timestamp], [Update ticket ID])
 
-  Returns the latest update timestamp per ticket, regardless of the attributes from the report.
+ Returns the latest update timestamp per ticket, regardless of the attributes from the report.
 
 Note: DATE\_FIRST\_FIX and DATE\_LAST\_FIX are affected by report and dashboard filters. To ensure that no events are incorrectly left out by report or dashboard filters, use ticket-based time filters instead of update-based time filters. For example, use **Ticket created - Date** or **Ticket solved - Date** instead of **Update - Date**.
 
@@ -114,8 +114,8 @@ Tickets can be resolved and reopened multiple times. In some cases, you only wan
    ```
    IF ([Changes - Field name]="status"    
           AND [Changes - Previous value]!="solved"
-         AND ([Changes - New value]="solved" OR [Changes - New value]="closed")  
-         AND  DATE_LAST_FIX([Update - Timestamp], [Update ticket ID], [Changes - Field name], [Changes - New value])=[Update - Timestamp]) 
+         AND ([Changes - New value]="solved" OR [Changes - New value]="closed") 
+         AND DATE_LAST_FIX([Update - Timestamp], [Update ticket ID], [Changes - Field name], [Changes - New value])=[Update - Timestamp]) 
    THEN [Update ID] 
    ENDIF
    ```

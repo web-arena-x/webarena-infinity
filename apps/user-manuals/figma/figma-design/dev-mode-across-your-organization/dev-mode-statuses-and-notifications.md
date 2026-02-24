@@ -45,20 +45,20 @@ Statuses, including updating a status that’s changed, can be set while editing
 To mark a design as ready for dev:
 
 1. In Figma Design or Dev Mode, select a section, frame, or component.
-2. For sections and frames, next to the label, click  **Mark as ready for dev**. For components, the button is above the upper-right corner. Any users that previously opened the file in Dev Mode are [notified](#h_01J96T2MJRH0Y3ZAKB13FKS9W1) that the design is marked **Ready for dev**.
+2. For sections and frames, next to the label, click **Mark as ready for dev**. For components, the button is above the upper-right corner. Any users that previously opened the file in Dev Mode are [notified](#h_01J96T2MJRH0Y3ZAKB13FKS9W1) that the design is marked **Ready for dev**.
 
 ### Remove the Ready for dev status
 
 To remove the **Ready for dev** status:
 
-1. For the section, frame, or component where you want to clear the status, click  **Ready for dev.**
+1. For the section, frame, or component where you want to clear the status, click **Ready for dev.**
 2. In the drop-down menu, click **Remove status**.
 
 ### Mark a design as completed (Organization and Enterprise plans)
 
 To mark a design as completed:
 
-1. For the section, frame, or component that you want to mark completed, Click  **Ready for dev**.
+1. For the section, frame, or component that you want to mark completed, Click **Ready for dev**.
 2. In the drop-down menu, click **Mark as completed**. Any users that previously opened the file are notified that the design has been completed.
 
 ### Update the status for a changed design (Organization and Enterprise plans)

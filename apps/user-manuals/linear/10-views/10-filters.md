@@ -32,21 +32,13 @@ Press `F` again to add additional filters. To refine operators on existing filte
 
 ### Apply filters
 
-Type `F` to select filters from the command menu or click the Filter button above the board or list. You'll see a menu of filters that you can apply to the current view along with the number of matching issues.  Once you've opened the filter menu, you can move through the menu or use free text search to find the exact filter you need.
+Type `F` to select filters from the command menu or click the Filter button above the board or list. You'll see a menu of filters that you can apply to the current view along with the number of matching issues. Once you've opened the filter menu, you can move through the menu or use free text search to find the exact filter you need.
 
 ### Filter categories
 
 You can filter by the following properties in Linear:
 
-Type | Filters
---- | ---
-Issue property | Priority, Cycle, Estimate, Labels, Links
-Project property | Project
-Workflow | Status, Auto-closed
-Issue relations | Blocked, Blocking, Related, Parent, Sub-issue, Duplicate
-Dates | Completed, Created, Due, Updated
-User | Assignee, Created by, Subscribers
-Other | Filter by content
+Type | Filters --- | --- Issue property | Priority, Cycle, Estimate, Labels, Links Project property | Project Workflow | Status, Auto-closed Issue relations | Blocked, Blocking, Related, Parent, Sub-issue, Duplicate Dates | Completed, Created, Due, Updated User | Assignee, Created by, Subscribers Other | Filter by content
 
 There are a few edge cases with workarounds:
 
@@ -58,22 +50,8 @@ There are a few edge cases with workarounds:
 
 If you know the specific name of the property you want to filter, you can type that directly and the filter will show up as a choice, saving you from having to click through the category to select it. 
 
-Property type | Quick filters
---- | ---
-Team | Team name
-Status | Status name
-Assignee | Username
-Created by | Username
-Priority | "High", "Low", etc.
-Labels | Label or label group name
-Content | No quick filters available
-Cycle | Active, Upcoming
-Project | Project name
-Subscriber | Username
-Relations | These are top level filters
-Date filters | "N days", Month, Quarter, Half-year, Year
-Links | Front, Zendesk, Intercom, custom link source
-Milestone | Milestone name
+Property type | Quick filters --- | --- Team | Team name Status | Status name Assignee | Username Created by | Username Priority | "High", "Low", etc.
+Labels | Label or label group name Content | No quick filters available Cycle | Active, Upcoming Project | Project name Subscriber | Username Relations | These are top level filters Date filters | "N days", Month, Quarter, Half-year, Year Links | Front, Zendesk, Intercom, custom link source Milestone | Milestone name
 
 ### Filter with AI
 
@@ -108,22 +86,7 @@ Once you've applied at least one filter to a view, you'll see a button in the to
 
 Almost every view in Linear can be filtered with a few exceptions:
 
-View | Filters
---- | ---
-Search  
-Inbox  
-My issues  
-Reviews  
-Initiatives  
-Projects  
-Customers  
-Teams  
-Members  
-Triage  
-All issues  
-Cycles  
-Archive | Available
-Views | Apply filters on any view and click to save to create a new custom view. You can also apply temporary filters on top of any existing view.
+View | Filters --- | --- Search Inbox My issues Reviews Initiatives Projects Customers Teams Members Triage All issues Cycles Archive | Available Views | Apply filters on any view and click to save to create a new custom view. You can also apply temporary filters on top of any existing view.
 
 ### Filter with API
 

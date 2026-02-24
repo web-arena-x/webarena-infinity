@@ -29,16 +29,11 @@ When you are optimizing your SQL queries, there are two dimensions to pay attent
 
 ## Cold and warm cache
 
-When evaluating query performance it is important to understand the difference between
-cold and warm cached queries.
+When evaluating query performance it is important to understand the difference between cold and warm cached queries.
 
-The first time a query is made, it is made on a "cold cache". Meaning it needs
-to read from disk. If you run the query again, the data can be read from the
-cache, or what PostgreSQL calls shared buffers. This is the "warm cache" query.
+The first time a query is made, it is made on a "cold cache". Meaning it needs to read from disk. If you run the query again, the data can be read from the cache, or what PostgreSQL calls shared buffers. This is the "warm cache" query.
 
-When analyzing an [`EXPLAIN` plan](understanding_explain_plans.md), you can see
-the difference not only in the timing, but by looking at the output for `Buffers`
-by running your explain with `EXPLAIN(analyze, buffers)`. [Database Lab](understanding_explain_plans.md#database-lab-engine)
+When analyzing an [`EXPLAIN` plan](understanding_explain_plans.md), you can see the difference not only in the timing, but by looking at the output for `Buffers` by running your explain with `EXPLAIN(analyze, buffers)`. [Database Lab](understanding_explain_plans.md#database-lab-engine)
 automatically includes these options.
 
 If you are making a warm cache query, you see only the `shared hits`.
@@ -47,8 +42,8 @@ For example, using [Database Lab](database_lab.md):
 
 ```plaintext
 Shared buffers:
-  - hits: 36467 (~284.90 MiB) from the buffer pool
-  - reads: 0 from the OS file cache, including disk I/O
+ - hits: 36467 (~284.90 MiB) from the buffer pool
+ - reads: 0 from the OS file cache, including disk I/O
 ```
 
 Or in the explain plan from `psql`:
@@ -63,8 +58,8 @@ Using [Database Lab](database_lab.md):
 
 ```plaintext
 Shared buffers:
-  - hits: 17204 (~134.40 MiB) from the buffer pool
-  - reads: 15229 (~119.00 MiB) from the OS file cache, including disk I/O
+ - hits: 17204 (~134.40 MiB) from the buffer pool
+ - reads: 15229 (~119.00 MiB) from the OS file cache, including disk I/O
 ```
 
 In `psql`:
@@ -75,18 +70,7 @@ Buffers: shared hit=7202 read=121
 
 ## Slow list views and APIs
 
-We often build filtered list views and APIs in GitLab which need to have many
-different filter and sorting options. All these options are usually
-encapsulated in finders and exposed by API/GraphQL arguments. While we have many possible
-[pagination performance optimizations](pagination_performance_guidelines.md)
-, there is
-often no way to make all combinations of sorting and filtering performant.
-Attempts to make many options performant might involve
-[adding too many indexes](adding_database_indexes.md)
-which sacrifices performance of our primary database. This is only justified
-for common use cases and should not be considered as a way to make all
-permutations of filter and sort performant. What this means practically is that
-there will likely be filtered views and API requests that timeout when certain
-sorting or filtering options are applied. We still allow them to be added by
-teams where they benefit certain customers with specific combinations of
-filtering/sorting, but we need to accept that they will timeout for some users.
+We often build filtered list views and APIs in GitLab which need to have many different filter and sorting options. All these options are usually encapsulated in finders and exposed by API/GraphQL arguments. While we have many possible [pagination performance optimizations](pagination_performance_guidelines.md)
+, there is often no way to make all combinations of sorting and filtering performant.
+Attempts to make many options performant might involve [adding too many indexes](adding_database_indexes.md)
+which sacrifices performance of our primary database. This is only justified for common use cases and should not be considered as a way to make all permutations of filter and sort performant. What this means practically is that there will likely be filtered views and API requests that timeout when certain sorting or filtering options are applied. We still allow them to be added by teams where they benefit certain customers with specific combinations of filtering/sorting, but we need to accept that they will timeout for some users.

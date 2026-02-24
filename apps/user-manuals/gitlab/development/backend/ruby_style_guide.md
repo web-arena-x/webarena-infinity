@@ -37,49 +37,48 @@ Instance variables can be accessed in a variety of ways in a class:
 ```ruby
 # public
 class Foo
-  attr_reader :my_var
+ attr_reader :my_var
 
-  def initialize(my_var)
+ def initialize(my_var)
     @my_var = my_var
-  end
+ end
 
-  def do_stuff
+ def do_stuff
     puts my_var
-  end
+ end
 end
 
 # private
 class Foo
-  def initialize(my_var)
+ def initialize(my_var)
     @my_var = my_var
-  end
+ end
 
-  private
+ private
 
-  attr_reader :my_var
+ attr_reader :my_var
 
-  def do_stuff
+ def do_stuff
     puts my_var
-  end
+ end
 end
 
 # direct
 class Foo
-  def initialize(my_var)
+ def initialize(my_var)
     @my_var = my_var
-  end
+ end
 
-  private
+ private
 
-  def do_stuff
+ def do_stuff
     puts @my_var
-  end
+ end
 end
 ```
 
 Public attributes should only be used if they are accessed outside of the class.
-There is not a strong opinion on what strategy is used when attributes are only
-accessed internally, as long as there is consistency in related code.
+There is not a strong opinion on what strategy is used when attributes are only accessed internally, as long as there is consistency in related code.
 
 ### Newlines style guide
 
@@ -90,21 +89,21 @@ In addition to the RuboCop's `Layout/EmptyLinesAroundMethodBody` and `Cop/LineBr
 ```ruby
 # bad
 def method
-  issue = Issue.new
+ issue = Issue.new
 
-  issue.save
+ issue.save
 
-  render json: issue
+ render json: issue
 end
 ```
 
 ```ruby
 # good
 def method
-  issue = Issue.new
-  issue.save
+ issue = Issue.new
+ issue.save
 
-  render json: issue
+ render json: issue
 end
 ```
 
@@ -113,21 +112,21 @@ end
 ```ruby
 # bad
 def method
-  issue = Issue.new
-  if issue.save
+ issue = Issue.new
+ if issue.save
     render json: issue
-  end
+ end
 end
 ```
 
 ```ruby
 # good
 def method
-  issue = Issue.new
+ issue = Issue.new
 
-  if issue.save
+ if issue.save
     render json: issue
-  end
+ end
 end
 ```
 
@@ -136,31 +135,30 @@ end
 ```ruby
 # bad
 def method
-  if issue
+ if issue
 
     if issue.valid?
       issue.save
     end
 
-  end
+ end
 end
 ```
 
 ```ruby
 # good
 def method
-  if issue
+ if issue
     if issue.valid?
       issue.save
     end
-  end
+ end
 end
 ```
 
 ### Method ordering within classes
 
-For ordering methods at the class level (public, protected, private sections), refer to
-[RuboCop's `Layout/ClassStructure`](https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Layout/ClassStructure).
+For ordering methods at the class level (public, protected, private sections), refer to [RuboCop's `Layout/ClassStructure`](https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Layout/ClassStructure).
 
 Within each visibility section, consider the following principles to improve readability:
 
@@ -172,61 +170,59 @@ Methods should generally be ordered from highest to lowest level of abstraction.
 - Helper methods that support those orchestrator methods should come after
 
 This follows the ["newspaper style"](https://medium.com/codex/clean-code-formatting-summary-9a475ba10ac8)
-or ["stepdown rule"](https://dzone.com/articles/the-stepdown-rule) principle,
-where code reads like a story from top to bottom,
-with the most important operations first and implementation details revealed progressively.
+or ["stepdown rule"](https://dzone.com/articles/the-stepdown-rule) principle, where code reads like a story from top to bottom, with the most important operations first and implementation details revealed progressively.
 
 ```ruby
 # good - orchestrator method before helpers
 class CommitMessageProcessor
-  def execute
+ def execute
     other_method_calls
     process_commit_message
-  end
+ end
 
-  private
+ private
 
-  def process_commit_message
+ def process_commit_message
     title = extract_title(commit.message)
     body = extract_body(commit.message)
 
     # ... process title and body
-  end
+ end
 
-  def extract_title(message)
+ def extract_title(message)
     message.split("\n").first
-  end
+ end
 
-  def extract_body(message)
+ def extract_body(message)
     message.split("\n")[1..]
-  end
+ end
 end
 ```
 
 ```ruby
 # bad - helper methods before the method that uses them
 class CommitMessageProcessor
-  def execute
+ def execute
     other_method_calls
     process_commit_message
-  end
+ end
 
-  private
+ private
 
-  def extract_title(message)
+ def extract_title(message)
     message.split("\n").first
-  end
+ end
 
-  def extract_body(message)
+ def extract_body(message)
     message.split("\n")[1..]
-  end
+ end
 
-  def process_commit_message
+ def process_commit_message
     title = extract_title(commit.message)
     body = extract_body(commit.message)
 
     # ... process title and body
-  end
+ end
 end
 ```
 
@@ -235,8 +231,7 @@ This ordering helps readers understand:
 - **What** the code does (by reading the high-level method first)
 - **How** it does it (by reading the helper methods after)
 
-Following this ordering pattern helps reviewers and future maintainers understand code flow more quickly,
-especially in service objects, processors, and other classes with clear orchestration patterns.
+Following this ordering pattern helps reviewers and future maintainers understand code flow more quickly, especially in service objects, processors, and other classes with clear orchestration patterns.
 
 Exceptions to this ordering may be appropriate when:
 
@@ -245,17 +240,13 @@ Exceptions to this ordering may be appropriate when:
 
 {{< alert type="note" >}}
 
-When a class has multiple high-level methods that serve different, unrelated purposes,
-group each high-level method with its supporting helper methods. Alternatively, consider extracting
-the implementation into separate service classes where each class has a single clear responsibility.
+When a class has multiple high-level methods that serve different, unrelated purposes, group each high-level method with its supporting helper methods. Alternatively, consider extracting the implementation into separate service classes where each class has a single clear responsibility.
 
 {{< /alert >}}
 
 {{< alert type="note" >}}
 
-Beyond two levels of method calls (a method calling a method calling a method),
-this pattern can become unwieldy and hard to follow. If you find yourself with deep nesting,
-consider refactoring into separate classes or simplifying the logic.
+Beyond two levels of method calls (a method calling a method calling a method), this pattern can become unwieldy and hard to follow. If you find yourself with deep nesting, consider refactoring into separate classes or simplifying the logic.
 
 {{< /alert >}}
 
@@ -265,47 +256,32 @@ This section contains GitLab-specific guidelines for Rails and ActiveRecord usag
 
 ### Avoid ActiveRecord callbacks
 
-[ActiveRecord callbacks](https://guides.rubyonrails.org/active_record_callbacks.html) allow
-you to "trigger logic before or after an alteration of an object's state."
+[ActiveRecord callbacks](https://guides.rubyonrails.org/active_record_callbacks.html) allow you to "trigger logic before or after an alteration of an object's state."
 
-Use callbacks when no superior alternative exists, but employ them only if you
-thoroughly understand the reasons for doing so.
+Use callbacks when no superior alternative exists, but employ them only if you thoroughly understand the reasons for doing so.
 
-When adding new lifecycle events for ActiveRecord objects, it is preferable to
-add the logic to a service class instead of a callback.
+When adding new lifecycle events for ActiveRecord objects, it is preferable to add the logic to a service class instead of a callback.
 
 #### Why callbacks should be avoided
 
 In general, callbacks should be avoided because:
 
-- Callbacks are hard to reason about because invocation order is not obvious and
-  they break code narrative.
-- Callbacks are harder to locate and navigate because they rely on reflection to
-  trigger rather than being ordinary method calls.
-- Callbacks make it difficult to apply changes selectively to an object's state
-  because changes always trigger the entire callback chain.
-- Callbacks trap logic in the ActiveRecord class. This tight coupling encourages
-  fat models that contain too much business logic, which could instead live in
-  service objects that are more reusable, composable, and are easier to test.
-- Illegal state transitions of an object can be better enforced through
-  attribute validations.
-- Heavy use of callbacks affects factory creation speed. With some classes
-  having hundreds of callbacks, creating an instance of that object for
-  an automated test can be a very slow operation, resulting in slow specs.
+- Callbacks are hard to reason about because invocation order is not obvious and they break code narrative.
+- Callbacks are harder to locate and navigate because they rely on reflection to trigger rather than being ordinary method calls.
+- Callbacks make it difficult to apply changes selectively to an object's state because changes always trigger the entire callback chain.
+- Callbacks trap logic in the ActiveRecord class. This tight coupling encourages fat models that contain too much business logic, which could instead live in service objects that are more reusable, composable, and are easier to test.
+- Illegal state transitions of an object can be better enforced through attribute validations.
+- Heavy use of callbacks affects factory creation speed. With some classes having hundreds of callbacks, creating an instance of that object for an automated test can be a very slow operation, resulting in slow specs.
 
 Some of these examples are discussed in this [video from thoughtbot](https://www.youtube.com/watch?v=GLBMfB8N1G8).
 
-The GitLab codebase relies heavily on callbacks and it is hard to refactor them
-once added due to invisible dependencies. As a result, this guideline does not
-call for removing all existing callbacks.
+The GitLab codebase relies heavily on callbacks and it is hard to refactor them once added due to invisible dependencies. As a result, this guideline does not call for removing all existing callbacks.
 
 #### When to use callbacks
 
-Callbacks can be used in special cases. Some examples of cases where adding a
-callback makes sense:
+Callbacks can be used in special cases. Some examples of cases where adding a callback makes sense:
 
-- A dependency uses callbacks and we would like to override the callback
-  behavior.
+- A dependency uses callbacks and we would like to override the callback behavior.
 - Incrementing cache counts.
 - Data normalization that only relates to data on the current model.
 
@@ -315,91 +291,80 @@ There is a project with the following basic data model:
 
 ```ruby
 class Project
-  has_one :repository
+ has_one :repository
 end
 
 class Repository
-  belongs_to :project
+ belongs_to :project
 end
 ```
 
-Say we want to create a repository after a project is created and use the
-project name as the repository name. A developer familiar with Rails might
-immediately think: sounds like a job for an ActiveRecord callback! And add this
-code:
+Say we want to create a repository after a project is created and use the project name as the repository name. A developer familiar with Rails might immediately think: sounds like a job for an ActiveRecord callback! And add this code:
 
 ```ruby
 class Project
-  has_one :repository
+ has_one :repository
 
-  after_initialize :create_random_name
-  after_create :create_repository
+ after_initialize :create_random_name
+ after_create :create_repository
 
-  def create_random_name
+ def create_random_name
     SecureRandom.alphanumeric
-  end
+ end
 
-  def create_repository
+ def create_repository
     Repository.create!(project: self)
-  end
+ end
 end
 
 class Repository
-  after_initialize :set_name
+ after_initialize :set_name
 
-  def set_name
+ def set_name
     name = project.name
-  end
+ end
 end
 
 class ProjectsController
-  def create
+ def create
     Project.create! # also creates a repository and names it
-  end
+ end
 end
 ```
 
-While this seems pretty harmless for a baby Rails app, adding this type of logic
-via callbacks has many downsides once your Rails app becomes large and complex
-(all of which are listed in this documentation). Instead, we can add this
-logic to a service class:
+While this seems pretty harmless for a baby Rails app, adding this type of logic via callbacks has many downsides once your Rails app becomes large and complex (all of which are listed in this documentation). Instead, we can add this logic to a service class:
 
 ```ruby
 class Project
-  has_one :repository
+ has_one :repository
 end
 
 class Repository
-  belongs_to :project
+ belongs_to :project
 end
 
 class ProjectCreator
-  def self.execute
+ def self.execute
     ApplicationRecord.transaction do
       name = SecureRandom.alphanumeric
       project = Project.create!(name: name)
       Repository.create!(project: project, name: name)
     end
-  end
+ end
 end
 
 class ProjectsController
-  def create
+ def create
     ProjectCreator.execute
-  end
+ end
 end
 ```
 
-With an application this simple, it can be hard to see the benefits of the second
-approach. But we already some benefits:
+With an application this simple, it can be hard to see the benefits of the second approach. But we already some benefits:
 
-- Can test `Repository` creation logic separate from `Project` creation logic. Code
-  no longer violates law of demeter (`Repository` class doesn't need to know
-  `project.name`).
+- Can test `Repository` creation logic separate from `Project` creation logic. Code no longer violates law of demeter (`Repository` class doesn't need to know `project.name`).
 - Clarity of invocation order.
-- Open to change: if we decide there are some scenarios where we do not want a
-  repository created for a project, we can create a new service class rather
-  than needing to refactor to `Project` and `Repository` classes.
+- Open to change: if we decide there are some scenarios where we do not want a repository created for a project, we can create a new service class rather than needing to refactor to `Project` and `Repository` classes.
 - Each instance of a `Project` factory does not create a second (`Repository`) object.
 
 ### ApplicationRecord / ActiveRecord model scopes
@@ -418,8 +383,7 @@ Timelogs.for_project(project)
 
 #### `with_`
 
-For scopes which `joins`, `includes`, or filters `where(has_one: record)` or `where(has_many: record)` or `where(boolean condition)`
-For example:
+For scopes which `joins`, `includes`, or filters `where(has_one: record)` or `where(has_many: record)` or `where(boolean condition)` For example:
 
 ```ruby
 scope :with_labels, -> { includes(:labels) }
@@ -458,8 +422,7 @@ If a RuboCop rule is proposed and we choose not to add it, we should document th
 
 ### Quoting string literals
 
-Due to the sheer amount of work to rectify, we do not care whether string
-literals are single or double-quoted.
+Due to the sheer amount of work to rectify, we do not care whether string literals are single or double-quoted.
 
 Previous discussions include:
 
@@ -471,8 +434,7 @@ Individual groups may [choose to have an opinion](https://gitlab.com/gitlab-org/
 
 ### Type safety
 
-Now that we've upgraded to Ruby 3, we have more options available
-to enforce [type safety](https://en.wikipedia.org/wiki/Type_safety).
+Now that we've upgraded to Ruby 3, we have more options available to enforce [type safety](https://en.wikipedia.org/wiki/Type_safety).
 
 Some of these options are supported as part of the Ruby syntax and do not require the use of specific type safety tools like [Sorbet](https://sorbet.org/) or [RBS](https://github.com/ruby/rbs). However, we might consider these tools in the future as well.
 

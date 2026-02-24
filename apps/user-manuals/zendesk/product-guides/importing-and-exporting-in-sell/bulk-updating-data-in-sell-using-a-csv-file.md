@@ -78,5 +78,5 @@ Table 1. Unsupported field types for import
 | unqualified reason (lead) | - |
 | customer status (contact) | You can update Contact Customer Status using our [Contacts API endpoint](https://developers.getbase.com/docs/rest/reference/contacts). |
 | prospect status (contact) | You can update Contact Prospect Status using our [Contacts API endpoint](https://developers.getbase.com/docs/rest/reference/contacts). |
-| billing address | This is an additional Address field that is available to Contacts that are associated with a Deal.  You can update Billing Address using our [Contacts API endpoint](https://developers.getbase.com/docs/rest/reference/contacts). |
-| shipping address | This is an additional Address field that is available to Contacts that are associated with a Deal.  You can update Shipping Address using our [Contacts API endpoint](https://developers.getbase.com/docs/rest/reference/contacts). |
+| billing address | This is an additional Address field that is available to Contacts that are associated with a Deal. You can update Billing Address using our [Contacts API endpoint](https://developers.getbase.com/docs/rest/reference/contacts). |
+| shipping address | This is an additional Address field that is available to Contacts that are associated with a Deal. You can update Shipping Address using our [Contacts API endpoint](https://developers.getbase.com/docs/rest/reference/contacts). |

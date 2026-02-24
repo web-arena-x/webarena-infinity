@@ -13,7 +13,7 @@ Learn more about [How to Build a Segment](https://support.joinhandshake.com/hc/
 The candidate filter **Major Category** indicates a candidate's current or past major categories.
 
 - When using segment filters, the candidates included are determined by reviewing all of the education details that candidates have made available on their Handshake profiles.
-  - For example, if you're seeking BA candidates who majored in Business, the results may display candidates who have completed a B.A degree in that specific degree, and are in pursuit of a higher degree, e.g., Masters.
+ - For example, if you're seeking BA candidates who majored in Business, the results may display candidates who have completed a B.A degree in that specific degree, and are in pursuit of a higher degree, e.g., Masters.
 
 ### Select preferences
 
@@ -21,7 +21,7 @@ In the **Major Category** section, check the box to the left of each desired maj
 
 - STEM
 - TEM Only
-  - Technology, Engineering, and Mathematics (TEM) majors are at the technical end of the spectrum with STEM. Examples include Mechnical Engineering, Computer Science, Statistics, and Human-Computer Interaction.
+ - Technology, Engineering, and Mathematics (TEM) majors are at the technical end of the spectrum with STEM. Examples include Mechnical Engineering, Computer Science, Statistics, and Human-Computer Interaction.
 - Liberal Arts
 
 ![Major category .png](https://support.joinhandshake.com/hc/article_attachments/25991264657303)

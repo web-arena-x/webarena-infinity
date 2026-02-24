@@ -116,11 +116,8 @@ Click into the interactive tutorial below to try these steps out yourself.
 
 See below for key details of unfamiliar fields in the Clio Grow contact form:
 
-Contact type
-:   Contact type in Clio Grow is a "label" that can be applied to a contact to help you understand the contact's journey with your firm. Refer to [Create and manage contact types in Clio Grow](https://help.clio.com/hc/articles/9290491661083-Contact-Types#h_01HNBBWF8BTY7P9RRE980GPJW7) and [Change a contact's type in Clio Grow](https://help.clio.com/hc/articles/9290491661083-Contact-Types#h_01HNBBWF8BH74ZTRP8NW72PSBR) for more information.
+Contact type :   Contact type in Clio Grow is a "label" that can be applied to a contact to help you understand the contact's journey with your firm. Refer to [Create and manage contact types in Clio Grow](https://help.clio.com/hc/articles/9290491661083-Contact-Types#h_01HNBBWF8BTY7P9RRE980GPJW7) and [Change a contact's type in Clio Grow](https://help.clio.com/hc/articles/9290491661083-Contact-Types#h_01HNBBWF8BH74ZTRP8NW72PSBR) for more information.
 
-Lead source
-:   This refers to how the prospective client found your firm. Click **Add a referral relationship** to add an existing contact who may have referred the prospective client. You can add, edit, and delete lead sources by going to **Settings** > **Contacts**.
+Lead source :   This refers to how the prospective client found your firm. Click **Add a referral relationship** to add an existing contact who may have referred the prospective client. You can add, edit, and delete lead sources by going to **Settings** > **Contacts**.
 
-Tags
-:   This refers to extra information that you may need for a prospective client. Once added, tags are easily visible when viewing the Contacts overview page. You can add tags for whether a prospective client is enduring economic hardship, a student, part of a specific organization, etc.
+Tags :   This refers to extra information that you may need for a prospective client. Once added, tags are easily visible when viewing the Contacts overview page. You can add tags for whether a prospective client is enduring economic hardship, a student, part of a specific organization, etc.

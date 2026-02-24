@@ -90,7 +90,7 @@ With Manage AI, you can automate the generation and approval of client bills and
 
 - **Automate expense entry:** When you upload receipts, Manage AI automatically fills in expense details, eliminating the need for manual data entry.
 - **Generate draft bills:** Manage AI automatically prepares draft bills from recorded time and expense entries based on your pre-configured firm preferences.
-  - This feature is designed to generate bills based on the pre-configurations set by the billing manager.
+ - This feature is designed to generate bills based on the pre-configurations set by the billing manager.
 - **Set threshold:** The system can be configured to generate bills for matters that exceed a specific Work In Progress threshold, such as $1,500.
 
 ## Review Manage AI activity

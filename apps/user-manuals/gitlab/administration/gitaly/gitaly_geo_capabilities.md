@@ -5,8 +5,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: Gitaly and Geo capabilities
 ---
 
-It is common to want the most available, quickly recoverable, highly performant,
-and fully resilient solution for your data. However, there are tradeoffs.
+It is common to want the most available, quickly recoverable, highly performant, and fully resilient solution for your data. However, there are tradeoffs.
 
 The following tables are intended to guide you to choose the right combination of capabilities based on your requirements.
 

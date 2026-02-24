@@ -12,10 +12,7 @@ title: Moving GitLab databases to a different PostgreSQL instance
 
 {{< /details >}}
 
-Sometimes it is necessary to move your databases from one PostgreSQL instance to
-another. For example, if you are using AWS Aurora and are preparing to
-enable Database Load Balancing, you need to move your databases to
-RDS for PostgreSQL.
+Sometimes it is necessary to move your databases from one PostgreSQL instance to another. For example, if you are using AWS Aurora and are preparing to enable Database Load Balancing, you need to move your databases to RDS for PostgreSQL.
 
 To move databases from one instance to another:
 
@@ -44,11 +41,8 @@ To move databases from one instance to another:
 
    {{< alert type="note" >}}
 
-   In rare occasions, you might notice database performance issues after you perform
-   a `pg_dump` and restore. This can happen because `pg_dump` does not contain the statistics
-   [used by the optimizer to make query planning decisions](https://www.postgresql.org/docs/16/app-pgdump.html).
-   If performance degrades after a restore, fix the problem by finding the problematic query,
-   then running ANALYZE on the tables used by the query.
+   In rare occasions, you might notice database performance issues after you perform a `pg_dump` and restore. This can happen because `pg_dump` does not contain the statistics [used by the optimizer to make query planning decisions](https://www.postgresql.org/docs/16/app-pgdump.html).
+   If performance degrades after a restore, fix the problem by finding the problematic query, then running ANALYZE on the tables used by the query.
 
    {{< /alert >}}
 
@@ -60,8 +54,7 @@ To move databases from one instance to another:
    ```
 
 1. Optional. If you migrate from a database that doesn't use PgBouncer to a database that does, you must manually add a [`pg_shadow_lookup` function](../gitaly/praefect/configure.md#manual-database-setup) to the application database (usually `gitlabhq_production`).
-1. Configure the GitLab application servers with the appropriate connection details
-   for your destination PostgreSQL instance in your `/etc/gitlab/gitlab.rb` file:
+1. Configure the GitLab application servers with the appropriate connection details for your destination PostgreSQL instance in your `/etc/gitlab/gitlab.rb` file:
 
    ```ruby
    gitlab_rails['db_host'] = '<destination postgresql host>'

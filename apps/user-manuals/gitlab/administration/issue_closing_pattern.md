@@ -15,14 +15,11 @@ title: Issue closing pattern
 
 {{< alert type="note" >}}
 
-For user documentation about issue closing patterns, see
-[Closing issues automatically](../user/project/issues/managing_issues.md#closing-issues-automatically).
+For user documentation about issue closing patterns, see [Closing issues automatically](../user/project/issues/managing_issues.md#closing-issues-automatically).
 
 {{< /alert >}}
 
-When a commit or merge request resolves one or more issues, GitLab can close those issues when the
-commit or merge request lands in the project's default branch. The
-[default issue closing pattern](../user/project/issues/managing_issues.md#default-closing-pattern)
+When a commit or merge request resolves one or more issues, GitLab can close those issues when the commit or merge request lands in the project's default branch. The [default issue closing pattern](../user/project/issues/managing_issues.md#default-closing-pattern)
 covers a wide range of words, and administrators can configure the word list as needed.
 
 ## Change the issue closing pattern
@@ -33,8 +30,7 @@ To change the default issue closing pattern to suit your needs:
 
 {{< tab title="Linux package (Omnibus)" >}}
 
-1. Edit `/etc/gitlab/gitlab.rb` and change the `gitlab_rails['gitlab_issue_closing_pattern']`
-   value:
+1. Edit `/etc/gitlab/gitlab.rb` and change the `gitlab_rails['gitlab_issue_closing_pattern']` value:
 
    ```ruby
    gitlab_rails['gitlab_issue_closing_pattern'] = /<regular_expression>/.source
@@ -74,8 +70,7 @@ To change the default issue closing pattern to suit your needs:
 
 {{< tab title="Docker" >}}
 
-1. Edit `docker-compose.yml` and change the `gitlab_rails['gitlab_issue_closing_pattern']`
-   value:
+1. Edit `docker-compose.yml` and change the `gitlab_rails['gitlab_issue_closing_pattern']` value:
 
    ```yaml
    version: "3.6"
@@ -119,5 +114,4 @@ To change the default issue closing pattern to suit your needs:
 {{< /tabs >}}
 
 To test the issue closing pattern, use [Rubular](https://rubular.com).
-Rubular does not understand `%{issue_ref}`. When you test your patterns,
-replace this string with `#\d+`, which matches only local issue references like `#123`.
+Rubular does not understand `%{issue_ref}`. When you test your patterns, replace this string with `#\d+`, which matches only local issue references like `#123`.

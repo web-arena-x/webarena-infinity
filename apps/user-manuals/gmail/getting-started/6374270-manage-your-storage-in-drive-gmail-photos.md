@@ -15,8 +15,8 @@ Your Google storage is shared across Google Drive, Gmail, Whatsapp backups, and 
 - [**Short-term solution**: Empty your Trash](#short_term)
 - [**Long-term solution**: Clear space or buy more storage](#use_storage_manager_to_free_up_space)
 
-  - [**Option 1**: Learn how to clear space](#option_1)
-  - [**Option 2**: Buy more storage](#option_2)
+ - [**Option 1**: Learn how to clear space](#option_1)
+ - [**Option 2**: Buy more storage](#option_2)
 - [Manage your WhatsApp backup size](#whatsapp_backups)
 - [Frequently Asked Questions (FAQ)](#FAQ)
 
@@ -31,15 +31,15 @@ To get your account to work again in the short term:
 
 - **Empty trash and spam folders:** This is the quickest way to recover space. Until you permanently clear items in these folders, they count against your storage limit.
 
-  **Important:** Allow time (up to 48–72 hours) for your storage to update after deleting multiple files at once. [You could lose these files permanently.](https://support.google.com/drive/answer/14933051)
+ **Important:** Allow time (up to 48–72 hours) for your storage to update after deleting multiple files at once. [You could lose these files permanently.](https://support.google.com/drive/answer/14933051)
 
-  - [Empty Gmail Trash & Spam](https://mail.google.com/mail/u/0/#trash)
-  - [Empty Drive Trash](https://drive.google.com/drive/u/0/trash)
-  - [Empty Photos Trash](https://photos.google.com/u/0/trash)
+ - [Empty Gmail Trash & Spam](https://mail.google.com/mail/u/0/#trash)
+ - [Empty Drive Trash](https://drive.google.com/drive/u/0/trash)
+ - [Empty Photos Trash](https://photos.google.com/u/0/trash)
 - **Delete large emails:** Find and delete one or two emails with very large attachments you no longer need.
-  1. On your computer, go to [Gmail](https://mail.google.com/).
-  2. On the left of each message you want to delete, check the box.
-  3. At the top, click Delete ![](//storage.googleapis.com/support-kms-prod/wWZak7KQ2lA6maLK7QSQ03XwBzctuqbxeR7p).
+ 1. On your computer, go to [Gmail](https://mail.google.com/).
+ 2. On the left of each message you want to delete, check the box.
+ 3. At the top, click Delete ![](//storage.googleapis.com/support-kms-prod/wWZak7KQ2lA6maLK7QSQ03XwBzctuqbxeR7p).
 
 **Tip:** To delete all messages in your trash, in the notification at the top, click **Empty Trash now**.
 
@@ -69,11 +69,11 @@ For a more targeted cleanup, use these techniques to find specific types of file
 ### Find large files
 
 - **In Gmail:** Use search operators directly in the Gmail search bar.
-  - **To find emails with attachments larger than 10 megabytes, enter:** `has:attachment larger:10M`
-  - **To find emails with PDF attachments larger than 5 megabytes, enter:** `filename:.pdf larger:5M`
+ - **To find emails with attachments larger than 10 megabytes, enter:** `has:attachment larger:10M`
+ - **To find emails with PDF attachments larger than 5 megabytes, enter:** `filename:.pdf larger:5M`
 - **To find emails with attachments older than two years, enter:** `older_than:2y has:attachment`. -**In Google Drive:**
-  1. On the left-hand menu, click **Storage**.
-  2. Your files automatically list from largest to smallest.
+ 1. On the left-hand menu, click **Storage**.
+ 2. Your files automatically list from largest to smallest.
 
 ### Find & remove duplicate files
 

@@ -13,13 +13,11 @@ title: Create a GitLab Pages website from a CI/CD template
 {{< /details >}}
 
 GitLab provides `.gitlab-ci.yml` templates for the most popular Static Site Generators (SSGs).
-You can create your own `.gitlab-ci.yml` file from one of these templates, and run
-the CI/CD pipeline to generate a Pages website.
+You can create your own `.gitlab-ci.yml` file from one of these templates, and run the CI/CD pipeline to generate a Pages website.
 
 Use a `.gitlab-ci.yml` template when you have an existing project that you want to add a Pages site to.
 
-Your GitLab repository should contain files specific to an SSG, or plain HTML. After you complete
-these steps, you may have to do additional configuration for the Pages site to generate properly.
+Your GitLab repository should contain files specific to an SSG, or plain HTML. After you complete these steps, you may have to do additional configuration for the Pages site to generate properly.
 
 1. On the top bar, select **Search or go to** and find your project.
 1. From the **Add** ({{< icon name="plus" >}}) dropdown list, select **New file**.
@@ -33,11 +31,8 @@ If everything is configured correctly, the site can take approximately 30 minute
 
 To view the pipeline, go to **Build** > **Pipelines**.
 
-When the pipeline is finished, go to **Deploy** > **Pages** to find the link to
-your Pages website.
+When the pipeline is finished, go to **Deploy** > **Pages** to find the link to your Pages website.
 
-For every change pushed to your repository, GitLab CI/CD runs a new pipeline
-that immediately publishes your changes to the Pages site.
+For every change pushed to your repository, GitLab CI/CD runs a new pipeline that immediately publishes your changes to the Pages site.
 
-To view the HTML and other assets that were created for the site,
-[download the job artifacts](../../../../ci/jobs/job_artifacts.md#download-job-artifacts).
+To view the HTML and other assets that were created for the site, [download the job artifacts](../../../../ci/jobs/job_artifacts.md#download-job-artifacts).

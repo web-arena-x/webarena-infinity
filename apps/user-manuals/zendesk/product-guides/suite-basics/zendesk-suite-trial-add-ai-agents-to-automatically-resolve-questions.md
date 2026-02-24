@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/9748832324634-Zendesk-Suit
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 

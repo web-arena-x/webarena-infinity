@@ -163,10 +163,10 @@ If you encounter an error indicating you need to have a role when trying to sign
 
 ```
 <saml2:AttributeStatement>
-  <saml2:Attribute Name="Stripe-Role-" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+ <saml2:Attribute Name="Stripe-Role-" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
     <saml2:AttributeValue>role_id
     </saml2:AttributeValue>
-  </saml2:Attribute>
+ </saml2:Attribute>
 </saml2:AttributeStatement>
 ```
 
@@ -204,8 +204,8 @@ Stripe supports the following SSO features:
 - **Team members with different roles**: When signing in, your identity provider must send the correct team member’s role in the AttributeStatement. For a working example, see Okta’s [Mapping dynamic team member roles to groups](/get-started/account/sso/okta#assign-stripe-roles).
 - **Sign in to multiple accounts using one SAML assertion**: Send Stripe an assertion from your identity provider with multiple role attributes that contain all the account ids that you want to configure access to. For example:
 
-  ```
-  <saml2:AttributeStatement>
+ ```
+ <saml2:AttributeStatement>
     <saml2:Attribute Name="Stripe-Role-STRIPE-ACCOUNT-ID1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
       <saml2:AttributeValue>role_id
       </saml2:AttributeValue>
@@ -214,8 +214,8 @@ Stripe supports the following SSO features:
       <saml2:AttributeValue>role_id
       </saml2:AttributeValue>
     </saml2:Attribute>
-  </saml2:AttributeStatement>
-  ```
+ </saml2:AttributeStatement>
+ ```
 - **Disable SSO**: You can set the **enforcement mode** of your account to **Off** from the [User authentication](https://dashboard.stripe.com/account/user_authentication) page to disable SSO. This removes access for any user who can only access the team with SAML. This includes any user who doesn’t have a password set.
 - **Migrate to another IdP**: To migrate to another IdP, update your SSO settings from the [User authentication](https://dashboard.stripe.com/account/user_authentication) page. When updating SSO settings, first set the **enforcement mode** of your account to **optional**.
 

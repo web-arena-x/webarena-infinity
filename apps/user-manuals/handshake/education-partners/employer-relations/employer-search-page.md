@@ -12,12 +12,12 @@ Topics:
 - [Analytics](#h_01JRDRWTCEHMHPW05QRF3YZ92E)
 - [Favorites](#h_01KAKH14NTE7C3RBN0AKXRTPE2)
 - [Discovery prompts](#h_01JRDRWTCEHMHPW05QRF3YZ92E)
-  - Most job applications received
-  - Most active jobs
-  - Most alumni
-  - Top first destinations
-  - Most recently added to network
-  - Showed interest in your school
+ - Most job applications received
+ - Most active jobs
+ - Most alumni
+ - Top first destinations
+ - Most recently added to network
+ - Showed interest in your school
 - [Individual row actions](#h_01JRDFSK78J589158X87ETTNJH)
 - [[Your institution]’s employer network](#h_01JRDFSK7BT49YMDS457RK97MT)
 - [All Employers tab](#h_01JRDFSK7DNJH3XHQ125NYHVR2)

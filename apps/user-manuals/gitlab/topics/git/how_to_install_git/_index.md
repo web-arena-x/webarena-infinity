@@ -6,10 +6,8 @@ description: How to install Git on your local machine.
 title: Install Git
 ---
 
-To contribute to GitLab projects, you must download, install, and configure the Git client on
-your local machine. GitLab uses the SSH protocol to securely communicate with Git.
-With SSH, you can authenticate to the GitLab remote server without entering your username
-and password each time.
+To contribute to GitLab projects, you must download, install, and configure the Git client on your local machine. GitLab uses the SSH protocol to securely communicate with Git.
+With SSH, you can authenticate to the GitLab remote server without entering your username and password each time.
 
 After you install and configure Git, [generate and add an SSH key pair](../../../user/ssh.md#generate-an-ssh-key-pair)
 to your GitLab account.
@@ -20,13 +18,11 @@ to your GitLab account.
 
 {{< tab title="macOS" >}}
 
-Though a version of Git is supplied by macOS, you should install the latest version of Git. A common way to
-install Git is with [Homebrew](https://brew.sh/index.html).
+Though a version of Git is supplied by macOS, you should install the latest version of Git. A common way to install Git is with [Homebrew](https://brew.sh/index.html).
 
 To install the latest version of Git on macOS with Homebrew:
 
-1. If you've never installed Homebrew before, follow the
-   [Homebrew installation instructions](https://brew.sh/index.html).
+1. If you've never installed Homebrew before, follow the [Homebrew installation instructions](https://brew.sh/index.html).
 1. In a terminal, install Git by running `brew install git`.
 1. Verify that Git works on your local machine:
 
@@ -44,8 +40,7 @@ brew update && brew upgrade git
 
 {{< tab title="Ubuntu Linux" >}}
 
-Though a version of Git is supplied by Ubuntu, you should install the latest version of Git. The latest version is
-available using a Personal Package Archive (PPA).
+Though a version of Git is supplied by Ubuntu, you should install the latest version of Git. The latest version is available using a Personal Package Archive (PPA).
 
 To install the latest version of Git on Ubuntu Linux with a PPA:
 
@@ -73,8 +68,7 @@ sudo apt-get update && sudo apt-get install git
 
 {{< tab title="Other operating systems" >}}
 
-For information on downloading and installing Git on other operating systems, see the
-[official Git website](https://git-scm.com/downloads).
+For information on downloading and installing Git on other operating systems, see the [official Git website](https://git-scm.com/downloads).
 
 {{< /tab >}}
 
@@ -82,8 +76,7 @@ For information on downloading and installing Git on other operating systems, se
 
 ## Configure Git
 
-To start using Git from your local machine, you must enter your credentials
-to identify yourself as the author of your work.
+To start using Git from your local machine, you must enter your credentials to identify yourself as the author of your work.
 
 You can configure your Git identity locally or globally:
 

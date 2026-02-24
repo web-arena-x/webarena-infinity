@@ -22,7 +22,7 @@ There are 3 filtering options on the dashboard:
 
 ## Recent Contact Performance
 
-Some metrics show two numbers. The value for the current time period, and a smaller number with a different background, which displays the variance between the value for the selected time period and the previous time period.  
+Some metrics show two numbers. The value for the current time period, and a smaller number with a different background, which displays the variance between the value for the selected time period and the previous time period. 
 As an example, if you’ve selected 7 days, it is the variance between that previous 7 day period and the 7 day period prior to that.
 
 ‍

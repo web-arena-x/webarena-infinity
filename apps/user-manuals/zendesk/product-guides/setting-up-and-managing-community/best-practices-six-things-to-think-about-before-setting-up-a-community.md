@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408843676314-Best-practic
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 

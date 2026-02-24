@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/6443331729306-About-the-fo
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Workforce Management (WFM) or Workforce Engagement Management (WEM) |
 
@@ -25,8 +25,8 @@ This article contains the following topics:
 
 **To access the forecast vs actual report**
 
-- Hover over the agent activity folder icon in the navigation bar, then click **Forecast vs Actual**.  
-  Alternatively, you can press **cmd** (or **ctrl**)+**K** and then enter **forecast vs actual** in the window that opens.
+- Hover over the agent activity folder icon in the navigation bar, then click **Forecast vs Actual**. 
+ Alternatively, you can press **cmd** (or **ctrl**)+**K** and then enter **forecast vs actual** in the window that opens.
 
 ### Sorting, filtering, and exporting the report
 
@@ -53,10 +53,10 @@ For example, if you change a workstream's tags, Actuals displays the inbound vol
 
 - **Forecast** - The forecast column calculates the volume based on the entirety of the available forecast data depending on how much available data you have in your account. This means it can be a minimum of 30 days or a maximum of 2 years.
 - **Short Term Forecast** - The short term forecast re-calculates the volume based on the actuals of the last 24 hours of data only to give a close up "short term" updated view of the forecast.
-- **Actual** - This shows the actual volume received on each workstream. We count each time a ticket matches a workstream, meaning that the same ticket might be counted more than once if it changes workstreams. Example:   
-  - Ticket #111 is assigned to workstream Tier 1 is counted as 1 inbound ticket for workstream Tier 1.
-  - Ticket #111 conditions are changed and now matches workstream Tier 2 is counted as 1 inbound ticket for workstream Tier 2.
-  - Ticket #111 is updated again and the condition matches workstream Tier 1, it is counted 1 again as inbound ticket for workstream Tier 1.
+- **Actual** - This shows the actual volume received on each workstream. We count each time a ticket matches a workstream, meaning that the same ticket might be counted more than once if it changes workstreams. Example:  
+ - Ticket #111 is assigned to workstream Tier 1 is counted as 1 inbound ticket for workstream Tier 1.
+ - Ticket #111 conditions are changed and now matches workstream Tier 2 is counted as 1 inbound ticket for workstream Tier 2.
+ - Ticket #111 is updated again and the condition matches workstream Tier 1, it is counted 1 again as inbound ticket for workstream Tier 1.
 - **SvA Net** - This shows the difference from the actual volume and the short term forecasted volume.
 
 ### Staffing

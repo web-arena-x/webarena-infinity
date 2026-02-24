@@ -16,10 +16,10 @@ In Procore, 'Action Required' emails cannot be turned ON or OFF (see [Why can't
 
 The illustration below shows the default email settings for submittal items in Submittals tool. A user with 'Admin' level permissions on the project's Submittals tool can change these settings. See [Configure Settings: Submittals Tool](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/configure-settings-submittals-tool "Configure Settings: Submittals Tool").
 
-*Note:* These email settings do not apply when sending and resending submittals in submittal packages. See [Emails for Submittal Packages](#Emails_for_Submittal_Packages "Who receives an email when a submittal is created or updated?") below.  
-  
-![submittals-submittal-emails.png](https://support.procore.com/@api/deki/files/142060/submittals-submittal-emails.png?revision=1)  
-  
+*Note:* These email settings do not apply when sending and resending submittals in submittal packages. See [Emails for Submittal Packages](#Emails_for_Submittal_Packages "Who receives an email when a submittal is created or updated?") below. 
+ 
+![submittals-submittal-emails.png](https://support.procore.com/@api/deki/files/142060/submittals-submittal-emails.png?revision=1) 
+ 
 To learn more about the different roles in the columns of the 'Submittal Emails' table, see the following articles:
 
 - [What is the 'Submittal Manager' role?](https://support.procore.com/faq/what-is-the-submittal-manager-role "What is the 'Submittal Manager' role?")

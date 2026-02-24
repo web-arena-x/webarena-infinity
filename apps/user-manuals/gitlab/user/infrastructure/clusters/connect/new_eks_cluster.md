@@ -5,15 +5,11 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: Create an Amazon EKS cluster
 ---
 
-You can create a cluster on Amazon Elastic Kubernetes Service (EKS) through
-[Infrastructure as Code (IaC)](../../_index.md). This process uses the AWS and
-Kubernetes Terraform providers to create EKS clusters. You connect the clusters to GitLab
-by using the GitLab agent for Kubernetes.
+You can create a cluster on Amazon Elastic Kubernetes Service (EKS) through [Infrastructure as Code (IaC)](../../_index.md). This process uses the AWS and Kubernetes Terraform providers to create EKS clusters. You connect the clusters to GitLab by using the GitLab agent for Kubernetes.
 
 **Before you begin**:
 
-- An Amazon Web Services (AWS) account, with a set of configured
-  [security credentials](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-prereqs.html).
+- An Amazon Web Services (AWS) account, with a set of configured [security credentials](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-prereqs.html).
 - [A runner](https://docs.gitlab.com/runner/install/) you can use to run the GitLab CI/CD pipeline.
 
 **Steps**:
@@ -25,9 +21,7 @@ by using the GitLab agent for Kubernetes.
 
 ## Import the example project
 
-To create a cluster from GitLab using Infrastructure as Code, you must
-create a project to manage the cluster from. In this tutorial, you start with
-a sample project and modify it according to your needs.
+To create a cluster from GitLab using Infrastructure as Code, you must create a project to manage the cluster from. In this tutorial, you start with a sample project and modify it according to your needs.
 
 Start by [importing the example project by URL](../../../project/import/repo_by_url.md).
 
@@ -176,8 +170,7 @@ For more information about the capabilities of the connection, see [the GitLab a
 
 ## Remove the cluster
 
-A cleanup job is not included in your pipeline by default. To remove all created resources, you
-must modify your GitLab CI/CD template before running the cleanup job.
+A cleanup job is not included in your pipeline by default. To remove all created resources, you must modify your GitLab CI/CD template before running the cleanup job.
 
 To remove all resources:
 

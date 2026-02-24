@@ -153,7 +153,7 @@ To select matching objects:
 
 1. Select an object inside a frame or group. The frame or group should sit at the top-level on the canvas or inside a section.
 2. Select matching layers using one of the following:
-   - Click  **Select matching layers** in the toolbar.
+   - Click **Select matching layers** in the toolbar.
    - Keyboard shortcut:
      - Mac: `⌥ Option` `⌘ Command` `A`
      - Windows: `Alt` `⌃ Control` `A`
@@ -171,7 +171,7 @@ The **Edit** menu lets you select multiple objects based on their properties. T
 This is helpful when you want to adjust the properties of all those layers at once.
 
 1. Select a layer or layers in the **Layers panel.**
-2. Go to the  **File menu** and select **Edit** from the options.
+2. Go to the **File menu** and select **Edit** from the options.
 3. Choose to **Select All** other layers that have the same:
 
    - Properties
@@ -190,7 +190,7 @@ Use the keyboard shortcut `⌘ Command` / `Ctrl` `A`.
 
 ## Collapse all layers
 
-When you expand a layer to reveal its nested layers,  **Collapse layers** appears in the top right corner of the Layers panel. Click  to collapse all expanded layers.
+When you expand a layer to reveal its nested layers, **Collapse layers** appears in the top right corner of the Layers panel. Click to collapse all expanded layers.
 
 If you've already selected a layer when you collapse layers, all expanded layers except for your selection will collapse.
 
@@ -223,9 +223,9 @@ To select the inverse of your current selection:
 
 - Use the keyboard shortcut:
 
-  Mac: `⌘` `A` `Shift`
+ Mac: `⌘` `A` `Shift`
 
-  Windows:  `Ctrl` `A` `Shift`
+ Windows:  `Ctrl` `A` `Shift`
 
 This removes the current selection, then selects everything on the canvas you didn't select before.
 
@@ -238,5 +238,5 @@ When you make your selection on the canvas, Figma will:
 1. Outline your selection using a solid purple box.
 2. Outline the parent of your current selection using a dashed purple box.
 3. Show the name of the selected layer(s) at the top of the **Properties** panel in the right sidebar.
-4. If applicable, show the **Parent Component** underneath the selected layer in the **Properies** panel. Click the  in the **Properties** panel to select the parent component.
+4. If applicable, show the **Parent Component** underneath the selected layer in the **Properies** panel. Click the in the **Properties** panel to select the parent component.
 5. Show the **properties**, **layout**, and **colors** for the selected layer.

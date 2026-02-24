@@ -19,21 +19,21 @@ For example, let's say you create a submittal to confirm specific product data
 ## Things to Consider
 
 - **Required User Permissions:**
-  - *To add or delete a related item on a submittal*, 'Admin' level permissions to the project's Submittals tool.  
+ - *To add or delete a related item on a submittal*, 'Admin' level permissions to the project's Submittals tool. 
     *Note:*'Admin' level permissions on the project's Emails tool are also required to add an email as a related item.
-  - *To view the title of a related item*, 'Read Only' level permission or higher on the project's Submittals tool.
-  - *To view and access a related item*, 'Standard' level permission or higher on the Submittals tool. *Note*: If you are not a member of the submittal's distribution list or the submittal's approval workflow, you will not be permitted to view more than the related item title.
+ - *To view the title of a related item*, 'Read Only' level permission or higher on the project's Submittals tool.
+ - *To view and access a related item*, 'Standard' level permission or higher on the Submittals tool. *Note*: If you are not a member of the submittal's distribution list or the submittal's approval workflow, you will not be permitted to view more than the related item title.
 - **Additional Information:**
-  - For a selection to appear in the 'Type' menu, the corresponding tool must be an active tool on the project. See [Add and Remove Tools from a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-and-remove-project-tools "Add and Remove Tools on a Project").
-  - For a selection to appear in the 'Description' menu, you must be granted the appropriate permission to view that item in the corresponding Procore tool.
+ - For a selection to appear in the 'Type' menu, the corresponding tool must be an active tool on the project. See [Add and Remove Tools from a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-and-remove-project-tools "Add and Remove Tools on a Project").
+ - For a selection to appear in the 'Description' menu, you must be granted the appropriate permission to view that item in the corresponding Procore tool.
 - **Limitations:**
-  - The steps below detail how to add related items to a submittal only. To learn how to add related items to a submittals package, see [Add a Related Item to a Submittal Package](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/add-a-related-item-to-a-submittal-package "Add a Related Item to a Submittal Package").
+ - The steps below detail how to add related items to a submittal only. To learn how to add related items to a submittals package, see [Add a Related Item to a Submittal Package](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/add-a-related-item-to-a-submittal-package "Add a Related Item to a Submittal Package").
 
 ## Steps
 
 1. Navigate to the project's **Submittals** tool.
-2. Click **Items**.  
-   ![submittals-items-tab.png](https://support.procore.com/@api/deki/files/73297/submittals-items-tab.png?revision=2)  
+2. Click **Items**. 
+   ![submittals-items-tab.png](https://support.procore.com/@api/deki/files/73297/submittals-items-tab.png?revision=2) 
    This reveals a list of the individual submittals on the project.
 3. Locate the desired submittal in the list and click **View**.
 4. Click the **Related Items** subtab.

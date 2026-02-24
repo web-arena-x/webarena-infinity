@@ -53,20 +53,20 @@ Your leads are converted to contacts and if you add any new deals and tasks, the
 The following conditions and rules apply when converting leads to contacts:
 
 - A lead’s tags are handled in the following ways:
-  - When you convert a lead, their tags are also added to the new contact card and the new deal card, (if you had chosen that option).
-  - If you chose to also add a deal when converting, the lead’s tags are added to the **Tags** tab in the **Prospects and Customers** settings page.
-  - If you did not create a deal when converting a lead, then their tags are only added to the **Tags** tab in the **Contacts** settings page.
-  - If you change a contact from a prospect or customer back to a regular contact, no tags are removed, (all tags remain).
+ - When you convert a lead, their tags are also added to the new contact card and the new deal card, (if you had chosen that option).
+ - If you chose to also add a deal when converting, the lead’s tags are added to the **Tags** tab in the **Prospects and Customers** settings page.
+ - If you did not create a deal when converting a lead, then their tags are only added to the **Tags** tab in the **Contacts** settings page.
+ - If you change a contact from a prospect or customer back to a regular contact, no tags are removed, (all tags remain).
 - If you have allowed it, when you convert a lead to a contact, your custom fields are also transferred into the new contact card. You can define this when you set up the custom field (see [Creating and managing custom fields](https://support.zendesk.com/hc/en-us/articles/4408838289562)).
 - When you convert multiple leads in bulk and choose to also create a new deal, the new deal is named after the lead’s name. You can edit the deal to update the name as needed.
 - Converting a lead to a contact is a one-way action in Sell. You cannot convert contacts back to leads. However, if you have accidentally converted a lead to a contact, then you have several options for undoing the conversion. For more information (see [Converting a contact back into a lead](https://support.zendesk.com/hc/en-us/articles/4408834839194)).
 - When a lead is converted to a contact, the lead source field is not converted along with the other data. If you want to retain that data, store it in another field or create a deal when converting a lead to a contact so that the source field transfers to the deal and is not lost.
 - A lead's notes are handled in the following ways:
-  - When you convert a lead person to a company person, the notes on the lead person go to the company person.
-  - When you convert a lead company to a contact company, the notes on the lead company go to the contact company.
+ - When you convert a lead person to a company person, the notes on the lead person go to the company person.
+ - When you convert a lead company to a contact company, the notes on the lead company go to the contact company.
 - Default fields can't be modified as custom fields can. Therefore, if a lead has both a first name and a last name, plus a company name, this creates both a company contact and a person contact in the conversion, and the two different contacts inherit different fields accordingly:
-  - A company contact inherits the following fields: Industry, Website, Address, and Tags
-  - A person contact inherits the following fields: Mobile number, Work number, Email, Fax number, Socials (X, Facebook, Skype, Linkedin), Industry, Website, Description, Address, and Tags
+ - A company contact inherits the following fields: Industry, Website, Address, and Tags
+ - A person contact inherits the following fields: Mobile number, Work number, Email, Fax number, Socials (X, Facebook, Skype, Linkedin), Industry, Website, Description, Address, and Tags
 
 Note: If a Deal card is created as a result of conversion, then the associated notes will also be reassigned to that deal.
 

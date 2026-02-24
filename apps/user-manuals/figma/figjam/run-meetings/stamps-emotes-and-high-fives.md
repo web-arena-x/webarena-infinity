@@ -35,9 +35,9 @@ Note: It's not possible to customize the stamp wheel with your own stamp designs
 How to use stamps:
 
 1. Open the stamp picker:
-   - Click  **Stamp** in the toolbar, or
+   - Click **Stamp** in the toolbar, or
    - Press `E` on your keyboard
-2. Select a stamp. To view more emoji options, select  the plus icon in the center of the stamp wheel, or press `E`.
+2. Select a stamp. To view more emoji options, select the plus icon in the center of the stamp wheel, or press `E`.
 3. Click on the board or on an object to place the stamp.
 
 Note: K-12 Education users have access to a limited set of stamp emojis.
@@ -56,16 +56,16 @@ If you're part of a [Figma organization](https://help.figma.com/hc/en-us/article
 
 **Toolbar:**
 
-1. Click  the plus icon in the toolbar.
+1. Click the plus icon in the toolbar.
 2. Click the **More** tab > **Faces**.
 3. Search for a collaborator or select a face from the suggestions.
 4. Click or drag the face to your board.
 
 **Stamp wheel:**
 
-1. Click  **Stamp** in the bottom toolbar or press `E`.
+1. Click **Stamp** in the bottom toolbar or press `E`.
 2. Add your face stamp to the board.
-3. Select the stamp and click  the down arrow.
+3. Select the stamp and click the down arrow.
 4. Search for a collaborator or select a face from the suggestions.
 
 ![](https://help.figma.com/hc/article_attachments/14452425476631)
@@ -104,9 +104,9 @@ Emotes are bursts of temporary emoji reactions used to:
 How to use emotes:
 
 1. Open the stamp picker:
-   1. Click  **Stamp** in the toolbar, or
+   1. Click **Stamp** in the toolbar, or
    2. Press `E` on your keyboard
-2. Select a stamp. To view more emoji options, select  the plus icon in the center of the stamp wheel, or press `E`.
+2. Select a stamp. To view more emoji options, select the plus icon in the center of the stamp wheel, or press `E`.
 3. Hold `shift` and click anywhere on the board to release a burst of emotes.
 
 ## High fives
@@ -126,8 +126,8 @@ How to use high fives:
    - Use another keyboard shortcut
    - Open a menu
 
-Figma will also eventually fade your high five hand and switch back to the  select tool if you've been idle for a while.
+Figma will also eventually fade your high five hand and switch back to the select tool if you've been idle for a while.
 
 Tip
 
-To disable entering high five mode when shaking your cursor, click  in the top-left corner, go to **Preferences**, and uncheck **Shake cursor for high five**.
+To disable entering high five mode when shaking your cursor, click in the top-left corner, go to **Preferences**, and uncheck **Shake cursor for high five**.

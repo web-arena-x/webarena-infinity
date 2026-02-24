@@ -7,16 +7,14 @@ title: Troubleshooting CI/CD variables
 
 ## List all variables
 
-You can list all variables available to a script with the `export` command
-in Bash or `dir env:` in PowerShell. This exposes the values of **all** available
-variables, which can be a [security risk](_index.md#cicd-variable-security).
+You can list all variables available to a script with the `export` command in Bash or `dir env:` in PowerShell. This exposes the values of **all** available variables, which can be a [security risk](_index.md#cicd-variable-security).
 [Masked variables](_index.md#mask-a-cicd-variable) display as `[MASKED]`.
 
 For example, with Bash:
 
 ```yaml
 job_name:
-  script:
+ script:
     - export
 ```
 
@@ -49,26 +47,20 @@ export CI_PROJECT_TITLE="GitLab"
 
 {{< alert type="warning" >}}
 
-Debug logging can be a serious security risk. The output contains the content of
-all variables available to the job. The output is uploaded to the
-GitLab server and visible in job logs.
+Debug logging can be a serious security risk. The output contains the content of all variables available to the job. The output is uploaded to the GitLab server and visible in job logs.
 
 {{< /alert >}}
 
-You can use debug logging to help troubleshoot problems with pipeline configuration
-or job scripts. Debug logging exposes job execution details that are usually hidden
-by the runner and makes job logs more verbose. It also exposes all variables and secrets
-available to the job.
+You can use debug logging to help troubleshoot problems with pipeline configuration or job scripts. Debug logging exposes job execution details that are usually hidden by the runner and makes job logs more verbose. It also exposes all variables and secrets available to the job.
 
-Before you enable debug logging, make sure only team members
-can view job logs. You should also [delete job logs](../jobs/_index.md#view-jobs-in-a-pipeline)
+Before you enable debug logging, make sure only team members can view job logs. You should also [delete job logs](../jobs/_index.md#view-jobs-in-a-pipeline)
 with debug output before you make logs public again.
 
 To enable debug logging, set the `CI_DEBUG_TRACE` variable to `true`:
 
 ```yaml
 job_name:
-  variables:
+ variables:
     CI_DEBUG_TRACE: "true"
 ```
 
@@ -78,14 +70,14 @@ Example output (truncated):
 ...
 export CI_SERVER_TLS_CA_FILE="/builds/gitlab-examples/ci-debug-trace.tmp/CI_SERVER_TLS_CA_FILE"
 if [[ -d "/builds/gitlab-examples/ci-debug-trace/.git" ]]; then
-  echo $'\''\x1b[32;1mFetching changes...\x1b[0;m'\''
-  $'\''cd'\'' "/builds/gitlab-examples/ci-debug-trace"
-  $'\''git'\'' "config" "fetch.recurseSubmodules" "false"
-  $'\''rm'\'' "-f" ".git/index.lock"
-  $'\''git'\'' "clean" "-ffdx"
-  $'\''git'\'' "reset" "--hard"
-  $'\''git'\'' "remote" "set-url" "origin" "https://gitlab-ci-token:xxxxxxxxxxxxxxxxxxxx@example.com/gitlab-examples/ci-debug-trace.git"
-  $'\''git'\'' "fetch" "origin" "--prune" "+refs/heads/*:refs/remotes/origin/*" "+refs/tags/*:refs/tags/lds"
+ echo $'\''\x1b[32;1mFetching changes...\x1b[0;m'\''
+ $'\''cd'\'' "/builds/gitlab-examples/ci-debug-trace"
+ $'\''git'\'' "config" "fetch.recurseSubmodules" "false"
+ $'\''rm'\'' "-f" ".git/index.lock"
+ $'\''git'\'' "clean" "-ffdx"
+ $'\''git'\'' "reset" "--hard"
+ $'\''git'\'' "remote" "set-url" "origin" "https://gitlab-ci-token:xxxxxxxxxxxxxxxxxxxx@example.com/gitlab-examples/ci-debug-trace.git"
+ $'\''git'\'' "fetch" "origin" "--prune" "+refs/heads/*:refs/remotes/origin/*" "+refs/tags/*:refs/tags/lds"
 ++ CI_BUILDS_DIR=/builds
 ++ export CI_PROJECT_DIR=/builds/gitlab-examples/ci-debug-trace
 ++ CI_PROJECT_DIR=/builds/gitlab-examples/ci-debug-trace
@@ -158,26 +150,20 @@ Access to debug logging is restricted to [users with at least the Developer role
 
 {{< alert type="warning" >}}
 
-If you add `CI_DEBUG_TRACE` as a local variable to runners, debug logs generate and are visible
-to all users with access to job logs. The permission levels are not checked by the runner,
-so you should only use the variable in GitLab itself.
+If you add `CI_DEBUG_TRACE` as a local variable to runners, debug logs generate and are visible to all users with access to job logs. The permission levels are not checked by the runner, so you should only use the variable in GitLab itself.
 
 {{< /alert >}}
 
 ## `argument list too long` error
 
-This issue occurs when the combined length of all CI/CD variables defined for a job exceeds the limit imposed by the
-shell where the job executes. This includes the names and values of pre-defined and user defined variables. This limit
-is typically referred to as `ARG_MAX`, and is shell and operating system dependent. This issue also occurs when the
-content of a single [File-type](_index.md#use-file-type-cicd-variables) variable exceeds `ARG_MAX`.
+This issue occurs when the combined length of all CI/CD variables defined for a job exceeds the limit imposed by the shell where the job executes. This includes the names and values of pre-defined and user defined variables. This limit is typically referred to as `ARG_MAX`, and is shell and operating system dependent. This issue also occurs when the content of a single [File-type](_index.md#use-file-type-cicd-variables) variable exceeds `ARG_MAX`.
 
 For more information, see [issue 392406](https://gitlab.com/gitlab-org/gitlab/-/issues/392406#note_1414219596).
 
 As a workaround you can either:
 
 - Use [File-type](_index.md#use-file-type-cicd-variables) CI/CD variables for large environment variables where possible.
-- If a single large variable is larger than `ARG_MAX`, try using [Secure Files](../secure_files/_index.md), or
-  bring the file to the job through some other mechanism.
+- If a single large variable is larger than `ARG_MAX`, try using [Secure Files](../secure_files/_index.md), or bring the file to the job through some other mechanism.
 
 ## `Insufficient permissions to set pipeline variables` error for a downstream pipeline
 
@@ -191,59 +177,55 @@ This error occurs when a downstream project has [restricted pipeline variables](
 
 - Has variables defined. For example:
 
-  ```yaml
-  trigger-job:
+ ```yaml
+ trigger-job:
     variables:
       VAR_FOR_DOWNSTREAM: "test"
     trigger: my-group/my-project
-  ```
+ ```
 
 - Receives variables from [default variables](../yaml/_index.md#default-variables) defined in a top-level `variables` section. For example:
 
-  ```yaml
-  variables:
+ ```yaml
+ variables:
     DEFAULT_VAR: "test"
 
-  trigger-job:
+ trigger-job:
     trigger: my-group/my-project
-  ```
+ ```
 
-Variables passed to a downstream pipeline in a trigger job are [pipeline variables](_index.md#use-pipeline-variables),
-so the workaround is to either:
+Variables passed to a downstream pipeline in a trigger job are [pipeline variables](_index.md#use-pipeline-variables), so the workaround is to either:
 
 - Remove the `variables` defined in the trigger job to avoid passing variables.
 - [Prevent default variables from being passed to the downstream pipeline](../pipelines/downstream_pipelines.md#prevent-default-variables-from-being-passed).
 
 ## Default variable doesn't expand in job variable of the same name
 
-You cannot use a default variable's value in a job variable of the same name. A default variable
-is only made available to a job when the job does not have a variable defined with the same name.
-If the job has a variable with the same name, the job's variable takes precedence
-and the default variable is not available in the job.
+You cannot use a default variable's value in a job variable of the same name. A default variable is only made available to a job when the job does not have a variable defined with the same name.
+If the job has a variable with the same name, the job's variable takes precedence and the default variable is not available in the job.
 
 For example, these two samples are equivalent:
 
 - In this sample, `$MY_VAR` has no value because it's not defined anywhere:
 
-  ```yaml
-  Job-with-variable:
+ ```yaml
+ Job-with-variable:
     variables:
       MY_VAR: $MY_VAR
     script: echo "Value is '$MY_VAR'"
-  ```
+ ```
 
-- In this sample, `$MY_VAR` has no value because the default variable with the same name
-  is not available in the job:
+- In this sample, `$MY_VAR` has no value because the default variable with the same name is not available in the job:
 
-  ```yaml
-  variables:
+ ```yaml
+ variables:
     MY_VAR: "Default value"
 
-  Job-with-same-name-variable:
+ Job-with-same-name-variable:
     variables:
       MY_VAR: $MY_VAR
     script: echo "Value is '$MY_VAR'"
-  ```
+ ```
 
 In both cases, the echo command outputs `Value is '$MY_VAR'`.
 
@@ -252,11 +234,11 @@ If you need to do this, use variables with different names instead. For example:
 
 ```yaml
 variables:
-  MY_VAR1: "Default value1"
-  MY_VAR2: "Default value2"
+ MY_VAR1: "Default value1"
+ MY_VAR2: "Default value2"
 
 overwrite-same-name:
-  variables:
+ variables:
     MY_VAR2_FROM_DEFAULTS: $MY_VAR2
-  script: echo "Values are '$MY_VAR1' and '$MY_VAR2_FROM_DEFAULTS'"
+ script: echo "Values are '$MY_VAR1' and '$MY_VAR2_FROM_DEFAULTS'"
 ```

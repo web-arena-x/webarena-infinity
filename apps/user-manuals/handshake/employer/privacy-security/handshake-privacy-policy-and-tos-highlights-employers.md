@@ -15,11 +15,11 @@ Our [Terms of Service](https://joinhandshake.com/tos/) and [Privacy Policy](http
 As a reminder, these very basic privacy principles guide all of our policies and practices:
 
 - **Students are in complete control of what data they make public**
-  - We allow students to decide if they want to make their profile visible to employers and what information they want to share on it. None of the student data uploaded to Handshake is visible to employers until the student chooses to make their profile public.
+ - We allow students to decide if they want to make their profile visible to employers and what information they want to share on it. None of the student data uploaded to Handshake is visible to employers until the student chooses to make their profile public.
 - **Education partners choose the student data they share with Handshake**
-  - We value students' rights to their personal data and are proud to collaborate with our education partners to enhance the value of their career center without compromising student privacy.
+ - We value students' rights to their personal data and are proud to collaborate with our education partners to enhance the value of their career center without compromising student privacy.
 - **Handshake will never sell personal student data**
-  - We have never done it and we never will! Our business model is based on offering valuable tools for our student and employer users that enhance the career discovery process. Your email address and personal data will never be sold to any third party.
+ - We have never done it and we never will! Our business model is based on offering valuable tools for our student and employer users that enhance the career discovery process. Your email address and personal data will never be sold to any third party.
 
 Please be aware that if you live in the EU or any other regions outside the US *and are using the US platform*, any information collected through our Service will be transferred and processed in the US or other countries.
 

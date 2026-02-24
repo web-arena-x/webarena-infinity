@@ -16,17 +16,13 @@ You can track sales performance by deal owners using the Sales by Owner report.
 
 There are two views of this report: the graph view and the table view.
 
-The graph view provides a visual representation of the sales performance of each team
-member within a given time period (the default time period is the current month).
-Hovering over each graph segment shows you the total values of the deals for each team
-member and percentage of those deal values to the team’s total.
+The graph view provides a visual representation of the sales performance of each team member within a given time period (the default time period is the current month).
+Hovering over each graph segment shows you the total values of the deals for each team member and percentage of those deal values to the team’s total.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell-report-sales-by-owner.png)
 
-When you switch to the table view of this report, you’ll see the same data in a table
-format.
+When you switch to the table view of this report, you’ll see the same data in a table format.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell-report-sales-by-owner-detail.png)
 
-You can define a different time period and also add filters to view only teams, groups,
-or specific users. You can also filter by tags.
+You can define a different time period and also add filters to view only teams, groups, or specific users. You can also filter by tags.

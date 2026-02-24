@@ -7,7 +7,7 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/37046662774807-EDU-D
 If you'd like to duplicate an event so you can use a similar formatting for a future event, follow these instructions:
 
 1. Select the event you'd like to duplicate from the **Events** page.
-2. Select **Duplicate this Event** under the *Actions* menu on the left side of the screen.  
+2. Select **Duplicate this Event** under the *Actions* menu on the left side of the screen. 
      
    ![Duplicate this Event under the actions menu.png](https://support.joinhandshake.com/hc/article_attachments/37046677978519)
 3. You'll immediately be taken to the event creation page.

@@ -5,14 +5,12 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: Token Revocation API
 ---
 
-The Token Revocation API is an externally-deployed HTTP API that interfaces with GitLab
-to receive and revoke API tokens and other secrets detected by GitLab secret detection.
+The Token Revocation API is an externally-deployed HTTP API that interfaces with GitLab to receive and revoke API tokens and other secrets detected by GitLab secret detection.
 See the [high-level architecture](../../user/application_security/secret_detection/automatic_response.md)
 to understand the secret detection post-processing and revocation flow.
 
 GitLab.com uses the internally-maintained [Secret Revocation Service](https://gitlab.com/gitlab-com/gl-security/engineering-and-research/automation-team/secret-revocation-service)
-(team-members only) as its Token Revocation API. For GitLab Self-Managed, you can create
-your own API and configure GitLab to use it.
+(team-members only) as its Token Revocation API. For GitLab Self-Managed, you can create your own API and configure GitLab to use it.
 
 ## Implement a Token Revocation API for GitLab Self-Managed
 
@@ -25,13 +23,11 @@ Your service must:
 
 - Match the API specification below.
 - Provide two endpoints:
-  - Fetching revocable token types.
-  - Revoking leaked tokens.
+ - Fetching revocable token types.
+ - Revoking leaked tokens.
 - Be rate-limited and idempotent.
 
-Requests to the documented endpoints are authenticated using API tokens passed in
-the `Authorization` header. Request and response bodies, if present, are
-expected to have the content type `application/json`.
+Requests to the documented endpoints are authenticated using API tokens passed in the `Authorization` header. Request and response bodies, if present, are expected to have the content type `application/json`.
 
 All endpoints may return these responses:
 
@@ -46,8 +42,7 @@ Returns the valid `type` values for use in the `revoke_tokens` endpoint.
 {{< alert type="note" >}}
 
 These values match the concatenation of [the `secrets` analyzer's](../../user/application_security/secret_detection/pipeline/_index.md)
-[primary identifier](../integrations/secure.md#identifiers) by means
-of concatenating the `primary_identifier.type` and `primary_identifier.value`.
+[primary identifier](../integrations/secure.md#identifiers) by means of concatenating the `primary_identifier.type` and `primary_identifier.value`.
 For example, the value `gitleaks_rule_id_gitlab_personal_access_token` matches the following finding identifier:
 
 {{< /alert >}}
@@ -70,8 +65,7 @@ Example response body:
 
 ### `POST /v1/revoke_tokens`
 
-Accepts a list of tokens to be revoked by the appropriate provider. Your service is responsible for communicating
-with each provider to revoke the token.
+Accepts a list of tokens to be revoked by the appropriate provider. Your service is responsible for communicating with each provider to revoke the token.
 
 | Status Code | Description |
 | ----- | --- |
@@ -105,8 +99,7 @@ You must configure the following database settings in the GitLab instance:
 | `secret_detection_revocation_token_types_url` | String | A fully-qualified URL to the `/v1/revocable_token_types` endpoint of the Token Revocation API |
 | `secret_detection_token_revocation_token` | String | A pre-shared token to authenticate requests to the Token Revocation API |
 
-For example, to configure these values in the
-[Rails console](../../administration/operations/rails_console.md#starting-a-rails-console-session):
+For example, to configure these values in the [Rails console](../../administration/operations/rails_console.md#starting-a-rails-console-session):
 
 ```ruby
 ::Gitlab::CurrentSettings.update!(secret_detection_token_revocation_token: 'MYSECRETTOKEN')
@@ -115,6 +108,5 @@ For example, to configure these values in the
 ::Gitlab::CurrentSettings.update!(secret_detection_token_revocation_enabled: true)
 ```
 
-After you configure these values, the Token Revocation API will be called according to the
-[high-level architecture](../../user/application_security/secret_detection/automatic_response.md#high-level-architecture)
+After you configure these values, the Token Revocation API will be called according to the [high-level architecture](../../user/application_security/secret_detection/automatic_response.md#high-level-architecture)
 diagram.

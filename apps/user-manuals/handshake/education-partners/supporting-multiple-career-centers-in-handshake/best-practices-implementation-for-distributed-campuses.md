@@ -11,10 +11,10 @@ If your school has distributed campuses, or several career development offices, 
 **Identify a team comprised of one person from each office who are the points of contact, (decision makers & leaders).**
 
 - Each member should hold each other accountable to speak on behalf of their School or Career Center. They should be the experts in their office and will:
-  - Identify and complete training goals
-  - Submit questions
-  - Provide feedback
-  - Understand workflow of training and questions
+ - Identify and complete training goals
+ - Submit questions
+ - Provide feedback
+ - Understand workflow of training and questions
 - Plan a regular meeting with the "core team" through implementation and beyond to check in on key decisions, updates, and team/office pulse checks
 - Depending on size and nature of each office, it's helpful to use a google sheet to collect questions from each core team member.
 
@@ -29,13 +29,13 @@ A few example decisions:
 Depending on structure, this is usually the "core team" members or a central office.
 
 - Roles to Consider:
-  - Labels
-  - Jobs
-  - Employers
-  - Manage Students
-  - Mass Emails
-  - Manage All Appointments
-  - Manage SSO Preferences
+ - Labels
+ - Jobs
+ - Employers
+ - Manage Students
+ - Mass Emails
+ - Manage All Appointments
+ - Manage SSO Preferences
 
 **Who will have access to the importer?**
 
@@ -75,7 +75,7 @@ Each member of the "core team" should be aware of the most important or most inv
  Most commonly, these important workflows include:
 
 - Check in Kiosk
-  - Tip: Understand the physical layout of the Career Center/use of the kiosk
+ - Tip: Understand the physical layout of the Career Center/use of the kiosk
 - Interview Schedules
 - Career Fair Registration
 

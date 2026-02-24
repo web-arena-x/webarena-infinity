@@ -12,8 +12,7 @@ Requirements:
 - Attribute modifications (`INSERT`, `UPDATE`) related to the columns happen only via ActiveRecord (the technique depends on AR callbacks).
 - Duplications are rare and mostly happen due to concurrent record creation. This can be verified by checking the production database table via teleport (reach out to a database maintainer for help).
 
-The total runtime mainly depends on the number of records in the database table. The migration will require scanning all records; to fit into the
-post-deployment migration runtime limit (about 10 minutes), database table with less than 10 million rows can be considered a small table.
+The total runtime mainly depends on the number of records in the database table. The migration will require scanning all records; to fit into the post-deployment migration runtime limit (about 10 minutes), database table with less than 10 million rows can be considered a small table.
 
 ## Deduplication strategy for small tables
 
@@ -31,11 +30,11 @@ Post-migration for creating the index:
 
 ```ruby
 def up
-  add_concurrent_index :issues, [:project_id, :title], name: INDEX_NAME
+ add_concurrent_index :issues, [:project_id, :title], name: INDEX_NAME
 end
 
 def down
-  remove_concurrent_index_by_name :issues, INDEX_NAME
+ remove_concurrent_index_by_name :issues, INDEX_NAME
 end
 ```
 
@@ -43,24 +42,24 @@ The `Issue` model validation and the advisory lock:
 
 ```ruby
 class Issue < ApplicationRecord
-  validates :title, uniqueness: { scope: :project_id }
-  before_validation :prevent_concurrent_inserts
+ validates :title, uniqueness: { scope: :project_id }
+ before_validation :prevent_concurrent_inserts
 
-  private
+ private
 
-  # This method will block while another database transaction attempts to insert the same data.
-  # After the lock is released by the other transaction, the uniqueness validation may fail
-  # with record not unique validation error.
+ # This method will block while another database transaction attempts to insert the same data.
+ # After the lock is released by the other transaction, the uniqueness validation may fail
+ # with record not unique validation error.
 
-  # Without this block the uniqueness validation wouldn't be able to detect duplicated
-  # records as transactions can't see each other's changes.
-  def prevent_concurrent_inserts
+ # Without this block the uniqueness validation wouldn't be able to detect duplicated
+ # records as transactions can't see each other's changes.
+ def prevent_concurrent_inserts
     return if project_id.nil? || title.nil?
 
     lock_key = ['issues', project_id, title].join('-')
     lock_expression = "hashtext(#{connection.quote(lock_key)})"
     connection.execute("SELECT pg_advisory_xact_lock(#{lock_expression})")
-  end
+ end
 end
 ```
 
@@ -73,10 +72,10 @@ How to resolve duplicates (for example, merge attributes, keep the most recent r
 
 ```ruby
 def up
-  model = define_batchable_model('issues')
+ model = define_batchable_model('issues')
 
-  # Single pass over the table
-  model.each_batch do |batch|
+ # Single pass over the table
+ model.each_batch do |batch|
     # find duplicated (project_id, title) pairs
     duplicates = model
       .where("(project_id, title) IN (#{batch.select(:project_id, :title).to_sql})")
@@ -105,11 +104,11 @@ def up
     SQL
 
     model.connection.execute(cleanup_query)
-  end
+ end
 end
 
 def down
-  # no-op
+ # no-op
 end
 ```
 
@@ -123,13 +122,13 @@ Replacing the old index with a unique index:
 
 ```ruby
 def up
-  add_concurrent_index :issues, [:project_id, :title], name: UNIQUE_INDEX_NAME, unique: true
-  remove_concurrent_index_by_name :issues, INDEX_NAME
+ add_concurrent_index :issues, [:project_id, :title], name: UNIQUE_INDEX_NAME, unique: true
+ remove_concurrent_index_by_name :issues, INDEX_NAME
 end
 
 def down
-  add_concurrent_index :issues, [:project_id, :title], name: INDEX_NAME
-  remove_concurrent_index_by_name :issues, UNIQUE_INDEX_NAME
+ add_concurrent_index :issues, [:project_id, :title], name: INDEX_NAME
+ remove_concurrent_index_by_name :issues, UNIQUE_INDEX_NAME
 end
 ```
 

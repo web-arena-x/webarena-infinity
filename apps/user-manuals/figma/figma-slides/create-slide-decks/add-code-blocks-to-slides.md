@@ -25,8 +25,8 @@ Including code blocks in your presentation is a great way to provide additional 
 
 ## Add a code block to a slide
 
-1. Click  **Assets** in the toolbar.
-2. Select  **Code block**.
+1. Click **Assets** in the toolbar.
+2. Select **Code block**.
 3. Click on a slide to add a code block.
 
 Once added, you can type inside the code block or copy and paste an existing code snippet. You can then use the settings in the right sidebar to select a language for the code block’s syntax highlighting and change the code block’s color theme.

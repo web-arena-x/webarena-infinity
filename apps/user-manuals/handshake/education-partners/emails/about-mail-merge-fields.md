@@ -10,7 +10,7 @@ While composing the email text, you can use the **Insert Variables** dropdown to
 
 For example, if you are emailing multiple recipients, and you want the subject to contain something like “Join our event, [first name]” such that the [first name] portion of the email autofills for each recipient, **you must use the exact text written below**.
 
-|  |  |
+| | |
 | --- | --- |
 | **Variable you are including in email** | **Exact text to copy into your email** |
 | Recipient’s username | %recipient.username% |
@@ -23,7 +23,7 @@ For example, if you are emailing multiple recipients, and you want the subject t
 
 If a particular field isn't completed in Handshake, we will default to the following text:
 
-|  |  |
+| | |
 | --- | --- |
 | **Variable you are including in email** | **Default text** |
 | Recipient’s full name | there (example: “Hi **there**”) |

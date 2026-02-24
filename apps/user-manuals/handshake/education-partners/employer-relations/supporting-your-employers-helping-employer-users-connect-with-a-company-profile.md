@@ -16,10 +16,10 @@ This process outlines steps you can take on your end, before escalating to Hands
 
 ### Connecting an employer user with their company profile
 
-1. Search for the contact using their name or email address  
+1. Search for the contact using their name or email address 
 
    If you do not see their email address it means they have not yet confirmed or created their account. In this case you can refer them to the following article: [Create an Employer User Account, Join a Company, and Connect with Institutions](https://support.joinhandshake.com/hc/en-gb/articles/219133047)
-2. Click on their name from the list. If you do not see their name they have either not yet created their account, or signed up with a different email address to the one you have listed on their Handshake contact profile.  
+2. Click on their name from the list. If you do not see their name they have either not yet created their account, or signed up with a different email address to the one you have listed on their Handshake contact profile. 
 
    ![Employer_user_connection_status_page.png](https://support.joinhandshake.com/hc/article_attachments/25998877120023)
 3. The following should now be visible:
@@ -33,7 +33,7 @@ This process outlines steps you can take on your end, before escalating to Hands
 4. Click **Employers** from the left hand navigation bar
 5. Select the employer account that the staff member needs to be added to
 6. Click **Edit**from the tabs in the upper right of the screen
-7. Click **Staff Management** from the list on the left side of the screen:  
+7. Click **Staff Management** from the list on the left side of the screen: 
 
    ![Staff_Management_Page.png](https://support.joinhandshake.com/hc/article_attachments/25998866560407)
 8. Here, as a Career Services user, you can manually add the user to the company page by typing their email address into the box at the upper-left side and clicking **Add User**. We recommend only doing this for employers you personally know, small companies, or when there are no other staff members on the account to check with for approval.

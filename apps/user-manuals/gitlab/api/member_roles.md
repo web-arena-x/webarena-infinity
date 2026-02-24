@@ -60,15 +60,15 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "Authorization: Bearer <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/member_roles"
+ --header "Authorization: Bearer <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/member_roles"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 2,
     "name": "Instance custom role",
     "description": "Custom guest that can read code",
@@ -94,7 +94,7 @@ Example response:
     "read_vulnerability": false,
     "remove_group": false,
     "remove_project": false
-  }
+ }
 ]
 ```
 
@@ -111,7 +111,7 @@ Supported attributes:
 | Attribute | Type | Required | Description |
 |:----------|:--------|:---------|:-------------------------------------|
 | `name`         | string         | yes      | The name of the member role. |
-| `description`  | string         | no       | The description of the member role. |
+| `description` | string         | no       | The description of the member role. |
 | `base_access_level` | integer   | yes      | Base access level for configured role. Valid values are `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), or `50` (Owner).|
 | `admin_cicd_variables` | boolean | no       | Permission to create, read, update, and delete CI/CD variables. |
 | `admin_compliance_framework` | boolean | no       | Permission to administer compliance frameworks. |
@@ -130,7 +130,7 @@ Supported attributes:
 | `read_code`           | boolean | no       | Permission to read project code. |
 | `read_runners`     | boolean | no       | Permission to view project runners. |
 | `read_dependency`     | boolean | no       | Permission to read project dependencies. |
-| `read_vulnerability`  | boolean | no       | Permission to read project vulnerabilities. |
+| `read_vulnerability` | boolean | no       | Permission to read project vulnerabilities. |
 | `remove_group` | boolean | no       | Permission to delete or restore a group. |
 | `remove_project` | boolean | no       | Permission to delete a project. |
 
@@ -140,41 +140,41 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "Content-Type: application/json" \
-  --header "Authorization: Bearer <your_access_token>" \
-  --data '{"name" : "Custom guest (instance)", "base_access_level" : 10, "read_code" : true}' \
-  --url "https://gitlab.example.com/api/v4/member_roles"
+ --header "Content-Type: application/json" \
+ --header "Authorization: Bearer <your_access_token>" \
+ --data '{"name" : "Custom guest (instance)", "base_access_level" : 10, "read_code" : true}' \
+ --url "https://gitlab.example.com/api/v4/member_roles"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 3,
-  "name": "Custom guest (instance)",
-  "group_id": null,
-  "description": null,
-  "base_access_level": 10,
-  "admin_cicd_variables": false,
-  "admin_compliance_framework": false,
-  "admin_group_member": false,
-  "admin_merge_request": false,
-  "admin_push_rules": false,
-  "admin_terraform_state": false,
-  "admin_vulnerability": false,
-  "admin_web_hook": false,
-  "archive_project": false,
-  "manage_deploy_tokens": false,
-  "manage_group_access_tokens": false,
-  "manage_merge_request_settings": false,
-  "manage_project_access_tokens": false,
-  "manage_security_policy_link": false,
-  "read_code": true,
-  "read_runners": false,
-  "read_dependency": false,
-  "read_vulnerability": false,
-  "remove_group": false,
-  "remove_project": false
+ "id": 3,
+ "name": "Custom guest (instance)",
+ "group_id": null,
+ "description": null,
+ "base_access_level": 10,
+ "admin_cicd_variables": false,
+ "admin_compliance_framework": false,
+ "admin_group_member": false,
+ "admin_merge_request": false,
+ "admin_push_rules": false,
+ "admin_terraform_state": false,
+ "admin_vulnerability": false,
+ "admin_web_hook": false,
+ "archive_project": false,
+ "manage_deploy_tokens": false,
+ "manage_group_access_tokens": false,
+ "manage_merge_request_settings": false,
+ "manage_project_access_tokens": false,
+ "manage_security_policy_link": false,
+ "read_code": true,
+ "read_runners": false,
+ "read_dependency": false,
+ "read_vulnerability": false,
+ "remove_group": false,
+ "remove_project": false
 }
 ```
 
@@ -198,9 +198,9 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "Content-Type: application/json" \
-  --header "Authorization: Bearer <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/member_roles/1"
+ --header "Content-Type: application/json" \
+ --header "Authorization: Bearer <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/member_roles/1"
 ```
 
 ## Manage group member roles
@@ -232,15 +232,15 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "Authorization: Bearer <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/84/member_roles"
+ --header "Authorization: Bearer <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/84/member_roles"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 2,
     "name": "Guest + read code",
     "description": "Custom guest that can read code",
@@ -266,8 +266,8 @@ Example response:
     "read_vulnerability": false,
     "remove_group": false,
     "remove_project": false
-  },
-  {
+ },
+ {
     "id": 3,
     "name": "Guest + security",
     "description": "Custom guest that read and admin security entities",
@@ -293,7 +293,7 @@ Example response:
     "read_vulnerability": true,
     "remove_group": false,
     "remove_project": false
-  }
+ }
 ]
 ```
 
@@ -333,7 +333,7 @@ Parameters:
 | `read_code`           | boolean | no       | Permission to read project code. |
 | `read_runners`     | boolean | no       | Permission to view project runners. |
 | `read_dependency`     | boolean | no       | Permission to read project dependencies. |
-| `read_vulnerability`  | boolean | no       | Permission to read project vulnerabilities. |
+| `read_vulnerability` | boolean | no       | Permission to read project vulnerabilities. |
 | `remove_group` | boolean | no       | Permission to delete or restore a group. |
 | `remove_project` | boolean | no       | Permission to delete a project. |
 
@@ -341,48 +341,47 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "Content-Type: application/json" \
-  --header "Authorization: Bearer <your_access_token>" \
-  --data '{"name" : "Custom guest", "base_access_level" : 10, "read_code" : true}' \
-  --url "https://gitlab.example.com/api/v4/groups/84/member_roles"
+ --header "Content-Type: application/json" \
+ --header "Authorization: Bearer <your_access_token>" \
+ --data '{"name" : "Custom guest", "base_access_level" : 10, "read_code" : true}' \
+ --url "https://gitlab.example.com/api/v4/groups/84/member_roles"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 3,
-  "name": "Custom guest",
-  "description": null,
-  "group_id": 84,
-  "base_access_level": 10,
-  "admin_cicd_variables": false,
-  "admin_compliance_framework": false,
-  "admin_group_member": false,
-  "admin_merge_request": false,
-  "admin_push_rules": false,
-  "admin_terraform_state": false,
-  "admin_vulnerability": false,
-  "admin_web_hook": false,
-  "archive_project": false,
-  "manage_deploy_tokens": false,
-  "manage_group_access_tokens": false,
-  "manage_merge_request_settings": false,
-  "manage_project_access_tokens": false,
-  "manage_security_policy_link": false,
-  "read_code": true,
-  "read_runners": false,
-  "read_dependency": false,
-  "read_vulnerability": false,
-  "remove_group": false,
-  "remove_project": false
+ "id": 3,
+ "name": "Custom guest",
+ "description": null,
+ "group_id": 84,
+ "base_access_level": 10,
+ "admin_cicd_variables": false,
+ "admin_compliance_framework": false,
+ "admin_group_member": false,
+ "admin_merge_request": false,
+ "admin_push_rules": false,
+ "admin_terraform_state": false,
+ "admin_vulnerability": false,
+ "admin_web_hook": false,
+ "archive_project": false,
+ "manage_deploy_tokens": false,
+ "manage_group_access_tokens": false,
+ "manage_merge_request_settings": false,
+ "manage_project_access_tokens": false,
+ "manage_security_policy_link": false,
+ "read_code": true,
+ "read_runners": false,
+ "read_dependency": false,
+ "read_vulnerability": false,
+ "remove_group": false,
+ "remove_project": false
 }
 ```
 
 In GitLab 16.3 and later, you can use the API to:
 
-- Add a name (required) and description (optional) when you
-  [create a new custom role](../user/custom_roles/_index.md#create-a-custom-member-role).
+- Add a name (required) and description (optional) when you [create a new custom role](../user/custom_roles/_index.md#create-a-custom-member-role).
 - Update an existing custom role's name and description.
 
 ### Remove member role of a group
@@ -404,7 +403,7 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "Content-Type: application/json" \
-  --header "Authorization: Bearer <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/84/member_roles/1"
+ --header "Content-Type: application/json" \
+ --header "Authorization: Bearer <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/84/member_roles/1"
 ```

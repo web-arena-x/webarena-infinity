@@ -13,8 +13,7 @@ title: Troubleshooting the Agent Platform in your IDE
 
 {{< /details >}}
 
-If you are working with the GitLab Duo Agent Platform in your IDE,
-you might encounter the following issues.
+If you are working with the GitLab Duo Agent Platform in your IDE, you might encounter the following issues.
 
 ## General guidance
 
@@ -27,12 +26,10 @@ Start by ensuring that GitLab Duo is on and that you are properly connected.
 
 ## Network issues
 
-If you are seeing `HTTP/1.1` responses from GitLab Duo rather than `/-/cable`
-WebSocket endpoints in your logs, your WebSocket connections may be blocked.
+If you are seeing `HTTP/1.1` responses from GitLab Duo rather than `/-/cable` WebSocket endpoints in your logs, your WebSocket connections may be blocked.
 
 Your GitLab instance must allow inbound WebSocket connections from IDE clients.
-Ask your network administrator to
-[allow WebSocket traffic to your GitLab instance](../../administration/gitlab_duo/configure/gitlab_self_managed.md#allow-inbound-connections-from-clients-to-the-gitlab-instance)
+Ask your network administrator to [allow WebSocket traffic to your GitLab instance](../../administration/gitlab_duo/configure/gitlab_self_managed.md#allow-inbound-connections-from-clients-to-the-gitlab-instance)
 if you suspect this is the issue.
 
 ## View debugging logs in VS Code
@@ -45,8 +42,7 @@ In VS Code, you can troubleshoot some issues by viewing debugging logs.
 1. Search for the setting **GitLab: Debug** and enable it.
 1. Open the language server logs:
    1. In VS Code, select **View** > **Output**.
-   1. In the output panel at the bottom, in the upper-right corner,
-      select **GitLab Workflow** or **GitLab Language Server** from the list.
+   1. In the output panel at the bottom, in the upper-right corner, select **GitLab Workflow** or **GitLab Language Server** from the list.
 1. Review for errors, warnings, connection issues, or authentication problems.
 
 ## VS Code configuration
@@ -95,8 +91,7 @@ To select the correct one:
 
 #### Multiple GitLab projects
 
-If your VS Code workspace contains multiple GitLab projects, you might want
-to close all the projects you're not using.
+If your VS Code workspace contains multiple GitLab projects, you might want to close all the projects you're not using.
 
 To close projects:
 
@@ -125,13 +120,11 @@ GitLab Duo Agent Platform requires that projects belong to a group namespace.
 
 To determine the namespace your project is in, [look at the URL](../namespace/_index.md#determine-which-type-of-namespace-youre-in).
 
-If necessary, you can
-[transfer your project to a group namespace](../../tutorials/move_personal_project_to_group/_index.md#move-your-project-to-a-group).
+If necessary, you can [transfer your project to a group namespace](../../tutorials/move_personal_project_to_group/_index.md#move-your-project-to-a-group).
 
 ## IDE commands fail or run indefinitely
 
-When using GitLab Duo Chat (Agentic) or the Software Development flow in your IDE,
-GitLab Duo can get stuck in a loop or have difficulty running commands.
+When using GitLab Duo Chat (Agentic) or the Software Development flow in your IDE, GitLab Duo can get stuck in a loop or have difficulty running commands.
 
 This issue can occur when you are using shell themes or integrations, like `Oh My ZSH!` or `powerlevel10k`.
 When a GitLab Duo agent spawns a terminal, a theme or integration can prevent commands from running properly.
@@ -141,9 +134,7 @@ As a workaround, use a simpler theme for commands sent by agents.
 
 ### Edit your `.zshrc` file
 
-In VS Code and JetBrains IDEs, configure `Oh My ZSH!` or `powerlevel10k` to use a simpler
-theme when it runs commands sent by an agent. You can use the environment variables exposed
-by the IDEs to set these values.
+In VS Code and JetBrains IDEs, configure `Oh My ZSH!` or `powerlevel10k` to use a simpler theme when it runs commands sent by an agent. You can use the environment variables exposed by the IDEs to set these values.
 
 Edit your `~/.zshrc` file to include this code:
 
@@ -158,13 +149,13 @@ export ZSH="$HOME/.oh-my-zsh"
 # Decide whether to load a full terminal environment,
 # or keep it minimal for agentic AI in IDEs
 if [[ "$TERM_PROGRAM" == "vscode" || "$TERMINAL_EMULATOR" == "JetBrains-JediTerm" ]]; then
-  echo "IDE agentic environment detected, not loading full shell integrations"
+ echo "IDE agentic environment detected, not loading full shell integrations"
 else
-  # Oh My ZSH
-  source $ZSH/oh-my-zsh.sh
-  # Theme: Powerlevel10k
-  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-  # Other integrations like syntax highlighting
+ # Oh My ZSH
+ source $ZSH/oh-my-zsh.sh
+ # Theme: Powerlevel10k
+ [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+ # Other integrations like syntax highlighting
 fi
 
 # Other setup, like PATH variables
@@ -181,22 +172,22 @@ Edit your `~/.bashrc` or `~/.bash_profile` file to include this code:
 # Decide whether to load a full terminal environment,
 # or keep it minimal for Agentic AI in IDEs
 if [[ "$TERM_PROGRAM" == "vscode" || "$TERMINAL_EMULATOR" == "JetBrains-JediTerm" ]]; then
-  echo "IDE agentic environment detected, not loading full shell integrations"
+ echo "IDE agentic environment detected, not loading full shell integrations"
 
-  # Keep only essential settings for agents
-  export PS1='\$ '  # Minimal prompt
+ # Keep only essential settings for agents
+ export PS1='\$ ' # Minimal prompt
 
 else
-  # Load full Bash environment
+ # Load full Bash environment
 
-  # Custom prompt (e.g., Starship, custom PS1)
-  if command -v starship &> /dev/null; then
+ # Custom prompt (e.g., Starship, custom PS1)
+ if command -v starship &> /dev/null; then
     eval "$(starship init bash)"
-  else
+ else
     # ... Add your own PS1 variable
-  fi
+ fi
 
-  # Load additional integrations
+ # Load additional integrations
 fi
 
 # Always load essential environment variables and aliases

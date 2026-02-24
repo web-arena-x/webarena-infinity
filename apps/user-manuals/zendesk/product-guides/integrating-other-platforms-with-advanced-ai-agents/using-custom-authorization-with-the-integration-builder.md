@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357749813658-Using-custom
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -48,9 +48,9 @@ Note: Don't use more than one environment at a time for the custom authorization
    1. In the **Integration name** field, give your integration a descriptive name.
    2. (Optional) In the **Description** field, enter a description of the integration that helps you remember what it’s for.
    3. Select **Setup as an ‘auth only’ integration**.
-   4. Click **Save**.  
+   4. Click **Save**. 
       ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ultimate_custom_auth_add_integration.png)
-4. In the left sidebar, under **Scenarios**, hover over **Failure**, select the options menu (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/macros_edit_menu_icon.png)) and select **Delete**. For custom authorization, you only need Success scenarios. You can’t delete Fallback scenarios.  
+4. In the left sidebar, under **Scenarios**, hover over **Failure**, select the options menu (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/macros_edit_menu_icon.png)) and select **Delete**. For custom authorization, you only need Success scenarios. You can’t delete Fallback scenarios. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ultimate_custom_auth_delete_failure.png)
 5. On the **Success** scenarios page, create two session parameters (by clicking the **+** button) with the following details:
    - token
@@ -58,9 +58,7 @@ Note: Don't use more than one environment at a time for the custom authorization
      - **Query:** Enter a value that defines the token. For example: data.access\_token
    - expiresIn
      - **Key:** expiresIn *(must be written exactly like this)*
-     - **Query:** Enter a value that defines the token expiry. For example: data.expires\_in  
-       Token expiry may not be part of your data response. In that case, you can hardcode a value (in seconds) of your choice. For example: 3600  
-       We strongly recommend setting a token expiry. If you run into an error when testing, this is the amount of time you’ll need to wait before a new token is issued. With no expiry, the token is set indefinitely, meaning you won’t be able to issue a new one during troubleshooting.  
+     - **Query:** Enter a value that defines the token expiry. For example: data.expires\_in Token expiry may not be part of your data response. In that case, you can hardcode a value (in seconds) of your choice. For example: 3600 We strongly recommend setting a token expiry. If you run into an error when testing, this is the amount of time you’ll need to wait before a new token is issued. With no expiry, the token is set indefinitely, meaning you won’t be able to issue a new one during troubleshooting.
        ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ultimate_custom_auth_params.png)
 6. Click **Save**.
 
@@ -72,12 +70,12 @@ Next, create the data integration that will use the custom auth only integration
 
 1. In the left sidebar, under **Environments**, select an environment (such as Production).
 2. On the **Authorization** tab, in the **Authorization Type** drop-down field, select **Custom**.
-3. In the **API authorization integration** drop-down field, select the custom auth-only integration you created above.  
+3. In the **API authorization integration** drop-down field, select the custom auth-only integration you created above. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ultimate_custom_auth_type.png)
 4. Select the **Headers** tab and click **Add Header**.
 5. Fill in the following fields:
    - **Key:** Authorization
-   - **Value:** Bearer {{apiToken}} *(must be written exactly like this)*  
+   - **Value:** Bearer {{apiToken}} *(must be written exactly like this)* 
      ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ultimate_custom_auth_header.png)
 6. Click **Save**.
 
@@ -87,7 +85,7 @@ After you configure your custom auth-only integration, we recommend testing it. 
 
 ### Troubleshooting statusCode: null
 
-Additionally, when testing your integration, you might encounter a “statusCode: null” message, as shown in the image below:  
+Additionally, when testing your integration, you might encounter a “statusCode: null” message, as shown in the image below: 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ultimate_custom_auth_statusCode_null.png)
 
 First, double-check that your custom auth-only integration has been correctly configured according to the [steps above](#h_01J8MY2GKQWV4J4KQ3A8HBXF8M).

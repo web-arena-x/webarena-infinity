@@ -22,12 +22,10 @@ title: Check migrations before upgrade
 {{< /history >}}
 
 GitLab provides a set of Rake tasks to manage background migrations from the command line.
-These tasks are particularly useful for self-managed administrators who need to manage background
-migrations when the Admin UI is not available, such as during downtime upgrades or maintenance windows.
+These tasks are particularly useful for self-managed administrators who need to manage background migrations when the Admin UI is not available, such as during downtime upgrades or maintenance windows.
 
 All Rake tasks work across all databases (main and ci) and use a unified migration ID format: `{database}_{id}`.
-For example, `main_85` refers to migration ID 85 in the main database, and `ci_10` refers to migration ID 10
-in the ci database.
+For example, `main_85` refers to migration ID 85 in the main database, and `ci_10` refers to migration ID 10 in the ci database.
 
 ### List all background migrations
 
@@ -46,11 +44,11 @@ Example output:
 ```plaintext
 id      | table_name                                              | job_class_name                                              | status
 --------|---------------------------------------------------------|-------------------------------------------------------------|----------
-main_1  | namespace_settings                                      | UpdateRequireDpopForManageApiEndpointsToFalse               | finished
-main_2  | resource_iteration_events                               | BackfillResourceIterationEventsNamespaceId                  | finalized
-main_3  | identities                                              | DeleteTwitterIdentities                                     | finalized
-main_4  | software_license_policies                               | BackfillLicensesOutsideSpdxCatalogue                        | finalized
-main_5  | security_policies                                       | BackfillPipelineExecutionPoliciesMetadata                   | finished
+main_1 | namespace_settings                                      | UpdateRequireDpopForManageApiEndpointsToFalse               | finished
+main_2 | resource_iteration_events                               | BackfillResourceIterationEventsNamespaceId                  | finalized
+main_3 | identities                                              | DeleteTwitterIdentities                                     | finalized
+main_4 | software_license_policies                               | BackfillLicensesOutsideSpdxCatalogue                        | finalized
+main_5 | security_policies                                       | BackfillPipelineExecutionPoliciesMetadata                   | finished
 ci_1    | ci_runners                                              | MarkAdminBotRunnersAsHosted                                 | finalized
 ci_2    | p_ci_build_trace_metadata                               | BackfillUpsertedCiBuildTraceMetadataProjectId               | finalized
 ci_3    | ci_runners                                              | BackfillOrganizationIdOnCiRunners                           | finalized
@@ -127,8 +125,7 @@ sudo gitlab-rake gitlab:background_migrations:pause[main_85]
 
 {{< alert type="note" >}}
 
-You can only pause migrations with an `active` status. Attempting to pause a migration in any other
-state results in an error.
+You can only pause migrations with an `active` status. Attempting to pause a migration in any other state results in an error.
 
 {{< /alert >}}
 
@@ -148,8 +145,7 @@ sudo gitlab-rake gitlab:background_migrations:resume[main_85]
 
 {{< alert type="note" >}}
 
-You can only resume migrations with a `paused` status. Attempting to resume a migration in any other
-state results in an error.
+You can only resume migrations with a `paused` status. Attempting to resume a migration in any other state results in an error.
 
 {{< /alert >}}
 
@@ -183,14 +179,11 @@ Done.
 
 {{< alert type="warning" >}}
 
-This task executes the migration synchronously in the foreground. The migration runs until completion
-or failure. This can take a significant amount of time for large migrations and may impact database
-performance. Use this task during maintenance windows when possible.
+This task executes the migration synchronously in the foreground. The migration runs until completion or failure. This can take a significant amount of time for large migrations and may impact database performance. Use this task during maintenance windows when possible.
 
 {{< /alert >}}
 
-The task prompts for confirmation before executing. If the migration fails to complete, check the
-migration status with `gitlab:background_migrations:show[<migration_id>]` for more details.
+The task prompts for confirmation before executing. If the migration fails to complete, check the migration status with `gitlab:background_migrations:show[<migration_id>]` for more details.
 
 ### Execute all migrations
 
@@ -213,35 +206,33 @@ The following codeblock uses extra spaces to avoid the Vale ReferenceLinks test.
 Do not remove the two-space nesting.
 -->
 
-  ```plaintext
-  Are you sure you want to execute all unfinished migrations? yes
-  [main] Executing 6 background migrations...
-  [main_85]: Start.
-  [main_85]: Done.
-  [main_86]: Start.
-  [main_86]: Done.
-  [main_87]: Start.
-  [main_87]: Done.
-  [main_88]: Start.
-  [main_88]: Done.
-  [main_89]: Start.
-  [main_89]: Done.
-  [main_90]: Start.
-  [main_90]: Done.
-  [ci] Executing 3 background migrations...
-  [ci_8]: Start.
-  [ci_8]: Done.
-  [ci_9]: Start.
-  [ci_9]: Done.
-  [ci_10]: Start.
-  [ci_10]: Done.
-  ```
+ ```plaintext
+ Are you sure you want to execute all unfinished migrations? yes
+ [main] Executing 6 background migrations...
+ [main_85]: Start.
+ [main_85]: Done.
+ [main_86]: Start.
+ [main_86]: Done.
+ [main_87]: Start.
+ [main_87]: Done.
+ [main_88]: Start.
+ [main_88]: Done.
+ [main_89]: Start.
+ [main_89]: Done.
+ [main_90]: Start.
+ [main_90]: Done.
+ [ci] Executing 3 background migrations...
+ [ci_8]: Start.
+ [ci_8]: Done.
+ [ci_9]: Start.
+ [ci_9]: Done.
+ [ci_10]: Start.
+ [ci_10]: Done.
+ ```
 
 {{< alert type="warning" >}}
 
-This task executes all unfinished migrations synchronously in the foreground. This can take a very
-long time and significantly impact database performance. Only use this task during planned maintenance
-windows. The task continues even if individual migrations fail, but reports failures in the output.
+This task executes all unfinished migrations synchronously in the foreground. This can take a very long time and significantly impact database performance. Only use this task during planned maintenance windows. The task continues even if individual migrations fail, but reports failures in the output.
 
 {{< /alert >}}
 
@@ -261,40 +252,26 @@ The task:
 
 {{< /history >}}
 
-To update database tables in batches, GitLab can use batched background migrations. These migrations
-are created by GitLab developers and run automatically on upgrade. However, such migrations are
-limited in scope to help with migrating some `integer` database columns to `bigint`, which is needed to
-prevent integer overflow for some tables.
+To update database tables in batches, GitLab can use batched background migrations. These migrations are created by GitLab developers and run automatically on upgrade. However, such migrations are limited in scope to help with migrating some `integer` database columns to `bigint`, which is needed to prevent integer overflow for some tables.
 
-Batched background migrations are handled by Sidekiq and
-run in isolation,
-so an instance can remain operational while the migrations are processed. However,
-performance might degrade on larger instances that are heavily used while
-batched background migrations are run. You should
-[Actively monitor the Sidekiq status](../administration/admin_area.md#background-jobs)
+Batched background migrations are handled by Sidekiq and run in isolation, so an instance can remain operational while the migrations are processed. However, performance might degrade on larger instances that are heavily used while batched background migrations are run. You should [Actively monitor the Sidekiq status](../administration/admin_area.md#background-jobs)
 until all migrations are completed.
 
-To decrease the time required to complete these migrations, increase the number of
-[Sidekiq workers](../administration/sidekiq/extra_sidekiq_processes.md)
+To decrease the time required to complete these migrations, increase the number of [Sidekiq workers](../administration/sidekiq/extra_sidekiq_processes.md)
 that can process jobs in the `background_migration` queue.
 
 ### Check the status of batched background migrations
 
-You can check the status of batched background migrations in the GitLab UI, or
-by querying the database directly. Before you upgrade GitLab, all migrations must
-have a `Finished` status.
+You can check the status of batched background migrations in the GitLab UI, or by querying the database directly. Before you upgrade GitLab, all migrations must have a `Finished` status.
 
-If the migrations are not finished and you try to upgrade GitLab, you might
-see this error:
+If the migrations are not finished and you try to upgrade GitLab, you might see this error:
 
 ```plaintext
 Expected batched background migration for the given configuration to be marked
 as 'finished', but it is 'active':
 ```
 
-If you get this error,
-[review the options](background_migrations_troubleshooting.md#database-migrations-failing-because-of-batched-background-migration-not-finished) for
-how to complete the batched background migrations needed for the GitLab upgrade.
+If you get this error, [review the options](background_migrations_troubleshooting.md#database-migrations-failing-because-of-batched-background-migration-not-finished) for how to complete the batched background migrations needed for the GitLab upgrade.
 
 #### From the GitLab UI
 
@@ -306,8 +283,7 @@ To check the status of batched background migrations:
 
 1. In the upper-right corner, select **Admin**.
 1. Select **Monitoring** > **Background migrations**.
-1. Select **Queued** or **Finalizing** to see incomplete migrations,
-   and **Failed** for failed migrations.
+1. Select **Queued** or **Finalizing** to see incomplete migrations, and **Failed** for failed migrations.
 
 #### From the database
 
@@ -317,10 +293,8 @@ Prerequisites:
 
 To query the database directly for the status of batched background migrations:
 
-1. Sign in to a `psql` prompt, according to the directions for your instance's
-   installation method. For example, `sudo gitlab-psql` for Linux package installations.
-1. To see details on incomplete batched background migrations, run this query in
-   the `psql` session:
+1. Sign in to a `psql` prompt, according to the directions for your instance's installation method. For example, `sudo gitlab-psql` for Linux package installations.
+1. To see details on incomplete batched background migrations, run this query in the `psql` session:
 
    ```sql
    SELECT
@@ -332,8 +306,7 @@ To query the database directly for the status of batched background migrations:
    WHERE status NOT IN(3, 6);
    ```
 
-Alternatively, you can wrap the query with `gitlab-psql -c "<QUERY>"` to check the status of
-batched background migrations:
+Alternatively, you can wrap the query with `gitlab-psql -c "<QUERY>"` to check the status of batched background migrations:
 
 ```shell
 gitlab-psql -c "SELECT job_class_name, table_name, column_name, job_arguments FROM batched_background_migrations WHERE status NOT IN(3, 6);"
@@ -343,9 +316,7 @@ If the query returns zero rows, all batched background migrations are complete.
 
 ### Enable or disable advanced features
 
-Batched background migrations provide feature flags that enable you to customize
-migrations or pause them entirely. These feature flags should only be disabled by
-advanced users who understand the risks of doing so.
+Batched background migrations provide feature flags that enable you to customize migrations or pause them entirely. These feature flags should only be disabled by advanced users who understand the risks of doing so.
 
 #### Pause batched background migrations
 
@@ -356,10 +327,8 @@ Refer to each feature's history for more details.
 
 {{< /alert >}}
 
-To pause an ongoing batched background migration,
-disable the batched background migrations feature.
-Disabling the feature completes the current batch of migrations, then waits to start
-the next batch until after the feature is enabled again.
+To pause an ongoing batched background migration, disable the batched background migrations feature.
+Disabling the feature completes the current batch of migrations, then waits to start the next batch until after the feature is enabled again.
 
 Prerequisites:
 
@@ -380,8 +349,7 @@ Use the following database queries to see the state of the current batched backg
    WHERE status NOT IN(3, 6);
    ```
 
-1. Run this query, replacing `XX` with the ID you obtained in the previous step,
-   to see the status of the migration:
+1. Run this query, replacing `XX` with the ID you obtained in the previous step, to see the status of the migration:
 
    ```sql
    SELECT
@@ -401,9 +369,7 @@ Use the following database queries to see the state of the current batched backg
 1. Run the query multiple times within a few minutes to ensure no new row has been added.
    If no new row has been added, the migration has been paused.
 
-1. After confirming the migration has paused, restart the migration (using the `enable`
-   command mentioned previously) to proceed with the batch when ready. On larger instances,
-   background migrations can take as long as 48 hours to complete each batch.
+1. After confirming the migration has paused, restart the migration (using the `enable` command mentioned previously) to proceed with the batch when ready. On larger instances, background migrations can take as long as 48 hours to complete each batch.
 
 #### Automatic batch size optimization
 
@@ -442,8 +408,7 @@ Refer to this feature's history for more details.
 
 To speed up the execution of batched background migrations, two migrations are executed at the same time.
 
-[GitLab administrators with access to the GitLab Rails console](../administration/feature_flags/_index.md) can change
-the number of batched background migrations executed in parallel:
+[GitLab administrators with access to the GitLab Rails console](../administration/feature_flags/_index.md) can change the number of batched background migrations executed in parallel:
 
 ```ruby
 ApplicationSetting.update_all(database_max_running_batched_background_migrations: 4)
@@ -459,16 +424,12 @@ If the migration continues to fail with an error, either:
 
 #### Fix and retry the migration
 
-All failed batched background migrations must be resolved to upgrade to a newer
-version of GitLab. If you [check the status](#check-the-status-of-batched-background-migrations)
-of batched background migrations, some migrations might display in the **Failed** tab
-with a **failed** status:
+All failed batched background migrations must be resolved to upgrade to a newer version of GitLab. If you [check the status](#check-the-status-of-batched-background-migrations)
+of batched background migrations, some migrations might display in the **Failed** tab with a **failed** status:
 
 ![A failed batched background migrations table.](img/batched_background_migrations_failed_v14_3.png)
 
-To determine why the batched background migration failed,
-view the failure error logs
-or view error information in the UI.
+To determine why the batched background migration failed, view the failure error logs or view error information in the UI.
 
 Prerequisites:
 
@@ -494,21 +455,18 @@ Prerequisites:
 1. Select the **Failed** tab. This displays a list of failed batched background migrations.
 1. Select a failed batched background migration to retry by clicking on the retry button ({{< icon name="retry" >}}).
 
-To monitor the retried batched background migrations, you can
-[check the status of batched background migrations](#check-the-status-of-batched-background-migrations)
+To monitor the retried batched background migrations, you can [check the status of batched background migrations](#check-the-status-of-batched-background-migrations)
 on a regular interval.
 
 #### Finish a failed migration manually
 
-To manually finish a batched background migration that failed with an error,
-use the information in the failure error logs or the database:
+To manually finish a batched background migration that failed with an error, use the information in the failure error logs or the database:
 
 {{< tabs >}}
 
 {{< tab title="From the failure error logs" >}}
 
-1. View the failure error logs
-   and look for an `An error has occurred, all later migrations canceled` error message, like this:
+1. View the failure error logs and look for an `An error has occurred, all later migrations canceled` error message, like this:
 
    ```plaintext
    StandardError: An error has occurred, all later migrations canceled:
@@ -529,8 +487,7 @@ use the information in the failure error logs or the database:
    sudo gitlab-rake gitlab:background_migrations:finalize[<job_class_name>,<table_name>,<column_name>,'<job_arguments>']
    ```
 
-   When dealing with multiple arguments, such as `[["id"],["id_convert_to_bigint"]]`, escape the
-   comma between each argument with a backslash ` \ ` to prevent an invalid character error.
+   When dealing with multiple arguments, such as `[["id"],["id_convert_to_bigint"]]`, escape the comma between each argument with a backslash ` \ ` to prevent an invalid character error.
    For example, to finish the migration from the previous step:
 
    ```shell
@@ -541,10 +498,8 @@ use the information in the failure error logs or the database:
 
 {{< tab title="From the database" >}}
 
-1. [Check the status](#check-the-status-of-batched-background-migrations) of the
-   migration in the database.
-1. Use the query results to construct a migration command, replacing the values
-   in angle brackets with the correct arguments:
+1. [Check the status](#check-the-status-of-batched-background-migrations) of the migration in the database.
+1. Use the query results to construct a migration command, replacing the values in angle brackets with the correct arguments:
 
    ```shell
    sudo gitlab-rake gitlab:background_migrations:finalize[<job_class_name>,<table_name>,<column_name>,'<job_arguments>']
@@ -557,8 +512,7 @@ use the information in the failure error logs or the database:
    - `column_name`: `id`
    - `job_arguments`: `[["id"], ["id_convert_to_bigint"]]`
 
- When dealing with multiple arguments, such as `[["id"],["id_convert_to_bigint"]]`, escape the
- comma between each argument with a backslash ` \ ` to prevent an invalid character error.
+ When dealing with multiple arguments, such as `[["id"],["id_convert_to_bigint"]]`, escape the comma between each argument with a backslash ` \ ` to prevent an invalid character error.
  Every comma in the `job_arguments` parameter value must be escaped with a backslash.
 
  For example:
@@ -575,14 +529,11 @@ use the information in the failure error logs or the database:
 
 {{< alert type="warning" >}}
 
-[Contact GitLab Support](https://about.gitlab.com/support/#contact-support) before using
-these instructions. This action can cause data loss, and make your instance fail
-in ways that are difficult to recover from.
+[Contact GitLab Support](https://about.gitlab.com/support/#contact-support) before using these instructions. This action can cause data loss, and make your instance fail in ways that are difficult to recover from.
 
 {{< /alert >}}
 
-There can be cases where the background migration fails: when jumping too many version upgrades,
-or backward-incompatible database schema changes. (For an example, see [issue 393216](https://gitlab.com/gitlab-org/gitlab/-/issues/393216)).
+There can be cases where the background migration fails: when jumping too many version upgrades, or backward-incompatible database schema changes. (For an example, see [issue 393216](https://gitlab.com/gitlab-org/gitlab/-/issues/393216)).
 Failed background migrations prevent further application upgrades.
 
 When the background migration is determined to be "safe" to skip, the migration can be manually marked finished:
@@ -596,17 +547,17 @@ When the background migration is determined to be "safe" to skip, the migration 
 connection = ApplicationRecord.connection # or Ci::ApplicationRecord.connection, depending on which DB was the migration scheduled
 
 Gitlab::Database::SharedModel.using_connection(connection) do
-  migration = Gitlab::Database::BackgroundMigration::BatchedMigration.find_for_configuration(
+ migration = Gitlab::Database::BackgroundMigration::BatchedMigration.find_for_configuration(
     Gitlab::Database.gitlab_schemas_for_connection(connection),
     'BackfillUserDetailsFields',
     :users,
     :id,
     []
-  )
+ )
 
-  # mark all jobs completed
-  migration.batched_jobs.update_all(status: Gitlab::Database::BackgroundMigration::BatchedJob.state_machine.states['succeeded'].value)
-  migration.update_attribute(:status, Gitlab::Database::BackgroundMigration::BatchedMigration.state_machine.states[:finished].value)
+ # mark all jobs completed
+ migration.batched_jobs.update_all(status: Gitlab::Database::BackgroundMigration::BatchedJob.state_machine.states['succeeded'].value)
+ migration.update_attribute(:status, Gitlab::Database::BackgroundMigration::BatchedMigration.state_machine.states[:finished].value)
 end
 ```
 
@@ -622,7 +573,7 @@ This script may timeout/exit before all migrations are completed. You can run it
 databases = ActiveRecord::Tasks::DatabaseTasks.setup_initial_database_yaml
 
 Gitlab::Database.database_base_models.each do |database_name, model|
-  Gitlab::Database::SharedModel.using_connection(model.connection) do
+ Gitlab::Database::SharedModel.using_connection(model.connection) do
     Gitlab::Database::BackgroundMigration::BatchedMigration.with_status([:paused, :active]).find_each(batch_size: 100) do |migration|
       puts "#{database_name}: Finalizing migration #{migration.job_class_name} (ID: #{migration.id})... "
       Gitlab::Database::BackgroundMigration::BatchedMigrationRunner.finalize(
@@ -634,7 +585,7 @@ Gitlab::Database.database_base_models.each do |database_name, model|
       )
       puts("done!\n")
     end
-  end
+ end
 end
 ```
 
@@ -664,30 +615,30 @@ Example application log entry:
 
 ```json
 {
-  "severity": "INFO",
-  "time": "2025-08-27T22:52:07.806Z",
-  "meta.caller_id": "Database::BatchedBackgroundMigration::MainExecutionWorker",
-  "correlation_id": "74d0295cbe4bb6147230a7d481fb0f8a",
-  "message": "BatchedJob transition",
-  "batched_job_id": 725,
-  "previous_state": "pending",
-  "new_state": "running",
-  "batched_migration_id": 638,
-  "job_class_name": "BackfillSentNotificationsAfterPartition",
-  "job_arguments": []
+ "severity": "INFO",
+ "time": "2025-08-27T22:52:07.806Z",
+ "meta.caller_id": "Database::BatchedBackgroundMigration::MainExecutionWorker",
+ "correlation_id": "74d0295cbe4bb6147230a7d481fb0f8a",
+ "message": "BatchedJob transition",
+ "batched_job_id": 725,
+ "previous_state": "pending",
+ "new_state": "running",
+ "batched_migration_id": 638,
+ "job_class_name": "BackfillSentNotificationsAfterPartition",
+ "job_arguments": []
 },
 {
-  "severity": "INFO",
-  "time": "2025-08-27T22:52:14.293Z",
-  "meta.caller_id": "Database::BatchedBackgroundMigration::MainExecutionWorker",
-  "correlation_id": "74d0295cbe4bb6147230a7d481fb0f8a",
-  "message": "BatchedJob transition",
-  "batched_job_id": 725,
-  "previous_state": "running",
-  "new_state": "succeeded",
-  "batched_migration_id": 638,
-  "job_class_name": "BackfillSentNotificationsAfterPartition",
-  "job_arguments": []
+ "severity": "INFO",
+ "time": "2025-08-27T22:52:14.293Z",
+ "meta.caller_id": "Database::BatchedBackgroundMigration::MainExecutionWorker",
+ "correlation_id": "74d0295cbe4bb6147230a7d481fb0f8a",
+ "message": "BatchedJob transition",
+ "batched_job_id": 725,
+ "previous_state": "running",
+ "new_state": "succeeded",
+ "batched_migration_id": 638,
+ "job_class_name": "BackfillSentNotificationsAfterPartition",
+ "job_arguments": []
 }
 ```
 
@@ -702,9 +653,7 @@ Example application log entry:
 
 This section is only applicable if you have enabled the [Elasticsearch integration](../integration/advanced_search/elasticsearch.md).
 Major releases require all [advanced search migrations](../integration/advanced_search/elasticsearch.md#advanced-search-migrations)
-to be finished from the most recent minor release in your current version
-before the major version upgrade. You can find pending migrations by
-running the following command.
+to be finished from the most recent minor release in your current version before the major version upgrade. You can find pending migrations by running the following command.
 
 {{< tabs >}}
 
@@ -727,8 +676,7 @@ sudo -u git -H bundle exec rake gitlab:elastic:list_pending_migrations
 
 {{< /tabs >}}
 
-If you're on a long upgrade path and have many pending migrations, you might want to configure
-**Requeue indexing workers** and **Number of shards for non-code indexing** to speed up indexing.
+If you're on a long upgrade path and have many pending migrations, you might want to configure **Requeue indexing workers** and **Number of shards for non-code indexing** to speed up indexing.
 Another option is to ignore the pending migrations and [reindex the instance](../integration/advanced_search/elasticsearch.md#index-the-instance) after you upgrade GitLab to the target version.
 You can also disable advanced search during this process with the [**Search with advanced search**](../integration/advanced_search/elasticsearch.md#advanced-search-configuration) setting.
 

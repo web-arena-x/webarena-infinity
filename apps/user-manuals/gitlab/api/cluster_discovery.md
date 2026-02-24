@@ -39,7 +39,7 @@ Example response:
 
 ```json
 {
-  "groups": {
+ "groups": {
     "my-clusters-group": [
       {
         "id": 2,
@@ -52,8 +52,8 @@ Example response:
         "name": "subsubgroup-cluster"
       }
     ]
-  },
-  "projects": {
+ },
+ "projects": {
     "my-clusters-group/subgroup1/subsubgroup1/subsubgroup-project-with-cluster": [
       {
         "id": 3,
@@ -66,6 +66,6 @@ Example response:
         "name": "test"
       }
     ]
-  }
+ }
 }
 ```

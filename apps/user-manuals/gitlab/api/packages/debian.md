@@ -23,9 +23,7 @@ Use this API to interact with the [Debian package manager client](../../user/pac
 {{< alert type="warning" >}}
 
 This API is used by the Debian related package clients such as [dput](https://manpages.debian.org/stable/dput-ng/dput.1.en.html)
-and [apt-get](https://manpages.debian.org/stable/apt/apt-get.8.en.html),
-and is generally not meant for manual consumption. This API is under development and is not ready
-for production use due to limited functionality.
+and [apt-get](https://manpages.debian.org/stable/apt/apt-get.8.en.html), and is generally not meant for manual consumption. This API is under development and is not ready for production use due to limited functionality.
 
 {{< /alert >}}
 
@@ -41,15 +39,13 @@ for details on which headers and token types are supported. Undocumented authent
 
 The Debian API is behind a feature flag that is disabled by default.
 [GitLab administrators with access to the GitLab Rails console](../../administration/feature_flags/_index.md)
-can opt to enable it. To enable it, follow the instructions in
-[Enable the Debian API](../../user/packages/debian_repository/_index.md#enable-the-debian-api).
+can opt to enable it. To enable it, follow the instructions in [Enable the Debian API](../../user/packages/debian_repository/_index.md#enable-the-debian-api).
 
 ## Enable the Debian group API
 
 The Debian group API is behind a feature flag that is disabled by default.
 [GitLab administrators with access to the GitLab Rails console](../../administration/feature_flags/_index.md)
-can opt to enable it. To enable it, follow the instructions in
-[Enable the Debian group API](../../user/packages/debian_repository/_index.md#enable-the-debian-group-api).
+can opt to enable it. To enable it, follow the instructions in [Enable the Debian group API](../../user/packages/debian_repository/_index.md#enable-the-debian-group-api).
 
 ### Authenticate to the Debian Package Repositories
 
@@ -65,7 +61,7 @@ PUT projects/:id/packages/debian/:file_name
 
 | Attribute      | Type   | Required | Description |
 | -------------- | ------ | -------- | ----------- |
-| `id`           | string | yes      | The ID or full path of the project.  |
+| `id`           | string | yes      | The ID or full path of the project. |
 | `file_name`    | string | yes      | The name of the Debian package file. |
 | `distribution` | string | no       | The distribution codename or suite. Used with `component` for upload with explicit distribution and component. |
 | `component`    | string | no       | The package file component. Used with `distribution` for upload with explicit distribution and component. |
@@ -81,9 +77,9 @@ Upload with explicit distribution and component:
 
 ```shell
 curl --request PUT \
-  --user "<username>:<personal_access_token>" \
-  --upload-file  /path/to/myother.deb \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/myother.deb?distribution=sid&component=main"
+ --user "<username>:<personal_access_token>" \
+ --upload-file /path/to/myother.deb \
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/myother.deb?distribution=sid&component=main"
 ```
 
 ## Download a package
@@ -104,7 +100,7 @@ GET projects/:id/packages/debian/pool/:distribution/:letter/:package_name/:packa
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/pool/my-distro/a/my-pkg/1.0.0/example_1.0.0~alpha2_amd64.deb"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/pool/my-distro/a/my-pkg/1.0.0/example_1.0.0~alpha2_amd64.deb"
 ```
 
 Write the output to a file:
@@ -119,8 +115,7 @@ This writes the downloaded file using the remote filename in the current directo
 
 ## Route prefix
 
-The remaining endpoints described are two sets of identical routes that each make requests in
-different scopes:
+The remaining endpoints described are two sets of identical routes that each make requests in different scopes:
 
 - Use the project-level prefix to make requests in a single project's scope.
 - Use the group-level prefix to make requests in a single group's scope.
@@ -161,7 +156,7 @@ GET <route-prefix>/dists/*distribution/Release
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/Release"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/Release"
 ```
 
 Write the output to a file:
@@ -188,7 +183,7 @@ GET <route-prefix>/dists/*distribution/InRelease
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/InRelease"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/InRelease"
 ```
 
 Write the output to a file:
@@ -215,7 +210,7 @@ GET <route-prefix>/dists/*distribution/Release.gpg
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/Release.gpg"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/Release.gpg"
 ```
 
 Write the output to a file:
@@ -244,7 +239,7 @@ GET <route-prefix>/dists/*distribution/:component/binary-:architecture/Packages
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/main/binary-amd64/Packages"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/main/binary-amd64/Packages"
 ```
 
 Write the output to a file:
@@ -274,7 +269,7 @@ GET <route-prefix>/dists/*distribution/:component/binary-:architecture/by-hash/S
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/main/binary-amd64/by-hash/SHA256/66a045b452102c59d840ec097d59d9467e13a3f34f6494e539ffd32c1bb35f18"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/main/binary-amd64/by-hash/SHA256/66a045b452102c59d840ec097d59d9467e13a3f34f6494e539ffd32c1bb35f18"
 ```
 
 Write the output to a file:
@@ -303,7 +298,7 @@ GET <route-prefix>/dists/*distribution/:component/debian-installer/binary-:archi
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/main/debian-installer/binary-amd64/Packages"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/main/debian-installer/binary-amd64/Packages"
 ```
 
 Write the output to a file:
@@ -332,7 +327,7 @@ GET <route-prefix>/dists/*distribution/:component/debian-installer/binary-:archi
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/main/debian-installer/binary-amd64/by-hash/SHA256/66a045b452102c59d840ec097d59d9467e13a3f34f6494e539ffd32c1bb35f18"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/main/debian-installer/binary-amd64/by-hash/SHA256/66a045b452102c59d840ec097d59d9467e13a3f34f6494e539ffd32c1bb35f18"
 ```
 
 Write the output to a file:
@@ -360,7 +355,7 @@ GET <route-prefix>/dists/*distribution/:component/source/Sources
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/main/source/Sources"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/main/source/Sources"
 ```
 
 Write the output to a file:
@@ -388,7 +383,7 @@ GET <route-prefix>/dists/*distribution/:component/source/by-hash/SHA256/:file_sh
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/main/source/by-hash/SHA256/66a045b452102c59d840ec097d59d9467e13a3f34f6494e539ffd32c1bb35f18"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/debian/dists/my-distro/main/source/by-hash/SHA256/66a045b452102c59d840ec097d59d9467e13a3f34f6494e539ffd32c1bb35f18"
 ```
 
 Write the output to a file:

@@ -24,18 +24,15 @@ Epics make complex projects manageable. They:
 
 Teams use epics to coordinate across multiple iterations and track progress toward long-term goals.
 
-In the Ultimate tier, [nested epics](manage_epics.md#multi-level-child-epics) provide additional
-structure through work hierarchies that align with agile frameworks.
-Break down complex projects into more manageable child epics, which can further contain their own
-sets of issues and tasks.
-This nested structure helps maintain clarity and ensures all aspects of a project are covered without
-losing sight of the overarching goals.
+In the Ultimate tier, [nested epics](manage_epics.md#multi-level-child-epics) provide additional structure through work hierarchies that align with agile frameworks.
+Break down complex projects into more manageable child epics, which can further contain their own sets of issues and tasks.
+This nested structure helps maintain clarity and ensures all aspects of a project are covered without losing sight of the overarching goals.
 
 <div class="video-fallback">
-  See the video: <a href="https://www.youtube.com/watch?v=c0EwYYUZppw">GitLab Epics - Setting up your Organization with GitLab</a>.
+ See the video: <a href="https://www.youtube.com/watch?v=c0EwYYUZppw">GitLab Epics - Setting up your Organization with GitLab</a>.
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/c0EwYYUZppw" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/c0EwYYUZppw" frameborder="0" allowfullscreen> </iframe>
 </figure>
 <!-- Video published on 2023-10-30 -->
 
@@ -75,8 +72,7 @@ graph TD
 ### Child issues from different group hierarchies
 
 You can add issues from a different group hierarchy to an epic.
-To do it, paste the issue URL when
-[adding an existing issue](manage_epics.md#add-an-existing-issue-to-an-epic).
+To do it, paste the issue URL when [adding an existing issue](manage_epics.md#add-an-existing-issue-to-an-epic).
 
 ## Roadmap in epics
 
@@ -102,17 +98,14 @@ A roadmap filtered for the parent epic opens.
 
 {{< /history >}}
 
-We have changed how epics look by migrating them to a unified framework for work items to better
-meet the product needs of our Agile Planning offering.
+We have changed how epics look by migrating them to a unified framework for work items to better meet the product needs of our Agile Planning offering.
 
-For more information, see [epic 9290](https://gitlab.com/groups/gitlab-org/-/epics/9290) and the
-following blog posts:
+For more information, see [epic 9290](https://gitlab.com/groups/gitlab-org/-/epics/9290) and the following blog posts:
 
 - [First look: The new Agile planning experience in GitLab](https://about.gitlab.com/blog/2024/06/18/first-look-the-new-agile-planning-experience-in-gitlab/) (June 2024)
 - [Unveiling a new epic experience for improved Agile planning](https://about.gitlab.com/blog/2024/07/03/unveiling-a-new-epic-experience-for-improved-agile-planning/) (July 2024)
 
-If you run into any issues while trying out this change, you can use the
-[feedback issue](https://gitlab.com/gitlab-org/gitlab/-/issues/494462) to provide more details.
+If you run into any issues while trying out this change, you can use the [feedback issue](https://gitlab.com/gitlab-org/gitlab/-/issues/494462) to provide more details.
 
 ### Work item Markdown reference
 

@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408893967514-Setting-up-t
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > Objects and rules > Tickets > Settings
+Location: Admin Center > Objects and rules > Tickets > Settings
 
 You can share tickets from your Support account with other accounts by establishing sharing agreements. You can specify the terms under which sharing can occur and how shared tickets are managed. The other accounts you establish sharing agreements with can also share their tickets with you if they establish sharing agreements with your account.
 
@@ -45,14 +45,14 @@ Here's how ticket sharing works:
 - A shared ticket becomes a new ticket in the receiver's account with a separate ticket ID.
 - The ticket status, custom fields, and comments can remain synced between the ticket versions in both accounts. The custom fields must be created in both accounts (see [Syncing custom fields with another account](#topic_uxg_hfr_hf) below). CC recipients are not carried over from the original ticket to the shared ticket.
 
-  Note: Any public or private comments added to a shared ticket will be visible to agents in both the original Support account, and the Support account the ticket is shared with. Any public comment to the shared ticket will also notify any users copied on the original ticket.
+ Note: Any public or private comments added to a shared ticket will be visible to agents in both the original Support account, and the Support account the ticket is shared with. Any public comment to the shared ticket will also notify any users copied on the original ticket.
 - All ticket statuses can match, except for On-hold. When a ticket is changed to On-hold in one account, it will be submitted as Open in the other.
 - Tickets in the Closed status can't be shared.
 - Call recordings (including voicemail recordings) in a shared ticket can only be accessed by signed-in agents of the Support account that the original call is associated with. For example, Account A shares a call ticket with Account B, which includes the calls recording. The agents in Account B will not be able to listen to that recording in the shared ticket. If they are agents in **both** accounts they can listen to the recording by signing into Account A, locating the original ticket and listening to the file there. Transcriptions of voicemails remain visible, as lines of text within the shared ticket.
 - Depending on the terms of the agreement, the receiver may directly communicate with the ticket requester and solve the ticket.
 - Sharing tickets creates a placeholder user in the receiving account for each user associated with the sending account ticket. The user is created even if there is a user in the receiving account with the same name and email address as the placeholder user. If an agent in the receiving account makes a comment on this shared ticket, a placeholder end user account is created in the sending account to represent this agent. Placeholder users created during ticket sharing can't be deleted.
 
-  It's important to note that shared tickets do not pass on user information – that is, customer information such as email address or phone number are not stored. Tickets are never linked to matching users in the receiving accounts, unless an agent of the receiving account manually adjusts the requester of the shared ticket when the user is created in the receiving account. This adjustment is not recommended as it can cause issues with the sharing agreement. When a ticket is *unshared*, the receiving account cannot communicate with the requester unless the user profile is updated with a profile that includes an email address.
+ It's important to note that shared tickets do not pass on user information – that is, customer information such as email address or phone number are not stored. Tickets are never linked to matching users in the receiving accounts, unless an agent of the receiving account manually adjusts the requester of the shared ticket when the user is created in the receiving account. This adjustment is not recommended as it can cause issues with the sharing agreement. When a ticket is *unshared*, the receiving account cannot communicate with the requester unless the user profile is updated with a profile that includes an email address.
 - Each account's business rules remain separate.
 - A shared ticket cannot be merged with another ticket.
 - An account can automatically refuse to accept all sharing agreement invites.

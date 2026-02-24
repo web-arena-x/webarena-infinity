@@ -13,12 +13,9 @@ description: User management, roles, permissions, and access levels.
 
 {{< /details >}}
 
-Members are the users and groups who have access to your project. Members can be added directly to your
-project or inherit access through groups.
+Members are the users and groups who have access to your project. Members can be added directly to your project or inherit access through groups.
 
-Each member has a role that determines what they can do in the project. Project members with the
-appropriate role can add users to projects, remove users from projects, and manage access requests to
-control access to project resources.
+Each member has a role that determines what they can do in the project. Project members with the appropriate role can add users to projects, remove users from projects, and manage access requests to control access to project resources.
 
 ## Membership types
 
@@ -44,10 +41,10 @@ Indirect membership can be inherited, shared, or inherited shared.
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
 flowchart RL
-  accTitle: Membership types
-  accDescr: Describes membership types and their inheritance
+ accTitle: Membership types
+ accDescr: Describes membership types and their inheritance
 
-  subgraph Group A
+ subgraph Group A
     A(Direct member)
     B{{Shared member}}
     subgraph Project X
@@ -58,19 +55,19 @@ flowchart RL
     end
     A-->|Inherited membership in Project X
          Direct membership in Group A|C
-  end
-  subgraph Group C
+ end
+ subgraph Group C
     G(Direct member)
-  end
-  subgraph Group B
+ end
+ subgraph Group B
     F(Direct member)
-  end
-  F-->|Group B
+ end
+ F-->|Group B
        invited to
        Group A|B
-  B-->|Inherited membership in Project X
+ B-->|Inherited membership in Project X
        Indirect membership in Group A|D
-  G-->|Group C invited to Project X|E
+ G-->|Group C invited to Project X|E
 ```
 
 ![Project members page](img/project_members_v17_4.png)
@@ -88,21 +85,17 @@ In the previous example:
 Git is a distributed version control system (DVCS).
 Everyone who works with the source code has a local copy of the complete repository.
 
-In GitLab, every project member with at least the Reporter role can clone the repository to create
-a local copy.
+In GitLab, every project member with at least the Reporter role can clone the repository to create a local copy.
 Users can upload the full repository anywhere after they obtain a local copy, including:
 
 - Another project under their control.
 - A different server.
 - External hosting services.
 
-Access controls cannot prevent the intentional sharing of source code by users who already have
-access to the repository.
-All Git management platforms have this inherent characteristic of distributed version control
-systems.
+Access controls cannot prevent the intentional sharing of source code by users who already have access to the repository.
+All Git management platforms have this inherent characteristic of distributed version control systems.
 
-While you cannot prevent intentional sharing by authorized users, you can take the following steps
-to prevent unintentional sharing and information destruction:
+While you cannot prevent intentional sharing by authorized users, you can take the following steps to prevent unintentional sharing and information destruction:
 
 - Control who can [add users to a project](#add-users-to-a-project).
 - Use [protected branches](../repository/branches/protected.md) to prevent unauthorized force pushes.
@@ -117,17 +110,16 @@ to prevent unintentional sharing and information destruction:
 
 {{< /history >}}
 
-Add users to a project so they become direct members and have permission
-to perform actions.
+Add users to a project so they become direct members and have permission to perform actions.
 
 Prerequisites:
 
 - You must have the Owner or Maintainer role.
 - [Group membership lock](../../group/access_and_permissions.md#prevent-members-from-being-added-to-projects-in-a-group) must be disabled.
 - For GitLab Self-Managed instances:
-  - If [new sign-ups are disabled](../../../administration/settings/sign_up_restrictions.md#disable-new-sign-ups), an administrator must add the user.
-  - If [user invitations are not allowed](../../../administration/settings/visibility_and_access_controls.md#prevent-invitations-to-groups-and-projects), an administrator must add the user.
-  - If [administrator approval is enabled](../../../administration/settings/sign_up_restrictions.md#turn-on-administrator-approval-for-role-promotions), an administrator must approve the invitation.
+ - If [new sign-ups are disabled](../../../administration/settings/sign_up_restrictions.md#disable-new-sign-ups), an administrator must add the user.
+ - If [user invitations are not allowed](../../../administration/settings/visibility_and_access_controls.md#prevent-invitations-to-groups-and-projects), an administrator must add the user.
+ - If [administrator approval is enabled](../../../administration/settings/sign_up_restrictions.md#turn-on-administrator-approval-for-role-promotions), an administrator must approve the invitation.
 
 To add a user to a project:
 
@@ -143,13 +135,11 @@ To add a user to a project:
 1. Optional. Select an **Access expiration date**.
    From that date onward, the user can no longer access the project.
 
-   If you selected an access expiration date, the project member gets an email notification
-   seven days before their access expires.
+   If you selected an access expiration date, the project member gets an email notification seven days before their access expires.
 
    {{< alert type="warning" >}}
 
-   Maintainers have full permissions until their role expires, including the ability to
-   extend their own access expiration date.
+   Maintainers have full permissions until their role expires, including the ability to extend their own access expiration date.
 
    {{< /alert >}}
 
@@ -163,8 +153,7 @@ To add a user to a project:
 
 ### Which roles you can assign
 
-The maximum role you can assign depends on whether you have the Owner or Maintainer
-role for the group. For example, the maximum role you can set is:
+The maximum role you can assign depends on whether you have the Owner or Maintainer role for the group. For example, the maximum role you can set is:
 
 - Owner (`50`), if you have the Owner role for the project.
 - Maintainer (`40`), if you have the Maintainer role on the project.
@@ -182,11 +171,9 @@ A table displays the member's:
 
 - **Account** name and username.
 - **Source** of their [membership](#membership-types).
-  For transparency, GitLab displays all membership sources of project members.
-  Members who have multiple membership sources are displayed and counted as separate members.
-  For example, if a member has been added to the project both directly and through inheritance,
-  the member is displayed twice in the **Members** table, with different sources,
-  and is counted as two individual members of the project.
+ For transparency, GitLab displays all membership sources of project members.
+ Members who have multiple membership sources are displayed and counted as separate members.
+ For example, if a member has been added to the project both directly and through inheritance, the member is displayed twice in the **Members** table, with different sources, and is counted as two individual members of the project.
 - [**Role**](#which-roles-you-can-assign) in the project.
 - **Expiration** date of their project membership.
 - **Activity** related to their account.
@@ -255,36 +242,29 @@ If a user is:
 Prerequisites:
 
 - To remove direct members that have the:
-  - Maintainer, Developer, Reporter, Planner, or Guest role, you must have the Maintainer role.
-  - Owner role, you must have the Owner role.
-- Optional. Unassign the member from all issues and merge requests that
-  are assigned to them.
+ - Maintainer, Developer, Reporter, Planner, or Guest role, you must have the Maintainer role.
+ - Owner role, you must have the Owner role.
+- Optional. Unassign the member from all issues and merge requests that are assigned to them.
 
 To remove a member from a project:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Manage** > **Members**.
 1. Next to the project member you want to remove, select **Remove member**.
-1. Optional. On the confirmation dialog, select the
-   **Also unassign this user from related issues and merge requests** checkbox.
-1. To prevent leaks of sensitive information from private projects, verify the
-   member has not forked the private repository or created webhooks. Existing forks continue to receive
-   changes from the upstream project, and webhooks continue to receive updates. You may also want to configure your project
-   to prevent projects in a group
-   [from being forked outside their group](../../group/access_and_permissions.md#prevent-project-forking-outside-group).
+1. Optional. On the confirmation dialog, select the **Also unassign this user from related issues and merge requests** checkbox.
+1. To prevent leaks of sensitive information from private projects, verify the member has not forked the private repository or created webhooks. Existing forks continue to receive changes from the upstream project, and webhooks continue to receive updates. You may also want to configure your project to prevent projects in a group [from being forked outside their group](../../group/access_and_permissions.md#prevent-project-forking-outside-group).
 1. Select **Remove member**.
 
 ## Ensure removed users cannot invite themselves back
 
-Users with the Maintainer or Owner role could exploit a race condition that allows
-them to rejoin groups or projects after an administrator removes them.
+Users with the Maintainer or Owner role could exploit a race condition that allows them to rejoin groups or projects after an administrator removes them.
 
 To avoid this problem, GitLab administrators can:
 
 - Remove the malicious user session from the [GitLab Rails console](../../../administration/operations/rails_console.md).
 - Impersonate the malicious user to:
-  - Remove the user from the project.
-  - Log the user out of GitLab.
+ - Remove the user from the project.
+ - Log the user out of GitLab.
 - Block the malicious user account.
 - Remove the malicious user account.
 - Change the password for the malicious user account.
@@ -417,15 +397,15 @@ In the following example, `User` is a:
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
 graph TD
-  accTitle: Diagram of group inheritance
-  accDescr: User inheritance, both direct and indirect through subgroups
+ accTitle: Diagram of group inheritance
+ accDescr: User inheritance, both direct and indirect through subgroups
 
-  root --> subgroup --> subsubgroup
-  root-2 --> subgroup-2 --> subsubgroup-2
-  root-3 --> subgroup-3 --> subsubgroup-3
-  subgroup -. shared .-> subgroup-2 -. shared .-> subgroup-3
+ root --> subgroup --> subsubgroup
+ root-2 --> subgroup-2 --> subsubgroup-2
+ root-3 --> subgroup-3 --> subsubgroup-3
+ subgroup -. shared .-> subgroup-2 -. shared .-> subgroup-3
 
-  User-. member .- subgroup
+ User-. member .- subgroup
 
-  class User user
+ class User user
 ```

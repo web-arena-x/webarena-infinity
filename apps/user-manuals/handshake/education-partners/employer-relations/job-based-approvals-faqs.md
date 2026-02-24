@@ -35,15 +35,15 @@ How have job & employer declines changed?
 Job & Employer Declines work largely the same as they do today. EDU partners can choose to decline individual jobs or specific employers for *any reason*. They can decline a job or the employer right from the new jobs list.
 
 - - One change is that if an employer is declined, the comment feed between EDU and the employer will no longer be open.
-  - Schools can always choose to re-approve a previously declined employer just as they can today.
+ - Schools can always choose to re-approve a previously declined employer just as they can today.
 
 Has the Job Automatic Approval Configuration changed?
 
 Job Automatic Approval Configuration is a key component of job-based approvals. While it is off by default, we highly recommend schools turn this on in order to help manage job approval volume. When turned on, all jobs will be automatically approved unless they meet one or more of CS defined *exception criteria*.
 
 - - One new criteria added with job-based approvals is “*Jobs posted by new employers.”* If your school is already automatically approving employers, “Jobs posted by new employers” will be disabled by default. If your school isn’t already automatically approving employers, “Jobs posted by new employers” will be enabled by default.
-  - This allows schools to effectively manage their “employer approvals” right from the new jobs list by filtering on jobs from new employers in the pending queue.
-  - **Note**: If multiple jobs from a new employer are in the pending queue, and one of the jobs is approved, the remaining pending jobs *will not be re-processed* through the Job Automatic Approval Configuration.
+ - This allows schools to effectively manage their “employer approvals” right from the new jobs list by filtering on jobs from new employers in the pending queue.
+ - **Note**: If multiple jobs from a new employer are in the pending queue, and one of the jobs is approved, the remaining pending jobs *will not be re-processed* through the Job Automatic Approval Configuration.
 
 **For example:** If a new employer posts 5 jobs at once, they will all land in your queue for meeting the "jobs from new employers" exception criteria. When you approve one of the jobs (and the employer), the remaining four will remain pending—even if they pass your job approval settings. This is because, at the time of posting, they were from a new employer and, thus, met your job approval settings.
 
@@ -58,7 +58,7 @@ Can I still proactively approve employers?
 This is still an available option for schools. They can use Find Employers to identify employers and approve employers (even if they do not have a job posted).
 
 - - EDU partners are also able to continue sending out employer approval links + invite contacts as a way to automatically add and approve employers in their network.
-  - This workflow is recommended if a new employer wishes to connect with your institution to host an event but doesn’t have a job to post.
+ - This workflow is recommended if a new employer wishes to connect with your institution to host an event but doesn’t have a job to post.
 
 Is there any other way that I can approve employers?
 

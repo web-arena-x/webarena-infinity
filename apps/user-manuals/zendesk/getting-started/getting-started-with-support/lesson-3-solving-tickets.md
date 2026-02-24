@@ -119,7 +119,7 @@ First, create the macro, following these steps:
    For this example, we'll create a macro that asks the customer for more information. We'll change the ticket status to Pending (because we need information from the customer and can't proceed until we receive that information) and add a message explaining what we need.
 4. Enter a **name** (for example, *Need more information*).
 5. Macros contain actions that update the ticket and can generate notifications to the customer. Click **Add action**, then select **Ticket: Status** and **Pending**.
-6. Next, add the email notification message by adding another action. Click **Add action** and then select **Ticket: Comment/description**.  
+6. Next, add the email notification message by adding another action. Click **Add action** and then select **Ticket: Comment/description**. 
      
    A text box appears.
 7. Add this message or something similar:
@@ -134,7 +134,7 @@ Now that you've created a macro, you can apply it to a ticket.
 2. At the bottom of the ticket window, click **Apply Macro**. You'll see the pre-defined macros and also the macro you just created.
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/support_intro_macro.png)
-3. Select your macro from the list.  
+3. Select your macro from the list. 
    The ticket is updated with the actions contained in the macro.
 4. Click **Submit** to save the updates and generate the email notification to the customer.
 

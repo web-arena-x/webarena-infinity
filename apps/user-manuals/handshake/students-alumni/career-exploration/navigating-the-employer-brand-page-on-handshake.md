@@ -9,17 +9,17 @@ When you visit a company's profile on Handshake, you'll land on their **employer
 You can access an employer's brand page in several ways:
 
 - **Employer Search**
-  - Click "Employers" on the left navigation menu, then search for a specific company profile.
+ - Click "Employers" on the left navigation menu, then search for a specific company profile.
 - **Feed Posts**
-  - Click on the company's name or logo directly from a feed post.
+ - Click on the company's name or logo directly from a feed post.
 - **Job Listings**
-  - Click on the company's name from any job posting to view their brand page.
+ - Click on the company's name from any job posting to view their brand page.
 
 The employer brand page is organized into several key sections that give you a comprehensive view of the company.
 
 ### **Header**
 
-The **header** displays the employer's name, logo, industry, location, company size, type, website URL, and a "Follow" button.  
+The **header** displays the employer's name, logo, industry, location, company size, type, website URL, and a "Follow" button. 
 ![Header.png](https://support.joinhandshake.com/hc/article_attachments/28303700451863)
 
 *To learn more about following an employer, check out* [Following an Employer in Handshake](following-an-employer-in-handshake.md).

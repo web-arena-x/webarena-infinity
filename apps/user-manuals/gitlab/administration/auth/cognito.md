@@ -47,8 +47,7 @@ To enable AWS Cognito as an authentication provider, complete the following step
 ## Configure GitLab
 
 1. Configure the [common settings](../../integration/omniauth.md#configure-common-settings)
-   to add `cognito` as a single sign-on provider. This enables Just-In-Time
-   account provisioning for users who do not have an existing GitLab account.
+   to add `cognito` as a single sign-on provider. This enables Just-In-Time account provisioning for users who do not have an existing GitLab account.
 1. On your GitLab server, open the configuration file. For Linux package installations:
 
    ```shell

@@ -22,16 +22,13 @@ title: Customize review instructions for GitLab Duo
 
 {{< /history >}}
 
-Create custom merge request review instructions to ensure that GitLab Duo applies consistent and
-specific code review standards to your project.
+Create custom merge request review instructions to ensure that GitLab Duo applies consistent and specific code review standards to your project.
 
 Both GitLab Duo Code Review (Classic) and Code Review Flow support custom review instructions.
 
-For example, you can enforce Ruby style conventions only on Ruby files, and Go style
-conventions on Go files.
+For example, you can enforce Ruby style conventions only on Ruby files, and Go style conventions on Go files.
 
-GitLab Duo appends your custom review instructions to its standard review criteria,
-instead of replacing them.
+GitLab Duo appends your custom review instructions to its standard review criteria, instead of replacing them.
 
 ## Configure custom review instructions
 
@@ -58,13 +55,12 @@ To configure custom merge request review instructions:
        fileFilters:
          - <glob_pattern_1>
          - <glob_pattern_2>
-         - !<exclude_pattern>  # Exclude files matching this pattern
+         - !<exclude_pattern> # Exclude files matching this pattern
        instructions: |
          <your_custom_review_instructions>
    ```
 
-   Use glob patterns in the `fileFilters` section to target specific files for
-   the custom review rules.
+   Use glob patterns in the `fileFilters` section to target specific files for the custom review rules.
 
    For example:
 
@@ -74,7 +70,7 @@ To configure custom merge request review instructions:
        fileFilters:
          - "*.rb"           # Ruby files in the root directory
          - "lib/**/*.rb"    # Ruby files in lib and its subdirectories
-         - "!spec/**/*.rb"  # Exclude test files
+         - "!spec/**/*.rb" # Exclude test files
        instructions: |
          1. Ensure all methods have proper documentation
          2. Follow Ruby style guide conventions
@@ -83,8 +79,8 @@ To configure custom merge request review instructions:
      - name: TypeScript Source Files
        fileFilters:
          - "**/*.ts"        # Typescript files in any directory
-         - "!**/*.test.ts"  # Exclude test files
-         - "!**/*.spec.ts"  # Exclude spec files
+         - "!**/*.test.ts" # Exclude test files
+         - "!**/*.spec.ts" # Exclude spec files
        instructions: |
          1. Ensure proper TypeScript types (avoid 'any')
          2. Follow naming conventions
@@ -110,11 +106,9 @@ To configure custom merge request review instructions:
          3. Use shared examples to reduce duplication
    ```
 
-   For glob syntax examples, see the
-   [file pattern reference](#file-pattern-reference).
+   For glob syntax examples, see the [file pattern reference](#file-pattern-reference).
 
-1. Optional: Add a [Code Owners](../../project/codeowners/_index.md) entry to
-   protect changes to the `mr-review-instructions.yaml` file.
+1. Optional: Add a [Code Owners](../../project/codeowners/_index.md) entry to protect changes to the `mr-review-instructions.yaml` file.
 
    ```markdown
    [GitLab Duo]
@@ -124,8 +118,7 @@ To configure custom merge request review instructions:
 1. [Create a merge request](../../project/merge_requests/creating_merge_requests.md)
    to review and merge the changes:
 
-   - GitLab Duo automatically applies your custom instructions when the file
-     patterns match.
+   - GitLab Duo automatically applies your custom instructions when the file patterns match.
    - Multiple instruction groups can apply to a single file.
    - For review comments triggered by your custom instructions, GitLab Duo uses this format:
 
@@ -133,9 +126,7 @@ To configure custom merge request review instructions:
      According to custom instructions in '[instruction_name]': [feedback comments]
      ```
 
-     The `instruction_name` value corresponds to the `name` property from your
-     `.gitlab/duo/mr-review-instructions.yaml` file. Standard GitLab Duo comments
-     do not use this format.
+     The `instruction_name` value corresponds to the `name` property from your `.gitlab/duo/mr-review-instructions.yaml` file. Standard GitLab Duo comments do not use this format.
 1. Optional:
    - Review the feedback and refine your instructions as needed.
    - Test the patterns to ensure they match the intended files.
@@ -154,11 +145,11 @@ For example:
 
 ```yaml
 instructions: |
-  1. All public functions must include docstrings with parameter descriptions
-  2. Use parameterized queries to prevent SQL injection
-  3. Validate user input before processing (check type, length, format)
-  4. Include error handling for all external API calls
-  5. Avoid hardcoded credentials - use environment variables
+ 1. All public functions must include docstrings with parameter descriptions
+ 2. Use parameterized queries to prevent SQL injection
+ 3. Validate user input before processing (check type, length, format)
+ 4. Include error handling for all external API calls
+ 5. Avoid hardcoded credentials - use environment variables
 ```
 
 For language-specific examples, see the [use case examples](#use-case-examples).
@@ -194,14 +185,12 @@ project/
 - `*.rb` would only match app.rb
 - `**/*.rb` would match all three files
 
-For the `mr-review-instructions.yaml` file, `**/*.rb` ensures that review instructions
-apply to Ruby files anywhere in the project structure, not just the root directory.
+For the `mr-review-instructions.yaml` file, `**/*.rb` ensures that review instructions apply to Ruby files anywhere in the project structure, not just the root directory.
 
 ## Use case examples
 
 <!-- 2025-11-12 Use case examples are maintained by DevRel, @dnsmichi
-Inspired by the reference in https://gitlab.com/gitlab-da/use-cases/ai/gitlab-duo-agent-platform/demo-environments/tanuki-iot-platform/-/blob/main/.gitlab/duo/mr-review-instructions.yaml?ref_type=heads
--->
+Inspired by the reference in https://gitlab.com/gitlab-da/use-cases/ai/gitlab-duo-agent-platform/demo-environments/tanuki-iot-platform/-/blob/main/.gitlab/duo/mr-review-instructions.yaml?ref_type=heads -->
 
 {{< tabs >}}
 
@@ -209,7 +198,7 @@ Inspired by the reference in https://gitlab.com/gitlab-da/use-cases/ai/gitlab-du
 
 ```yaml
 instructions:
-  - name: Assembly Style Guide
+ - name: Assembly Style Guide
     fileFilters:
       - "**/*.asm"
       - "**/*.s"
@@ -228,7 +217,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: C Style Guide
+ - name: C Style Guide
     fileFilters:
       - "**/*.c"
       - "**/*.h"
@@ -245,7 +234,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: C++ Style Guide
+ - name: C++ Style Guide
     fileFilters:
       - "**/*.cpp"
       - "**/*.{h,hpp}"
@@ -261,7 +250,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: C# Style Guide
+ - name: C# Style Guide
     fileFilters:
       - "**/*.cs"
     instructions: |
@@ -278,7 +267,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: COBOL Style Guide
+ - name: COBOL Style Guide
     fileFilters:
       - "**/*.CBL"
       - "**/*.cbl"
@@ -303,7 +292,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: Go Style Guide
+ - name: Go Style Guide
     fileFilters:
       - "**/*.go"
     instructions: |
@@ -318,7 +307,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: Java Style Guide
+ - name: Java Style Guide
     fileFilters:
       - "**/*.java"
     instructions: |
@@ -335,7 +324,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: JavaScript/TypeScript Files
+ - name: JavaScript/TypeScript Files
     fileFilters:
       - "src/**/*.js"
       - "src/**/*.jsx"
@@ -359,7 +348,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: Kotlin Style Guide
+ - name: Kotlin Style Guide
     fileFilters:
       - "**/*.kt"
       - "**/*.kts"
@@ -377,7 +366,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: MATLAB Style Guide
+ - name: MATLAB Style Guide
     fileFilters:
       - "**/*.m"
     instructions: |
@@ -394,7 +383,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: Perl Style Guide
+ - name: Perl Style Guide
     fileFilters:
       - "**/*.pl"
       - "**/*.pm"
@@ -410,7 +399,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: PHP Style Guide
+ - name: PHP Style Guide
     fileFilters:
       - "**/*.php"
     instructions: |
@@ -427,7 +416,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: Python Source Files
+ - name: Python Source Files
     fileFilters:
       - "**/*.py"
       - "!tests/**/*.py"
@@ -439,7 +428,7 @@ instructions:
       4. Ensure proper exception handling
       5. Avoid using bare 'except' clauses
 
-  - name: Python Tests
+ - name: Python Tests
     fileFilters:
       - "tests/**/*.py"
       - "test_*.py"
@@ -456,11 +445,11 @@ instructions:
 
 ```yaml
 instructions:
-  - name: Ruby Style Guide
+ - name: Ruby Style Guide
     fileFilters:
       - "*.rb"
       - "lib/**/*.rb"
-      - "!spec/**/*.rb"  # Exclude test files
+      - "!spec/**/*.rb" # Exclude test files
     instructions: |
       1. Follow Ruby style guide conventions
       2. Prefer symbols over strings for hash keys
@@ -482,7 +471,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: R Style Guide
+ - name: R Style Guide
     fileFilters:
       - "**/*.r"
       - "**/*.R"
@@ -500,7 +489,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: Rust Style Guide
+ - name: Rust Style Guide
     fileFilters:
       - "**/*.rs"
     instructions: |
@@ -516,7 +505,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: Scala Style Guide
+ - name: Scala Style Guide
     fileFilters:
       - "**/*.scala"
     instructions: |
@@ -533,7 +522,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: Shell Script Style Guide
+ - name: Shell Script Style Guide
     fileFilters:
       - "**/*.sh"
       - "**/*.bash"
@@ -553,7 +542,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: SQL Style Guide
+ - name: SQL Style Guide
     fileFilters:
       - "**/*.sql"
     instructions: |
@@ -571,7 +560,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: VHDL Style Guide
+ - name: VHDL Style Guide
     fileFilters:
       - "**/*.vhd"
       - "**/*.vhdl"
@@ -589,7 +578,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: Configuration Files
+ - name: Configuration Files
     fileFilters:
       - "*.yaml"
       - "*.yml"
@@ -609,7 +598,7 @@ instructions:
 
 ```yaml
 instructions:
-  - name: Ansible Style Guide
+ - name: Ansible Style Guide
     fileFilters:
       - "*.yaml"
       - "*.yml"
@@ -623,7 +612,7 @@ instructions:
       5. Use handlers for service restarts and notifications
       6. Document playbook purpose, required variables, and dependencies
 
-  - name: Dockerfile Style Guide
+ - name: Dockerfile Style Guide
     fileFilters:
       - "Dockerfile"
       - "*.dockerfile"
@@ -636,7 +625,7 @@ instructions:
       5. Use .dockerignore to exclude unnecessary files
       6. Document exposed ports, volumes, and environment variables
 
-  - name: GitLab CI/CD Style Guide
+ - name: GitLab CI/CD Style Guide
     fileFilters:
       - ".gitlab-ci.yml"
       - "**/.gitlab-ci.yml"
@@ -648,7 +637,7 @@ instructions:
       5. Include security scanning templates (SAST, dependency scanning, secret detection)
       6. Document job purpose, required variables, and dependencies in comments
 
-  - name: Helm Chart Style Guide
+ - name: Helm Chart Style Guide
     fileFilters:
       - "Chart.yaml"
       - "values.yaml"
@@ -661,7 +650,7 @@ instructions:
       5. Validate charts with helm lint before committing
       6. Document all configurable values and their purpose
 
-  - name: Kubernetes Style Guide
+ - name: Kubernetes Style Guide
     fileFilters:
       - "*.yaml"
       - "*.yml"
@@ -675,7 +664,7 @@ instructions:
       5. Use ConfigMaps and Secrets instead of hardcoded values
       6. Document resource purpose and dependencies in metadata annotations
 
-  - name: Terraform/OpenTofu Style Guide
+ - name: Terraform/OpenTofu Style Guide
     fileFilters:
       - "*.tf"
       - "*.tfvars"

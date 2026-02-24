@@ -15,7 +15,7 @@ To resend a invitations to bid.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.
+ - 'Admin' level permissions on the project's Bidding tool.
 
 ## Steps
 
@@ -24,11 +24,11 @@ To resend a invitations to bid.
 If you previously invited a company and a new recipient has been added, you can send the invitation to that individual instead all bid recipients for the company.
 
 1. Navigate to the project's **Bidding** tool.
-2. Open the bid package.  
+2. Open the bid package. 
    This opens the Bidding tab.
 3. Find the company you want to resend a bid invitation to.
 4. In the 'Bid Recipients' column, click the **person** ![icon-person.png](https://support.procore.com/@api/deki/files/326968/icon-person.png?revision=1&size=bestfit&width=19&height=19) icon.
-5. Next to the recipient you want to send the invitation to, click the **invitation** ![icon-invitation.png](https://support.procore.com/@api/deki/files/326970/icon-invitation.png?revision=1&size=bestfit&width=20&height=20) icon.  
+5. Next to the recipient you want to send the invitation to, click the **invitation** ![icon-invitation.png](https://support.procore.com/@api/deki/files/326970/icon-invitation.png?revision=1&size=bestfit&width=20&height=20) icon. 
    The invitation is automatically sent.
 
 ### Resend all Invitations
@@ -36,7 +36,7 @@ If you previously invited a company and a new recipient has been added, you can 
 An invitation can be resent to all previously invited bidders, excluding those with a 'Will Not Bid' status.
 
 1. Navigate to the project's **Bidding** tool.
-2. Open the bid package.  
+2. Open the bid package. 
    This opens the Bidding tab.
 3. Click **Invite** and select **Resend Invitations**.
 

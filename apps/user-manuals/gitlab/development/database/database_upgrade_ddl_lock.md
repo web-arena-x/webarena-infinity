@@ -9,16 +9,13 @@ During major PostgreSQL upgrades on GitLab.com, DDL (Data Definition Language) c
 GitLab.com uses logical replication for PostgreSQL upgrades, replicating data between different major versions to achieve zero-downtime upgrades.
 During the upgrade window, new DDL changes can break the replication.
 
-Instead of using a hard Production Change Lock (PCL) that blocks all deployments, a targeted lock prevents
-only database schema changes from being merged.
+Instead of using a hard Production Change Lock (PCL) that blocks all deployments, a targeted lock prevents only database schema changes from being merged.
 
-This approach allows GitLab to continue releasing other changes while protecting the
-database upgrade process from breaking schema modifications.
+This approach allows GitLab to continue releasing other changes while protecting the database upgrade process from breaking schema modifications.
 
 ## How it works
 
-The DDL lock is configured in `config/database_upgrade_ddl_lock.yml` and enforced by a
-Danger check that runs in CI/CD pipelines. The configuration includes:
+The DDL lock is configured in `config/database_upgrade_ddl_lock.yml` and enforced by a Danger check that runs in CI/CD pipelines. The configuration includes:
 
 - Merge requests that modify `db/structure.sql` are automatically blocked by Danger.
 - A warning appears on affected merge requests several days before the lock begins.

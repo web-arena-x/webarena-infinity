@@ -18,8 +18,8 @@ This article covers the following topics:
 
 - [Uploading your CSV file](#topic_xjv_pmg_dqb)
 - [Importing your settings and mapping](#topic_g1f_qmg_dqb)
-  - [Import your data options](#topic_l1d_w4g_dqb)
-  - [Mapping](#topic_jpx_x4g_dqb)
+ - [Import your data options](#topic_l1d_w4g_dqb)
+ - [Mapping](#topic_jpx_x4g_dqb)
 - [Reviewing your import selections](#topic_qxn_qmg_dqb)
 - [Reverting an import](#topic_kbl_tl4_t5b)
 
@@ -83,10 +83,10 @@ You'll be prompted to choose from the following:
 - **Update all existing Sell data with new data from the import file**. Use this option to overwrite all field values whether empty or not with the data from your import file.
 - **Automatically create a custom field to retain both values.** Use this option to create a new custom fields (usually called Address) . If you're importing leads, then you'll see an additional option which you will not see when importing contacts or deals:
 
-  **If a lead in the import file already exists as a contact in Zendesk Sell:**
+ **If a lead in the import file already exists as a contact in Zendesk Sell:**
 
-  - Do not import it
-  - Import it and create duplicate leads
+ - Do not import it
+ - Import it and create duplicate leads
 
 ### Mapping
 

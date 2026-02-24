@@ -12,25 +12,15 @@ title: Configure the bundled Puma instance of the GitLab package
 
 {{< /details >}}
 
-Puma is a fast, multi-threaded, and highly concurrent HTTP 1.1 server for
-Ruby applications. It runs the core Rails application that provides the user-facing
-features of GitLab.
+Puma is a fast, multi-threaded, and highly concurrent HTTP 1.1 server for Ruby applications. It runs the core Rails application that provides the user-facing features of GitLab.
 
 ## Tuning memory use
 
-To reduce memory use, Puma forks worker processes. Each time a worker is created,
-it shares memory with the primary process. The worker uses additional memory only
-when it changes or adds to its memory pages. This can lead to Puma workers using
-more physical memory over time as workers handle additional web requests. The amount of memory
-used over time depends on the use of GitLab. The more features used by GitLab users,
-the higher the expected memory use over time.
+To reduce memory use, Puma forks worker processes. Each time a worker is created, it shares memory with the primary process. The worker uses additional memory only when it changes or adds to its memory pages. This can lead to Puma workers using more physical memory over time as workers handle additional web requests. The amount of memory used over time depends on the use of GitLab. The more features used by GitLab users, the higher the expected memory use over time.
 
-To stop uncontrolled memory growth, the GitLab Rails application runs a supervision thread
-that automatically restarts workers if they exceed a given resident set size (RSS) threshold
-for a certain amount of time.
+To stop uncontrolled memory growth, the GitLab Rails application runs a supervision thread that automatically restarts workers if they exceed a given resident set size (RSS) threshold for a certain amount of time.
 
-GitLab sets a default of `1200Mb` for the memory limit. To override the default value,
-set `per_worker_max_memory_mb` to the new RSS limit in megabytes:
+GitLab sets a default of `1200Mb` for the memory limit. To override the default value, set `per_worker_max_memory_mb` to the new RSS limit in megabytes:
 
 1. Edit `/etc/gitlab/gitlab.rb`:
 
@@ -44,12 +34,9 @@ set `per_worker_max_memory_mb` to the new RSS limit in megabytes:
    sudo gitlab-ctl reconfigure
    ```
 
-When workers are restarted, capacity to run GitLab is reduced for a short
-period of time. Set `per_worker_max_memory_mb` to a higher value if workers are replaced too often.
+When workers are restarted, capacity to run GitLab is reduced for a short period of time. Set `per_worker_max_memory_mb` to a higher value if workers are replaced too often.
 
-Worker count is calculated based on CPU cores. A small GitLab deployment
-with 4-8 workers might experience performance issues if workers are being restarted
-too often (once or more per minute).
+Worker count is calculated based on CPU cores. A small GitLab deployment with 4-8 workers might experience performance issues if workers are being restarted too often (once or more per minute).
 
 A higher value of `1200` or more could be beneficial if the server has free memory.
 
@@ -67,23 +54,22 @@ The following is an example of one of these log events in `/var/log/gitlab/gitla
 
 ```json
 {
-  "severity": "WARN",
-  "time": "2023-01-04T09:45:16.173Z",
-  "correlation_id": null,
-  "pid": 2725,
-  "worker_id": "puma_0",
-  "memwd_handler_class": "Gitlab::Memory::Watchdog::PumaHandler",
-  "memwd_sleep_time_s": 5,
-  "memwd_rss_bytes": 1077682176,
-  "memwd_max_rss_bytes": 629145600,
-  "memwd_max_strikes": 5,
-  "memwd_cur_strikes": 6,
-  "message": "rss memory limit exceeded"
+ "severity": "WARN",
+ "time": "2023-01-04T09:45:16.173Z",
+ "correlation_id": null,
+ "pid": 2725,
+ "worker_id": "puma_0",
+ "memwd_handler_class": "Gitlab::Memory::Watchdog::PumaHandler",
+ "memwd_sleep_time_s": 5,
+ "memwd_rss_bytes": 1077682176,
+ "memwd_max_rss_bytes": 629145600,
+ "memwd_max_strikes": 5,
+ "memwd_cur_strikes": 6,
+ "message": "rss memory limit exceeded"
 }
 ```
 
-`memwd_rss_bytes` is the actual amount of memory consumed, and `memwd_max_rss_bytes` is the
-RSS limit set through `per_worker_max_memory_mb`.
+`memwd_rss_bytes` is the actual amount of memory consumed, and `memwd_max_rss_bytes` is the RSS limit set through `per_worker_max_memory_mb`.
 
 ## Change the worker timeout
 
@@ -112,15 +98,12 @@ To change the worker timeout to 600 seconds:
 
 {{< alert type="warning" >}}
 
-This feature is an [experiment](../../policy/development_stages_support.md#experiment) and subject to change without notice. This feature
-is not ready for production use. If you want to use this feature, you should test
-outside of production first. See the [known issues](#puma-single-mode-known-issues)
+This feature is an [experiment](../../policy/development_stages_support.md#experiment) and subject to change without notice. This feature is not ready for production use. If you want to use this feature, you should test outside of production first. See the [known issues](#puma-single-mode-known-issues)
 for additional details.
 
 {{< /alert >}}
 
-In a memory-constrained environment with less than 4 GB of RAM available, consider disabling Puma
-[clustered mode](https://github.com/puma/puma#clustered-mode).
+In a memory-constrained environment with less than 4 GB of RAM available, consider disabling Puma [clustered mode](https://github.com/puma/puma#clustered-mode).
 
 Set the number of `workers` to `0` to reduce memory usage by hundreds of MB:
 
@@ -139,8 +122,7 @@ Set the number of `workers` to `0` to reduce memory usage by hundreds of MB:
 Unlike in a clustered mode, which is set up by default, only a single Puma process would serve the application.
 For details on Puma worker and thread settings, see the [Puma requirements](../../install/requirements.md#puma).
 
-The downside of running Puma in this configuration is the reduced throughput, which can be
-considered a fair tradeoff in a memory-constrained environment.
+The downside of running Puma in this configuration is the reduced throughput, which can be considered a fair tradeoff in a memory-constrained environment.
 
 Remember to have sufficient swap available to avoid out of memory (OOM)
 conditions. View the [Memory requirements](../../install/requirements.md#memory)
@@ -157,17 +139,13 @@ For more information, see [epic 5303](https://gitlab.com/groups/gitlab-org/-/epi
 
 ## Configuring Puma to listen over SSL
 
-Puma, when deployed with a Linux package installation, listens over a Unix socket by
-default. To configure Puma to listen over an HTTPS port instead, follow the
-steps below:
+Puma, when deployed with a Linux package installation, listens over a Unix socket by default. To configure Puma to listen over an HTTPS port instead, follow the steps below:
 
-1. Generate an SSL certificate key-pair for the address where Puma will
-   listen. For the example below, this is `127.0.0.1`.
+1. Generate an SSL certificate key-pair for the address where Puma will listen. For the example below, this is `127.0.0.1`.
 
    {{< alert type="note" >}}
 
-   If using a self-signed certificate from a custom Certificate Authority (CA),
-   follow [the documentation](https://docs.gitlab.com/omnibus/settings/ssl/#install-custom-public-certificates)
+   If using a self-signed certificate from a custom Certificate Authority (CA), follow [the documentation](https://docs.gitlab.com/omnibus/settings/ssl/#install-custom-public-certificates)
    to make them trusted by other GitLab components.
 
    {{< /alert >}}
@@ -192,12 +170,8 @@ steps below:
 
 {{< alert type="note" >}}
 
-In addition to the Unix socket, Puma also listens over HTTP on port 8080 for
-providing metrics to be scraped by Prometheus. It is not possible to
-make Prometheus scrape them over HTTPS, and support for it is being discussed
-[in this issue](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/6811).
-Hence, it is not technically possible to turn off this HTTP listener without
-losing Prometheus metrics.
+In addition to the Unix socket, Puma also listens over HTTP on port 8080 for providing metrics to be scraped by Prometheus. It is not possible to make Prometheus scrape them over HTTPS, and support for it is being discussed [in this issue](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/6811).
+Hence, it is not technically possible to turn off this HTTP listener without losing Prometheus metrics.
 
 {{< /alert >}}
 
@@ -209,9 +183,7 @@ losing Prometheus metrics.
 
 {{< /history >}}
 
-Puma supports the use of an encrypted private SSL key, which can be
-decrypted at runtime. The following instructions illustrate how to
-configure this:
+Puma supports the use of an encrypted private SSL key, which can be decrypted at runtime. The following instructions illustrate how to configure this:
 
 1. Encrypt the key with a password if it is not already:
 
@@ -219,21 +191,16 @@ configure this:
    openssl rsa -aes256 -in /path/to/ssl-key.pem -out /path/to/encrypted-ssl-key.pem
    ```
 
-   Enter in a password twice to write the encrypted file. In this
-   example, we use `some-password-here`.
+   Enter in a password twice to write the encrypted file. In this example, we use `some-password-here`.
 
-1. Create a script or executable that prints the password. For
-   example, create a basic script in
-   `/var/opt/gitlab/gitlab-rails/etc/puma-ssl-key-password` that echoes
-   the password:
+1. Create a script or executable that prints the password. For example, create a basic script in `/var/opt/gitlab/gitlab-rails/etc/puma-ssl-key-password` that echoes the password:
 
    ```shell
    #!/bin/sh
    echo some-password-here
    ```
 
-   Avoid storing the password on disk, and use a secure mechanism for retrieving a password, such as
-   Vault. For example, the script might look like:
+   Avoid storing the password on disk, and use a secure mechanism for retrieving a password, such as Vault. For example, the script might look like:
 
    ```shell
    #!/bin/sh
@@ -243,8 +210,7 @@ configure this:
    echo "$(vault kv get -mount=secret puma-ssl-password)"
    ```
 
-1. Ensure the Puma process has sufficient permissions to execute the
-   script and to read the encrypted key:
+1. Ensure the Puma process has sufficient permissions to execute the script and to read the encrypted key:
 
    ```shell
    chown git:git /var/opt/gitlab/gitlab-rails/etc/puma-ssl-key-password
@@ -252,8 +218,7 @@ configure this:
    chmod 660 /path/to/encrypted-ssl-key.pem
    ```
 
-1. Edit `/etc/gitlab/gitlab.rb`, and replace `puma['ssl_certificate_key']` with the encrypted key and specify
-   `puma['ssl_key_password_command]`:
+1. Edit `/etc/gitlab/gitlab.rb`, and replace `puma['ssl_certificate_key']` with the encrypted key and specify `puma['ssl_key_password_command]`:
 
    ```ruby
    puma['ssl_certificate_key'] = '/path/to/encrypted-ssl-key.pem'
@@ -266,37 +231,31 @@ configure this:
    sudo gitlab-ctl reconfigure
    ```
 
-1. If GitLab comes up successfully, you should be able to remove the
-   unencrypted SSL key that was stored on the GitLab instance.
+1. If GitLab comes up successfully, you should be able to remove the unencrypted SSL key that was stored on the GitLab instance.
 
 ## Switch from Unicorn to Puma
 
 {{< alert type="note" >}}
 
-For Helm-based deployments, see the
-[`webservice` chart documentation](https://docs.gitlab.com/charts/charts/gitlab/webservice/).
+For Helm-based deployments, see the [`webservice` chart documentation](https://docs.gitlab.com/charts/charts/gitlab/webservice/).
 
 {{< /alert >}}
 
 Puma is the default web server and Unicorn is no longer supported.
 
-Puma has a multi-thread architecture that uses less memory than a multi-process
-application server like Unicorn. On GitLab.com, we saw a 40% reduction in memory
-consumption. Most Rails application requests usually include a proportion of I/O wait time.
+Puma has a multi-thread architecture that uses less memory than a multi-process application server like Unicorn. On GitLab.com, we saw a 40% reduction in memory consumption. Most Rails application requests usually include a proportion of I/O wait time.
 
 During I/O wait time, MRI Ruby releases the GVL to other threads.
 Multi-threaded Puma can therefore still serve more requests than a single process.
 
-When switching to Puma, any Unicorn server configuration does not carry over
-automatically, due to differences between the two application servers.
+When switching to Puma, any Unicorn server configuration does not carry over automatically, due to differences between the two application servers.
 
 To switch from Unicorn to Puma:
 
 1. Determine suitable Puma [worker and thread settings](../../install/requirements.md#puma).
 1. Convert any custom Unicorn settings to Puma in `/etc/gitlab/gitlab.rb`.
 
-   The table below summarizes which Unicorn configuration keys correspond to those
-   in Puma when using the Linux package, and which ones have no corresponding counterpart.
+   The table below summarizes which Unicorn configuration keys correspond to those in Puma when using the Linux package, and which ones have no corresponding counterpart.
 
    | Unicorn                              | Puma                               |
    | ------------------------------------ | ---------------------------------- |
@@ -327,20 +286,15 @@ To switch from Unicorn to Puma:
    sudo gitlab-ctl reconfigure
    ```
 
-1. Optional. For multi-node deployments, configure the load balancer to use the
-   [readiness check](../load_balancer.md#readiness-check).
+1. Optional. For multi-node deployments, configure the load balancer to use the [readiness check](../load_balancer.md#readiness-check).
 
 ## Troubleshooting Puma
 
 ### 502 Gateway Timeout after Puma spins at 100% CPU
 
-This error occurs when the Web server times out (default: 60 s) after not
-hearing back from the Puma worker. If the CPU spins to 100% while this is in
-progress, there might be something taking longer than it should.
+This error occurs when the Web server times out (default: 60 s) after not hearing back from the Puma worker. If the CPU spins to 100% while this is in progress, there might be something taking longer than it should.
 
-To fix this issue, we first must figure out what is happening. The
-following tips are only recommended if you do not mind users being affected by
-downtime. Otherwise, skip to the next section.
+To fix this issue, we first must figure out what is happening. The following tips are only recommended if you do not mind users being affected by downtime. Otherwise, skip to the next section.
 
 1. Load the problematic URL
 1. Run `sudo gdb -p <PID>` to attach to the Puma process.
@@ -350,8 +304,7 @@ downtime. Otherwise, skip to the next section.
    call (void) rb_backtrace()
    ```
 
-1. This forces the process to generate a Ruby backtrace. Check
-   `/var/log/gitlab/puma/puma_stderr.log` for the backtrace. For example, you might see:
+1. This forces the process to generate a Ruby backtrace. Check `/var/log/gitlab/puma/puma_stderr.log` for the backtrace. For example, you might see:
 
    ```plaintext
    from /opt/gitlab/embedded/service/gitlab-rails/lib/gitlab/metrics/sampler.rb:33:in `block in start'
@@ -379,9 +332,7 @@ downtime. Otherwise, skip to the next section.
    ```
 
 GDB reports an error if the Puma process terminates before you can run these commands.
-To buy more time, you can always raise the
-Puma worker timeout. For Linux package installation users, you can edit `/etc/gitlab/gitlab.rb` and
-increase it from 60 seconds to 600:
+To buy more time, you can always raise the Puma worker timeout. For Linux package installation users, you can edit `/etc/gitlab/gitlab.rb` and increase it from 60 seconds to 600:
 
 ```ruby
 gitlab_rails['env'] = {
@@ -396,10 +347,7 @@ Refer to [Puma Worker timeout](puma.md#change-the-worker-timeout).
 
 #### Troubleshooting without affecting other users
 
-The previous section attached to a running Puma process, which might have
-undesirable effects on users trying to access GitLab during this time. If you
-are concerned about affecting others during a production system, you can run a
-separate Rails process to debug the issue:
+The previous section attached to a running Puma process, which might have undesirable effects on users trying to access GitLab during this time. If you are concerned about affecting others during a production system, you can run a separate Rails process to debug the issue:
 
 1. Sign in to your GitLab account.
 1. Copy the URL that is causing problems (for example, `https://gitlab.com/ABC`).
@@ -422,28 +370,22 @@ separate Rails process to debug the issue:
 
 ### GitLab: API is not accessible
 
-This often occurs when GitLab Shell attempts to request authorization via the
-internal API (for example, `http://localhost:8080/api/v4/internal/allowed`), and
-something in the check fails. This issue might occur for the following reasons:
+This often occurs when GitLab Shell attempts to request authorization via the internal API (for example, `http://localhost:8080/api/v4/internal/allowed`), and something in the check fails. This issue might occur for the following reasons:
 
 1. Timeout connecting to a database (for example, PostgreSQL or Redis)
 1. Error in Git hooks or push rules
 1. Error accessing the repository (for example, stale NFS handles)
 
-To diagnose this problem, try to reproduce the problem and then see if there
-is a Puma worker that is spinning via `top`. Try to use the `gdb`
-techniques documented previously. In addition, using `strace` might help isolate issues:
+To diagnose this problem, try to reproduce the problem and then see if there is a Puma worker that is spinning via `top`. Try to use the `gdb` techniques documented previously. In addition, using `strace` might help isolate issues:
 
 ```shell
 strace -ttTfyyy -s 1024 -p <PID of puma worker> -o /tmp/puma.txt
 ```
 
-If you cannot isolate which Puma worker is the issue, try to run `strace`
-on all the Puma workers to see where the
-`/internal/allowed` endpoint gets stuck:
+If you cannot isolate which Puma worker is the issue, try to run `strace` on all the Puma workers to see where the `/internal/allowed` endpoint gets stuck:
 
 ```shell
-ps auwx | grep puma | awk '{ print " -p " $2}' | xargs  strace -ttTfyyy -s 1024 -o /tmp/puma.txt
+ps auwx | grep puma | awk '{ print " -p " $2}' | xargs strace -ttTfyyy -s 1024 -o /tmp/puma.txt
 ```
 
 The output in `/tmp/puma.txt` might help diagnose the root cause.

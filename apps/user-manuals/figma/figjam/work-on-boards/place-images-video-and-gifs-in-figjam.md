@@ -23,7 +23,7 @@ Static images do not animate. Supported static image formats PNG, JPEG, HEIC, GI
 
 To add an image:
 
-1. Click  in your toolbar.
+1. Click in your toolbar.
 2. Select the **More** tab.
 3. Select **Media**.
 4. Choose an image from your computer.
@@ -34,10 +34,10 @@ Figma will place the image in the center of your viewport. Once the image is pla
 
 ### Replace
 
-You can replace an existing static image with another using the  **image** tool or pasting an image copied to your computer's clipboard. The dimensions of the new image will stay the same as the one you replaced.
+You can replace an existing static image with another using the **image** tool or pasting an image copied to your computer's clipboard. The dimensions of the new image will stay the same as the one you replaced.
 
 1. Select the image you want to replace.
-2. Click  **Replace image.**
+2. Click **Replace image.**
 3. Choose a new image from your computer.
 
 ### Resize
@@ -46,7 +46,7 @@ Click and drag an image's bounding box to resize it proportionally.
 
 ### Edit
 
-Click  to open more image editing tools:
+Click to open more image editing tools:
 
 - **Crop image**: drag the preview handles to crop your image
 - **Zoom**: use the slider to adjust the image's zoom level
@@ -60,7 +60,7 @@ Video files in FigJam must be in .mp4, .mov, or .webm format and up to 100MB in 
 
 To add a video:
 
-1. Click  in your toolbar.
+1. Click in your toolbar.
 2. Select the **More** tab.
 3. Select **Media**.
 4. Choose a video from your computer.
@@ -71,7 +71,7 @@ GIFs are animated images that loop. Add some fun and liveliness by inserting GIF
 
 To insert a GIF:
 
-1. Click  in your toolbar.
+1. Click in your toolbar.
 2. Select the **More** tab.
 3. Select **Images**.
 4. Choose a GIF from your computer

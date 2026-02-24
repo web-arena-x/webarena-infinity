@@ -16,8 +16,7 @@ description: Change the time zone for an instance.
 {{< alert type="note" >}}
 
 Users can set their [time zone in their profile](../user/profile/_index.md#set-your-time-zone).
-New users do not have a default time zone and must
-explicitly set it before it displays on their profile.
+New users do not have a default time zone and must explicitly set it before it displays on their profile.
 On GitLab.com, the default time zone is UTC.
 
 {{< /alert >}}
@@ -26,8 +25,7 @@ The default time zone in GitLab is UTC, but you can change it to your liking.
 
 To update the time zone of your GitLab instance:
 
-1. The specified time zone must be in
-   [tz format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+1. The specified time zone must be in [tz format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
    You can use the `timedatectl` command to see the available time zones:
 
    ```shell

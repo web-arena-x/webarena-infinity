@@ -26,7 +26,7 @@ Note: The automatic blocklisting of team members only includes direct email comm
 4. Enter the name of the lead or contact you want to blocklist and then select their name from the list.
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell-email-blacklist-blocked.png)
-5. The email address is now blocklisted (blocked).   
+5. The email address is now blocklisted (blocked).  
    To unblock and email address click **Unblock**.
 
 Note: Blocklisting an email address means that it's blocklisted for the account of the Sell user (not for all Sell users).

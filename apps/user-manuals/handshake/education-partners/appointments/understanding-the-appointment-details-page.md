@@ -44,7 +44,7 @@ The upper-middle section of the page provides information on which staff member 
 The tabs listed on the Appointment Details page each provide a different function for the appointment.
 
 - **Notes:** Add a note, attach a file, or set a reminder which will post the note at a designated time.
-  - **Share with Staff:** The default setting for adding a note, selecting this brings up other options for sharing the note.
+ - **Share with Staff:** The default setting for adding a note, selecting this brings up other options for sharing the note.
     - **Personal Note:** Save the note for your personal usage. Other staff members and the student cannot see this note.
     - **Share with Staff:** Share your note with other staff members.
     - **Career Center Option:** Share your note with a career center's staff members.
@@ -52,6 +52,6 @@ The tabs listed on the Appointment Details page each provide a different functio
 - **Student Profile:** Displays portions of the student's profile for a quick view.
 - **Student Activity:** Displays the Student Activity Dashboard for quick access. Learn more in [About the Student Activity Dashboard](https://support.joinhandshake.com/hc/en-us/articles/235762188).
 - **Comments:** Viewable by both staff and students, comments can be used to follow up with students, provide feedback, and answer questions before the appointment.
-  - **Note:** Use the chainlink icon to add a hyperlink to your comment. Hyperlinks added to comments are clickable for both your staff and students!
+ - **Note:** Use the chainlink icon to add a hyperlink to your comment. Hyperlinks added to comments are clickable for both your staff and students!
 
 ![Appointment_Comment.png](https://support.joinhandshake.com/hc/article_attachments/25991250553623)

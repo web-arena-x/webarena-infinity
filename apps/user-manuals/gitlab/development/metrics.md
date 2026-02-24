@@ -89,21 +89,18 @@ Select a metric to view its details.
 
 ![list of metrics](img/metrics_list_v17_0.png)
 
-Each metric contains one or more attributes. You can filter
-metrics by attribute with the search bar.
+Each metric contains one or more attributes. You can filter metrics by attribute with the search bar.
 
 ### Metric details
 
 Metrics are displayed as either a sum, a gauge, or a histogram.
 The metric details page displays a chart depending on the type of metric.
 
-On the metric details page, you can also view metrics for a specific time range, and
-aggregate metrics by attribute:
+On the metric details page, you can also view metrics for a specific time range, and aggregate metrics by attribute:
 
 ![metrics details](img/metrics_detail_v17_0.png)
 
-To make data lookups fast, depending on what time period you filter by,
-GitLab automatically chooses the proper aggregation.
+To make data lookups fast, depending on what time period you filter by, GitLab automatically chooses the proper aggregation.
 For example, if you search for more than seven days of data, the API returns only daily aggregates.
 
 ### Aggregations by search period

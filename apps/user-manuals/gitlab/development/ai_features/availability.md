@@ -9,10 +9,7 @@ This document explains how GitLab Duo features are controlled, who can access th
 
 ## Controlling GitLab Duo Feature Availability
 
-Various settings control when and how users can interact with GitLab Duo features. The
-[end-user documentation](../../user/gitlab_duo/turn_on_off.md) explains this from a
-user perspective. This document explains the implementation logic from a
-developer perspective and includes technical details.
+Various settings control when and how users can interact with GitLab Duo features. The [end-user documentation](../../user/gitlab_duo/turn_on_off.md) explains this from a user perspective. This document explains the implementation logic from a developer perspective and includes technical details.
 
 ### UI Options and Database States
 
@@ -73,10 +70,7 @@ In the IDE environment specifically, users with a GitLab Duo license can always 
 
 ### GitLab.com License Assignment
 
-On GitLab.com, a GitLab Duo license is associated with the individual user to
-whom it is assigned, not the group that assigned the seat. User accounts on
-GitLab.com are independent entities that belong to the entire GitLab instance
-rather than being "owned" by any specific group.
+On GitLab.com, a GitLab Duo license is associated with the individual user to whom it is assigned, not the group that assigned the seat. User accounts on GitLab.com are independent entities that belong to the entire GitLab instance rather than being "owned" by any specific group.
 
 #### Impact on Feature Availability
 
@@ -138,8 +132,7 @@ This setting allows group owners to control GitLab Duo Core availability:
 | Code Suggestions | Available in IDE and Web IDE | Available in IDE and Web IDE | Available in IDE and Web IDE |
 | Additional AI features | Not available | Some Available | All Available |
 
-This flow diagram shows how GitLab Duo feature availability works on GitLab.com with
-GitLab Duo Core settings taken into consideration:
+This flow diagram shows how GitLab Duo feature availability works on GitLab.com with GitLab Duo Core settings taken into consideration:
 
 ```mermaid
 flowchart TD
@@ -173,28 +166,28 @@ The following settings pages are available for configuring GitLab Duo on GitLab.
 ##### Admin Level
 
 - `/admin/gitlab_duo`
-  - Onboard GitLab Duo Agent Platform
+ - Onboard GitLab Duo Agent Platform
 
 ##### Top-Level Group Settings
 
 - `/groups/$GROUP_FULL_PATH/-/settings/gitlab_duo`
-  - Assign paid GitLab Duo seats (if available)
-  - Access GitLab Duo Configuration
+ - Assign paid GitLab Duo seats (if available)
+ - Access GitLab Duo Configuration
 - `/groups/$GROUP_PATH/-/settings/gitlab_duo/configuration`
-  - Configure GitLab Duo availability ("On by default", "Off by default", or "Always off")
-  - Enable experimental and beta GitLab Duo features
-  - Configure foundational agents availability ("On by default", "Off by default").
+ - Configure GitLab Duo availability ("On by default", "Off by default", or "Always off")
+ - Enable experimental and beta GitLab Duo features
+ - Configure foundational agents availability ("On by default", "Off by default").
 
 ##### Subgroup Settings
 
 - `/groups/$GROUP_FULL_PATH/-/edit`
-  - Configure GitLab Duo availability for the subgroup and all its children
+ - Configure GitLab Duo availability for the subgroup and all its children
 
 ##### Project Settings
 
 - `/$PROJECT_FULL_PATH/edit`
-  - Under "Visibility, project features, permissions" section
-  - Configure GitLab Duo availability for the specific project
+ - Under "Visibility, project features, permissions" section
+ - Configure GitLab Duo availability for the specific project
 
 ### GitLab Self-Managed and Dedicated Instances
 
@@ -242,8 +235,7 @@ The same feature differentiation between GitLab Duo Core, GitLab Duo Pro, and Gi
 
 Self-managed instances have additional configuration options for integrating with self-hosted AI models and controlling feature behavior.
 
-This flow diagram shows how GitLab Duo feature availability works on non-GitLab.com
-instances with GitLab Duo Core settings taken into consideration:
+This flow diagram shows how GitLab Duo feature availability works on non-GitLab.com instances with GitLab Duo Core settings taken into consideration:
 
 ```mermaid
 flowchart TD
@@ -275,27 +267,27 @@ The following settings pages are available for configuring GitLab Duo on self-ma
 ##### Instance Admin Settings
 
 - `/admin/gitlab_duo`
-  - Assign paid GitLab Duo seats to users
-  - Access GitLab Duo Configuration
+ - Assign paid GitLab Duo seats to users
+ - Access GitLab Duo Configuration
 - `/admin/gitlab_duo/configuration`
-  - Configure instance-wide GitLab Duo availability
-  - Enable experimental and beta GitLab Duo features
-  - Configure GitLab Duo Chat conversation expiration periods
-  - Enable Code Suggestions direct connections
-  - Enable beta AI models for self-hosted deployments
-  - Configure AI logging settings
-  - Set AI Gateway URL for self-hosted deployments
+ - Configure instance-wide GitLab Duo availability
+ - Enable experimental and beta GitLab Duo features
+ - Configure GitLab Duo Chat conversation expiration periods
+ - Enable Code Suggestions direct connections
+ - Enable beta AI models for self-hosted deployments
+ - Configure AI logging settings
+ - Set AI Gateway URL for self-hosted deployments
 - `/admin/gitlab_duo/self_hosted`
-  - Configure self-hosted AI model integrations
-  - Select specific self-hosted models for different GitLab Duo features
+ - Configure self-hosted AI model integrations
+ - Select specific self-hosted models for different GitLab Duo features
 
 ##### Group and Subgroup Settings
 
 - `/groups/$GROUP_FULL_PATH/-/edit`
-  - Configure GitLab Duo availability for the group and all its child entities
+ - Configure GitLab Duo availability for the group and all its child entities
 
 ##### Project Settings
 
 - `/$PROJECT_FULL_PATH/edit`
-  - Under "Visibility, project features, permissions" section
-  - Configure GitLab Duo availability for the specific project
+ - Under "Visibility, project features, permissions" section
+ - Configure GitLab Duo availability for the specific project

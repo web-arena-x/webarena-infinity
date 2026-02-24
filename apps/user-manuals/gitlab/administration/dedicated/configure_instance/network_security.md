@@ -15,8 +15,7 @@ title: GitLab Dedicated network access and security
 
 ## Custom domains
 
-You can configure a custom domain to access your GitLab Dedicated
-instance instead of the default `your-tenant.gitlab-dedicated.com`.
+You can configure a custom domain to access your GitLab Dedicated instance instead of the default `your-tenant.gitlab-dedicated.com`.
 
 When you add a custom domain:
 
@@ -30,34 +29,29 @@ to verify domain ownership, which requires:
 - The CNAME record to be publicly resolvable through DNS.
 - The same public validation process for automatic certificate renewal every 90 days.
 
-For instances configured with private networking (such as AWS PrivateLink), public DNS resolution
-ensures certificate management works properly, even when all other access is restricted to private networks.
+For instances configured with private networking (such as AWS PrivateLink), public DNS resolution ensures certificate management works properly, even when all other access is restricted to private networks.
 
 GitLab Dedicated supports custom domains through two configuration methods:
 
 - Standard configuration: Uses CNAME records and Let's Encrypt certificates.
-  You configure your own DNS records and request domain activation through support.
+ You configure your own DNS records and request domain activation through support.
 - Cloudflare security configuration: Uses NS records and Let's Encrypt certificates.
-  GitLab provides DNS configuration details and you implement them in coordination with support.
+ GitLab provides DNS configuration details and you implement them in coordination with support.
 
 Contact your Customer Success Manager to determine which configuration method applies to your instance.
 
 ### Standard configuration
 
 With this configuration, your domain connects directly to your GitLab instance using a CNAME record.
-GitLab automatically manages SSL certificates using Let's Encrypt,
-which verifies domain ownership through public DNS lookups and renews certificates automatically every 90 days.
+GitLab automatically manages SSL certificates using Let's Encrypt, which verifies domain ownership through public DNS lookups and renews certificates automatically every 90 days.
 
 {{< alert type="note" >}}
 
-Your custom domain must be accessible from the public internet for SSL certificate management,
-even if you access your instance through private networks.
+Your custom domain must be accessible from the public internet for SSL certificate management, even if you access your instance through private networks.
 
 {{< /alert >}}
 
-For instances configured with private networking (such as AWS PrivateLink),
-public DNS access ensures certificate management works properly,
-even when all other access is restricted to private networks.
+For instances configured with private networking (such as AWS PrivateLink), public DNS access ensures certificate management works properly, even when all other access is restricted to private networks.
 
 #### Configure DNS records
 
@@ -72,15 +66,14 @@ To configure DNS records:
 1. Add a `CNAME` record that points your custom domain to your GitLab Dedicated instance. For example:
 
    ```plaintext
-   gitlab.my-company.com.  CNAME  my-tenant.gitlab-dedicated.com
+   gitlab.my-company.com. CNAME my-tenant.gitlab-dedicated.com
    ```
 
-1. Optional. If your domain has an existing `CAA` record, update it to include
-   Let's Encrypt as a valid certificate authority. For example:
+1. Optional. If your domain has an existing `CAA` record, update it to include Let's Encrypt as a valid certificate authority. For example:
 
    ```plaintext
-   gitlab.my-company.com.  IN  CAA 0 issue "pki.goog"
-   gitlab.my-company.com.  IN  CAA 0 issue "letsencrypt.org"
+   gitlab.my-company.com. IN CAA 0 issue "pki.goog"
+   gitlab.my-company.com. IN CAA 0 issue "letsencrypt.org"
    ```
 
    The `CAA` record defines which certificate authorities can issue certificates for your domain.
@@ -105,8 +98,7 @@ To enable your custom domain:
 
 ### Cloudflare security configuration
 
-With this configuration, your domain must be delegated to GitLab using NS records,
-which allows traffic to be routed through Cloudflare Web Application Firewall (WAF).
+With this configuration, your domain must be delegated to GitLab using NS records, which allows traffic to be routed through Cloudflare Web Application Firewall (WAF).
 Cloudflare manages all DNS settings for your domain and provides enhanced security features.
 
 > [!note]
@@ -128,10 +120,10 @@ GitLab configures your domain in Cloudflare and provides:
 
 - Two Cloudflare nameservers, like `name1.ns.cloudflare.com` and `name2.ns.cloudflare.com`.
 - DNSSEC parameters (FedRAMP customers only), including:
-  - Key tag: Numeric identifier (provided by GitLab)
-  - Algorithm: Typically 13 (ECDSA P-256 with SHA-256) or 8 (RSA/SHA-256)
-  - Digest type: Typically 2 (SHA-256)
-  - Digest: Cryptographic hash of the public key (provided by GitLab)
+ - Key tag: Numeric identifier (provided by GitLab)
+ - Algorithm: Typically 13 (ECDSA P-256 with SHA-256) or 8 (RSA/SHA-256)
+ - Digest type: Typically 2 (SHA-256)
+ - Digest: Cryptographic hash of the public key (provided by GitLab)
 
 #### Configure DNS records
 
@@ -191,11 +183,9 @@ GitLab then:
 ## Custom certificate authorities for external services
 
 GitLab Dedicated validates certificates when connecting to external services over HTTPS.
-By default, GitLab Dedicated trusts only publicly recognized certificate authorities and rejects
-connections to services with certificates from untrusted certificate authorities.
+By default, GitLab Dedicated trusts only publicly recognized certificate authorities and rejects connections to services with certificates from untrusted certificate authorities.
 
-If your external services use certificates from a private or internal certificate
-authority, you must add that certificate authority to your GitLab Dedicated instance.
+If your external services use certificates from a private or internal certificate authority, you must add that certificate authority to your GitLab Dedicated instance.
 
 You might need custom certificate authorities to:
 
@@ -219,8 +209,7 @@ To add a custom certificate:
 1. Repeat steps 4-6 for each additional certificate in your chain.
 1. Scroll up to the top of the page and select whether to apply the changes immediately or during the next maintenance window.
 
-If you cannot use Switchboard to add a custom certificate,
-open a [support ticket](https://support.gitlab.com/hc/en-us/requests/new?ticket_form_id=4414917877650)
+If you cannot use Switchboard to add a custom certificate, open a [support ticket](https://support.gitlab.com/hc/en-us/requests/new?ticket_form_id=4414917877650)
 and attach each custom certificate as a separate file.
 
 ## AWS Private Link connectivity
@@ -229,21 +218,19 @@ and attach each custom certificate as a separate file.
 
 [AWS Private Link](https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html) allows users and applications in your VPC on AWS to securely connect to the GitLab Dedicated endpoint without network traffic going over the public internet.
 
-You can create private links only in your primary and secondary AWS regions where your
-GitLab Dedicated instance is deployed.
+You can create private links only in your primary and secondary AWS regions where your GitLab Dedicated instance is deployed.
 
 When you create a private link, you specify IAM principals that control access.
 Only the IAM principals you specify can create VPC endpoints to connect to your instance.
 
-The endpoint service is available in two availability zones that are either chosen
-during onboarding or randomly selected.
+The endpoint service is available in two availability zones that are either chosen during onboarding or randomly selected.
 
 Prerequisites:
 
 - Your VPC must be in the same region as your GitLab Dedicated instance.
 - Use IAM principals with role names only. Do not include role paths.
-  - Valid: `arn:aws:iam::AWS_ACCOUNT_ID:role/RoleName`
-  - Invalid: `arn:aws:iam::AWS_ACCOUNT_ID:role/somepath/AnotherRoleName`
+ - Valid: `arn:aws:iam::AWS_ACCOUNT_ID:role/RoleName`
+ - Invalid: `arn:aws:iam::AWS_ACCOUNT_ID:role/somepath/AnotherRoleName`
 
 To create an inbound private link:
 
@@ -252,31 +239,25 @@ To create an inbound private link:
 1. Expand **Inbound private link**.
 1. Select **Add endpoint service**. This button is not available if all your available regions already have private links.
 1. Select a region.
-1. Add IAM principals for the AWS users or roles in your AWS organization that are establishing
-   the VPC endpoints. The IAM principals must be
-   [IAM role principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-roles)
+1. Add IAM principals for the AWS users or roles in your AWS organization that are establishing the VPC endpoints. The IAM principals must be [IAM role principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-roles)
    or [IAM user principals](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-users).
 1. Select **Save**.
 1. GitLab creates the endpoint service and handles domain verification for private DNS.
    The service endpoint name becomes available on the **Configuration** page.
-1. In your AWS account, create an
-   [endpoint interface](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in your VPC.
+1. In your AWS account, create an [endpoint interface](https://docs.aws.amazon.com/vpc/latest/privatelink/create-interface-endpoint.html) in your VPC.
 1. Configure the endpoint interface with these settings:
 
    - **Service endpoint name**: Use the name from the **Configuration** page in Switchboard.
    - **Private DNS names enabled**: Select **Yes**.
    - **Subnets**: Select all matching subnets.
 
-1. Use the instance URL provided during onboarding to connect to your GitLab Dedicated
-   instance from your VPC.
+1. Use the instance URL provided during onboarding to connect to your GitLab Dedicated instance from your VPC.
 
 #### Enable KAS and registry for Inbound Private Link
 
-When you use Inbound Private Link to connect to your GitLab Dedicated instance,
-only the main instance URL has automatic DNS resolution through the private network.
+When you use Inbound Private Link to connect to your GitLab Dedicated instance, only the main instance URL has automatic DNS resolution through the private network.
 
-To access KAS (GitLab agent for Kubernetes) and registry services through your private network,
-you must create an additional DNS configuration in your VPC.
+To access KAS (GitLab agent for Kubernetes) and registry services through your private network, you must create an additional DNS configuration in your VPC.
 
 Prerequisites:
 
@@ -285,8 +266,7 @@ Prerequisites:
 
 To enable KAS and registry through your private network:
 
-1. In your AWS console, create a private hosted zone for `gitlab-dedicated.com`
-   and associate it with the VPC that contains your private link connection.
+1. In your AWS console, create a private hosted zone for `gitlab-dedicated.com` and associate it with the VPC that contains your private link connection.
 1. After you create the private hosted zone, add the following DNS records (replace `example` with your instance name):
 
    1. Create an `A` record for your GitLab Dedicated instance:
@@ -313,13 +293,11 @@ This configuration is robust to IP address changes because it uses the VPC endpo
 
 ##### Enable Pages for Inbound Private Link
 
-Access GitLab Pages through your private network by creating additional DNS
-configuration in your VPC, similar to the KAS and registry configuration.
+Access GitLab Pages through your private network by creating additional DNS configuration in your VPC, similar to the KAS and registry configuration.
 
 To enable Pages through your private network:
 
-1. In your AWS console, create a private hosted zone for `<your_instance_name>.gitlab-pages.site`
-   and associate it with the VPC that contains your private link connection.
+1. In your AWS console, create a private hosted zone for `<your_instance_name>.gitlab-pages.site` and associate it with the VPC that contains your private link connection.
 1. After you create the private hosted zone, add the following DNS records:
    1. Create an apex `A` alias record for the VPC endpoint.
    1. Create a wildcard `CNAME` for `*.<your_instance_name>.gitlab-pages.site` that points to `<your_instance_name>.gitlab-pages.site`.
@@ -389,14 +367,14 @@ This type of connection allows GitLab functionality to access private services:
 
 - For the GitLab Dedicated instance:
 
-  - [webhooks](../../../user/project/integrations/webhooks.md)
-  - import or mirror projects and repositories
+ - [webhooks](../../../user/project/integrations/webhooks.md)
+ - import or mirror projects and repositories
 
 - For hosted runners:
 
-  - custom secrets managers
-  - artifacts or job images stored in your infrastructure
-  - deployments into your infrastructure
+ - custom secrets managers
+ - artifacts or job images stored in your infrastructure
+ - deployments into your infrastructure
 
 Consider the following:
 
@@ -411,16 +389,16 @@ Prerequisites:
 
 - [Create the endpoint service](https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html) for your internal service to be available to GitLab Dedicated.
 - Configure a Network Load Balancer (NLB) for the endpoint service in the Availability Zones (AZs) where your Dedicated instance is deployed. Either:
-  - Use the configured AZs. AZ IDs are displayed on the Overview page in Switchboard.
-  - Enable the NLB in every AZ in the region.
+ - Use the configured AZs. AZ IDs are displayed on the Overview page in Switchboard.
+ - Enable the NLB in every AZ in the region.
 - Add the ARN of the role that GitLab Dedicated uses to connect to your endpoint service to the Allowed Principals list on the Endpoint Service. You can find this ARN in Switchboard under Outbound private link IAM principal. For more information, see [Manage permissions](https://docs.aws.amazon.com/vpc/latest/privatelink/configure-endpoint-service.html#add-remove-permissions).
 - Recommended. Set **Acceptance required** to **No** to enable GitLab Dedicated to connect in a single operation. If set to **Yes**, you must manually accept the connection after it's initiated.
 
-  {{< alert type="note" >}}
+ {{< alert type="note" >}}
 
-  If you set **Acceptance required** to **Yes**, Switchboard cannot accurately determine when the link is accepted. After you manually accept the link, the status shows as **Pending** instead of **Active** until next scheduled maintenance. After maintenance, the link status refreshes and shows as connected.
+ If you set **Acceptance required** to **Yes**, Switchboard cannot accurately determine when the link is accepted. After you manually accept the link, the status shows as **Pending** instead of **Active** until next scheduled maintenance. After maintenance, the link status refreshes and shows as connected.
 
-  {{< /alert >}}
+ {{< /alert >}}
 
 - Once the endpoint service is created, note the Service Name and if you have enabled Private DNS or not.
 
@@ -443,28 +421,18 @@ Prerequisites:
 
 #### Add an outbound private link with a support request
 
-1. [Create the Endpoint service](https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html) through which your internal service
-   will be available to GitLab Dedicated. Provide the associated `Service Endpoint Name` on a new
-   [support ticket](https://support.gitlab.com/hc/en-us/requests/new?ticket_form_id=4414917877650).
+1. [Create the Endpoint service](https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html) through which your internal service will be available to GitLab Dedicated. Provide the associated `Service Endpoint Name` on a new [support ticket](https://support.gitlab.com/hc/en-us/requests/new?ticket_form_id=4414917877650).
 1. Configure a Network Load Balancer (NLB) for the endpoint service in the Availability Zones (AZs) where your Dedicated instance is deployed. Either:
    - Use the configured AZs. AZ IDs are displayed on the Overview page in Switchboard.
    - Enable the NLB in every AZ in the region.
-1. In your [support ticket](https://support.gitlab.com/hc/en-us/requests/new?ticket_form_id=4414917877650), GitLab will provide you with the ARN of an
-   IAM role that will be initiating the connection to your endpoint service. You must ensure this ARN is included, or otherwise covered by other
-   entries, in the list of "Allowed Principals" on the Endpoint Service, as described by the [AWS documentation](https://docs.aws.amazon.com/vpc/latest/privatelink/configure-endpoint-service.html#add-remove-permissions).
+1. In your [support ticket](https://support.gitlab.com/hc/en-us/requests/new?ticket_form_id=4414917877650), GitLab will provide you with the ARN of an IAM role that will be initiating the connection to your endpoint service. You must ensure this ARN is included, or otherwise covered by other entries, in the list of "Allowed Principals" on the Endpoint Service, as described by the [AWS documentation](https://docs.aws.amazon.com/vpc/latest/privatelink/configure-endpoint-service.html#add-remove-permissions).
    Though it's optional, you should you add it explicitly, allowing you to set `Acceptance required` to No so that Dedicated can connect in a single operation.
    If you leave `Acceptance required` as Yes, then you must manually accept the connection after Dedicated has initiated it.
-1. To connect to services using the Endpoint, the Dedicated services require a DNS name. Private Link automatically creates an internal name, but
-   it is machine-generated and not generally directly useful. Two options are available:
-   - In your Endpoint Service, enable [Private DNS name](https://docs.aws.amazon.com/vpc/latest/privatelink/manage-dns-names.html), perform the
-     required validation, and let GitLab know in the support ticket that you are using this option. If `Acceptance Required` is set to Yes on your
-     Endpoint Service, also note this on the support ticket because Dedicated will have to initiate the connection without Private DNS, wait for you
-     to confirm it has been accepted, and then update the connection to enable the use of Private DNS.
-   - Dedicated can manage a Private Hosted Zone (PHZ) within the Dedicated AWS Account and alias any arbitrary DNS names to the endpoint, directing
-     requests for those names to your endpoint service. These aliases are known as PHZ entries. For more information, see [Private hosted zones](#private-hosted-zones).
+1. To connect to services using the Endpoint, the Dedicated services require a DNS name. Private Link automatically creates an internal name, but it is machine-generated and not generally directly useful. Two options are available:
+   - In your Endpoint Service, enable [Private DNS name](https://docs.aws.amazon.com/vpc/latest/privatelink/manage-dns-names.html), perform the required validation, and let GitLab know in the support ticket that you are using this option. If `Acceptance Required` is set to Yes on your Endpoint Service, also note this on the support ticket because Dedicated will have to initiate the connection without Private DNS, wait for you to confirm it has been accepted, and then update the connection to enable the use of Private DNS.
+   - Dedicated can manage a Private Hosted Zone (PHZ) within the Dedicated AWS Account and alias any arbitrary DNS names to the endpoint, directing requests for those names to your endpoint service. These aliases are known as PHZ entries. For more information, see [Private hosted zones](#private-hosted-zones).
 
-GitLab then configures the tenant instance to create the necessary Endpoint Interfaces based on the service names you provided. Any matching outbound
-connections made from the tenant instance are directed through the PrivateLink into your VPC.
+GitLab then configures the tenant instance to create the necessary Endpoint Interfaces based on the service names you provided. Any matching outbound connections made from the tenant instance are directed through the PrivateLink into your VPC.
 
 #### Troubleshooting
 
@@ -536,8 +504,7 @@ If you are unable to use Switchboard to add a private hosted zone, you can open 
 ## IP allowlist
 
 Control which IP addresses can access your instance with an IP allowlist.
-When you enable the IP allowlist, IP addresses not on the allowlist are blocked
-and receive an `HTTP 403 Forbidden` response when they try to access your instance.
+When you enable the IP allowlist, IP addresses not on the allowlist are blocked and receive an `HTTP 403 Forbidden` response when they try to access your instance.
 
 Use Switchboard to configure and manage your IP allowlist, or submit a support request if Switchboard is unavailable.
 

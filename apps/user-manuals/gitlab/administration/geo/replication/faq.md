@@ -35,8 +35,7 @@ For each project to sync:
 When someone pushes a commit to the **primary** site, it generates an event in the GitLab database that the repository has changed.
 The **secondary** site sees this event, marks the project in question as dirty, and schedules the project to be resynced.
 
-To ensure that problems with pipelines (for example, syncs failing too many times or jobs being lost) don't permanently stop projects syncing, Geo also periodically checks the tracking database for projects that are marked as dirty. This check happens when
-the number of concurrent syncs falls below `repos_max_capacity` and there are no new projects waiting to be synced.
+To ensure that problems with pipelines (for example, syncs failing too many times or jobs being lost) don't permanently stop projects syncing, Geo also periodically checks the tracking database for projects that are marked as dirty. This check happens when the number of concurrent syncs falls below `repos_max_capacity` and there are no new projects waiting to be synced.
 
 Geo also has a checksum feature which runs a SHA256 sum across all the Git references to the SHA values.
 If the refs don't match between the **primary** site and the **secondary** site, then the **secondary** site marks that project as dirty and try to resync it.
@@ -44,17 +43,13 @@ So even if we have an outdated tracking database, the validation should activate
 
 ## Can you use Geo in a disaster recovery situation?
 
-Yes, but there are limitations to what we replicate (see
-[What data is replicated to a **secondary** site?](#what-data-is-replicated-to-a-secondary-site)).
+Yes, but there are limitations to what we replicate (see [What data is replicated to a **secondary** site?](#what-data-is-replicated-to-a-secondary-site)).
 
 Read the documentation for [Disaster Recovery](../disaster_recovery/_index.md).
 
 ## What data is replicated to a **secondary** site?
 
-We replicate the whole rails database, project repositories, LFS objects, generated
-attachments, avatars and more. This means information such as user accounts,
-issues, merge requests, groups, and project data are available for
-query.
+We replicate the whole rails database, project repositories, LFS objects, generated attachments, avatars and more. This means information such as user accounts, issues, merge requests, groups, and project data are available for query.
 
 For a comprehensive list of data replicated by Geo, see the [supported Geo data types page](datatypes.md).
 
@@ -64,9 +59,7 @@ Pushing directly to a **secondary** site (for both HTTP and SSH, including Git L
 
 ## How long does it take to have a commit replicated to a **secondary** site?
 
-All replication operations are asynchronous and are queued to be dispatched. Therefore, it depends on a lot of
-factors such as the amount of traffic, how big your commit is, the
-connectivity between your sites, and your hardware.
+All replication operations are asynchronous and are queued to be dispatched. Therefore, it depends on a lot of factors such as the amount of traffic, how big your commit is, the connectivity between your sites, and your hardware.
 
 ## What if the SSH server runs at a different port?
 
@@ -98,7 +91,5 @@ Yes, projects scheduled for deletion by [delayed deletion](../../settings/visibi
 
 ## What happens to my secondary sites with when my primary site goes down?
 
-When a primary site goes down,
-[your secondary will not be accessible through the UI](../secondary_proxy/_index.md#behavior-of-secondary-sites-when-the-primary-geo-site-is-down)
-unless your restore the services on your primary site or you perform a promotion
-on your secondary site.
+When a primary site goes down, [your secondary will not be accessible through the UI](../secondary_proxy/_index.md#behavior-of-secondary-sites-when-the-primary-geo-site-is-down)
+unless your restore the services on your primary site or you perform a promotion on your secondary site.

@@ -13,19 +13,13 @@ title: GitLab Pages Let's Encrypt certificates
 
 {{< /details >}}
 
-The GitLab Pages integration with Let's Encrypt (LE) allows you
-to use LE certificates for your Pages website with custom domains
-without the hassle of having to issue and update them yourself;
-GitLab does it for you, out-of-the-box.
+The GitLab Pages integration with Let's Encrypt (LE) allows you to use LE certificates for your Pages website with custom domains without the hassle of having to issue and update them yourself; GitLab does it for you, out-of-the-box.
 
-[Let's Encrypt](https://letsencrypt.org) is a free, automated, and
-open source Certificate Authority.
+[Let's Encrypt](https://letsencrypt.org) is a free, automated, and open source Certificate Authority.
 
 {{< alert type="warning" >}}
 
-This feature covers only certificates for **custom domains**, not the wildcard certificate required to run
-[Pages daemon](../../../../administration/pages/_index.md) (GitLab Self-Managed, Free, Premium, and Ultimate only). Wildcard
-certificate generation is tracked in [this issue](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/3342).
+This feature covers only certificates for **custom domains**, not the wildcard certificate required to run [Pages daemon](../../../../administration/pages/_index.md) (GitLab Self-Managed, Free, Premium, and Ultimate only). Wildcard certificate generation is tracked in [this issue](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/3342).
 
 {{< /alert >}}
 
@@ -33,18 +27,15 @@ certificate generation is tracked in [this issue](https://gitlab.com/gitlab-org/
 
 Before you can enable automatic provisioning of an SSL certificate for your domain, make sure you have:
 
-- Created a [project](../_index.md#getting-started) in GitLab
-  containing your website's source code.
+- Created a [project](../_index.md#getting-started) in GitLab containing your website's source code.
 - Acquired a domain (`example.com`) and added a [DNS entry](_index.md)
-  pointing it to your Pages website. The top-level domain (`.com`) must be a
-  [public suffix](https://publicsuffix.org/).
+ pointing it to your Pages website. The top-level domain (`.com`) must be a [public suffix](https://publicsuffix.org/).
 - [Added your domain to your Pages project](_index.md#step-1-add-a-custom-domain)
-  and verified your ownership.
+ and verified your ownership.
 - Verified your website is up and running, accessible through your custom domain.
 
 The GitLab integration with Let's Encrypt is enabled and available on GitLab.com.
-For **GitLab Self-Managed** instances, make sure your administrator has
-[enabled it](../../../../administration/pages/_index.md#lets-encrypt-integration).
+For **GitLab Self-Managed** instances, make sure your administrator has [enabled it](../../../../administration/pages/_index.md#lets-encrypt-integration).
 
 ## Enabling Let's Encrypt integration for your custom domain
 
@@ -59,15 +50,12 @@ After you've met the requirements, enable Let's Encrypt integration:
 
 1. Select **Save changes**.
 
-Once enabled, GitLab obtains a LE certificate and add it to the
-associated Pages domain. GitLab also renews it automatically.
+Once enabled, GitLab obtains a LE certificate and add it to the associated Pages domain. GitLab also renews it automatically.
 
 {{< alert type="note" >}}
 
-Issuing the certificate and updating Pages configuration
-**can take up to an hour**.
-If you already have an SSL certificate in domain settings it
-continues to work until replaced by the Let's Encrypt certificate.
+Issuing the certificate and updating Pages configuration **can take up to an hour**.
+If you already have an SSL certificate in domain settings it continues to work until replaced by the Let's Encrypt certificate.
 
 {{< /alert >}}
 
@@ -111,11 +99,8 @@ Remove and add the domain for GitLab Pages again by following these steps:
    1. Go to step 1.
 
 <!-- Include any troubleshooting steps that you can foresee. If you know beforehand what issues
-one might have when setting this up, or when something is changed, or on upgrading, it's
-important to describe those, too. Think of things that may go wrong and include them here.
-This is important to minimize requests for support, and to avoid doc comments with
-questions that you know someone might ask.
+one might have when setting this up, or when something is changed, or on upgrading, it's important to describe those, too. Think of things that may go wrong and include them here.
+This is important to minimize requests for support, and to avoid doc comments with questions that you know someone might ask.
 
 Each scenario can be a third-level heading, for example, `### Getting error message X`.
-If you have none to add when creating a doc, leave this section in place
-but commented out to help encourage others to add to it in the future. -->
+If you have none to add when creating a doc, leave this section in place but commented out to help encourage others to add to it in the future. -->

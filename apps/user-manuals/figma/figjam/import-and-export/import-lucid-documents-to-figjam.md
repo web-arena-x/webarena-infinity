@@ -54,7 +54,7 @@ After exporting content from Lucid, you can:
 ### Import into an existing FigJam file
 
 1. Open a FigJam file.
-2. Click the  Figma icon at the top left of the file.
+2. Click the Figma icon at the top left of the file.
 3. Navigate to **File > Import.**
 4. Select Lucid on the Where are your files from? screen and click Confirm.
 5. Select one or more Lucid PDF files.
@@ -65,7 +65,7 @@ After exporting content from Lucid, you can:
 
 The following table explains how a Lucid object gets imported into FigJam.
 
-|  |  |
+| | |
 | --- | --- |
 | Lucid object | FigJam |
 | Sticky note | Shape with text |

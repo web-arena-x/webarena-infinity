@@ -112,7 +112,7 @@ POST /projects/:id/releases/:tag_name/assets/links
 | `tag_name`           | string         | yes      | The tag associated with the Release.                                                                                      |
 | `name`               | string         | yes      | The name of the link. Link names must be unique in the release.                                                           |
 | `url`                | string         | yes      | The URL of the link. Link URLs must be unique in the release.                                                             |
-| `direct_asset_path`  | string         | no       | Optional path for a [direct asset link](../../user/project/releases/release_fields.md#permanent-links-to-release-assets). |
+| `direct_asset_path` | string         | no       | Optional path for a [direct asset link](../../user/project/releases/release_fields.md#permanent-links-to-release-assets). |
 | `link_type`          | string         | no       | The type of the link: `other`, `runbook`, `image`, `package`. Defaults to `other`.                                        |
 
 Example request:
@@ -153,7 +153,7 @@ PUT /projects/:id/releases/:tag_name/assets/links/:link_id
 | `link_id`            | integer        | yes      | The ID of the link. |
 | `name`               | string         | no       | The name of the link. |
 | `url`                | string         | no       | The URL of the link. |
-| `direct_asset_path`  | string         | no       | Optional path for a [direct asset link](../../user/project/releases/release_fields.md#permanent-links-to-release-assets). |
+| `direct_asset_path` | string         | no       | Optional path for a [direct asset link](../../user/project/releases/release_fields.md#permanent-links-to-release-assets). |
 | `link_type`          | string         | no       | The type of the link: `other`, `runbook`, `image`, `package`. Defaults to `other`. |
 
 > [!note]

@@ -99,14 +99,14 @@ Example combinations:
 The `VULN_TIME_WINDOW` variable controls how far back to look for vulnerabilities:
 
 - Format: `<number><unit>` where:
-  - `number`: Any positive integer
-  - `unit`: `h` for hours or `d` for days
+ - `number`: Any positive integer
+ - `unit`: `h` for hours or `d` for days
 - Examples:
-  - `24h`: Last 24 hours
-  - `7h`: Last 7 hours
-  - `15d`: Last 15 days
-  - `30d`: Last 30 days
-  - `all`: All vulnerabilities (useful for first run)
+ - `24h`: Last 24 hours
+ - `7h`: Last 7 hours
+ - `15d`: Last 15 days
+ - `30d`: Last 30 days
+ - `all`: All vulnerabilities (useful for first run)
 
 Default value: `24h`
 
@@ -115,15 +115,15 @@ Example pipeline configurations:
 ```yaml
 # For 12-hour window
 variables:
-  VULN_TIME_WINDOW: "12h"
+ VULN_TIME_WINDOW: "12h"
 
 # For 3-day window
 variables:
-  VULN_TIME_WINDOW: "3d"
+ VULN_TIME_WINDOW: "3d"
 
 # For all vulnerabilities
 variables:
-  VULN_TIME_WINDOW: "all"
+ VULN_TIME_WINDOW: "all"
 ```
 
 Schedule your pipeline based on your chosen window. For example:

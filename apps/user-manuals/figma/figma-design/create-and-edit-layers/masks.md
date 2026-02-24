@@ -26,7 +26,7 @@ Any layer can be used as a mask, including vector shapes, text layers, images wi
 
 ![](https://help.figma.com/hc/article_attachments/4402389611159)
 
-When you use a layer as a mask, a **mask object** is created, which includes the mask and any layers it is masking. A mask object can be identified in the **Layers** section of the left navigation panel. The  mask icon identifies the mask, with an upward-facing arrow along the layers that are being masked.
+When you use a layer as a mask, a **mask object** is created, which includes the mask and any layers it is masking. A mask object can be identified in the **Layers** section of the left navigation panel. The mask icon identifies the mask, with an upward-facing arrow along the layers that are being masked.
 
 ![Layers panel showing a mask group with masked objects in Figma, identified by an upward arrow and mask icon.](https://help.figma.com/hc/article_attachments/26978254466583)
 
@@ -83,11 +83,11 @@ The darker the area, the less that is revealed. If a mask has a black fill, or `
 
 1. Choose an object you want to use as your mask, and place it behind all objects that'll be masked on the z-axis.
 2. Select all layers that will be a part of the mask object.
-3. From the right sidebar, select  **More options** > **Use as mask**, or press:  
+3. From the right sidebar, select **More options** > **Use as mask**, or press: 
    - Mac: `⌃ Control` `⌘ Command` `M`
    - Windows: `Ctrl` `Alt` `M`
 
-   Note: If you only have one layer selected, select  **Use as mask** directly from the right sidebar.
+   Note: If you only have one layer selected, select **Use as mask** directly from the right sidebar.
 4. Figma will create a mask group with all selected layers.
 5. By default, the mask type is set to **Alpha**. To change it, select the layer being used as a mask and open the dropdown in the Mask section of the right sidebar. Hover over any option to preview it on the canvas. [Learn about mask types](#h_01GWJ59RYMZG5Y3R1HV43PEMXG).
 
@@ -114,8 +114,8 @@ To stop using an object as a mask, use any of the following methods to toggle it
 - Select the mask and click  in the right sidebar
 - Right-click the mask and select **Remove mask**
 - Select the mask and use the keyboard shortcut:
-  - Mac: `⌃ Control` `⌘ Command` `M`
-  - Windows: `Ctrl` `Alt` `M`
+ - Mac: `⌃ Control` `⌘ Command` `M`
+ - Windows: `Ctrl` `Alt` `M`
 
 Any portions hidden by the mask will reappear.
 
@@ -125,7 +125,7 @@ By default, Figma does not show the boundaries of a mask. Use mask outlines when
 
 To toggle mask outlines:
 
-1. Open the  Figma menu.
+1. Open the Figma menu.
 2. Go to **View**> **Mask outlines**.
 
 Once the setting on, masks in your file are outlined in green.

@@ -45,11 +45,7 @@ You can use the GitLab Environment Toolkit to deploy a Cloud Native Hybrid envir
 
 For the most part, we make use of the Linux package in our setup, but we also leverage native AWS services. Instead of using the Linux package-bundled PostgreSQL and Redis, we use Amazon RDS and ElastiCache.
 
-In this guide, we go through a multi-node setup where we start by
-configuring our Virtual Private Cloud and subnets to later integrate
-services such as RDS for our database server and ElastiCache as a Redis
-cluster to finally manage them in an auto scaling group with custom
-scaling policies.
+In this guide, we go through a multi-node setup where we start by configuring our Virtual Private Cloud and subnets to later integrate services such as RDS for our database server and ElastiCache as a Redis cluster to finally manage them in an auto scaling group with custom scaling policies.
 
 ## Requirements
 
@@ -57,7 +53,7 @@ In addition to having a basic familiarity with [AWS](https://docs.aws.amazon.com
 
 - [An AWS account](https://console.aws.amazon.com/console/home)
 - [To create or upload an SSH key](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html)
-  to connect to the instance via SSH
+ to connect to the instance via SSH
 - A domain name for the GitLab instance
 - An SSL/TLS certificate to secure your domain. If you do not already own one, you can provision a free public SSL/TLS certificate through [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)(ACM) for use with the [Elastic Load Balancer](#load-balancer) we create.
 
@@ -74,19 +70,12 @@ The following diagram outlines the recommended architecture.
 
 GitLab uses the following AWS services, with links to pricing information:
 
-- **EC2**: GitLab is deployed on shared hardware, for which
-  [on-demand pricing](https://aws.amazon.com/ec2/pricing/on-demand/) applies.
-  If you want to run GitLab on a dedicated or reserved instance, see the
-  [EC2 pricing page](https://aws.amazon.com/ec2/pricing/) for information about
-  its cost.
-- **S3**: GitLab uses S3 ([pricing page](https://aws.amazon.com/s3/pricing/)) to
-  store backups, artifacts, and LFS objects.
-- **NLB**: A Network Load Balancer ([pricing page](https://aws.amazon.com/elasticloadbalancing/pricing/)),
-  used to route requests to the GitLab instances.
-- **RDS**: An Amazon Relational Database Service using PostgreSQL
-  ([pricing page](https://aws.amazon.com/rds/postgresql/pricing/)).
-- **ElastiCache**: An in-memory cache environment ([pricing page](https://aws.amazon.com/elasticache/pricing/)),
-  used to provide a Redis configuration.
+- **EC2**: GitLab is deployed on shared hardware, for which [on-demand pricing](https://aws.amazon.com/ec2/pricing/on-demand/) applies.
+ If you want to run GitLab on a dedicated or reserved instance, see the [EC2 pricing page](https://aws.amazon.com/ec2/pricing/) for information about its cost.
+- **S3**: GitLab uses S3 ([pricing page](https://aws.amazon.com/s3/pricing/)) to store backups, artifacts, and LFS objects.
+- **NLB**: A Network Load Balancer ([pricing page](https://aws.amazon.com/elasticloadbalancing/pricing/)), used to route requests to the GitLab instances.
+- **RDS**: An Amazon Relational Database Service using PostgreSQL ([pricing page](https://aws.amazon.com/rds/postgresql/pricing/)).
+- **ElastiCache**: An in-memory cache environment ([pricing page](https://aws.amazon.com/elasticache/pricing/)), used to provide a Redis configuration.
 
 ## Create an IAM EC2 instance role and profile
 
@@ -129,8 +118,7 @@ As we are using [Amazon S3 object storage](#amazon-s3-object-storage), our EC2 i
 
 ### Create an IAM Role
 
-1. Still on the IAM dashboard, select **Roles** in the left menu, and
-   select **Create role**.
+1. Still on the IAM dashboard, select **Roles** in the left menu, and select **Create role**.
 1. For the **Trusted entity type**, select `AWS service`. For the **Use case**, select `EC2` for both the dropdown list and radio buttons and select **Next**.
 1. In the policy filter, search for the `gl-s3-policy` we previously created, select it, and select **Next**.
 1. Give the role a name (we use `GitLabS3Access`). If required, add some tags. Select **Create role**.
@@ -139,17 +127,13 @@ We use this role when we [create a launch template](#create-a-launch-template) l
 
 {{< alert type="note" >}}
 
-GitLab supports AWS Instance Metadata Service Version 2 (IMDSv2). GitLab automatically uses IMDSv2 when available and falls back to IMDSv1 if needed. You can safely require
-IMDSv2 on your EC2 instances for enhanced security.
+GitLab supports AWS Instance Metadata Service Version 2 (IMDSv2). GitLab automatically uses IMDSv2 when available and falls back to IMDSv1 if needed. You can safely require IMDSv2 on your EC2 instances for enhanced security.
 
 {{< /alert >}}
 
 ## Configuring the network
 
-We start by creating a VPC for our GitLab cloud infrastructure, then
-we can create subnets to have public and private instances in at least
-two [Availability Zones (AZs)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html). Public subnets require a Route Table keep and an associated
-Internet Gateway.
+We start by creating a VPC for our GitLab cloud infrastructure, then we can create subnets to have public and private instances in at least two [Availability Zones (AZs)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html). Public subnets require a Route Table keep and an associated Internet Gateway.
 
 ### Creating the Virtual Private Cloud (VPC)
 
@@ -157,9 +141,7 @@ We now create a VPC, a virtual networking environment that you control:
 
 1. Sign in to [Amazon Web Services](https://console.aws.amazon.com/vpc/home).
 1. Select **Your VPCs** from the left menu and then select **Create VPC**.
-   At the "Name tag" enter `gitlab-vpc` and at the "IPv4 CIDR block" enter
-   `10.0.0.0/16`. If you don't require dedicated hardware, you can leave
-   "Tenancy" as default. Select **Create VPC** when ready.
+   At the "Name tag" enter `gitlab-vpc` and at the "IPv4 CIDR block" enter `10.0.0.0/16`. If you don't require dedicated hardware, you can leave "Tenancy" as default. Select **Create VPC** when ready.
 
    ![Create a VPC for the GitLab cloud infrastructure.](img/create_vpc_v17_0.png)
 
@@ -167,18 +149,12 @@ We now create a VPC, a virtual networking environment that you control:
 
 ### Subnets
 
-Now, let's create some subnets in different Availability Zones. Make sure
-that each subnet is associated to the VPC we just created and
-that CIDR blocks don't overlap. This also
-allows us to enable multi AZ for redundancy.
+Now, let's create some subnets in different Availability Zones. Make sure that each subnet is associated to the VPC we just created and that CIDR blocks don't overlap. This also allows us to enable multi AZ for redundancy.
 
-We create private and public subnets to match load balancers and
-RDS instances as well:
+We create private and public subnets to match load balancers and RDS instances as well:
 
 1. Select **Subnets** from the left menu.
-1. Select **Create subnet**. Give it a descriptive name tag based on the IP,
-   for example `gitlab-public-10.0.0.0`, select the VPC we created previously, select an availability zone (we use `us-west-2a`),
-   and at the IPv4 CIDR block let's give it a 24 subnet `10.0.0.0/24`:
+1. Select **Create subnet**. Give it a descriptive name tag based on the IP, for example `gitlab-public-10.0.0.0`, select the VPC we created previously, select an availability zone (we use `us-west-2a`), and at the IPv4 CIDR block let's give it a 24 subnet `10.0.0.0/24`:
 
    ![Create a subnet.](img/create_subnet_v17_0.png)
 
@@ -186,9 +162,9 @@ RDS instances as well:
 
    | Name tag                  | Type    | Availability Zone | CIDR block    |
    | ------------------------- | ------- | ----------------- | ------------- |
-   | `gitlab-public-10.0.0.0`  | public  | `us-west-2a`      | `10.0.0.0/24` |
+   | `gitlab-public-10.0.0.0` | public | `us-west-2a`      | `10.0.0.0/24` |
    | `gitlab-private-10.0.1.0` | private | `us-west-2a`      | `10.0.1.0/24` |
-   | `gitlab-public-10.0.2.0`  | public  | `us-west-2b`      | `10.0.2.0/24` |
+   | `gitlab-public-10.0.2.0` | public | `us-west-2b`      | `10.0.2.0/24` |
    | `gitlab-private-10.0.3.0` | private | `us-west-2b`      | `10.0.3.0/24` |
 
 1. Once all the subnets are created, enable **Auto-assign IPv4** for the two public subnets:
@@ -196,14 +172,11 @@ RDS instances as well:
 
 ### Internet Gateway
 
-Now, still on the same dashboard, go to Internet Gateways and
-create a new one:
+Now, still on the same dashboard, go to Internet Gateways and create a new one:
 
 1. Select **Internet Gateways** from the left menu.
-1. Select **Create internet gateway**, give it the name `gitlab-gateway` and
-   select **Create**.
-1. Select it from the table, and then under the **Actions** dropdown list choose
-   "Attach to VPC".
+1. Select **Create internet gateway**, give it the name `gitlab-gateway` and select **Create**.
+1. Select it from the table, and then under the **Actions** dropdown list choose "Attach to VPC".
 
    ![Create an internet gateway.](img/create_gateway_v17_0.png)
 
@@ -235,13 +208,10 @@ On the VPC dashboard:
 1. At the "Name tag" enter `gitlab-public` and choose `gitlab-vpc` under "VPC".
 1. Select **Create**.
 
-We now must add our internet gateway as a new target and have
-it receive traffic from any destination.
+We now must add our internet gateway as a new target and have it receive traffic from any destination.
 
-1. Select **Route Tables** from the left menu and select the `gitlab-public`
-   route to show the options at the bottom.
-1. Select the **Routes** tab, select **Edit routes** > **Add route** and set `0.0.0.0/0`
-   as the destination. In the target column, select the **Internet Gateway** and select the `gitlab-gateway` we created previously.
+1. Select **Route Tables** from the left menu and select the `gitlab-public` route to show the options at the bottom.
+1. Select the **Routes** tab, select **Edit routes** > **Add route** and set `0.0.0.0/0` as the destination. In the target column, select the **Internet Gateway** and select the `gitlab-gateway` we created previously.
    Select **Save changes** when done.
 
 Next, we must associate the **public** subnets to the route table:
@@ -274,9 +244,7 @@ On the EC2 dashboard, look for **Load Balancers** in the left navigation bar:
    - IP address type: Select **IPv4**
    - VPC: Select the `gitlab-vpc` from the dropdown list.
    - Mapping: Select both public subnets from the list so that the load balancer can route traffic to both availability zones.
-1. We add a security group for our load balancer to act as a firewall to control what traffic is allowed through. Under the Security Group section, select the **create a new security group**, give it a name
-   (we use `gitlab-loadbalancer-sec-group`) and description, and allow both HTTP and HTTPS traffic
-   from anywhere (`0.0.0.0/0, ::/0`). Also allow SSH traffic, select a custom source, and add a single trusted IP address, or an IP address range in CIDR notation. This allows users to perform Git actions over SSH.
+1. We add a security group for our load balancer to act as a firewall to control what traffic is allowed through. Under the Security Group section, select the **create a new security group**, give it a name (we use `gitlab-loadbalancer-sec-group`) and description, and allow both HTTP and HTTPS traffic from anywhere (`0.0.0.0/0, ::/0`). Also allow SSH traffic, select a custom source, and add a single trusted IP address, or an IP address range in CIDR notation. This allows users to perform Git actions over SSH.
 1. In the **Listeners and routing** section, set up listeners for port `22`, `80`, and `443` with the following target groups in mind.
 
    | Protocol | Port | Target group |
@@ -307,9 +275,7 @@ On the EC2 dashboard, look for **Load Balancers** in the left navigation bar:
 
 1. Select **Create load balancer**.
 
-After the Load Balancer is up and running, you can revisit your Security
-Groups to refine the access only through the NLB and any other requirements
-you might have.
+After the Load Balancer is up and running, you can revisit your Security Groups to refine the access only through the NLB and any other requirements you might have.
 
 ### Configure DNS for Load Balancer
 
@@ -334,9 +300,7 @@ The steps for doing this vary depending on which registrar you use and is beyond
 
 ## PostgreSQL with RDS
 
-For our database server we use Amazon RDS for PostgreSQL which offers Multi AZ
-for redundancy ([Aurora is **not** supported](https://gitlab.com/gitlab-partners-public/aws/aws-known-issues/-/issues/10)). First we create a security group and subnet group, then we
-create the actual RDS instance.
+For our database server we use Amazon RDS for PostgreSQL which offers Multi AZ for redundancy ([Aurora is **not** supported](https://gitlab.com/gitlab-partners-public/aws/aws-known-issues/-/issues/10)). First we create a security group and subnet group, then we create the actual RDS instance.
 
 ### RDS Security Group
 
@@ -402,15 +366,13 @@ Now that the database is created, let's move on to setting up Redis with ElastiC
 
 ## Redis with ElastiCache
 
-ElastiCache is an in-memory hosted caching solution. Redis maintains its own
-persistence and is used to store session data, temporary cache information, and background job queues for the GitLab application.
+ElastiCache is an in-memory hosted caching solution. Redis maintains its own persistence and is used to store session data, temporary cache information, and background job queues for the GitLab application.
 
 ### Create a Redis Security Group
 
 1. Go to the EC2 dashboard.
 1. Select **Security Groups** from the left menu.
-1. Select **Create security group** and fill in the details. Give it a name (we use `gitlab-redis-sec-group`),
-   add a description, and choose the VPC we created earlier (`gitlab-vpc`).
+1. Select **Create security group** and fill in the details. Give it a name (we use `gitlab-redis-sec-group`), add a description, and choose the VPC we created earlier (`gitlab-vpc`).
 1. In the **Inbound rules** section, select **Add rule** and add a **Custom TCP** rule, set port `6379`, and set the "Custom" source as the `gitlab-loadbalancer-sec-group` we created earlier.
 1. When done, select **Create security group**.
 
@@ -426,12 +388,10 @@ persistence and is used to store session data, temporary cache information, and 
 ### Create the Redis Cluster
 
 1. Go back to the ElastiCache dashboard.
-1. Select **Redis caches** on the left menu and select **Create Redis cache** to create a new
-   Redis cluster.
+1. Select **Redis caches** on the left menu and select **Create Redis cache** to create a new Redis cluster.
 1. Under **Deployment option** select **Design your own cache**.
 1. Under **Creation method** select **Cluster cache**.
-1. Under **Cluster mode** select **Disabled** as it is [not supported](../../administration/redis/replication_and_failover_external.md#requirements). Even without cluster mode on, you still get the
-   chance to deploy Redis in multiple availability zones.
+1. Under **Cluster mode** select **Disabled** as it is [not supported](../../administration/redis/replication_and_failover_external.md#requirements). Even without cluster mode on, you still get the chance to deploy Redis in multiple availability zones.
 1. Under **Cluster info** give the cluster a name (`gitlab-redis`) and a description.
 1. Under **Location** select **AWS Cloud** and enable **Multi-AZ** option.
 1. In the Cluster settings section:
@@ -442,23 +402,18 @@ persistence and is used to store session data, temporary cache information, and 
    1. **Network type**: IPv4
    1. **Subnet groups**: Select **Choose existing subnet group** and choose the `gitlab-redis-group` we had previously created.
 1. In the Availability Zone placements section:
-   1. Manually select the preferred availability zones, and under "Replica 2"
-      choose a different zone than the other two.
+   1. Manually select the preferred availability zones, and under "Replica 2" choose a different zone than the other two.
 
       ![Choose the availability zones for the Redis group.](img/ec_az_v17_0.png)
 
 1. Select **Next**.
-1. In the security settings, edit the security groups and choose the
-   `gitlab-redis-sec-group` we had previously created. Select **Next**.
+1. In the security settings, edit the security groups and choose the `gitlab-redis-sec-group` we had previously created. Select **Next**.
 1. Leave the rest of the settings to their default values or edit to your liking.
 1. When done, select **Create**.
 
 ## Setting up Bastion Hosts
 
-Because our GitLab instances are in private subnets, we need a way to connect
-to these instances with SSH for actions that include making configuration changes
-and performing upgrades. One way of doing this is by using a [bastion host](https://en.wikipedia.org/wiki/Bastion_host),
-sometimes also referred to as a jump box.
+Because our GitLab instances are in private subnets, we need a way to connect to these instances with SSH for actions that include making configuration changes and performing upgrades. One way of doing this is by using a [bastion host](https://en.wikipedia.org/wiki/Bastion_host), sometimes also referred to as a jump box.
 
 > [!note]
 > If you do not want to maintain bastion hosts, you can set up [AWS Systems Manager Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html) for access to instances. This is beyond the scope of this document.
@@ -584,12 +539,9 @@ gitlab=# \q
 
 #### Configure GitLab to connect to PostgreSQL and Redis
 
-1. Edit `/etc/gitlab/gitlab.rb`, find the `external_url 'http://<domain>'` option
-   and change it to the `https` domain you are using.
+1. Edit `/etc/gitlab/gitlab.rb`, find the `external_url 'http://<domain>'` option and change it to the `https` domain you are using.
 
-1. Look for the GitLab database settings and uncomment as necessary. In
-   our current case we specify the database adapter, encoding, host, name,
-   username, and password:
+1. Look for the GitLab database settings and uncomment as necessary. In our current case we specify the database adapter, encoding, host, name, username, and password:
 
    ```ruby
    # Disable the built-in Postgres
@@ -604,8 +556,7 @@ gitlab=# \q
    gitlab_rails['db_host'] = "<rds-endpoint>"
    ```
 
-1. Next, we must configure the Redis section by adding the host and
-   uncommenting the port:
+1. Next, we must configure the Redis section by adding the host and uncommenting the port:
 
    ```ruby
    # Disable the built-in Redis
@@ -622,8 +573,7 @@ gitlab=# \q
    sudo gitlab-ctl reconfigure
    ```
 
-1. You can also run a check and a service status to make sure
-   everything has been setup correctly:
+1. You can also run a check and a service status to make sure everything has been setup correctly:
 
    ```shell
    sudo gitlab-rake gitlab:check
@@ -634,14 +584,12 @@ gitlab=# \q
 
 {{< alert type="warning" >}}
 
-In this architecture, having a single Gitaly server creates a single point of failure. Use
-[Gitaly Cluster (Praefect)](../../administration/gitaly/praefect/_index.md) to remove this limitation.
+In this architecture, having a single Gitaly server creates a single point of failure. Use [Gitaly Cluster (Praefect)](../../administration/gitaly/praefect/_index.md) to remove this limitation.
 
 {{< /alert >}}
 
 Gitaly is a service that provides high-level RPC access to Git repositories.
-It should be enabled and configured on a separate EC2 instance in one of the
-[private subnets](#subnets) we configured previously.
+It should be enabled and configured on a separate EC2 instance in one of the [private subnets](#subnets) we configured previously.
 
 Let's create an EC2 instance where we install Gitaly:
 
@@ -664,8 +612,7 @@ Let's create an EC2 instance where we install Gitaly:
 
 {{< alert type="note" >}}
 
-Instead of storing configuration and repository data on the root volume, you can also choose to add an additional EBS volume for repository storage. Follow
-the same guidance mentioned previously. See the [Amazon EBS pricing page](https://aws.amazon.com/ebs/pricing/).
+Instead of storing configuration and repository data on the root volume, you can also choose to add an additional EBS volume for repository storage. Follow the same guidance mentioned previously. See the [Amazon EBS pricing page](https://aws.amazon.com/ebs/pricing/).
 
 {{< /alert >}}
 
@@ -675,14 +622,12 @@ Now that we have our EC2 instance ready, follow the [documentation to install Gi
 
 {{< alert type="warning" >}}
 
-We do not recommend using EFS because it can negatively impact the performance of GitLab. For more information, see the
-[documentation about avoiding cloud-based file systems](../../administration/nfs.md#avoid-using-cloud-based-file-systems).
+We do not recommend using EFS because it can negatively impact the performance of GitLab. For more information, see the [documentation about avoiding cloud-based file systems](../../administration/nfs.md#avoid-using-cloud-based-file-systems).
 
 {{< /alert >}}
 
 If you do decide to use EFS, ensure that the [PosixUser](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-accesspoint.html#cfn-efs-accesspoint-posixuser)
-attribute is either omitted or correctly specified with the UID and GID of the `git` user on the system that Gitaly is
-installed. The UID and GID can be retrieved with the following commands:
+attribute is either omitted or correctly specified with the UID and GID of the `git` user on the system that Gitaly is installed. The UID and GID can be retrieved with the following commands:
 
 ```shell
 # UID
@@ -692,10 +637,7 @@ $ id -u git
 $ id -g git
 ```
 
-Additionally, you should not configure multiple [access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html),
-especially if they specify different credentials. An application other than Gitaly can manipulate permissions on
-the Gitaly storage directories in a way that prevents Gitaly from operating correctly. For an example of this problem, see
-[`omnibus-gitlab` issue 8893](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/8893).
+Additionally, you should not configure multiple [access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html), especially if they specify different credentials. An application other than Gitaly can manipulate permissions on the Gitaly storage directories in a way that prevents Gitaly from operating correctly. For an example of this problem, see [`omnibus-gitlab` issue 8893](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/8893).
 
 #### Add Support for Proxied SSL
 
@@ -860,8 +802,7 @@ From the EC2 dashboard:
    1. **Min desired capacity**: Set to `2`.
    1. **Max desired capacity**: Set to `4`.
    1. Select **Next**.
-1. Finally, configure notifications and tags as you see fit, review your changes, and create the
-   auto scaling group.
+1. Finally, configure notifications and tags as you see fit, review your changes, and create the auto scaling group.
 1. After the auto scaling group is created, we need to create a scale up and down policy in [Cloudwatch](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html) and assign them.
    1. Create an alarm for the `CPUUtilization` for metrics from **EC2** instances **By Auto Scaling Group** we created earlier.
    1. Create a [scale up policy](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#step-scaling-create-scale-out-policy) using the following conditions:
@@ -884,21 +825,17 @@ Because our instances are created by the auto scaling group, go back to your ins
 
 ## Health check and monitoring with Prometheus
 
-Apart from Amazon CloudWatch, which you can enable on various services,
-GitLab provides its own integrated monitoring solution based on Prometheus.
-For more information about how to set it up, see
-[GitLab Prometheus](../../administration/monitoring/prometheus/_index.md).
+Apart from Amazon CloudWatch, which you can enable on various services, GitLab provides its own integrated monitoring solution based on Prometheus.
+For more information about how to set it up, see [GitLab Prometheus](../../administration/monitoring/prometheus/_index.md).
 
 GitLab also has various [health check endpoints](../../administration/monitoring/health_check.md)
 that you can ping and get reports.
 
 ## GitLab Runner
 
-If you want to take advantage of [GitLab CI/CD](../../ci/_index.md), you have to
-set up at least one [runner](https://docs.gitlab.com/runner/).
+If you want to take advantage of [GitLab CI/CD](../../ci/_index.md), you have to set up at least one [runner](https://docs.gitlab.com/runner/).
 
-Read more on configuring an
-[autoscaling GitLab Runner on AWS](https://docs.gitlab.com/runner/configuration/runner_autoscale_aws/).
+Read more on configuring an [autoscaling GitLab Runner on AWS](https://docs.gitlab.com/runner/configuration/runner_autoscale_aws/).
 
 ## Backup and restore
 
@@ -907,10 +844,8 @@ and restore its Git data, database, attachments, LFS objects, and so on.
 
 Some important things to know:
 
-- The backup/restore tool **does not** store some configuration files, like secrets; you
-  must [configure this yourself](../../administration/backup_restore/backup_gitlab.md#storing-configuration-files).
-- By default, the backup files are stored locally, but you can
-  [backup GitLab using S3](../../administration/backup_restore/backup_gitlab.md#using-amazon-s3).
+- The backup/restore tool **does not** store some configuration files, like secrets; you must [configure this yourself](../../administration/backup_restore/backup_gitlab.md#storing-configuration-files).
+- By default, the backup files are stored locally, but you can [backup GitLab using S3](../../administration/backup_restore/backup_gitlab.md#using-amazon-s3).
 - You can [exclude specific directories form the backup](../../administration/backup_restore/backup_gitlab.md#excluding-specific-data-from-the-backup).
 
 ### Backing up GitLab
@@ -926,14 +861,11 @@ To back up GitLab:
 
 ### Restoring GitLab from a backup
 
-To restore GitLab, first review the [restore documentation](../../administration/backup_restore/_index.md#restore-gitlab),
-and primarily the restore prerequisites. Then, follow the steps under the
-[Linux package installations section](../../administration/backup_restore/restore_gitlab.md#restore-for-linux-package-installations).
+To restore GitLab, first review the [restore documentation](../../administration/backup_restore/_index.md#restore-gitlab), and primarily the restore prerequisites. Then, follow the steps under the [Linux package installations section](../../administration/backup_restore/restore_gitlab.md#restore-for-linux-package-installations).
 
 ## Updating GitLab
 
-GitLab releases a new version every month on the [release date](https://about.gitlab.com/releases/). Whenever a new version is
-released, you can update your GitLab instance:
+GitLab releases a new version every month on the [release date](https://about.gitlab.com/releases/). Whenever a new version is released, you can update your GitLab instance:
 
 1. SSH into your instance
 1. Take a backup:
@@ -957,26 +889,21 @@ Read more on how to use [GitLab releases as AMIs](../../solutions/cloud/aws/gitl
 
 ## Conclusion
 
-In this guide, we went mostly through scaling and some redundancy options,
-your mileage may vary.
+In this guide, we went mostly through scaling and some redundancy options, your mileage may vary.
 
-Keep in mind that all solutions come with a trade-off between
-cost/complexity and uptime. The more uptime you want, the more complex the solution.
-And the more complex the solution, the more work is involved in setting up and
-maintaining it.
+Keep in mind that all solutions come with a trade-off between cost/complexity and uptime. The more uptime you want, the more complex the solution.
+And the more complex the solution, the more work is involved in setting up and maintaining it.
 
-Have a read through these other resources and feel free to
-[open an issue](https://gitlab.com/gitlab-org/gitlab/-/issues/new)
+Have a read through these other resources and feel free to [open an issue](https://gitlab.com/gitlab-org/gitlab/-/issues/new)
 to request additional material:
 
 - [Scaling GitLab](../../administration/reference_architectures/_index.md):
-  GitLab supports several different types of clustering.
+ GitLab supports several different types of clustering.
 - [Geo replication](../../administration/geo/_index.md):
-  Geo is the solution for widely distributed development teams.
-- [Linux package](https://docs.gitlab.com/omnibus/) - Everything you must know
-  about administering your GitLab instance.
+ Geo is the solution for widely distributed development teams.
+- [Linux package](https://docs.gitlab.com/omnibus/) - Everything you must know about administering your GitLab instance.
 - [Add a license](../../administration/license.md):
-  Activate all GitLab Enterprise Edition functionality with a license.
+ Activate all GitLab Enterprise Edition functionality with a license.
 - [Pricing](https://about.gitlab.com/pricing/): Pricing for the different tiers.
 
 ## Troubleshooting

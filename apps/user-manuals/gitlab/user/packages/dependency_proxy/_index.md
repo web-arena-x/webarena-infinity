@@ -13,16 +13,13 @@ description: To reduce data transfer from upstream container images, configure t
 
 {{< /details >}}
 
-The GitLab dependency proxy for container images is a local proxy you can use for your frequently-accessed
-upstream images.
+The GitLab dependency proxy for container images is a local proxy you can use for your frequently-accessed upstream images.
 
-In the case of CI/CD, the dependency proxy receives a request and returns the
-upstream image from a registry, acting as a pull-through cache.
+In the case of CI/CD, the dependency proxy receives a request and returns the upstream image from a registry, acting as a pull-through cache.
 
 ## Prerequisites
 
-To use the dependency proxy for container images, it must be enabled for the GitLab instance. It's enabled by default,
-but [administrators can turn it off](../../../administration/packages/dependency_proxy.md).
+To use the dependency proxy for container images, it must be enabled for the GitLab instance. It's enabled by default, but [administrators can turn it off](../../../administration/packages/dependency_proxy.md).
 
 ### Supported images and packages
 
@@ -32,8 +29,7 @@ The following images and packages are supported.
 | ---------------- | -------------- |
 | Docker           | 14.0+         |
 
-For a list of planned additions, view the
-[direction page](https://about.gitlab.com/direction/package/#dependency-proxy).
+For a list of planned additions, view the [direction page](https://about.gitlab.com/direction/package/#dependency-proxy).
 
 ## Enable or turn off the dependency proxy for a group
 
@@ -51,8 +47,7 @@ To enable or turn off the dependency proxy for a group:
 1. Expand the **Dependency Proxy** section.
 1. To enable the proxy, turn on **Enable Proxy**. To turn it off, turn the toggle off.
 
-This setting only affects the dependency proxy for a group. Only an administrator can
-[turn the dependency proxy on or off](../../../administration/packages/dependency_proxy.md)
+This setting only affects the dependency proxy for a group. Only an administrator can [turn the dependency proxy on or off](../../../administration/packages/dependency_proxy.md)
 for the entire GitLab instance.
 
 ## View the dependency proxy for container images
@@ -83,11 +78,9 @@ Prerequisites:
 
 {{< /history >}}
 
-Because the dependency proxy for container images is storing Docker images in a space associated with your group,
-you must authenticate with it.
+Because the dependency proxy for container images is storing Docker images in a space associated with your group, you must authenticate with it.
 
-Follow the [instructions for using images from a private registry](../../../ci/docker/using_docker_images.md#access-an-image-from-a-private-container-registry),
-but instead of using `registry.example.com:5000`, use your GitLab domain with no port `gitlab.example.com`.
+Follow the [instructions for using images from a private registry](../../../ci/docker/using_docker_images.md#access-an-image-from-a-private-container-registry), but instead of using `registry.example.com:5000`, use your GitLab domain with no port `gitlab.example.com`.
 
 > [!note]
 > [Admin Mode](../../../administration/settings/sign_in_restrictions.md#admin-mode) does not apply during authentication with the dependency proxy for container images. If you are an administrator with Admin Mode enabled, and you create a personal access token without the `admin_mode` scope, that token works even though Admin Mode is enabled.
@@ -119,13 +112,9 @@ When authenticating with the dependency proxy for container images:
 - Tokens with the `read_virtual_registry` scope must also include the `read_registry` scope.
 - Tokens with the `write_virtual_registry` scope must also include the `write_registry` scope.
 
-Users accessing the dependency proxy for container images with a personal access token or username and password must
-have at least the Guest role for the group they pull images from.
+Users accessing the dependency proxy for container images with a personal access token or username and password must have at least the Guest role for the group they pull images from.
 
-The dependency proxy for container images follows the [Docker v2 token authentication flow](https://distribution.github.io/distribution/spec/auth/token/),
-issuing the client a JWT to use for the pulls. The JWT issued as a result of authenticating
-expires after some time. When the token expires, most Docker clients store your credentials and
-automatically request a new token without further action.
+The dependency proxy for container images follows the [Docker v2 token authentication flow](https://distribution.github.io/distribution/spec/auth/token/), issuing the client a JWT to use for the pulls. The JWT issued as a result of authenticating expires after some time. When the token expires, most Docker clients store your credentials and automatically request a new token without further action.
 
 The token expiration time is a [configurable setting](../../../administration/packages/dependency_proxy.md#changing-the-jwt-expiration).
 On GitLab.com, the expiration time is 15 minutes.
@@ -136,17 +125,14 @@ When [SSO enforcement](../../group/saml_sso/_index.md#sso-enforcement)
 is enabled, users must be signed-in through SSO before they can pull images through the dependency proxy for container images.
 
 SSO enforcement also affects [auto-merge](../../project/merge_requests/auto_merge.md).
-If an SSO session expires before the auto-merge triggers, the merge pipeline fails
-to pull images through the dependency proxy.
+If an SSO session expires before the auto-merge triggers, the merge pipeline fails to pull images through the dependency proxy.
 
 #### Authenticate within CI/CD
 
-Runners sign in to the dependency proxy for container images automatically. To pull through
-the dependency proxy, use one of the [predefined variables](../../../ci/variables/predefined_variables.md):
+Runners sign in to the dependency proxy for container images automatically. To pull through the dependency proxy, use one of the [predefined variables](../../../ci/variables/predefined_variables.md):
 
 - `CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX` pulls through the top-level group.
-- `CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX` pulls through the subgroup, or direct group the
-  project exists in.
+- `CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX` pulls through the subgroup, or direct group the project exists in.
 
 Example pulling the latest alpine image:
 
@@ -160,15 +146,10 @@ There are other additional predefined CI/CD variables you can also use:
 - `CI_DEPENDENCY_PROXY_USER`: A CI/CD user for logging in to the dependency proxy.
 - `CI_DEPENDENCY_PROXY_PASSWORD`: A CI/CD password for logging in to the dependency proxy
 - `CI_DEPENDENCY_PROXY_SERVER`: The server for logging in to the dependency proxy.
-- `CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX`: the image prefix for pulling images through the
-  dependency proxy from the top-level group.
-- `CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX`: the image prefix for pulling images through the
-  dependency proxy from the direct group or subgroup that the project belongs to.
+- `CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX`: the image prefix for pulling images through the dependency proxy from the top-level group.
+- `CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX`: the image prefix for pulling images through the dependency proxy from the direct group or subgroup that the project belongs to.
 
-`CI_DEPENDENCY_PROXY_SERVER`, `CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX`, and
-`CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX`
-include the server port. If you explicitly include the dependency proxy
-path, the port must be included, unless you have logged into the dependency proxy manually without including the port:
+`CI_DEPENDENCY_PROXY_SERVER`, `CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX`, and `CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX` include the server port. If you explicitly include the dependency proxy path, the port must be included, unless you have logged into the dependency proxy manually without including the port:
 
 ```shell
 docker pull gitlab.example.com:443/my-group/dependency_proxy/containers/alpine:latest
@@ -186,17 +167,17 @@ FROM gitlab.example.com:443/my-group/dependency_proxy/containers/alpine:latest
 image: docker:20.10.16
 
 variables:
-  DOCKER_HOST: tcp://docker:2375
-  DOCKER_TLS_CERTDIR: ""
+ DOCKER_HOST: tcp://docker:2375
+ DOCKER_TLS_CERTDIR: ""
 
 services:
-  - docker:20.10.16-dind
+ - docker:20.10.16-dind
 
 build:
-  image: docker:20.10.16-cli
-  before_script:
+ image: docker:20.10.16-cli
+ before_script:
     - echo "$CI_DEPENDENCY_PROXY_PASSWORD" | docker login $CI_DEPENDENCY_PROXY_SERVER -u $CI_DEPENDENCY_PROXY_USER --password-stdin
-  script:
+ script:
     - docker build -t test .
 ```
 
@@ -217,7 +198,7 @@ You can configure Docker Hub authentication using your Docker Hub credentials or
 To authenticate with Docker Hub, you can use:
 
 - Your Docker Hub username and password.
-  - This method is not compatible with Docker Hub organizations that [enforce Single Sign-On (SSO)](https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/#does-docker-sso-support-authenticating-through-the-command-line).
+ - This method is not compatible with Docker Hub organizations that [enforce Single Sign-On (SSO)](https://docs.docker.com/security/faqs/single-sign-on/enforcement-faqs/#does-docker-sso-support-authenticating-through-the-command-line).
 - A Docker Hub [Personal Access Token](https://docs.docker.com/security/for-developers/access-tokens/).
 - A Docker Hub [Organization Access Token](https://docs.docker.com/security/for-admins/access-tokens/).
 
@@ -313,15 +294,11 @@ To store a Docker image in dependency proxy storage:
      FROM gitlab.example.com/groupname/dependency_proxy/containers/alpine:latest
      ```
 
-GitLab pulls the Docker image from Docker Hub and caches the blobs
-on the GitLab server. The next time you pull the same image, GitLab gets the latest
-information about the image from Docker Hub, but serves the existing blobs
-from the GitLab server.
+GitLab pulls the Docker image from Docker Hub and caches the blobs on the GitLab server. The next time you pull the same image, GitLab gets the latest information about the image from Docker Hub, but serves the existing blobs from the GitLab server.
 
 ## Reduce storage usage
 
-For information on reducing your storage use on the dependency proxy for container images, see
-[Reduce dependency proxy storage use](reduce_dependency_proxy_storage.md).
+For information on reducing your storage use on the dependency proxy for container images, see [Reduce dependency proxy storage use](reduce_dependency_proxy_storage.md).
 
 ## Docker Hub rate limits and the dependency proxy
 
@@ -329,47 +306,31 @@ For information on reducing your storage use on the dependency proxy for contain
 Watch how to [use the dependency proxy to help avoid Docker Hub rate limits](https://youtu.be/Nc4nUo7Pq08).
 
 Docker Hub enforces [rate limits on pulls](https://docs.docker.com/docker-hub/usage/pulls/).
-If your GitLab [CI/CD configuration](../../../ci/_index.md) uses
-an image from Docker Hub, each time a job runs, it may count as a pull.
+If your GitLab [CI/CD configuration](../../../ci/_index.md) uses an image from Docker Hub, each time a job runs, it may count as a pull.
 To help get around this limit, you can pull your image from the dependency proxy cache instead.
 
-When you pull an image (by using a command like `docker pull` or, in a `.gitlab-ci.yml`
-file, `image: foo:latest`), the Docker client makes a collection of requests:
+When you pull an image (by using a command like `docker pull` or, in a `.gitlab-ci.yml` file, `image: foo:latest`), the Docker client makes a collection of requests:
 
-1. The image manifest is requested. The manifest contains information about
-   how to build the image.
-1. Using the manifest, the Docker client requests a collection of layers, also
-   known as blobs, one at a time.
+1. The image manifest is requested. The manifest contains information about how to build the image.
+1. Using the manifest, the Docker client requests a collection of layers, also known as blobs, one at a time.
 
-The Docker Hub rate limit is based on the number of GET requests for the manifest. The dependency proxy
-caches both the manifest and blobs for a given image, so when you request it again,
-Docker Hub does not have to be contacted.
+The Docker Hub rate limit is based on the number of GET requests for the manifest. The dependency proxy caches both the manifest and blobs for a given image, so when you request it again, Docker Hub does not have to be contacted.
 
 ### How does GitLab know if a cached tagged image is stale?
 
-If you are using an image tag like `alpine:latest`, the image changes
-over time. Each time it changes, the manifest contains different information about which
-blobs to request. The dependency proxy does not pull a new image each time the
-manifest changes; it checks only when the manifest becomes stale.
+If you are using an image tag like `alpine:latest`, the image changes over time. Each time it changes, the manifest contains different information about which blobs to request. The dependency proxy does not pull a new image each time the manifest changes; it checks only when the manifest becomes stale.
 
 Docker does not count HEAD requests for the image manifest towards the rate limit.
 You can make a HEAD request for `alpine:latest`, view the digest (checksum)
 value returned in the header, and determine if a manifest has changed.
 
-The dependency proxy starts all requests with a HEAD request. If the manifest
-has become stale, only then is a new image pulled.
+The dependency proxy starts all requests with a HEAD request. If the manifest has become stale, only then is a new image pulled.
 
-For example, if your pipeline pulls `node:latest` every five
-minutes, the dependency proxy caches the entire image and only updates it if
-`node:latest` changes. So instead of having 360 requests for the image in six hours
-(which exceeds the Docker Hub rate limit), you only have one pull, unless
-the manifest changed during that time.
+For example, if your pipeline pulls `node:latest` every five minutes, the dependency proxy caches the entire image and only updates it if `node:latest` changes. So instead of having 360 requests for the image in six hours (which exceeds the Docker Hub rate limit), you only have one pull, unless the manifest changed during that time.
 
 ### Check your Docker Hub rate limit
 
-If you are curious about how many requests to Docker Hub you have made and how
-many remain, you can run these commands from your runner, or even in a CI/CD
-script:
+If you are curious about how many requests to Docker Hub you have made and how many remain, you can run these commands from your runner, or even in a CI/CD script:
 
 ```shell
 # Note, you must have jq installed to run this command
@@ -410,8 +371,7 @@ If you receive an `HTTP Basic: Access denied` error when authenticating against 
 
 ### Dependency proxy connection failure
 
-If a service alias is not set the `docker:20.10.16` image is unable to find the
-`dind` service, and an error like the following is thrown:
+If a service alias is not set the `docker:20.10.16` image is unable to find the `dind` service, and an error like the following is thrown:
 
 ```plaintext
 error during connect: Get http://docker:2376/v1.39/info: dial tcp: lookup docker on 192.168.0.1:53: no such host
@@ -449,38 +409,33 @@ Make sure you are using the expected authentication mechanism.
 
 ### `Not Found` or `404` error when pulling image
 
-Errors like these might indicate that the user running the job doesn't have
-a minimum of the Guest role for the dependency proxy group:
+Errors like these might indicate that the user running the job doesn't have a minimum of the Guest role for the dependency proxy group:
+
+- ```plaintext ERROR: gitlab.example.com:443/group1/dependency_proxy/containers/alpine:latest: not found
+
+ failed to solve with frontend dockerfile.v0: failed to create LLB definition: gitlab.example.com:443/group1/dependency_proxy/containers/alpine:latest: not found
+ ```
 
 - ```plaintext
-  ERROR: gitlab.example.com:443/group1/dependency_proxy/containers/alpine:latest: not found
+ ERROR: Job failed: failed to pull image "gitlab.example.com:443/group1/dependency_proxy/containers/alpine:latest" with specified policies [always]:
+ Error response from daemon: error parsing HTTP 404 response body: unexpected end of JSON input: "" (manager.go:237:1s)
+ ```
 
-  failed to solve with frontend dockerfile.v0: failed to create LLB definition: gitlab.example.com:443/group1/dependency_proxy/containers/alpine:latest: not found
-  ```
-
-- ```plaintext
-  ERROR: Job failed: failed to pull image "gitlab.example.com:443/group1/dependency_proxy/containers/alpine:latest" with specified policies [always]:
-  Error response from daemon: error parsing HTTP 404 response body: unexpected end of JSON input: "" (manager.go:237:1s)
-  ```
-
-For more information about the work to improve the error messages in similar cases to `Access denied`,
-see [issue 354826](https://gitlab.com/gitlab-org/gitlab/-/issues/354826).
+For more information about the work to improve the error messages in similar cases to `Access denied`, see [issue 354826](https://gitlab.com/gitlab-org/gitlab/-/issues/354826).
 
 ### `exec format error` when running images from the dependency proxy
 
 {{< alert type="note" >}}
 
 This issue was [resolved](https://gitlab.com/gitlab-org/gitlab/-/issues/325669) in GitLab 16.3.
-For GitLab Self-Managed instances that are 16.2 or earlier, you can update your instance to 16.3
-or use the workaround documented below.
+For GitLab Self-Managed instances that are 16.2 or earlier, you can update your instance to 16.3 or use the workaround documented below.
 
 {{< /alert >}}
 
 This error occurs if you try to use the dependency proxy on an ARM-based Docker install in GitLab 16.2 or earlier.
 The dependency proxy only supports the x86_64 architecture when pulling an image with a specific tag.
 
-As a workaround, you can specify the SHA256 of the image to force the dependency proxy
-to pull a different architecture:
+As a workaround, you can specify the SHA256 of the image to force the dependency proxy to pull a different architecture:
 
 ```shell
 docker pull ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/library/docker:20.10.3@sha256:bc9dcf5c8e5908845acc6d34ab8824bca496d6d47d1b08af3baf4b3adb1bd8fe
@@ -490,14 +445,10 @@ In this example, `bc9dcf5c8e5908845acc6d34ab8824bca496d6d47d1b08af3baf4b3adb1bd8
 
 ### `MissingFile` errors after restoring a backup
 
-If you encounter `MissingFile` or `Cannot read file` errors, it might be because
-[backup archives](../../../administration/backup_restore/backup_gitlab.md)
+If you encounter `MissingFile` or `Cannot read file` errors, it might be because [backup archives](../../../administration/backup_restore/backup_gitlab.md)
 do not include the contents of `gitlab-rails/shared/dependency_proxy/`.
 
-To resolve this [known issue](https://gitlab.com/gitlab-org/gitlab/-/issues/354574),
-you can use `rsync`, `scp`, or a similar tool to copy the affected files or the whole
-`gitlab-rails/shared/dependency_proxy/` folder structure from the GitLab instance
-that was the source of the backup.
+To resolve this [known issue](https://gitlab.com/gitlab-org/gitlab/-/issues/354574), you can use `rsync`, `scp`, or a similar tool to copy the affected files or the whole `gitlab-rails/shared/dependency_proxy/` folder structure from the GitLab instance that was the source of the backup.
 
 If the data is not needed, you can delete the database entries with:
 

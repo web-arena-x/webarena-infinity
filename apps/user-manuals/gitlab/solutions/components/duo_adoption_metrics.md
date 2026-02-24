@@ -92,9 +92,9 @@ The script `ai_raw_data_collection.py` is responsible for:
 - Reading environment/CI variables (such as `GROUP_PATH`, `DUO_TOKEN`, and pipeline configuration).
 - Invoking one or more **collector scripts** that implement concrete Duo usage queries.
 - Coordinating:
-  - Pagination across groups and projects.
-  - Date/time windows or sampling strategies for Duo usage events.
-  - Normalization of results into a consistent, analytics-friendly format (e.g., CSV/JSON).
+ - Pagination across groups and projects.
+ - Date/time windows or sampling strategies for Duo usage events.
+ - Normalization of results into a consistent, analytics-friendly format (e.g., CSV/JSON).
 - Writing the collected data to locations that the Duo dashboard and downstream aggregation steps consume.
 
 It acts as a **generic entry point** for collecting raw Duo usage data, so you can:
@@ -112,8 +112,8 @@ Key ideas:
 
 - **GraphQL client abstraction** – A central client handles authentication, pagination, and error handling against the GitLab GraphQL endpoint.
 - **Collection classes** – The `collections` module provides higher-level abstractions (such as “project collections” or “user collections”) that expose methods for retrieving structured data. Duo collectors use these to:
-  - Fetch groups and projects for a given `GROUP_PATH`.
-  - Query Duo usage fields and AI-related activity.
+ - Fetch groups and projects for a given `GROUP_PATH`.
+ - Query Duo usage fields and AI-related activity.
 - **Versioned API usage** – The same collections API can be extended as GitLab improves or expands Duo-related GraphQL fields without changing the orchestrator.
 
 The Duo collectors import these collection classes and define the specific queries they need (for example, fetching counts of AI code suggestions, chat usage events, or user-level adoption statistics).
@@ -125,8 +125,8 @@ The Duo collectors import these collection classes and define the specific queri
 While the pipeline can be customized, a typical Duo-only setup requires:
 
 - **Minimal CI configuration**:
-  - Enable the Duo pipeline by setting `ENABLE_DUO_METRICS="true"`.
-  - Optionally disable any non-Duo pipelines by setting `ENABLE_PROJECT_METRICS="false"`.
+ - Enable the Duo pipeline by setting `ENABLE_DUO_METRICS="true"`.
+ - Optionally disable any non-Duo pipelines by setting `ENABLE_PROJECT_METRICS="false"`.
 - **Environment variables** used by `ai_raw_data_collection.py`:
 
 | Variable | Description | Example |

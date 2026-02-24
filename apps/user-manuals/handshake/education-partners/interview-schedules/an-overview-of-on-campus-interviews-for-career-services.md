@@ -26,14 +26,14 @@ The first step to hosting on-campus interviews is to configure your school setti
 Each of the settings below work together to create a cohesive interview experience for all users in Handshake.
 
 - **Interview Preferences**: setup default settings for custom messaging, room cost and more.
-  - Get all the details in [School Settings: Interview Preferences](https://support.joinhandshake.com/hc/en-us/articles/4477215961239).
+ - Get all the details in [School Settings: Interview Preferences](https://support.joinhandshake.com/hc/en-us/articles/4477215961239).
 - **Schedule Templates**: the interview slots framework, which includes the time and length of each interview date interaction (example: full day, 30-minute slots).
-  - For steps to configure [School Settings: Interview Schedule Templates](../handshakes-school-settings/school-settings-interview-schedule-templates.md).
+ - For steps to configure [School Settings: Interview Schedule Templates](../handshakes-school-settings/school-settings-interview-schedule-templates.md).
 - **Schedule Timelines**: timelines allow you to designate pre-determined deadlines for applications to be submitted, applicants reviewed, and slots selected prior to the date of the interview. Timelines are based on one of three types of interviews: Room only, Open, and Preselect.
-  - Get familiar with the types of interviews available in [Interview Schedule Types](https://support.joinhandshake.com/hc/en-us/articles/218693248).
-  - To learn how to customize timelines, use [School Settings: Interview Schedule Timelines](school-settings-interview-schedule-timelines.md).
+ - Get familiar with the types of interviews available in [Interview Schedule Types](https://support.joinhandshake.com/hc/en-us/articles/218693248).
+ - To learn how to customize timelines, use [School Settings: Interview Schedule Timelines](school-settings-interview-schedule-timelines.md).
 - **Interview Seasons**: interview seasons allow you to limit when employers are able to schedule interviews and for what dates they can be scheduled for. If you choose not to create interview seasons, employers may schedule interviews at any time. 
-  - If you'd like to set up seasons, check out [School Settings: Interview Seasons](https://support.joinhandshake.com/hc/en-us/articles/219132797-School-Settings-Interview-Seasons-and-Preferences).
+ - If you'd like to set up seasons, check out [School Settings: Interview Seasons](https://support.joinhandshake.com/hc/en-us/articles/219132797-School-Settings-Interview-Seasons-and-Preferences).
 
 ### Interviews Page
 
@@ -53,10 +53,10 @@ Now that your School Settings have been established, and you're familiar with th
 There are two ways to generate an OCI in Handshake: 
 
 - An employer requests an OCI from their user account in Handshake.
-  - For information on this workflow, check out [Guide to Managing On-Campus Interviews (with Employers)](https://support.joinhandshake.com/hc/en-us/articles/360046611573).
+ - For information on this workflow, check out [Guide to Managing On-Campus Interviews (with Employers)](https://support.joinhandshake.com/hc/en-us/articles/360046611573).
 - A Career Services staff member creates an OCI on the employer's behalf.
-  - **Note**: we recommend encouraging the employer to be self-sufficient when possible. Handshake is free to sign up for and use, and the employer taking these steps can also save you time! Empower your employer partners by sharing [How to Request an Interview at a School](https://support.joinhandshake.com/hc/en-us/articles/225537148).
-  - For information about this process, please see [Posting an Interview Schedule on Behalf of an Employer](https://support.joinhandshake.com/hc/en-us/articles/226235547).
+ - **Note**: we recommend encouraging the employer to be self-sufficient when possible. Handshake is free to sign up for and use, and the employer taking these steps can also save you time! Empower your employer partners by sharing [How to Request an Interview at a School](https://support.joinhandshake.com/hc/en-us/articles/225537148).
+ - For information about this process, please see [Posting an Interview Schedule on Behalf of an Employer](https://support.joinhandshake.com/hc/en-us/articles/226235547).
 
 ### Managing Interview Schedules
 
@@ -103,9 +103,9 @@ For additional information, refer to [Actions Within an Interview Schedule](act
 Once an interview is approved at your institution, you may need to make updates to the details. These updates may include:
 
 - Making an edit to an interview schedule
-  - refer to [How to Edit an Interview Schedule](https://support.joinhandshake.com/hc/en-us/articles/219133407)for steps on this.
+ - refer to [How to Edit an Interview Schedule](https://support.joinhandshake.com/hc/en-us/articles/219133407)for steps on this.
 - Adding or removing a job connected to the schedule
-  - check out [Managing Jobs Attached to Interview Schedules](https://support.joinhandshake.com/hc/en-us/articles/115012824487).
+ - check out [Managing Jobs Attached to Interview Schedules](https://support.joinhandshake.com/hc/en-us/articles/115012824487).
 
 ### Managing Rooms
 

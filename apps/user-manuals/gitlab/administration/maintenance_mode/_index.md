@@ -15,8 +15,7 @@ title: GitLab Maintenance Mode
 Maintenance Mode allows administrators to reduce write operations to a minimum while maintenance tasks are performed. The main goal is to block all external actions that change the internal state. The internal state includes the PostgreSQL database, but especially files, Git repositories, and Container repositories.
 
 When Maintenance Mode is enabled, in-progress actions finish relatively quickly because no new actions are coming in, and internal state changes are minimal.
-In that state, various maintenance tasks are easier. Services can be stopped completely or
-further degraded for a shorter period of time than might otherwise be needed. For example, stopping cron jobs and draining queues should be fairly quick.
+In that state, various maintenance tasks are easier. Services can be stopped completely or further degraded for a shorter period of time than might otherwise be needed. For example, stopping cron jobs and draining queues should be fairly quick.
 
 Maintenance Mode allows most external actions that do not change internal state. On a high-level, HTTP `POST`, `PUT`, `PATCH`, and `DELETE` requests are blocked and a detailed overview of [how special cases are handled](#rest-api) is available.
 
@@ -25,34 +24,34 @@ Maintenance Mode allows most external actions that do not change internal state.
 Enable Maintenance Mode as an administrator in one of these ways:
 
 - **Web UI**:
-  1. In the upper-right corner, select **Admin**.
-  1. On the left sidebar, select **Settings** > **General**.
-  1. Expand **Maintenance Mode**, and toggle **Enable Maintenance Mode**.
+ 1. In the upper-right corner, select **Admin**.
+ 1. On the left sidebar, select **Settings** > **General**.
+ 1. Expand **Maintenance Mode**, and toggle **Enable Maintenance Mode**.
      You can optionally add a message for the banner as well.
-  1. Select **Save changes**.
+ 1. Select **Save changes**.
 
 - **API**:
 
-  ```shell
-  curl --request PUT --header "PRIVATE-TOKEN:$ADMIN_TOKEN" "<gitlab-url>/api/v4/application/settings?maintenance_mode=true"
-  ```
+ ```shell
+ curl --request PUT --header "PRIVATE-TOKEN:$ADMIN_TOKEN" "<gitlab-url>/api/v4/application/settings?maintenance_mode=true"
+ ```
 
 ## Disable Maintenance Mode
 
 Disable Maintenance Mode in one of three ways:
 
 - **Web UI**:
-  1. In the upper-right corner, select **Admin**.
-  1. On the left sidebar, select **Settings** > **General**.
-  1. Expand **Maintenance Mode**, and toggle **Enable Maintenance Mode**.
+ 1. In the upper-right corner, select **Admin**.
+ 1. On the left sidebar, select **Settings** > **General**.
+ 1. Expand **Maintenance Mode**, and toggle **Enable Maintenance Mode**.
      You can optionally add a message for the banner as well.
-  1. Select **Save changes**.
+ 1. Select **Save changes**.
 
 - **API**:
 
-  ```shell
-  curl --request PUT --header "PRIVATE-TOKEN:$ADMIN_TOKEN" "<gitlab-url>/api/v4/application/settings?maintenance_mode=false"
-  ```
+ ```shell
+ curl --request PUT --header "PRIVATE-TOKEN:$ADMIN_TOKEN" "<gitlab-url>/api/v4/application/settings?maintenance_mode=false"
+ ```
 
 ## Behavior of GitLab features in Maintenance Mode
 
@@ -68,8 +67,7 @@ An error is displayed when a user tries to perform a write operation that isn't 
 
 ### Administrator functions
 
-Systems administrators can edit the application settings. This allows
-them to disable Maintenance Mode after it's been enabled.
+Systems administrators can edit the application settings. This allows them to disable Maintenance Mode after it's been enabled.
 
 ### Authentication
 
@@ -79,8 +77,7 @@ If there are [LDAP syncs](../auth/ldap/_index.md) scheduled for that time, they 
 
 ### Git actions
 
-All read-only Git operations continue to work, for example
-`git clone` and `git pull`. All write operations fail, both through the CLI and Web IDE with the error message: `Git push is not allowed because this GitLab instance is currently in (read-only) maintenance mode.`
+All read-only Git operations continue to work, for example `git clone` and `git pull`. All write operations fail, both through the CLI and Web IDE with the error message: `Git push is not allowed because this GitLab instance is currently in (read-only) maintenance mode.`
 
 If Geo is enabled, Git pushes to both primary and secondaries fail.
 
@@ -100,10 +97,10 @@ Notification emails continue to arrive, but emails that require database writes,
 
 For most JSON requests, `POST`, `PUT`, `PATCH`, and `DELETE` are blocked, and the API returns a `503` response with the error message: `GitLab Maintenance: system is in maintenance mode`. Only the following requests are allowed:
 
-|HTTP request | Allowed routes |  Notes |
+|HTTP request | Allowed routes | Notes |
 |:----:|:--------------------------------------:|:----:|
 | `POST` | `/admin/application_settings/general` | To allow updating application settings in the administrator UI |
-| `PUT`  | `/api/v4/application/settings` | To allow updating application settings with the API |
+| `PUT` | `/api/v4/application/settings` | To allow updating application settings with the API |
 | `POST` | `/users/sign_in` | To allow users to sign in. |
 | `POST` | `/users/sign_out`| To allow users to sign out. |
 | `POST` | `/oauth/token` | To allow users to sign in to a Geo secondary for the first time. |
@@ -130,21 +127,17 @@ The only mutation that is allowed is the `GeoRegistriesUpdate` which is used to 
 ### Continuous Integration
 
 - No new jobs or pipelines start, scheduled or otherwise.
-- Jobs that were already running continue to have a `running` status in the GitLab UI,
-  even if they finish running on the GitLab Runner.
+- Jobs that were already running continue to have a `running` status in the GitLab UI, even if they finish running on the GitLab Runner.
 - Jobs in the `running` state for longer than the project's time limit do not time out.
 - Pipelines cannot be started, retried or canceled. No new jobs can be created either.
 - The status of the runners in `/admin/runners` isn't updated.
 - `gitlab-runner verify` returns the error `ERROR: Verifying runner... is removed`.
 
-After Maintenance Mode is disabled, new jobs are picked up again. Jobs that were
-in the `running` state before enabling Maintenance Mode resume and their logs start
-updating again.
+After Maintenance Mode is disabled, new jobs are picked up again. Jobs that were in the `running` state before enabling Maintenance Mode resume and their logs start updating again.
 
 {{< alert type="note" >}}
 
-You should restart previously `running` pipelines after Maintenance Mode
-is turned off.
+You should restart previously `running` pipelines after Maintenance Mode is turned off.
 
 {{< /alert >}}
 
@@ -169,11 +162,9 @@ Package registry allows you to install but not publish packages.
 ### Background jobs
 
 Background jobs (cron jobs, Sidekiq) continue running as is, because background jobs are not automatically disabled.
-As background jobs perform operations that can change the internal state of your instance, you may want to disable
-some or all of them while maintenance mode is enabled.
+As background jobs perform operations that can change the internal state of your instance, you may want to disable some or all of them while maintenance mode is enabled.
 
-[During a planned Geo failover](../geo/disaster_recovery/planned_failover.md#prevent-updates-to-the-primary-site),
-you should disable all cron jobs except for those related to Geo.
+[During a planned Geo failover](../geo/disaster_recovery/planned_failover.md#prevent-updates-to-the-primary-site), you should disable all cron jobs except for those related to Geo.
 
 To monitor queues and disable jobs:
 
@@ -196,13 +187,11 @@ When primary is in Maintenance Mode, secondary also automatically goes into Main
 
 It is important that you do not disable replication before enabling Maintenance Mode.
 
-Replication, verification and manual actions to resync and reverify registries through the Admin UI
-continue to work, but proxied Git pushes to primary don't.
+Replication, verification and manual actions to resync and reverify registries through the Admin UI continue to work, but proxied Git pushes to primary don't.
 
 ### Secure features
 
-Features that depend on creating issues or creating or approving merge requests,
-do not work.
+Features that depend on creating issues or creating or approving merge requests, do not work.
 
 Exporting a vulnerability list from a vulnerability report page does not work.
 

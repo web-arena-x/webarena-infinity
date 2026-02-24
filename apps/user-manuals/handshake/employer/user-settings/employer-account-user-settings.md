@@ -31,14 +31,14 @@ All fields marked with an asterisk are required:
 - **\*First name**
 - **\*Last name**
 - **Title**
-  - **Note**: When you update your job title, it will automatically update on all job postings you created, including job drafts, or where you are listed as the job owner.
+ - **Note**: When you update your job title, it will automatically update on all job postings you created, including job drafts, or where you are listed as the job owner.
 - **Email address**
 - **\*Phone Number**
 - **Mobile Phone Number**
 - **Bio**
 - **Alma mater**
 - **Hide student profile pictures**
-  - If checked, the student's profile picture will not be visible when viewing their profile.
+ - If checked, the student's profile picture will not be visible when viewing their profile.
 
 To update any changes, click the green button **Update User** in the lower-right corner of the page.
 

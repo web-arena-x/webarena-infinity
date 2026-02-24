@@ -23,7 +23,7 @@ On the Documents page, your uploads are displayed as a list with helpful informa
 - **Visibility** (*Public/Private*)
 - **Category** (*Resume, Cover Letter, Transcript, or Other*)
 - **Status** (*Document Status*)
-  - To learn more about the status of your documents, refer to [Document Status in Handshake](document-status-in-handshake.md)
+ - To learn more about the status of your documents, refer to [Document Status in Handshake](document-status-in-handshake.md)
 - **Uploaded** (*Month/day/year*)
 
 ![Documents page with documents.png](https://support.joinhandshake.com/hc/article_attachments/29595661757335)

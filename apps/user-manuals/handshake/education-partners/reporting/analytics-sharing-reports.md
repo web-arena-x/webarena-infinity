@@ -11,7 +11,7 @@ The Share button enables the following workflows: 
 - Sharing a new unsaved report –– upon clicking the link, recipients will be able to view and save the unsaved report.
 - Quickly sharing a saved report
 - Sharing an existing report with unsaved changes –– upon clicking the link, recipients will be able to view the existing report with any changes in place at the time the sender clicked **Share**.  
-  - In this instance, the title of the report will display as “New Report” to the recipient, since a saved report with unsaved modifications is treated as an unsaved report. The link recipient will be able to save the modified report as a new report.
+ - In this instance, the title of the report will display as “New Report” to the recipient, since a saved report with unsaved modifications is treated as an unsaved report. The link recipient will be able to save the modified report as a new report.
 
 For more foundational knowledge on Analytics, please refer to [Analytics: The Art of Reporting](https://support.joinhandshake.com/hc/en-us/articles/360003892314) and for overall reporting guidance, [Getting Started with Reporting on Handshake](../assessment-reporting/getting-started-with-reporting-on-handshake.md).
 

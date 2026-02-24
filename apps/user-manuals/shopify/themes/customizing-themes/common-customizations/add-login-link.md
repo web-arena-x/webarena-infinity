@@ -39,9 +39,9 @@ If a profile icon doesn't display in your online store header that lets customer
 
 ```
 {% if customer %}
-  <a href="{{ routes.account_url }}">Account</a>
+ <a href="{{ routes.account_url }}">Account</a>
 {% else %}
-  <a href="{{ routes.account_login_url }}">Login</a>
+ <a href="{{ routes.account_login_url }}">Login</a>
 {% endif %}
 ```
 
@@ -49,8 +49,8 @@ If a profile icon doesn't display in your online store header that lets customer
 
 ```
 {% if customer %}
-  <a href="{{ routes.account_url }}">Account</a>
+ <a href="{{ routes.account_url }}">Account</a>
 {% else %}
-  <a href="{{ routes.storefront_login_url }}">Login</a>
+ <a href="{{ routes.storefront_login_url }}">Login</a>
 {% endif %}
 ```

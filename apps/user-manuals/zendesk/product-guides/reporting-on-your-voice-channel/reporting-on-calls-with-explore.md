@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408885612314-Reporting-on
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Talk Professional or Enterprise |
 
@@ -47,9 +47,9 @@ A common term you'll hear is *call leg*. A call leg is defined as an interaction
 Call legs fall into one of two types:
 
 - **Agent:** Begins when an available agent is found and the agent's phone (or browser) starts to ring. The call leg ends after one of the following events:
-  - The agent declines the call.
-  - The agent completes the call. The leg ends after any configured wrap-up time for the call.
-  - The agent transfers the call to a second agent. As soon as the first agent calls the second agent, then the second agent's call leg begins. The first agent's call leg ends after the call is transferred. When calls have more than one agent leg, it's because more than one agent was a participant.
+ - The agent declines the call.
+ - The agent completes the call. The leg ends after any configured wrap-up time for the call.
+ - The agent transfers the call to a second agent. As soon as the first agent calls the second agent, then the second agent's call leg begins. The first agent's call leg ends after the call is transferred. When calls have more than one agent leg, it's because more than one agent was a participant.
 - **End user:** Begins after the call is answered and the end user hears the welcome message. The call leg ends when the call is disconnected because either the end user or the agent hung up. There can be more than one call leg for the end user (for example, a [callback request](https://support.zendesk.com/hc/en-us/articles/4408884087706) creates a second end-user call leg).
 
 ## Understanding key Explore metrics for Talk

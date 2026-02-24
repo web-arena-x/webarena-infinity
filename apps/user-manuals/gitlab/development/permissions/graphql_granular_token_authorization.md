@@ -26,9 +26,9 @@ The granular token authorization system adds fine-grained permission checks to G
 - **Location**: `app/graphql/directives/authz/granular_scope.rb`
 - **Purpose**: Declares required permissions and boundary extraction strategy
 - **Arguments**:
-  - `permissions`: Array of required permission strings (e.g., `['READ_ISSUE']`)
-  - `boundary`: Method name to extract boundary from resolved object
-  - `boundary_argument`: Argument name containing the boundary
+ - `permissions`: Array of required permission strings (e.g., `['READ_ISSUE']`)
+ - `boundary`: Method name to extract boundary from resolved object
+ - `boundary_argument`: Argument name containing the boundary
 
 ### 3. Directive Finder
 
@@ -82,20 +82,20 @@ For each field being resolved:
 
 ```ruby
 def authorize_field(object, arguments, context)
-  return unless authorization_enabled?(context)  # Only authorize granular PATs with feature flag enabled
-  return if SkipRules.new(@field).should_skip?  # Skip certain fields
+ return unless authorization_enabled?(context) # Only authorize granular PATs with feature flag enabled
+ return if SkipRules.new(@field).should_skip? # Skip certain fields
 
 def authorization_enabled?(context)
-  token = context[:access_token]
-  token && token.try(:granular?) && Feature.enabled?(:granular_personal_access_tokens_for_graphql, token.user)
+ token = context[:access_token]
+ token && token.try(:granular?) && Feature.enabled?(:granular_personal_access_tokens_for_graphql, token.user)
 end
 ```
 
 - If not using a granular PAT or feature flag is disabled, granular scope authorization is skipped (legacy PATs use existing scope authorization)
 - The feature flag `:granular_personal_access_tokens_for_graphql` must be enabled for the user
 - Certain fields are automatically skipped:
-  - **Mutation response fields** (e.g., `createIssue.issue`) - Authorization happens on the mutation itself, not the response wrapper
-  - **Permission metadata fields** (e.g., `issue.userPermissions`) - These return permission information, not actual data
+ - **Mutation response fields** (e.g., `createIssue.issue`) - Authorization happens on the mutation itself, not the response wrapper
+ - **Permission metadata fields** (e.g., `issue.userPermissions`) - These return permission information, not actual data
 
 **Step 2: Directive Discovery**
 
@@ -182,13 +182,13 @@ The extractor uses one of four strategies:
 # Field argument: project_path: "gitlab-org/gitlab"
 
 extract_from_argument('project_path')
-  ↓
+ ↓
 args[:project_path] = "gitlab-org/gitlab"
-  ↓
+ ↓
 resolve_path("gitlab-org/gitlab")
-  ↓
+ ↓
 Project.find_by_full_path("gitlab-org/gitlab") || Group.find_by_full_path("gitlab-org/gitlab")
-  ↓
+ ↓
 returns Project or Group instance
 ```
 
@@ -199,15 +199,15 @@ returns Project or Group instance
 # Object: Issue instance
 
 extract_from_method('project')
-  ↓
-unwrap_object(object)  # Issue
-  ↓
-object_matches_boundary_type?('project')  # false (Issue ≠ Project)
-  ↓
+ ↓
+unwrap_object(object) # Issue
+ ↓
+object_matches_boundary_type?('project') # false (Issue ≠ Project)
+ ↓
 object.respond_to?(:project) # true
-  ↓
+ ↓
 object.project
-  ↓
+ ↓
 returns Project instance
 ```
 
@@ -225,17 +225,17 @@ Used when:
 # Object: nil (query field, not resolved yet)
 
 extract_from_id_argument
-  ↓
+ ↓
 args[:id] = "gid://gitlab/Issue/123"
-  ↓
+ ↓
 GlobalID.parse("gid://gitlab/Issue/123")
-  ↓
-GlobalID::Locator.locate(gid)  # Issue.find(123) - extra DB query
-  ↓
+ ↓
+GlobalID::Locator.locate(gid) # Issue.find(123) - extra DB query
+ ↓
 extract_boundary_from_object(issue)
-  ↓
+ ↓
 issue.project
-  ↓
+ ↓
 returns Project instance
 ```
 
@@ -253,9 +253,9 @@ Used when:
 # Resource doesn't belong to a specific project/group
 
 standalone_boundary?('user')
-  ↓
+ ↓
 returns Authz::Boundary::NilBoundary.new(nil)
-  ↓
+ ↓
 Authorization will fail unless token has appropriate permissions
 ```
 
@@ -300,12 +300,12 @@ If authorization passes, the field resolver executes and returns its value.
 
 ```graphql
 mutation {
-  createIssue(input: {
+ createIssue(input: {
     projectPath: "gitlab-org/gitlab",
     title: "New issue"
-  }) {
+ }) {
     issue { id }
-  }
+ }
 }
 ```
 
@@ -313,7 +313,7 @@ mutation {
 
 ```ruby
 class Create < BaseMutation
-  authorize_granular_token permissions: :create_issue, boundary_argument: :project_path
+ authorize_granular_token permissions: :create_issue, boundary_argument: :project_path
 end
 ```
 
@@ -334,14 +334,14 @@ end
 
 ```graphql
 query {
-  project(fullPath: "gitlab-org/gitlab") {
+ project(fullPath: "gitlab-org/gitlab") {
     issues {
       nodes {
         title        # ← Authorization here
-        description  # ← And here
+        description # ← And here
       }
     }
-  }
+ }
 }
 ```
 
@@ -349,7 +349,7 @@ query {
 
 ```ruby
 class IssueType < BaseObject
-  authorize_granular_token permissions: :read_issue, boundary: :project
+ authorize_granular_token permissions: :read_issue, boundary: :project
 end
 ```
 
@@ -370,9 +370,9 @@ end
 
 ```graphql
 query {
-  issue(id: "gid://gitlab/Issue/123") {
+ issue(id: "gid://gitlab/Issue/123") {
     title
-  }
+ }
 }
 ```
 
@@ -380,7 +380,7 @@ query {
 
 ```ruby
 class IssueType < BaseObject
-  authorize_granular_token permissions: :read_issue, boundary: :project
+ authorize_granular_token permissions: :read_issue, boundary: :project
 end
 ```
 
@@ -413,9 +413,9 @@ cache_key = [permissions&.sort, boundary&.class, boundary&.namespace&.id]
 - Prevents redundant authorization checks for the same boundary and permissions
 - Example: Checking 10 issue fields on the same project only hits authorization service once
 - Cache key components:
-  - `permissions&.sort`: Sorted array of lowercase permission strings
-  - `boundary&.class`: The boundary wrapper class (e.g., `Authz::Boundary::ProjectBoundary`)
-  - `boundary&.namespace&.id`: The namespace ID (varies by boundary type):
+ - `permissions&.sort`: Sorted array of lowercase permission strings
+ - `boundary&.class`: The boundary wrapper class (e.g., `Authz::Boundary::ProjectBoundary`)
+ - `boundary&.namespace&.id`: The namespace ID (varies by boundary type):
     - `ProjectBoundary`: `project.project_namespace.id`
     - `GroupBoundary`: `group.id`
     - `NilBoundary`: `nil`
@@ -450,11 +450,11 @@ raise_resource_not_available_error!(response.message)
 
 ```json
 {
-  "data": { "issue": null },
-  "errors": [{
+ "data": { "issue": null },
+ "errors": [{
     "message": "Insufficient permissions",
     "path": ["issue"]
-  }]
+ }]
 }
 ```
 
@@ -550,7 +550,7 @@ authorize_granular_token(permissions:, boundary: nil, boundary_argument: nil)
 
 ```ruby
 class IssueType < BaseObject
-  authorize_granular_token permissions: :read_issue, boundary: :project
+ authorize_granular_token permissions: :read_issue, boundary: :project
 end
 ```
 
@@ -570,10 +570,10 @@ granular_scope_directive(permissions:, boundary: nil, boundary_argument: nil)
 
 ```ruby
 field :project, Types::ProjectType,
-  directives: granular_scope_directive(
+ directives: granular_scope_directive(
     permissions: :read_project,
     boundary_argument: :full_path
-  )
+ )
 ```
 
 ## Directive Application Rules
@@ -610,15 +610,11 @@ The `GranularScope` directive can be applied at two locations:
 
 ✅ Fields **on** the type (e.g., `issue.title` when `IssueType` has directive)
 ✅ Query fields with `:id` argument returning the type (enables ID fallback)
-✅ Standalone resources using `boundary: 'user'` or `boundary: 'instance'`
-❌ Query fields **without** `:id` argument returning the type (object not available, raises ArgumentError)
+✅ Standalone resources using `boundary: 'user'` or `boundary: 'instance'` ❌ Query fields **without** `:id` argument returning the type (object not available, raises ArgumentError)
 
 ### When `boundary_argument` applies
 
-✅ Root mutations
-✅ Root query fields
-✅ Any field that receives boundary as an argument
-✅ Fields returning types with `boundary_argument` directive
+✅ Root mutations ✅ Root query fields ✅ Any field that receives boundary as an argument ✅ Fields returning types with `boundary_argument` directive
 
 ### Standalone Boundaries
 
@@ -626,7 +622,7 @@ Use `boundary: 'user'` or `boundary: 'instance'` for resources that don't belong
 
 ```ruby
 class UserSettingType < BaseObject
-  authorize_granular_token permissions: :read_user_settings, boundary: :user
+ authorize_granular_token permissions: :read_user_settings, boundary: :user
 end
 ```
 

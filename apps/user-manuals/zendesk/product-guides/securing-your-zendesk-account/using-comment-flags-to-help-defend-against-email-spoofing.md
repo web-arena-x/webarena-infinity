@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4850370022938-Using-commen
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -38,16 +38,16 @@ Click the warning icon (![](https://zen-marketing-documentation.s3.amazonaws.com
 
 - Possible "Reply to end user" spoof: If the agent replies to the comment, the reply might not be sent to the displayed end user. Mismatched From: and Reply-To: headers are a common attribute of email used legitimately by many individuals and organizations. Zendesk only flags the comment when there is suspected malicious intent.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/v1-support-ticket-phishing-reply-to-end-user.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/v1-support-ticket-phishing-reply-to-end-user.png)
 - Possible "Reply to agent" spoof: If the agent replies to the comment, the reply might not be sent to the displayed agent. See [Working with email address conflicts in ticket replies](https://support.zendesk.com/hc/en-us/articles/4408843970842) for more information.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/replyto_conflict_warning.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/replyto_conflict_warning.png)
 - Potential comment spoof: The comment might not have been sent by the displayed email address, or email authentication might have failed.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/flagged_message_warning.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/flagged_message_warning.png)
 - Possible "Other user update": An unknown user who isn't a CC on the ticket might have joined the conversation with a comment. See [Configuring CC and follower permissions](https://support.zendesk.com/hc/en-us/articles/4408843795482-Configuring-CC-and-follower-permissions) for more information.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/unexpected_sender_flag.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/unexpected_sender_flag.png)
 
 ## Actions agents can take on flagged comments
 

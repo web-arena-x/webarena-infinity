@@ -14,14 +14,12 @@ One of the first steps as the [Procore Administrator](https://support.procore.c
 
 Choose one of these options:
 
-- **Use the Cost Code Segment in Procore's Work Breakdown Structure**  
-  In Procore, the 'Cost Code' segment is available by default and aligns with the [MasterFormat](../references/construction-management/glossary-of-terms.md#MasterFormat "Glossary of Terms") from the [Construction Specifications Institute (CSI)](../references/construction-management/glossary-of-terms.md#Construction_Specifications_Institute "Glossary of Terms"). See [Default Cost Code List](#Default_Cost_Code_List "What are Procore's Default Cost Codes?") below. To learn more about segments, see:
-  - [Create Your Company's Default Work Breakdown Structure](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/create-your-companys-default-work-breakdown-structure "Create Your Company's Default Work Breakdown Structure")
-  - [Create Your Project's Work Breakdown Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/create-your-projects-work-breakdown-structure "Create Your Project's Work Breakdown Structure")
-- **Import Cost Codes Segment Items using the Procore Imports app**  
-  You can use the Procore Imports app to import segment items to the Company or Project level Admin tool. See [Procore Import Templates](https://support.procore.com/references/procore-import-templates "Procore Import Templates") and the links below for more information:
-  - [Import Segment Items into your Company Level Admin Tool](https://support.procore.com/products/procore-imports/company-admin/tutorials/import-segment-items-into-your-company-level-admin-tool-procore-imports "Import Segment Items into your Company Level Admin Tool (Procore Imports)")
-  - [Import Segment Items into your Project Level Admin Tool](https://support.procore.com/products/procore-imports/project-admin/tutorials/import-segment-items-into-your-project-level-admin-tool-with-procore-imports "Import Segment Items into your Project Level Admin Tool (Procore Imports)")
+- **Use the Cost Code Segment in Procore's Work Breakdown Structure** In Procore, the 'Cost Code' segment is available by default and aligns with the [MasterFormat](../references/construction-management/glossary-of-terms.md#MasterFormat "Glossary of Terms") from the [Construction Specifications Institute (CSI)](../references/construction-management/glossary-of-terms.md#Construction_Specifications_Institute "Glossary of Terms"). See [Default Cost Code List](#Default_Cost_Code_List "What are Procore's Default Cost Codes?") below. To learn more about segments, see:
+ - [Create Your Company's Default Work Breakdown Structure](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/create-your-companys-default-work-breakdown-structure "Create Your Company's Default Work Breakdown Structure")
+ - [Create Your Project's Work Breakdown Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/create-your-projects-work-breakdown-structure "Create Your Project's Work Breakdown Structure")
+- **Import Cost Codes Segment Items using the Procore Imports app** You can use the Procore Imports app to import segment items to the Company or Project level Admin tool. See [Procore Import Templates](https://support.procore.com/references/procore-import-templates "Procore Import Templates") and the links below for more information:
+ - [Import Segment Items into your Company Level Admin Tool](https://support.procore.com/products/procore-imports/company-admin/tutorials/import-segment-items-into-your-company-level-admin-tool-procore-imports "Import Segment Items into your Company Level Admin Tool (Procore Imports)")
+ - [Import Segment Items into your Project Level Admin Tool](https://support.procore.com/products/procore-imports/project-admin/tutorials/import-segment-items-into-your-project-level-admin-tool-with-procore-imports "Import Segment Items into your Project Level Admin Tool (Procore Imports)")
 
 ##### Note
 
@@ -35,7 +33,7 @@ The following table details the default 'Cost Code' segment in Procore, which is
 
 **Why is there no 'Division' concept in Procore?** In Procore's WBS, the 'Cost Code' segment is a tiered segment and there is no concept of 'Divison'. Instead, a 'Division' is treated as a tier in a tiered segment. Tiers within a segment are always delimited by a dash (-).  Procore's default cost code list has two (2) tiers. However, your environment might have one, two, or multiple tiers. To learn more, see [Where is the 'Division' in the 'Cost Code' segment in Procore's WBS?](https://support.procore.com/faq/where-is-the-division-in-the-cost-code-segment-in-procores-wbs "Where is the 'Division' in the 'Cost Code' segment in Procore's WBS?")
 
-**Can I get a copy of the default cost code list?** To download a copy of the default cost code names for your reference, click **[Procore\_Default\_Cost\_Codes.csv](https://support.procore.com/@api/deki/files/14617/Procore_Default_Cost_Codes.csv?revision=2 "Procore_Default_Cost_Codes.csv")**.  
+**Can I get a copy of the default cost code list?** To download a copy of the default cost code names for your reference, click **[Procore\_Default\_Cost\_Codes.csv](https://support.procore.com/@api/deki/files/14617/Procore_Default_Cost_Codes.csv?revision=2 "Procore_Default_Cost_Codes.csv")**. 
 *Note:* This CSV file is for reference only and not formatted for imports into Procore.
 
 | Cost Code Number | Cost Code Description |

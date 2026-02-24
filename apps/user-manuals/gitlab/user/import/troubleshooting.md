@@ -7,8 +7,7 @@ title: Troubleshooting
 
 {{< details >}}
 
-Tier: Free, Premium, Ultimate
-Offering: GitLab.com, GitLab Self-Managed, GitLab Dedicated
+Tier: Free, Premium, Ultimate Offering: GitLab.com, GitLab Self-Managed, GitLab Dedicated
 
 {{< /details >}}
 

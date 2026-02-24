@@ -5,10 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Source Editor
 ---
 
-Source Editor provides the editing experience at GitLab. This thin wrapper around
-[the Monaco editor](https://microsoft.github.io/monaco-editor/) provides necessary
-helpers and abstractions, and extends Monaco [using extensions](#extensions). Multiple
-GitLab features use it, including:
+Source Editor provides the editing experience at GitLab. This thin wrapper around [the Monaco editor](https://microsoft.github.io/monaco-editor/) provides necessary helpers and abstractions, and extends Monaco [using extensions](#extensions). Multiple GitLab features use it, including:
 
 - [Web IDE](../../user/project/web_ide/_index.md)
 - [CI Linter](../../ci/yaml/lint.md)
@@ -21,14 +18,11 @@ GitLab features use it, including:
 Use Source Editor only when users need to edit the file content.
 If you only need to display source code, consider using the [`BlobContent`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/assets/javascripts/blob/components/blob_content.vue) component.
 
-If the page you're working on is already loading the Source Editor,
-displaying read-only content in the Source Editor is still a valid option.
+If the page you're working on is already loading the Source Editor, displaying read-only content in the Source Editor is still a valid option.
 
 ## How to use Source Editor
 
-Source Editor is framework-independent and can be used in any application, including both
-Rails and Vue. To help with integration, we have the dedicated `<source-editor>`
-Vue component, but the integration of Source Editor is generally straightforward:
+Source Editor is framework-independent and can be used in any application, including both Rails and Vue. To help with integration, we have the dedicated `<source-editor>` Vue component, but the integration of Source Editor is generally straightforward:
 
 1. Import Source Editor:
 
@@ -58,24 +52,22 @@ An instance of Source Editor accepts the following configuration options:
 
 | Option | Required? | Description |
 | -------------- | ------- | ---- |
-| `el`           | `true`  | `HTML Node`: The element on which to render the editor. |
+| `el`           | `true` | `HTML Node`: The element on which to render the editor. |
 | `blobPath`     | `false` | `String`: The name of a file to render in the editor, used to identify the correct syntax highlighter to use with that file, or another file type. Can accept wildcards like `*.js` when the actual filename isn't known or doesn't play any role. |
-| `blobContent`  | `false` | `String`: The initial content to render in the editor. |
+| `blobContent` | `false` | `String`: The initial content to render in the editor. |
 | `extensions`   | `false` | `Array`: Extensions to use in this instance. |
 | `blobGlobalId` | `false` | `String`: An auto-generated property.|
 | Editor Options | `false` | `Object(s)`: Any property outside of the list above is treated as an Editor Option for this particular instance. Use this field to override global Editor Options on the instance level. A full [index of Editor Options](https://microsoft.github.io/monaco-editor/docs.html#enums/editor.EditorOption.html) is available. |
 
 {{< alert type="note" >}}
 
-The `blobGlobalId` property may be removed in a future release. Use the standard blob properties
-instead unless you have a specific use case that requires `blobGlobalId`.
+The `blobGlobalId` property may be removed in a future release. Use the standard blob properties instead unless you have a specific use case that requires `blobGlobalId`.
 
 {{< /alert >}}
 
 ## API
 
-The editor uses the same public API as
-[provided by Monaco editor](https://microsoft.github.io/monaco-editor/docs.html)
+The editor uses the same public API as [provided by Monaco editor](https://microsoft.github.io/monaco-editor/docs.html)
 with additional functions on the instance level:
 
 | Function              | Arguments | Description |
@@ -88,10 +80,7 @@ with additional functions on the instance level:
 
 1. Editor's loading state.
 
-   The loading state is built in to Source Editor, making spinners and loaders
-   rarely needed in HTML. To benefit the built-in loading state, set the `data-editor-loading`
-   property on the HTML element that should contain the editor. When bootstrapping,
-   Source Editor shows the loader automatically.
+   The loading state is built in to Source Editor, making spinners and loaders rarely needed in HTML. To benefit the built-in loading state, set the `data-editor-loading` property on the HTML element that should contain the editor. When bootstrapping, Source Editor shows the loader automatically.
 
 1. Update syntax highlighting if the filename changes.
 
@@ -104,8 +93,7 @@ with additional functions on the instance level:
 
 1. Get the editor's content.
 
-   We may set up listeners on the editor for every change, but it rapidly can become
-   an expensive operation. Instead, get the editor's content when it's needed.
+   We may set up listeners on the editor for every change, but it rapidly can become an expensive operation. Instead, get the editor's content when it's needed.
    For example, on a form's submission:
 
    ```javascript
@@ -116,10 +104,7 @@ with additional functions on the instance level:
 
 1. Performance
 
-   Even though Source Editor itself is extremely slim, it still depends on Monaco editor,
-   which adds weight. Every time you add Source Editor to a view, the JavaScript bundle's
-   size significantly increases, affecting your view's loading performance. You should
-   import the editor on demand if either:
+   Even though Source Editor itself is extremely slim, it still depends on Monaco editor, which adds weight. Every time you add Source Editor to a view, the JavaScript bundle's size significantly increases, affecting your view's loading performance. You should import the editor on demand if either:
 
    - You're uncertain if the view needs the editor.
    - The editor is a secondary element of the view.
@@ -139,17 +124,9 @@ with additional functions on the instance level:
 
 ## Extensions
 
-Source Editor provides a universal, extensible editing tool to the whole product,
-and doesn't depend on any particular group. Even though the Source Editor's core is owned by
-[Create::Editor FE Team](https://handbook.gitlab.com/handbook/engineering/development/dev/create/editor-extensions/),
-any group can own the extensions (the main functional elements). The goal of
-Source Editor extensions is to keep the editor's core slim and stable. Any
-needed features can be added as extensions to this core. Any group can
-build and own new editing features without worrying about changes to Source Editor
-breaking or overriding them.
+Source Editor provides a universal, extensible editing tool to the whole product, and doesn't depend on any particular group. Even though the Source Editor's core is owned by [Create::Editor FE Team](https://handbook.gitlab.com/handbook/engineering/development/dev/create/editor-extensions/), any group can own the extensions (the main functional elements). The goal of Source Editor extensions is to keep the editor's core slim and stable. Any needed features can be added as extensions to this core. Any group can build and own new editing features without worrying about changes to Source Editor breaking or overriding them.
 
-You can depend on other modules in your extensions. This organization helps keep
-the size of Source Editor's core at bay by importing dependencies only when needed.
+You can depend on other modules in your extensions. This organization helps keep the size of Source Editor's core at bay by importing dependencies only when needed.
 
 Structurally, the complete implementation of Source Editor can be presented as this diagram:
 
@@ -170,16 +147,15 @@ An extension is an ES6 module that exports a JavaScript object:
 import { Position } from 'monaco-editor';
 
 export default {
-  navigateFileStart() {
+ navigateFileStart() {
     this.setPosition(new Position(1, 1));
-  },
+ },
 };
 
 ```
 
 In the extension's functions, `this` refers to the current Source Editor instance.
-Using `this`, you get access to the complete instance's API, such as the
-`setPosition()` method in this particular case.
+Using `this`, you get access to the complete instance's API, such as the `setPosition()` method in this particular case.
 
 ### Using an existing extension
 
@@ -190,33 +166,26 @@ import SourceEditor from '~/editor/source_editor';
 import MyExtension from '~/my_extension';
 
 const editor = new SourceEditor().createInstance({
-  ...
+ ...
 });
 editor.use(MyExtension);
 ```
 
 ### Creating an extension
 
-Let's create our first Source Editor extension. Extensions are
-[ES6 modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/) exporting a
-basic `Object`, used to extend Source Editor's features. As a test, let's
-create an extension that extends Source Editor with a new function that, when called,
-outputs the editor's content in `alert`.
+Let's create our first Source Editor extension. Extensions are [ES6 modules](https://hacks.mozilla.org/2015/08/es6-in-depth-modules/) exporting a basic `Object`, used to extend Source Editor's features. As a test, let's create an extension that extends Source Editor with a new function that, when called, outputs the editor's content in `alert`.
 
 `~/my_folder/my_fancy_extension.js:`
 
 ```javascript
 export default {
-  throwContentAtMe() {
+ throwContentAtMe() {
     alert(this.getValue());
-  },
+ },
 };
 ```
 
-In the code example, `this` refers to the instance. By referring to the instance,
-we can access the complete underlying
-[Monaco editor API](https://microsoft.github.io/monaco-editor/docs.html),
-which includes functions like `getValue()`.
+In the code example, `this` refers to the instance. By referring to the instance, we can access the complete underlying [Monaco editor API](https://microsoft.github.io/monaco-editor/docs.html), which includes functions like `getValue()`.
 
 Now let's use our extension:
 
@@ -227,20 +196,18 @@ import SourceEditor from '~/editor/source_editor';
 import MyFancyExtension from './my_fancy_extension';
 
 const editor = new SourceEditor().createInstance({
-  ...
+ ...
 });
 editor.use(MyFancyExtension);
 ...
 someButton.addEventListener('click', () => {
-  editor.throwContentAtMe();
+ editor.throwContentAtMe();
 });
 ```
 
-First of all, we import Source Editor and our new extension. Then we create the
-editor and its instance. By default Source Editor has no `throwContentAtMe` method.
+First of all, we import Source Editor and our new extension. Then we create the editor and its instance. By default Source Editor has no `throwContentAtMe` method.
 But the `editor.use(MyFancyExtension)` line brings that method to our instance.
-After that, we can use it any time we need it. In this case, we call it when some
-theoretical button has been clicked.
+After that, we can use it any time we need it. In this case, we call it when some theoretical button has been clicked.
 
 This script would result in an alert containing the editor's content when `someButton` is clicked.
 
@@ -248,8 +215,7 @@ This script would result in an alert containing the editor's content when `someB
 
 1. Performance
 
-   Just like Source Editor itself, any extension can be loaded on demand to not harm
-   loading performance of the views:
+   Just like Source Editor itself, any extension can be loaded on demand to not harm loading performance of the views:
 
    ```javascript
    const EditorPromise = import(

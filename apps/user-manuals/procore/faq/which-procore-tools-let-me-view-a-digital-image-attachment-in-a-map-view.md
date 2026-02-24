@@ -18,9 +18,9 @@ If an image attachment has a JPEG or PNG file format with Global Positioning Sys
 
 ##### Note
 
-- If the digital image does NOT contain GPS coordinates, the 'View Google Maps' button is grayed out and unavailable.  
+- If the digital image does NOT contain GPS coordinates, the 'View Google Maps' button is grayed out and unavailable. 
     
-  ![location-data-unavailable.png](https://support.procore.com/@api/deki/files/325634/location-data-unavailable.png?revision=1)
+ ![location-data-unavailable.png](https://support.procore.com/@api/deki/files/325634/location-data-unavailable.png?revision=1)
 - Most smartphone cameras have a built-in GPS function. When you take a photo, the camera automatically captures the GPS coordinates of the location where the image was taken. To learn how to adjust the GPS function on a camera, refer to the camera manufacturer's documentation.
 
 ### Supported Tools

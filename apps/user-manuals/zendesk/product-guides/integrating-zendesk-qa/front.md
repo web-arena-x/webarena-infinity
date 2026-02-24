@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/7043661995034-Front
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Quality Assurance (QA) or Workforce Engagement Management (WEM) |
 
@@ -23,6 +23,5 @@ Role: Admin, Account Manager
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zqa_7043661995034_1.png)
 
-If you wish to connect more than one instance of Front or another software, you can do that in **Account** **Settings > Connections** once you enter Zendesk QA.  
-​  
-When connecting Front, you can also set additional security options to stop some specific information and conversations from being synced with Zendesk QA.
+If you wish to connect more than one instance of Front or another software, you can do that in **Account** **Settings > Connections** once you enter Zendesk QA. 
+​ When connecting Front, you can also set additional security options to stop some specific information and conversations from being synced with Zendesk QA.

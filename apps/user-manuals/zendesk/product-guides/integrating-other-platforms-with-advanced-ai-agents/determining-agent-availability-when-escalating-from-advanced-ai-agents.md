@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8920466700698-Determining-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -41,7 +41,7 @@ To access the Zendesk API, you'll need to create a token in Admin Center.
 **To create an API token**
 
 1. In [Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554#topic_hfg_dyz_1hb), click **Apps and integrations** in the sidebar, then select **APIs** > **Zendesk API**.
-2. Click **Add API token**.  
+2. Click **Add API token**. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_agent_avail_1.png)
 3. Give the token a descriptive name, such as **Agent Availability**.
 4. Copy the token somewhere safe, as you'll need this for setting up the integration in the integration builder.
@@ -50,22 +50,21 @@ To access the Zendesk API, you'll need to create a token in Admin Center.
 
 1. Create an integration in the integration builder.
 2. Go to the **Environment** tab and select your chosen environment (for example, Production, or you could change this to something more descriptive such as getAgents).
-3. Set up the endpoint using the following format, replacing *[your-subdomain]* with your subdomain:  
+3. Set up the endpoint using the following format, replacing *[your-subdomain]* with your subdomain: 
    *https://[your-subdomain].zendesk.com/api/v2/agent\_availabilities*
-4. (Optional) Further customize the query URL by filtering.  
-   - Example 1: If you want to check how many agents are online now in the messaging channel:  
+4. (Optional) Further customize the query URL by filtering. 
+   - Example 1: If you want to check how many agents are online now in the messaging channel: 
      *https://[your-subdomain].zendesk.com/api/v2/agent\_availabilities?filter[channel\_status]=messaging:online*
-   - If you want to check for agents available online and in a specific service group:  
-     *https://[your-subdomain].zendesk.com/api/v2/agent\_availabilities?filter[channel\_status]=messaging:online&filter[group\_id]={{groupId}}*  
-     For more information, see [Agent Availability API](https://developer.zendesk.com/api-reference/agent-availability/agent-availability-api/introduction/).
-5. On the **Authorization** tab, set the **Authorization type** to **Basic Auth**.  
+   - If you want to check for agents available online and in a specific service group: 
+     *https://[your-subdomain].zendesk.com/api/v2/agent\_availabilities?filter[channel\_status]=messaging:online&filter[group\_id]={{groupId}}* For more information, see [Agent Availability API](https://developer.zendesk.com/api-reference/agent-availability/agent-availability-api/introduction/).
+5. On the **Authorization** tab, set the **Authorization type** to **Basic Auth**. 
    - **Username**: Your admin email address with ‘/token’ appended (for example, admin@yourcompany.com/token).
    - **Password**: Paste the API key you generated earlier in Admin Center.
 6. On the **Headers** tab, click **Add Header.**
 7. In the **Key** field, enter **Authorization**.
-8. In the **Value** field, enter **Basic {{apiToken}}**.  
+8. In the **Value** field, enter **Basic {{apiToken}}**. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_agent_avail_2.png)
-9. (Optional) If you're checking for a particular groupId, then you can either add it statically to the URL query or you can create a dynamic link by creating a parameter in **Request parameters** with a key such as **groupId** and adding **&filter[group\_id]={{groupId}}** to the URL (as demonstrated in step 4).  
+9. (Optional) If you're checking for a particular groupId, then you can either add it statically to the URL query or you can create a dynamic link by creating a parameter in **Request parameters** with a key such as **groupId** and adding **&filter[group\_id]={{groupId}}** to the URL (as demonstrated in step 4). 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_agent_avail_3.png)
 
 With that all set up, you should be able to successfully test your integration to view the response.
@@ -74,12 +73,12 @@ With that all set up, you should be able to successfully test your integration t
 
 For the success scenario, you can now add your session parameters. Here are three commonly useful example parameters:
 
-- **agentCheck**: Provides an array of relevant available agents.  
-  - In the dialogue builder, use a conditional block with Includes.
-- **availableAgent**: Provides number of relevant available agents.  
-  - In the dialogue builder, use a conditional block with Greater/Less Than.
-- **estimatedWait**: Divides number of open work items by active agents, multiplied by average handling time. This value is in minutes.  
-  - In the dialogue builder, use a conditional block with Greater/Less Than.  
+- **agentCheck**: Provides an array of relevant available agents. 
+ - In the dialogue builder, use a conditional block with Includes.
+- **availableAgent**: Provides number of relevant available agents. 
+ - In the dialogue builder, use a conditional block with Greater/Less Than.
+- **estimatedWait**: Divides number of open work items by active agents, multiplied by average handling time. This value is in minutes. 
+ - In the dialogue builder, use a conditional block with Greater/Less Than. 
     ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_agent_avail_5.png)
 
 These parameters are now available for use in the dialogue builder with an API node that calls the Agent Availability integration you built in the integration builder.

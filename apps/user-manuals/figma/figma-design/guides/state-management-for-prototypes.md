@@ -155,8 +155,7 @@ Tip: If you don’t want the state to be shared across two objects, you can rena
 Top-level frames are frames directly placed on the canvas. Since top-level frames don’t have parent objects, you can match them by doing one of the following:
 
 - Use identical layer names
-- Use layer names with matching strings and forward slashes. For example, a top-level frame with the name `Checkout / 1` will match another top-level frame with the name `Checkout /
-  2`, since everything before the forward slash is identical.
+- Use layer names with matching strings and forward slashes. For example, a top-level frame with the name `Checkout / 1` will match another top-level frame with the name `Checkout / 2`, since everything before the forward slash is identical.
 
 Tip: Need to rename layers? Learn how to [rename layers in bulk →](../work-with-layers/rename-layers.md)
 
@@ -170,8 +169,8 @@ For prototype interactions that were created before May 24, 2023:
 - Scrolling objects cannot memorize their state when re-opened
 - Scrolling objects can share states across frames *only* *if* the **Preserve scroll position** setting is checked
 
-Note: In new interactions, scroll position is shared automatically, as long as [object names match across frames](state-management-for-prototypes.md#Top-level_frames).   
-  
+Note: In new interactions, scroll position is shared automatically, as long as [object names match across frames](state-management-for-prototypes.md#Top-level_frames).  
+ 
 Learn more about [preserving scroll position and transitioning to new state management →](https://help.figma.com/hc/en-us/articles/360051747774)
 
 To update any older interactions to the new state management controls:

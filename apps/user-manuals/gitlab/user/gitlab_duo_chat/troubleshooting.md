@@ -9,14 +9,11 @@ When working with GitLab Duo Chat, you might encounter the following issues.
 
 ## The **GitLab Duo Chat** button is not displayed
 
-If the button is not visible in the upper right of the UI,
-ensure GitLab Duo Chat [is enabled](../gitlab_duo/turn_on_off.md).
+If the button is not visible in the upper right of the UI, ensure GitLab Duo Chat [is enabled](../gitlab_duo/turn_on_off.md).
 
-The **GitLab Duo Chat** button is not displayed on
-[groups and projects with GitLab Duo features disabled](../gitlab_duo/turn_on_off.md).
+The **GitLab Duo Chat** button is not displayed on [groups and projects with GitLab Duo features disabled](../gitlab_duo/turn_on_off.md).
 
-After you enable GitLab Duo Chat, it might take a few minutes for the
-button to appear.
+After you enable GitLab Duo Chat, it might take a few minutes for the button to appear.
 
 If this does not work, you can also check the following troubleshooting documentation:
 
@@ -31,8 +28,7 @@ If this does not work, you can also check the following troubleshooting document
 
 ## `Error M2000`
 
-You might get an error that states
-`I'm sorry, I couldn't find any documentation to answer your question. Error code: M2000`.
+You might get an error that states `I'm sorry, I couldn't find any documentation to answer your question. Error code: M2000`.
 
 This error occurs when Chat is unable to find relevant documentation to answer your question. This can happen if the search query does not match any available documents or if there is an issue with the document search functionality.
 
@@ -40,19 +36,15 @@ Try again or refer to the [GitLab Duo Chat best practices documentation](best_pr
 
 ## `Error M3002`
 
-You might get an error that states
-`I am sorry, I cannot access the information you are asking about. A group or project owner has turned off Duo features in this group or project. Error code: M3002`.
+You might get an error that states `I am sorry, I cannot access the information you are asking about. A group or project owner has turned off Duo features in this group or project. Error code: M3002`.
 
-This error occurs when you ask about items that belong to projects or groups with
-GitLab Duo [turned off](../gitlab_duo/turn_on_off.md).
+This error occurs when you ask about items that belong to projects or groups with GitLab Duo [turned off](../gitlab_duo/turn_on_off.md).
 
-If GitLab Duo is not turned on, information about items
-(like issues, epics, and merge requests) in the group or project cannot be processed by GitLab Duo Chat.
+If GitLab Duo is not turned on, information about items (like issues, epics, and merge requests) in the group or project cannot be processed by GitLab Duo Chat.
 
 ## `Error M3003`
 
-You might get an error that states
-`I'm sorry, I can't generate a response. You might want to try again. You could also be getting this error because the items you're asking about either don't exist, you don't have access to them, or your session has expired. Error code: M3003`.
+You might get an error that states `I'm sorry, I can't generate a response. You might want to try again. You could also be getting this error because the items you're asking about either don't exist, you don't have access to them, or your session has expired. Error code: M3003`.
 
 This error occurs when:
 
@@ -63,8 +55,7 @@ Try again, asking about items you have access to. If you continue to experience 
 
 ## `Error M3004`
 
-You might get an error that states
-`I'm sorry, I can't generate a response. You do not have access to GitLab Duo Chat. Error code: M3004`.
+You might get an error that states `I'm sorry, I can't generate a response. You do not have access to GitLab Duo Chat. Error code: M3004`.
 
 This error occurs when you try to access GitLab Duo Chat but do not have the access needed.
 
@@ -72,8 +63,7 @@ Ensure you have [access to use GitLab Duo Chat](../gitlab_duo/turn_on_off.md).
 
 ## `Error M3005`
 
-You might get an error that states
-`I'm sorry, this question is not supported in your Duo Pro subscription. You might consider upgrading to Duo Enterprise. Error code: M3005`.
+You might get an error that states `I'm sorry, this question is not supported in your Duo Pro subscription. You might consider upgrading to Duo Enterprise. Error code: M3005`.
 
 This error occurs when you try to access a tool of GitLab Duo Chat that is not bundled in your GitLab Duo subscription tier.
 
@@ -81,8 +71,7 @@ Ensure your [GitLab Duo subscription tier](https://about.gitlab.com/gitlab-duo/#
 
 ## `Error M3006`
 
-You might get an error that states
-`I'm sorry, you don't have the GitLab Duo subscription required to use Duo Chat. Please contact your administrator. Error code: M3006`.
+You might get an error that states `I'm sorry, you don't have the GitLab Duo subscription required to use Duo Chat. Please contact your administrator. Error code: M3006`.
 
 This error occurs when GitLab Duo Chat is not included in your GitLab Duo subscription.
 
@@ -90,8 +79,7 @@ Ensure your [GitLab Duo subscription tier](https://about.gitlab.com/gitlab-duo/#
 
 ## `Error M4000`
 
-You might get an error that states
-`I'm sorry, I can't generate a response. Please try again. Error code: M4000`.
+You might get an error that states `I'm sorry, I can't generate a response. Please try again. Error code: M4000`.
 
 This error occurs when an unexpected issue arises during the processing of a slash command request. Try your request again. If the problem persists, ensure that the syntax of your command is correct.
 
@@ -104,58 +92,49 @@ For more information about slash commands, refer to the documentation:
 
 ## `Error M4001`
 
-You might get an error that states
-`I'm sorry, I can't generate a response. Please try again. Error code: M4001`.
+You might get an error that states `I'm sorry, I can't generate a response. Please try again. Error code: M4001`.
 
 This error occurs when there is a problem finding the information needed to complete your request. Try your request again.
 
 ## `Error M4002`
 
-You might get an error that states
-`I'm sorry, I can't generate a response. Please try again. Error code: M4002`.
+You might get an error that states `I'm sorry, I can't generate a response. Please try again. Error code: M4002`.
 
 This error occurs when there is a problem answering [questions related to CI/CD](examples.md#ask-about-cicd). Try your request again.
 
 ## `Error M4003`
 
-You might get an error that states
-`This command is used for explaining vulnerabilities and can only be invoked from a vulnerability detail page.` or
-`Vulnerability Explanation currently only supports vulnerabilities reported by SAST. Error code: M4003`.
+You might get an error that states `This command is used for explaining vulnerabilities and can only be invoked from a vulnerability detail page.` or `Vulnerability Explanation currently only supports vulnerabilities reported by SAST. Error code: M4003`.
 
 This error occurs when there is a problem when using [`Explain Vulnerability`](examples.md#explain-a-vulnerability) feature.
 
 ## `Error M4004`
 
-You might get an error that states
-`This resource has no comments to summarize`.
+You might get an error that states `This resource has no comments to summarize`.
 
 This error occurs when there is a problem when using `Summarize Discussion` feature.
 
 ## `Error M4005`
 
-You might get an error that states
-`There is no job log to troubleshoot.` or `This command is used for troubleshooting jobs and can only be invoked from a failed job log page.`.
+You might get an error that states `There is no job log to troubleshoot.` or `This command is used for troubleshooting jobs and can only be invoked from a failed job log page.`.
 
 This error occurs when there is a problem when using [`Troubleshoot job`](examples.md#troubleshoot-failed-cicd-jobs-with-root-cause-analysis) feature.
 
 ## `Error M5000`
 
-You might get an error that states
-`I'm sorry, I can't generate a response. Please try again. Error code: M5000`.
+You might get an error that states `I'm sorry, I can't generate a response. Please try again. Error code: M5000`.
 
 This error occurs when there is an issue while processing the content related to an item (like issue, epic, and merge request). Try your request again.
 
 ## `Error A1000`
 
-You might get an error that states
-`I'm sorry, I couldn't respond in time. Please try again. Error code: A1000`.
+You might get an error that states `I'm sorry, I couldn't respond in time. Please try again. Error code: A1000`.
 
 This error occurs when there is a timeout during processing. Try your request again.
 
 ## `Error A1001`
 
-You might get an error that states
-`I'm sorry, I can't generate a response. Please try again. Error code: A1001`.
+You might get an error that states `I'm sorry, I can't generate a response. Please try again. Error code: A1001`.
 
 This error means there was a problem encountered by the AI service that processed your request.
 
@@ -174,36 +153,30 @@ If the problem continues, report the issue to the GitLab Support team.
 
 ### GitLab Duo Self-Hosted
 
-If you encounter this error when using Chat with GitLab Duo Self-Hosted, there was a
-problem connecting to the AI gateway.
+If you encounter this error when using Chat with GitLab Duo Self-Hosted, there was a problem connecting to the AI gateway.
 
-To resolve this, use the [self-hosted debugging script](../../administration/gitlab_duo_self_hosted/troubleshooting.md#use-debugging-scripts) to check that the AI gateway is accessible from the
-GitLab instance and working as expected.
+To resolve this, use the [self-hosted debugging script](../../administration/gitlab_duo_self_hosted/troubleshooting.md#use-debugging-scripts) to check that the AI gateway is accessible from the GitLab instance and working as expected.
 
 If the problem persists, report the issue to the GitLab support team.
 
 ## `Error A1002`
 
-You might get an error that states
-`I'm sorry, I couldn't respond in time. Please try again. Error code: A1002`.
+You might get an error that states `I'm sorry, I couldn't respond in time. Please try again. Error code: A1002`.
 
-This error occurs when no events are returned from the AI gateway or GitLab
-failed to parse the events.
+This error occurs when no events are returned from the AI gateway or GitLab failed to parse the events.
 
 Try your request again, or check the [AI Gateway logs](../../administration/gitlab_duo_self_hosted/logging.md)
 for any errors.
 
 ## `Error A1003`
 
-You might get an error that states
-`I'm sorry, I couldn't respond in time. Please try again. Error code: A1003`.
+You might get an error that states `I'm sorry, I couldn't respond in time. Please try again. Error code: A1003`.
 
 This error occurs when streaming response from AI gateway failed. Try your request again.
 
 ### GitLab Duo Self-Hosted
 
-If you encounter this issue when using Chat with GitLab Duo Self-Hosted, check
-if streaming is working:
+If you encounter this issue when using Chat with GitLab Duo Self-Hosted, check if streaming is working:
 
 1. In the AI gateway container, run the following command:
 
@@ -240,16 +213,12 @@ if streaming is working:
    }'
    ```
 
-   If streaming is working, chunked responses should be displayed. If it is not working,
-   the response will be empty.
+   If streaming is working, chunked responses should be displayed. If it is not working, the response will be empty.
 
-1. To check if this is a model deployment issue, check the
-   [AI gateway logs](../../administration/gitlab_duo_self_hosted/logging.md)
+1. To check if this is a model deployment issue, check the [AI gateway logs](../../administration/gitlab_duo_self_hosted/logging.md)
    for specific error messages.
 
-1. To validate the connection, disable streaming by setting the
-   `AIGW_CUSTOM_MODELS__DISABLE_STREAMING` environment variable in your AI gateway
-   container:
+1. To validate the connection, disable streaming by setting the `AIGW_CUSTOM_MODELS__DISABLE_STREAMING` environment variable in your AI gateway container:
 
    ```shell
    docker run .... -e AIGW_CUSTOM_MODELS__DISABLE_STREAMING=true ...
@@ -257,22 +226,19 @@ if streaming is working:
 
 ## `Error A1004`
 
-You might get an error that states
-`I'm sorry, I couldn't respond in time. Please try again. Error code: A1004`.
+You might get an error that states `I'm sorry, I couldn't respond in time. Please try again. Error code: A1004`.
 
 This error occurs when an error occurred in the AI gateway process. Try your request again.
 
 ## `Error A1005`
 
-You might get an error that states
-`I'm sorry, you've entered too many prompts. Please run /clear or /reset before asking the next question. Error code: A1005`.
+You might get an error that states `I'm sorry, you've entered too many prompts. Please run /clear or /reset before asking the next question. Error code: A1005`.
 
 This error occurs when the length of prompts exceeds the max token limit of the LLM. Start a new conversation with the `/new` command and try your request again.
 
 ## `Error A1006`
 
-You might get an error that states
-`I'm sorry, Duo Chat agent reached the limit before finding an answer for your question. Please try a different prompt or clear your conversation history with /clear. Error code: A1006`.
+You might get an error that states `I'm sorry, Duo Chat agent reached the limit before finding an answer for your question. Please try a different prompt or clear your conversation history with /clear. Error code: A1006`.
 
 This error occurs when ReAct agent failed to find a solution for your query. Try a different prompt or start a new conversation with `/new` or `/reset`.
 
@@ -290,16 +256,14 @@ This error occurs when your request was submitted to an upstream LLM provider us
 
 ## `Error A6000`
 
-You might get an error that states
-`I'm sorry, I couldn't respond in time. Please try a more specific request or enter /clear to start a new chat. Error code: A6000`.
+You might get an error that states `I'm sorry, I couldn't respond in time. Please try a more specific request or enter /clear to start a new chat. Error code: A6000`.
 
 This is a fallback error that occurs when there is a problem with GitLab Duo Chat.
 Try a more specific request, enter `/new` to start a new chat, or leave feedback to help us improve.
 
 ## `Error A9999`
 
-You might get an error that states
-`I'm sorry, I couldn't respond in time. Please try again. Error code: A9999`.
+You might get an error that states `I'm sorry, I couldn't respond in time. Please try again. Error code: A9999`.
 
 This error occurs when an unknown error occurs in ReAct agent. Try your request again.
 
@@ -307,16 +271,14 @@ If the problem persists, [report the issue to the GitLab support team](https://a
 
 ## `Error G3001`
 
-You might get an error that states
-`I'm sorry, but answering this question requires a different Duo subscription. Please contact your administrator.`.
+You might get an error that states `I'm sorry, but answering this question requires a different Duo subscription. Please contact your administrator.`.
 
 This error occurs when GitLab Duo Chat is not available in your subscription.
 Try a different request and contact your administrator.
 
 ## `Error G3002`
 
-You might get an error that states
-`I'm sorry, you have not selected a default GitLab Duo namespace. Please select a default GitLab Duo namespace in your user preferences.`.
+You might get an error that states `I'm sorry, you have not selected a default GitLab Duo namespace. Please select a default GitLab Duo namespace in your user preferences.`.
 
 This error occurs when you belong to multiple GitLab Duo namespaces, and have not selected a default namespace.
 
@@ -332,26 +294,22 @@ To resolve this issue, you can do either of the following:
 
 - [Buy more GitLab Credits](../../subscriptions/gitlab_credits.md#buy-gitlab-credits).
 - Switch to Classic Chat. When you switch, a new conversation starts.
-  You can still view your previous Agentic Chat conversation, but it is read-only.
+ You can still view your previous Agentic Chat conversation, but it is read-only.
 
 ### Slow response times
 
 Agentic Chat can be slower than Classic Chat in processing and responding to requests.
 
-This issue occurs because Agentic Chat makes multiple API calls to gather information,
-so responses can take much longer.
+This issue occurs because Agentic Chat makes multiple API calls to gather information, so responses can take much longer.
 
 ### Limited permissions
 
-Agentic Chat can access the same resources that your GitLab user has permission to
-access. If you find that Agentic Chat cannot access the resources needed to answer
-your request, check your [user permissions](../permissions.md).
+Agentic Chat can access the same resources that your GitLab user has permission to access. If you find that Agentic Chat cannot access the resources needed to answer your request, check your [user permissions](../permissions.md).
 
 ### Search limitations
 
 Agentic Chat uses keyword-based search instead of semantic search.
-Agentic Chat might miss relevant content that does not contain the exact keywords
-used in the search.
+Agentic Chat might miss relevant content that does not contain the exact keywords used in the search.
 
 ## Header mismatch issue
 

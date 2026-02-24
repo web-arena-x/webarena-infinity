@@ -16,7 +16,7 @@ Figma Slides is the first presentation tool built for designers and their teamma
 
 Slide decks are live and always up-to-date, so you and your collaborators can work on the same deck at the same time. Having one live file gets everyone on the same page without the need to save, download, or pass documents back and forth.
 
-You can identify slide decks in the file browser by the  icon on the file card.
+You can identify slide decks in the file browser by the icon on the file card.
 
 ![](https://help.figma.com/hc/article_attachments/28418274719255)
 
@@ -39,7 +39,7 @@ To change views, use the toggle in the left sidebar.
 
 ![An animation showing how to switch between slide view and grid view](https://help.figma.com/hc/article_attachments/28418243111703)
 
-**Stress-free exploration** Enable the  **Hand** tool in the toolbar or by pressing `H` so you can move around the canvas without fear of making unintended changes.
+**Stress-free exploration** Enable the **Hand** tool in the toolbar or by pressing `H` so you can move around the canvas without fear of making unintended changes.
 
 To navigate around the canvas, you can pan and zoom.
 

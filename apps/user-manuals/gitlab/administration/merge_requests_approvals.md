@@ -15,18 +15,14 @@ title: Merge request approvals
 {{< /details >}}
 
 Merge request approval rules prevent users from overriding certain project settings.
-When enabled, these settings are
-[enforced for all projects and groups](../user/project/merge_requests/approvals/settings.md#cascade-settings-from-the-instance-or-top-level-group)
+When enabled, these settings are [enforced for all projects and groups](../user/project/merge_requests/approvals/settings.md#cascade-settings-from-the-instance-or-top-level-group)
 in the instance.
 
 These merge request approval settings can be set for the entire instance:
 
-- **Prevent approval by merge request creator**. Prevents project maintainers from allowing merge
-  request authors to approve their own merge requests.
-- **Prevent approvals by users who add commits**. Prevents project maintainers from allowing users
-  to approve merge requests if they have submitted any commits to the source branch.
-- **Prevent editing approval rules in projects and merge requests**. Prevents users from modifying
-  the approvers list in project settings or in individual merge requests.
+- **Prevent approval by merge request creator**. Prevents project maintainers from allowing merge request authors to approve their own merge requests.
+- **Prevent approvals by users who add commits**. Prevents project maintainers from allowing users to approve merge requests if they have submitted any commits to the source branch.
+- **Prevent editing approval rules in projects and merge requests**. Prevents users from modifying the approvers list in project settings or in individual merge requests.
 
 The following are also affected by rules for the entire instance:
 

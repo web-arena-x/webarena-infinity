@@ -19,15 +19,15 @@ If you've submitted an experience through Handshake, you can use this article to
 Experience statuses in Handshake include:
 
 - **Pending**
-  - The Experience was submitted, and is awaiting action from the Approvers to begin.
+ - The Experience was submitted, and is awaiting action from the Approvers to begin.
 - **Approved**
-  - All Approvers have approved the Experience.
+ - All Approvers have approved the Experience.
 - **Declined**
-  - All or one Approver didn't approve the Experience.
+ - All or one Approver didn't approve the Experience.
 - **Expired**
-  - The approval process has expired.
+ - The approval process has expired.
 - **Completed**
-  - The Experience has finished.
+ - The Experience has finished.
 
 ![Experience_Overview_Page_2.png](https://support.joinhandshake.com/hc/article_attachments/25997656113303)
 

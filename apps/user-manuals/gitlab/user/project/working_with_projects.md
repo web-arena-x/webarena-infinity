@@ -13,8 +13,7 @@ description: Settings, configuration, project activity, and project deletion.
 
 {{< /details >}}
 
-Most work in GitLab is done in a [project](_index.md). Files and
-code are saved in projects, and most features are in the scope of projects.
+Most work in GitLab is done in a [project](_index.md). Files and code are saved in projects, and most features are in the scope of projects.
 
 ## Project overview
 
@@ -34,19 +33,17 @@ When you select a project, the **Project overview** page shows the project conte
 - Project storage size
 - Optional files and configurations
 - `README` or index file
-  - Wiki page
-  - License
-  - Changelog
-  - Contributing guidelines
-  - Kubernetes cluster
-  - CI/CD configuration
-  - Integrations
-  - GitLab Pages
+ - Wiki page
+ - License
+ - Changelog
+ - Contributing guidelines
+ - Kubernetes cluster
+ - CI/CD configuration
+ - Integrations
+ - GitLab Pages
 - Creation date
 
-For public projects, and members of internal and private projects
-with [permissions to view the project's code](../permissions.md#project-permissions),
-the project overview page shows:
+For public projects, and members of internal and private projects with [permissions to view the project's code](../permissions.md#project-permissions), the project overview page shows:
 
 - A [`README` or index file](repository/files/_index.md#readme-and-index-files).
 - A list of directories in the project's repository.
@@ -57,8 +54,7 @@ For users without permission to view the project's code, the overview page shows
 - The list of issues in the project.
 
 You can access a project by using its ID instead of its name at `https://gitlab.example.com/projects/<id>`.
-For example, if in your personal namespace `alex` you have a project `my-project` with the ID `123456`,
-you can access the project either at `https://gitlab.example.com/alex/my-project` or `https://gitlab.example.com/projects/123456`.
+For example, if in your personal namespace `alex` you have a project `my-project` with the ID `123456`, you can access the project either at `https://gitlab.example.com/alex/my-project` or `https://gitlab.example.com/projects/123456`.
 
 {{< alert type="note" >}}
 
@@ -146,15 +142,14 @@ To view all inactive projects:
    - **Explore**, to filter all projects you can access.
 1. Select the **Inactive** tab.
 
-Each inactive project in the list displays a badge to indicate that the project is either
-archived or pending deletion.
+Each inactive project in the list displays a badge to indicate that the project is either archived or pending deletion.
 
 If the project is pending deletion, the list also shows:
 
 - The time the project is scheduled for final deletion.
 - A **Restore** action. When you restore a project:
-  - The **Pending deletion** label is removed. The project is no longer scheduled for deletion.
-  - The project is removed from the **Inactive** tab.
+ - The **Pending deletion** label is removed. The project is no longer scheduled for deletion.
+ - The project is removed from the **Inactive** tab.
 
 ### View only projects you own
 
@@ -225,8 +220,7 @@ To star a project:
 When you leave a project:
 
 - You are no longer a project member and cannot contribute.
-- All the issues and merge requests that were assigned
-  to you are unassigned.
+- All the issues and merge requests that were assigned to you are unassigned.
 
 Prerequisites:
 
@@ -265,8 +259,7 @@ Prerequisites:
 {{< alert type="note" >}}
 
 When you change the repository path, users may experience issues if they push to, or pull from, the old URL.
-For more information on redirect duration and its side-effects, see
-[redirects when renaming repositories](repository/_index.md#repository-path-changes).
+For more information on redirect duration and its side-effects, see [redirects when renaming repositories](repository/_index.md#repository-path-changes).
 
 {{< /alert >}}
 
@@ -309,12 +302,12 @@ Prerequisites:
 - You must have at least the Maintainer role for the project.
 - Your file must be 200 KB or smaller. The ideal image size is 192 x 192 pixels.
 - The image must be one of the following file types:
-  - `.bmp`
-  - `.gif`
-  - `.ico`
-  - `.jpeg`
-  - `.png`
-  - `.tiff`
+ - `.bmp`
+ - `.gif`
+ - `.ico`
+ - `.jpeg`
+ - `.png`
+ - `.tiff`
 
 To upload an avatar in your project settings:
 
@@ -349,12 +342,9 @@ To delete a project:
 1. In the **Delete project** section, select **Delete**.
 1. On the confirmation dialog, enter the project name and select **Yes, delete project**.
 
-This action adds a background job to mark a project for deletion. On GitLab.com, the project is deleted after 30 days. On GitLab Self-Managed,
-you can modify the retention period through the [instance settings](../../administration/settings/visibility_and_access_controls.md#deletion-protection).
+This action adds a background job to mark a project for deletion. On GitLab.com, the project is deleted after 30 days. On GitLab Self-Managed, you can modify the retention period through the [instance settings](../../administration/settings/visibility_and_access_controls.md#deletion-protection).
 
-If the user who scheduled the project deletion loses access to the project before the deletion occurs
-(for example, by leaving the project, having their role downgraded, or being banned from the project),
-the deletion job instead restores the project, and the project is no longer scheduled for deletion.
+If the user who scheduled the project deletion loses access to the project before the deletion occurs (for example, by leaving the project, having their role downgraded, or being banned from the project), the deletion job instead restores the project, and the project is no longer scheduled for deletion.
 
 When a project is marked for deletion, scheduled CI/CD pipelines stop running.
 
@@ -384,8 +374,7 @@ If you must delete a project immediately on GitLab.com, you can open a [support 
 
 {{< /alert >}}
 
-If you do not want to wait for the configured retention period to delete a project,
-you can delete the project immediately.
+If you do not want to wait for the configured retention period to delete a project, you can delete the project immediately.
 
 Prerequisites:
 
@@ -515,13 +504,13 @@ Transfer a project to move it to a different group.
 A project transfer includes:
 
 - Project components:
-  - Issues
-  - Merge requests
-  - Pipelines
-  - Dashboards
+ - Issues
+ - Merge requests
+ - Pipelines
+ - Dashboards
 - Project members:
-  - Direct members
-  - Membership invitations
+ - Direct members
+ - Membership invitations
 
    {{< alert type="note" >}}
 
@@ -535,10 +524,7 @@ The project's [path also changes](repository/_index.md#repository-path-changes),
 
 New project-level labels are created for issues and merge requests if matching group labels don't already exist in the target namespace.
 
-If a project contains issues assigned to an epic, and that epic is not available in the target
-group, GitLab creates a copy of the epic in the target group. When you transfer multiple projects
-with issues assigned to the same epic, GitLab creates a separate copy of that epic in the target
-group for each project.
+If a project contains issues assigned to an epic, and that epic is not available in the target group, GitLab creates a copy of the epic in the target group. When you transfer multiple projects with issues assigned to the same epic, GitLab creates a separate copy of that epic in the target group for each project.
 
 {{< alert type="warning" >}}
 
@@ -552,16 +538,16 @@ Prerequisites:
 - You must be the Owner of the project you transfer.
 - The group must allow creation of new projects.
 - For projects where the container registry is enabled:
-  - On GitLab.com: You can only transfer projects within the same top-level namespace.
+ - On GitLab.com: You can only transfer projects within the same top-level namespace.
     Projects with more than 1,000 container repositories cannot be transferred. For more information, see [Move or rename container registry repositories](../packages/container_registry/_index.md#move-or-rename-container-registry-repositories).
-  - On GitLab Self-Managed: The project must not contain [container images](../packages/container_registry/_index.md#move-or-rename-container-registry-repositories).
+ - On GitLab Self-Managed: The project must not contain [container images](../packages/container_registry/_index.md#move-or-rename-container-registry-repositories).
 - The project must not have a security policy.
-  If a security policy is assigned to the project, it is automatically unassigned during the transfer.
+ If a security policy is assigned to the project, it is automatically unassigned during the transfer.
 - If the root namespace changes, you must remove npm packages that follow the [naming convention](../packages/npm_registry/_index.md#naming-convention) from the project.
-  After you transfer the project you can either:
+ After you transfer the project you can either:
 
-  - Update the package scope with the new root namespace path, and publish it again to the project.
-  - Republish the package to the project without updating the root namespace path, which causes the package to no longer follow the naming convention.
+ - Update the package scope with the new root namespace path, and publish it again to the project.
+ - Republish the package to the project without updating the root namespace path, which causes the package to no longer follow the naming convention.
     If you republish the package without updating the root namespace path, it will not be available for the [instance endpoint](../packages/npm_registry/_index.md#install-from-an-instance).
 
 To transfer a project:
@@ -586,12 +572,11 @@ When you transfer a project from a namespace licensed for GitLab.com Premium or 
 
 - [Project access tokens](settings/project_access_tokens.md) are revoked.
 - [Pipeline subscriptions](../../ci/pipelines/_index.md#trigger-a-pipeline-when-an-upstream-project-is-rebuilt)
-  and [test cases](../../ci/test_cases/_index.md) are deleted.
+ and [test cases](../../ci/test_cases/_index.md) are deleted.
 
 ## Manage projects with the Actions menu
 
-You can view a list of all your projects and
-manage them with the **Actions** menu.
+You can view a list of all your projects and manage them with the **Actions** menu.
 
 Prerequisites:
 
@@ -603,8 +588,7 @@ To manage projects with the **Actions** menu:
 1. On the **Projects** page, find your project and select the **Actions** menu ({{< icon name="ellipsis_v" >}}).
 1. Select an action.
 
-The following actions are available
-depending on the state of your project:
+The following actions are available depending on the state of your project:
 
 | Project state    | Actions available |
 |----------|-------------------------|
@@ -636,8 +620,7 @@ Prerequisites:
 
 1. [Create a group](../group/_index.md#create-a-group) to track membership of your project.
 1. [Set up LDAP synchronization](../../administration/auth/ldap/ldap_synchronization.md) for that group.
-1. To use LDAP groups to manage access to a project,
-   [add the LDAP-synchronized group as a member](../group/manage.md) to the project.
+1. To use LDAP groups to manage access to a project, [add the LDAP-synchronized group as a member](../group/manage.md) to the project.
 
 ## Project aliases
 
@@ -648,19 +631,11 @@ Prerequisites:
 
 {{< /details >}}
 
-GitLab repositories are usually accessed with a namespace and a project name. When migrating
-frequently accessed repositories to GitLab, however, you can use project aliases to access those
-repositories with the original name. Accessing repositories through a project alias reduces the risk
-associated with migrating such repositories.
+GitLab repositories are usually accessed with a namespace and a project name. When migrating frequently accessed repositories to GitLab, however, you can use project aliases to access those repositories with the original name. Accessing repositories through a project alias reduces the risk associated with migrating such repositories.
 
-This feature is only available on Git over SSH. Also, only GitLab administrators can create project
-aliases, and they can only do so through the API. For more information, see the
-[Project Aliases API documentation](../../api/project_aliases.md).
+This feature is only available on Git over SSH. Also, only GitLab administrators can create project aliases, and they can only do so through the API. For more information, see the [Project Aliases API documentation](../../api/project_aliases.md).
 
-After an administrator creates an alias for a project, you can use the alias to clone the
-repository. For example, if an administrator creates the alias `gitlab` for the project
-`https://gitlab.com/gitlab-org/gitlab`, you can clone the project with
-`git clone git@gitlab.com:gitlab.git` instead of `git clone git@gitlab.com:gitlab-org/gitlab.git`.
+After an administrator creates an alias for a project, you can use the alias to clone the repository. For example, if an administrator creates the alias `gitlab` for the project `https://gitlab.com/gitlab-org/gitlab`, you can clone the project with `git clone git@gitlab.com:gitlab.git` instead of `git clone git@gitlab.com:gitlab-org/gitlab.git`.
 
 ## Related topics
 

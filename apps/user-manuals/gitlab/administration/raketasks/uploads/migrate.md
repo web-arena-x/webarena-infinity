@@ -19,8 +19,7 @@ There is a Rake task for migrating uploads between different storage types.
 
 ## Migrate to object storage
 
-After [configuring the object storage](../../uploads.md#using-object-storage) for uploads
-to GitLab, use this task to migrate existing uploads from the local storage to the remote storage.
+After [configuring the object storage](../../uploads.md#using-object-storage) for uploads to GitLab, use this task to migrate existing uploads from the local storage to the remote storage.
 
 All of the processing is done in a background worker and requires **no downtime**.
 
@@ -28,9 +27,7 @@ Read more about using [object storage with GitLab](../../object_storage.md).
 
 ### All-in-one Rake task
 
-GitLab provides a wrapper Rake task that migrates all uploaded files (for example avatars, logos,
-attachments, and favicon) to object storage in one step. The wrapper task invokes individual Rake
-tasks to migrate files falling under each of these categories one by one.
+GitLab provides a wrapper Rake task that migrates all uploaded files (for example avatars, logos, attachments, and favicon) to object storage in one step. The wrapper task invokes individual Rake tasks to migrate files falling under each of these categories one by one.
 
 These [individual Rake tasks](#individual-rake-tasks) are described in the next section.
 
@@ -56,8 +53,7 @@ sudo RAILS_ENV=production -u git -H bundle exec rake gitlab:uploads:migrate:all
 
 {{< /tabs >}}
 
-You can optionally track progress and verify that all uploads migrated successfully using the
-[PostgreSQL console](https://docs.gitlab.com/omnibus/settings/database.html#connecting-to-the-bundled-postgresql-database):
+You can optionally track progress and verify that all uploads migrated successfully using the [PostgreSQL console](https://docs.gitlab.com/omnibus/settings/database.html#connecting-to-the-bundled-postgresql-database):
 
 - `sudo gitlab-rails dbconsole --database main` for Linux package installations.
 - `sudo -u git -H psql -d gitlabhq_production` for self-compiled installations.
@@ -80,8 +76,7 @@ sudo find /var/opt/gitlab/gitlab-rails/uploads -type f | grep -v tmp | wc -l
 
 ### Individual Rake tasks
 
-If you already ran the [all-in-one Rake task](#all-in-one-rake-task), there is no need to run these
-individual tasks.
+If you already ran the [all-in-one Rake task](#all-in-one-rake-task), there is no need to run these individual tasks.
 
 The Rake task uses three parameters to find uploads to migrate:
 
@@ -93,18 +88,16 @@ The Rake task uses three parameters to find uploads to migrate:
 
 {{< alert type="note" >}}
 
-These parameters are mainly internal to the structure of GitLab, you may want to refer to the task list
-instead below. After running these individual tasks, we recommend that you run the [all-in-one Rake task](#all-in-one-rake-task)
+These parameters are mainly internal to the structure of GitLab, you may want to refer to the task list instead below. After running these individual tasks, we recommend that you run the [all-in-one Rake task](#all-in-one-rake-task)
 to migrate any uploads not included in the listed types.
 
 {{< /alert >}}
 
-This task also accepts an environment variable which you can use to override
-the default batch size:
+This task also accepts an environment variable which you can use to override the default batch size:
 
 | Variable | Type    | Description                                       |
 |:---------|:--------|:--------------------------------------------------|
-| `BATCH`  | integer | Specifies the size of the batch. Defaults to 200. |
+| `BATCH` | integer | Specifies the size of the batch. Defaults to 200. |
 
 The following shows how to run `gitlab:uploads:migrate` for individual types of uploads.
 
@@ -174,15 +167,11 @@ sudo -u git -H bundle exec rake "gitlab:uploads:migrate[DesignManagement::Design
 
 ## Migrate to local storage
 
-If you need to disable [object storage](../../object_storage.md) for any reason, you must first
-migrate your data out of object storage and back into your local storage.
+If you need to disable [object storage](../../object_storage.md) for any reason, you must first migrate your data out of object storage and back into your local storage.
 
 {{< alert type="warning" >}}
 
-**Extended downtime is required** so no new files are created in object storage during
-the migration. A configuration setting to allow migrating
-from object storage to local files with only a brief moment of downtime for configuration changes
-is tracked [in this issue](https://gitlab.com/gitlab-org/gitlab/-/issues/30979).
+**Extended downtime is required** so no new files are created in object storage during the migration. A configuration setting to allow migrating from object storage to local files with only a brief moment of downtime for configuration changes is tracked [in this issue](https://gitlab.com/gitlab-org/gitlab/-/issues/30979).
 
 **Additionally,** in Cloud Native GitLab, it is generally unsafe to migrate data to local storage because it is ephemeral and not shared with all GitLab Rails application containers.
 
@@ -190,9 +179,7 @@ is tracked [in this issue](https://gitlab.com/gitlab-org/gitlab/-/issues/30979).
 
 ### All-in-one Rake task
 
-GitLab provides a wrapper Rake task that migrates all uploaded files (for example, avatars, logos,
-attachments, and favicon) to local storage in one step. The wrapper task invokes individual Rake
-tasks to migrate files falling under each of these categories one by one.
+GitLab provides a wrapper Rake task that migrates all uploaded files (for example, avatars, logos, attachments, and favicon) to local storage in one step. The wrapper task invokes individual Rake tasks to migrate files falling under each of these categories one by one.
 
 For details on these Rake tasks, refer to [Individual Rake tasks](#individual-rake-tasks).
 Keep in mind the task name in this case is `gitlab:uploads:migrate_to_local`.
@@ -219,5 +206,4 @@ sudo RAILS_ENV=production -u git -H bundle exec rake gitlab:uploads:migrate_to_l
 
 {{< /tabs >}}
 
-After running the Rake task, you can disable object storage by undoing the changes described
-in the instructions to [configure object storage](../../uploads.md#using-object-storage).
+After running the Rake task, you can disable object storage by undoing the changes described in the instructions to [configure object storage](../../uploads.md#using-object-storage).

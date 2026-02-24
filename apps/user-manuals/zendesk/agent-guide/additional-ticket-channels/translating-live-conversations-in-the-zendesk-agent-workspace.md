@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/6327770807450-Translating-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -36,7 +36,7 @@ If the detected language is incorrect, you can use the dropdown to select the co
 
 - In the translation banner, click **Translate**. The banner updates to display the translation status:
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aw_auto_translate_banner_on.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aw_auto_translate_banner_on.png)
 
 **To decline automatic translation for an incoming conversation**
 
@@ -66,10 +66,10 @@ Agents can view an end user’s original untranslated messages, as well as the t
 
 - At the end of the end user’s message, click **Show original**. The untranslated version appears.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/auto-translation_show_original.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/auto-translation_show_original.png)
 
 **To view your own translated message text**
 
 - At the end of the message, click **Show translation**. The translated version of the message appears.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/auto-translation_show_translation.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/auto-translation_show_translation.png)

@@ -5,13 +5,11 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: GitLab Duo Chat best practices
 ---
 
-When prompting GitLab Duo Chat with questions, apply the following best practices
-to receive concrete examples and specific guidance.
+When prompting GitLab Duo Chat with questions, apply the following best practices to receive concrete examples and specific guidance.
 
 ## Have a conversation
 
-Treat chats like conversations, not search forms. Start with a search-like question,
-then follow up with related questions to refine the scope. Build context through back-and-forth.
+Treat chats like conversations, not search forms. Start with a search-like question, then follow up with related questions to refine the scope. Build context through back-and-forth.
 
 For example, you might ask:
 
@@ -83,9 +81,7 @@ When implementing a pure virtual function in an inherited C++ class,
 should I use virtual function override, or just function override?
 ```
 
-This context is less important when you use GitLab Duo Chat (Agentic) because it autonomously searches,
-retrieves, and combines information from multiple sources. However, you should
-still be explicit to help Chat work as efficiently as possible.
+This context is less important when you use GitLab Duo Chat (Agentic) because it autonomously searches, retrieves, and combines information from multiple sources. However, you should still be explicit to help Chat work as efficiently as possible.
 
 ## Repeat yourself
 
@@ -133,10 +129,8 @@ Or:
 /explain why this code has multiple vulnerabilities
 ```
 
-Although slash commands still work for GitLab Duo Chat (Agentic), they are not as critical
-as they are in GitLab Duo Chat (Classic).
-You can ask Chat to explain or refactor code and it can search across projects,
-create and edit files, and analyze information from multiple sources simultaneously.
+Although slash commands still work for GitLab Duo Chat (Agentic), they are not as critical as they are in GitLab Duo Chat (Classic).
+You can ask Chat to explain or refactor code and it can search across projects, create and edit files, and analyze information from multiple sources simultaneously.
 
 ## Related topics
 

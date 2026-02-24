@@ -44,10 +44,8 @@ After you join to a Matrix room, you can configure GitLab to send notifications:
 1. In the **Trigger** section, select the checkboxes for the GitLab events you want to receive in Matrix.
 1. In the **Notification settings** section:
    - In **Room identifier**, paste the Matrix room identifier.
-   - Optional. Select the **Notify only broken pipelines** checkbox
-     to receive notifications for failed pipelines only.
-   - Optional. From the **Branches for which notifications are to be sent** dropdown list,
-     select the branches you want to receive notifications for.
+   - Optional. Select the **Notify only broken pipelines** checkbox to receive notifications for failed pipelines only.
+   - Optional. From the **Branches for which notifications are to be sent** dropdown list, select the branches you want to receive notifications for.
 1. Optional. Select **Test settings**.
 1. Select **Save changes**.
 

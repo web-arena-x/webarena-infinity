@@ -21,13 +21,9 @@ when the JWT contains an `aud` claim. The `aud` claim can be a single string or 
 
 This tutorial demonstrates how to convert your existing CI/CD secrets configuration to use [ID Tokens](id_token_authentication.md).
 
-The `CI_JOB_JWT` variables are deprecated, but updating to ID tokens requires some
-important configuration changes to work with Vault. If you have more than a handful of jobs,
-converting everything at once is a daunting task.
+The `CI_JOB_JWT` variables are deprecated, but updating to ID tokens requires some important configuration changes to work with Vault. If you have more than a handful of jobs, converting everything at once is a daunting task.
 
-There isn't one standard method to migrate to [ID tokens](id_token_authentication.md), so this tutorial
-includes two variations for how to convert your existing CI/CD secrets. Choose the method that is most appropriate for
-your use case:
+There isn't one standard method to migrate to [ID tokens](id_token_authentication.md), so this tutorial includes two variations for how to convert your existing CI/CD secrets. Choose the method that is most appropriate for your use case:
 
 1. Update your Vault configuration:
    - Method A: Migrate JWT roles to the new Vault auth method
@@ -91,8 +87,7 @@ You can create multiple authentication paths in Vault, which enable you to trans
 ### Recreate roles to use the new authentication path
 
 Roles are bound to a specific authentication path so you need to add new roles for each job.
-The `bound_audiences` parameter for the role is mandatory if the JWT contains an
-audience and must match at least one of the associated `aud` claims of the JWT.
+The `bound_audiences` parameter for the role is mandatory if the JWT contains an audience and must match at least one of the associated `aud` claims of the JWT.
 
 1. Recreate the role for staging named `myproject-staging`:
 
@@ -143,8 +138,7 @@ This method doesn't require Vault administrators to create a second JWT auth met
 ### Add `bound_issuers` claim map to each role
 
 Vault doesn't allow multiple `iss` claims on the JWT auth method level, as the [`bound_issuer`](https://developer.hashicorp.com/vault/api-docs/auth/jwt#bound_issuer)
-directive on this level only accepts a single value. However, multiple claims can be configured
-on the role level by using the [`bound_claims`](https://developer.hashicorp.com/vault/api-docs/auth/jwt#bound_claims)
+directive on this level only accepts a single value. However, multiple claims can be configured on the role level by using the [`bound_claims`](https://developer.hashicorp.com/vault/api-docs/auth/jwt#bound_claims)
 map configuration directive.
 
 With this method you can provide Vault with multiple options for the `iss` claim validation. This supports the `https://` prefixed GitLab instance hostname claim that comes with the `id_tokens`, as well as the old non-prefixed claim.
@@ -154,12 +148,12 @@ To add the [`bound_claims`](https://developer.hashicorp.com/vault/api-docs/auth/
 ```shell
 $ vault write auth/jwt/role/myproject-staging - <<EOF
 {
-  "role_type": "jwt",
-  "policies": ["myproject-staging"],
-  "token_explicit_max_ttl": 60,
-  "user_claim": "user_email",
-  "bound_audiences": ["https://vault.example.com"],
-  "bound_claims": {
+ "role_type": "jwt",
+ "policies": ["myproject-staging"],
+ "token_explicit_max_ttl": 60,
+ "user_claim": "user_email",
+ "bound_audiences": ["https://vault.example.com"],
+ "bound_claims": {
     "iss": [
       "https://gitlab.example.com",
       "gitlab.example.com"
@@ -167,19 +161,17 @@ $ vault write auth/jwt/role/myproject-staging - <<EOF
     "project_id": "22",
     "ref": "master",
     "ref_type": "branch"
-  }
+ }
 }
 EOF
 ```
 
 You do not need to alter any existing role configurations except for the `bound_claims` section.
-Make sure to add the `iss` configuration as shown previously, to ensure Vault accepts
-the prefixed and non-prefixed `iss` claim for this role.
+Make sure to add the `iss` configuration as shown previously, to ensure Vault accepts the prefixed and non-prefixed `iss` claim for this role.
 
 You must apply this change to all JWT roles used for the GitLab integration before moving on to the next step.
 
-You can revert the migration of the `iss` claim validation from the auth method to the roles if desired,
-after all projects have been migrated and you no longer need parallel support for `CI_JOB_JWT` and ID tokens.
+You can revert the migration of the `iss` claim validation from the auth method to the roles if desired, after all projects have been migrated and you no longer need parallel support for `CI_JOB_JWT` and ID tokens.
 
 ### Remove `bound_issuers` claim from auth method
 
@@ -218,14 +210,14 @@ The [`secrets:vault`](../yaml/_index.md#secretsvault) keyword defaults to v2 of 
 
 ```yaml
 job:
-  variables:
+ variables:
     VAULT_SERVER_URL: https://vault.example.com
-    VAULT_AUTH_PATH: jwt_v2  # or "jwt" if you used method B
+    VAULT_AUTH_PATH: jwt_v2 # or "jwt" if you used method B
     VAULT_AUTH_ROLE: myproject-staging
-  id_tokens:
+ id_tokens:
     VAULT_ID_TOKEN:
       aud: https://vault.example.com
-  secrets:
+ secrets:
     PASSWORD:
       vault:
         engine:
@@ -236,8 +228,7 @@ job:
       file: false
 ```
 
-Both `VAULT_SERVER_URL` and `VAULT_AUTH_PATH` can be [defined as project or group CI/CD variables](../variables/_index.md#define-a-cicd-variable-in-the-ui),
-if preferred.
+Both `VAULT_SERVER_URL` and `VAULT_AUTH_PATH` can be [defined as project or group CI/CD variables](../variables/_index.md#define-a-cicd-variable-in-the-ui), if preferred.
 
 [`secrets:file`](../yaml/_index.md#secretsfile) is set to `false` because ID tokens place secrets in a file by default and it needs to work as a regular variable instead to match the old behavior.
 
@@ -249,14 +240,14 @@ Long format:
 
 ```yaml
 job:
-  variables:
+ variables:
     VAULT_SERVER_URL: https://vault.example.com
-    VAULT_AUTH_PATH: jwt_v2  # or "jwt" if you used method B
+    VAULT_AUTH_PATH: jwt_v2 # or "jwt" if you used method B
     VAULT_AUTH_ROLE: myproject-staging
-  id_tokens:
+ id_tokens:
     VAULT_ID_TOKEN:
       aud: https://vault.example.com
-  secrets:
+ secrets:
     PASSWORD:
       vault:
         engine:
@@ -273,14 +264,14 @@ You can also use a short format:
 
 ```yaml
 job:
-  variables:
+ variables:
     VAULT_SERVER_URL: https://vault.example.com
-    VAULT_AUTH_PATH: jwt_v2  # or "jwt" if you used method B
+    VAULT_AUTH_PATH: jwt_v2 # or "jwt" if you used method B
     VAULT_AUTH_ROLE: myproject-staging
-  id_tokens:
+ id_tokens:
     VAULT_ID_TOKEN:
       aud: https://vault.example.com
-  secrets:
+ secrets:
       PASSWORD:
         vault: myproject/staging/db/password@secret
         file: false

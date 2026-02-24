@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408882929946-Understandin
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Team, Professional, or Enterprise |
 
@@ -32,31 +32,31 @@ By default, your Chat account includes three roles: Agent, Administrator, and Ac
 
 - **Agents** can:
 
-  - Chat with customers
-  - Create shortcuts
-  - Ban visitors
-  - View past chats
-  - Configure personal settings
+ - Chat with customers
+ - Create shortcuts
+ - Ban visitors
+ - View past chats
+ - Configure personal settings
 
-  See [Getting started for Chat agents](https://support.zendesk.com/hc/en-us/articles/4408831559834) for more information on Agent permissions.
+ See [Getting started for Chat agents](https://support.zendesk.com/hc/en-us/articles/4408831559834) for more information on Agent permissions.
 - **Administrators** have all of the default agent privileges. In addition, an administrator can:
 
-  - Configure global and personal settings
-  - Manage agents, triggers, and departments
-  - Delete chats
-  - Use [Chat Analytics](https://support.zendesk.com/hc/en-us/articles/4408828193562)
+ - Configure global and personal settings
+ - Manage agents, triggers, and departments
+ - Delete chats
+ - Use [Chat Analytics](https://support.zendesk.com/hc/en-us/articles/4408828193562)
 
-  Note: Administrator permissions cannot be modified
+ Note: Administrator permissions cannot be modified
 
-  See [Getting started for Chat admins](https://support.zendesk.com/hc/en-us/articles/4408820663322) for more information on Administrator tasks.
+ See [Getting started for Chat admins](https://support.zendesk.com/hc/en-us/articles/4408820663322) for more information on Administrator tasks.
 - **Account owner** has all the default administrator and agent privileges. In addition, the account owner can:
 
-  - Upgrade or downgrade the account's plan
-  - Change billing information
-  - Access invoices
-  - Cancel the account
+ - Upgrade or downgrade the account's plan
+ - Change billing information
+ - Access invoices
+ - Cancel the account
 
-  Note: Account owner permissions cannot be modified
+ Note: Account owner permissions cannot be modified
 
 How these roles are assigned and used is determined by how you use Zendesk Chat:
 

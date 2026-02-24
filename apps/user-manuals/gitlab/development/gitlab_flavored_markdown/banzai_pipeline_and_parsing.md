@@ -56,10 +56,7 @@ Of specific note is the `SanitizationFilter`. This is critical for providing saf
 
 ### `PostProcessPipeline`
 
-The output from the `FullPipeline` gets cached in the database. However references have already been resolved. Based on
-a users' permissions, they may not be able to see those references. `PostProcessPipeline` is responsible for redacting any
-confidential information based on user permissions. These changes are never cached, as they need to get recomputed each time
-they are displayed.
+The output from the `FullPipeline` gets cached in the database. However references have already been resolved. Based on a users' permissions, they may not be able to see those references. `PostProcessPipeline` is responsible for redacting any confidential information based on user permissions. These changes are never cached, as they need to get recomputed each time they are displayed.
 
 ### Performance
 
@@ -67,15 +64,15 @@ It's important to not only have the filters run as fast as possible, but to ensu
 For this we use several techniques:
 
 - For certain filters that can take a long time, we use a Ruby timeout with `Gitlab::RenderTimeout.timeout` in [TimeoutFilterHandler](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/banzai/filter/concerns/timeout_filter_handler.rb).
-  This allows us to interrupt the actual processing if it takes too long.
-  In general, using Ruby `timeout` is [not considered safe](https://jvns.ca/blog/2015/11/27/why-rubys-timeout-is-dangerous-and-thread-dot-raise-is-terrifying/).
-  We therefore only use it when absolutely necessary, preferring to fix an actual performance problem rather then using a timeout.
+ This allows us to interrupt the actual processing if it takes too long.
+ In general, using Ruby `timeout` is [not considered safe](https://jvns.ca/blog/2015/11/27/why-rubys-timeout-is-dangerous-and-thread-dot-raise-is-terrifying/).
+ We therefore only use it when absolutely necessary, preferring to fix an actual performance problem rather then using a timeout.
 - [PipelineTimingCheck](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/banzai/filter/concerns/pipeline_timing_check.rb) allows us to keep track of the cumulative amount of time the pipeline is taking. When we reach a maximum, we can then skip any remaining filters.
-  For nearly all filters, it's generally ok to skip them in a case like this in order to show the user _something_, rather than nothing.
+ For nearly all filters, it's generally ok to skip them in a case like this in order to show the user _something_, rather than nothing.
 
-  However, there are a couple instances where this is not advisable.
-  For example in the `SanitizationFilter`, if that filter does not complete, then we can't show the HTML to the user since there could still be unsanitized HTML.
-  In those cases, we have to show an error message.
+ However, there are a couple instances where this is not advisable.
+ For example in the `SanitizationFilter`, if that filter does not complete, then we can't show the HTML to the user since there could still be unsanitized HTML.
+ In those cases, we have to show an error message.
 
 There is also a `rake` task that can be used for benchmarking. See the [Performance Guidelines](../performance.md#banzai-pipelines-and-filters)
 
@@ -89,31 +86,18 @@ For more information about the various options that get passed into `comrak`, se
 
 ## Caching
 
-The output from the main pipelines get cached in the database, or on occasion in Redis. `CacheMarkdownField` is used
-for managing the proper `_html` columns. For example, if there is a `description` column, then a `description_html` column
-is managed. If `description_html` is empty, then it hasn't been computed for `description` yet. If it's not empty, then
-you are guaranteed that `description_html` is the rendered version of `description`.
+The output from the main pipelines get cached in the database, or on occasion in Redis. `CacheMarkdownField` is used for managing the proper `_html` columns. For example, if there is a `description` column, then a `description_html` column is managed. If `description_html` is empty, then it hasn't been computed for `description` yet. If it's not empty, then you are guaranteed that `description_html` is the rendered version of `description`.
 
-Each table that contains a Markdown field also contains a `cached_markdown_version` column. This indicates which
-"version" of Markdown it was rendered with. This value controls whether or not already cached HTML may need to get
-re-rendered. This can happen if for instance something changes how we render HTML, and we need all cached HTML to be rebuilt.
+Each table that contains a Markdown field also contains a `cached_markdown_version` column. This indicates which "version" of Markdown it was rendered with. This value controls whether or not already cached HTML may need to get re-rendered. This can happen if for instance something changes how we render HTML, and we need all cached HTML to be rebuilt.
 
-There are two values which control this. One is the primary application version,
-`Gitlab::MarkdownCache::CACHE_COMMONMARK_VERSION`. If this is changed in the file, then all cached HTML fields will
-get re-rendered, across all installations.
+There are two values which control this. One is the primary application version, `Gitlab::MarkdownCache::CACHE_COMMONMARK_VERSION`. If this is changed in the file, then all cached HTML fields will get re-rendered, across all installations.
 
 There is also an application level setting, `local_markdown_version`, which allows an administrator to invalidate the cache.
-This is documented in [Markdown Cache](../../administration/invalidate_markdown_cache.md). This
-might be needed if, for example, a system setting gets changed, such as a new PlantUML server is used and the administrator wants all
-fields to use the new value. The documentation also mentions how you could reset just a project, etc.
+This is documented in [Markdown Cache](../../administration/invalidate_markdown_cache.md). This might be needed if, for example, a system setting gets changed, such as a new PlantUML server is used and the administrator wants all fields to use the new value. The documentation also mentions how you could reset just a project, etc.
 
 {{< alert type="warning" >}}
 
-Changing either the `Gitlab::MarkdownCache::CACHE_COMMONMARK_VERSION` or the application setting causes all
-cached Markdown fields to be re-rendered. For large installations, this puts heavy strain on the database,
-as every row with cached Markdown needs to be updated. So, avoid changing `Gitlab::MarkdownCache::CACHE_COMMONMARK_VERSION`
-if the change to the renderer output is a new feature or a minor bug fix. It should only be bumped in extreme
-circumstances.
+Changing either the `Gitlab::MarkdownCache::CACHE_COMMONMARK_VERSION` or the application setting causes all cached Markdown fields to be re-rendered. For large installations, this puts heavy strain on the database, as every row with cached Markdown needs to be updated. So, avoid changing `Gitlab::MarkdownCache::CACHE_COMMONMARK_VERSION` if the change to the renderer output is a new feature or a minor bug fix. It should only be bumped in extreme circumstances.
 For more information, see [issue 330313](https://gitlab.com/gitlab-org/gitlab/-/issues/330313).
 
 {{< /alert >}}

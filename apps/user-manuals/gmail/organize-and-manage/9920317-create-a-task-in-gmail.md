@@ -22,11 +22,11 @@ To keep track of important requests in Gmail, you can create a task based on an 
 
 - In Gmail, you can also create tasks based on information in a Gemini summary card. [Learn how to summarize email threads with Gemini in Gmail](/mail/answer/16561387).
 - Create tasks in:
-  - Google Tasks
-  - Google Calendar
+ - Google Tasks
+ - Google Calendar
 - In Google Chat:
-  - Create a task based on a direct message.
-  - Create and assign group tasks in a space.
+ - Create a task based on a direct message.
+ - Create and assign group tasks in a space.
 - In Google Docs, if you sign in to an eligible Google Workspace account, assign tasks to yourself or others in a doc.
 
 [Learn how to add tasks in other Google products](/tasks/answer/7675838).

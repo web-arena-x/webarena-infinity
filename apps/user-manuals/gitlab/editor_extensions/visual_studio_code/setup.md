@@ -6,8 +6,7 @@ description: Use the GitLab Workflow extension for VS Code to handle common GitL
 title: Install and set up the GitLab Workflow extension for VS Code
 ---
 
-To use the GitLab Workflow extension for VS Code, choose the installation method that meets your
-needs:
+To use the GitLab Workflow extension for VS Code, choose the installation method that meets your needs:
 
 - For standard VS Code, install from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=GitLab.gitlab-workflow).
 - For unofficial VS Code versions, install from [Open VSX Registry](https://open-vsx.org/extension/GitLab/gitlab-workflow).
@@ -15,19 +14,17 @@ needs:
 
 ## Use the extension in a Visual Studio Code Dev Container
 
-For added security, set up the extension and use GitLab Duo in a containerized development
-environment using [VS Code Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers).
+For added security, set up the extension and use GitLab Duo in a containerized development environment using [VS Code Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers).
 
 Prerequisites:
 
 - [Docker](https://www.docker.com/products/docker-desktop/) is installed and running.
 - The Visual Studio Code [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-  extension is installed in VS Code.
+ extension is installed in VS Code.
 
 To install the extension in a VS Code Dev Container:
 
-1. Run the **Dev Containers: Add Dev Container Configuration Files** command from the Command
-   Palette.
+1. Run the **Dev Containers: Add Dev Container Configuration Files** command from the Command Palette.
 1. Add the GitLab Workflow extension to the configuration file:
 
    ```json
@@ -45,8 +42,7 @@ To install the extension in a VS Code Dev Container:
    }
    ```
 
-1. Run the **Dev Containers: Open Folder in Container** command to open your project in a VS Code
-   Dev Container. VS Code automatically installs the extension inside the container.
+1. Run the **Dev Containers: Open Folder in Container** command to open your project in a VS Code Dev Container. VS Code automatically installs the extension inside the container.
 
 ## Connect to GitLab
 
@@ -59,20 +55,17 @@ After you install and enable the extension, connect it to your GitLab account.
    - For Windows or Linux, press <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
 1. Type `GitLab: Authenticate` and press <kbd>Enter</kbd>.
 1. Select your GitLab instance URL from the options, or enter one manually.
-   - If you enter one manually, in **URL to GitLab instance**, paste the full URL,
-     including the `http://` or `https://`. Press <kbd>Enter</kbd> to confirm.
+   - If you enter one manually, in **URL to GitLab instance**, paste the full URL, including the `http://` or `https://`. Press <kbd>Enter</kbd> to confirm.
 1. Authenticate with GitLab using:
    - OAuth login after [configuring authentication](#authentication).
    - A new [personal access token](#create-a-personal-access-token).
 
-The extension matches your Git repository remote URL with the GitLab instance URL you specified
-for your token. If you have multiple accounts or projects, you can choose the one you want to use.
+The extension matches your Git repository remote URL with the GitLab instance URL you specified for your token. If you have multiple accounts or projects, you can choose the one you want to use.
 For more details, see [Switch GitLab accounts in VS Code](_index.md#switch-gitlab-accounts-in-vs-code).
 
 {{< alert type="note" >}}
 
-If your GitLab instance or network uses a custom SSL setup,
-you can configure the extension to support self-signed certificates. For more information, see [using the extension with self-signed certificates](ssl.md).
+If your GitLab instance or network uses a custom SSL setup, you can configure the extension to support self-signed certificates. For more information, see [using the extension with self-signed certificates](ssl.md).
 
 {{< /alert >}}
 
@@ -89,8 +82,8 @@ To connect to your GitLab repository from VS Code:
 1. In the terminal, ensure your repository is configured with a remote: `git remote -v`. The results should look similar to:
 
    ```plaintext
-   origin  git@gitlab.com:gitlab-org/gitlab.git (fetch)
-   origin  git@gitlab.com:gitlab-org/gitlab.git (push)
+   origin git@gitlab.com:gitlab-org/gitlab.git (fetch)
+   origin git@gitlab.com:gitlab-org/gitlab.git (push)
    ```
 
    If no remote is defined, or you have multiple remotes:
@@ -161,24 +154,20 @@ To configure OAuth application login:
 
 ### Configure GitLab Duo
 
-GitLab Duo Chat and GitLab Duo Code Suggestions are enabled by default when you meet the
-prerequisites:
+GitLab Duo Chat and GitLab Duo Code Suggestions are enabled by default when you meet the prerequisites:
 
 - You have the GitLab Duo add-on and a seat assigned.
-- You open a project that is linked to a remote repository on GitLab, or you set a
-  [default GitLab Duo namespace](../../user/gitlab_duo/model_selection.md#assign-a-default-gitlab-duo-namespace).
-- For GitLab Duo Chat (Agentic) and GitLab Duo Code Suggestions, you meet the additional
-  prerequisites:
-  - [GitLab Duo Chat (Agentic)](../../user/gitlab_duo_chat/agentic_chat.md#use-gitlab-duo-chat-in-vs-code)
-  - [GitLab Duo Code Suggestions](../../user/project/repository/code_suggestions/set_up.md#prerequisites)
+- You open a project that is linked to a remote repository on GitLab, or you set a [default GitLab Duo namespace](../../user/gitlab_duo/model_selection.md#assign-a-default-gitlab-duo-namespace).
+- For GitLab Duo Chat (Agentic) and GitLab Duo Code Suggestions, you meet the additional prerequisites:
+ - [GitLab Duo Chat (Agentic)](../../user/gitlab_duo_chat/agentic_chat.md#use-gitlab-duo-chat-in-vs-code)
+ - [GitLab Duo Code Suggestions](../../user/project/repository/code_suggestions/set_up.md#prerequisites)
 
 ### Code security
 
 To configure the code security settings, go to **Settings** > **Extensions** > **GitLab Workflow** > **Code Security**.
 
 - To enable SAST scanning of the active file, select the **Enable Real-time SAST scan** checkbox.
-- Optional. To enable SAST scanning of the active file when you save it, select the
-  **Enable scanning on file save** checkbox.
+- Optional. To enable SAST scanning of the active file when you save it, select the **Enable scanning on file save** checkbox.
 
 ### Install pre-release versions of the extension
 

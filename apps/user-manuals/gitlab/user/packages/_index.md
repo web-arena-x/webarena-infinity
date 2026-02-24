@@ -13,9 +13,7 @@ description: Package management, container registry, artifact storage, and depen
 
 {{< /details >}}
 
-The GitLab [package registry](package_registry/_index.md) acts as a private or public registry
-for a variety of common package managers. You can publish and share
-packages, which can be easily consumed as a dependency in downstream projects.
+The GitLab [package registry](package_registry/_index.md) acts as a private or public registry for a variety of common package managers. You can publish and share packages, which can be easily consumed as a dependency in downstream projects.
 
 ## Container registry
 

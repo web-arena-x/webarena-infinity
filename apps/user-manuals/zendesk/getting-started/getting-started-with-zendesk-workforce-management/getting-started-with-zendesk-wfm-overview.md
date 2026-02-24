@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/6514644101914-Getting-star
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Workforce Management (WFM) or Workforce Engagement Management (WEM) |
 
@@ -69,13 +69,13 @@ The following example demonstrates how you and your team can use Zendesk WFM to 
 
 - Anne is a workforce planner at Eatwell, a food delivery organization. She's been asked to hire 100 new agents in the next quarter in advance of the summer months because her global teams typically see sharp spikes in food orders and ticket volume.
 
-  Using Zendesk WFM, Anne can forecast and plan for these hiring needs. She'll review past quarters’ inbound volume and review both team and individual performance metrics against that volume to determine her actual resource needs.
+ Using Zendesk WFM, Anne can forecast and plan for these hiring needs. She'll review past quarters’ inbound volume and review both team and individual performance metrics against that volume to determine her actual resource needs.
 
 **Monthly**
 
 - Charles is a manager of the San Francisco location of Eatwell and builds the schedule for his team. A new feature is going to be released next month and he’s confident that this will result in an increase in tickets based on historical data of his team’s new releases.
 
-  In Zendesk WFM, he adjusts next month's schedule so that 25% more agents are working chat and voice channels when the feature releases.
+ In Zendesk WFM, he adjusts next month's schedule so that 25% more agents are working chat and voice channels when the feature releases.
 
 **Daily**
 

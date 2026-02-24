@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408884136730-Providing-mu
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Professional or Enterprise |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Team, Professional, or Enterprise |
 

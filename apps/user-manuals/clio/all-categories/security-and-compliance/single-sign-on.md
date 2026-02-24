@@ -32,7 +32,7 @@ Okta Azure Custom
 1. Go to **Settings** > **Security & Compliance** > **Firm Security**.
 2. Click **Update single sign-on**.
 3. Click **Add configuration**.
-4. Select Okta, then click **Create configuration**.  
+4. Select Okta, then click **Create configuration**. 
    You will be provided with a step-by-step instruction set to guide you through this.
    1. **Step 1: Create the SAML integration:** The steps provided are to be completed in Okta’s administrator console. When you have completed these steps, click **Continue** in Clio to see the next instructions.
    2. **Step 2: Configure SAML attributes:** The steps provided are to be completed in Okta’s administrator console. When you have completed these steps, click **Continue** in Clio to see the next instructions.
@@ -65,7 +65,7 @@ Okta Azure Custom
 1. Go to **Settings** > **Security & Compliance** > **Firm Security**.
 2. Click **Update single sign-on**.
 3. Click **Add configuration**.
-4. Select Azure, then click **Create configuration**.  
+4. Select Azure, then click **Create configuration**. 
    You will be provided with a step-by-step instruction set to guide you through this.
    1. **Step 1: Create the SAML integration:** The steps provided are to be completed in Azure’s administrator console. When you have completed these steps, click **Continue** in Clio to see the next instructions.
    2. **Step 2: Configure SAML attributes:** The steps provided are to be completed in Azure’s administrator console. When you have completed these steps, click **Continue** in Clio to see the next instructions.

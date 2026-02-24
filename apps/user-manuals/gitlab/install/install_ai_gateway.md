@@ -14,29 +14,24 @@ is a combination of two services that give access to AI-native GitLab Duo featur
 
 ## Install by using Docker
 
-The GitLab AI gateway Docker image contains all necessary code and dependencies
-in a single container.
+The GitLab AI gateway Docker image contains all necessary code and dependencies in a single container.
 
 Prerequisites:
 
 - Install a Docker container engine, like [Docker](https://docs.docker.com/engine/install/#server).
 - Use a valid hostname that is accessible in your network. Do not use `localhost`.
-- Ensure you have approximately 340 MB (compressed) for the `linux/amd64` architecture and
-  a minimum of 512 MB of RAM.
-- Ensure the container has access to at least two CPUs for
-  the `ai_gateway` and `duo-workflow-service` services.
+- Ensure you have approximately 340 MB (compressed) for the `linux/amd64` architecture and a minimum of 512 MB of RAM.
+- Ensure the container has access to at least two CPUs for the `ai_gateway` and `duo-workflow-service` services.
 - Generate a JWT signing key for GitLab Duo Agent Platform functionality:
 
-  ```shell
-  openssl genrsa -out duo_workflow_jwt.key 2048
-  ```
+ ```shell
+ openssl genrsa -out duo_workflow_jwt.key 2048
+ ```
 
-  {{< alert type="warning" >}}
-  Keep the `duo_workflow_jwt.key` file secure and do not share it publicly. This key is used for signing JWT tokens and must be treated as a sensitive credential.
-  {{< /alert >}}
+ {{< alert type="warning" >}} Keep the `duo_workflow_jwt.key` file secure and do not share it publicly. This key is used for signing JWT tokens and must be treated as a sensitive credential.
+ {{< /alert >}}
 
-To ensure better performance, especially under heavy usage, consider allocating
-more disk space, memory, and resources than the minimum requirements.
+To ensure better performance, especially under heavy usage, consider allocating more disk space, memory, and resources than the minimum requirements.
 Higher RAM and disk capacity can enhance the AI gateway's efficiency during peak loads.
 
 A GPU is not needed for the GitLab AI gateway.
@@ -46,11 +41,11 @@ A GPU is not needed for the GitLab AI gateway.
 The GitLab official Docker image is available:
 
 - In the container registry:
-  - [Stable](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/container_registry/3809284?orderBy=PUBLISHED_AT&search%5B%5D=self-hosted)
-  - [Nightly](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/container_registry/8086262)
+ - [Stable](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/container_registry/3809284?orderBy=PUBLISHED_AT&search%5B%5D=self-hosted)
+ - [Nightly](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/container_registry/8086262)
 - On DockerHub:
-  - [Stable](https://hub.docker.com/r/gitlab/model-gateway/tags)
-  - [Nightly](https://hub.docker.com/r/gitlab/model-gateway-self-hosted/tags)
+ - [Stable](https://hub.docker.com/r/gitlab/model-gateway/tags)
+ - [Nightly](https://hub.docker.com/r/gitlab/model-gateway-self-hosted/tags)
 
 [View the release process for the self-hosted AI gateway](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/-/blob/main/docs/release.md).
 
@@ -86,11 +81,9 @@ Newer features are available from nightly builds, but backwards compatibility is
    From the container host, accessing `http://localhost:5052` should return `{"error":"No authorization header presented"}`.
 
 1. Ensure that ports `5052` and `50052` are forwarded to the container from the host.
-1. For GitLab instances that use an offline license, in the AIGW container,
-   set `-e DUO_WORKFLOW_AUTH__OIDC_CUSTOMER_PORTAL_URL=` (empty string without quotes).
+1. For GitLab instances that use an offline license, in the AIGW container, set `-e DUO_WORKFLOW_AUTH__OIDC_CUSTOMER_PORTAL_URL=` (empty string without quotes).
    This configuration:
-   - Forces the GitLab Duo Workflow Service to authenticate
-     exclusively against the local GitLab instance.
+   - Forces the GitLab Duo Workflow Service to authenticate exclusively against the local GitLab instance.
    - Eliminates the 20-second delay caused by unreachable CustomersDot calls.
 1. Configure the [AI gateway URL](../administration/gitlab_duo_self_hosted/configure_duo_features.md#configure-access-to-the-local-ai-gateway) and the [GitLab Duo Agent Platform service URL](../administration/gitlab_duo_self_hosted/configure_duo_features.md#configure-access-to-the-gitlab-duo-agent-platform).
 1. Configure the `DUO_AGENT_PLATFORM_SERVICE_SECURE` environment variable based on your model setup:
@@ -105,8 +98,7 @@ Newer features are available from nightly builds, but backwards compatibility is
 
 {{< alert type="note" >}}
 
-This method of deploying NGINX or Caddy as a reverse proxy is a temporary workaround to support SSL
-until [issue 455854](https://gitlab.com/gitlab-org/gitlab/-/issues/455854)
+This method of deploying NGINX or Caddy as a reverse proxy is a temporary workaround to support SSL until [issue 455854](https://gitlab.com/gitlab-org/gitlab/-/issues/455854)
 is implemented.
 
 {{< /alert >}}
@@ -117,8 +109,7 @@ To use SSL for an AI gateway instance, use:
 - NGINX as a reverse proxy
 - Let's Encrypt for SSL certificates
 
-NGINX manages the secure connection with external clients. It decrypts incoming HTTPS requests before
-it passes them to the AI gateway.
+NGINX manages the secure connection with external clients. It decrypts incoming HTTPS requests before it passes them to the AI gateway.
 
 Prerequisites:
 
@@ -132,22 +123,22 @@ Start by creating the following files in your working directory.
 1. `nginx.conf`:
 
    ```nginx
-   user  nginx;
-   worker_processes  auto;
-   error_log  /var/log/nginx/error.log warn;
+   user nginx;
+   worker_processes auto;
+   error_log /var/log/nginx/error.log warn;
    pid        /var/run/nginx.pid;
    events {
-       worker_connections  1024;
+       worker_connections 1024;
    }
    http {
        include       /etc/nginx/mime.types;
-       default_type  application/octet-stream;
-       log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+       default_type application/octet-stream;
+       log_format main '$remote_addr - $remote_user [$time_local] "$request" '
                          '$status $body_bytes_sent "$http_referer" '
                          '"$http_user_agent" "$http_x_forwarded_for"';
-       access_log  /var/log/nginx/access.log  main;
+       access_log /var/log/nginx/access.log main;
        sendfile        on;
-       keepalive_timeout  65;
+       keepalive_timeout 65;
        include /etc/nginx/conf.d/*.conf;
    }
    ```
@@ -249,8 +240,7 @@ http {
 
 To set up an SSL certificate:
 
-- For Docker-based NGINX servers, Certbot
-  [provides an automated way to implement Let's Encrypt certificates](https://phoenixnap.com/kb/letsencrypt-docker).
+- For Docker-based NGINX servers, Certbot [provides an automated way to implement Let's Encrypt certificates](https://phoenixnap.com/kb/letsencrypt-docker).
 - Alternatively, you can use the [Certbot manual installation](https://eff-certbot.readthedocs.io/en/stable/using.html#manual).
 
 ### Create an environment file
@@ -267,7 +257,7 @@ Now create a `docker-compose.yaml` file.
 
 ```yaml
 services:
-  nginx-proxy:
+ nginx-proxy:
     image: nginx:alpine
     ports:
       - "80:80"
@@ -296,7 +286,7 @@ grpc-proxy:
       - gitlab-ai-gateway
     restart: always
 
-  gitlab-ai-gateway:
+ gitlab-ai-gateway:
     image: registry.gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/model-gateway:<ai-gateway-tag>
     expose:
       - "5052"
@@ -310,7 +300,7 @@ grpc-proxy:
     restart: always
 
 networks:
-  proxy-network:
+ proxy-network:
     driver: bridge
 ```
 
@@ -336,10 +326,10 @@ To deploy and validate the solution:
 Prerequisites:
 
 - You must have a:
-  - Domain you own, to which you can add a DNS record.
-  - Kubernetes cluster.
-  - Working installation of `kubectl`.
-  - Working installation of Helm, version v3.11.0 or later.
+ - Domain you own, to which you can add a DNS record.
+ - Kubernetes cluster.
+ - Working installation of `kubectl`.
+ - Working installation of Helm, version v3.11.0 or later.
 
 For more information, see [Test the GitLab chart on GKE or EKS](https://docs.gitlab.com/charts/quickstart/).
 
@@ -367,9 +357,7 @@ https://gitlab.com/api/v4/projects/gitlab-org%2fcharts%2fai-gateway-helm-chart/p
    kubectl -n ai-gateway create secret tls ai-gateway-tls --cert="<path_to_cert>" --key="<path_to_cert_key>"
    ```
 
-1. For the AI gateway to access the API, it must know where the GitLab instance
-   is located. To do this, set the `gitlab.url` and `gitlab.apiUrl` together with
-   the `ingress.hosts` and `ingress.tls` values as follows:
+1. For the AI gateway to access the API, it must know where the GitLab instance is located. To do this, set the `gitlab.url` and `gitlab.apiUrl` together with the `ingress.hosts` and `ingress.tls` values as follows:
 
    ```shell
    helm repo add ai-gateway \
@@ -397,8 +385,7 @@ https://gitlab.com/api/v4/projects/gitlab-org%2fcharts%2fai-gateway-helm-chart/p
 
 You can find the list of AI gateway versions that can be used as `image.tag` in the [container registry](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/container_registry/3809284?orderBy=PUBLISHED_AT&search%5B%5D=self-hosted).
 
-This step can take a few seconds in order for all resources to be allocated
-and the AI gateway to start.
+This step can take a few seconds in order for all resources to be allocated and the AI gateway to start.
 
 You might need to set up your own **Ingress Controller** for the AI gateway if your existing `nginx` Ingress controller does not serve services in a different namespace. Make sure Ingress is set up correctly for multi-namespace deployments.
 
@@ -408,10 +395,10 @@ Wait for your pods to get up and running:
 
 ```shell
 kubectl wait pod \
-  --all \
-  --for=condition=Ready \
-  --namespace=ai-gateway \
-  --timeout=300s
+ --all \
+ --for=condition=Ready \
+ --namespace=ai-gateway \
+ --timeout=300s
 ```
 
 When your pods are up and running, you can set up your IP ingresses and DNS records.
@@ -528,8 +515,7 @@ To upgrade the AI gateway, download the newest Docker image tag.
 
 ## Alternative installation methods
 
-For information on alternative ways to install the AI gateway, see
-[issue 463773](https://gitlab.com/gitlab-org/gitlab/-/issues/463773).
+For information on alternative ways to install the AI gateway, see [issue 463773](https://gitlab.com/gitlab-org/gitlab/-/issues/463773).
 
 ## Health check and debugging
 
@@ -607,22 +593,20 @@ To set up Prometheus metrics on the GitLab Duo Workflow service:
 
 ### Configure Prometheus to scrape metrics
 
-To collect metrics from the AI Gateway and GitLab Duo Workflow service, add the following
-`prometheus.yml` configuration to your Prometheus instance. In this configuration, Prometheus
-scrapes metrics from both services every 15 seconds.
+To collect metrics from the AI Gateway and GitLab Duo Workflow service, add the following `prometheus.yml` configuration to your Prometheus instance. In this configuration, Prometheus scrapes metrics from both services every 15 seconds.
 
 ```yaml
 global:
-  scrape_interval: 15s
+ scrape_interval: 15s
 
 scrape_configs:
-  - job_name: 'ai-gateway'
+ - job_name: 'ai-gateway'
     static_configs:
       - targets: ['<your_AIGW_domain>:8082']
     scheme: 'http'
     metrics_path: '/metrics'
 
-  - job_name: 'duo-agent-platform-service'
+ - job_name: 'duo-agent-platform-service'
     static_configs:
       - targets: ['<your_duo_agent_platform_service_domain>:8083']
     scheme: 'http'
@@ -634,8 +618,7 @@ scrape_configs:
 To verify that the targets for AI Gateway and GitLab Duo Workflow service are being collected:
 
 1. In the Prometheus UI, go to **Status > Targets**.
-1. Go to the **Alerts** or **Graph** tabs to query metrics. The AI Gateway and GitLab Duo Workflow service
-   expose metrics at the following endpoints:
+1. Go to the **Alerts** or **Graph** tabs to query metrics. The AI Gateway and GitLab Duo Workflow service expose metrics at the following endpoints:
 
    - AI Gateway: `http://<your_AIGW_domain>:8082/metrics`
    - GitLab Duo Workflow service: `http://<your_duo_agent_platform_service_domain>:8083/metrics`
@@ -652,20 +635,20 @@ Autoscaling is not mandatory but is recommended for environments with variable w
 ## Configuration examples by deployment size
 
 - Small deployment:
-  - Single instance with 2 vCPUs and 8 GB RAM.
-  - Handles up to 40 concurrent requests.
-  - Teams or organizations with up to 50 users and predictable workloads.
-  - Fixed instances may suffice; autoscaling can be disabled for cost efficiency.
+ - Single instance with 2 vCPUs and 8 GB RAM.
+ - Handles up to 40 concurrent requests.
+ - Teams or organizations with up to 50 users and predictable workloads.
+ - Fixed instances may suffice; autoscaling can be disabled for cost efficiency.
 - Medium deployment:
-  - Single AWS t3.2xlarge instance with 8 vCPUs and 32 GB RAM.
-  - Handles up to 160 concurrent requests.
-  - Organizations with 50-200 users and moderate concurrency requirements.
-  - Implement Kubernetes HPA with thresholds for 50% CPU utilization or request latency above 500ms.
+ - Single AWS t3.2xlarge instance with 8 vCPUs and 32 GB RAM.
+ - Handles up to 160 concurrent requests.
+ - Organizations with 50-200 users and moderate concurrency requirements.
+ - Implement Kubernetes HPA with thresholds for 50% CPU utilization or request latency above 500ms.
 - Large deployment:
-  - Cluster of multiple AWS t3.2xlarge instances or equivalent.
-  - Each instance handles 160 concurrent requests, scaling to thousands of users with multiple instances.
-  - Enterprises with over 200 users and variable, high-concurrency workloads.
-  - Use HPA to scale pods based on real-time demand, combined with node autoscaling for cluster-wide resource adjustments.
+ - Cluster of multiple AWS t3.2xlarge instances or equivalent.
+ - Each instance handles 160 concurrent requests, scaling to thousands of users with multiple instances.
+ - Enterprises with over 200 users and variable, high-concurrency workloads.
+ - Use HPA to scale pods based on real-time demand, combined with node autoscaling for cluster-wide resource adjustments.
 
 ## What specs does the AI gateway container have access to, and how does resource allocation affect performance?
 
@@ -678,15 +661,15 @@ The AI gateway operates effectively under the following resource allocations:
 
 - Use Kubernetes resource requests and limits to ensure AI gateway containers receive guaranteed CPU and memory allocations. For example:
 
-  ```yaml
-  resources:
+ ```yaml
+ resources:
     requests:
       memory: "16Gi"
       cpu: "4"
     limits:
       memory: "32Gi"
       cpu: "8"
-  ```
+ ```
 
 - Implement tools like Prometheus and Grafana to track resource utilization (CPU, memory, latency) and detect bottlenecks early.
 - Dedicate nodes or instances exclusively to the AI gateway to prevent resource competition with other services.
@@ -694,9 +677,9 @@ The AI gateway operates effectively under the following resource allocations:
 ## Scaling strategies
 
 - Use Kubernetes HPA to scale pods based on real-time metrics like:
-  - Average CPU utilization exceeding 50%.
-  - Request latency consistently above 500ms.
-  - Enable node autoscaling to scale infrastructure resources dynamically as pods increase.
+ - Average CPU utilization exceeding 50%.
+ - Request latency consistently above 500ms.
+ - Enable node autoscaling to scale infrastructure resources dynamically as pods increase.
 
 ## Scaling recommendations
 
@@ -734,34 +717,32 @@ When deploying the AI gateway on OpenShift, you might encounter permission error
 
 #### Read-only filesystem at `/tmp`
 
-The AI gateway needs to write to `/tmp`. However, based on the OpenShift environment, which is security-restricted,
-`/tmp` might be read-only.
+The AI gateway needs to write to `/tmp`. However, based on the OpenShift environment, which is security-restricted, `/tmp` might be read-only.
 
 To resolve this issue, create a new `EmptyDir` volume and mount it at `/tmp`.
 You can do this in either of the following ways:
 
 - From the command line:
 
-  ```shell
-  oc set volume <object_type>/<name> --add --name=tmpVol --type=emptyDir --mountPoint=/tmp
-  ```
+ ```shell
+ oc set volume <object_type>/<name> --add --name=tmpVol --type=emptyDir --mountPoint=/tmp
+ ```
 
 - Added to your `values.yaml`:
 
-  ```yaml
-  volumes:
-  - name: tmp-volume
+ ```yaml
+ volumes:
+ - name: tmp-volume
     emptyDir: {}
 
-  volumeMounts:
-  - name: tmp-volume
+ volumeMounts:
+ - name: tmp-volume
     mountPath: "/tmp"
-  ```
+ ```
 
 #### HuggingFace models
 
-By default, the AI gateway uses `/home/aigateway/.hf` for caching HuggingFace models, which may not be writable in OpenShift's
-security-restricted environment. This can result in permission errors like:
+By default, the AI gateway uses `/home/aigateway/.hf` for caching HuggingFace models, which may not be writable in OpenShift's security-restricted environment. This can result in permission errors like:
 
 ```shell
 [Errno 13] Permission denied: '/home/aigateway/.hf/...'
@@ -773,35 +754,32 @@ You can configure this in either of the following ways:
 
 - Add to your `values.yaml`:
 
-  ```yaml
-  extraEnvironmentVariables:
+ ```yaml
+ extraEnvironmentVariables:
     - name: HF_HOME
-      value: /var/tmp/huggingface  # Use any writable directory
-  ```
+      value: /var/tmp/huggingface # Use any writable directory
+ ```
 
 - Or include in your Helm upgrade command:
 
-  ```shell
-  --set "extraEnvironmentVariables[0].name=HF_HOME" \
-  --set "extraEnvironmentVariables[0].value=/var/tmp/huggingface"  # Use any writable directory
-  ```
+ ```shell
+ --set "extraEnvironmentVariables[0].name=HF_HOME" \
+ --set "extraEnvironmentVariables[0].value=/var/tmp/huggingface" # Use any writable directory
+ ```
 
 This configuration ensures the AI gateway can properly cache HuggingFace models while respecting the OpenShift security constraints. The exact directory you choose may depend on your specific OpenShift configuration and security policies.
 
 ### Self-signed certificate error
 
-A `[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain` error is logged by the AI gateway
-when the AI gateway tries to connect to a GitLab instance or model endpoint using either a certificate signed by a custom certificate authority (CA), or a self-signed certificate.
+A `[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain` error is logged by the AI gateway when the AI gateway tries to connect to a GitLab instance or model endpoint using either a certificate signed by a custom certificate authority (CA), or a self-signed certificate.
 
 To resolve this, see [Connect to a GitLab instance or model endpoint with a self-signed SSL certificate](#connect-to-a-gitlab-instance-or-model-endpoint-with-a-self-signed-ssl-certificate).
 
 ### SSL certificate errors when loading PEM files
 
-If you get an error that says `JWKError` while loading the PEM file into the Docker container,
-you might need to resolve an SSL certificate error.
+If you get an error that says `JWKError` while loading the PEM file into the Docker container, you might need to resolve an SSL certificate error.
 
-To fix this issue, use the following environment variables to set the appropriate
-certificate bundle path in the Docker container:
+To fix this issue, use the following environment variables to set the appropriate certificate bundle path in the Docker container:
 
 - `SSL_CERT_FILE=/path/to/ca-bundle.pem`
 - `REQUESTS_CA_BUNDLE=/path/to/ca-bundle.pem`

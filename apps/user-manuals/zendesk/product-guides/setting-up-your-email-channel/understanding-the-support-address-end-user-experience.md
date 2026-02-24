@@ -6,24 +6,17 @@ Source: https://support.zendesk.com/hc/en-us/articles/5000599601050-Understandin
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-When a customer sends an email to your support email address, a ticket is created in
-Zendesk Support. The support address is set as the recipient address on the ticket and
-will be used to send replies. For example, tickets sent to help@acme.zendesk.com will
-reply from help@acme.zendesk.com.
+When a customer sends an email to your support email address, a ticket is created in Zendesk Support. The support address is set as the recipient address on the ticket and will be used to send replies. For example, tickets sent to help@acme.zendesk.com will reply from help@acme.zendesk.com.
 
-When you add a support address, a preview pane shows you exactly what end users will see
-in their email inboxes so you understand the end-user experience. What end users see as
-the from address depends on whether you are using a Zendesk address or an external email
-address to receive support requests. Also, using personalized replies changes the way
-the Reply From looks to end users.
+When you add a support address, a preview pane shows you exactly what end users will see in their email inboxes so you understand the end-user experience. What end users see as the from address depends on whether you are using a Zendesk address or an external email address to receive support requests. Also, using personalized replies changes the way the Reply From looks to end users.
 
 This article covers the following topics:
 
@@ -33,18 +26,13 @@ This article covers the following topics:
 
 Related articles:
 
-- [Understanding the default email setup in
-  Zendesk](https://support.zendesk.com/hc/en-us/articles/5612728377754)
-- [Adding support email addresses for users to
-  submit tickets](https://support.zendesk.com/hc/en-us/articles/4408842868506)
-- [Which support address are email replies sent
-  from?](https://support.zendesk.com/hc/en-us/articles/4408884042138)
+- [Understanding the default email setup in Zendesk](https://support.zendesk.com/hc/en-us/articles/5612728377754)
+- [Adding support email addresses for users to submit tickets](https://support.zendesk.com/hc/en-us/articles/4408842868506)
+- [Which support address are email replies sent from?](https://support.zendesk.com/hc/en-us/articles/4408884042138)
 
 ## Using Zendesk email addresses as support addresses
 
-If you are using Zendesk email addresses, the following table shows what the Sent To
-and Reply From addresses might look like when users email one of your known support
-addresses.
+If you are using Zendesk email addresses, the following table shows what the Sent To and Reply From addresses might look like when users email one of your known support addresses.
 
 Table 1. Examples using Zendesk email addresses
 
@@ -56,13 +44,9 @@ Table 1. Examples using Zendesk email addresses
 
 ## Using external email addresses as support addresses
 
-If you are using external email addresses, the following table shows what the Sent To
-and Reply From addresses might look like when users email one of your known support
-addresses.
+If you are using external email addresses, the following table shows what the Sent To and Reply From addresses might look like when users email one of your known support addresses.
 
-Note: For information about using an external email
-address, see [Forwarding incoming email from
-your existing email address to Zendesk Support](https://support.zendesk.com/hc/en-us/articles/4408886828698).
+Note: For information about using an external email address, see [Forwarding incoming email from your existing email address to Zendesk Support](https://support.zendesk.com/hc/en-us/articles/4408886828698).
 
 Table 2. Examples using external email addresses
 
@@ -74,16 +58,11 @@ Table 2. Examples using external email addresses
 
 ## Using personalized replies with support addresses
 
-When personalized replies is enabled, the Reply From address will match the support
-address it was sent to and it will also include the replying agent or end user's
-name.
+When personalized replies is enabled, the Reply From address will match the support address it was sent to and it will also include the replying agent or end user's name.
 
-For information about using personalized replies, see [Enabling personalized email
-replies](https://support.zendesk.com/hc/en-us/articles/4408887209498).
+For information about using personalized replies, see [Enabling personalized email replies](https://support.zendesk.com/hc/en-us/articles/4408887209498).
 
-The following table shows what the Sent To and Reply From addresses might look like
-when you have personalized replies enabled, and users email one of your known
-support addresses.
+The following table shows what the Sent To and Reply From addresses might look like when you have personalized replies enabled, and users email one of your known support addresses.
 
 Table 3. Examples using personalized replies
 

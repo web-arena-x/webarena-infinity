@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/6066877041690-Managing-per
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -77,7 +77,7 @@ You can use the pin icon to add or remove personal app shortcuts from the sideba
 
 - Select an app shortcut in the sidebar and drag to reposition it.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/app_shortcuts_reorder.gif)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/app_shortcuts_reorder.gif)
 
 ## Using personal app shortcuts with custom ticket layouts
 

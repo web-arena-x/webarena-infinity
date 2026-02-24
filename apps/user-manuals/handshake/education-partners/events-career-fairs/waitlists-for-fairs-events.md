@@ -90,12 +90,12 @@ The list of registered and waitlisted students will be available. Select a stude
 
 The following applies to both manual and automatic waitlists:
 
-- Waitlists can have the registration capacity increased at any point before the event or fair begins.  
-  - If the manual waitlist capacity is increased, you can manually add students from the waitlist to the event or fair.
-  - If the automatic waitlist capacity is increased, students will be automatically added to the event or fair based on the order that they joined the waitlist.
+- Waitlists can have the registration capacity increased at any point before the event or fair begins. 
+ - If the manual waitlist capacity is increased, you can manually add students from the waitlist to the event or fair.
+ - If the automatic waitlist capacity is increased, students will be automatically added to the event or fair based on the order that they joined the waitlist.
 - If you don't want to increase the registration capacity, you can still manually add students that are on the waitlist to the registration list. For example, this fair’s registration limit is 3 students. But because one of the students was manually transferred from the waitlist to the registered list, 4 students are listed as registered.
 
-  ![](https://support.joinhandshake.com/hc/article_attachments/23395084296087)
+ ![](https://support.joinhandshake.com/hc/article_attachments/23395084296087)
 
 ### Student Perspective for joining a waitlist
 

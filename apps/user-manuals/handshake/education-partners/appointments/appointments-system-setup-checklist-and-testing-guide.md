@@ -58,7 +58,7 @@ For more information on creating and managing preferences, refer to [School Sett
 **![](https://support.joinhandshake.com/hc/article_attachments/25991264516375)**Set your maximum open appointments & Appointment Cancellation Timeframe
 
 - The maximum open appointment setting is the maximum number of concurrent appointment requests a student may have at once.  
-  - This setting includes all future appointments (approved, pending, etc), based on the appointment start date. Until the start date has passed, the system won't allow the student to schedule any new appointments beyond the limit set.
+ - This setting includes all future appointments (approved, pending, etc), based on the appointment start date. Until the start date has passed, the system won't allow the student to schedule any new appointments beyond the limit set.
 - The appointment cancellation time frame allows your to specify the period of time in which a student can cancel their appointment prior to the appointment start time.
 
 To manage these settings in Handshake, navigate to "School Settings" > "Details". For more information, refer to [School Settings: Details](../handshakes-school-settings/school-settings-details.md).
@@ -72,7 +72,7 @@ To manage these settings in Handshake, navigate to "School Settings" > "Details"
 **![](https://support.joinhandshake.com/hc/article_attachments/25991264516375)**Add Appointment Blocks
 
 - Designate blocks of time that students will be able to schedule appointments with you. Within each block, you can designate specific appointment types that you will conduct, as well as specific mediums available during that time. 
-  - Students will not be able to schedule an appointment with you until you set up available appointment blocks.
+ - Students will not be able to schedule an appointment with you until you set up available appointment blocks.
 
 **Note**: If a block is made available for drop-ins, the appointment block will not be available for scheduled appointments.
 
@@ -139,5 +139,5 @@ To manage these settings in Handshake, navigate to "School Settings" > "Details"
 - [Appointments Troubleshooting Guide](appointments-troubleshooting-guide.md)
 - [Handshake Community - Appointments](https://support.joinhandshake.com/hc/en-us/community/topics/115000555148-Appointments)
 - Appointments Help Center:
-  - [Operations > Setup & Configuration](https://support.joinhandshake.com/hc/en-us/sections/204176117-Handshake-s-School-Settings)
-  - [Student Engagement & Usage](https://support.joinhandshake.com/hc/en-us/sections/1500000983581-Appointments)
+ - [Operations > Setup & Configuration](https://support.joinhandshake.com/hc/en-us/sections/204176117-Handshake-s-School-Settings)
+ - [Student Engagement & Usage](https://support.joinhandshake.com/hc/en-us/sections/1500000983581-Appointments)

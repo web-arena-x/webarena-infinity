@@ -6,15 +6,13 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: Overriding API security testing jobs
 ---
 
-To override a job definition, (for example, change properties like `variables`, `dependencies`, or [`rules`](../../../../ci/yaml/_index.md#rules)),
-declare a job with the same name as the DAST job to override. Place this new job after the template
-inclusion and specify any additional keys under it. For example, this sets the target APIs base URL:
+To override a job definition, (for example, change properties like `variables`, `dependencies`, or [`rules`](../../../../ci/yaml/_index.md#rules)), declare a job with the same name as the DAST job to override. Place this new job after the template inclusion and specify any additional keys under it. For example, this sets the target APIs base URL:
 
 ```yaml
 include:
-  - template: Security/API-Security.gitlab-ci.yml
+ - template: Security/API-Security.gitlab-ci.yml
 
 api_security:
-  variables:
+ variables:
     APISEC_TARGET_URL: https://target/api
 ```

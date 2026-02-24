@@ -13,13 +13,11 @@ title: Sidekiq Metrics API
 
 {{< /details >}}
 
-This API endpoint allows you to retrieve some information about the current state
-of Sidekiq, its jobs, queues, and processes.
+This API endpoint allows you to retrieve some information about the current state of Sidekiq, its jobs, queues, and processes.
 
 ## Get the current Queue Metrics
 
-List information about all the registered queues, their backlog and their
-latency.
+List information about all the registered queues, their backlog and their latency.
 
 ```plaintext
 GET /sidekiq/queue_metrics
@@ -27,20 +25,20 @@ GET /sidekiq/queue_metrics
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/sidekiq/queue_metrics"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/sidekiq/queue_metrics"
 ```
 
 Example response:
 
 ```json
 {
-  "queues": {
+ "queues": {
     "default": {
       "backlog": 0,
       "latency": 0
     }
-  }
+ }
 }
 ```
 
@@ -54,15 +52,15 @@ GET /sidekiq/process_metrics
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/sidekiq/process_metrics"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/sidekiq/process_metrics"
 ```
 
 Example response:
 
 ```json
 {
-  "processes": [
+ "processes": [
     {
       "hostname": "gitlab.example.com",
       "pid": 5649,
@@ -84,7 +82,7 @@ Example response:
       "concurrency": 25,
       "busy": 0
     }
-  ]
+ ]
 }
 ```
 
@@ -98,20 +96,20 @@ GET /sidekiq/job_stats
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/sidekiq/job_stats"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/sidekiq/job_stats"
 ```
 
 Example response:
 
 ```json
 {
-  "jobs": {
+ "jobs": {
     "processed": 2,
     "failed": 0,
     "enqueued": 0,
     "dead": 0
-  }
+ }
 }
 ```
 
@@ -125,21 +123,21 @@ GET /sidekiq/compound_metrics
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/sidekiq/compound_metrics"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/sidekiq/compound_metrics"
 ```
 
 Example response:
 
 ```json
 {
-  "queues": {
+ "queues": {
     "default": {
       "backlog": 0,
       "latency": 0
     }
-  },
-  "processes": [
+ },
+ "processes": [
     {
       "hostname": "gitlab.example.com",
       "pid": 5649,
@@ -161,12 +159,12 @@ Example response:
       "concurrency": 25,
       "busy": 0
     }
-  ],
-  "jobs": {
+ ],
+ "jobs": {
     "processed": 2,
     "failed": 0,
     "enqueued": 0,
     "dead": 0
-  }
+ }
 }
 ```

@@ -19,12 +19,10 @@ When rolling back, you must take into account [version-specific changes](../vers
 
 ## Prerequisites
 
-Because you must revert the database schema changes (migrations) that were made when the instance was upgraded, you
-must have:
+Because you must revert the database schema changes (migrations) that were made when the instance was upgraded, you must have:
 
 - At least a database backup created under the exact same version and edition you are rolling back to.
-- Ideally, a [full backup archive](../../administration/backup_restore/_index.md) of that exact same version and edition
-  you are rolling back to.
+- Ideally, a [full backup archive](../../administration/backup_restore/_index.md) of that exact same version and edition you are rolling back to.
 
 ## Roll back a Linux package instance
 
@@ -98,7 +96,4 @@ To roll back GitLab shortly after an upgrade:
 
 1. Restore the [database backup you made](../../install/docker/backup.md#create-a-database-backup) before the upgrade.
 
-   - [Follow the restore steps for Docker images](../../administration/backup_restore/restore_gitlab.md#restore-for-docker-image-and-gitlab-helm-chart-installations), including
-     stopping Puma and Sidekiq. Only the database must be restored, so add
-     `SKIP=artifacts,repositories,registry,uploads,builds,pages,lfs,packages,terraform_state`
-     to the `gitlab-backup restore` command line arguments.
+   - [Follow the restore steps for Docker images](../../administration/backup_restore/restore_gitlab.md#restore-for-docker-image-and-gitlab-helm-chart-installations), including stopping Puma and Sidekiq. Only the database must be restored, so add `SKIP=artifacts,repositories,registry,uploads,builds,pages,lfs,packages,terraform_state` to the `gitlab-backup restore` command line arguments.

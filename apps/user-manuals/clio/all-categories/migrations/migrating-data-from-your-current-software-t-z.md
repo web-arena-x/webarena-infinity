@@ -9,9 +9,9 @@ This article explains what data can be migrated from your current practice manag
 **Tip:** See one of the articles below if your current practice management software does not start with the letters T, U, W, Z, or any numbers.
 
 - - [Migrating Data From Your Current Software [A-B]](https://help.clio.com/hc/en-us/articles/9813809475995)
-  - [Migrating Data From Your Current Software [C-F]](https://help.clio.com/hc/en-us/articles/10263045235867)
-  - [Migrating Data From Your Current Software [G-M]](https://help.clio.com/hc/en-us/articles/10263146574107)
-  - [Migrating Data From Your Current Software [N-S]](https://help.clio.com/hc/en-us/articles/9815681343003)
+ - [Migrating Data From Your Current Software [C-F]](https://help.clio.com/hc/en-us/articles/10263045235867)
+ - [Migrating Data From Your Current Software [G-M]](https://help.clio.com/hc/en-us/articles/10263146574107)
+ - [Migrating Data From Your Current Software [N-S]](https://help.clio.com/hc/en-us/articles/9815681343003)
 
 ## Tabs3/PracticeMaster
 
@@ -37,7 +37,7 @@ What can I migrate? How do I migrate my data?
 **Contacts, matters, and other files:**
 
 1. Select the **Maintenance** tab and click **File Maintenance.**
-2. Select the desired **Export Files****.**  
+2. Select the desired **Export Files****.** 
 
    | Data type | File location | File name |
    | --- | --- | --- |

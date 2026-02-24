@@ -22,13 +22,13 @@ In Figma Sites, webpages sit side-by-side on the same infinite canvas.
 
 ![Home page displayed on canvas with the left sidebar showing the Home page in both the webpages list and layers panel.](https://help.figma.com/hc/article_attachments/31914974097559)
 
-In a Figma Sites file, click the  **plus** icon next to **Webpages** in the left sidebar to add a new webpage. When you perform this action:
+In a Figma Sites file, click the **plus** icon next to **Webpages** in the left sidebar to add a new webpage. When you perform this action:
 
 - A new webpage is added to the canvas.
 - A new webpage is added to the **Webpages** section of the left sidebar. Click the title of any webpage to jump to it on the canvas.
 - A webpage is added to the **Layers** section of the left sidebar. This is where you can select and manipulate layers in your design.
 
-**Tip**: You can also add a webpage by clicking the  **Webpage** tool in the toolbar—or by using the `W` keyboard shortcut.
+**Tip**: You can also add a webpage by clicking the **Webpage** tool in the toolbar—or by using the `W` keyboard shortcut.
 
 **Tip**: By default, new webpages use [absolute position](https://help.figma.com/hc/en-us/articles/31242774629655) so you can freely place elements inside them. You can [apply auto layout](https://help.figma.com/hc/en-us/articles/5731482952599) to the webpage to make sure objects behave responsively instead.
 

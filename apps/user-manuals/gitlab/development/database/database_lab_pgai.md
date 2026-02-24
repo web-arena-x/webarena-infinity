@@ -5,14 +5,12 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Database Lab access using the `pgai` Ruby gem
 ---
 
-[@mbobin](https://gitlab.com/mbobin) created the [`pgai` Ruby Gem](https://gitlab.com/mbobin/pgai/#pgai) that
-greatly simplifies access to a database clone, with support for:
+[@mbobin](https://gitlab.com/mbobin) created the [`pgai` Ruby Gem](https://gitlab.com/mbobin/pgai/#pgai) that greatly simplifies access to a database clone, with support for:
 
 - Access to all database clones listed in the [Postgres.ai instances page](https://console.postgres.ai/gitlab/instances);
 - Multiple `psql` sessions on the same clone.
 
-If you have `AllFeaturesUser` [`psql` access](database_lab.md#access-database-lab-engine),
-you can follow the steps below to configure the `pgai` Gem:
+If you have `AllFeaturesUser` [`psql` access](database_lab.md#access-database-lab-engine), you can follow the steps below to configure the `pgai` Gem:
 
 1. To get started, you need to gather some values from the [Postgres.ai instances page](https://console.postgres.ai/gitlab/instances):
 
@@ -45,8 +43,7 @@ you can follow the steps below to configure the `pgai` Gem:
    pgai env add --alias main --id <instance-host> --port <instance-port> -n gitlabhq_dblab
    ```
 
-1. Once this one-time configuration is done, you can use `pgai connect` to connect to a particular database. For
-   instance, to connect to the `main` database:
+1. Once this one-time configuration is done, you can use `pgai connect` to connect to a particular database. For instance, to connect to the `main` database:
 
    ```shell
    pgai connect main

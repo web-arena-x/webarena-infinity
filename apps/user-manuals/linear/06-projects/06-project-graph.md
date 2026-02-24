@@ -17,12 +17,12 @@ From the project view, open the project sidebar `Cmd/Ctrl` `I` to view the graph
 
 ## How to read it
 
-A gray line shows you the project scope and how it has changed over time, giving you an easy way to see (and mitigate) scope creep.  
-  
-We have separate lines for _Started_ and _Completed_ issues. This lets you see exactly what is being worked on and what is done. Blue bars also indicate completed issues over time for ease of interpretation when _Started_ and _Completed_ lines overlap.  
-  
-You can see how a project’s issues break down by assignee and label, as well as what percentage of issues in those categories have been completed. You can hover over any assignee or label and click "filter" to show related issues.  
-  
+A gray line shows you the project scope and how it has changed over time, giving you an easy way to see (and mitigate) scope creep. 
+ 
+We have separate lines for _Started_ and _Completed_ issues. This lets you see exactly what is being worked on and what is done. Blue bars also indicate completed issues over time for ease of interpretation when _Started_ and _Completed_ lines overlap. 
+ 
+You can see how a project’s issues break down by assignee and label, as well as what percentage of issues in those categories have been completed. You can hover over any assignee or label and click "filter" to show related issues. 
+ 
 You can also hover over the graph to see the exact values of scoped, completed and started issues over time.
 
 If you have a target date set, it'll show up as a red vertical line. 

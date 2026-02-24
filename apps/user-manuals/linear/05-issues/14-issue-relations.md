@@ -30,4 +30,4 @@ Once the blocking issue has been resolved, the blocked issue flag turns green an
 
 ## Duplicate
 
-Merge duplicate issues into the canonical (saved) issue with the shortcut by pressing `M` and  `M`. This will mark the issue you are viewing or have selected as a duplicate issue and change the status to canceled. You cannot mark issues the other way around (e.g. view the canonical issue and mark other issues as duplicates of it). If you have more than one canceled status, you can specify which status to apply under _Team Settings > Workflow_.
+Merge duplicate issues into the canonical (saved) issue with the shortcut by pressing `M` and `M`. This will mark the issue you are viewing or have selected as a duplicate issue and change the status to canceled. You cannot mark issues the other way around (e.g. view the canonical issue and mark other issues as duplicates of it). If you have more than one canceled status, you can specify which status to apply under _Team Settings > Workflow_.

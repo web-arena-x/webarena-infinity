@@ -47,12 +47,9 @@ For more information, see the history.
 
 {{< /alert >}}
 
-GitLab Duo Chat (Agentic) is an enhanced version of GitLab Duo Chat (Classic). This new Chat can autonomously
-perform actions on your behalf, to help you answer complex questions more comprehensively.
+GitLab Duo Chat (Agentic) is an enhanced version of GitLab Duo Chat (Classic). This new Chat can autonomously perform actions on your behalf, to help you answer complex questions more comprehensively.
 
-While the classic Chat answers questions based on a single context, the agentic Chat searches,
-retrieves, and combines information from multiple sources across your GitLab projects
-to provide more thorough and relevant answers.
+While the classic Chat answers questions based on a single context, the agentic Chat searches, retrieves, and combines information from multiple sources across your GitLab projects to provide more thorough and relevant answers.
 
 GitLab Duo Chat (Agentic) can:
 
@@ -61,8 +58,7 @@ GitLab Duo Chat (Agentic) can:
 - Create and edit files in multiple locations.
 - Retrieve resources like issues, merge requests, and CI/CD pipelines.
 - Analyze multiple sources to provide complete answers.
-  Use [Model Context Protocol](../gitlab_duo/model_context_protocol/_index.md) to
-  connect to external data sources and tools.
+ Use [Model Context Protocol](../gitlab_duo/model_context_protocol/_index.md) to connect to external data sources and tools.
 - Provide customized responses by using your customized rules.
 - Create commits, when you use Chat in the GitLab UI.
 
@@ -97,9 +93,7 @@ Prerequisites:
 To use Chat in the GitLab UI:
 
 1. On the top bar, select **Search or go to** and find your project.
-1. On the GitLab Duo sidebar, select either **New GitLab Duo Chat**
-   ({{< icon name="pencil-square" >}}) or **Current GitLab Duo Chat**
-   ({{< icon name="duo-chat" >}}).
+1. On the GitLab Duo sidebar, select either **New GitLab Duo Chat** ({{< icon name="pencil-square" >}}) or **Current GitLab Duo Chat** ({{< icon name="duo-chat" >}}).
    A Chat conversation opens in the GitLab Duo sidebar on the right side of your screen.
 1. Under the chat text box, ensure the **Agentic** toggle is turned on.
 1. Enter your question in the chat text box and press <kbd>Enter</kbd> or select **Send**.
@@ -109,8 +103,7 @@ To use Chat in the GitLab UI:
    - Ask a follow-up question.
    - Start [another conversation](#have-multiple-conversations).
 
-If you reload the webpage you are on, or go to another webpage, Chat remembers your
-most recent conversation, and that conversation is still active in the Chat drawer.
+If you reload the webpage you are on, or go to another webpage, Chat remembers your most recent conversation, and that conversation is still active in the Chat drawer.
 
 ### Use GitLab Duo Chat in VS Code
 
@@ -123,8 +116,7 @@ Turn on GitLab Duo Chat:
 <!-- markdownlint-disable MD044 -->
 1. In VS Code, go to **Settings** > **Settings**.
 1. Search for `agent platform`.
-1. Under **GitLab** > **Duo Agent Platform: Enabled**, select the
-   **Enable GitLab Duo Agent Platform** checkbox.
+1. Under **GitLab** > **Duo Agent Platform: Enabled**, select the **Enable GitLab Duo Agent Platform** checkbox.
 <!-- markdownlint-enable MD044 -->
 
 Then, to use GitLab Duo Chat:
@@ -182,11 +174,9 @@ Then, to use GitLab Duo Chat:
 
 To view your chat history:
 
-- In the GitLab UI, on the GitLab Duo sidebar, select **GitLab Duo Chat history**
-  ({{< icon name="history" >}}).
+- In the GitLab UI, on the GitLab Duo sidebar, select **GitLab Duo Chat history** ({{< icon name="history" >}}).
 
-- In your IDE, in the upper-right corner of the message box, select
-  **Chat history** ({{< icon name="history" >}}).
+- In your IDE, in the upper-right corner of the message box, select **Chat history** ({{< icon name="history" >}}).
 
 In the GitLab UI, all of the conversations in your chat history are visible.
 
@@ -210,23 +200,18 @@ Your conversations synchronize across GitLab Duo Chat in the GitLab UI and your 
 
    - In the GitLab UI, you can do either of the following:
 
-     - On the GitLab Duo sidebar, select **New GitLab Duo Chat**
-       ({{< icon name="pencil-square" >}}).
+     - On the GitLab Duo sidebar, select **New GitLab Duo Chat** ({{< icon name="pencil-square" >}}).
      - In the message box, type `/new` and press <kbd>Enter</kbd> or select **Send**.
 
      A new Chat conversation replaces the previous one.
    - Under the Chat text box, ensure the **Agentic** toggle is turned on.
-   - In your IDE, in the upper-right corner of the message box, select **New chat**
-     ({{< icon name="plus" >}}).
+   - In your IDE, in the upper-right corner of the message box, select **New chat** ({{< icon name="plus" >}}).
 1. Enter your question and press <kbd>Enter</kbd> or select **Send**.
 1. To view all of your conversations, look at your [chat history](#view-the-chat-history).
-1. To switch between conversations, in your chat history, select the
-   appropriate conversation.
-1. IDE only: To search for a specific conversation in the chat history, in the
-   **Search chats** text box, enter your search term.
+1. To switch between conversations, in your chat history, select the appropriate conversation.
+1. IDE only: To search for a specific conversation in the chat history, in the **Search chats** text box, enter your search term.
 
-Because of LLM context window limits, conversations are truncated to 200,000 tokens
-(roughly 800,000 characters) each.
+Because of LLM context window limits, conversations are truncated to 200,000 tokens (roughly 800,000 characters) each.
 
 ## Delete a conversation
 
@@ -243,19 +228,15 @@ Individual conversations expire and are automatically deleted after 30 days of i
 
 ## Customize GitLab Duo Chat in your IDE
 
-Customize how GitLab Duo Chat behaves in your IDE by providing instructions that reflect your coding
-style, team practices, and project requirements.
+Customize how GitLab Duo Chat behaves in your IDE by providing instructions that reflect your coding style, team practices, and project requirements.
 
 GitLab Duo Chat supports two approaches:
 
 - [Custom rules](../gitlab_duo/customize_duo/custom_rules.md) in `chat-rules.md`: For GitLab only.
-  Best for personal preferences and team standards.
-- [Shared rules in `AGENTS.md`](../gitlab_duo/customize_duo/agents_md.md): For GitLab and other AI
-  tools that support the `AGENTS.md` specification. Best for project context, monorepo organization,
-  and directory-specific conventions.
+ Best for personal preferences and team standards.
+- [Shared rules in `AGENTS.md`](../gitlab_duo/customize_duo/agents_md.md): For GitLab and other AI tools that support the `AGENTS.md` specification. Best for project context, monorepo organization, and directory-specific conventions.
 
-You can use both files simultaneously. GitLab Duo Chat applies instructions from all available rule
-files.
+You can use both files simultaneously. GitLab Duo Chat applies instructions from all available rule files.
 
 Learn more about how to [customize GitLab Duo](../gitlab_duo/customize_duo/_index.md).
 
@@ -278,14 +259,11 @@ Learn more about how to [customize GitLab Duo](../gitlab_duo/customize_duo/_inde
 
 {{< /history >}}
 
-When you use Chat in the GitLab UI, VS Code, or a JetBrains IDE, you can select
-the model to use for conversations.
+When you use Chat in the GitLab UI, VS Code, or a JetBrains IDE, you can select the model to use for conversations.
 
-If you open a previous chat from the chat history and continue that conversation,
-Chat uses the model that you previously selected.
+If you open a previous chat from the chat history and continue that conversation, Chat uses the model that you previously selected.
 
-If you select a new model when in an existing conversation, Chat creates a new
-conversation.
+If you select a new model when in an existing conversation, Chat creates a new conversation.
 
 Prerequisites:
 
@@ -300,8 +278,7 @@ Prerequisites:
 
 {{< tab title="Self-managed" >}}
 
-- The administrator has not selected a model for the instance. If a model has been selected for the instance,
-  you cannot change the model for Chat.
+- The administrator has not selected a model for the instance. If a model has been selected for the instance, you cannot change the model for Chat.
 - Your instance must be connected to the GitLab AI gateway.
 
 {{< /tab >}}
@@ -311,13 +288,13 @@ Prerequisites:
 To select a model:
 
 - In the GitLab UI:
-  1. Under the chat text box, ensure the **Agentic** toggle is turned on.
-  1. Select a model from the dropdown list.
+ 1. Under the chat text box, ensure the **Agentic** toggle is turned on.
+ 1. Select a model from the dropdown list.
 
 - In your IDE:
-  1. On the left sidebar, select **GitLab Duo Agent Platform** ({{< icon name="duo-agentic-chat" >}}).
-  1. Select the **Chat** tab.
-  1. Select a model from the dropdown list.
+ 1. On the left sidebar, select **GitLab Duo Agent Platform** ({{< icon name="duo-agentic-chat" >}}).
+ 1. Select the **Chat** tab.
+ 1. Select a model from the dropdown list.
 
 ## Select an agent
 
@@ -328,8 +305,7 @@ To select a model:
 
 {{< /history >}}
 
-When you use Chat in a project in the GitLab UI, VS Code, or a JetBrains IDE,
-you can select a specific agent for Chat to use.
+When you use Chat in a project in the GitLab UI, VS Code, or a JetBrains IDE, you can select a specific agent for Chat to use.
 
 Prerequisites:
 
@@ -342,17 +318,14 @@ To select an agent:
 
 1. In the GitLab UI or your IDE, open a new conversation in GitLab Duo Chat.
 1. In the GitLab UI, under the Chat text box, ensure the **Agentic** toggle is turned on.
-1. In the dropdown list, select an agent. If you have not set up any
-   agents, there is no dropdown list, and Chat uses the default GitLab Duo agent.
+1. In the dropdown list, select an agent. If you have not set up any agents, there is no dropdown list, and Chat uses the default GitLab Duo agent.
 1. Enter your question and press <kbd>Enter</kbd> or select **Send**.
 
 After you create a conversation with an agent:
 
-- The conversation remembers the agent you selected. You cannot select a different
-  agent for that conversation.
+- The conversation remembers the agent you selected. You cannot select a different agent for that conversation.
 - If you use the chat history to go back to the same conversation, it uses the same agent.
-- If you go back to a conversation and the associated agent is no longer available,
-  you cannot continue that conversation.
+- If you go back to a conversation and the associated agent is no longer available, you cannot continue that conversation.
 
 ## Prompt caching
 
@@ -363,9 +336,7 @@ After you create a conversation with an agent:
 {{< /history >}}
 
 Prompt caching is enabled by default to improve GitLab Duo Chat (Agentic) latency.
-When prompt caching is enabled, chat prompt data is temporarily stored in memory by the model
-vendor (Anthropic or VertexAI). Prompt caching significantly improves latency by avoiding the
-re-processing of cached prompt and input data.
+When prompt caching is enabled, chat prompt data is temporarily stored in memory by the model vendor (Anthropic or VertexAI). Prompt caching significantly improves latency by avoiding the re-processing of cached prompt and input data.
 
 ### Turn off prompt caching
 
@@ -377,11 +348,11 @@ This also turns off prompt caching for Code Suggestions.
 
 | Capability                                              | GitLab Duo Chat (Classic) |                                                         GitLab Duo Chat (Agentic)                                                                                                          |
 | ------------                                            |------|                                                         -------------                                                                                                          |
-| Ask general programming questions |                       Yes  |                                                          Yes                                                                                                                   |
-| Get answers about an open file in the editor |     Yes  |                                                          Yes. Provide the path of the file in your question.                                                                   |
+| Ask general programming questions |                       Yes |                                                          Yes                                                                                                                   |
+| Get answers about an open file in the editor |     Yes |                                                          Yes. Provide the path of the file in your question.                                                                   |
 | Provide context about specified files |                   Yes. Use `/include` to add a file to the conversation. |        Yes. Provide the path of the file in your question.                                                                   |
 | Autonomously search project contents |                    No |                                                            Yes                                                                                                                   |
-| Autonomously create files and change files |              No |                                                            Yes. Ask it to change files. Note, it may overwrite changes that you have made manually and have not committed, yet.  |
+| Autonomously create files and change files |              No |                                                            Yes. Ask it to change files. Note, it may overwrite changes that you have made manually and have not committed, yet. |
 | Retrieve issues and MRs without specifying IDs |          No |                                                            Yes. Search by other criteria. For example, an MR or issue's title or assignee.                                       |
 | Combine information from multiple sources |               No |                                                            Yes                                                                                                                   |
 | Analyze pipeline logs |                                   Yes. Requires GitLab Duo Enterprise add-on. |                          Yes                                                                                                                   |

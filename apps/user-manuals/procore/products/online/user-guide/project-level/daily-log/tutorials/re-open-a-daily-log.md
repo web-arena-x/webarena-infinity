@@ -11,11 +11,11 @@ To re-open a day's daily log so that you or your team can modify entries for 
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' permissions on the project's Daily Log tool.
+ - 'Admin' permissions on the project's Daily Log tool.
 - **Prerequisites:**
-  - [Mark a Daily Log as Complete](https://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/mark-a-daily-log-as-complete "Mark a Daily Log as Complete")
+ - [Mark a Daily Log as Complete](https://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/mark-a-daily-log-as-complete "Mark a Daily Log as Complete")
 - **Additional Information:**
-  - After re-opening the day, entries will be able to be added, modified, or removed.
+ - After re-opening the day, entries will be able to be added, modified, or removed.
 
 ## Steps
 
@@ -28,7 +28,7 @@ A daily log can be re-opened in either the List or Calendar view.
 
 1. Navigate to your project's **Daily Log** tool.
 2. Navigate to the day that you want to re-open.
-3. Click **Re-Open Day** in the banner above the day's daily log.  
+3. Click **Re-Open Day** in the banner above the day's daily log. 
      
    ![dl-reopen-day.png](https://support.procore.com/@api/deki/files/84437/dl-reopen-day.png?revision=1)
 
@@ -37,7 +37,7 @@ A daily log can be re-opened in either the List or Calendar view.
 1. Navigate to your project's ****Daily Log**** tool.
 2. Click ****Calendar**** to navigate to the Calendar view.
 3. Click the day on the calendar you want to re-open.
-4. Click **Re-Open Day**.  
+4. Click **Re-Open Day**. 
      
    ![dl-cal-reopen-day.png](https://support.procore.com/@api/deki/files/84438/dl-cal-reopen-day.png?revision=1)
 

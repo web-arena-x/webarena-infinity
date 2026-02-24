@@ -24,7 +24,7 @@ You can use a pattern as a layer’s fill or stroke. The pattern’s source refe
 
 1. Select a layer on the canvas.
 2. Click the swatch in the **Fill** section of the right sidebar to open the color picker.
-3. Select  **Pattern** from the fill options.
+3. Select **Pattern** from the fill options.
 4. Click **Select source**, then select another object on the canvas.
 5. Use the pattern options to set the tile type, scale, spacing, alignment, and opacity.
 

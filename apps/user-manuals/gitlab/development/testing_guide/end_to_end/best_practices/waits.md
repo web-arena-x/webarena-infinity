@@ -19,7 +19,7 @@ Ideally the [GitLab QA Framework](https://gitlab.com/gitlab-org/gitlab-ce/tree/m
 
 ```ruby
 def wait(max: 60, time: 0.1, reload: true)
-  ...
+ ...
 end
 ```
 

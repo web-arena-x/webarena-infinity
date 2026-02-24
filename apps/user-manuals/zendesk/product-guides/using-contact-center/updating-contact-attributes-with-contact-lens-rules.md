@@ -10,18 +10,11 @@ Enhance agent support by using Contact Lens rules to update contact attributes d
 
 Add-on | Zendesk for Contact Center
 
-You can provide automated assistance to agents during calls and chats by using
-Connect Contact Lens to process voice and chat transcripts in real-time and respond to
-predefined scenarios. For example, if a customer expresses dissatisfaction about a
-delivery delay, the system can swiftly detect this issue and provide agents with
-instructions to reassure the customer that the matter is being addressed.
+You can provide automated assistance to agents during calls and chats by using Connect Contact Lens to process voice and chat transcripts in real-time and respond to predefined scenarios. For example, if a customer expresses dissatisfaction about a delivery delay, the system can swiftly detect this issue and provide agents with instructions to reassure the customer that the matter is being addressed.
 
-Contact Center supports standard contact attributes, as well as label, panel,
-and button attributes.
+Contact Center supports standard contact attributes, as well as label, panel, and button attributes.
 
-To react to events published by Connect Contact Lens rules to automatically
-assist and notify agents, you need to create a Contact Lens rule, create a Lambda
-function, and then create an EventBridge rule.
+To react to events published by Connect Contact Lens rules to automatically assist and notify agents, you need to create a Contact Lens rule, create a Lambda function, and then create an EventBridge rule.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/cont_cent_bab3.png)
 
@@ -34,19 +27,14 @@ This article contains the following topics:
 
 ## About standard contact attributes
 
-Standard attributes can provide agents with context about the contact they
-are managing. The standard contact attributes include the Label and Panel
-attributes.
+Standard attributes can provide agents with context about the contact they are managing. The standard contact attributes include the Label and Panel attributes.
 
-You can customize these attributes to use a variety of colour themes and
-icons. Label attributes are used for concise information, such as status updates.
-Panel attributes are used for longer information, with multiple lines and extra
-formatting requirements.
+You can customize these attributes to use a variety of colour themes and icons. Label attributes are used for concise information, such as status updates.
+Panel attributes are used for longer information, with multiple lines and extra formatting requirements.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/cont_cent_bab1.png)
 
-You can also create buttons that link to external URLs. Keep in mind the
-following:
+You can also create buttons that link to external URLs. Keep in mind the following:
 
 - You can create as many buttons as needed.
 - These buttons appear in Active contacts and Historical.
@@ -57,50 +45,33 @@ following:
 
 ## Creating a Connect Contact Lens rule
 
-The first step is to create a Connect Contact Lens rule with an action type of
-publishing an EventBridge event. This rule is designed for real-time call and chat
-conditions, ensuring that contact attributes are promptly updated in near real-time
-after the rule is triggered by Connect Contact Lens.
+The first step is to create a Connect Contact Lens rule with an action type of publishing an EventBridge event. This rule is designed for real-time call and chat conditions, ensuring that contact attributes are promptly updated in near real-time after the rule is triggered by Connect Contact Lens.
 
 **To create a Connect Contact Lends rule**
 
-1. In Contact Lens, under the Analytics and Optimization Menu, navigate
-   to the Rules sections.
+1. In Contact Lens, under the Analytics and Optimization Menu, navigate to the Rules sections.
 2. Click **Create a rule**.
 3. Select **Conversational analytics**.
-4. For When, select **A contact lens real-time call (or chat) analysis
-   is available**
-5. Click **Add Condition**, then select the condition you want to
-   apply to contacts.
+4. For When, select **A contact lens real-time call (or chat) analysis is available**
+5. Click **Add Condition**, then select the condition you want to apply to contacts.
 
-   You can select whether these phrases can be from the
-   customer, agent, or both.
+   You can select whether these phrases can be from the customer, agent, or both.
 6. Click **Add Action**, then select Generate an EventBridge Event.
 
-   Provide a name for this action. This name is visible in the EventBridge
-   event received in Lambda later.
+   Provide a name for this action. This name is visible in the EventBridge event received in Lambda later.
 7. Review the rule and publish it.
 
-For more information on setting up Contact Lens Rules in Connect, see [Create Contact Lens rules using the Amazon
-Connect admin website](https://docs.aws.amazon.com/connect/latest/adminguide/build-rules-for-contact-lens.html) in the AWS documentation.
+For more information on setting up Contact Lens Rules in Connect, see [Create Contact Lens rules using the Amazon Connect admin website](https://docs.aws.amazon.com/connect/latest/adminguide/build-rules-for-contact-lens.html) in the AWS documentation.
 
 ## Create the Lambda function
 
-After you create your Connect Contact Lens rule, you need to create a Lambda function
-to handle the actions, specifically updating the contact's standard, label, and
-panel attributes. This ensures that agents see updates in real-time in Contact
-Center.
+After you create your Connect Contact Lens rule, you need to create a Lambda function to handle the actions, specifically updating the contact's standard, label, and panel attributes. This ensures that agents see updates in real-time in Contact Center.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/cont_cent_bab4.png)
 
-In this instance, we name the function "\_ConnectHandleRulesActions" and use Python
-3.12. Incorporate the provided sample code into the Lambda function. You can modify
-the code as needed, such as adding new conditions or adjusting the text for custom
-attributes. Be sure to replace all the placeholders with your Amazon Connect and
-account information.
+In this instance, we name the function "\_ConnectHandleRulesActions" and use Python 3.12. Incorporate the provided sample code into the Lambda function. You can modify the code as needed, such as adding new conditions or adjusting the text for custom attributes. Be sure to replace all the placeholders with your Amazon Connect and account information.
 
-**To create a lambda function to manage the events, use the following
-code**
+**To create a lambda function to manage the events, use the following code**
 
 ```
 import json
@@ -149,9 +120,7 @@ print(f"An error occurred: {str(e)}")
 return
 ```
 
-Ensure that the Lambda function has the necessary
-"connect:UpdateContactAttributes" permission. Refer to the sample policy below for
-guidance.
+Ensure that the Lambda function has the necessary "connect:UpdateContactAttributes" permission. Refer to the sample policy below for guidance.
 
 ```
 Unset
@@ -171,17 +140,14 @@ number}:instance/{Connect instance ID}/contact/*"
 
 ## Create EventBridge rule
 
-After you create the Lambda function, you need to create an EventBridge rule with a
-target of the Lambda function.
+After you create the Lambda function, you need to create an EventBridge rule with a target of the Lambda function.
 
 **To create the EventBridge rule**
 
 1. In the Amazon EventBridge service, click **Rules**.
 2. Click **Create rule**.
 3. Select **Rule with an event pattern**, then proceed.
-4. Select **Use pattern form**, then configure the AWS service to Amazon
-   Connect with the Event type set to **Realtime Rules Matched**.
-5. Enter the name of the action set in the Connect Contact Lens rule or select
-   **Any action type**.
+4. Select **Use pattern form**, then configure the AWS service to Amazon Connect with the Event type set to **Realtime Rules Matched**.
+5. Enter the name of the action set in the Connect Contact Lens rule or select **Any action type**.
 6. For the **Target**, select the Lambda function you created.
 7. Review the details, then click **Create rule**.

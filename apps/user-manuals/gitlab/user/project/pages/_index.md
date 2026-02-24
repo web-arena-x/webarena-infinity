@@ -62,42 +62,31 @@ For more information, see:
 
 ## Using GitLab Pages
 
-To use GitLab Pages, you must create a project in GitLab to upload your website's
-files to. These projects can be either public, internal, or private.
+To use GitLab Pages, you must create a project in GitLab to upload your website's files to. These projects can be either public, internal, or private.
 
-By default, GitLab deploys your website from a specific folder called `public` in your
-repository.
+By default, GitLab deploys your website from a specific folder called `public` in your repository.
 You can also [set a custom folder to be deployed with Pages](introduction.md#customize-the-default-folder).
 When you create a new project in GitLab, a [repository](../repository/_index.md) becomes available automatically.
 
 To deploy your site, GitLab uses its built-in tool called [GitLab CI/CD](../../../ci/_index.md)
-to build your site and publish it to the GitLab Pages server. The sequence of
-scripts that GitLab CI/CD runs to accomplish this task is created from a file named
-`.gitlab-ci.yml`, which you can [create and modify](getting_started/pages_from_scratch.md).
-A user-defined `job` with `pages: true` property in the configuration file makes
-GitLab aware that you're deploying a GitLab Pages website.
+to build your site and publish it to the GitLab Pages server. The sequence of scripts that GitLab CI/CD runs to accomplish this task is created from a file named `.gitlab-ci.yml`, which you can [create and modify](getting_started/pages_from_scratch.md).
+A user-defined `job` with `pages: true` property in the configuration file makes GitLab aware that you're deploying a GitLab Pages website.
 
-You can either use the GitLab [default domain for GitLab Pages websites](getting_started_part_one.md#gitlab-pages-default-domain-names),
-`*.gitlab.io`, or your own domain (`example.com`). In that case, you
-must be an administrator in your domain's registrar (or control panel) to set it up with Pages.
+You can either use the GitLab [default domain for GitLab Pages websites](getting_started_part_one.md#gitlab-pages-default-domain-names), `*.gitlab.io`, or your own domain (`example.com`). In that case, you must be an administrator in your domain's registrar (or control panel) to set it up with Pages.
 
 ## Access to your Pages site
 
-If you're using GitLab Pages default domain (`.gitlab.io`), your website is
-automatically secure and available under HTTPS. If you're using your own custom
-domain, you can optionally secure it with SSL/TLS certificates.
+If you're using GitLab Pages default domain (`.gitlab.io`), your website is automatically secure and available under HTTPS. If you're using your own custom domain, you can optionally secure it with SSL/TLS certificates.
 
 If you're using GitLab.com, your website is publicly available to the internet.
 To restrict access to your website, enable [GitLab Pages Access Control](pages_access_control.md).
 
-If you're using a GitLab Self-Managed instance, your websites are published on your
-own server, according to the [Pages settings](../../../administration/pages/_index.md)
+If you're using a GitLab Self-Managed instance, your websites are published on your own server, according to the [Pages settings](../../../administration/pages/_index.md)
 chosen by your sysadmin, who can make them public or internal.
 
 ## Pages examples
 
-These GitLab Pages website examples can teach you advanced techniques to use
-and adapt for your own needs:
+These GitLab Pages website examples can teach you advanced techniques to use and adapt for your own needs:
 
 - [Posting to your GitLab Pages blog from iOS](https://about.gitlab.com/blog/2016/08/19/posting-to-your-gitlab-pages-blog-from-ios/).
 - [GitLab CI: Run jobs sequentially, in parallel, or build a custom pipeline](https://about.gitlab.com/blog/2020/12/10/basics-of-gitlab-ci-updated/).
@@ -107,8 +96,7 @@ and adapt for your own needs:
 
 ## Administer GitLab Pages for GitLab Self-Managed instances
 
-If you are running a GitLab Self-Managed instance,
-[follow the administration steps](../../../administration/pages/_index.md) to configure Pages.
+If you are running a GitLab Self-Managed instance, [follow the administration steps](../../../administration/pages/_index.md) to configure Pages.
 
 <i class="fa-youtube-play" aria-hidden="true"></i> Watch a [video tutorial](https://www.youtube.com/watch?v=dD8c7WNcc6s) about how to get started with GitLab Pages administration.
 
@@ -124,9 +112,7 @@ To configure GitLab Pages on instances deployed with Helm chart (Kubernetes), us
 ### Namespaces that contain `.`
 
 If your username is `example`, your GitLab Pages website is located at `example.gitlab.io`.
-GitLab allows usernames to contain a `.`, so a user named `bar.example` could create
-a GitLab Pages website `bar.example.gitlab.io` that effectively is a subdomain of your
-`example.gitlab.io` website. Be careful if you use JavaScript to set cookies for your website.
+GitLab allows usernames to contain a `.`, so a user named `bar.example` could create a GitLab Pages website `bar.example.gitlab.io` that effectively is a subdomain of your `example.gitlab.io` website. Be careful if you use JavaScript to set cookies for your website.
 The safe way to manually set cookies with JavaScript is to not specify the `domain` at all:
 
 ```javascript
@@ -139,8 +125,7 @@ document.cookie = "key=value;domain=.example.gitlab.io";
 document.cookie = "key=value;domain=example.gitlab.io";
 ```
 
-This issue doesn't affect users with a custom domain, or users who don't set any
-cookies manually with JavaScript.
+This issue doesn't affect users with a custom domain, or users who don't set any cookies manually with JavaScript.
 
 ### Shared cookies
 
@@ -159,8 +144,7 @@ To ensure each project uses different cookies, enable the Pages [unique domains]
 
 {{< /history >}}
 
-By default, every new project uses pages unique domains to avoid projects on the same group
-to share cookies.
+By default, every new project uses pages unique domains to avoid projects on the same group to share cookies.
 
 The project maintainer can disable this feature on:
 
@@ -180,8 +164,7 @@ For example URLs, see [GitLab Pages default domain names](getting_started_part_o
 {{< /history >}}
 
 When you use GitLab Pages with custom domains, you can redirect all requests to GitLab Pages to a primary domain.
-When the primary domain is selected, users receive `308 Permanent Redirect` status that redirects the browser to the
-selected primary domain. Browsers might cache this redirect.
+When the primary domain is selected, users receive `308 Permanent Redirect` status that redirects the browser to the selected primary domain. Browsers might cache this redirect.
 
 Prerequisites:
 
@@ -202,26 +185,21 @@ Prerequisites:
 
 {{< /history >}}
 
-You can configure your Pages deployments to be automatically deleted after
-a period of time has passed by specifying a duration at [`pages.expire_in`](../../../ci/yaml/_index.md#pagesexpire_in):
+You can configure your Pages deployments to be automatically deleted after a period of time has passed by specifying a duration at [`pages.expire_in`](../../../ci/yaml/_index.md#pagesexpire_in):
 
 ```yaml
 create-pages:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - ...
-  pages:  # specifies that this is a Pages job and publishes the default public directory
+ pages: # specifies that this is a Pages job and publishes the default public directory
     expire_in: 1 week
 ```
 
 Expired deployments are stopped by a cron job that runs every 10 minutes.
-Stopped deployments are subsequently deleted by another cron job that also
-runs every 10 minutes. To recover it, follow the steps described in
-[Recover a stopped deployment](#recover-a-stopped-deployment).
+Stopped deployments are subsequently deleted by another cron job that also runs every 10 minutes. To recover it, follow the steps described in [Recover a stopped deployment](#recover-a-stopped-deployment).
 
-A stopped or deleted deployment is no longer available on the web. You
-see a 404 Not found error page at its URL, until another deployment is created
-with the same URL configuration.
+A stopped or deleted deployment is no longer available on the web. You see a 404 Not found error page at its URL, until another deployment is created with the same URL configuration.
 
 The previous YAML example uses [user-defined job names](#user-defined-job-names).
 
@@ -236,8 +214,7 @@ To recover a stopped deployment that has not yet been deleted:
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Deploy** > **Pages**.
 1. Near **Deployments** turn on the **Include stopped deployments** toggle.
-   If your deployment has not been deleted yet, it should be included in the
-   list.
+   If your deployment has not been deleted yet, it should be included in the list.
 1. Expand the deployment you want to recover and select **Restore**.
 
 ### Delete a Deployment
@@ -253,8 +230,7 @@ To delete a deployment:
 When you select **Delete**, your deployment is stopped immediately.
 Stopped deployments are deleted by a cron job running every 10 minutes.
 
-To restore a stopped deployment that has not been deleted yet, see
-[Recover a stopped deployment](#recover-a-stopped-deployment).
+To restore a stopped deployment that has not been deleted yet, see [Recover a stopped deployment](#recover-a-stopped-deployment).
 
 ## User-defined job names
 
@@ -265,46 +241,42 @@ To restore a stopped deployment that has not been deleted yet, see
 
 {{< /history >}}
 
-To trigger a Pages deployment from any job, include the `pages` property in the
-job definition. It can either be a Boolean set to `true` or a hash.
+To trigger a Pages deployment from any job, include the `pages` property in the job definition. It can either be a Boolean set to `true` or a hash.
 
 For example, using `true`:
 
 ```yaml
 deploy-my-pages-site:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - npm run build
-  pages: true  # specifies that this is a Pages job and publishes the default public directory
+ pages: true # specifies that this is a Pages job and publishes the default public directory
 ```
 
 For example, using a hash:
 
 ```yaml
 deploy-pages-review-app:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - npm run build
-  pages:  # specifies that this is a Pages job and publishes the default public directory
+ pages: # specifies that this is a Pages job and publishes the default public directory
     path_prefix: '_staging'
 ```
 
-If the `pages` property of a job named `pages` is set to `false`, no
-deployment is triggered:
+If the `pages` property of a job named `pages` is set to `false`, no deployment is triggered:
 
 ```yaml
 pages:
-  pages: false
+ pages: false
 ```
 
 {{< alert type="warning" >}}
 
-If you have multiple Pages jobs in your pipeline with the same value for
-`path_prefix`, the last one to be completed is deployed with Pages.
+If you have multiple Pages jobs in your pipeline with the same value for `path_prefix`, the last one to be completed is deployed with Pages.
 
 {{< /alert >}}
 
 ## Parallel deployments
 
-To create multiple deployments for your project at the same time, for example to
-create review apps, view the documentation on [Parallel Deployments](parallel_deployments.md).
+To create multiple deployments for your project at the same time, for example to create review apps, view the documentation on [Parallel Deployments](parallel_deployments.md).

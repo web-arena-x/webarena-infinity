@@ -49,9 +49,9 @@ After the model has been deployed, to get the model name for the model identifie
 
 ```shell
 curl \
-  --header "Authorization: Bearer API_KEY" \
-  --header "Content-Type: application/json" \
-  http://your-vllm-server:8000/v1/models
+ --header "Authorization: Bearer API_KEY" \
+ --header "Content-Type: application/json" \
+ http://your-vllm-server:8000/v1/models
 ```
 
 The model name is the value of the `data.id` field in the response.
@@ -60,8 +60,8 @@ Example response:
 
 ```json
 {
-  "object": "list",
-  "data": [
+ "object": "list",
+ "data": [
     {
       "id": "Mixtral-8x22B-Instruct-v0.1",
       "object": "model",
@@ -70,7 +70,7 @@ Example response:
       "root": "mistralai/Mixtral-8x22B-Instruct-v0.1",
       // Additional fields removed for readability
     }
-  ]
+ ]
 }
 ```
 
@@ -96,7 +96,7 @@ Examples:
 
    ```shell
    vllm serve <path-to-model>/Mistral-7B-Instruct-v0.3 \
-      --served_model_name <choose-a-name-for-the-model>  \
+      --served_model_name <choose-a-name-for-the-model> \
       --tokenizer_mode mistral \
       --tensor_parallel_size <number-of-gpus> \
       --load_format mistral \
@@ -141,7 +141,7 @@ Disabling request logging minimizes the overhead introduced by verbose logs, esp
 
 ```shell
 vllm serve <path-to-model>/<model-version> \
---served_model_name <choose-a-name-for-the-model>  \
+--served_model_name <choose-a-name-for-the-model> \
 --disable-log-requests
 ```
 
@@ -151,25 +151,18 @@ This change has been observed to notably improve response times in internal benc
 
 ### AWS Bedrock
 
-[AWS Bedrock](https://aws.amazon.com/bedrock/) is a fully managed service that
-allows developers to build and scale generative AI applications using pre-trained
-models from leading AI companies. It seamlessly integrates with other AWS services
-and offers a pay-as-you-go pricing model.
+[AWS Bedrock](https://aws.amazon.com/bedrock/) is a fully managed service that allows developers to build and scale generative AI applications using pre-trained models from leading AI companies. It seamlessly integrates with other AWS services and offers a pay-as-you-go pricing model.
 
 To access AWS Bedrock models:
 
-1. Configure IAM credentials to access Bedrock with the appropriate AWS IAM
-   permissions:
+1. Configure IAM credentials to access Bedrock with the appropriate AWS IAM permissions:
 
    - Make sure that the IAM role has the `AmazonBedrockFullAccess` policy to allow
-   [access to Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-AmazonBedrockFullAccess). You cannot do this in
-   the GitLab Duo Self-Hosted UI.
+   [access to Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-AmazonBedrockFullAccess). You cannot do this in the GitLab Duo Self-Hosted UI.
 
    - [Use the AWS console to request access to the models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-access-modify.html) that you want to use.
 
-1. Authenticate your AI Gateway instance by exporting the appropriate AWS SDK
-   environment variables such as [`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_REGION_NAME`](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) when starting
-   the Docker container.
+1. Authenticate your AI Gateway instance by exporting the appropriate AWS SDK environment variables such as [`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY` and `AWS_REGION_NAME`](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) when starting the Docker container.
 
    For more information, see the [AWS Identity and Access Management (IAM) Guide](https://docs.aws.amazon.com/bedrock/latest/userguide/security-iam.html).
 
@@ -179,9 +172,7 @@ To access AWS Bedrock models:
 
    {{< /alert >}}
 
-1. Optional. To set up a private Bedrock endpoint operating in a virtual private cloud (VPC),
-   make sure the `AWS_BEDROCK_RUNTIME_ENDPOINT` environment variable is configured
-   with your internal URL when launching the AI Gateway container.
+1. Optional. To set up a private Bedrock endpoint operating in a virtual private cloud (VPC), make sure the `AWS_BEDROCK_RUNTIME_ENDPOINT` environment variable is configured with your internal URL when launching the AI Gateway container.
 
    An example configuration: `AWS_BEDROCK_RUNTIME_ENDPOINT = https://bedrock-runtime.{aws_region_name}.amazonaws.com`
 
@@ -191,9 +182,7 @@ For more information, see [supported foundation models in Amazon Bedrock](https:
 
 ### Azure OpenAI
 
-[Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/) provides
-access to OpenAI's powerful models, enabling developers to integrate advanced AI
-capabilities into their applications with robust security and scalable infrastructure.
+[Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/) provides access to OpenAI's powerful models, enabling developers to integrate advanced AI capabilities into their applications with robust security and scalable infrastructure.
 
 For more information, see:
 

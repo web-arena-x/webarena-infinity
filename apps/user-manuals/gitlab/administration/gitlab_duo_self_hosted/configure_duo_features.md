@@ -132,11 +132,9 @@ To add a self-hosted model:
 1. In the upper-right corner, select **Admin**.
 1. On the left sidebar, select **GitLab Duo**.
 1. Select **Configure GitLab Duo Self-Hosted**.
-   - If **Configure GitLab Duo Self-Hosted** is not available, synchronize your
-     subscription after purchase:
+   - If **Configure GitLab Duo Self-Hosted** is not available, synchronize your subscription after purchase:
      1. On the left sidebar, select **Subscription**.
-     1. In **Subscription details**, to the right of **Last sync**, select
-        synchronize subscription ({{< icon name="retry" >}}).
+     1. In **Subscription details**, to the right of **Last sync**, select synchronize subscription ({{< icon name="retry" >}}).
 1. Select **Add self-hosted model**.
 1. Complete the fields:
    - **Deployment name**: Enter a name to uniquely identify the model deployment, for example, `Mixtral-8x7B-it-v0.1 on GCP`.
@@ -192,11 +190,9 @@ To enable self-hosted beta models and features:
 1. In the upper-right corner, select **Admin**.
 1. On the left sidebar, select **GitLab Duo**.
 1. Select **Configure GitLab Duo Self-Hosted**.
-   - If **Configure GitLab Duo Self-Hosted** is not available, synchronize your
-     subscription after purchase:
+   - If **Configure GitLab Duo Self-Hosted** is not available, synchronize your subscription after purchase:
      1. On the left sidebar, select **Subscription**.
-     1. In **Subscription details**, to the right of **Last sync**, select
-        synchronize subscription ({{< icon name="retry" >}}).
+     1. In **Subscription details**, to the right of **Last sync**, select synchronize subscription ({{< icon name="retry" >}}).
 1. Select the **AI-native features** tab.
 
 ### Configure a feature to use a self-hosted model
@@ -267,8 +263,7 @@ To disable a GitLab Duo feature or sub-feature:
 
 ### Self-host the GitLab documentation
 
-If your GitLab Duo Self-Hosted setup prevents you from accessing the GitLab documentation at
-`docs.gitlab.com`, you can self-host the documentation.
+If your GitLab Duo Self-Hosted setup prevents you from accessing the GitLab documentation at `docs.gitlab.com`, you can self-host the documentation.
 For more information, see [Host the GitLab product documentation](../docs_self_host.md).
 
 ## Related topics

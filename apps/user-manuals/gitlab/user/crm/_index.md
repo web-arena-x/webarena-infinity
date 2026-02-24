@@ -25,14 +25,12 @@ description: Customer management, organizations, contacts, and permissions.
 
 {{< alert type="note" >}}
 
-This feature is not under active development, but
-[community contributions](https://about.gitlab.com/community/contribute/) are welcome.
+This feature is not under active development, but [community contributions](https://about.gitlab.com/community/contribute/) are welcome.
 To determine if the feature meets your needs, see the open issues in the [Managing and billing Clients Epic](https://gitlab.com/groups/gitlab-org/-/epics/5323).
 
 {{< /alert >}}
 
-With customer relations management (CRM) you can create a record of contacts
-(individuals) and organizations (companies) and relate them to issues.
+With customer relations management (CRM) you can create a record of contacts (individuals) and organizations (companies) and relate them to issues.
 
 By default, contacts and organizations can only be created for top-level groups.
 To create contacts and organizations in other groups, [assign the group as a contact source](#configure-the-contact-source).
@@ -57,9 +55,7 @@ For more information about what is planned for the future, see [issue 2256](http
 
 {{< /history >}}
 
-Customer relations management features are enabled at the group level. If your
-group also contains subgroups, and you want to use CRM features in the subgroup,
-CRM features must also be enabled for the subgroup.
+Customer relations management features are enabled at the group level. If your group also contains subgroups, and you want to use CRM features in the subgroup, CRM features must also be enabled for the subgroup.
 
 To enable customer relations management in a group or subgroup:
 
@@ -79,8 +75,7 @@ To enable customer relations management in a group or subgroup:
 
 By default, contacts are sourced from an issue's top-level group.
 
-The contact source for a group will apply to all subgroups,
-unless they have a contact source configured.
+The contact source for a group will apply to all subgroups, unless they have a contact source configured.
 
 To configure the contact source for a group or subgroup:
 
@@ -209,8 +204,7 @@ organizations using the GraphQL API.
 
 ## Issues
 
-If you use [Service Desk](../project/service_desk/_index.md) and create issues from emails,
-issues are linked to contacts matching the email addresses in the sender and CC of the email.
+If you use [Service Desk](../project/service_desk/_index.md) and create issues from emails, issues are linked to contacts matching the email addresses in the sender and CC of the email.
 
 ### View issues linked to a contact
 
@@ -249,8 +243,7 @@ To view a contact's details, hover over the contact's name.
 
 ![Issue contacts](issue_crm_contacts_v14_6.png)
 
-You can also view issue contacts using the
-[GraphQL](../../api/graphql/reference/_index.md#mutationcustomerrelationsorganizationcreate)
+You can also view issue contacts using the [GraphQL](../../api/graphql/reference/_index.md#mutationcustomerrelationsorganizationcreate)
 API.
 
 ### Add contacts to an issue
@@ -261,8 +254,7 @@ Prerequisites:
 
 To add [active](#change-the-state-of-a-contact) contacts to an issue use the [`/add_contacts` quick action](../project/quick_actions.md#add_contacts) with `[contact:address@example.com]`.
 
-You can also add, remove, or replace issue contacts using the
-[GraphQL](../../api/graphql/reference/_index.md#mutationissuesetcrmcontacts)
+You can also add, remove, or replace issue contacts using the [GraphQL](../../api/graphql/reference/_index.md#mutationissuesetcrmcontacts)
 API.
 
 ### Remove contacts from an issue
@@ -273,8 +265,7 @@ Prerequisites:
 
 To remove contacts from an issue use the [`/remove_contacts` quick action](../project/quick_actions.md#remove_contacts) with `[contact:address@example.com]`.
 
-You can also add, remove, or replace issue contacts using the
-[GraphQL](../../api/graphql/reference/_index.md#mutationissuesetcrmcontacts)
+You can also add, remove, or replace issue contacts using the [GraphQL](../../api/graphql/reference/_index.md#mutationissuesetcrmcontacts)
 API.
 
 ## Autocomplete contacts
@@ -301,15 +292,12 @@ When you use the `/remove_contacts` quick action, follow it with `[contact:` and
 
 ## Moving objects with CRM entries
 
-When you move an issue or project and the **parent group contact source matches**,
-issues retain their contacts.
+When you move an issue or project and the **parent group contact source matches**, issues retain their contacts.
 
-When you move an issue or project and the **parent group contact source changes**,
-issues lose their contacts.
+When you move an issue or project and the **parent group contact source changes**, issues lose their contacts.
 
 When you move a group with a [contact source configured](#configure-the-contact-source)
-or it's **contact source remains unchanged**,
-issues retain their contacts.
+or it's **contact source remains unchanged**, issues retain their contacts.
 
 When you move a group and its **contact source changes**:
 
@@ -318,5 +306,4 @@ When you move a group and its **contact source changes**:
 - Organizations that already exist (by name) are deemed duplicates and deleted.
 - All issues retain their contacts or are updated to point at contacts with the same email address.
 
-If you do not have permission to create contacts and organizations in the new
-top-level group, the group transfer fails.
+If you do not have permission to create contacts and organizations in the new top-level group, the group transfer fails.

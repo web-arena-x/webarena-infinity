@@ -72,8 +72,7 @@ that each job log is matched against.
 This means that each job in the pipeline can have the test coverage percentage value defined.
 
 To get the coverage report from a specific job, add the `job=coverage_job_name` parameter to the URL.
-For example, you can use code similar to the following to add the test coverage report badge of the
-`coverage` job to a Markdown file:
+For example, you can use code similar to the following to add the test coverage report badge of the `coverage` job to a Markdown file:
 
 ```markdown
 ![coverage](https://gitlab.example.com/<namespace>/<project>/badges/<branch>/coverage.svg?job=coverage)
@@ -101,7 +100,7 @@ The following table shows the default test coverage limits and badge colors:
 
 You can override the default limits by passing the following query parameters in the coverage report badge URL:
 
-| Query parameter  | Acceptable values                            | Default |
+| Query parameter | Acceptable values                            | Default |
 |------------------|----------------------------------------------|---------|
 | `min_good`       | Any value between `3` and `100`              | `95`    |
 | `min_acceptable` | Any value between `2` and `min_good`−1       | `90`    |
@@ -113,10 +112,7 @@ For example:
 https://gitlab.example.com/<namespace>/<project>/badges/<branch>/coverage.svg?min_good=98&min_acceptable=75
 ```
 
-If you set an invalid boundary, GitLab automatically adjusts it to be valid. For example,
-if you set `min_good` to `80` and `min_acceptable` to `85`, GitLab sets `min_acceptable`
-to `79` (`min_good - 1`) because the minimum acceptable value cannot be higher than
-the minimum good value.
+If you set an invalid boundary, GitLab automatically adjusts it to be valid. For example, if you set `min_good` to `80` and `min_acceptable` to `85`, GitLab sets `min_acceptable` to `79` (`min_good - 1`) because the minimum acceptable value cannot be higher than the minimum good value.
 
 ## Latest release badges
 
@@ -163,15 +159,12 @@ To add this badge to a project:
 
 ## Group badges
 
-Badges can be added to a group by Owners, and are visible on the **Overview**
-page of any project that belongs to the group.
-By adding a badge to a group, you add and enforce a project-level badge
-for all projects in the group.
+Badges can be added to a group by Owners, and are visible on the **Overview** page of any project that belongs to the group.
+By adding a badge to a group, you add and enforce a project-level badge for all projects in the group.
 
 {{< alert type="note" >}}
 
-While these badges appear as project-level badges in the codebase, they
-cannot be edited or deleted at the project level.
+While these badges appear as project-level badges in the codebase, they cannot be edited or deleted at the project level.
 
 {{< /alert >}}
 
@@ -252,19 +245,19 @@ Pipeline, coverage, release, and custom badges can be rendered in different styl
 
 - Flat (default):
 
-  ```plaintext
-  https://gitlab.example.com/<namespace>/<project>/badges/<branch>/coverage.svg?style=flat
-  ```
+ ```plaintext
+ https://gitlab.example.com/<namespace>/<project>/badges/<branch>/coverage.svg?style=flat
+ ```
 
-  ![Badge flat style](img/badge_flat.svg)
+ ![Badge flat style](img/badge_flat.svg)
 
 - Flat square:
 
-  ```plaintext
-  https://gitlab.example.com/<namespace>/<project>/badges/<branch>/coverage.svg?style=flat-square
-  ```
+ ```plaintext
+ https://gitlab.example.com/<namespace>/<project>/badges/<branch>/coverage.svg?style=flat-square
+ ```
 
-  ![Badge flat square style](img/badge_flat_square.svg)
+ ![Badge flat square style](img/badge_flat_square.svg)
 
 #### Key text
 
@@ -414,8 +407,7 @@ Badges associated with a group can be edited or deleted only at the [group level
 
 ## Placeholders
 
-Both the URL a badge points to and the image URL can contain placeholders,
-which are evaluated when displaying the badge.
+Both the URL a badge points to and the image URL can contain placeholders, which are evaluated when displaying the badge.
 The following placeholders are available:
 
 - `%{project_path}`: Path of a project including the parent groups
@@ -427,15 +419,11 @@ The following placeholders are available:
 - `%{gitlab_server}`: Server of a project
 - `%{gitlab_pages_domain}`: Domain hosting GitLab Pages
 - `%{default_branch}`: Default branch name configured for a project's repository
-- `%{commit_sha}`: ID of the most recent commit to the default branch of a
-  project's repository
+- `%{commit_sha}`: ID of the most recent commit to the default branch of a project's repository
 - `%{latest_tag}`: Latest tag added to the project's repository
 
 {{< alert type="warning" >}}
 
-Placeholders allow badges to expose otherwise-private information, such as the
-default branch or commit SHA when the project is configured to have a private
-repository. This behavior is intentional, as badges are intended to be used publicly. Avoid
-using these placeholders if the information is sensitive.
+Placeholders allow badges to expose otherwise-private information, such as the default branch or commit SHA when the project is configured to have a private repository. This behavior is intentional, as badges are intended to be used publicly. Avoid using these placeholders if the information is sensitive.
 
 {{< /alert >}}

@@ -24,12 +24,12 @@ In the above example, Freshmen, Sophomores, Juniors, and Seniors are able to vie
 
 Now that you've seen that there are qualifications on the Appointment Types you're not able to view, you can check your own student account to see if you have a school year set.
 
-So, still viewing as Career Services, view your student account, by going to Manage Students and searching your name. Once you are viewing your student profile, click the Account tab to look to see if you have a school year set on your student account. If you don't, you can then set one.  
-  
+So, still viewing as Career Services, view your student account, by going to Manage Students and searching your name. Once you are viewing your student profile, click the Account tab to look to see if you have a school year set on your student account. If you don't, you can then set one. 
+ 
 ![Account_tab_on_Student_profile.png](https://support.joinhandshake.com/hc/article_attachments/13690020527127)
 
-![](https://support.joinhandshake.com/hc/article_attachments/115016016127/mceclip5.png)  
-  
-Now, because you are one of the school years allowed to see this type/category, you should now be able to see the category when you view as your student account and select Create New Appointment.  
-  
+![](https://support.joinhandshake.com/hc/article_attachments/115016016127/mceclip5.png) 
+ 
+Now, because you are one of the school years allowed to see this type/category, you should now be able to see the category when you view as your student account and select Create New Appointment. 
+ 
 ![](https://support.joinhandshake.com/hc/article_attachments/115016016167/mceclip6.png)

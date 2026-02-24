@@ -5,24 +5,16 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Callouts
 ---
 
-Callouts are a mechanism for presenting notifications to users. Users can dismiss the notifications, and the
-notifications can stay dismissed for a predefined duration. Notification dismissal is persistent across page loads and
-different user devices.
+Callouts are a mechanism for presenting notifications to users. Users can dismiss the notifications, and the notifications can stay dismissed for a predefined duration. Notification dismissal is persistent across page loads and different user devices.
 
 ## Callout contexts
 
-**Global context**: Callouts can be displayed to a user regardless of where they are in the application. For example, we
-can show a notification that reminds the user to have two-factor authentication recovery codes stored in a safe place.
-Dismissing this type of callout is effective for the particular user across the whole GitLab instance, no matter where
-they encountered the callout.
+**Global context**: Callouts can be displayed to a user regardless of where they are in the application. For example, we can show a notification that reminds the user to have two-factor authentication recovery codes stored in a safe place.
+Dismissing this type of callout is effective for the particular user across the whole GitLab instance, no matter where they encountered the callout.
 
-**Group and project contexts**: Callouts can also be displayed to a specific user and have a particular context binding,
-like a group or a project context. For example, group owners can be notified that their group is running out of
-available seats. Dismissing that callout would be effective for the particular user only in this particular group, while
-they would still see the same callout in other groups, if applicable.
+**Group and project contexts**: Callouts can also be displayed to a specific user and have a particular context binding, like a group or a project context. For example, group owners can be notified that their group is running out of available seats. Dismissing that callout would be effective for the particular user only in this particular group, while they would still see the same callout in other groups, if applicable.
 
-Regardless of the context, dismissing a callout is only effective for the given user. Other users still see their
-relevant callouts.
+Regardless of the context, dismissing a callout is only effective for the given user. Other users still see their relevant callouts.
 
 ## Callout IDs
 
@@ -38,20 +30,16 @@ Here's how a group callout would be saved:
 ```plaintext
  id | user_id | group_id | feature_name |         dismissed_at
 ----+---------+----------+--------------+-------------------------------
-  0 |       1 |        4 |           42 | 2025-05-21 00:00:00.000000+00
+ 0 |       1 |        4 |           42 | 2025-05-21 00:00:00.000000+00
 ```
 
-To create a new callout ID, add a new key to the `feature_name` enum in the relevant context type registry file, using a
-unique name and a sequential value:
+To create a new callout ID, add a new key to the `feature_name` enum in the relevant context type registry file, using a unique name and a sequential value:
 
-- Global context: `app/models/users/callout.rb`. Callouts are dismissed by a user globally. Related notifications would
-  not be displayed anywhere in the GitLab instance for that user.
+- Global context: `app/models/users/callout.rb`. Callouts are dismissed by a user globally. Related notifications would not be displayed anywhere in the GitLab instance for that user.
 
-- Group context: `app/models/users/group_callout.rb`. Callouts are dismissed by a user in a given group. Related
-  notifications are still shown to the user in other groups.
+- Group context: `app/models/users/group_callout.rb`. Callouts are dismissed by a user in a given group. Related notifications are still shown to the user in other groups.
 
-- Project context: `app/models/users/project_callout.rb`. Callouts dismissed by a user in a given project. Related
-  notifications are still shown to the user in other projects.  
+- Project context: `app/models/users/project_callout.rb`. Callouts dismissed by a user in a given project. Related notifications are still shown to the user in other projects.
 
 After adding a new callout ID to any of the enum files above, you must update the GraphQL documentation by running:
  
@@ -59,14 +47,11 @@ After adding a new callout ID to any of the enum files above, you must update th
 bundle exec rake gitlab:graphql:compile_docs
 ```
 
-**NOTE**: do not reuse old enum values, as it may lead to false-positive dismissals. Instead, create a new sequential
-number.
+**NOTE**: do not reuse old enum values, as it may lead to false-positive dismissals. Instead, create a new sequential number.
 
 ### Deprecating a callout
 
-When we no longer need a callout, we can remove it from the callout ID enums. But since dismissal records in the DB use
-the numerical value of the enum, we need to explicitly preserve the deprecated ID from being reused, so that old
-dismissals don't affect the new callouts. Thus to remove a callout ID:
+When we no longer need a callout, we can remove it from the callout ID enums. But since dismissal records in the DB use the numerical value of the enum, we need to explicitly preserve the deprecated ID from being reused, so that old dismissals don't affect the new callouts. Thus to remove a callout ID:
 
 1. Remove the key/value pair from the enum hash
 1. Leave an inline comment, mentioning the deprecated ID and the MR removing the callout
@@ -82,9 +67,7 @@ For example:
 
 ### Haml
 
-When implementing dismissible alerts in HAML views, use the dismissible alert components. These components
-extend `Pajamas::AlertComponent` and provide strong validation, simplified setup, and automatic handling of dismissal
-logic.
+When implementing dismissible alerts in HAML views, use the dismissible alert components. These components extend `Pajamas::AlertComponent` and provide strong validation, simplified setup, and automatic handling of dismissal logic.
 
 #### Available components
 
@@ -92,8 +75,7 @@ logic.
 - `Users::GroupDismissibleAlertComponent` - For group context callouts
 - `Users::ProjectDismissibleAlertComponent` - For project context callouts
 
-All components inherit from `Pajamas::AlertComponent` and support the same interface, with the addition of
-`dismiss_options` and optional `wrapper_options` parameters.
+All components inherit from `Pajamas::AlertComponent` and support the same interface, with the addition of `dismiss_options` and optional `wrapper_options` parameters.
 
 #### Basic usage
 
@@ -104,8 +86,8 @@ All components inherit from `Pajamas::AlertComponent` and support the same inter
     title: _('Alert title'),
     variant: :warning,
     dismiss_options: { user: current_user, feature_id: 'my_user_callout' }
-  ) do |c|
-  - c.with_body do
+ ) do |c|
+ - c.with_body do
     = _('Alert message content goes here.')
 ```
 
@@ -116,8 +98,8 @@ All components inherit from `Pajamas::AlertComponent` and support the same inter
     title: _('Group-specific alert'),
     dismiss_options: { user: current_user, group: @group, feature_id: 'my_group_callout' },
     variant: :info
-  ) do |c|
-  - c.with_body do
+ ) do |c|
+ - c.with_body do
     = _('This alert is specific to the current group.')
 ```
 
@@ -128,8 +110,8 @@ All components inherit from `Pajamas::AlertComponent` and support the same inter
     title: _('Project notification'),
     dismiss_options: { user: current_user, project: @project, feature_id: 'my_project_callout' },
     variant: :success
-  ) do |c|
-  - c.with_body do
+ ) do |c|
+ - c.with_body do
     = _('This alert is specific to the current project.')
 ```
 
@@ -155,8 +137,8 @@ Add `ignore_dismissal_earlier_than` to make callouts reappear after a certain ti
       feature_id: 'recurring_callout',
       ignore_dismissal_earlier_than: 30.days.ago
     }
-  ) do |c|
-  - c.with_body do
+ ) do |c|
+ - c.with_body do
     = _('This alert will reappear every 30 days.')
 ```
 
@@ -172,8 +154,7 @@ ignore_dismissal_earlier_than: '2023-01-01'
 ignore_dismissal_earlier_than: '2023-01-01 12:00:00'
 ```
 
-Without this parameter, dismissals are permanent. With it, the alert reappears if it was dismissed before the specified
-time.
+Without this parameter, dismissals are permanent. With it, the alert reappears if it was dismissed before the specified time.
 
 ##### `wrapper_options` (optional)
 
@@ -184,15 +165,14 @@ Use `wrapper_options` to wrap the alert in a custom container:
     title: _('Alert with wrapper'),
     dismiss_options: { user: current_user, group: @group, feature_id: 'wrapped_callout' },
     wrapper_options: { tag: :section, class: 'custom-wrapper' }
-  ) do |c|
-  - c.with_body do
+ ) do |c|
+ - c.with_body do
     = _('This alert is wrapped in a custom container.')
 ```
 
 #### Benefits of dismissible alert components
 
-1. **Strong validation**: Components verify that feature IDs exist in the appropriate callout model and that required
-   parameters are provided
+1. **Strong validation**: Components verify that feature IDs exist in the appropriate callout model and that required parameters are provided
 1. **Simplified setup**: No need to manually configure CSS classes, data attributes, or dismissal endpoints
 1. **Automatic handling**: Dismissal logic, rendering conditions, and JavaScript integration are handled automatically
 1. **Type safety**: Components enforce correct parameter types and catch configuration errors early
@@ -217,8 +197,8 @@ When migrating from manual `Pajamas::AlertComponent` usage:
       }
     },
     dismissible: true
-  ) do |c|
-  - c.with_body do
+ ) do |c|
+ - c.with_body do
     = _('Alert content')
 ```
 
@@ -229,8 +209,8 @@ When migrating from manual `Pajamas::AlertComponent` usage:
     title: _('Alert title'),
     variant: :warning,
     dismiss_options: { user: current_user, feature_id: 'my_callout' }
-  ) do |c|
-  - c.with_body do
+ ) do |c|
+ - c.with_body do
     = _('Alert content')
 ```
 
@@ -238,9 +218,7 @@ When migrating from manual `Pajamas::AlertComponent` usage:
 
 ### Haml
 
-When implementing dismissible banners in HAML views, use the dismissible banner components. These components
-extend `Pajamas::BannerComponent` and provide strong validation, simplified setup, and automatic handling of dismissal
-logic.
+When implementing dismissible banners in HAML views, use the dismissible banner components. These components extend `Pajamas::BannerComponent` and provide strong validation, simplified setup, and automatic handling of dismissal logic.
 
 #### Available components
 
@@ -248,8 +226,7 @@ logic.
 - `Users::GroupDismissibleBannerComponent` - For group context callouts
 - `Users::ProjectDismissibleBannerComponent` - For project context callouts
 
-All components inherit from `Pajamas::BannerComponent` and support the same interface, with the addition of
-`dismiss_options` and optional `wrapper_options` parameters.
+All components inherit from `Pajamas::BannerComponent` and support the same interface, with the addition of `dismiss_options` and optional `wrapper_options` parameters.
 
 #### Basic usage
 
@@ -265,9 +242,9 @@ dismiss_options: { user: current_user, feature_id: 'my_user_callout' }
 ) do |c|
 
 - c.with_title do
-  = _('Banner title')
+ = _('Banner title')
 %p
-  = _('Banner message content goes here.')
+ = _('Banner message content goes here.')
 ```
 
 ##### Group callouts
@@ -282,9 +259,9 @@ dismiss_options: { user: current_user, group: @group, feature_id: 'my_group_call
 ) do |c|
 
 - c.with_title do
-  = _('Group-specific banner')
+ = _('Group-specific banner')
 %p
-  = _('This banner is specific to the current group.')
+ = _('This banner is specific to the current group.')
 ```
 
 ##### Project callouts
@@ -299,9 +276,9 @@ dismiss_options: { user: current_user, project: @project, feature_id: 'my_projec
 ) do |c|
 
 - c.with_title do
-  = _('Project notification')
+ = _('Project notification')
 %p
-  = _('This banner is specific to the current project.')
+ = _('This banner is specific to the current project.')
 
 ```
 
@@ -329,7 +306,7 @@ Add `ignore_dismissal_earlier_than` to make callouts reappear after a certain ti
       feature_id: 'recurring_callout',
       ignore_dismissal_earlier_than: 30.days.ago
     }
-  ) do |c|
+ ) do |c|
 
     - c.with_title do
       = _('Recurring banner')
@@ -349,8 +326,7 @@ ignore_dismissal_earlier_than: '2023-01-01'
 ignore_dismissal_earlier_than: '2023-01-01 12:00:00'
 ```
 
-Without this parameter, dismissals are permanent. With it, the banner reappears if it was dismissed before the specified
-time.
+Without this parameter, dismissals are permanent. With it, the banner reappears if it was dismissed before the specified time.
 
 ##### `wrapper_options` (optional)
 
@@ -363,7 +339,7 @@ Use `wrapper_options` to wrap the banner in a custom container:
     variant: :promotion,
     dismiss_options: { user: current_user, group: @group, feature_id: 'wrapped_callout' },
     wrapper_options: { tag: :section, class: 'custom-wrapper' }
-  ) do |c|
+ ) do |c|
 
     - c.with_title do
       = _('Banner with wrapper')
@@ -388,15 +364,15 @@ When migrating from manual `Pajamas::BannerComponent` usage:
 
 ```haml
 = render Pajamas::BannerComponent.new(
-  button_text: _('Learn more'),
-  svg_path: 'illustrations/devops-sm.svg',
-  variant: :promotion,
-  banner_options: {
+ button_text: _('Learn more'),
+ svg_path: 'illustrations/devops-sm.svg',
+ variant: :promotion,
+ banner_options: {
     class: 'js-persistent-callout',
     data: { feature_id: 'my_callout', dismiss_endpoint: callouts_path }
-  }
+ }
 ) do |c|
-  - c.with_body do
+ - c.with_body do
     = _('Banner content')
 ```
 
@@ -411,8 +387,8 @@ dismiss_options: { user: current_user, feature_id: 'my_callout' }
 ) do |c|
 
 - c.with_title do
-  = _('Banner title')
-  = _('Banner content')
+ = _('Banner title')
+ = _('Banner content')
 ```
 
 ## Vue
@@ -421,23 +397,20 @@ This section describes using callouts when they are rendered on the client in `.
 
 ### Dismissing the callouts on the client side
 
-For Vue components, we have dismisser wrapper components that integrate with GraphQL API to simplify
-dismissing and checking the dismissed state of callouts.
+For Vue components, we have dismisser wrapper components that integrate with GraphQL API to simplify dismissing and checking the dismissed state of callouts.
 
 #### User (global) callouts
 
-For global user callouts that should be dismissed across the entire GitLab instance, use `<user-callout-dismisser>`. Use
-this component when the callout should be dismissed globally for the user across all groups and projects (e.g., feature
-announcements, account security reminders).
+For global user callouts that should be dismissed across the entire GitLab instance, use `<user-callout-dismisser>`. Use this component when the callout should be dismissed globally for the user across all groups and projects (e.g., feature announcements, account security reminders).
 
 ```vue
 <user-callout-dismisser feature-name="my_user_callout">
-  <template #default="{ dismiss, shouldShowCallout }">
+ <template #default="{ dismiss, shouldShowCallout }">
     <my-callout-component
       v-if="shouldShowCallout"
       @close="dismiss"
     />
-  </template>
+ </template>
 </user-callout-dismisser>
 ```
 
@@ -445,26 +418,23 @@ See `app/assets/javascripts/vue_shared/components/user_callout_dismisser.vue` fo
 
 #### Group callouts
 
-For group-specific callouts that should only be dismissed within a particular group context, use
-`<user-group-callout-dismisser>`. Use this component when the callout is specific to a group context and should only be
-dismissed within that group (e.g., group billing notifications, group-specific feature promotions).
+For group-specific callouts that should only be dismissed within a particular group context, use `<user-group-callout-dismisser>`. Use this component when the callout is specific to a group context and should only be dismissed within that group (e.g., group billing notifications, group-specific feature promotions).
 
 ```vue
 <user-group-callout-dismisser
-  feature-name="my_group_callout"
-  :group-id="groupId"
+ feature-name="my_group_callout"
+ :group-id="groupId"
 >
-  <template #default="{ dismiss, shouldShowCallout }">
+ <template #default="{ dismiss, shouldShowCallout }">
     <my-group-callout-component
       v-if="shouldShowCallout"
       @close="dismiss"
     />
-  </template>
+ </template>
 </user-group-callout-dismisser>
 ```
 
-The `group-id` prop accepts both numeric IDs (e.g., `123`) and GraphQL IDs (e.g., `'gid://gitlab/Group/123'`). The
-component handles the conversion to GraphQL format internally, so you can pass either format.
+The `group-id` prop accepts both numeric IDs (e.g., `123`) and GraphQL IDs (e.g., `'gid://gitlab/Group/123'`). The component handles the conversion to GraphQL format internally, so you can pass either format.
 
 See `app/assets/javascripts/vue_shared/components/user_group_callout_dismisser.vue` for more details.
 

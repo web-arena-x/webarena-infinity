@@ -43,8 +43,7 @@ Some system notes are not part of this API, but are recorded as separate events:
 
 ## Notes pagination
 
-By default, `GET` requests return 20 results at a time because the API results
-are paginated.
+By default, `GET` requests return 20 results at a time because the API results are paginated.
 
 Read more on [pagination](rest/_index.md#pagination).
 
@@ -71,11 +70,11 @@ GET /projects/:id/issues/:issue_iid/notes?activity_filter=only_comments
 | `issue_iid` | integer           | yes      | The IID of an issue |
 | `activity_filter` | string      | no       | Filter notes by activity type. Valid values: `all_notes`, `only_comments`, `only_activity`. Default is `all_notes` |
 | `sort`      | string            | no       | Return issue notes sorted in `asc` or `desc` order. Default is `desc` |
-| `order_by`  | string            | no       | Return issue notes ordered by `created_at` or `updated_at` fields. Default is `created_at` |
+| `order_by` | string            | no       | Return issue notes ordered by `created_at` or `updated_at` fields. Default is `created_at` |
 
 ```json
 [
-  {
+ {
     "id": 302,
     "body": "closed",
     "author": {
@@ -98,8 +97,8 @@ GET /projects/:id/issues/:issue_iid/notes?activity_filter=only_comments
     "internal": false,
     "imported": false,
     "imported_from": "none"
-  },
-  {
+ },
+ {
     "id": 305,
     "body": "Text of the comment\r\n",
     "author": {
@@ -122,13 +121,13 @@ GET /projects/:id/issues/:issue_iid/notes?activity_filter=only_comments
     "internal": true,
     "imported": false,
     "imported_from": "none"
-  }
+ }
 ]
 ```
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/11/notes"
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/11/notes"
 ```
 
 ### Get single issue note
@@ -149,7 +148,7 @@ Parameters:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/11/notes/1"
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/11/notes/1"
 ```
 
 ### Create new issue note
@@ -173,7 +172,7 @@ Parameters:
 
 ```shell
 curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/11/notes?body=note"
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/11/notes?body=note"
 ```
 
 ### Modify existing issue note
@@ -196,7 +195,7 @@ Parameters:
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/11/notes/636?body=note"
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/11/notes/636?body=note"
 ```
 
 ### Delete an issue note
@@ -217,7 +216,7 @@ Parameters:
 
 ```shell
 curl --request DELETE --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/11/notes/636"
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/11/notes/636"
 ```
 
 ## Snippets
@@ -242,7 +241,7 @@ GET /projects/:id/snippets/:snippet_id/notes?sort=asc&order_by=updated_at
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/snippets/11/notes"
+ --url "https://gitlab.example.com/api/v4/projects/5/snippets/11/notes"
 ```
 
 ### Get single snippet note
@@ -263,34 +262,34 @@ Parameters:
 
 ```json
 {
-  "id": 302,
-  "body": "closed",
-  "author": {
+ "id": 302,
+ "body": "closed",
+ "author": {
     "id": 1,
     "username": "pipin",
     "email": "admin@example.com",
     "name": "Pip",
     "state": "active",
     "created_at": "2013-09-30T13:46:01Z"
-  },
-  "created_at": "2013-10-02T09:22:45Z",
-  "updated_at": "2013-10-02T10:22:45Z",
-  "system": true,
-  "noteable_id": 377,
-  "noteable_type": "Issue",
-  "project_id": 5,
-  "noteable_iid": 377,
-  "resolvable": false,
-  "confidential": false,
-  "internal": false,
-  "imported": false,
-  "imported_from": "none"
+ },
+ "created_at": "2013-10-02T09:22:45Z",
+ "updated_at": "2013-10-02T10:22:45Z",
+ "system": true,
+ "noteable_id": 377,
+ "noteable_type": "Issue",
+ "project_id": 5,
+ "noteable_iid": 377,
+ "resolvable": false,
+ "confidential": false,
+ "internal": false,
+ "imported": false,
+ "imported_from": "none"
 }
 ```
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/snippets/11/notes/11"
+ --url "https://gitlab.example.com/api/v4/projects/5/snippets/11/notes/11"
 ```
 
 ### Create new snippet note
@@ -313,7 +312,7 @@ Parameters:
 
 ```shell
 curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/snippet/11/notes?body=note"
+ --url "https://gitlab.example.com/api/v4/projects/5/snippet/11/notes?body=note"
 ```
 
 ### Modify existing snippet note
@@ -335,7 +334,7 @@ Parameters:
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/snippets/11/notes/1659?body=note"
+ --url "https://gitlab.example.com/api/v4/projects/5/snippets/11/notes/1659?body=note"
 ```
 
 ### Delete a snippet note
@@ -356,7 +355,7 @@ Parameters:
 
 ```shell
 curl --request DELETE --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/snippets/52/notes/1659"
+ --url "https://gitlab.example.com/api/v4/projects/5/snippets/52/notes/1659"
 ```
 
 ## Merge requests
@@ -379,7 +378,7 @@ GET /projects/:id/merge_requests/:merge_request_iid/notes?sort=asc&order_by=upda
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/merge_requests/11/notes"
+ --url "https://gitlab.example.com/api/v4/projects/5/merge_requests/11/notes"
 ```
 
 ### Get single merge request note
@@ -400,40 +399,37 @@ Parameters:
 
 ```json
 {
-  "id": 301,
-  "body": "Comment for MR",
-  "author": {
+ "id": 301,
+ "body": "Comment for MR",
+ "author": {
     "id": 1,
     "username": "pipin",
     "email": "admin@example.com",
     "name": "Pip",
     "state": "active",
     "created_at": "2013-09-30T13:46:01Z"
-  },
-  "created_at": "2013-10-02T08:57:14Z",
-  "updated_at": "2013-10-02T08:57:14Z",
-  "system": false,
-  "noteable_id": 2,
-  "noteable_type": "MergeRequest",
-  "project_id": 5,
-  "noteable_iid": 2,
-  "resolvable": false,
-  "confidential": false,
-  "internal": false
+ },
+ "created_at": "2013-10-02T08:57:14Z",
+ "updated_at": "2013-10-02T08:57:14Z",
+ "system": false,
+ "noteable_id": 2,
+ "noteable_type": "MergeRequest",
+ "project_id": 5,
+ "noteable_iid": 2,
+ "resolvable": false,
+ "confidential": false,
+ "internal": false
 }
 ```
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/merge_requests/11/notes/1"
+ --url "https://gitlab.example.com/api/v4/projects/5/merge_requests/11/notes/1"
 ```
 
 ### Create new merge request note
 
-Creates a new note for a single merge request. Notes are not attached to specific
-lines in a merge request. For other approaches with more granular control, see
-[Post comment to commit](commits.md#post-comment-to-commit) in the Commits API,
-and [Create a new thread in the merge request diff](discussions.md#create-a-new-thread-in-the-merge-request-diff)
+Creates a new note for a single merge request. Notes are not attached to specific lines in a merge request. For other approaches with more granular control, see [Post comment to commit](commits.md#post-comment-to-commit) in the Commits API, and [Create a new thread in the merge request diff](discussions.md#create-a-new-thread-in-the-merge-request-diff)
 in the Discussions API.
 
 If you create a note where the body only contains an emoji reaction, GitLab returns this object.
@@ -455,7 +451,7 @@ Parameters:
 
 ```shell
 curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/merge_requests/11/notes?body=note"
+ --url "https://gitlab.example.com/api/v4/projects/5/merge_requests/11/notes?body=note"
 ```
 
 ### Modify existing merge request note
@@ -478,7 +474,7 @@ Parameters:
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/merge_requests/11/notes/1?body=note"
+ --url "https://gitlab.example.com/api/v4/projects/5/merge_requests/11/notes/1?body=note"
 ```
 
 ### Delete a merge request note
@@ -499,7 +495,7 @@ Parameters:
 
 ```shell
 curl --request DELETE --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/merge_requests/7/notes/1602"
+ --url "https://gitlab.example.com/api/v4/projects/5/merge_requests/7/notes/1602"
 ```
 
 ## Epics
@@ -513,10 +509,8 @@ curl --request DELETE --header "PRIVATE-TOKEN: <your_access_token>" \
 
 {{< alert type="warning" >}}
 
-The Epics REST API was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/460668) in GitLab 17.0
-and is planned for removal in v5 of the API.
-From GitLab 17.4 to 18.0, if [the new look for epics](../user/group/epics/_index.md#epics-as-work-items) is enabled, and in GitLab 18.1 and later, use the
-Work Items API instead. For more information, see [migrate epic APIs to work items](graphql/epic_work_items_api_migration_guide.md).
+The Epics REST API was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/460668) in GitLab 17.0 and is planned for removal in v5 of the API.
+From GitLab 17.4 to 18.0, if [the new look for epics](../user/group/epics/_index.md#epics-as-work-items) is enabled, and in GitLab 18.1 and later, use the Work Items API instead. For more information, see [migrate epic APIs to work items](graphql/epic_work_items_api_migration_guide.md).
 This change is a breaking change.
 
 {{< /alert >}}
@@ -527,9 +521,7 @@ Gets a list of all notes for a single epic. Epic notes are comments users can po
 
 {{< alert type="note" >}}
 
-The epics notes API uses the epic ID instead of epic IID. If you use the epic's IID, GitLab returns either a 404
-error or notes for the wrong epic. It's different from the [issue notes API](#issues) and
-[merge requests notes API](#merge-requests).
+The epics notes API uses the epic ID instead of epic IID. If you use the epic's IID, GitLab returns either a 404 error or notes for the wrong epic. It's different from the [issue notes API](#issues) and [merge requests notes API](#merge-requests).
 
 {{< /alert >}}
 
@@ -538,16 +530,16 @@ GET /groups/:id/epics/:epic_id/notes
 GET /groups/:id/epics/:epic_id/notes?sort=asc&order_by=updated_at
 ```
 
-| Attribute  | Type              | Required | Description |
+| Attribute | Type              | Required | Description |
 |------------|-------------------|----------|-------------|
 | `id`       | integer or string | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
-| `epic_id`  | integer           | yes      | The ID of a group epic |
+| `epic_id` | integer           | yes      | The ID of a group epic |
 | `sort`     | string            | no       | Return epic notes sorted in `asc` or `desc` order. Default is `desc` |
 | `order_by` | string            | no       | Return epic notes ordered by `created_at` or `updated_at` fields. Default is `created_at` |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/epics/11/notes"
+ --url "https://gitlab.example.com/api/v4/groups/5/epics/11/notes"
 ```
 
 ### Get single epic note
@@ -568,34 +560,34 @@ Parameters:
 
 ```json
 {
-  "id": 302,
-  "body": "Epic note",
-  "author": {
+ "id": 302,
+ "body": "Epic note",
+ "author": {
     "id": 1,
     "username": "pipin",
     "email": "admin@example.com",
     "name": "Pip",
     "state": "active",
     "created_at": "2013-09-30T13:46:01Z"
-  },
-  "created_at": "2013-10-02T09:22:45Z",
-  "updated_at": "2013-10-02T10:22:45Z",
-  "system": true,
-  "noteable_id": 11,
-  "noteable_type": "Epic",
-  "project_id": 5,
-  "noteable_iid": 11,
-  "resolvable": false,
-  "confidential": false,
-  "internal": false,
-  "imported": false,
-  "imported_from": "none"
+ },
+ "created_at": "2013-10-02T09:22:45Z",
+ "updated_at": "2013-10-02T10:22:45Z",
+ "system": true,
+ "noteable_id": 11,
+ "noteable_type": "Epic",
+ "project_id": 5,
+ "noteable_iid": 11,
+ "resolvable": false,
+ "confidential": false,
+ "internal": false,
+ "imported": false,
+ "imported_from": "none"
 }
 ```
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/epics/11/notes/1"
+ --url "https://gitlab.example.com/api/v4/groups/5/epics/11/notes/1"
 ```
 
 ### Create new epic note
@@ -619,7 +611,7 @@ Parameters:
 
 ```shell
 curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/epics/11/notes?body=note"
+ --url "https://gitlab.example.com/api/v4/groups/5/epics/11/notes?body=note"
 ```
 
 ### Modify existing epic note
@@ -642,7 +634,7 @@ Parameters:
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/epics/11/notes/1?body=note"
+ --url "https://gitlab.example.com/api/v4/groups/5/epics/11/notes/1?body=note"
 ```
 
 ### Delete an epic note
@@ -663,7 +655,7 @@ Parameters:
 
 ```shell
 curl --request DELETE --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/epics/52/notes/1659"
+ --url "https://gitlab.example.com/api/v4/groups/5/epics/52/notes/1659"
 ```
 
 ## Project wikis
@@ -674,8 +666,7 @@ Gets a list of all notes for a project wiki page. Project wiki notes are comment
 
 {{< alert type="note" >}}
 
-The wiki page notes API uses the wiki page meta ID instead of wiki page slug. If you use the page's slug, GitLab returns a 404
-error. You can retrieve the meta ID from the [project wikis API](wikis.md).
+The wiki page notes API uses the wiki page meta ID instead of wiki page slug. If you use the page's slug, GitLab returns a 404 error. You can retrieve the meta ID from the [project wikis API](wikis.md).
 
 {{< /alert >}}
 
@@ -686,16 +677,16 @@ GET /projects/:id/wiki_pages/:wiki_page_meta_id/notes?sort=asc&order_by=updated_
 
 Parameters:
 
-| Attribute  | Type              | Required | Description |
+| Attribute | Type              | Required | Description |
 |------------|-------------------|----------|-------------|
 | `id`       | integer or string | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
-| `wiki_page_meta_id`  | integer           | yes      | The ID of a wiki page meta |
+| `wiki_page_meta_id` | integer           | yes      | The ID of a wiki page meta |
 | `sort`     | string            | no       | Return wiki page notes sorted in `asc` or `desc` order. Default is `desc` |
 | `order_by` | string            | no       | Return wiki page notes ordered by `created_at` or `updated_at` fields. Default is `created_at` |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/wiki_pages/35/notes"
+ --url "https://gitlab.example.com/api/v4/projects/5/wiki_pages/35/notes"
 ```
 
 ### Get single wiki page note
@@ -711,41 +702,41 @@ Parameters:
 | Attribute | Type              | Required | Description |
 |-----------|-------------------|----------|-------------|
 | `id`      | integer or string | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
-| `wiki_page_meta_id`  | integer           | yes      | The ID of a wiki page meta |
+| `wiki_page_meta_id` | integer           | yes      | The ID of a wiki page meta |
 | `note_id` | integer           | yes      | The ID of a note |
 
 ```json
 {
-  "author": {
+ "author": {
       "id": 1,
       "username": "pipin",
       "email": "admin@example.com",
       "name": "Pip",
       "state": "active",
       "created_at": "2013-09-30T13:46:01Z"
-  },
-  "body": "foobar",
-  "commands_changes": {},
-  "confidential": false,
-  "created_at": "2025-03-11T11:36:32.222Z",
-  "id": 1218,
-  "imported": false,
-  "imported_from": "none",
-  "internal": false,
-  "noteable_id": 35,
-  "noteable_iid": null,
-  "noteable_type": "WikiPage::Meta",
-  "project_id": 5,
-  "resolvable": false,
-  "system": false,
-  "type": null,
-  "updated_at": "2025-03-11T11:36:32.222Z"
+ },
+ "body": "foobar",
+ "commands_changes": {},
+ "confidential": false,
+ "created_at": "2025-03-11T11:36:32.222Z",
+ "id": 1218,
+ "imported": false,
+ "imported_from": "none",
+ "internal": false,
+ "noteable_id": 35,
+ "noteable_iid": null,
+ "noteable_type": "WikiPage::Meta",
+ "project_id": 5,
+ "resolvable": false,
+ "system": false,
+ "type": null,
+ "updated_at": "2025-03-11T11:36:32.222Z"
 }
 ```
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/wiki_pages/35/notes/1218"
+ --url "https://gitlab.example.com/api/v4/projects/5/wiki_pages/35/notes/1218"
 ```
 
 ### Create new wiki page note
@@ -761,12 +752,12 @@ Parameters:
 | Attribute      | Type              | Required | Description |
 |----------------|-------------------|----------|-------------|
 | `body`         | string            | yes      | The content of a note. Limited to 1,000,000 characters. |
-| `wiki_page_meta_id`  | integer           | yes      | The ID of a wiki page meta |
+| `wiki_page_meta_id` | integer           | yes      | The ID of a wiki page meta |
 | `id`           | integer or string | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
 
 ```shell
 curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/wiki_pages/35/notes?body=note"
+ --url "https://gitlab.example.com/api/v4/projects/5/wiki_pages/35/notes?body=note"
 ```
 
 ### Modify existing wiki page note
@@ -782,13 +773,13 @@ Parameters:
 | Attribute      | Type              | Required | Description |
 |----------------|-------------------|----------|-------------|
 | `id`           | integer or string | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
-| `wiki_page_meta_id`  | integer           | yes      | The ID of a wiki page meta |
+| `wiki_page_meta_id` | integer           | yes      | The ID of a wiki page meta |
 | `note_id`      | integer           | yes      | The ID of a note |
 | `body`         | string            | yes      | The content of a note. Limited to 1,000,000 characters. |
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/wiki_pages/35/notes/1218?body=note"
+ --url "https://gitlab.example.com/api/v4/projects/5/wiki_pages/35/notes/1218?body=note"
 ```
 
 ### Delete a wiki page note
@@ -804,12 +795,12 @@ Parameters:
 | Attribute | Type              | Required | Description |
 |-----------|-------------------|----------|-------------|
 | `id`      | integer or string | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
-| `wiki_page_meta_id`  | integer           | yes      | The ID of a wiki page meta |
+| `wiki_page_meta_id` | integer           | yes      | The ID of a wiki page meta |
 | `note_id` | integer           | yes      | The ID of a note |
 
 ```shell
 curl --request DELETE --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/wiki_pages/35/notes/1218"
+ --url "https://gitlab.example.com/api/v4/projects/5/wiki_pages/35/notes/1218"
 ```
 
 ## Group wikis
@@ -827,8 +818,7 @@ Gets a list of all notes for a group wiki page. Group wiki notes are comments us
 
 {{< alert type="note" >}}
 
-The wiki page notes API uses the wiki page meta ID instead of wiki page slug. If you use the page's slug, GitLab returns a 404
-error. You can retrieve the meta ID from the [group wikis API](group_wikis.md).
+The wiki page notes API uses the wiki page meta ID instead of wiki page slug. If you use the page's slug, GitLab returns a 404 error. You can retrieve the meta ID from the [group wikis API](group_wikis.md).
 
 {{< /alert >}}
 
@@ -837,16 +827,16 @@ GET /groups/:id/wiki_pages/:wiki_page_meta_id/notes
 GET /groups/:id/wiki_pages/:wiki_page_meta_id/notes?sort=asc&order_by=updated_at
 ```
 
-| Attribute  | Type              | Required | Description |
+| Attribute | Type              | Required | Description |
 |------------|-------------------|----------|-------------|
 | `id`       | integer or string | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
-| `wiki_page_meta_id`  | integer           | yes      | The ID of a wiki page meta |
+| `wiki_page_meta_id` | integer           | yes      | The ID of a wiki page meta |
 | `sort`     | string            | no       | Return wiki page notes sorted in `asc` or `desc` order. Default is `desc` |
 | `order_by` | string            | no       | Return wiki page notes ordered by `created_at` or `updated_at` fields. Default is `created_at` |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/wiki_pages/35/notes"
+ --url "https://gitlab.example.com/api/v4/groups/5/wiki_pages/35/notes"
 ```
 
 ### Get single wiki page note
@@ -862,41 +852,41 @@ Parameters:
 | Attribute | Type              | Required | Description |
 |-----------|-------------------|----------|-------------|
 | `id`      | integer or string | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
-| `wiki_page_meta_id`  | integer           | yes      | The ID of a wiki page meta |
+| `wiki_page_meta_id` | integer           | yes      | The ID of a wiki page meta |
 | `note_id` | integer           | yes      | The ID of a note |
 
 ```json
 {
-  "author": {
+ "author": {
       "id": 1,
       "username": "pipin",
       "email": "admin@example.com",
       "name": "Pip",
       "state": "active",
       "created_at": "2013-09-30T13:46:01Z"
-  },
-  "body": "foobar",
-  "commands_changes": {},
-  "confidential": false,
-  "created_at": "2025-03-11T11:36:32.222Z",
-  "id": 1218,
-  "imported": false,
-  "imported_from": "none",
-  "internal": false,
-  "noteable_id": 35,
-  "noteable_iid": null,
-  "noteable_type": "WikiPage::Meta",
-  "project_id": null,
-  "resolvable": false,
-  "system": false,
-  "type": null,
-  "updated_at": "2025-03-11T11:36:32.222Z"
+ },
+ "body": "foobar",
+ "commands_changes": {},
+ "confidential": false,
+ "created_at": "2025-03-11T11:36:32.222Z",
+ "id": 1218,
+ "imported": false,
+ "imported_from": "none",
+ "internal": false,
+ "noteable_id": 35,
+ "noteable_iid": null,
+ "noteable_type": "WikiPage::Meta",
+ "project_id": null,
+ "resolvable": false,
+ "system": false,
+ "type": null,
+ "updated_at": "2025-03-11T11:36:32.222Z"
 }
 ```
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/wiki_pages/35/notes/1218"
+ --url "https://gitlab.example.com/api/v4/groups/5/wiki_pages/35/notes/1218"
 ```
 
 ### Create new wiki page note
@@ -912,12 +902,12 @@ Parameters:
 | Attribute      | Type              | Required | Description |
 |----------------|-------------------|----------|-------------|
 | `body`         | string            | yes      | The content of a note. Limited to 1,000,000 characters. |
-| `wiki_page_meta_id`  | integer           | yes      | The ID of a wiki page meta |
+| `wiki_page_meta_id` | integer           | yes      | The ID of a wiki page meta |
 | `id`           | integer or string | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
 
 ```shell
 curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/wiki_pages/35/notes?body=note"
+ --url "https://gitlab.example.com/api/v4/groups/5/wiki_pages/35/notes?body=note"
 ```
 
 ### Modify existing wiki page note
@@ -933,13 +923,13 @@ Parameters:
 | Attribute      | Type              | Required | Description |
 |----------------|-------------------|----------|-------------|
 | `id`           | integer or string | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
-| `wiki_page_meta_id`  | integer           | yes      | The ID of a wiki page meta |
+| `wiki_page_meta_id` | integer           | yes      | The ID of a wiki page meta |
 | `note_id`      | integer           | yes      | The ID of a note |
 | `body`         | string            | yes      | The content of a note. Limited to 1,000,000 characters. |
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/wiki_pages/35/notes/1218?body=note"
+ --url "https://gitlab.example.com/api/v4/groups/5/wiki_pages/35/notes/1218?body=note"
 ```
 
 ### Delete a wiki page note
@@ -955,10 +945,10 @@ Parameters:
 | Attribute | Type              | Required | Description |
 |-----------|-------------------|----------|-------------|
 | `id`      | integer or string | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
-| `wiki_page_meta_id`  | integer           | yes      | The ID of a wiki page meta |
+| `wiki_page_meta_id` | integer           | yes      | The ID of a wiki page meta |
 | `note_id` | integer           | yes      | The ID of a note |
 
 ```shell
 curl --request DELETE --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/wiki_pages/35/notes/1218"
+ --url "https://gitlab.example.com/api/v4/groups/5/wiki_pages/35/notes/1218"
 ```

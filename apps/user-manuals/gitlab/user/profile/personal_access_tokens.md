@@ -22,19 +22,15 @@ In both cases, you authenticate with a personal access token in place of your pa
 
 Personal access tokens are:
 
-- Required when [two-factor authentication (2FA)](account/two_factor_authentication.md) or
-  [SAML](../../integration/saml.md#password-generation-for-users-created-through-saml) is enabled.
-- Used with a GitLab username to authenticate with GitLab features that require usernames. For example,
-  [GitLab-managed Terraform state backend](../infrastructure/iac/terraform_state.md#use-your-gitlab-backend-as-a-remote-data-source)
-  and [Docker container registry](../packages/container_registry/authenticate_with_container_registry.md),
-- Similar to [project access tokens](../project/settings/project_access_tokens.md) and [group access tokens](../group/settings/group_access_tokens.md), but are attached
-  to a user rather than a project or group.
+- Required when [two-factor authentication (2FA)](account/two_factor_authentication.md) or [SAML](../../integration/saml.md#password-generation-for-users-created-through-saml) is enabled.
+- Used with a GitLab username to authenticate with GitLab features that require usernames. For example, [GitLab-managed Terraform state backend](../infrastructure/iac/terraform_state.md#use-your-gitlab-backend-as-a-remote-data-source)
+ and [Docker container registry](../packages/container_registry/authenticate_with_container_registry.md),
+- Similar to [project access tokens](../project/settings/project_access_tokens.md) and [group access tokens](../group/settings/group_access_tokens.md), but are attached to a user rather than a project or group.
 
 {{< alert type="note" >}}
 
 Though required, GitLab usernames are ignored when authenticating with a personal access token.
-There is an [issue for tracking](https://gitlab.com/gitlab-org/gitlab/-/issues/212953) to make GitLab
-use the username.
+There is an [issue for tracking](https://gitlab.com/gitlab-org/gitlab/-/issues/212953) to make GitLab use the username.
 
 {{< /alert >}}
 
@@ -83,13 +79,11 @@ You can create as many personal access tokens as you like.
 1. Select the [desired scopes](#personal-access-token-scopes).
 1. Select **Create personal access token**.
 
-Save the personal access token somewhere safe. After you leave the page,
-you no longer have access to the token.
+Save the personal access token somewhere safe. After you leave the page, you no longer have access to the token.
 
 ### Prefill personal access token details
 
-You can prefill the details of the personal access token by appending the name, description, and
-list of scopes to the URL. For example:
+You can prefill the details of the personal access token by appending the name, description, and list of scopes to the URL. For example:
 
 ```plaintext
 https://gitlab.example.com/-/user_settings/personal_access_tokens?name=Example+Access+token&description=My+description&scopes=api,read_user
@@ -112,8 +106,7 @@ for guidance on managing personal access tokens (for example, setting a short ex
 {{< /history >}}
 
 Rotating a token creates a new token with fresh credentials while invalidating the previous version.
-Rotated tokens maintain the same permissions and scope as the original. The old token becomes inactive
-immediately, and both versions remain in the system for audit purposes.
+Rotated tokens maintain the same permissions and scope as the original. The old token becomes inactive immediately, and both versions remain in the system for audit purposes.
 
 To rotate a personal access token:
 
@@ -132,8 +125,7 @@ To rotate a personal access token:
 
 {{< /history >}}
 
-Revoking a token immediately invalidates it, preventing any further use for authentication or
-authorization. Revoked tokens remain in the system to maintain an audit trail of token history.
+Revoking a token immediately invalidates it, preventing any further use for authentication or authorization. Revoked tokens remain in the system to maintain an audit trail of token history.
 You cannot permanently delete tokens, but you can filter token lists to show only active tokens.
 
 To revoke a personal access token:
@@ -164,8 +156,7 @@ Prerequisites:
 
 - You must be an administrator.
 
-Depending on your GitLab version, you can use either the application settings API
-or the Admin UI to disable personal access tokens.
+Depending on your GitLab version, you can use either the application settings API or the Admin UI to disable personal access tokens.
 
 ### Use the application settings API
 
@@ -219,8 +210,7 @@ Prerequisites:
 
 Disabling the personal access tokens of a group's [enterprise users](../enterprise_user/_index.md):
 
-- Stops the enterprise users from creating new personal access tokens. This behavior applies
-  even if an enterprise user is also an administrator of the group.
+- Stops the enterprise users from creating new personal access tokens. This behavior applies even if an enterprise user is also an administrator of the group.
 - Disables the existing personal access tokens of the enterprise users.
 
 {{< alert type="warning" >}}
@@ -260,8 +250,7 @@ To view the last time a token was used, and the IP addresses from where the toke
 1. In the upper-right corner, select your avatar.
 1. Select **Edit profile**.
 1. On the left sidebar, select **Personal access tokens**.
-1. In the **Active personal access tokens** area, view the **Last Used** date and **Last Used IPs** for
-   the relevant token. **Last Used IPs** shows the last five distinct IP addresses.
+1. In the **Active personal access tokens** area, view the **Last Used** date and **Last Used IPs** for the relevant token. **Last Used IPs** shows the last five distinct IP addresses.
 
 ## Personal access token scopes
 
@@ -283,11 +272,11 @@ A personal access token can perform actions based on the assigned scopes.
 | `api`              | Grants complete read/write access to the API, including all groups and projects, the container registry, the dependency proxy, and the package registry. Also grants complete read/write access to the registry and repository using Git over HTTP.                                                                                                                                                           |
 | `read_user`        | Grants read-only access to the authenticated user's profile through the `/user` API endpoint, which includes username, public email, and full name. Also grants access to read-only API endpoints under [`/users`](../../api/users.md).                                                                            |
 | `read_api`         | Grants read access to the API, including all groups and projects, the container registry, and the package registry.                    |
-| `read_repository`  | Grants read-only access to repositories on private projects using Git-over-HTTP or the Repository Files API.                                                                                                                                                                                                       |
+| `read_repository` | Grants read-only access to repositories on private projects using Git-over-HTTP or the Repository Files API.                                                                                                                                                                                                       |
 | `write_repository` | Grants read-write access to repositories on private projects using Git-over-HTTP (not using the API).                                                                                                                                                                                                              |
 | `read_registry`    | Grants read-only (pull) access to [container registry](../packages/container_registry/_index.md) images if a project is private and authorization is required. Available only when the container registry is enabled.                                                                                               |
-| `write_registry`   | Grants read-write (push) access to [container registry](../packages/container_registry/_index.md) images if a project is private and authorization is required. Available only when the container registry is enabled.  |
-| `read_virtual_registry`  | If a project is private and authorization is required, grants read-only (pull) access to container images through the [dependency proxy](../packages/dependency_proxy/_index.md). Available only when the dependency proxy is enabled. |
+| `write_registry`   | Grants read-write (push) access to [container registry](../packages/container_registry/_index.md) images if a project is private and authorization is required. Available only when the container registry is enabled. |
+| `read_virtual_registry` | If a project is private and authorization is required, grants read-only (pull) access to container images through the [dependency proxy](../packages/dependency_proxy/_index.md). Available only when the dependency proxy is enabled. |
 | `write_virtual_registry` | If a project is private and authorization is required, grants read (pull), write (push), and delete access to container images through the [dependency proxy](../packages/dependency_proxy/_index.md). Available only when the dependency proxy is enabled. |
 | `sudo`             | Grants permission to perform API actions as any user in the system, when authenticated as an administrator.                                                                                                                                                                                                        |
 | `admin_mode`       | Grants permission to perform API actions when [Admin Mode](../../administration/settings/sign_in_restrictions.md#admin-mode) is enabled. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/107875) in GitLab 15.8. Available only to administrators on GitLab Self-Managed instances. |
@@ -323,28 +312,20 @@ Personal access tokens expire on the date you define, at midnight, 00:00 AM UTC.
 
 - GitLab runs a check at 1:00 AM UTC every day to identify personal access tokens that expire soon. The owners of these tokens are [notified by email](#personal-access-token-expiry-emails).
 - GitLab runs a check at 02:00 AM UTC every day to identify personal access tokens that expire on the current date. The owners of these tokens are notified by email.
-- In GitLab Ultimate, administrators can
-  [limit the allowable lifetime of access tokens](../../administration/settings/account_and_limit_settings.md#limit-the-lifetime-of-access-tokens). If not set, the maximum allowable lifetime of a personal access token is 365 days. In GitLab 17.6 or later, you can extend this limit to 400 days.
+- In GitLab Ultimate, administrators can [limit the allowable lifetime of access tokens](../../administration/settings/account_and_limit_settings.md#limit-the-lifetime-of-access-tokens). If not set, the maximum allowable lifetime of a personal access token is 365 days. In GitLab 17.6 or later, you can extend this limit to 400 days.
 - In GitLab Free and Premium, the maximum allowable lifetime of a personal access token is 365 days. In GitLab 17.6 or later, you can extend this limit to 400 days.
-- If you do not set an expiry date when creating a personal access token, the expiry date is set to the
-  [maximum allowed lifetime for the token](../../administration/settings/account_and_limit_settings.md#limit-the-lifetime-of-access-tokens).
-  If the maximum allowed lifetime is not set, the default expiry date is 365 days from the date of creation.
+- If you do not set an expiry date when creating a personal access token, the expiry date is set to the [maximum allowed lifetime for the token](../../administration/settings/account_and_limit_settings.md#limit-the-lifetime-of-access-tokens).
+ If the maximum allowed lifetime is not set, the default expiry date is 365 days from the date of creation.
 
-Whether your existing personal access tokens have expiry dates automatically applied
-depends on what GitLab offering you have, and when you upgraded to GitLab 16.0 or later:
+Whether your existing personal access tokens have expiry dates automatically applied depends on what GitLab offering you have, and when you upgraded to GitLab 16.0 or later:
 
-- On GitLab.com, during the 16.0 milestone, existing personal access tokens without
-  an expiry date were automatically given an expiry date of 365 days later than the current date.
+- On GitLab.com, during the 16.0 milestone, existing personal access tokens without an expiry date were automatically given an expiry date of 365 days later than the current date.
 - On GitLab Self-Managed, if you upgraded from GitLab 15.11 or earlier to GitLab 16.0 or later:
-  - On or before July 23, 2024, existing personal access tokens without an expiry
-    date were automatically given an expiry date of 365 days later than the current date.
+ - On or before July 23, 2024, existing personal access tokens without an expiry date were automatically given an expiry date of 365 days later than the current date.
     This change is a breaking change.
-  - On or after July 24, 2024, existing personal access tokens without an expiry
-    date did not have an expiry date set.
+ - On or after July 24, 2024, existing personal access tokens without an expiry date did not have an expiry date set.
 
-On GitLab Self-Managed, if you do a new install of one of the following GitLab
-versions, your existing personal access tokens do not have expiry dates
-automatically applied:
+On GitLab Self-Managed, if you do a new install of one of the following GitLab versions, your existing personal access tokens do not have expiry dates automatically applied:
 
 - 16.0.9
 - 16.1.7
@@ -438,10 +419,7 @@ This feature is available for testing, but not ready for production use.
 
 {{< /alert >}}
 
-Demonstrating Proof of Possession (DPoP) enhances the security of your personal access tokens,
-and minimizes the effects of unintended token leaks. When you enable this feature on your
-account, all REST and GraphQL API requests containing a PAT must also provide a signed DPoP header. Creating a
-signed DPoP header requires your corresponding private SSH key.
+Demonstrating Proof of Possession (DPoP) enhances the security of your personal access tokens, and minimizes the effects of unintended token leaks. When you enable this feature on your account, all REST and GraphQL API requests containing a PAT must also provide a signed DPoP header. Creating a signed DPoP header requires your corresponding private SSH key.
 
 {{< alert type="note" >}}
 
@@ -454,10 +432,10 @@ DPoP header is not required for Git operations over HTTPS that include an access
 Prerequisites:
 
 - You must [add at least one public SSH key](../ssh.md#add-an-ssh-key-to-your-gitlab-account)
-  to your account, with a **Usage type** of **Signing** or **Authentication & Signing**.
-  - Your SSH key type must be RSA.
+ to your account, with a **Usage type** of **Signing** or **Authentication & Signing**.
+ - Your SSH key type must be RSA.
 - You must have installed and configured the [GitLab CLI](../../editor_extensions/gitlab_cli/_index.md)
-  for your GitLab account.
+ for your GitLab account.
 
 To require DPoP on all calls to the REST and GraphQL APIs:
 
@@ -466,9 +444,7 @@ To require DPoP on all calls to the REST and GraphQL APIs:
 1. On the left sidebar, select **Personal access tokens**.
 1. Go to the **Use Demonstrating Proof of Possession (DPoP)** section, and select **Enable DPoP**.
 1. Select **Save changes**.
-1. To generate a DPoP header with the [GitLab CLI](../../editor_extensions/gitlab_cli/_index.md),
-   run this command in your terminal. Replace `<your_access_token>` with your access token, and `~/.ssh/id_rsa`
-   with the location of your private key:
+1. To generate a DPoP header with the [GitLab CLI](../../editor_extensions/gitlab_cli/_index.md), run this command in your terminal. Replace `<your_access_token>` with your access token, and `~/.ssh/id_rsa` with the location of your private key:
 
    ```shell
     glab auth dpop-gen --pat "<your_access_token>" --private-key ~/.ssh/id_rsa
@@ -478,15 +454,15 @@ The DPoP header you generated in the CLI can be used:
 
 - With the REST API:
 
-  ```shell
-  curl --header "PRIVATE-TOKEN: <your_access_token>" \
+ ```shell
+ curl --header "PRIVATE-TOKEN: <your_access_token>" \
     --header "DPoP: <dpop-from-glab>" \
     "https://gitlab.example.com/api/v4/projects"
-  ```
+ ```
 
 - With GraphQL:
 
-  ```shell
+ ```shell
    curl --request POST \
    --header "Content-Type: application/json" \
    --header "PRIVATE-TOKEN: <your_access_token>" \
@@ -495,10 +471,9 @@ The DPoP header you generated in the CLI can be used:
    "query": "query { currentUser { id } }"
    }' \
    "https://gitlab.example.com/api/graphql"
-  ```
+ ```
 
-To learn more about DPoP, see the blueprint
-[Sender Constraining Personal Access Tokens](https://gitlab.com/gitlab-com/gl-security/product-security/appsec/security-feature-blueprints/-/tree/main/sender_constraining_access_tokens).
+To learn more about DPoP, see the blueprint [Sender Constraining Personal Access Tokens](https://gitlab.com/gitlab-com/gl-security/product-security/appsec/security-feature-blueprints/-/tree/main/sender_constraining_access_tokens).
 
 ## Create a personal access token programmatically
 
@@ -509,14 +484,12 @@ To learn more about DPoP, see the blueprint
 
 {{< /details >}}
 
-You can create a predetermined personal access token
-as part of your tests or automation.
+You can create a predetermined personal access token as part of your tests or automation.
 
 Prerequisites:
 
-- You need sufficient access to run a
-  [Rails console session](../../administration/operations/rails_console.md#starting-a-rails-console-session)
-  for your GitLab instance.
+- You need sufficient access to run a [Rails console session](../../administration/operations/rails_console.md#starting-a-rails-console-session)
+ for your GitLab instance.
 
 To create a personal access token programmatically:
 
@@ -528,8 +501,7 @@ To create a personal access token programmatically:
 
 1. Run the following commands to reference the username, the token, and the scopes.
 
-   The token must be 20 characters long. The scopes must be valid and are visible
-   [in the source code](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/auth.rb).
+   The token must be 20 characters long. The scopes must be valid and are visible [in the source code](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/auth.rb).
 
    For example, to create a token that belongs to a user with username `automation-bot` and expires in a year:
 
@@ -540,8 +512,7 @@ To create a personal access token programmatically:
    token.save!
    ```
 
-This code can be shortened into a single-line shell command by using the
-[Rails runner](../../administration/operations/rails_console.md#using-the-rails-runner):
+This code can be shortened into a single-line shell command by using the [Rails runner](../../administration/operations/rails_console.md#using-the-rails-runner):
 
 ```shell
 sudo gitlab-rails runner "token = User.find_by_username('automation-bot').personal_access_tokens.create(scopes: ['read_user', 'read_repository'], name: 'Automation token', expires_at: 365.days.from_now); token.set_token('token-string-here123'); token.save!"
@@ -556,13 +527,12 @@ sudo gitlab-rails runner "token = User.find_by_username('automation-bot').person
 
 {{< /details >}}
 
-You can programmatically revoke a personal access token
-as part of your tests or automation.
+You can programmatically revoke a personal access token as part of your tests or automation.
 
 Prerequisites:
 
 - You need sufficient access to run a [Rails console session](../../administration/operations/rails_console.md#starting-a-rails-console-session)
-  for your GitLab instance.
+ for your GitLab instance.
 
 To revoke a token programmatically:
 
@@ -579,8 +549,7 @@ To revoke a token programmatically:
    token.revoke!
    ```
 
-This code can be shortened into a single-line shell command using the
-[Rails runner](../../administration/operations/rails_console.md#using-the-rails-runner):
+This code can be shortened into a single-line shell command using the [Rails runner](../../administration/operations/rails_console.md#using-the-rails-runner):
 
 ```shell
 sudo gitlab-rails runner "PersonalAccessToken.find_by_token('token-string-here123').revoke!"

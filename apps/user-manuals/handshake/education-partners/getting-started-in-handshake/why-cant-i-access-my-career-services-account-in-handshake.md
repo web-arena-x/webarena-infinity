@@ -19,7 +19,7 @@ If this is the case, reach out to someone you know that has a career services Ha
 Additionally if the error message "Hmmm... Looks like there is no account on file for EMAIL"  appears, it may be for the following reasons:
 
 - Your account may be associated with a different email address. This can happen if you have multiple work email addresses or use email aliases.
-  - Keep in mind that Handshake treats aliases as separate email addresses. To resolve this, try logging in again using the exact email address you used to create your account.
+ - Keep in mind that Handshake treats aliases as separate email addresses. To resolve this, try logging in again using the exact email address you used to create your account.
 - Another possibility is that your email address was misspelled during account creation. If no other email addresses were used, check for a typo.
 
 **You may need to clear your browser cache**

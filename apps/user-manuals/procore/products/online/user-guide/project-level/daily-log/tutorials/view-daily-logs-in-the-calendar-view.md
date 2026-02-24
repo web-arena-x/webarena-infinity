@@ -12,13 +12,13 @@ Use the **Calendar** tab in the **Daily Log** tool to view and manage daily log 
 
 - **Required User Permissions:**
 
-  - To view the calendar:'*Read Only*' or higher permissions on the project's **Daily Log** tool.  
+ - To view the calendar:'*Read Only*' or higher permissions on the project's **Daily Log** tool. 
     *Note*: Users with the ['Collaborator Entry Only' granular permission](https://support.procore.com/products/online/user-guide/company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template "Grant Granular Permissions in a Project Permissions Template") enabled on their permissions templates are not able to see the Calendar view.
 
 ## Steps
 
 1. Navigate to your project's **Daily Log** tool.
-2. Select the **Calendar** tab.  
+2. Select the **Calendar** tab. 
    The **Calendar** view page appears, displaying the daily log entries for the current month. You can view the status of each entry for a day (for example, added or approved).
 
    The status of each daily log entry is highlighted in the calendar view, as follows:
@@ -34,13 +34,13 @@ Use the **Calendar** tab in the **Daily Log** tool to view and manage daily log 
    The date picker supports easy navigation and visibility, especially when accessing dates far in the past (for example, January 2025).
 4. (Optional) Switch between different dates, as described:
 
-   1. To view entries for a different day, select the desired day on the calendar.  
+   1. To view entries for a different day, select the desired day on the calendar. 
       *Note*: You cannot view future dates.
    2. To view the summary for a different day, click the forward or backward arrows on the right side panel.
    3. To view a different month, click the forward or backward arrows next to the month and year fields.
    4. To navigate back to the current day, click **Go To Today**.
 5. (Optional) To view all logs for the day and add or manage entries, click **View Day** on the right side panel**.**
-6. To view log details for a completed day, select the date marked with a green highlight and checkmark on the calendar.  
+6. To view log details for a completed day, select the date marked with a green highlight and checkmark on the calendar. 
    A banner on the right side panel displays the date and name of the user who marked the day as complete. See [Mark a Daily Log as Complete](https://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/mark-a-daily-log-as-complete "Mark a Daily Log as Complete").
 
 ## See Also

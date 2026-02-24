@@ -85,8 +85,7 @@ Example response:
 
 ## Set custom attribute
 
-Set a custom attribute on a resource. The attribute is updated if it already exists,
-or newly created otherwise.
+Set a custom attribute on a resource. The attribute is updated if it already exists, or newly created otherwise.
 
 ```plaintext
 PUT /users/:id/custom_attributes/:key

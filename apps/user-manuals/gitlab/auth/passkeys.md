@@ -15,15 +15,12 @@ description: Passwordless authentication and 2FA using passkeys
 
 {{< history >}}
 
-- [Introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/206407) in GitLab 18.6
-  [with a flag](../administration/feature_flags/_index.md) named `passkeys`.
-  Disabled by default on GitLab Self-Managed.
+- [Introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/206407) in GitLab 18.6 [with a flag](../administration/feature_flags/_index.md) named `passkeys`.
+ Disabled by default on GitLab Self-Managed.
 
 {{< /history >}}
 
-Passkeys provide a secure and convenient way to sign in to your GitLab account without using
-passwords. Passkeys offer phishing-resistant sign-in while protecting users from weak password
-vulnerabilities and credential breaches.
+Passkeys provide a secure and convenient way to sign in to your GitLab account without using passwords. Passkeys offer phishing-resistant sign-in while protecting users from weak password vulnerabilities and credential breaches.
 
 ## How passkeys work
 
@@ -38,18 +35,14 @@ This approach ensures that if GitLab servers are compromised, attackers cannot u
 
 ### Security considerations
 
-- Keep backup authentication methods: Always maintain alternative ways to access your account,
-  such as recovery codes or other 2FA methods.
-- Maintain device security: Ensure your device is protected with a strong PIN, password,
-  or biometric lock.
-- Review regularly: Periodically review your registered passkeys and remove any for devices
-  you no longer use.
+- Keep backup authentication methods: Always maintain alternative ways to access your account, such as recovery codes or other 2FA methods.
+- Maintain device security: Ensure your device is protected with a strong PIN, password, or biometric lock.
+- Review regularly: Periodically review your registered passkeys and remove any for devices you no longer use.
 - Do not use shared devices: Do not set up passkeys on shared or public devices.
 
 ## View your passkeys
 
-To view information about your registered passkeys, including the passkey name, device type,
-and usage details:
+To view information about your registered passkeys, including the passkey name, device type, and usage details:
 
 1. In the upper-right corner, select your avatar.
 1. Select **Edit profile**.
@@ -62,10 +55,9 @@ and usage details:
 Prerequisites:
 
 - You must have a device that supports the WebAuthn standard.
-  - Desktop browsers: Chrome, Firefox, Safari, and Edge.
-  - Mobile devices: iOS 16 and later, and Android 9 and later, with biometric authentication
-    or device PINs turned on.
-  - Security keys: Hardware security keys that support FIDO2 or WebAuthn.
+ - Desktop browsers: Chrome, Firefox, Safari, and Edge.
+ - Mobile devices: iOS 16 and later, and Android 9 and later, with biometric authentication or device PINs turned on.
+ - Security keys: Hardware security keys that support FIDO2 or WebAuthn.
 
 To add a passkey:
 
@@ -142,7 +134,7 @@ If you cannot add a passkey:
 - Check that you have set up a device PIN, fingerprint, or face recognition on your device.
 - Try using a different browser or device.
 - Check if the device is already registered as a WebAuthn two-factor authentication method.
-  - If the device is already registered as a WebAuthn two-factor authentication method:
+ - If the device is already registered as a WebAuthn two-factor authentication method:
 
     1. Delete the WebAuthn device from your 2FA methods.
     1. Register it as a passkey.

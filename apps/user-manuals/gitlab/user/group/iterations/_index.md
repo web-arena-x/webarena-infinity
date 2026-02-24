@@ -13,8 +13,7 @@ description: Time-boxed workflow, program increments, cadence, and sprints.
 
 {{< /details >}}
 
-An iteration in GitLab refers to a time-boxed workflow that groups issues to be worked on during
-a specific period of time, usually lasting 1-3 weeks.
+An iteration in GitLab refers to a time-boxed workflow that groups issues to be worked on during a specific period of time, usually lasting 1-3 weeks.
 
 Teams can use iterations to track velocity and volatility metrics.
 For tracking the same item over multiple concurrent periods, you can use iterations with [milestones](../../project/milestones/_index.md).
@@ -39,16 +38,12 @@ The following examples show how iterations help teams maintain consistent delive
 
 ### Sprint planning and execution
 
-Use iterations to plan and execute work in fixed time periods, and help teams maintain a
-predictable delivery cadence.
-When teams work in sprints, each iteration provides a clear timebox for planning,
-execution, and delivery of work items.
-For more information, see
-[Tutorial: Use GitLab to facilitate Scrum](../../../tutorials/scrum_events/_index.md).
+Use iterations to plan and execute work in fixed time periods, and help teams maintain a predictable delivery cadence.
+When teams work in sprints, each iteration provides a clear timebox for planning, execution, and delivery of work items.
+For more information, see [Tutorial: Use GitLab to facilitate Scrum](../../../tutorials/scrum_events/_index.md).
 
 For example, when running two-week sprints, teams often need to coordinate multiple workstreams.
-The development team tracks implementation in the current sprint, while product managers prepare
-backlog items for upcoming sprints.
+The development team tracks implementation in the current sprint, while product managers prepare backlog items for upcoming sprints.
 
 By using iterations:
 
@@ -68,13 +63,10 @@ When you set up iterations for sprints:
 ### Rapid development cycles
 
 Use iterations to support shorter development cycles when your team needs frequent releases.
-When practicing methodologies like Extreme Programming (XP), teams can use one-week iterations
-to maintain fast feedback loops.
+When practicing methodologies like Extreme Programming (XP), teams can use one-week iterations to maintain fast feedback loops.
 
-For example, when implementing rapid changes, teams might deploy to production multiple times
-per iteration.
-The team tracks their work in weekly iterations while maintaining the flexibility
-to release whenever code is ready.
+For example, when implementing rapid changes, teams might deploy to production multiple times per iteration.
+The team tracks their work in weekly iterations while maintaining the flexibility to release whenever code is ready.
 
 By using iterations:
 
@@ -104,8 +96,7 @@ When you use iterations for rapid cycles:
 {{< /history >}}
 
 Iteration cadences are containers for iterations and can be used to automate iteration scheduling.
-You can use them to automate creating iterations every 1, 2, 3, or 4 weeks. You can also
-configure iteration cadences to automatically roll over incomplete issues to the next iteration.
+You can use them to automate creating iterations every 1, 2, 3, or 4 weeks. You can also configure iteration cadences to automatically roll over incomplete issues to the next iteration.
 
 ### Create an iteration cadence
 
@@ -129,14 +120,11 @@ To create an iteration cadence:
 
    To manually manage the iteration cadence, clear the **Enable automatic scheduling** checkbox and skip the next step.
 1. Complete the required fields to use automatic scheduling.
-   - Select the automation start date of the iteration cadence. Iterations are scheduled to
-     begin on the same day of the week as the day of the week of the start date.
+   - Select the automation start date of the iteration cadence. Iterations are scheduled to begin on the same day of the week as the day of the week of the start date.
    - From the **Duration** dropdown list, select how many weeks each iteration should last.
-   - From the **Upcoming iterations** dropdown list, select how many upcoming iterations should be
-     created and maintained by GitLab.
+   - From the **Upcoming iterations** dropdown list, select how many upcoming iterations should be created and maintained by GitLab.
    - Optional. To move incomplete issues to the next iteration, select the **Enable roll over** checkbox.
-     At the end of the current iteration, [Automation Bot](#gitlab-automation-bot-user) moves all open
-     issues to the next iteration.
+     At the end of the current iteration, [Automation Bot](#gitlab-automation-bot-user) moves all open issues to the next iteration.
      Issues are moved at midnight in the instance time zone (UTC by default).
      Administrators can change the instance time zone.
 1. Select **Create cadence**. The cadence list page opens.
@@ -153,9 +141,7 @@ From there you can create a new iteration or select an iteration to get a more d
 
 {{< alert type="note" >}}
 
-If a project has issue tracking
-[turned off](../../project/settings/_index.md#configure-project-features-and-permissions),
-to view the iterations list, enter its URL. To do so, add: `/-/cadences` to your project or group URL.
+If a project has issue tracking [turned off](../../project/settings/_index.md#configure-project-features-and-permissions), to view the iterations list, enter its URL. To do so, add: `/-/cadences` to your project or group URL.
 For example `https://gitlab.com/gitlab-org/sample-data-templates/sample-gitlab-project/-/cadences`.
 [Issue 339009](https://gitlab.com/gitlab-org/gitlab/-/issues/339009) tracks improving this.
 
@@ -171,29 +157,22 @@ To edit an iteration cadence:
 
 1. On the top bar, select **Search or go to** and find your group.
 1. Select **Plan** > **Iterations**.
-1. To the right of the cadence you want to edit, select the vertical ellipsis ({{< icon name="ellipsis_v" >}}) and
-   then select **Edit cadence**.
+1. To the right of the cadence you want to edit, select the vertical ellipsis ({{< icon name="ellipsis_v" >}}) and then select **Edit cadence**.
 1. Edit the fields.
-   - When you use automatic scheduling and edit the **Automation start date** field,
-     you must set a new start date that doesn't overlap with the existing
-     current or past iterations.
+   - When you use automatic scheduling and edit the **Automation start date** field, you must set a new start date that doesn't overlap with the existing current or past iterations.
    - Editing **Upcoming iterations** is a non-destructive action.
-     For example, if ten upcoming iterations already exist, changing the number under **Upcoming iterations** to `2`
-     doesn't delete the eight existing upcoming iterations.
+     For example, if ten upcoming iterations already exist, changing the number under **Upcoming iterations** to `2` doesn't delete the eight existing upcoming iterations.
 1. Select **Save changes**.
 
 #### Turn on and off automatic scheduling for an iteration cadence
 
 1. On the top bar, select **Search or go to** and find your group.
 1. Select **Plan** > **Iterations**.
-1. To the right of the cadence for which you want to turn on or off automatic scheduling, select the
-   vertical ellipsis ({{< icon name="ellipsis_v" >}}) and then select **Edit cadence**.
+1. To the right of the cadence for which you want to turn on or off automatic scheduling, select the vertical ellipsis ({{< icon name="ellipsis_v" >}}) and then select **Edit cadence**.
 1. Select or clear the **Enable automatic scheduling** checkbox.
-1. If you're turning on automatic scheduling,
-   complete the required fields **Automation start date**, **Duration**, and **Upcoming iterations**.
+1. If you're turning on automatic scheduling, complete the required fields **Automation start date**, **Duration**, and **Upcoming iterations**.
    - For **Automation start date**, you can select any date that doesn't overlap with the existing open iterations.
-     If you have upcoming iterations, the automatic scheduling adjusts them appropriately to fit
-     your chosen duration.
+     If you have upcoming iterations, the automatic scheduling adjusts them appropriately to fit your chosen duration.
 1. Select **Save changes**.
 
 #### Example: Turn on automatic scheduling for a manual iteration cadence
@@ -204,23 +183,18 @@ Suppose it's Friday, April 15, and you have three iterations in a manual iterati
 - Tuesday, April 12 - Friday, April 15 (ongoing)
 - Tuesday, May 3 - Friday, May 6 (upcoming)
 
-The earliest possible **Automation start date** you can choose in this scenario
-is Saturday, April 16, because April 15 overlaps with the ongoing iteration.
+The earliest possible **Automation start date** you can choose in this scenario is Saturday, April 16, because April 15 overlaps with the ongoing iteration.
 
-If you select Monday, April 18 as the automation start date to
-automate scheduling iterations every week up to two upcoming iterations,
-after the conversion you have the following iterations:
+If you select Monday, April 18 as the automation start date to automate scheduling iterations every week up to two upcoming iterations, after the conversion you have the following iterations:
 
 - Monday, April 4 - Friday, April 8 (closed)
 - Tuesday, April 12 - Friday, April 15 (ongoing)
 - Monday, April 18 - Sunday, April 24 (upcoming)
 - Monday, April 25 - Sunday, May 1 (upcoming)
 
-Your existing upcoming iteration "Tuesday, April 12 - Friday, April 15"
-is changed to "April 18 - Sunday, April 24".
+Your existing upcoming iteration "Tuesday, April 12 - Friday, April 15" is changed to "April 18 - Sunday, April 24".
 
-An additional upcoming iteration "April 25 - Sunday, May 1" is scheduled
-to satisfy the requirement that there are at least two upcoming iterations scheduled.
+An additional upcoming iteration "April 25 - Sunday, May 1" is scheduled to satisfy the requirement that there are at least two upcoming iterations scheduled.
 
 ### Delete an iteration cadence
 
@@ -246,13 +220,10 @@ To delete an iteration cadence:
 
 ### GitLab Automation Bot user
 
-When iteration roll-over is enabled, at the end of the current iteration, all open issues are moved
-to the next iteration.
+When iteration roll-over is enabled, at the end of the current iteration, all open issues are moved to the next iteration.
 
-Iterations are changed by the special GitLab Automation Bot user, which you can see in the issue
-[system notes](../../project/system_notes.md).
-This user isn't a [billable user](../../../subscriptions/manage_users_and_seats.md#criteria-for-non-billable-users),
-so it does not count toward the license limit count.
+Iterations are changed by the special GitLab Automation Bot user, which you can see in the issue [system notes](../../project/system_notes.md).
+This user isn't a [billable user](../../../subscriptions/manage_users_and_seats.md#criteria-for-non-billable-users), so it does not count toward the license limit count.
 
 On GitLab.com, this is the `automation-bot1` user.
 
@@ -271,15 +242,13 @@ If you disable that option, you can create iterations manually.
 Prerequisites:
 
 - You must have at least the Planner role for a group.
-- There must be at least one iteration cadence in the group and
-  [automatic scheduling must be disabled](#turn-on-and-off-automatic-scheduling-for-an-iteration-cadence) for the iteration cadence.
+- There must be at least one iteration cadence in the group and [automatic scheduling must be disabled](#turn-on-and-off-automatic-scheduling-for-an-iteration-cadence) for the iteration cadence.
 
 To create an iteration:
 
 1. On the top bar, select **Search or go to** and find your group.
 1. Select **Plan** > **Iterations**.
-1. To the right of the cadence in which you want create an iteration, select the vertical ellipsis
-   ({{< icon name="ellipsis_v" >}}) and then select **Add iteration**.
+1. To the right of the cadence in which you want create an iteration, select the vertical ellipsis ({{< icon name="ellipsis_v" >}}) and then select **Add iteration**.
 1. Complete the fields.
 1. Select **Create iteration**. The iteration details page opens.
 
@@ -347,16 +316,14 @@ To view an iteration report:
 
 ### Iteration burndown and burnup charts
 
-The iteration report includes [burndown and burnup charts](../../project/milestones/burndown_and_burnup_charts.md),
-similar to how they appear when viewing a [milestone](../../project/milestones/_index.md):
+The iteration report includes [burndown and burnup charts](../../project/milestones/burndown_and_burnup_charts.md), similar to how they appear when viewing a [milestone](../../project/milestones/_index.md):
 
 - Burndown charts help track completion progress of total scope.
 - Burnup charts track the daily total count and weight of issues added to and completed in a given timebox.
 
 #### View iteration charts scoped to subgroups or projects
 
-View burndown and burnup charts for iterations created for a group in any of its
-subgroups or projects.
+View burndown and burnup charts for iterations created for a group in any of its subgroups or projects.
 When you do this, the charts only count the issues that belong to the subgroup or project.
 
 For example, suppose a group has two projects named `Project 1` and `Project 2`.
@@ -380,8 +347,7 @@ An iteration report generated for `Project 1` shows only issues that belong to t
 
 ### Group issues by label
 
-Group the list of issues by label to view issues that belong to your team, and get a more accurate
-understanding of scope attributable to each label.
+Group the list of issues by label to view issues that belong to your team, and get a more accurate understanding of scope attributable to each label.
 
 To group issues by label:
 

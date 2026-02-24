@@ -29,16 +29,7 @@ Silent Mode is designed for specific testing and validation scenarios and should
 Silent Mode is designed for the following scenarios:
 
 - Testing Geo site promotion: When validating disaster recovery procedures by promoting a secondary Geo site while the primary site remains active.
-  - For example, you have a secondary Geo site as part of your
-    [disaster recovery](../geo/disaster_recovery/_index.md) solution. You want to
-    regularly test promoting it to become a primary Geo site, as a best practice
-    to ensure your disaster recovery plan actually works. But you don't want to
-    actually perform an entire failover because the primary site lives in a region
-    which provides the lowest latency to your users. And you don't want to take
-    downtime during every regular test. So, you let the primary site remain up,
-    while you promote the secondary site. You start smoke testing the promoted
-    site. But, the promoted site starts emailing users, the push mirrors push
-    changes to external Git repositories, etc. This is where Silent Mode comes in.
+ - For example, you have a secondary Geo site as part of your [disaster recovery](../geo/disaster_recovery/_index.md) solution. You want to regularly test promoting it to become a primary Geo site, as a best practice to ensure your disaster recovery plan actually works. But you don't want to actually perform an entire failover because the primary site lives in a region which provides the lowest latency to your users. And you don't want to take downtime during every regular test. So, you let the primary site remain up, while you promote the secondary site. You start smoke testing the promoted site. But, the promoted site starts emailing users, the push mirrors push changes to external Git repositories, etc. This is where Silent Mode comes in.
     You can enable it as part of site promotion, to avoid this issue.
 - Validating GitLab backups: When testing backup restoration on a separate testing instance to ensure backups are functional. Silent Mode can be used to avoid sending invalid emails to users.
 - Staging environment testing: When you need to test GitLab functionality without triggering outbound communications that could affect users or external systems. Particularly if you seeded your staging environment with production data.
@@ -57,22 +48,22 @@ There are multiple ways to turn on Silent Mode:
 
 - **Web UI**
 
-  1. In the upper-right corner, select **Admin**.
-  1. On the left sidebar, select **Settings** > **General**.
-  1. Expand **Silent Mode**, and turn on the **Enable Silent Mode** toggle.
-  1. Changes are saved immediately.
+ 1. In the upper-right corner, select **Admin**.
+ 1. On the left sidebar, select **Settings** > **General**.
+ 1. Expand **Silent Mode**, and turn on the **Enable Silent Mode** toggle.
+ 1. Changes are saved immediately.
 
 - [**API**](../../api/settings.md):
 
-  ```shell
-  curl --request PUT --header "PRIVATE-TOKEN:$ADMIN_TOKEN" "<gitlab-url>/api/v4/application/settings?silent_mode_enabled=true"
-  ```
+ ```shell
+ curl --request PUT --header "PRIVATE-TOKEN:$ADMIN_TOKEN" "<gitlab-url>/api/v4/application/settings?silent_mode_enabled=true"
+ ```
 
 - [**Rails console**](../operations/rails_console.md#starting-a-rails-console-session):
 
-  ```ruby
-  ::Gitlab::CurrentSettings.update!(silent_mode_enabled: true)
-  ```
+ ```ruby
+ ::Gitlab::CurrentSettings.update!(silent_mode_enabled: true)
+ ```
 
 It may take up to a minute to take effect. [Issue 405433](https://gitlab.com/gitlab-org/gitlab/-/issues/405433) proposes removing this delay.
 
@@ -86,22 +77,22 @@ There are multiple ways to disable Silent Mode:
 
 - **Web UI**
 
-  1. In the upper-right corner, select **Admin**.
-  1. On the left sidebar, select **Settings** > **General**.
-  1. Expand **Silent Mode**, and turn off the **Enable Silent Mode** toggle.
-  1. Changes are saved immediately.
+ 1. In the upper-right corner, select **Admin**.
+ 1. On the left sidebar, select **Settings** > **General**.
+ 1. Expand **Silent Mode**, and turn off the **Enable Silent Mode** toggle.
+ 1. Changes are saved immediately.
 
 - [**API**](../../api/settings.md):
 
-  ```shell
-  curl --request PUT --header "PRIVATE-TOKEN:$ADMIN_TOKEN" "<gitlab-url>/api/v4/application/settings?silent_mode_enabled=false"
-  ```
+ ```shell
+ curl --request PUT --header "PRIVATE-TOKEN:$ADMIN_TOKEN" "<gitlab-url>/api/v4/application/settings?silent_mode_enabled=false"
+ ```
 
 - [**Rails console**](../operations/rails_console.md#starting-a-rails-console-session):
 
-  ```ruby
-  ::Gitlab::CurrentSettings.update!(silent_mode_enabled: false)
-  ```
+ ```ruby
+ ::Gitlab::CurrentSettings.update!(silent_mode_enabled: false)
+ ```
 
 It may take up to a minute to take effect. [Issue 405433](https://gitlab.com/gitlab-org/gitlab/-/issues/405433) proposes removing this delay.
 

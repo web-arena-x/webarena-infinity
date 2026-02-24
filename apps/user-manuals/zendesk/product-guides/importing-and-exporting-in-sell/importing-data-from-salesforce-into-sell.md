@@ -16,7 +16,7 @@ Due to Salesforce's limitations, you can only export data from your Salesforce a
 
 1. Login to your Salesforce account and click on your name in the top right corner to reveal your account options, then click **Setup.**
 2. In the left side menu of the Setup page, click Data Management. It is listed under the Administrator options.
-3. Click to request an export of all your salesforce.com data.  
+3. Click to request an export of all your salesforce.com data. 
     Select these options:
    - Unicode UTF-8 for the file encoding
    - Replace carriage returns with spaces
@@ -41,5 +41,5 @@ For example:
 1. Click the **Settings** icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/settings_icon.png)), then select [**Data > Import**](https://app.futuresimple.com/settings/imports).
 2. Select the application you're importing from: **Salesforce.**
 3. Click **Upload** and select the file you exported from Salesforce.
-4. Click **Import**.   
+4. Click **Import**.  
    Your contacts will appear in Zendesk Sell shortly.

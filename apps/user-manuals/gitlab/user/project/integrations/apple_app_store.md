@@ -61,9 +61,7 @@ After you enable the integration:
 
 ### CI/CD variable security
 
-Malicious code pushed to your `.gitlab-ci.yml` file could compromise your variables, including
-`$APP_STORE_CONNECT_API_KEY_KEY`, and send them to a third-party server. For more information, see
-[CI/CD variable security](../../../ci/variables/_index.md#cicd-variable-security).
+Malicious code pushed to your `.gitlab-ci.yml` file could compromise your variables, including `$APP_STORE_CONNECT_API_KEY_KEY`, and send them to a third-party server. For more information, see [CI/CD variable security](../../../ci/variables/_index.md#cicd-variable-security).
 
 ## Enable the integration in fastlane
 

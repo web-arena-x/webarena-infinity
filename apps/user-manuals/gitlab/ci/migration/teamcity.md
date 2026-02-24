@@ -12,8 +12,7 @@ title: Migrate from TeamCity
 
 {{< /details >}}
 
-If you're migrating from TeamCity to GitLab CI/CD, you can create CI/CD
-pipelines that replicate and enhance your TeamCity workflows.
+If you're migrating from TeamCity to GitLab CI/CD, you can create CI/CD pipelines that replicate and enhance your TeamCity workflows.
 
 ## Key similarities and differences
 
@@ -24,33 +23,27 @@ GitLab CI/CD and TeamCity are CI/CD tools with some similarities. Both GitLab an
 
 Additionally, there are some important differences between the two:
 
-- GitLab CI/CD pipelines are configured in a YAML format configuration file, which
-  you can edit manually or with the [pipeline editor](../pipeline_editor/_index.md).
-  TeamCity pipelines can be configured from the UI or using Kotlin DSL.
+- GitLab CI/CD pipelines are configured in a YAML format configuration file, which you can edit manually or with the [pipeline editor](../pipeline_editor/_index.md).
+ TeamCity pipelines can be configured from the UI or using Kotlin DSL.
 - GitLab is a DevSecOps platform with built-in SCM, container registry, security scanning, and more.
-  TeamCity requires separate solutions for these capabilities, usually provided by integrations.
+ TeamCity requires separate solutions for these capabilities, usually provided by integrations.
 
 ### Configuration file
 
 TeamCity can be [configured from the UI](https://www.jetbrains.com/help/teamcity/creating-and-editing-build-configurations.html)
 or in the [`Teamcity Configuration` file in the Kotlin DSL format](https://www.jetbrains.com/help/teamcity/kotlin-dsl.html).
-A TeamCity build configuration is a set of instructions that defines how a software project should be built,
-tested, and deployed. The configuration includes parameters and settings necessary for automating
-the CI/CD process in TeamCity.
+A TeamCity build configuration is a set of instructions that defines how a software project should be built, tested, and deployed. The configuration includes parameters and settings necessary for automating the CI/CD process in TeamCity.
 
 In GitLab, the equivalent of a TeamCity build configuration is the `.gitlab-ci.yml` file.
-This file defines the CI/CD pipeline for a project, specifying the stages, jobs,
-and commands needed to build, test, and deploy the project.
+This file defines the CI/CD pipeline for a project, specifying the stages, jobs, and commands needed to build, test, and deploy the project.
 
 ## Comparison of features and concepts
 
-Many TeamCity features and concepts have equivalents in GitLab that offer the same
-functionality.
+Many TeamCity features and concepts have equivalents in GitLab that offer the same functionality.
 
 ### Jobs
 
-TeamCity uses build configurations, which consist of multiple build steps where you define
-commands or scripts to execute tasks such as compiling code, running tests, and packaging artifacts.
+TeamCity uses build configurations, which consist of multiple build steps where you define commands or scripts to execute tasks such as compiling code, running tests, and packaging artifacts.
 
 The following is an example of a TeamCity project configuration in a Kotlin DSL format that builds a Docker file and runs unit tests:
 
@@ -108,32 +101,32 @@ The equivalent GitLab CI/CD `.gitlab-ci.yml` file for the previous example would
 
 ```yaml
 workflow:
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH != "main" || $CI_PIPELINE_SOURCE != "merge_request_event"
       when: never
     - when: always
 
 stages:
-  - build
-  - test
+ - build
+ - test
 
 build-job:
-  image: docker:20.10.16
-  stage: build
-  services:
+ image: docker:20.10.16
+ stage: build
+ services:
     - docker:20.10.16-dind
-  script:
+ script:
     - docker build -t cicd-demo:0.1 .
 
 run_unit_tests:
-  image: node:17-alpine3.14
-  stage: test
-  before_script:
+ image: node:17-alpine3.14
+ stage: test
+ before_script:
     - cd app
     - npm install
-  script:
+ script:
     - npm test
-  artifacts:
+ artifacts:
     when: always
     reports:
       junit: app/junit.xml
@@ -141,8 +134,7 @@ run_unit_tests:
 
 ### Pipeline triggers
 
-[TeamCity Triggers](https://www.jetbrains.com/help/teamcity/configuring-build-triggers.html) define conditions that initiate a build, including VCS changes,
-scheduled triggers, or builds triggered by other builds.
+[TeamCity Triggers](https://www.jetbrains.com/help/teamcity/configuring-build-triggers.html) define conditions that initiate a build, including VCS changes, scheduled triggers, or builds triggered by other builds.
 
 In GitLab CI/CD, pipelines can be triggered automatically for various events, like changes to branches or merge requests and new tags. Pipelines can also be triggered manually, using an [API](../triggers/_index.md), or with [scheduled pipelines](../pipelines/schedules.md). For more information, see [CI/CD pipelines](../pipelines/_index.md).
 
@@ -159,26 +151,26 @@ For example, a GitLab CI/CD `.gitlab-ci.yml` file that uses variables:
 
 ```yaml
 default:
-  image: alpine:latest
+ image: alpine:latest
 
 stages:
-  - greet
+ - greet
 
 variables:
-  NAME: "Fern"
+ NAME: "Fern"
 
 english:
-  stage: greet
-  variables:
+ stage: greet
+ variables:
     GREETING: "Hello"
-  script:
+ script:
     - echo "$GREETING $NAME"
 
 spanish:
-  stage: greet
-  variables:
+ stage: greet
+ variables:
     GREETING: "Hola"
-  script:
+ script:
     - echo "$GREETING $NAME"
 ```
 
@@ -186,30 +178,28 @@ spanish:
 
 Build configurations in TeamCity allow you to define [artifacts](https://www.jetbrains.com/help/teamcity/build-artifact.html) generated during the build process.
 
-In GitLab, any job can use the [`artifacts`](../yaml/_index.md#artifacts) keyword to define a set of artifacts to
-be stored when a job completes. [Artifacts](../jobs/job_artifacts.md) are files that can be used in later jobs,
-for testing or deployment.
+In GitLab, any job can use the [`artifacts`](../yaml/_index.md#artifacts) keyword to define a set of artifacts to be stored when a job completes. [Artifacts](../jobs/job_artifacts.md) are files that can be used in later jobs, for testing or deployment.
 
 For example, a GitLab CI/CD `.gitlab-ci.yml` file that uses artifacts:
 
 ```yaml
 stage:
-  - generate
-  - use
+ - generate
+ - use
 
 generate_cat:
-  stage: generate
-  script:
+ stage: generate
+ script:
     - touch cat.txt
     - echo "meow" > cat.txt
-  artifacts:
+ artifacts:
     paths:
       - cat.txt
     expire_in: 1 week
 
 use_cat:
-  stage: use
-  script:
+ stage: use
+ script:
     - cat cat.txt
 ```
 
@@ -217,23 +207,19 @@ use_cat:
 
 The equivalent of [TeamCity agents](https://www.jetbrains.com/help/teamcity/build-agent.html) in GitLab are Runners.
 
-In GitLab CI/CD, runners are the services that execute jobs. If you are using GitLab.com, you can use the
-[instance runner fleet](../runners/_index.md) to run jobs without provisioning your own self-managed runners.
+In GitLab CI/CD, runners are the services that execute jobs. If you are using GitLab.com, you can use the [instance runner fleet](../runners/_index.md) to run jobs without provisioning your own self-managed runners.
 
 Some key details about runners:
 
-- Runners can be [configured](../runners/runners_scope.md) to be shared across an instance,
-  a group, or dedicated to a single project.
+- Runners can be [configured](../runners/runners_scope.md) to be shared across an instance, a group, or dedicated to a single project.
 - You can use the [`tags` keyword](../runners/configure_runners.md#control-jobs-that-a-runner-can-run)
-  for finer control, and associate runners with specific jobs. For example, you can use a tag for jobs that
-  require dedicated, more powerful, or specific hardware.
+ for finer control, and associate runners with specific jobs. For example, you can use a tag for jobs that require dedicated, more powerful, or specific hardware.
 - GitLab has [autoscaling for runners](https://docs.gitlab.com/runner/runner_autoscale/).
-  Use autoscaling to provision runners only when needed and scale down when not needed.
+ Use autoscaling to provision runners only when needed and scale down when not needed.
 
 ### TeamCity build features & plugins
 
-Some functionality in TeamCity that is enabled through build features & plugins
-is supported in GitLab CI/CD natively with CI/CD keywords and features.
+Some functionality in TeamCity that is enabled through build features & plugins is supported in GitLab CI/CD natively with CI/CD keywords and features.
 
 | TeamCity plugin                                                                                                                    | GitLab feature |
 |------------------------------------------------------------------------------------------------------------------------------------|----------------|
@@ -243,8 +229,7 @@ is supported in GitLab CI/CD natively with CI/CD keywords and features.
 
 ## Planning and performing a migration
 
-The following list of recommended steps was created after observing organizations
-that were able to quickly complete a migration to GitLab CI/CD.
+The following list of recommended steps was created after observing organizations that were able to quickly complete a migration to GitLab CI/CD.
 
 ### Create a migration plan
 
@@ -254,13 +239,12 @@ to make preparations for the migration.
 For a migration from TeamCity, ask yourself the following questions in preparation:
 
 - What plugins are used by jobs in TeamCity today?
-  - Do you know what these plugins do exactly?
+ - Do you know what these plugins do exactly?
 - What is installed on the TeamCity agents?
 - Are there any shared libraries in use?
 - How are you authenticating from TeamCity? Are you using SSH keys, API tokens, or other secrets?
 - Are there other projects that you need to access from your pipeline?
-- Are there credentials in TeamCity to access outside services? For example Ansible Tower,
-  Artifactory, or other Cloud Providers or deployment targets?
+- Are there credentials in TeamCity to access outside services? For example Ansible Tower, Artifactory, or other Cloud Providers or deployment targets?
 
 ### Prerequisites
 
@@ -282,10 +266,8 @@ Before doing any migration work, you should first:
    - You can [import repositories by URL](../../user/project/import/repo_by_url.md).
 1. Create a `.gitlab-ci.yml` file in each project.
 1. Migrate TeamCity configuration to GitLab CI/CD jobs and configure them to show results directly in merge requests.
-1. Migrate deployment jobs by using [cloud deployment templates](../cloud_deployment/_index.md),
-   [environments](../environments/_index.md), and the [GitLab agent for Kubernetes](../../user/clusters/agent/_index.md).
-1. Check if any CI/CD configuration can be reused across different projects, then create
-   and share [CI/CD templates](../examples/_index.md#cicd-templates) or [CI/CD components](../components/_index.md).
+1. Migrate deployment jobs by using [cloud deployment templates](../cloud_deployment/_index.md), [environments](../environments/_index.md), and the [GitLab agent for Kubernetes](../../user/clusters/agent/_index.md).
+1. Check if any CI/CD configuration can be reused across different projects, then create and share [CI/CD templates](../examples/_index.md#cicd-templates) or [CI/CD components](../components/_index.md).
 1. See [pipeline efficiency](../pipelines/pipeline_efficiency.md)
    to learn how to make your GitLab CI/CD pipelines faster and more efficient.
 

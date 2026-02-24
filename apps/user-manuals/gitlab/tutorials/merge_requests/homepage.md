@@ -31,8 +31,7 @@ For more information, see the history.
 
 This tutorial introduces you to the new user interface for managing merge requests.
 
-Whether you're an author awaiting review, or a reviewer providing feedback, this page
-helps you track your work. It sorts your work into clear categories to help you:
+Whether you're an author awaiting review, or a reviewer providing feedback, this page helps you track your work. It sorts your work into clear categories to help you:
 
 - Spend less time tracking merge requests that need your attention.
 - Focus on the most urgent work first.
@@ -47,8 +46,7 @@ To see your merge request homepage on GitLab.com, either:
 - Use the <kbd>Shift</kbd>+<kbd>m</kbd> [keyboard shortcut](../../user/shortcuts.md).
 - On the left sidebar, select **Merge requests**.
 
-It's organized into three tabs, to help you focus on what needs your attention right now, while
-still giving you access to other recent work:
+It's organized into three tabs, to help you focus on what needs your attention right now, while still giving you access to other recent work:
 
 ![The three homepage tabs are shown at the top of the screen.](img/homepage_tabs_v18_1.png)
 
@@ -71,24 +69,23 @@ Each table row groups related information about a merge request together into co
 
 - **Status** - The current status of the merge request.
 - **Title** - Important metadata about the issue, including:
-  - The merge request title.
-  - The assignee's avatar.
-  - The number of files and lines added and removed (`+` / `-`).
-  - Milestone.
+ - The merge request title.
+ - The assignee's avatar.
+ - The number of files and lines added and removed (`+` / `-`).
+ - Milestone.
 - **Author** - The author's avatar.
 - **Reviewers** - The reviewers' avatars. Reviewers with a green check mark have approved the merge request.
 - **Checks** - A compact assessment of mergeability.
-  - Number of open threads, for example `0 of 3`.
-  - Current required [approval status](../../user/project/merge_requests/approvals/_index.md#in-the-list-of-merge-requests).
-  - Most recent pipeline's status.
-  - Date of last update.
+ - Number of open threads, for example `0 of 3`.
+ - Current required [approval status](../../user/project/merge_requests/approvals/_index.md#in-the-list-of-merge-requests).
+ - Most recent pipeline's status.
+ - Date of last update.
 
 ## Set your display preferences
 
 In the upper right, select **Display preferences** ({{< icon name="preferences" >}}) to sort your merge requests by:
 
-- **Workflow**. This view groups merge requests by their status. Merge requests needing your attention are shown first, regardless of whether
-  you are the author or the reviewer.
+- **Workflow**. This view groups merge requests by their status. Merge requests needing your attention are shown first, regardless of whether you are the author or the reviewer.
 - **Role**. This view groups merge requests by whether you are the reviewer or the author.
 
 {{< tabs >}}
@@ -136,9 +133,7 @@ Merge requests in the **Active** lists count toward the total shown on the left 
 
 ## Understand the Workflow view
 
-The **Workflow** view groups merge requests by where they are in the
-[review process](../../user/project/merge_requests/reviews/_index.md). This view helps you understand
-what action to take next:
+The **Workflow** view groups merge requests by where they are in the [review process](../../user/project/merge_requests/reviews/_index.md). This view helps you understand what action to take next:
 
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
@@ -161,8 +156,7 @@ This review flow assumes:
 
 1. The **Assignee** is the author of the merge request.
 1. **Reviewers** are the users who review the work in the merge request.
-1. Reviewers use the [**Start a review**](../../user/project/merge_requests/reviews/_index.md#start-a-review) and
-   [**Submit a review**](../../user/project/merge_requests/reviews/_index.md#submit-a-review) features.
+1. Reviewers use the [**Start a review**](../../user/project/merge_requests/reviews/_index.md#start-a-review) and [**Submit a review**](../../user/project/merge_requests/reviews/_index.md#submit-a-review) features.
 
 Merge requests in one of the **Active** statuses count toward the total shown on the left sidebar:
 
@@ -179,8 +173,8 @@ Reviewers have provided feedback, or requested changes.
 
 - Next step: Address reviewer comments, and implement suggested changes.
 - Statuses:
-  - **Changes requested**: A reviewer has requested changes.
-  - **Reviewer commented**: A reviewer has left comments but not requested changes.
+ - **Changes requested**: A reviewer has requested changes.
+ - **Reviewer commented**: A reviewer has left comments but not requested changes.
 
 ### Review requested
 
@@ -188,8 +182,8 @@ You're a reviewer for this merge request.
 
 - Next step: Review the merge request. Provide approval and feedback. Request changes when needed.
 - Statuses:
-  - **Requested**: You've not yet started a review.
-  - **Review started**: You've started a review, but not completed it yet.
+ - **Requested**: You've not yet started a review.
+ - **Review started**: You've started a review, but not completed it yet.
 
 ### Your merge requests
 
@@ -197,8 +191,8 @@ You're the merge request author or assignee. You've not added reviewers yet.
 
 - Next step: Add reviewers to start the review process.
 - Statuses:
-  - **Draft**: The merge request is marked as draft.
-  - **Reviewers needed**: The merge request is not a draft, but has no reviewers.
+ - **Draft**: The merge request is marked as draft.
+ - **Reviewers needed**: The merge request is not a draft, but has no reviewers.
 
 ## Workflow view: inactive statuses
 
@@ -211,8 +205,8 @@ Your assigned merge requests that are waiting for approvals, and reviews you hav
 
 - Next step: Wait for reviews and approvals.
 - Statuses:
-  - **You requested changes**: You've completed your review and requested changes.
-  - **You commented**: You've commented, but have not completed your review.
+ - **You requested changes**: You've completed your review and requested changes.
+ - **You commented**: You've commented, but have not completed your review.
 
 ### Waiting for approvals
 
@@ -220,9 +214,9 @@ Your assigned merge requests that are waiting for approvals, and reviews you hav
 
 - Next step: Wait until all approval requirements are met.
 - Statuses:
-  - **Approvals required** - Number of required approvals remaining.
-  - **Approved** - Either you have approved, or all required approvals are satisfied.
-  - **Waiting for approvals**.
+ - **Approvals required** - Number of required approvals remaining.
+ - **Approved** - Either you have approved, or all required approvals are satisfied.
+ - **Waiting for approvals**.
 
 ### Approved by you
 
@@ -230,8 +224,8 @@ Merge requests you've reviewed and approved.
 
 - Next step: Wait for other approvals and other merge requirements to be met.
 - Statuses:
-  - **Approved** - You've approved, and required approvals are satisfied.
-  - **Approval required** - You've approved, but not all required approvals are satisfied.
+ - **Approved** - You've approved, and required approvals are satisfied.
+ - **Approval required** - You've approved, but not all required approvals are satisfied.
 
 ### Approved by others
 
@@ -239,4 +233,4 @@ Merge requests that have received approvals from other team members.
 
 - Next step: Potentially ready to merge, if all requirements are met.
 - Statuses:
-  - **Approved** - Your merge request has received the necessary approvals.
+ - **Approved** - Your merge request has received the necessary approvals.

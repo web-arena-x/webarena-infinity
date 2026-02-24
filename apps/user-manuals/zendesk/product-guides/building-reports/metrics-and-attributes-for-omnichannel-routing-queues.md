@@ -8,18 +8,14 @@ All Suites | Professional, Enterprise, or Enterprise Plus
 
 Support with | Explore Professional or Enterprise
 
-The omnichannel routing queues dataset contains metrics and attributes that
-relate to how agents are assigned new and open tickets from email (including web form,
-side conversations, and API), calls, and messaging.
+The omnichannel routing queues dataset contains metrics and attributes that relate to how agents are assigned new and open tickets from email (including web form, side conversations, and API), calls, and messaging.
 
 Consider the following when you use this dataset:
 
-- You must be using [omnichannel routing queues](https://support.zendesk.com/hc/en-us/articles/6716530152858) to use the
-  dashboard described in this article.
+- You must be using [omnichannel routing queues](https://support.zendesk.com/hc/en-us/articles/6716530152858) to use the dashboard described in this article.
 - Currently, call tickets are not captured by the omnichannel routing queues dataset.
 
-This section lists all the available elements for the dataset, and contains the
-following topics:
+This section lists all the available elements for the dataset, and contains the following topics:
 
 - [Queue metrics](#topic_spn_rm2_t2c)
 - [Queue attributes](#topic_wbg_5m2_t2c)
@@ -28,10 +24,9 @@ following topics:
 
 This section lists and defines all of the queue metrics available.
 
-These metrics capture ticket interactions with a queue at the point in time
-the event occurs.
+These metrics capture ticket interactions with a queue at the point in time the event occurs.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Metric** | **Definition** | **Calculation** |
 | Inbound traffic count | The total number of tickets that have entered a queue. | D\_COUNT(Work Item ID entering the queue) |
@@ -45,7 +40,7 @@ the event occurs.
 
 This section lists and defines all the queue attributes available.
 
-|  |  |
+| | |
 | --- | --- |
 | **Attribute** | **Definition** |
 | Queue ID | The ID number of a configured custom queue. |
@@ -57,7 +52,7 @@ This section lists and defines all the queue attributes available.
 | Channel | The channel by means customers create support requests. |
 | Work item ID | The ID number of a work item. A work item is a ticket that would be assigned to an agent for a particular channel. |
 | Ticket ID | The ID number of the ticket. |
-| Call ID | The ID number of a call.  As calls are not currently supported, querying this attribute will yield empty results. |
+| Call ID | The ID number of a call. As calls are not currently supported, querying this attribute will yield empty results. |
 | Inbound Reason | The reason a ticket had entered a queue. |
 | Outbound Reason | The reason a ticket had exited a queue. |
 | Start queue time | The time at which the ticket entered the queue. |
@@ -66,12 +61,11 @@ This section lists and defines all the queue attributes available.
 
 ## Queue inbound and outbound reasons
 
-The omnichannel routing queues dataset provides inbound and outbound
-reasons to show how and why a ticket entered or exited the queue.
+The omnichannel routing queues dataset provides inbound and outbound reasons to show how and why a ticket entered or exited the queue.
 
 **Inbound reasons**
 
-|  |  |
+| | |
 | --- | --- |
 | **Reason** | **Description** |
 | New | Describes newly created tickets entering the queue. |
@@ -79,7 +73,7 @@ reasons to show how and why a ticket entered or exited the queue.
 
 **Outbound reasons**
 
-|  |  |
+| | |
 | --- | --- |
 | **Reason** | **Description** |
 | Transferred Out | Describes tickets that have exited the queue as a result of a queue transfer or other workflows. |

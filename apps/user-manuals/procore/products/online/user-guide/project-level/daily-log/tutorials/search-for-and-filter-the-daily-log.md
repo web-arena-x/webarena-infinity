@@ -11,10 +11,10 @@ To search and filter the daily log.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Read Only' or higher permissions on the project's Daily Log tool.
+ - 'Read Only' or higher permissions on the project's Daily Log tool.
 - **Additional Information:**
-  - Filters applied to a daily log are persistent until cleared. If you want to view all entries, click **Clear All** to clear the filters.
-  - Filters are respected when you export a daily log to PDF. However, filters are not respected when emailing the daily log.
+ - Filters applied to a daily log are persistent until cleared. If you want to view all entries, click **Clear All** to clear the filters.
+ - Filters are respected when you export a daily log to PDF. However, filters are not respected when emailing the daily log.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ To search and filter the daily log.
 #### Search the Daily Log
 
 1. Navigate to the project's **Daily Log** tool.
-2. Enter a word or phrase in the Search bar.  
+2. Enter a word or phrase in the Search bar. 
    *Note:* Data in the following fields of log entries is searchable:
    - **Daily Construction Report, Delays, Dumpster, Equipment, Manpower**, **Notes,****Phone Calls**, **Productivity,****Scheduled Work**, and **Visitors**: *Comments*
    - **Accidents**: *Party Involved, Company Involved, Comments*

@@ -14,14 +14,11 @@ title: 'Reference architecture: Up to 20 RPS or 1,000 users'
 
 This reference architecture targets a peak load of 20 requests per second (RPS). Based on real data, this load typically corresponds to up to 1,000 users, which includes both manual and automated interactions.
 
-For a full list of reference architectures, see
-[available reference architectures](_index.md#available-reference-architectures).
+For a full list of reference architectures, see [available reference architectures](_index.md#available-reference-architectures).
 
 - **Target Load**: API: 20 RPS, Web: 2 RPS, Git (Pull): 2 RPS, Git (Push): 1 RPS
-- **High Availability**: No. For a high availability environment,
-  follow a modified [3K reference architecture](3k_users.md#supported-modifications-for-lower-user-counts-ha).
-- **Cloud Native Hybrid**: No. For a cloud native hybrid environment, you
-  can follow a [modified hybrid reference architecture](#cloud-native-hybrid-reference-architecture-with-helm-charts).
+- **High Availability**: No. For a high availability environment, follow a modified [3K reference architecture](3k_users.md#supported-modifications-for-lower-user-counts-ha).
+- **Cloud Native Hybrid**: No. For a cloud native hybrid environment, you can follow a [modified hybrid reference architecture](#cloud-native-hybrid-reference-architecture-with-helm-charts).
 - **Unsure which Reference Architecture to use**? For more information, see [deciding which architecture to start with](_index.md#deciding-which-architecture-to-start-with).
 
 | Users        | Configuration        | GCP example<sup>1</sup> | AWS example<sup>1</sup> | Azure example<sup>1</sup> |
@@ -47,11 +44,11 @@ In a horizontally scaled GitLab configuration, various ancillary services are re
 card "**Prometheus**" as monitor #7FFFD4
 package "GitLab Single Server" as gitlab-single-server {
 together {
-  card "**GitLab Rails**" as gitlab #32CD32
-  card "**Gitaly**" as gitaly #FF8C00
-  card "**PostgreSQL**" as postgres #4EA7FF
-  card "**Redis**" as redis #FF6347
-  card "**Sidekiq**" as sidekiq #ff8dd1
+ card "**GitLab Rails**" as gitlab #32CD32
+ card "**Gitaly**" as gitaly #FF8C00
+ card "**PostgreSQL**" as postgres #4EA7FF
+ card "**Redis**" as redis #FF6347
+ card "**Sidekiq**" as sidekiq #ff8dd1
 }
 card "Local Storage" as local_storage #white
 }
@@ -113,8 +110,7 @@ In these cases, refer to [scaling an environment](_index.md#scaling-an-environme
 
 ## Setup instructions
 
-To install GitLab for this default reference architecture, use the standard
-[installation instructions](../../install/_index.md).
+To install GitLab for this default reference architecture, use the standard [installation instructions](../../install/_index.md).
 
 You can also optionally configure GitLab to use an [external PostgreSQL service](../postgresql/external.md)
 or [external object storage service](../object_storage.md). It improves performance and reliability, but at an increased complexity cost.
@@ -131,15 +127,11 @@ or [external object storage service](../object_storage.md). It improves performa
 You can leverage Elasticsearch and [enable advanced search](../../integration/advanced_search/elasticsearch.md)
 for faster, more advanced code search across your entire GitLab instance.
 
-Elasticsearch cluster design and requirements depends on your
-data. For recommended best practices about how to set up your Elasticsearch
-cluster alongside your instance, see
-[choose the optimal cluster configuration](../../integration/advanced_search/elasticsearch.md#guidance-on-choosing-optimal-cluster-configuration).
+Elasticsearch cluster design and requirements depends on your data. For recommended best practices about how to set up your Elasticsearch cluster alongside your instance, see [choose the optimal cluster configuration](../../integration/advanced_search/elasticsearch.md#guidance-on-choosing-optimal-cluster-configuration).
 
 ## Cloud Native Hybrid reference architecture with Helm Charts
 
-In the Cloud Native Hybrid reference architecture setup, the select stateless
-components are deployed in Kubernetes by using our official [Helm Charts](https://docs.gitlab.com/charts/).
+In the Cloud Native Hybrid reference architecture setup, the select stateless components are deployed in Kubernetes by using our official [Helm Charts](https://docs.gitlab.com/charts/).
 The stateful components are deployed in compute VMs with the Linux package.
 
 The smallest reference architecture available for use in Kubernetes is the [2k or 40 RPS GitLab Cloud Native Hybrid](2k_users.md#cloud-native-hybrid-reference-architecture-with-helm-charts-alternative) (non HA) and [3k or 60 RPS GitLab Cloud Native Hybrid](3k_users.md#cloud-native-hybrid-reference-architecture-with-helm-charts-alternative) (HA).

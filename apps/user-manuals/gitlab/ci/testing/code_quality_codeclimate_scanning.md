@@ -34,45 +34,36 @@ The CodeClimate engine runs:
 Prerequisites:
 
 - GitLab CI/CD configuration (`.gitlab-ci.yml`) must include the `test` stage.
-- If you're using instance runners, the Code Quality job must be configured for the
-  [Docker-in-Docker workflow](../docker/using_docker_build.md#use-docker-in-docker).
-  When using this workflow, the `/builds` volume must be mapped to allow reports to be saved.
-- If you're using private runners, you should use an
-  [alternative configuration](#use-private-runners)
-  recommended for running Code Quality analysis more efficiently.
-- The runner must have enough disk space to store the generated Code Quality files. For example, on
-  the [GitLab project](https://gitlab.com/gitlab-org/gitlab) the files are approximately 7 GB.
+- If you're using instance runners, the Code Quality job must be configured for the [Docker-in-Docker workflow](../docker/using_docker_build.md#use-docker-in-docker).
+ When using this workflow, the `/builds` volume must be mapped to allow reports to be saved.
+- If you're using private runners, you should use an [alternative configuration](#use-private-runners)
+ recommended for running Code Quality analysis more efficiently.
+- The runner must have enough disk space to store the generated Code Quality files. For example, on the [GitLab project](https://gitlab.com/gitlab-org/gitlab) the files are approximately 7 GB.
 
 To enable Code Quality, either:
 
-- Enable [Auto DevOps](../../topics/autodevops/_index.md), which includes
-  [Auto Code Quality](../../topics/autodevops/stages.md#auto-code-quality).
+- Enable [Auto DevOps](../../topics/autodevops/_index.md), which includes [Auto Code Quality](../../topics/autodevops/stages.md#auto-code-quality).
 
-- Include the [Code Quality template](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/Code-Quality.gitlab-ci.yml) in your
-  `.gitlab-ci.yml` file.
+- Include the [Code Quality template](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/Code-Quality.gitlab-ci.yml) in your `.gitlab-ci.yml` file.
 
-  Example:
+ Example:
 
-  ```yaml
+ ```yaml
      include:
      - template: Jobs/Code-Quality.gitlab-ci.yml
-  ```
+ ```
 
-  Code Quality now runs in pipelines.
+ Code Quality now runs in pipelines.
 
 {{< alert type="warning" >}}
 
-On GitLab Self-Managed, if a malicious actor compromises the Code Quality job definition they
-could execute privileged Docker commands on the runner host. Having proper access control policies
-mitigates this attack vector by allowing access only to trusted actors.
+On GitLab Self-Managed, if a malicious actor compromises the Code Quality job definition they could execute privileged Docker commands on the runner host. Having proper access control policies mitigates this attack vector by allowing access only to trusted actors.
 
 {{< /alert >}}
 
 ## Disable CodeClimate-based scanning
 
-The `code_quality` job doesn't run if the `$CODE_QUALITY_DISABLED` CI/CD variable
-is present. For more information about how to define a variable, see
-[GitLab CI/CD variables](../variables/_index.md).
+The `code_quality` job doesn't run if the `$CODE_QUALITY_DISABLED` CI/CD variable is present. For more information about how to define a variable, see [GitLab CI/CD variables](../variables/_index.md).
 
 To disable Code Quality, create a custom CI/CD variable named `CODE_QUALITY_DISABLED`, for either:
 
@@ -102,13 +93,10 @@ For example, to use the [SonarJava analyzer](https://docs.codeclimate.com/docs/s
        enabled: true
    ```
 
-This adds SonarJava to the `plugins:` section of the
-[default `.codeclimate.yml`](https://gitlab.com/gitlab-org/ci-cd/codequality/-/blob/master/codeclimate_defaults/.codeclimate.yml.template)
+This adds SonarJava to the `plugins:` section of the [default `.codeclimate.yml`](https://gitlab.com/gitlab-org/ci-cd/codequality/-/blob/master/codeclimate_defaults/.codeclimate.yml.template)
 included in your project.
 
-Changes to the `plugins:` section do not affect the `exclude_patterns` section of the default
-`.codeclimate.yml`. See the Code Climate documentation on
-[excluding files and folders](https://docs.codeclimate.com/docs/excluding-files-and-folders)
+Changes to the `plugins:` section do not affect the `exclude_patterns` section of the default `.codeclimate.yml`. See the Code Climate documentation on [excluding files and folders](https://docs.codeclimate.com/docs/excluding-files-and-folders)
 for more details.
 
 ## Customize scan job settings
@@ -143,55 +131,46 @@ Code Quality can be customized by defining available CI/CD variables:
 
 ### Output
 
-Code Quality outputs a report containing details of issues found. The content of this report is
-processed internally and the results shown in the UI. The report is also output as a job artifact of
-the `code_quality` job, named `gl-code-quality-report.json`. You can optionally output the report in
-HTML format. For example, you could publish the HTML format file on GitLab Pages for even easier
-reviewing.
+Code Quality outputs a report containing details of issues found. The content of this report is processed internally and the results shown in the UI. The report is also output as a job artifact of the `code_quality` job, named `gl-code-quality-report.json`. You can optionally output the report in HTML format. For example, you could publish the HTML format file on GitLab Pages for even easier reviewing.
 
 #### Output in JSON and HTML format
 
-To output the Code Quality report in JSON and HTML format, you create an additional job. This requires
-Code Quality to be run twice, once each for file format.
+To output the Code Quality report in JSON and HTML format, you create an additional job. This requires Code Quality to be run twice, once each for file format.
 
-To output the Code Quality report in HTML format, add another job to your template by using
-`extends: code_quality`:
+To output the Code Quality report in HTML format, add another job to your template by using `extends: code_quality`:
 
 ```yaml
 include:
-  - template: Jobs/Code-Quality.gitlab-ci.yml
+ - template: Jobs/Code-Quality.gitlab-ci.yml
 
 code_quality_html:
-  extends: code_quality
-  variables:
+ extends: code_quality
+ variables:
     REPORT_FORMAT: html
-  artifacts:
+ artifacts:
     paths: [gl-code-quality-report.html]
 ```
 
-Both the JSON and HTML files are output as job artifacts. The HTML file is contained in the
-`artifacts.zip` job artifact.
+Both the JSON and HTML files are output as job artifacts. The HTML file is contained in the `artifacts.zip` job artifact.
 
 #### Output in only HTML format
 
-To download the Code Quality report in only HTML format, set `REPORT_FORMAT` to `html`, overriding
-the default definition of the `code_quality` job.
+To download the Code Quality report in only HTML format, set `REPORT_FORMAT` to `html`, overriding the default definition of the `code_quality` job.
 
 {{< alert type="note" >}}
 
-This does not create a JSON format file, so Code Quality results are not shown in the merge request
-widget, pipeline report, or changes view.
+This does not create a JSON format file, so Code Quality results are not shown in the merge request widget, pipeline report, or changes view.
 
 {{< /alert >}}
 
 ```yaml
 include:
-  - template: Jobs/Code-Quality.gitlab-ci.yml
+ - template: Jobs/Code-Quality.gitlab-ci.yml
 
 code_quality:
-  variables:
+ variables:
     REPORT_FORMAT: html
-  artifacts:
+ artifacts:
     paths: [gl-code-quality-report.html]
 ```
 
@@ -199,20 +178,18 @@ The HTML file is output as a job artifact.
 
 ## Use Code Quality with merge request pipelines
 
-The default Code Quality configuration does not allow the `code_quality` job to run on
-[merge request pipelines](../pipelines/merge_request_pipelines.md).
+The default Code Quality configuration does not allow the `code_quality` job to run on [merge request pipelines](../pipelines/merge_request_pipelines.md).
 
-To enable Code Quality to run on merge request pipelines, overwrite the code quality `rules`,
-or [`workflow: rules`](../yaml/_index.md#workflow), so that they match your current `rules`.
+To enable Code Quality to run on merge request pipelines, overwrite the code quality `rules`, or [`workflow: rules`](../yaml/_index.md#workflow), so that they match your current `rules`.
 
 For example:
 
 ```yaml
 include:
-  - template: Jobs/Code-Quality.gitlab-ci.yml
+ - template: Jobs/Code-Quality.gitlab-ci.yml
 
 code_quality:
-  rules:
+ rules:
     - if: $CODE_QUALITY_DISABLED
       when: never
     - if: $CI_PIPELINE_SOURCE == "merge_request_event" # Run code quality job in merge request pipelines
@@ -232,8 +209,7 @@ You can use a Dependency Proxy to reduce the time taken to download dependencies
 
 Prerequisites:
 
-- [Dependency Proxy](../../user/packages/dependency_proxy/_index.md) enabled in the project's
-  group.
+- [Dependency Proxy](../../user/packages/dependency_proxy/_index.md) enabled in the project's group.
 
 To reference the Dependency Proxy, configure the following variables in the `.gitlab-ci.yml` file:
 
@@ -246,10 +222,10 @@ For example:
 
 ```yaml
 include:
-  - template: Jobs/Code-Quality.gitlab-ci.yml
+ - template: Jobs/Code-Quality.gitlab-ci.yml
 
 code_quality:
-  variables:
+ variables:
     ## You must add a trailing slash to `$CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX`.
     CODECLIMATE_PREFIX: $CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX/
     CODECLIMATE_REGISTRY_USERNAME: $CI_DEPENDENCY_PROXY_USER
@@ -274,10 +250,10 @@ Example:
 
 ```yaml
 include:
-  - template: Jobs/Code-Quality.gitlab-ci.yml
+ - template: Jobs/Code-Quality.gitlab-ci.yml
 
 code_quality:
-  variables:
+ variables:
     CODECLIMATE_PREFIX: "registry-1.docker.io/"
     CODECLIMATE_REGISTRY_USERNAME: $DOCKERHUB_USERNAME
     CODECLIMATE_REGISTRY_PASSWORD: $DOCKERHUB_PASSWORD
@@ -285,37 +261,29 @@ code_quality:
 
 ### Use a private container image registry
 
-Using a private container image registry can reduce the time taken to download images, and also
-reduce external dependencies. You must configure the registry prefix to be passed down
-to CodeClimate's subsequent `docker pull` commands for individual engines, because of
-the nested method of container execution.
+Using a private container image registry can reduce the time taken to download images, and also reduce external dependencies. You must configure the registry prefix to be passed down to CodeClimate's subsequent `docker pull` commands for individual engines, because of the nested method of container execution.
 
 The following variables can address all of the required image pulls:
 
-- `CODE_QUALITY_IMAGE`: A fully prefixed image name that can be located anywhere
-  accessible from your job environment. GitLab container registry can be used here
-  to host your own copy.
-- `CODECLIMATE_PREFIX`: The domain of your intended container image registry. This
-  is a configuration option supported by [CodeClimate CLI](https://github.com/codeclimate/codeclimate/pull/948).
-  You must:
-  - Include a trailing slash (`/`).
-  - Not include a protocol prefix, such as `https://`.
+- `CODE_QUALITY_IMAGE`: A fully prefixed image name that can be located anywhere accessible from your job environment. GitLab container registry can be used here to host your own copy.
+- `CODECLIMATE_PREFIX`: The domain of your intended container image registry. This is a configuration option supported by [CodeClimate CLI](https://github.com/codeclimate/codeclimate/pull/948).
+ You must:
+ - Include a trailing slash (`/`).
+ - Not include a protocol prefix, such as `https://`.
 - `CODECLIMATE_REGISTRY_USERNAME`: An optional variable to specify the username for the registry domain parsed from `CODECLIMATE_PREFIX`.
 - `CODECLIMATE_REGISTRY_PASSWORD`: An optional variable to specify the password for the registry domain parsed from `CODECLIMATE_PREFIX`.
 
 ```yaml
 include:
-  - template: Jobs/Code-Quality.gitlab-ci.yml
+ - template: Jobs/Code-Quality.gitlab-ci.yml
 
 code_quality:
-  variables:
+ variables:
     CODE_QUALITY_IMAGE: "my-private-registry.local:12345/codequality:0.85.24"
     CODECLIMATE_PREFIX: "my-private-registry.local:12345/"
 ```
 
-This example is specific to GitLab Code Quality. For more general instructions on how to configure
-DinD with a registry mirror, see
-[Enable registry mirror for Docker-in-Docker service](../docker/using_docker_build.md#enable-registry-mirror-for-dockerdind-service).
+This example is specific to GitLab Code Quality. For more general instructions on how to configure DinD with a registry mirror, see [Enable registry mirror for Docker-in-Docker service](../docker/using_docker_build.md#enable-registry-mirror-for-dockerdind-service).
 
 #### Required images
 
@@ -338,16 +306,13 @@ You may need to adjust your Runner configuration so that CodeClimate-based scans
 
 ### Use private runners
 
-If you have private runners, you should use this configuration for improved performance of Code
-Quality because:
+If you have private runners, you should use this configuration for improved performance of Code Quality because:
 
 - Privileged mode is not used.
 - Docker-in-Docker is not used.
 - Docker images, including all CodeClimate images, are cached, and not re-fetched for subsequent jobs.
 
-This alternative configuration uses socket binding to share the Runner's Docker daemon
-with the job environment. Before implementing this configuration, consider its
-[limitations](../docker/using_docker_build.md#use-docker-socket-binding).
+This alternative configuration uses socket binding to share the Runner's Docker daemon with the job environment. Before implementing this configuration, consider its [limitations](../docker/using_docker_build.md#use-docker-socket-binding).
 
 To use private runners:
 
@@ -365,11 +330,8 @@ To use private runners:
      --non-interactive
    ```
 
-1. **Optional, but recommended**: Set the builds directory to `/tmp/builds`,
-   so job artifacts are periodically purged from the runner host. If you skip
-   this step, you must clean up the default builds directory (`/builds`) yourself.
-   You can do this by adding the following two flags to `gitlab-runner register`
-   in the previous step.
+1. **Optional, but recommended**: Set the builds directory to `/tmp/builds`, so job artifacts are periodically purged from the runner host. If you skip this step, you must clean up the default builds directory (`/builds`) yourself.
+   You can do this by adding the following two flags to `gitlab-runner register` in the previous step.
 
    ```shell
    --builds-dir "/tmp/builds"
@@ -488,8 +450,7 @@ You must set up Docker in a Docker container (Docker-in-Docker) to use Code Qual
 To ensure Code Quality jobs can run on a Kubernetes executor:
 
 - If you're using TLS to communicate with the Docker daemon, the executor [must be running in privileged mode](https://docs.gitlab.com/runner/executors/kubernetes/#other-configtoml-settings). Additionally, the certificate directory must be [specified as a volume mount](../docker/using_docker_build.md#docker-in-docker-with-tls-enabled-in-kubernetes).
-- It is possible that the DinD service doesn't start up fully before the Code Quality job starts. This is a limitation documented in
-  [Troubleshooting the Kubernetes executor](https://docs.gitlab.com/runner/executors/kubernetes/troubleshooting.html#docker-cannot-connect-to-the-docker-daemon-at-tcpdocker2375-is-the-docker-daemon-running). To resolve the issue, use `before_script` to wait for the Docker daemon to fully boot up. For an example, see the configuration in the `.gitlab-ci.yml` file described in the following section.
+- It is possible that the DinD service doesn't start up fully before the Code Quality job starts. This is a limitation documented in [Troubleshooting the Kubernetes executor](https://docs.gitlab.com/runner/executors/kubernetes/troubleshooting.html#docker-cannot-connect-to-the-docker-daemon-at-tcpdocker2375-is-the-docker-daemon-running). To resolve the issue, use `before_script` to wait for the Docker daemon to fully boot up. For an example, see the configuration in the `.gitlab-ci.yml` file described in the following section.
 
 #### Kubernetes
 
@@ -499,8 +460,7 @@ To run Code Quality in Kubernetes:
 - The Docker daemon in the service container must listen on a TCP and UNIX socket, as both sockets are required by Code Quality.
 - The Docker socket must be shared with a volume.
 
-Due to a [Docker requirement](https://docs.docker.com/reference/cli/docker/container/run/#privileged), the privileged flag
-must be enabled for the service container.
+Due to a [Docker requirement](https://docs.docker.com/reference/cli/docker/container/run/#privileged), the privileged flag must be enabled for the service container.
 
 ```toml
 [runners.kubernetes]
@@ -528,8 +488,7 @@ name = "docker:20.10.12-dind"
 
 {{< alert type="note" >}}
 
-If you use the [GitLab Runner Helm Chart](https://docs.gitlab.com/runner/install/kubernetes.html), you can use
-the previous Kubernetes configuration in the [`config` field](https://docs.gitlab.com/runner/install/kubernetes_helm_chart_configuration.html)
+If you use the [GitLab Runner Helm Chart](https://docs.gitlab.com/runner/install/kubernetes.html), you can use the previous Kubernetes configuration in the [`config` field](https://docs.gitlab.com/runner/install/kubernetes_helm_chart_configuration.html)
 of the `values.yaml` file.
 x
 {{< /alert >}}
@@ -543,28 +502,26 @@ Use the `before_script` section to wait for the Docker daemon to fully boot up. 
 
 ```yaml
 include:
-  - template: Code-Quality.gitlab-ci.yml
+ - template: Code-Quality.gitlab-ci.yml
 
 code_quality:
-  services: []
-  variables:
+ services: []
+ variables:
     DOCKER_HOST: tcp://dind:2375
     DOCKER_DRIVER: ""
-  before_script:
+ before_script:
     - while ! docker info > /dev/null 2>&1; do sleep 1; done
 ```
 
 #### OpenShift
 
 For OpenShift, you should use the [GitLab Runner Operator](https://docs.gitlab.com/runner/install/operator.html).
-To give the Docker daemon in the service container permissions to initialize its storage,
-you must mount the `/var/lib` directory as a volume mount.
+To give the Docker daemon in the service container permissions to initialize its storage, you must mount the `/var/lib` directory as a volume mount.
 
 {{< alert type="note" >}}
 
 If you cannot to mount the `/var/lib` directory as a volume mount, you can set `--storage-driver` to `vfs` instead.
-If you opt for the `vfs` value, it might have a negative
-impact on [performance](https://docs.docker.com/storage/storagedriver/select-storage-driver/).
+If you opt for the `vfs` value, it might have a negative impact on [performance](https://docs.docker.com/storage/storagedriver/select-storage-driver/).
 
 {{< /alert >}}
 
@@ -631,6 +588,5 @@ name = "docker:20.10.12-dind"
 
 #### Volumes and Docker storage
 
-Docker stores all of its data in the `/var/lib` volume, which could result in a large volume. To reuse Docker-in-Docker storage across the cluster,
-you can use [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) as an alternative.
+Docker stores all of its data in the `/var/lib` volume, which could result in a large volume. To reuse Docker-in-Docker storage across the cluster, you can use [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) as an alternative.
 <!--- end_remove -->

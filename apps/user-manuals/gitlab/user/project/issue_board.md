@@ -30,18 +30,14 @@ Issue boards:
 - Organize multiple boards for different teams and projects.
 - Visualize workload and progress across your entire process.
 
-Your issues appear as cards in vertical lists, organized by their assigned
-[labels](labels.md), [milestones](#milestone-lists), [iterations](#iteration-lists), [assignees](#assignee-lists) or [status](#status-lists).
+Your issues appear as cards in vertical lists, organized by their assigned [labels](labels.md), [milestones](#milestone-lists), [iterations](#iteration-lists), [assignees](#assignee-lists) or [status](#status-lists).
 
 Add metadata to your issues, then create the corresponding list for your existing issues.
 When you're ready, you can drag your issue cards from one list to another.
 
-Issue boards can power common frameworks like [Kanban](https://en.wikipedia.org/wiki/Kanban_(development)) and
-[Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)).
+Issue boards can power common frameworks like [Kanban](https://en.wikipedia.org/wiki/Kanban_(development)) and [Scrum](https://en.wikipedia.org/wiki/Scrum_(software_development)).
 
-To let your team members organize their own workflows, use
-[multiple issue boards](#multiple-issue-boards). This allows creating multiple issue
-boards in the same project.
+To let your team members organize their own workflows, use [multiple issue boards](#multiple-issue-boards). This allows creating multiple issue boards in the same project.
 
 ![GitLab issue board - Core](img/issue_boards_core_v17_1.png)
 
@@ -50,7 +46,7 @@ Different issue board features are available in different [GitLab tiers](https:/
 | Tier     | Number of project issue boards | Number of [group issue boards](#group-issue-boards) | [Configurable issue boards](#configurable-issue-boards) | [Assignee lists](#assignee-lists) |
 | -------- | ------------------------------ | --------------------------------------------------- | ------------------------------------------------------- | --------------------------------- |
 | Free     | Multiple                       | 1                                                   | {{< no >}}                                  | {{< no >}}            |
-| Premium  | Multiple                       | Multiple                                            | {{< yes >}}                                  | {{< yes >}}            |
+| Premium | Multiple                       | Multiple                                            | {{< yes >}}                                  | {{< yes >}}            |
 | Ultimate | Multiple                       | Multiple                                            | {{< yes >}}                                  | {{< yes >}}            |
 
 Read more about [GitLab Enterprise features for issue boards](#gitlab-enterprise-features-for-issue-boards).
@@ -68,19 +64,15 @@ Multiple issue boards allow for more than one issue board for:
 - A project in all tiers
 - A group in the Premium and Ultimate tier
 
-Multiple issue boards are great for large projects with more than one team, in which a repository hosts
-the code of multiple products and when you want to create boards to power different workflows across
-the software development lifecycle.
+Multiple issue boards are great for large projects with more than one team, in which a repository hosts the code of multiple products and when you want to create boards to power different workflows across the software development lifecycle.
 
 Using the search box at the top of the menu, you can filter the listed boards.
 
-When you have ten or more boards available, a **Recent** section is also shown in the menu, with
-shortcuts to your last four visited boards.
+When you have ten or more boards available, a **Recent** section is also shown in the menu, with shortcuts to your last four visited boards.
 
 ![Multiple issue boards](img/issue_boards_multiple_v17_1.png)
 
-When you're revisiting an issue board in a project or group with multiple boards,
-GitLab automatically loads the last board you visited.
+When you're revisiting an issue board in a project or group with multiple boards, GitLab automatically loads the last board you visited.
 
 ### Create an issue board
 
@@ -116,22 +108,18 @@ For workflow-based documentation, see [Tutorials: Plan and track your work](../.
 
 ### Use cases for a single issue board
 
-With the [GitLab Flow](https://about.gitlab.com/topics/version-control/what-is-gitlab-flow/) you can
-discuss proposals in issues, label them, and organize and prioritize them with issue boards.
+With the [GitLab Flow](https://about.gitlab.com/topics/version-control/what-is-gitlab-flow/) you can discuss proposals in issues, label them, and organize and prioritize them with issue boards.
 
 For example, let's consider this simplified development workflow:
 
 1. You have a repository that hosts your application's codebase, and your team actively contributes code.
-1. Your **backend** team starts working on a new implementation, gathers feedback and approval, and
-   passes it over to the **frontend** team.
+1. Your **backend** team starts working on a new implementation, gathers feedback and approval, and passes it over to the **frontend** team.
 1. When frontend is complete, the new feature is deployed to a **staging** environment to be tested.
 1. When successful, it's deployed to **production**.
 
-If you have the labels **Backend**, **Frontend**, **Staging**, and
-**Production**, and an issue board with a list for each, you can:
+If you have the labels **Backend**, **Frontend**, **Staging**, and **Production**, and an issue board with a list for each, you can:
 
-- Visualize the entire flow of implementations since the beginning of the development lifecycle
-  until deployed to production.
+- Visualize the entire flow of implementations since the beginning of the development lifecycle until deployed to production.
 - Prioritize the issues in a list by moving them vertically.
 - Move issues between lists to organize them according to the labels you've set.
 - Add multiple issues to lists in the board by selecting one or more existing issues.
@@ -141,8 +129,7 @@ If you have the labels **Backend**, **Frontend**, **Staging**, and
 ### Scrum team
 
 In a Scrum team, use [multiple issue boards](#multiple-issue-boards) so that each scrum team has their own board.
-On the Scrum board, you can easily move issues through each
-part of the process. For example: **To Do**, **Doing**, and **Done**.
+On the Scrum board, you can easily move issues through each part of the process. For example: **To Do**, **Doing**, and **Done**.
 
 ### Quick assignments
 
@@ -153,16 +140,13 @@ To quickly assign issues to your team members:
 
 ## Issue board terminology
 
-An **issue board** represents a unique view of your issues. It can have multiple lists with each
-list consisting of issues represented by cards.
+An **issue board** represents a unique view of your issues. It can have multiple lists with each list consisting of issues represented by cards.
 
 A **list** is a column on the issue board that displays issues matching certain attributes.
-In addition to the default "Open" and "Closed" lists, each additional list shows issues matching
-your chosen label, assignee, or milestone. On the top of each list you can see the number of issues
-that belong to it. Types of lists include:
+In addition to the default "Open" and "Closed" lists, each additional list shows issues matching your chosen label, assignee, or milestone. On the top of each list you can see the number of issues that belong to it. Types of lists include:
 
 - **Open** (default): all open issues that do not belong to one of the other lists.
-  Always appears as the leftmost list.
+ Always appears as the leftmost list.
 - **Closed** (default): all closed issues. Always appears as the rightmost list.
 - **Label list**: all open issues for a label.
 - [**Assignee list**](#assignee-lists): all open issues assigned to a user.
@@ -170,9 +154,7 @@ that belong to it. Types of lists include:
 - [**Iteration list**](#iteration-lists): all open issues for an iteration.
 - [**Status list**](#status-lists): all issues having a status.
 
-A **Card** is a box on a list, and it represents an issue. You can drag cards from one list to
-another to change their label, assignee, or milestone. The information you can see on a
-card includes:
+A **Card** is a box on a list, and it represents an issue. You can drag cards from one list to another to change their label, assignee, or milestone. The information you can see on a card includes:
 
 - Issue title
 - Associated labels
@@ -193,25 +175,16 @@ Prerequisites:
 
 - You must have at least the Planner role for the project.
 
-When an issue is created, the system assigns a relative order value that is greater than the maximum value
-of that issue's project or top-level group. This means the issue is at the bottom of any issue list that
-it appears in.
+When an issue is created, the system assigns a relative order value that is greater than the maximum value of that issue's project or top-level group. This means the issue is at the bottom of any issue list that it appears in.
 
-When you visit a board, issues appear ordered in any list. You're able to change
-that order by dragging the issues. The changed order is saved, so that anybody who visits the same
-board later sees the reordering, with some exceptions.
+When you visit a board, issues appear ordered in any list. You're able to change that order by dragging the issues. The changed order is saved, so that anybody who visits the same board later sees the reordering, with some exceptions.
 
 Any time you drag and reorder the issue, its relative order value changes accordingly.
-Then, any time that issue appears in any board, the ordering is done according to
-the updated relative order value. If a user in your GitLab instance
-drags issue `A` above issue `B`, the ordering is maintained when these two issues are subsequently
-loaded in any board in the same instance.
-This could be a different project board or a different group
-board, for example.
+Then, any time that issue appears in any board, the ordering is done according to the updated relative order value. If a user in your GitLab instance drags issue `A` above issue `B`, the ordering is maintained when these two issues are subsequently loaded in any board in the same instance.
+This could be a different project board or a different group board, for example.
 
 This ordering also affects [issue lists](issues/sorting_issue_lists.md).
-Changing the order in an issue board changes the ordering in an issue list,
-and vice versa.
+Changing the order in an issue board changes the ordering in an issue list, and vice versa.
 
 ## Focus mode
 
@@ -227,8 +200,7 @@ Users on GitLab Free can use a single group issue board.
 
 ## GitLab Enterprise features for issue boards
 
-GitLab issue boards are available on the GitLab Free tier, but some
-advanced functionality is present in [higher tiers only](https://about.gitlab.com/pricing/).
+GitLab issue boards are available on the GitLab Free tier, but some advanced functionality is present in [higher tiers only](https://about.gitlab.com/pricing/).
 
 ### Configurable issue boards
 
@@ -239,20 +211,15 @@ advanced functionality is present in [higher tiers only](https://about.gitlab.co
 
 {{< /details >}}
 
-An issue board can be associated with a [milestone](milestones/_index.md),
-[labels](labels.md), assignee, weight, and current [iteration](../group/iterations/_index.md),
-which automatically filter the board issues accordingly.
+An issue board can be associated with a [milestone](milestones/_index.md), [labels](labels.md), assignee, weight, and current [iteration](../group/iterations/_index.md), which automatically filter the board issues accordingly.
 This allows you to create unique boards according to your team's need.
 
 ![Create scoped board](img/issue_board_creation_v17_1.png)
 
 You can define the scope of your board when creating it or by selecting the **Configure board** ({{< icon name="settings" >}}) button.
-After a milestone, iteration, assignee, or weight is assigned to an issue board, you can no longer
-filter through these in the search bar. To do that, you need to remove the desired scope
-(for example, milestone, assignee, or weight) from the issue board.
+After a milestone, iteration, assignee, or weight is assigned to an issue board, you can no longer filter through these in the search bar. To do that, you need to remove the desired scope (for example, milestone, assignee, or weight) from the issue board.
 
-If you don't have editing permission in a board, you're still able to see the configuration by
-selecting **Board configuration** ({{< icon name="settings" >}}).
+If you don't have editing permission in a board, you're still able to see the configuration by selecting **Board configuration** ({{< icon name="settings" >}}).
 
 ### Assignee lists
 
@@ -263,8 +230,7 @@ selecting **Board configuration** ({{< icon name="settings" >}}).
 
 {{< /details >}}
 
-As in a regular list showing all issues with a chosen label, you can add
-an assignee list that shows all issues assigned to a user.
+As in a regular list showing all issues with a chosen label, you can add an assignee list that shows all issues assigned to a user.
 You can have a board with both label lists and assignee lists.
 
 Prerequisites:
@@ -278,8 +244,7 @@ To add an assignee list:
 1. In the dropdown list, select a user.
 1. Select **Add to board**.
 
-Now that the assignee list is added, you can assign or unassign issues to that user
-by [moving issues](#move-issues-and-lists) to and from an assignee list.
+Now that the assignee list is added, you can assign or unassign issues to that user by [moving issues](#move-issues-and-lists) to and from an assignee list.
 To remove an assignee list, just as with a label list, select the trash icon.
 
 ![Assignee lists](img/issue_board_assignee_lists_v17_1.png)
@@ -293,8 +258,7 @@ To remove an assignee list, just as with a label list, select the trash icon.
 
 {{< /details >}}
 
-You can create milestone lists that filter issues by the assigned
-milestone, giving you more freedom and visibility on the issue board.
+You can create milestone lists that filter issues by the assigned milestone, giving you more freedom and visibility on the issue board.
 
 Prerequisites:
 
@@ -423,9 +387,7 @@ them to change their position and epic assignment:
 
 {{< /details >}}
 
-The top of each list indicates the sum of issue weights for the issues that
-belong to that list. This is useful when using boards for capacity allocation,
-especially in combination with [assignee lists](#assignee-lists).
+The top of each list indicates the sum of issue weights for the issues that belong to that list. This is useful when using boards for capacity allocation, especially in combination with [assignee lists](#assignee-lists).
 
 ![issue board summed weights](img/issue_board_summed_weights_v17_1.png)
 
@@ -455,25 +417,24 @@ You cannot set a WIP limit on the default lists (**Open** and **Closed**).
 GitLab supports two types of WIP limits:
 
 - **Items**: Limits the number of issues in a list regardless of their weight.
-  The board header shows the number of issues in the list and the item limit.
+ The board header shows the number of issues in the list and the item limit.
 
-  For example, if there are 4 issues and an item limit of 3, the header shows **4/3**.
+ For example, if there are 4 issues and an item limit of 3, the header shows **4/3**.
 
-  ![Work-in-progress item limit on an issue board](img/issue_board_wip_items_limit_v17_11.png)
+ ![Work-in-progress item limit on an issue board](img/issue_board_wip_items_limit_v17_11.png)
 
 - **Weight**: Limits the total weight of issues in a list.
-  The board header shows the total weight of issues in the list and the weight limit.
+ The board header shows the total weight of issues in the list and the weight limit.
 
-  For example, if there are issues with weights adding up to 8 and a weight limit of 5, the header shows **8/5**.
+ For example, if there are issues with weights adding up to 8 and a weight limit of 5, the header shows **8/5**.
 
-  ![Work-in-progress weight limit on an issue board](img/issue_board_wip_weight_limit_v17_11.png)
+ ![Work-in-progress weight limit on an issue board](img/issue_board_wip_weight_limit_v17_11.png)
 
 Examples:
 
 - When you have a list with four issues and an item limit of five, the header shows **4/5**.
-  If you exceed the limit, the current number of issues is shown in red.
-- You have a list with five issues with an item limit of five. When you move another issue to that list,
-  the list's header displays **6/5**, with the six shown in red. The work in progress limit line is shown before the sixth issue.
+ If you exceed the limit, the current number of issues is shown in red.
+- You have a list with five issues with an item limit of five. When you move another issue to that list, the list's header displays **6/5**, with the six shown in red. The work in progress limit line is shown before the sixth issue.
 - When using weight limits, if you have three issues with weights of 1, 2, and 5 (total weight of 8) and a weight limit of 5, the header shows **8/5** with the 8 in red. The work in progress limit line appears after the issues whose combined weight is within the limit, separating them from issues that exceed the limit.
 
 #### Set work in progress limit
@@ -504,8 +465,7 @@ To remove a WIP limit, select **Remove limit**.
 
 {{< /details >}}
 
-If an issue is [blocked by another issue](issues/related_issues.md#blocking-issues), an icon appears next to its title to indicate its blocked
-status.
+If an issue is [blocked by another issue](issues/related_issues.md#blocking-issues), an icon appears next to its title to indicate its blocked status.
 
 When you hover over the blocked icon ({{< icon name="entity-blocked" >}}), a detailed information popover is displayed.
 
@@ -582,8 +542,7 @@ The new list is inserted at the right end of the lists, before **Closed**.
 
 ### Remove a list
 
-Removing a list doesn't have any effect on issues and labels, as it's just the
-list view that's removed. You can always create it again later if you need.
+Removing a list doesn't have any effect on issues and labels, as it's just the list view that's removed. You can always create it again later if you need.
 
 Prerequisites:
 
@@ -602,8 +561,7 @@ Prerequisites:
 
 - You must have at least the Planner role for the project.
 
-If your board is scoped to one or more attributes, go to the issues you want to add and apply the
-same attributes as your board scope.
+If your board is scoped to one or more attributes, go to the issues you want to add and apply the same attributes as your board scope.
 
 For example, to add an issue to a list scoped to the `Doing` label, in a group issue board:
 
@@ -628,8 +586,7 @@ The steps depend on the scope of the list:
 
 ### Filter issues
 
-You can use the filters on top of your issue board to show only
-the results you want. It's similar to the filtering used in the [issue tracker](issues/_index.md).
+You can use the filters on top of your issue board to show only the results you want. It's similar to the filtering used in the [issue tracker](issues/_index.md).
 
 Prerequisites:
 
@@ -656,8 +613,7 @@ When [filtering issues](#filter-issues) in a **group** board, keep this behavior
 - Milestones: you can filter by the milestones belonging to the group and its descendant groups.
 - Labels: you can only filter by the labels belonging to the group but not its descendant groups.
 
-When you edit issues individually using the right sidebar, you can additionally select the
-milestones and labels from the **project** that the issue is from.
+When you edit issues individually using the right sidebar, you can additionally select the milestones and labels from the **project** that the issue is from.
 
 ### Move issues and lists
 
@@ -667,8 +623,7 @@ Prerequisites:
 
 - You must have at least the Planner role for a project in GitLab.
 
-To move an issue, select the issue card and drag it to another position in its current list or
-into a different list. Learn about possible effects in [Dragging issues between lists](#dragging-issues-between-lists).
+To move an issue, select the issue card and drag it to another position in its current list or into a different list. Learn about possible effects in [Dragging issues between lists](#dragging-issues-between-lists).
 
 To move a list, select its top bar, and drag it horizontally.
 You can't move the **Open** and **Closed** lists, but you can hide them when editing an issue board.
@@ -719,8 +674,7 @@ To move an issue to the end of the list:
 
 To move an issue to another list, select the issue card and drag it onto that list.
 
-When you drag issues between lists, the result is different depending on the source list
-and the target list.
+When you drag issues between lists, the result is different depending on the source list and the target list.
 
 |                              | To Open        | To Closed   | To label B list                | To assignee Bob list          |
 | ---------------------------- | -------------- | ----------- | ------------------------------ | ----------------------------- |
@@ -733,25 +687,20 @@ and the target list.
 
 A few things to remember:
 
-- Moving an issue between lists removes the label from the list it came from
-  and adds the label from the list it goes to.
+- Moving an issue between lists removes the label from the list it came from and adds the label from the list it goes to.
 - An issue can exist in multiple lists if it has more than one label.
 - Lists are populated with issues automatically if the issues are labeled.
 - Selecting the issue title inside a card takes you to that issue.
-- Selecting a label inside a card quickly filters the entire issue board
-  and show only the issues from all lists that have that label.
+- Selecting a label inside a card quickly filters the entire issue board and show only the issues from all lists that have that label.
 - When an issue is moved from a status list to an open list, the default open status is applied.
-  Similarly, when it's moved to a closed list, the default closed status is applied.
-- For performance and visibility reasons, each list shows the first 20 issues
-  by default. If you have more than 20 issues, start scrolling down and the next
-  20 appear.
+ Similarly, when it's moved to a closed list, the default closed status is applied.
+- For performance and visibility reasons, each list shows the first 20 issues by default. If you have more than 20 issues, start scrolling down and the next 20 appear.
 
 ## Troubleshooting issue boards
 
 ### `There was a problem fetching users` on group issue board when filtering by Author or Assignee
 
-If you get a banner with `There was a problem fetching users` error when filtering by author or assignee on
-group issue board, make sure that you are added as a member to the current group.
+If you get a banner with `There was a problem fetching users` error when filtering by author or assignee on group issue board, make sure that you are added as a member to the current group.
 Non-members do not have permission to list group members when filtering by author or assignee on issue boards.
 
 To fix this error, you should add all of your users to the top-level group with at least the Guest role.

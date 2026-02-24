@@ -18,11 +18,9 @@ title: SAST analyzers
 
 {{< /history >}}
 
-Static application security testing (SAST) uses analyzers
-to detect vulnerabilities in source code. Each analyzer is a wrapper around a [scanner](../terminology/_index.md#scanner), a third-party code analysis tool.
+Static application security testing (SAST) uses analyzers to detect vulnerabilities in source code. Each analyzer is a wrapper around a [scanner](../terminology/_index.md#scanner), a third-party code analysis tool.
 
-The analyzers are published as Docker images that SAST uses to launch dedicated containers for each
-analysis. We recommend a minimum of 4 GB RAM to ensure consistent performance of the analyzers.
+The analyzers are published as Docker images that SAST uses to launch dedicated containers for each analysis. We recommend a minimum of 4 GB RAM to ensure consistent performance of the analyzers.
 
 SAST default images are maintained by GitLab, but you can also integrate your own custom image.
 
@@ -84,8 +82,7 @@ Footnotes:
 
 ## SAST analyzer features
 
-For an analyzer to be considered generally available, it is expected to minimally
-support the following features:
+For an analyzer to be considered generally available, it is expected to minimally support the following features:
 
 - [Customizable configuration](_index.md#available-cicd-variables)
 - [Customizable rulesets](customize_rulesets.md)
@@ -104,8 +101,7 @@ support the following features:
 
 {{< /details >}}
 
-Post analyzers enrich the report output by an analyzer. A post analyzer doesn't modify report
-content directly. Instead, it enhances the results with additional properties, including:
+Post analyzers enrich the report output by an analyzer. A post analyzer doesn't modify report content directly. Instead, it enhances the results with additional properties, including:
 
 - CWEs.
 - Location tracking fields.
@@ -150,18 +146,16 @@ Prerequisites:
 > [!note]
 > This variable affects all Secure analyzers, not just the analyzers for SAST.
 
-To have GitLab download the analyzers' images from a custom Docker registry, define the prefix with
-the `SECURE_ANALYZERS_PREFIX` CI/CD variable.
+To have GitLab download the analyzers' images from a custom Docker registry, define the prefix with the `SECURE_ANALYZERS_PREFIX` CI/CD variable.
 
-For example, the following instructs SAST to pull `my-docker-registry/gitlab-images/semgrep` instead
-of `registry.gitlab.com/security-products/semgrep`:
+For example, the following instructs SAST to pull `my-docker-registry/gitlab-images/semgrep` instead of `registry.gitlab.com/security-products/semgrep`:
 
 ```yaml
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 variables:
-  SECURE_ANALYZERS_PREFIX: my-docker-registry/gitlab-images
+ SECURE_ANALYZERS_PREFIX: my-docker-registry/gitlab-images
 ```
 
 ### Disable all default analyzers
@@ -169,58 +163,51 @@ variables:
 You can disable all default SAST analyzers, leaving only [custom analyzers](#custom-analyzers)
 enabled.
 
-To disable all default analyzers, set the CI/CD variable `SAST_DISABLED` to `"true"` in your
-`.gitlab-ci.yml` file.
+To disable all default analyzers, set the CI/CD variable `SAST_DISABLED` to `"true"` in your `.gitlab-ci.yml` file.
 
 Example:
 
 ```yaml
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 variables:
-  SAST_DISABLED: "true"
+ SAST_DISABLED: "true"
 ```
 
 ### Disable specific default analyzers
 
-Analyzers are run automatically according to the
-source code languages detected. However, you can disable select analyzers.
+Analyzers are run automatically according to the source code languages detected. However, you can disable select analyzers.
 
-To disable select analyzers, set the CI/CD variable `SAST_EXCLUDED_ANALYZERS` to a comma-delimited
-string listing the analyzers that you want to prevent running.
+To disable select analyzers, set the CI/CD variable `SAST_EXCLUDED_ANALYZERS` to a comma-delimited string listing the analyzers that you want to prevent running.
 
 For example, to disable the `spotbugs` analyzer:
 
 ```yaml
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 variables:
-  SAST_EXCLUDED_ANALYZERS: "spotbugs"
+ SAST_EXCLUDED_ANALYZERS: "spotbugs"
 ```
 
 ### Custom analyzers
 
-You can provide your own analyzers by defining jobs in your CI/CD configuration. For
-consistency with the default analyzers, you should add the suffix `-sast` to your custom
-SAST jobs.
+You can provide your own analyzers by defining jobs in your CI/CD configuration. For consistency with the default analyzers, you should add the suffix `-sast` to your custom SAST jobs.
 
 #### Example custom analyzer
 
-This example shows how to add a scanning job that's based on the Docker image
-`my-docker-registry/analyzers/csharp`. It runs the script `/analyzer run` and outputs a SAST report
-`gl-sast-report.json`.
+This example shows how to add a scanning job that's based on the Docker image `my-docker-registry/analyzers/csharp`. It runs the script `/analyzer run` and outputs a SAST report `gl-sast-report.json`.
 
 Define the following in your `.gitlab-ci.yml` file:
 
 ```yaml
 csharp-sast:
-  image:
+ image:
     name: "my-docker-registry/analyzers/csharp"
-  script:
+ script:
     - /analyzer run
-  artifacts:
+ artifacts:
     reports:
       sast: gl-sast-report.json
 ```

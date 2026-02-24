@@ -52,9 +52,7 @@ When Bitbucket Cloud items are imported:
 When importing issues, pull requests, and comments, the Bitbucket Cloud importer:
 
 - Uses the Bitbucket nickname of the author/assignee and tries to find the same Bitbucket identity in GitLab.
-- If they don't match or the user is not found in the GitLab database, sets the project creator (usually the current
-  user that started the import process) as the author and keeps a reference on the issue about the original Bitbucket
-  author.
+- If they don't match or the user is not found in the GitLab database, sets the project creator (usually the current user that started the import process) as the author and keeps a reference on the issue about the original Bitbucket author.
 
 For pull requests, the importer:
 
@@ -65,28 +63,24 @@ For pull requests, the importer:
 For issues, the importer:
 
 - Adds a label corresponding to the type of issue on Bitbucket. Either `bug`, `enhancement`, `proposal` or `task`.
-- If the issue on Bitbucket was one of `resolved`, `invalid`, `duplicate`, `wontfix`, or `closed`, closes the issue on
-  GitLab.
+- If the issue on Bitbucket was one of `resolved`, `invalid`, `duplicate`, `wontfix`, or `closed`, closes the issue on GitLab.
 
-The Bitbucket Cloud importer creates any new namespaces (groups) if they don't exist. If the namespace is taken, the
-repository is imported under the namespace of the user who started the import process.
+The Bitbucket Cloud importer creates any new namespaces (groups) if they don't exist. If the namespace is taken, the repository is imported under the namespace of the user who started the import process.
 
 ## Prerequisites
 
-- You must enable the [Bitbucket Cloud integration](../../integration/bitbucket.md) or
-  ask your GitLab administrator to enable it. Enabled by default on GitLab.com.
+- You must enable the [Bitbucket Cloud integration](../../integration/bitbucket.md) or ask your GitLab administrator to enable it. Enabled by default on GitLab.com.
 - You must enable the [Bitbucket Cloud import source](../../administration/settings/import_and_export_settings.md#configure-allowed-import-sources)
-  or ask your GitLab administrator to enable it. Enabled by default on GitLab.com.
+ or ask your GitLab administrator to enable it. Enabled by default on GitLab.com.
 - You must have at least the Maintainer role on the destination group to import to.
 - Pull requests in Bitbucket must have the same source and destination project and not be from a fork of a project.
-  Otherwise, the pull requests are imported as empty merge requests.
+ Otherwise, the pull requests are imported as empty merge requests.
 
 For user contributions to be mapped, each user must complete the following before the project import:
 
 1. Verify that the username in the [Bitbucket account settings](https://bitbucket.org/account/settings/)
    matches the public name in the [Atlassian account settings](https://id.atlassian.com/manage-profile/profile-and-visibility).
-   If they don't match, modify the public name in the Atlassian account settings to match the
-   username in the Bitbucket account settings.
+   If they don't match, modify the public name in the Atlassian account settings to match the username in the Bitbucket account settings.
 1. Connect your Bitbucket account in [GitLab profile service sign-in](https://gitlab.com/-/profile/account).
 
 ### Generate a Bitbucket Cloud app password
@@ -118,12 +112,10 @@ To generate a Bitbucket Cloud app password:
 1. Select **Import project**.
 1. Select **Bitbucket Cloud**.
 1. Sign in to Bitbucket, then select **Grant access** to give GitLab access to your Bitbucket account.
-1. Select the projects you want to import, or import all projects. You can filter projects by name and select the
-   namespace each project is imported for.
+1. Select the projects you want to import, or import all projects. You can filter projects by name and select the namespace each project is imported for.
 1. To import a project:
    - For the first time, select **Import**.
-   - Subsequent times, select **Re-import**. Specify a new name and select **Re-import** again. Re-importing creates a
-     new copy of the source project.
+   - Subsequent times, select **Re-import**. Specify a new name and select **Re-import** again. Re-importing creates a new copy of the source project.
 
 ## Troubleshooting
 
@@ -131,30 +123,23 @@ These sections contain possible solutions to issues you might encounter when imp
 
 ### Import process used wrong account
 
-Be sure to sign in to the correct account. If you've accidentally started the import process with the wrong account,
-follow these steps:
+Be sure to sign in to the correct account. If you've accidentally started the import process with the wrong account, follow these steps:
 
-1. Revoke GitLab access to your Bitbucket account, essentially reversing the process when you
-   [imported your Bitbucket Cloud repositories](#import-your-bitbucket-cloud-repositories).
+1. Revoke GitLab access to your Bitbucket account, essentially reversing the process when you [imported your Bitbucket Cloud repositories](#import-your-bitbucket-cloud-repositories).
 1. Sign out of the Bitbucket account and [import your Bitbucket Cloud repositories](#import-your-bitbucket-cloud-repositories) again.
 
 ### User mapping fails despite matching names
 
-[For user mapping to work](mapping.md), the username in the Bitbucket account settings must match the public name
-in the Atlassian account settings.
+[For user mapping to work](mapping.md), the username in the Bitbucket account settings must match the public name in the Atlassian account settings.
 
-If these names match but user mapping still fails, the user might have modified their Bitbucket username after connecting
-their Bitbucket account in the [GitLab profile service sign-in](https://gitlab.com/-/profile/account).
+If these names match but user mapping still fails, the user might have modified their Bitbucket username after connecting their Bitbucket account in the [GitLab profile service sign-in](https://gitlab.com/-/profile/account).
 
-To fix this issue, the user must verify that their Bitbucket external UID in the GitLab database matches their
-current Bitbucket public name, and reconnect if there's a mismatch:
+To fix this issue, the user must verify that their Bitbucket external UID in the GitLab database matches their current Bitbucket public name, and reconnect if there's a mismatch:
 
 1. [Use the API to get the authenticated user](../../api/users.md#as-a-regular-user-2).
 1. In the API response, the `identities` attribute contains the Bitbucket account that exists in the GitLab database.
-   If the `extern_uid` doesn't match the current Bitbucket public name, the user should reconnect their Bitbucket account
-   in the [GitLab profile service sign-in](https://gitlab.com/-/profile/account).
-1. Following reconnection, the user should use the API again to verify that their `extern_uid` in
-   the GitLab database now matches their current Bitbucket public name.
+   If the `extern_uid` doesn't match the current Bitbucket public name, the user should reconnect their Bitbucket account in the [GitLab profile service sign-in](https://gitlab.com/-/profile/account).
+1. Following reconnection, the user should use the API again to verify that their `extern_uid` in the GitLab database now matches their current Bitbucket public name.
 
 The user who imported the project must then [delete the imported project](../project/working_with_projects.md#delete-a-project)
 and import again.

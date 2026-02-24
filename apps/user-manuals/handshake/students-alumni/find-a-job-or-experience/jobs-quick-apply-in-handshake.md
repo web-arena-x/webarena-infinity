@@ -11,8 +11,8 @@ Quick Apply is only available on the mobile app, and not on the web version of H
 The opportunity to apply for a job via 'Quick Apply' is only available if:
 
 - You meet all of the employer's specified candidate preferences on the job AND
-  - There are no required documents OR
-  - There is only one required document (a resume), AND you have an approved or pending resume.
+ - There are no required documents OR
+ - There is only one required document (a resume), AND you have an approved or pending resume.
 
 *To learn more about other application methods on the platform, check out* [Apply for a Job in Handshake](https://support.joinhandshake.com/hc/en-us/articles/218693418) *and* [Jobs: Apply Externally](https://support.joinhandshake.com/hc/en-us/articles/360043604173).
 

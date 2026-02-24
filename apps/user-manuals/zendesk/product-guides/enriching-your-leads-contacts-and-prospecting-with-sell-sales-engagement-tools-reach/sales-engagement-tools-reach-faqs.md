@@ -73,7 +73,7 @@ You can see how many enrichment and prospecting credits you have left and how ma
 
 - In your Sell account, click **Settings** (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/settings_icon.png)), then **Data > Prospecting and enrichment****.**
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/reach_activity_log.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/reach_activity_log.png)
 
 ### Can I purchase sales engagement tools for only a few users on my team?
 

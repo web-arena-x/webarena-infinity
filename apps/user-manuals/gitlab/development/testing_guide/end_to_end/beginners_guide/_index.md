@@ -71,9 +71,9 @@ Specs have an outer `RSpec.describe` indicating the DevOps stage.
 # frozen_string_literal: true
 
 module QA
-  RSpec.describe 'Manage' do
+ RSpec.describe 'Manage' do
 
-  end
+ end
 end
 ```
 
@@ -85,11 +85,11 @@ Inside of our outer `RSpec.describe`, describe the feature to test. In this case
 # frozen_string_literal: true
 
 module QA
-  RSpec.describe 'Manage' do
+ RSpec.describe 'Manage' do
     describe 'Login' do
 
     end
-  end
+ end
 end
 ```
 
@@ -101,11 +101,11 @@ Assign `feature_category` metadata and specify what feature category this test b
 # frozen_string_literal: true
 
 module QA
-  RSpec.describe 'Manage' do
+ RSpec.describe 'Manage' do
     describe 'Login', feature_category: :system_access do
 
     end
-  end
+ end
 end
 ```
 
@@ -115,7 +115,7 @@ Every test suite contains at least one `it` block (example). A good way to start
 
 ```ruby
 module QA
-  RSpec.describe 'Manage' do
+ RSpec.describe 'Manage' do
     describe 'Login', feature_category: :system_access do
       it 'can login' do
 
@@ -125,7 +125,7 @@ module QA
 
       end
     end
-  end
+ end
 end
 ```
 
@@ -139,7 +139,7 @@ Begin by logging in.
 # frozen_string_literal: true
 
 module QA
-  RSpec.describe 'Manage' do
+ RSpec.describe 'Manage' do
     describe 'Login', feature_category: :system_access do
       it 'can login' do
         Flow::Login.sign_in
@@ -151,7 +151,7 @@ module QA
 
       end
     end
-  end
+ end
 end
 ```
 
@@ -167,7 +167,7 @@ After [running the spec](#run-the-spec), our test should login and end; then we 
 # frozen_string_literal: true
 
 module QA
-  RSpec.describe 'Manage' do
+ RSpec.describe 'Manage' do
     describe 'Login', feature_category: :system_access do
       it 'can login' do
         Flow::Login.sign_in
@@ -187,7 +187,7 @@ module QA
         end
       end
     end
-  end
+ end
 end
 ```
 
@@ -211,7 +211,7 @@ Refactor your test to use a `before` block for test setup, since it's duplicatin
 # frozen_string_literal: true
 
 module QA
-  RSpec.describe 'Manage' do
+ RSpec.describe 'Manage' do
     describe 'Login', feature_category: :system_access do
       before do
         Flow::Login.sign_in
@@ -231,7 +231,7 @@ module QA
         end
       end
     end
-  end
+ end
 end
 ```
 
@@ -245,7 +245,7 @@ Next, let's test something other than Login. Let's test Issues, which are owned 
 # frozen_string_literal: true
 
 module QA
-  RSpec.describe 'Plan' do
+ RSpec.describe 'Plan' do
     describe 'Issues', feature_category: :team_planning do
       let(:issue) { create(:issue) }
 
@@ -262,7 +262,7 @@ module QA
         end
       end
     end
-  end
+ end
 end
 ```
 
@@ -287,7 +287,7 @@ A [Page Object](page_objects.md) is a class in our suite that represents a page 
 
 ```ruby
 module Page::Project::Issue
-  class Show
+ class Show
     view 'app/views/projects/issues/show.html.haml' do
       element 'closed-status-box'
     end
@@ -295,7 +295,7 @@ module Page::Project::Issue
     def closed?
       has_element?('closed-status-box')
     end
-  end
+ end
 end
 ```
 

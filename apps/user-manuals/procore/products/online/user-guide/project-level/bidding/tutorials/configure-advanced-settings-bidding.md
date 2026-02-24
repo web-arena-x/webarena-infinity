@@ -11,9 +11,9 @@ To configure the advanced settings for your project's Bidding tool.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.
+ - 'Admin' level permissions on the project's Bidding tool.
 - **Additional Information:**
-  - When you attach a folder that contains all of the ﻿bid documents, a zip file will be attached to the email that contains the contents of the folder.
+ - When you attach a folder that contains all of the ﻿bid documents, a zip file will be attached to the email that contains the contents of the folder.
 
 ## Steps
 
@@ -46,8 +46,7 @@ Instead of being restricted to one accounting method for an entire bid package,
    - None
    - Read Only
    - Standard
-   - Admin  
-     *Note*: See the [Permissions Matrix](https://support.procore.com/products/online/user-guide/project-level/bidding/permissions "Permissions") to see what you can do at each permission level in Bidding.
+   - Admin *Note*: See the [Permissions Matrix](https://support.procore.com/products/online/user-guide/project-level/bidding/permissions "Permissions") to see what you can do at each permission level in Bidding.
 3. The settings are automatically saved.
 
 ## See Also

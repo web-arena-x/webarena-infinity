@@ -5,17 +5,14 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: Metrics for measuring monorepo performance
 ---
 
-To measure server-side performance of your monorepo, use these metrics. While they are general metrics
-to measure the performance of Gitaly, they are especially relevant to large repositories.
+To measure server-side performance of your monorepo, use these metrics. While they are general metrics to measure the performance of Gitaly, they are especially relevant to large repositories.
 
-Clones and fetches are the most frequent expensive operations. When taken as a percentage of system resources
-consumed, these operations often contribute to 90% or more of system resources on Gitaly nodes.
+Clones and fetches are the most frequent expensive operations. When taken as a percentage of system resources consumed, these operations often contribute to 90% or more of system resources on Gitaly nodes.
 Your logs and metrics provide clues to the health of your repository.
 
 ## CPU and memory
 
-Two main RPCs (remote procedure calls) handle clones and fetches. Use these fields in your Gitaly
-logs to inspect how much repository clones and fetches are consuming system resources.
+Two main RPCs (remote procedure calls) handle clones and fetches. Use these fields in your Gitaly logs to inspect how much repository clones and fetches are consuming system resources.
 Filter your Gitaly logs by any of these fields to learn more:
 
 | Log field                         | Values to filter on                                                                          | Description |
@@ -27,7 +24,7 @@ Filter your Gitaly logs by any of these fields to learn more:
 | `json.grpc.code`                  | `ResourceExhausted`                                                                          | Indicates if the machine is spawning too many Git processes simultaneously. |
 | `json.user_id`                    | The `user_id` initiating the clone or fetch, in the form `user-<user_id>`, like `user-22345` | Find excessive clone or fetch operations spawned by a single user. |
 | `json.username`                   | The username who initiated the clone or fetch.                                               | Find excessive clone or fetch operations spawned by a single user. |
-| `json.grpc.request.glRepository`  | A repository, in the form of `project-<project_id>`, like `project-214`                      | Find the total clones and fetches for a single repository. |
+| `json.grpc.request.glRepository` | A repository, in the form of `project-<project_id>`, like `project-214`                      | Find the total clones and fetches for a single repository. |
 | `json.grpc.request.glProjectPath` | A repository, in the form of a project path, like `my-org/coolproject`                       | Find the total clones and fetches for a given repository. |
 
 These log entry fields give information about CPU and memory:
@@ -92,14 +89,13 @@ In this example, log message `json.command.cpu_time_ms` was `420`, and `json.com
     "type":"gitaly",
     "user_id":"user-14857500",
     "username":"ctx_ckottke",
-  }
+ }
 ```
 
 ## Read distribution
 
 To check the number of reads to each Gitaly node, check `gitaly_praefect_read_distribution`.
-This Prometheus metric is a [counter](https://prometheus.io/docs/concepts/metric_types/#counter),
-and has two vectors:
+This Prometheus metric is a [counter](https://prometheus.io/docs/concepts/metric_types/#counter), and has two vectors:
 
 | Metric name                         | Vector            | Description |
 |-------------------------------------|-------------------|-------------|
@@ -108,14 +104,13 @@ and has two vectors:
 
 ## Pack objects cache
 
-To check the [pack objects cache](../../../../administration/gitaly/configure_gitaly.md#pack-objects-cache),
-check your logs and your Prometheus metrics:
+To check the [pack objects cache](../../../../administration/gitaly/configure_gitaly.md#pack-objects-cache), check your logs and your Prometheus metrics:
 
 | Log field name                        | Description |
 |:--------------------------------------|:------------|
 | `pack_objects_cache.hit`              | Whether the current pack-objects cache was hit. (`true` or `false`) |
 | `pack_objects_cache.key`              | Cache key used for the pack-objects cache. |
-| `pack_objects_cache.generated_bytes`  | Size in bytes of the new cache being written. |
+| `pack_objects_cache.generated_bytes` | Size in bytes of the new cache being written. |
 | `pack_objects_cache.served_bytes`     | Size in bytes of the cache being served. |
 | `pack_objects.compression_statistics` | Statistics for pack-objects generation. |
 | `pack_objects.enumerate_objects_ms`   | Total time, in ms, spent enumerating objects sent by clients. |
@@ -162,5 +157,5 @@ Example log message:
 
 | Prometheus metric name                    | Vector   | Description |
 |:------------------------------------------|:---------|:------------|
-| `gitaly_pack_objects_served_bytes_total`  |          | Size (in bytes) of the cache being served. |
+| `gitaly_pack_objects_served_bytes_total` |          | Size (in bytes) of the cache being served. |
 | `gitaly_pack_objects_cache_lookups_total` | `result` | Whether a cache lookup resulted in a `hit` or `miss`. |

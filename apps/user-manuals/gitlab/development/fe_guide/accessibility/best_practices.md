@@ -7,15 +7,11 @@ title: Accessibility best practices
 
 ## Quick summary
 
-Since [no ARIA is better than bad ARIA](https://w3c.github.io/aria-practices/#no_aria_better_bad_aria),
-review the following recommendations before using `aria-*`, `role`, and `tabindex`.
-Use semantic HTML, which has accessibility semantics baked in, and ideally test with
-[relevant combinations of screen readers and browsers](https://www.accessibility-developer-guide.com/knowledge/screen-readers/relevant-combinations/).
+Since [no ARIA is better than bad ARIA](https://w3c.github.io/aria-practices/#no_aria_better_bad_aria), review the following recommendations before using `aria-*`, `role`, and `tabindex`.
+Use semantic HTML, which has accessibility semantics baked in, and ideally test with [relevant combinations of screen readers and browsers](https://www.accessibility-developer-guide.com/knowledge/screen-readers/relevant-combinations/).
 
-In [WebAIM's accessibility analysis of the top million home pages](https://webaim.org/projects/million/#aria),
-they found that "ARIA correlated to higher detectable errors".
-It is likely that misuse of ARIA is a big cause of increased errors,
-so when in doubt don't use `aria-*`, `role`, and `tabindex` and stick with semantic HTML.
+In [WebAIM's accessibility analysis of the top million home pages](https://webaim.org/projects/million/#aria), they found that "ARIA correlated to higher detectable errors".
+It is likely that misuse of ARIA is a big cause of increased errors, so when in doubt don't use `aria-*`, `role`, and `tabindex` and stick with semantic HTML.
 
 ## Enable keyboard navigation on macOS
 
@@ -30,20 +26,12 @@ You can read more about enabling browser-specific keyboard navigation on [a11ypr
 
 ## Quick checklist
 
-- [Text](https://design.gitlab.com/components/text-input#accessibility),
-  [textarea](https://design.gitlab.com/components/textarea#accessibility),
-  [select](https://design.gitlab.com/components/select#accessibility),
-  [checkbox](https://design.gitlab.com/components/checkbox#accessibility),
-  [radio](https://design.gitlab.com/components/radio-button#accessibility),
-  [file](#form-inputs-with-accessible-names),
-  and [toggle](https://design.gitlab.com/components/toggle#accessibility) inputs have accessible names.
-- [Buttons](#buttons-and-links-with-descriptive-accessible-names),
-  [links](#buttons-and-links-with-descriptive-accessible-names),
-  and [images](#images-with-accessible-names) have descriptive accessible names.
+- [Text](https://design.gitlab.com/components/text-input#accessibility), [textarea](https://design.gitlab.com/components/textarea#accessibility), [select](https://design.gitlab.com/components/select#accessibility), [checkbox](https://design.gitlab.com/components/checkbox#accessibility), [radio](https://design.gitlab.com/components/radio-button#accessibility), [file](#form-inputs-with-accessible-names), and [toggle](https://design.gitlab.com/components/toggle#accessibility) inputs have accessible names.
+- [Buttons](#buttons-and-links-with-descriptive-accessible-names), [links](#buttons-and-links-with-descriptive-accessible-names), and [images](#images-with-accessible-names) have descriptive accessible names.
 - Icons
-  - [Non-decorative icons](#icons-that-convey-information) have an `aria-label`.
-  - [Clickable icons](#icons-that-are-clickable) are buttons, that is, `<gl-button icon="close" />` is used and not `<gl-icon />`.
-  - Icon-only buttons have an `aria-label`.
+ - [Non-decorative icons](#icons-that-convey-information) have an `aria-label`.
+ - [Clickable icons](#icons-that-are-clickable) are buttons, that is, `<gl-button icon="close" />` is used and not `<gl-icon />`.
+ - Icon-only buttons have an `aria-label`.
 - Interactive elements can be [accessed with the Tab key](#support-keyboard-only-use) and have a visible focus state.
 - Elements with [tooltips](https://design.gitlab.com/components/tooltip#accessibility) are focusable using the Tab key.
 - Are any `role`, `tabindex` or `aria-*` attributes unnecessary?
@@ -94,8 +82,7 @@ Note that [when using `GlFormGroup`](https://bootstrap-vue.org/docs/components/f
 Groups of checkboxes and radio inputs should be grouped together in a `fieldset` with a `legend`.
 `legend` gives the group of checkboxes and radio inputs a label.
 
-If the `label`, child text, or child element is not visually desired,
-use the class name `gl-sr-only` to hide the element from everything but screen readers.
+If the `label`, child text, or child element is not visually desired, use the class name `gl-sr-only` to hide the element from everything but screen readers.
 
 File input examples:
 
@@ -162,8 +149,7 @@ Use semantic HTML elements that implicitly have a `role` instead.
 
 ## Support keyboard-only use
 
-Keyboard users rely on focus outlines to understand where they are on the page. Therefore, if an
-element is interactive you must ensure:
+Keyboard users rely on focus outlines to understand where they are on the page. Therefore, if an element is interactive you must ensure:
 
 - It can receive keyboard focus.
 - It has a visible focus state.
@@ -220,8 +206,7 @@ Interactive elements are already tab accessible so adding `tabindex` is redundan
 ### Do not use `tabindex="0"` on elements for screen readers to read
 
 Screen readers can read text that is not tab accessible.
-The use of `tabindex="0"` is unnecessary and can cause problems,
-as screen reader users then expect to be able to interact with it.
+The use of `tabindex="0"` is unnecessary and can cause problems, as screen reader users then expect to be able to interact with it.
 
 ```html
 <!-- bad -->
@@ -300,8 +285,7 @@ Use the following table to hide elements from users, when appropriate.
 To reduce noise for screen reader users, hide decorative images using `alt=""`.
 If the image is not an `img` element, such as an inline SVG, you can hide it by adding both `role="img"` and `alt=""`.
 
-`gl-icon` components automatically hide their icons from screen readers so `aria-hidden="true"` is
-unnecessary when using `gl-icon`.
+`gl-icon` components automatically hide their icons from screen readers so `aria-hidden="true"` is unnecessary when using `gl-icon`.
 
 ```html
 <!-- good - decorative images hidden from screen readers -->

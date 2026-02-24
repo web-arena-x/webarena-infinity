@@ -41,10 +41,10 @@ Gmail may not load in browsers on older devices. Try using another device to che
 
 - Use the Gmail app for Android, iPhone, or iPad.
 
-  [Download Gmail for Android](https://play.google.com/store/apps/details?id=com.google.android.gm) [Download Gmail for iPhone or iPad](https://apps.apple.com/us/app/gmail-email-by-google/id422689480)
+ [Download Gmail for Android](https://play.google.com/store/apps/details?id=com.google.android.gm) [Download Gmail for iPhone or iPad](https://apps.apple.com/us/app/gmail-email-by-google/id422689480)
 
 - Use Gmail with another email client.
-  - You can use Gmail with other email clients that support IMAP and POP, such as Outlook or Apple Mail.
+ - You can use Gmail with other email clients that support IMAP and POP, such as Outlook or Apple Mail.
     - [Learn how to read Gmail messages using IMAP](/mail/answer/7126229).
     - [Learn how to read Gmail messages using POP](/mail/answer/7104828).
 

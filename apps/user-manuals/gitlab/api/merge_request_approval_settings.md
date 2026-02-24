@@ -40,48 +40,48 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/merge_request_approval_setting"
+ --url "https://gitlab.example.com/api/v4/groups/:id/merge_request_approval_setting"
 ```
 
 Example response:
 
 ```json
 {
-  "allow_author_approval": {
+ "allow_author_approval": {
     "value": true,
     "locked": false,
     "inherited_from": null
-  },
-  "allow_committer_approval": {
+ },
+ "allow_committer_approval": {
     "value": true,
     "locked": false,
     "inherited_from": null
-  },
-  "allow_overrides_to_approver_list_per_merge_request": {
+ },
+ "allow_overrides_to_approver_list_per_merge_request": {
     "value": true,
     "locked": false,
     "inherited_from": null
-  },
-  "retain_approvals_on_push": {
+ },
+ "retain_approvals_on_push": {
     "value": false,
     "locked": false,
     "inherited_from": null
-  },
-  "selective_code_owner_removals": {
+ },
+ "selective_code_owner_removals": {
     "value": false,
     "locked": false,
     "inherited_from": null
-  },
-  "require_password_to_approve": {
+ },
+ "require_password_to_approve": {
     "value": false,
     "locked": false,
     "inherited_from": null
-  },
-  "require_reauthentication_to_approve": {
+ },
+ "require_reauthentication_to_approve": {
     "value": false,
     "locked": false,
     "inherited_from": null
-  }
+ }
 }
 ```
 
@@ -108,49 +108,49 @@ Example request:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/merge_request_approval_setting?allow_author_approval=false"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/:id/merge_request_approval_setting?allow_author_approval=false"
 ```
 
 Example response:
 
 ```json
 {
-  "allow_author_approval": {
+ "allow_author_approval": {
     "value": false,
     "locked": false,
     "inherited_from": null
-  },
-  "allow_committer_approval": {
+ },
+ "allow_committer_approval": {
     "value": true,
     "locked": false,
     "inherited_from": null
-  },
-  "allow_overrides_to_approver_list_per_merge_request": {
+ },
+ "allow_overrides_to_approver_list_per_merge_request": {
     "value": true,
     "locked": false,
     "inherited_from": null
-  },
-  "retain_approvals_on_push": {
+ },
+ "retain_approvals_on_push": {
     "value": false,
     "locked": false,
     "inherited_from": null
-  },
-  "selective_code_owner_removals": {
+ },
+ "selective_code_owner_removals": {
     "value": false,
     "locked": false,
     "inherited_from": null
-  },
-  "require_password_to_approve": {
+ },
+ "require_password_to_approve": {
     "value": false,
     "locked": false,
     "inherited_from": null
-  },
-  "require_reauthentication_to_approve": {
+ },
+ "require_reauthentication_to_approve": {
     "value": false,
     "locked": false,
     "inherited_from": null
-  }
+ }
 }
 ```
 
@@ -178,48 +178,48 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/:id/merge_request_approval_setting"
+ --url "https://gitlab.example.com/api/v4/projects/:id/merge_request_approval_setting"
 ```
 
 Example response:
 
 ```json
 {
-  "allow_author_approval": {
+ "allow_author_approval": {
     "value": true,
     "locked": false,
     "inherited_from": null
-  },
-  "allow_committer_approval": {
+ },
+ "allow_committer_approval": {
     "value": true,
     "locked": false,
     "inherited_from": null
-  },
-  "allow_overrides_to_approver_list_per_merge_request": {
+ },
+ "allow_overrides_to_approver_list_per_merge_request": {
     "value": true,
     "locked": false,
     "inherited_from": null
-  },
-  "retain_approvals_on_push": {
+ },
+ "retain_approvals_on_push": {
     "value": false,
     "locked": true,
     "inherited_from": "group"
-  },
-  "selective_code_owner_removals": {
+ },
+ "selective_code_owner_removals": {
     "value": false,
     "locked": false,
     "inherited_from": null
-  },
-  "require_password_to_approve": {
+ },
+ "require_password_to_approve": {
     "value": false,
     "locked": false,
     "inherited_from": null
-  },
-  "require_reauthentication_to_approve": {
+ },
+ "require_reauthentication_to_approve": {
     "value": false,
     "locked": false,
     "inherited_from": null
-  }
+ }
 }
 ```
 
@@ -247,48 +247,48 @@ Example request:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/:id/merge_request_approval_setting?allow_author_approval=false"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/:id/merge_request_approval_setting?allow_author_approval=false"
 ```
 
 Example response:
 
 ```json
 {
-  "allow_author_approval": {
+ "allow_author_approval": {
     "value": false,
     "locked": false,
     "inherited_from": null
-  },
-  "allow_committer_approval": {
+ },
+ "allow_committer_approval": {
     "value": true,
     "locked": false,
     "inherited_from": null
-  },
-  "allow_overrides_to_approver_list_per_merge_request": {
+ },
+ "allow_overrides_to_approver_list_per_merge_request": {
     "value": true,
     "locked": false,
     "inherited_from": null
-  },
-  "retain_approvals_on_push": {
+ },
+ "retain_approvals_on_push": {
     "value": false,
     "locked": false,
     "inherited_from": null
-  },
-  "selective_code_owner_removals": {
+ },
+ "selective_code_owner_removals": {
     "value": false,
     "locked": false,
     "inherited_from": null
-  },
-  "require_password_to_approve": {
+ },
+ "require_password_to_approve": {
     "value": false,
     "locked": false,
     "inherited_from": null
-  },
-  "require_reauthentication_to_approve": {
+ },
+ "require_reauthentication_to_approve": {
     "value": false,
     "locked": false,
     "inherited_from": null
-  }
+ }
 }
 ```

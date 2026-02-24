@@ -53,4 +53,4 @@ Select them with shortcuts or the mouse and then update the issue field like you
 
 * **Select all keyboard shortcut:** To change issue priority so all issues without a priority were assigned no priority, filter to `no priority` issues and then used `Cmd/Ctrl` `A` then `P` to update the priority.
 * **Use mouse to select multiple issues:** To move some issues from Todo to backlog, select by hovering over them and individually marking the checkbox that popped up.
-* **Use keyboard to select multiple issues and bulk action toolbar:** Holding down `Shift` while moving the `up/down` buttons to select multiple issues and choose a bulk action such as  `Move to backlog`.
+* **Use keyboard to select multiple issues and bulk action toolbar:** Holding down `Shift` while moving the `up/down` buttons to select multiple issues and choose a bulk action such as `Move to backlog`.

@@ -42,8 +42,8 @@ For example, consistently recording an `events` record:
 
 ```ruby
 ApplicationRecord.transaction do
-  issue.closed!
-  Event.create!(action: :closed, target: issue)
+ issue.closed!
+ Event.create!(action: :closed, target: issue)
 end
 ```
 
@@ -51,7 +51,7 @@ Example, unsafe recording of an `events` record:
 
 ```ruby
 ApplicationRecord.transaction do
-  issue.closed!
+ issue.closed!
 end
 
 # If a crash happens here, the event will not be recorded.
@@ -63,13 +63,13 @@ Event.create!(action: :closed, target: issue)
 The `events` table uses [polymorphic association](https://guides.rubyonrails.org/association_basics.html#polymorphic-associations) to allow associating different database tables (issues, merge requests, etc.) with a record. A simplified database structure:
 
 ```sql
-   Column    |           Type            | Nullable |              Default               | Storage  |
+   Column    |           Type            | Nullable |              Default               | Storage |
 -------------+--------------------------+-----------+----------+------------------------------------+
- project_id  | integer                   |          |                                    | plain    |
+ project_id | integer                   |          |                                    | plain    |
  author_id   | integer                   | not null |                                    | plain    |
  target_id   | integer                   |          |                                    | plain    |
- created_at  | timestamp with time zone  | not null |                                    | plain    |
- updated_at  | timestamp with time zone  | not null |                                    | plain    |
+ created_at | timestamp with time zone | not null |                                    | plain    |
+ updated_at | timestamp with time zone | not null |                                    | plain    |
  action      | smallint                  | not null |                                    | plain    |
  target_type | character varying         |          |                                    | extended |
  group_id    | bigint                    |          |                                    | plain    |
@@ -80,11 +80,11 @@ The `events` table uses [polymorphic association](https://guides.rubyonrails.org
 Some unexpected characteristics due to the evolving database design:
 
 - The `project_id` and the `group_id` columns are mutually exclusive, internally we call them resource parent.
-  - Example 1: for an issue opened event, the `project_id` field is populated.
-  - Example 2: for an epic-related event, the `group_id` field is populated (epic is always part of a group).
+ - Example 1: for an issue opened event, the `project_id` field is populated.
+ - Example 2: for an epic-related event, the `group_id` field is populated (epic is always part of a group).
 - The `target_id` and `target_type` column pair identifies the target record.
-  - Example: `target_id=1` and `target_type=Issue`.
-  - When the columns are `null`, we refer to an event which has no representation in the database. For example a repository `push` action.
+ - Example: `target_id=1` and `target_type=Issue`.
+ - When the columns are `null`, we refer to an event which has no representation in the database. For example a repository `push` action.
 - Fingerprint is used in some cases to later alter the event based on some metadata change. This approach is mostly used for Wiki pages.
 
 ### Database record modifications
@@ -93,7 +93,7 @@ Most of the data is written once however, we cannot say that the table is append
 
 - Fingerprint-based update for certain Wiki page records.
 - When user or an associated resource is deleted, the event rows are also deleted.
-  - The deletion of the associated `events` records happens in batches.
+ - The deletion of the associated `events` records happens in batches.
 
 ### Current performance problems
 
@@ -118,20 +118,20 @@ FROM events
 WHERE events.author_id = 1
 AND events.created_at BETWEEN '2022-01-17 23:00:00' AND '2023-01-18 22:59:59.999999'
 AND (
-  (
+ (
     events.action = 5
-  ) OR
-  (
+ ) OR
+ (
     events.action IN (1, 3) -- Enum values are documented in the Event model, see the ACTIONS constant in app/models/event.rb
     AND events.target_type IN ('Issue', 'WorkItem')
-  ) OR
-  (
+ ) OR
+ (
     events.action IN (7, 1, 3)
     AND events.target_type = 'MergeRequest'
-  ) OR
-  (
+ ) OR
+ (
     events.action = 6
-  )
+ )
 )
 GROUP BY DATE(events.created_at)
 ```
@@ -158,7 +158,7 @@ This approach provides a simple way to keep the existing `events` table working 
 
 ```ruby
 ApplicationRecord.transaction do
-  issue.update!(state: :closed)
+ issue.update!(state: :closed)
 end
 
 # could be a method to hide complexity
@@ -187,7 +187,7 @@ last_updated_at = SyncProcess.last_updated_at
 
 # oversimplified loop, we would probably batch this...
 Event.where(updated_at > last_updated_at).each do |row|
-  last_row = ClickHouse::Event.create(row)
+ last_row = ClickHouse::Event.create(row)
 end
 
 SyncProcess.last_updated_at = last_row.updated_at
@@ -200,10 +200,10 @@ When coming up with the initial database structure, we must look at the way the 
 We have two main use cases:
 
 - Query data for a certain user, within a time range.
-  - `WHERE author_id = 1 AND created_at BETWEEN '2021-01-01' AND '2021-12-31'`
-  - Additionally, there might be extra `project_id` condition due to the access control check.
+ - `WHERE author_id = 1 AND created_at BETWEEN '2021-01-01' AND '2021-12-31'`
+ - Additionally, there might be extra `project_id` condition due to the access control check.
 - Query data for a project or group, within a time range.
-  - `WHERE project_id IN (1, 2) AND created_at BETWEEN '2021-01-01' AND '2021-12-31'`
+ - `WHERE project_id IN (1, 2) AND created_at BETWEEN '2021-01-01' AND '2021-12-31'`
 
 The `author_id` and `project_id` columns are considered high-selectivity columns. By this we mean that optimizing the filtering of the `author_id` and the `project_id` columns is desirable for having performant database queries.
 
@@ -215,16 +215,16 @@ For these reasons, we could start with a database table storing low-level `event
 hide circle
 
 entity "events" as events {
-  id : UInt64 ("primary key")
+ id : UInt64 ("primary key")
 --
-  project_id : UInt64
-  group_id : UInt64
-  target_id : UInt64
-  target_type : String
-  action : UInt8
-  fingerprint : UInt64
-  created_at : DateTime
-  updated_at : DateTime
+ project_id : UInt64
+ group_id : UInt64
+ target_id : UInt64
+ target_type : String
+ action : UInt8
+ fingerprint : UInt64
+ created_at : DateTime
+ updated_at : DateTime
 }
 ```
 
@@ -303,21 +303,21 @@ The same query would work in PostgreSQL however, we might see duplicated values 
 ```sql
 SELECT author_id, target_type, action, count(*)
 FROM (
-  SELECT
-  id,
-  argMax(events.project_id, events.updated_at) AS project_id,
-  argMax(events.group_id, events.updated_at) AS group_id,
-  argMax(events.author_id, events.updated_at) AS author_id,
-  argMax(events.target_type, events.updated_at) AS target_type,
-  argMax(events.target_id, events.updated_at) AS target_id,
-  argMax(events.action, events.updated_at) AS action,
-  argMax(events.fingerprint, events.updated_at) AS fingerprint,
-  FIRST_VALUE(events.created_at) AS created_at,
-  MAX(events.updated_at) AS updated_at
-  FROM events
-  WHERE events.created_at BETWEEN '2022-01-17 23:00:00' AND '2023-03-18 22:59:59.999999'
-  AND events.project_id IN (1, 2, 3) -- list of project ids in the group
-  GROUP BY id
+ SELECT
+ id,
+ argMax(events.project_id, events.updated_at) AS project_id,
+ argMax(events.group_id, events.updated_at) AS group_id,
+ argMax(events.author_id, events.updated_at) AS author_id,
+ argMax(events.target_type, events.updated_at) AS target_type,
+ argMax(events.target_id, events.updated_at) AS target_id,
+ argMax(events.action, events.updated_at) AS action,
+ argMax(events.fingerprint, events.updated_at) AS fingerprint,
+ FIRST_VALUE(events.created_at) AS created_at,
+ MAX(events.updated_at) AS updated_at
+ FROM events
+ WHERE events.created_at BETWEEN '2022-01-17 23:00:00' AND '2023-03-18 22:59:59.999999'
+ AND events.project_id IN (1, 2, 3) -- list of project ids in the group
+ GROUP BY id
 ) AS events
 GROUP BY author_id, target_type, action
 ```
@@ -335,7 +335,7 @@ The aggregation query in the previous section might not be performant enough for
 Let's add 1 million extra rows to the `events` table:
 
 ```sql
-INSERT INTO events (id, project_id, author_id, target_id, target_type, action)  SELECT id, project_id, author_id, target_id, 'Issue' AS target_type, action FROM generateRandom('id UInt64, project_id UInt64, author_id UInt64, target_id UInt64, action UInt64') LIMIT 1000000;
+INSERT INTO events (id, project_id, author_id, target_id, target_type, action) SELECT id, project_id, author_id, target_id, 'Issue' AS target_type, action FROM generateRandom('id UInt64, project_id UInt64, author_id UInt64, target_id UInt64, action UInt64') LIMIT 1000000;
 ```
 
 Running the previous aggregation query in the console prints out some performance data:
@@ -369,20 +369,20 @@ FROM events
 WHERE events.author_id = 1
 AND events.created_at BETWEEN '2022-01-17 23:00:00' AND '2023-01-18 22:59:59.999999'
 AND (
-  (
+ (
     events.action = 5
-  ) OR
-  (
+ ) OR
+ (
     events.action IN (1, 3) -- Enum values are documented in the Event model, see the ACTIONS constant in app/models/event.rb
     AND events.target_type IN ('Issue', 'WorkItem')
-  ) OR
-  (
+ ) OR
+ (
     events.action IN (7, 1, 3)
     AND events.target_type = 'MergeRequest'
-  ) OR
-  (
+ ) OR
+ (
     events.action = 6
-  )
+ )
 )
 GROUP BY DATE(events.created_at)
 ```
@@ -398,13 +398,13 @@ The ClickHouse query would be the following (with a slightly adjusted date range
 ```sql
 SELECT DATE(events.created_at) AS date, COUNT(*) AS count
 FROM (
-  SELECT
-  id,
-  argMax(events.created_at, events.updated_at) AS created_at
-  FROM events
-  WHERE events.author_id = 4
-  AND events.created_at BETWEEN '2023-01-01 23:00:00' AND '2024-01-01 22:59:59.999999'
-  AND (
+ SELECT
+ id,
+ argMax(events.created_at, events.updated_at) AS created_at
+ FROM events
+ WHERE events.author_id = 4
+ AND events.created_at BETWEEN '2023-01-01 23:00:00' AND '2024-01-01 22:59:59.999999'
+ AND (
     (
       events.action = 5
     ) OR
@@ -419,8 +419,8 @@ FROM (
     (
       events.action = 6
     )
-  )
-  GROUP BY id
+ )
+ GROUP BY id
 ) AS events
 GROUP BY DATE(events.created_at)
 ```
@@ -429,7 +429,7 @@ The query does a full table scan, let's optimize it:
 
 ```sql
 ALTER TABLE events ADD PROJECTION events_by_authors (
-  SELECT * ORDER BY author_id, created_at -- different sort order for the table
+ SELECT * ORDER BY author_id, created_at -- different sort order for the table
 );
 
 ALTER TABLE events MATERIALIZE PROJECTION events_by_authors;
@@ -442,21 +442,21 @@ Listing the contributions of a user can be queried in the following way:
 ```sql
 SELECT events.*
 FROM (
-  SELECT
-  id,
-  argMax(events.project_id, events.updated_at) AS project_id,
-  argMax(events.group_id, events.updated_at) AS group_id,
-  argMax(events.author_id, events.updated_at) AS author_id,
-  argMax(events.target_type, events.updated_at) AS target_type,
-  argMax(events.target_id, events.updated_at) AS target_id,
-  argMax(events.action, events.updated_at) AS action,
-  argMax(events.fingerprint, events.updated_at) AS fingerprint,
-  FIRST_VALUE(events.created_at) AS created_at,
-  MAX(events.updated_at) AS updated_at
-  FROM events
-  WHERE events.author_id = 4
-  GROUP BY id
-  ORDER BY created_at DESC, id DESC
+ SELECT
+ id,
+ argMax(events.project_id, events.updated_at) AS project_id,
+ argMax(events.group_id, events.updated_at) AS group_id,
+ argMax(events.author_id, events.updated_at) AS author_id,
+ argMax(events.target_type, events.updated_at) AS target_type,
+ argMax(events.target_id, events.updated_at) AS target_id,
+ argMax(events.action, events.updated_at) AS action,
+ argMax(events.fingerprint, events.updated_at) AS fingerprint,
+ FIRST_VALUE(events.created_at) AS created_at,
+ MAX(events.updated_at) AS updated_at
+ FROM events
+ WHERE events.author_id = 4
+ GROUP BY id
+ ORDER BY created_at DESC, id DESC
 ) AS events
 LIMIT 20
 ```
@@ -466,21 +466,21 @@ ClickHouse supports the standard `LIMIT N OFFSET M` clauses, so we can request t
 ```sql
 SELECT events.*
 FROM (
-  SELECT
-  id,
-  argMax(events.project_id, events.updated_at) AS project_id,
-  argMax(events.group_id, events.updated_at) AS group_id,
-  argMax(events.author_id, events.updated_at) AS author_id,
-  argMax(events.target_type, events.updated_at) AS target_type,
-  argMax(events.target_id, events.updated_at) AS target_id,
-  argMax(events.action, events.updated_at) AS action,
-  argMax(events.fingerprint, events.updated_at) AS fingerprint,
-  FIRST_VALUE(events.created_at) AS created_at,
-  MAX(events.updated_at) AS updated_at
-  FROM events
-  WHERE events.author_id = 4
-  GROUP BY id
-  ORDER BY created_at DESC, id DESC
+ SELECT
+ id,
+ argMax(events.project_id, events.updated_at) AS project_id,
+ argMax(events.group_id, events.updated_at) AS group_id,
+ argMax(events.author_id, events.updated_at) AS author_id,
+ argMax(events.target_type, events.updated_at) AS target_type,
+ argMax(events.target_id, events.updated_at) AS target_id,
+ argMax(events.action, events.updated_at) AS action,
+ argMax(events.fingerprint, events.updated_at) AS fingerprint,
+ FIRST_VALUE(events.created_at) AS created_at,
+ MAX(events.updated_at) AS updated_at
+ FROM events
+ WHERE events.author_id = 4
+ GROUP BY id
+ ORDER BY created_at DESC, id DESC
 ) AS events
 LIMIT 20 OFFSET 20
 ```

@@ -31,8 +31,8 @@ In Gmail, you can manage all your active email subscriptions in one place. When 
 - To move emails from the sender back to your inbox, click **Report not spam**.
 - To view all emails from a sender, click the sender’s name or avatar.
 - To unsubscribe from emails, some senders may direct you to their website. If a pop-up appears:
-  - To unsubscribe directly from the sender’s website, click **Go to website**.
-  - To block the sender, click **Block instead**.
+ - To unsubscribe directly from the sender’s website, click **Go to website**.
+ - To block the sender, click **Block instead**.
 
 ## Related resources
 

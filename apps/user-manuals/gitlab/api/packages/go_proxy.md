@@ -13,8 +13,7 @@ title: Go Proxy API
 {{< /details >}}
 
 Use this API to interact with the [Go package manager client](../../user/packages/go_proxy/_index.md).
-This API is behind a feature flag that is disabled by default. GitLab administrators with access to
-the GitLab Rails console can [enable](../../administration/feature_flags/_index.md)
+This API is behind a feature flag that is disabled by default. GitLab administrators with access to the GitLab Rails console can [enable](../../administration/feature_flags/_index.md)
 this API for your GitLab instance.
 
 {{< alert type="warning" >}}
@@ -43,11 +42,11 @@ GET projects/:id/packages/go/:module_name/@v/list
 | Attribute      | Type   | Required | Description |
 | -------------- | ------ | -------- | ----------- |
 | `id`           | string | yes      | The project ID or full path of a project. |
-| `module_name`  | string | yes      | The name of the Go module. |
+| `module_name` | string | yes      | The name of the Go module. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/go/my-go-module/@v/list"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/go/my-go-module/@v/list"
 ```
 
 Example output:
@@ -68,19 +67,19 @@ GET projects/:id/packages/go/:module_name/@v/:module_version.info
 | ----------------- | ------ | -------- | ----------- |
 | `id`              | string | yes      | The project ID or full path of a project. |
 | `module_name`     | string | yes      | The name of the Go module. |
-| `module_version`  | string | yes      | The version of the Go module. |
+| `module_version` | string | yes      | The version of the Go module. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/go/my-go-module/@v/1.0.0.info"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/go/my-go-module/@v/1.0.0.info"
 ```
 
 Example output:
 
 ```json
 {
-  "Version": "v1.0.0",
-  "Time": "1617822312 -0600"
+ "Version": "v1.0.0",
+ "Time": "1617822312 -0600"
 }
 ```
 
@@ -96,18 +95,18 @@ GET projects/:id/packages/go/:module_name/@v/:module_version.mod
 | ----------------- | ------ | -------- | ----------- |
 | `id`              | string | yes      | The project ID or full path of a project. |
 | `module_name`     | string | yes      | The name of the Go module. |
-| `module_version`  | string | yes      | The version of the Go module. |
+| `module_version` | string | yes      | The version of the Go module. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/go/my-go-module/@v/1.0.0.mod"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/go/my-go-module/@v/1.0.0.mod"
 ```
 
 Write to a file:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/go/my-go-module/@v/1.0.0.mod" >> foo.mod
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/go/my-go-module/@v/1.0.0.mod" >> foo.mod
 ```
 
 This writes to `foo.mod` in the current directory.
@@ -124,18 +123,18 @@ GET projects/:id/packages/go/:module_name/@v/:module_version.zip
 | ----------------- | ------ | -------- | ----------- |
 | `id`              | string | yes      | The project ID or full path of a project. |
 | `module_name`     | string | yes      | The name of the Go module. |
-| `module_version`  | string | yes      | The version of the Go module. |
+| `module_version` | string | yes      | The version of the Go module. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/go/my-go-module/@v/1.0.0.zip"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/go/my-go-module/@v/1.0.0.zip"
 ```
 
 Write to a file:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/go/my-go-module/@v/1.0.0.zip" >> foo.zip
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/go/my-go-module/@v/1.0.0.zip" >> foo.zip
 ```
 
 This writes to `foo.zip` in the current directory.

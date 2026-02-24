@@ -13,8 +13,7 @@ title: Localization
 
 {{< /details >}}
 
-As an instance administrator, you can manage the behavior of your
-deployment.
+As an instance administrator, you can manage the behavior of your deployment.
 
 ## Change the default first day of the week
 

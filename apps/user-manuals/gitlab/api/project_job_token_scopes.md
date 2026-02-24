@@ -39,7 +39,7 @@ If successful, returns [`200`](rest/troubleshooting.md#status-codes) and the fol
 
 | Attribute          | Type    | Description |
 |--------------------|---------|-------------|
-| `inbound_enabled`  | boolean | Indicates if the [**Authorized groups and projects**](../ci/jobs/ci_job_token.md#add-a-group-or-project-to-the-job-token-allowlist) setting is enabled for the allowlist. If disabled, then [all projects have access](../ci/jobs/ci_job_token.md#allow-any-project-to-access-your-project). This value shows whether the allowlist is currently active, which can be `true` due to the [**Enforce job token allowlist**](../administration/settings/continuous_integration.md#enforce-job-token-allowlist) instance setting. |
+| `inbound_enabled` | boolean | Indicates if the [**Authorized groups and projects**](../ci/jobs/ci_job_token.md#add-a-group-or-project-to-the-job-token-allowlist) setting is enabled for the allowlist. If disabled, then [all projects have access](../ci/jobs/ci_job_token.md#allow-any-project-to-access-your-project). This value shows whether the allowlist is currently active, which can be `true` due to the [**Enforce job token allowlist**](../administration/settings/continuous_integration.md#enforce-job-token-allowlist) instance setting. |
 | `outbound_enabled` | boolean | Indicates if the CI/CD job token generated in this project has access to other projects. [Deprecated and planned for removal in GitLab 18.0](../update/deprecations.md#cicd-job-token---limit-access-from-your-project-setting-removal). |
 
 Example request:
@@ -52,8 +52,8 @@ Example response:
 
 ```json
 {
-  "inbound_enabled": true,
-  "outbound_enabled": false
+ "inbound_enabled": true,
+ "outbound_enabled": false
 }
 ```
 
@@ -81,17 +81,16 @@ Supported attributes:
 
 If successful, returns [`204`](rest/troubleshooting.md#status-codes) and no response body.
 
-If the **Enforce job token allowlist** instance setting is enabled and you attempt to set `enabled` to `false`,
-returns [`400`](rest/troubleshooting.md#status-codes) with an error message.
+If the **Enforce job token allowlist** instance setting is enabled and you attempt to set `enabled` to `false`, returns [`400`](rest/troubleshooting.md#status-codes) with an error message.
 
 Example request:
 
 ```shell
 curl --request PATCH \
-  --url "https://gitlab.example.com/api/v4/projects/1/job_token_scope" \
-  --header 'PRIVATE-TOKEN: <your_access_token>' \
-  --header 'Content-Type: application/json' \
-  --data '{ "enabled": false }'
+ --url "https://gitlab.example.com/api/v4/projects/1/job_token_scope" \
+ --header 'PRIVATE-TOKEN: <your_access_token>' \
+ --header 'Content-Type: application/json' \
+ --data '{ "enabled": false }'
 ```
 
 ## Get a project's CI/CD job token inbound allowlist
@@ -122,7 +121,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 4,
     "description": null,
     "name": "Diaspora Client",
@@ -155,10 +154,10 @@ Example response:
       "avatar_url": null,
       "web_url": "https://gitlab.example.com/diaspora"
     }
-  },
-  {
+ },
+ {
     ...
-  }
+ }
 ```
 
 ## Add a project to a CI/CD job token inbound allowlist
@@ -187,18 +186,18 @@ Example request:
 
 ```shell
 curl --request POST \
-  --url "https://gitlab.example.com/api/v4/projects/1/job_token_scope/allowlist" \
-  --header 'PRIVATE-TOKEN: <your_access_token>' \
-  --header 'Content-Type: application/json' \
-  --data '{ "target_project_id": 2 }'
+ --url "https://gitlab.example.com/api/v4/projects/1/job_token_scope/allowlist" \
+ --header 'PRIVATE-TOKEN: <your_access_token>' \
+ --header 'Content-Type: application/json' \
+ --data '{ "target_project_id": 2 }'
 ```
 
 Example response:
 
 ```json
 {
-  "source_project_id": 1,
-  "target_project_id": 2
+ "source_project_id": 1,
+ "target_project_id": 2
 }
 ```
 
@@ -223,9 +222,9 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --url "https://gitlab.example.com/api/v4/projects/1/job_token_scope/allowlist/2" \
-  --header 'PRIVATE-TOKEN: <your_access_token>' \
-  --header 'Content-Type: application/json'
+ --url "https://gitlab.example.com/api/v4/projects/1/job_token_scope/allowlist/2" \
+ --header 'PRIVATE-TOKEN: <your_access_token>' \
+ --header 'Content-Type: application/json'
 ```
 
 ## Get a project's CI/CD job token allowlist of groups
@@ -256,14 +255,14 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 4,
     "web_url": "https://gitlab.example.com/groups/diaspora/diaspora-group",
     "name": "namegroup"
-  },
-  {
+ },
+ {
     ...
-  }
+ }
 ]
 ```
 
@@ -293,18 +292,18 @@ Example request:
 
 ```shell
 curl --request POST \
-  --url "https://gitlab.example.com/api/v4/projects/1/job_token_scope/groups_allowlist" \
-  --header 'PRIVATE-TOKEN: <your_access_token>' \
-  --header 'Content-Type: application/json' \
-  --data '{ "target_group_id": 2 }'
+ --url "https://gitlab.example.com/api/v4/projects/1/job_token_scope/groups_allowlist" \
+ --header 'PRIVATE-TOKEN: <your_access_token>' \
+ --header 'Content-Type: application/json' \
+ --data '{ "target_group_id": 2 }'
 ```
 
 Example response:
 
 ```json
 {
-  "source_project_id": 1,
-  "target_group_id": 2
+ "source_project_id": 1,
+ "target_group_id": 2
 }
 ```
 
@@ -329,7 +328,7 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --url "https://gitlab.example.com/api/v4/projects/1/job_token_scope/groups_allowlist/2" \
-  --header 'PRIVATE-TOKEN: <your_access_token>' \
-  --header 'Content-Type: application/json'
+ --url "https://gitlab.example.com/api/v4/projects/1/job_token_scope/groups_allowlist/2" \
+ --header 'PRIVATE-TOKEN: <your_access_token>' \
+ --header 'Content-Type: application/json'
 ```

@@ -20,9 +20,9 @@ A hand-raise PQL is a user who requests to speak to sales from within the produc
 1. Enter the credentials on CustomersDot development to Workato in your `/config/secrets.yml` and restart. Credentials for the Workato Staging are in the 1Password Subscription portal vault. The URL for staging is `https://apim.workato.com/gitlab-dev/services/marketo/lead`.
 
 ```yaml
-  workato_url: "<%= ENV['WORKATO_URL'] %>"
-  workato_client_id: "<%= ENV['WORKATO_CLIENT_ID'] %>"
-  workato_client_secret: "<%= ENV['WORKATO_CLIENT_SECRET'] %>"
+ workato_url: "<%= ENV['WORKATO_URL'] %>"
+ workato_client_id: "<%= ENV['WORKATO_CLIENT_ID'] %>"
+ workato_client_secret: "<%= ENV['WORKATO_CLIENT_SECRET'] %>"
 ```
 
 ### Set up lead monitoring
@@ -53,16 +53,16 @@ You can import a hand-raise lead button in the following way:
 import HandRaiseLeadButton from 'ee/hand_raise_leads/hand_raise_lead/components/hand_raise_lead_button.vue';
 
 export default {
-  handRaiseLeadAttributes: {
+ handRaiseLeadAttributes: {
     variant: 'confirm',
     category: 'tertiary',
     class: 'gl-sm-w-auto gl-w-full gl-sm-ml-3 gl-sm-mt-0 gl-mt-3',
     'data-testid': 'some-unique-hand-raise-lead-button',
-  },
-  ctaTracking: {
+ },
+ ctaTracking: {
     action: 'click_button',
-  },
-  components: {
+ },
+ components: {
     HandRaiseLeadButton,
 ...
 </script>
@@ -70,48 +70,46 @@ export default {
 <template>
 
 <hand-raise-lead-button
-  :button-attributes="$options.handRaiseLeadAttributes"
-  glm-content="some-unique-glm-content"
-  :cta-tracking="$options.ctaTracking"
+ :button-attributes="$options.handRaiseLeadAttributes"
+ glm-content="some-unique-glm-content"
+ :cta-tracking="$options.ctaTracking"
 />
 ...
 </template>
 ```
 
-The hand-raise lead form submission can send unique data on modal submission and customize the button by
-providing the following props to the button:
+The hand-raise lead form submission can send unique data on modal submission and customize the button by providing the following props to the button:
 
 ```javascript
 props: {
-  ctaTracking: {
+ ctaTracking: {
     type: Object,
     required: false,
     default: () => ({}),
-  },
-  buttonText: {
+ },
+ buttonText: {
     type: String,
     required: false,
     default: PQL_BUTTON_TEXT,
-  },
-  buttonAttributes: {
+ },
+ buttonAttributes: {
     type: Object,
     required: true,
-  },
-  glmContent: {
+ },
+ glmContent: {
     type: String,
     required: true,
-  },
-  productInteraction: {
+ },
+ productInteraction: {
     type: String,
     required: false,
     default: PQL_PRODUCT_INTERACTION,
-  },
+ },
 },
 ```
 
 The `ctaTracking` parameters follow the `data-track` attributes for implementing Snowplow tracking.
-The provided tracking attributes are attached to the button inside the `HandRaiseLeadButton` component,
-which triggers the hand-raise lead modal when selected.
+The provided tracking attributes are attached to the button inside the `HandRaiseLeadButton` component, which triggers the hand-raise lead modal when selected.
 
 ### Monitor the lead location
 

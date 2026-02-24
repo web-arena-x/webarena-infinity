@@ -24,15 +24,15 @@ You can use Gmail offline to read, search, and reply to messages without an inte
 ## Learn what to expect when you use Gmail offline
 
 - **Check storage settings:** When offline, Gmail only uses the space available to your browser. It’s a fraction of your computer’s total storage.
-  - The storage shown in Gmail offline settings is smaller than your computer’s actual available storage.
+ - The storage shown in Gmail offline settings is smaller than your computer’s actual available storage.
 - **Open your mail:** To use Gmail offline, open Chrome and go to Gmail.
-  - Or, you can use your bookmark.
+ - Or, you can use your bookmark.
 - **Send a message:** If you send a message offline, it’s saved in a new "Outbox" folder.
-  - If you connect to the internet, the message is sent automatically.
+ - If you connect to the internet, the message is sent automatically.
 - **Download attachments:** You can download attachments to your computer and open them with a local application.
-  - You can’t preview attachments.
+ - You can’t preview attachments.
 - **Use multiple accounts:** You can only use Gmail offline with the account you were signed in to at setup.
-  - To enable another account for offline use, sign in to that account and follow the setup steps above.
+ - To enable another account for offline use, sign in to that account and follow the setup steps above.
 
 ## Fix issues when you use Gmail offline
 
@@ -41,8 +41,8 @@ Your messages don’t sync
 This issue can happen if:
 
 - **You run out of storage space:** To fix this issue, change your "Offline" settings in Gmail.
-  1. On your computer, go to [Gmail offline settings](https://mail.google.com/mail/u/0/#settings/offline).
-  2. Next to "Sync settings," you can:
+ 1. On your computer, go to [Gmail offline settings](https://mail.google.com/mail/u/0/#settings/offline).
+ 2. Next to "Sync settings," you can:
      - Click the **Down arrow** to sync fewer days of messages.
      - Uncheck **Download attachments**.
 - **You close Chrome:** Your messages can only sync if Chrome is open.
@@ -57,9 +57,9 @@ This error can happen if:
 - You use an Incognito window in Chrome.
 - You use a Guest profile in Chrome.
 - Your Chrome settings are set to clear cookies on exit. To check your settings:
-  1. On your computer, open Chrome.
-  2. In your address bar, enter "chrome://settings/content/siteData".
-  3. Under "Always delete site data from your device when you close Chrome," make sure that "mail.google.com" or "\*.google.com" doesn’t show.
+ 1. On your computer, open Chrome.
+ 2. In your address bar, enter "chrome://settings/content/siteData".
+ 3. Under "Always delete site data from your device when you close Chrome," make sure that "mail.google.com" or "\*.google.com" doesn’t show.
 
 ## Turn off offline mail
 

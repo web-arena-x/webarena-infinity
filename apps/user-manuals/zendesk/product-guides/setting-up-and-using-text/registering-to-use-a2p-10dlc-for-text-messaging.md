@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408837560730-Registering-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Talk Team, Professional, or Enterprise |
 
@@ -41,7 +41,7 @@ Note: If you need to register a Sell number, use the [Zendesk Sell Text A2P 10DL
 
 If you are required to register for A2P 10DLC, let us know your specific use case for using Zendesk Text. The following table lists the different use case scenarios:
 
-|  |  |
+| | |
 | --- | --- |
 | **Use case** | **Description** |
 | Two-factor authentication (2FA) | Any authentication or account verification, such as a one-time password (OTP). |

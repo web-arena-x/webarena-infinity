@@ -35,8 +35,7 @@ With GitLab Duo Self-Hosted, you can:
 - Keep all request/response logs in your domain with no external API calls.
 - Isolate the GitLab instance, AI Gateway, and models in your own environment.
 - Eliminate reliance on the shared GitLab AI Gateway.
-- Manage the lifecycle of requests to LLM backends for GitLab Duo features,
-  and avoid external dependencies so that requests stay in your enterprise network.
+- Manage the lifecycle of requests to LLM backends for GitLab Duo features, and avoid external dependencies so that requests stay in your enterprise network.
 
 For a click-through demo, see [GitLab Duo Self-Hosted product tour](https://gitlab.navattic.com/gitlab-duo-self-hosted).
 <!-- Demo published on 2025-02-13 -->
@@ -62,8 +61,7 @@ The following table lists:
 {{< alert type="note" >}}
 
 You must have the GitLab Duo Enterprise add-on to use these features with GitLab Duo Self-Hosted.
-This applies even if you can use these features with GitLab Duo Core or GitLab Duo Pro
-when GitLab hosts and connects to those models through the cloud-based [AI Gateway](../../administration/gitlab_duo/gateway.md).
+This applies even if you can use these features with GitLab Duo Core or GitLab Duo Pro when GitLab hosts and connects to those models through the cloud-based [AI Gateway](../../administration/gitlab_duo/gateway.md).
 
 {{< /alert >}}
 
@@ -76,7 +74,7 @@ when GitLab hosts and connects to those models through the cloud-based [AI Gatew
 | [Refactor Code](../../user/gitlab_duo_chat/examples.md#refactor-code-in-the-ide)                                                       | GitLab 17.9 and later   | Generally available |
 | [Fix Code](../../user/gitlab_duo_chat/examples.md#fix-code-in-the-ide)                                                                 | GitLab 17.9 and later   | Generally available |
 | [Code Review](../../user/project/merge_requests/duo_in_merge_requests.md#use-gitlab-duo-to-review-your-code)                             | GitLab 18.3 and later   | Generally available |
-| [Root Cause Analysis](../../user/gitlab_duo_chat/examples.md#troubleshoot-failed-cicd-jobs-with-root-cause-analysis)                   | GitLab 17.10 and later  | Beta                |
+| [Root Cause Analysis](../../user/gitlab_duo_chat/examples.md#troubleshoot-failed-cicd-jobs-with-root-cause-analysis)                   | GitLab 17.10 and later | Beta                |
 | [Vulnerability Explanation](../../user/application_security/vulnerabilities/_index.md#vulnerability-explanation)                       | GitLab 18.1.2 and later | Beta                |
 | [Merge Commit Message Generation](../../user/project/merge_requests/duo_in_merge_requests.md#generate-a-merge-commit-message)          | GitLab 18.1.2 and later | Beta                |
 | [Merge Request Summary](../../user/project/merge_requests/duo_in_merge_requests.md#generate-a-description-by-summarizing-code-changes) | GitLab 18.1.2 and later | Beta                |
@@ -187,19 +185,15 @@ When you configure a feature to use GitLab managed models:
 
 {{< /details >}}
 
-If you do not meet the use case criteria for GitLab Duo Self-Hosted, you can use the
-GitLab.com AI Gateway with default GitLab external vendor LLMs.
+If you do not meet the use case criteria for GitLab Duo Self-Hosted, you can use the GitLab.com AI Gateway with default GitLab external vendor LLMs.
 
-The GitLab.com AI Gateway is the default Enterprise offering and is not self-hosted. In this configuration,
-you connect your instance to the GitLab-hosted AI Gateway, which
-integrates with external vendor LLM providers, including:
+The GitLab.com AI Gateway is the default Enterprise offering and is not self-hosted. In this configuration, you connect your instance to the GitLab-hosted AI Gateway, which integrates with external vendor LLM providers, including:
 
 - [Anthropic](https://www.anthropic.com/)
 - [Fireworks AI](https://fireworks.ai/)
 - [Google Vertex](https://cloud.google.com/vertex-ai/)
 
-These LLMs communicate through the GitLab Cloud Connector,
-offering a ready-to-use AI solution without the need for on-premise infrastructure.
+These LLMs communicate through the GitLab Cloud Connector, offering a ready-to-use AI solution without the need for on-premise infrastructure.
 
 For more information, see the [GitLab.com AI Gateway configuration diagram](configuration_types.md#gitlabcom-ai-gateway).
 

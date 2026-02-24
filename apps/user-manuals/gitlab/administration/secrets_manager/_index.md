@@ -19,9 +19,7 @@ title: GitLab Secrets Manager (OpenBao)
 
 {{< /history >}}
 
-The [GitLab Secrets Manager](../../ci/secrets/secrets_manager/_index.md) uses [OpenBao](https://openbao.org/),
-an open-source secrets management solution. OpenBao provides secure storage, access control, and lifecycle management
-for secrets used in your GitLab instance.
+The [GitLab Secrets Manager](../../ci/secrets/secrets_manager/_index.md) uses [OpenBao](https://openbao.org/), an open-source secrets management solution. OpenBao provides secure storage, access control, and lifecycle management for secrets used in your GitLab instance.
 
 ## OpenBao architecture
 
@@ -29,7 +27,7 @@ OpenBao integrates with GitLab as an optional component that runs in parallel to
 
 - The Rails backend and runners connect to the OpenBao API through a load balancer.
 - OpenBao stores data in PostgreSQL.
-  The Helm chart configures OpenBao to store data in the main GitLab database by default.
+ The Helm chart configures OpenBao to store data in the main GitLab database by default.
 - OpenBao gets the unseal key from a secret store.
 - OpenBao reads the unseal key from a Kubernetes secret mounted by the Helm chart.
 - OpenBao posts audit logs to the Rails backend when audit logs are enabled.
@@ -48,8 +46,7 @@ flowchart TB
     OpenBao-- Store -->PostgreSQL
 ```
 
-OpenBao runs with a single active node that handles all requests,
-and optionally multiple standby nodes that take over if the active node fails.
+OpenBao runs with a single active node that handles all requests, and optionally multiple standby nodes that take over if the active node fails.
 
 ## Install OpenBao
 
@@ -81,18 +78,15 @@ Recommended number of CPU cores:
 |-----------------|-----------------------|-----------|
 | Small           | Less than 100 ops/sec | 1 core    |
 | Medium          | 100 to 200 ops/sec    | 1-2 cores |
-| Large           | More than 200 ops/sec | 2+ cores  |
+| Large           | More than 200 ops/sec | 2+ cores |
 
 For example, testing a deployment with 100,000 secrets corresponded to 139 fetch operations per second.
-This assumes each secret is fetched by a CI/CD job approximately every 12 minutes,
-and OpenBao makes full use of its memory cache.
+This assumes each secret is fetched by a CI/CD job approximately every 12 minutes, and OpenBao makes full use of its memory cache.
 
 ### Memory requirements
 
-OpenBao memory usage primarily depends on the number of projects
-where GitLab Secrets Manager is enabled.
-You should allocate at least 1 GB of memory per 200 projects,
-plus a safety margin of 1 GB.
+OpenBao memory usage primarily depends on the number of projects where GitLab Secrets Manager is enabled.
+You should allocate at least 1 GB of memory per 200 projects, plus a safety margin of 1 GB.
 
 Recommended memory allocation:
 
@@ -100,7 +94,7 @@ Recommended memory allocation:
 |-----------------|--------------------|--------|
 | Small           | Less than 200      | 2 GB   |
 | Medium          | 400 to 800         | 5 GB   |
-| Large           | More than 1,000    | 6+ GB  |
+| Large           | More than 1,000    | 6+ GB |
 
 #### Storage requirements
 

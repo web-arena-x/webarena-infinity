@@ -42,13 +42,12 @@ Schemas should default to require a sharding key, as features should be scoped t
 # db/gitlab_schemas/gitlab_ci.yaml
 require_sharding_key: true
 sharding_root_tables:
-  - projects
-  - namespaces
-  - organizations
+ - projects
+ - namespaces
+ - organizations
 ```
 
-Setting `require_sharding_key` to `true` means that tables assigned to that
-schema will require a `sharding_key` to be set.
+Setting `require_sharding_key` to `true` means that tables assigned to that schema will require a `sharding_key` to be set.
 You will also need to configure the list of allowed `sharding_root_tables` that can be used as sharding keys for tables in this schema.
 
 ## Database sequences
@@ -63,18 +62,13 @@ For technical implementation and architecture decisions, refer to:
 
 ## Unique constraints
 
-If you require data to be unique, it should be scoped to be unique per
-Organization, Group, Project, or User.
-With the existence of multiple cells which each has its own independent
-database, you can no longer rely on `UNIQUE` constraints.
+If you require data to be unique, it should be scoped to be unique per Organization, Group, Project, or User.
+With the existence of multiple cells which each has its own independent database, you can no longer rely on `UNIQUE` constraints.
 
 You have two options:
 
-1. Ensure the index is scoped to include their `sharding_key` as one of
-   the columns present in the index.
-1. For the rare case where an attribute must be unique globally, across all
-   organizations, use the
-   [Claim service](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/cells/topology_service/#claim-service).
+1. Ensure the index is scoped to include their `sharding_key` as one of the columns present in the index.
+1. For the rare case where an attribute must be unique globally, across all organizations, use the [Claim service](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/cells/topology_service/#claim-service).
 
 ### Claim service
 
@@ -87,23 +81,22 @@ Problem: A database table is used to store static data.
 However, the primary key is not static because it uses an auto-incrementing sequence.
 This means the primary key is not globally consistent.
 
-References to this inconsistent primary key will create problems because the
-reference clashes across cells / organizations.
+References to this inconsistent primary key will create problems because the reference clashes across cells / organizations.
 
 Example: The `plans` table on a given Cell has the following data:
 
 ```shell
  id |             name             |              title
 ----+------------------------------+----------------------------------
-  1 | default                      | Default
-  2 | bronze                       | Bronze
-  3 | silver                       | Silver
-  5 | gold                         | Gold
-  7 | ultimate_trial               | Ultimate Trial
-  8 | premium_trial                | Premium Trial
-  9 | opensource                   | Opensource
-  4 | premium                      | Premium
-  6 | ultimate                     | Ultimate
+ 1 | default                      | Default
+ 2 | bronze                       | Bronze
+ 3 | silver                       | Silver
+ 5 | gold                         | Gold
+ 7 | ultimate_trial               | Ultimate Trial
+ 8 | premium_trial                | Premium Trial
+ 9 | opensource                   | Opensource
+ 4 | premium                      | Premium
+ 6 | ultimate                     | Ultimate
  10 | ultimate_trial_paid_customer | Ultimate Trial for Paid Customer
 (10 rows)
 ```
@@ -113,33 +106,30 @@ On another cell, the `plans` table has differing ids for the same `name`:
 ```shell
  id |             name             |            title
 ----+------------------------------+------------------------------
-  1 | default                      | Default
-  2 | bronze                       | Bronze
-  3 | silver                       | Silver
-  4 | premium                      | Premium
-  5 | gold                         | Gold
-  6 | ultimate                     | Ultimate
-  7 | ultimate_trial               | Ultimate Trial
-  8 | ultimate_trial_paid_customer | Ultimate Trial Paid Customer
-  9 | premium_trial                | Premium Trial
+ 1 | default                      | Default
+ 2 | bronze                       | Bronze
+ 3 | silver                       | Silver
+ 4 | premium                      | Premium
+ 5 | gold                         | Gold
+ 6 | ultimate                     | Ultimate
+ 7 | ultimate_trial               | Ultimate Trial
+ 8 | ultimate_trial_paid_customer | Ultimate Trial Paid Customer
+ 9 | premium_trial                | Premium Trial
  10 | opensource                   | Opensource
  ```
 
-This `plans.id` column is then used as a reference in the `hosted_plan_id`
-column of `gitlab_subscriptions` table.
+This `plans.id` column is then used as a reference in the `hosted_plan_id` column of `gitlab_subscriptions` table.
 
 Solution: Use globally unique references, not a database sequence.
-If possible, hard-code static data in application code, instead of using the
-database.
+If possible, hard-code static data in application code, instead of using the database.
 
-In this case, the `plans` table can be dropped, and replaced with a fixed model
-(details can be found in the [configurable status design doc](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/work_items_custom_status/#fixed-items-models-and-associations)):
+In this case, the `plans` table can be dropped, and replaced with a fixed model (details can be found in the [configurable status design doc](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/work_items_custom_status/#fixed-items-models-and-associations)):
 
 ```ruby
 class Plan
-  include ActiveRecord::FixedItemsModel::Model
+ include ActiveRecord::FixedItemsModel::Model
 
-  ITEMS = [
+ ITEMS = [
     {:id=>1, :name=>"default", :title=>"Default"},
     {:id=>2, :name=>"bronze", :title=>"Bronze"},
     {:id=>3, :name=>"silver", :title=>"Silver"},
@@ -150,10 +140,10 @@ class Plan
     {:id=>8, :name=>"ultimate_trial_paid_customer", :title=>"Ultimate Trial Paid Customer"},
     {:id=>9, :name=>"premium_trial", :title=>"Premium Trial"},
     {:id=>10, :name=>"opensource", :title=>"Opensource"}
-  ]
+ ]
 
-  attribute :name, :string
-  attribute :title, :string
+ attribute :name, :string
+ attribute :title, :string
 end
 ```
 
@@ -165,14 +155,13 @@ Plan.find_by(name: 'premium')
 Plan.where(name: 'gold').first
 ```
 
-The `hosted_plan_id` column will also be updated to refer to the fixed model's
-`id` value.
+The `hosted_plan_id` column will also be updated to refer to the fixed model's `id` value.
 
 You can also store associations with other models. For example:
 
 ```ruby
 class CurrentStatus < ApplicationRecord
-  belongs_to_fixed_items :system_defined_status, fixed_items_class: WorkItems::Statuses::SystemDefined::Status
+ belongs_to_fixed_items :system_defined_status, fixed_items_class: WorkItems::Statuses::SystemDefined::Status
 end
 ```
 

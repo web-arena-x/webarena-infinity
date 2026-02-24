@@ -40,8 +40,7 @@ If you don’t receive the confirmation email in your inbox, check your spam/jun
 
 Once you confirm your email by clicking the link in the message, Handshake will display a success prompt:
 
-**"Your Email Has Been Confirmed**  
-You can now use any email associated with your account to log in.  
+**"Your Email Has Been Confirmed** You can now use any email associated with your account to log in.
 If you'd like to receive messages from Handshake, employers and your school at this email, make it your primary email *(link to your settings page)*
 
 **[Go To Homepage]** (gray button)"

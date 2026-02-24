@@ -62,7 +62,7 @@ The body of the load request must be a valid Cube query.
 
 ```json
 {
-  "query": {
+ "query": {
     "measures": [
       "TrackedEvents.count"
     ],
@@ -90,8 +90,8 @@ The body of the load request must be a valid Cube query.
       "TrackedEvents.docPath"
     ],
     "limit": 23
-  },
-  "queryType": "multi"
+ },
+ "queryType": "multi"
 }
 ```
 
@@ -99,7 +99,7 @@ The body of the load request must be a valid Cube query.
 
 ```json
 {
-  "query": {
+ "query": {
     "measures": [
       "Sessions.count"
     ],
@@ -113,8 +113,8 @@ The body of the load request must be a valid Cube query.
       "Sessions.startAt": "asc"
     },
     "limit": 100
-  },
-  "queryType": "multi"
+ },
+ "queryType": "multi"
 }
 ```
 

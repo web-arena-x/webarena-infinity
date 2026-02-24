@@ -34,9 +34,9 @@ If you change or reset your password, you’ll be signed out everywhere except:
 
 - Devices you use to verify that it's you when you sign in.
 - Some devices with third-party apps that you've given account access.
-  - [Learn how to remove an app's access to your account](/accounts/answer/3466521#remove-access).
+ - [Learn how to remove an app's access to your account](/accounts/answer/3466521#remove-access).
 - Helpful home devices that you've given account access.
-  - [Learn how to unlink these devices from your Google Account](/googlenest/answer/9691327).
+ - [Learn how to unlink these devices from your Google Account](/googlenest/answer/9691327).
 
 ### Fix problems with your password
 

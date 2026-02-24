@@ -8,15 +8,15 @@ This article discusses the differences between Project Timesheets, Daily Log Ti
 
 Here are some different scenarios of entering time and the tool best used for completing the task:
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | Need to clock your own time? | Need to enter your or your office staff's time across projects? | Need to enter time for an employee or a crew? |
-| Personal.png  Use the **My Time** tool on your mobile device. | Internal.png  Use the **Company Timecard** tool. | Crew.png  Use the **Project Timesheets** tool. |
+| Personal.png Use the **My Time** tool on your mobile device. | Internal.png Use the **Company Timecard** tool. | Crew.png Use the **Project Timesheets** tool. |
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | Need to review and approve entered time? | | | |
-| Approval.png    Use the **Company Timesheets** tool  to approve time entries for the week across all projects. | | | |
+| Approval.png    Use the **Company Timesheets** tool to approve time entries for the week across all projects. | | | |
 
 The functionality for each tool is listed below:
 

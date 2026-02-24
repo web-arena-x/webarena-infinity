@@ -13,8 +13,7 @@ title: Installation methods
 
 {{< /details >}}
 
-You can install GitLab on several [cloud providers](cloud_providers.md),
-or use one of the following methods.
+You can install GitLab on several [cloud providers](cloud_providers.md), or use one of the following methods.
 
 ## Linux package
 

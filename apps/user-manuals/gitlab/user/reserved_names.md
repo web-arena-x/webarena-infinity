@@ -14,9 +14,7 @@ description: Naming conventions, restrictions, and reserved names.
 {{< /details >}}
 
 To not conflict with existing routes used by GitLab, some words cannot be used as project or group names.
-These words are listed in the
-[`path_regex.rb` file](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/path_regex.rb),
-where:
+These words are listed in the [`path_regex.rb` file](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/path_regex.rb), where:
 
 - `TOP_LEVEL_ROUTES` are names reserved as usernames or top-level groups.
 - `PROJECT_WILDCARD_ROUTES` are names reserved for subgroups or projects.

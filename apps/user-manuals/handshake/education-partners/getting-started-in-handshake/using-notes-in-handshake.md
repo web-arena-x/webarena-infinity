@@ -50,7 +50,7 @@ When creating a note, you are able to select who is allowed to view the note: 
 - **Personal/Private**: only you, the creator, will see the note. The note will not be included in any reporting (Analytics or Quick Downloads).
 - **Share with Staff**: this will share the note with all Career Services staff that have the "Show Private Notes By Staff" permission, and the note data (creation date and time plus content) can be included in reporting.
 - **Share with "Career Center Name"**: only other users connected to your career center will be able to access the note. *This option will only appear if your school has more than one career center configured.*
-  - **Note**:  You must be connected to the career center in order to select the career center or view related notes. You can adjust your career center connections in User Settings > Personal Information > Career Centers.
+ - **Note**:  You must be connected to the career center in order to select the career center or view related notes. You can adjust your career center connections in User Settings > Personal Information > Career Centers.
     - Learn more about connecting in [Career Services User Settings: Personal Information (Profile)](https://support.joinhandshake.com/hc/en-us/articles/360009190413).
 
 ![Screen_Shot_2020-09-03_at_5.30.46_PM.png](https://support.joinhandshake.com/hc/article_attachments/25998585192343)

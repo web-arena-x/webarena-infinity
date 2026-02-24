@@ -13,8 +13,7 @@ description: Repository cloning, token creation, and container registry.
 
 {{< /details >}}
 
-Deploy tokens provide secure access to GitLab resources without tying permissions to individual user accounts. Use them with Git operations, container registries, and package registries, giving your deployment
-automation access to exactly what it needs.
+Deploy tokens provide secure access to GitLab resources without tying permissions to individual user accounts. Use them with Git operations, container registries, and package registries, giving your deployment automation access to exactly what it needs.
 
 With deploy tokens, you have:
 
@@ -27,8 +26,7 @@ With deploy tokens, you have:
 
 A deploy token is a pair of values:
 
-- **username**: `username` in the HTTP authentication framework. The default username format is
-  `gitlab+deploy-token-{n}`. You can specify a custom username when you create the deploy token.
+- **username**: `username` in the HTTP authentication framework. The default username format is `gitlab+deploy-token-{n}`. You can specify a custom username when you create the deploy token.
 - **token**: `password` in the HTTP authentication framework.
 
 Deploy tokens do not support [SSH authentication](../../ssh.md).
@@ -45,13 +43,11 @@ You can create deploy tokens at either the project or group level:
 - **Project deploy token**: Permissions apply only to the project.
 - **Group deploy token**: Permissions apply to all projects in the group.
 
-By default, a deploy token does not expire. You can optionally set an expiry date when you create
-it. Expiry occurs at midnight UTC on that date.
+By default, a deploy token does not expire. You can optionally set an expiry date when you create it. Expiry occurs at midnight UTC on that date.
 
 {{< alert type="warning" >}}
 
-You cannot use new or existing deploy tokens for Git operations and package registry operations if
-[external authorization](../../../administration/settings/external_authorization.md) is enabled.
+You cannot use new or existing deploy tokens for Git operations and package registry operations if [external authorization](../../../administration/settings/external_authorization.md) is enabled.
 
 {{< /alert >}}
 
@@ -64,9 +60,9 @@ A deploy token's scope determines the actions it can perform.
 | `read_repository`        | Read-only access to the repository using `git clone`.                                                        |
 | `read_registry`          | Read-only access to the images in the project's [container registry](../../packages/container_registry/_index.md). |
 | `write_registry`         | Write access (push) to the project's [container registry](../../packages/container_registry/_index.md). You need both read and write access to push images. |
-| `read_virtual_registry`  | If a project is private and authorization is required, grants read-only (pull) access to container images through the [dependency proxy](../../packages/dependency_proxy/_index.md). Available only when the dependency proxy is enabled. |
+| `read_virtual_registry` | If a project is private and authorization is required, grants read-only (pull) access to container images through the [dependency proxy](../../packages/dependency_proxy/_index.md). Available only when the dependency proxy is enabled. |
 | `write_virtual_registry` | If a project is private and authorization is required, grants read (pull), write (push), and delete access to container images through the [dependency proxy](../../packages/dependency_proxy/_index.md). Available only when the dependency proxy is enabled. |
-| `read_package_registry`  | Read-only access to the project's package registry.                                                          |
+| `read_package_registry` | Read-only access to the project's package registry.                                                          |
 | `write_package_registry` | Write access to the project's package registry.                                                              |
 
 ## GitLab deploy token
@@ -78,8 +74,7 @@ A deploy token's scope determines the actions it can perform.
 
 {{< /history >}}
 
-A GitLab deploy token is a special type of deploy token. If you create a deploy token named
-`gitlab-deploy-token`, the deploy token is automatically exposed to project CI/CD jobs as variables:
+A GitLab deploy token is a special type of deploy token. If you create a deploy token named `gitlab-deploy-token`, the deploy token is automatically exposed to project CI/CD jobs as variables:
 
 - `CI_DEPLOY_USER`: Username
 - `CI_DEPLOY_PASSWORD`: Token
@@ -92,15 +87,11 @@ echo "$CI_DEPLOY_PASSWORD" | docker login $CI_REGISTRY -u $CI_DEPLOY_USER --pass
 
 {{< alert type="note" >}}
 
-In GitLab 15.0 and earlier, the special handling for the `gitlab-deploy-token` deploy token does not
-work for group deploy tokens. To make a group deploy token available for CI/CD jobs, set the
-`CI_DEPLOY_USER` and `CI_DEPLOY_PASSWORD` CI/CD variables in **Settings** > **CI/CD** > **Variables** to the
-name and token of the group deploy token.
+In GitLab 15.0 and earlier, the special handling for the `gitlab-deploy-token` deploy token does not work for group deploy tokens. To make a group deploy token available for CI/CD jobs, set the `CI_DEPLOY_USER` and `CI_DEPLOY_PASSWORD` CI/CD variables in **Settings** > **CI/CD** > **Variables** to the name and token of the group deploy token.
 
 {{< /alert >}}
 
-When `gitlab-deploy-token` is defined in a group, the `CI_DEPLOY_USER` and `CI_DEPLOY_PASSWORD`
-CI/CD variables are available only to immediate child projects of the group.
+When `gitlab-deploy-token` is defined in a group, the `CI_DEPLOY_USER` and `CI_DEPLOY_PASSWORD` CI/CD variables are available only to immediate child projects of the group.
 
 ## Deploy token expiration
 
@@ -128,21 +119,16 @@ These email notifications are sent only once per interval for active (non-revoke
 
 GitLab deploy tokens are long-lived, making them attractive for attackers.
 
-To prevent leaking the deploy token, you should also configure your
-[runners](../../../ci/runners/_index.md) to be secure:
+To prevent leaking the deploy token, you should also configure your [runners](../../../ci/runners/_index.md) to be secure:
 
 - Avoid using Docker `privileged` mode if the machines are re-used.
-- Avoid using the [`shell` executor](https://docs.gitlab.com/runner/executors/shell.html) when jobs
-  run on the same machine.
+- Avoid using the [`shell` executor](https://docs.gitlab.com/runner/executors/shell.html) when jobs run on the same machine.
 
-An insecure GitLab Runner configuration increases the risk that someone can steal tokens from other
-jobs.
+An insecure GitLab Runner configuration increases the risk that someone can steal tokens from other jobs.
 
 ### GitLab public API
 
-Deploy tokens can't be used with the GitLab public API. However, you can use deploy tokens with some
-endpoints, such as those from the package registry. You can tell an endpoint belongs to the package registry because the URL has the string `packages/<format>`. For example: `https://gitlab.example.com/api/v4/projects/24/packages/generic/my_package/0.0.1/file.txt`. For more information, see
-[Authenticate with the registry](../../packages/package_registry/supported_functionality.md#authenticate-with-the-registry).
+Deploy tokens can't be used with the GitLab public API. However, you can use deploy tokens with some endpoints, such as those from the package registry. You can tell an endpoint belongs to the package registry because the URL has the string `packages/<format>`. For example: `https://gitlab.example.com/api/v4/projects/24/packages/generic/my_package/0.0.1/file.txt`. For more information, see [Authenticate with the registry](../../packages/package_registry/supported_functionality.md#authenticate-with-the-registry).
 
 ## Create a deploy token
 
@@ -160,8 +146,7 @@ Prerequisites:
 1. Complete the fields, and select the desired [scopes](#scope).
 1. Select **Create deploy token**.
 
-Record the deploy token's values. After you leave or refresh the page, **you cannot access it
-again**.
+Record the deploy token's values. After you leave or refresh the page, **you cannot access it again**.
 
 ## Revoke a deploy token
 
@@ -231,8 +216,7 @@ Prerequisites:
 
 - A deploy token with the `read_package_registry` scope.
 
-For the [package type of your choice](../../packages/package_registry/supported_functionality.md#authenticate-with-the-registry), follow the authentication
-instructions for deploy tokens.
+For the [package type of your choice](../../packages/package_registry/supported_functionality.md#authenticate-with-the-registry), follow the authentication instructions for deploy tokens.
 
 Example of installing a NuGet package from a GitLab registry:
 
@@ -249,8 +233,7 @@ Prerequisites:
 
 - A deploy token with the `write_package_registry` scope.
 
-For the [package type of your choice](../../packages/package_registry/supported_functionality.md#authenticate-with-the-registry), follow the authentication
-instructions for deploy tokens.
+For the [package type of your choice](../../packages/package_registry/supported_functionality.md#authenticate-with-the-registry), follow the authentication instructions for deploy tokens.
 
 Example of publishing a NuGet package to a package registry:
 

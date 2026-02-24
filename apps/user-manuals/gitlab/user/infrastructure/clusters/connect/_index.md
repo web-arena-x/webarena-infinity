@@ -41,9 +41,7 @@ Choose your cluster's level according to its purpose:
 
 ### View your clusters
 
-To view the Kubernetes clusters connected to your project,
-group, or instance, open the cluster's page according to
-your cluster's level.
+To view the Kubernetes clusters connected to your project, group, or instance, open the cluster's page according to your cluster's level.
 
 **Project-level clusters**:
 
@@ -79,8 +77,4 @@ are trusted, so **only trusted users should be allowed to control your clusters*
 
 {{< /alert >}}
 
-The use of cluster certificates to connect your cluster grants
-access to a wide set of functionalities needed to successfully
-build and deploy a containerized application. Bear in mind that
-the same credentials are used for all the applications running
-on the cluster.
+The use of cluster certificates to connect your cluster grants access to a wide set of functionalities needed to successfully build and deploy a containerized application. Bear in mind that the same credentials are used for all the applications running on the cluster.

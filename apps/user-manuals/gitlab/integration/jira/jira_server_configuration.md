@@ -5,8 +5,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: 'Tutorial: Create Jira credentials'
 ---
 
-This tutorial shows you how to create Jira credentials. You can use your new Jira credentials to
-configure the [Jira issues integration](configure.md) in GitLab for Jira Data Center or Jira Server.
+This tutorial shows you how to create Jira credentials. You can use your new Jira credentials to configure the [Jira issues integration](configure.md) in GitLab for Jira Data Center or Jira Server.
 
 To create Jira credentials, follow these steps:
 
@@ -25,8 +24,7 @@ To create a Jira user:
 1. On the top bar, in the upper-right corner, select **Administration** ({{< icon name="settings" >}}) > **User management**.
 1. [Create a new user account](https://confluence.atlassian.com/adminjiraserver/create-edit-or-remove-a-user-938847025.html#Create,edit,orremoveauser-CreateusersmanuallyinJira) with write access to your Jira projects.
 
-   Alternatively, you can use an existing user account, provided the user belongs to a Jira group that has been granted
-   the `Administer Projects` [permission scheme](#create-a-permission-scheme-for-the-group).
+   Alternatively, you can use an existing user account, provided the user belongs to a Jira group that has been granted the `Administer Projects` [permission scheme](#create-a-permission-scheme-for-the-group).
 
    - In **Email address**, enter a valid email address.
    - In **Username**, enter `gitlab`.
@@ -41,8 +39,7 @@ To create a Jira group for the user:
 
 1. On the top bar, in the upper-right corner, select **Administration** ({{< icon name="settings" >}}) > **User management**.
 1. On the left sidebar, select **Groups**.
-1. In the **Add group** section, enter a name for the group (for example,
-   `gitlab-developers`), then select **Add group**.
+1. In the **Add group** section, enter a name for the group (for example, `gitlab-developers`), then select **Add group**.
 1. To add the `gitlab` user to the new `gitlab-developers` group, select **Edit members**.
    The `gitlab-developers` group appears as a selected group.
 <!-- vale gitlab_base.BadPlurals = NO -->
@@ -51,8 +48,7 @@ To create a Jira group for the user:
 1. Select **Add selected users**.
    The `gitlab` user appears as a group member.
 
-Now that you've added the `gitlab` user to a new group named `gitlab-developers`,
-it's time to create a permission scheme for the group.
+Now that you've added the `gitlab` user to a new group named `gitlab-developers`, it's time to create a permission scheme for the group.
 
 ## Create a permission scheme for the group
 
@@ -70,5 +66,4 @@ To create a permission scheme for the group:
 1. On the **Grant permission** dialog, for **Granted to**, select **Group**.
 1. From the **Group** dropdown list, select `gitlab-developers`, then select **Grant**.
 
-You've done it! You can now use your new Jira username and password to configure the
-[Jira issues integration](configure.md) in GitLab for Jira Data Center or Jira Server.
+You've done it! You can now use your new Jira username and password to configure the [Jira issues integration](configure.md) in GitLab for Jira Data Center or Jira Server.

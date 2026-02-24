@@ -19,28 +19,28 @@ This may be a result of the following situations:
 
 1. Navigate to the Company level **Admin** tool.
 2. Under 'Tool Settings', click **Bidding**.
-3. Click **Update**in the 'Introducing Bid Management Enhanced Experience' banner.  
+3. Click **Update**in the 'Introducing Bid Management Enhanced Experience' banner. 
    ![admin-bidding-banner.png](https://support.procore.com/@api/deki/files/404117/admin-bidding-banner.png?revision=1)
 4. If any project is missing cost codes for bid line items, you will see an 'Action Required to Update Projects' error message with a list of affected projects. Open each of the affected projects and choose the automatic or manual option for each project.
 
 #### From the Project Level
 
 1. Navigate to the project's **Bidding** tool.
-2. In the 'Introducing Bid Management Enhanced Experience' banner, click Update.  
+2. In the 'Introducing Bid Management Enhanced Experience' banner, click Update. 
      
    ![bidding-banner.png](https://support.procore.com/@api/deki/files/404116/bidding-banner.png?revision=1)
-3. If the project is missing cost codes for bid line items, you will see an 'Action Required to Bid Packages' error message.  
+3. If the project is missing cost codes for bid line items, you will see an 'Action Required to Bid Packages' error message. 
    Choose whether you want to automatically assign one cost code to all affected line items, or add them all manually:
    - **Automatic**:
-     1. Click the **Select a Cost Code** drop-down menu and select the cost code that you want to add.  
+     1. Click the **Select a Cost Code** drop-down menu and select the cost code that you want to add. 
         ![bidding-auto-add-cost-code.png](https://support.procore.com/@api/deki/files/364309/bidding-auto-add-cost-code.png?revision=2)
-     2. Click **Next**.  
+     2. Click **Next**. 
         Procore will automatically add the missing cost codes for all affected bid packages, and you will be taken to the 'Accept Terms' page for the beta.
    - **Manual**:
      1. We recommend opening the Bidding tool in a new tab so that you can refer back to the list of affected bid packages and companies.
      2. Click **View** on an affected bid package.
      3. On the Bidders tab, click **View** on the company that is missing cost codes.
-     4. In the Bid Sheet section, select a cost code to apply to the line item.  
+     4. In the Bid Sheet section, select a cost code to apply to the line item. 
         ![bidding-cost-code.png](https://support.procore.com/@api/deki/files/364307/bidding-cost-code.png?revision=1)
      5. Repeat this process for each affected bid package. After all missing cost codes have been added and you click **Update** in the banner again, you will be taken to an 'Update All Bid Packages' message.
 

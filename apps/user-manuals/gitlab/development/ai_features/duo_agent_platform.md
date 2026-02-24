@@ -74,7 +74,7 @@ Looking at the current router structure in `ee/app/assets/javascripts/ai/duo_age
 
 ```javascript
 routes: [
-  {
+ {
     component: NestedRouteApp, // Simple <router-view /> wrapper
     path: '/agent-sessions',
     meta: {
@@ -96,7 +96,7 @@ routes: [
       },
       // ...
     ],
-  },
+ },
 ];
 ```
 
@@ -112,13 +112,13 @@ The breadcrumb component (`duo_agents_platform_breadcrumbs.vue`) works by:
 ```javascript
 // From duo_agents_platform_breadcrumbs.vue
 const matchedRoutes = (this.$route?.matched || [])
-  .map((route) => {
+ .map((route) => {
     return {
       text: route.meta?.text, // Uses meta.text for breadcrumb label
       to: { path: route.path },
     };
-  })
-  .filter((r) => r.text); // Only routes with meta.text become breadcrumbs
+ })
+ .filter((r) => r.text); // Only routes with meta.text become breadcrumbs
 ```
 
 ### Adding a New Navigation Item
@@ -146,7 +146,7 @@ import YourFeatureNew from '../pages/your_feature/your_feature_new.vue';
 import YourFeatureShow from '../pages/your_feature/your_feature_show.vue';
 
 export const createRouter = (base, namespace) => {
-  return new VueRouter({
+ return new VueRouter({
     base,
     mode: 'history',
     routes: [
@@ -199,7 +199,7 @@ export const createRouter = (base, namespace) => {
 
       { path: '*', redirect: '/agent-sessions' },
     ],
-  });
+ });
 };
 ```
 
@@ -209,7 +209,7 @@ The existing wildcard route in `ee/config/routes/project.rb` should handle your 
 
 ```ruby
 scope :automate do
-  get '/(*vueroute)' => 'duo_agents_platform#show', as: :automate, format: false
+ get '/(*vueroute)' => 'duo_agents_platform#show', as: :automate, format: false
 end
 ```
 
@@ -217,10 +217,10 @@ end
 
 ```ruby
 scope :automate do
-  get '/(*vueroute)' => 'duo_agents_platform#show', as: :automate, format: false
-  # Named routes for sidebar menu helpers
-  get 'agent-sessions', to: 'duo_agents_platform#show', as: :automate_agent_sessions, format: false
-  get 'your-feature', to: 'duo_agents_platform#show', as: :automate_your_features, format: false
+ get '/(*vueroute)' => 'duo_agents_platform#show', as: :automate, format: false
+ # Named routes for sidebar menu helpers
+ get 'agent-sessions', to: 'duo_agents_platform#show', as: :automate_agent_sessions, format: false
+ get 'your-feature', to: 'duo_agents_platform#show', as: :automate_your_features, format: false
 end
 ```
 
@@ -235,22 +235,22 @@ Add the menu item to the `configure_menu_items` method and create the correspond
 ```ruby
 override :configure_menu_items
 def configure_menu_items
-  return false unless Feature.enabled?(:duo_workflow_in_ci, context.current_user)
+ return false unless Feature.enabled?(:duo_workflow_in_ci, context.current_user)
 
-  add_item(duo_agents_runs_menu_item)
-  add_item(duo_agents_your_feature_menu_item)  # Add your new menu item
-  true
+ add_item(duo_agents_runs_menu_item)
+ add_item(duo_agents_your_feature_menu_item) # Add your new menu item
+ true
 end
 
 private
 
 def duo_agents_your_feature_menu_item
-  ::Sidebars::MenuItem.new(
+ ::Sidebars::MenuItem.new(
     title: s_('Your Feature'),
-    link: project_automate_your_features_path(context.project),  # Note: plural 'features'
+    link: project_automate_your_features_path(context.project), # Note: plural 'features'
     active_routes: { controller: :duo_agents_platform },
     item_id: :agents_your_feature
-  )
+ )
 end
 ```
 
@@ -261,14 +261,14 @@ end
 ```vue
 <script>
 export default {
-  name: 'YourFeatureIndex',
+ name: 'YourFeatureIndex',
 };
 </script>
 
 <template>
-  <div>
+ <div>
     <h1>Your Feature</h1>
-  </div>
+ </div>
 </template>
 ```
 
@@ -302,10 +302,10 @@ import { initDuoAgentsPlatformPage } from '../../index';
 import { AGENT_PLATFORM_GROUP_PAGE } from '../../constants';
 
 export const initDuoAgentsPlatformGroupPage = () => {
-  initDuoAgentsPlatformPage({
+ initDuoAgentsPlatformPage({
     namespace: AGENT_PLATFORM_GROUP_PAGE,
     namespaceDatasetProperties: ['groupPath', 'groupId'],
-  });
+ });
 };
 ```
 
@@ -318,9 +318,9 @@ import getGroupAgentFlows from './graphql/queries/get_group_agent_flows.query.gr
 import DuoAgentsPlatformIndex from '../../pages/index/duo_agents_platform_index.vue';
 
 export default {
-  components: { DuoAgentsPlatformIndex },
-  inject: ['groupPath'], // Group-specific injection
-  apollo: {
+ components: { DuoAgentsPlatformIndex },
+ inject: ['groupPath'], // Group-specific injection
+ apollo: {
     workflows: {
       query: getGroupAgentFlows, // Group-specific query
       variables() {
@@ -331,17 +331,17 @@ export default {
       },
       // ...
     },
-  },
+ },
 };
 </script>
 
 <template>
-  <duo-agents-platform-index
+ <duo-agents-platform-index
     :is-loading-workflows="isLoadingWorkflows"
     :workflows="workflows"
     :workflows-page-info="workflowsPageInfo"
     :workflow-query="$apollo.queries.workflows"
-  />
+ />
 </template>
 ```
 
@@ -354,12 +354,12 @@ import ProjectAgentsPlatformIndex from '../namespace/project/project_agents_plat
 import GroupAgentsPlatformIndex from '../namespace/group/group_agents_platform_index.vue';
 
 export const getNamespaceIndexComponent = (namespace) => {
-  const componentMappings = {
+ const componentMappings = {
     [AGENT_PLATFORM_PROJECT_PAGE]: ProjectAgentsPlatformIndex,
     [AGENT_PLATFORM_GROUP_PAGE]: GroupAgentsPlatformIndex, // New mapping
-  };
+ };
 
-  return componentMappings[namespace];
+ return componentMappings[namespace];
 };
 ```
 
@@ -412,23 +412,23 @@ The existing agent sessions feature demonstrates this pattern:
 
 ```javascript
 {
-  component: NestedRouteApp,           // Renders child routes
-  path: '/agent-sessions',             // URL: /automate/agent-sessions
-  meta: {
-    text: s__('DuoAgentsPlatform|Sessions'),  // Breadcrumb: "Sessions"
-  },
-  children: [
+ component: NestedRouteApp,           // Renders child routes
+ path: '/agent-sessions',             // URL: /automate/agent-sessions
+ meta: {
+    text: s__('DuoAgentsPlatform|Sessions'), // Breadcrumb: "Sessions"
+ },
+ children: [
     {
       name: AGENTS_PLATFORM_INDEX_ROUTE,
       path: '',                        // URL: /automate/agent-sessions
-      component: AgentsPlatformIndex,  // No additional breadcrumb
+      component: AgentsPlatformIndex, // No additional breadcrumb
     },
     {
       name: AGENTS_PLATFORM_NEW_ROUTE,
       path: 'new',                     // URL: /automate/agent-sessions/new
       component: AgentsPlatformNew,
       meta: {
-        text: s__('DuoAgentsPlatform|New'),  // Breadcrumb: "Sessions > New"
+        text: s__('DuoAgentsPlatform|New'), // Breadcrumb: "Sessions > New"
       },
     },
     {
@@ -437,7 +437,7 @@ The existing agent sessions feature demonstrates this pattern:
       component: AgentsPlatformShow,   // Breadcrumb: "Sessions > 123"
       // No meta.text - uses :id parameter as breadcrumb
     },
-  ],
+ ],
 }
 ```
 
@@ -487,8 +487,7 @@ This creates the breadcrumb hierarchy:
 
 ## Generating fake flows
 
-To generate fake flows to test out the platform, you can run
-`ee/lib/tasks/gitlab/duo_workflow/duo_workflow.rake` Rake task.
+To generate fake flows to test out the platform, you can run `ee/lib/tasks/gitlab/duo_workflow/duo_workflow.rake` Rake task.
 
 Example to make 50 flows, 20 made by the specified user in specific project
 

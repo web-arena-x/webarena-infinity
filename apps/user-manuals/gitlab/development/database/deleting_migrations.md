@@ -5,8 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Delete existing migrations
 ---
 
-When removing existing migrations from the GitLab project, you have to take into account
-the possibility of the migration already been included in past releases or in the current release, and thus already executed on GitLab.com and/or in GitLab Self-Managed instances.
+When removing existing migrations from the GitLab project, you have to take into account the possibility of the migration already been included in past releases or in the current release, and thus already executed on GitLab.com and/or in GitLab Self-Managed instances.
 
 Because of it, it's not possible to delete existing migrations, as that could lead to:
 
@@ -27,8 +26,7 @@ Migrations can be disabled if:
 
 In order to disable a migration, the following steps apply to all types of migrations:
 
-1. Turn the migration into a no-op by removing the code inside `#up`, `#down`
-   or `#perform` methods, and adding `# no-op` comment instead.
+1. Turn the migration into a no-op by removing the code inside `#up`, `#down` or `#perform` methods, and adding `# no-op` comment instead.
 1. Add a comment explaining why the code is gone.
 
 Disabling migrations requires explicit approval of Database Maintainer.

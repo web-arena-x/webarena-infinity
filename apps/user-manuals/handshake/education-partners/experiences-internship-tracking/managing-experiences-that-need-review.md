@@ -32,9 +32,9 @@ The number of Experiences in the Needs Review status will be indicated on the Ex
 
 1. Click Restart Approvals from the status section at the top of the page![](https://support.joinhandshake.com/hc/article_attachments/26001283193495)
 2. This will reset the time for reviewers to approve what you've defined in the template
-   1. If the Experience still "needs review" because it has expired, you can send an email reminder to the reviewers  
+   1. If the Experience still "needs review" because it has expired, you can send an email reminder to the reviewers 
       ![Resend_Email_for_Approvers.png](https://support.joinhandshake.com/hc/article_attachments/26001260113431)
-   2. If the Experience has not yet expired, you can manually update the responses from declined to approved for approvers that had originally declined the experience request  
+   2. If the Experience has not yet expired, you can manually update the responses from declined to approved for approvers that had originally declined the experience request 
       ![Edit_Responses_button.png](https://support.joinhandshake.com/hc/article_attachments/26001260114839)
 3. The approvals will then go in order from where they were halted
 

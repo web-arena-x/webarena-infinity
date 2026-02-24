@@ -142,7 +142,7 @@ To delete more than one contact:
 9. Click **Perform Operation**
 10. Click **OK** in the Warning Pop-Up Window to begin the deletion process.
 
-**Note:**  The bulk operations tool will delete true duplicates, duplicates must be completely identical.
+**Note:** The bulk operations tool will delete true duplicates, duplicates must be completely identical.
 
 1. Log in to Clio as an Administrator
 2. Select the bulk operations page for your region:

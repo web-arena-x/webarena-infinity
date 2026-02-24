@@ -51,7 +51,7 @@ When a new user signs in via SAML for the first time, Linear creates the account
 
 * **Name**: taken from `name` attribute if it exists. If not, created from `firstName` and `lastName` attributes combined or else drawn from `displayName`.
 * **Email:** taken from the SAML `NameID` which must be a valid email address
-* **Avatar (profile image):** taken from any of  `avatarurl || photo || picture || profilepicture || profilephoto`
+* **Avatar (profile image):** taken from any of `avatarurl || photo || picture || profilepicture || profilephoto`
 * **Username:** Generated from the supplied Name (as detailed above) or email address if no name is provided. This value must be unique and numbers will be appended if an existing user has this username already. 
 
 > [!NOTE]
@@ -89,7 +89,7 @@ If you get repeated errors, then please [contact support](https://linear.app/doc
 <details>
 <summary>How can I add new users?</summary>
 For [SAML-enabled Workspaces](https://linear.app/docs/saml-and-access-control), you can still invite Members as normal from Linear's side. However, you'll need to make sure that members are given access in your identity provider(IdP) in order to log in.   
-  
+ 
 New members who login successfully with SSO will be automatically provisioned using Just-In-Time (JIT) provisioning and an account will be created for them.
 </details>
 

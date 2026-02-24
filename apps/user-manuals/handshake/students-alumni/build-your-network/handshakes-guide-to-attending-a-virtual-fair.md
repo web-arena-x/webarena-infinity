@@ -40,11 +40,11 @@ To register for the Fair, click the button Register on the fair's overview page.
 **Sign up for sessions**
 
 - From the overview page, click on the Available Sessions tab to review and sign up for sessions.
-  - *For details on this process, refer to* [Signing Up for & Managing Virtual Fair Sessions](https://support.joinhandshake.com/hc/en-us/articles/360051394454).
+ - *For details on this process, refer to* [Signing Up for & Managing Virtual Fair Sessions](https://support.joinhandshake.com/hc/en-us/articles/360051394454).
 - To sign up for Group or 1:1 sessions, you may be prompted to update your profile's privacy settings. We recommend using **Community** to make the most of your Handshake experience, as this will allow you to participate in all fair sessions and engage with other students/alumni!
-  - *For more information on profile privacy, refer to* [Profile Privacy Options in Handshake](https://support.joinhandshake.com/hc/en-us/articles/115007281988).
+ - *For more information on profile privacy, refer to* [Profile Privacy Options in Handshake](https://support.joinhandshake.com/hc/en-us/articles/115007281988).
 - Review which employers are attending the fair (follow the employers you want to check back in with)!
-  - *For more information on following an employer, refer to* [Following an Employer in Handshake](https://support.joinhandshake.com/hc/en-us/articles/1500002852621).
+ - *For more information on following an employer, refer to* [Following an Employer in Handshake](https://support.joinhandshake.com/hc/en-us/articles/1500002852621).
 
 You'll be able to sign up for sessions at any point, even during the fair (as long as the session hasn't ended).
 
@@ -53,10 +53,10 @@ You'll be able to sign up for sessions at any point, even during the fair (as lo
 *To help you prepare for a successful fair, check out the following tips and resources!*
 
 - Make sure you have the right setup to support session audio and video.
-  - [Attendee Requirements for Integrated Video](https://support.joinhandshake.com/hc/en-us/articles/4423738147607-Attendee-Requirements-for-Integrated-Video)
-  - To request an ASL interpreter, refer to [Requesting an ASL Interpreter or Transcriber for Virtual Interactions](../../education-partners/events-career-fairs/requesting-an-asl-interpreter-or-transcriber-for-virtual-interactions.md) and [Virtual Fairs: Accessibility](https://support.joinhandshake.com/hc/en-us/articles/360049932314).
+ - [Attendee Requirements for Integrated Video](https://support.joinhandshake.com/hc/en-us/articles/4423738147607-Attendee-Requirements-for-Integrated-Video)
+ - To request an ASL interpreter, refer to [Requesting an ASL Interpreter or Transcriber for Virtual Interactions](../../education-partners/events-career-fairs/requesting-an-asl-interpreter-or-transcriber-for-virtual-interactions.md) and [Virtual Fairs: Accessibility](https://support.joinhandshake.com/hc/en-us/articles/360049932314).
 - Complete your profile
-  - [How to Drive Profile Completion](https://support.joinhandshake.com/hc/en-us/articles/115009543967)
+ - [How to Drive Profile Completion](https://support.joinhandshake.com/hc/en-us/articles/115009543967)
 
 For tips on attending a virtual fair, check out our blog post [Attending a virtual career fair? Here are 10 tips you need to know](https://learn.joinhandshake.com/students/attending-a-virtual-career-fair-here-are-10-tips-you-need-to-know/).
 

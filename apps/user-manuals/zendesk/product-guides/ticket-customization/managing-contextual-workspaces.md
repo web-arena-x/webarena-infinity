@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408822138522-Managing-con
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Enterprise or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Enterprise |
 
-Location:  Admin Center > Workspaces > Agent tools > Contextual workspaces
+Location: Admin Center > Workspaces > Agent tools > Contextual workspaces
 
 Workspaces optimize your support workflow, without restricting the tools agents need to complete their jobs. With workspaces, you can simplify the forms and macros that agents see when they first open a ticket, and you can expand, collapse, or reorder apps. To manage contextual workspaces, you can view and edit existing workspaces or change the run order. You can also delete or deactivate workspaces.
 
@@ -33,11 +33,11 @@ Administrators, advisors, and [agents in custom roles with permission](https://s
 
 - In [Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554#topic_hfg_dyz_1hb), click ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ac_workspaces_icon.png) **Workspaces** in the sidebar, then select **Agent tools > Contextual workspaces**.
 
-  This page includes a list of Active and Inactive workspaces defined for your account. You can have up to 500 active workspaces in your account.
+ This page includes a list of Active and Inactive workspaces defined for your account. You can have up to 500 active workspaces in your account.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/contextual_workspaces_list_acf.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/contextual_workspaces_list_acf.png)
 
-  Note: If you have [custom layouts](https://support.zendesk.com/hc/en-us/articles/5447690090138) activated on your account, you’ll see a column that shows the layout assigned to each contextual workspace. If you don't have custom layouts, the standard layout is applied by default.
+ Note: If you have [custom layouts](https://support.zendesk.com/hc/en-us/articles/5447690090138) activated on your account, you’ll see a column that shows the layout assigned to each contextual workspace. If you don't have custom layouts, the standard layout is applied by default.
 
 ## Editing and duplicating contextual workspaces
 

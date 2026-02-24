@@ -15,10 +15,10 @@ If your Project Administrator has enabled this functionality on the project, you
 ## Things to Consider
 
 - **Required User Permissions:**
-  - Varies by tool and by task. Check the User Permissions Matrix to see what permissions you need to create or edit items on the supported tools.  
+ - Varies by tool and by task. Check the User Permissions Matrix to see what permissions you need to create or edit items on the supported tools. 
     *Note:* Users with the appropriate permission can also add a location using the Project level Admin tool. See [Add Tiered Locations to a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-multi-tiered-locations-to-a-project "Add Tiered Locations to a Project").
 - **Supported Procore Tools**:
-  - This list details the Procore tools and tasks that include a 'Locations' drop-down list that interacts with the project Admin tool's Locations Manager:
+ - This list details the Procore tools and tasks that include a 'Locations' drop-down list that interacts with the project Admin tool's Locations Manager:
 
     | Procore Tool | To create a location, see this tutorial... |
     | --- | --- |
@@ -43,18 +43,18 @@ If your Project Administrator has enabled this functionality on the project, you
 
     2**The Funding tool is only available to Procore users in the United States who have implemented the Procore for Owners point-of-view dictionary. See* [What tool names and terms are different in Procore for general contractors, owners, and specialty contractors?](https://support.procore.com/faq/what-tool-names-and-terms-are-different-in-procore-for-general-contractors-owners-and-specialty-contractors "What tool names and terms are different in Procore for general contractors, owners, and specialty contractors?")*
 - **Additional Information**:
-  - Even if you have permissions to edit or create an item in the above list, your project manager may have turned off the ability to add new locations on the fly. If this is the case, you will not see the orange "Add New Location" button when you go to add a location.
-  - A location can have a virtually unlimited number of tiers.
-  - Duplicate location names are not permitted.
-  - Locations are created on a per-project basis.
+ - Even if you have permissions to edit or create an item in the above list, your project manager may have turned off the ability to add new locations on the fly. If this is the case, you will not see the orange "Add New Location" button when you go to add a location.
+ - A location can have a virtually unlimited number of tiers.
+ - Duplicate location names are not permitted.
+ - Locations are created on a per-project basis.
 
 ## Steps
 
-1. Navigate to one of the supported tools.  
+1. Navigate to one of the supported tools. 
    *Note:* See [Things to Consider](#Things_to_Consider "How do I add a multi-tiered location to an item?") above for a list of tools that support creating new locations.
 2. Click the **Edit** button next to the item you wish to add a multi-tiered location to or create a new item on that tool. (*Note:* Instructions on how to create and edit are available by searching for "Create a \_\_\_\_" or "Edit a \_\_\_\_" in the search bar at the top of this page.)
 3. Select the drop-down menu next to "Location."
-4. Use the type-ahead search bar to find the location you wish to add to the item, or add a new location.  
+4. Use the type-ahead search bar to find the location you wish to add to the item, or add a new location. 
      
    ![select a multi tier location.png](https://support.procore.com/@api/deki/files/4278/select-a-multi-tier-location.png?revision=2&size=bestfit&width=437&height=262)
 
@@ -67,10 +67,10 @@ You can add a brand new multi-tiered location, or you can add a new sub location
 1. Type in the name of your first tier location. (*Note:* See [What are multi-tiered locations?](https://support.procore.com/faq/what-are-multi-tiered-locations "What are multi-tiered locations?") The first tier location will be the parent location to your sub locations, and should be the most broad. For example, in the list in the image above, we could add "Floor 3".)
 2. If the 1st tier location already exists, you will be prompted to add the existing location; if the location doesn't exist, click **+ Add [location name**].
 3. Type the name of your second tier location. (*Note:* The second tier locations will be a sub location to the first tier location, and it should refer to a location inside of the 1st tier. For example, you could add "Room 301" to "Floor 3").
-4. Click **+Add [location name]** the green checkmark.  
+4. Click **+Add [location name]** the green checkmark. 
      
    ![add-a-new-location-to-an-item.png](https://support.procore.com/@api/deki/files/4279/add-a-new-location-to-an-item.png?revision=2&size=bestfit&width=500)
-5. Add as many sub locations as needed to apply to the location of the item. (*Note:* It is recommended that you follow the best practices for adding locations that your company has set up.)  
+5. Add as many sub locations as needed to apply to the location of the item. (*Note:* It is recommended that you follow the best practices for adding locations that your company has set up.) 
      
    At any point in this process, you may delete a tier and all of its sub tiers by hovering your mouse over the breadcrumbs and clicking the X to delete the location and all of its sub locations. If the location or sub location already existed in Procore before opening this multi-tier location picker, it will not delete it permanently).
 6. Click **Create** when you're done adding the multi-tiered location to the item. (*Note:* The item will automatically be placed in the location field of the item).

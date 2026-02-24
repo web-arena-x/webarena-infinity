@@ -41,7 +41,7 @@ From there, view styles living in the file from the **Styles** section.
 
 View styles from the current file and styles from other libraries from the style picker.
 
-Click the  styles icon next to the relevant property in the right sidebar. Figma will open the style picker which lets you to view any styles available for that property.
+Click the styles icon next to the relevant property in the right sidebar. Figma will open the style picker which lets you to view any styles available for that property.
 
 The default order for styles in the style panel is:
 
@@ -49,7 +49,7 @@ The default order for styles in the style panel is:
 - Alphabetically by file name
 - Individual styles are in the same order as they appear in the right sidebar
 
-You can toggle between  list and  grid views.
+You can toggle between list and grid views.
 
 ![Style picker panel showing color style options for a button in different libraries.](https://help.figma.com/hc/article_attachments/31358570044695)
 
@@ -63,7 +63,7 @@ To make finding and selecting styles easier, you can organize your styles into g
 
 ### Group by folder
 
-You can group styles by creating folders from the **Design** tab of the right sidebar. Folders will be reflected from the **Local styles** section of the right sidebar and in the style picker when you click  for a given property.
+You can group styles by creating folders from the **Design** tab of the right sidebar. Folders will be reflected from the **Local styles** section of the right sidebar and in the style picker when you click for a given property.
 
 To create a folder:
 
@@ -108,7 +108,7 @@ Note: You can only adjust the order for styles that live in the current file you
 
 You can edit styles that live in the file from the right sidebar and from the style picker.
 
-- **Right sidebar:** hover over the style, then click the  **adjust** icon when it appears.
+- **Right sidebar:** hover over the style, then click the **adjust** icon when it appears.
 - **Style picker:** right-click on the style and select **Edit style** from the options.
 
 View styles and their properties at the top of the **Edit style** panel.
@@ -116,8 +116,8 @@ View styles and their properties at the top of the **Edit style** panel.
 - View or update the **Name** of the style.
 - Add or update the style description, which displays when hovering over the style in the style picker.
 - View or make changes to any properties of the style.
-- Click on the  icon to hide or show the property on any objects the style is applied to
-- Click the  icon to remove the property from the style
+- Click on the icon to hide or show the property on any objects the style is applied to
+- Click the icon to remove the property from the style
 
 Any changes you make to the style here will update any objects in the file that use this style.
 
@@ -212,7 +212,7 @@ Note: Publishing assets—styles, components, and variables—to team libraries 
 
 ## Publish styles to a library
 
-1. Open the **Assets** panel in the left sidebar and click the  **Library** icon. Or, use the keyboard shortcuts:
+1. Open the **Assets** panel in the left sidebar and click the **Library** icon. Or, use the keyboard shortcuts:
    - Mac: `⌥ Option` `3`
    - Windows: `Alt` `3`
 2. In the **This file** section, click **Publish** next to the file name.

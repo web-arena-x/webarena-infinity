@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357765534618-Updating-dro
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -43,16 +43,14 @@ These field value IDs are available via the Zendesk API via an API call or in th
 
 ### 1) Via the API
 
-Make sure Zendesk is set up to allow API calls  
-Activate the Zendesk API in **Zendesk Support > Channels > API**
+Make sure Zendesk is set up to allow API calls Activate the Zendesk API in **Zendesk Support > Channels > API**
 
 For the easiest authentication, enable “Password access” (you can disable it right after you get the field information)
 
-Use the List Ticket Fields request  
-Zendesk documentation [here.](https://developer.zendesk.com/api-reference/ticketing/tickets/ticket_fields/#list-ticket-fields)
+Use the List Ticket Fields request Zendesk documentation [here.](https://developer.zendesk.com/api-reference/ticketing/tickets/ticket_fields/#list-ticket-fields)
 
 1. Open Terminal (if you’re using Windows, you might need to [install cURL](https://developer.zendesk.com/documentation/developer-tools/getting-started/installing-and-using-curl/) first before you can do this in the command line)
-2. Copy this command, replacing the {placeholders} with the correct values from the Zendesk instance:  `curl https://{subdomain}.zendesk.com/api/v2/ticket_fields.json -v -u {email_address}:{password}`
+2. Copy this command, replacing the {placeholders} with the correct values from the Zendesk instance: `curl https://{subdomain}.zendesk.com/api/v2/ticket_fields.json -v -u {email_address}:{password}`
 3. Hit Enter
 
 Copy the resulting JSON from the end of the message in Terminal starting at “ticket\_fields”

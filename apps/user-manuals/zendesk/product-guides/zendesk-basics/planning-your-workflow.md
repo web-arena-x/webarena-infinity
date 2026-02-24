@@ -10,7 +10,7 @@ Before you [launch Zendesk Support](https://support.zendesk.com/hc/en-us/article
 
 To help with your planning, here are some questions you should ask:
 
-|  |  |
+| | |
 | --- | --- |
 | [Groups](https://support.zendesk.com/hc/en-us/articles/4408836154266#intro_groups) | - Can you identify a specific purpose for every group in your company that will use Zendesk?    - What actions do they perform?   - What workflows do they need? - What groups can you create to add value in Zendesk? |
 | [Roles](https://support.zendesk.com/hc/en-us/articles/4408836154266#intro_roles) | - Can your agents accomplish what they need to with roles that are currently available? - How many different roles do you need Zendesk? - Which roles (if any) are unnecessary? - Which roles can you add/modify to improve your workflow? For example, do you need custom roles for agents who perform specialized or repetitive tasks? |

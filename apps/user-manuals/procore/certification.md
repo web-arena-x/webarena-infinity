@@ -62,80 +62,80 @@ Are you not yet a Procore collaborator or user? See [How do I sign-up for Proc
 
 ### All Procore Training
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
-| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool "https://learn.procore.com/page/courses-by-tool")  Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification "https://learn.procore.com/page/procore-certification") Become Procore-Certified with role-based product courses. | [Advanced Training](https://learn.procore.com/page/advanced-training "https://learn.procore.com/page/advanced-training") Dive deeper into Procore with our advanced courses. |
+| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool "https://learn.procore.com/page/courses-by-tool") Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification "https://learn.procore.com/page/procore-certification") Become Procore-Certified with role-based product courses. | [Advanced Training](https://learn.procore.com/page/advanced-training "https://learn.procore.com/page/advanced-training") Dive deeper into Procore with our advanced courses. |
 
 ---
 
-|  |  |
+| | |
 | --- | --- |
-| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool-de "https://learn.procore.com/page/courses-by-tool-de")  Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification-de "https://learn.procore.com/page/procore-certification-de") Become Procore-Certified with role-based product courses. |
+| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool-de "https://learn.procore.com/page/courses-by-tool-de") Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification-de "https://learn.procore.com/page/procore-certification-de") Become Procore-Certified with role-based product courses. |
 
 ---
 
-|  |  |
+| | |
 | --- | --- |
-| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool-en-au "https://learn.procore.com/page/courses-by-tool-en-au")  Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification-en-au "https://learn.procore.com/page/procore-certification-en-au") Become Procore-Certified with role-based product courses. |
+| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool-en-au "https://learn.procore.com/page/courses-by-tool-en-au") Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification-en-au "https://learn.procore.com/page/procore-certification-en-au") Become Procore-Certified with role-based product courses. |
 
 ---
 
-|  |  |
+| | |
 | --- | --- |
-| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool-en-ca "https://learn.procore.com/page/courses-by-tool-en-ca")  Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification-en-ca "https://learn.procore.com/page/procore-certification-en-ca") Become Procore-Certified with role-based product courses. |
+| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool-en-ca "https://learn.procore.com/page/courses-by-tool-en-ca") Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification-en-ca "https://learn.procore.com/page/procore-certification-en-ca") Become Procore-Certified with role-based product courses. |
 
 ---
 
-|  |  |
+| | |
 | --- | --- |
-| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool-en-gb "https://learn.procore.com/page/courses-by-tool-en-gb")  Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification-en-gb "https://learn.procore.com/page/procore-certification-en-gb") Become Procore-Certified with role-based product courses. |
+| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool-en-gb "https://learn.procore.com/page/courses-by-tool-en-gb") Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification-en-gb "https://learn.procore.com/page/procore-certification-en-gb") Become Procore-Certified with role-based product courses. |
 
 ---
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
-| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool-es-la "https://learn.procore.com/page/courses-by-tool-es-la")  Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification-es-la "https://learn.procore.com/page/procore-certification-es-la") Become Procore-Certified with role-based product courses. | [Advanced Training](https://learn.procore.com/page/advanced-training-es-la "https://learn.procore.com/page/advanced-training-es-la") Dive deeper into Procore with our advanced courses. |
+| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool-es-la "https://learn.procore.com/page/courses-by-tool-es-la") Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification-es-la "https://learn.procore.com/page/procore-certification-es-la") Become Procore-Certified with role-based product courses. | [Advanced Training](https://learn.procore.com/page/advanced-training-es-la "https://learn.procore.com/page/advanced-training-es-la") Dive deeper into Procore with our advanced courses. |
 
 ---
 
-|  |  |
+| | |
 | --- | --- |
-| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool-fr-ca "https://learn.procore.com/page/courses-by-tool-fr-ca")  Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification-fr-ca "https://learn.procore.com/page/procore-certification-fr-ca") Become Procore-Certified with role-based product courses. |
+| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool-fr-ca "https://learn.procore.com/page/courses-by-tool-fr-ca") Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification-fr-ca "https://learn.procore.com/page/procore-certification-fr-ca") Become Procore-Certified with role-based product courses. |
 
 ---
 
-|  |  |
+| | |
 | --- | --- |
-| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool-fr "https://learn.procore.com/page/courses-by-tool-fr")  Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification-fr "https://learn.procore.com/page/procore-certification-fr") Become Procore-Certified with role-based product courses. |
+| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool-fr "https://learn.procore.com/page/courses-by-tool-fr") Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification-fr "https://learn.procore.com/page/procore-certification-fr") Become Procore-Certified with role-based product courses. |
 
 ---
 
-|  |  |
+| | |
 | --- | --- |
-| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool-zh-sg "https://learn.procore.com/page/courses-by-tool-zh-sg")  Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification-zh-sg "https://learn.procore.com/page/procore-certification-zh-sg") Become Procore-Certified with role-based product courses. |
+| [Procore Tool Training](https://learn.procore.com/page/courses-by-tool-zh-sg "https://learn.procore.com/page/courses-by-tool-zh-sg") Learn each Procore tool individually and in-depth. | [Product Certifications](https://learn.procore.com/page/procore-certification-zh-sg "https://learn.procore.com/page/procore-certification-zh-sg") Become Procore-Certified with role-based product courses. |
 
 ---
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
-| [Procore Tool Training (English)](https://learn.procore.com/page/courses-by-tool "https://learn.procore.com/page/courses-by-tool")  Learn each Procore tool individually and in-depth. | [Product Certifications (English)](https://learn.procore.com/page/procore-certification "https://learn.procore.com/page/procore-certification")  Become Procore-Certified with role-based product courses. | [Advanced Training (English)](https://learn.procore.com/page/advanced-training "https://learn.procore.com/page/advanced-training")  Dive deeper into Procore with our advanced courses. |
+| [Procore Tool Training (English)](https://learn.procore.com/page/courses-by-tool "https://learn.procore.com/page/courses-by-tool") Learn each Procore tool individually and in-depth. | [Product Certifications (English)](https://learn.procore.com/page/procore-certification "https://learn.procore.com/page/procore-certification") Become Procore-Certified with role-based product courses. | [Advanced Training (English)](https://learn.procore.com/page/advanced-training "https://learn.procore.com/page/advanced-training") Dive deeper into Procore with our advanced courses. |
 
 ---
 
 ### Product Certifications by Role
 
-|  |  |
+| | |
 | --- | --- |
-|  | Admin [Click here](https://learn.procore.com/page/procore-certification#construction-role_admin "https://learn.procore.com/page/procore-certification#construction-role_admin") to learn Procore's Project Management tools as a Procore Administrator. |
+| | Admin [Click here](https://learn.procore.com/page/procore-certification#construction-role_admin "https://learn.procore.com/page/procore-certification#construction-role_admin") to learn Procore's Project Management tools as a Procore Administrator. |
 | thumb_architect-certification.png | Architect [Click here](https://learn.procore.com/page/procore-certification#construction-role_architect "https://learn.procore.com/page/procore-certification#construction-role_architect") to learn how to use Procore's tools as an architect and discover best practices. |
-|  | BIM Manager [Click here](https://learn.procore.com/page/procore-certification#construction-role_bim-manager "https://learn.procore.com/page/procore-certification#construction-role_bim-manager") to learn how to improve project predictability by taking 3D models out of the office and putting them in the hands of the people installing and validating work in the field. |
+| | BIM Manager [Click here](https://learn.procore.com/page/procore-certification#construction-role_bim-manager "https://learn.procore.com/page/procore-certification#construction-role_bim-manager") to learn how to improve project predictability by taking 3D models out of the office and putting them in the hands of the people installing and validating work in the field. |
 | thumb_engineer-certification.png | Engineer [Click here](https://learn.procore.com/page/procore-certification#construction-role_engineer "https://learn.procore.com/page/procore-certification#construction-role_engineer") to learn how to use Procore's tools as an engineer and discover best practices. |
-|  | Estimator [Click here](https://learn.procore.com/page/procore-certification#construction-role_estimator "https://learn.procore.com/page/procore-certification#construction-role_estimator") to learn how to use Procore's Estimating tools and discover best practices. |
-|  | Field Worker [Click here](https://learn.procore.com/page/procore-certification#construction-role_field-worker "https://learn.procore.com/page/procore-certification#construction-role_field-worker") to learn how to use Procore's tools as a field worker and discover best practices. |
-|  | Project Manager [Click here](https://learn.procore.com/page/procore-certification#construction-role_project-manager "https://learn.procore.com/page/procore-certification#construction-role_project-manager") to learn how to use Procore's tools as a project manager and discover best practices based on your company type. |
+| | Estimator [Click here](https://learn.procore.com/page/procore-certification#construction-role_estimator "https://learn.procore.com/page/procore-certification#construction-role_estimator") to learn how to use Procore's Estimating tools and discover best practices. |
+| | Field Worker [Click here](https://learn.procore.com/page/procore-certification#construction-role_field-worker "https://learn.procore.com/page/procore-certification#construction-role_field-worker") to learn how to use Procore's tools as a field worker and discover best practices. |
+| | Project Manager [Click here](https://learn.procore.com/page/procore-certification#construction-role_project-manager "https://learn.procore.com/page/procore-certification#construction-role_project-manager") to learn how to use Procore's tools as a project manager and discover best practices based on your company type. |
 | course-student.jpg | Student [Click here](https://learn.procore.com/page/procore-certification#company-type_student "https://learn.procore.com/page/procore-certification#company-type_student") to learn the basics of Procore and discover best practices for the tools within Procore. |
-|  | Subcontractor [Click here](https://learn.procore.com/page/procore-certification#construction-role_subcontractor "https://learn.procore.com/page/procore-certification#construction-role_subcontractor") to learn how to use Procore's tools as a subcontractor and discover best practices. |
-|  | Superintendent [Click here](https://learn.procore.com/page/procore-certification#construction-role_superintendent "https://learn.procore.com/page/procore-certification#construction-role_superintendent") to learn how to use Procore's tools as a superintendent and discover best practices. |
+| | Subcontractor [Click here](https://learn.procore.com/page/procore-certification#construction-role_subcontractor "https://learn.procore.com/page/procore-certification#construction-role_subcontractor") to learn how to use Procore's tools as a subcontractor and discover best practices. |
+| | Superintendent [Click here](https://learn.procore.com/page/procore-certification#construction-role_superintendent "https://learn.procore.com/page/procore-certification#construction-role_superintendent") to learn how to use Procore's tools as a superintendent and discover best practices. |
 
 - [Add Your Procore Certified Certificate to Your LinkedIn Profile](https://support.procore.com/certification/tutorials/add-your-procore-certified-certificate-to-your-linkedin "certification/tutorials/add-your-procore-certified-certificate-to-your-linkedin")
 - [Change Your Email Address in Procore Certification](https://support.procore.com/certification/tutorials/change-your-email-address-in-procore-certification "certification/tutorials/change-your-email-address-in-procore-certification")

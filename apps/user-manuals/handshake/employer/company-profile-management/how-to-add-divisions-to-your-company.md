@@ -16,11 +16,11 @@ There must be at least 2 divisions in a company profile in order for divisions t
 
 - [Add a division](#h_01HBC0Q4HB1N95MPE5ZR91Z81A)
 - [Manage your division](#h_01HBC0Q4HBWQB1BAW695BF3Q0P)
-  - [Edit a division](#h_01HBC0Q4HBZV8NQQPMW85T0969)
-  - [Delete a division](#h_01HBC0Q4HBY59NZN0HKEPCS8WW)
+ - [Edit a division](#h_01HBC0Q4HBZV8NQQPMW85T0969)
+ - [Delete a division](#h_01HBC0Q4HBY59NZN0HKEPCS8WW)
 - [Select a division](#h_01HBC0Q4HC945GQ60VJF5E33R5)
-  - [Job](#h_01HBC0Q4HC9CS5P9TJWQAYFJ59)
-  - [Career fair](#h_01HBC0Q4HCYQF02KDYT190Y0G0)
+ - [Job](#h_01HBC0Q4HC9CS5P9TJWQAYFJ59)
+ - [Career fair](#h_01HBC0Q4HCYQF02KDYT190Y0G0)
 
 ## 
 

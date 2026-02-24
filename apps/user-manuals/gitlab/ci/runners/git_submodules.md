@@ -12,9 +12,7 @@ title: Using Git submodules with GitLab CI/CD
 
 {{< /details >}}
 
-Use [Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) to keep
-a Git repository as a subdirectory of another Git repository. You can clone another
-repository into your project and keep your commits separate.
+Use [Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) to keep a Git repository as a subdirectory of another Git repository. You can clone another repository into your project and keep your commits separate.
 
 ## Configure the `.gitmodules` file
 
@@ -32,29 +30,26 @@ You have multiple options to configure it to work in a GitLab CI/CD job.
 For example, your generated `.gitmodules` configuration might look like the following if:
 
 - Your project is located at `https://gitlab.com/secret-group/my-project`.
-- Your project depends on `https://gitlab.com/group/project`, which you want
-  to include as a submodule.
+- Your project depends on `https://gitlab.com/group/project`, which you want to include as a submodule.
 - You check out your sources with an SSH address like `git@gitlab.com:secret-group/my-project.git`.
 
 ```ini
 [submodule "project"]
-  path = project
-  url = git@gitlab.com:group/project.git
+ path = project
+ url = git@gitlab.com:group/project.git
 ```
 
-In this case, use the [`GIT_SUBMODULE_FORCE_HTTPS`](configure_runners.md#rewrite-submodule-urls-to-https) variable
-to instruct GitLab Runner to convert the URL to HTTPS before it clones the submodules.
+In this case, use the [`GIT_SUBMODULE_FORCE_HTTPS`](configure_runners.md#rewrite-submodule-urls-to-https) variable to instruct GitLab Runner to convert the URL to HTTPS before it clones the submodules.
 
 Alternatively, if you also use HTTPS locally, you can configure an HTTPS URL:
 
 ```ini
 [submodule "project"]
-  path = project
-  url = https://gitlab.com/group/project.git
+ path = project
+ url = https://gitlab.com/group/project.git
 ```
 
-You do not need to configure additional variables in this case, but you need to use a
-[personal access token](../../user/profile/personal_access_tokens.md) to clone it locally.
+You do not need to configure additional variables in this case, but you need to use a [personal access token](../../user/profile/personal_access_tokens.md) to clone it locally.
 
 ### Using relative URLs
 
@@ -65,47 +60,41 @@ Use absolute URLs instead if you expect your project to have forks.
 
 {{< /alert >}}
 
-When your submodule is on the same GitLab server, you can also use relative URLs in
-your `.gitmodules` file:
+When your submodule is on the same GitLab server, you can also use relative URLs in your `.gitmodules` file:
 
 ```ini
 [submodule "project"]
-  path = project
-  url = ../../project.git
+ path = project
+ url = ../../project.git
 ```
 
-The previous configuration instructs Git to automatically deduce the URL to
-use when cloning sources. You can clone with HTTPS in all your CI/CD jobs, and you
-can continue to use SSH to clone locally.
+The previous configuration instructs Git to automatically deduce the URL to use when cloning sources. You can clone with HTTPS in all your CI/CD jobs, and you can continue to use SSH to clone locally.
 
 For submodules not located on the same GitLab server, always use the full URL:
 
 ```ini
 [submodule "project-x"]
-  path = project-x
-  url = https://gitserver.com/group/project-x.git
+ path = project-x
+ url = https://gitserver.com/group/project-x.git
 ```
 
 ## Use Git submodules in CI/CD jobs
 
 Prerequisites:
 
-- If you use the [`CI_JOB_TOKEN`](../jobs/ci_job_token.md) to clone a submodule in a
-  pipeline job, you must have at least the Reporter role for the submodule repository to pull the code.
+- If you use the [`CI_JOB_TOKEN`](../jobs/ci_job_token.md) to clone a submodule in a pipeline job, you must have at least the Reporter role for the submodule repository to pull the code.
 - [CI/CD job token access](../jobs/ci_job_token.md#control-job-token-access-to-your-project) must be properly configured in the upstream submodule project.
 
 To make submodules work correctly in CI/CD jobs:
 
-1. You can set the `GIT_SUBMODULE_STRATEGY` variable to either `normal` or `recursive`
-   to tell the runner to [fetch your submodules before the job](configure_runners.md#git-submodule-strategy):
+1. You can set the `GIT_SUBMODULE_STRATEGY` variable to either `normal` or `recursive` to tell the runner to [fetch your submodules before the job](configure_runners.md#git-submodule-strategy):
 
    ```yaml
    variables:
      GIT_SUBMODULE_STRATEGY: recursive
    ```
 
-1. For submodules located on the same GitLab server and configured with a Git or SSH URL, make sure
-   you set the [`GIT_SUBMODULE_FORCE_HTTPS`](configure_runners.md#rewrite-submodule-urls-to-https) variable.
+1. For submodules located on the same GitLab server and configured with a Git or SSH URL, make sure you set the [`GIT_SUBMODULE_FORCE_HTTPS`](configure_runners.md#rewrite-submodule-urls-to-https) variable.
 
 1. Use `GIT_SUBMODULE_DEPTH` to configure the cloning depth of submodules independently of the [`GIT_DEPTH`](configure_runners.md#shallow-cloning) variable:
 
@@ -114,16 +103,14 @@ To make submodules work correctly in CI/CD jobs:
      GIT_SUBMODULE_DEPTH: 1
    ```
 
-1. You can filter or exclude specific submodules to control which submodules are synchronized using
-   [`GIT_SUBMODULE_PATHS`](configure_runners.md#sync-or-exclude-specific-submodules-from-ci-jobs).
+1. You can filter or exclude specific submodules to control which submodules are synchronized using [`GIT_SUBMODULE_PATHS`](configure_runners.md#sync-or-exclude-specific-submodules-from-ci-jobs).
 
    ```yaml
    variables:
      GIT_SUBMODULE_PATHS: submoduleA submoduleB
    ```
 
-1. You can provide additional flags to control advanced checkout behavior using
-   [`GIT_SUBMODULE_UPDATE_FLAGS`](configure_runners.md#git-submodule-update-flags).
+1. You can provide additional flags to control advanced checkout behavior using [`GIT_SUBMODULE_UPDATE_FLAGS`](configure_runners.md#git-submodule-update-flags).
 
    ```yaml
    variables:
@@ -139,15 +126,9 @@ To make submodules work correctly in CI/CD jobs:
 
 {{< /history >}}
 
-Nested submodules are submodules that contain their own submodules. You
-might need to check out only specific nested submodules rather than all
-submodules in your repository.
+Nested submodules are submodules that contain their own submodules. You might need to check out only specific nested submodules rather than all submodules in your repository.
 
-GitLab Runner 18.6 and later externalizes Git configuration (including
-credentials) to a separate file to avoid tainting the build
-directory. When you navigate into a submodule directory and run Git
-commands, the main repository's configuration is automatically inherited
-for all submodules depending on `GIT_SUBMODULE_STRATEGY`:
+GitLab Runner 18.6 and later externalizes Git configuration (including credentials) to a separate file to avoid tainting the build directory. When you navigate into a submodule directory and run Git commands, the main repository's configuration is automatically inherited for all submodules depending on `GIT_SUBMODULE_STRATEGY`:
 
 - If `GIT_SUBMODULE_STRATEGY: normal` is used, then the top-level submodules are initialized.
 - If `GIT_SUBMODULE_STRATEGY: recursive` is used, then all the nested submodules are initialized.
@@ -172,15 +153,12 @@ To check out a subset of nested submodules:
           - git -c "include.path=$(git -C $CI_PROJECT_DIR config include.path)" submodule update --init nested-submodule
    ```
 
-The `git -C $CI_PROJECT_DIR config include.path` command retrieves the
-path to the externalized configuration file from the main repository.
-This ensures that credentials and other settings are available when you
-check out the nested submodule.
+The `git -C $CI_PROJECT_DIR config include.path` command retrieves the path to the externalized configuration file from the main repository.
+This ensures that credentials and other settings are available when you check out the nested submodule.
 
 ## Use submodules from another GitLab instance
 
-When your submodule is hosted on a different GitLab instance than your main project,
-the `CI_JOB_TOKEN` from your current instance cannot authenticate to the external instance.
+When your submodule is hosted on a different GitLab instance than your main project, the `CI_JOB_TOKEN` from your current instance cannot authenticate to the external instance.
 You must use a token created on the external instance to authenticate.
 
 You have two main approaches for authenticating with external GitLab instances:
@@ -190,19 +168,13 @@ You have two main approaches for authenticating with external GitLab instances:
 
 The authentication method you choose depends on your GitLab Runner executor type:
 
-- Containerized executors (Docker or Kubernetes): Each job runs in an isolated container,
-  so global Git configuration changes only affect the current job and are automatically
-  cleaned up when the container is destroyed.
+- Containerized executors (Docker or Kubernetes): Each job runs in an isolated container, so global Git configuration changes only affect the current job and are automatically cleaned up when the container is destroyed.
 
-- Shell executors: Jobs run directly on the runner host system, so global Git
-  configuration changes persist between jobs. This can cause authentication conflicts
-  if different jobs use different credentials.
+- Shell executors: Jobs run directly on the runner host system, so global Git configuration changes persist between jobs. This can cause authentication conflicts if different jobs use different credentials.
 
 {{< alert type="warning" >}}
 
-When using shell executors, avoid `git config --global` commands that persist authentication
-credentials. These settings remain active between jobs and can cause authentication failures
-or security issues if different jobs use different credentials.
+When using shell executors, avoid `git config --global` commands that persist authentication credentials. These settings remain active between jobs and can cause authentication failures or security issues if different jobs use different credentials.
 
 {{< /alert >}}
 
@@ -310,11 +282,9 @@ To configure authentication with Git credential helper:
 ### Can't find the `.gitmodules` file
 
 The `.gitmodules` file might be hard to find because it is usually a hidden file.
-You can check documentation for your specific OS to learn how to find and display
-hidden files.
+You can check documentation for your specific OS to learn how to find and display hidden files.
 
-If there is no `.gitmodules` file, it's possible the submodule settings are in a
-[`git config`](https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config) file.
+If there is no `.gitmodules` file, it's possible the submodule settings are in a [`git config`](https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config) file.
 
 ### Error: `fatal: run_command returned non-zero status`
 
@@ -330,28 +300,27 @@ This issue occurs when:
 - Running Git commands (like `git fetch`) from within a submodule directory, because the externalized Git configuration may not be automatically inherited for all Git operations.
 - Working with nested submodules, because GitLab Runner 18.6 and later externalizes Git configuration, which may not be automatically inherited by submodules.
 - Using GitLab-hosted runners with submodules that reference `https://gitlab.com`, because the `CI_SERVER_FQDN` differs from `gitlab.com`.
-  GitLab Runner automatically performs Git URL substitution during initial checkout, but this may not apply to subsequent Git operations within submodule directories.
+ GitLab Runner automatically performs Git URL substitution during initial checkout, but this may not apply to subsequent Git operations within submodule directories.
 
 To resolve this issue:
 
 - For nested submodules, see [check out nested submodules](#check-out-nested-submodules).
 - For Git operations within submodule directories, explicitly pass the externalized configuration:
 
-  ```yaml
+ ```yaml
     my-job:
       script:
         - cd path/to/submodule
         - git -c "include.path=$(git -C $CI_PROJECT_DIR config include.path)" fetch origin
-  ```
+ ```
 
-- For GitLab-hosted runners or jobs with multiple Git operations within submodules,
-  configure URL substitution with `CI_JOB_TOKEN`:
+- For GitLab-hosted runners or jobs with multiple Git operations within submodules, configure URL substitution with `CI_JOB_TOKEN`:
 
-  ```yaml
-  my-job:
+ ```yaml
+ my-job:
     script:
       - cd path/to/submodule
       - git -c "include.path=$(git -C $CI_PROJECT_DIR config include.path)" -c "url.https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_FQDN}/.insteadOf=https://gitlab.com/" fetch origin
-  ```
+ ```
 
-  For executor-specific configuration options, see [use submodules from another GitLab instance](#use-submodules-from-another-gitlab-instance).
+ For executor-specific configuration options, see [use submodules from another GitLab instance](#use-submodules-from-another-gitlab-instance).

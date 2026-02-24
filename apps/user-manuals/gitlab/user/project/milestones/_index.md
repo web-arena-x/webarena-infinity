@@ -36,13 +36,11 @@ For information about project and group milestones API, see:
 Milestones can be used to track releases. To do so:
 
 1. Set the milestone due date to represent the release date of your release.
-   If you do not have a defined start date for your release cycle, you can leave the milestone start
-   date blank.
+   If you do not have a defined start date for your release cycle, you can leave the milestone start date blank.
 1. Set the milestone title to the version of your release, such as `Version 9.4`.
 1. Add issues to your release by selecting the milestone from the issue's right sidebar.
 
-Additionally, to automatically generate release evidence when you create your release, integrate
-milestones with the [Releases feature](../releases/_index.md#associate-milestones-with-a-release).
+Additionally, to automatically generate release evidence when you create your release, integrate milestones with the [Releases feature](../releases/_index.md#associate-milestones-with-a-release).
 
 ## Project milestones and group milestones
 
@@ -68,9 +66,7 @@ In a group, GitLab displays milestones that belong to the group and all projects
 
 ### View milestones in a project with issues turned off
 
-If a project has issue tracking
-[turned off](../settings/_index.md#configure-project-features-and-permissions),
-to get to the milestones page, enter its URL.
+If a project has issue tracking [turned off](../settings/_index.md#configure-project-features-and-permissions), to get to the milestones page, enter its URL.
 
 To do so:
 
@@ -95,28 +91,26 @@ To do so:
 
 ### View milestone details
 
-To view more information about a milestone,
-in the **Milestones** page, select the title of the milestone you want to view.
+To view more information about a milestone, in the **Milestones** page, select the title of the milestone you want to view.
 
 The milestone view shows the title and description.
 The tabs below the title and description show the following:
 
 - **Work Items**: Shows all work items assigned to the milestone. Work items are displayed in three columns named:
-  - Unstarted Issues (open and unassigned)
-  - Ongoing Issues (open and assigned)
-  - Completed Issues (closed)
+ - Unstarted Issues (open and unassigned)
+ - Ongoing Issues (open and assigned)
+ - Completed Issues (closed)
 - **Merge Requests**: Shows all merge requests assigned to the milestone. Merge requests are displayed in four columns named:
-  - Work in progress (open and unassigned)
-  - Waiting for merge (open and assigned)
-  - Rejected (closed)
-  - Merged
+ - Work in progress (open and unassigned)
+ - Waiting for merge (open and assigned)
+ - Rejected (closed)
+ - Merged
 - **Participants**: Shows all assignees of issues assigned to the milestone.
 - **Labels**: Shows all labels that are used in issues assigned to the milestone.
 
 #### Burndown charts
 
-The milestone view contains a [burndown and burnup chart](burndown_and_burnup_charts.md),
-showing the progress of completing a milestone.
+The milestone view contains a [burndown and burnup chart](burndown_and_burnup_charts.md), showing the progress of completing a milestone.
 
 ![A burndown and burnup chart showing project progress over time.](img/burndown_and_burnup_charts_v15_3.png)
 
@@ -238,15 +232,11 @@ To delete a milestone:
 
 {{< /history >}}
 
-If you are expanding the number of projects in a group, you might want to share the same milestones
-among this group's projects.
-You can promote project milestones to the parent group to
-make them available to other projects in the same group.
+If you are expanding the number of projects in a group, you might want to share the same milestones among this group's projects.
+You can promote project milestones to the parent group to make them available to other projects in the same group.
 
-Promoting a milestone merges all project milestones across all projects in this group with the same
-name into a single group milestone.
-All issues and merge requests that were previously assigned to one of these project
-milestones become assigned to the new group milestone.
+Promoting a milestone merges all project milestones across all projects in this group with the same name into a single group milestone.
+All issues and merge requests that were previously assigned to one of these project milestones become assigned to the new group milestone.
 
 {{< alert type="warning" >}}
 
@@ -301,8 +291,7 @@ You can filter by both group and project milestones from the project and group i
 
 ### Filters in issue boards
 
-From [project issue boards](../issue_board.md), you can filter by both group milestones and project
-milestones in:
+From [project issue boards](../issue_board.md), you can filter by both group milestones and project milestones in:
 
 - [Search and filter bar](../issue_board.md#filter-issues)
 - [Issue board configuration](../issue_board.md#configurable-issue-boards)
@@ -325,5 +314,4 @@ When filtering by milestone, in addition to choosing a specific project mileston
 - **None**: Show issues or merge requests with no assigned milestone.
 - **Any**: Show issues or merge requests with an assigned milestone.
 - **Upcoming**: Show issues or merge requests with an open assigned milestone starting in the future.
-- **Started**: Show issues or merge requests with an open assigned milestone that overlaps with the current date. The
-  list excludes milestones without a defined start and due date.
+- **Started**: Show issues or merge requests with an open assigned milestone that overlaps with the current date. The list excludes milestones without a defined start and due date.

@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408842967578-Using-Liquid
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -86,5 +86,4 @@ Your text 3 here.
 
 ## Using a Liquid markup case statement to create other dynamic responses
 
-You can use a similar structure to create dynamic responses in contexts other than preferred language. For example, a similar case structure could be used if you wanted to respond based on the user's organization. In that scenario, you'd define the case as `{% case ticket.organization.name %}` and the repsonse for each organization would be preceded by `{% when 'OrganizationName'
-%}`.
+You can use a similar structure to create dynamic responses in contexts other than preferred language. For example, a similar case structure could be used if you wanted to respond based on the user's organization. In that scenario, you'd define the case as `{% case ticket.organization.name %}` and the repsonse for each organization would be preceded by `{% when 'OrganizationName' %}`.

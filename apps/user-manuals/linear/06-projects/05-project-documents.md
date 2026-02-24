@@ -11,15 +11,15 @@ Create documents inside of projects to keep relevant information and updates in 
 ## Create documents
 
 Create documents when inside of a project by navigating to the [project overview](https://linear.app/docs/project-overview) and adding a document under the `Resources` section. You'll be required to give the document a title and can pick a custom icon and icon color.   
-  
+ 
 Projects use the same Markdown editor as issues. In documents, you can type in plain text, use code snippets, format with headers and reference issues and projects. You can also create documents in issues themselves.
 
 ## Create document templates
 
-You can create document templates to write documents faster and guide creators to share information effectively. These templates can be selected when creating a new document inside a project or issue.  
-  
-To create a document template, you can navigate to either the workspace template settings or team template settings. Once you've created the document template, press `save `to make the template available for your team and workspace members.  
-  
+You can create document templates to write documents faster and guide creators to share information effectively. These templates can be selected when creating a new document inside a project or issue. 
+ 
+To create a document template, you can navigate to either the workspace template settings or team template settings. Once you've created the document template, press `save `to make the template available for your team and workspace members. 
+ 
 To edit, duplicate or delete a template, go to the same page where you created the templates and then hover over the template name in order to show contextual controls. Click on the overflow menu and take the desired action.
 
 ## Document subscriptions

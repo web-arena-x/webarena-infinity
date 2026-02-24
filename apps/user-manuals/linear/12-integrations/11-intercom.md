@@ -56,7 +56,7 @@ Click the link issue option and then search for it by title or issue ID. Linked 
 
 ### View issue details
 
-From the Intercom conversation, you will see all linked issues in the sidebar along with the issue ID, status, and assignee.  Click the issue title from the Intercom sidebar to view more details. From here, you will also have the the option to view the issue in Linear or remove the link with the associated Linear issue.
+From the Intercom conversation, you will see all linked issues in the sidebar along with the issue ID, status, and assignee. Click the issue title from the Intercom sidebar to view more details. From here, you will also have the the option to view the issue in Linear or remove the link with the associated Linear issue.
 
 ### Link multiple issues 
 

@@ -54,15 +54,15 @@ Before proceeding with a solution, it is important to confirm that the error mes
 
 - In [GitLab 15.5 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/367734):
 
-  ```log
-  Failed to bind to address http://127.0.0.1:5500: address already in use.
-  ```
+ ```log
+ Failed to bind to address http://127.0.0.1:5500: address already in use.
+ ```
 
 - In GitLab 15.4 and earlier:
 
-  ```log
-  Failed to bind to address http://[::]:5000: address already in use.
-  ```
+ ```log
+ Failed to bind to address http://[::]:5000: address already in use.
+ ```
 
 The text `http://[::]:5000` in the previous message could be different in your case, for instance it could be `http://[::]:5500` or `http://127.0.0.1:5500`. As long as the remaining parts of the error message are the same, it is safe to assume the port was already taken.
 
@@ -91,8 +91,8 @@ For OpenAPI Specifications that are generated automatically validation errors ar
 **Error message**
 
 - `Error, the OpenAPI document is not valid. Errors were found during validation of the document using the published OpenAPI schema`
-  - `OpenAPI 2.0 schema validation error ...`
-  - `OpenAPI 3.0.x schema validation error ...`
+ - `OpenAPI 2.0 schema validation error ...`
+ - `OpenAPI 3.0.x schema validation error ...`
 
 **Solution**
 
@@ -145,14 +145,14 @@ For environments where the target API remains the same, You should specify the t
 
 ```yaml
 stages:
-  - fuzz
+ - fuzz
 
 include:
-  - template: API-Fuzzing.gitlab-ci.yml
+ - template: API-Fuzzing.gitlab-ci.yml
 
 variables:
-  FUZZAPI_TARGET_URL: http://test-deployment/
-  FUZZAPI_OPENAPI: test-api-specification.json
+ FUZZAPI_TARGET_URL: http://test-deployment/
+ FUZZAPI_OPENAPI: test-api-specification.json
 ```
 
 ### Dynamic environment solutions
@@ -170,12 +170,12 @@ Example:
 
 ```yaml
 deploy-test-target:
-  script:
+ script:
     # Perform deployment steps
     # Create environment_url.txt (example)
     - echo http://${CI_PROJECT_ID}-${CI_ENVIRONMENT_SLUG}.example.org > environment_url.txt
 
-  artifacts:
+ artifacts:
     paths:
       - environment_url.txt
 ```
@@ -203,16 +203,16 @@ API fuzzing can still try to consume an OpenAPI document that does not fully com
 
 ```yaml
 stages:
-  - fuzz
+ - fuzz
 
 include:
-  - template: API-Fuzzing.gitlab-ci.yml
+ - template: API-Fuzzing.gitlab-ci.yml
 
 variables:
-  FUZZAPI_PROFILE: Quick-10
-  FUZZAPI_TARGET_URL: http://test-deployment/
-  FUZZAPI_OPENAPI: test-api-specification.json
-  FUZZAPI_OPENAPI_RELAXED_VALIDATION: 'On'
+ FUZZAPI_PROFILE: Quick-10
+ FUZZAPI_TARGET_URL: http://test-deployment/
+ FUZZAPI_OPENAPI: test-api-specification.json
+ FUZZAPI_OPENAPI_RELAXED_VALIDATION: 'On'
 ```
 
 ## `No operation in the OpenAPI document is consuming any supported media type`
@@ -248,28 +248,28 @@ For example, if an error occurs with the following configuration:
 
 ```yaml
 stages:
-  - fuzz
+ - fuzz
 
 include:
-  - template: API-Fuzzing.gitlab-ci.yml
+ - template: API-Fuzzing.gitlab-ci.yml
 
 variables:
-  FUZZAPI_TARGET_URL: https://test-deployment/
-  FUZZAPI_OPENAPI: https://specs/openapi.json
+ FUZZAPI_TARGET_URL: https://test-deployment/
+ FUZZAPI_OPENAPI: https://specs/openapi.json
 ```
 
 Change the prefix of `FUZZAPI_OPENAPI` from `https://` to `http://`:
 
 ```yaml
 stages:
-  - fuzz
+ - fuzz
 
 include:
-  - template: API-Fuzzing.gitlab-ci.yml
+ - template: API-Fuzzing.gitlab-ci.yml
 
 variables:
-  FUZZAPI_TARGET_URL: https://test-deployment/
-  FUZZAPI_OPENAPI: http://specs/openapi.json
+ FUZZAPI_TARGET_URL: https://test-deployment/
+ FUZZAPI_OPENAPI: http://specs/openapi.json
 ```
 
 If you cannot use a non-TLS connection to access the URL, contact the Support team for help.
@@ -288,7 +288,7 @@ In the job console output the error looks like:
 
 ```plaintext
 Running with gitlab-runner 15.6.0~beta.186.ga889181a (a889181a)
-  on blue-2.shared.runners-manager.gitlab.com/default XxUrkriX
+ on blue-2.shared.runners-manager.gitlab.com/default XxUrkriX
 Resolving secrets
 00:00
 Preparing the "docker+machine" executor
@@ -365,33 +365,33 @@ This issue can be worked around in the following ways:
 
 - Run the container as the `root` user. It's recommended to test this configuration as it may not work in all cases. This can be done by modifying the CICD configuration and checking the job output to make sure that `whoami` returns `root` and not `gitlab`. If `gitlab` is displayed, use another workaround. Once tested the `before_script` can be removed.
 
-  ```yaml
-  apifuzzer_fuzz:
+ ```yaml
+ apifuzzer_fuzz:
     image:
       name: $SECURE_ANALYZERS_PREFIX/$FUZZAPI_IMAGE:$FUZZAPI_VERSION$FUZZAPI_IMAGE_SUFFIX
       docker:
         user: root
    before_script:
      - whoami
-  ```
+ ```
 
-  _Example job console output:_
+ _Example job console output:_
 
-  ```log
-  Executing "step_script" stage of the job script
-  Using docker image sha256:8b95f188b37d6b342dc740f68557771bb214fe520a5dc78a88c7a9cc6a0f9901 for registry.gitlab.com/security-products/api-security:5 with digest registry.gitlab.com/security-products/api-security@sha256:092909baa2b41db8a7e3584f91b982174772abdfe8ceafc97cf567c3de3179d1 ...
-  $ whoami
-  root
-  $ /peach/analyzer-api-fuzzing
-  17:17:14 [INF] API Security: Gitlab API Security
-  17:17:14 [INF] API Security: -------------------
-  17:17:14 [INF] API Security:
-  17:17:14 [INF] API Security: version: 5.7.0
-  ```
+ ```log
+ Executing "step_script" stage of the job script
+ Using docker image sha256:8b95f188b37d6b342dc740f68557771bb214fe520a5dc78a88c7a9cc6a0f9901 for registry.gitlab.com/security-products/api-security:5 with digest registry.gitlab.com/security-products/api-security@sha256:092909baa2b41db8a7e3584f91b982174772abdfe8ceafc97cf567c3de3179d1 ...
+ $ whoami
+ root
+ $ /peach/analyzer-api-fuzzing
+ 17:17:14 [INF] API Security: Gitlab API Security
+ 17:17:14 [INF] API Security: -------------------
+ 17:17:14 [INF] API Security:
+ 17:17:14 [INF] API Security: version: 5.7.0
+ ```
 
 - Wrap the container and add any dependencies at build time. This option has the benefit of running with lower privileges than root which may be a requirement for some customers.
 
-  1. Create a new `Dockerfile` that wraps the existing image.
+ 1. Create a new `Dockerfile` that wraps the existing image.
 
      ```yaml
      ARG SECURE_ANALYZERS_PREFIX
@@ -407,7 +407,7 @@ This issue can be worked around in the following ways:
      USER gitlab
      ```
 
-  1. Build the new image and push it to your local container registry before the API fuzzing job starts. The image should be removed after the job has been completed.
+ 1. Build the new image and push it to your local container registry before the API fuzzing job starts. The image should be removed after the job has been completed.
 
      ```shell
      TARGET_NAME=apifuzz-$CI_COMMIT_SHA
@@ -421,14 +421,14 @@ This issue can be worked around in the following ways:
      docker push $TARGET_IMAGE
      ```
 
-  1. Extend the `apifuzzer_fuzz` job and use the new image name.
+ 1. Extend the `apifuzzer_fuzz` job and use the new image name.
 
      ```yaml
      apifuzzer_fuzz:
        image: apifuzz-$CI_COMMIT_SHA
      ```
 
-  1. Remove the temporary container from the registry. See [this documentation page for information on removing container images.](../../packages/container_registry/delete_container_registry_images.md)
+ 1. Remove the temporary container from the registry. See [this documentation page for information on removing container images.](../../packages/container_registry/delete_container_registry_images.md)
 
 - Change the GitLab Runner configuration, disabling the no-new-privileges flag. This could have security implications and should be discussed with your operations and security teams.
 

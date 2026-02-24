@@ -43,13 +43,13 @@ To turn on resource management, modify the agent configuration file to include t
 
 ```yaml
 ci_access:
-  projects:
+ projects:
     - id: <your_group/your_project>
       access_as:
         ci_job: {}
       resource_management:
         enabled: true
-  groups:
+ groups:
     - id: <your_other_group>
       access_as:
         ci_job: {}
@@ -63,17 +63,16 @@ To have the agent manage resources for an environment, specify the agent in your
 
 ```yaml
 deploy_review:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - echo "Deploy a review app"
-  environment:
+ environment:
     name: review/$CI_COMMIT_REF_SLUG
     kubernetes:
       agent: path/to/agent/project:agent-name
 ```
 
-CI/CD variables can be used in the agent path. For more information, see
-[Where variables can be used](../../../ci/variables/where_variables_can_be_used.md).
+CI/CD variables can be used in the agent path. For more information, see [Where variables can be used](../../../ci/variables/where_variables_can_be_used.md).
 
 ### Create environment templates
 
@@ -95,19 +94,19 @@ The following Kubernetes resources (`kind`) are supported:
 - `ServiceAccount`
 - `RoleBinding`
 - FluxCD Source Controller objects:
-  - `GitRepository`
-  - `HelmRepository`
-  - `HelmChart`
-  - `Bucket`
-  - `OCIRepository`
+ - `GitRepository`
+ - `HelmRepository`
+ - `HelmChart`
+ - `Bucket`
+ - `OCIRepository`
 - FluxCD Kustomize Controller objects:
-  - `Kustomization`
+ - `Kustomization`
 - FluxCD Helm Controller objects:
-  - `HelmRelease`
+ - `HelmRelease`
 - FluxCD Notification Controller objects:
-  - `Alert`
-  - `Provider`
-  - `Receiver`
+ - `Alert`
+ - `Provider`
+ - `Receiver`
 
 #### Example environment template
 
@@ -115,11 +114,11 @@ The following example creates a namespace and grants a group administrator acces
 
 ```yaml
 objects:
-  - apiVersion: v1
+ - apiVersion: v1
     kind: Namespace
     metadata:
       name: '{{ .environment.slug }}-{{ .project.id }}-{{ .agent.id }}'
-  - apiVersion: rbac.authorization.k8s.io/v1
+ - apiVersion: rbac.authorization.k8s.io/v1
     kind: RoleBinding
     metadata:
       name: bind-{{ .environment.slug }}-{{ .project.id }}-{{ .agent.id }}
@@ -146,22 +145,22 @@ The following variables are available:
 | Category       | Variable                      | Description               | Type    | Default value when not set |
 |----------------|-------------------------------|---------------------------|---------|----------------------------|
 | Agent          | `{{ .agent.id }}`             | The agent ID.             | Integer | N/A                       |
-| Agent          | `{{ .agent.name }}`           | The agent name.           | String  | N/A                       |
-| Agent          | `{{ .agent.url }}`            | The agent URL.            | String  | N/A                       |
+| Agent          | `{{ .agent.name }}`           | The agent name.           | String | N/A                       |
+| Agent          | `{{ .agent.url }}`            | The agent URL.            | String | N/A                       |
 | Environment    | `{{ .environment.id }}`       | The environment ID.       | Integer | N/A                       |
-| Environment    | `{{ .environment.name }}`     | The environment name.     | String  | N/A                       |
-| Environment    | `{{ .environment.slug }}`     | The environment slug based on the environment name. Maximum 24 lowercase alphanumeric characters, including `-`, beginning with a letter, and not ending with `-`. | String  | N/A                       |
-| Environment    | `{{ .environment.url }}`      | The environment URL.      | String  | Empty string               |
-| Environment    | `{{ .environment.page_url }}` | The environment page URL. | String  | N/A                       |
-| Environment    | `{{ .environment.tier }}`     | The environment tier.     | String  | N/A                       |
+| Environment    | `{{ .environment.name }}`     | The environment name.     | String | N/A                       |
+| Environment    | `{{ .environment.slug }}`     | The environment slug based on the environment name. Maximum 24 lowercase alphanumeric characters, including `-`, beginning with a letter, and not ending with `-`. | String | N/A                       |
+| Environment    | `{{ .environment.url }}`      | The environment URL.      | String | Empty string               |
+| Environment    | `{{ .environment.page_url }}` | The environment page URL. | String | N/A                       |
+| Environment    | `{{ .environment.tier }}`     | The environment tier.     | String | N/A                       |
 | Project        | `{{ .project.id }}`           | The project ID.           | Integer | N/A                       |
-| Project        | `{{ .project.slug }}`         | The project slug. This is the unmodified last component of the project path.        | String  | N/A                       |
-| Project        | `{{ .project.path }}`         | The project path.         | String  | N/A                       |
-| Project        | `{{ .project.url }}`          | The project URL.          | String  | N/A                       |
+| Project        | `{{ .project.slug }}`         | The project slug. This is the unmodified last component of the project path.        | String | N/A                       |
+| Project        | `{{ .project.path }}`         | The project path.         | String | N/A                       |
+| Project        | `{{ .project.url }}`          | The project URL.          | String | N/A                       |
 | CI/CD Pipeline | `{{ .ci_pipeline.id }}`       | The pipeline ID.          | Integer | Zero                       |
 | CI/CD Job      | `{{ .ci_job.id }}`            | The CI/CD job ID.         | Integer | Zero                       |
 | User           | `{{ .user.id }}`              | The user ID.              | Integer | N/A                       |
-| User           | `{{ .user.username }}`        | The username.             | String  | N/A                       |
+| User           | `{{ .user.username }}`        | The username.             | String | N/A                       |
 | Namespace      | `{{ .legacy_namespace }}`     | The Kubernetes namespace that the deprecated certificate-based cluster integration would have produced for this environment. This namespace is only intended for migration from certificate-based cluster integration to GitLab-managed resources. Don't use it for any other purpose. | String | N/A |
 
 All variables should be referenced using the double curly brace syntax, for example: `{{ .project.id }}`.
@@ -181,8 +180,7 @@ The following functions are available:
 | `trimSuffix` | `<suffix> <string>`      | Remove the suffix from the string.                   | `trimSuffix "-" "hello-"` -> `"hello"`   |
 | `slugify`    | `[<len>] <string>`       | Slugify the given string according to RFC1123. By default, trims to `63` characters. | `slugify "hello WORLD"` -> `"hello-world"`   |
 
-To make variables compliant for Kubernetes values, the number of functions is intentionally
-limited to a minimum set of functions, like namespace names or labels.
+To make variables compliant for Kubernetes values, the number of functions is intentionally limited to a minimum set of functions, like namespace names or labels.
 
 ### Resource lifecycle management
 
@@ -202,8 +200,7 @@ delete_resources: never
 delete_resources: on_stop
 ```
 
-The default value is `on_stop`, which is specified in the
-[default environment template](https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent/-/blob/master/internal/module/managed_resources/server/default_template.yaml).
+The default value is `on_stop`, which is specified in the [default environment template](https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent/-/blob/master/internal/module/managed_resources/server/default_template.yaml).
 
 ### Managed resource labels and annotations
 
@@ -238,20 +235,16 @@ The value of the annotation is a JSON object with the following keys:
 
 ### Disable GitLab-managed Kubernetes resources
 
-You can disable GitLab-managed Kubernetes resources for specific environments while still
-using other Kubernetes features like the dashboard. Disabling managed resources helps when
-working with global agents that have managed resources enabled by default, but you need to
-opt out specific projects or environments.
+You can disable GitLab-managed Kubernetes resources for specific environments while still using other Kubernetes features like the dashboard. Disabling managed resources helps when working with global agents that have managed resources enabled by default, but you need to opt out specific projects or environments.
 
-To disable managed resources for an environment, add the `managed_resources.enabled: false`
-configuration:
+To disable managed resources for an environment, add the `managed_resources.enabled: false` configuration:
 
 ```yaml
 deploy_review:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - echo "Deploy a review app"
-  environment:
+ environment:
     name: review/$CI_COMMIT_REF_SLUG
     kubernetes:
       agent: path/to/agent/project:agent-name

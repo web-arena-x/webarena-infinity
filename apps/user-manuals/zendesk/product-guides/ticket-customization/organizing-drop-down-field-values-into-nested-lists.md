@@ -1,4 +1,4 @@
-# Organizing  drop-down field values into nested lists
+# Organizing drop-down field values into nested lists
 
 Source: https://support.zendesk.com/hc/en-us/articles/4408829395738-Organizing-drop-down-field-values-into-nested-lists
 
@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408829395738-Organizing-d
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -18,8 +18,7 @@ You can create drop-down lists that contain multiple levels of organization (up 
 
 For information about creating custom drop-down fields, see [Adding custom ticket fields](https://support.zendesk.com/hc/en-us/articles/4408883152794), [Adding custom fields to users](https://support.zendesk.com/hc/en-us/articles/4408822051866), and [Adding custom fields to organizations](https://support.zendesk.com/hc/en-us/articles/4408842677786).
 
-The values of your custom field options contain the categories and selection value separated by double colons (::). For example: `Digital SLR
-Cameras::Professional::Mondocam XD 80` has three layers, with the last value being the one reflected in the field when selected.
+The values of your custom field options contain the categories and selection value separated by double colons (::). For example: `Digital SLR Cameras::Professional::Mondocam XD 80` has three layers, with the last value being the one reflected in the field when selected.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/custom_dd_field_organize.png)
 

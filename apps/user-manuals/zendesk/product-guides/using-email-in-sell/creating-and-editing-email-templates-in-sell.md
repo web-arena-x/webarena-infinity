@@ -46,8 +46,7 @@ You can create a personal email template that you can use for leads and contacts
    Note: If you check this box, the template will be visible and editable by others you have shared the template with.
 7. Enter the subject and content of your template. You can use merge tags by either typing `{{` in the subject or email text, or by clicking the `{{` icon in the template. This displays a list of fields you can use. For information about using merge tags see [Using merge tags in your email messages](https://support.zendesk.com/hc/en-us/articles/4408828807066-Using-merge-tags-in-your-email-messages), and information about other options to customize your template see [Email composer toolbar reference](https://support.zendesk.com/hc/en-us/articles/4408823307546).
 
-   Note: Do not add personal information, for example a signature, to a template. Use the `{{Sender's
-   Signature}}` [merge tag](https://support.zendesk.com/hc/en-us/articles/4408828807066-Using-merge-tags-in-your-email-messages) to include a sender's signature instead.
+   Note: Do not add personal information, for example a signature, to a template. Use the `{{Sender's Signature}}` [merge tag](https://support.zendesk.com/hc/en-us/articles/4408828807066-Using-merge-tags-in-your-email-messages) to include a sender's signature instead.
 
    Here is an example template:
 

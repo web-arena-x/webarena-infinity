@@ -9,7 +9,7 @@ The Inbox is your notification center in Linear and where you’ll find importan
 You'll receive an Inbox notification for key events on your subscribed issues. You are automatically subscribed to issues when you create them, are assigned them, or are mentioned in an issue description or comment.
 
 You cannot customize which notifications go to the Inbox (they all will) but you can apply filters to focus on certain notification types.   
-  
+ 
 You can also customize which notifications trigger other alerts in [Settings > My Account > Notifications](https://linear.app/settings/account/notifications).
 
 ## View notifications
@@ -34,7 +34,7 @@ To unsubscribe from an issue via the Inbox view, you must click into it first an
 
 ## Quick search
 
-Press `Cmd/Ctrl` `F` to bring up the quick search bar and then type to filter the list by title, issue ID, notification type, or assignee. It'll update the list to show only issues matching that search.  For example, see only notifications where someone commented on an issue or issues that have been auto-closed by Linear. `Esc` will clear the search.
+Press `Cmd/Ctrl` `F` to bring up the quick search bar and then type to filter the list by title, issue ID, notification type, or assignee. It'll update the list to show only issues matching that search. For example, see only notifications where someone commented on an issue or issues that have been auto-closed by Linear. `Esc` will clear the search.
 
 ## Display options
 

@@ -17,19 +17,19 @@ If you have existing submittals that have not yet been added to a package, yo
 ## Things to Consider
 
 - **Required User Permission**:
-  - 'Admin' level permissions to the project's Submittals tool.
+ - 'Admin' level permissions to the project's Submittals tool.
 - **Prerequisite:** 
-  - Complete the steps in [Create a Submittal Package](create-a-submittal-package.md#Create_a_Submittal_Package "Create a Submittal Package").
+ - Complete the steps in [Create a Submittal Package](create-a-submittal-package.md#Create_a_Submittal_Package "Create a Submittal Package").
 - **Limitation**:
-  - A submittal can only be added to one (1) submittal package. However, you can move a submittal from one package to another when editing the submittal.
+ - A submittal can only be added to one (1) submittal package. However, you can move a submittal from one package to another when editing the submittal.
 - **Additional Information**:
-  - After a submittal package is created, a user with 'Admin' level permission to the Submittals tool can use the **Create Revision** button to revise the submittal package.
+ - After a submittal package is created, a user with 'Admin' level permission to the Submittals tool can use the **Create Revision** button to revise the submittal package.
 
 ## Steps
 
 1. Navigate to the project's **Submittals** tool.
 2. Click the **Packages** tab.
-3. Locate the desired submittal package and click **Edit**.  
+3. Locate the desired submittal package and click **Edit**. 
    *Note*: The **Edit** button is only available if your project has individual submittals that can be added to a package.
 4. Click **Add Existing Submittals to this Package**.
 5. If you want to narrow down the number of submittals in the list, apply a filter from the **Filter List by Spec Section** menu.

@@ -26,12 +26,12 @@ Procore does not check PDF security restrictions when:
 
 In order to be sure a PDF is not restricted, we recommend that all submittal attachments are uploaded in the Submittal Workflow and from your local computer.
 
-If the PDF has copying or editing restrictions, a warning displays to indicate which file is restricted. You can choose to cancel attaching the file or to proceed.  
-  
-![submittals-attach-restricted-file.png](https://support.procore.com/@api/deki/files/188663/submittals-attach-restricted-file.png?revision=3)  
-  
-If you choose to attach a restricted PDF file, markups (including stamps) and pages cannot be added when reviewing that file in Procore. In the PDF Viewer, the file's information panel also indicates if the file has security restrictions that prevent markups and pages from being added to the file in Procore.  
-  
+If the PDF has copying or editing restrictions, a warning displays to indicate which file is restricted. You can choose to cancel attaching the file or to proceed. 
+ 
+![submittals-attach-restricted-file.png](https://support.procore.com/@api/deki/files/188663/submittals-attach-restricted-file.png?revision=3) 
+ 
+If you choose to attach a restricted PDF file, markups (including stamps) and pages cannot be added when reviewing that file in Procore. In the PDF Viewer, the file's information panel also indicates if the file has security restrictions that prevent markups and pages from being added to the file in Procore. 
+ 
 ![submittals-pdf-viewer-file-restrictions.png](https://support.procore.com/@api/deki/files/202413/submittals-pdf-viewer-file-restrictions.png?revision=2)
 
 ##### Important
@@ -47,12 +47,12 @@ PDF files with these security restrictions cannot be downloaded or distributed
 
 If markups (including stamps) or pages have been added to a restricted PDF in Procore:
 
-- A banner displays in the viewer indicating that the file cannot be downloaded or distributed until any markups or pages added are removed.  
+- A banner displays in the viewer indicating that the file cannot be downloaded or distributed until any markups or pages added are removed. 
     
-  ![submittals-pdf-viewer-restricted-file-banner.png](https://support.procore.com/@api/deki/files/202414/submittals-pdf-viewer-restricted-file-banner.png?revision=2)
-- A lock icon displays next to the file name in the Submittal Workflow table.  
+ ![submittals-pdf-viewer-restricted-file-banner.png](https://support.procore.com/@api/deki/files/202414/submittals-pdf-viewer-restricted-file-banner.png?revision=2)
+- A lock icon displays next to the file name in the Submittal Workflow table. 
     
-  ![submittals-submittal-workflow-restricted-file.png](https://support.procore.com/@api/deki/files/202415/submittals-submittal-workflow-restricted-file.png?revision=2)
+ ![submittals-submittal-workflow-restricted-file.png](https://support.procore.com/@api/deki/files/202415/submittals-submittal-workflow-restricted-file.png?revision=2)
 - The download buttons for the file within the PDF viewer and on the submittal's page will be hidden.
 - If 'Download All' is selected, the file is excluded from the download.
 

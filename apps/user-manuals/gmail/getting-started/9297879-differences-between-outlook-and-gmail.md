@@ -98,7 +98,7 @@ This section highlights differences between Outlook and Gmail features.
 
 Outlook and Gmail sometimes use different names for similar features. Use this table to map the differences.
 
-|  |  |
+| | |
 | --- | --- |
 | **Outlook** | **Gmail** |
 | Folders | Labels |

@@ -8,39 +8,35 @@ title: Enabling the analyzer
 Prerequisites:
 
 - One of the following web API types:
-  - REST API
-  - SOAP
-  - GraphQL
-  - Form bodies, JSON, or XML
+ - REST API
+ - SOAP
+ - GraphQL
+ - Form bodies, JSON, or XML
 - One of the following assets to provide APIs to test:
-  - OpenAPI v2 or v3 API definition
-  - HTTP archive (HAR) of API requests to test
-  - Postman Collection v2.0 or v2.1
+ - OpenAPI v2 or v3 API definition
+ - HTTP archive (HAR) of API requests to test
+ - Postman Collection v2.0 or v2.1
 
-  {{< alert type="warning" >}}
+ {{< alert type="warning" >}}
 
-  **Never** run fuzz testing against a production server. Not only can it perform any function that
-  the API can, it may also trigger bugs in the API. This includes actions like modifying and deleting
-  data. Only run fuzzing against a test server.
+ **Never** run fuzz testing against a production server. Not only can it perform any function that the API can, it may also trigger bugs in the API. This includes actions like modifying and deleting data. Only run fuzzing against a test server.
 
-  {{< /alert >}}
+ {{< /alert >}}
 
 To enable web API fuzzing use the web API fuzzing configuration form.
 
 - For manual configuration instructions, see the respective section, depending on the API type:
-  - [OpenAPI Specification](#openapi-specification)
-  - [GraphQL Schema](#graphql-schema)
-  - [HTTP Archive (HAR)](#http-archive-har)
-  - [Postman Collection](#postman-collection)
+ - [OpenAPI Specification](#openapi-specification)
+ - [GraphQL Schema](#graphql-schema)
+ - [HTTP Archive (HAR)](#http-archive-har)
+ - [Postman Collection](#postman-collection)
 - Otherwise, see [web API fuzzing configuration form](#web-api-fuzzing-configuration-form).
 
 API fuzzing configuration files must be in your repository's `.gitlab` directory.
 
 ## Web API fuzzing configuration form
 
-The API fuzzing configuration form helps you create or modify your project's API fuzzing
-configuration. The form lets you choose values for the most common API fuzzing options and builds
-a YAML snippet that you can paste in your GitLab CI/CD configuration.
+The API fuzzing configuration form helps you create or modify your project's API fuzzing configuration. The form lets you choose values for the most common API fuzzing options and builds a YAML snippet that you can paste in your GitLab CI/CD configuration.
 
 ### Configure web API fuzzing in the UI
 
@@ -54,8 +50,7 @@ To generate an API fuzzing configuration snippet:
    A modal opens with the YAML snippet corresponding to the options you've selected in the form.
 1. Do one of the following:
    1. To copy the snippet to your clipboard, select **Copy code only**.
-   1. To add the snippet to your project's `.gitlab-ci.yml` file, select
-      **Copy code and open `.gitlab-ci.yml` file**. The pipeline editor opens.
+   1. To add the snippet to your project's `.gitlab-ci.yml` file, select **Copy code and open `.gitlab-ci.yml` file**. The pipeline editor opens.
       1. Paste the snippet into the `.gitlab-ci.yml` file.
       1. Select the **Lint** tab to confirm the edited `.gitlab-ci.yml` file is valid.
       1. Select the **Edit** tab, then select **Commit changes**.
@@ -68,8 +63,7 @@ The [OpenAPI specification](https://www.openapis.org/) (formerly the Swagger spe
 This section shows you how to configure API fuzzing using an OpenAPI specification to provide information about the target API to test.
 OpenAPI specifications are provided as a file system resource or URL. Both JSON and YAML OpenAPI formats are supported.
 
-API fuzzing uses an OpenAPI document to generate the request body. When a request body is required,
-the body generation is limited to these body types:
+API fuzzing uses an OpenAPI document to generate the request body. When a request body is required, the body generation is limited to these body types:
 
 - `application/x-www-form-urlencoded`
 - `multipart/form-data`
@@ -112,17 +106,12 @@ To configure API fuzzing in GitLab with an OpenAPI specification:
      FUZZAPI_PROFILE: Quick-10
    ```
 
-1. Provide the location of the OpenAPI specification. You can provide the specification as a file
-   or URL. Specify the location by adding the `FUZZAPI_OPENAPI` variable.
+1. Provide the location of the OpenAPI specification. You can provide the specification as a file or URL. Specify the location by adding the `FUZZAPI_OPENAPI` variable.
 
-1. Provide the target API instance's base URL. Use either the `FUZZAPI_TARGET_URL` variable or an
-   `environment_url.txt` file.
+1. Provide the target API instance's base URL. Use either the `FUZZAPI_TARGET_URL` variable or an `environment_url.txt` file.
 
-   Adding the URL in an `environment_url.txt` file at your project's root is great for testing in
-   dynamic environments. To run API fuzzing against an application dynamically created during a
-   GitLab CI/CD pipeline, have the application persist its URL in an `environment_url.txt` file.
-   API fuzzing automatically parses that file to find its scan target. You can see an
-   example of this in the [Auto DevOps CI YAML](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/Deploy.gitlab-ci.yml).
+   Adding the URL in an `environment_url.txt` file at your project's root is great for testing in dynamic environments. To run API fuzzing against an application dynamically created during a GitLab CI/CD pipeline, have the application persist its URL in an `environment_url.txt` file.
+   API fuzzing automatically parses that file to find its scan target. You can see an example of this in the [Auto DevOps CI YAML](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/Deploy.gitlab-ci.yml).
 
 Example `.gitlab-ci.yml` file using an OpenAPI Specification:
 
@@ -150,16 +139,13 @@ For details of API fuzzing configuration options, see [Available CI/CD variables
 ## HTTP archive (HAR)
 
 The [HTTP archive format (HAR)](http://www.softwareishard.com/blog/har-12-spec/)
-is an archive file format for logging HTTP transactions. When used with the GitLab API fuzzer, HAR
-must contain records of calling the web API to test. The API fuzzer extracts all the requests and
-uses them to perform testing.
+is an archive file format for logging HTTP transactions. When used with the GitLab API fuzzer, HAR must contain records of calling the web API to test. The API fuzzer extracts all the requests and uses them to perform testing.
 
 For more details, including how to create a HAR file, see [HTTP archive format](../create_har_files.md).
 
 {{< alert type="warning" >}}
 
-HAR files may contain sensitive information such as authentication tokens, API keys, and session
-cookies. You should review the HAR file contents before adding them to a repository.
+HAR files may contain sensitive information such as authentication tokens, API keys, and session cookies. You should review the HAR file contents before adding them to a repository.
 
 {{< /alert >}}
 
@@ -181,17 +167,11 @@ To configure API fuzzing to use a HAR file:
      FUZZAPI_PROFILE: Quick-10
    ```
 
-1. Provide the location of the HAR specification. You can provide the specification as a file
-   or URL. Specify the location by adding the `FUZZAPI_HAR` variable.
+1. Provide the location of the HAR specification. You can provide the specification as a file or URL. Specify the location by adding the `FUZZAPI_HAR` variable.
 
-1. The target API instance's base URL is also required. Provide it by using the `FUZZAPI_TARGET_URL`
-   variable or an `environment_url.txt` file.
+1. The target API instance's base URL is also required. Provide it by using the `FUZZAPI_TARGET_URL` variable or an `environment_url.txt` file.
 
-   Adding the URL in an `environment_url.txt` file at your project's root is great for testing in
-   dynamic environments. To run API fuzzing against an app dynamically created during a GitLab CI/CD
-   pipeline, have the app persist its domain in an `environment_url.txt` file. API fuzzing
-   automatically parses that file to find its scan target. You can see an
-   [example of this in the GitLab Auto DevOps CI YAML](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/Deploy.gitlab-ci.yml).
+   Adding the URL in an `environment_url.txt` file at your project's root is great for testing in dynamic environments. To run API fuzzing against an app dynamically created during a GitLab CI/CD pipeline, have the app persist its domain in an `environment_url.txt` file. API fuzzing automatically parses that file to find its scan target. You can see an [example of this in the GitLab Auto DevOps CI YAML](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/Deploy.gitlab-ci.yml).
 
 Example `.gitlab-ci.yml` file using a HAR file:
 
@@ -231,8 +211,7 @@ API fuzzing supports testing GraphQL endpoints multiple ways:
 - Test using a recording (HAR) of GraphQL queries.
 - Test using a Postman Collection containing GraphQL queries.
 
-This section documents how to test using a GraphQL schema. The GraphQL schema support in
-API fuzzing is able to query the schema from endpoints that support introspection.
+This section documents how to test using a GraphQL schema. The GraphQL schema support in API fuzzing is able to query the schema from endpoints that support introspection.
 Introspection is enabled by default to allow tools like GraphiQL to work.
 
 ### API fuzzing scanning with a GraphQL endpoint URL
@@ -249,23 +228,21 @@ To configure API fuzzing to use an GraphQL endpoint URL that provides informatio
 
 1. Provide the GraphQL endpoint path, for example `/api/graphql`. Specify the path by adding the `FUZZAPI_GRAPHQL` variable.
 
-1. The target API instance's base URL is also required. Provide it by using the `FUZZAPI_TARGET_URL`
-   variable or an `environment_url.txt` file.
+1. The target API instance's base URL is also required. Provide it by using the `FUZZAPI_TARGET_URL` variable or an `environment_url.txt` file.
 
-   Adding the URL in an `environment_url.txt` file at your project's root is great for testing in
-   dynamic environments. For more information, see [dynamic environment solutions](../troubleshooting.md#dynamic-environment-solutions).
+   Adding the URL in an `environment_url.txt` file at your project's root is great for testing in dynamic environments. For more information, see [dynamic environment solutions](../troubleshooting.md#dynamic-environment-solutions).
 
 Complete example configuration of using a GraphQL endpoint URL:
 
 ```yaml
 stages:
-  - fuzz
+ - fuzz
 
 include:
-  - template: Security/API-Fuzzing.gitlab-ci.yml
+ - template: Security/API-Fuzzing.gitlab-ci.yml
 
 apifuzzer_fuzz:
-  variables:
+ variables:
     FUZZAPI_GRAPHQL: /api/graphql
     FUZZAPI_TARGET_URL: http://test-deployment/
 ```
@@ -287,26 +264,23 @@ To configure API fuzzing to use a GraphQl schema file that provides information 
 
 1. Provide the GraphQL endpoint path, for example `/api/graphql`. Specify the path by adding the `FUZZAPI_GRAPHQL` variable.
 
-1. Provide the location of the GraphQL schema file. You can provide the location as a file path
-   or URL. Specify the location by adding the `FUZZAPI_GRAPHQL_SCHEMA` variable.
+1. Provide the location of the GraphQL schema file. You can provide the location as a file path or URL. Specify the location by adding the `FUZZAPI_GRAPHQL_SCHEMA` variable.
 
-1. The target API instance's base URL is also required. Provide it by using the `FUZZAPI_TARGET_URL`
-   variable or an `environment_url.txt` file.
+1. The target API instance's base URL is also required. Provide it by using the `FUZZAPI_TARGET_URL` variable or an `environment_url.txt` file.
 
-   Adding the URL in an `environment_url.txt` file at your project's root is great for testing in
-   dynamic environments. For more information, see [dynamic environment solutions](../troubleshooting.md#dynamic-environment-solutions).
+   Adding the URL in an `environment_url.txt` file at your project's root is great for testing in dynamic environments. For more information, see [dynamic environment solutions](../troubleshooting.md#dynamic-environment-solutions).
 
 Complete example configuration of using an GraphQL schema file:
 
 ```yaml
 stages:
-  - fuzz
+ - fuzz
 
 include:
-  - template: Security/API-Fuzzing.gitlab-ci.yml
+ - template: Security/API-Fuzzing.gitlab-ci.yml
 
 apifuzzer_fuzz:
-  variables:
+ variables:
     FUZZAPI_GRAPHQL: /api/graphql
     FUZZAPI_GRAPHQL_SCHEMA: test-api-graphql.schema
     FUZZAPI_TARGET_URL: http://test-deployment/
@@ -316,13 +290,13 @@ Complete example configuration of using an GraphQL schema file URL:
 
 ```yaml
 stages:
-  - fuzz
+ - fuzz
 
 include:
-  - template: Security/API-Fuzzing.gitlab-ci.yml
+ - template: Security/API-Fuzzing.gitlab-ci.yml
 
 apifuzzer_fuzz:
-  variables:
+ variables:
     FUZZAPI_GRAPHQL: /api/graphql
     FUZZAPI_GRAPHQL_SCHEMA: http://file-store/files/test-api-graphql.schema
     FUZZAPI_TARGET_URL: http://test-deployment/
@@ -336,21 +310,14 @@ This example is a minimal configuration for API fuzzing. From here you can:
 
 ## Postman Collection
 
-The [Postman API Client](https://www.postman.com/product/api-client/) is a popular tool that
-developers and testers use to call various types of APIs. The API definitions
-[can be exported as a Postman Collection file](https://learning.postman.com/docs/getting-started/importing-and-exporting/exporting-data/#export-collections)
-for use with API fuzzing. When exporting, make sure to select a supported version of Postman
-Collection: v2.0 or v2.1.
+The [Postman API Client](https://www.postman.com/product/api-client/) is a popular tool that developers and testers use to call various types of APIs. The API definitions [can be exported as a Postman Collection file](https://learning.postman.com/docs/getting-started/importing-and-exporting/exporting-data/#export-collections)
+for use with API fuzzing. When exporting, make sure to select a supported version of Postman Collection: v2.0 or v2.1.
 
-When used with the GitLab API fuzzer, Postman Collections must contain definitions of the web API to
-test with valid data. The API fuzzer extracts all the API definitions and uses them to perform
-testing.
+When used with the GitLab API fuzzer, Postman Collections must contain definitions of the web API to test with valid data. The API fuzzer extracts all the API definitions and uses them to perform testing.
 
 {{< alert type="warning" >}}
 
-Postman Collection files may contain sensitive information such as authentication tokens, API keys,
-and session cookies. You should review the Postman Collection file contents before adding
-them to a repository.
+Postman Collection files may contain sensitive information such as authentication tokens, API keys, and session cookies. You should review the Postman Collection file contents before adding them to a repository.
 
 {{< /alert >}}
 
@@ -372,18 +339,11 @@ To configure API fuzzing to use a Postman Collection file:
      FUZZAPI_PROFILE: Quick-10
    ```
 
-1. Provide the location of the Postman Collection specification. You can provide the specification
-   as a file or URL. Specify the location by adding the `FUZZAPI_POSTMAN_COLLECTION`
-   variable.
+1. Provide the location of the Postman Collection specification. You can provide the specification as a file or URL. Specify the location by adding the `FUZZAPI_POSTMAN_COLLECTION` variable.
 
-1. Provide the target API instance's base URL. Use either the `FUZZAPI_TARGET_URL` variable or an
-   `environment_url.txt` file.
+1. Provide the target API instance's base URL. Use either the `FUZZAPI_TARGET_URL` variable or an `environment_url.txt` file.
 
-   Adding the URL in an `environment_url.txt` file at your project's root is great for testing in
-   dynamic environments. To run API fuzzing against an app dynamically created during a GitLab CI/CD
-   pipeline, have the app persist its domain in an `environment_url.txt` file. API fuzzing
-   automatically parses that file to find its scan target. You can see an
-   example of this in the [GitLab Auto DevOps CI YAML](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/Deploy.gitlab-ci.yml).
+   Adding the URL in an `environment_url.txt` file at your project's root is great for testing in dynamic environments. To run API fuzzing against an app dynamically created during a GitLab CI/CD pipeline, have the app persist its domain in an `environment_url.txt` file. API fuzzing automatically parses that file to find its scan target. You can see an example of this in the [GitLab Auto DevOps CI YAML](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/Deploy.gitlab-ci.yml).
 
 Example `.gitlab-ci.yml` file using a Postman Collection file:
 
@@ -420,10 +380,8 @@ For details of API fuzzing configuration options, see [available CI/CD variables
 
 #### Variables in Postman Client
 
-Postman allows the developer to define placeholders that can be used in different parts of the
-requests. These placeholders are called variables, as explained in [using variables](https://learning.postman.com/docs/sending-requests/variables/variables/).
-You can use variables to store and reuse values in your requests and scripts. For example, you can
-edit the collection to add variables to the document:
+Postman allows the developer to define placeholders that can be used in different parts of the requests. These placeholders are called variables, as explained in [using variables](https://learning.postman.com/docs/sending-requests/variables/variables/).
+You can use variables to store and reuse values in your requests and scripts. For example, you can edit the collection to add variables to the document:
 
 ![Edit collection variable tab view](img/api_fuzzing_postman_collection_edit_variable_v18_5.png)
 
@@ -445,9 +403,7 @@ As mentioned previously, there are different variable scopes, and each of them h
 
 {{< alert type="note" >}}
 
-If a variable with the same name is declared in two different scopes, the value stored in the variable
-with narrowest scope is used. For example, if there is a global variable named `username` and
-a local variable named `username`, the local value is used when the request runs.
+If a variable with the same name is declared in two different scopes, the value stored in the variable with narrowest scope is used. For example, if there is a global variable named `username` and a local variable named `username`, the local value is used when the request runs.
 
 {{< /alert >}}
 
@@ -455,15 +411,15 @@ The following is a summary of the variable scopes supported by the Postman Clien
 
 - **Global environment (global) scope** is a special pre-defined environment that is available throughout a workspace. The global environment scope can also be called the global scope. The Postman Client allows exporting the global environment into a JSON file, which can be used with API fuzzing.
 - **Environment scope** is a named group of variables created by a user in the Postman Client.
-  The Postman Client supports a single active environment along with the global environment. The variables defined in an active user-created environment take precedence over variables defined in the global environment. The Postman Client allows exporting your environment into a JSON file, which can be used with API fuzzing.
+ The Postman Client supports a single active environment along with the global environment. The variables defined in an active user-created environment take precedence over variables defined in the global environment. The Postman Client allows exporting your environment into a JSON file, which can be used with API fuzzing.
 - **Collection scope** is a group of variables declared in a given collection. The collection variables are available to the collection where they have been declared and the nested requests or collections. Variables defined in the collection scope take precedence over the global environment scope and also the environment scope.
-  The Postman Client can export one or more collections into a JSON file, this JSON file contains selected collections, requests, and collection variables.
+ The Postman Client can export one or more collections into a JSON file, this JSON file contains selected collections, requests, and collection variables.
 - **API fuzzing scope** is a new scope added by API fuzzing to allow users to provide extra variables, or override variables defined in other supported scopes. This scope is not supported by Postman. The API fuzzing scope variables are provided using a [custom JSON file format](#api-fuzzing-scope-custom-json-file-format).
-  - Override values defined in the environment or collection
-  - Defining variables from scripts
-  - Define a single row of data from the unsupported _data scope_
+ - Override values defined in the environment or collection
+ - Defining variables from scripts
+ - Define a single row of data from the unsupported _data scope_
 - **Data scope** is a group of variables in which their name and values come from JSON or CSV files. A Postman collection runner like [Newman](https://learning.postman.com/docs/collections/using-newman-cli/command-line-integration-with-newman/) or [Postman Collection Runner](https://learning.postman.com/docs/collections/running-collections/intro-to-collection-runs/) executes the requests in a collection as many times as entries have the JSON or CSV file. A good use case for these variables is to automate tests using scripts in Postman.
-  API fuzzing does **not** support reading data from a CSV or JSON file.
+ API fuzzing does **not** support reading data from a CSV or JSON file.
 - **Local scope** are variables that are defined in Postman scripts. API fuzzing does **not** support Postman scripts and by extension, variables defined in scripts. You can still provide values for the script-defined variables by defining them in one of the supported scopes, or the custom JSON format.
 
 Not all scopes are supported by API fuzzing and variables defined in scripts are not supported. The following table is sorted by broadest scope to narrowest scope.
@@ -473,7 +429,7 @@ Not all scopes are supported by API fuzzing and variables defined in scripts are
 | Global environment | Yes       | Yes         | Special pre-defined environment |
 | Environment        | Yes       | Yes         | Named environments |
 | Collection         | Yes       | Yes         | Defined in your postman collection |
-| API fuzzing scope  | No        | Yes         | Custom scope added by API fuzzing |
+| API fuzzing scope | No        | Yes         | Custom scope added by API fuzzing |
 | Data               | Yes       | No          | External files in CSV or JSON format |
 | Local              | Yes       | No          | Variables defined in scripts |
 
@@ -504,8 +460,8 @@ This example defines two variables `base_url` and `token` in the API fuzzing sco
 
 ```json
 {
-  "base_url": "http://127.0.0.1/",
-  "token": "Token 84816165151"
+ "base_url": "http://127.0.0.1/",
+ "token": "Token 84816165151"
 }
 ```
 
@@ -515,12 +471,12 @@ The scopes: global, environment, collection, and GitLab API fuzzing are supporte
 
 The following table provides a quick reference for mapping scope files/URLs to API fuzzing configuration variables:
 
-| Scope              |  How to provide |
+| Scope              | How to provide |
 | ------------------ | --------------- |
 | Global environment | FUZZAPI_POSTMAN_COLLECTION_VARIABLES |
 | Environment        | FUZZAPI_POSTMAN_COLLECTION_VARIABLES |
 | Collection         | FUZZAPI_POSTMAN_COLLECTION           |
-| API fuzzing scope  | FUZZAPI_POSTMAN_COLLECTION_VARIABLES |
+| API fuzzing scope | FUZZAPI_POSTMAN_COLLECTION_VARIABLES |
 | Data               | Not supported   |
 | Local              | Not supported   |
 
@@ -686,13 +642,13 @@ stages:
      - fuzz
 
 include:
-  - template: Security/API-Fuzzing.gitlab-ci.yml
+ - template: Security/API-Fuzzing.gitlab-ci.yml
 
 variables:
-  FUZZAPI_PROFILE: Quick-10
-  FUZZAPI_POSTMAN_COLLECTION: postman-collection.json
-  FUZZAPI_POSTMAN_COLLECTION_VARIABLES: global-scope.json
-  FUZZAPI_TARGET_URL: http://test-deployment/
+ FUZZAPI_PROFILE: Quick-10
+ FUZZAPI_POSTMAN_COLLECTION: postman-collection.json
+ FUZZAPI_POSTMAN_COLLECTION_VARIABLES: global-scope.json
+ FUZZAPI_TARGET_URL: http://test-deployment/
 ```
 
 #### Example: Environment scope
@@ -703,16 +659,16 @@ Here is an example of using `FUZZAPI_POSTMAN_COLLECTION_VARIABLES`:
 
 ```yaml
 stages:
-  - fuzz
+ - fuzz
 
 include:
-  - template: Security/API-Fuzzing.gitlab-ci.yml
+ - template: Security/API-Fuzzing.gitlab-ci.yml
 
 variables:
-  FUZZAPI_PROFILE: Quick
-  FUZZAPI_POSTMAN_COLLECTION: postman-collection.json
-  FUZZAPI_POSTMAN_COLLECTION_VARIABLES: environment-scope.json
-  FUZZAPI_TARGET_URL: http://test-deployment/
+ FUZZAPI_PROFILE: Quick
+ FUZZAPI_POSTMAN_COLLECTION: postman-collection.json
+ FUZZAPI_POSTMAN_COLLECTION_VARIABLES: environment-scope.json
+ FUZZAPI_TARGET_URL: http://test-deployment/
 ```
 
 #### Example: Collection scope
@@ -723,16 +679,16 @@ Here is an example of using `FUZZAPI_POSTMAN_COLLECTION`:
 
 ```yaml
 stages:
-  - fuzz
+ - fuzz
 
 include:
-  - template: Security/API-Fuzzing.gitlab-ci.yml
+ - template: Security/API-Fuzzing.gitlab-ci.yml
 
 variables:
-  FUZZAPI_PROFILE: Quick
-  FUZZAPI_POSTMAN_COLLECTION: postman-collection.json
-  FUZZAPI_TARGET_URL: http://test-deployment/
-  FUZZAPI_POSTMAN_COLLECTION_VARIABLES: variable-collection-dictionary.json
+ FUZZAPI_PROFILE: Quick
+ FUZZAPI_POSTMAN_COLLECTION: postman-collection.json
+ FUZZAPI_TARGET_URL: http://test-deployment/
+ FUZZAPI_POSTMAN_COLLECTION_VARIABLES: variable-collection-dictionary.json
 ```
 
 #### Example: API fuzzing Scope
@@ -743,25 +699,24 @@ Here is an example of using `FUZZAPI_POSTMAN_COLLECTION_VARIABLES`:
 
 ```yaml
 stages:
-  - fuzz
+ - fuzz
 
 include:
-  - template: Security/API-Fuzzing.gitlab-ci.yml
+ - template: Security/API-Fuzzing.gitlab-ci.yml
 
 variables:
-  FUZZAPI_PROFILE: Quick
-  FUZZAPI_POSTMAN_COLLECTION: postman-collection.json
-  FUZZAPI_POSTMAN_COLLECTION_VARIABLES: api-fuzzing-scope.json
-  FUZZAPI_TARGET_URL: http://test-deployment/
+ FUZZAPI_PROFILE: Quick
+ FUZZAPI_POSTMAN_COLLECTION: postman-collection.json
+ FUZZAPI_POSTMAN_COLLECTION_VARIABLES: api-fuzzing-scope.json
+ FUZZAPI_TARGET_URL: http://test-deployment/
 ```
 
-The file `api-fuzzing-scope.json` uses the API fuzzing [custom JSON file format](#api-fuzzing-scope-custom-json-file-format). This JSON is an object with key-value pairs for properties. The keys are the variables' names, and the values are the variables'
-values. For example:
+The file `api-fuzzing-scope.json` uses the API fuzzing [custom JSON file format](#api-fuzzing-scope-custom-json-file-format). This JSON is an object with key-value pairs for properties. The keys are the variables' names, and the values are the variables' values. For example:
 
 ```json
 {
-  "base_url": "http://127.0.0.1/",
-  "token": "Token 84816165151"
+ "base_url": "http://127.0.0.1/",
+ "token": "Token 84816165151"
 }
 ```
 
@@ -777,16 +732,16 @@ The Postman Collection is provided using the `FUZZAPI_POSTMAN_COLLECTION` variab
 
 ```yaml
 stages:
-  - fuzz
+ - fuzz
 
 include:
-  - template: Security/API-Fuzzing.gitlab-ci.yml
+ - template: Security/API-Fuzzing.gitlab-ci.yml
 
 variables:
-  FUZZAPI_PROFILE: Quick
-  FUZZAPI_POSTMAN_COLLECTION: postman-collection.json
-  FUZZAPI_POSTMAN_COLLECTION_VARIABLES: global-scope.json,environment-scope.json
-  FUZZAPI_TARGET_URL: http://test-deployment/
+ FUZZAPI_PROFILE: Quick
+ FUZZAPI_POSTMAN_COLLECTION: postman-collection.json
+ FUZZAPI_POSTMAN_COLLECTION_VARIABLES: global-scope.json,environment-scope.json
+ FUZZAPI_TARGET_URL: http://test-deployment/
 ```
 
 #### Example: Changing variable's value
@@ -796,12 +751,11 @@ When using exported scopes, it's often the case that the value of a variable mus
 The collection scope variables are included in the exported Postman Collection file and provided through the `FUZZAPI_POSTMAN_COLLECTION` configuration variable.
 
 The API fuzzing scope is provided through the `FUZZAPI_POSTMAN_COLLECTION_VARIABLES` configuration variable, but first, you must create the file.
-The file `api-fuzzing-scope.json` uses the API fuzzing [custom JSON file format](#api-fuzzing-scope-custom-json-file-format). This JSON is an object with key-value pairs for properties. The keys are the variables' names, and the values are the variables'
-values. For example:
+The file `api-fuzzing-scope.json` uses the API fuzzing [custom JSON file format](#api-fuzzing-scope-custom-json-file-format). This JSON is an object with key-value pairs for properties. The keys are the variables' names, and the values are the variables' values. For example:
 
 ```json
 {
-  "api_version": "v1"
+ "api_version": "v1"
 }
 ```
 
@@ -809,16 +763,16 @@ The CI definition:
 
 ```yaml
 stages:
-  - fuzz
+ - fuzz
 
 include:
-  - template: Security/API-Fuzzing.gitlab-ci.yml
+ - template: Security/API-Fuzzing.gitlab-ci.yml
 
 variables:
-  FUZZAPI_PROFILE: Quick
-  FUZZAPI_POSTMAN_COLLECTION: postman-collection.json
-  FUZZAPI_POSTMAN_COLLECTION_VARIABLES: api-fuzzing-scope.json
-  FUZZAPI_TARGET_URL: http://test-deployment/
+ FUZZAPI_PROFILE: Quick
+ FUZZAPI_POSTMAN_COLLECTION: postman-collection.json
+ FUZZAPI_POSTMAN_COLLECTION_VARIABLES: api-fuzzing-scope.json
+ FUZZAPI_TARGET_URL: http://test-deployment/
 ```
 
 #### Example: Changing a variable's value with multiple scopes
@@ -831,12 +785,11 @@ In this example, a global scope, environment scope, collection scope, and API fu
 - [Export the environment scope](https://learning.postman.com/docs/getting-started/importing-and-exporting/exporting-data/#export-environments) as `environment-scope.json`
 - Export the Postman Collection which includes the collection scope as `postman-collection.json`
 
-The API fuzzing scope is used by creating a file `api-fuzzing-scope.json` using the API fuzzing [custom JSON file format](#api-fuzzing-scope-custom-json-file-format). This JSON is an object with key-value pairs for properties. The keys are the variables' names, and the values are the variables'
-values. For example:
+The API fuzzing scope is used by creating a file `api-fuzzing-scope.json` using the API fuzzing [custom JSON file format](#api-fuzzing-scope-custom-json-file-format). This JSON is an object with key-value pairs for properties. The keys are the variables' names, and the values are the variables' values. For example:
 
 ```json
 {
-  "api_version": "v1"
+ "api_version": "v1"
 }
 ```
 
@@ -844,61 +797,44 @@ The Postman Collection is provided using the `FUZZAPI_POSTMAN_COLLECTION` variab
 
 ```yaml
 stages:
-  - fuzz
+ - fuzz
 
 include:
-  - template: Security/API-Fuzzing.gitlab-ci.yml
+ - template: Security/API-Fuzzing.gitlab-ci.yml
 
 variables:
-  FUZZAPI_PROFILE: Quick
-  FUZZAPI_POSTMAN_COLLECTION: postman-collection.json
-  FUZZAPI_POSTMAN_COLLECTION_VARIABLES: global-scope.json,environment-scope.json,api-fuzzing-scope.json
-  FUZZAPI_TARGET_URL: http://test-deployment/
+ FUZZAPI_PROFILE: Quick
+ FUZZAPI_POSTMAN_COLLECTION: postman-collection.json
+ FUZZAPI_POSTMAN_COLLECTION_VARIABLES: global-scope.json,environment-scope.json,api-fuzzing-scope.json
+ FUZZAPI_TARGET_URL: http://test-deployment/
 ```
 
 ## Running your first scan
 
-When configured correctly, a CI/CD pipeline contains a `fuzz` stage and an `apifuzzer_fuzz` or
-`apifuzzer_fuzz_dnd` job. The job only fails when an invalid configuration is provided. During
-typical operation, the job always succeeds even if faults are identified during fuzz testing.
+When configured correctly, a CI/CD pipeline contains a `fuzz` stage and an `apifuzzer_fuzz` or `apifuzzer_fuzz_dnd` job. The job only fails when an invalid configuration is provided. During typical operation, the job always succeeds even if faults are identified during fuzz testing.
 
-Faults are displayed on the **Security** pipeline tab with the suite name. When testing against the
-repositories default branch, the fuzzing faults are also shown on the security and compliance's
-vulnerability report.
+Faults are displayed on the **Security** pipeline tab with the suite name. When testing against the repositories default branch, the fuzzing faults are also shown on the security and compliance's vulnerability report.
 
-To prevent an excessive number of reported faults, the API fuzzing scanner limits the number of
-faults it reports.
+To prevent an excessive number of reported faults, the API fuzzing scanner limits the number of faults it reports.
 
 ## Viewing fuzzing faults
 
-The API fuzzing analyzer produces a JSON report that is collected and used
-[to populate the faults into GitLab vulnerability screens](#view-details-of-an-api-fuzzing-vulnerability).
+The API fuzzing analyzer produces a JSON report that is collected and used [to populate the faults into GitLab vulnerability screens](#view-details-of-an-api-fuzzing-vulnerability).
 Fuzzing faults show up as vulnerabilities with a severity of Unknown.
 
-The faults that API fuzzing finds require manual investigation and aren't associated with a specific
-vulnerability type. They require investigation to determine if they are a security issue, and if
-they should be fixed. See [handling false positives](#handling-false-positives)
-for information about configuration changes you can make to limit the number of false positives
-reported.
+The faults that API fuzzing finds require manual investigation and aren't associated with a specific vulnerability type. They require investigation to determine if they are a security issue, and if they should be fixed. See [handling false positives](#handling-false-positives)
+for information about configuration changes you can make to limit the number of false positives reported.
 
 ### View details of an API fuzzing vulnerability
 
-Faults detected by API fuzzing occur in the live web application, and require manual investigation
-to determine if they are vulnerabilities. Fuzzing faults are included as vulnerabilities with a
-severity of Unknown. To facilitate investigation of the fuzzing faults, detailed information is
-provided about the HTTP messages sent and received along with a description of the modifications
-made.
+Faults detected by API fuzzing occur in the live web application, and require manual investigation to determine if they are vulnerabilities. Fuzzing faults are included as vulnerabilities with a severity of Unknown. To facilitate investigation of the fuzzing faults, detailed information is provided about the HTTP messages sent and received along with a description of the modifications made.
 
 Follow these steps to view details of a fuzzing fault:
 
 1. You can view faults in a project, or a merge request:
 
-   - In a project, go to the project's **Secure** > **Vulnerability report**
-     page. This page shows all vulnerabilities from the default branch only.
-   - In a merge request, go the merge request's **Security** section and select the **Expand**
-     button. API fuzzing faults are available in a section labeled
-     **API fuzzing detected N potential vulnerabilities**. Select the title to display the fault
-     details.
+   - In a project, go to the project's **Secure** > **Vulnerability report** page. This page shows all vulnerabilities from the default branch only.
+   - In a merge request, go the merge request's **Security** section and select the **Expand** button. API fuzzing faults are available in a section labeled **API fuzzing detected N potential vulnerabilities**. Select the title to display the fault details.
 
 1. Select the fault's title to display the fault's details. The table below describes these details.
 
@@ -918,41 +854,30 @@ Follow these steps to view details of a fuzzing fault:
 
 ### Security dashboard
 
-Fuzzing faults show up as vulnerabilities with a severity of Unknown. The security dashboard is a
-good place to get an overview of all the security vulnerabilities in your groups, projects and
-pipelines. For more information, see the [security dashboard documentation](../../security_dashboard/_index.md).
+Fuzzing faults show up as vulnerabilities with a severity of Unknown. The security dashboard is a good place to get an overview of all the security vulnerabilities in your groups, projects and pipelines. For more information, see the [security dashboard documentation](../../security_dashboard/_index.md).
 
 ### Interacting with the vulnerabilities
 
 Fuzzing faults show up as vulnerabilities with a severity of Unknown.
-After a fault is found, you can interact with it. Read more on how to
-[address the vulnerabilities](../../vulnerabilities/_index.md).
+After a fault is found, you can interact with it. Read more on how to [address the vulnerabilities](../../vulnerabilities/_index.md).
 
 ## Handling false positives
 
 False positives can be handled in two ways:
 
-- Turn off the check producing the false positive. This prevents the check from generating any
-  faults. Example checks are the `JSONFuzzingCheck`, and `FormBodyFuzzingCheck`.
+- Turn off the check producing the false positive. This prevents the check from generating any faults. Example checks are the `JSONFuzzingCheck`, and `FormBodyFuzzingCheck`.
 - Fuzzing checks have several methods of detecting when a fault is identified, called "asserts".
-  Asserts can also be turned off and configured. For example, the API fuzzer by default uses HTTP
-  status codes to help identify when something is a real issue. If an API returns a 500 error during
-  testing, this creates a fault. This isn't always desired, as some frameworks return 500 errors
-  often.
+ Asserts can also be turned off and configured. For example, the API fuzzer by default uses HTTP status codes to help identify when something is a real issue. If an API returns a 500 error during testing, this creates a fault. This isn't always desired, as some frameworks return 500 errors often.
 
 ### Turn off a check
 
-Checks perform testing of a specific type and can be turned on and off for specific configuration
-profiles. The default configuration file defines several profiles that you
-can use. The profile definition in the configuration file lists all the checks that are active
-during a scan. To turn off a specific check, remove it from the profile definition in the
-configuration file. The profiles are defined in the `Profiles` section of the configuration file.
+Checks perform testing of a specific type and can be turned on and off for specific configuration profiles. The default configuration file defines several profiles that you can use. The profile definition in the configuration file lists all the checks that are active during a scan. To turn off a specific check, remove it from the profile definition in the configuration file. The profiles are defined in the `Profiles` section of the configuration file.
 
 Example profile definition:
 
 ```yaml
 Profiles:
-  - Name: Quick-10
+ - Name: Quick-10
     DefaultProfile: Quick
     Routes:
       - Route: *Route0
@@ -979,7 +904,7 @@ To turn off the `GeneralFuzzingCheck` you can remove these lines:
 
 ```yaml
 - Name: GeneralFuzzingCheck
-  Configuration:
+ Configuration:
     FuzzingCount: 10
     UnicodeFuzzing: true
 ```
@@ -988,8 +913,8 @@ This results in the following YAML:
 
 ```yaml
 - Name: Quick-10
-  DefaultProfile: Quick
-  Routes:
+ DefaultProfile: Quick
+ Routes:
     - Route: *Route0
       Checks:
         - Name: FormBodyFuzzingCheck
@@ -1008,16 +933,13 @@ This results in the following YAML:
 
 ### Turn off an assertion for a check
 
-Assertions detect faults in tests produced by checks. Many checks support multiple assertions such
-as log analysis, response analysis, and status code. When a fault is found, the assertion used is
-provided. To identify which assertions are on by default, see the checks default configuration in
-the configuration file. The section is called `Checks`.
+Assertions detect faults in tests produced by checks. Many checks support multiple assertions such as log analysis, response analysis, and status code. When a fault is found, the assertion used is provided. To identify which assertions are on by default, see the checks default configuration in the configuration file. The section is called `Checks`.
 
 This example shows the `FormBodyFuzzingCheck`:
 
 ```yaml
 Checks:
-  - Name: FormBodyFuzzingCheck
+ - Name: FormBodyFuzzingCheck
     Configuration:
       FuzzingCount: 30
       UnicodeFuzzing: true
@@ -1027,14 +949,11 @@ Checks:
       - Name: StatusCodeAssertion
 ```
 
-Here you can see three assertions are on by default. A common source of false positives is
-`StatusCodeAssertion`. To turn it off, modify its configuration in the `Profiles` section. This
-example provides only the other two assertions (`LogAnalysisAssertion`,
-`ResponseAnalysisAssertion`). This prevents `FormBodyFuzzingCheck` from using `StatusCodeAssertion`:
+Here you can see three assertions are on by default. A common source of false positives is `StatusCodeAssertion`. To turn it off, modify its configuration in the `Profiles` section. This example provides only the other two assertions (`LogAnalysisAssertion`, `ResponseAnalysisAssertion`). This prevents `FormBodyFuzzingCheck` from using `StatusCodeAssertion`:
 
 ```yaml
 Profiles:
-  - Name: Quick-10
+ - Name: Quick-10
     DefaultProfile: Quick
     Routes:
       - Route: *Route0

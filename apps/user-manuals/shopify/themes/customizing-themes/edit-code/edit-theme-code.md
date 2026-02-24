@@ -30,14 +30,13 @@ You can use the code editor to modify your theme's files.
 Desktop
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
-2. Click  > **Edit code**.
+2. Click > **Edit code**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage themes**.
-4. Tap  > **Edit code**.
+4. Tap > **Edit code**.
 
 ## Saving changes
 
@@ -50,7 +49,7 @@ To fix code indentation, open the Command Palette with `⌘` + `Shift` + `P` on 
 #### Steps:
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
-2. Click  > **Edit code**.
+2. Click > **Edit code**.
 3. Open the file that you want to format.
 4. Enter `⌘` + `P` on Mac or `Ctrl` + `P` on Windows.
 5. In the command palette, enter `format`, then press `Enter` on your keyboard.
@@ -63,7 +62,7 @@ To revert theme file changes, use the **Timeline** view to check the file histor
 #### Steps:
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
-2. Click  > **Edit code**.
+2. Click > **Edit code**.
 3. Open the file that you want to review.
 4. In the **Timeline** view, click on an entry in the timeline to compare the differences.
 5. To restore the file to a previous state, right-click the timeline entry, and then select **Restore contents**.
@@ -99,13 +98,13 @@ After you search for code, you can replace the code in a file.
 #### Steps:
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
-2. Click  > **Edit code**.
+2. Click > **Edit code**.
 3. Open the file that you want to search.
 4. Enter `⌘` + `F` on a Mac or `Ctrl` + `F` on Windows.
 5. In the **Search** field, enter your search term.
 6. Optional: To replace code, complete the following actions:
 
-* In the search modal, click the  icon.
+* In the search modal, click the icon.
 * In the **Replace** field, enter the replacement code. You can click **Preserve case** to match the replacement code's capitalization to the existing instance.
 * Click the **Replace** icon to replace instance at a time, or click the **Replace all** icon to replace all instances at one time.
 
@@ -116,12 +115,12 @@ Click the search button in the left sidebar to search across all theme files. Re
 #### Steps:
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
-2. Click  > **Edit code**.
-3. Click the  icon to open the search panel.
+2. Click > **Edit code**.
+3. Click the icon to open the search panel.
 4. In the **Search** field, enter your search term.
 5. Optional: To replace code, complete the following actions:
 
-* In the search modal, click the  icon.
+* In the search modal, click the icon.
 * In the **Replace** field, enter the replacement code.
 * Replace one instance at a time, or all instances at one time.
 
@@ -135,7 +134,7 @@ To narrow down your search results, use one or more of the following search opti
 
 In the **Search** panel, you can also select files and folders to include or exclude from the search results.
 
-Click  to open the advanced menu. You can enter any file or folder path in the **files to include** or **files to exclude** fields. To add more than one file or folder, separate them with a space and comma. For example, to search for files in the **sections** folder, enter `./sections` in **files to include** field.
+Click to open the advanced menu. You can enter any file or folder path in the **files to include** or **files to exclude** fields. To add more than one file or folder, separate them with a space and comma. For example, to search for files in the **sections** folder, enter `./sections` in **files to include** field.
 
 You can also search within a specific folder from the file directory view. Right-click on a folder, and then select **Find in folder...** from the dropdown menu.
 
@@ -150,7 +149,7 @@ To open a theme file, click on a folder, and then click on the file name from th
 #### Steps:
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
-2. Click  > **Edit code**.
+2. Click > **Edit code**.
 3. Enter `⌘` + `P` on Mac or `Ctrl` + `P` on Windows.
 4. Enter the file name in the search bar and select the file, or select a file from the **Recently opened** list.
 
@@ -163,7 +162,7 @@ File names can include characters A-Z, 0-9, and can't include character spaces. 
 #### Steps:
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
-2. Click  > **Edit code**.
+2. Click > **Edit code**.
 3. Click the folder that you want to add a new file to.
 4. Right-click the folder name and select **New file...** from the drop-down menu.
 5. Enter a new name for the file.
@@ -176,7 +175,7 @@ You can upload a new asset, such as an icon or image file, to the **assets** fol
 #### Steps:
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
-2. Click  > **Edit code**.
+2. Click > **Edit code**.
 3. Right-click on the **assets** folder.
 4. Click **Upload...**.
 5. Select the file that you want to upload.
@@ -189,7 +188,7 @@ You can right-click a file to rename it. Make sure not to edit or remove the fil
 #### Steps:
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
-2. Click  > **Edit code**.
+2. Click > **Edit code**.
 3. Right-click on a file and select **Rename...** from the drop-down menu.
 4. Enter a new name for the file.
 5. Press `Enter` on your keyboard.
@@ -201,6 +200,6 @@ You can delete any files in your theme. Deleted theme files can't be recovered.
 #### Steps:
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
-2. Click  > **Edit code**.
+2. Click > **Edit code**.
 3. Right-click on a file and select **Delete permanently** from the drop-down menu.
 4. Click **Delete**.

@@ -33,19 +33,19 @@ Topics:
 2. In the popup that appears, you can select a flag reason, specific job and/or user, add additional comments, and if the employer is approved at your institution, you can choose to revoke the approval.
 
 - Choose the best representation of concerns *(select all that apply)*:
-  - **Fraudulent or fake employer**
+ - **Fraudulent or fake employer**
     - Ex: this employer or job is fake or misrepresenting itself
-  - **Scam, phishing or malware**
+ - **Scam, phishing or malware**
     - Ex: this employer or job is a scam, asking for private personal information or posting suspicious links
-  - **Promotional or advertising**
+ - **Promotional or advertising**
     - Ex: this employer or job is for something other than hiring
-  - **Discriminatory practices**
+ - **Discriminatory practices**
     - Ex: this employer is discriminating against certain students
-  - **Exploitative, unethical or illegal practices**
+ - **Exploitative, unethical or illegal practices**
     - Ex: this employer has been charged with a crime or is violating DOL or FLSA standards
-  - **Adult content**
+ - **Adult content**
     - Ex: this employer or job post promotes nudity, sexual scenes and/or adult language
-  - **Offensive, abusive or harmful conduct**
+ - **Offensive, abusive or harmful conduct**
     - Ex: this employer offers a negative hiring experience, abusive work environment or has harassed students
 - To flag a specific job or user, use the dropdown menus for each. A list of jobs and users associated with the company in Handshake will be displayed.
 - Please describe the situation below *(optional)*
@@ -74,15 +74,15 @@ Once a flag is submitted, our Trust and Safety team will begin to review. Afterw
 Our Trust and Safety team reviews flags before we notify you of the outcome–notifications are sent if any flag results in suspension of a job, user, or the company.
 
 - **To Career Services users**:
-  - After reviewing a flag, if the flag is not confirmed, our Trust and Safety team will followup with the Career Services user that placed the flag to close the loop.
-  - All active staff members in Handshake will receive the notification of suspensions in Handshake. You may choose to enable an email notification as well, or you can disable the in-app notification (via Notification Preferences in your user settings).
-  - **Visibility following a suspension**:
+ - After reviewing a flag, if the flag is not confirmed, our Trust and Safety team will followup with the Career Services user that placed the flag to close the loop.
+ - All active staff members in Handshake will receive the notification of suspensions in Handshake. You may choose to enable an email notification as well, or you can disable the in-app notification (via Notification Preferences in your user settings).
+ - **Visibility following a suspension**:
     - **User suspension:** Career Services users may still be **able** to view the user's profile while the user is suspended. When a user is suspended, the account is not removed from Handshake, however, individual access to Handshake is revoked. This is to maintain information for reporting or documentation purposes.
     - **Company suspension**: There may be some cases where Career Services users are **unable** to view the user's profile and are directed to a 404 error page. This may be because the company the user's account is connected to was suspended permanently or because the company is currently suspended due to review of a flag.
     - **Job suspension**: Jobs that are removed will direct to a 404 error page.
 
 - **To Students**: *(No notifications are sent to students for suspension of a user or a company.)*
-  - Notifications are sent to students that applied to a job that has been removed due to the job violating our Terms of Service.
+ - Notifications are sent to students that applied to a job that has been removed due to the job violating our Terms of Service.
 
 - **To Employers**: *(Employers are not notified when a flag is submitted.)*
-  - If a job or user is suspended, the Owner of the company profile will be sent an email notification of the suspension and the specific violation.
+ - If a job or user is suspended, the Owner of the company profile will be sent an email notification of the suspension and the specific violation.

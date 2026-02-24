@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408842860186-Configuring-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -33,10 +33,9 @@ This transition enhances network efficiency and streamlines firewall configurati
 - Use the [Zendesk IP API](https://developer.zendesk.com/api-reference/ticketing/account-configuration/public_ips/) to retrieve your Zendesk subdomain’s inbound and outbound IP addresses: <https://{your-subdomain}.zendesk.com/ips>.
 - Update your allowlists to include the supplied ranges.
 - If your agents use any of the Zendesk products listed in [Getting IP addresses for additional Zendesk products](#h_01JK9QSD1S41227ND68WP9SMGJ), add those IP addresses to your allowlists as well. You can find the products included in your organization’s Zendesk plan [here](https://www.zendesk.com/pricing/featured/#compare-plans).
-- The addresses listed on <https://{your-subdomain}.zendesk.com/ips> do not include the IP ranges for emails sent by Zendesk's mail servers.  
-  To discover the additional IPs, open any popular [Domain Information Grouper (DIG) tool](https://docs.oracle.com/en-us/iaas/Content/DNS/Tasks/testingdnsusingdig.htm) and enter the following command:  
-  dig txt mail.zendesk.com +short  
-  The IP addresses returned by the DIG tool do not apply to messages sent via the Gmail Connector or Exchange Connector.
+- The addresses listed on <https://{your-subdomain}.zendesk.com/ips> do not include the IP ranges for emails sent by Zendesk's mail servers. 
+ To discover the additional IPs, open any popular [Domain Information Grouper (DIG) tool](https://docs.oracle.com/en-us/iaas/Content/DNS/Tasks/testingdnsusingdig.htm) and enter the following command: 
+ dig txt mail.zendesk.com +short The IP addresses returned by the DIG tool do not apply to messages sent via the Gmail Connector or Exchange Connector.
 
 ### Important notes
 

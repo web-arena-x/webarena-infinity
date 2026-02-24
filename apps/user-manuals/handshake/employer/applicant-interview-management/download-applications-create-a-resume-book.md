@@ -10,8 +10,8 @@ Your ability to download application documents depends on your employer account 
 
 - **Basic employers:** **Owners** and **Recruiters** can download applications only for jobs they have personally created. Jobs posted by other teammates will appear on your list, but are **view-only**.
 
-  - After a job you personally created closes, the ability to download applications remains accessible for **30 days**. To download applications beyond this period, you must upgrade to an eligible paid plan.
-  - To download applications for jobs you did not create, you must upgrade to an eligible paid plan.
+ - After a job you personally created closes, the ability to download applications remains accessible for **30 days**. To download applications beyond this period, you must upgrade to an eligible paid plan.
+ - To download applications for jobs you did not create, you must upgrade to an eligible paid plan.
 - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**, can download applications for both their own jobs and those posted by teammates indefinitely, provided they have the appropriate permissions.
 
 *To help manage your job applicants in Handshake, check out our*[*Job Applicant Management Guide*](https://support.joinhandshake.com/hc/en-us/articles/115013307228)*.*
@@ -90,8 +90,7 @@ The bulk download you recently requested has completed. You can access the file 
 
 Bulk Download (blue hyperlinked) File type and size
 
-Thank you,  
-The Handshake Team"
+Thank you, The Handshake Team"
 
 **Note**: If Handshake encounters issues converting some PDF documents, the email will include the following message:“Please note the following: there were issues converting PDF documents for some students. Please try downloading this package as a ZIP.”
 

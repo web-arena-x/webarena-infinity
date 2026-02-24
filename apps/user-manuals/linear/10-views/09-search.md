@@ -32,8 +32,8 @@ Use `O` + `I` to search for issues specifically by title or identifier.
 
 `open issue` to launch quick issues search
 
-`issue ID` then `Enter` to open any issue  
-  
+`issue ID` then `Enter` to open any issue 
+ 
 Type ``i`` followed by space to focus your command menu on issue results
 
 Additionally, you can type ``p`` followed by space for projects, ``u`` for users, ``t`` for team, ``l`` for labels, ``f`` for favorites and ``d`` for documents.

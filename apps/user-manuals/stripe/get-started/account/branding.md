@@ -187,13 +187,13 @@ Preview of a policy highlight on Checkout.
 
 - **Custom domains**
 
-  Checkout, Payment Links, and customer portal pages use stripe.com as the default domain. You can optionally set up your own [custom domain](/payments/checkout/custom-domains) for those products.
+ Checkout, Payment Links, and customer portal pages use stripe.com as the default domain. You can optionally set up your own [custom domain](/payments/checkout/custom-domains) for those products.
 - **Custom email domain**
 
-  By default, when Stripe sends invoices, receipts, and failed payment notifications to your customers, it sends them from the stripe.com domain. Set up your own [custom domain](/get-started/account/email-domain) to change this.
+ By default, when Stripe sends invoices, receipts, and failed payment notifications to your customers, it sends them from the stripe.com domain. Set up your own [custom domain](/get-started/account/email-domain) to change this.
 - **Payments, debits, and bank transfer emails**
 
-  You can decide which emails your customers receive about payments, debits, and bank transfers in your [Customer emails settings](https://dashboard.stripe.com/settings/emails). You can also choose the default language to use for emails when you don’t know a customer’s preference.
+ You can decide which emails your customers receive about payments, debits, and bank transfers in your [Customer emails settings](https://dashboard.stripe.com/settings/emails). You can also choose the default language to use for emails when you don’t know a customer’s preference.
 - **Billing (subscription and invoicing) emails**
 
-  You can turn on customer emails for [Billing](/billing/revenue-recovery/customer-emails) and [Invoicing](/invoicing/send-email) in the Dashboard or through the API.
+ You can turn on customer emails for [Billing](/billing/revenue-recovery/customer-emails) and [Invoicing](/invoicing/send-email) in the Dashboard or through the API.

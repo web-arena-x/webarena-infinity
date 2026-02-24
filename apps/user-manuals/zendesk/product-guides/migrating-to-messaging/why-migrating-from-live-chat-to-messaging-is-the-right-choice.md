@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408834108186-Why-migratin
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Team, Professional, or Enterprise |
 
@@ -77,32 +77,32 @@ The table below lists the capabilities available for messaging, and how they com
 
 | Capability | Messaging | Live chat |
 | --- | --- | --- |
-| Web Widget for websites | Yes  See our [messaging Web Widget documentation](https://support.zendesk.com/hc/en-us/sections/5283671848986). | Yes |
+| Web Widget for websites | Yes See our [messaging Web Widget documentation](https://support.zendesk.com/hc/en-us/sections/5283671848986). | Yes |
 | Session-based conversations (real-time) | Yes | Yes |
 | Persistent conversations | Yes | No |
-| Autoreplies with articles | Yes  See [About conversational support with messaging](https://support.zendesk.com/hc/en-us/articles/4408846454682). | Yes |
-| Autoreplies based on intelligent triage | Yes  See [Automatically adding comments and notes to tickets using triggers](https://support.zendesk.com/hc/en-us/articles/6191477770906). | No |
-| AI agents | Yes  See [About AI agents.](https://support.zendesk.com/hc/en-us/articles/6970583409690) | No |
-| Agent Workspace | Yes  See [Agent workspace for messaging](https://support.zendesk.com/hc/en-us/articles/4408821905434). | Yes |
-| End conversation by agent | Yes  See [Allowing agents to end conversations](https://support.zendesk.com/hc/en-us/articles/8372292195354). | No |
-| Action buttons (rich content) | Yes  See [About rich-text formatting in messaging conversations](https://support.zendesk.com/hc/en-us/articles/9017484189466). | No |
-| Android and iOS SDKs for mobile apps | Yes  See [Working with messaging for your mobile channel](https://support.zendesk.com/hc/en-us/articles/4408834810394). | Yes |
-| Historical reporting | Yes  See [Overview of the Zendesk messaging dashboard](https://support.zendesk.com/hc/en-us/articles/4724611131418). | Yes |
-| Real-time reporting | Yes  See [Overview if the Explore live dashboard](https://support.zendesk.com/hc/en-us/articles/4408843771546). | No |
-| Social messaging channels, including Whatsapp, Facebook Messenger, Instagram Direct, X (formerly Twitter), etc. | Yes  See our [third-party and social messaging channels documentation](https://support.zendesk.com/hc/en-us/sections/4405298883482). | No |
-| Security-based restrictions (signed-in vs. anonymous users, for example) | Yes  See [Setting up user authentication for messaging](https://support.zendesk.com/hc/en-us/articles/4411666638746). | Custom (available with minor custom development) |
-| Basic widget configuration options (colors, logos, widget placement) | Yes  See [Viewing and configuring Web Widget settings](https://support.zendesk.com/hc/en-us/articles/7178617945498). | Yes |
+| Autoreplies with articles | Yes See [About conversational support with messaging](https://support.zendesk.com/hc/en-us/articles/4408846454682). | Yes |
+| Autoreplies based on intelligent triage | Yes See [Automatically adding comments and notes to tickets using triggers](https://support.zendesk.com/hc/en-us/articles/6191477770906). | No |
+| AI agents | Yes See [About AI agents.](https://support.zendesk.com/hc/en-us/articles/6970583409690) | No |
+| Agent Workspace | Yes See [Agent workspace for messaging](https://support.zendesk.com/hc/en-us/articles/4408821905434). | Yes |
+| End conversation by agent | Yes See [Allowing agents to end conversations](https://support.zendesk.com/hc/en-us/articles/8372292195354). | No |
+| Action buttons (rich content) | Yes See [About rich-text formatting in messaging conversations](https://support.zendesk.com/hc/en-us/articles/9017484189466). | No |
+| Android and iOS SDKs for mobile apps | Yes See [Working with messaging for your mobile channel](https://support.zendesk.com/hc/en-us/articles/4408834810394). | Yes |
+| Historical reporting | Yes See [Overview of the Zendesk messaging dashboard](https://support.zendesk.com/hc/en-us/articles/4724611131418). | Yes |
+| Real-time reporting | Yes See [Overview if the Explore live dashboard](https://support.zendesk.com/hc/en-us/articles/4408843771546). | No |
+| Social messaging channels, including Whatsapp, Facebook Messenger, Instagram Direct, X (formerly Twitter), etc. | Yes See our [third-party and social messaging channels documentation](https://support.zendesk.com/hc/en-us/sections/4405298883482). | No |
+| Security-based restrictions (signed-in vs. anonymous users, for example) | Yes See [Setting up user authentication for messaging](https://support.zendesk.com/hc/en-us/articles/4411666638746). | Custom (available with minor custom development) |
+| Basic widget configuration options (colors, logos, widget placement) | Yes See [Viewing and configuring Web Widget settings](https://support.zendesk.com/hc/en-us/articles/7178617945498). | Yes |
 | Advanced widget configuration options | No | No |
-| Remove the Zendesk logo from the Web Widget | Yes  See [Configuring the widget frame](https://support.zendesk.com/hc/en-us/articles/4500747797914#topic_ubc_nmd_btb). | No |
-| Omnichannel management | Yes  See [About omnichannel routing](https://support.zendesk.com/hc/en-us/articles/4409149119514). | Yes |
-| Skills-based routing | Yes  See [Using omnichannel routing to route messaging tickets](https://support.zendesk.com/hc/en-us/articles/4408829019162#topic_yhw_s4y_bvb). | Yes |
-| Third-party integrations | Yes  See [Managing third-party bots in Admin Center](https://support.zendesk.com/hc/en-us/articles/5064149334426). | Yes |
-| Banning visitors | Yes  See [Suspending messaging users](https://support.zendesk.com/hc/en-us/articles/8009733465370). | Yes |
-| Multi-user chat | Yes  See [Collaborating on messaging conversations with @mentions](https://support.zendesk.com/hc/en-us/articles/6150674106266). | Yes |
-| Proactive messages (client side, e.g. website) | Yes  See [About proactive messages](https://support.zendesk.com/hc/en-us/articles/5381304334234). | Yes |
-| Pages viewed | Yes  See [Viewing customer context for user history and device information](https://support.zendesk.com/hc/en-us/articles/4408829170458). | Yes |
-| Conversion tracking | Yes  [See Tracking customer actions with messaging goals](../zendesk-messaging/tracking-customer-actions-with-messaging-goals.md) | Yes |
-| Visitor metadata (OS, device, platform) | Yes  See [Configuring end-user device information in the context panel](https://support.zendesk.com/hc/en-us/articles/7041910642074). | Yes |
+| Remove the Zendesk logo from the Web Widget | Yes See [Configuring the widget frame](https://support.zendesk.com/hc/en-us/articles/4500747797914#topic_ubc_nmd_btb). | No |
+| Omnichannel management | Yes See [About omnichannel routing](https://support.zendesk.com/hc/en-us/articles/4409149119514). | Yes |
+| Skills-based routing | Yes See [Using omnichannel routing to route messaging tickets](https://support.zendesk.com/hc/en-us/articles/4408829019162#topic_yhw_s4y_bvb). | Yes |
+| Third-party integrations | Yes See [Managing third-party bots in Admin Center](https://support.zendesk.com/hc/en-us/articles/5064149334426). | Yes |
+| Banning visitors | Yes See [Suspending messaging users](https://support.zendesk.com/hc/en-us/articles/8009733465370). | Yes |
+| Multi-user chat | Yes See [Collaborating on messaging conversations with @mentions](https://support.zendesk.com/hc/en-us/articles/6150674106266). | Yes |
+| Proactive messages (client side, e.g. website) | Yes See [About proactive messages](https://support.zendesk.com/hc/en-us/articles/5381304334234). | Yes |
+| Pages viewed | Yes See [Viewing customer context for user history and device information](https://support.zendesk.com/hc/en-us/articles/4408829170458). | Yes |
+| Conversion tracking | Yes [See Tracking customer actions with messaging goals](../zendesk-messaging/tracking-customer-actions-with-messaging-goals.md) | Yes |
+| Visitor metadata (OS, device, platform) | Yes See [Configuring end-user device information in the context panel](https://support.zendesk.com/hc/en-us/articles/7041910642074). | Yes |
 | Real-time APIs | Yes (Event Bridge only) | Yes |
 
 Table 1.

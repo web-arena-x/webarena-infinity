@@ -18,32 +18,27 @@ You should tune PostgreSQL when:
 - The performance of your GitLab environment is impaired.
 - GitLab uses an [external PostgreSQL service](external.md).
 
-Use this information in combination with the
-[required PostgreSQL settings](../../install/requirements.md#postgresql-settings) for GitLab.
+Use this information in combination with the [required PostgreSQL settings](../../install/requirements.md#postgresql-settings) for GitLab.
 
 ## Plan your database connections
 
 {{< alert type="note" >}}
 
-GitLab versions 16.0 and later use
-[two sets of database connections](https://docs.gitlab.com/omnibus/settings/database/#configuring-multiple-database-connections)
-for the `main` and `ci` tables. This doubles connection usage, even when the same PostgreSQL database
-serves both sets of tables.
+GitLab versions 16.0 and later use [two sets of database connections](https://docs.gitlab.com/omnibus/settings/database/#configuring-multiple-database-connections)
+for the `main` and `ci` tables. This doubles connection usage, even when the same PostgreSQL database serves both sets of tables.
 
 {{< /alert >}}
 
-GitLab uses database connections from multiple components. Proper connection planning prevents
-database connection exhaustion and performance issues.
+GitLab uses database connections from multiple components. Proper connection planning prevents database connection exhaustion and performance issues.
 
 Each GitLab component uses database connections based on its configuration.
 Sidekiq and Puma establish a pool of connections to PostgreSQL at initialization.
-The number of connections in the pool can increase later if there are connection spikes or
-temporary increases in demand:
+The number of connections in the pool can increase later if there are connection spikes or temporary increases in demand:
 
 - Configure database pool headroom with the environment variable `DB_POOL_HEADROOM`.
 - When you tune PostgreSQL, plan for pool headroom but do not change it.
-  GitLab deployments respond better to higher demand if more capacity is available:
-  deploy more Sidekiq or Puma workers.
+ GitLab deployments respond better to higher demand if more capacity is available:
+ deploy more Sidekiq or Puma workers.
 
 ### Puma
 
@@ -99,24 +94,20 @@ For multi-node installations, multiply by the number of nodes running each compo
 Total connections = 2 × ((Puma × Rails nodes) + (Sidekiq × Sidekiq nodes) + (Geo × secondary Rails nodes))
 ```
 
-Multiplying by 2 accounts for the
-[dual database connections](https://docs.gitlab.com/omnibus/settings/database/#configuring-multiple-database-connections) in GitLab 16.0 and later.
+Multiplying by 2 accounts for the [dual database connections](https://docs.gitlab.com/omnibus/settings/database/#configuring-multiple-database-connections) in GitLab 16.0 and later.
 
 For Geo installations:
 
 - Primary site: Use `Geo = 0`. Geo Log Cursor doesn't run on primary sites.
-- Secondary sites: Calculate the Geo Log Cursor database connections for one secondary site, and
-  apply that same calculation to all secondary sites.
+- Secondary sites: Calculate the Geo Log Cursor database connections for one secondary site, and apply that same calculation to all secondary sites.
 - Each Geo site connects to its own database, so you don't need to sum connections across multiple Geo sites.
-- Set `max_connections` to the same value on both the primary PostgreSQL database and all replica databases,
-  using the highest connection requirement across all Geo sites.
+- Set `max_connections` to the same value on both the primary PostgreSQL database and all replica databases, using the highest connection requirement across all Geo sites.
 
 ### Examples
 
 #### Single node installation
 
-This example is based on the GitLab reference architecture for
-[20 RPS (requests per second) or 1000 users](../reference_architectures/1k_users.md):
+This example is based on the GitLab reference architecture for [20 RPS (requests per second) or 1000 users](../reference_architectures/1k_users.md):
 
 | Component | Nodes | Configuration             | Connections per component | Component total, dual database |
 |-----------|-------|---------------------------|---------------------------|---------------------------------|
@@ -126,8 +117,7 @@ This example is based on the GitLab reference architecture for
 
 #### Multi-node installation
 
-This example is based on the GitLab reference architecture for
-[40 RPS (requests per second) or 2000 users](../reference_architectures/2k_users.md):
+This example is based on the GitLab reference architecture for [40 RPS (requests per second) or 2000 users](../reference_architectures/2k_users.md):
 
 | Component | Nodes | Configuration                      | Connections per component | Component total, dual database |
 |-----------|-------|------------------------------------|---------------------------|--------------------------------|
@@ -137,8 +127,7 @@ This example is based on the GitLab reference architecture for
 
 #### Single node installation with Geo
 
-This example is based on the GitLab reference architecture for
-[20 RPS (requests per second) or 1000 users](../reference_architectures/1k_users.md).
+This example is based on the GitLab reference architecture for [20 RPS (requests per second) or 1000 users](../reference_architectures/1k_users.md).
 
 | Component per Geo site                | Nodes | Configuration             | Connections per component | Component total, dual database |
 |---------------------------------------|-------|---------------------------|---------------------------|--------------------------------|
@@ -149,8 +138,7 @@ This example is based on the GitLab reference architecture for
 
 #### Multi-node installation with Geo
 
-This example is based on the GitLab reference architecture for
-[40 RPS (requests per second) or 2000 users](../reference_architectures/2k_users.md):
+This example is based on the GitLab reference architecture for [40 RPS (requests per second) or 2000 users](../reference_architectures/2k_users.md):
 
 | Component per Geo site                | Nodes | Configuration                      | Connections per component | Component total, dual database |
 |---------------------------------------|-------|------------------------------------|---------------------------|--------------------------------|

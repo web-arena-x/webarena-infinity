@@ -18,8 +18,7 @@ title: Migrating from the DAST proxy-based analyzer to DAST version 5
 
 {{< /history >}}
 
-[DAST version 5](browser/_index.md) replaces the proxy-based analyzer with a browser-based analyzer. This document serves as a guide to
-migrate from the proxy-based analyzer to DAST version 5.
+[DAST version 5](browser/_index.md) replaces the proxy-based analyzer with a browser-based analyzer. This document serves as a guide to migrate from the proxy-based analyzer to DAST version 5.
 
 Follow this migration guide if all the following conditions apply:
 
@@ -66,8 +65,7 @@ Changes to make:
 
 ## Authentication
 
-The proxy-based analyzer and DAST version 5 both use the browser-based analyzer to authenticate. Upgrading
-to DAST version 5 does not change how authentication works.
+The proxy-based analyzer and DAST version 5 both use the browser-based analyzer to authenticate. Upgrading to DAST version 5 does not change how authentication works.
 
 Changes to make:
 
@@ -76,15 +74,13 @@ Changes to make:
 
 ## Crawling
 
-DAST version 5 crawls the target application in a browser to provide better crawl coverage. This may require
-more resources to run than an equivalent proxy-based analyzer crawl.
+DAST version 5 crawls the target application in a browser to provide better crawl coverage. This may require more resources to run than an equivalent proxy-based analyzer crawl.
 
 Changes to make:
 
 - Use `DAST_TARGET_URL` instead of `DAST_WEBSITE`.
 - Use `DAST_CRAWL_TIMEOUT` instead of `DAST_SPIDER_MINS`.
-- CI/CD variables `DAST_USE_AJAX_SPIDER`, `DAST_SPIDER_START_AT_HOST`, `DAST_ZAP_CLI_OPTIONS`
-  and `DAST_ZAP_LOG_CONFIGURATION` are no longer supported.
+- CI/CD variables `DAST_USE_AJAX_SPIDER`, `DAST_SPIDER_START_AT_HOST`, `DAST_ZAP_CLI_OPTIONS` and `DAST_ZAP_LOG_CONFIGURATION` are no longer supported.
 - Configure `DAST_PAGE_MAX_RESPONSE_SIZE_MB` if DAST should process response bodies larger than 10 MB.
 - Consider providing more CPU resources to the GitLab Runner executing the DAST job.
 
@@ -95,16 +91,14 @@ DAST version 5 provides more control over scope compared to the proxy-based anal
 Changes to make:
 
 - Use `DAST_SCOPE_ALLOW_HOSTS` instead of `DAST_ALLOWED_HOSTS`.
-- The domain of `DAST_TARGET_URL` is automatically added to `DAST_SCOPE_ALLOW_HOSTS`, consider adding domains for the
-  target application API and asset endpoints.
+- The domain of `DAST_TARGET_URL` is automatically added to `DAST_SCOPE_ALLOW_HOSTS`, consider adding domains for the target application API and asset endpoints.
 - Remove domains from the scan by adding them to `DAST_SCOPE_EXCLUDE_HOSTS` (except during authentication).
 
 ## Vulnerability checks
 
 ### Changes required
 
-DAST version 5 uses vulnerability definitions built by GitLab, these do not map directly to proxy-based
-analyzer definitions.
+DAST version 5 uses vulnerability definitions built by GitLab, these do not map directly to proxy-based analyzer definitions.
 
 Changes to make:
 
@@ -117,8 +111,7 @@ Changes to make:
 
 Proxy-based scans and browser-based DAST version 5 scans do not produce the same results because they use a different set of vulnerability checks.
 
-DAST version 5 does not have an equivalent for proxy-based checks that create too many false positives,
-are not worth running because modern browsers don't allow the vulnerability to be exploited, or are no longer considered relevant.
+DAST version 5 does not have an equivalent for proxy-based checks that create too many false positives, are not worth running because modern browsers don't allow the vulnerability to be exploited, or are no longer considered relevant.
 DAST version 5 includes checks that proxy-based analyzer does not.
 
 DAST version 5 scans provide better coverage of your application, so they may identify more vulnerabilities because more of your site is scanned.
@@ -126,9 +119,7 @@ DAST version 5 scans provide better coverage of your application, so they may id
 ### Coverage
 
 One proxy-based active check is yet to be implemented in the browser-based DAST analyzer.
-Migration of the remaining active check is proposed in
-[epic 13411](https://gitlab.com/groups/gitlab-org/-/epics/13411). If you prefer to remain on DAST
-version 4 until the last check is migrated, see [Continuing to use the proxy-based analyzer](#continuing-to-use-the-proxy-based-analyzer).
+Migration of the remaining active check is proposed in [epic 13411](https://gitlab.com/groups/gitlab-org/-/epics/13411). If you prefer to remain on DAST version 4 until the last check is migrated, see [Continuing to use the proxy-based analyzer](#continuing-to-use-the-proxy-based-analyzer).
 
 Remaining check:
 
@@ -147,7 +138,7 @@ See the DAST version 5 [troubleshooting](browser/troubleshooting.md) documentati
 The following table outlines migration actions required for each proxy-based analyzer CI/CD variable.
 See [configuration](browser/configuration/_index.md) for more information on configuring DAST version 5.
 
-| Proxy-based analyzer CI/CD variable  | Required action          | Notes                                                                                    |
+| Proxy-based analyzer CI/CD variable | Required action          | Notes                                                                                    |
 |:-------------------------------------|:-------------------------|:-----------------------------------------------------------------------------------------|
 | `DAST_ADVERTISE_SCAN`                | Rename                   | To `DAST_REQUEST_ADVERTISE_SCAN`                                                         |
 | `DAST_ALLOWED_HOSTS`                 | Rename                   | To `DAST_SCOPE_ALLOW_HOSTS`                                                              |

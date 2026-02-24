@@ -19,10 +19,10 @@ In the Submittals tool, you can add related items to your submittal packages. Th
 ## Things to Consider
 
 - **Required User Permission**:
-  - *To add or delete related items*, 'Admin' level permission on the project's Submittals tool.
+ - *To add or delete related items*, 'Admin' level permission on the project's Submittals tool.
 - **Additional Information**:
-  - For a selection to appear in the 'Type' menu, the corresponding tool must be an active tool on the project. See [Add and Remove Tools from a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-and-remove-project-tools "Add and Remove Tools on a Project").
-  - For a selection to appear in the 'Description' menu, you must be granted the appropriate permission to view that item in the corresponding Procore tool.
+ - For a selection to appear in the 'Type' menu, the corresponding tool must be an active tool on the project. See [Add and Remove Tools from a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-and-remove-project-tools "Add and Remove Tools on a Project").
+ - For a selection to appear in the 'Description' menu, you must be granted the appropriate permission to view that item in the corresponding Procore tool.
 
 ## Steps
 

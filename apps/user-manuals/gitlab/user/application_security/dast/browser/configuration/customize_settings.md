@@ -64,30 +64,24 @@ The following could be a typical configuration:
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://my.site.com"                   # my.site.com URLs are considered in-scope by default
     DAST_SCOPE_ALLOW_HOSTS: "api.site.com:8443"       # include the API as part of the scan
     DAST_SCOPE_IGNORE_HOSTS: "analytics.site.com"      # explicitly disregard analytics from the scan
     DAST_SCOPE_EXCLUDE_HOSTS: "ads.site.com"           # don't visit any URLs on the ads subdomain
-    DAST_SCOPE_EXCLUDE_URLS: "https://my.site.com/user/logout"  # don't visit this URL
+    DAST_SCOPE_EXCLUDE_URLS: "https://my.site.com/user/logout" # don't visit this URL
 ```
 
 ## Vulnerability detection
 
 DAST detects vulnerabilities through our comprehensive [browser-based vulnerability checks](../checks/_index.md). These checks identify security issues in your web applications during scanning.
 
-The crawler runs the target website in a browser with DAST configured as the proxy server. This
-ensures that all requests and responses made by the browser are passively scanned by DAST. When
-running a full scan, active vulnerability checks executed by DAST do not use a browser. This
-difference in how vulnerabilities are checked can cause issues that require certain features of the
-target website to be disabled to ensure the scan works as intended.
+The crawler runs the target website in a browser with DAST configured as the proxy server. This ensures that all requests and responses made by the browser are passively scanned by DAST. When running a full scan, active vulnerability checks executed by DAST do not use a browser. This difference in how vulnerabilities are checked can cause issues that require certain features of the target website to be disabled to ensure the scan works as intended.
 
-For example, for a target website that contains forms with Anti-CSRF tokens, a passive scan works as
-intended because the browser displays pages and forms as if a user is viewing the page. However,
-active vulnerability checks that run in a full scan cannot submit forms containing Anti-CSRF tokens.
+For example, for a target website that contains forms with Anti-CSRF tokens, a passive scan works as intended because the browser displays pages and forms as if a user is viewing the page. However, active vulnerability checks that run in a full scan cannot submit forms containing Anti-CSRF tokens.
 In such cases, disable Anti-CSRF tokens when running a full scan.
 
 ## Managing scan time
@@ -113,11 +107,9 @@ Due to poor network conditions or heavy application load, the default timeouts m
 
 Browser-based scans offer the ability to adjust various timeouts to ensure it continues smoothly as it transitions from one page to the next. These values are configured using a [Duration string](https://pkg.go.dev/time#ParseDuration), which allow you to configure durations with a prefix: `m` for minutes, `s` for seconds, and `ms` for milliseconds.
 
-Navigations, or the act of loading a new page, usually require the most amount of time because they are
-loading multiple new resources such as JavaScript or CSS files. Depending on the size of these resources, or the speed at which they are returned, the default `DAST_PAGE_READY_AFTER_NAVIGATION_TIMEOUT` may not be sufficient.
+Navigations, or the act of loading a new page, usually require the most amount of time because they are loading multiple new resources such as JavaScript or CSS files. Depending on the size of these resources, or the speed at which they are returned, the default `DAST_PAGE_READY_AFTER_NAVIGATION_TIMEOUT` may not be sufficient.
 
-Stability timeouts, such as those configurable with `DAST_PAGE_DOM_READY_TIMEOUT` or `DAST_PAGE_READY_AFTER_ACTION_TIMEOUT`, can also be configured. Stability timeouts determine when browser-based scans consider
-a page fully loaded. Browser-based scans consider a page loaded when:
+Stability timeouts, such as those configurable with `DAST_PAGE_DOM_READY_TIMEOUT` or `DAST_PAGE_READY_AFTER_ACTION_TIMEOUT`, can also be configured. Stability timeouts determine when browser-based scans consider a page fully loaded. Browser-based scans consider a page loaded when:
 
 1. The [DOMContentLoaded](https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event) event has fired.
 1. There are no open or outstanding requests that are deemed important, such as JavaScript and CSS. Media files are usually deemed unimportant.
@@ -131,10 +123,10 @@ If your application experiences latency or returns many navigation failures, con
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://my.site.com"
     DAST_PAGE_READY_AFTER_NAVIGATION_TIMEOUT: "45s"
     DAST_PAGE_READY_AFTER_ACTION_TIMEOUT: "15s"
@@ -169,8 +161,7 @@ For a comprehensive list, see [Available CI/CD variables](variables.md).
 
 #### Page loading workflow
 
-Modern web applications load in multiple stages. The DAST scanner has specific timeouts for
-each step in the process:
+Modern web applications load in multiple stages. The DAST scanner has specific timeouts for each step in the process:
 
 1. **Document loading**: The browser fetches and processes the basic page structure.
 
@@ -194,12 +185,12 @@ The following chart illustrates the sequence timeouts used when crawling a page:
 
 ```mermaid
 %%{init: {
-  "gantt": {
+ "gantt": {
     "leftPadding": 250,
     "sectionFontSize": 15,
     "topPadding": 40,
     "fontFamily": "GitLab Sans"
-  }
+ }
 }}%%
 gantt
     accTitle: DAST timeout sequence during page load
@@ -208,26 +199,24 @@ gantt
     dateFormat YYYY-MM-DD
     axisFormat
     section       Document load
-    DAST_PAGE_READY_AFTER_NAVIGATION_TIMEOUT  :done, nav1, 2024-01-01, 6d
-    Fetch HTML  :active, nav1, 2024-01-01, 3d
-    Fetch CSS&JS  :active, nav1, 2024-01-04, 3d
-    DocumentReady  :milestone, nav1, 2024-01-07, 0d
+    DAST_PAGE_READY_AFTER_NAVIGATION_TIMEOUT :done, nav1, 2024-01-01, 6d
+    Fetch HTML :active, nav1, 2024-01-01, 3d
+    Fetch CSS&JS :active, nav1, 2024-01-04, 3d
+    DocumentReady :milestone, nav1, 2024-01-07, 0d
 
     section       Load Data / Client-side render
-    DAST_PAGE_DOM_STABLE_WAIT  :done, dom1, 2024-01-07, 3d
+    DAST_PAGE_DOM_STABLE_WAIT :done, dom1, 2024-01-07, 3d
     Initial JS Execution :active, dom1, 2024-01-07, 3d
-    DAST_PAGE_DOM_READY_TIMEOUT  :done, ready1, 2024-01-10, 4d
+    DAST_PAGE_DOM_READY_TIMEOUT :done, ready1, 2024-01-10, 4d
     Fetch Data :active, dom1, 2024-01-10, 2d
     Render DOM :active, dom1, 2024-01-10, 2d
-    DAST_PAGE_IS_LOADING_ELEMENT  :milestone, load1, 2024-01-14, 0d
+    DAST_PAGE_IS_LOADING_ELEMENT :milestone, load1, 2024-01-14, 0d
 ```
 
 ## Grouped URLs
 
 When you run the DAST scanner against your website, a typical scan might take several hours to complete.
-This delay happens when your website contains thousands of similar pages that use the same template with
-varying information. DAST treats each page as separate and analyzes them individually, spending most of
-the scan time crawling these similar pages.
+This delay happens when your website contains thousands of similar pages that use the same template with varying information. DAST treats each page as separate and analyzes them individually, spending most of the scan time crawling these similar pages.
 
 For example:
 
@@ -236,34 +225,27 @@ For example:
 - Content management systems with categorized articles (`/blog/category/tech`, `/blog/category/news`)
 - Search interfaces with paginated results (`/search?q=term&page=1`, `/search?q=term&page=2`)
 
-Instead of treating every URL as unique, grouped URLs allow you to define wildcard patterns that group
-similar URLs together. When DAST encounters URLs that match these patterns, it analyzes one representative
-URL from each group to reduce scan time while maintaining security coverage.
-For example, if all product detail pages follow the same structure and security model, DAST only needs to
-test one of them thoroughly.
+Instead of treating every URL as unique, grouped URLs allow you to define wildcard patterns that group similar URLs together. When DAST encounters URLs that match these patterns, it analyzes one representative URL from each group to reduce scan time while maintaining security coverage.
+For example, if all product detail pages follow the same structure and security model, DAST only needs to test one of them thoroughly.
 
 ### How grouped URLs work
 
 When you configure grouped URL patterns, DAST's crawler optimizes the crawl:
 
 1. Pattern matching: As the crawler discovers new URLs, it checks each one against your defined patterns.
-1. Smart grouping: URLs that match a pattern are grouped together, with only the first discovered URL fully
-   analyzed.
-1. Navigation skipped: Subsequent URLs that match the same pattern are skipped from full crawling but still recorded
-   for reporting.
+1. Smart grouping: URLs that match a pattern are grouped together, with only the first discovered URL fully analyzed.
+1. Navigation skipped: Subsequent URLs that match the same pattern are skipped from full crawling but still recorded for reporting.
 1. Security coverage: The security analysis performed on the representative URL applies to the entire group.
 
 {{< alert type="warning" >}}
 
-A URL that gets skipped because of the grouped URLs configuration might appear as **visited** or **failed** in the crawl
-graph. This is a known issue. For more information, see [issue 577252](https://gitlab.com/gitlab-org/gitlab/-/issues/577252).
+A URL that gets skipped because of the grouped URLs configuration might appear as **visited** or **failed** in the crawl graph. This is a known issue. For more information, see [issue 577252](https://gitlab.com/gitlab-org/gitlab/-/issues/577252).
 
 {{< /alert >}}
 
 ### Example configuration guide
 
-The following example uses a hypothetical e-commerce website. This site has product listing pages that have variable filters
-as query parameters, and product detail pages with the product identifier as a sub-path in the URL.
+The following example uses a hypothetical e-commerce website. This site has product listing pages that have variable filters as query parameters, and product detail pages with the product identifier as a sub-path in the URL.
 
 **Analyze your application's URL patterns**
 
@@ -277,15 +259,15 @@ Before configuring grouped URLs, understand your application's URL structure:
 In this example, a scan of the e-commerce site produces the following URLs in [the log file found in the CI artifacts](../troubleshooting.md#log-destination):
 
 ```plaintext
-INF REPT  visited 8 URLs
-INF REPT  URL visited: (DOC www.your-site.com/products?category=vegetables&sort=price) GET www.your-site.com/products?category=vegetables&sort=price
-INF REPT  URL visited: (DOC www.your-site.com/products?category=fruits&sort=price) GET www.your-site.com/products?category=fruits&sort=price
-INF REPT  URL visited: (DOC www.your-site.com/products?category=frozen&sort=price) GET www.your-site.com/products?category=frozen&sort=price
-INF REPT  URL visited: (DOC www.your-site.com/products?category=frozen&sort=price) GET www.your-site.com/products?category=frozen&sort=price
-INF REPT  URL visited: (DOC www.your-site.com/products/029039-apple-93000/details) GET www.your-site.com/products/029039-apple-93000/details
-INF REPT  URL visited: (DOC www.your-site.com/products/99345-orange-33322/details) GET www.your-site.com/products/99345-orange/details
-INF REPT  URL visited: (DOC www.your-site.com/products/90845-orange-33992/details) GET www.your-site.com/products/90845-orange/details
-INF REPT  URL visited: (DOC www.your-site.com/products/100232-bananas-2677/details) GET www.your-site.com/products/100232-bananas-2677/details
+INF REPT visited 8 URLs
+INF REPT URL visited: (DOC www.your-site.com/products?category=vegetables&sort=price) GET www.your-site.com/products?category=vegetables&sort=price
+INF REPT URL visited: (DOC www.your-site.com/products?category=fruits&sort=price) GET www.your-site.com/products?category=fruits&sort=price
+INF REPT URL visited: (DOC www.your-site.com/products?category=frozen&sort=price) GET www.your-site.com/products?category=frozen&sort=price
+INF REPT URL visited: (DOC www.your-site.com/products?category=frozen&sort=price) GET www.your-site.com/products?category=frozen&sort=price
+INF REPT URL visited: (DOC www.your-site.com/products/029039-apple-93000/details) GET www.your-site.com/products/029039-apple-93000/details
+INF REPT URL visited: (DOC www.your-site.com/products/99345-orange-33322/details) GET www.your-site.com/products/99345-orange/details
+INF REPT URL visited: (DOC www.your-site.com/products/90845-orange-33992/details) GET www.your-site.com/products/90845-orange/details
+INF REPT URL visited: (DOC www.your-site.com/products/100232-bananas-2677/details) GET www.your-site.com/products/100232-bananas-2677/details
 ```
 
 The first four URLs represent product listing pages with different `category` and `sort` filters.
@@ -306,22 +288,16 @@ When you create patterns, follow these rules:
 
 Configure the patterns for the e-commerce website:
 
-1. Product categories listing group pattern: The first four URLs can be grouped logically using the pattern
-   `www.your-site.com/products?category=*&sort=price`. This pattern matches all pages that use both the category
-   filters and define `price` as the `sort` filter.
-1. Product details group pattern: The last four URLs can be grouped logically using the pattern
-   `www.your-site.com/products/*/details`. This pattern matches all product detail pages regardless of
-   the product identifier.
+1. Product categories listing group pattern: The first four URLs can be grouped logically using the pattern `www.your-site.com/products?category=*&sort=price`. This pattern matches all pages that use both the category filters and define `price` as the `sort` filter.
+1. Product details group pattern: The last four URLs can be grouped logically using the pattern `www.your-site.com/products/*/details`. This pattern matches all product detail pages regardless of the product identifier.
 
 You can also split the product details group pattern further into two groups:
 
 1. Orange product details group pattern: The pattern `www.your-site.com/products/*orange*/details` matches the two URLs for oranges.
 1. Generic product details group pattern: The pattern `www.your-site.com/products/*/details` matches all other products.
 
-One page can match more than one URL pattern. Specify patterns in the order you want them matched. For example,
-`www.your-site.com/products/4782-orange-777/details` matches both patterns but this is an orange product detail page.
-To ensure it matches the orange product details group pattern, specify the orange product details before the generic
-product details group pattern in configuration.
+One page can match more than one URL pattern. Specify patterns in the order you want them matched. For example, `www.your-site.com/products/4782-orange-777/details` matches both patterns but this is an orange product detail page.
+To ensure it matches the orange product details group pattern, specify the orange product details before the generic product details group pattern in configuration.
 
 **Configure the `DAST_CRAWL_GROUPED_URLS` variable**
 
@@ -329,10 +305,10 @@ Add the configuration to your `.gitlab-ci.yml` file:
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://your-site.com"
     DAST_CRAWL_GROUPED_URLS: "https://your-site.com/products?category=*&sort=price,https://your-site.com/products/*orange*/details,https://your-site.com/products/*/details"
 ```
@@ -356,7 +332,7 @@ For search or filter pages with multiple varying parameters:
 
 ```yaml
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://your-site.com"
     # Match search results with any query and page number
     DAST_CRAWL_GROUPED_URLS: "https://your-site.com/search?q=*&page=*,https://your-site.com/search?q=*&page=*&sort=*"
@@ -370,7 +346,7 @@ For applications with both dynamic paths and query strings:
 
 ```yaml
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://your-site.com"
     DAST_CRAWL_GROUPED_URLS: |
       https://your-site.com/api/v1/users/*/profile?tab=*,
@@ -390,7 +366,7 @@ For nested resource structures with multiple levels:
 
 ```yaml
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://your-site.com"
     DAST_CRAWL_GROUPED_URLS: |
       https://your-site.com/organizations/*/teams/*/members/*,
@@ -406,7 +382,7 @@ For REST API endpoints with varying resource identifiers:
 
 ```yaml
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://api.your-site.com"
     DAST_CRAWL_GROUPED_URLS: |
       https://api.your-site.com/v1/customers/*/orders,
@@ -423,7 +399,7 @@ For internationalized sites with language or region codes:
 
 ```yaml
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://your-site.com"
     DAST_CRAWL_GROUPED_URLS: |
       https://your-site.com/*/products/*,
@@ -443,7 +419,7 @@ For URLs with session IDs or temporary tokens that should be grouped:
 
 ```yaml
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://your-site.com"
     DAST_CRAWL_GROUPED_URLS: |
       https://your-site.com/checkout?session=*,
@@ -459,7 +435,7 @@ For comprehensive e-commerce site optimization:
 
 ```yaml
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://shop.your-site.com"
     DAST_CRAWL_GROUPED_URLS: |
       https://shop.your-site.com/products?category=*&brand=*&price=*,
@@ -484,7 +460,7 @@ When patterns overlap, order them from most specific to most general:
 
 ```yaml
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://your-site.com"
     # Order matters: specific patterns first, general patterns last
     DAST_CRAWL_GROUPED_URLS: |
@@ -502,7 +478,7 @@ Combine with `DAST_SCOPE_EXCLUDE_URLS` to exclude certain URLs from both groupin
 
 ```yaml
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://your-site.com"
     DAST_CRAWL_GROUPED_URLS: "https://your-site.com/articles/*/comments?page=*"
     # Exclude logout and admin URLs from scanning entirely

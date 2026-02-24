@@ -76,12 +76,10 @@ bundle exec rails runner "Integration.where(type_new: ['Integrations::GoogleClou
 
 ## Adjust configuration that uses environment scopes
 
-If you use [environment scopes](../../user/group/clusters/_index.md#environment-scopes), you might need to adjust your
-configuration, especially if configuration variables share the same key, but have different scopes.
+If you use [environment scopes](../../user/group/clusters/_index.md#environment-scopes), you might need to adjust your configuration, especially if configuration variables share the same key, but have different scopes.
 Environment scopes are completely ignored in CE.
 
-With configuration variables that share a key but different scopes, you could accidentally get a variable that you're
-not expecting for a particular environment. Make sure that you have the right variables in this case.
+With configuration variables that share a key but different scopes, you could accidentally get a variable that you're not expecting for a particular environment. Make sure that you have the right variables in this case.
 
 Your data is completely preserved in the transition, so you can change back to EE and restore the behavior.
 

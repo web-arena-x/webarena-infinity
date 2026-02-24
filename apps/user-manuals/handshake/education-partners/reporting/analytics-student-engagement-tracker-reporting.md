@@ -34,7 +34,7 @@ The below reports were built using our legacy reporting system, so they are not 
 
 ### Links to the Insights Reports included in the attached spreadsheet:
 
-|  |  |
+| | |
 | --- | --- |
 | Student Data | [Download Report](https://app.joinhandshake.com/analytics/explore_embed?insights_page=ZXhwbG9yZS9nZW5lcmF0ZWRfaGFuZHNoYWtlX3Byb2R1Y3Rpb24vc3R1ZGVudHM_cWlkPUUyaXlsTVpMRnVrVnR3ZUhpQUM1UWgmZW1iZWRfZG9tYWluPWh0dHBzOiUyRiUyRmFwcC5qb2luaGFuZHNoYWtlLmNvbQ==) |
 | Login and Notes Data | [Download Report](https://app.joinhandshake.com/analytics/explore_embed?insights_page=ZXhwbG9yZS9nZW5lcmF0ZWRfaGFuZHNoYWtlX3Byb2R1Y3Rpb24vc3R1ZGVudHM_cWlkPTZ3ekh0VE9jcU8yNTJKVjl1aEc3UUImZW1iZWRfZG9tYWluPWh0dHBzOiUyRiUyRmFwcC5qb2luaGFuZHNoYWtlLmNvbQ==%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20) |

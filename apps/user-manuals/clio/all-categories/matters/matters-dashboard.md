@@ -39,7 +39,7 @@ This section shows key financial information, such as work in progress, outstand
 - **Matter trust funds:** This section shows the total trust fund amount held at the matter-level for this matter, including the minimum trust fund balance. If the client has funds held at the client-level (in the same currency as the matter), this section will also display a link to **View client level funds**. If funds held at the client-level is in a currency that is different from the matter, this will not be displayed. Click **New request** to generate a new trust request or **Edit** to edit the minimum trust balance for the matter. Learn more about trust account management [here](https://help.clio.com/hc/en-us/articles/9285403397915) and the minimum trust balance feature within the matter form [here](create-matters.md#h_01GEK791XBF1JJ0VYC8BQTG9MW).
 - **Budget:** If a budget amount was set in the [Billing Preferences](create-matters.md#h_01GEK791XBF1JJ0VYC8BQTG9MW) of the matter, this section shows a progress bar with the value of current billed activities relative to the budget amount.
 
-  **Note:** The budget calculations exclude tax amounts.
+ **Note:** The budget calculations exclude tax amounts.
 - **Time:** This value shows the gross total for all time entries logged by your firm on this matter. Click **Add time** to add a new time entry. Learn more about time entries [here](https://help.clio.com/hc/en-us/articles/9289741706779).
 - **Expenses:** This value shows the gross total for all expense entries logged by your firm on this matter. Click **Add expense** to add a new expense entry. Learn more about expenses [here](https://help.clio.com/hc/en-us/articles/9289745356571).
 

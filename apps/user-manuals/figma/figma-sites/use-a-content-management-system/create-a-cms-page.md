@@ -10,7 +10,7 @@ Available on [all plans](https://help.figma.com/hc/en-us/articles/360040328273)
 
 Requires edit access to the site file
 
-![Cursor clicks the slug in the webpage header and chooses a different option; the page content updates dynamically.  ](https://help.figma.com/hc/article_attachments/36434249908887)
+![Cursor clicks the slug in the webpage header and chooses a different option; the page content updates dynamically. ](https://help.figma.com/hc/article_attachments/36434249908887)
 
 A CMS page is a dynamic webpage that displays individual items from a collection. It lets you design a single layout and automatically populate it with content—such as an article, product, or case study—pulled directly from your CMS.
 
@@ -34,7 +34,7 @@ A **CMS page** shows all the details for a specific item: the ingredients, steps
 
 If you’re starting from a blank webpage for your CMS, we recommend inserting a pre-built CMS page block. This block is already connected to your CMS, and just needs to be styled:
 
-1. Click  **Insert** from the left navigation bar.
+1. Click **Insert** from the left navigation bar.
 2. From the **Blocks** tab, click **CMS**.
 3. Drag a CMS page onto the canvas for the relevant collection.
 4. Style the elements containing your content, and add any new design elements as needed.
@@ -50,9 +50,9 @@ If your webpage already contains design elements, you can convert it into a CMS 
 To create a CMS page:
 
 1. Select the webpage on the canvas.
-2. In the right sidebar, click  **CMS** and select a collection.
+2. In the right sidebar, click **CMS** and select a collection.
 
-**Tip:** You can also create a CMS page from **Connect view.** Click  **CMS** in the left navigation bar, then switch to the **Connect** tab at the top of the left sidebar. Hover over a collection name, click **Connect,** and select **Full page**. Then, click your webpage to connect it.
+**Tip:** You can also create a CMS page from **Connect view.** Click **CMS** in the left navigation bar, then switch to the **Connect** tab at the top of the left sidebar. Hover over a collection name, click **Connect,** and select **Full page**. Then, click your webpage to connect it.
 
 ![Cursor switches to a different item in the webpage header. Nothing happens because the page's layers aren't connected yet. ](https://help.figma.com/hc/article_attachments/36434235462039)
 
@@ -73,14 +73,14 @@ You can quickly connect layers from the right sidebar while working on the webpa
 **Connect to a text layer**
 
 1. Select a layer. For text layers, make sure you select the actual text layer and not any parent layers, like a frame.
-2. At the top of the right sidebar, click  **Apply variable or CMS field,** then select a field.
+2. At the top of the right sidebar, click **Apply variable or CMS field,** then select a field.
 
 **Connect to an image fill**
 
 You can connect an image field to any layer with a fill, like shapes and frames.
 
 1. Select a layer with a fill within the CMS page.
-2. In the **Fill** section of the right sidebar, click  **Add fill**.
+2. In the **Fill** section of the right sidebar, click **Add fill**.
 3. Select the **CMS** tab, then select an image field in the collection to connect it.
 
 **Connect a link**
@@ -88,8 +88,8 @@ You can connect an image field to any layer with a fill, like shapes and frames.
 You can connect a link field to any linkable element, like text, frames, or shapes.
 
 1. Select a layer within the CMS list.
-2. In the right sidebar, click  **Add link**.
-3. Enter a link, or open the  dropdown menu to select an existing webpage from your site.
+2. In the right sidebar, click **Add link**.
+3. Enter a link, or open the dropdown menu to select an existing webpage from your site.
 
 **Tip**: This is how you [link a CMS list to a CMS page](https://help.figma.com/hc/en-us/articles/36165334984855).
 
@@ -101,7 +101,7 @@ You can connect a link field to any linkable element, like text, frames, or shap
 
 **Note:** Certain field types only connect to compatible layer types. For example, you can’t connect a text field to a shape or frame.
 
-1. Click  **CMS** in the left navigation bar.
+1. Click **CMS** in the left navigation bar.
 2. Select the **Connect** tab.
 3. Click a field in the collection, then click a target layer in the CMS page to connect it.
 4. Repeat for additional fields and layers.
@@ -116,7 +116,7 @@ Once layers are connected, you can preview how the page looks for different item
 
 Click the **slug** in the header of the CMS webpage to switch between items.
 
-**Tip:** You can also click  **Preview** to view the page in a full screen preview, or press `Shift` `Space` to open the inline preview.
+**Tip:** You can also click **Preview** to view the page in a full screen preview, or press `Shift` `Space` to open the inline preview.
 
 **Note**: You can’t preview a CMS page while in **Connect** view.
 
@@ -124,12 +124,12 @@ Click the **slug** in the header of the CMS webpage to switch between items.
 
 To disconnect a layer or CMS page:
 
-1. From the left navigation bar, click  **CMS** and switch to the **Connect** tab.
-2. Click the collection name in the header of the webpage, or a connected layer, and select  **Remove connection**.
+1. From the left navigation bar, click **CMS** and switch to the **Connect** tab.
+2. Click the collection name in the header of the webpage, or a connected layer, and select **Remove connection**.
 
 When you remove a connection, the disconnected page or layer keeps its last known content but no longer updates dynamically.
 
-**Tip**: You can also disconnect a layer from the properties panel. Select it on the canvas, then click  **Remove connection** in the right sidebar.
+**Tip**: You can also disconnect a layer from the properties panel. Select it on the canvas, then click **Remove connection** in the right sidebar.
 
 ## Frequently asked questions
 

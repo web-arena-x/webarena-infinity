@@ -19,8 +19,7 @@ title: Compliance status report
 
 {{< /history >}}
 
-The compliance status report displays the most recent instances where projects do not adhere to [compliance framework requirements](../compliance_frameworks/_index.md#requirements). It is part of the
-compliance center, and helps you quickly identify and remediate gaps in control implementation across your projects.
+The compliance status report displays the most recent instances where projects do not adhere to [compliance framework requirements](../compliance_frameworks/_index.md#requirements). It is part of the compliance center, and helps you quickly identify and remediate gaps in control implementation across your projects.
 
 ## Scan timing and triggers
 
@@ -48,8 +47,7 @@ To view the compliance status report:
 
 ## Report details
 
-The compliance status report shows the latest instance where a project is adhering or not adhering to a framework control. Each row provides details
-about the current status of a control in a specific project, helping you monitor compliance across your group.
+The compliance status report shows the latest instance where a project is adhering or not adhering to a framework control. Each row provides details about the current status of a control in a specific project, helping you monitor compliance across your group.
 
 You can:
 

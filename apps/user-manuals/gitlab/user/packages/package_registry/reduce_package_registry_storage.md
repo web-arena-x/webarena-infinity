@@ -30,8 +30,7 @@ To review the storage **Usage breakdown**:
 
 ## Delete a package
 
-You cannot edit a package after you publish it in the package registry. Instead, you
-must delete the package and republish it.
+You cannot edit a package after you publish it in the package registry. Instead, you must delete the package and republish it.
 
 Prerequisites:
 
@@ -53,9 +52,7 @@ To delete a package, you can also use [the API](../../../api/packages.md#delete-
 
 {{< alert type="note" >}}
 
-You can introduce a dependency confusion risk
-if you delete a package while
-[request forwarding](supported_functionality.md#forwarding-requests) is turned on.
+You can introduce a dependency confusion risk if you delete a package while [request forwarding](supported_functionality.md#forwarding-requests) is turned on.
 
 {{< /alert >}}
 
@@ -87,12 +84,9 @@ To delete a package, you can also use [the API](../../../api/packages.md#delete-
 
 {{< /history >}}
 
-When you upload a package with the same name and version to the package registry,
-more assets are added to the package.
+When you upload a package with the same name and version to the package registry, more assets are added to the package.
 
-To save storage space, you should keep only the most recent assets. Use a cleanup policy
-to define rules that automatically delete package assets in a project so you do not
-have to delete them manually.
+To save storage space, you should keep only the most recent assets. Use a cleanup policy to define rules that automatically delete package assets in a project so you do not have to delete them manually.
 
 ### Enable the cleanup policy
 
@@ -110,20 +104,19 @@ By default, the packages cleanup policy is disabled. To enable it:
 ### Available rules
 
 - `Number of duplicated assets to keep`: Some package formats support multiple copies of the same asset.
-  You can set a limit on how many duplicated assets to keep.
-  When the limit is reached, the oldest assets are automatically deleted.
-  Unique filenames, like those produced by Maven snapshots, are not counted as duplicated assets.
+ You can set a limit on how many duplicated assets to keep.
+ When the limit is reached, the oldest assets are automatically deleted.
+ Unique filenames, like those produced by Maven snapshots, are not counted as duplicated assets.
 
 - `Number of duplicated assets to keep` runs [every 12 hours](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/models/packages/cleanup/policy.rb).
 
 ### Set cleanup limits to conserve resources
 
-A background process executes the package cleanup policies. This process can take a long time to finish and consumes
-server resources while it runs.
+A background process executes the package cleanup policies. This process can take a long time to finish and consumes server resources while it runs.
 
 Use the following setting to limit the number of cleanup workers:
 
 - `package_registry_cleanup_policies_worker_capacity`: the maximum number of cleanup workers running concurrently.
-  This number must be greater than or equal to `0`.
-  You should start with a low number and increase it after monitoring the resources used by the background workers.
-  To remove all workers and not execute the cleanup policies, set this setting to `0`. The default value is `2`.
+ This number must be greater than or equal to `0`.
+ You should start with a low number and increase it after monitoring the resources used by the background workers.
+ To remove all workers and not execute the cleanup policies, set this setting to `0`. The default value is `2`.

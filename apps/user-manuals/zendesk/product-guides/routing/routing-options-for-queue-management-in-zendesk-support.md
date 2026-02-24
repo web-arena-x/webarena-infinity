@@ -34,8 +34,8 @@ When you set up each field option you can also specify a unique tag to assign to
 
 Instead of using a custom ticket field, another way to separate tickets is by using different, product-specific email addresses. For example:
 
-- If a customer has a question about the Bear product, direct them to email your support team at   *bear@YOURCOMPANY.zendesk.com*  or **bear@YOURCOMPANY.com.**
-- If a customer has a question about the Lion product, direct them to email your support team at lion*@YOURCOMPANY.zendesk.com*  or **lion@**YOURCOMPANY**.com.**
+- If a customer has a question about the Bear product, direct them to email your support team at   *bear@YOURCOMPANY.zendesk.com* or **bear@YOURCOMPANY.com.**
+- If a customer has a question about the Lion product, direct them to email your support team at lion*@YOURCOMPANY.zendesk.com* or **lion@**YOURCOMPANY**.com.**
 
 Then, set up triggers that tag incoming tickets based on which email they have been received at. For example:
 
@@ -47,7 +47,7 @@ For more detail on triggers, see [Creating triggers for automatic ticket updates
 
 Once tickets are coming in and getting tagged based on your pre-defined drop-down options, you can set up custom views based on these tags. For example, you can create a view that displays all tickets created with the tag for "bear."
 
-When your triggers assign tags based on a product-related email address, you may notice that as soon as a tag is added in tickets, the custom field is also set to the appropriate field option. In other words, emails sent to bear@YOURCOMPANY.com will have a "bear" tag added and the custom field is automatically set to "bear." See  [Using views to manage ticket workflow](https://support.zendesk.com/hc/en-us/articles/4408888828570).
+When your triggers assign tags based on a product-related email address, you may notice that as soon as a tag is added in tickets, the custom field is also set to the appropriate field option. In other words, emails sent to bear@YOURCOMPANY.com will have a "bear" tag added and the custom field is automatically set to "bear." See [Using views to manage ticket workflow](https://support.zendesk.com/hc/en-us/articles/4408888828570).
 
 Now, create views so that you only see tickets belonging to each product. You can build views with a condition based on the custom field that you created earlier.
 
@@ -86,7 +86,7 @@ Many online stores leverage email and possibly the help center as the main metho
 
 ### Example: Email only
 
-If you only use email as the channel to submit requests, then in addition to the tips above to aid the agents in organizing and streamlining tickets, it can help to modify ticket properties via email exclusively. For example, you can add a tag using **#tag: bear** to set the product field to **bear**. See  [Updating ticket properties from your inbox](https://support.zendesk.com/hc/en-us/articles/4408839419034-updating-ticket-properties-from-your-inbox)  .
+If you only use email as the channel to submit requests, then in addition to the tips above to aid the agents in organizing and streamlining tickets, it can help to modify ticket properties via email exclusively. For example, you can add a tag using **#tag: bear** to set the product field to **bear**. See [Updating ticket properties from your inbox](https://support.zendesk.com/hc/en-us/articles/4408839419034-updating-ticket-properties-from-your-inbox) .
 
 ### Example: The all-purpose
 

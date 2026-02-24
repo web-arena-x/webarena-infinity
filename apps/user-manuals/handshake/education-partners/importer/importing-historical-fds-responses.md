@@ -11,9 +11,9 @@ Topics:
 - [What data do I need to import historical FDS responses?](#h_01HXJ0BP7FZNSKQ7MDJZ343QNF)
 - [Import a graduation group from the past: Workflow 1](#h_01JWEHANW8SZRN65NHTX5WNNJQ)
 - [Import a graduation group from the past: Workflow 2](#h_01JWEJ0HYXHMZPHPXC0VMPF0QP)
-  - [Additional Considerations](#h_01JWEJ41EMK3HAP8QT0RTR2HMN)
+ - [Additional Considerations](#h_01JWEJ41EMK3HAP8QT0RTR2HMN)
 - [Available fields for importing a Historical FDS Responses file](#h_01J3KEAP0F65YWNTEGZXHG9RX0)
-  - [Download an example Historical FDS Responses CSV file](#h_01J42CP9PKSTCG8WTK7GB14MM7)
+ - [Download an example Historical FDS Responses CSV file](#h_01J42CP9PKSTCG8WTK7GB14MM7)
 
 ## What data do I need to import historical FDS responses?
 
@@ -22,22 +22,22 @@ Topics:
 - The student *must* exist in Handshake in order to add a first destination response
 
 - Education level name (one of the following - *case sensitive*):
-  - High School
-  - Associates
-  - Certificate
-  - Advanced Certificate
-  - Bachelors
-  - Masters
-  - Doctorate
-  - Postdoctoral Studies
+ - High School
+ - Associates
+ - Certificate
+ - Advanced Certificate
+ - Bachelors
+ - Masters
+ - Doctorate
+ - Postdoctoral Studies
 
 - Outcome (one of the following - *case sensitive*):
-  - Continuing Education
-  - Military
-  - Not Seeking
-  - Still Looking
-  - Volunteering
-  - Working
+ - Continuing Education
+ - Military
+ - Not Seeking
+ - Still Looking
+ - Volunteering
+ - Working
 
 For each response type, you'll need the following information:
 
@@ -91,19 +91,19 @@ The fields listed below should be formatted as displayed and saved as a CSV. Col
 | student\_email **\*Required** | The student's account email in Handshake. **\*Can't be blank** |
 | first\_destination\_response\_type\_name **\*Required** | One of the following options must be included:   ``` Continuing Education Military Not Seeking Still Looking Volunteering Working ```   **\*Can't be blank** |
 | email\_address **\*Required** | Personal email address for the student (if you don’t know this you can import their university email address) **\*Can't be blank** |
-| import\_identifier **\*Required** | This is an identifier (of your creation) and is unique to each student's responses. The import\_identifier can be anything, but it *has to be unique*. Examples of recommended identifiers are as follows:  schoolhistoricalFDS100  schoolhistoricalFDS101  schoolhistoricalFDS102  schoolhistoricalFDS103  This field has a 250 character limit  **\*Can't be blank** |
-| education\_level\_name **\*Required** | One of the following options must be included:   ``` High School Associates Certificate Advanced Certificate Bachelors Masters Doctorate Postdoctoral Studies ```  **\*Can't be blank** |
+| import\_identifier **\*Required** | This is an identifier (of your creation) and is unique to each student's responses. The import\_identifier can be anything, but it *has to be unique*. Examples of recommended identifiers are as follows: schoolhistoricalFDS100 schoolhistoricalFDS101 schoolhistoricalFDS102 schoolhistoricalFDS103 This field has a 250 character limit **\*Can't be blank** |
+| education\_level\_name **\*Required** | One of the following options must be included:   ``` High School Associates Certificate Advanced Certificate Bachelors Masters Doctorate Postdoctoral Studies ``` **\*Can't be blank** |
 | first\_destination\_survey\_id **\*Required** | ID number of the survey you will be importing data into (which can be found at the end of the URL of the survey's main page). If you haven't created this yet, please follow the instructions outlined [here](https://support.joinhandshake.com/hc/en-us/articles/219133387). **\*Can't be blank** |
-| status **\*Required** | The status of the student's FDS response, with one of the following options (case sensitive):  ``` in_progress submitted unsubmitted ```  **\*Can't be blank** |
+| status **\*Required** | The status of the student's FDS response, with one of the following options (case sensitive): ``` in_progress submitted unsubmitted ``` **\*Can't be blank** |
 | employment\_category\_name | **Required** if 'Working' or 'Volunteering' is selected under first\_destination\_response\_type\_name with one of the following options:   ``` Entrepreneur Faculty Non-Tenure Faculty Tenure Fellowship Freelancer Organization Other Temporary/Contract Work Assignment ``` |
 | employer\_name | **Required** if 'Working' or 'Volunteering' options are selected under first\_destination\_response\_type\_name. This field has a 250 character limit |
-| continuing\_education\_school\_name | **Required** if 'Continuing Education' option is selected under first\_destination\_response\_type\_name.  This field has a 250 character limit |
+| continuing\_education\_school\_name | **Required** if 'Continuing Education' option is selected under first\_destination\_response\_type\_name. This field has a 250 character limit |
 | military\_branch\_name | **Required** if 'Military' option is selected under first\_destination\_response\_type\_name, with one of the following options:   ``` Air Force Army Coast Guard Marine Corps Navy ``` |
 | not\_seeking\_option\_name | **Required** if 'Not Seeking' option is selected under first\_destination\_response\_type\_name, with one of the following options:   ``` Other Taking a gap year Taking time off Traveling ``` |
 | seeking\_option\_name | **Required** if 'Still Looking' option is selected under first\_destination\_response\_type\_name, with one of the following options:   ``` Continuing Education Employment ``` |
 | pay\_schedule\_name | **Required** if there is a value under 'Salary', with one of the following options:   ``` Hourly Wage Annual Salary Monthly Stipend ``` |
 | primary\_major\_name | The Primary Major for the student. Must be an existing major under your school settings (under the Majors tab) |
-| graduation\_date | The Graduation Date for the student.  Dates ***must*** be in the following formatting:   ``` yyyy-mm-dd ``` |
+| graduation\_date | The Graduation Date for the student. Dates ***must*** be in the following formatting:   ``` yyyy-mm-dd ``` |
 | employment\_type\_name | **Required** if 'Working' option is selected under first\_destination\_response\_type\_name, with one of the following options:   ``` Full-Time Part-Time Seasonal ``` |
 | location\_name | The student's location (all string values are accepted). This field has a 250 character limit |
 | bonus\_amount | Student's sign-on bonus, if applicable. Must be a numerical value, without any decimals or special characters. |

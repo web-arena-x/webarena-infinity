@@ -5,21 +5,15 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Uploads development guidelines
 ---
 
-Uploads are an integral part of many GitLab features. To understand how GitLab handles uploads, this page
-provides an overview of the key mechanisms for transferring files to a storage destination.
+Uploads are an integral part of many GitLab features. To understand how GitLab handles uploads, this page provides an overview of the key mechanisms for transferring files to a storage destination.
 
-GitLab uploads are configured by feature. All features that involve uploads provide the same configuration options,
-but they can be configured independently of one another. For example, Git LFS uploads can be configured
-independently of CI/CD build artifact uploads, but they both offer the same set of settings keys. These settings
-govern how an upload is processed, which can have a dramatic impact on performance and scalability.
+GitLab uploads are configured by feature. All features that involve uploads provide the same configuration options, but they can be configured independently of one another. For example, Git LFS uploads can be configured independently of CI/CD build artifact uploads, but they both offer the same set of settings keys. These settings govern how an upload is processed, which can have a dramatic impact on performance and scalability.
 
-This page summarizes the upload settings that are important in deciding how such files are handled. The sections
-that follow then describe each of these mechanisms in more detail.
+This page summarizes the upload settings that are important in deciding how such files are handled. The sections that follow then describe each of these mechanisms in more detail.
 
 ## How upload settings drive upload flow
 
-Before we examine individual upload strategies in more detail, let's examine a high-level
-breakdown of which upload settings map to each of these strategies.
+Before we examine individual upload strategies in more detail, let's examine a high-level breakdown of which upload settings map to each of these strategies.
 
 Upload settings themselves are documented in [Uploads administration](../../administration/uploads.md).
 Here, we focus on how these settings drive the internals of GitLab upload logic.
@@ -33,7 +27,7 @@ In this table, `x.y.z` specifies the path taken through `gitlab.yml`:
 | Setting                                | Value   | Behavior                        |
 | -------------------------------------- | ------- | ------------------------------- |
 | `<feature>.object_store.enabled`       | `false` | Files are stored locally in `<feature>.storage_path` |
-| `<feature>.object_store.enabled`       | `true`  | Files are stored remotely in `<feature>.object_store.remote_directory` |
+| `<feature>.object_store.enabled`       | `true` | Files are stored remotely in `<feature>.object_store.remote_directory` |
 
 When using object storage, administrators can control how those files are moved into the respective bucket.
 This move can happen in one of these ways:
@@ -44,25 +38,18 @@ This move can happen in one of these ways:
 Individual Sidekiq workers might also store files in object storage, which is not something we cover here.
 
 Finally, Workhorse assists most user-initiated uploads using an upload buffering mechanism to keep slow work out of Rails controllers.
-This mechanism is explained in [Workhorse assisted uploads](#workhorse-assisted-uploads),
-as it runs orthogonal to much of what we discuss beforehand.
+This mechanism is explained in [Workhorse assisted uploads](#workhorse-assisted-uploads), as it runs orthogonal to much of what we discuss beforehand.
 
 We now look at each case in more detail.
 
 ## Local storage
 
 Local storage is the simplest path an upload can take. It was how GitLab treated uploads in its early days.
-It assumes a storage volume (like a disk or network attached storage) is accessible
-to the Rails application at `storage_path`. This file path is relative to the Rails root directory and,
-like any upload setting, configurable per feature.
+It assumes a storage volume (like a disk or network attached storage) is accessible to the Rails application at `storage_path`. This file path is relative to the Rails root directory and, like any upload setting, configurable per feature.
 
-When a client sends a file upload, Workhorse first buffers the file to disk, a mechanism explained in more
-detail in [Workhorse assisted uploads](#workhorse-assisted-uploads). When the request reaches the Rails
-application, the file already exists on local storage, so Rails merely has to move it to the specified
-directory to finalize the transaction.
+When a client sends a file upload, Workhorse first buffers the file to disk, a mechanism explained in more detail in [Workhorse assisted uploads](#workhorse-assisted-uploads). When the request reaches the Rails application, the file already exists on local storage, so Rails merely has to move it to the specified directory to finalize the transaction.
 
-Local storage cannot be used with cloud-native GitLab (CNG) installations. It is therefore not used for
-GitLab SaaS either.
+Local storage cannot be used with cloud-native GitLab (CNG) installations. It is therefore not used for GitLab SaaS either.
 
 ## Object storage
 
@@ -75,14 +62,11 @@ To provide horizontally scalable storage, you must use an object store provider 
 Using object storage provides two main benefits:
 
 - Ease of adding more storage capacity: cloud providers do this for you automatically.
-- Enabling horizontal scaling of your GitLab installation: multiple GitLab application servers can access the same data
-  when it is stored in object storage.
+- Enabling horizontal scaling of your GitLab installation: multiple GitLab application servers can access the same data when it is stored in object storage.
 
 CNG installations including GitLab SaaS always use object storage (GCS in the case of GitLab SaaS.)
 
-A challenge with uploading to a remote object store is that it includes an outgoing HTTP request from
-GitLab to the object store provider. As mentioned above, there are three different strategies available for how
-this HTTP request is sent.
+A challenge with uploading to a remote object store is that it includes an outgoing HTTP request from GitLab to the object store provider. As mentioned above, there are three different strategies available for how this HTTP request is sent.
 
 - [Rails controller upload](#rails-controller-upload).
 - [Direct upload](#direct-upload).
@@ -90,15 +74,12 @@ this HTTP request is sent.
 
 ### Rails controller upload
 
-When direct upload is not available, Rails uploads the file to object storage
-as part of the controller `create` action. Which controller is responsible depends on the kind of file uploaded.
+When direct upload is not available, Rails uploads the file to object storage as part of the controller `create` action. Which controller is responsible depends on the kind of file uploaded.
 
-A Rails controller upload is very similar to uploading to local storage. The main difference: Rails must
-send an HTTP request to the object store. This happens via the [CarrierWave Fog](https://github.com/carrierwaveuploader/carrierwave#fog)
+A Rails controller upload is very similar to uploading to local storage. The main difference: Rails must send an HTTP request to the object store. This happens via the [CarrierWave Fog](https://github.com/carrierwaveuploader/carrierwave#fog)
 uploader.
 
-As with local storage, this strategy benefits from [Workhorse assistance](#workhorse-assisted-uploads) to
-keep some of the costly I/O work out of Ruby and Rails. Direct upload does a better job at this because it also keeps the HTTP PUT requests to object storage outside Puma.
+As with local storage, this strategy benefits from [Workhorse assistance](#workhorse-assisted-uploads) to keep some of the costly I/O work out of Ruby and Rails. Direct upload does a better job at this because it also keeps the HTTP PUT requests to object storage outside Puma.
 
 This strategy is only suitable for small file uploads, as it is subject to Puma's 60 second request timeout.
 
@@ -139,7 +120,7 @@ sequenceDiagram
     Note over w,os: file is stored on a temporary location. Rails select the destination
     os-->>-w: request result
 
-    w->>+r:  POST /some/url/upload
+    w->>+r: POST /some/url/upload
     Note over w,r: file was replaced with its location<br>and other metadata
 
     r->>+os: move object to final destination
@@ -174,27 +155,24 @@ All REST and GraphQL APIs that accept file content must use Workhorse-assisted u
 
 Workhorse can assist in a variety of ways:
 
-- Often, Workhorse buffers the upload to a temporary file. Workhorse adds metadata to the request to tell
-  Puma the name and location of the temporary file. This requires shared temporary storage between Workhorse and Puma.
-  All GitLab installations (including CNG) have this shared temporary storage.
-- Workhorse sometimes pre-processes the file. For example, for CI artifact uploads, Workhorse creates a separate index
-  of the contents of the ZIP file. By doing this in Workhorse we bypass the Puma request timeout.
-  Compared to Sidekiq background processing, this has the advantage that the user does not see an intermediate state
-  where GitLab accepts the file but has not yet processed it.
+- Often, Workhorse buffers the upload to a temporary file. Workhorse adds metadata to the request to tell Puma the name and location of the temporary file. This requires shared temporary storage between Workhorse and Puma.
+ All GitLab installations (including CNG) have this shared temporary storage.
+- Workhorse sometimes pre-processes the file. For example, for CI artifact uploads, Workhorse creates a separate index of the contents of the ZIP file. By doing this in Workhorse we bypass the Puma request timeout.
+ Compared to Sidekiq background processing, this has the advantage that the user does not see an intermediate state where GitLab accepts the file but has not yet processed it.
 - With direct upload, Workhorse can both pre-process the file and upload it to object storage.
-  Uploading a large file to object storage takes time; by doing this in Workhorse we avoid the Puma request timeout.
+ Uploading a large file to object storage takes time; by doing this in Workhorse we avoid the Puma request timeout.
 
 To implement Workhorse-assisted uploads, you must:
 
 - Add a route in `workhorse/internal/upstream/routes.go` using `mimeMultipartUploader` or `requestBodyUploader`.
 - Create an `/authorize` endpoint in your API class. The endpoint must:
-  - Call `require_gitlab_workhorse!`
-  - Return status 200 with content type `Gitlab::Workhorse::INTERNAL_API_CONTENT_TYPE`
-  - Call `workhorse_authorize` on an uploader class
+ - Call `require_gitlab_workhorse!`
+ - Return status 200 with content type `Gitlab::Workhorse::INTERNAL_API_CONTENT_TYPE`
+ - Call `workhorse_authorize` on an uploader class
 - Create an upload endpoint that receives the file. The endpoint must:
-  - Call `require_gitlab_workhorse!`
-  - Use parameter type `::API::Validations::Types::WorkhorseFile` for the file
-  - Declare optional file metadata parameters (path, name, type, size, checksums)
+ - Call `require_gitlab_workhorse!`
+ - Use parameter type `::API::Validations::Types::WorkhorseFile` for the file
+ - Declare optional file metadata parameters (path, name, type, size, checksums)
 - Use an appropriate uploader class that includes `ObjectStorage::Concern`.
 
 See `lib/api/project_import.rb` for a complete implementation example.

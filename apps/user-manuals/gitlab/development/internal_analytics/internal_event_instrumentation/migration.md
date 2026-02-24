@@ -115,14 +115,14 @@ For example, if a button is defined like this:
 
 ```vue
  <gl-button
-  :href="diffFile.external_url"
-  :title="externalUrlLabel"
-  :aria-label="externalUrlLabel"
-  target="_blank"
-  data-track-action="click_toggle_external_button"
-  data-track-label="diff_toggle_external_button"
-  data-track-property="diff_toggle_external"
-  icon="external-link"
+ :href="diffFile.external_url"
+ :title="externalUrlLabel"
+ :aria-label="externalUrlLabel"
+ target="_blank"
+ data-track-action="click_toggle_external_button"
+ data-track-label="diff_toggle_external_button"
+ data-track-property="diff_toggle_external"
+ icon="external-link"
 />
 ```
 
@@ -130,15 +130,15 @@ This can be converted to Internal Events Tracking like this:
 
 ```vue
  <gl-button
-  :href="diffFile.external_url"
-  :title="externalUrlLabel"
-  :aria-label="externalUrlLabel"
-  target="_blank"
-  data-event-tracking="click_toggle_external_button"
-  data-event-label="diff_toggle_external_button"
-  data-event-property="diff_toggle_external"
-  data-event-additional='{"key1": "value1", "key2": "value2"}'
-  icon="external-link"
+ :href="diffFile.external_url"
+ :title="externalUrlLabel"
+ :aria-label="externalUrlLabel"
+ target="_blank"
+ data-event-tracking="click_toggle_external_button"
+ data-event-label="diff_toggle_external_button"
+ data-event-property="diff_toggle_external"
+ data-event-additional='{"key1": "value1", "key2": "value2"}'
+ icon="external-link"
 />
 ```
 
@@ -151,7 +151,7 @@ Notice that we just need action to pass in the `data-event-tracking` attribute w
 If you are currently tracking a metric in `RedisHLL` like this:
 
 ```ruby
-  Gitlab::UsageDataCounters::HLLRedisCounter.track_event(:git_write_action, values: current_user.id)
+ Gitlab::UsageDataCounters::HLLRedisCounter.track_event(:git_write_action, values: current_user.id)
 ```
 
 To start using Internal Events Tracking, follow these steps:

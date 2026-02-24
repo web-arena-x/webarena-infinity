@@ -9,9 +9,9 @@ With Handshake, it's easy to keep in touch with your contacts via Targeted Email
 You can select contacts as recipients via two methods:
 
 - after composing a new Targeted Email, when selecting recipients
-  - *described in* [*Targeted Emails: Creating and Sending*](https://support.joinhandshake.com/hc/en-gb/articles/360008403834-Targeted-Email-Creating-and-Sending)
+ - *described in* [*Targeted Emails: Creating and Sending*](https://support.joinhandshake.com/hc/en-gb/articles/360008403834-Targeted-Email-Creating-and-Sending)
 - from the Contacts page
-  - *described in this article*
+ - *described in this article*
 
 **Note**: If you'd like to initiate an email to job creators or contacts specifically, refer to [How to Send an Email to Job Contacts](https://support.joinhandshake.com/hc/en-gb/articles/115014923127).
 

@@ -18,8 +18,7 @@ Analytics metrics help you understand how the team is doing, and if you need to 
 GitLab provides different types of [analytics](../../user/analytics/_index.md) insights at the instance, group, and project level.
 If this list seems long and you're not sure where to start, then this tutorial is for you.
 
-Follow along to learn how to set up an example website project, collaborate with other GitLab users,
-and use project-level analytics reports to evaluate the development of your project.
+Follow along to learn how to set up an example website project, collaborate with other GitLab users, and use project-level analytics reports to evaluate the development of your project.
 
 Here's an overview of what we're going to do:
 
@@ -38,8 +37,7 @@ Here's an overview of what we're going to do:
 
 First of all, you need to create a project in your group.
 
-GitLab provides project templates,
-which make it easier to set up a project with all the necessary files for various use cases.
+GitLab provides project templates, which make it easier to set up a project with all the necessary files for various use cases.
 Here, you'll create a project for a Hugo website.
 
 To create a project:
@@ -60,8 +58,7 @@ Now you have a project with all the files you need for a Hugo website.
 
 ## Invite users to the project
 
-When working on a large project such as a website, you'll likely need to collaborate with other people,
-such as developers and designers.
+When working on a large project such as a website, you'll likely need to collaborate with other people, such as developers and designers.
 You have to invite them to your project, so that they get access to all the files, issues, and reports.
 
 To invite a user to the `My website` project:
@@ -93,14 +90,12 @@ To create a project label, in the `My website` project:
 1. Optional. Select a color by selecting from the available colors, or enter a hex color value for a specific color in the **Background color** field.
 1. Select **Create label**.
 
-The label should now appear in the [label list](../../user/project/labels.md#view-project-labels),
-and you can use it to create a value stream with a custom stage.
+The label should now appear in the [label list](../../user/project/labels.md#view-project-labels), and you can use it to create a value stream with a custom stage.
 
 ## Create a value stream with a custom stage
 
 Now that you have a project with collaborators, you can start tracking and visualizing the activity.
-[Value Stream Analytics](../../user/group/value_stream_analytics/_index.md) helps you measure the time it takes
-to go from an idea to production, and identify inefficiencies in the development process.
+[Value Stream Analytics](../../user/group/value_stream_analytics/_index.md) helps you measure the time it takes to go from an idea to production, and identify inefficiencies in the development process.
 For a click-through demo of analytics features, see [the Value Stream Management product tour](https://gitlab.navattic.com/vsm).
 
 To get started, create a value stream in the `My website` project:
@@ -122,9 +117,7 @@ In the meantime, you can start creating an Insights report for your project.
 
 ## Create an Insights report
 
-While Value Stream Analytics give an overview of the entire development process,
-[Insights](../../user/project/insights/_index.md) provide a more granular view of a project's
-issues created and closed, and average merge time of merge requests.
+While Value Stream Analytics give an overview of the entire development process, [Insights](../../user/project/insights/_index.md) provide a more granular view of a project's issues created and closed, and average merge time of merge requests.
 This data visualization can help you triage issues at a glance.
 
 You can create as many Insights reports with different charts as you need.

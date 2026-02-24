@@ -13,8 +13,8 @@ You can use Gmail with popular browsers like Chrome, Firefox, and Safari.
 Gmail works best in the newest and last prior version of these browsers:
 
 - [Google Chrome](https://www.google.com/chrome/browser/desktop/index.html?utm_source%3Dgoogle%26utm_medium%3Dsem%26utm_campaign%3D1001342%257cChromeWin10%257cUS%257cen%257cHybrid%257cText%257cBKWS~TopKWDS-Exact%26brand%3DCHBD).
-  - To get the best Gmail experience and security updates, [upgrade to the latest version of Chrome](/chrome/answer/95414).
-  - If you have a Chromebook, you might need to [update your Chromebook's operating system](/chromebook/answer/177889).
+ - To get the best Gmail experience and security updates, [upgrade to the latest version of Chrome](/chrome/answer/95414).
+ - If you have a Chromebook, you might need to [update your Chromebook's operating system](/chromebook/answer/177889).
 - [Firefox](https://www.mozilla.org/firefox/new/)
 - [Safari](https://www.apple.com/safari/)
 - [Microsoft Edge](https://www.microsoft.com/windows/microsoft-edge)

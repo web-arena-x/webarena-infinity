@@ -61,17 +61,14 @@ Limit use to global rule updates. Otherwise, the changes can lead to huge Merge 
 
 ### Disabling ESLint in new files
 
-Do not disable ESLint when creating new files. Existing files may have existing rules
-disabled due to legacy compatibility reasons but they are in the process of being refactored.
+Do not disable ESLint when creating new files. Existing files may have existing rules disabled due to legacy compatibility reasons but they are in the process of being refactored.
 
-Do not disable specific ESLint rules. To avoid introducing technical debt, you may disable the following
-rules only if you are invoking/instantiating existing code modules.
+Do not disable specific ESLint rules. To avoid introducing technical debt, you may disable the following rules only if you are invoking/instantiating existing code modules.
 
 - [`no-new`](https://eslint.org/docs/latest/rules/no-new)
 - [`class-method-use-this`](https://eslint.org/docs/latest/rules/class-methods-use-this)
 
-Disable these rules on a per-line basis. This makes it easier to refactor in the
-future. For example, use `eslint-disable-next-line` or `eslint-disable-line`.
+Disable these rules on a per-line basis. This makes it easier to refactor in the future. For example, use `eslint-disable-next-line` or `eslint-disable-line`.
 
 ### Disabling ESLint for a single violation
 
@@ -94,22 +91,17 @@ new Foo();
 
 ### Generating todo files
 
-When enabling a new ESLint rule that uncovers many offenses across the codebase, it might be easier
-to generate a todo file to temporarily ignore those offenses. This approach has some pros and cons:
+When enabling a new ESLint rule that uncovers many offenses across the codebase, it might be easier to generate a todo file to temporarily ignore those offenses. This approach has some pros and cons:
 
 **Pros**:
 
-- A single source of truth for all the files that violate a specific rule. This can make it easier
-  to track the work necessary to pay the incurred technical debt.
-- A smaller changeset when initially enabling the rule as you don't need to modify every offending
-  file.
+- A single source of truth for all the files that violate a specific rule. This can make it easier to track the work necessary to pay the incurred technical debt.
+- A smaller changeset when initially enabling the rule as you don't need to modify every offending file.
 
 **Cons**:
 
-- Disabling the rule for entire files means that more offenses of the same type can be introduced in
-  those files.
-- When fixing offenses over multiple concurrent merge requests, conflicts can often arise in the todo files,
-  requiring MR authors to rebase their branches.
+- Disabling the rule for entire files means that more offenses of the same type can be introduced in those files.
+- When fixing offenses over multiple concurrent merge requests, conflicts can often arise in the todo files, requiring MR authors to rebase their branches.
 
 To generate a todo file, run the `scripts/frontend/generate_eslint_todo_list.mjs` script:
 
@@ -123,15 +115,11 @@ For example, generating a todo file for the `vue/no-unused-properties` rule:
 node scripts/frontend/generate_eslint_todo_list.mjs vue/no-unused-properties
 ```
 
-This creates an ESLint configuration in `.eslint_todo/vue-no-unused-properties.mjs` which gets
-automatically added to the global configuration.
+This creates an ESLint configuration in `.eslint_todo/vue-no-unused-properties.mjs` which gets automatically added to the global configuration.
 
-Once a todo file has been created for a given rule, make sure to plan for the work necessary to
-address those violations. Todo files should be as short lived as possible. If some offenses cannot
-be addressed, switch to inline ignores by [disabling ESLint for a single violation](#disabling-eslint-for-a-single-violation).
+Once a todo file has been created for a given rule, make sure to plan for the work necessary to address those violations. Todo files should be as short lived as possible. If some offenses cannot be addressed, switch to inline ignores by [disabling ESLint for a single violation](#disabling-eslint-for-a-single-violation).
 
-When all offending files have been fixed, the todo file should be removed along with the `export`
-statement in `.eslint_todo/index.mjs`.
+When all offending files have been fixed, the todo file should be removed along with the `export` statement in `.eslint_todo/index.mjs`.
 
 ### The `no-undef` rule and declaring globals
 
@@ -168,7 +156,7 @@ We can use the [`import/no-deprecated`](https://github.com/benmosher/eslint-plug
  * @deprecated Please use `queryToObject` instead. See https://gitlab.com/gitlab-org/gitlab/-/issues/283982 for more information
  */
 export function queryToObject(query, options = {}) {
-  ...
+ ...
 }
 ```
 
@@ -189,8 +177,8 @@ Running `$ yarn eslint` after this will give us the list of deprecated usages:
 $ yarn eslint
 
 ./app/assets/javascripts/issuable_form.js
-   9:10  error  Deprecated: Please use `queryToObject` instead. See https://gitlab.com/gitlab-org/gitlab/-/issues/283982 for more information  import/no-deprecated
-  33:23  error  Deprecated: Please use `queryToObject` instead. See https://gitlab.com/gitlab-org/gitlab/-/issues/283982 for more information  import/no-deprecated
+   9:10 error Deprecated: Please use `queryToObject` instead. See https://gitlab.com/gitlab-org/gitlab/-/issues/283982 for more information import/no-deprecated
+ 33:23 error Deprecated: Please use `queryToObject` instead. See https://gitlab.com/gitlab-org/gitlab/-/issues/283982 for more information import/no-deprecated
 ...
 ```
 
@@ -200,19 +188,16 @@ Grep for disabled cases of this rule to generate a working list to create issues
 $ grep "eslint-disable.*import/no-deprecated" -r .
 
 ./app/assets/javascripts/issuable_form.js:import { queryToObject, objectToQuery } from './lib/utils/url_utility'; // eslint-disable-line import/no-deprecate
-./app/assets/javascripts/issuable_form.js:  // eslint-disable-next-line import/no-deprecated
+./app/assets/javascripts/issuable_form.js: // eslint-disable-next-line import/no-deprecated
 ```
 
 ### `vue/multi-word-component-names` is disabled in my file
 
-Single name components are discouraged by the
-[Vue style guide](https://vuejs.org/style-guide/rules-essential.html#use-multi-word-component-names).
+Single name components are discouraged by the [Vue style guide](https://vuejs.org/style-guide/rules-essential.html#use-multi-word-component-names).
 
-They are problematic because they can be confused with other HTML components: We could name a
-component `<table>` and it would stop rendering an HTML `<table>`.
+They are problematic because they can be confused with other HTML components: We could name a component `<table>` and it would stop rendering an HTML `<table>`.
 
-To solve this, you should rename the `.vue` file and its references to use at least two words,
-for example:
+To solve this, you should rename the `.vue` file and its references to use at least two words, for example:
 
 - `user/table.vue` could be renamed to `user/users_table.vue` and be imported as `UsersTable` and used with `<users-table />`.
 
@@ -229,18 +214,15 @@ Our code is automatically formatted with [Prettier](https://prettier.io) to foll
 
 ### Editor
 
-The recommended method to include Prettier in your workflow is to set up your
-preferred editor (all major editors are supported) accordingly. We suggest
-setting up Prettier to run when each file is saved. For instructions about using
-Prettier in your preferred editor, see the [Prettier documentation](https://prettier.io/docs/en/editors.html).
+The recommended method to include Prettier in your workflow is to set up your preferred editor (all major editors are supported) accordingly. We suggest setting up Prettier to run when each file is saved. For instructions about using Prettier in your preferred editor, see the [Prettier documentation](https://prettier.io/docs/en/editors.html).
 
 Take care that you only let Prettier format the same file types as the global Yarn script does (`.js`, `.vue`, `.graphql`, and `.scss`). For example, you can exclude file formats in your Visual Studio Code settings file:
 
 ```json
-  "prettier.disableLanguages": [
+ "prettier.disableLanguages": [
       "json",
       "markdown"
-  ]
+ ]
 ```
 
 ### Yarn Script
@@ -279,18 +261,18 @@ To select Prettier as a formatter, add the following properties to your User or 
 
 ```javascript
 {
-  "[html]": {
+ "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
+ },
+ "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[vue]": {
+ },
+ "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[graphql]": {
+ },
+ "[graphql]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+ }
 }
 ```
 
@@ -300,17 +282,17 @@ To automatically format your files with Prettier, add the following properties t
 
 ```javascript
 {
-  "[html]": {
+ "[html]": {
     "editor.formatOnSave": true
-  },
-  "[javascript]": {
+ },
+ "[javascript]": {
     "editor.formatOnSave": true
-  },
-  "[vue]": {
+ },
+ "[vue]": {
     "editor.formatOnSave": true
-  },
-  "[graphql]": {
+ },
+ "[graphql]": {
     "editor.formatOnSave": true
-  },
+ },
 }
 ```

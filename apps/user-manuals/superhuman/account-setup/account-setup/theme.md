@@ -17,11 +17,11 @@ Prefer a darker interface? Switching is easy in Superhuman Mail!
 
 - **Pull down** from the top of the inbox, then**swipe right** — like you're making an "L" —  for Superhuman Command.
 - Type **D****ark.**
-  - On iOS, tap **Always On**.
-  - On Android, tap **Theme** then **Carbon**.
+ - On iOS, tap **Always On**.
+ - On Android, tap **Theme** then **Carbon**.
 - To switch back to light mode, type **Light.**
-  - On iOS, tap **Always Off**.
-  - On Android, tap **Theme** then **Snow**.
+ - On iOS, tap **Always Off**.
+ - On Android, tap **Theme** then **Snow**.
 
 ## Match MacOS or Mobile
 

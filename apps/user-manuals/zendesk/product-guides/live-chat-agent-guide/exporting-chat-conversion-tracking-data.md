@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408821637786-Exporting-Ch
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Professional or Enterprise |
 
@@ -20,11 +20,11 @@ If you want to export the raw past conversion data being recorded from enabled G
 
 If you want to export all conversion data (unattributed and attributed) for a certain time period (max 90 day range), follow these steps:
 
-1. Go to the Goals list page and click on the 'Export CSV' button on the upper right  
+1. Go to the Goals list page and click on the 'Export CSV' button on the upper right 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/chat_exporting_conversion_tracking_1.png)
 2. In the dialog, select the date range you want to export and to which agents you want to send the export.
 3. Click **Send**.
-4. You'll receive an email with a link to download the CSV file with the conversion data.   
+4. You'll receive an email with a link to download the CSV file with the conversion data.  
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/chat_exporting_conversion_tracking_2.png)
 5. You will see the following columns in the CSV file: Conversion Create Time (UTC+0), Goal Name, Attributed Chat ID, Attributed Chat Timestamp (UTC+0), Attributed Agent Name, Attributed Agent ID, Department Name, Department ID
 

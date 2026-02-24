@@ -40,8 +40,8 @@ Use **Device** settings to place your prototype in a realistic container. You�
 Figma has a number of popular device presets. The dimensions of your prototype frames will define what options are available.
 
 - **Frame preset**: If you used a [frame preset](https://help.figma.com/hc/en-us/articles/360041539473-Frames-in-Figma), Figma will select a device that matches that preset. You can select another device if desired. For example, if you use the iPhone 15 Pro Max frame preset, Figma will select the iPhone 15 Pro Max as the device too.
-  - **Presentation view**: All device type frame presets are available
-  - **Inline preview**: Only mobile device (phone, watch, and tablet) frame presets are available
+ - **Presentation view**: All device type frame presets are available
+ - **Inline preview**: Only mobile device (phone, watch, and tablet) frame presets are available
 - **Custom Size (Fit)**: A custom size automatically scales the design, so that it fits within the screen you are viewing the prototype on. Only applicable in [presentation view](play-your-prototypes.md#h_01HER6XXFTZ4ECNGZRPCVMYX2G)—if you select **Custom size**, you won’t see a device when playing a prototype in [inline preview](play-your-prototypes.md#h_01HER6XXFTX7SWE6EH2005DVZP).
 - **Presentation (Full)**: Displays the prototype at a size that allows it to be displayed on the screen in its entirety. Only applicable in [presentation view](play-your-prototypes.md#h_01HER6XXFTZ4ECNGZRPCVMYX2G)—if you select **Presentation**, you won’t see a device when playing a prototype in [inline preview](play-your-prototypes.md#h_01HER6XXFTX7SWE6EH2005DVZP).
 

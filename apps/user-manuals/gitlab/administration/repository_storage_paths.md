@@ -14,17 +14,14 @@ description: How GitLab stores repository data.
 
 {{< /details >}}
 
-GitLab stores [repositories](../user/project/repository/_index.md) on repository storage. Repository
-storage is either:
+GitLab stores [repositories](../user/project/repository/_index.md) on repository storage. Repository storage is either:
 
 - Physical storage configured with a `gitaly_address` that points to a [Gitaly node](gitaly/_index.md).
 - [Virtual storage](gitaly/praefect/_index.md#virtual-storage) that stores repositories on a Gitaly Cluster (Praefect).
 
 {{< alert type="warning" >}}
 
-Repository storage could be configured as a `path` that points directly to the directory where the repositories are
-stored. GitLab directly accessing a directory containing repositories is deprecated. You should configure GitLab to
-access repositories through a physical or virtual storage.
+Repository storage could be configured as a `path` that points directly to the directory where the repositories are stored. GitLab directly accessing a directory containing repositories is deprecated. You should configure GitLab to access repositories through a physical or virtual storage.
 
 {{< /alert >}}
 
@@ -35,20 +32,14 @@ For more information on:
 
 ## Hashed storage
 
-Hashed storage stores projects on disk in a location based on a hash of the project's ID. This makes the folder
-structure immutable and eliminates the need to synchronize state from URLs to disk structure. This means that renaming a
-group, user, or project:
+Hashed storage stores projects on disk in a location based on a hash of the project's ID. This makes the folder structure immutable and eliminates the need to synchronize state from URLs to disk structure. This means that renaming a group, user, or project:
 
 - Costs only the database transaction.
 - Takes effect immediately.
 
-The hash also helps spread the repositories more evenly on the disk. The top-level directory
-contains fewer folders than the total number of top-level namespaces.
+The hash also helps spread the repositories more evenly on the disk. The top-level directory contains fewer folders than the total number of top-level namespaces.
 
-The hash format is based on the hexadecimal representation of a SHA256, calculated with
-`SHA256(project.id)`. The top-level folder uses the first two characters, followed by another folder
-with the next two characters. They are both stored in a special `@hashed` folder so they can
-co-exist with existing legacy storage projects. For example:
+The hash format is based on the hexadecimal representation of a SHA256, calculated with `SHA256(project.id)`. The top-level folder uses the first two characters, followed by another folder with the next two characters. They are both stored in a special `@hashed` folder so they can co-exist with existing legacy storage projects. For example:
 
 ```ruby
 # Project's repository:
@@ -60,8 +51,7 @@ co-exist with existing legacy storage projects. For example:
 
 ### Translate hashed storage paths
 
-Troubleshooting problems with the Git repositories, adding hooks, and other tasks requires you
-translate between the human-readable project name and the hashed storage path. You can translate:
+Troubleshooting problems with the Git repositories, adding hooks, and other tasks requires you translate between the human-readable project name and the hashed storage path. You can translate:
 
 - From a [project's name to its hashed path](#from-project-name-to-hashed-path).
 - From a [hashed path to a project's name](#from-hashed-path-to-project-name).
@@ -115,9 +105,7 @@ To look up a project's name using the Rails console:
    ProjectRepository.find_by(disk_path: '@hashed/b1/7e/b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9').project
    ```
 
-The quoted string in that command is the directory tree you can find on your GitLab server. For
-example, on a default Linux package installation this would be `/var/opt/gitlab/git-data/repositories/@hashed/b1/7e/b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9.git`
-with `.git` from the end of the directory name removed.
+The quoted string in that command is the directory tree you can find on your GitLab server. For example, on a default Linux package installation this would be `/var/opt/gitlab/git-data/repositories/@hashed/b1/7e/b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9.git` with `.git` from the end of the directory name removed.
 
 The output includes the project ID and the project name. For example:
 
@@ -137,9 +125,7 @@ To look up a project's full path using the Rails console:
    ```
 
    In the example, the quoted string in that command is the directory tree on your GitLab server.
-   For example, on a default Linux package installation, this string would be
-   `/var/opt/gitlab/git-data/repositories/@hashed/b1/7e/b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9.git`,
-   with `.git` removed from the end of the directory name.
+   For example, on a default Linux package installation, this string would be `/var/opt/gitlab/git-data/repositories/@hashed/b1/7e/b17ef6d19c7a5b1ee83b907c595526dcb1eb06db8227d650d5dda0a9f4ce8cd9.git`, with `.git` removed from the end of the directory name.
 
 The output includes the full path of the project. For example:
 
@@ -149,13 +135,9 @@ The output includes the full path of the project. For example:
 
 ### Hashed object pools
 
-Object pools are repositories used to deduplicate [forks of public and internal projects](../user/project/repository/forking_workflow.md) and
-contain the objects from the source project. Using `objects/info/alternates`, the source project and
-forks use the object pool for shared objects. For more information, see
-Git object deduplication information in the GitLab development documentation.
+Object pools are repositories used to deduplicate [forks of public and internal projects](../user/project/repository/forking_workflow.md) and contain the objects from the source project. Using `objects/info/alternates`, the source project and forks use the object pool for shared objects. For more information, see Git object deduplication information in the GitLab development documentation.
 
-Objects are moved from the source project to the object pool when housekeeping is run on the source
-project. Object pool repositories are stored similarly to regular repositories in a directory called `@pools` instead of `@hashed`
+Objects are moved from the source project to the object pool when housekeeping is run on the source project. Object pool repositories are stored similarly to regular repositories in a directory called `@pools` instead of `@hashed`
 
 ```ruby
 # object pool paths
@@ -202,9 +184,7 @@ For example:
 
 ### Gitaly Cluster (Praefect) storage
 
-If Gitaly Cluster (Praefect) is used, Praefect manages storage locations. The internal path used by Praefect for the repository
-differs from the hashed path. For more information, see
-[Praefect-generated replica paths](gitaly/praefect/_index.md#praefect-generated-replica-paths).
+If Gitaly Cluster (Praefect) is used, Praefect manages storage locations. The internal path used by Praefect for the repository differs from the hashed path. For more information, see [Praefect-generated replica paths](gitaly/praefect/_index.md#praefect-generated-replica-paths).
 
 ### Repository file archive cache
 
@@ -215,14 +195,9 @@ Users can download an archive in formats such as `.zip` or `.tar.gz` of a reposi
 
 GitLab stores this archive in a cache in a directory on the GitLab server.
 
-A background job running on Sidekiq periodically cleans out stale
-archives from this directory. For this reason, this directory must be
-accessible by both the Sidekiq and GitLab Workhorse services. If Sidekiq
-can't access the same directory used by GitLab Workhorse, the [disk containing the directory fills up](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/6005).
+A background job running on Sidekiq periodically cleans out stale archives from this directory. For this reason, this directory must be accessible by both the Sidekiq and GitLab Workhorse services. If Sidekiq can't access the same directory used by GitLab Workhorse, the [disk containing the directory fills up](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/6005).
 
-If you don't want to use a shared mount for Sidekiq and GitLab
-Workhorse, you can instead configure a separate `cron` job to delete
-files from this directory.
+If you don't want to use a shared mount for Sidekiq and GitLab Workhorse, you can instead configure a separate `cron` job to delete files from this directory.
 
 Alternatively, you can disable the cache entirely:
 
@@ -230,8 +205,7 @@ Alternatively, you can disable the cache entirely:
 
 {{< tab title="Linux package (Omnibus)" >}}
 
-The default directory for the file archive cache is `/var/opt/gitlab/gitlab-rails/shared/cache/archive`. You can
-configure this with the `gitlab_rails['gitlab_repository_downloads_path']` setting in `/etc/gitlab/gitlab.rb`.
+The default directory for the file archive cache is `/var/opt/gitlab/gitlab-rails/shared/cache/archive`. You can configure this with the `gitlab_rails['gitlab_repository_downloads_path']` setting in `/etc/gitlab/gitlab.rb`.
 
 To disable the cache:
 
@@ -258,12 +232,11 @@ To disable the cache:
 The Helm chart stores the cache in `/srv/gitlab/shared/cache/archive`.
 The directory cannot be configured.
 
-To disable the cache, you can use `--set gitlab.webservice.extraEnv.WORKHORSE_ARCHIVE_CACHE_DISABLED="1"`, or
-specify the following in your values file:
+To disable the cache, you can use `--set gitlab.webservice.extraEnv.WORKHORSE_ARCHIVE_CACHE_DISABLED="1"`, or specify the following in your values file:
 
 ```yaml
 gitlab:
-  webservice:
+ webservice:
     extraEnv:
       WORKHORSE_ARCHIVE_CACHE_DISABLED: "1"
 ```
@@ -276,28 +249,24 @@ gitlab:
 
 This table shows which storable objects are storable in each storage type:
 
-| Storable object  | Hashed storage | S3 compatible |
+| Storable object | Hashed storage | S3 compatible |
 |:-----------------|:---------------|:--------------|
 | Repository       | Yes            | -             |
 | Attachments      | Yes            | -             |
 | Avatars          | No             | -             |
 | Pages            | No             | -             |
-| Docker Registry  | No             | -             |
+| Docker Registry | No             | -             |
 | CI/CD job logs   | No             | -             |
-| CI/CD artifacts  | No             | Yes           |
+| CI/CD artifacts | No             | Yes           |
 | CI/CD cache      | No             | Yes           |
 | LFS objects      | Similar        | Yes           |
 | Repository pools | Yes            | -             |
 
-Files stored in an S3-compatible endpoint can have the same advantages as
-[hashed storage](#hashed-storage), as long as they are not prefixed with
-`#{namespace}/#{project_name}`. This is true for CI/CD cache and LFS objects.
+Files stored in an S3-compatible endpoint can have the same advantages as [hashed storage](#hashed-storage), as long as they are not prefixed with `#{namespace}/#{project_name}`. This is true for CI/CD cache and LFS objects.
 
 #### Avatars
 
-Each file is stored in a directory that matches the `id` assigned to it in the database. The
-filename is always `avatar.png` for user avatars. When an avatar is replaced, the `Upload` model is
-destroyed and a new one takes place with a different `id`.
+Each file is stored in a directory that matches the `id` assigned to it in the database. The filename is always `avatar.png` for user avatars. When an avatar is replaced, the `Upload` model is destroyed and a new one takes place with a different `id`.
 
 #### CI/CD artifacts
 
@@ -305,8 +274,7 @@ CI/CD artifacts are S3-compatible.
 
 #### LFS objects
 
-[LFS Objects in GitLab](../topics/git/lfs/_index.md) implement a similar
-storage pattern using two characters and two-level folders, following the Git implementation:
+[LFS Objects in GitLab](../topics/git/lfs/_index.md) implement a similar storage pattern using two characters and two-level folders, following the Git implementation:
 
 ```ruby
 "shared/lfs-objects/#{oid[0..1}/#{oid[2..3]}/#{oid[4..-1]}"
@@ -327,11 +295,9 @@ After you [configure multiple repository storages](https://docs.gitlab.com/omnib
 1. Enter values in the **Storage nodes for new repositories** fields.
 1. Select **Save changes**.
 
-Each repository storage path can be assigned a weight from 0-100. When a new project is created,
-these weights are used to determine the storage location the repository is created on.
+Each repository storage path can be assigned a weight from 0-100. When a new project is created, these weights are used to determine the storage location the repository is created on.
 
-The higher the weight of a given repository storage path relative to other repository storages
-paths, the more often it is chosen (`(storage weight) / (sum of all weights) * 100 = chance %`).
+The higher the weight of a given repository storage path relative to other repository storages paths, the more often it is chosen (`(storage weight) / (sum of all weights) * 100 = chance %`).
 
 By default, if repository weights have not been configured earlier:
 
@@ -340,13 +306,11 @@ By default, if repository weights have not been configured earlier:
 
 {{< alert type="note" >}}
 
-If all storage weights are `0` (for example, when `default` does not exist), GitLab attempts to
-create new repositories on `default`, regardless of the configuration or if `default` exists.
+If all storage weights are `0` (for example, when `default` does not exist), GitLab attempts to create new repositories on `default`, regardless of the configuration or if `default` exists.
 See [the tracking issue](https://gitlab.com/gitlab-org/gitlab/-/issues/36175) for more information.
 
 {{< /alert >}}
 
 ## Move repositories
 
-To move a repository to a different repository storage (for example, from `default` to `storage2`), use the
-same process as [migrating to Gitaly Cluster (Praefect)](gitaly/praefect/_index.md#migrate-to-gitaly-cluster-praefect).
+To move a repository to a different repository storage (for example, from `default` to `storage2`), use the same process as [migrating to Gitaly Cluster (Praefect)](gitaly/praefect/_index.md#migrate-to-gitaly-cluster-praefect).

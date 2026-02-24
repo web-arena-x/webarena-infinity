@@ -5,8 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Geo proxying
 ---
 
-Secondaries proxy nearly all HTTP requests through Workhorse to the primary, so users navigating to the
-secondary see a read-write UI, and are able to do all operations that they can do on the primary.
+Secondaries proxy nearly all HTTP requests through Workhorse to the primary, so users navigating to the secondary see a read-write UI, and are able to do all operations that they can do on the primary.
 
 ## High-level components
 
@@ -36,9 +35,7 @@ secondary->>client: HTTP/1.1 200 OK [..]
 
 ### Proxy detection mechanism
 
-To know whether or not it should proxy requests to the primary, and the URL of the primary (as it is stored in
-the database), Workhorse polls the internal API when Geo is enabled. When proxying should be enabled, the internal
-API responds with the primary URL and JWT-signed data that is passed on to the primary for every request.
+To know whether or not it should proxy requests to the primary, and the URL of the primary (as it is stored in the database), Workhorse polls the internal API when Geo is enabled. When proxying should be enabled, the internal API responds with the primary URL and JWT-signed data that is passed on to the primary for every request.
 
 ```mermaid
 sequenceDiagram
@@ -52,19 +49,15 @@ sequenceDiagram
 
 ### In-depth request flow and local data acceleration compared with proxying
 
-Detailing implementation, Workhorse on the secondary (requested) site decides whether to proxy the data or not. If it
-can "accelerate" the data type (that is, can serve locally to save a roundtrip request), it returns the data
-immediately. Otherwise, traffic is sent to the primary's internal URL, served by Workhorse on the primary exactly
-as a direct request would. The response is then be proxied back to the user through the secondary Workhorse in the
-same connection.
+Detailing implementation, Workhorse on the secondary (requested) site decides whether to proxy the data or not. If it can "accelerate" the data type (that is, can serve locally to save a roundtrip request), it returns the data immediately. Otherwise, traffic is sent to the primary's internal URL, served by Workhorse on the primary exactly as a direct request would. The response is then be proxied back to the user through the secondary Workhorse in the same connection.
 
 ```mermaid
 flowchart LR
-  A[Client]--->W1["Workhorse (secondary)"]
-  W1 --> W1C[Serve data locally?]
-  W1C -- "Yes" ----> W1
-  W1C -- "No (proxy)" ----> W2["Workhorse (primary)"]
-  W2 --> W1 ----> A
+ A[Client]--->W1["Workhorse (secondary)"]
+ W1 --> W1C[Serve data locally?]
+ W1C -- "Yes" ----> W1
+ W1C -- "No (proxy)" ----> W2["Workhorse (primary)"]
+ W2 --> W1 ----> A
 ```
 
 ## Sign-in
@@ -103,8 +96,7 @@ The Git pull forward path was [renamed from the legacy name `push_from_secondary
 
 #### Accelerated repositories
 
-When a repository exists on the secondary and we detect is up to date with the primary, we serve it directly instead of
-proxying.
+When a repository exists on the secondary and we detect is up to date with the primary, we serve it directly instead of proxying.
 
 ```mermaid
 sequenceDiagram
@@ -131,8 +123,7 @@ Wsec-->>C: Pipe messages to the Git client
 
 #### Proxied repositories
 
-If a requested repository isn't synced, or we detect is not up to date, the request will be proxied to the primary, in
-order to get the latest version of the changes.
+If a requested repository isn't synced, or we detect is not up to date, the request will be proxied to the primary, in order to get the latest version of the changes.
 
 ```mermaid
 sequenceDiagram
@@ -172,14 +163,11 @@ Wsec-->>C: Return piped messages from Git
 
 ### Git pull over SSH
 
-As SSH operations go through GitLab Shell instead of Workhorse, they are not proxied through the mechanism used for
-Workhorse requests. With SSH operations, they are proxied as Git HTTP requests to the primary site by the secondary
-Rails internal API.
+As SSH operations go through GitLab Shell instead of Workhorse, they are not proxied through the mechanism used for Workhorse requests. With SSH operations, they are proxied as Git HTTP requests to the primary site by the secondary Rails internal API.
 
 #### Accelerated repositories
 
-When a repository exists on the secondary and we detect is up to date with the primary, we serve it directly instead of
-proxying.
+When a repository exists on the secondary and we detect is up to date with the primary, we serve it directly instead of proxying.
 
 ```mermaid
 sequenceDiagram
@@ -201,8 +189,7 @@ S-->>C: stream Git response back
 
 #### Proxied repositories
 
-If a requested repository isn't synced, or we detect is not up to date, the request will be proxied to the primary, in
-order to get the latest version of the changes.
+If a requested repository isn't synced, or we detect is not up to date, the request will be proxied to the primary, in order to get the latest version of the changes.
 
 ```mermaid
 sequenceDiagram
@@ -230,9 +217,7 @@ S-->>C: return Git response from primary
 
 ### Git push over SSH
 
-As SSH operations go through GitLab Shell instead of Workhorse, they are not proxied through the mechanism used for
-Workhorse requests. With SSH operations, they are proxied as Git HTTP requests to the primary site by the secondary
-Rails internal API.
+As SSH operations go through GitLab Shell instead of Workhorse, they are not proxied through the mechanism used for Workhorse requests. With SSH operations, they are proxied as Git HTTP requests to the primary site by the secondary Rails internal API.
 
 ```mermaid
 sequenceDiagram

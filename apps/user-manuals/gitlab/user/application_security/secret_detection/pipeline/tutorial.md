@@ -7,12 +7,9 @@ title: 'Tutorial: Protect your project with pipeline secret detection'
 
 <!-- vale gitlab_base.FutureTense = NO -->
 
-If your application uses external resources, you usually need to authenticate your application with a secret,
-like a token or key. If a secret is pushed to a remote repository, anyone with access to the repository can impersonate
-you or your application.
+If your application uses external resources, you usually need to authenticate your application with a secret, like a token or key. If a secret is pushed to a remote repository, anyone with access to the repository can impersonate you or your application.
 
-Pipeline secret detection uses a CI/CD job to check your GitLab project for secrets. In this tutorial,
-you'll create a project, configure pipeline secret detection, and learn how to analyze its results:
+Pipeline secret detection uses a CI/CD job to check your GitLab project for secrets. In this tutorial, you'll create a project, configure pipeline secret detection, and learn how to analyze its results:
 
 1. [Create a project](#create-a-project)
 1. [Check the job output](#check-the-job-output)
@@ -42,8 +39,7 @@ First, create a project and enable secret detection:
 1. Select **Create project**.
 
 A new project is created and initialized with a README and `.gitlab-ci.yml` file.
-The CI/CD configuration includes the `Security/Secret-Detection.gitlab-ci.yml` template,
-which enables pipeline secret detection in the project.
+The CI/CD configuration includes the `Security/Secret-Detection.gitlab-ci.yml` template, which enables pipeline secret detection in the project.
 
 ## Check the job output
 
@@ -61,10 +57,7 @@ To check the results of the most recent scan:
 
 ## Enable merge request pipelines
 
-So far, you have used pipeline secret detection to scan commits in the
-default branch. But to analyze commits in merge requests before you
-merge them to the default branch, you need to enable merge request
-pipelines.
+So far, you have used pipeline secret detection to scan commits in the default branch. But to analyze commits in merge requests before you merge them to the default branch, you need to enable merge request pipelines.
 
 To do this:
 
@@ -123,11 +116,9 @@ Next, let's complicate the output of the job by "leaking" a fake secret in a mer
 
 {{< /details >}}
 
-A secret detected on a non-default branch is called a "finding."
-When a finding is merged to the default branch, it becomes a "vulnerability."
+A secret detected on a non-default branch is called a "finding." When a finding is merged to the default branch, it becomes a "vulnerability."
 
-The merge request security widget displays a list of findings that could become vulnerabilities
-if the merge request is merged.
+The merge request security widget displays a list of findings that could become vulnerabilities if the merge request is merged.
 
 To view the widget:
 
@@ -151,8 +142,7 @@ On GitLab Ultimate, job output is also written to:
 - The pipeline's **Security** tab.
 - If a finding becomes a vulnerability, the vulnerability report.
 
-To demonstrate how you can triage a secret by using the UI, let's create a vulnerability and change its
-status in the vulnerability report:
+To demonstrate how you can triage a secret by using the UI, let's create a vulnerability and change its status in the vulnerability report:
 
 1. Merge the MR you created in the last step, then wait for the pipeline to finish.
 
@@ -174,8 +164,7 @@ The vulnerability no longer appears on the front page of the vulnerability repor
 If you add a secret to a remote repository, that secret is no longer secure and must be revoked as soon as possible.
 You should revoke and replace secrets even if they haven't been merged to your default branch.
 
-The exact steps you take to remediate a leak will depend on your organization's security policies,
-but at a minimum, you should:
+The exact steps you take to remediate a leak will depend on your organization's security policies, but at a minimum, you should:
 
 1. Revoke the secret. When a secret is revoked, it is no longer valid and cannot be used to impersonate legitimate activity.
 1. Remove the secret from your repository.

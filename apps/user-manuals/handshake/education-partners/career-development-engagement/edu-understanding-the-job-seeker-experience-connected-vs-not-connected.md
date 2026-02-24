@@ -6,7 +6,7 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/33904911962903-EDU-U
 
 Job seekers can access the Handshake feed, search for and view public career fairs, manage their profiles, message with others, and search for and apply for some jobs before they are connected to an educational institution or independent of an educational institution. We encourage job seekers to connect with educational institutions so they can have a more curated experience on Handshake, and enjoy access to exclusive jobs, fairs, events, appointments, resources, and collections. This article will assist you with understanding the different levels of access for job seekers depending on their connection to a school.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Feature** | Job seeker account connected to a school | Job seeker account not connected to a school |
 | Appointments | Can access depending on qualifications | Cannot access |

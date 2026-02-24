@@ -33,8 +33,7 @@ If you select a specific model for a feature, the feature uses that model until 
 
 {{< /history >}}
 
-You can select a model for a feature that applies to the entire instance. If you don't select a specific model,
-all GitLab Duo features use the default GitLab model.
+You can select a model for a feature that applies to the entire instance. If you don't select a specific model, all GitLab Duo features use the default GitLab model.
 
 Prerequisites:
 

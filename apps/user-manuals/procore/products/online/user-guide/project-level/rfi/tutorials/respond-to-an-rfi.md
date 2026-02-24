@@ -15,20 +15,20 @@ If you are listed as an 'Assignee' of an RFI, it means that your response has be
 ## Things to Consider
 
 - **Required User Permissions:**
-  - *To reply to an RFI via email or in Procore:*
-    - 'Standard' level permissions on the project's RFIs tool AND be an Assignee or a Distribution List member on the RFI.  
+ - *To reply to an RFI via email or in Procore:*
+    - 'Standard' level permissions on the project's RFIs tool AND be an Assignee or a Distribution List member on the RFI. 
       OR
-    - 'Read Only' level permissions on the project's RFIs tool with the ['Act as RFI Manager' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#RFIs "Grant Granular Permissions in a Project Permissions Template") enabled on your permissions template AND be the RFI's RFI Manager.  
+    - 'Read Only' level permissions on the project's RFIs tool with the ['Act as RFI Manager' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#RFIs "Grant Granular Permissions in a Project Permissions Template") enabled on your permissions template AND be the RFI's RFI Manager. 
       OR
-    - 'Standard' level permissions on the project's RFIs tool with the ['Act as RFI Manager' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#RFIs "Grant Granular Permissions in a Project Permissions Template") enabled on your permissions template AND be the RFI's creator, RFI Manager, an Assignee, or a Distribution List member.  
+    - 'Standard' level permissions on the project's RFIs tool with the ['Act as RFI Manager' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#RFIs "Grant Granular Permissions in a Project Permissions Template") enabled on your permissions template AND be the RFI's creator, RFI Manager, an Assignee, or a Distribution List member. 
       OR
     - 'Admin' level permissions on the project's RFIs tool.
 
 ## Video
 
-|  |
+| |
 | --- |
-|  |
+| |
 
 ## Steps
 
@@ -36,29 +36,29 @@ When you are designated as the 'Assignee' on an RFI, you have different options
 
 - [Reply to the RFI by Email](#Reply_to_the_RFI_by_Email "Respond to an RFI")
 - [Reply to the RFI in Procore](#Reply_to_the_RFI_in_Procore "Respond to an RFI")
-- [Reply to the RFI on Your Mobile Device](#Reply_to_the_RFI_on_Your_Mobile_Device "Respond to an RFI")  
+- [Reply to the RFI on Your Mobile Device](#Reply_to_the_RFI_on_Your_Mobile_Device "Respond to an RFI") 
     
-  *Note:* In addition to adding a reply, you can also add other assignees to the RFI from the Procore web application. For details, see [Add Assignees to an RFI as an Assignee on an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/add-assignees-to-an-rfi-as-an-assignee-on-an-rfi "Add Assignees to an RFI as an Assignee on an RFI").
+ *Note:* In addition to adding a reply, you can also add other assignees to the RFI from the Procore web application. For details, see [Add Assignees to an RFI as an Assignee on an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/add-assignees-to-an-rfi-as-an-assignee-on-an-rfi "Add Assignees to an RFI as an Assignee on an RFI").
 
 After you submit your response to the RFI, the system automatically shifts the Ball In Court responsibility to the RFI Manager and email notifications are sent according to the project's settings. See [When does the RFIs tool send email notifications?](https://support.procore.com/faq/when-does-the-rfis-tool-send-email-notifications "When does the RFIs tool send email notifications?")
 
 #### Reply to the RFI by Email
 
-1. Open the New RFI message in your email client.   
-   A message resembling the one below appears.   
+1. Open the New RFI message in your email client.  
+   A message resembling the one below appears.  
      
    ![rfi-email-to-architect.png](https://support.procore.com/@api/deki/files/38158/rfi-email-to-architect.png?revision=1&size=bestfit&width=596&height=751)
-2. Click **Reply** in your email client.  
+2. Click **Reply** in your email client. 
    The system reveals a reply form and the reply to email address.
-3. In the body of the email message, enter the message for your reply.  
+3. In the body of the email message, enter the message for your reply. 
      
-   ![reply-by-email-address.png](https://support.procore.com/@api/deki/files/80023/reply-by-email-address.png?revision=1)  
+   ![reply-by-email-address.png](https://support.procore.com/@api/deki/files/80023/reply-by-email-address.png?revision=1) 
      
    *Notes:*
    - Do NOT modify the email address in the To field. This email is required in order to send your reply to the RFIs tool in the related project.
    - You can also add any attachments to the email as desired.
    - If your email client has a customized format, it will NOT maintain its custom format in Procore.
-4. Click **Send**.  
+4. Click **Send**. 
    The system posts your email (along with any attachments you added) as your response to the RFI's **Responses**card in Procore and sends email notifications according to the project's settings. See [When does the RFIs tool send email notifications?](https://support.procore.com/faq/when-does-the-rfis-tool-send-email-notifications "When does the RFIs tool send email notifications?")
 
 #### Reply to the RFI in Procore
@@ -70,10 +70,10 @@ After you submit your response to the RFI, the system automatically shifts the 
 5. Click **Add Response**.
 6. Enter your response in the text box.
 7. Add files as attachments using one of these options:
-   - Click **Attach Files**.  
+   - Click **Attach Files**. 
      OR
    - Use a drag-and-drop operation to move files from your computer to the **Drag and Drop Files** area.
-8. 1. Click **Add**.  
+8. 1. Click **Add**. 
    Your response is added to the RFI's **Responses**card and the system sends email notifications according to the project's settings. See [When does the RFIs tool send email notifications?](https://support.procore.com/faq/when-does-the-rfis-tool-send-email-notifications "When does the RFIs tool send email notifications?")
 
 #### Reply to the RFI on Your Mobile Device

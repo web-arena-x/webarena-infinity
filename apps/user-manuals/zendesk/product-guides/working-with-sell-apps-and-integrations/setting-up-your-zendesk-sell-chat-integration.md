@@ -45,7 +45,7 @@ You'll need the following permissions:
 - Chat Phase 3 accounts: Chat admin and Support admin rights.
 - Chat Phase 4 accounts: [Chat account owner](../setting-up-live-chat/changing-your-zendesk-chat-account-owner.md) rights.
 
-  Note: If you have Chat Phase 4 admin rights (instead of account owner rights), you won't be able to install the Sell app in Chat, and you'll see an error message in the Zendesk App Marketplace.
+ Note: If you have Chat Phase 4 admin rights (instead of account owner rights), you won't be able to install the Sell app in Chat, and you'll see an error message in the Zendesk App Marketplace.
 
 When you've finished setting up, see [Using Zendesk Chat to improve your sales pipeline](https://support.zendesk.com/hc/en-us/articles/4408821337242) to start using Sell and Chat together.
 
@@ -143,7 +143,7 @@ If you leave the **Owner** field empty, then until the checkbox **Allow agents t
 - If you selected **Only Sell users have access**, the lead will be assigned to the user who created the lead.
 - If you selected **All agents have access**, the lead will be assigned to the topmost manager (the person name is displayed in the settings).
 
-  ![Sell new lead settings](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_new_lead_settings.png)
+ ![Sell new lead settings](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_new_lead_settings.png)
 
 Note: If only one owner (a Sell user or distribution) is selected in the Owner field, then you won't see a dropdown menu here. Instead, leads will be automatically assigned to the owner selected in Sell settings.
 

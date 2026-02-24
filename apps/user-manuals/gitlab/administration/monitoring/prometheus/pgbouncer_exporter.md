@@ -12,8 +12,7 @@ title: PgBouncer exporter
 
 {{< /details >}}
 
-The [PgBouncer exporter](https://github.com/prometheus-community/pgbouncer_exporter) enables
-you to measure various [PgBouncer](https://www.pgbouncer.org/) metrics.
+The [PgBouncer exporter](https://github.com/prometheus-community/pgbouncer_exporter) enables you to measure various [PgBouncer](https://www.pgbouncer.org/) metrics.
 
 For self-compiled installations, you must install and configure it yourself.
 
@@ -30,9 +29,7 @@ To enable the PgBouncer exporter:
 1. Save the file and [reconfigure GitLab](../../restart_gitlab.md#reconfigure-a-linux-package-installation)
    for the changes to take effect.
 
-Prometheus begins collecting performance data from the PgBouncer exporter
-exposed at `localhost:9188`.
+Prometheus begins collecting performance data from the PgBouncer exporter exposed at `localhost:9188`.
 
-The PgBouncer exporter is enabled by default if the
-[`pgbouncer_role`](https://docs.gitlab.com/omnibus/roles/#postgresql-roles)
+The PgBouncer exporter is enabled by default if the [`pgbouncer_role`](https://docs.gitlab.com/omnibus/roles/#postgresql-roles)
 role is enabled.

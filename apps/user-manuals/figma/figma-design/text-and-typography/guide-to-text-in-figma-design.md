@@ -25,7 +25,7 @@ There are a few different terms we'll use to talk about text in Figma Design:
 
 ## Create text layers
 
-Select the  text tool from the toolbar, or using the `T` keyboard shortcut.
+Select the text tool from the toolbar, or using the `T` keyboard shortcut.
 
 ![Toolbar showing the text tool icon highlighted for creating text layers with a keyboard shortcut option.](https://help.figma.com/hc/article_attachments/27469557279255)
 
@@ -56,7 +56,7 @@ You can create text layers that follow the path of a vector object, such as a sh
 
 To type text on a path:
 
-1. Select the  **Text** tool.
+1. Select the **Text** tool.
 2. Hover your cursor over the path of a vector object until the text on a path icon appears.
 3. Click to add a new text layer and start typing.
 
@@ -114,7 +114,7 @@ Adjust other properties of the text layer that aren’t specific to the text’s
 - **Color**: Add color, gradients, and images to text using the layer’s [**Fill**](https://help.figma.com/hc/en-us/articles/360040623954-Add-fills-to-text-and-shape-layers) properties.
 - **Stroke**: Add an outline around individual characters in a text layer using [**Stroke**](../additional-properties/apply-and-adjust-stroke-properties.md).
 
-**Want to adjust the background color of a text layer?**  Applying a fill to a text layer will only update the color of the text. To add a fill behind text, you can add the text layer to a [frame](../create-and-edit-layers/frames-in-figma-design.md) and update the **Fill** of the frame instead.
+**Want to adjust the background color of a text layer?** Applying a fill to a text layer will only update the color of the text. To add a fill behind text, you can add the text layer to a [frame](../create-and-edit-layers/frames-in-figma-design.md) and update the **Fill** of the frame instead.
 
 ## Troubleshooting
 

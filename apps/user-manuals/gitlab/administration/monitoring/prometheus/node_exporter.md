@@ -12,8 +12,7 @@ title: Node exporter
 
 {{< /details >}}
 
-The [node exporter](https://github.com/prometheus/node_exporter) enables you to measure
-various machine resources such as memory, disk and CPU utilization.
+The [node exporter](https://github.com/prometheus/node_exporter) enables you to measure various machine resources such as memory, disk and CPU utilization.
 
 For self-compiled installations, you must install and configure it yourself.
 
@@ -30,5 +29,4 @@ To enable the node exporter:
 1. Save the file, and [reconfigure GitLab](../../restart_gitlab.md#reconfigure-a-linux-package-installation)
    for the changes to take effect.
 
-Prometheus begins collecting performance data from the node exporter
-exposed at `localhost:9100`.
+Prometheus begins collecting performance data from the node exporter exposed at `localhost:9100`.

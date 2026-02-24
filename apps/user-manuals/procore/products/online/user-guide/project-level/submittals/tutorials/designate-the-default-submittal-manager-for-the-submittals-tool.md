@@ -15,15 +15,15 @@ In Procore, a *submittal manager*is a person responsible for overseeing a submi
 ## Things to Consider
 
 - **Required User Permission**:
-  - *To designate the project's 'Default Submittal Manager'*, 'Admin' level permission on the project's Submittals tool.
-  - *To be designated as the project's 'Default Submittal Manager',*'Standard' level permission or higher on the project's Submittals tool.   
+ - *To designate the project's 'Default Submittal Manager'*, 'Admin' level permission on the project's Submittals tool.
+ - *To be designated as the project's 'Default Submittal Manager',*'Standard' level permission or higher on the project's Submittals tool.  
     *Note*: Users with 'Standard' level permission do NOT have the ability to change the 'Submittal Manager' on individual submittals.
 
 ## Steps
 
-1. Navigate to the project's **Submittals** tool.  
+1. Navigate to the project's **Submittals** tool. 
    This reveals the Submittals page.
-2. Click **Configure Settings** ![icons-settings-gear.png](https://support.procore.com/@api/deki/files/89566/icons-settings-gear.png?revision=2&size=bestfit&width=15&height=15).  
+2. Click **Configure Settings** ![icons-settings-gear.png](https://support.procore.com/@api/deki/files/89566/icons-settings-gear.png?revision=2&size=bestfit&width=15&height=15). 
    This reveals the Submittal Settings page.
 3. Under Submittal Settings, do the following:
    - **Default Submittal Manager**. Select the desired submittal manager. See [What is the 'Submittal Manager' role?](https://support.procore.com/faq/what-is-the-submittal-manager-role "What is the 'Submittal Manager' role?")

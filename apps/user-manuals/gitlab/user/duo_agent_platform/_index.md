@@ -21,12 +21,10 @@ title: GitLab Duo Agent Platform
 
 {{< /history >}}
 
-With the GitLab Duo Agent Platform, multiple AI agents can work in parallel, helping you create code,
-research results, and perform tasks simultaneously.
+With the GitLab Duo Agent Platform, multiple AI agents can work in parallel, helping you create code, research results, and perform tasks simultaneously.
 The agents have full context across your entire software development lifecycle.
 
-The Agent Platform is made up of [several features](../gitlab_duo/feature_summary.md),
-which are available in the GitLab UI and IDEs.
+The Agent Platform is made up of [several features](../gitlab_duo/feature_summary.md), which are available in the GitLab UI and IDEs.
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
 For an overview, see [Developer Onboarding with GitLab Duo Agent Platform](https://youtu.be/UD8vAAglkY0?si=7AWWDfd-mLGdkBwT).
@@ -40,12 +38,11 @@ To use the Agent Platform:
 - Have purchased [GitLab Credits](../../subscriptions/gitlab_credits.md).
 - [GitLab Duo, including GitLab Duo Core and flow execution, must be turned on](../gitlab_duo/turn_on_off.md).
 - Depending on your GitLab version:
-  - In GitLab 18.8 and later, the [Agent Platform must be turned on](../gitlab_duo/turn_on_off.md#turn-gitlab-duo-agent-platform-on-or-off).
-  - In GitLab 18.7 and earlier, [beta and experimental features must be turned on](../gitlab_duo/turn_on_off.md#turn-on-beta-and-experimental-features).
+ - In GitLab 18.8 and later, the [Agent Platform must be turned on](../gitlab_duo/turn_on_off.md#turn-gitlab-duo-agent-platform-on-or-off).
+ - In GitLab 18.7 and earlier, [beta and experimental features must be turned on](../gitlab_duo/turn_on_off.md#turn-on-beta-and-experimental-features).
 - For GitLab Self-Managed, you must [ensure your instance is configured](../../administration/gitlab_duo/configure/gitlab_self_managed.md)
-  and the composite identity turned on.
-- For [GitLab Duo with self-hosted models](../../administration/gitlab_duo_self_hosted/_index.md),
-  you must [install and run the AI gateway with GitLab Duo Agent Platform service](../../install/install_ai_gateway.md).
+ and the composite identity turned on.
+- For [GitLab Duo with self-hosted models](../../administration/gitlab_duo_self_hosted/_index.md), you must [install and run the AI gateway with GitLab Duo Agent Platform service](../../install/install_ai_gateway.md).
 
 In addition, to use the Agent Platform in your IDE:
 

@@ -77,8 +77,7 @@ Use these features to gain insights into security vulnerabilities and metrics.
 
 ## Metric glossary
 
-The following glossary provides definitions for common development metrics used in analytics features,
-and explains how they are measured in GitLab.
+The following glossary provides definitions for common development metrics used in analytics features, and explains how they are measured in GitLab.
 
 | Metric | Definition | Measurement in GitLab |
 | ------ | ---------- | --------------------- |

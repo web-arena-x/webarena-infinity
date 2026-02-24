@@ -48,5 +48,5 @@ Note: If you clone a closed ticket, an error message displays, but tickets are c
 1. Display the Clone Ticket app on the ticket page by clicking the **Apps** button on the upper-right side of the page.
 2. In the Clone Ticket app, click **Create clones of this ticket.**![](https://support.zendesk.com/hc/article_attachments/7856386152218)
 3. Enter the number of times to clone a ticket and click **Create.** You can choose whether to open the tickets automatically after creation.![](https://support.zendesk.com/hc/article_attachments/7856363717402)
-4. Re-enter the number of times to clone a ticket as confirmation, and click **Confirm.**![](https://support.zendesk.com/hc/article_attachments/7856386152474)  
+4. Re-enter the number of times to clone a ticket as confirmation, and click **Confirm.**![](https://support.zendesk.com/hc/article_attachments/7856386152474) 
    A confirmation message displays the number of cloned tickets created.![](https://support.zendesk.com/hc/article_attachments/7856386153242)

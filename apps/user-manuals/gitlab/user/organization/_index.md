@@ -33,14 +33,12 @@ This feature is available for testing, but not ready for production use.
 > [!note]
 > Organizations is in development.
 
-Organizations will be above the [top-level namespaces](../namespace/_index.md) for you to manage
-everything you do as a GitLab administrator, including:
+Organizations will be above the [top-level namespaces](../namespace/_index.md) for you to manage everything you do as a GitLab administrator, including:
 
 - Defining and applying settings to all of your groups, subgroups, and projects.
 - Aggregating data from all your groups, subgroups, and projects.
 
-For more information about the state of organization development,
-see [epic 9265](https://gitlab.com/groups/gitlab-org/-/epics/9265).
+For more information about the state of organization development, see [epic 9265](https://gitlab.com/groups/gitlab-org/-/epics/9265).
 
 ## Create an organization
 

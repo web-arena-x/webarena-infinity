@@ -12,9 +12,7 @@ title: Activate GitLab Enterprise Edition (EE)
 
 {{< /details >}}
 
-When you install a new GitLab instance without a license, only Free features
-are enabled. To enable more features in GitLab Enterprise Edition (EE), activate
-your instance with an activation code.
+When you install a new GitLab instance without a license, only Free features are enabled. To enable more features in GitLab Enterprise Edition (EE), activate your instance with an activation code.
 
 ## Activate GitLab EE
 
@@ -69,23 +67,17 @@ To activate your instance for an offline environment:
 
 - [Activate GitLab EE with a license file or key](license_file.md).
 
-If you have questions or need assistance activating your instance,
-[contact GitLab Support](https://about.gitlab.com/support/#contact-support).
+If you have questions or need assistance activating your instance, [contact GitLab Support](https://about.gitlab.com/support/#contact-support).
 
-When [the license expires](license_file.md#what-happens-when-your-license-expires),
-some functionality is locked.
+When [the license expires](license_file.md#what-happens-when-your-license-expires), some functionality is locked.
 
 ## Verify your GitLab edition
 
-To verify the edition, sign in to GitLab and select
-**Help** ({{< icon name="question-o" >}}) > **Help**. The GitLab edition and version are listed
-at the top of the page.
+To verify the edition, sign in to GitLab and select **Help** ({{< icon name="question-o" >}}) > **Help**. The GitLab edition and version are listed at the top of the page.
 
-If you are running GitLab Community Edition (CE), you can upgrade your installation to GitLab
-EE. For more information, see [other upgrade paths](../update/convert_to_ee/_index.md).
+If you are running GitLab Community Edition (CE), you can upgrade your installation to GitLab EE. For more information, see [other upgrade paths](../update/convert_to_ee/_index.md).
 
-If you have questions or need assistance,
-[contact GitLab Support](https://about.gitlab.com/support/#contact-support).
+If you have questions or need assistance, [contact GitLab Support](https://about.gitlab.com/support/#contact-support).
 
 ## Troubleshooting
 
@@ -119,27 +111,24 @@ When activating your instance, you may encounter connectivity issues preventing 
 This can be caused by:
 
 - **Firewall settings**:
-  - To confirm that your GitLab instance can establish an encrypted connection to `https://customers.gitlab.com` on port 443, use the following curl command:
+ - To confirm that your GitLab instance can establish an encrypted connection to `https://customers.gitlab.com` on port 443, use the following curl command:
 
     ```shell
     curl --verbose "https://customers.gitlab.com/"
     ```
 
-  - If the curl command returns an error, either:
-    - Check your firewall or proxy. The domain `https://customers.gitlab.com` is
-      fronted by Cloudflare. Ensure your firewall or proxy allows traffic to the Cloudflare
-      [IPv4](https://www.cloudflare.com/ips-v4/) and
-      [IPv6](https://www.cloudflare.com/ips-v6/) ranges for activation to work.
+ - If the curl command returns an error, either:
+    - Check your firewall or proxy. The domain `https://customers.gitlab.com` is fronted by Cloudflare. Ensure your firewall or proxy allows traffic to the Cloudflare [IPv4](https://www.cloudflare.com/ips-v4/) and [IPv6](https://www.cloudflare.com/ips-v6/) ranges for activation to work.
     - [Configure a proxy](https://docs.gitlab.com/omnibus/settings/environment-variables.html)
       in `gitlab.rb` to point to your server.
 
     Contact your network administrator to make changes to an existing proxy or firewall.
-  - If an SSL inspection appliance is used, you must add the appliance's root CA certificate to `/etc/gitlab/trusted-certs` on your instance, then run `gitlab-ctl reconfigure`.
+ - If an SSL inspection appliance is used, you must add the appliance's root CA certificate to `/etc/gitlab/trusted-certs` on your instance, then run `gitlab-ctl reconfigure`.
 
 - **Customers Portal is not operational**:
-  - Check for any active disruptions to the Customers Portal on [status](https://status.gitlab.com/).
+ - Check for any active disruptions to the Customers Portal on [status](https://status.gitlab.com/).
 
 - **An offline environment**:
-  - If you are unable to configure your setup to allow connection to GitLab servers, contact your Sales Representative to request an [Offline license](https://about.gitlab.com/pricing/licensing-faq/cloud-licensing/#what-is-an-offline-cloud-license).
+ - If you are unable to configure your setup to allow connection to GitLab servers, contact your Sales Representative to request an [Offline license](https://about.gitlab.com/pricing/licensing-faq/cloud-licensing/#what-is-an-offline-cloud-license).
 
     For assistance, you can contact [GitLab support](https://about.gitlab.com/support/#contact-support) with reference to [troubleshooting network connectivity](https://handbook.gitlab.com/handbook/support/license-and-renewals/workflows/self-managed/troubleshoot_cloud_licensing/#troubleshooting-network-connectivity).

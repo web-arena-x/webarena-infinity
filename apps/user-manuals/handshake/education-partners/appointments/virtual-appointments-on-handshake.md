@@ -12,11 +12,11 @@ Topics:
 
 - [Activate the "Virtual on Handshake" Appointment Medium](#h_01FC8V3FXAENEBPDTE3XMP0G66)
 - [Hosting a Virtual Appointment](#h_01FC8V3PTE68ECE6ESYYG7CPVE) 
-  - [Start Video Appointment button details](#h_01FC8V3ZE89GTJM4E5364CFXZ5)
+ - [Start Video Appointment button details](#h_01FC8V3ZE89GTJM4E5364CFXZ5)
 - [Screen sharing during a Virtual Appointment](#h_01FC8V46F8JXY1CHDTC574JT3Y)
 - Important Considerations
-  - [For your career advisors](#h_01FC8V4PFVATJRSA8QPEJK8P36)
-  - [For your students](#h_01FC8V4X1Q7WAF29F93TPHYM3B)
+ - [For your career advisors](#h_01FC8V4PFVATJRSA8QPEJK8P36)
+ - [For your students](#h_01FC8V4X1Q7WAF29F93TPHYM3B)
 - [Additional Resources](#h_01FC8V53SEBPD00BHKGZ4PZ9Y0)
 
 ### Activate the "Virtual on Handshake" Appointment Medium
@@ -59,7 +59,7 @@ For more information on using Handshake's integrated video, refer to [Handshake
 
 - Button available for students: 5 minutes prior to scheduled appointment start time through the duration of the scheduled appointment or until the host clicks "Complete Appointment" (whichever comes first).
 - Button not available for students:
-  - - if the appointment is cancelled
+ - - if the appointment is cancelled
     - if "Student Did Not Show" is clicked
     - if "Complete Appointment" is clicked
     - after the appointment's scheduled end time
@@ -122,10 +122,10 @@ Keep track of all accessibility updates made on a monthly basis in [Accessibilit
 #### For your career advisors:
 
 - Make sure to update office locations AND mediums in appointment blocks to remove other virtual links–office locations are still included in reminder emails.
-  - For steps to manage your office location, check out [Offering In Person and Virtual Appointments](https://support.joinhandshake.com/hc/en-us/articles/360000872148).
-  - For steps to manage Appointment Mediums, refer to [School Settings: Appointment Preferences and Mediums](https://support.joinhandshake.com/hc/en-us/articles/219132837).
+ - For steps to manage your office location, check out [Offering In Person and Virtual Appointments](https://support.joinhandshake.com/hc/en-us/articles/360000872148).
+ - For steps to manage Appointment Mediums, refer to [School Settings: Appointment Preferences and Mediums](https://support.joinhandshake.com/hc/en-us/articles/219132837).
 - Blank medium fields in appointment blocks - If career coaches have appointment blocks with blank medium fields, ALL Handshake mediums are available to students.
-  - If a team is already offering a virtual medium and if they add the “Virtual on Handshake” medium, this may be confusing for students.
+ - If a team is already offering a virtual medium and if they add the “Virtual on Handshake” medium, this may be confusing for students.
 - Ability to archive appointment mediums - To help school teams with cleaning up appointment medium offerings, we offer the ability to archive appointment mediums. Learn more in [School Settings: Appointment Mediums](https://support.joinhandshake.com/hc/en-us/articles/4406019952279).
 - If you have any Appointment Types that may need to be updated, refer to [Edit, Remove, or Archive an Appointment Type](https://support.joinhandshake.com/hc/en-us/articles/224601047-Edit-Remove-or-Archive-an-Appointment-Type).
 - For reporting purposes, when the career advisor clicks to Start Video Appointment, this is recorded as the appointment "start time". The appointment will be marked as "started" until the career advisor clicks "Complete Appointment", which records the end time.
@@ -133,24 +133,24 @@ Keep track of all accessibility updates made on a monthly basis in [Accessibilit
 #### For your students:
 
 - When students schedule an appointment, the **Appointment medium** field defaults to blank–this prompts students to click the dropdown menu and discover the Virtual on Handshake medium.
-  - Previously this field defaulted to the first listed medium.
+ - Previously this field defaulted to the first listed medium.
 - Appointment notification emails remind the student that the appointment is virtual. An hour before the appointment, our [final reminder email](https://support.joinhandshake.com/hc/en-us/articles/235169128) will include a button the student can click to log in and launch the appointment.
-  - The **Start My Appointment** button will become active five minutes prior to the appointment start time.
-  - We do not include the office location in the reminder email if the Medium is Virtual on Handshake.
+ - The **Start My Appointment** button will become active five minutes prior to the appointment start time.
+ - We do not include the office location in the reminder email if the Medium is Virtual on Handshake.
 - Students will be marked as "checked in" upon clicking the link to join video for the appointment. 
-  - This will allow you to easily report on appointment attendance using our [Pre-Built Reports for Appointments](https://support.joinhandshake.com/hc/en-us/articles/360000687107), just remember to filter on the appointment's medium and select "Virtual on Handshake".
-  - **Note**: since students are checked-in upon joining video, QR codes are not provided for virtual appointments.
+ - This will allow you to easily report on appointment attendance using our [Pre-Built Reports for Appointments](https://support.joinhandshake.com/hc/en-us/articles/360000687107), just remember to filter on the appointment's medium and select "Virtual on Handshake".
+ - **Note**: since students are checked-in upon joining video, QR codes are not provided for virtual appointments.
 - Mobile works on mobile web.
-  - iOS: virtual appointments supported in iOS release 3.26.0 *(make sure the app is up to date!)*
-  - Android: virtual appointments supported in release 3.1.1 *(make sure the app is up to date!)*
+ - iOS: virtual appointments supported in iOS release 3.26.0 *(make sure the app is up to date!)*
+ - Android: virtual appointments supported in release 3.1.1 *(make sure the app is up to date!)*
 - If a student is using our video tool via an iOS device, automatic closed captioning can be turned on in Safari. Tap the three dots in the upper-left corner, then tap the option to enable.
 
 ### Additional Resources
 
 - For some best practices using Virtual on Handshake, check out our blog post: [Virtual Appointments on Handshake](Virtual%20Appointments%20on%20Handshake).
-  - This blog post also contains links to weekly office hours, as well as a link to the first office hours recording!
+ - This blog post also contains links to weekly office hours, as well as a link to the first office hours recording!
 - [Handshake Video Test](https://support.joinhandshake.com/hc/en-us/articles/360055116693) can help your career advisors prepare their system settings and optimal video environment.
 - For the student experience:
-  - [Request an Appointment with your Career Center](https://support.joinhandshake.com/hc/en-us/articles/219133257)
-  - [Attending a Virtual Appointment on Handshake](https://support.joinhandshake.com/hc/en-us/articles/4402652328471)
+ - [Request an Appointment with your Career Center](https://support.joinhandshake.com/hc/en-us/articles/219133257)
+ - [Attending a Virtual Appointment on Handshake](https://support.joinhandshake.com/hc/en-us/articles/4402652328471)
 - For training on virtual & in-person Appointments, register and take the course for free in our [Handshake Academy](https://academy.joinhandshake.com/virtual-in-person-appointments).

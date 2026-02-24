@@ -17,8 +17,7 @@ Use this API to interact with [Helm package clients](../../user/packages/helm_re
 {{< alert type="warning" >}}
 
 This API is used by the Helm-related package clients such as [Helm](https://helm.sh/)
-and [`helm-push`](https://github.com/chartmuseum/helm-push/#readme),
-and is generally not meant for manual consumption.
+and [`helm-push`](https://github.com/chartmuseum/helm-push/#readme), and is generally not meant for manual consumption.
 
 {{< /alert >}}
 
@@ -34,9 +33,7 @@ for details on which headers and token types are supported. Undocumented authent
 
 {{< alert type="note" >}}
 
-To ensure consistent chart download URLs, the `contextPath` field in `index.yaml` responses
-always uses the numeric project ID, whether you access the API with the project ID or the
-full project path.
+To ensure consistent chart download URLs, the `contextPath` field in `index.yaml` responses always uses the numeric project ID, whether you access the API with the project ID or the full project path.
 
 {{< /alert >}}
 

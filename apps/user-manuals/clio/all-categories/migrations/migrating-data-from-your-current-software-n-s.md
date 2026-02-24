@@ -619,7 +619,7 @@ What can I migrate? How do I migrate my data?
 
 ## Rocket Matter
 
-**Note:**  If your firm is using Rocket Matter NextGen, refer to the instructions for [Rocket Matter NextGen](migrating-data-from-your-current-software-n-s.md#01JN41FJG1D9H70SFNB968C76W).
+**Note:** If your firm is using Rocket Matter NextGen, refer to the instructions for [Rocket Matter NextGen](migrating-data-from-your-current-software-n-s.md#01JN41FJG1D9H70SFNB968C76W).
 
 What can I migrate? How do I migrate my data?
 
@@ -763,7 +763,7 @@ What can I migrate? How do I migrate my data?
 
 1. Log in to Rocket Matter.
 2. Select **Trust** on the left sidebar.
-3. Click **Run Report**  at the top right.
+3. Click **Run Report** at the top right.
 4. Click **Export**.
 
 **Outstanding balances:**
@@ -843,7 +843,7 @@ What can I migrate? How do I migrate my data?
 3. Click the "more" icon (the three vertical dots) in the top-right corner, then click **Field Configuration**.
 4. Use the checkboxes to select or deselect any relevant fields you want to include or exclude for your export, then click **Save**.
    - Your **Matters** window will update based on your selections.
-5. Click the "more" icon (the three vertical dots) in the top-right corner, then select **Download CSV**.  
+5. Click the "more" icon (the three vertical dots) in the top-right corner, then select **Download CSV**. 
    - Use the filename "SILQ\_Matters\_Export\_YYYYMMDD.csv" to quickly find the right file later when you need to upload it to Clio.
 
 **Contacts:**
@@ -854,7 +854,7 @@ What can I migrate? How do I migrate my data?
 3. Click the "more" icon (the three vertical dots) in the top-right corner, then click **Field Configuration**.
 4. Use the checkboxes to select or deselect any relevant fields you want to include or exclude for your export, then click **Save**.
    - Your **Contacts** window will update based on your selections.
-5. Click the "more" icon (the three vertical dots) in the top-right corner, then select **Download CSV**.  
+5. Click the "more" icon (the three vertical dots) in the top-right corner, then select **Download CSV**. 
    - Use the filename "SILQ\_Contacts\_Export\_YYYYMMDD.csv" to quickly find the right file later when you need to upload it to Clio.
 
 **Time Entries:**
@@ -868,7 +868,7 @@ What can I migrate? How do I migrate my data?
 3. Click the "more" icon (the three vertical dots) in the top-right corner, then click **Field Configuration**.
 4. Use the checkboxes to select or deselect any relevant fields you want to include or exclude for your export, then click **Save**.
    - Your **Time Entries** window will update based on your selections.
-5. Click the "more" icon (the three vertical dots) in the top-right corner, then select **Download CSV**.  
+5. Click the "more" icon (the three vertical dots) in the top-right corner, then select **Download CSV**. 
    - Use the filename "SILQ\_TimeEntries\_Export\_YYYYMMDD.csv" to quickly find the right file later when you need to upload it to Clio.
 
 **Invoices:**
@@ -880,7 +880,7 @@ What can I migrate? How do I migrate my data?
 3. Click the "more" icon (the three vertical dots) in the top-right corner, then click **Field Configuration**.
 4. Use the checkboxes to select or deselect any relevant fields you want to include or exclude for your export, then click **Save**.
    - Your **Invoices** window will update based on your selections.
-5. Click the "more" icon (the three vertical dots) in the top-right corner, then select **Download CSV**.  
+5. Click the "more" icon (the three vertical dots) in the top-right corner, then select **Download CSV**. 
    - Use the filename "SILQ\_Invoices\_Export\_YYYYMMDD.csv" to quickly find the right file later when you need to upload it to Clio.
 
 **Expense Entries:**

@@ -31,8 +31,8 @@ GET /admin/ci/variables
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/admin/ci/variables"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/admin/ci/variables"
 ```
 
 ```json
@@ -74,12 +74,12 @@ GET /admin/ci/variables/:key
 
 | Attribute | Type    | Required | Description |
 |-----------|---------|----------|-------------|
-| `key`     | string  | Yes      | The `key` of a variable |
+| `key`     | string | Yes      | The `key` of a variable |
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/admin/ci/variables/TEST_VARIABLE_1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/admin/ci/variables/TEST_VARIABLE_1"
 ```
 
 ```json
@@ -112,20 +112,20 @@ POST /admin/ci/variables
 
 | Attribute       | Type    | Required | Description |
 |-----------------|---------|----------|-------------|
-| `key`           | string  | Yes      | The `key` of the variable. Maximum of 255 characters, only `A-Z`, `a-z`, `0-9`, and `_` are allowed. |
-| `value`         | string  | Yes      | The `value` of the variable. Maximum of 10,000 characters. |
-| `description`   | string  | No       | The description of the variable. Maximum of 255 characters. |
+| `key`           | string | Yes      | The `key` of the variable. Maximum of 255 characters, only `A-Z`, `a-z`, `0-9`, and `_` are allowed. |
+| `value`         | string | Yes      | The `value` of the variable. Maximum of 10,000 characters. |
+| `description`   | string | No       | The description of the variable. Maximum of 255 characters. |
 | `masked`        | boolean | No       | Whether the variable is masked. |
 | `protected`     | boolean | No       | Whether the variable is protected. |
 | `raw`           | boolean | No       | Whether the variable is expandable. |
-| `variable_type` | string  | No       | The type of the variable. Available types are: `env_var` (default) and `file`. |
+| `variable_type` | string | No       | The type of the variable. Available types are: `env_var` (default) and `file`. |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/admin/ci/variables" \
-  --form "key=NEW_VARIABLE" \
-  --form "value=new value"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/admin/ci/variables" \
+ --form "key=NEW_VARIABLE" \
+ --form "value=new value"
 ```
 
 ```json
@@ -156,19 +156,19 @@ PUT /admin/ci/variables/:key
 
 | Attribute       | Type    | Required | Description |
 |-----------------|---------|----------|-------------|
-| `description`   | string  | No       | The description of the variable. Maximum of 255 characters. |
-| `key`           | string  | Yes      | The `key` of the variable. Maximum of 255 characters, only `A-Z`, `a-z`, `0-9`, and `_` are allowed. |
+| `description`   | string | No       | The description of the variable. Maximum of 255 characters. |
+| `key`           | string | Yes      | The `key` of the variable. Maximum of 255 characters, only `A-Z`, `a-z`, `0-9`, and `_` are allowed. |
 | `masked`        | boolean | No       | Whether the variable is masked. |
 | `protected`     | boolean | No       | Whether the variable is protected. |
 | `raw`           | boolean | No       | Whether the variable is expandable. |
-| `value`         | string  | Yes      | The `value` of the variable. Maximum of 10,000 characters. |
-| `variable_type` | string  | No       | The type of the variable. Available types are: `env_var` (default) and `file`. |
+| `value`         | string | Yes      | The `value` of the variable. Maximum of 10,000 characters. |
+| `variable_type` | string | No       | The type of the variable. Available types are: `env_var` (default) and `file`. |
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/admin/ci/variables/NEW_VARIABLE" \
-  --form "value=updated value"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/admin/ci/variables/NEW_VARIABLE" \
+ --form "value=updated value"
 ```
 
 ```json
@@ -197,6 +197,6 @@ DELETE /admin/ci/variables/:key
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/admin/ci/variables/VARIABLE_1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/admin/ci/variables/VARIABLE_1"
 ```

@@ -15,14 +15,14 @@ The Company Open Submittals Reports is a CSV download that lists all of the sub
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Read Only' level permissions or higher on the Company 360 Reporting tool.
+ - 'Read Only' level permissions or higher on the Company 360 Reporting tool.
 - **Additional Information:**
-  - You can alternatively create a report that includes data from the Submittals tool. See [Create a Company Single Tool Report](https://support.procore.com/products/online/user-guide/company-level/reports/tutorials/create-a-company-single-tool-report "Create a Custom Company Report") or [Create a Project Single Tool Report](https://support.procore.com/products/online/user-guide/project-level/reports/tutorials/create-a-project-single-tool-report "Create a Custom Project Report").
+ - You can alternatively create a report that includes data from the Submittals tool. See [Create a Company Single Tool Report](https://support.procore.com/products/online/user-guide/company-level/reports/tutorials/create-a-company-single-tool-report "Create a Custom Company Report") or [Create a Project Single Tool Report](https://support.procore.com/products/online/user-guide/project-level/reports/tutorials/create-a-project-single-tool-report "Create a Custom Project Report").
 
 ## Steps
 
 1. Navigate to the Company **360 Reporting** tool.
-2. Click **Open Submittals Report**.   
+2. Click **Open Submittals Report**.  
    The system downloads a CSV file listing all of the submittals in the 'Open' status across all of your company's projects. The report includes:
    - **Project #.**This is the number of the project assigned to it upon project creation.
    - **Project Name.**This is the name of the project.

@@ -13,9 +13,7 @@ title: Create users
 
 {{< /details >}}
 
-User accounts form the foundation of GitLab collaboration. Every person who needs access to your GitLab
-projects requires an account. User accounts control access permissions, track contributions, and maintain
-security across your instance.
+User accounts form the foundation of GitLab collaboration. Every person who needs access to your GitLab projects requires an account. User accounts control access permissions, track contributions, and maintain security across your instance.
 
 You can create user accounts in GitLab in different ways:
 
@@ -53,8 +51,7 @@ To create a user:
 1. Optional. In the **Access** section, configure any project limits or user type settings.
 1. Select **Create user**.
 
-GitLab sends an email to the user with a sign-in link, and the user must create a password when
-they first sign in. You can also directly [set a password](../../../security/reset_user_password.md#use-the-ui)
+GitLab sends an email to the user with a sign-in link, and the user must create a password when they first sign in. You can also directly [set a password](../../../security/reset_user_password.md#use-the-ui)
 for the user.
 
 ## Create a user with an authentication integration
@@ -64,9 +61,9 @@ Users are created when they:
 
 - Are provisioned through [SCIM](../../group/saml_sso/scim_setup.md) in the identity provider.
 - Sign in for the first time with:
-  - [LDAP](../../../administration/auth/ldap/_index.md)
-  - [Group SAML](../../group/saml_sso/_index.md)
-  - An [OmniAuth provider](../../../integration/omniauth.md) that has the setting `allow_single_sign_on` turned on
+ - [LDAP](../../../administration/auth/ldap/_index.md)
+ - [Group SAML](../../group/saml_sso/_index.md)
+ - An [OmniAuth provider](../../../integration/omniauth.md) that has the setting `allow_single_sign_on` turned on
 
 ## Create a user through the Rails console
 
@@ -88,34 +85,34 @@ To create a user through the Rails console:
 1. Start a [Rails console session](../../../administration/operations/rails_console.md#starting-a-rails-console-session).
 1. Run the command according to your GitLab version:
 
-  {{< tabs >}}
+ {{< tabs >}}
 
-  {{< tab title="16.10 and earlier" >}}
+ {{< tab title="16.10 and earlier" >}}
 
-  ```ruby
-  u = User.new(username: 'test_user', email: 'test@example.com', name: 'Test User', password: 'password', password_confirmation: 'password')
-  # u.assign_personal_namespace
-  u.skip_confirmation! # Use only if you want the user to be automatically confirmed. If you do not use this, the user receives a confirmation email.
-  u.save!
-  ```
+ ```ruby
+ u = User.new(username: 'test_user', email: 'test@example.com', name: 'Test User', password: 'password', password_confirmation: 'password')
+ # u.assign_personal_namespace
+ u.skip_confirmation! # Use only if you want the user to be automatically confirmed. If you do not use this, the user receives a confirmation email.
+ u.save!
+ ```
 
-  {{< /tab >}}
+ {{< /tab >}}
 
-  {{< tab title="16.11 through 17.6" >}}
+ {{< tab title="16.11 through 17.6" >}}
 
-  ```ruby
-  u = User.new(username: 'test_user', email: 'test@example.com', name: 'Test User', password: 'password', password_confirmation: 'password')
-  u.assign_personal_namespace(Organizations::Organization.default_organization)
-  u.skip_confirmation! # Use only if you want the user to be automatically confirmed. If you do not use this, the user receives a confirmation email.
-  u.save!
-  ```
+ ```ruby
+ u = User.new(username: 'test_user', email: 'test@example.com', name: 'Test User', password: 'password', password_confirmation: 'password')
+ u.assign_personal_namespace(Organizations::Organization.default_organization)
+ u.skip_confirmation! # Use only if you want the user to be automatically confirmed. If you do not use this, the user receives a confirmation email.
+ u.save!
+ ```
 
-  {{< /tab >}}
+ {{< /tab >}}
 
-  {{< tab title="17.7 and later" >}}
+ {{< tab title="17.7 and later" >}}
 
-  ```ruby
-  u = Users::CreateService.new(nil,
+ ```ruby
+ u = Users::CreateService.new(nil,
     username: 'test_user',
     email: 'test@example.com',
     name: 'Test User',
@@ -123,14 +120,14 @@ To create a user through the Rails console:
     password_confirmation: '123password',
     organization_id: Organizations::Organization.first.id,
     skip_confirmation: true
-  ).execute
-  ```
+ ).execute
+ ```
 
 > [!note]
 > If you have [disabled new sign-ups](../../../administration/settings/sign_up_restrictions.md#disable-new-sign-ups),
 > you must run this command as an administrator. In the previous command, replace `Users::CreateService.new(nil,`
 > with `Users::CreateService.new(User.find_by(admin: true),`
 
-  {{< /tab >}}
+ {{< /tab >}}
 
-  {{< /tabs >}}
+ {{< /tabs >}}

@@ -8,9 +8,8 @@ Once you've successfully submitted a job application on Handshake, you'll receiv
 
 Here's what to expect in the email:
 
-**From**: Handshake <handshake@notifications.joinhandshake.com>  
-**Subject**: "Application submitted to [COMPANY NAME]"  
-**Content**:"Application submitted
+**From**: Handshake <handshake@notifications.joinhandshake.com> 
+**Subject**: "Application submitted to [COMPANY NAME]" **Content**:"Application submitted
 
 Nice work! You successfully applied to JOB TITLE(+link) at COMPANY NAME on DATE at TIME TIMEZONE.
 

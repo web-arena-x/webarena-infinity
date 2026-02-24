@@ -20,16 +20,14 @@ title: Snowflake
 
 The Snowflake [GitLab Data Connector](https://app.snowflake.com/marketplace/listing/GZTYZXESENG/gitlab-gitlab-data-connector) pulls data into [Snowflake](https://www.snowflake.com/en/).
 
-In Snowflake you can then view, combine, manipulate, and report on all of the data. The GitLab Data Connector is based on [GitLab REST APIs](../api/rest/_index.md) and
-requires both Snowflake and GitLab configuration.
+In Snowflake you can then view, combine, manipulate, and report on all of the data. The GitLab Data Connector is based on [GitLab REST APIs](../api/rest/_index.md) and requires both Snowflake and GitLab configuration.
 
 ## Prerequisites
 
 1. If you do not have a GitLab personal access token:
    1. Sign in to GitLab.
    1. Follow steps outlined to [create a personal access token](../user/profile/personal_access_tokens.md#create-a-personal-access-token).
-1. Create a [external access integration](https://docs.snowflake.com/en/developer-guide/external-network-access/creating-using-external-network-access) in Snowflake. For more information,
-   see [setup documentation](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/snowflake-connector#setup) in the `snowflake-connector` project.
+1. Create a [external access integration](https://docs.snowflake.com/en/developer-guide/external-network-access/creating-using-external-network-access) in Snowflake. For more information, see [setup documentation](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/snowflake-connector#setup) in the `snowflake-connector` project.
 1. Create a [warehouse](https://docs.snowflake.com/en/user-guide/warehouses-tasks#creating-a-warehouse) in Snowflake.
 
 ## Configure the GitLab Data Connector

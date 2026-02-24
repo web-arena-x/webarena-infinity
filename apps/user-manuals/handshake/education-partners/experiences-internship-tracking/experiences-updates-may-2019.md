@@ -16,11 +16,11 @@ Topics:
 - [Reviewers](#h_01GTA4THK47G1T8RDMMKY9CF18)
 - [How do I switch to the new Experience workflow?](#h_01GTA4TRB8QHZV21SV9ZYYJ51R)
 - [Design changes](#h_01GTA4V1XDGZ9D9D9N45H3YRYS)
-  - [Create Template](#h_01GTA4V9F0Z7XCA7HVBNV20RMS)
-  - [View Template details](#h_01GTA4VHH8VGS8856S3N85HTR0)
-  - [View Experience list](#h_01GTA4VTSYNTJV17F5DPEJRYGT)
-  - [View Experiences details page](#h_01GTA4WD1S8Y005B2CKVG99DN1)
-  - [Reviewer Approval Form](#h_01GTA4WNGCRHCE2TN7DMFTWX42)
+ - [Create Template](#h_01GTA4V9F0Z7XCA7HVBNV20RMS)
+ - [View Template details](#h_01GTA4VHH8VGS8856S3N85HTR0)
+ - [View Experience list](#h_01GTA4VTSYNTJV17F5DPEJRYGT)
+ - [View Experiences details page](#h_01GTA4WD1S8Y005B2CKVG99DN1)
+ - [Reviewer Approval Form](#h_01GTA4WNGCRHCE2TN7DMFTWX42)
 
 ## **Terminology Changes**
 

@@ -70,8 +70,7 @@ To verify that your SAML configuration is successful:
 1. Sign out and go to your GitLab Dedicated instance's sign-in page.
 1. Check that the SSO button for your SAML provider appears on the sign-in page.
 1. Go to the metadata URL of your instance (`https://INSTANCE-URL/users/auth/saml/metadata`).
-   The metadata URL shows information that can simplify configuration of your identity provider
-   and helps validate your SAML settings.
+   The metadata URL shows information that can simplify configuration of your identity provider and helps validate your SAML settings.
 1. Try signing in through the SAML provider to ensure the authentication flow works correctly.
 
 If troubleshooting information, see [troubleshooting SAML](../../../../user/group/saml_sso/troubleshooting.md).

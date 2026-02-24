@@ -10,7 +10,7 @@ Who can use this feature
 
  
 
-Supported on  [any plan](https://help.figma.com/hc/en-us/articles/360040328273-Choose-a-Figma-Plan)
+Supported on [any plan](https://help.figma.com/hc/en-us/articles/360040328273-Choose-a-Figma-Plan)
 
 Available in Figma Design and FigJam files
 
@@ -49,7 +49,7 @@ When clicking and holding your mouse to highlight bits of text, the highlight mo
 
 Figma supports bidirectional text, so you can write in both LTR and RTL scripts in the same paragraph. By default, Figma automatically handles text direction based on language detection. However, controls are available to override text direction per paragraph in Figma Design and FigJam files.
 
-If an RTL script is detected in your text layer, a  will appear in the text section of the right sidebar, allowing you to control the text direction.
+If an RTL script is detected in your text layer, a will appear in the text section of the right sidebar, allowing you to control the text direction.
 
 ## Figma Design
 
@@ -71,7 +71,7 @@ Change the direction of RTL text in a Figma Design file from the right sidebar, 
 **Main menu:**
 
 1. Select text layer(s) containing RTL script.
-2. Click  to open the main menu.
+2. Click to open the main menu.
 3. Go to **Text** > **Text direction**.
 4. Select **Left to right** or **Right to left**.
 
@@ -125,7 +125,7 @@ Upgrade specific text layers using RTL plugins in Figma Design files to use Figm
 **Right sidebar:**
 
 1. Select text layer(s) that previously used an RTL plugin.
-2. From the right sidebar, click  in the **Text** section to open the [Type details](https://help.figma.com/hc/en-us/articles/360039956634) panel.
+2. From the right sidebar, click in the **Text** section to open the [Type details](https://help.figma.com/hc/en-us/articles/360039956634) panel.
 3. At the bottom of the Type details panel, click **Upgrade**.
 
 **Quick actions:**

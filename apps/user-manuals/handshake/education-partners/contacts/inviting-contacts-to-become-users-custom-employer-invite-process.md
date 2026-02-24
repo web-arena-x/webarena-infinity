@@ -9,7 +9,7 @@ This resource outlines how to send a customized invite email followup to your em
 Most institutions will:
 
 - Send a "heads up" email about the upcoming switch to Handshake to their employers, typically in an external email or via prior system
-  - We have some sample language available in [Implementation: Invite Email Examples](https://support.joinhandshake.com/hc/en-us/articles/115007135747).
+ - We have some sample language available in [Implementation: Invite Email Examples](https://support.joinhandshake.com/hc/en-us/articles/115007135747).
 - Send a bulk invite as outlined in [Inviting Contacts to Become Users: Standard Employer Invite Process](https://support.joinhandshake.com/hc/en-us/articles/218692768).
 
 If you would like to follow up the standard invite with additional custom invite instructions, follow the steps below.

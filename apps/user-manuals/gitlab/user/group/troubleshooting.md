@@ -12,8 +12,7 @@ Performs the following checks when creating or updating namespaces or groups:
 - Namespaces must not have parents.
 - Group parents must be groups and not namespaces.
 
-In the unlikely event that you see these errors in your GitLab installation,
-[contact Support](https://about.gitlab.com/support/) so that GitLab can improve this validation.
+In the unlikely event that you see these errors in your GitLab installation, [contact Support](https://about.gitlab.com/support/) so that GitLab can improve this validation.
 
 ## Find groups using an SQL query
 
@@ -57,8 +56,7 @@ end
 
 ## Delete a group using Rails console
 
-At times, a group deletion may get stuck. If needed, in a [Rails console session](../../administration/operations/rails_console.md#starting-a-rails-console-session),
-you can attempt to delete a group using the following command:
+At times, a group deletion may get stuck. If needed, in a [Rails console session](../../administration/operations/rails_console.md#starting-a-rails-console-session), you can attempt to delete a group using the following command:
 
 > [!warning]
 > Commands that change data can cause damage if not run correctly or under the right conditions. Always run commands in a test environment first and have a backup instance ready to restore.
@@ -110,5 +108,4 @@ This error typically occurs when a user attempts to remove the `container_regist
 ## Group owner unable to approve pending users with `Awaiting user signup` badge
 
 Email invitations to non-GitLab users are listed under `Pending members` with the `Awaiting user signup` status.
-When the user registers for GitLab.com, the status updates to `Pending owner action` and the group Owner can
-complete the approval process.
+When the user registers for GitLab.com, the status updates to `Pending owner action` and the group Owner can complete the approval process.

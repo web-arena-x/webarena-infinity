@@ -17,14 +17,12 @@ GitLab administrators can manage the GitLab CI/CD configuration for their instan
 
 ## Disable GitLab CI/CD in new projects
 
-GitLab CI/CD is enabled by default in all new projects on an instance. You can set
-CI/CD to be disabled by default in new projects by modifying the settings in:
+GitLab CI/CD is enabled by default in all new projects on an instance. You can set CI/CD to be disabled by default in new projects by modifying the settings in:
 
 - `gitlab.yml` for self-compiled installations.
 - `gitlab.rb` for Linux package installations.
 
-Existing projects that already had CI/CD enabled are unchanged. Also, this setting only changes
-the project default, so project owners [can still enable CI/CD in the project settings](../../ci/pipelines/settings.md#disable-gitlab-cicd-pipelines).
+Existing projects that already had CI/CD enabled are unchanged. Also, this setting only changes the project default, so project owners [can still enable CI/CD in the project settings](../../ci/pipelines/settings.md#disable-gitlab-cicd-pipelines).
 
 For self-compiled installations:
 
@@ -82,53 +80,38 @@ can choose a custom limit. For example, to set the limit to `100`:
 Plan.default.actual_limits.update!(ci_needs_size_limit: 100)
 ```
 
-To disable `needs` dependencies, set the limit to `0`. Pipelines with jobs
-configured to use `needs` then return the error `job can only need 0 others`.
+To disable `needs` dependencies, set the limit to `0`. Pipelines with jobs configured to use `needs` then return the error `job can only need 0 others`.
 
 ## Change maximum scheduled pipeline frequency
 
-[Scheduled pipelines](../../ci/pipelines/schedules.md) can be configured with any [cron value](../../topics/cron/_index.md),
-but they do not always run exactly when scheduled. An internal process, called the
-_pipeline schedule worker_, queues all the scheduled pipelines, but does not
-run continuously. The worker runs on its own schedule, and scheduled pipelines that
-are ready to start are only queued the next time the worker runs. Scheduled pipelines
-can't run more frequently than the worker.
+[Scheduled pipelines](../../ci/pipelines/schedules.md) can be configured with any [cron value](../../topics/cron/_index.md), but they do not always run exactly when scheduled. An internal process, called the _pipeline schedule worker_, queues all the scheduled pipelines, but does not run continuously. The worker runs on its own schedule, and scheduled pipelines that are ready to start are only queued the next time the worker runs. Scheduled pipelines can't run more frequently than the worker.
 
-The default frequency of the pipeline schedule worker is `3-59/10 * * * *` (every ten minutes,
-starting with `0:03`, `0:13`, `0:23`, and so on). The default frequency for GitLab.com
-is listed in the [GitLab.com settings](../../user/gitlab_com/_index.md#cicd).
+The default frequency of the pipeline schedule worker is `3-59/10 * * * *` (every ten minutes, starting with `0:03`, `0:13`, `0:23`, and so on). The default frequency for GitLab.com is listed in the [GitLab.com settings](../../user/gitlab_com/_index.md#cicd).
 
 To change the frequency of the pipeline schedule worker:
 
 1. Edit the `gitlab_rails['pipeline_schedule_worker_cron']` value in your instance's `gitlab.rb` file.
 1. [Reconfigure GitLab](../restart_gitlab.md#reconfigure-a-linux-package-installation) for the changes to take effect.
 
-For example, to set the maximum frequency of pipelines to twice a day, set `pipeline_schedule_worker_cron`
-to a cron value of `0 */12 * * *` (`00:00` and `12:00` every day).
+For example, to set the maximum frequency of pipelines to twice a day, set `pipeline_schedule_worker_cron` to a cron value of `0 */12 * * *` (`00:00` and `12:00` every day).
 
 When many pipeline schedules run at the same time, additional delays can occur.
 The pipeline schedule worker processes pipelines in [batches](https://gitlab.com/gitlab-org/gitlab/-/blob/3426be1b93852c5358240c5df40970c0ddfbdb2a/app/workers/pipeline_schedule_worker.rb#L13-14)
-with a small delay between each batch to distribute system load. This can cause pipeline
-schedules to start several minutes to over an hour after their scheduled time, depending on system load.
+with a small delay between each batch to distribute system load. This can cause pipeline schedules to start several minutes to over an hour after their scheduled time, depending on system load.
 
 ## Disaster recovery
 
-You can disable some important but computationally expensive parts of the application
-to relieve stress on the database during ongoing downtime.
+You can disable some important but computationally expensive parts of the application to relieve stress on the database during ongoing downtime.
 
 ### Disable fair scheduling on instance runners
 
-When clearing a large backlog of jobs, you can temporarily enable the `ci_queueing_disaster_recovery_disable_fair_scheduling`
-[feature flag](../feature_flags/_index.md). This flag disables fair scheduling
-on instance runners, which reduces system resource usage on the `jobs/request` endpoint.
+When clearing a large backlog of jobs, you can temporarily enable the `ci_queueing_disaster_recovery_disable_fair_scheduling` [feature flag](../feature_flags/_index.md). This flag disables fair scheduling on instance runners, which reduces system resource usage on the `jobs/request` endpoint.
 
-When enabled, jobs are processed in the order they were put in the system, instead of
-balanced across many projects.
+When enabled, jobs are processed in the order they were put in the system, instead of balanced across many projects.
 
 ### Disable compute quota enforcement
 
-To disable the enforcement of [compute minutes quotas](compute_minutes.md) on instance runners, you can temporarily
-enable the `ci_queueing_disaster_recovery_disable_quota` [feature flag](../feature_flags/_index.md).
+To disable the enforcement of [compute minutes quotas](compute_minutes.md) on instance runners, you can temporarily enable the `ci_queueing_disaster_recovery_disable_quota` [feature flag](../feature_flags/_index.md).
 This flag reduces system resource usage on the `jobs/request` endpoint.
 
 When enabled, jobs created in the last hour can run in projects which are out of quota.

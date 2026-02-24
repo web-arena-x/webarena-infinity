@@ -29,7 +29,7 @@ To use Code Suggestions, you need:
 
 - If you have GitLab Duo Core, [IDE features turned on](../../../gitlab_duo/turn_on_off.md#turn-gitlab-duo-core-on-or-off).
 - To confirm that Code Suggestions [supports your preferred language](supported_extensions.md#supported-languages-by-ide).
-  Different IDEs support different languages.
+ Different IDEs support different languages.
 
 ## Configure editor extension
 
@@ -59,8 +59,7 @@ To verify that Code Suggestions is turned on in VS Code:
 1. In VS Code, go to **Settings** > **Extensions** > **GitLab Workflow**.
 1. Select **Manage** ({{< icon name="settings" >}}).
 1. Ensure that **GitLab** > **Duo Code Suggestions: Enabled** is selected.
-1. Optional. For **GitLab** > **Duo Code Suggestions: Enabled Supported Languages**,
-   select the languages you want to suggest or generate code for.
+1. Optional. For **GitLab** > **Duo Code Suggestions: Enabled Supported Languages**, select the languages you want to suggest or generate code for.
 1. Optional. For **GitLab** > **Duo Code Suggestions: Additional Languages**, add other languages you'd like to use.
 
 ### Visual Studio
@@ -89,8 +88,7 @@ To verify that Code Suggestions is turned on in JetBrains IDEs:
 {{< /history >}}
 
 GitLab Duo attempts to detect [trusted root certificates](https://www.jetbrains.com/help/idea/ssl-certificates.html)
-without configuration on your part. If needed, configure your JetBrains IDE to allow the GitLab Duo plugin
-to use a custom SSL certificate when connecting to your GitLab instance.
+without configuration on your part. If needed, configure your JetBrains IDE to allow the GitLab Duo plugin to use a custom SSL certificate when connecting to your GitLab instance.
 
 To use a custom SSL certificate with GitLab Duo:
 
@@ -137,7 +135,7 @@ Code Suggestions provides a LSP (Language Server Protocol) server, to support th
 | Mode     | Key mappings                          | Type      | Description |
 |----------|---------------------------------------|-----------|-------------|
 | `INSERT` | <kbd>Control</kbd>+<kbd>x</kbd>, <kbd>Control</kbd>+<kbd>o</kbd> | Built-in | Requests completions from GitLab Duo Code Suggestions through the language server. |
-| `NORMAL` | `<Plug>(GitLabToggleCodeSuggestions)` | `<Plug>`  | Toggles Code Suggestions on or off for the current buffer. Requires [configuration](../../../../editor_extensions/neovim/setup.md#configure-plug-key-mappings). |
+| `NORMAL` | `<Plug>(GitLabToggleCodeSuggestions)` | `<Plug>` | Toggles Code Suggestions on or off for the current buffer. Requires [configuration](../../../../editor_extensions/neovim/setup.md#configure-plug-key-mappings). |
 
 ## Verify that Code Suggestions is on
 
@@ -175,16 +173,13 @@ Instead, you can [set `gitlab.duoCodeSuggestions.enabled` to `false` in the VS C
 
 ### Visual Studio
 
-To turn Code Suggestions on or off without uninstalling the extension,
-[assign a keyboard shortcut to the `GitLab.ToggleCodeSuggestions` custom command](../../../../editor_extensions/visual_studio/setup.md#configure-the-extension).
+To turn Code Suggestions on or off without uninstalling the extension, [assign a keyboard shortcut to the `GitLab.ToggleCodeSuggestions` custom command](../../../../editor_extensions/visual_studio/setup.md#configure-the-extension).
 
-To disable or uninstall the extension, see the
-[Microsoft Visual Studio documentation on uninstalling or disabling the extension](https://learn.microsoft.com/en-us/visualstudio/ide/finding-and-using-visual-studio-extensions?view=vs-2022#uninstall-or-disable-an-extension).
+To disable or uninstall the extension, see the [Microsoft Visual Studio documentation on uninstalling or disabling the extension](https://learn.microsoft.com/en-us/visualstudio/ide/finding-and-using-visual-studio-extensions?view=vs-2022#uninstall-or-disable-an-extension).
 
 ### JetBrains IDEs
 
-The process to disable GitLab Duo, including Code Suggestions, is the same
-regardless of which JetBrains IDE you use.
+The process to disable GitLab Duo, including Code Suggestions, is the same regardless of which JetBrains IDE you use.
 
 1. In your JetBrains IDE, go to settings and select the plugins menu.
 1. Under the installed plugins, find the GitLab Duo plugin.

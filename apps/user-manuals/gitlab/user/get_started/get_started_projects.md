@@ -22,11 +22,9 @@ Project creation and maintenance is part of a larger workflow:
 
 ## Step 1: Create a project
 
-Start by creating a new project in GitLab to contain your codebase,
-documentation, and related resources.
+Start by creating a new project in GitLab to contain your codebase, documentation, and related resources.
 
-A project contains a repository. A repository contains all the files,
-directories, and data related to your work.
+A project contains a repository. A repository contains all the files, directories, and data related to your work.
 
 When you create the project, review and configure the following settings to align with your development workflow and collaboration requirements:
 
@@ -60,15 +58,11 @@ For more information, see:
 
 ## Step 3: Collaborate and share projects
 
-You can invite multiple projects to a group, sometimes called
-`sharing a project with a group`. Each project has its own repository,
-issues, merge requests, and other features.
+You can invite multiple projects to a group, sometimes called `sharing a project with a group`. Each project has its own repository, issues, merge requests, and other features.
 
-With multiple projects in a group, team members can collaborate on individual
-projects while having a high-level view of all the work done in the group.
+With multiple projects in a group, team members can collaborate on individual projects while having a high-level view of all the work done in the group.
 
-To further refine access to your projects, you can add subgroups to
-your group.
+To further refine access to your projects, you can add subgroups to your group.
 
 For more information, see:
 
@@ -77,14 +71,12 @@ For more information, see:
 
 ## Step 4: Enhance project discoverability and recognition
 
-Use the search box to quickly find specific projects,
-issues, merge requests, or code snippets across your GitLab instance.
+Use the search box to quickly find specific projects, issues, merge requests, or code snippets across your GitLab instance.
 
 To make projects easier to find:
 
 - Create a consistent and recognizable naming scheme for your projects with reserved project and group names.
-- Add badges to your project's `README` file. Badges can display important information,
-  like build status, project health, test coverage, or version number.
+- Add badges to your project's `README` file. Badges can display important information, like build status, project health, test coverage, or version number.
 - Assign project topics. Topics are labels that help you organize and find projects.
 
 For more information, see:
@@ -96,18 +88,15 @@ For more information, see:
 
 ## Step 5: Boost development efficiency and maintain code quality
 
-Use code intelligence features to enhance your productivity and
-maintain a high-quality codebase, such as:
+Use code intelligence features to enhance your productivity and maintain a high-quality codebase, such as:
 
 - Code navigation
 - Hover information
 - Auto-completion
 
-Code intelligence is a range of tools
-that help you efficiently explore, analyze, and maintain your codebase.
+Code intelligence is a range of tools that help you efficiently explore, analyze, and maintain your codebase.
 
-To quickly locate and go to specific files in your project,
-use the file finder.
+To quickly locate and go to specific files in your project, use the file finder.
 
 For more information, see:
 
@@ -118,12 +107,10 @@ For more information, see:
 
 Use file exports to migrate projects to GitLab from other systems or GitLab instances.
 
-When you migrate a frequently accessed repository to GitLab, you can use a project alias to
-continue to access it by its original name.
+When you migrate a frequently accessed repository to GitLab, you can use a project alias to continue to access it by its original name.
 
 On GitLab.com, you can transfer a project from one namespace to another.
-A transfer essentially moves a project to another group
-so its members have access or ownership.
+A transfer essentially moves a project to another group so its members have access or ownership.
 
 For more information, see:
 

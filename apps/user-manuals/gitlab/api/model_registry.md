@@ -38,7 +38,7 @@ Parameters:
 
 ```shell
 curl --header "Authorization: Bearer <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/:id/packages/ml_models/:model_version_id/files/(*path/):filename"
+ --url "https://gitlab.example.com/api/v4/projects/:id/packages/ml_models/:model_version_id/files/(*path/):filename"
 ```
 
 The response contains the file contents.
@@ -47,5 +47,5 @@ For example, the following command returns the file `foo.txt` for the model vers
 
 ```shell
 curl --header "Authorization: Bearer <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/ml_models/2/files/foo.txt"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/ml_models/2/files/foo.txt"
 ```

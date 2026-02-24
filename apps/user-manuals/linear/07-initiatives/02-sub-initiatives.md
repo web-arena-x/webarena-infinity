@@ -10,7 +10,7 @@ Sub-initiatives allow Initiatives to be nested inside one another, enabling deep
 
 ## Basics
 
-Sub-initiatives let you nest Initiatives up to five levels deep in a tree-like structure. A parent Initiative automatically includes all the projects it owns directly, as well as all the projects from its sub-initiatives. This makes it easy to roll up work from multiple departments, teams, or quarters into one overarching goal.  
+Sub-initiatives let you nest Initiatives up to five levels deep in a tree-like structure. A parent Initiative automatically includes all the projects it owns directly, as well as all the projects from its sub-initiatives. This makes it easy to roll up work from multiple departments, teams, or quarters into one overarching goal. 
 
 
 You can use sub-initiatives to:
@@ -42,7 +42,7 @@ Sub-initiatives created from an Overview page are nested under that Initiative a
 
 ### Viewing sub-initiatives
 
-Sub-initiatives appear nested beneath their parent Initiative both on the full workspace Initiative views (_Active_, _Planned_, or _Completed_) and on the parent’s Initiative Overview page. If you’d like to temporarily collapse or expand a nested list, press `T` — this affects only your own view.  
+Sub-initiatives appear nested beneath their parent Initiative both on the full workspace Initiative views (_Active_, _Planned_, or _Completed_) and on the parent’s Initiative Overview page. If you’d like to temporarily collapse or expand a nested list, press `T` — this affects only your own view. 
 
 
 By default, a parent Initiative’s project list includes all projects from its sub-initiatives. You can adjust this using the display settings in the top right of the project list to show only directly owned projects. Each sub-initiative displays a project count, which includes all projects from any further sub-initiatives nested within it.
@@ -55,5 +55,5 @@ Visibility and filtering
 
 Sub-initiatives follow the same visibility rules as standard Initiatives: they’re visible to all workspace members except guests. If a project belongs to a private team, its details remain restricted — but the Initiative itself will still be listed.
 
-  
+ 
 When viewing a parent Initiative, filters (such as by team, status, or project health) will include projects from all of its sub-initiatives. This gives you a complete picture of progress at every level of the hierarchy.

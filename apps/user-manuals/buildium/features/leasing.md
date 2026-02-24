@@ -15,7 +15,7 @@ Source: https://www.buildium.com/features/leasing
 
 ![](https://www.buildium.com/wp-content/uploads/2022/06/Leasing-HeroV2.jpg)
 
-[Features](https://www.buildium.com/?page_id=22322)  Leasing
+[Features](https://www.buildium.com/?page_id=22322) Leasing
 
 # Property Lease Management Software. Zero Paperwork.
 
@@ -74,37 +74,37 @@ Learn more about these features:
 
 - ##### [Analytics & Insights](analytics-insights.md)
 
-  Powerful analytics and actionable insights let you drive your business with data-driven decisions and strategies.
+ Powerful analytics and actionable insights let you drive your business with data-driven decisions and strategies.
 
-  [Learn More](analytics-insights.md)
+ [Learn More](analytics-insights.md)
 - ##### [Open API](/features/open-api/)
 
-  Buildium’s Open API integrates your most critical property, resident and accounting data with your other business applications, to provide increased access and insight into what matters most.
+ Buildium’s Open API integrates your most critical property, resident and accounting data with your other business applications, to provide increased access and insight into what matters most.
 
-  [Learn More](/features/open-api/)
+ [Learn More](/features/open-api/)
 
 ### Benefits & Support
 
 - ##### [Industry Research](/blog/?_sft_category=industry-intel)
 
-  Be in the know with the latest industry research
+ Be in the know with the latest industry research
 
-  [Learn More](/blog/?_sft_category=industry-intel)
+ [Learn More](/blog/?_sft_category=industry-intel)
 - ##### [Customized Onboarding](/features/onboarding/)
 
-  Get up and running in no time with customized onboarding
+ Get up and running in no time with customized onboarding
 
-  [Learn More](/features/onboarding/)
+ [Learn More](/features/onboarding/)
 - ##### [Award-Winning Customer Care](/features/customer-care/)
 
-  Let our award-winning Customer Care team swoop in when needed
+ Let our award-winning Customer Care team swoop in when needed
 
-  [Learn More](/features/customer-care/)
+ [Learn More](/features/customer-care/)
 - ##### [Buildium Academy Online Training](/support/academy/)
 
-  Master the software with Buildium Academy online training
+ Master the software with Buildium Academy online training
 
-  [Learn More](/support/academy/)
+ [Learn More](/support/academy/)
 
 #### Featured Resources
 

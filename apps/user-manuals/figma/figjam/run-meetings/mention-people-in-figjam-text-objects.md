@@ -19,7 +19,7 @@ You can tag someone in:
 
 - [Sticky notes](https://help.figma.com/hc/en-us/articles/1500004414322)
 - [Shapes with text](../work-on-boards/visualize-information-using-shapes-with-text.md)
-- [Text objects](https://help.figma.com/hc/en-us/articles/1500004291281) made with the  **Text** tool
+- [Text objects](https://help.figma.com/hc/en-us/articles/1500004291281) made with the **Text** tool
 - [Connector and line text](https://help.figma.com/hc/en-us/articles/1500004414542-Create-diagrams-and-flows-with-connectors-and-lines#Text)
 
 Because others can’t reply to mentions in text objects, consider these tags a more lightweight or casual alternative to starting a full conversation using comments.
@@ -39,19 +39,19 @@ Figma sends an email to the person you tagged with a preview of the FigJam board
 
 To view mentions in a file:
 
-1. Press `C` or click  **Comment** to enter comment mode.
+1. Press `C` or click **Comment** to enter comment mode.
 2. Mentions are listed in the right sidebar. Select a mention to be taken to it.
 
 Tip
 
-You can see all mentions from  **Notifications** in your file browser.
+You can see all mentions from **Notifications** in your file browser.
 
 ## Manage mention notifications
 
 You can manage @mention notifications for a particular file. This includes mentions in both text objects and comments. To do so:
 
-1. Press `C` or click  **Comment** to enter comment mode.
-2. In the right sidebar, click  **Settings**.
+1. Press `C` or click **Comment** to enter comment mode.
+2. In the right sidebar, click **Settings**.
 3. Select whether you want to be notified of **Everything**, **Just mentions and replies**, or **Nothing**.
 
 Note: Notifications for replies only applies to [comments in FigJam](comments-in-figjam.md#Mention_a_collaborator).

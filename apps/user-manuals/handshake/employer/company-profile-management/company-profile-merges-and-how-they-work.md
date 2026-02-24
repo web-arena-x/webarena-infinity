@@ -29,16 +29,16 @@ After merging company profiles, the company profile owner can add divisions to t
 - Combine any duplicate company profiles into one centralized profile, allowing the company profile owner (or admin) to create divisions within that profile.
 - Merge historical data, including job postings, events, interviews, career fairs, and company reviews, into the selected parent company profile.
 - Deactivate all teammate accounts from the company profile being merged, for security reasons.
-  - The teammates of the merged-to company profile will not be impacted.
-  - The company profile owner (or admin) will be able to review the status of each teammate and reactivate accounts as needed.
+ - The teammates of the merged-to company profile will not be impacted.
+ - The company profile owner (or admin) will be able to review the status of each teammate and reactivate accounts as needed.
 - Combine approved schools from both company profiles.
 - Override other statuses (pending/declined) with school approvals from either company profile.
-  - For example, if one company profile was denied at a school but the other was approved, the final merged company profile will be approved at that school.
+ - For example, if one company profile was denied at a school but the other was approved, the final merged company profile will be approved at that school.
 - Retain only the kiosk responses and check-ins of the "to" employer (the company profile being merged into) if both companies attended the same event.
-  - To preserve specific check-in data from the other company profile before the merge,  download a CSV file of this event information in advance.
+ - To preserve specific check-in data from the other company profile before the merge,  download a CSV file of this event information in advance.
 
 **A merge will not**:
 
 - Alter user login credentials (each user retains their own user account), job postings, school approvals, and historical data.
 - Reset any school approvals. However, the merge will reset each user's Favorite schools list.
-  - To add schools to your Favorite list, refer to [Add or Remove Schools from Your Favorites](https://support.joinhandshake.com/hc/en-us/articles/36973557795863).
+ - To add schools to your Favorite list, refer to [Add or Remove Schools from Your Favorites](https://support.joinhandshake.com/hc/en-us/articles/36973557795863).

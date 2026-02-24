@@ -33,12 +33,12 @@ The security inventory shows:
 
 - Your groups, subgroups, and projects.
 - Security scanner coverage for each project, regardless of how the scanner is enabled. Security scanners include:
-  - Static application security testing (SAST)
-  - Dependency scanning
-  - Container scanning
-  - Secret detection
-  - Dynamic application security testing (DAST)
-  - Infrastructure-as-code (IaC) scanning
+ - Static application security testing (SAST)
+ - Dependency scanning
+ - Container scanning
+ - Secret detection
+ - Dynamic application security testing (DAST)
+ - Infrastructure-as-code (IaC) scanning
 - The number of vulnerabilities in each group or project, sorted by severity level.
 
 This feature is in beta. Track the development of the security inventory in [epic 16484](https://gitlab.com/groups/gitlab-org/-/epics/16484). Share [your feedback](https://gitlab.com/gitlab-org/gitlab/-/issues/553062) as development continues on this feature. The security inventory is enabled by default.
@@ -86,10 +86,10 @@ These filters help you narrow down results in large inventories and make it easi
 - [Security dashboard](../security_dashboard/_index.md)
 - [Vulnerability reports](../vulnerability_report/_index.md)
 - GraphQL references:
-  - [AnalyzerGroupStatusType](../../../api/graphql/reference/_index.md#analyzergroupstatustype) - Counts for each analyzer status in the group and subgroups.
-  - [AnalyzerProjectStatusType](../../../api/graphql/reference/_index.md#analyzerprojectstatustype) - Analyzer status (success/fail) for projects.
-  - [VulnerabilityNamespaceStatisticType](../../../api/graphql/reference/_index.md#vulnerabilitynamespacestatistictype) - Counts for each vulnerability severity in the group and its subgroups.
-  - [VulnerabilityStatisticType](../../../api/graphql/reference/_index.md#vulnerabilitystatistictype) - Counts for each vulnerability severity in the project.
+ - [AnalyzerGroupStatusType](../../../api/graphql/reference/_index.md#analyzergroupstatustype) - Counts for each analyzer status in the group and subgroups.
+ - [AnalyzerProjectStatusType](../../../api/graphql/reference/_index.md#analyzerprojectstatustype) - Analyzer status (success/fail) for projects.
+ - [VulnerabilityNamespaceStatisticType](../../../api/graphql/reference/_index.md#vulnerabilitynamespacestatistictype) - Counts for each vulnerability severity in the group and its subgroups.
+ - [VulnerabilityStatisticType](../../../api/graphql/reference/_index.md#vulnerabilitystatistictype) - Counts for each vulnerability severity in the project.
 
 ## Troubleshooting
 

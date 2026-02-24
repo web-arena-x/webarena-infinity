@@ -17,7 +17,7 @@ By default, Procore offers a variety of different log types for use in your proj
 1. Navigate to the Company level **Admin** tool.
 2. In the **Tool Settings** section, click **Daily Log**. You can view a list of Procore's default Daily Log names under the **Types** tab.
 3. In the **Custom Name** column, click the field next to the default log name you want to change.
-4. Type the desired log name that aligns with your company's terminology.   
+4. Type the desired log name that aligns with your company's terminology.  
    *Note:* The changes are automatically applied across all your projects in Procore.
 
 ## See Also

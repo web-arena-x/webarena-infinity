@@ -25,7 +25,7 @@ Most issue views in Linear have an Insights panel in the righthand sidebar, whic
 
 ### Examples
 
-The best way to learn how Insights works is to try it. We’ve built an in-app Help Center that walks you through common use cases. You can view instructions on how to create these examples or select a button to apply the example to your current view.  
+The best way to learn how Insights works is to try it. We’ve built an in-app Help Center that walks you through common use cases. You can view instructions on how to create these examples or select a button to apply the example to your current view. 
 
 Access the Help Center by selecting the `…` icon from the Insights panel and selecting **Insights examples**
 
@@ -35,11 +35,7 @@ Access the Help Center by selecting the `…` icon from the Insights panel and s
 
 Insights will offer analytics for all the issues in the view you’re currently looking at. Add or remove filters to change which issues are included in the dataset. The following filters can be especially helpful when creating Insights.
 
-Filter | Why it's helpful for Insights
---- | ---
-Created at | Limits issues to those created during a certain timeframe
-Completed at | Limits issues to those completed within a certain timeframe
-Status Type | Works across teams (even if Statuses are named differently) 
+Filter | Why it's helpful for Insights --- | --- Created at | Limits issues to those created during a certain timeframe Completed at | Limits issues to those completed within a certain timeframe Status Type | Works across teams (even if Statuses are named differently)
 Label, Project, Team | Refines large views to most relevant issues
 
 To include _Archived_ issues in your Insights analysis, open the Insights options (to the left of the three dot menu, just above the _Segment_ dropdown) and toggle on _Show archived issues_. From there you can also filter out issues without a priority assignment.
@@ -50,14 +46,7 @@ From the dropdown, choose the _Measure_ and _Slice_ for your Insight. This will 
 
 Values for _Measure_, _Slice_, and _Segment_ vary depending on what issues are displayed in your view. 
 
-Measure | What is it? | Type of graph | Automatic filters
---- | --- | --- | ---
-Issue count | Total number of issues | Bar | None
-Effort | Total estimate value | Bar | None
-Cycle Time | Time from issue start to completion | Scatterplot | Only plots issues that spent time in progress before being completed
-Lead Time | Time from issue creation to completion | Scatterplot | Only plots completed issues
-Triage Time | Time issue spent in Triage status | Scatterplot | Only plots Triaged issues
-Issue Age | Time since issue creation | Scatterplot | None
+Measure | What is it? | Type of graph | Automatic filters --- | --- | --- | --- Issue count | Total number of issues | Bar | None Effort | Total estimate value | Bar | None Cycle Time | Time from issue start to completion | Scatterplot | Only plots issues that spent time in progress before being completed Lead Time | Time from issue creation to completion | Scatterplot | Only plots completed issues Triage Time | Time issue spent in Triage status | Scatterplot | Only plots Triaged issues Issue Age | Time since issue creation | Scatterplot | None
 
 ### Graph Interactions
 

@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408834617114-Customizing-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
@@ -66,7 +66,7 @@ There are two steps to change all customer facing instances to the desired repla
 
    {{/each}}
    ```
-5. Click  **Publish**.
+5. Click **Publish**.
 
 ### **Changing status icons' names**
 
@@ -78,16 +78,16 @@ The next change you need to make is for the actual status icons on the Community
 2. Enter the following code to change your status icons:
 
    ```
-   {{#is status 'none'}}  
-    {{else}}  
-    <span class="status-label-{{status_dasherized}} status-label striped-list-status">  
-    {{#is status 'not_planned'}}Gathering Feedback{{/is}}  
-    {{#is status 'planned'}}In the Works{{/is}}  
-    {{#is status 'answered'}}Officially Answered{{/is}}  
-    {{#is status 'completed'}}Implemented{{/is}}</span>  
+   {{#is status 'none'}} 
+    {{else}} 
+    <span class="status-label-{{status_dasherized}} status-label striped-list-status"> 
+    {{#is status 'not_planned'}}Gathering Feedback{{/is}} 
+    {{#is status 'planned'}}In the Works{{/is}} 
+    {{#is status 'answered'}}Officially Answered{{/is}} 
+    {{#is status 'completed'}}Implemented{{/is}}</span> 
     {{/is}}
    ```
-3. Click  **Publish**.
+3. Click **Publish**.
 4. Next, select the community\_post\_list\_page.hbs template and locate the same {{#is status 'none'}} expression.
 5. Enter in the above code there as well.
 6. You have successfully modified your list pages and drop-downs. The only thing left to do is make sure the status indicator on the individual posts reflect the correct wording as shown in the screen shot below.
@@ -97,23 +97,23 @@ The next change you need to make is for the actual status icons on the Community
 8. Enter the following code on the {{#if post.status}} expression:
 
    ```
-   {{#is post.status 'none'}}  
-    {{else}}  
-    <span class="status-label-{{post.status_dasherized}} status-label">  
-    {{#is post.status 'not_planned'}}Gathering Feedback{{/is}}  
+   {{#is post.status 'none'}} 
+    {{else}} 
+    <span class="status-label-{{post.status_dasherized}} status-label"> 
+    {{#is post.status 'not_planned'}}Gathering Feedback{{/is}} 
     {{#is post.status 'planned'}}In the Works{{/is}}   
-    {{#is post.status 'answered'}}Officially Answered{{/is}}  
-    {{#is post.status 'completed'}}Implemented{{/is}}  
-    </span>  
+    {{#is post.status 'answered'}}Officially Answered{{/is}} 
+    {{#is post.status 'completed'}}Implemented{{/is}} 
+    </span> 
     {{/is}}
    ```
 
    ![](https://support.zendesk.com/hc/article_attachments/7856444396442)
-9. Click  **Publish**.
+9. Click **Publish**.
 
 ## Using dynamic content to translate your statuses
 
-If your Help Center is available in multiple languages you can use dynamic content helpers to translate your new terms. For more information on dynamic content see,  [Dynamic content helpers](https://developer.zendesk.com/apps/docs/help-center-templates/helpers#dc-dynamic-content-helper)  and  [Providing multiple language support with dynamic content](https://support.zendesk.com/hc/en-us/articles/4408882999066-Providing-multiple-language-support-with-dynamic-content-Professional-and-Enterprise-)  .
+If your Help Center is available in multiple languages you can use dynamic content helpers to translate your new terms. For more information on dynamic content see, [Dynamic content helpers](https://developer.zendesk.com/apps/docs/help-center-templates/helpers#dc-dynamic-content-helper) and [Providing multiple language support with dynamic content](https://support.zendesk.com/hc/en-us/articles/4408882999066-Providing-multiple-language-support-with-dynamic-content-Professional-and-Enterprise-) .
 
 You can create the dynamic content in Zendesk Support and then use the helpers below in place of the previous term.
 

@@ -4,9 +4,9 @@ Source: https://help.superhuman.com/hc/en-us/articles/38456037129235-Contact-Pan
 
 ---
 
-|  |
+| |
 | --- |
-| ⚡ **TL;DR**  Quickly know who you’re emailing with Superhuman Mail’s Contact Pane — it shows names, roles, locations, social links, recent emails, and more.   - **Desktop**: Appears on the right sidebar when messaging or hovering over an email address. - **Mobile**: Tap above the Subject in an open message. - Edit your info via **Edit Profile** or [superhuman.com/products/mail/profile](https://superhuman.com/profile) - Data come from Clearbit, LinkedIn, AngelList, and Gravatar. - You cannot edit others’ profiles (yet). |
+| ⚡ **TL;DR** Quickly know who you’re emailing with Superhuman Mail’s Contact Pane — it shows names, roles, locations, social links, recent emails, and more.   - **Desktop**: Appears on the right sidebar when messaging or hovering over an email address. - **Mobile**: Tap above the Subject in an open message. - Edit your info via **Edit Profile** or [superhuman.com/products/mail/profile](https://superhuman.com/profile) - Data come from Clearbit, LinkedIn, AngelList, and Gravatar. - You cannot edit others’ profiles (yet). |
 
 To help you be brilliant when working with others, Mail shows you information about who you’re emailing in the right sidebar.
 

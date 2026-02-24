@@ -14,13 +14,9 @@ title: Subgroups
 
 You can organize GitLab [groups](../_index.md) into subgroups. You can use subgroups to:
 
-- Separate internal and external content. Because every subgroup can have its own
-  [visibility level](../../public_access.md), you can host groups for different
-  purposes under the same parent group.
-- Organize large projects. You can use subgroups to manage who can access parts of
-  the source code.
-- Manage permissions. Give a user a different
-  [role](../../permissions.md#group-permissions) for each group they're [a member of](#subgroup-membership).
+- Separate internal and external content. Because every subgroup can have its own [visibility level](../../public_access.md), you can host groups for different purposes under the same parent group.
+- Organize large projects. You can use subgroups to manage who can access parts of the source code.
+- Manage permissions. Give a user a different [role](../../permissions.md#group-permissions) for each group they're [a member of](#subgroup-membership).
 
 Subgroups can:
 
@@ -28,9 +24,8 @@ Subgroups can:
 - Have many subgroups.
 - Be nested up to 20 levels.
 - Use [runners](../../../ci/runners/_index.md) registered to parent groups:
-  - Secrets configured for the parent group are available to subgroup jobs.
-  - Users with at least the Maintainer role in projects that belong to subgroups can see the details of runners registered to
-    parent groups.
+ - Secrets configured for the parent group are available to subgroup jobs.
+ - Users with at least the Maintainer role in projects that belong to subgroups can see the details of runners registered to parent groups.
 
 For example:
 
@@ -59,8 +54,7 @@ accDescr: How parent groups, subgroups, and projects nest.
 
 Prerequisites:
 
-- To view private nested subgroups, you must be a direct or inherited member of
-  the private subgroup.
+- To view private nested subgroups, you must be a direct or inherited member of the private subgroup.
 
 To view the subgroups of a group:
 
@@ -71,21 +65,17 @@ To view the subgroups of a group:
 
 ### Private subgroups in public parent groups
 
-In the hierarchy list, public groups with private subgroups have an expand option ({{< icon name="chevron-down" >}}),
-which indicates the group has nested subgroups. All users can view the expand option ({{< icon name="chevron-down" >}}), but only direct or inherited members of the private subgroup can view the private group.
+In the hierarchy list, public groups with private subgroups have an expand option ({{< icon name="chevron-down" >}}), which indicates the group has nested subgroups. All users can view the expand option ({{< icon name="chevron-down" >}}), but only direct or inherited members of the private subgroup can view the private group.
 
-If you prefer to keep information about the presence of nested subgroups private,
-you should add private subgroups only to private parent groups.
+If you prefer to keep information about the presence of nested subgroups private, you should add private subgroups only to private parent groups.
 
 ## Create a subgroup
 
 Prerequisites:
 
 - You must have either:
-  - At least the Maintainer role for a group.
-  - The [role determined by a setting](#change-who-can-create-subgroups). These users can create
-    subgroups even if group creation is
-    [disabled by an Administrator](../../../administration/admin_area.md#prevent-a-user-from-creating-top-level-groups) in the user's settings.
+ - At least the Maintainer role for a group.
+ - The [role determined by a setting](#change-who-can-create-subgroups). These users can create subgroups even if group creation is [disabled by an Administrator](../../../administration/admin_area.md#prevent-a-user-from-creating-top-level-groups) in the user's settings.
 
 > [!note]
 > You cannot host a GitLab Pages subgroup website with a top-level domain name. For example, `subgroupname.example.io`.
@@ -106,17 +96,17 @@ Prerequisites:
 To change who can create subgroups on a group:
 
 - As a user with the Owner role on the group:
-  1. On the top bar, select **Search or go to** and find your group.
-  1. Select **Settings** > **General**.
-  1. Expand **Permissions and group features**.
-  1. From **Roles allowed to create subgroups**, select an option.
-  1. Select **Save changes**.
+ 1. On the top bar, select **Search or go to** and find your group.
+ 1. Select **Settings** > **General**.
+ 1. Expand **Permissions and group features**.
+ 1. From **Roles allowed to create subgroups**, select an option.
+ 1. Select **Save changes**.
 - As an administrator:
-  1. In the upper-right corner, select **Admin**.
-  1. On the left sidebar, select **Overview** > **Groups** and find your group.
-  1. In the group's row, select **Edit**.
-  1. From the **Allowed to create subgroups** dropdown list, select an option.
-  1. Select **Save changes**.
+ 1. In the upper-right corner, select **Admin**.
+ 1. On the left sidebar, select **Overview** > **Groups** and find your group.
+ 1. In the group's row, select **Edit**.
+ 1. From the **Allowed to create subgroups** dropdown list, select an option.
+ 1. Select **Save changes**.
 
 For more information, view the [permissions table](../../permissions.md#group-permissions).
 
@@ -146,7 +136,7 @@ flowchart RL
 accTitle: Subgroup membership
 accDescr: How users become members of a subgroup - through direct, indirect, or inherited membership.
 
-  subgraph Group A
+ subgraph Group A
     A(Direct member)
     B{{Shared member}}
     subgraph Subgroup A
@@ -156,16 +146,16 @@ accDescr: How users become members of a subgroup - through direct, indirect, or 
       E{{3#46; Shared member}}
     end
     A-->|Direct membership of Group A\nInherited membership of Subgroup A|C
-  end
-  subgraph Group C
+ end
+ subgraph Group C
     G(Direct member)
-  end
-  subgraph Group B
+ end
+ subgraph Group B
     F(Direct member)
-  end
-  F-->|Group B\nshared with\nGroup A|B
-  B-->|Inherited membership of Subgroup A|D
-  G-->|Group C shared with Subgroup A|E
+ end
+ F-->|Group B\nshared with\nGroup A|B
+ B-->|Inherited membership of Subgroup A|D
+ G-->|Group C shared with Subgroup A|E
 ```
 
 Group permissions for a member can be changed only by:
@@ -189,18 +179,16 @@ In the previous screenshot:
 
 - Five members have access to group **Four**.
 - User 0 has the Reporter role on group **Four**, and has inherited their permissions from group **One**:
-  - User 0 is a direct member of group **One**.
-  - Group **One** is above group **Four** in the hierarchy.
+ - User 0 is a direct member of group **One**.
+ - Group **One** is above group **Four** in the hierarchy.
 - User 1 has the Developer role on group **Four** and inherited their permissions from group **Two**:
-  - User 0 is a direct member of group **Two**, which is a subgroup of group **One**.
-  - Groups **One** / **Two** are above group **Four** in the hierarchy.
+ - User 0 is a direct member of group **Two**, which is a subgroup of group **One**.
+ - Groups **One** / **Two** are above group **Four** in the hierarchy.
 - User 2 has the Developer role on group **Four** and has inherited their permissions from group **Three**:
-  - User 0 is a direct member of group **Three**, which is a subgroup of group **Two**. Group **Two** is a subgroup of group
-    **One**.
-  - Groups **One** / **Two** / **Three** are above group **Four** the hierarchy.
+ - User 0 is a direct member of group **Three**, which is a subgroup of group **Two**. Group **Two** is a subgroup of group **One**.
+ - Groups **One** / **Two** / **Three** are above group **Four** the hierarchy.
 - User 3 is a direct member of group **Four**. This means they get their Maintainer role directly from group **Four**.
-- Administrator has the Owner role on group **Four** and is a member of all subgroups. For that reason, as with User 3,
-  the **Source** column indicates they are a direct member.
+- Administrator has the Owner role on group **Four** and is a member of all subgroups. For that reason, as with User 3, the **Source** column indicates they are a direct member.
 
 Members can be [filtered by inherited or direct membership](../_index.md#filter-a-group).
 
@@ -213,13 +201,10 @@ To override a user's role in a parent group, add the user to the subgroup again 
 For example:
 
 - If User 1 is added to group **Two** with the Developer role, User 1 inherits that role in every subgroup of group **Two**.
-- To give User 1 the Maintainer role in group **Four** (under **One / Two / Three**), add User 1 again to group **Four** with
-  the Maintainer role.
-- If User 1 is removed from group **Four**, the user's role falls back to their role in group **Two**. User 1 has the Developer
-  role in group **Four** again.
+- To give User 1 the Maintainer role in group **Four** (under **One / Two / Three**), add User 1 again to group **Four** with the Maintainer role.
+- If User 1 is removed from group **Four**, the user's role falls back to their role in group **Two**. User 1 has the Developer role in group **Four** again.
 
 ## Mention subgroups
 
-Mentioning subgroups ([`@<subgroup_name>`](../../discussions/_index.md#mentions)) in epics, issues, commits, and merge requests
-notifies all direct members of that group. Inherited members of a subgroup are not notified by mentions.
+Mentioning subgroups ([`@<subgroup_name>`](../../discussions/_index.md#mentions)) in epics, issues, commits, and merge requests notifies all direct members of that group. Inherited members of a subgroup are not notified by mentions.
 Mentioning works the same as for projects and groups, and you can choose the group of members to be notified.

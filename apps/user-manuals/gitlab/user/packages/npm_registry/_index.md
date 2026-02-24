@@ -28,11 +28,10 @@ An anonymous user cannot pull packages from an internal project.
 To authenticate, you can use either:
 
 - One of the following tokens, with the scope set to `api`:
-  - [Personal access token](../../profile/personal_access_tokens.md)
-  - [Group access token](../../../user/group/settings/group_access_tokens.md)
-  - [Project access token](../../../user/project/settings/project_access_tokens.md)
-- A [deploy token](../../project/deploy_tokens/_index.md) with the scope set to
-  `read_package_registry`, `write_package_registry`, or both.
+ - [Personal access token](../../profile/personal_access_tokens.md)
+ - [Group access token](../../../user/group/settings/group_access_tokens.md)
+ - [Project access token](../../../user/project/settings/project_access_tokens.md)
+- A [deploy token](../../project/deploy_tokens/_index.md) with the scope set to `read_package_registry`, `write_package_registry`, or both.
 - A [CI/CD job token](../../../ci/jobs/ci_job_token.md) if you want to publish packages with a CI/CD pipeline.
 
 If your organization uses two-factor authentication (2FA), you must use a personal access token with the scope set to `api`.
@@ -45,13 +44,12 @@ Do not use authentication methods other than the methods documented here. Undocu
 Create or edit the `.npmrc` file in the same directory as your `package.json`. Include the following lines in the `.npmrc` file:
 
 ```shell
-  //<domain_name>/api/v4/projects/<project_id>/packages/npm/:_authToken="${NPM_TOKEN}"
+ //<domain_name>/api/v4/projects/<project_id>/packages/npm/:_authToken="${NPM_TOKEN}"
 ```
 
 {{< alert type="warning" >}}
 
-Never hardcode GitLab tokens (or any tokens) directly in `.npmrc` files or any other files that can
-be committed to a repository.
+Never hardcode GitLab tokens (or any tokens) directly in `.npmrc` files or any other files that can be committed to a repository.
 
 {{< /alert >}}
 
@@ -169,9 +167,7 @@ Before configuring the registry URL, it's important to understand the scope of d
 
 {{< alert type="warning" >}}
 
-Running `npm config set` changes the global npm configuration. The change affects all npm commands
-run on your system, regardless of the current working directory. Be cautious when using this method,
-especially on shared systems.
+Running `npm config set` changes the global npm configuration. The change affects all npm commands run on your system, regardless of the current working directory. Be cautious when using this method, especially on shared systems.
 
 {{< /alert >}}
 
@@ -215,9 +211,9 @@ Add a `publishConfig` section to your `package.json`:
 
 ```shell
 {
-  "publishConfig": {
+ "publishConfig": {
     "@scope:registry": "https://gitlab.example.com/api/v4/projects/<project_id>/packages/npm/"
-  }
+ }
 }
 ```
 
@@ -240,21 +236,21 @@ Create or edit the `.npmrc` file in your project root. Use the appropriate URL b
 
 - For a project:
 
-  ```shell
-  @scope:registry=https://gitlab.example.com/api/v4/projects/<project_id>/packages/npm/
-  ```
+ ```shell
+ @scope:registry=https://gitlab.example.com/api/v4/projects/<project_id>/packages/npm/
+ ```
 
 - For a group:
 
-  ```shell
-  @scope:registry=https://gitlab.example.com/api/v4/groups/<group_id>/-/packages/npm/
-  ```
+ ```shell
+ @scope:registry=https://gitlab.example.com/api/v4/groups/<group_id>/-/packages/npm/
+ ```
 
 - For an instance:
 
-  ```shell
-  @scope:registry=https://gitlab.example.com/api/v4/packages/npm/
-  ```
+ ```shell
+ @scope:registry=https://gitlab.example.com/api/v4/packages/npm/
+ ```
 
 {{< /tab >}}
 
@@ -264,21 +260,21 @@ Use the `npm config set` command with the appropriate URL:
 
 - For a project:
 
-  ```shell
-  npm config set @scope:registry=https://gitlab.example.com/api/v4/projects/<project_id>/packages/npm/
-  ```
+ ```shell
+ npm config set @scope:registry=https://gitlab.example.com/api/v4/projects/<project_id>/packages/npm/
+ ```
 
 - For a group:
 
-  ```shell
-  npm config set @scope:registry=https://gitlab.example.com/api/v4/groups/<group_id>/-/packages/npm/
-  ```
+ ```shell
+ npm config set @scope:registry=https://gitlab.example.com/api/v4/groups/<group_id>/-/packages/npm/
+ ```
 
 - For an instance:
 
-  ```shell
-  npm config set @scope:registry=https://gitlab.example.com/api/v4/packages/npm/
-  ```
+ ```shell
+ npm config set @scope:registry=https://gitlab.example.com/api/v4/packages/npm/
+ ```
 
 {{< /tab >}}
 
@@ -290,8 +286,7 @@ After you configure your registry URL, you can authenticate to the package regis
 
 ## Publish to GitLab package registry
 
-To publish an npm package to the GitLab package registry, you must be
-authenticated.
+To publish an npm package to the GitLab package registry, you must be authenticated.
 
 ### Naming convention
 
@@ -303,16 +298,11 @@ You can use one of three API endpoints to install packages:
 - Group: Use when you have many npm packages in different projects under the same group or subgroup.
 - Project: Use when you have few npm packages and they are not in the same GitLab group.
 
-If you plan to install a package from a project or group,
-then you do not have to adhere to the naming convention.
+If you plan to install a package from a project or group, then you do not have to adhere to the naming convention.
 
-If you plan to install a package from an instance, then you must name your package
-with a scope. Scoped packages begin with a `@` have the format of
-`@owner/package-name`. You can set up the scope for your package in the `.npmrc` file and by using the `publishConfig`
-option in the `package.json`.
+If you plan to install a package from an instance, then you must name your package with a scope. Scoped packages begin with a `@` have the format of `@owner/package-name`. You can set up the scope for your package in the `.npmrc` file and by using the `publishConfig` option in the `package.json`.
 
-- The value used for the `@scope` is the root of the project that is hosting the packages and not the root
-  of the project with the source code of the package itself. The scope should be lowercase.
+- The value used for the `@scope` is the root of the project that is hosting the packages and not the root of the project with the source code of the package itself. The scope should be lowercase.
 - The package name can be anything you want.
 
 For more information, see [Scoped packages](https://docs.npmjs.com/cli/v11/using-npm/scope).
@@ -345,10 +335,7 @@ If the uploaded package has more than one `package.json` file, only the first on
 
 ### Publish a package with a CI/CD pipeline
 
-When publishing by using a CI/CD pipeline, you can use the
-[predefined variables](../../../ci/variables/predefined_variables.md) `${CI_PROJECT_ID}` and `${CI_JOB_TOKEN}`
-to authenticate with your project's package registry. You can use these variables to create a `.npmrc` file
-for authentication during execution of your CI/CD job.
+When publishing by using a CI/CD pipeline, you can use the [predefined variables](../../../ci/variables/predefined_variables.md) `${CI_PROJECT_ID}` and `${CI_JOB_TOKEN}` to authenticate with your project's package registry. You can use these variables to create a `.npmrc` file for authentication during execution of your CI/CD job.
 
 {{< alert type="note" >}}
 
@@ -361,14 +348,14 @@ In the GitLab project containing your `package.json`, edit or create a `.gitlab-
 
 ```yaml
 default:
-  image: node:latest
+ image: node:latest
 
 stages:
-  - deploy
+ - deploy
 
 publish-npm:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - echo "@scope:registry=https://${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/" > .npmrc
     - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
     - npm publish
@@ -457,10 +444,7 @@ Prerequisites:
 
 ### Install a package inside a CI/CD pipeline
 
-When installing a package inside a CI/CD pipeline, you can use the
-predefined variables `${CI_PROJECT_ID}` and `${CI_JOB_TOKEN}`
-to authenticate with your project's package registry. You can use these variables to create a `.npmrc` file
-for authentication during execution of your CI/CD job.
+When installing a package inside a CI/CD pipeline, you can use the predefined variables `${CI_PROJECT_ID}` and `${CI_JOB_TOKEN}` to authenticate with your project's package registry. You can use these variables to create a `.npmrc` file for authentication during execution of your CI/CD job.
 
 {{< alert type="note" >}}
 
@@ -473,14 +457,14 @@ In the GitLab project containing your `package.json`, edit or create a `.gitlab-
 
 ```yaml
 default:
-  image: node:latest
+ image: node:latest
 
 stages:
-  - deploy
+ - deploy
 
 publish-npm:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - echo "@scope:registry=https://${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/" > .npmrc
     - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
     - npm install @scope/my-package
@@ -488,9 +472,7 @@ publish-npm:
 
 Replace `@scope` with the scope of the package that is being installed, as well as the package name.
 
-The previous example uses the project-level endpoint. To use a group- or instance-level endpoint,
-configure the registry and authentication token URLs as described in install from a group or
-install from an instance.
+The previous example uses the project-level endpoint. To use a group- or instance-level endpoint, configure the registry and authentication token URLs as described in install from a group or install from an instance.
 
 ### Package forwarding to npmjs.com
 
@@ -555,8 +537,7 @@ Prerequisites:
 
 - You must have at least the Maintainer role.
 
-Before you delete a package, make sure you understand
-the [associated security risks](../package_registry/supported_functionality.md#deleting-packages).
+Before you delete a package, make sure you understand the [associated security risks](../package_registry/supported_functionality.md#deleting-packages).
 
 To delete a package, you can either:
 
@@ -569,8 +550,7 @@ To delete a package, you can either:
 
 You can route package requests to organizations and users outside of GitLab.
 
-To do this, add lines to your `.npmrc` file. Replace `@my-other-org` with the namespace or group that owns your project's repository,
-and use your organization's URL. The name is case-sensitive and must match the name of your group or namespace exactly.
+To do this, add lines to your `.npmrc` file. Replace `@my-other-org` with the namespace or group that owns your project's repository, and use your organization's URL. The name is case-sensitive and must match the name of your group or namespace exactly.
 
 ```shell
 @scope:registry=https://my_domain_name.com/api/v4/packages/npm/
@@ -583,19 +563,19 @@ The GitLab package registry exposes the following attributes to the npm client:
 
 - `name`
 - `versions`
-  - `name`
-  - `version`
-  - `deprecated`
-  - `dependencies`
-  - `devDependencies`
-  - `bundleDependencies`
-  - `peerDependencies`
-  - `bin`
-  - `directories`
-  - `dist`
-  - `engines`
-  - `_hasShrinkwrap`
-  - `hasInstallScript`: `true` (if this version has the install scripts)
+ - `name`
+ - `version`
+ - `deprecated`
+ - `dependencies`
+ - `devDependencies`
+ - `bundleDependencies`
+ - `peerDependencies`
+ - `bin`
+ - `directories`
+ - `dist`
+ - `engines`
+ - `_hasShrinkwrap`
+ - `hasInstallScript`: `true` (if this version has the install scripts)
 
 For more information, see [Abbreviated version object](https://github.com/npm/registry/blob/main/docs/responses/package-metadata.md#abbreviated-version-object).
 
@@ -613,7 +593,7 @@ Examples of the supported `dist-tag` commands:
 npm publish @scope/package --tag               # Publish a package with new tag
 npm dist-tag add @scope/package@version my-tag # Add a tag to an existing package
 npm dist-tag ls @scope/package                 # List all tags under the package
-npm dist-tag rm @scope/package@version my-tag  # Delete a tag from the package
+npm dist-tag rm @scope/package@version my-tag # Delete a tag from the package
 npm install @scope/package@my-tag              # Install a specific tag
 ```
 
@@ -638,7 +618,7 @@ For example:
 
 ```yaml
 npm-deploy-job:
-  script:
+ script:
     - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}">.npmrc
     - npm dist-tag add @scope/package@version my-tag
 ```
@@ -690,8 +670,7 @@ To ensure your private package information stays within GitLab, always make sure
 
 ### Supported CLI commands
 
-The GitLab npm repository supports the following commands for the npm CLI (`npm`) and yarn CLI
-(`yarn`):
+The GitLab npm repository supports the following commands for the npm CLI (`npm`) and yarn CLI (`yarn`):
 
 - `npm install`: Install npm packages.
 - `npm publish`: Publish an npm package to the registry.
@@ -714,14 +693,13 @@ You might encounter an error that says:
 npm ERR! A complete log of this run can be found in: .npm/_logs/<date>-debug-0
 ```
 
-If the log doesn't appear in the `.npm/_logs/` directory, you can copy the
-log to your root directory and view it there:
+If the log doesn't appear in the `.npm/_logs/` directory, you can copy the log to your root directory and view it there:
 
 ```yaml
-  script:
+ script:
     - npm install --loglevel verbose
     - cp -r /root/.npm/_logs/ .
-  artifacts:
+ artifacts:
     paths:
       - './_logs'
 ```
@@ -732,16 +710,14 @@ The npm log is copied to `/root/.npm/_logs/` as an artifact.
 
 Using `CI_JOB_TOKEN` to install npm packages with dependencies in another project gives you 404 Not Found errors. You need to authenticate with a token that has access to the package and all its dependencies.
 
-If the package and its dependencies are in separate projects but in the same group, you can use a
-[group deploy token](../../project/deploy_tokens/_index.md#create-a-deploy-token):
+If the package and its dependencies are in separate projects but in the same group, you can use a [group deploy token](../../project/deploy_tokens/_index.md#create-a-deploy-token):
 
 ```ini
 //gitlab.example.com/api/v4/packages/npm/:_authToken=<group-token>
 @group-scope:registry=https://gitlab.example.com/api/v4/packages/npm/
 ```
 
-If the package and its dependencies are spread across multiple groups, you can use a personal access token
-from a user that has access to all the groups or individual projects:
+If the package and its dependencies are spread across multiple groups, you can use a personal access token from a user that has access to all the groups or individual projects:
 
 ```ini
 //gitlab.example.com/api/v4/packages/npm/:_authToken=<personal-access-token>
@@ -760,12 +736,11 @@ for guidance on managing personal access tokens (for example, setting a short ex
 
 Ensure that your package scope is set consistently in your `package.json` and `.npmrc` files.
 
-For example, if your project name in GitLab is `@scope/my-package`, then your `package.json` file
-should look like:
+For example, if your project name in GitLab is `@scope/my-package`, then your `package.json` file should look like:
 
 ```json
 {
-  "name": "@scope/my-package"
+ "name": "@scope/my-package"
 }
 ```
 
@@ -784,8 +759,8 @@ If you get this error, ensure that:
 - Your token is not expired and has appropriate permissions.
 - A package with the same name or version doesn't already exist within the given scope.
 - The scoped packages URL includes a trailing slash:
-  - Correct: `//gitlab.example.com/api/v4/packages/npm/`
-  - Incorrect: `//gitlab.example.com/api/v4/packages/npm`
+ - Correct: `//gitlab.example.com/api/v4/packages/npm/`
+ - Incorrect: `//gitlab.example.com/api/v4/packages/npm`
 
 ### `npm publish` returns `npm ERR! 400 Bad Request`
 

@@ -27,8 +27,7 @@ On the **primary** site:
 1. In the upper-right corner, select **Admin**.
 1. Select **Geo** > **Sites**.
 
-We perform the following health checks on each **secondary** site
-to help identify if something is wrong:
+We perform the following health checks on each **secondary** site to help identify if something is wrong:
 
 - Is the site running?
 - Is the secondary site's database configured for streaming replication?
@@ -59,11 +58,9 @@ Gitlab::Geo::HealthCheck.new.perform_checks
 
 If it returns `""` (an empty string) or `"Healthy"`, then the checks succeeded. If it returns anything else, then the message should explain what failed, or show the exception message.
 
-For information about how to resolve common error messages reported from the user interface,
-see [Fixing Common Errors](#fixing-common-errors).
+For information about how to resolve common error messages reported from the user interface, see [Fixing Common Errors](#fixing-common-errors).
 
-If the user interface is not working, or you are unable to sign in, you can run the Geo
-health check manually to get this information and a few more details.
+If the user interface is not working, or you are unable to sign in, you can run the Geo health check manually to get this information and a few more details.
 
 #### Health check Rake task
 
@@ -73,8 +70,7 @@ health check manually to get this information and a few more details.
 
 {{< /history >}}
 
-This Rake task can be run on a **Rails** node in the **primary** or **secondary**
-Geo sites:
+This Rake task can be run on a **Rails** node in the **primary** or **secondary** Geo sites:
 
 ```shell
 sudo gitlab-rake gitlab:geo:check
@@ -118,17 +114,16 @@ The following environment variables are supported.
 | `NTP_PORT`    | The NTP port the host listens on. | `123` |
 | `NTP_TIMEOUT` | The NTP timeout in seconds. | The value defined in the `net-ntp` Ruby library ([60 seconds](https://github.com/zencoder/net-ntp/blob/3d0990214f439a5127782e0f50faeaf2c8ca7023/lib/net/ntp/ntp.rb#L6)). |
 
-If the Rake task skips the `OpenSSH configured to use AuthorizedKeysCommand` check, the
-following output displays:
+If the Rake task skips the `OpenSSH configured to use AuthorizedKeysCommand` check, the following output displays:
 
 ```plaintext
 OpenSSH configured to use AuthorizedKeysCommand ... skipped
-  Reason:
-  Cannot access OpenSSH configuration file
-  Try fixing it:
-  This is expected if you are using SELinux. You may want to check configuration manually
-  For more information see:
-  doc/administration/operations/fast_ssh_key_lookup.md
+ Reason:
+ Cannot access OpenSSH configuration file
+ Try fixing it:
+ This is expected if you are using SELinux. You may want to check configuration manually
+ For more information see:
+ doc/administration/operations/fast_ssh_key_lookup.md
 ```
 
 This issue might occur if:
@@ -152,8 +147,7 @@ sudo setfacl -m u:git:r /etc/ssh/sshd_config
 
 #### Sync status Rake task
 
-Current sync information can be found manually by running this Rake task on any
-node running Rails (Puma, Sidekiq, or Geo Log Cursor) on the Geo **secondary** site.
+Current sync information can be found manually by running this Rake task on any node running Rails (Puma, Sidekiq, or Geo Log Cursor) on the Geo **secondary** site.
 
 GitLab does **not** verify objects that are stored in Object Storage. If you are using Object Storage, you will see all of the "verified" checks showing 0 successes. This is expected and not a cause for concern.
 
@@ -225,11 +219,9 @@ Example:
 
 ```
 
-All objects are replicated and verified, which are defined in the [Geo glossary](../../glossary.md). Read more about the
-methods we use for replicating and verifying each data type in [supported Geo data types](../datatypes.md#data-types).
+All objects are replicated and verified, which are defined in the [Geo glossary](../../glossary.md). Read more about the methods we use for replicating and verifying each data type in [supported Geo data types](../datatypes.md#data-types).
 
-To find more details about failed items, check
-[the `gitlab-rails/geo.log` file](../../../logs/log_parsing.md#find-most-common-geo-sync-errors)
+To find more details about failed items, check [the `gitlab-rails/geo.log` file](../../../logs/log_parsing.md#find-most-common-geo-sync-errors)
 
 If you notice replication or verification failures, you can try to [resolve them](synchronization_verification.md).
 
@@ -243,81 +235,77 @@ sudo gitlab-rake gitlab:geo:check
 
 - Rails did not provide a password when connecting to the database.
 
-  ```plaintext
-  Checking Geo ...
+ ```plaintext
+ Checking Geo ...
 
-  GitLab Geo is available ... Exception: fe_sendauth: no password supplied
-  GitLab Geo is enabled ... Exception: fe_sendauth: no password supplied
-  ...
-  Checking Geo ... Finished
-  ```
+ GitLab Geo is available ... Exception: fe_sendauth: no password supplied
+ GitLab Geo is enabled ... Exception: fe_sendauth: no password supplied
+ ...
+ Checking Geo ... Finished
+ ```
 
-  Ensure you have the `gitlab_rails['db_password']` set to the plain-text
-  password used when creating the hash for `postgresql['sql_user_password']`.
+ Ensure you have the `gitlab_rails['db_password']` set to the plain-text password used when creating the hash for `postgresql['sql_user_password']`.
 
 - Rails is unable to connect to the database.
 
-  ```plaintext
-  Checking Geo ...
+ ```plaintext
+ Checking Geo ...
 
-  GitLab Geo is available ... Exception: FATAL:  no pg_hba.conf entry for host "1.1.1.1",  user "gitlab", database "gitlabhq_production", SSL on
-  FATAL:  no pg_hba.conf entry for host "1.1.1.1", user "gitlab", database "gitlabhq_production", SSL off
-  GitLab Geo is enabled ... Exception: FATAL:  no pg_hba.conf entry for host "1.1.1.1", user "gitlab", database "gitlabhq_production", SSL on
-  FATAL:  no pg_hba.conf entry for host "1.1.1.1", user "gitlab", database "gitlabhq_production", SSL off
-  ...
-  Checking Geo ... Finished
-  ```
+ GitLab Geo is available ... Exception: FATAL: no pg_hba.conf entry for host "1.1.1.1", user "gitlab", database "gitlabhq_production", SSL on
+ FATAL: no pg_hba.conf entry for host "1.1.1.1", user "gitlab", database "gitlabhq_production", SSL off
+ GitLab Geo is enabled ... Exception: FATAL: no pg_hba.conf entry for host "1.1.1.1", user "gitlab", database "gitlabhq_production", SSL on
+ FATAL: no pg_hba.conf entry for host "1.1.1.1", user "gitlab", database "gitlabhq_production", SSL off
+ ...
+ Checking Geo ... Finished
+ ```
 
-  Ensure you have the IP address of the rails node included in `postgresql['md5_auth_cidr_addresses']`.
-  Also, ensure you have included the subnet mask on the IP address: `postgresql['md5_auth_cidr_addresses'] = ['1.1.1.1/32']`.
+ Ensure you have the IP address of the rails node included in `postgresql['md5_auth_cidr_addresses']`.
+ Also, ensure you have included the subnet mask on the IP address: `postgresql['md5_auth_cidr_addresses'] = ['1.1.1.1/32']`.
 
 - Rails has supplied the incorrect password.
 
-  ```plaintext
-  Checking Geo ...
-  GitLab Geo is available ... Exception: FATAL:  password authentication failed for user "gitlab"
-  FATAL:  password authentication failed for user "gitlab"
-  GitLab Geo is enabled ... Exception: FATAL:  password authentication failed for user "gitlab"
-  FATAL:  password authentication failed for user "gitlab"
-  ...
-  Checking Geo ... Finished
-  ```
+ ```plaintext
+ Checking Geo ...
+ GitLab Geo is available ... Exception: FATAL: password authentication failed for user "gitlab"
+ FATAL: password authentication failed for user "gitlab"
+ GitLab Geo is enabled ... Exception: FATAL: password authentication failed for user "gitlab"
+ FATAL: password authentication failed for user "gitlab"
+ ...
+ Checking Geo ... Finished
+ ```
 
-  Verify the correct password is set for `gitlab_rails['db_password']` that was
-  used when creating the hash in `postgresql['sql_user_password']` by running
-  `gitlab-ctl pg-password-md5 gitlab` and entering the password.
+ Verify the correct password is set for `gitlab_rails['db_password']` that was used when creating the hash in `postgresql['sql_user_password']` by running `gitlab-ctl pg-password-md5 gitlab` and entering the password.
 
 - Check returns `not a secondary node`.
 
-  ```plaintext
-  Checking Geo ...
+ ```plaintext
+ Checking Geo ...
 
-  GitLab Geo is available ... yes
-  GitLab Geo is enabled ... yes
-  GitLab Geo tracking database is correctly configured ... not a secondary node
-  Database replication enabled? ... not a secondary node
-  ...
-  Checking Geo ... Finished
-  ```
+ GitLab Geo is available ... yes
+ GitLab Geo is enabled ... yes
+ GitLab Geo tracking database is correctly configured ... not a secondary node
+ Database replication enabled? ... not a secondary node
+ ...
+ Checking Geo ... Finished
+ ```
 
-  Ensure you have added the secondary site in the **Admin** area under **Geo** > **Sites** on the web interface for the **primary** site.
-  Also ensure you entered the `gitlab_rails['geo_node_name']`
-  when adding the secondary site in the **Admin** area of the **primary** site.
+ Ensure you have added the secondary site in the **Admin** area under **Geo** > **Sites** on the web interface for the **primary** site.
+ Also ensure you entered the `gitlab_rails['geo_node_name']` when adding the secondary site in the **Admin** area of the **primary** site.
 
-- Check returns `Exception: PG::UndefinedTable: ERROR:  relation "geo_nodes" does not exist`.
+- Check returns `Exception: PG::UndefinedTable: ERROR: relation "geo_nodes" does not exist`.
 
-  ```plaintext
-  Checking Geo ...
+ ```plaintext
+ Checking Geo ...
 
-  GitLab Geo is available ... no
+ GitLab Geo is available ... no
     Try fixing it:
     Add a new license that includes the GitLab Geo feature
     For more information see:
     https://about.gitlab.com/features/gitlab-geo/
-  GitLab Geo is enabled ... Exception: PG::UndefinedTable: ERROR:  relation "geo_nodes" does not exist
-  LINE 8:                WHERE a.attrelid = '"geo_nodes"'::regclass
+ GitLab Geo is enabled ... Exception: PG::UndefinedTable: ERROR: relation "geo_nodes" does not exist
+ LINE 8:                WHERE a.attrelid = '"geo_nodes"'::regclass
                                              ^
-  :               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+ :               SELECT a.attname, format_type(a.atttypid, a.atttypmod),
                        pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod,
                        c.collname, col_description(a.attrelid, a.attnum) AS comment
                   FROM pg_attribute a
@@ -327,59 +315,53 @@ sudo gitlab-rake gitlab:geo:check
                  WHERE a.attrelid = '"geo_nodes"'::regclass
                    AND a.attnum > 0 AND NOT a.attisdropped
                  ORDER BY a.attnum
-  ...
-  Checking Geo ... Finished
-  ```
+ ...
+ Checking Geo ... Finished
+ ```
 
-  When performing a PostgreSQL major version (9 > 10), update this is expected. Follow
-  the [initiate-the-replication-process](../../setup/database.md#step-3-initiate-the-replication-process).
+ When performing a PostgreSQL major version (9 > 10), update this is expected. Follow the [initiate-the-replication-process](../../setup/database.md#step-3-initiate-the-replication-process).
 
 - Rails does not appear to have the configuration necessary to connect to the Geo tracking database.
 
-  ```plaintext
-  Checking Geo ...
+ ```plaintext
+ Checking Geo ...
 
-  GitLab Geo is available ... yes
-  GitLab Geo is enabled ... yes
-  GitLab Geo tracking database is correctly configured ... no
-  Try fixing it:
-  Rails does not appear to have the configuration necessary to connect to the Geo tracking database. If the tracking database is running on a node other than this one, then you may need to add configuration.
-  ...
-  Checking Geo ... Finished
-  ```
+ GitLab Geo is available ... yes
+ GitLab Geo is enabled ... yes
+ GitLab Geo tracking database is correctly configured ... no
+ Try fixing it:
+ Rails does not appear to have the configuration necessary to connect to the Geo tracking database. If the tracking database is running on a node other than this one, then you may need to add configuration.
+ ...
+ Checking Geo ... Finished
+ ```
 
-  - If you are running the secondary site on a single node for all services, then follow [Geo database replication - Configure the secondary server](../../setup/database.md#step-2-configure-the-secondary-server).
-  - If you are running the secondary site's tracking database on its own node, then follow [Geo for multiple servers - Configure the Geo tracking database on the Geo secondary site](../multiple_servers.md#step-2-configure-the-geo-tracking-database-on-the-geo-secondary-site)
-  - If you are running the secondary site's tracking database in a Patroni cluster, then follow [Geo database replication - Configuring Patroni cluster for the tracking PostgreSQL database](../../setup/database.md#configuring-patroni-cluster-for-the-tracking-postgresql-database)
-  - If you are running the secondary site's tracking database in an external database, then follow [Geo with external PostgreSQL instances](../../setup/external_database.md#configure-the-tracking-database)
-  - If the Geo check task was run on a node which is not running a service which runs the GitLab Rails app (Puma, Sidekiq, or Geo Log Cursor), then this error can be ignored. The node does not need Rails to be configured.
+ - If you are running the secondary site on a single node for all services, then follow [Geo database replication - Configure the secondary server](../../setup/database.md#step-2-configure-the-secondary-server).
+ - If you are running the secondary site's tracking database on its own node, then follow [Geo for multiple servers - Configure the Geo tracking database on the Geo secondary site](../multiple_servers.md#step-2-configure-the-geo-tracking-database-on-the-geo-secondary-site)
+ - If you are running the secondary site's tracking database in a Patroni cluster, then follow [Geo database replication - Configuring Patroni cluster for the tracking PostgreSQL database](../../setup/database.md#configuring-patroni-cluster-for-the-tracking-postgresql-database)
+ - If you are running the secondary site's tracking database in an external database, then follow [Geo with external PostgreSQL instances](../../setup/external_database.md#configure-the-tracking-database)
+ - If the Geo check task was run on a node which is not running a service which runs the GitLab Rails app (Puma, Sidekiq, or Geo Log Cursor), then this error can be ignored. The node does not need Rails to be configured.
 
 ##### Message: Machine clock is synchronized ... Exception
 
-The Rake task attempts to verify that the server clock is synchronized with NTP. Synchronized clocks
-are required for Geo to function correctly. As an example, for security, when the server time on the
-primary site and secondary site differ by about a minute or more, requests between Geo sites
-fail. If this check task fails to complete due to a reason other than mismatching times, it
-does not necessarily mean that Geo will not work.
+The Rake task attempts to verify that the server clock is synchronized with NTP. Synchronized clocks are required for Geo to function correctly. As an example, for security, when the server time on the primary site and secondary site differ by about a minute or more, requests between Geo sites fail. If this check task fails to complete due to a reason other than mismatching times, it does not necessarily mean that Geo will not work.
 
 The Ruby gem which performs the check is hard coded with `pool.ntp.org` as its reference time source.
 
 - Exception message `Machine clock is synchronized ... Exception: Timeout::Error`
 
-  This issue occurs when your server cannot access the host `pool.ntp.org`.
+ This issue occurs when your server cannot access the host `pool.ntp.org`.
 
 - Exception message `Machine clock is synchronized ... Exception: No route to host - recvfrom(2)`
 
-  This issue occurs when the hostname `pool.ntp.org` resolves to a server which does not provide a time service.
+ This issue occurs when the hostname `pool.ntp.org` resolves to a server which does not provide a time service.
 
 In this case, in GitLab 15.7 and later, [specify a custom NTP server using environment variables](#health-check-rake-task).
 
 In GitLab 15.6 and earlier, use one of the following workarounds:
 
 - Add entries in `/etc/hosts` for `pool.ntp.org` to direct the request to valid local time servers.
-  This fixes the long timeout and the timeout error.
-- Direct the check to any valid IP address. This resolves the timeout issue, but the check fails
-  with the `No route to host` error, as noted previously.
+ This fixes the long timeout and the timeout error.
+- Direct the check to any valid IP address. This resolves the timeout issue, but the check fails with the `No route to host` error, as noted previously.
 
 [Cloud native GitLab deployments](https://docs.gitlab.com/charts/advanced/geo/#set-the-geo-primary-site)
 generate an error because containers in Kubernetes do not have access to the host clock:
@@ -393,7 +375,7 @@ Machine clock is synchronized ... Exception: getaddrinfo: Servname not supported
 When this error is encountered on a secondary site, it likely affects all usages of GitLab Rails such as `gitlab-rails` or `gitlab-rake` commands, as well the Puma, Sidekiq, and Geo Log Cursor services.
 
 ```plaintext
-ActiveRecord::StatementInvalid: PG::ReadOnlySqlTransaction: ERROR:  cannot execute INSERT in a read-only transaction
+ActiveRecord::StatementInvalid: PG::ReadOnlySqlTransaction: ERROR: cannot execute INSERT in a read-only transaction
 /opt/gitlab/embedded/service/gitlab-rails/app/models/application_record.rb:86:in `block in safe_find_or_create_by'
 /opt/gitlab/embedded/service/gitlab-rails/app/models/concerns/cross_database_modification.rb:92:in `block in transaction'
 /opt/gitlab/embedded/service/gitlab-rails/lib/gitlab/database.rb:332:in `block in transaction'
@@ -413,8 +395,8 @@ ActiveRecord::StatementInvalid: PG::ReadOnlySqlTransaction: ERROR:  cannot execu
 The PostgreSQL read-replica database would be producing these errors:
 
 ```plaintext
-2023-01-17_17:44:54.64268 ERROR:  cannot execute INSERT in a read-only transaction
-2023-01-17_17:44:54.64271 STATEMENT:  /*application:web,db_config_name:main*/ INSERT INTO "shards" ("name") VALUES ('storage1') RETURNING "id"
+2023-01-17_17:44:54.64268 ERROR: cannot execute INSERT in a read-only transaction
+2023-01-17_17:44:54.64271 STATEMENT: /*application:web,db_config_name:main*/ INSERT INTO "shards" ("name") VALUES ('storage1') RETURNING "id"
 ```
 
 This situation can occur:
@@ -422,14 +404,14 @@ This situation can occur:
 - During initial configuration when a secondary site is not yet aware that it is a secondary site. To resolve the error, follow [Step 3. Add the secondary site](../configuration.md#step-3-add-the-secondary-site).
 - During the upgrade of a Geo secondary site. It's possible that `gitlab_rails['auto_migrate']` is set to `true`, causing GitLab to attempt database migrations on the replica database, which is not required. To resolve the error:
 
-  1. SSH as root to the GitLab Rails node of the secondary site.
-  1. Edit `/etc/gitlab/gitlab.rb`, and comment out this setting or set it to false:
+ 1. SSH as root to the GitLab Rails node of the secondary site.
+ 1. Edit `/etc/gitlab/gitlab.rb`, and comment out this setting or set it to false:
 
      ```ruby
      gitlab_rails['auto_migrate'] = false
      ```
 
-  1. Reconfigure GitLab:
+ 1. Reconfigure GitLab:
 
      ```shell
      sudo gitlab-ctl reconfigure
@@ -446,34 +428,28 @@ If you're still having problems, see the [advanced replication troubleshooting](
 
 #### Are sites pointing to the correct database node?
 
-You should make sure your **primary** Geo [site](../../glossary.md) points to
-the database node that has write permissions.
+You should make sure your **primary** Geo [site](../../glossary.md) points to the database node that has write permissions.
 
 Any **secondary** sites should point only to read-only database nodes.
 
 #### Can Geo detect the current site correctly?
 
-Geo finds the current Puma or Sidekiq node's Geo [site](../../glossary.md) name in
-`/etc/gitlab/gitlab.rb` with the following logic:
+Geo finds the current Puma or Sidekiq node's Geo [site](../../glossary.md) name in `/etc/gitlab/gitlab.rb` with the following logic:
 
-1. Get the "Geo node name" (there is
-   [an issue to rename the settings to "Geo site name"](https://gitlab.com/gitlab-org/gitlab/-/issues/335944)):
+1. Get the "Geo node name" (there is [an issue to rename the settings to "Geo site name"](https://gitlab.com/gitlab-org/gitlab/-/issues/335944)):
    - Linux package: get the `gitlab_rails['geo_node_name']` setting.
    - GitLab Helm charts: get the `global.geo.nodeName` setting (see [Charts with GitLab Geo](https://docs.gitlab.com/charts/advanced/geo/)).
 1. If that is not defined, then get the `external_url` setting.
 
-This name is used to look up the Geo site with the same **Name** in the **Geo Sites**
-dashboard.
+This name is used to look up the Geo site with the same **Name** in the **Geo Sites** dashboard.
 
-To check if the current machine has a site name that matches a site in the
-database, run the check task:
+To check if the current machine has a site name that matches a site in the database, run the check task:
 
 ```shell
 sudo gitlab-rake gitlab:geo:check
 ```
 
-It displays the current machine's site name and whether the matching database
-record is a **primary** or **secondary** site.
+It displays the current machine's site name and whether the matching database record is a **primary** or **secondary** site.
 
 ```plaintext
 This machine's Geo node name matches a database record ... yes, found a secondary node named "Shanghai"
@@ -481,15 +457,14 @@ This machine's Geo node name matches a database record ... yes, found a secondar
 
 ```plaintext
 This machine's Geo node name matches a database record ... no
-  Try fixing it:
-  You could add or update a Geo node database record, setting the name to "https://example.com/".
-  Or you could set this machine's Geo node name to match the name of an existing database record: "London", "Shanghai"
-  For more information see:
-  doc/administration/geo/replication/troubleshooting/_index.md#can-geo-detect-the-current-node-correctly
+ Try fixing it:
+ You could add or update a Geo node database record, setting the name to "https://example.com/".
+ Or you could set this machine's Geo node name to match the name of an existing database record: "London", "Shanghai"
+ For more information see:
+ doc/administration/geo/replication/troubleshooting/_index.md#can-geo-detect-the-current-node-correctly
 ```
 
-For more information about recommended site names in the description of the Name field, see
-[Geo **Admin** area Common Settings](../../../geo_sites.md#common-settings).
+For more information about recommended site names in the description of the Name field, see [Geo **Admin** area Common Settings](../../../geo_sites.md#common-settings).
 
 ### Check OS locale data compatibility
 
@@ -510,8 +485,7 @@ This section documents common error messages reported in the **Admin** area on t
 
 Geo cannot reuse an existing tracking database.
 
-It is safest to use a fresh secondary, or reset the whole secondary by following
-[Resetting Geo secondary site replication](synchronization_verification.md#resetting-geo-secondary-site-replication).
+It is safest to use a fresh secondary, or reset the whole secondary by following [Resetting Geo secondary site replication](synchronization_verification.md#resetting-geo-secondary-site-replication).
 
 It is risky to reuse a secondary site without resetting it because the secondary site may have missed some Geo events. For example, missed deletion events lead to the secondary site permanently having data that should be deleted. Similarly, losing an event which physically moves the location of data leads to data permanently orphaned in one location, and missing in the other location until it is re-verified. This is why GitLab switched to hashed storage, which makes moving data unnecessary. There may be other unknown problems due to lost events.
 
@@ -545,14 +519,11 @@ If these kinds of risks do not apply, for example in a test environment, or if y
 
 ### Geo site has a database that is writable
 
-This error message refers to a problem with the database replica on a **secondary** site,
-which Geo expects to have access to. A secondary site database that is writable
-is an indication the database is not configured for replication with the primary site. It usually means, either:
+This error message refers to a problem with the database replica on a **secondary** site, which Geo expects to have access to. A secondary site database that is writable is an indication the database is not configured for replication with the primary site. It usually means, either:
 
 - An unsupported replication method was used (for example, logical replication).
 - The instructions to set up a [Geo database replication](../../setup/database.md) were not followed correctly.
-- Your database connection details are incorrect, that is you have specified the wrong
-  user in your `/etc/gitlab/gitlab.rb` file.
+- Your database connection details are incorrect, that is you have specified the wrong user in your `/etc/gitlab/gitlab.rb` file.
 
 Geo **secondary** sites require two separate PostgreSQL instances:
 
@@ -572,8 +543,7 @@ If you set up a new secondary from scratch, you must also [remove the old site f
 
 The most common problems that prevent the database from replicating correctly are:
 
-- **Secondary** sites cannot reach the **primary** site. Check credentials and
-  [firewall rules](../../_index.md#firewall-rules).
+- **Secondary** sites cannot reach the **primary** site. Check credentials and [firewall rules](../../_index.md#firewall-rules).
 - SSL certificate problems. Make sure you copied `/etc/gitlab/gitlab-secrets.json` from the **primary** site.
 - Database storage disk is full.
 - Database replication slot is misconfigured.
@@ -590,8 +560,7 @@ If you are using the Linux package installation, something might have failed dur
 
 ### GitLab indicates that more than 100% of repositories were synced
 
-This can be caused by orphaned records in the project registry. They are being cleaned
-periodically using a registry worker, so give it some time to fix it itself.
+This can be caused by orphaned records in the project registry. They are being cleaned periodically using a registry worker, so give it some time to fix it itself.
 
 ### Failed checksums on primary site
 
@@ -616,7 +585,7 @@ If you have updated the value of `external_url` in `/etc/gitlab/gitlab.rb` for t
 "class": "Geo::NodeStatusRequestService",
 ...
 "message": "Failed to Net::HTTP::Post to primary url: http://primary-site.gitlab.tld/api/v4/geo/status",
-  "error": "Failed to open TCP connection to <PRIMARY_IP_ADDRESS>:80 (Connection refused - connect(2) for \"<PRIMARY_ID_ADDRESS>\" port 80)"
+ "error": "Failed to open TCP connection to <PRIMARY_IP_ADDRESS>:80 (Connection refused - connect(2) for \"<PRIMARY_ID_ADDRESS>\" port 80)"
 ```
 
 In this case, make sure to update the changed URL on all your sites:
@@ -634,13 +603,12 @@ When running a backup on a **secondary** you might encounter the following error
 ```plaintext
 Dumping PostgreSQL database gitlabhq_production ...
 pg_dump: error: Dumping the contents of table "notes" failed: PQgetResult() failed.
-pg_dump: error: Error message from server: ERROR:  canceling statement due to conflict with recovery
-DETAIL:  User query might have needed to see row versions that must be removed.
+pg_dump: error: Error message from server: ERROR: canceling statement due to conflict with recovery
+DETAIL: User query might have needed to see row versions that must be removed.
 pg_dump: error: The command was: COPY public.notes (id, note, [...], last_edited_at) TO stdout;
 ```
 
-To prevent a database backup being made automatically during GitLab upgrades on your Geo **secondaries**,
-create the following empty file:
+To prevent a database backup being made automatically during GitLab upgrades on your Geo **secondaries**, create the following empty file:
 
 ```shell
 sudo touch /etc/gitlab/skip-auto-backup
@@ -648,23 +616,16 @@ sudo touch /etc/gitlab/skip-auto-backup
 
 ### High CPU usage on primary during object verification
 
-From GitLab 16.11 to GitLab 17.2, a missing PostgreSQL index causes high CPU
-usage and slow artifact verification progress. Additionally, the Geo secondary
-sites might report as unhealthy. [Issue 471727](https://gitlab.com/gitlab-org/gitlab/-/issues/471727) describes the behavior in detail.
+From GitLab 16.11 to GitLab 17.2, a missing PostgreSQL index causes high CPU usage and slow artifact verification progress. Additionally, the Geo secondary sites might report as unhealthy. [Issue 471727](https://gitlab.com/gitlab-org/gitlab/-/issues/471727) describes the behavior in detail.
 
-To determine if you might be experiencing this issue, follow the steps to
-[confirm if you are affected](https://gitlab.com/gitlab-org/gitlab/-/issues/471727#to-confirm-if-you-are-affected).
+To determine if you might be experiencing this issue, follow the steps to [confirm if you are affected](https://gitlab.com/gitlab-org/gitlab/-/issues/471727#to-confirm-if-you-are-affected).
 
 If you are affected, follow the steps in the [workaround](https://gitlab.com/gitlab-org/gitlab/-/issues/471727#workaround)
-to manually create the index. Creating the index causes PostgreSQL to
-consume slightly more resources until it finishes. Afterward, CPU usage might
-remain high while verification continues, but queries should complete
-significantly faster, and secondary site status should update correctly.
+to manually create the index. Creating the index causes PostgreSQL to consume slightly more resources until it finishes. Afterward, CPU usage might remain high while verification continues, but queries should complete significantly faster, and secondary site status should update correctly.
 
 ### Verification failed with: `Verification timed out after (...)`
 
-From GitLab 16.11, Geo may create duplicate `JobArtifactRegistry` entries for the same `artifact_id`, which can lead to synchronization
-failures between primary and secondary sites. This issue may also impact `UploadRegistry` and `PackageFileRegistry` entries.
+From GitLab 16.11, Geo may create duplicate `JobArtifactRegistry` entries for the same `artifact_id`, which can lead to synchronization failures between primary and secondary sites. This issue may also impact `UploadRegistry` and `PackageFileRegistry` entries.
 
 To determine if you might be experiencing this issue and remove the duplicate entries:
 
@@ -685,8 +646,7 @@ To determine if you might be experiencing this issue and remove the duplicate en
    puts 'BEGIN Package File IDs', package_file_ids, 'END Package File IDs'
    ```
 
-   If the output is empty, you are not affected. Otherwise, save
-   the terminal output in a text file in case you lose connection later.
+   If the output is empty, you are not affected. Otherwise, save the terminal output in a text file in case you lose connection later.
 
 1. Delete all duplicates:
 
@@ -710,8 +670,7 @@ Reason:
 end of file reached
 ```
 
-It might happen if the incorrect URL to the primary site was specified in the setting. To troubleshoot it,
-run the following commands in [the Rails Console](../../../operations/rails_console.md):
+It might happen if the incorrect URL to the primary site was specified in the setting. To troubleshoot it, run the following commands in [the Rails Console](../../../operations/rails_console.md):
 
 ```ruby
 primary = Gitlab::Geo.primary_node

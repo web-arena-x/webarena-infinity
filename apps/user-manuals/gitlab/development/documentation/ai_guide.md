@@ -12,27 +12,27 @@ GitLab team members must follow the guidelines documented in the [internal handb
 AI is a productivity multiplier and creative catalyst for the Technical Writing team at GitLab. Examples include:
 
 - Write and refactor documentation
-  - Create initial drafts from outlines and screenshots.
-  - Generate ideas to restructure content for scannability.
-  - Draft tutorial content.
-  - Convert list items to Markdown tables.
-  - Rephrase and simplify language for better readability.
-  - Edit UI text to make it more succinct.
-  - Suggest alternatives and improvements to error messages.
-  - Restructure pages based on user feedback with specific improvement recommendations.
+ - Create initial drafts from outlines and screenshots.
+ - Generate ideas to restructure content for scannability.
+ - Draft tutorial content.
+ - Convert list items to Markdown tables.
+ - Rephrase and simplify language for better readability.
+ - Edit UI text to make it more succinct.
+ - Suggest alternatives and improvements to error messages.
+ - Restructure pages based on user feedback with specific improvement recommendations.
 - Support technical tasks and automation
-  - Troubleshoot failed pipelines.
-  - Write Python scripts for data analysis and content auditing.
-  - Help with rebasing and Git operations.
-  - Troubleshoot GDK update errors.
-  - Create Mermaid diagrams.
+ - Troubleshoot failed pipelines.
+ - Write Python scripts for data analysis and content auditing.
+ - Help with rebasing and Git operations.
+ - Troubleshoot GDK update errors.
+ - Create Mermaid diagrams.
 - Analysis and research
-  - Analyze documentation sets and identify pain points and improvement areas.
-  - Summarize long documents.
-  - Generate lists of content by topic or category.
+ - Analyze documentation sets and identify pain points and improvement areas.
+ - Summarize long documents.
+ - Generate lists of content by topic or category.
 - Collaborate as a thinking partner
-  - Co-develop content iteratively through conversation.
-  - Challenge assumptions and explore alternatives.
-  - Ask probing questions to uncover requirements, edge cases, and gaps.
+ - Co-develop content iteratively through conversation.
+ - Challenge assumptions and explore alternatives.
+ - Ask probing questions to uncover requirements, edge cases, and gaps.
 
 All content, AI-generated or human-created, is reviewed for accuracy and readability by a GitLab team member.

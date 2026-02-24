@@ -32,14 +32,14 @@ The sourced outcome for this recipient has already been saved, check out the sec
 
 ### Save a sourced outcome as a response
 
-1. For this workflow, we'll use the filters at the top of the page to display responses that have a sourced outcome but also require action. Use the **Needs attention** (students that have not yet responded or have responded that they are still seeking) and **Has sourced outcomes** filters.  
+1. For this workflow, we'll use the filters at the top of the page to display responses that have a sourced outcome but also require action. Use the **Needs attention** (students that have not yet responded or have responded that they are still seeking) and **Has sourced outcomes** filters. 
      
    ![FDS responses that need attention and have sourced outcomes.png](https://support.joinhandshake.com/hc/article_attachments/35920591761175)
 2. Select a recipient. It's recommended that you verify the information with the source so that everything is accurate for your records.
 3. If you'd like to save the sourced outcome as the primary knowledge response, you can select **Save as response**.
 
    ![Save as response button.png](https://support.joinhandshake.com/hc/article_attachments/36607302534039)
-4. A message will pop-up in the bottom right corner of the screen verifying that the response has been saved. The sourced outcome response will then appear as the primary response.  
+4. A message will pop-up in the bottom right corner of the screen verifying that the response has been saved. The sourced outcome response will then appear as the primary response. 
      
    ![A sourced outcome that was saved as a response.png](https://support.joinhandshake.com/hc/article_attachments/36607316728727)
 

@@ -6,22 +6,18 @@ description: GitLab development - how to document features deployed behind featu
 title: Document features deployed behind feature flags
 ---
 
-GitLab uses [feature flags](../feature_flags/_index.md) to roll
-out the deployment of its own features.
+GitLab uses [feature flags](../feature_flags/_index.md) to roll out the deployment of its own features.
 
 > [!note]
 > The developer who changes the state of a feature flag is responsible for updating the documentation.
 
 ## When to document features behind a feature flag
 
-Before a feature flag is enabled for all customers in an environment (GitLab Self-Managed, GitLab.com, or GitLab Dedicated),
-the feature must be documented.
+Before a feature flag is enabled for all customers in an environment (GitLab Self-Managed, GitLab.com, or GitLab Dedicated), the feature must be documented.
 
-For all other features behind flags, the PM or EM for the group determines whether or not
-to document the feature.
+For all other features behind flags, the PM or EM for the group determines whether or not to document the feature.
 
-Even when a flag is not documented alongside the feature, it is
-[automatically documented on a central page](../../administration/feature_flags/list.md).
+Even when a flag is not documented alongside the feature, it is [automatically documented on a central page](../../administration/feature_flags/list.md).
 
 ## How to add feature flag documentation
 
@@ -32,13 +28,11 @@ To document feature flags:
 
 ## Offerings
 
-When documenting the [offerings](styleguide/availability_details.md#offering), for features
-**disabled on GitLab Self-Managed**, don't list `GitLab Dedicated` as the feature's offering.
+When documenting the [offerings](styleguide/availability_details.md#offering), for features **disabled on GitLab Self-Managed**, don't list `GitLab Dedicated` as the feature's offering.
 
 ## Add history text
 
-When the state of a flag changes (for example, from disabled by default to enabled by default), add the change to the
-[history](styleguide/availability_details.md#history).
+When the state of a flag changes (for example, from disabled by default to enabled by default), add the change to the [history](styleguide/availability_details.md#history).
 
 Possible history entries are:
 
@@ -62,8 +56,7 @@ In that case, you can use a history entry like:
 
 ### Add changes to feature flags
 
-When multiple feature flags are consolidated or a feature flag name is
-changed in a later release, mention the change in the history entry:
+When multiple feature flags are consolidated or a feature flag name is changed in a later release, mention the change in the history entry:
 
 ```markdown
 - [Introduced](https://issue-link) in GitLab X.X [with a feature flag](../../administration/feature_flags/_index.md) named `flag_name`. Disabled by default.
@@ -147,8 +140,7 @@ When the flag is removed, add a `Generally available` entry. Ensure that you del
 {{</* history */>}}
 ```
 
-If the feature flag is introduced and removed in the same release, delete the feature flag entry
-from the history and the flag note.
+If the feature flag is introduced and removed in the same release, delete the feature flag entry from the history and the flag note.
 
 ## Simplify long history
 
@@ -158,18 +150,18 @@ Combine entries if they happened in the same release:
 
 - Before:
 
-  ```markdown
-  - [Introduced](https://issue-link) in GitLab 14.2 [with a feature flag](../../administration/feature_flags/_index.md) named `ci_include_rules`. Disabled by default.
-  - [Enabled on GitLab.com](https://issue-link) in GitLab 14.3.
-  - [Enabled on GitLab Self-Managed and GitLab Dedicated](https://issue-link) in GitLab 14.3.
-  ```
+ ```markdown
+ - [Introduced](https://issue-link) in GitLab 14.2 [with a feature flag](../../administration/feature_flags/_index.md) named `ci_include_rules`. Disabled by default.
+ - [Enabled on GitLab.com](https://issue-link) in GitLab 14.3.
+ - [Enabled on GitLab Self-Managed and GitLab Dedicated](https://issue-link) in GitLab 14.3.
+ ```
 
 - After:
 
-  ```markdown
-  - [Introduced](https://issue-link) in GitLab 14.2 [with a feature flag](../../administration/feature_flags/_index.md) named `ci_include_rules`. Disabled by default.
-  - [Enabled on GitLab.com, GitLab Self-Managed, and GitLab Dedicated](https://issue-link) in GitLab 14.3.
-  ```
+ ```markdown
+ - [Introduced](https://issue-link) in GitLab 14.2 [with a feature flag](../../administration/feature_flags/_index.md) named `ci_include_rules`. Disabled by default.
+ - [Enabled on GitLab.com, GitLab Self-Managed, and GitLab Dedicated](https://issue-link) in GitLab 14.3.
+ ```
 
 If the feature flag is introduced and enabled in the same release, combine the entries:
 
@@ -181,25 +173,25 @@ Delete `Enabled on GitLab.com` entries only when the feature is enabled by defau
 
 - Before:
 
-  ```markdown
-  {{</* history */>}}
+ ```markdown
+ {{</* history */>}}
 
-  - [Introduced](https://issue-link) in GitLab 15.6 [with a feature flag](../../administration/feature_flags/_index.md) named `ci_hooks_pre_get_sources_script`. Disabled by default.
-  - [Enabled on GitLab.com](https://issue-link) in GitLab 15.7.
-  - [Enabled on GitLab Self-Managed and GitLab Dedicated](https://issue-link) in GitLab 15.8.
-  - [Generally available](https://issue-link) in GitLab 15.9. Feature flag `ci_hooks_pre_get_sources_script` removed.
+ - [Introduced](https://issue-link) in GitLab 15.6 [with a feature flag](../../administration/feature_flags/_index.md) named `ci_hooks_pre_get_sources_script`. Disabled by default.
+ - [Enabled on GitLab.com](https://issue-link) in GitLab 15.7.
+ - [Enabled on GitLab Self-Managed and GitLab Dedicated](https://issue-link) in GitLab 15.8.
+ - [Generally available](https://issue-link) in GitLab 15.9. Feature flag `ci_hooks_pre_get_sources_script` removed.
 
-  {{</* /history */>}}
-  ```
+ {{</* /history */>}}
+ ```
 
 - After:
 
-  ```markdown
-  {{</* history */>}}
+ ```markdown
+ {{</* history */>}}
 
-  - [Introduced](https://issue-link) in GitLab 15.6 [with a feature flag](../../administration/feature_flags/_index.md) named `ci_hooks_pre_get_sources_script`. Disabled by default.
-  - [Enabled on GitLab Self-Managed and GitLab Dedicated](https://issue-link) in GitLab 15.8.
-  - [Generally available](https://issue-link) in GitLab 15.9. Feature flag `ci_hooks_pre_get_sources_script` removed.
+ - [Introduced](https://issue-link) in GitLab 15.6 [with a feature flag](../../administration/feature_flags/_index.md) named `ci_hooks_pre_get_sources_script`. Disabled by default.
+ - [Enabled on GitLab Self-Managed and GitLab Dedicated](https://issue-link) in GitLab 15.8.
+ - [Generally available](https://issue-link) in GitLab 15.9. Feature flag `ci_hooks_pre_get_sources_script` removed.
 
-  {{</* history */>}}
-  ```
+ {{</* history */>}}
+ ```

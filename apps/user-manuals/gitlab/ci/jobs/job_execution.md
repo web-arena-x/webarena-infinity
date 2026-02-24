@@ -15,9 +15,7 @@ description: Job execution steps.
 
 The job execution flow describes how GitLab Runner processes CI/CD jobs from start to finish.
 
-GitLab Runner executes CI/CD jobs after it receives a job, retrieves secrets from a vault
-(if configured), and prepares the executor. Every CI/CD job executes as a series of sequential
-steps, with each step running in a separate shell context. The runner:
+GitLab Runner executes CI/CD jobs after it receives a job, retrieves secrets from a vault (if configured), and prepares the executor. Every CI/CD job executes as a series of sequential steps, with each step running in a separate shell context. The runner:
 
 1. Prepares the source code for the job:
 

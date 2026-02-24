@@ -15,20 +15,20 @@ When you delete a submittal in Procore, the system moves it to the Recycle Bin i
 ## Things to Consider
 
 - **Required User Permissions**:
-  - 'Admin' level permissions on the Submittals tool.
+ - 'Admin' level permissions on the Submittals tool.
 - **Prerequisite**:
-  - [Create a Submittal](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/create-a-submittal "Create a Submittal")
+ - [Create a Submittal](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/create-a-submittal "Create a Submittal")
 - **Additional Information**:
-  - A deleted submittal is archived in Recycle Bin.
-  - To give project teams the ability to restore any deleted item, the Recycle Bin cannot be emptied. See [Retrieve a Submittal from the Recycle Bin](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/retrieve-a-submittal-from-the-recycle-bin "products/online/user-guide/project-level/submittals/tutorials/retrieve-a-submittal-from-the-recycle-bin").
-  - If you want to send a batch of submittals to the Recycle Bin, see [Use Bulk Actions > Delete in the Submittals Tool](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/use-bulk-actions-delete-in-the-submittals-tool "Use Bulk Actions > Delete in the Submittals Tool").
+ - A deleted submittal is archived in Recycle Bin.
+ - To give project teams the ability to restore any deleted item, the Recycle Bin cannot be emptied. See [Retrieve a Submittal from the Recycle Bin](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/retrieve-a-submittal-from-the-recycle-bin "products/online/user-guide/project-level/submittals/tutorials/retrieve-a-submittal-from-the-recycle-bin").
+ - If you want to send a batch of submittals to the Recycle Bin, see [Use Bulk Actions > Delete in the Submittals Tool](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/use-bulk-actions-delete-in-the-submittals-tool "Use Bulk Actions > Delete in the Submittals Tool").
 
 ## Steps
 
 1. Navigate to the project's **Submittals** tool.
 2. Locate the submittal that you want to send to the Recycle Bin.
 3. Click **View**.
-4. Click the vertical ellipsis![icon-ellipsis-vertical.png](https://support.procore.com/@api/deki/files/158014/icon-ellipsis-vertical.png?revision=2&size=bestfit&width=17&height=17), then click **Delete**.  
+4. Click the vertical ellipsis![icon-ellipsis-vertical.png](https://support.procore.com/@api/deki/files/158014/icon-ellipsis-vertical.png?revision=2&size=bestfit&width=17&height=17), then click **Delete**. 
    *Note*: You can delete a submittal whether or not members of the submittal workflow have responded to it.
 
 ## See Also

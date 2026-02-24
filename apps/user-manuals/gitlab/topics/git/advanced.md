@@ -21,8 +21,7 @@ They provide you with the following benefits:
 - Workflow optimization: Streamline complex development processes.
 - Collaboration: Facilitate smoother teamwork in large or complex projects.
 
-To use Git operations effectively, it's important to understand key concepts such as
-repositories, branches, commits, and merge requests.
+To use Git operations effectively, it's important to understand key concepts such as repositories, branches, commits, and merge requests.
 For more information, see [Get started learning Git](get_started.md).
 
 ## Best practices
@@ -32,17 +31,16 @@ When you use advanced Git operations, you should:
 - Create a backup or work on a [separate branch](branch.md).
 - Communicate with your team before you use operations that affect shared branch history.
 - Use descriptive [commit messages](../../tutorials/update_commit_messages/_index.md)
-  when you rewrite history.
+ when you rewrite history.
 - Update your knowledge of Git to stay current with best practices and new features.
-  For more information, see the [Git documentation](https://git-scm.com/docs).
+ For more information, see the [Git documentation](https://git-scm.com/docs).
 - Practice advanced operations in a test repository.
 
 ## Rebase and resolve conflicts
 
 The `git rebase` command updates your branch with the contents of another branch.
 It confirms that changes in your branch don't conflict with changes in the target branch.
-If you have a [merge conflict](../../user/project/merge_requests/conflicts.md),
-you can rebase to fix it.
+If you have a [merge conflict](../../user/project/merge_requests/conflicts.md), you can rebase to fix it.
 
 For more information, see [Rebase to address merge conflicts](git_rebase.md).
 
@@ -62,7 +60,7 @@ For more information, see [Cherry-pick changes with Git](cherry_pick.md).
 The following Git commands help you to revert and undo changes:
 
 - `git revert`: Creates a new commit that undoes the changes made in a previous commit.
-  This helps you to undo a mistake or a change that you no longer need.
+ This helps you to undo a mistake or a change that you no longer need.
 - `git reset`: Resets and undoes changes that are not yet committed.
 - `git restore`: Restores changes that are lost or deleted.
 

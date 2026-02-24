@@ -81,7 +81,7 @@ To see a list of all of your missed calls, for both matched and unmatched calls,
 **Unmatched calls**
 
 - To save a phone number as a new lead or contact in the unmatched call list, click **Add to Sell**.
-- If the number belongs to an existing lead or contact, click the arrow next to **Add to Sell**  to update that phone number, using the **Add to Existing** option.
+- If the number belongs to an existing lead or contact, click the arrow next to **Add to Sell** to update that phone number, using the **Add to Existing** option.
 - If you want to ignore the call, then click **Ignore**.
 
 Note: Clicking ignore does not block the number, it just removes it from the Unmatched calls list.

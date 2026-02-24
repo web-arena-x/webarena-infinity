@@ -21,29 +21,29 @@ If you'd like to learn about creating and customizing collections, please refer 
 Topics:
 
 - [How to add employers to collections](#h_01G007TWY6HGB7E4HGSPHVXJ1Y)
-  - [Add employers individually](#h_01HT5FCQD5GEXM11VZ4J5Z7EX1)
-  - [Add employers in bulk](#h_01HT5FCQD60TXEQQRMY5EQ09VT)
-  - [Add employers through labels](#h_01J8MT3ZA6EZG0CKYYS3GJ0V1J)
+ - [Add employers individually](#h_01HT5FCQD5GEXM11VZ4J5Z7EX1)
+ - [Add employers in bulk](#h_01HT5FCQD60TXEQQRMY5EQ09VT)
+ - [Add employers through labels](#h_01J8MT3ZA6EZG0CKYYS3GJ0V1J)
 - [How to add job postings to collections](#h_01J51RFMBY7SAVX9MCSF522V85)
-  - [Add jobs individually](#h_01J51YPHWF56SFQ0ASV1V1H2CM)
-  - [Add job postings in bulk](#h_01J51Z3G25SYYEWVVY4JF8RRSJ)
+ - [Add jobs individually](#h_01J51YPHWF56SFQ0ASV1V1H2CM)
+ - [Add job postings in bulk](#h_01J51Z3G25SYYEWVVY4JF8RRSJ)
 - [How to add events to collections](#h_01HT5NJ36NGE3HF5G0YYHP66T8)
-  - [Add events in bulk](#h_01JGYHYK1GEPTPCDCF6ATEF5G3)
+ - [Add events in bulk](#h_01JGYHYK1GEPTPCDCF6ATEF5G3)
 - [How to add fairs to collections](#h_01JQYAYG2EBN75APRR3WFGVHVP)
-  - [Add fairs individually](#h_01JGYSQZFEDEZXC724AVCW9VZ4)
+ - [Add fairs individually](#h_01JGYSQZFEDEZXC724AVCW9VZ4)
 - [Exploring collections](#h_01HT5NJ36NGE3HF5G0YYHP66T8)
 - [Jobs, Events, Fairs, and Employers tabs](#h_01J51JYWD3WP0D0ZA6WDJ50HE7)
-  - [Collection rules](#h_01J59202RCJ226840GMC6DZRXG)
-  - [Student feature: Follow Collections](#h_01JSYKAF2QSGHXAQKYQAMEDHF5)
-  - [Remove job postings from the collection using the side sheet](#h_01J59129R9BRVWRM3TVV0D1859)
-  - [Remove job postings from the collection using the list of job postings](#h_01J5924SEANNSVTZ2D0DEFZ1B9)
-  - [Remove events from the collection using the list of events](#h_01JGYXTG2K1QMHM5G6G48AFBNS)
-  - [Remove fairs from the collection using the list of fairs](#h_01JGYZDM8EXTRKQTZH7FRHRPSE)
-  - [Remove employers from the collection using the side sheet](#h_01J51JZH9Q8D5EX5Z7HSVAV901)
-  - [Remove employers from the collection using the list of employers](#h_01J51JZYFEAG0NG9ZVR4X3Y6W7)
+ - [Collection rules](#h_01J59202RCJ226840GMC6DZRXG)
+ - [Student feature: Follow Collections](#h_01JSYKAF2QSGHXAQKYQAMEDHF5)
+ - [Remove job postings from the collection using the side sheet](#h_01J59129R9BRVWRM3TVV0D1859)
+ - [Remove job postings from the collection using the list of job postings](#h_01J5924SEANNSVTZ2D0DEFZ1B9)
+ - [Remove events from the collection using the list of events](#h_01JGYXTG2K1QMHM5G6G48AFBNS)
+ - [Remove fairs from the collection using the list of fairs](#h_01JGYZDM8EXTRKQTZH7FRHRPSE)
+ - [Remove employers from the collection using the side sheet](#h_01J51JZH9Q8D5EX5Z7HSVAV901)
+ - [Remove employers from the collection using the list of employers](#h_01J51JZYFEAG0NG9ZVR4X3Y6W7)
 - [Filtering on employers in collections](#h_01G007V9JQQ1GAHNZWDMV5068W)
 - [Sharing collections with students](#h_01G007WQPKF8AXYBR3QG0DYMXM)
-  - [Sharing collections with students through Targeted Emails](#h_01J5904NBWPR5PY9ETHM3M7MBX)
+ - [Sharing collections with students through Targeted Emails](#h_01J5904NBWPR5PY9ETHM3M7MBX)
 - [Considerations when adding employers or job postings to collections](#h_01G007WZPB4XHWJADRG9G3BCBC)
 
 ## How to add employers to collections
@@ -280,9 +280,9 @@ Menu option for Handshake Content - Collection:
 Employers won't be able to: 
 
 - view in Handshake which EDU partners have highlighted them. 
-  - *EDU partners may decide to share this information with Employers if they so wish.*
+ - *EDU partners may decide to share this information with Employers if they so wish.*
 - view collections or anything to indicate they are part of an collection. 
-  - *Employers may be exposed to collections through student accounts (informally), while exploring related EDU Help Center content, or if Career Services shares the information with employers directly.*
+ - *Employers may be exposed to collections through student accounts (informally), while exploring related EDU Help Center content, or if Career Services shares the information with employers directly.*
 
 When editing a collection, you can choose to target the collection based on **school major** or **college**. Students that meet that targeting criteria will have access to the collection. Learn more about this under the *collection targeting* section of [Creating and Customizing Collections](https://support.joinhandshake.com/hc/en-us/articles/25574247042711).
 

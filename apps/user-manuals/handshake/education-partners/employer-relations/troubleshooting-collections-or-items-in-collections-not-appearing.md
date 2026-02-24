@@ -40,5 +40,5 @@ If you’re still unable to locate a collection or an item in a collection, cont
 
 ### Additional Resources
 
-[EDU: Collections Overview](https://support.joinhandshake.com/hc/en-us/articles/4774141819799)  
+[EDU: Collections Overview](https://support.joinhandshake.com/hc/en-us/articles/4774141819799) 
 [Curation on Handshake](https://support.joinhandshake.com/hc/en-us/articles/25515331641239)

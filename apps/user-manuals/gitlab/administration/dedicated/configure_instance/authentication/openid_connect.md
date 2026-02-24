@@ -13,8 +13,7 @@ title: OpenID Connect SSO for GitLab Dedicated
 
 {{< /details >}}
 
-Configure OpenID Connect (OIDC) single sign-on (SSO) for your GitLab Dedicated instance
-to authenticate users with your identity provider.
+Configure OpenID Connect (OIDC) single sign-on (SSO) for your GitLab Dedicated instance to authenticate users with your identity provider.
 
 Use OIDC SSO when you want to:
 
@@ -146,14 +145,14 @@ For more information, see [use OpenID Connect as an authentication provider](../
 
 ```json
 {
-  "label": "Google",
-  "scope": ["openid", "profile", "email"],
-  "response_type": "code",
-  "issuer": "https://accounts.google.com",
-  "client_auth_method": "query",
-  "discovery": true,
-  "uid_field": "preferred_username",
-  "pkce": true
+ "label": "Google",
+ "scope": ["openid", "profile", "email"],
+ "response_type": "code",
+ "issuer": "https://accounts.google.com",
+ "client_auth_method": "query",
+ "discovery": true,
+ "uid_field": "preferred_username",
+ "pkce": true
 }
 ```
 
@@ -161,14 +160,14 @@ For more information, see [use OpenID Connect as an authentication provider](../
 
 ```json
 {
-  "label": "Azure AD",
-  "scope": ["openid", "profile", "email"],
-  "response_type": "code",
-  "issuer": "https://login.microsoftonline.com/your-tenant-id/v2.0",
-  "client_auth_method": "query",
-  "discovery": true,
-  "uid_field": "preferred_username",
-  "pkce": true
+ "label": "Azure AD",
+ "scope": ["openid", "profile", "email"],
+ "response_type": "code",
+ "issuer": "https://login.microsoftonline.com/your-tenant-id/v2.0",
+ "client_auth_method": "query",
+ "discovery": true,
+ "uid_field": "preferred_username",
+ "pkce": true
 }
 ```
 
@@ -176,14 +175,14 @@ For more information, see [use OpenID Connect as an authentication provider](../
 
 ```json
 {
-  "label": "Okta",
-  "scope": ["openid", "profile", "email", "groups"],
-  "response_type": "code",
-  "issuer": "https://your-domain.okta.com/oauth2/default",
-  "client_auth_method": "query",
-  "discovery": true,
-  "uid_field": "preferred_username",
-  "pkce": true
+ "label": "Okta",
+ "scope": ["openid", "profile", "email", "groups"],
+ "response_type": "code",
+ "issuer": "https://your-domain.okta.com/oauth2/default",
+ "client_auth_method": "query",
+ "discovery": true,
+ "uid_field": "preferred_username",
+ "pkce": true
 }
 ```
 

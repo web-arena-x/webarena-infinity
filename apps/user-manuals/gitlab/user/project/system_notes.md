@@ -14,8 +14,7 @@ description: Event history, activity log, and comment history.
 
 {{< /details >}}
 
-System notes are short descriptions that help you understand the history of events
-that occur during the lifecycle of a GitLab object, such as:
+System notes are short descriptions that help you understand the history of events that occur during the lifecycle of a GitLab object, such as:
 
 - [Alerts](../../operations/incident_management/alerts.md).
 - [Designs](issues/design_management.md).
@@ -24,8 +23,7 @@ that occur during the lifecycle of a GitLab object, such as:
 - [Objectives and key results](../okrs.md) (OKRs).
 - [Tasks](../tasks.md).
 
-GitLab logs information about events triggered by Git or the GitLab application
-in system notes. System notes use the format `<Author> <action> <time ago>`.
+GitLab logs information about events triggered by Git or the GitLab application in system notes. System notes use the format `<Author> <action> <time ago>`.
 
 ## Show or filter system notes
 

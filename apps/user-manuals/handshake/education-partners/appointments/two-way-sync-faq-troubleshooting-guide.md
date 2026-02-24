@@ -63,8 +63,7 @@ To ensure that students can still schedule an appointment with you during this t
 
 ![Creating_a_Placeholder_as_Free_Image_.png](https://support.joinhandshake.com/hc/article_attachments/25995122466455)
 
-Events within your appointment block are showing as unavailable to students in  
-Handshake
+Events within your appointment block are showing as unavailable to students in Handshake
 
 If an event is added to your personal calendar during your appointment block, and the event is marked as **Busy**, **Maybe**, or **Tentative**, this time will no longer show as available for students in Handshake.
 

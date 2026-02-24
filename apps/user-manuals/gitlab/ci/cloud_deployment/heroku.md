@@ -18,7 +18,7 @@ You can deploy an application to Heroku by using GitLab CI/CD.
 ## Prerequisites
 
 - A [Heroku](https://id.heroku.com/login) account.
-  Sign in with an existing Heroku account or create a new one.
+ Sign in with an existing Heroku account or create a new one.
 
 ## Deploy to Heroku
 

@@ -38,11 +38,9 @@ Use GitLab Duo and SDLC trends to:
 - Track SDLC trends in relation to your GitLab Duo journey: Examine how trends in GitLab Duo usage in a project or group influence other crucial productivity metrics such as mean time to merge and CI/CD statistics. GitLab Duo usage metrics are displayed for the last six months, including the current one.
 - Monitor GitLab Duo feature adoption: Track the use of seats and features in a project or group over the last 30 days.
 
-To learn how you can optimize your license utilization,
-see [GitLab Duo add-ons](../../subscriptions/subscription-add-ons.md).
+To learn how you can optimize your license utilization, see [GitLab Duo add-ons](../../subscriptions/subscription-add-ons.md).
 
-To learn more about GitLab Duo and SDLC trends, see the blog post
-[Developing GitLab Duo: AI impact analytics dashboard measures the ROI of AI](https://about.gitlab.com/blog/2024/05/15/developing-gitlab-duo-ai-impact-analytics-dashboard-measures-the-roi-of-ai/).
+To learn more about GitLab Duo and SDLC trends, see the blog post [Developing GitLab Duo: AI impact analytics dashboard measures the ROI of AI](https://about.gitlab.com/blog/2024/05/15/developing-gitlab-duo-ai-impact-analytics-dashboard-measures-the-roi-of-ai/).
 
 For a click-through demo, see the [GitLab Duo and SDLC trends product tour](https://gitlab.navattic.com/ai-impact).
 
@@ -53,14 +51,14 @@ For an overview, see [GitLab Duo AI Impact Dashboard](https://youtu.be/FxSWX64aU
 ## Key metrics
 
 - **Assigned Duo seat engagement**: Percentage of users that are assigned a GitLab Duo seat and used at least one AI feature in the last 30 days.
-  It is calculated as the number of users with GitLab Duo seats that use AI features divided by the total number of assigned GitLab Duo seats.
+ It is calculated as the number of users with GitLab Duo seats that use AI features divided by the total number of assigned GitLab Duo seats.
 - **Code Suggestions usage**: Percentage of users with assigned GitLab Duo seats that used Code Suggestions in the last 30 days.
-  It is calculated as the number of unique users with GitLab Duo seats that interact with Code Suggestions divided by the total number of unique code contributors (users with `pushed` events) with GitLab Duo seats.
-  For calculating Code Suggestions metrics, GitLab collects data only from code editor extensions.
+ It is calculated as the number of unique users with GitLab Duo seats that interact with Code Suggestions divided by the total number of unique code contributors (users with `pushed` events) with GitLab Duo seats.
+ For calculating Code Suggestions metrics, GitLab collects data only from code editor extensions.
 - **Code Suggestions acceptance rate**: Percentage of code suggestions provided by GitLab Duo that have been accepted by code contributors in the last 30 days.
-  It is calculated as the number of accepted code suggestions divided by the total number of generated code suggestions.
+ It is calculated as the number of accepted code suggestions divided by the total number of generated code suggestions.
 - **Duo Chat usage**: Percentage of users that engage with GitLab Duo Chat every month.
-  It is calculated as the number of monthly unique GitLab Duo Chat users divided by the total GitLab Duo assigned users.
+ It is calculated as the number of monthly unique GitLab Duo Chat users divided by the total GitLab Duo assigned users.
 
 ## Metric trends
 
@@ -81,22 +79,21 @@ The **Metric trends** table displays metrics for the last six months, with month
 
 - **Code Suggestions usage**: Monthly user engagement with AI Code Suggestions.
 
-  On GitLab.com, data updates every fives minutes.
-  GitLab counts Code Suggestions usage only if the user has pushed code to the project in the current month.
+ On GitLab.com, data updates every fives minutes.
+ GitLab counts Code Suggestions usage only if the user has pushed code to the project in the current month.
 
-  The month-over-month comparison of the AI Usage unique users rate gives a more accurate indication Code Suggestion usage,
-  because it eliminates factors such as developer experience level and project type or complexity.
+ The month-over-month comparison of the AI Usage unique users rate gives a more accurate indication Code Suggestion usage, because it eliminates factors such as developer experience level and project type or complexity.
 
-  The baseline for the AI Usage trend is the total number of code contributors, not only users with GitLab Duo seats.
-  This baseline gives a more accurate representation of AI usage by team members.
+ The baseline for the AI Usage trend is the total number of code contributors, not only users with GitLab Duo seats.
+ This baseline gives a more accurate representation of AI usage by team members.
 
 - **Duo RCA usage**: Monthly user engagement with GitLab Duo Root Cause Analysis.
-  Tracks the percentage of GitLab Duo users who use GitLab Duo Chat to troubleshoot a failed CI/CD job from a merge request.
+ Tracks the percentage of GitLab Duo users who use GitLab Duo Chat to troubleshoot a failed CI/CD job from a merge request.
 
 - **Duo features usage**: Number of contributors who used any GitLab Duo feature.
 
 - **Duo Code Review requests**: Number of GitLab Duo Code Review requests made on merge requests.
-  This includes requests initiated by both merge request authors and non-authors.
+ This includes requests initiated by both merge request authors and non-authors.
 
 - **Duo Code Review comments**: Number of comments posted by GitLab Duo Code Review on merge request diffs.
 
@@ -137,7 +134,7 @@ Hover over a bar to view for each language:
 - **Suggestions accepted**: Number of suggestions accepted by users.
 - **Suggestions shown**: Number of suggestions shown to users.
 - **Acceptance rate**: Percentage of suggestions accepted.
-  Calculated as the number of accepted code suggestions divided by the total number of code suggestions shown.
+ Calculated as the number of accepted code suggestions divided by the total number of code suggestions shown.
 
 ## GitLab Duo Code Suggestions acceptance by IDE
 
@@ -154,7 +151,7 @@ Hover over a bar to view for each IDE:
 - **Suggestions accepted**: Number of suggestions accepted by users.
 - **Suggestions shown**: Number of suggestions shown to users.
 - **Acceptance rate**: Percentage of suggestions accepted.
-  Calculated as the number of accepted code suggestions divided by the total number of code suggestions shown.
+ Calculated as the number of accepted code suggestions divided by the total number of code suggestions shown.
 
 ## Code generation volume trends
 

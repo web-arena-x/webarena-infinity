@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408882951706-Configuring-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
@@ -21,8 +21,7 @@ You must be a Knowledge admin to manage community settings.
 3. Enable or disable the following community-wide features from this page:
    - To activate a community, see [Activating your community](activating-your-community.md).
    - To deactivate a community, see [Disabling your Help Center community](https://support.zendesk.com/hc/en-us/articles/4408821744026)
-   - To enable or disable @mentions, see [Enabling or disabling @mentions for
-     users in your help center](https://support.zendesk.com/hc/en-us/articles/5276141691418).
+   - To enable or disable @mentions, see [Enabling or disabling @mentions for users in your help center](https://support.zendesk.com/hc/en-us/articles/5276141691418).
    - To enable or disable aliases, see [Enabling community aliases](https://support.zendesk.com/hc/en-us/articles/4408883623322).
    - To enable badges, see [Enabling Gather badges](https://support.zendesk.com/hc/en-us/articles/4408821759386-Enabling-Gather-badges).
    - To allow users to add content tags to community posts, see [Allow users to add content tags to community posts](https://support.zendesk.com/hc/en-us/articles/5043361628058).

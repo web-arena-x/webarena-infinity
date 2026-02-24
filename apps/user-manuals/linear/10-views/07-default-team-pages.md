@@ -11,13 +11,13 @@ Teams on your sidebar have the following pages:
 * [Triage](https://linear.app/docs/triage) (when enabled)
 * Issues
 * Cycles (when enabled)
-  * Current
-  * Upcoming
+ * Current
+ * Upcoming
 * Projects
 * Views
 
-Archived issues can be found under the `...`  menu when hovering over a Team name or by using the keyboard shortcut `g` followed by `x`.  
-  
+Archived issues can be found under the `...` menu when hovering over a Team name or by using the keyboard shortcut `g` followed by `x`. 
+ 
 You can access views from the sidebar or with keyboard shortcuts. 
 
 ### Keyboard
@@ -34,8 +34,8 @@ You can access views from the sidebar or with keyboard shortcuts.
 
 `G` then `V` for current cycle
 
-`G` then `W` for upcoming cycle  
-  
+`G` then `W` for upcoming cycle 
+ 
 `Cmd/Ctrl` `B` to switch to board layout (or back to list)
 
 `O` then `T` to switch between teams, then use shortcuts to get to that team's views
@@ -56,7 +56,7 @@ The Issues page shows all issues across the selected team that are _not archived
 
 ### Active
 
-Active shows all active issues on your team, which are the issues under _Unstarted_ or _Started_ categories in your team's workflow. If you're using our default states, these would include _To Do_ and _In Progress_ but not _Backlog_, _Completed_, or _Canceled_ issues. Navigate to your team's active issues by hitting `G` then `A`.  
+Active shows all active issues on your team, which are the issues under _Unstarted_ or _Started_ categories in your team's workflow. If you're using our default states, these would include _To Do_ and _In Progress_ but not _Backlog_, _Completed_, or _Canceled_ issues. Navigate to your team's active issues by hitting `G` then `A`. 
 
 
 ### Backlog

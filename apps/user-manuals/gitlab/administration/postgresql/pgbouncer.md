@@ -19,13 +19,9 @@ For support, you need a [Premium subscription](https://about.gitlab.com/pricing/
 
 {{< /alert >}}
 
-[PgBouncer](https://www.pgbouncer.org/) is used to seamlessly migrate database
-connections between servers in a failover scenario. Additionally, it can be used
-in a non-fault-tolerant setup to pool connections, speeding up response time
-while reducing resource usage.
+[PgBouncer](https://www.pgbouncer.org/) is used to seamlessly migrate database connections between servers in a failover scenario. Additionally, it can be used in a non-fault-tolerant setup to pool connections, speeding up response time while reducing resource usage.
 
-GitLab Premium includes a bundled version of PgBouncer that can be managed
-through `/etc/gitlab/gitlab.rb`.
+GitLab Premium includes a bundled version of PgBouncer that can be managed through `/etc/gitlab/gitlab.rb`.
 
 ## PgBouncer as part of a fault-tolerant GitLab installation
 
@@ -78,8 +74,7 @@ This content has been moved to a [new location](replication_and_failover.md#conf
    }
    ```
 
-   Use these parameters with caution. For the complete list of parameters refer to the
-   [PgBouncer documentation](https://www.pgbouncer.org/config.html#section-databases).
+   Use these parameters with caution. For the complete list of parameters refer to the [PgBouncer documentation](https://www.pgbouncer.org/config.html#section-databases).
 
 1. Run `gitlab-ctl reconfigure`
 
@@ -110,7 +105,7 @@ If you enable Monitoring, it must be enabled on all PgBouncer servers.
    ```ruby
    # Enable service discovery for Prometheus
    consul['enable'] = true
-   consul['monitoring_service_discovery'] =  true
+   consul['monitoring_service_discovery'] = true
 
    # Replace placeholders
    # Y.Y.Y.Y consul1.gitlab.example.com Z.Z.Z.Z
@@ -128,13 +123,10 @@ If you enable Monitoring, it must be enabled on all PgBouncer servers.
 
 ## Administrative console
 
-In Linux package installations, a command is provided to automatically connect to the
-PgBouncer administrative console. See the
-[PgBouncer documentation](https://www.pgbouncer.org/usage.html#admin-console)
+In Linux package installations, a command is provided to automatically connect to the PgBouncer administrative console. See the [PgBouncer documentation](https://www.pgbouncer.org/usage.html#admin-console)
 for detailed instructions on how to interact with the console.
 
-To start a session run the following and provide the password for the `pgbouncer`
-user:
+To start a session run the following and provide the password for the `pgbouncer` user:
 
 ```shell
 sudo gitlab-ctl pgb-console
@@ -147,37 +139,37 @@ pgbouncer=# show databases; show clients; show servers;
         name         |   host    | port |      database       | force_user | pool_size | reserve_pool | pool_mode | max_connections | current_connections
 ---------------------+-----------+------+---------------------+------------+-----------+--------------+-----------+-----------------+---------------------
  gitlabhq_production | 127.0.0.1 | 5432 | gitlabhq_production |            |       100 |            5 |           |               0 |                   1
- pgbouncer           |           | 6432 | pgbouncer           | pgbouncer  |         2 |            0 | statement |               0 |                   0
+ pgbouncer           |           | 6432 | pgbouncer           | pgbouncer |         2 |            0 | statement |               0 |                   0
 (2 rows)
 
- type |   user    |      database       | state  |   addr    | port  | local_addr | local_port |    connect_time     |    request_time     |    ptr    | link
+ type |   user    |      database       | state |   addr    | port | local_addr | local_port |    connect_time     |    request_time     |    ptr    | link
 | remote_pid | tls
 ------+-----------+---------------------+--------+-----------+-------+------------+------------+---------------------+---------------------+-----------+------
 +------------+-----
- C    | gitlab    | gitlabhq_production | active | 127.0.0.1 | 44590 | 127.0.0.1  |       6432 | 2018-04-24 22:13:10 | 2018-04-24 22:17:10 | 0x12444c0 |
+ C    | gitlab    | gitlabhq_production | active | 127.0.0.1 | 44590 | 127.0.0.1 |       6432 | 2018-04-24 22:13:10 | 2018-04-24 22:17:10 | 0x12444c0 |
 |          0 |
- C    | gitlab    | gitlabhq_production | active | 127.0.0.1 | 44592 | 127.0.0.1  |       6432 | 2018-04-24 22:13:10 | 2018-04-24 22:17:10 | 0x12447c0 |
+ C    | gitlab    | gitlabhq_production | active | 127.0.0.1 | 44592 | 127.0.0.1 |       6432 | 2018-04-24 22:13:10 | 2018-04-24 22:17:10 | 0x12447c0 |
 |          0 |
- C    | gitlab    | gitlabhq_production | active | 127.0.0.1 | 44594 | 127.0.0.1  |       6432 | 2018-04-24 22:13:10 | 2018-04-24 22:17:10 | 0x1244940 |
+ C    | gitlab    | gitlabhq_production | active | 127.0.0.1 | 44594 | 127.0.0.1 |       6432 | 2018-04-24 22:13:10 | 2018-04-24 22:17:10 | 0x1244940 |
 |          0 |
- C    | gitlab    | gitlabhq_production | active | 127.0.0.1 | 44706 | 127.0.0.1  |       6432 | 2018-04-24 22:14:22 | 2018-04-24 22:16:31 | 0x1244ac0 |
+ C    | gitlab    | gitlabhq_production | active | 127.0.0.1 | 44706 | 127.0.0.1 |       6432 | 2018-04-24 22:14:22 | 2018-04-24 22:16:31 | 0x1244ac0 |
 |          0 |
- C    | gitlab    | gitlabhq_production | active | 127.0.0.1 | 44708 | 127.0.0.1  |       6432 | 2018-04-24 22:14:22 | 2018-04-24 22:15:15 | 0x1244c40 |
+ C    | gitlab    | gitlabhq_production | active | 127.0.0.1 | 44708 | 127.0.0.1 |       6432 | 2018-04-24 22:14:22 | 2018-04-24 22:15:15 | 0x1244c40 |
 |          0 |
- C    | gitlab    | gitlabhq_production | active | 127.0.0.1 | 44794 | 127.0.0.1  |       6432 | 2018-04-24 22:15:15 | 2018-04-24 22:15:15 | 0x1244dc0 |
+ C    | gitlab    | gitlabhq_production | active | 127.0.0.1 | 44794 | 127.0.0.1 |       6432 | 2018-04-24 22:15:15 | 2018-04-24 22:15:15 | 0x1244dc0 |
 |          0 |
- C    | gitlab    | gitlabhq_production | active | 127.0.0.1 | 44798 | 127.0.0.1  |       6432 | 2018-04-24 22:15:15 | 2018-04-24 22:16:31 | 0x1244f40 |
+ C    | gitlab    | gitlabhq_production | active | 127.0.0.1 | 44798 | 127.0.0.1 |       6432 | 2018-04-24 22:15:15 | 2018-04-24 22:16:31 | 0x1244f40 |
 |          0 |
- C    | pgbouncer | pgbouncer           | active | 127.0.0.1 | 44660 | 127.0.0.1  |       6432 | 2018-04-24 22:13:51 | 2018-04-24 22:17:12 | 0x1244640 |
+ C    | pgbouncer | pgbouncer           | active | 127.0.0.1 | 44660 | 127.0.0.1 |       6432 | 2018-04-24 22:13:51 | 2018-04-24 22:17:12 | 0x1244640 |
 |          0 |
 (8 rows)
 
- type |  user  |      database       | state |   addr    | port | local_addr | local_port |    connect_time     |    request_time     |    ptr    | link | rem
+ type | user |      database       | state |   addr    | port | local_addr | local_port |    connect_time     |    request_time     |    ptr    | link | rem
 ote_pid | tls
 ------+--------+---------------------+-------+-----------+------+------------+------------+---------------------+---------------------+-----------+------+----
 --------+-----
- S    | gitlab | gitlabhq_production | idle  | 127.0.0.1 | 5432 | 127.0.0.1  |      35646 | 2018-04-24 22:15:15 | 2018-04-24 22:17:10 | 0x124dca0 |      |
-  19980 |
+ S    | gitlab | gitlabhq_production | idle | 127.0.0.1 | 5432 | 127.0.0.1 |      35646 | 2018-04-24 22:15:15 | 2018-04-24 22:17:10 | 0x124dca0 |      |
+ 19980 |
 (1 row)
 ```
 
@@ -196,9 +188,7 @@ and [GitLab upgrades with database migrations](../../update/zero_downtime.md).
    sudo gitlab-ctl patroni members
    ```
 
-1. Edit `/etc/gitlab/gitlab.rb` on the application node you're performing the task on, and update
-   `gitlab_rails['db_host']` and `gitlab_rails['db_port']` with the database
-   primary's host and port.
+1. Edit `/etc/gitlab/gitlab.rb` on the application node you're performing the task on, and update `gitlab_rails['db_host']` and `gitlab_rails['db_port']` with the database primary's host and port.
 
 1. Run reconfigure:
 
@@ -231,48 +221,39 @@ You should override the PostgreSQL port on each subchart, so these tasks can exe
 ## Fine tuning
 
 PgBouncer's default settings suit the majority of installations.
-In specific cases you may want to change the performance-specific and resource-specific variables to either increase possible
-throughput or to limit resource utilization that could cause memory exhaustion on the database.
+In specific cases you may want to change the performance-specific and resource-specific variables to either increase possible throughput or to limit resource utilization that could cause memory exhaustion on the database.
 
 You can find the parameters and respective documentation on the [official PgBouncer documentation](https://www.pgbouncer.org/config.html).
 Listed below are the most relevant ones and their defaults on a Linux package installation:
 
 - `pgbouncer['max_client_conn']` (default: `2048`, depends on server file descriptor limits)
-  This is the "frontend" pool in PgBouncer: connections from Rails to PgBouncer.
+ This is the "frontend" pool in PgBouncer: connections from Rails to PgBouncer.
 - `pgbouncer['default_pool_size']` (default: `100`)
-  This is the "backend" pool in PgBouncer: connections from PgBouncer to the database.
+ This is the "backend" pool in PgBouncer: connections from PgBouncer to the database.
 
-The ideal number for `default_pool_size` must be enough to handle all provisioned services that need to access
-the database. For detailed guidance on calculating the required pool size, see [Tune PostgreSQL](tune.md).
+The ideal number for `default_pool_size` must be enough to handle all provisioned services that need to access the database. For detailed guidance on calculating the required pool size, see [Tune PostgreSQL](tune.md).
 
-If you are using more than one PgBouncer with an internal Load Balancer, you may be able to divide the
-`default_pool_size` by the number of instances to guarantee an evenly distributed load between them.
+If you are using more than one PgBouncer with an internal Load Balancer, you may be able to divide the `default_pool_size` by the number of instances to guarantee an evenly distributed load between them.
 
-The `pgbouncer['max_client_conn']` is the hard limit of connections PgBouncer can accept. It's unlikely you need
-to change this. If you are hitting that limit, you may want to consider adding additional PgBouncers with an internal
-Load Balancer.
+The `pgbouncer['max_client_conn']` is the hard limit of connections PgBouncer can accept. It's unlikely you need to change this. If you are hitting that limit, you may want to consider adding additional PgBouncers with an internal Load Balancer.
 
-When setting up the limits for a PgBouncer that points to the Geo Tracking Database,
-you can likely ignore `puma` from the equation, as it is only accessing that database sporadically.
+When setting up the limits for a PgBouncer that points to the Geo Tracking Database, you can likely ignore `puma` from the equation, as it is only accessing that database sporadically.
 
 ## Troubleshooting
 
-In case you are experiencing any issues connecting through PgBouncer, the first
-place to check is always the logs:
+In case you are experiencing any issues connecting through PgBouncer, the first place to check is always the logs:
 
 ```shell
 sudo gitlab-ctl tail pgbouncer
 ```
 
-Additionally, you can check the output from `show databases` in the
-[administrative console](#administrative-console). In the output, you would expect
-to see values in the `host` field for the `gitlabhq_production` database.
+Additionally, you can check the output from `show databases` in the [administrative console](#administrative-console). In the output, you would expect to see values in the `host` field for the `gitlabhq_production` database.
 Additionally, `current_connections` should be greater than 1.
 
-### Message: `LOG:  invalid CIDR mask in address`
+### Message: `LOG: invalid CIDR mask in address`
 
 See the suggested fix [in Geo documentation](../geo/replication/troubleshooting/postgresql_replication.md#message-log--invalid-cidr-mask-in-address).
 
-### Message: `LOG:  invalid IP mask "md5": Name or service not known`
+### Message: `LOG: invalid IP mask "md5": Name or service not known`
 
 See the suggested fix [in Geo documentation](../geo/replication/troubleshooting/postgresql_replication.md#message-log--invalid-ip-mask-md5-name-or-service-not-known).

@@ -11,11 +11,11 @@ To rename a submittal PDF attachment.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Submittals tool.
+ - 'Admin' level permissions on the project's Submittals tool.
 - **Additional Information:**
-  - The submittal's status must be 'Open'.
-  - Renaming a PDF attachment will automatically update its name in each step of the submittal's workflow where the attachment was included.
-  - Only PDF attachments uploaded to a submittal can be renamed in the project's Submittals tool. If a PDF attachment was uploaded to another Procore tool and then added to the submittal, the PDF attachment can only be renamed by users with the appropriate permissions on the other tool.
+ - The submittal's status must be 'Open'.
+ - Renaming a PDF attachment will automatically update its name in each step of the submittal's workflow where the attachment was included.
+ - Only PDF attachments uploaded to a submittal can be renamed in the project's Submittals tool. If a PDF attachment was uploaded to another Procore tool and then added to the submittal, the PDF attachment can only be renamed by users with the appropriate permissions on the other tool.
 
 ## Steps
 
@@ -27,19 +27,19 @@ To rename a submittal PDF attachment.
    ##### Tip
 
    Current attachments are indicated by a 'Current' label in the 'Version' column. See [When is a submittal attachment labeled as 'Current' in the 'Submittal Workflow' table?](https://support.procore.com/faq/when-is-a-submittal-attachment-labeled-as-current-in-the-submittal-worfklow-table "When is a submittal attachment labeled as 'Current' in the 'Submittal Workflow' table?")
-5. Click the ![icon-info2.png](https://support.procore.com/@api/deki/files/105816/icon-info2.png?revision=1&size=bestfit&width=16&height=16) icon to open the 'Information' panel.  
+5. Click the ![icon-info2.png](https://support.procore.com/@api/deki/files/105816/icon-info2.png?revision=1&size=bestfit&width=16&height=16) icon to open the 'Information' panel. 
      
    ![submittals-pdf-submittal-info.png](https://support.procore.com/@api/deki/files/226803/submittals-pdf-submittal-info.png?revision=1)
-6. Under 'Name', click on the attachment's current name.  
+6. Under 'Name', click on the attachment's current name. 
      
    ![submittals-pdf-rename-attachment.png](https://support.procore.com/@api/deki/files/226804/submittals-pdf-rename-attachment.png?revision=1)
 7. Enter a new name for the attachment and press ENTER on your keyboard.
-8. In the 'Rename Attachment?' window, click **Rename**.  
+8. In the 'Rename Attachment?' window, click **Rename**. 
      
-   ![submittals-pdf-rename-attachment-window.png](https://support.procore.com/@api/deki/files/226820/submittals-pdf-rename-attachment-window.png?revision=1)  
+   ![submittals-pdf-rename-attachment-window.png](https://support.procore.com/@api/deki/files/226820/submittals-pdf-rename-attachment-window.png?revision=1) 
      
    A banner displays to confirm the attachment was renamed.
-9. Click **Close** to close the PDF viewer and to return to the submittal.  
+9. Click **Close** to close the PDF viewer and to return to the submittal. 
      
    ![submittals-pdf-close.png](https://support.procore.com/@api/deki/files/234665/submittals-pdf-close.png?revision=1)
 

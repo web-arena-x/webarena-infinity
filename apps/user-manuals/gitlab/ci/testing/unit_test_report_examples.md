@@ -13,9 +13,7 @@ title: Unit test report examples
 {{< /details >}}
 
 [Unit test reports](unit_test_reports.md) can be generated for many languages and packages.
-Use these examples as guidelines for configuring your pipeline to generate unit test reports
-for the listed languages and packages. You might need to edit the examples to match
-the version of the language or package you are using.
+Use these examples as guidelines for configuring your pipeline to generate unit test reports for the listed languages and packages. You might need to edit the examples to match the version of the language or package you are using.
 
 ## Ruby
 
@@ -24,14 +22,14 @@ Use the following job in `.gitlab-ci.yml`. This includes the `artifacts:paths` k
 ```yaml
 ## Use https://github.com/sj26/rspec_junit_formatter to generate a JUnit report format XML file with rspec
 ruby:
-  image: ruby:3.0.4
-  stage: test
-  before_script:
+ image: ruby:3.0.4
+ stage: test
+ before_script:
     - apt-get update -y && apt-get install -y bundler
-  script:
+ script:
     - bundle install
     - bundle exec rspec --format progress --format RspecJunitFormatter --out rspec.xml
-  artifacts:
+ artifacts:
     when: always
     paths:
       - rspec.xml
@@ -46,11 +44,11 @@ Use the following job in `.gitlab-ci.yml`:
 ```yaml
 ## Use https://github.com/gotestyourself/gotestsum to generate a JUnit report format XML file with go
 golang:
-  stage: test
-  script:
+ stage: test
+ script:
     - go install gotest.tools/gotestsum@latest
     - gotestsum --junitfile report.xml --format testname
-  artifacts:
+ artifacts:
     when: always
     reports:
       junit: report.xml
@@ -63,16 +61,14 @@ There are a few tools that can produce JUnit report format XML file in Java.
 ### Gradle
 
 In the following example, `gradle` is used to generate the test reports.
-If there are multiple test tasks defined, `gradle` generates multiple
-directories under `build/test-results/`. In that case, you can leverage glob
-matching by defining the following path: `build/test-results/test/**/TEST-*.xml`:
+If there are multiple test tasks defined, `gradle` generates multiple directories under `build/test-results/`. In that case, you can leverage glob matching by defining the following path: `build/test-results/test/**/TEST-*.xml`:
 
 ```yaml
 java:
-  stage: test
-  script:
+ stage: test
+ script:
     - gradle test
-  artifacts:
+ artifacts:
     when: always
     reports:
       junit: build/test-results/test/**/TEST-*.xml
@@ -81,15 +77,14 @@ java:
 ### Maven
 
 For parsing [Surefire](https://maven.apache.org/surefire/maven-surefire-plugin/)
-and [Failsafe](https://maven.apache.org/surefire/maven-failsafe-plugin/) test
-reports, use the following job in `.gitlab-ci.yml`:
+and [Failsafe](https://maven.apache.org/surefire/maven-failsafe-plugin/) test reports, use the following job in `.gitlab-ci.yml`:
 
 ```yaml
 java:
-  stage: test
-  script:
+ stage: test
+ script:
     - mvn verify
-  artifacts:
+ artifacts:
     when: always
     reports:
       junit:
@@ -99,15 +94,14 @@ java:
 
 ## Python example
 
-This example uses pytest with the `--junitxml=report.xml` flag to format the output
-into the JUnit report XML format:
+This example uses pytest with the `--junitxml=report.xml` flag to format the output into the JUnit report XML format:
 
 ```yaml
 pytest:
-  stage: test
-  script:
+ stage: test
+ script:
     - pytest --junitxml=report.xml
-  artifacts:
+ artifacts:
     when: always
     reports:
       junit: report.xml
@@ -120,16 +114,14 @@ There are a few tools that can produce JUnit report format XML files in C/C++.
 ### GoogleTest
 
 In the following example, `gtest` is used to generate the test reports.
-If there are multiple `gtest` executables created for different architectures (`x86`, `x64` or `arm`),
-you are required to run each test providing a unique filename. The results
-are then aggregated together.
+If there are multiple `gtest` executables created for different architectures (`x86`, `x64` or `arm`), you are required to run each test providing a unique filename. The results are then aggregated together.
 
 ```yaml
 cpp:
-  stage: test
-  script:
+ stage: test
+ script:
     - gtest.exe --gtest_output="xml:report.xml"
-  artifacts:
+ artifacts:
     when: always
     reports:
       junit: report.xml
@@ -142,10 +134,10 @@ automatically when run using its `CUnitCI.h` macros:
 
 ```yaml
 cunit:
-  stage: test
-  script:
+ stage: test
+ script:
     - ./my-cunit-test
-  artifacts:
+ artifacts:
     when: always
     reports:
       junit: ./my-cunit-test.xml
@@ -153,22 +145,16 @@ cunit:
 
 ## .NET
 
-The [JunitXML.TestLogger](https://www.nuget.org/packages/JunitXml.TestLogger/) NuGet
-package can generate test reports for .Net Framework and .Net Core applications. The following
-example expects a solution in the root folder of the repository, with one or more
-project files in sub-folders. One result file is produced per test project, and each file
-is placed in the artifacts folder. This example includes optional formatting arguments, which
-improve the readability of test data in the test widget. A full .Net Core
-[example is available](https://gitlab.com/Siphonophora/dot-net-cicd-test-logging-demo).
+The [JunitXML.TestLogger](https://www.nuget.org/packages/JunitXml.TestLogger/) NuGet package can generate test reports for .Net Framework and .Net Core applications. The following example expects a solution in the root folder of the repository, with one or more project files in sub-folders. One result file is produced per test project, and each file is placed in the artifacts folder. This example includes optional formatting arguments, which improve the readability of test data in the test widget. A full .Net Core [example is available](https://gitlab.com/Siphonophora/dot-net-cicd-test-logging-demo).
 
 ```yaml
 ## Source code and documentation are here: https://github.com/spekt/junit.testlogger/
 
 Test:
-  stage: test
-  script:
+ stage: test
+ script:
     - 'dotnet test --test-adapter-path:. --logger:"junit;LogFilePath=..\artifacts\{assembly}-test-result.xml;MethodFormat=Class;FailureBodyFormat=Verbose"'
-  artifacts:
+ artifacts:
     when: always
     paths:
       - ./**/*test-result.xml
@@ -187,41 +173,37 @@ You can use the following tools to produce JUnit XML files in JavaScript:
 
 ### Jest
 
-The [jest-junit](https://github.com/jest-community/jest-junit) npm package can generate
-test reports for JavaScript applications. In the following `.gitlab-ci.yml` example,
-the `javascript` job uses Jest to generate the test reports:
+The [jest-junit](https://github.com/jest-community/jest-junit) npm package can generate test reports for JavaScript applications. In the following `.gitlab-ci.yml` example, the `javascript` job uses Jest to generate the test reports:
 
 ```yaml
 javascript:
-  image: node:latest
-  stage: test
-  before_script:
+ image: node:latest
+ stage: test
+ before_script:
     - 'yarn global add jest'
     - 'yarn add --dev jest-junit'
-  script:
+ script:
     - 'jest --ci --reporters=default --reporters=jest-junit'
-  artifacts:
+ artifacts:
     when: always
     reports:
       junit:
         - junit.xml
 ```
 
-To make the job pass when there are no `.test.js` files with unit tests, add the
-`--passWithNoTests` flag to the end of the `jest` command in the `script:` section.
+To make the job pass when there are no `.test.js` files with unit tests, add the `--passWithNoTests` flag to the end of the `jest` command in the `script:` section.
 
 ### Karma
 
 The [Karma-junit-reporter](https://github.com/karma-runner/karma-junit-reporter)
-npm package can generate test reports for JavaScript applications. In the following
-`.gitlab-ci.yml` example, the `javascript` job uses Karma to generate the test reports:
+npm package can generate test reports for JavaScript applications. In the following `.gitlab-ci.yml` example, the `javascript` job uses Karma to generate the test reports:
 
 ```yaml
 javascript:
-  stage: test
-  script:
+ stage: test
+ script:
     - karma start --reporters junit
-  artifacts:
+ artifacts:
     when: always
     reports:
       junit:
@@ -235,10 +217,10 @@ package to convert the `flutter test` output into JUnit report XML format:
 
 ```yaml
 test:
-  stage: test
-  script:
+ stage: test
+ script:
     - flutter test --machine | tojunit -o report.xml
-  artifacts:
+ artifacts:
     when: always
     reports:
       junit:
@@ -248,17 +230,16 @@ test:
 ## PHP
 
 This example uses [PHPUnit](https://phpunit.de/index.html) with the `--log-junit` flag.
-You can also add this option using
-[XML](https://docs.phpunit.de/en/11.0/configuration.html#the-junit-element)
+You can also add this option using [XML](https://docs.phpunit.de/en/11.0/configuration.html#the-junit-element)
 in the `phpunit.xml` configuration file.
 
 ```yaml
 phpunit:
-  stage: test
-  script:
+ stage: test
+ script:
     - composer install
     - vendor/bin/phpunit --log-junit report.xml
-  artifacts:
+ artifacts:
     when: always
     reports:
       junit: report.xml
@@ -266,19 +247,18 @@ phpunit:
 
 ## Rust
 
-This example uses [cargo2junit](https://crates.io/crates/cargo2junit),
-which is installed in the current directory.
+This example uses [cargo2junit](https://crates.io/crates/cargo2junit), which is installed in the current directory.
 To retrieve JSON output from `cargo test`, you must enable the nightly compiler.
 
 ```yaml
 run unittests:
-  image: rust:latest
-  stage: test
-  before_script:
+ image: rust:latest
+ stage: test
+ before_script:
     - cargo install --root . cargo2junit
-  script:
+ script:
     - cargo test -- -Z unstable-options --format json --report-time | bin/cargo2junit > report.xml
-  artifacts:
+ artifacts:
     when: always
     reports:
       junit:
@@ -291,11 +271,11 @@ This example uses [Helm Unittest](https://github.com/helm-unittest/helm-unittest
 
 ```yaml
 helm:
-  image: helmunittest/helm-unittest:latest
-  stage: test
-  script:
+ image: helmunittest/helm-unittest:latest
+ stage: test
+ script:
     - '-t JUnit -o report.xml -f tests/*[._]test.yaml .'
-  artifacts:
+ artifacts:
     reports:
       junit: report.xml
 ```

@@ -36,7 +36,7 @@ Take the following steps based on how your locations hierarchy was created:
      - RFIs
      - Observations
      - Inspections
-5. To clear filters, click the 'x' on the individual filter or click ****Clear All**** to clear all your filters.  
+5. To clear filters, click the 'x' on the individual filter or click ****Clear All**** to clear all your filters. 
    *Note:* Your view is automatically saved for the next time you view the Location Manager.
 
 ### Filter Items for Locations Generated from Drawings
@@ -45,9 +45,8 @@ Take the following steps based on how your locations hierarchy was created:
 
 This experience is available in **Australia, Canada, Ireland, United Kingdom, United States,**and **New Zealand**.
 
-1. Navigate to the Project level **Admin** tool.  
-   OR  
-   Navigate to the Project level **Drawings** tool.
+1. Navigate to the Project level **Admin** tool. 
+   OR Navigate to the Project level **Drawings** tool.
 2. Click **Locations**.
 3. Click **View Location Status**.
 4. Click the **filters** ![icon-filter2.png](https://support.procore.com/@api/deki/files/280258/icon-filter2.png?revision=1&size=bestfit&width=17&height=17) icon.
@@ -62,7 +61,7 @@ This experience is available in **Australia, Canada, Ireland, United Kingdom, U
      - Inspections
    - **Boundary Heat Map**
      - Select **Total Count** to see all items in a location, filtered by their updated date..
-     - Select **By Open Status** to see all open items in a location, filtered by their due date.  
+     - Select **By Open Status** to see all open items in a location, filtered by their due date. 
        *Note:* This option is not available if Photos or Daily Log are selected in Project Items, as they do not have an 'Open' status.
 6. To clear filters, click the 'x' on the individual filter or click ****Clear All**** to clear all your filters.
 

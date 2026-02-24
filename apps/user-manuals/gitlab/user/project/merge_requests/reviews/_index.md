@@ -13,23 +13,18 @@ title: Merge request reviews
 
 {{< /details >}}
 
-The merge request review process ensures that subject matter experts review your proposed changes
-before they are merged. Reviewers add review comments to merge requests, and [suggest changes](suggestions.md)
+The merge request review process ensures that subject matter experts review your proposed changes before they are merged. Reviewers add review comments to merge requests, and [suggest changes](suggestions.md)
 the author can apply directly from the GitLab UI.
 
 Reviewers can use any of these tools to review a merge request:
 
 - The GitLab interface.
-- Visual Studio Code, with the
-  [GitLab Workflow extension for VS Code](../../../../editor_extensions/visual_studio_code/_index.md).
+- Visual Studio Code, with the [GitLab Workflow extension for VS Code](../../../../editor_extensions/visual_studio_code/_index.md).
 - A terminal window, with the [GitLab CLI](../../../../editor_extensions/gitlab_cli/_index.md).
 
-Approvals are one of several merge checks that ensure your merge request merges only when it's truly
-ready. Depending on your project configuration, reviewers can also block a merge request
-from merging by setting **Request changes**.
+Approvals are one of several merge checks that ensure your merge request merges only when it's truly ready. Depending on your project configuration, reviewers can also block a merge request from merging by setting **Request changes**.
 
-GitLab Premium and Ultimate provide an **Assign reviewers** drawer with more information to help you
-find reviewers [who fulfill approval rules](#find-reviewers-who-fulfill-approval-rules):
+GitLab Premium and Ultimate provide an **Assign reviewers** drawer with more information to help you find reviewers [who fulfill approval rules](#find-reviewers-who-fulfill-approval-rules):
 
 ![This merge request requires four approvals, and three of the approval requirements are not met.](img/reviewer_drawer_v18_2.png)
 
@@ -41,9 +36,8 @@ The right sidebar shows the list of reviewers, and (if they follow the review fl
 - {{< icon name="dash-circle" >}} Review not yet started.
 - {{< icon name="status_running" >}} Review is in progress.
 - {{< icon name="check-circle" >}} Reviewed and approved.
-- {{< icon name="comment-lines" >}} Reviewed, requested changes, and
-  [blocked this merge request](#prevent-merge-when-you-request-changes) until changes are made.
-  This block [can be bypassed](#prevent-merge-when-you-request-changes).
+- {{< icon name="comment-lines" >}} Reviewed, requested changes, and [blocked this merge request](#prevent-merge-when-you-request-changes) until changes are made.
+ This block [can be bypassed](#prevent-merge-when-you-request-changes).
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
 For an overview, see [Merge request review](https://www.youtube.com/watch?v=2MayfXKpU08&list=PLFGfElNsQthYDx0A_FaNNfUm9NHsK6zED&index=183).
@@ -51,8 +45,7 @@ For an overview, see [Merge request review](https://www.youtube.com/watch?v=2May
 
 ## Find merge requests to review
 
-Your [merge request homepage](../homepage.md) shows your merge requests in progress, and merge requests
-awaiting review from you. The merge requests you need to review are in the **Review requested** category.
+Your [merge request homepage](../homepage.md) shows your merge requests in progress, and merge requests awaiting review from you. The merge requests you need to review are in the **Review requested** category.
 To see all merge requests that need your attention, use one of these methods:
 
 - Press the <kbd>Shift</kbd>+<kbd>m</kbd> [keyboard shortcut](../../../shortcuts.md).
@@ -66,8 +59,7 @@ To do this:
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Code** > **Merge requests** and find your merge request.
 1. Select the title of the merge request to view it.
-1. Scroll to the [merge request widget](../widgets.md) to see the mergeability and
-   approval status for the merge request. For example, the lack of required approvals blocks this merge request:
+1. Scroll to the [merge request widget](../widgets.md) to see the mergeability and approval status for the merge request. For example, the lack of required approvals blocks this merge request:
 
    ![The merge request widget displays 'All required approvals must be given'.](img/reviews_missing_v17_3.png)
 
@@ -81,9 +73,7 @@ To do this:
 
 {{< /history >}}
 
-When you've finished preparing your changes, it's time to request a review. To assign a reviewer to
-your merge request, either use the
-[`/assign_reviewer` quick action](../../quick_actions.md#assign_reviewer) in any text field, or:
+When you've finished preparing your changes, it's time to request a review. To assign a reviewer to your merge request, either use the [`/assign_reviewer` quick action](../../quick_actions.md#assign_reviewer) in any text field, or:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Code** > **Merge requests** and find your merge request.
@@ -105,8 +95,7 @@ GitLab adds the merge request to the user's review requests.
 {{< /details >}}
 
 GitLab Premium and Ultimate help you more quickly find the best reviewers for your merge request.
-Use the **Assign reviewers** drawer to filter lists of reviewers. See the Code Owners for the files
-changed in your merge request, and the users who satisfy your project's approval rules.
+Use the **Assign reviewers** drawer to filter lists of reviewers. See the Code Owners for the files changed in your merge request, and the users who satisfy your project's approval rules.
 
 In this example, the merge request requires 3 Code Owner approvals, but has none so far:
 
@@ -126,8 +115,7 @@ To assign eligible approvers in a merge request:
 
 ### Re-request a review
 
-After a reviewer completes their [merge request reviews](../../../discussions/_index.md),
-the author of the merge request can request a new review from the reviewer.
+After a reviewer completes their [merge request reviews](../../../discussions/_index.md), the author of the merge request can request a new review from the reviewer.
 To do this, either use the `/request_review @user` quick action in any text field on the merge request, or:
 
 1. On the top bar, select **Search or go to** and find your project.
@@ -138,8 +126,7 @@ To do this, either use the `/request_review @user` quick action in any text fiel
 1. In the **Reviewers** section, select the **Re-request a review** icon ({{< icon name="redo" >}})
    next to the reviewer's name.
 
-GitLab creates a new [to-do item](../../../todos.md) for the reviewer, and sends
-them a notification email.
+GitLab creates a new [to-do item](../../../todos.md) for the reviewer, and sends them a notification email.
 
 ## Start a review
 
@@ -150,10 +137,7 @@ them a notification email.
 
 {{< /history >}}
 
-When reviewing a merge request, follow the review process instead of leaving individual
-comments. When you select **Start a review**, the **Reviewers** section of the right sidebar updates
-your status from **Awaiting review** ({{< icon name="dash-circle" >}}) to
-**Reviewer started review** ({{< icon name="comment-dots" >}})
+When reviewing a merge request, follow the review process instead of leaving individual comments. When you select **Start a review**, the **Reviewers** section of the right sidebar updates your status from **Awaiting review** ({{< icon name="dash-circle" >}}) to **Reviewer started review** ({{< icon name="comment-dots" >}})
 
 To start your review of a merge request:
 
@@ -163,10 +147,8 @@ To start your review of a merge request:
 
 1. Find your merge request, and select the title of the merge request to view it.
 1. Read the merge request description and comments to learn about the merge request.
-1. Select **Changes** to view the diff of the proposed changes. To learn more about
-   the **Changes** page, see [Changes in merge requests](../changes.md).
-1. [Suggest multi-line or single-line changes](suggestions.md) as needed. When ready to save your
-   first review comment, select **Start a review** to:
+1. Select **Changes** to view the diff of the proposed changes. To learn more about the **Changes** page, see [Changes in merge requests](../changes.md).
+1. [Suggest multi-line or single-line changes](suggestions.md) as needed. When ready to save your first review comment, select **Start a review** to:
 
    - Update your status in the right sidebar to **Reviewer started review** ({{< icon name="comment-dots" >}}).
    - Save your review comment, but leave it unpublished, like this:
@@ -205,8 +187,7 @@ These actions will execute when you submit a review.
 When you submit a review, GitLab:
 
 - Publishes the comments in your review.
-- Sends a single email to every notifiable user of the merge request, with your
-  review comments attached. Replying to this email creates a new comment on the merge request.
+- Sends a single email to every notifiable user of the merge request, with your review comments attached. Replying to this email creates a new comment on the merge request.
 - Performs any quick actions you added to your review comments.
 - Shows the outcome of your review.
 
@@ -226,12 +207,9 @@ To read through and edit your review comments when you submit your review:
 
    - **Approve**: Leave feedback and approve the changes.
    - **Comment**: Leave general feedback without an explicit approval or change request.
-   - **Request changes**: Block the merge request from merging until the author
-     addresses your feedback.
+   - **Request changes**: Block the merge request from merging until the author addresses your feedback.
 
-1. Optional. Write a summary of your review. GitLab Premium and Ultimate users can select
-   **Add summary** ({{< icon name="tanuki-ai" >}}) to create a summary for you. Include any
-   quick actions you want performed.
+1. Optional. Write a summary of your review. GitLab Premium and Ultimate users can select **Add summary** ({{< icon name="tanuki-ai" >}}) to create a summary for you. Include any quick actions you want performed.
 
 ### Discard your pending review
 
@@ -262,9 +240,7 @@ To do this:
 {{< /history >}}
 
 A reviewer [requesting changes](#submit-a-review) blocks a merge request from merging.
-When this happens, the merge request reports area shows the message
-**Change requests must be approved by the requesting user**. To unblock the merge request,
-the reviewer who requested changes should [re-review and approve](#re-request-a-review) the merge request.
+When this happens, the merge request reports area shows the message **Change requests must be approved by the requesting user**. To unblock the merge request, the reviewer who requested changes should [re-review and approve](#re-request-a-review) the merge request.
 
 ### Remove a change request
 
@@ -274,8 +250,7 @@ the reviewer who requested changes should [re-review and approve](#re-request-a-
 
 {{< /history >}}
 
-If you previously requested changes, you can remove your change request. You might need to do this
-if both of the following are true:
+If you previously requested changes, you can remove your change request. You might need to do this if both of the following are true:
 
 - You can no longer approve the merge request.
 - You want to cancel your change request, but don't want to submit a new review.
@@ -292,8 +267,7 @@ To remove your change request without submitting a new review:
 
 ### Bypass a request for changes
 
-If the user who requested changes is unavailable to re-review or approve,
-another user with permission to merge the merge request can override this check:
+If the user who requested changes is unavailable to re-review or approve, another user with permission to merge the merge request can override this check:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Code** > **Merge requests** and find your merge request.
@@ -303,39 +277,35 @@ another user with permission to merge the merge request can override this check:
 
    ![A merge request that is blocked because a user requested changes](img/bypass_v17_2.png)
 
-1. The merge reports area shows `Merge with caution: Override added`. To see which check a user
-   bypassed, select **Expand merge checks** ({{< icon name="chevron-lg-down" >}}) and find the
-   check that contains a warning ({{< icon name="status_warning" >}}) icon. In this example, the
-   author bypassed **Change requests must be approved by the requesting user**:
+1. The merge reports area shows `Merge with caution: Override added`. To see which check a user bypassed, select **Expand merge checks** ({{< icon name="chevron-lg-down" >}}) and find the check that contains a warning ({{< icon name="status_warning" >}}) icon. In this example, the author bypassed **Change requests must be approved by the requesting user**:
 
    ![This merge request contains a bypassed check, and should be merged with caution.](img/status_warning_v17_4.png)
 
 ## Download merge request changes
 
 You can download the changes from a merge request as a diff or patch file.
-For more information and examples, see
-[Download merge request changes](../changes.md#download-merge-request-changes).
+For more information and examples, see [Download merge request changes](../changes.md#download-merge-request-changes).
 
 ## Associated features
 
 Merge requests are related to these features:
 
 - [Cherry-pick changes](../cherry_pick_changes.md):
-  In the GitLab UI, select **Cherry-pick** in a merged merge request or a commit to cherry-pick it.
+ In the GitLab UI, select **Cherry-pick** in a merged merge request or a commit to cherry-pick it.
 - [Compare changes](../changes.md):
-  View and download the diff of changes included in a merge request.
+ View and download the diff of changes included in a merge request.
 - [Fast-forward merge requests](../methods/_index.md#fast-forward-merge):
-  For a linear Git history and a way to accept merge requests without creating merge commits
+ For a linear Git history and a way to accept merge requests without creating merge commits
 - [Find the merge request that introduced a change](../versions.md):
-  When viewing the commit details page, GitLab links to the merge requests containing that commit.
+ When viewing the commit details page, GitLab links to the merge requests containing that commit.
 - [Merge requests versions](../versions.md):
-  Select and compare the different versions of merge request diffs
+ Select and compare the different versions of merge request diffs
 - [Resolve conflicts](../conflicts.md):
-  GitLab can provide the option to resolve certain merge request conflicts in the GitLab UI.
+ GitLab can provide the option to resolve certain merge request conflicts in the GitLab UI.
 - [Revert changes](../revert_changes.md):
-  Revert changes from any commit from a merge request.
+ Revert changes from any commit from a merge request.
 - [Keyboard shortcuts](../../../shortcuts.md#merge-requests):
-  Access and change specific parts of a merge request with keyboard commands.
+ Access and change specific parts of a merge request with keyboard commands.
 - [Value stream analytics](../../../group/value_stream_analytics/_index.md): Track key merge request steps (such as `reviewed` and `approved`) to identify where your team spends the most time in the software development lifecycle. This information helps uncover actionable insights to optimize merge request workflows for groups and projects, and improve developer productivity. Read more about [How we reduced MR review time with value stream analytics](https://about.gitlab.com/blog/2025/02/20/how-we-reduced-mr-review-time-with-value-stream-management/).
 
 ## Related topics

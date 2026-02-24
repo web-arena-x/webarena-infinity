@@ -19,8 +19,7 @@ title: Command palette
 
 {{< /history >}}
 
-You can use command palette to narrow down the scope of your search or to
-find an object more quickly.
+You can use command palette to narrow down the scope of your search or to find an object more quickly.
 
 ## Open the command palette
 

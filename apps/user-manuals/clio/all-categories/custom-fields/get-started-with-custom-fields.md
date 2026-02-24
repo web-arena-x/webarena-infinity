@@ -21,29 +21,21 @@ When creating new custom fields, you will need to select what type of field will
 
 **Tip:** You can use all custom field types as merge fields when creating document templates in Clio Manage. Learn more [here](https://help.clio.com/hc/en-us/articles/9290238939163#create-document-templates-in-clio-manage-0-6).
 
-Checkbox
-:   This is a single checkbox used to record "Yes" or "No" information. Checking the box will record "Yes." Leaving the box blank will record "No." This is useful for status on filings, [conflict of interest checks](https://help.clio.com/hc/en-us/articles/9290347515291#conflict-of-interest-check-0-2), and more.
+Checkbox :   This is a single checkbox used to record "Yes" or "No" information. Checking the box will record "Yes." Leaving the box blank will record "No." This is useful for status on filings, [conflict of interest checks](https://help.clio.com/hc/en-us/articles/9290347515291#conflict-of-interest-check-0-2), and more.
 
-Contact Select
-:   This allows you to select a contact that already exists in your account. Once the custom field is added to a matter and a contact is selected, the contact’s name will appear hyperlinked and you can use the contact's custom fields as merge fields to generate document templates for your matter. This gives you more flexibility and eliminates the need to add a contact as a related contact.
+Contact Select :   This allows you to select a contact that already exists in your account. Once the custom field is added to a matter and a contact is selected, the contact’s name will appear hyperlinked and you can use the contact's custom fields as merge fields to generate document templates for your matter. This gives you more flexibility and eliminates the need to add a contact as a related contact.
 
-Date
-:   This field allows you to select a date for a custom field.
+Date :   This field allows you to select a date for a custom field.
 
-Email Address
-:   This will prompt you to enter a valid email address for a custom field. When entered, the email address will appear hyperlinked.
+Email Address :   This will prompt you to enter a valid email address for a custom field. When entered, the email address will appear hyperlinked.
 
-Integer
-:   This is a numerical value field for a custom field.
+Integer :   This is a numerical value field for a custom field.
 
-Matter Select
-:   This allows you to select a matter that already exists in your account. When selected, the matter will appear hyperlinked.
+Matter Select :   This allows you to select a matter that already exists in your account. When selected, the matter will appear hyperlinked.
 
-Money
-:   This will prompt you to enter a numerical value with a maximum of two decimal points. Currency characters, such as the $ symbol, are not permitted.
+Money :   This will prompt you to enter a numerical value with a maximum of two decimal points. Currency characters, such as the $ symbol, are not permitted.
 
-Picklist
-:   This allows you to create a dropdown menu of options. Each picklist option has a 64-character limit.
+Picklist :   This allows you to create a dropdown menu of options. Each picklist option has a 64-character limit.
 
 Text (Multi-Line)
 :   This allows you to enter multiple lines of text up to a maximum of 64,000 characters.
@@ -51,45 +43,33 @@ Text (Multi-Line)
 Text (One-Line)
 :   This allows you to enter a single line of text up to a maximum of 255 characters.
 
-Time
-:   This will prompt you to enter a clock time format. You can use 12-hour or 24-hour time.
+Time :   This will prompt you to enter a clock time format. You can use 12-hour or 24-hour time.
 
-Web Address
-:   This allows you to enter a website address. When entered, the website address will appear hyperlinked.
+Web Address :   This allows you to enter a website address. When entered, the website address will appear hyperlinked.
 
 ## Custom field types in Clio Grow
 
 When creating new custom fields, you will need to select what type of field will be used. Below is a breakdown of each “Field type”:
 
-Checkbox
-:   This is a single checkbox used to record "Yes" or "No" information. Checking the box will record "Yes." Leaving the box blank will record "No." This is useful for status on filings, [conflict of interest checks](https://help.clio.com/hc/en-us/articles/9290347515291#conflict-of-interest-check-0-2), and more.
+Checkbox :   This is a single checkbox used to record "Yes" or "No" information. Checking the box will record "Yes." Leaving the box blank will record "No." This is useful for status on filings, [conflict of interest checks](https://help.clio.com/hc/en-us/articles/9290347515291#conflict-of-interest-check-0-2), and more.
 
-Contact Select
-:   This allows you to select a contact that already exists in your account.
+Contact Select :   This allows you to select a contact that already exists in your account.
 
-Date
-:   This field allows you to select a date for a custom field.
+Date :   This field allows you to select a date for a custom field.
 
-Dropdown
-:   This allows you to create a dropdown menu of options. Each dropdown option has a 55-character limit.
+Dropdown :   This allows you to create a dropdown menu of options. Each dropdown option has a 55-character limit.
 
-Email
-:   This will prompt you to enter a valid email address for a custom field.
+Email :   This will prompt you to enter a valid email address for a custom field.
 
-Integer
-:   This is a numerical value field for a custom field.
+Integer :   This is a numerical value field for a custom field.
 
-Money
-:   This will prompt you to enter a numerical value. Currency characters, such as the $ symbol, are permitted but decimal points are not.
+Money :   This will prompt you to enter a numerical value. Currency characters, such as the $ symbol, are permitted but decimal points are not.
 
-Paragraph Text
-:   This allows you to enter multiple lines of text up to a maximum of 64,000 characters.
+Paragraph Text :   This allows you to enter multiple lines of text up to a maximum of 64,000 characters.
 
-Single Line Text
-:   This allows you to enter a single line of text up to a maximum of 255 characters.
+Single Line Text :   This allows you to enter a single line of text up to a maximum of 255 characters.
 
-Website
-:   This allows you to enter a website address. When entered, the website address will appear hyperlinked.
+Website :   This allows you to enter a website address. When entered, the website address will appear hyperlinked.
 
 ## Custom fields by practice area
 

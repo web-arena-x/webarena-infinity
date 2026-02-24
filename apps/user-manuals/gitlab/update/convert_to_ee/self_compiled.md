@@ -21,9 +21,9 @@ These instructions assume you have a correctly configured and tested self-compil
 In the following instructions, replace:
 
 - `EE_BRANCH` with the EE branch for the version you are using. EE branch names use the format `major-minor-stable-ee`.
-  For example, `17-7-stable-ee`.
+ For example, `17-7-stable-ee`.
 - `CE_BRANCH` with the Community Edition branch. CE branch names use the format `major-minor-stable`.
-  For example, `17-7-stable`.
+ For example, `17-7-stable`.
 
 ### Backup
 
@@ -88,8 +88,7 @@ sudo -u git -H bundle exec rake cache:clear RAILS_ENV=production
 
 {{< /details >}}
 
-To install `gitlab-elasticsearch-indexer`, follow the
-[install instruction](../../integration/advanced_search/elasticsearch.md#install-an-elasticsearch-or-aws-opensearch-cluster).
+To install `gitlab-elasticsearch-indexer`, follow the [install instruction](../../integration/advanced_search/elasticsearch.md#install-an-elasticsearch-or-aws-opensearch-cluster).
 
 ### Start the application
 
@@ -134,5 +133,4 @@ If you encounter problems converting to EE and want to revert back to CE:
    sudo -u git -H bundle exec rake gitlab:backup:restore RAILS_ENV=production
    ```
 
-For information on reverting an EE instance to CE, see
-[how to revert from EE to CE](revert.md)).
+For information on reverting an EE instance to CE, see [how to revert from EE to CE](revert.md)).

@@ -9,7 +9,7 @@ Source: https://help.figma.com/hc/en-us/articles/360039831974-View-layers-and-pa
 - Currently, the **variables modal** is not discoverable if you have a layer selected. With this update, the variables modal entry point is moving from the properties panel to the navigation bar, so you can access your variable collections anytime.
 - The **assets tab** and **find and replace** are moving to the navigation bar
 - File notifications, such as library updates and missing font alerts, will be found at the bottom of the navigation bar
-- Property labels, which are labels that provide context for different sections of your properties panel and navigation bar, will be renamed to **Additional labels**. You’ll be able to toggle the labels by clicking  > **View**.
+- Property labels, which are labels that provide context for different sections of your properties panel and navigation bar, will be renamed to **Additional labels**. You’ll be able to toggle the labels by clicking > **View**.
 
 If you need a bit more room on the canvas, you can still minimize your UI, which will collapse the navigation bar, navigation panel, and properties panel for an expanded view. To do this, click  **Minimize UI** from the top of the navigation panel (left panel) or press `Shift` `\`.
 
@@ -47,7 +47,7 @@ Windows
 
 ### Minimize or expand panels
 
-To **Minimize** or **Expand** the left and right panels, click  in the left panel, or using the keyboard shortcut `Shift` `\`.
+To **Minimize** or **Expand** the left and right panels, click in the left panel, or using the keyboard shortcut `Shift` `\`.
 
 If you select an object while the panels are minimized, the left panel remains minimized while the right panel expands so you can update the properties of the selected object. Once all objects are deselected, the right panel minimizes again.
 
@@ -91,7 +91,7 @@ You can determine if a layer is a frame, group or a specific type of object by t
 
 Figma nests any child objects within their parent group or frame. This allows you to collapse and expand layers within a group or Frame.
 
-To collapse all expanded layers, click  **Collapse layers** in the top right corner of the Layers panel. If you've already selected a layer when you collapse layers, all expanded layers collapse except for your selection.
+To collapse all expanded layers, click **Collapse layers** in the top right corner of the Layers panel. If you've already selected a layer when you collapse layers, all expanded layers collapse except for your selection.
 
 There are many other ways to interact with layers:
 
@@ -116,9 +116,9 @@ To open the assets view, click the **Assets** tab in the left sidebar, or use th
 
 Once you've opened the assets view, you can:
 
-- Open the  [Libraries](https://help.figma.com/hc/en-us/articles/360041051154) modal.
+- Open the [Libraries](https://help.figma.com/hc/en-us/articles/360041051154) modal.
 - Use the search field to find a specific component. Figma looks for components in the current file, as well as any libraries you can access.
-- Open  **Libraries and settings** to filter through available libraries, and to switch between **Grid** and **List** views.
+- Open **Libraries and settings** to filter through available libraries, and to switch between **Grid** and **List** views.
 - Browse through **All libraries** that have been added to the file.
 
 ![The left panel sits at the very left end of the image on a gray background. The Assets tab is open with a list of libraries.](https://help.figma.com/hc/article_attachments/24376965531543)
@@ -135,4 +135,4 @@ Once you've opened the assets view, you can:
 
 Libraries allow you to publish styles, components, and variables from your files as a library. You can then apply styles and variables, or create instances of your components across files. [Get started with libraries →](../create-and-share-libraries/guide-to-libraries-in-figma.md)
 
-To access your libraries from the assets view panel, click  **Libraries** to open the libraries modal.
+To access your libraries from the assets view panel, click **Libraries** to open the libraries modal.

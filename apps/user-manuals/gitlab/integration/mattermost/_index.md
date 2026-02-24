@@ -20,9 +20,7 @@ Each release of GitLab Mattermost is compiled and manually tested on an AMD 64 c
 
 ## Getting started
 
-GitLab Mattermost expects to run on its own virtual host. In your DNS settings, you need
-two entries pointing to the same machine. For example, `gitlab.example.com` and
-`mattermost.example.com`.
+GitLab Mattermost expects to run on its own virtual host. In your DNS settings, you need two entries pointing to the same machine. For example, `gitlab.example.com` and `mattermost.example.com`.
 
 GitLab Mattermost is disabled by default. To enable it:
 
@@ -42,13 +40,11 @@ GitLab Mattermost is disabled by default. To enable it:
 
 The Linux package attempts to automatically authorize GitLab Mattermost with GitLab if the applications are running on the same server.
 
-Automatic authorization requires access to the GitLab database. If the GitLab database is not available
-you need to manually authorize GitLab Mattermost for access to GitLab using the process described in the [Authorize GitLab Mattermost section](#authorize-gitlab-mattermost).
+Automatic authorization requires access to the GitLab database. If the GitLab database is not available you need to manually authorize GitLab Mattermost for access to GitLab using the process described in the [Authorize GitLab Mattermost section](#authorize-gitlab-mattermost).
 
 ## Configuring Mattermost
 
-Mattermost can be configured using the Mattermost System Console. An extensive list of
-Mattermost settings and where they can be set is available [in the Mattermost documentation](https://docs.mattermost.com/administration/config-settings.html).
+Mattermost can be configured using the Mattermost System Console. An extensive list of Mattermost settings and where they can be set is available [in the Mattermost documentation](https://docs.mattermost.com/administration/config-settings.html).
 
 While using the System Console is recommended, you can also configure Mattermost using one of the following options:
 
@@ -72,8 +68,7 @@ mattermost_external_url 'https://mattermost.gitlab.example'
 mattermost_nginx['redirect_http_to_https'] = true
 ```
 
-If you haven't named your certificate and key `mattermost.gitlab.example.crt`
-and `mattermost.gitlab.example.key`, then you must also add the following full paths:
+If you haven't named your certificate and key `mattermost.gitlab.example.crt` and `mattermost.gitlab.example.key`, then you must also add the following full paths:
 
 ```ruby
 mattermost_nginx['ssl_certificate'] = "/etc/gitlab/ssl/mattermost-nginx.crt"
@@ -107,8 +102,7 @@ By default, Mattermost uses the Linux package bundled PostgreSQL service. If you
 
 ## Running GitLab Mattermost on its own server
 
-If you want to run GitLab and GitLab Mattermost on two separate servers the GitLab services are still set up on your GitLab Mattermost server, but they do not accept user requests or
-consume system resources. You can use the following settings and configuration details on the GitLab Mattermost server to effectively disable the GitLab service bundled into the Linux package.
+If you want to run GitLab and GitLab Mattermost on two separate servers the GitLab services are still set up on your GitLab Mattermost server, but they do not accept user requests or consume system resources. You can use the following settings and configuration details on the GitLab Mattermost server to effectively disable the GitLab service bundled into the Linux package.
 
 ```ruby
 mattermost_external_url 'http://mattermost.example.com'
@@ -127,8 +121,7 @@ redis_exporter['enable'] = false
 redis['enable'] = false
 ```
 
-Then follow the appropriate steps in the [Authorize GitLab Mattermost section](#authorize-gitlab-mattermost). Last, to enable
-integrations with GitLab add the following on the GitLab Server:
+Then follow the appropriate steps in the [Authorize GitLab Mattermost section](#authorize-gitlab-mattermost). Last, to enable integrations with GitLab add the following on the GitLab Server:
 
 ```ruby
 gitlab_rails['mattermost_host'] = "https://mattermost.example.com"
@@ -140,9 +133,7 @@ By default GitLab Mattermost requires all users to sign up with GitLab and disab
 
 ### Reauthorize GitLab Mattermost
 
-To reauthorize GitLab Mattermost, you first need to revoke the existing
-authorization. This can be done in the **Settings** > **Applications** area of GitLab. Then follow the steps
-in the following section to complete authorization.
+To reauthorize GitLab Mattermost, you first need to revoke the existing authorization. This can be done in the **Settings** > **Applications** area of GitLab. Then follow the steps in the following section to complete authorization.
 
 ### Authorize GitLab Mattermost
 
@@ -172,8 +163,7 @@ Save the changes and then run `sudo gitlab-ctl reconfigure`. If there are no err
 
 ## Specify numeric user and group identifiers
 
-The Linux package creates a user and group `mattermost`. You can specify the
-numeric identifiers for these users in `/etc/gitlab/gitlab.rb` as follows:
+The Linux package creates a user and group `mattermost`. You can specify the numeric identifiers for these users in `/etc/gitlab/gitlab.rb` as follows:
 
 ```ruby
 mattermost['uid'] = 1234
@@ -184,10 +174,7 @@ Run `sudo gitlab-ctl reconfigure` to apply the changes.
 
 ## Setting custom environment variables
 
-If necessary you can set custom environment variables to be used by Mattermost
-via `/etc/gitlab/gitlab.rb`. This can be useful if the Mattermost server
-is operated behind a corporate internet proxy. In `/etc/gitlab/gitlab.rb`
-supply a `mattermost['env']` with a hash value. For example:
+If necessary you can set custom environment variables to be used by Mattermost via `/etc/gitlab/gitlab.rb`. This can be useful if the Mattermost server is operated behind a corporate internet proxy. In `/etc/gitlab/gitlab.rb` supply a `mattermost['env']` with a hash value. For example:
 
 ```ruby
 mattermost['env'] = {"HTTP_PROXY" => "my_proxy", "HTTPS_PROXY" => "my_proxy", "NO_PROXY" => "my_no_proxy"}
@@ -197,8 +184,7 @@ Run `sudo gitlab-ctl reconfigure` to apply the changes.
 
 ## Connecting to the bundled PostgreSQL database
 
-If you need to connect to the bundled PostgreSQL database and are using the default Linux package database configuration, you can connect as
-the PostgreSQL superuser:
+If you need to connect to the bundled PostgreSQL database and are using the default Linux package database configuration, you can connect as the PostgreSQL superuser:
 
 ```shell
 sudo gitlab-psql -d mattermost_production
@@ -208,8 +194,7 @@ sudo gitlab-psql -d mattermost_production
 
 GitLab Mattermost is not included in the regular [Linux package backup](../../administration/backup_restore/_index.md) Rake task.
 
-The general Mattermost [backup and disaster recovery](https://docs.mattermost.com/deploy/backup-disaster-recovery.html) documentation can be used as a guide
-on what needs to be backed up.
+The general Mattermost [backup and disaster recovery](https://docs.mattermost.com/deploy/backup-disaster-recovery.html) documentation can be used as a guide on what needs to be backed up.
 
 ### Back up the bundled PostgreSQL database
 
@@ -284,8 +269,7 @@ For local connections, the `mmctl` binary and Mattermost must be run from the sa
    sudo gitlab-ctl restart mattermost
    ```
 
-You can then use `sudo /opt/gitlab/embedded/bin/mmctl --local` to run `mmctl` commands
-on your Mattermost instance.
+You can then use `sudo /opt/gitlab/embedded/bin/mmctl --local` to run `mmctl` commands on your Mattermost instance.
 
 For example, to show the list of users:
 
@@ -301,9 +285,7 @@ There are 4 users on local instance
 
 ### Use `mmctl` through a remote connection
 
-For remote connections or local connections where the socket cannot be used,
-create a non-SSO user and give that user administrator privileges. Those credentials
-can then be used to authenticate `mmctl`:
+For remote connections or local connections where the socket cannot be used, create a non-SSO user and give that user administrator privileges. Those credentials can then be used to authenticate `mmctl`:
 
 ```shell
 $ /opt/gitlab/embedded/bin/mmctl auth login http://mattermost.example.com
@@ -316,8 +298,7 @@ Password:
 
 ## Configuring GitLab and Mattermost integrations
 
-You can use the plugin to subscribe Mattermost to receive notifications about issues, merge requests, and pull requests as well as personal notifications regarding merge request reviews, unread messages, and task assignments. If you want to use slash commands to perform actions
-such as creating and viewing issues, or to trigger deployments use GitLab [Mattermost slash commands](../../user/project/integrations/mattermost_slash_commands.md).
+You can use the plugin to subscribe Mattermost to receive notifications about issues, merge requests, and pull requests as well as personal notifications regarding merge request reviews, unread messages, and task assignments. If you want to use slash commands to perform actions such as creating and viewing issues, or to trigger deployments use GitLab [Mattermost slash commands](../../user/project/integrations/mattermost_slash_commands.md).
 
 The plugin and slash commands can be used together or individually.
 
@@ -326,8 +307,7 @@ The plugin and slash commands can be used together or individually.
 ### Setting up SMTP for GitLab Mattermost
 
 These settings are configured through the Mattermost System Console by the System Administrator.
-On the **Environment** > **SMTP** tab of the **System Console**, you can enter the SMTP credentials given by your SMTP provider, or `127.0.0.1` and port `25` to use `sendmail`. More information on the specific settings
-that are needed is available in the [Mattermost documentation](https://docs.mattermost.com/install/smtp-email-setup.html).
+On the **Environment** > **SMTP** tab of the **System Console**, you can enter the SMTP credentials given by your SMTP provider, or `127.0.0.1` and port `25` to use `sendmail`. More information on the specific settings that are needed is available in the [Mattermost documentation](https://docs.mattermost.com/install/smtp-email-setup.html).
 
 These settings can also be configured in `/var/opt/gitlab/mattermost/config.json`.
 
@@ -343,28 +323,21 @@ This setting can also be configured in `/var/opt/gitlab/mattermost/config.json`.
 
 {{< alert type="note" >}}
 
-When upgrading the Mattermost version, it is essential to check the
-[Important Upgrade Notes](https://docs.mattermost.com/administration/important-upgrade-notes.html)
+When upgrading the Mattermost version, it is essential to check the [Important Upgrade Notes](https://docs.mattermost.com/administration/important-upgrade-notes.html)
 for Mattermost to address any changes or migrations that need to be performed.
 
 {{< /alert >}}
 
-GitLab Mattermost can be upgraded through the regular Linux package update process. When upgrading previous versions of
-GitLab, the update process can only be used if Mattermost configuration settings have not been changed outside of GitLab. That is, no changes to the Mattermost `config.json`
-file have been made - either directly or via the Mattermost **System Console**, which saves changes to `config.json`.
+GitLab Mattermost can be upgraded through the regular Linux package update process. When upgrading previous versions of GitLab, the update process can only be used if Mattermost configuration settings have not been changed outside of GitLab. That is, no changes to the Mattermost `config.json` file have been made - either directly or via the Mattermost **System Console**, which saves changes to `config.json`.
 
 If you have only configured Mattermost using `gitlab.rb`, you can upgrade GitLab using the Linux package and then run `gitlab-ctl reconfigure` to upgrade GitLab Mattermost to the latest version.
 
 If this is not the case, there are two options:
 
 1. Update [`gitlab.rb`](https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/files/gitlab-config-template/gitlab.rb.template#L706)
-   with the changes done to `config.json`. This might require adding some parameters as not all
-   settings in `config.json` are available in `gitlab.rb`. Once complete, the Linux package should be
-   able to upgrade GitLab Mattermost from one version to the next.
-1. Migrate Mattermost outside of the directory controlled by the Linux package so it can be administered
-   and upgraded independently. Follow the [Mattermost Migration Guide](https://docs.mattermost.com/administration/migrating.html)
-   to move your Mattermost configuration settings and data to another directory or server independent
-   from the Linux package.
+   with the changes done to `config.json`. This might require adding some parameters as not all settings in `config.json` are available in `gitlab.rb`. Once complete, the Linux package should be able to upgrade GitLab Mattermost from one version to the next.
+1. Migrate Mattermost outside of the directory controlled by the Linux package so it can be administered and upgraded independently. Follow the [Mattermost Migration Guide](https://docs.mattermost.com/administration/migrating.html)
+   to move your Mattermost configuration settings and data to another directory or server independent from the Linux package.
 
 For a complete list of upgrade notices and special considerations for older versions, see the [Mattermost documentation](https://docs.mattermost.com/administration/important-upgrade-notes.html).
 
@@ -421,9 +394,7 @@ To upgrade to the [Mattermost Enterprise Edition](https://docs.mattermost.com/ab
 
 ## OAuth 2.0 sequence diagram
 
-The following image is a sequence diagram for how GitLab works as an OAuth 2.0
-provider for Mattermost. You can use this to troubleshoot errors
-in getting the integration to work:
+The following image is a sequence diagram for how GitLab works as an OAuth 2.0 provider for Mattermost. You can use this to troubleshoot errors in getting the integration to work:
 
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%

@@ -12,17 +12,11 @@ title: 'Tutorial: Update Git commit messages'
 
 {{< /details >}}
 
-Occasionally, after you've made a few commits to your branch, you realize you need
-to update one or more commit messages. Perhaps you found a typo, or some automation warned you
-that your commit message didn't completely align with a project's
-[commit message guidelines](../../topics/git/commit.md#write-a-good-commit-message).
+Occasionally, after you've made a few commits to your branch, you realize you need to update one or more commit messages. Perhaps you found a typo, or some automation warned you that your commit message didn't completely align with a project's [commit message guidelines](../../topics/git/commit.md#write-a-good-commit-message).
 
-Updating the message can be tricky if you don't have much practice using Git
-from the command-line interface (CLI). But don't worry, even if you have only ever worked in
-the GitLab UI, you can follow these steps to use the CLI.
+Updating the message can be tricky if you don't have much practice using Git from the command-line interface (CLI). But don't worry, even if you have only ever worked in the GitLab UI, you can follow these steps to use the CLI.
 
-This tutorial explains how to rewrite commit messages. If you work in the GitLab UI only,
-start from the beginning. If you already have your repository cloned locally, you can skip to the step to fetch and check out your branch.
+This tutorial explains how to rewrite commit messages. If you work in the GitLab UI only, start from the beginning. If you already have your repository cloned locally, you can skip to the step to fetch and check out your branch.
 
 ## Before you begin
 
@@ -30,20 +24,13 @@ You must have:
 
 - A GitLab project with a Git branch containing commits that you want to update.
 - Git [installed on your local machine](../../topics/git/how_to_install_git/_index.md).
-- Access to your local machine's command-line interface (CLI). In macOS,
-  you can use Terminal. In Windows, you can use PowerShell. Linux users are probably
-  already familiar with their system's CLI.
-- Familiarity with your system's default editor. This tutorial assumes your editor is Vim,
-  but any text editor should work. If you are unfamiliar with Vim, step 1 to 2 of
-  [Getting started with Vim](https://opensource.com/article/19/3/getting-started-vim)
-  explains all the commands used later in this tutorial.
-- Permission to overwrite the commit messages. If you are working with multiple people in the same branch,
-  you should first verify with them that it's OK to update the commits. Some organizations might
-  have rules against rewriting commits, as it is considered a destructive change.
+- Access to your local machine's command-line interface (CLI). In macOS, you can use Terminal. In Windows, you can use PowerShell. Linux users are probably already familiar with their system's CLI.
+- Familiarity with your system's default editor. This tutorial assumes your editor is Vim, but any text editor should work. If you are unfamiliar with Vim, step 1 to 2 of [Getting started with Vim](https://opensource.com/article/19/3/getting-started-vim)
+ explains all the commands used later in this tutorial.
+- Permission to overwrite the commit messages. If you are working with multiple people in the same branch, you should first verify with them that it's OK to update the commits. Some organizations might have rules against rewriting commits, as it is considered a destructive change.
 
 You must authenticate with GitLab to overwrite the commit messages in the final step.
-If your GitLab account uses basic username and password authentication, you must have
-[two factor authentication (2FA)](../../user/profile/account/two_factor_authentication.md)
+If your GitLab account uses basic username and password authentication, you must have [two factor authentication (2FA)](../../user/profile/account/two_factor_authentication.md)
 disabled to authenticate from the CLI. Alternatively, you can [use an SSH key to authenticate with GitLab](../../user/ssh.md).
 
 ## Clone your repository to your local machine
@@ -62,8 +49,7 @@ To get started, create a local copy of your repository on your machine.
 
 1. Clone the repository.
 
-   Switch to the CLI (Terminal, PowerShell, or similar) on your local machine, and go to
-   the directory where you want to clone the repository. For example, `/users/my-username/my-projects/`.
+   Switch to the CLI (Terminal, PowerShell, or similar) on your local machine, and go to the directory where you want to clone the repository. For example, `/users/my-username/my-projects/`.
    Run `git clone` and paste the URL you copied earlier:
 
    ```shell
@@ -84,8 +70,7 @@ Next, switch to the branch that contains the commits you want to update.
 
 1. Change to your project directory.
 
-   Assuming you are still at the same place in the CLI as the previous step,
-   change to your project directory with `cd`:
+   Assuming you are still at the same place in the CLI as the previous step, change to your project directory with `cd`:
 
    ```shell
    cd my-awesome-project
@@ -93,9 +78,7 @@ Next, switch to the branch that contains the commits you want to update.
 
 1. Fetch your branch if needed.
 
-   If you've just cloned the repository, your branch should already be
-   on your computer. However, if you previously cloned the repository and skipped
-   to this step, you might need to fetch your branch:
+   If you've just cloned the repository, your branch should already be on your computer. However, if you previously cloned the repository and skipped to this step, you might need to fetch your branch:
 
    ```shell
    git fetch origin my-branch-name
@@ -111,8 +94,7 @@ Next, switch to the branch that contains the commits you want to update.
 
 1. Verify you're on the correct branch.
 
-   Run `git log` and check that the most recent commits
-   match the commits in your branch on GitLab. To exit the log, use `q`.
+   Run `git log` and check that the most recent commits match the commits in your branch on GitLab. To exit the log, use `q`.
 
 {{< /guide >}}
 
@@ -126,8 +108,7 @@ Now you're ready to rewrite the commit messages using an interactive rebase.
 
    In GitLab, check how far back in the commit history you need to go:
 
-   - If you already have a merge request open for your branch, you can check the
-     **Commits** tab and use the total number of commits.
+   - If you already have a merge request open for your branch, you can check the **Commits** tab and use the total number of commits.
    - If you are working from a branch only:
      1. Go to **Code** > **Commits**.
      1. Select the dropdown list in the upper left and find your branch.
@@ -136,8 +117,7 @@ Now you're ready to rewrite the commit messages using an interactive rebase.
 
 1. Start an interactive rebase.
 
-   From the CLI, start the rebase process by adding the count of commits from the previous step
-   to the end of `HEAD~`:
+   From the CLI, start the rebase process by adding the count of commits from the previous step to the end of `HEAD~`:
 
    ```shell
    git rebase -i HEAD~4
@@ -168,12 +148,10 @@ Now you're ready to rewrite the commit messages using an interactive rebase.
    # [and so on...]
    ```
 
-   The `pick` command tells Git to use the commits without change. Change
-   the command from `pick` to `reword` for the commits you want to update.
+   The `pick` command tells Git to use the commits without change. Change the command from `pick` to `reword` for the commits you want to update.
    Type `i` to enter `INSERT` mode, and then start editing the text.
 
-   For example, to update the text of the second and fourth commits in the previous sample,
-   edit it to look like:
+   For example, to update the text of the second and fourth commits in the previous sample, edit it to look like:
 
    ```shell
    pick a0cea50 Fix broken link
@@ -184,14 +162,11 @@ Now you're ready to rewrite the commit messages using an interactive rebase.
 
 1. Save your changes.
 
-   Press <kbd>Escape</kbd> to exit `INSERT` mode,
-   then type `:wq` and <kbd>Enter</kbd> to save and exit.
+   Press <kbd>Escape</kbd> to exit `INSERT` mode, then type `:wq` and <kbd>Enter</kbd> to save and exit.
 
 1. Update each commit message.
 
-   Git now goes through each commit one at a time. Any commits with `pick` are added back to
-   the branch unchanged. When Git reaches a commit with `reword`, it stops and opens the text
-   editor again.
+   Git now goes through each commit one at a time. Any commits with `pick` are added back to the branch unchanged. When Git reaches a commit with `reword`, it stops and opens the text editor again.
 
    Update the commit message as needed:
 
@@ -210,14 +185,11 @@ Now you're ready to rewrite the commit messages using an interactive rebase.
    of each maintainer.
    ```
 
-   After you save and exit, Git updates the commit message and processes the next
-   commits in order. You should see the message `Successfully rebased and update refs/heads/my-branch-name`
-   when finished.
+   After you save and exit, Git updates the commit message and processes the next commits in order. You should see the message `Successfully rebased and update refs/heads/my-branch-name` when finished.
 
 1. Verify the updates.
 
-   To confirm the commit messages were updated, run `git log`
-   and scroll down to see the commit messages.
+   To confirm the commit messages were updated, run `git log` and scroll down to see the commit messages.
 
 {{< /guide >}}
 
@@ -229,15 +201,13 @@ Finally, push your updated commits back to GitLab.
 
 1. Force push the changes.
 
-   From the CLI, push the changes back to GitLab. You must use the `-f` "force push" option,
-   because the commits were updated and a force push overwrites the old commits in GitLab:
+   From the CLI, push the changes back to GitLab. You must use the `-f` "force push" option, because the commits were updated and a force push overwrites the old commits in GitLab:
 
    ```shell
    git push -f origin
    ```
 
-   Your terminal might prompt you for your username and password before overwriting
-   the commit messages in GitLab.
+   Your terminal might prompt you for your username and password before overwriting the commit messages in GitLab.
 
 1. Verify the changes in GitLab.
 

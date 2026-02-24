@@ -14,7 +14,7 @@ Once you are in the school settings:
 
    *![Bulk_Invites.png](https://support.joinhandshake.com/hc/article_attachments/25997610473495)*
 2. You will be presented with a list of invitations. These are all the invitations that have been created by your school. Invitations with the phrase (drafting) have not yet been sent by your school.
-3. Select an individual bulk invite for details.  
+3. Select an individual bulk invite for details. 
 
    ![Individual_Bulk_Invite.png](https://support.joinhandshake.com/hc/article_attachments/25997610475671)
 4. Invitation Demographics - How many contacts were invited and the status of these contacts at the time of invitation

@@ -6,34 +6,28 @@ Source: https://support.zendesk.com/hc/en-us/articles/4409149177242-Metrics-and-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Professional or Enterprise |
 
-Use this article to discover the metrics and attributes you can use to build Explore
-reports based on your usage of Zendesk Chat. These datasets are also used for the [Chat prebuilt dashboards](https://support.zendesk.com/hc/en-us/articles/4408843698842).
+Use this article to discover the metrics and attributes you can use to build Explore reports based on your usage of Zendesk Chat. These datasets are also used for the [Chat prebuilt dashboards](https://support.zendesk.com/hc/en-us/articles/4408843698842).
 
 For more information about how to create reports with Explore, see [Creating reports](https://support.zendesk.com/hc/en-us/articles/4408821589530-Creating-queries).
 
-Tip: On the [dataset selection page](working-with-datasets.md#topic_ig1_whf_5y), the live chat
-datasets are grouped with the messaging dataset. For more information on the
-messaging dataset, see [Metrics and attributes for Zendesk messaging](https://support.zendesk.com/hc/en-us/articles/4724624097818).
+Tip: On the [dataset selection page](working-with-datasets.md#topic_ig1_whf_5y), the live chat datasets are grouped with the messaging dataset. For more information on the messaging dataset, see [Metrics and attributes for Zendesk messaging](https://support.zendesk.com/hc/en-us/articles/4724624097818).
 
 This article contains the following topics:
 
 - [Engagement dataset](#topic_r34_grl_mfb)
-- [Chat Concurrency
-  dataset](#topic_ecm_gdp_mrb)
+- [Chat Concurrency dataset](#topic_ecm_gdp_mrb)
 
 ## Engagement dataset
 
-The Engagement dataset contains metrics and attributes that relate to your Chat
-engagement. This section lists all the available elements for the dataset, and
-contains the following topics:
+The Engagement dataset contains metrics and attributes that relate to your Chat engagement. This section lists all the available elements for the dataset, and contains the following topics:
 
 - [Engagement dataset schema](#topic_smk_45f_kkb)
 - [Engagement metrics](#topic_j5r_5rl_mfb)
@@ -41,8 +35,7 @@ contains the following topics:
 
 ### Engagement dataset schema
 
-Use this diagram to help you understand the elements of the Engagement dataset
-and their relationships.
+Use this diagram to help you understand the elements of the Engagement dataset and their relationships.
 
 ![Chat dataset schema](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Chats.jpg)
 
@@ -50,13 +43,9 @@ and their relationships.
 
 This section lists and defines all of the Engagement metrics available.
 
-*Chat engagement* time-based metrics begin measuring specifically when an
-*agent* interacts with a chat. Other Chat time-based metrics begin
-measuring when an end user (or a representative, such as an agent or trigger,
-beginning a chat on their behalf) interacts with the chat.
+*Chat engagement* time-based metrics begin measuring specifically when an *agent* interacts with a chat. Other Chat time-based metrics begin measuring when an end user (or a representative, such as an agent or trigger, beginning a chat on their behalf) interacts with the chat.
 
-Note: Messaging tickets are not calculated as part of the Chat Engagements
-dataset.
+Note: Messaging tickets are not calculated as part of the Chat Engagements dataset.
 
 Table 1. Engagement metrics
 
@@ -140,15 +129,15 @@ Table 1. Engagement metrics
 | Chat missed no reply time (hrs) | The time from the end user's last comment to the end user leaving the chat session without getting an agent reply. | IF [Chat completion]="Missed" THEN VALUE(Chat no reply time (sec))/60/60 ENDIF |
 | Chat dropped no reply time (hrs) | The time from the end user's last comment to the end user leaving the chat session without getting a reply. | IF [Chat completion]="Dropped" THEN VALUE(Chat no reply time (sec))/60/60 ENDIF |
 | Engagement duration (sec) | The time in seconds from the agent joining the chat to when the end user or agent leaves the chat, whichever occurs first. During a chat session, the end user can interact with multiple agents. Each interaction is counted as a different engagement. When assigned routing is enabled, the timer starts counting when chats are offered to agents. | Engagement duration (sec) |
-| Engagement first reply time (sec) | During a chat session, the end user can interact with multiple agents. Each interaction is counted as a different engagement. For assignment routing mode, this is the time in seconds between the agent’s assignment time to the chat and the agent's first response.  For broadcast routing mode, this is the time in seconds between the end user's first unanswered message to the agent's first response. | Engagement first reply time (sec) |
+| Engagement first reply time (sec) | During a chat session, the end user can interact with multiple agents. Each interaction is counted as a different engagement. For assignment routing mode, this is the time in seconds between the agent’s assignment time to the chat and the agent's first response. For broadcast routing mode, this is the time in seconds between the end user's first unanswered message to the agent's first response. | Engagement first reply time (sec) |
 | Engagement average reply time (sec) | The average time it took for the agent to reply to each of the end user's messages in the engagement. | Engagement average reply time (sec) |
 | Engagement longest reply time (sec) | The maximum time it took for an agent to reply to an end user comment during the chat engagement. | Engagement longest reply time (sec) |
 | Engagement duration (min) | The time in minutes from the agent joining the chat to when the end user or agent leaves the chat, whichever occurs first. During a chat session, the end user can interact with multiple agents. Each interaction is counted as a different engagement. | VALUE(Engagement duration (sec))/60 |
-| Engagement first reply time (min) | During a chat session, the end user can interact with multiple agents. Each interaction is counted as a different engagement. For assignment routing mode, this is the time in minutes between the agent’s assignment time to the chat and the agent's first response.  For broadcast routing mode, this is the time in minutes between the end user's first unanswered message to the agent's first response. | VALUE(Engagement first reply time (sec))/60 |
+| Engagement first reply time (min) | During a chat session, the end user can interact with multiple agents. Each interaction is counted as a different engagement. For assignment routing mode, this is the time in minutes between the agent’s assignment time to the chat and the agent's first response. For broadcast routing mode, this is the time in minutes between the end user's first unanswered message to the agent's first response. | VALUE(Engagement first reply time (sec))/60 |
 | Engagement average reply time (min) | The average time it took for the agent to reply to each of the end user's messages in the engagement. | VALUE(Engagement average reply time (sec))/60 |
 | Engagement longest reply time (min) | The maximum time it took for an agent to reply to an end user's comment during the chat engagement. | VALUE(Engagement longest reply time (sec))/60 |
 | Engagement duration (hrs) | The time in hours from the agent joining the chat to when the end user or agent leaves the chat, whichever occurs first. During a chat session, the end user can interact with multiple agents. Each interaction is counted as a different engagement. | VALUE(Engagement duration (sec))/60/60 |
-| Engagement first reply time (hrs) | During a chat session, the end user can interact with multiple agents. Each interaction is counted as a different engagement. For assignment routing mode, this is the time in hours between the agent’s assignment time to the chat and the agent's first response.  For broadcast routing mode, this is the time in hours between the end user's first unanswered message to the agent's first response. | VALUE(Engagement first reply time (sec))/60/60 |
+| Engagement first reply time (hrs) | During a chat session, the end user can interact with multiple agents. Each interaction is counted as a different engagement. For assignment routing mode, this is the time in hours between the agent’s assignment time to the chat and the agent's first response. For broadcast routing mode, this is the time in hours between the end user's first unanswered message to the agent's first response. | VALUE(Engagement first reply time (sec))/60/60 |
 | Engagement average reply time (hrs) | The average time it took for the agent to reply to each of the end user's messages in the engagement. | VALUE(Engagement average reply time (sec))/60/60 |
 | Engagement longest reply time (hrs) | The maximum time it took for an agent to reply to a end user's comment during the chat engagement. | VALUE(Engagement longest reply time (sec))/60/60 |
 
@@ -178,7 +167,7 @@ Table 2. Engagement attributes
 | Chat browser | The browser used by the end user to initiate a chat session. For example: Google Chrome, Mozilla Firefox, Internet Explorer. |
 | Engagement ID | The system ID of the chat engagement. During a chat session, the end user can interact with multiple agents. Each interaction is counted as a different engagement. |
 | Engagement started by | The way chat engagement was started. Who or what initiated the chat engagement? During a chat session, the end user can interact with multiple agents. Each interaction is counted as a different engagement. Values: Agent, Visitor and Transfer. |
-| Engagement assignment | Shows how the engagement was assigned to an agent. During a chat session, the end user can interact with multiple agents. Each interaction is counted as a different engagement. Values: Self-assigned,\* Assignment Accepted, Assignment Missed  \*The Self-assigned value is applied when the agent accepts a chat in broadcasting mode, when the agent transfers a chat to another agent, or when the agent assigns a chat to themselves. |
+| Engagement assignment | Shows how the engagement was assigned to an agent. During a chat session, the end user can interact with multiple agents. Each interaction is counted as a different engagement. Values: Self-assigned,\* Assignment Accepted, Assignment Missed \*The Self-assigned value is applied when the agent accepts a chat in broadcasting mode, when the agent transfers a chat to another agent, or when the agent assigns a chat to themselves. |
 | Engagement department | The department to which the chat engagement was assigned. Examples include Support, Sales, or Shipping. During a chat session, the end user can interact with multiple agents. Each interaction is counted as a different engagement. |
 | Engagement satisfaction rating | The satisfaction response that end user left during or after the chat engagement. During a chat session, the end user can interact with multiple agents. Each interaction is counted as a different engagement. Values: Good, Bad or none |
 | Engagement skills | The Agent abilities necessary to serve the chat engagement. During a chat session, end user can interact with multiple agents. Each interaction is counted as a different engagement. |
@@ -243,13 +232,9 @@ Table 2. Engagement attributes
 
 ## Chat Concurrency dataset
 
-The Chat Concurrency dataset contains metrics and attributes that relate to your
-agents’ handling of concurrent chat engagements. We only show data for agents who
-had at least a single chat within the hour. Chat agents who were signed in and
-available but did not accept any chats will not be reflected.
+The Chat Concurrency dataset contains metrics and attributes that relate to your agents’ handling of concurrent chat engagements. We only show data for agents who had at least a single chat within the hour. Chat agents who were signed in and available but did not accept any chats will not be reflected.
 
-This section lists all the available elements for the dataset, and contains the
-following topics:
+This section lists all the available elements for the dataset, and contains the following topics:
 
 - [Chat Concurrency metrics](#topic_ecm_gdp_mrb__section_pnb_jdp_mrb)
 - [Chat Concurrency attributes](#topic_ecm_gdp_mrb__section_rnb_jdp_mrb)
@@ -258,8 +243,7 @@ following topics:
 
 This section lists and defines all of the Chat Concurrency metrics available.
 
-Note: Chat Concurrency metrics include messaging tickets
-in addition to chats.
+Note: Chat Concurrency metrics include messaging tickets in addition to chats.
 
 Table 3. Chat Concurrency metrics
 

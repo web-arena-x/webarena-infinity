@@ -32,9 +32,7 @@ To do this, Repository X-Ray gives the code assistant more insight into the proj
 - Extracting a list of libraries from their content.
 - Providing the extracted list as additional context to be used by GitLab Duo Code Suggestions in code generation, refactor code, fix code, and write test requests.
 
-By understanding the libraries and other dependencies in use, Repository X-Ray helps the code assistant
-tailor suggestions to match the coding patterns, styles, and technologies used in the project. This results
-in code suggestions that integrate more seamlessly and follow best practices for the given stack.
+By understanding the libraries and other dependencies in use, Repository X-Ray helps the code assistant tailor suggestions to match the coding patterns, styles, and technologies used in the project. This results in code suggestions that integrate more seamlessly and follow best practices for the given stack.
 
 {{< alert type="note" >}}
 
@@ -53,8 +51,7 @@ Repository X-Ray only enhances code generation requests and not code completion 
 When you push a new commit to your project's default branch, Repository X-Ray triggers a background job.
 This job scans and parses the applicable configuration files in your repository.
 
-Typically, only one scanning job runs at a time in each project. If a second scan is triggered while a
-scan is already in progress, that second scan waits until the first scan is complete before executing.
+Typically, only one scanning job runs at a time in each project. If a second scan is triggered while a scan is already in progress, that second scan waits until the first scan is complete before executing.
 This could result in a small delay before the latest configuration file data is parsed and updated in the database.
 
 When a code generation request is made, a maximum of 300 libraries from the parsed data is included in the prompt as additional context.
@@ -76,20 +73,20 @@ The Repository X-Ray searches a maximum of two directory levels from the reposit
 
 | Language   | Dependency manager | Configuration file                  | GitLab version |
 | ---------- |--------------------| ----------------------------------- | -------------- |
-| C/C++      | Conan              | `conanfile.py`                      | 17.5 or later  |
-| C/C++      | Conan              | `conanfile.txt`                     | 17.5 or later  |
-| C/C++      | vcpkg              | `vcpkg.json`                        | 17.5 or later  |
-| C#         | NuGet              | `*.csproj`                          | 17.5 or later  |
-| Go         | Go Modules         | `go.mod`                            | 17.4 or later  |
-| Java       | Gradle             | `build.gradle`                      | 17.4 or later  |
-| Java       | Maven              | `pom.xml`                           | 17.4 or later  |
-| JavaScript | NPM                | `package-lock.json`, `package.json` | 17.5 or later  |
-| Kotlin     | Gradle             | `build.gradle.kts`                  | 17.5 or later  |
-| PHP        | Composer           | `composer.lock`, `composer.json`    | 17.5 or later  |
-| Python     | Conda              | `environment.yml`                   | 17.5 or later  |
-| Python     | Pip                | `*requirements*.txt` <sup>1</sup>   | 17.5 or later  |
-| Python     | Poetry             | `poetry.lock`, `pyproject.toml`     | 17.5 or later  |
-| Ruby       | RubyGems           | `Gemfile.lock`                      | 17.4 or later  |
+| C/C++      | Conan              | `conanfile.py`                      | 17.5 or later |
+| C/C++      | Conan              | `conanfile.txt`                     | 17.5 or later |
+| C/C++      | vcpkg              | `vcpkg.json`                        | 17.5 or later |
+| C#         | NuGet              | `*.csproj`                          | 17.5 or later |
+| Go         | Go Modules         | `go.mod`                            | 17.4 or later |
+| Java       | Gradle             | `build.gradle`                      | 17.4 or later |
+| Java       | Maven              | `pom.xml`                           | 17.4 or later |
+| JavaScript | NPM                | `package-lock.json`, `package.json` | 17.5 or later |
+| Kotlin     | Gradle             | `build.gradle.kts`                  | 17.5 or later |
+| PHP        | Composer           | `composer.lock`, `composer.json`    | 17.5 or later |
+| Python     | Conda              | `environment.yml`                   | 17.5 or later |
+| Python     | Pip                | `*requirements*.txt` <sup>1</sup>   | 17.5 or later |
+| Python     | Poetry             | `poetry.lock`, `pyproject.toml`     | 17.5 or later |
+| Ruby       | RubyGems           | `Gemfile.lock`                      | 17.4 or later |
 
 Footnotes:
 

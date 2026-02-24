@@ -57,11 +57,11 @@ This *may* include:
 - **Last Name**
 - **School Email**
 - *School (select from the dropdown)*
-  - **My School is not Listed** (*check this box if your school isn't listed in the dropdown*)
+ - **My School is not Listed** (*check this box if your school isn't listed in the dropdown*)
 - **Area of study**
 - **Graduation Date**
-  - **Month** *(select from the dropdown)*
-  - **Year** *(select from the dropdown)*
+ - **Month** *(select from the dropdown)*
+ - **Year** *(select from the dropdown)*
 
 Once your information is added, click the blue button **Save Change**in the lower-right corner of the screen.
 

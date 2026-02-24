@@ -15,8 +15,7 @@ title: 'Tutorial: Set up a group with multiple projects for issue triage'
 <!-- vale gitlab_base.FutureTense = NO -->
 
 Issue triage is the process of categorization according to type and severity.
-As your project grows and people create more issues, it's worth creating a workflow for how you'll
-triage incoming issues.
+As your project grows and people create more issues, it's worth creating a workflow for how you'll triage incoming issues.
 
 In this tutorial, you'll learn how to set up a GitLab group with multiple projects for this scenario.
 
@@ -33,9 +32,8 @@ To set up GitLab for issue triage in a project:
 
 ## Before you begin
 
-- If you're using an existing project for this tutorial, make sure you have at least the Reporter role
-  for the project.
-  - If your existing project does not have a parent group, create a group and [promote the project labels to group labels](../../user/project/labels.md#promote-a-project-label-to-a-group-label).
+- If you're using an existing project for this tutorial, make sure you have at least the Reporter role for the project.
+ - If your existing project does not have a parent group, create a group and [promote the project labels to group labels](../../user/project/labels.md#promote-a-project-label-to-a-group-label).
 
 ## Create a group
 
@@ -66,11 +64,8 @@ To create a new project:
 
 Next, you'll need to determine:
 
-- **Types** of issues you want to recognize. If you need a more granular approach, you
-  can also create subtypes for each type. Types help categorize work to get an understanding of the
-  kind of work that is requested of your team.
-- Levels of **priorities** and **severities** to define the impact that incoming work has on end
-  users and to assist in prioritization.
+- **Types** of issues you want to recognize. If you need a more granular approach, you can also create subtypes for each type. Types help categorize work to get an understanding of the kind of work that is requested of your team.
+- Levels of **priorities** and **severities** to define the impact that incoming work has on end users and to assist in prioritization.
 
 For this tutorial, suppose you've decided on the following:
 
@@ -88,8 +83,7 @@ For inspiration, see how we define these at GitLab:
 
 After you agree on all the criteria, write it all down somewhere your team mates can always access.
 
-For example, add it to a [wiki](../../user/project/wiki/_index.md) in your project, or your company
-handbook published with [GitLab Pages](../../user/project/pages/_index.md).
+For example, add it to a [wiki](../../user/project/wiki/_index.md) in your project, or your company handbook published with [GitLab Pages](../../user/project/pages/_index.md).
 
 <!-- Idea for expanding this tutorial:
      Add steps for [creating a wiki page](../../user/project/wiki/_index.md#create-a-new-wiki-page). -->
@@ -105,17 +99,12 @@ handbook published with [GitLab Pages](../../user/project/pages/_index.md).
 
 Next, you'll create labels to add to issues to categorize them.
 
-The best tool for this is [scoped labels](../../user/project/labels.md#scoped-labels), which you
-can use to set mutually exclusive attributes.
+The best tool for this is [scoped labels](../../user/project/labels.md#scoped-labels), which you can use to set mutually exclusive attributes.
 
-Checking with the list of types, severities, and priorities you've assembled
-[previously](#decide-on-the-criteria-for-types-severity-and-priority), you'll want to create matching
-scoped labels.
+Checking with the list of types, severities, and priorities you've assembled [previously](#decide-on-the-criteria-for-types-severity-and-priority), you'll want to create matching scoped labels.
 
-The double colon (`::`) in the name of a scoped label prevents two labels of the same scope being
-used together.
-For example, if you add the `type::feature` label to an issue that already has `type::bug`, the
-previous one is removed.
+The double colon (`::`) in the name of a scoped label prevents two labels of the same scope being used together.
+For example, if you add the `type::feature` label to an issue that already has `type::bug`, the previous one is removed.
 
 {{< alert type="note" >}}
 
@@ -131,8 +120,7 @@ To create each label:
 1. Select **Manage** > **Labels**.
 1. Select **New label**.
 1. In the **Title** field, enter the name of the label. Start with `type::bug`.
-1. Optional. Select a color from the available colors, or enter a hex color value for
-   a specific color in the **Background color** field.
+1. Optional. Select a color from the available colors, or enter a hex color value for a specific color in the **Background color** field.
 1. Select **Create label**.
 
 Repeat steps 3-6 to create all the labels you need.
@@ -153,11 +141,9 @@ Here are some examples:
 ## Prioritize the new labels
 
 Now, set the new labels as priority labels.
-Doing this ensures that the most important issues show on top
-of the issue list if you sort by priority or label priority.
+Doing this ensures that the most important issues show on top of the issue list if you sort by priority or label priority.
 
-To learn what happens when you sort by priority or label priority, see
-[Sorting and ordering issue lists](../../user/project/issues/sorting_issue_lists.md).
+To learn what happens when you sort by priority or label priority, see [Sorting and ordering issue lists](../../user/project/issues/sorting_issue_lists.md).
 
 To prioritize labels:
 
@@ -178,8 +164,7 @@ You'll use it to quickly create issues and add labels to them by dragging cards 
 To set up your issue board:
 
 1. Decide on the scope of the board.
-   For example, [create a group issue board](../../user/project/issue_board.md#group-issue-boards) that you'll use to assign
-   severity to issues.
+   For example, [create a group issue board](../../user/project/issue_board.md#group-issue-boards) that you'll use to assign severity to issues.
 1. On the top bar, select **Search or go to** and find your **triage-tutorial** group.
 1. Select **Plan** > **Issue boards**.
 1. In the upper-left corner of the issue board page, select the dropdown list with the current board name.
@@ -207,8 +192,7 @@ To create an issue from your **Issue triage (by severity)** board:
 
 1. Go to the **Open** list.
    This list shows issues that don't fit any other board list.
-   If you already know which severity label your issue should have, you can create it directly from
-   that label's list.
+   If you already know which severity label your issue should have, you can create it directly from that label's list.
    Keep in mind that each issue created from a label list is given that label.
 
    For now, we'll proceed with using the **Open** list.
@@ -219,8 +203,7 @@ To create an issue from your **Issue triage (by severity)** board:
 1. Select **Create issue**.
 1. Repeat these steps to create a few more issues.
 
-   For example, if you're building an app, imagine that `test-project-1` and `test-project-2` refer to
-   the application's backend and frontend.
+   For example, if you're building an app, imagine that `test-project-1` and `test-project-2` refer to the application's backend and frontend.
    Create the following issues, assigning to projects as you see fit:
 
    - `User registration`
@@ -235,8 +218,7 @@ To create an issue from your **Issue triage (by severity)** board:
    - `Settings and preferences`
 
 Your first triage issue board is ready!
-Try it out by dragging some issues from the **Open** list to one of the label lists to add one of
-the severity labels.
+Try it out by dragging some issues from the **Open** list to one of the label lists to add one of the severity labels.
 
 ![Issue board with unlabeled issues and prioritized "severity" labels for labeling issues](img/triage_board_v16_3.png)
 
@@ -245,21 +227,18 @@ the severity labels.
 Next, you can:
 
 - Tweak how you use issue boards. Some options include:
-  - Edit your current issue board to also have lists for priority and type labels.
+ - Edit your current issue board to also have lists for priority and type labels.
     This way, you'll make the board wider and might require some horizontal scrolling.
-  - Create separate issue boards named `Issue triage (by priority)` and `Issue triage (by type)`.
-    This way, you'll keep various types of triage work separate, but will require switching between
-    boards.
-  - [Set up issue boards for team hand-off](../boards_for_teams/_index.md).
-- Browse issues by priority or severity in issue lists,
-  [filtered by each label](../../user/project/issues/managing_issues.md#filter-the-list-of-issues).
-  If it's available to you, make use of
-  [the "is one of" filter operator](../../user/project/issues/managing_issues.md#filter-the-list-of-issues).
+ - Create separate issue boards named `Issue triage (by priority)` and `Issue triage (by type)`.
+    This way, you'll keep various types of triage work separate, but will require switching between boards.
+ - [Set up issue boards for team hand-off](../boards_for_teams/_index.md).
+- Browse issues by priority or severity in issue lists, [filtered by each label](../../user/project/issues/managing_issues.md#filter-the-list-of-issues).
+ If it's available to you, make use of [the "is one of" filter operator](../../user/project/issues/managing_issues.md#filter-the-list-of-issues).
 - Break the issues down into [tasks](../../user/tasks.md).
 - Create policies that help automate issue triage in a project with the [`gitlab-triage` gem](https://gitlab.com/gitlab-org/ruby/gems/gitlab-triage).
-  Generate summary reports with heatmaps like the following:
+ Generate summary reports with heatmaps like the following:
 
-  ![Diagonal heatmap for issues with "priority" and "severity" labels](img/triage_report_v16_3.png)
+ ![Diagonal heatmap for issues with "priority" and "severity" labels](img/triage_report_v16_3.png)
 
 To learn more about issue triage at GitLab, see [Issue Triage](https://handbook.gitlab.com/handbook/engineering/infrastructure/engineering-productivity/issue-triage/)
 and [Triage Operations](https://handbook.gitlab.com/handbook/engineering/infrastructure/engineering-productivity/triage-operations/).

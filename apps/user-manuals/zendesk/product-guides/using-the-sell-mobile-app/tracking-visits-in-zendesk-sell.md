@@ -123,7 +123,7 @@ The following reports give visit insights:
 
 - [Activity Overview report](https://app.futuresimple.com/reports/activity_overview)
 
-  Get insights into the volume of visits made by your team. Track how many visits are logged by each rep in a given timeframe. This report shows a visual snapshot of your activity breakdown in whatever time frame you're looking for (see [About activity reports](https://support.zendesk.com/hc/en-us/articles/4408842698906-Utilizing-Activity-Reports)).
+ Get insights into the volume of visits made by your team. Track how many visits are logged by each rep in a given timeframe. This report shows a visual snapshot of your activity breakdown in whatever time frame you're looking for (see [About activity reports](https://support.zendesk.com/hc/en-us/articles/4408842698906-Utilizing-Activity-Reports)).
 - [Visit Outcomes report](https://app.futuresimple.com/reports/visit_outcomes)
 
-  See how many visits you've made, broken down by outcome. Identify trends around visit outcomes to understand prime times to visit your leads in the future and make the most effective use of your time.
+ See how many visits you've made, broken down by outcome. Identify trends around visit outcomes to understand prime times to visit your leads in the future and make the most effective use of your time.

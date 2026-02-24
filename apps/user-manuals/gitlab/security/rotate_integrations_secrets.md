@@ -12,9 +12,7 @@ title: Rotate secrets of third-party integrations
 
 {{< /details >}}
 
-Rotating secrets of third-party integrations is an important security practice
-that helps mitigate the risks associated with leaked secrets, such as
-unauthorized access and potential data breaches.
+Rotating secrets of third-party integrations is an important security practice that helps mitigate the risks associated with leaked secrets, such as unauthorized access and potential data breaches.
 
 You should rotate the secrets of all third-party integrations at least yearly.
 An incomplete list of such secrets:

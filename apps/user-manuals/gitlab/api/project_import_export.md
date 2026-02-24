@@ -14,8 +14,7 @@ description: "Import and export projects with the REST API."
 {{< /details >}}
 
 Use this API to [migrate a project](../user/project/settings/import_export.md).
-If you first migrate the parent group structure with the [group import and export API](group_import_export.md),
-you can preserve group-level relationships, such as connections between project issues and group epics.
+If you first migrate the parent group structure with the [group import and export API](group_import_export.md), you can preserve group-level relationships, such as connections between project issues and group epics.
 
 After using this API, you might want to use the [project-level CI/CD variables API](project_level_variables.md) to preserve the CI/CD variables for the project.
 
@@ -31,20 +30,15 @@ Prerequisites:
 
 Start a new export.
 
-The endpoint also accepts an `upload` hash parameter. It contains all the necessary information to upload the exported
-project to a web server or to any S3-compatible platform. For exports, GitLab:
+The endpoint also accepts an `upload` hash parameter. It contains all the necessary information to upload the exported project to a web server or to any S3-compatible platform. For exports, GitLab:
 
 - Only supports binary data file uploads to the final server.
-- Sends the `Content-Type: application/gzip` header with upload requests. Ensure that your pre-signed URL includes this
-  as part of the signature.
-- Can take some time to complete the project export process. Make sure the upload URL doesn't have a short expiration
-  time and is available throughout the export process.
-- Administrators can modify the maximum export file size. By default, the maximum is unlimited (`0`). To change this,
-  edit `max_export_size` using either:
-  - [GitLab UI](../administration/settings/import_and_export_settings.md).
-  - [Application settings API](settings.md#update-application-settings)
-- Has a fixed limit for the maximum import file size on GitLab.com. For more information, see
-  [Account and limit settings](../user/gitlab_com/_index.md#account-and-limit-settings).
+- Sends the `Content-Type: application/gzip` header with upload requests. Ensure that your pre-signed URL includes this as part of the signature.
+- Can take some time to complete the project export process. Make sure the upload URL doesn't have a short expiration time and is available throughout the export process.
+- Administrators can modify the maximum export file size. By default, the maximum is unlimited (`0`). To change this, edit `max_export_size` using either:
+ - [GitLab UI](../administration/settings/import_and_export_settings.md).
+ - [Application settings API](settings.md#update-application-settings)
+- Has a fixed limit for the maximum import file size on GitLab.com. For more information, see [Account and limit settings](../user/gitlab_com/_index.md#account-and-limit-settings).
 
 The `upload[url]` parameter is required if the `upload` parameter is present.
 
@@ -66,15 +60,15 @@ POST /projects/:id/export
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/export" \
-  --data "upload[http_method]=PUT" \
-  --data-urlencode "upload[url]=https://example-bucket.s3.eu-west-3.amazonaws.com/backup?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=<your_access_token>%2F20180312%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20180312T110328Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=8413facb20ff33a49a147a0b4abcff4c8487cc33ee1f7e450c46e8f695569dbd"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/export" \
+ --data "upload[http_method]=PUT" \
+ --data-urlencode "upload[url]=https://example-bucket.s3.eu-west-3.amazonaws.com/backup?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=<your_access_token>%2F20180312%2Feu-west-3%2Fs3%2Faws4_request&X-Amz-Date=20180312T110328Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=8413facb20ff33a49a147a0b4abcff4c8487cc33ee1f7e450c46e8f695569dbd"
 ```
 
 ```json
 {
-  "message": "202 Accepted"
+ "message": "202 Accepted"
 }
 ```
 
@@ -92,8 +86,8 @@ GET /projects/:id/export
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/export"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/export"
 ```
 
 Status can be one of:
@@ -101,9 +95,8 @@ Status can be one of:
 - `none`: No exports queued, started, finished, or being regenerated.
 - `queued`: The request for export is received, and is in the queue to be processed.
 - `started`: The export process has started and is in progress. It includes:
-  - The process of exporting.
-  - Actions performed on the resulting file, such as sending an email notifying
-    the user to download the file, or uploading the exported file to a web server.
+ - The process of exporting.
+ - Actions performed on the resulting file, such as sending an email notifying the user to download the file, or uploading the exported file to a web server.
 - `finished`: After the export process has completed and the user has been notified.
 - `regeneration_in_progress`: An export file is available to download, and a request to generate a new export is in process.
 
@@ -113,18 +106,18 @@ Status can be one of:
 
 ```json
 {
-  "id": 1,
-  "description": "Itaque perspiciatis minima aspernatur corporis consequatur.",
-  "name": "Gitlab Test",
-  "name_with_namespace": "Gitlab Org / Gitlab Test",
-  "path": "gitlab-test",
-  "path_with_namespace": "gitlab-org/gitlab-test",
-  "created_at": "2017-08-29T04:36:44.383Z",
-  "export_status": "finished",
-  "_links": {
+ "id": 1,
+ "description": "Itaque perspiciatis minima aspernatur corporis consequatur.",
+ "name": "Gitlab Test",
+ "name_with_namespace": "Gitlab Org / Gitlab Test",
+ "path": "gitlab-test",
+ "path_with_namespace": "gitlab-org/gitlab-test",
+ "created_at": "2017-08-29T04:36:44.383Z",
+ "export_status": "finished",
+ "_links": {
     "api_url": "https://gitlab.example.com/api/v4/projects/1/export/download",
     "web_url": "https://gitlab.example.com/gitlab-org/gitlab-test/download_export"
-  }
+ }
 }
 ```
 
@@ -142,10 +135,10 @@ GET /projects/:id/export/download
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --remote-header-name \
-  --remote-name \
-  --url "https://gitlab.example.com/api/v4/projects/5/export/download"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --remote-header-name \
+ --remote-name \
+ --url "https://gitlab.example.com/api/v4/projects/5/export/download"
 ```
 
 ```shell
@@ -173,32 +166,29 @@ POST /projects/import
 | `name`            | string            | No       | The name of the project to be imported. Defaults to the path of the project if not provided. |
 | `namespace`       | integer or string | No       | (Deprecated) The ID or path of the namespace to import the project to. Defaults to the current user's namespace.<br/><br/> Requires at least the Maintainer role on the destination group. Use `namespace_id` or `namespace_path` instead. |
 | `namespace_id`    | integer           | No       | The ID of the namespace to import the project to. Defaults to the current user's namespace.<br/><br/> Requires at least the Maintainer role on the destination group. |
-| `namespace_path`  | string            | No       | The path of the namespace to import the project to. Defaults to the current user's namespace.<br/><br/> Requires at least the Maintainer role on the destination group. |
+| `namespace_path` | string            | No       | The path of the namespace to import the project to. Defaults to the current user's namespace.<br/><br/> Requires at least the Maintainer role on the destination group. |
 | `override_params` | hash              | No       | Supports all fields defined in the [Project API](projects.md). |
 | `overwrite`       | boolean           | No       | If there is a project with the same path the import overwrites it. Defaults to `false`. |
 
 The override parameters passed take precedence over all values defined inside the export file.
 
-To upload a file from your file system, use the `--form` argument. This causes
-cURL to post data using the header `Content-Type: multipart/form-data`.
-The `file=` parameter must point to a file on your file system and be preceded
-by `@`. For example:
+To upload a file from your file system, use the `--form` argument. This causes cURL to post data using the header `Content-Type: multipart/form-data`.
+The `file=` parameter must point to a file on your file system and be preceded by `@`. For example:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --form "path=api-project" \
-  --form "file=@/path/to/file" \
-  --url "https://gitlab.example.com/api/v4/projects/import"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --form "path=api-project" \
+ --form "file=@/path/to/file" \
+ --url "https://gitlab.example.com/api/v4/projects/import"
 ```
 
-cURL doesn't support posting a file from a remote server. This example imports a project
-using Python's `open` method:
+cURL doesn't support posting a file from a remote server. This example imports a project using Python's `open` method:
 
 ```python
 import requests
 
-url =  'https://gitlab.example.com/api/v4/projects/import'
+url = 'https://gitlab.example.com/api/v4/projects/import'
 files = { "file": open("project_export.tar.gz", "rb") }
 data = {
     "path": "example-project",
@@ -213,16 +203,16 @@ requests.post(url, headers=headers, data=data, files=files)
 
 ```json
 {
-  "id": 1,
-  "description": null,
-  "name": "api-project",
-  "name_with_namespace": "Administrator / api-project",
-  "path": "api-project",
-  "path_with_namespace": "root/api-project",
-  "created_at": "2018-02-13T09:05:58.023Z",
-  "import_status": "scheduled",
-  "correlation_id": "mezklWso3Za",
-  "failed_relations": []
+ "id": 1,
+ "description": null,
+ "name": "api-project",
+ "name_with_namespace": "Administrator / api-project",
+ "path": "api-project",
+ "path_with_namespace": "root/api-project",
+ "created_at": "2018-02-13T09:05:58.023Z",
+ "import_status": "scheduled",
+ "correlation_id": "mezklWso3Za",
+ "failed_relations": []
 }
 ```
 
@@ -265,7 +255,7 @@ POST /projects/remote-import
 | `name`            | string            | No       | The name of the project to import. If not provided, defaults to the path of the project. |
 | `namespace`       | integer or string | No       | (Deprecated) The ID or path of the namespace to import the project to. Defaults to the current user's namespace.<br/><br/> Requires at least the Maintainer role on the destination group. Use `namespace_id` or `namespace_path` instead. |
 | `namespace_id`    | integer           | No       | The ID of the namespace to import the project to. Defaults to the current user's namespace.<br/><br/> Requires at least the Maintainer role on the destination group. |
-| `namespace_path`  | string            | No       | The path of the namespace to import the project to. Defaults to the current user's namespace.<br/><br/> Requires at least the Maintainer role on the destination group. |
+| `namespace_path` | string            | No       | The path of the namespace to import the project to. Defaults to the current user's namespace.<br/><br/> Requires at least the Maintainer role on the destination group. |
 | `overwrite`       | boolean           | No       | Whether to overwrite a project with the same path when importing. Defaults to `false`. |
 | `override_params` | hash              | No       | Supports all fields defined in the [Project API](projects.md). |
 
@@ -273,25 +263,25 @@ The passed override parameters take precedence over all values defined in the ex
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --url "https://gitlab.example.com/api/v4/projects/remote-import" \
-  --data '{"url":"https://remoteobject/file?token=123123","path":"remote-project"}'
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --url "https://gitlab.example.com/api/v4/projects/remote-import" \
+ --data '{"url":"https://remoteobject/file?token=123123","path":"remote-project"}'
 ```
 
 ```json
 {
-  "id": 1,
-  "description": null,
-  "name": "remote-project",
-  "name_with_namespace": "Administrator / remote-project",
-  "path": "remote-project",
-  "path_with_namespace": "root/remote-project",
-  "created_at": "2018-02-13T09:05:58.023Z",
-  "import_status": "scheduled",
-  "correlation_id": "mezklWso3Za",
-  "failed_relations": [],
-  "import_error": null
+ "id": 1,
+ "description": null,
+ "name": "remote-project",
+ "name_with_namespace": "Administrator / remote-project",
+ "path": "remote-project",
+ "path_with_namespace": "root/remote-project",
+ "created_at": "2018-02-13T09:05:58.023Z",
+ "import_status": "scheduled",
+ "correlation_id": "mezklWso3Za",
+ "failed_relations": [],
+ "import_error": null
 }
 ```
 
@@ -307,12 +297,9 @@ The `Content-Type` header must be `application/gzip`.
 
 {{< /history >}}
 
-This endpoint accepts a project export archive and a named relation (issues,
-merge requests, pipelines, or milestones) and re-imports that relation, skipping
-items that have already been imported.
+This endpoint accepts a project export archive and a named relation (issues, merge requests, pipelines, or milestones) and re-imports that relation, skipping items that have already been imported.
 
-The required project export file adheres to the same structure and size requirements described in
-[Import a file](#import-a-file).
+The required project export file adheres to the same structure and size requirements described in [Import a file](#import-a-file).
 
 - The extracted files must adhere to the structure of a GitLab project export.
 - The archive must not exceed the maximum import file size configured by the Administrator.
@@ -321,32 +308,30 @@ The required project export file adheres to the same structure and size requirem
 POST /projects/import-relation
 ```
 
-| Attribute  | Type   | Required | Description                                                                                                    |
+| Attribute | Type   | Required | Description                                                                                                    |
 |------------|--------|----------|----------------------------------------------------------------------------------------------------------------|
 | `file`     | string | Yes      | The file to be uploaded.                                                                                       |
 | `path`     | string | Yes      | Name and path for new project.                                                                                 |
 | `relation` | string | Yes      | The name of the relation to import. Must be one of `issues`, `milestones`, `ci_pipelines` or `merge_requests`. |
 
-To upload a file from your file system, use the `--form` option, which causes
-cURL to post data using the header `Content-Type: multipart/form-data`.
-The `file=` parameter must point to a file on your file system and be preceded
-by `@`. For example:
+To upload a file from your file system, use the `--form` option, which causes cURL to post data using the header `Content-Type: multipart/form-data`.
+The `file=` parameter must point to a file on your file system and be preceded by `@`. For example:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --form "path=api-project" \
-  --form "file=@/path/to/file" \
-  --form "relation=issues" \
-  --url "https://gitlab.example.com/api/v4/projects/import-relation"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --form "path=api-project" \
+ --form "file=@/path/to/file" \
+ --form "relation=issues" \
+ --url "https://gitlab.example.com/api/v4/projects/import-relation"
 ```
 
 ```json
 {
-  "id": 9,
-  "project_path": "namespace1/project1",
-  "relation": "issues",
-  "status": "finished"
+ "id": 9,
+ "project_path": "namespace1/project1",
+ "relation": "issues",
+ "status": "finished"
 }
 ```
 
@@ -358,9 +343,7 @@ curl --request POST \
 
 {{< /history >}}
 
-This endpoint fetches the status of any relation imports associated with a project. Because
-only one relation import can be scheduled at a time, you can use this endpoint to check whether
-the previous import completed successfully.
+This endpoint fetches the status of any relation imports associated with a project. Because only one relation import can be scheduled at a time, you can use this endpoint to check whether the previous import completed successfully.
 
 ```plaintext
 GET /projects/:id/relation-imports
@@ -368,24 +351,24 @@ GET /projects/:id/relation-imports
 
 | Attribute | Type               | Required | Description                                                                          |
 | --------- |--------------------| -------- |--------------------------------------------------------------------------------------|
-| `id`      | integer or string  | Yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
+| `id`      | integer or string | Yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/18/relation-imports"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/18/relation-imports"
 ```
 
 ```json
 [
-  {
+ {
     "id": 1,
     "project_path": "namespace1/project1",
     "relation": "issues",
     "status": "created",
     "created_at": "2024-03-25T11:03:48.074Z",
     "updated_at": "2024-03-25T11:03:48.074Z"
-  }
+ }
 ]
 ```
 
@@ -426,17 +409,17 @@ The passed override parameters take precedence over all values defined in the ex
 
 ```shell
 curl --request POST \
-  --url "https://gitlab.example.com/api/v4/projects/remote-import-s3" \
-  --header "PRIVATE-TOKEN: <your gitlab access key>" \
-  --header 'Content-Type: application/json' \
-  --data '{
-  "name": "Sample Project",
-  "path": "sample-project",
-  "region": "<Your S3 region name>",
-  "bucket_name": "<Your S3 bucket name>",
-  "file_key": "<Your S3 file key>",
-  "access_key_id": "<Your AWS access key id>",
-  "secret_access_key": "<Your AWS secret access key>"
+ --url "https://gitlab.example.com/api/v4/projects/remote-import-s3" \
+ --header "PRIVATE-TOKEN: <your gitlab access key>" \
+ --header 'Content-Type: application/json' \
+ --data '{
+ "name": "Sample Project",
+ "path": "sample-project",
+ "region": "<Your S3 region name>",
+ "bucket_name": "<Your S3 bucket name>",
+ "file_key": "<Your S3 file key>",
+ "access_key_id": "<Your AWS access key id>",
+ "secret_access_key": "<Your AWS secret access key>"
 }'
 ```
 
@@ -448,7 +431,7 @@ from io import BytesIO
 
 s3_file = requests.get(presigned_url)
 
-url =  'https://gitlab.example.com/api/v4/projects/import'
+url = 'https://gitlab.example.com/api/v4/projects/import'
 files = {'file': ('file.tar.gz', BytesIO(s3_file.content))}
 data = {
     "path": "example-project",
@@ -463,17 +446,17 @@ requests.post(url, headers=headers, data=data, files=files)
 
 ```json
 {
-  "id": 1,
-  "description": null,
-  "name": "Sample project",
-  "name_with_namespace": "Administrator / sample-project",
-  "path": "sample-project",
-  "path_with_namespace": "root/sample-project",
-  "created_at": "2018-02-13T09:05:58.023Z",
-  "import_status": "scheduled",
-  "correlation_id": "mezklWso3Za",
-  "failed_relations": [],
-  "import_error": null
+ "id": 1,
+ "description": null,
+ "name": "Sample project",
+ "name_with_namespace": "Administrator / sample-project",
+ "path": "sample-project",
+ "path_with_namespace": "root/sample-project",
+ "created_at": "2018-02-13T09:05:58.023Z",
+ "import_status": "scheduled",
+ "correlation_id": "mezklWso3Za",
+ "failed_relations": [],
+ "import_error": null
 }
 ```
 
@@ -491,8 +474,8 @@ GET /projects/:id/import
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/import"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/import"
 ```
 
 Status can be one of:
@@ -504,8 +487,7 @@ Status can be one of:
 - `finished`
 
 If the status is `failed`, it includes the import error message under `import_error`.
-If the status is `failed`, `started` or `finished`, the `failed_relations` array might
-be populated with any occurrences of relations that failed to import due to either:
+If the status is `failed`, `started` or `finished`, the `failed_relations` array might be populated with any occurrences of relations that failed to import due to either:
 
 - Unrecoverable errors.
 - Retries were exhausted. A typical example: query timeouts.
@@ -520,17 +502,17 @@ The `failed_relations` array is capped to 100 items.
 
 ```json
 {
-  "id": 1,
-  "description": "Itaque perspiciatis minima aspernatur corporis consequatur.",
-  "name": "Gitlab Test",
-  "name_with_namespace": "Gitlab Org / Gitlab Test",
-  "path": "gitlab-test",
-  "path_with_namespace": "gitlab-org/gitlab-test",
-  "created_at": "2017-08-29T04:36:44.383Z",
-  "import_status": "started",
-  "import_type": "github",
-  "correlation_id": "mezklWso3Za",
-  "failed_relations": [
+ "id": 1,
+ "description": "Itaque perspiciatis minima aspernatur corporis consequatur.",
+ "name": "Gitlab Test",
+ "name_with_namespace": "Gitlab Org / Gitlab Test",
+ "path": "gitlab-test",
+ "path_with_namespace": "gitlab-org/gitlab-test",
+ "created_at": "2017-08-29T04:36:44.383Z",
+ "import_status": "started",
+ "import_type": "github",
+ "correlation_id": "mezklWso3Za",
+ "failed_relations": [
     {
       "id": 42,
       "created_at": "2020-04-02T14:48:59.526Z",
@@ -540,26 +522,25 @@ The `failed_relations` array is capped to 100 items.
       "relation_name": "merge_requests",
       "line_number": 0
     }
-  ]
+ ]
 }
 ```
 
-When importing from GitHub, the a `stats` field lists how many objects were already fetched from
-GitHub and how many were already imported:
+When importing from GitHub, the a `stats` field lists how many objects were already fetched from GitHub and how many were already imported:
 
 ```json
 {
-  "id": 1,
-  "description": "Itaque perspiciatis minima aspernatur corporis consequatur.",
-  "name": "Gitlab Test",
-  "name_with_namespace": "Gitlab Org / Gitlab Test",
-  "path": "gitlab-test",
-  "path_with_namespace": "gitlab-org/gitlab-test",
-  "created_at": "2017-08-29T04:36:44.383Z",
-  "import_status": "started",
-  "import_type": "github",
-  "correlation_id": "mezklWso3Za",
-  "failed_relations": [
+ "id": 1,
+ "description": "Itaque perspiciatis minima aspernatur corporis consequatur.",
+ "name": "Gitlab Test",
+ "name_with_namespace": "Gitlab Org / Gitlab Test",
+ "path": "gitlab-test",
+ "path_with_namespace": "gitlab-org/gitlab-test",
+ "created_at": "2017-08-29T04:36:44.383Z",
+ "import_status": "started",
+ "import_type": "github",
+ "correlation_id": "mezklWso3Za",
+ "failed_relations": [
     {
       "id": 42,
       "created_at": "2020-04-02T14:48:59.526Z",
@@ -569,8 +550,8 @@ GitHub and how many were already imported:
       "relation_name": "merge_requests",
       "line_number": 0
     }
-  ],
-  "stats": {
+ ],
+ "stats": {
     "fetched": {
       "diff_note": 19,
       "issue": 3,
@@ -589,7 +570,7 @@ GitHub and how many were already imported:
       "pull_request_merged_by": 1,
       "pull_request_review": 16
     }
-  }
+ }
 }
 ```
 

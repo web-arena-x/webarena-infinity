@@ -34,7 +34,7 @@ We are confident these increases will allow us to continue to help you interact 
 
 The new USD prices for Zendesk Suite and Support are: 
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Zendesk Suite** | | |
 | **Plan name** | **Annual - per agent/month** | **Monthly - per agent** |
@@ -44,7 +44,7 @@ The new USD prices for Zendesk Suite and Support are: 
 | Zendesk Suite - Enterprise | $169 | $219 |
 | Zendesk Suite - Enterprise Plus | $249 | - |
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Zendesk Support** | | |
 | **Plan name** | **Annual - per agent/month** | **Monthly - per agent** |
@@ -59,10 +59,10 @@ The new USD prices for Zendesk Suite and Support are: 
 
 The new prices for Zendesk Suite and Support are: 
 
-|  |  |  |  |  |  |  |  |  |
+| | | | | | | | | |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **Zendesk Suite** | | | | | | | | |
-|  | **USD** | | **EUR** | | **GBP** | | **BRL** | |
+| | **USD** | | **EUR** | | **GBP** | | **BRL** | |
 | **Plan name** | **Annual** | **Monthly** | **Annual** | **Monthly** | **Annual** | **Monthly** | **Annual** | **Monthly** |
 | Zendesk Suite - Team | $55 | $69 | €55 | €69 | £45 | £59 | R$359 | R$465 |
 | Zendesk Suite - Growth | $89 | $115 | €89 | €115 | £75 | £99 | R$585 | R$759 |
@@ -70,10 +70,10 @@ The new prices for Zendesk Suite and Support are: 
 | Zendesk Suite - Enterprise | $169 | $219 | €169 | €219 | £139 | £179 | R$1,105 | R$1,435 |
 | Zendesk Suite - Enterprise Plus | $249 | - | €249 | - | £205 | - | R$1,625 | - |
 
-|  |  |  |  |  |  |  |  |  |
+| | | | | | | | | |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **Zendesk Support** | | | | | | | | |
-|  | **USD** | | **EUR** | | **GBP** | | **BRL** | |
+| | **USD** | | **EUR** | | **GBP** | | **BRL** | |
 | **Plan name** | **Annual** | **Monthly** | **Annual** | **Monthly** | **Annual** | **Monthly** | **Annual** | **Monthly** |
 | Support Essential | $6 | $11 | €6 | €11 | £6 | £11 | R$40 | R$75 |
 | Support Team | $19 | $25 | €19 | €25 | £15 | £20 | R$135 | R$175 |

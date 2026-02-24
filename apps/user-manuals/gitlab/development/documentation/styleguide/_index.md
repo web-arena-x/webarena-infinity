@@ -11,19 +11,15 @@ For guidelines on specific words, see [the word list](word_list.md).
 
 ## The GitLab voice
 
-The GitLab brand guidelines define the
-[voice used by the larger organization](https://design.gitlab.com/brand-messaging/brand-voice).
+The GitLab brand guidelines define the [voice used by the larger organization](https://design.gitlab.com/brand-messaging/brand-voice).
 
-Building on that guidance, the voice in the GitLab documentation strives to be concise,
-direct, and precise. The goal is to provide information that's easy to search and scan.
+Building on that guidance, the voice in the GitLab documentation strives to be concise, direct, and precise. The goal is to provide information that's easy to search and scan.
 
 The voice in the documentation should be conversational but brief, friendly but succinct.
 
 ## Documentation is the single source of truth (SSoT)
 
-The GitLab documentation is the SSoT for all product information related to implementation,
-use, and troubleshooting. The documentation evolves continuously. It is updated with
-new products and features, and with improvements for clarity, accuracy, and completeness.
+The GitLab documentation is the SSoT for all product information related to implementation, use, and troubleshooting. The documentation evolves continuously. It is updated with new products and features, and with improvements for clarity, accuracy, and completeness.
 
 This policy:
 
@@ -36,26 +32,17 @@ GitLab uses [topic types](../topic_types/_index.md) to organize the product docu
 
 Topic types help users digest information more quickly. They also help address these issues:
 
-- **Content is hard to find.** The GitLab documentation is comprehensive and includes a large amount of
-  useful information. Topic types create repeatable patterns that make the content easier
-  to scan and parse.
-- **Content is often written from the contributor's point of view.** The GitLab documentation is
-  written by a variety of contributors. Topic types (tasks, specifically) help put
-  information into a format that is geared toward helping others, rather than
-  documenting how a feature was implemented.
+- **Content is hard to find.** The GitLab documentation is comprehensive and includes a large amount of useful information. Topic types create repeatable patterns that make the content easier to scan and parse.
+- **Content is often written from the contributor's point of view.** The GitLab documentation is written by a variety of contributors. Topic types (tasks, specifically) help put information into a format that is geared toward helping others, rather than documenting how a feature was implemented.
 
 ## Docs-first methodology
 
 The product documentation should be a complete and trusted resource.
 
-- If the answer to a question exists in documentation, share the link to the
-  documentation instead of rephrasing the information.
-- When you encounter information that's not available in GitLab documentation,
-  create a merge request (MR) to add the information to the
-  documentation. Then share the MR to communicate the information.
+- If the answer to a question exists in documentation, share the link to the documentation instead of rephrasing the information.
+- When you encounter information that's not available in GitLab documentation, create a merge request (MR) to add the information to the documentation. Then share the MR to communicate the information.
 
-The more we reflexively add information to the documentation, the more
-the documentation helps others efficiently accomplish tasks and solve problems.
+The more we reflexively add information to the documentation, the more the documentation helps others efficiently accomplish tasks and solve problems.
 
 ## Writing for localization
 
@@ -65,8 +52,7 @@ We follow guidelines that help us write for a global audience.
 Our style guide, [word list](word_list.md), and [Vale rules](../testing/_index.md) ensure consistency in the documentation.
 
 When documentation is translated into other languages, the meaning of each word must be clear.
-The increasing use of machine translation, GitLab Duo Chat, and other AI tools
-means that consistency is even more important.
+The increasing use of machine translation, GitLab Duo Chat, and other AI tools means that consistency is even more important.
 
 The following rules can help documentation be translated more efficiently.
 
@@ -83,21 +69,18 @@ Use:
 
 - Standard [text for links](#text-for-links).
 - [Lists](#lists) and [tables](#tables) instead of complex sentences and paragraphs.
-- Common abbreviations like [**AI**](word_list.md#ai-artificial-intelligence) and
-  [**CI/CD**](word_list.md#cicd) and abbreviations you've previously spelled out.
+- Common abbreviations like [**AI**](word_list.md#ai-artificial-intelligence) and [**CI/CD**](word_list.md#cicd) and abbreviations you've previously spelled out.
 
 Also, keep the following guidance in mind:
 
 - Be consistent with [feature names](#feature-names) and how to interact with them.
-- Break up noun strings. For example, instead of **project integration custom settings**,
-  use **custom settings for project integrations**.
+- Break up noun strings. For example, instead of **project integration custom settings**, use **custom settings for project integrations**.
 - Format [dates and times](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/term-collections/date-time-terms)
-  consistently and for an international audience.
+ consistently and for an international audience.
 - Use [illustrations](#illustrations), including screenshots, sparingly.
 - For [UI text](#ui-text), allow for up to 30% expansion and contraction in translation.
-  To see how much a string expands or contracts in another language, paste the string
-  into [Google Translate](https://translate.google.com/) and review the results.
-  Ask a colleague who speaks the language to verify if the translation is clear.
+ To see how much a string expands or contracts in another language, paste the string into [Google Translate](https://translate.google.com/) and review the results.
+ Ask a colleague who speaks the language to verify if the translation is clear.
 
 ## Markdown
 
@@ -124,12 +107,9 @@ HTML is permitted if:
 - The content is reviewed and approved by a technical writer.
 - The need for a custom element is urgent and cannot wait for implementation by Technical Writing engineers.
 
-Any links created with HTML `<a>` tags must use absolute URLs as their
-`href` attributes. Unlike regular links, do not use relative links to
-Markdown files, as Hugo can only process and replace Markdown-formatted links.
+Any links created with HTML `<a>` tags must use absolute URLs as their `href` attributes. Unlike regular links, do not use relative links to Markdown files, as Hugo can only process and replace Markdown-formatted links.
 
-If you have an idea or request for a new element that would be useful on the Docs site,
-submit a [feature request](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/issues/new?issuable_template=Default).
+If you have an idea or request for a new element that would be useful on the Docs site, submit a [feature request](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/issues/new?issuable_template=Default).
 
 ### Heading levels in Markdown
 
@@ -137,10 +117,9 @@ Each documentation page must include a `title` attribute in its [metadata](../me
 The `title` becomes the `H1` element when rendered to HTML.
 Do not add an `H1` heading in Markdown because there can be only one for each page.
 
-- For each subsection, increment the heading level. In other words, increment the number of `#` characters
-  in front of the topic title.
+- For each subsection, increment the heading level. In other words, increment the number of `#` characters in front of the topic title.
 - Avoid heading levels greater than `H5` (`#####`). If you need more than five heading levels, move the topics to a new page instead.
-  Heading levels greater than `H4` do not display in the right sidebar navigation.
+ Heading levels greater than `H4` do not display in the right sidebar navigation.
 - Do not skip a level. For example: `##` > `####`.
 - Leave one blank line before and after the topic title.
 - If you use code in topic titles, ensure the code is in backticks.
@@ -148,8 +127,7 @@ Do not add an `H1` heading in Markdown because there can be only one for each pa
 
 ### Description lists in Markdown
 
-To define terms or differentiate between options, use description lists. For a list of UI elements,
-use a regular [list](#lists) instead of a description list.
+To define terms or differentiate between options, use description lists. For a list of UI elements, use a regular [list](#lists) instead of a description list.
 
 Do not mix description lists with other styles.
 
@@ -163,11 +141,9 @@ Term 2
 
 These lists render like this:
 
-Term 1
-: Definition of Term 1
+Term 1 : Definition of Term 1
 
-Term 2
-: Definition of Term 2
+Term 2 : Definition of Term 2
 
 ### Shortcodes
 
@@ -176,11 +152,11 @@ Term 2
 GitLab documentation uses the following shortcodes:
 
 - [Alert boxes](#alert-boxes)
-  - Note
-  - Warning
-  - Flag
-  - Disclaimer
-  - Details
+ - Note
+ - Warning
+ - Flag
+ - Disclaimer
+ - Details
 - [Availability details](availability_details.md)
 - [Version history](availability_details.md#history)
 - [Icons](#gitlab-svg-icons)
@@ -190,8 +166,8 @@ GitLab documentation uses the following shortcodes:
 - [Collapsible panels](#collapsible-panels)
 - [Guide](#guide)
 - [Feature tables](#feature-tables)
-  - Yes
-  - No
+ - Yes
+ - No
 
 ## Language
 
@@ -218,8 +194,7 @@ In this case, use passive voice instead. For example, `The report is exported`.
 
 ### Customer perspective
 
-Focus on the functionality and benefits that GitLab brings to customer,
-rather than what GitLab has created.
+Focus on the functionality and benefits that GitLab brings to customer, rather than what GitLab has created.
 
 For example, use:
 
@@ -231,14 +206,11 @@ Instead of:
 - GitLab created the ability to let you compare code.
 - Merge requests let you compare code.
 
-Words that indicate you are not writing from a customer perspective are
-[allow and enable](word_list.md#allow-enable). Try instead to use
-[you](word_list.md#you-your-yours) and to speak directly to the user.
+Words that indicate you are not writing from a customer perspective are [allow and enable](word_list.md#allow-enable). Try instead to use [you](word_list.md#you-your-yours) and to speak directly to the user.
 
 ### Building trust
 
-Product documentation should be focused on providing clear, concise information,
-without the addition of sales or marketing text.
+Product documentation should be focused on providing clear, concise information, without the addition of sales or marketing text.
 
 - Do not use words like [easily](word_list.md#easily) or [simply](word_list.md#simply-simple).
 - Do not use marketing phrases like "This feature will save you time and money."
@@ -246,8 +218,7 @@ without the addition of sales or marketing text.
 Instead, focus on facts and achievable goals. Be specific. For example:
 
 - The build time can decrease when you use this feature.
-- Use this feature to save time when you create a project. The API creates the file and you
-  do not have to manually intervene.
+- Use this feature to save time when you create a project. The API creates the file and you do not have to manually intervene.
 
 ### Self-referential writing
 
@@ -279,14 +250,12 @@ Use sentence case for topic titles. For example:
 
 #### UI text
 
-When referring to specific user interface text, like a button label, page, tab,
-or menu item, use the same capitalization that's displayed in the user interface.
+When referring to specific user interface text, like a button label, page, tab, or menu item, use the same capitalization that's displayed in the user interface.
 
 The only exception is text that's all uppercase (for example, `RECENT FLOWS`).
 In this case, use sentence case.
 
-If you think the user interface text contains style mistakes,
-create an issue or an MR to propose a change to the user interface text.
+If you think the user interface text contains style mistakes, create an issue or an MR to propose a change to the user interface text.
 
 #### Feature names
 
@@ -294,13 +263,11 @@ Feature names should be lowercase.
 
 However, in a few rare cases, features can be title case. These exceptions are:
 
-- Added as a proper name to [markdownlint](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.markdownlint.yml),
-  so they can be consistently applied across all documentation.
+- Added as a proper name to [markdownlint](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.markdownlint.yml), so they can be consistently applied across all documentation.
 - Added to the [word list](word_list.md).
 
 If the term is not in the word list, ask a GitLab Technical Writer for advice.
-For assistance naming a feature and ensuring it meets GitLab standards, see
-[the handbook](https://handbook.gitlab.com/handbook/product/categories/gitlab-the-product/#naming-features).
+For assistance naming a feature and ensuring it meets GitLab standards, see [the handbook](https://handbook.gitlab.com/handbook/product/categories/gitlab-the-product/#naming-features).
 
 Do not match the capitalization of terms or phrases on the [Features page](https://about.gitlab.com/features/)
 or [`features.yml`](https://gitlab.com/gitlab-com/www-gitlab-com/blob/master/data/features.yml)
@@ -310,16 +277,11 @@ by default.
 
 Capitalize names of:
 
-- GitLab [product tiers](https://about.gitlab.com/pricing/). For example,
-  GitLab Free and GitLab Ultimate.
-- Third-party organizations, software, and products. For example, Prometheus,
-  Kubernetes, Git, and The Linux Foundation.
-- Methods or methodologies. For example, Continuous Integration,
-  Continuous Deployment, Scrum, and Agile.
+- GitLab [product tiers](https://about.gitlab.com/pricing/). For example, GitLab Free and GitLab Ultimate.
+- Third-party organizations, software, and products. For example, Prometheus, Kubernetes, Git, and The Linux Foundation.
+- Methods or methodologies. For example, Continuous Integration, Continuous Deployment, Scrum, and Agile.
 
-Follow the capitalization style listed at the authoritative source
-for the entity, which might use non-standard case styles. For example: GitLab and
-npm.
+Follow the capitalization style listed at the authoritative source for the entity, which might use non-standard case styles. For example: GitLab and npm.
 
 ### Fake user information
 
@@ -334,11 +296,11 @@ For screenshots:
 
 - Temporarily edit the page before you take the screenshot:
 
-  1. Right-click the text you want to change.
-  1. Select **Inspect**.
-  1. In the **Elements** dialog, edit the HTML to replace text that contains real user information with example data.
-  1. Close the dialog. All of the user data in the web page should now be replaced with the example data you entered.
-  1. Take the screenshot.
+ 1. Right-click the text you want to change.
+ 1. Select **Inspect**.
+ 1. In the **Elements** dialog, edit the HTML to replace text that contains real user information with example data.
+ 1. Close the dialog. All of the user data in the web page should now be replaced with the example data you entered.
+ 1. Take the screenshot.
 
 - Alternatively, create example accounts in a test environment, and take the screenshot there.
 - If you can't reproduce the environment, blur the user data by using an image editing tool like Preview on macOS.
@@ -349,7 +311,7 @@ When including sample URLs in the documentation, use:
 
 - `example.com` when the domain name is generic.
 - `gitlab.example.com` when referring only to GitLab Self-Managed.
-  Use `gitlab.com` for GitLab.com.
+ Use `gitlab.com` for GitLab.com.
 
 ### Fake tokens
 
@@ -363,17 +325,15 @@ Use these fake tokens as examples:
 | Application ID        | `2fcb195768c39e9a94cec2c2e32c59c0aad7a3365c10892e8116b5d83d4096b6` |
 | Application secret    | `04f294d1eaca42b8692017b426d53bbc8fe75f827734f0260710b83a556082df` |
 | CI/CD variable        | `Li8j-mLUVA3eZYjPfd_H` |
-| Project runner token  | `yrnZW46BrtBFqM7xDzE7dddd` |
+| Project runner token | `yrnZW46BrtBFqM7xDzE7dddd` |
 | Instance runner token | `6Vk7ZsosqQyfreAxXTZr` |
 | Trigger token         | `be20d8dcc028677c931e04f3871a9b` |
-| Webhook secret token  | `6XhDroRcYPM5by_h-HLY` |
+| Webhook secret token | `6XhDroRcYPM5by_h-HLY` |
 | Health check token    | `Tu7BgjR9qeZTEyRzGG2P` |
 
 ### Contractions
 
-Contractions are encouraged, and can create a friendly and informal tone,
-especially in tutorials, instructional documentation, and
-[user interfaces](https://design.gitlab.com/content/punctuation/#contractions).
+Contractions are encouraged, and can create a friendly and informal tone, especially in tutorials, instructional documentation, and [user interfaces](https://design.gitlab.com/content/punctuation/#contractions).
 
 Some contractions, however, should be avoided:
 
@@ -415,9 +375,7 @@ If you use an acronym, spell it out on first use on a page. Do not spell it out 
 
 - **Titles**: Try to avoid acronyms in topic titles, especially if the acronym is not widely used.
 - **Plurals**: Try not to make acronyms plural. For example, use `YAML files`, not `YAMLs`. If you must make an acronym plural, do not use an apostrophe. For example, use `APIs`, not `API's`.
-- **Possessives**: Use caution when making an acronym possessive. If possible,
-  write the sentence to avoid making the acronym possessive. If you must make the
-  acronym possessive, consider spelling out the words.
+- **Possessives**: Use caution when making an acronym possessive. If possible, write the sentence to avoid making the acronym possessive. If you must make the acronym possessive, consider spelling out the words.
 
 ### Numbers
 
@@ -427,30 +385,27 @@ For numbers in text, spell out zero through nine and use numbers for 10 and grea
 
 - [Write in Markdown](#markdown).
 - Insert an empty line for new paragraphs.
-- Insert an empty line between different markups (for example, after every
-  paragraph, heading, and list). Example:
+- Insert an empty line between different markups (for example, after every paragraph, heading, and list). Example:
 
-  ```markdown
-  ## Heading
+ ```markdown
+ ## Heading
 
-  Paragraph.
+ Paragraph.
 
-  - List item 1
-  - List item 2
-  ```
+ - List item 1
+ - List item 2
+ ```
 
 ### Line length
 
-To make the source content easy to read, and to compare diffs,
-follow these best practices.
+To make the source content easy to read, and to compare diffs, follow these best practices.
 
 - Split long lines at approximately 100 characters. (Exception: Do not split links.)
 - Start each new sentence on a new line.
 
 ### Comments
 
-To embed comments in Markdown, use standard HTML comments that are not rendered
-when published. Example:
+To embed comments in Markdown, use standard HTML comments that are not rendered when published. Example:
 
 ```html
 <!-- This is a comment that is not rendered -->
@@ -486,8 +441,7 @@ Do not use these punctuation characters:
 
 ### Placeholder text
 
-In a code block, you might want to provide a command or configuration that
-uses specific values.
+In a code block, you might want to provide a command or configuration that uses specific values.
 
 In these cases, use [`<` and `>`](https://en.wikipedia.org/wiki/Usage_message#Pattern)
 to call out where a reader must replace text with their own value.
@@ -498,8 +452,7 @@ For example:
 cp <your_source_directory> <your_destination_directory>
 ```
 
-If the placeholder is not in a code block, use `<` and `>` and wrap the placeholder
-in a single backtick. For example:
+If the placeholder is not in a code block, use `<` and `>` and wrap the placeholder in a single backtick. For example:
 
 ```plaintext
 Select **Grant admin consent for `<application_name>`**.
@@ -574,8 +527,7 @@ Use inline code for:
 
 - Text a user enters in the UI.
 - Short inputs and outputs like `true`, `false`, `Job succeeded`, and similar.
-- Filenames, configuration parameters, keywords, and code. For example,
-  `.gitlab-ci.yml`, `--version`, or `rules:`.
+- Filenames, configuration parameters, keywords, and code. For example, `.gitlab-ci.yml`, `--version`, or `rules:`.
 - Short error messages.
 - API and HTTP methods (`POST`).
 - HTTP status codes. Full (`404 File Not Found`) and abbreviated (`404`).
@@ -597,8 +549,7 @@ Use code blocks for:
 - CLI and [cURL commands](../restful_api_styleguide.md#curl-commands).
 - Multi-line inputs, outputs, and code samples that are too large for [inline code](#inline-code).
 
-To add a code block, add triple backticks (```` ``` ````) above and below the text,
-with a syntax name at the top for proper syntax highlighting. For example:
+To add a code block, add triple backticks (```` ``` ````) above and below the text, with a syntax name at the top for proper syntax highlighting. For example:
 
 ````markdown
 ```markdown
@@ -610,10 +561,8 @@ When you use code blocks:
 
 - Add a blank line above and below code blocks.
 - Use one of the [supported syntax names](https://gohugo.io/content-management/syntax-highlighting/#languages).
-  Use `plaintext` if no better option is available.
-- Use quadruple backticks (````` ```` `````) when the code block contains another (nested) code block
-  which has triple backticks already. The example above uses quadruple backticks internally
-  to illustrate the code block format.
+ Use `plaintext` if no better option is available.
+- Use quadruple backticks (````` ```` `````) when the code block contains another (nested) code block which has triple backticks already. The example above uses quadruple backticks internally to illustrate the code block format.
 
 To represent missing information in a code block, use a comment or an [ellipsis](word_list.md#ellipsis-ellipses). For example:
 
@@ -652,49 +601,47 @@ Instead, write content that is clear enough that emphasis is not needed. GitLab 
 Use lists to present information in a format that is easier to scan.
 
 - Make all items in the list parallel.
-  For example, do not start some items with nouns and others with verbs.
+ For example, do not start some items with nouns and others with verbs.
 - Start all items with a capital letter.
 - Give all items the same punctuation.
 - Do not use a period if the item is not a complete sentence.
 - Use a period after every complete sentence, or where the list item forms a complete sentence when combined with the introductory phrase.
-  Do not use semicolons or commas.
+ Do not use semicolons or commas.
 - Add a colon (`:`) after the introductory phrase.
-  For example:
+ For example:
 
-  ```markdown
-  The basket contains these fruits:
+ ```markdown
+ The basket contains these fruits:
 
-  - Bananas
-  - Apples
-  ```
+ - Bananas
+ - Apples
+ ```
 
 - Do not use [bold](#bold) formatting to define keywords or concepts in a list. Use bold for UI element labels only. For example:
 
-  - `**Start a review**: This a description of the button that starts a review.`
-  - `Offline environments: This is a description of offline environments.`
+ - `**Start a review**: This a description of the button that starts a review.`
+ - `Offline environments: This is a description of offline environments.`
 
-  For keywords and concepts, consider a [reference topic](../topic_types/reference.md) or
-  [description list](#description-lists-in-markdown) for alternative formatting.
+ For keywords and concepts, consider a [reference topic](../topic_types/reference.md) or [description list](#description-lists-in-markdown) for alternative formatting.
 
-- Avoid using list items to complete an introductory phrase. This format can be difficult to localize
-  into languages that use different sentence structures.
-  For example, use:
+- Avoid using list items to complete an introductory phrase. This format can be difficult to localize into languages that use different sentence structures.
+ For example, use:
 
-  ```markdown
-  You can get the license key in the following ways:
+ ```markdown
+ You can get the license key in the following ways:
 
-  - Copy the license key from the email.
-  - Download the file.
-  ```
+ - Copy the license key from the email.
+ - Download the file.
+ ```
 
-  Instead of:
+ Instead of:
 
-  ```markdown
-  You can get the license key by:
+ ```markdown
+ You can get the license key by:
 
-  - Copying it from the email.
-  - Downloading the file.
-  ```
+ - Copying it from the email.
+ - Downloading the file.
+ ```
 
 ### Choose between an ordered or unordered list
 
@@ -721,15 +668,13 @@ These things are imported:
 ### List markup
 
 - Use dashes (`-`) for unordered lists instead of asterisks (`*`).
-- Start every item in an ordered list with `1.`. When rendered, the list items
-  are sequential.
+- Start every item in an ordered list with `1.`. When rendered, the list items are sequential.
 - Leave a blank line before and after a list.
 - Begin a line with spaces (not tabs) to denote a [nested sub-item](#nesting-inside-a-list-item).
 
 ### Nesting inside a list item
 
-The following items can be nested under a list item, so they render with the same
-indentation as the list item:
+The following items can be nested under a list item, so they render with the same indentation as the list item:
 
 - [Code blocks](#code-blocks)
 - [Blockquotes](#blockquotes)
@@ -737,29 +682,26 @@ indentation as the list item:
 - [Illustrations](#illustrations)
 - [Tabs](#tabs)
 
-Nested items should always align with the first character of the list
-item. For unordered lists (using `-`), use two spaces for each level of
-indentation:
+Nested items should always align with the first character of the list item. For unordered lists (using `-`), use two spaces for each level of indentation:
 
 ````markdown
 - Unordered list item 1
 
-  A line nested that uses 2 spaces to align with the `U` above.
+ A line nested that uses 2 spaces to align with the `U` above.
 
 - Unordered list item 2
 
-  > A quote block that will nest
-  > inside list item 2.
+ > A quote block that will nest
+ > inside list item 2.
 
 - Unordered list item 3
 
-  ```plaintext
-  a code block that nests inside list item 3
-  ```
+ ```plaintext a code block that nests inside list item 3
+ ```
 
 - Unordered list item 4
 
-  ![An image nested under list item 4.](image.png)
+ ![An image nested under list item 4.](image.png)
 ````
 
 For ordered lists, use three spaces for each level of indentation:
@@ -781,8 +723,8 @@ You can nest lists in other lists.
 
 - Unordered list item one.
 - Unordered list item two.
-  1. Nested ordered list item one.
-  1. Nested ordered list item two.
+ 1. Nested ordered list item one.
+ 1. Nested ordered list item two.
 - Unordered list item three.
 ```
 
@@ -837,45 +779,40 @@ Use guides for tutorials only. For most tasks, use an ordered list.
 
 ## Tables
 
-Tables should be used to describe complex information in a straightforward
-manner. In many cases, an unordered list is sufficient to describe a
-list of items with a single description for each item. But, if you have data
-that's best described by a matrix, tables are the best choice.
+Tables should be used to describe complex information in a straightforward manner. In many cases, an unordered list is sufficient to describe a list of items with a single description for each item. But, if you have data that's best described by a matrix, tables are the best choice.
 
 ### Creation guidelines
 
-To keep tables accessible and scannable, tables should not have any
-empty cells. If no otherwise meaningful value for a cell exists, consider entering
-**N/A** for 'not applicable' or **None**.
+To keep tables accessible and scannable, tables should not have any empty cells. If no otherwise meaningful value for a cell exists, consider entering **N/A** for 'not applicable' or **None**.
 
 To make tables easier to maintain:
 
 - If the table has a `Description` column, make it the right-most column if possible.
 - Add additional spaces to make the column widths consistent. For example:
 
-  ```markdown
-  | Parameter | Default      | Requirements |
-  |-----------|--------------|--------------|
-  | `param1`  | `true`       | A and B.     |
-  | `param2`  | `gitlab.com` | None         |
-  ```
+ ```markdown
+ | Parameter | Default      | Requirements |
+ |-----------|--------------|--------------|
+ | `param1` | `true`       | A and B.     |
+ | `param2` | `gitlab.com` | None         |
+ ```
 
 - Skip the additional spaces in the rightmost column for tables that are very wide.
-  For example:
+ For example:
 
-  ```markdown
-  | Setting   | Default | Description |
-  |-----------|---------|-------------|
-  | Setting 1 | `1000`  | A short description. |
-  | Setting 2 | `2000`  | A long description that would make the table too wide and add too much whitespace if every cell in this column was aligned. |
-  | Setting 3 | `0`     | Another short description. |
-  ```
+ ```markdown
+ | Setting   | Default | Description |
+ |-----------|---------|-------------|
+ | Setting 1 | `1000` | A short description. |
+ | Setting 2 | `2000` | A long description that would make the table too wide and add too much whitespace if every cell in this column was aligned. |
+ | Setting 3 | `0`     | Another short description. |
+ ```
 
 - The header (first) row and the delimiter (second) row of the table should be the same length.
-  Do not use shortened delimiter rows like `|-|-|-|` or `|--|--|`.
+ Do not use shortened delimiter rows like `|-|-|-|` or `|--|--|`.
 - If a large table does not auto-format well, you can skip the auto-format but:
-  - Make the first two rows the same length.
-  - Put spaces between the `|` characters and cell contents.
+ - Make the first two rows the same length.
+ - Put spaces between the `|` characters and cell contents.
     For example `| Cell 1 | Cell 2 |`, not `|Cell1|Cell2|`.
 
 ### Options for large tables
@@ -889,14 +826,13 @@ Hugo class attributes only render on the GitLab documentation site (`https://doc
 #### Condensed tables
 
 A condensed table is scrollable vertically and horizontally, as necessary, and has a restricted height.
-By default, wide tables that do not fit on the page are condensed. Long tables are not condensed. You can optionally add
-the `condensed` class attribute to reduce the space the table takes up on a page.
+By default, wide tables that do not fit on the page are condensed. Long tables are not condensed. You can optionally add the `condensed` class attribute to reduce the space the table takes up on a page.
 
 ```markdown
 | Parameter | Default      | Requirements |
 |-----------|--------------|--------------|
-| `param1`  | `true`       | A and B.     |
-| `param2`  | `gitlab.com` | None         |
+| `param1` | `true`       | A and B.     |
+| `param2` | `gitlab.com` | None         |
 {.condensed}
 ```
 
@@ -905,8 +841,8 @@ or
 ```markdown
 | Parameter | Default      | Requirements |
 |-----------|--------------|--------------|
-| `param1`  | `true`       | A and B.     |
-| `param2`  | `gitlab.com` | None         |
+| `param1` | `true`       | A and B.     |
+| `param2` | `gitlab.com` | None         |
 {class="condensed"}
 ```
 
@@ -929,42 +865,36 @@ Or:
 
 ### Editor extensions for table formatting
 
-To ensure consistent table formatting across all Markdown files, consider formatting your tables
-with the VS Code [Markdown Table Formatter](https://github.com/fcrespo82/vscode-markdown-table-formatter).
+To ensure consistent table formatting across all Markdown files, consider formatting your tables with the VS Code [Markdown Table Formatter](https://github.com/fcrespo82/vscode-markdown-table-formatter).
 To configure this extension to follow the guidelines above, turn on the **Follow header row length** setting.
 To turn on the setting:
 
 - In the UI:
 
-  1. In the VS Code menu, go to **Code** > **Settings** > **Settings**.
-  1. Search for `Limit Last Column Length`.
-  1. In the **Limit Last Column Length** dropdown list, select **Follow header row length**.
+ 1. In the VS Code menu, go to **Code** > **Settings** > **Settings**.
+ 1. Search for `Limit Last Column Length`.
+ 1. In the **Limit Last Column Length** dropdown list, select **Follow header row length**.
 
 - In your VS Code `settings.json`, add a new line with:
 
-  ```json
-  {
+ ```json
+ {
     "markdown-table-formatter.limitLastColumnLength": "Follow header row length"
-  }
-  ```
+ }
+ ```
 
-To format a table with this extension, select the entire table, right-click the selection,
-and select **Format Selection With**. Select **Markdown Table Formatter** in the VS Code Command Palette.
+To format a table with this extension, select the entire table, right-click the selection, and select **Format Selection With**. Select **Markdown Table Formatter** in the VS Code Command Palette.
 
-If you use Sublime Text, try the
-[Markdown Table Formatter](https://packagecontrol.io/packages/Markdown%20Table%20Formatter)
+If you use Sublime Text, try the [Markdown Table Formatter](https://packagecontrol.io/packages/Markdown%20Table%20Formatter)
 plugin, but it does not have a **Follow header row length** setting.
 
 ### Updates to existing tables
 
 When you add or edit rows in an existing table, some rows might not be aligned anymore.
 Don't realign the entire table if only changing a few rows.
-If you realign the columns to account for the width, the diff becomes difficult to read,
-because the entire table shows as modified.
+If you realign the columns to account for the width, the diff becomes difficult to read, because the entire table shows as modified.
 
-Markdown tables naturally fall out of alignment over time, but still render correctly
-on `docs.gitlab.com`. The technical writing team can realign cells the next time
-the page is refactored.
+Markdown tables naturally fall out of alignment over time, but still render correctly on `docs.gitlab.com`. The technical writing team can realign cells the next time the page is refactored.
 
 ### Table headers
 
@@ -972,17 +902,15 @@ Use sentence case for table headers. For example, `Keyword value` or `Project na
 
 ### Feature tables
 
-When creating tables of lists of features (such as the features
-available to each role on the [Permissions](../../../user/permissions.md#project-permissions)
+When creating tables of lists of features (such as the features available to each role on the [Permissions](../../../user/permissions.md#project-permissions)
 page), use these shortcodes:
 
 | Option | Markdown          | Renders     | Notes |
 |--------|-------------------|-------------|-------|
-| No     | `{{</* no */>}}`  | {{< no >}}  | Renders a hidden `span` for screen readers: `<span class="gl-sr-only">no</span>` |
+| No     | `{{</* no */>}}` | {{< no >}} | Renders a hidden `span` for screen readers: `<span class="gl-sr-only">no</span>` |
 | Yes    | `{{</* yes */>}}` | {{< yes >}} | Renders a visible checkmark icon and a hidden `span` for screen readers: `<span class="gl-sr-only">yes</span>` |
 
-Do not use these shortcodes in API documentation or inline text. For API documentation, follow
-the [API topic template](../restful_api_styleguide.md#api-topic-template).
+Do not use these shortcodes in API documentation or inline text. For API documentation, follow the [API topic template](../restful_api_styleguide.md#api-topic-template).
 
 ### Footnotes
 
@@ -1033,8 +961,7 @@ The table and footnotes would render as follows:
 
 ##### Five or more footnotes
 
-If you have five or more footnotes that you cannot include in the table itself,
-use consecutive numbers for the list items.
+If you have five or more footnotes that you cannot include in the table itself, use consecutive numbers for the list items.
 If you use consecutive numbers, you must disable Markdown rule `029`:
 
 ```markdown
@@ -1070,23 +997,22 @@ Too many links can hinder readability.
 
 ### Inline links
 
-Use inline links instead of reference links. Inline links are easier to parse
-and edit.
+Use inline links instead of reference links. Inline links are easier to parse and edit.
 ([Vale](../testing/vale.md) rule: [`ReferenceLinks.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/.vale/gitlab_docs/ReferenceLinks.yml))
 
 - Do:
 
-  ```markdown
-  For more information, see [merge requests](path/to/merge_requests.md)
-  ```
+ ```markdown
+ For more information, see [merge requests](path/to/merge_requests.md)
+ ```
 
 - Don't:
 
-  ```markdown
-  For more information, see [merge requests][1].
+ ```markdown
+ For more information, see [merge requests][1].
 
-  [1]: path/to/merge_requests.md
-  ```
+ [1]: path/to/merge_requests.md
+ ```
 
 ### Links in the same repository
 
@@ -1098,8 +1024,7 @@ To link to another documentation (`.md`) file in the same repository:
 > [!note]
 > In the GitLab repository, do not link to the `/development` directory from any other directory.
 
-To link to a file outside of the documentation files, for example to link from development
-documentation to a specific code file:
+To link to a file outside of the documentation files, for example to link from development documentation to a specific code file:
 
 - Use a full URL. For example: ``[`app/views/help/show.html.haml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/views/help/show.html.haml)``
 - Optional. Use a full URL with a specific ref. For example: ``[`app/views/help/show.html.haml`](https://gitlab.com/gitlab-org/gitlab/-/blob/6d01aa9f1cfcbdfa88edf9d003bd073f1a6fff1d/app/views/help/show.html.haml)``
@@ -1107,13 +1032,11 @@ documentation to a specific code file:
 ### Links in separate repositories
 
 To link to a page in a different repository, use a full URL.
-For example, to link from a page in the GitLab repository to the Charts repository,
-use a URL like `[GitLab Charts documentation](https://docs.gitlab.com/charts/)`.
+For example, to link from a page in the GitLab repository to the Charts repository, use a URL like `[GitLab Charts documentation](https://docs.gitlab.com/charts/)`.
 
 ### Anchor links
 
-Each topic title has an anchor link. For example, a topic with the title
-`## This is an example` has the anchor `#this-is-an-example`.
+Each topic title has an anchor link. For example, a topic with the title `## This is an example` has the anchor `#this-is-an-example`.
 
 When you change topic title text, the anchor link changes. To avoid broken links:
 
@@ -1122,11 +1045,9 @@ When you change topic title text, the anchor link changes. To avoid broken links
 
 #### Changing links and titles
 
-When you change a topic title, the anchor link changes. If other documentation pages
-or code files link to this anchor, [pipeline jobs could fail](../testing/_index.md).
+When you change a topic title, the anchor link changes. If other documentation pages or code files link to this anchor, [pipeline jobs could fail](../testing/_index.md).
 
-Consider [running the link checks locally](../testing/links.md) before pushing your changes
-to prevent failing pipelines.
+Consider [running the link checks locally](../testing/links.md) before pushing your changes to prevent failing pipelines.
 
 ### Text for links
 
@@ -1144,8 +1065,7 @@ For example:
 - `For more information, see [merge requests](link.md).`
 - `To create a review app, see [review apps](link.md).`
 
-To expand on this text, use phrases like
-`For more information about this feature, see...`
+To expand on this text, use phrases like `For more information about this feature, see...`
 
 Do not use the following constructions:
 
@@ -1156,8 +1076,7 @@ Do not use the following constructions:
 
 #### Descriptive text rather than `here`
 
-Use descriptive text for links, rather than words like `here` or `this page.`
-For the name of a topic or page, use lowercase.
+Use descriptive text for links, rather than words like `here` or `this page.` For the name of a topic or page, use lowercase.
 You don't have to match the text to the topic or page name exactly.
 Edit the text to be descriptive and fit the guidelines.
 
@@ -1195,8 +1114,7 @@ For each external link you add, weigh the customer benefit with the maintenance 
 
 ### Links to handbook
 
-Limit links to the handbook. Some links are unavoidable, like licensing terms, data usage and access policies,
-testing agreements, and terms and conditions.
+Limit links to the handbook. Some links are unavoidable, like licensing terms, data usage and access policies, testing agreements, and terms and conditions.
 
 ### Confidential or restricted access links
 
@@ -1205,7 +1123,7 @@ Don't link directly to:
 - [Confidential issues](../../../user/project/issues/confidential_issues.md).
 - Internal handbook pages.
 - Project features that require [special permissions](../../../user/permissions.md)
-  to view.
+ to view.
 
 These links fail for:
 
@@ -1220,20 +1138,18 @@ If you must use one of these links:
 
 Examples:
 
-- ```markdown
-  GitLab team members can view more information in this confidential issue:
-  `https://gitlab.com/gitlab-org/gitlab/-/issues/<issue_number>`
-  ```
+- ```markdown GitLab team members can view more information in this confidential issue:
+ `https://gitlab.com/gitlab-org/gitlab/-/issues/<issue_number>`
+ ```
 
 - ```markdown
-  GitLab team members can view more information in this internal handbook page:
-  `https://internal.gitlab.com/handbook/<link>`
-  ```
+ GitLab team members can view more information in this internal handbook page:
+ `https://internal.gitlab.com/handbook/<link>`
+ ```
 
-- ```markdown
-  Users with the Maintainer role for the project can use the pipeline editor:
-  `https://gitlab.com/gitlab-org/gitlab/-/ci/editor`
-  ```
+- ```markdown Users with the Maintainer role for the project can use the pipeline editor:
+ `https://gitlab.com/gitlab-org/gitlab/-/ci/editor`
+ ```
 
 ### Link to specific lines of code
 
@@ -1255,13 +1171,13 @@ document to ensure it links to the most recent version of the file.
 When documenting how to navigate the GitLab UI:
 
 - Always use location, then action.
-  - From the **Visibility** dropdown list (location), select **Public** (action).
+ - From the **Visibility** dropdown list (location), select **Public** (action).
 - Be brief and specific. For example:
-  - Do: Select **Save**.
-  - Do not: Select **Save** for the changes to take effect.
+ - Do: Select **Save**.
+ - Do not: Select **Save** for the changes to take effect.
 - If a step must include a reason, start the step with it. This helps the user scan more quickly.
-  - Do: To view the changes, in the merge request, select the link.
-  - Do not: Select the link in the merge request to view the changes.
+ - Do: To view the changes, in the merge request, select the link.
+ - Do not: Select the link in the merge request to view the changes.
 
 ### Names for UI elements
 
@@ -1452,9 +1368,9 @@ or how they should interact with the application. Use illustrations sparingly be
 If you must use illustrations in documentation, they should:
 
 - Supplement the text, not replace it.
-  The reader should not have to rely only on the illustration to get the needed information.
+ The reader should not have to rely only on the illustration to get the needed information.
 - Have an introductory sentence in the preceding text.
-  For example, `The following diagram illustrates the product analytics flow:`.
+ For example, `The following diagram illustrates the product analytics flow:`.
 - Be accessible. For more information, see the guidelines specific to screenshots and diagrams.
 - Exclude personally identifying information.
 
@@ -1468,24 +1384,24 @@ can't be conveyed in text.
 When you take screenshots:
 
 - Ensure the content in the screenshot adheres to the
-  [GitLab SAFE framework](https://handbook.gitlab.com/handbook/legal/safe-framework/). To check,
-  follow the
-  [SAFE flowchart](https://handbook.gitlab.com/handbook/legal/safe-framework/#safe-flowchart).
+ [GitLab SAFE framework](https://handbook.gitlab.com/handbook/legal/safe-framework/). To check,
+ follow the
+ [SAFE flowchart](https://handbook.gitlab.com/handbook/legal/safe-framework/#safe-flowchart).
 - **Ensure it provides value.** Don't use `lorem ipsum` text.
-  Try to replicate how the feature would be used in a real-world scenario, and
-  [use realistic text](#fake-user-information).
+ Try to replicate how the feature would be used in a real-world scenario, and
+ [use realistic text](#fake-user-information).
 - **Capture only the relevant UI.** Don't include unnecessary white
-  space or areas of the UI that don't help illustrate the point. The
-  sidebars in GitLab can change, so don't include
-  them in screenshots unless absolutely necessary.
+ space or areas of the UI that don't help illustrate the point. The
+ sidebars in GitLab can change, so don't include
+ them in screenshots unless absolutely necessary.
 - **Keep it small.** If you don't have to show the full width of the screen, don't.
-  Reduce the size of your browser window as much as possible to keep elements close
-  together and reduce empty space. Try to keep the screenshot dimensions as small as possible.
+ Reduce the size of your browser window as much as possible to keep elements close
+ together and reduce empty space. Try to keep the screenshot dimensions as small as possible.
 - **Review how the image renders on the page.** Preview the image locally or use the
-  review app in the merge request. Make sure the image isn't blurry or overwhelming.
+ review app in the merge request. Make sure the image isn't blurry or overwhelming.
 - **Be consistent.** Coordinate screenshots with the other screenshots already on
-  a documentation page for a consistent reading experience. Ensure your navigation theme
-  is set to the default preference **Neutral** and the syntax highlighting theme is also set to the default preference **Light**.
+ a documentation page for a consistent reading experience. Ensure your navigation theme
+ is set to the default preference **Neutral** and the syntax highlighting theme is also set to the default preference **Light**.
 
 #### Add callouts
 
@@ -1501,23 +1417,23 @@ To emphasize an area in a screenshot, use an arrow.
 #### Image requirements
 
 - Resize any wide or tall screenshots.
-  - Width should be 1000 pixels or less.
-  - Height should be 500 pixels or less.
-  - Make sure the screenshot is still clear after being resized and compressed.
+ - Width should be 1000 pixels or less.
+ - Height should be 500 pixels or less.
+ - Make sure the screenshot is still clear after being resized and compressed.
 - Use PNG images instead of JPEG.
 - All images **must** be [compressed](#compress-images) to 100 KB or less.
-  In many cases, 25-50 KB or less is often possible without reducing image quality.
+ In many cases, 25-50 KB or less is often possible without reducing image quality.
 - Save the image with a lowercase filename that's descriptive of the feature
-  or concept in the image:
-  - If the image is of the GitLab interface, append the GitLab version to the filename,
+ or concept in the image:
+ - If the image is of the GitLab interface, append the GitLab version to the filename,
     based on this format: `image_name_vX_Y.png`. For example, for a screenshot taken
     from the pipelines page of GitLab 11.1, a valid name is `pipelines_v11_1.png`.
-  - If you're adding an illustration that doesn't include parts of the user interface,
+ - If you're adding an illustration that doesn't include parts of the user interface,
     add the release number corresponding to the release the image was added to.
     For an MR added to 11.1's milestone, a valid name for an illustration is `devops_diagram_v11_1.png`.
 - Place images in a separate directory named `img/` in the same directory where
-  the `.md` document that you're working on is located.
-  - Do not link to externally-hosted images. Download a copy and store it in the appropriate `img` directory within the docs directory.
+ the `.md` document that you're working on is located.
+ - Do not link to externally-hosted images. Download a copy and store it in the appropriate `img` directory within the docs directory.
 - Compress GIFs with <https://ezgif.com/optimize> or similar tool.
 
 See also how to link and embed [videos](#videos) to illustrate the documentation.
@@ -1534,7 +1450,7 @@ instructions for your OS.
 You can compress images automatically or manually:
 
 - For automatic compression on macOS, see
-  [One simple trick to make your screenshots 80% smaller](https://about.gitlab.com/blog/2020/01/30/simple-trick-for-smaller-screenshots/).
+ [One simple trick to make your screenshots 80% smaller](https://about.gitlab.com/blog/2020/01/30/simple-trick-for-smaller-screenshots/).
 - For manual compression, use the [`pngquant` script](https://gitlab.com/gitlab-org/gitlab/-/blob/master/bin/pngquant).
 
 To use the `pngquant` script, in the root directory of your local copy of `https://gitlab.com/gitlab-org/gitlab`,
@@ -1542,27 +1458,23 @@ run the following commands as needed:
 
 - To check that all documentation PNG images are compressed:
 
-  ```shell
-  bin/pngquant lint
-  ```
+ ```shell bin/pngquant lint
+ ```
 
 - To compress all documentation PNG images:
 
-  ```shell
-  bin/pngquant compress
-  ```
+ ```shell bin/pngquant compress
+ ```
 
 - To compress specific files:
 
-  ```shell
-  bin/pngquant compress doc/user/img/award_emoji_select.png doc/user/img/markdown_logo.png
-  ```
+ ```shell bin/pngquant compress doc/user/img/award_emoji_select.png doc/user/img/markdown_logo.png
+ ```
 
 - To compress all PNG files in a specific directory:
 
-  ```shell
-  bin/pngquant compress doc/user/img
-  ```
+ ```shell bin/pngquant compress doc/user/img
+ ```
 
 ##### Convert image files to PNG format
 
@@ -1575,30 +1487,27 @@ Prerequisites:
 
 - Install GraphicsMagick:
 
-  ```shell
-  # macOS:
-  brew install graphicsmagick
-  ```
+ ```shell
+ # macOS:
+ brew install graphicsmagick
+ ```
 
 To convert image files to PNG format:
 
 1. Check the file format:
 
-   ```shell
-   file doc/user/img/problematic_file.png
+   ```shell file doc/user/img/problematic_file.png
    ```
 
    The `file` command examines the file contents (magic bytes/headers) rather than
    the extension. A misnamed JPEG file shows:
 
-   ```shell
-   doc/user/img/problematic_file.png: JPEG image data, JFIF standard 1.01...
+   ```shell doc/user/img/problematic_file.png: JPEG image data, JFIF standard 1.01...
    ```
 
 1. Convert the file to PNG format using GraphicsMagick:
 
-   ```shell
-   gm convert problematic_file.png corrected_file.png
+   ```shell gm convert problematic_file.png corrected_file.png
    ```
 
 1. Run the compression script again.
@@ -1654,19 +1563,19 @@ Do not:
 When writing alt text:
 
 - Write short, descriptive alt text in 155 characters or fewer.
-  Screen readers typically stop reading after this many characters.
+ Screen readers typically stop reading after this many characters.
 - If the image has complex information like a workflow diagram, use short alt text
-  to identify the image and include detailed information in the text.
+ to identify the image and include detailed information in the text.
 - Use a period at the end of the string, whether it's a sentence or not.
 - Use sentence case and avoid all caps.
-  Some screen readers read capitals as individual letters.
+ Some screen readers read capitals as individual letters.
 - Do not use phrases like **Image of** or **Graphic of**.
 - Do not use a string of keywords.
-  Include keywords in the text to enhance context.
+ Include keywords in the text to enhance context.
 - Introduce the image in the topic, not the alt text.
 - Try to avoid repeating text you've already used in the topic.
 - Do not use inline styling like bold, italics, or backticks.
-  Screen readers read `**text**` as `star star text star star`.
+ Screen readers read `**text**` as `star star text star star`.
 - Use an empty alt text tag (`alt=""`) instead of omitting the tag altogether when the image does not add any unique information to the page. For example, when the image is decorative or is already fully described in the body text or caption. An empty alt tag tells assistive technologies that you have omitted the text intentionally, while a missing alt tag is ambiguous.
 
 #### Automatic screenshot generator
@@ -1688,21 +1597,16 @@ To add an additional screenshot generator:
 1. In the `spec/docs_screenshots` directory, add a new file with a `_docs.rb` extension.
 1. Add the following information to your file:
 
-   ```ruby
-   require 'spec_helper'
+   ```ruby require 'spec_helper'
 
-   RSpec.describe '<What I am taking screenshots of>', :js do
-     include DocsScreenshotHelpers # Helper that enables the screenshots taking mechanism
+   RSpec.describe '<What I am taking screenshots of>', :js do include DocsScreenshotHelpers # Helper that enables the screenshots taking mechanism
 
-     before do
-       page.driver.browser.manage.window.resize_to(1366, 1024) # length and width of the page
-     end
+     before do page.driver.browser.manage.window.resize_to(1366, 1024) # length and width of the page end
    ```
 
 1. To each `it` block, add the path where the screenshot is saved:
 
-   ```ruby
-   it '<path/to/images/directory>'
+   ```ruby it '<path/to/images/directory>'
    ```
 
 You can take a screenshot of a page with `visit <path>`.
@@ -1714,12 +1618,8 @@ You can take a screenshot of a single element.
 
 - Add the following to your screenshot generator file:
 
-  ```ruby
-  screenshot_area = find('<element>') # Find the element
-  scroll_to screenshot_area # Scroll to the element
-  expect(screenshot_area).to have_content '<content>' # Wait for the content you want to capture
-  set_crop_data(screenshot_area, <padding>) # Capture the element with added padding
-  ```
+ ```ruby screenshot_area = find('<element>') # Find the element scroll_to screenshot_area # Scroll to the element expect(screenshot_area).to have_content '<content>' # Wait for the content you want to capture set_crop_data(screenshot_area, <padding>) # Capture the element with added padding
+ ```
 
 Use `spec/docs_screenshots/container_registry_docs.rb` as a guide to create your own scripts.
 
@@ -1753,19 +1653,19 @@ To create accessible and maintainable diagrams, follow these guidelines:
 
 - Keep diagrams simple and focused. Include only essential elements and information.
 - Use only shapes to distinguish between elements. Do not use color to differentiate elements, as
-  diagrams must be compatible with both light and dark modes.
+ diagrams must be compatible with both light and dark modes.
 
-  Recommended shapes are:
-  - Rectangles for processes or steps.
-  - Diamonds for decision points.
-  - Solid lines for direct relationships between elements.
-  - Dotted lines for indirect relationship between elements.
-  - Arrows for flow or direction in a process.
+ Recommended shapes are:
+ - Rectangles for processes or steps.
+ - Diamonds for decision points.
+ - Solid lines for direct relationships between elements.
+ - Dotted lines for indirect relationship between elements.
+ - Arrows for flow or direction in a process.
 
 - Shapes that represent the same element should have the same shape and size.
 - Add clear labels and brief descriptions to diagram elements.
 - For elements that have text, ensure adequate white space exists between the text and the
-  shape's outline. If required, increase the size of the shape and **all** similar shapes in the diagram.
+ shape's outline. If required, increase the size of the shape and **all** similar shapes in the diagram.
 - Include a title and brief description for the diagram.
 - Use GitLab Sans font for text, or Google Inter font as a fallback option.
 - For complex processes, consider creating multiple simple diagrams instead of one large diagram.
@@ -1787,16 +1687,13 @@ To create a diagram for GitLab documentation with Mermaid:
 1. To add GitLab font styling to your diagram, between the Mermaid code block declaration
    and the type of diagram, add the following line:
 
-   ```plaintext
-   %%{init: { "fontFamily": "GitLab Sans" }}%%
+   ```plaintext %%{init: { "fontFamily": "GitLab Sans" }}%%
    ```
 
 1. On the next line after declaring the type of diagram
-  (like `flowchart` or `sequenceDiagram`), add the following lines for accessibility:
+ (like `flowchart` or `sequenceDiagram`), add the following lines for accessibility:
 
-   ```yaml
-   accTitle: your diagram title here
-   accDescr: describe what your diagram does in a single sentence, with no line breaks.
+   ```yaml accTitle: your diagram title here accDescr: describe what your diagram does in a single sentence, with no line breaks.
    ```
 
    Make sure the title and description follow the [alternative text guidelines](#alternative-text).
@@ -1833,9 +1730,9 @@ create with Mermaid. The following rules are an addition to the general
 Fonts:
 
 - Use the Inter font for all text. This font is not included in the default fonts.
-  To add Inter font as a custom font:
-  1. From the font dropdown list, select **Custom**.
-  1. Select **Google fonts** and in the **Font name** text box, enter `Inter`.
+ To add Inter font as a custom font:
+ 1. From the font dropdown list, select **Custom**.
+ 1. Select **Google fonts** and in the **Font name** text box, enter `Inter`.
 
 Shapes:
 
@@ -1957,10 +1854,10 @@ To embed a video:
 ```html
 leave a blank line here
 <div class="video-fallback">
-  See the video: <a href="https://www.youtube.com/watch?v=MqL6BMOySIQ">Video title</a>.
+ See the video: <a href="https://www.youtube.com/watch?v=MqL6BMOySIQ">Video title</a>.
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/MqL6BMOySIQ" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/MqL6BMOySIQ" frameborder="0" allowfullscreen> </iframe>
 </figure>
 <!-- Video published on YYYY-MM-DD -->
 leave a blank line here
@@ -1969,22 +1866,22 @@ leave a blank line here
 This is how it renders on the GitLab documentation site:
 
 <div class="video-fallback">
-  See the video: <a href="https://www.youtube.com/watch?v=enMumwvLAug">What is GitLab</a>.
+ See the video: <a href="https://www.youtube.com/watch?v=enMumwvLAug">What is GitLab</a>.
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/MqL6BMOySIQ" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/MqL6BMOySIQ" frameborder="0" allowfullscreen> </iframe>
 </figure>
 
 With this formatting:
 
 - The `figure` tag is required for semantic SEO and the `video-container`
-  class is necessary to make sure the video is responsive and displays on
-  different mobile devices.
+ class is necessary to make sure the video is responsive and displays on
+ different mobile devices.
 - The `<div class="video-fallback">` is a fallback necessary for
-  `/help`, because the GitLab Markdown processor doesn't support iframes. It's
-  hidden on the documentation site, but is displayed by `/help`.
+ `/help`, because the GitLab Markdown processor doesn't support iframes. It's
+ hidden on the documentation site, but is displayed by `/help`.
 - The `www.youtube-nocookie.com` domain enables the [Privacy Enhanced Mode](https://support.google.com/youtube/answer/171780?hl=en#zippy=%2Cturn-on-privacy-enhanced-mode)
-  of the YouTube embedded player. This mode allows users with restricted cookie preferences to view embedded videos.
+ of the YouTube embedded player. This mode allows users with restricted cookie preferences to view embedded videos.
 
 ## Link to click-through demos
 
@@ -2136,7 +2033,7 @@ For tab titles, be brief and consistent. Ensure they are parallel, and start eac
 For example:
 
 - `Linux package (Omnibus)`, `Helm chart (Kubernetes)` (when documenting configuration edits, follow the
-  [configuration edits guide](#how-to-document-different-installation-methods))
+ [configuration edits guide](#how-to-document-different-installation-methods))
 - `15.1 and earlier`, `15.2 and later`
 
 Until we implement automated testing for broken links to tabs, do not link directly to a single tab.
@@ -2315,7 +2212,7 @@ GitLab, or restart GitLab. In this case:
 - Use the appropriate syntax highlighting for each code block (`ruby`, `shell`, or `yaml`).
 - For the YAML files, always include the parent settings.
 - The final step to reconfigure or restart GitLab can be used verbatim because it's
-  the same every time.
+ the same every time.
 
 When describing a configuration edit, use this snippet, editing it as needed:
 
@@ -2417,14 +2314,12 @@ It renders as:
 
 1. Edit `/etc/gitlab/gitlab.rb`:
 
-   ```ruby
-   external_url "https://gitlab.example.com"
+   ```ruby external_url "https://gitlab.example.com"
    ```
 
 1. Save the file and reconfigure GitLab:
 
-   ```shell
-   sudo gitlab-ctl reconfigure
+   ```shell sudo gitlab-ctl reconfigure
    ```
 
 {{< /tab >}}
@@ -2433,14 +2328,12 @@ It renders as:
 
 1. Export the Helm values:
 
-   ```shell
-   helm get values gitlab > gitlab_values.yaml
+   ```shell helm get values gitlab > gitlab_values.yaml
    ```
 
 1. Edit `gitlab_values.yaml`:
 
-   ```yaml
-   global:
+   ```yaml global:
      hosts:
        gitlab:
          name: gitlab.example.com
@@ -2448,8 +2341,7 @@ It renders as:
 
 1. Save the file and apply the new values:
 
-   ```shell
-   helm upgrade -f gitlab_values.yaml gitlab gitlab/gitlab
+   ```shell helm upgrade -f gitlab_values.yaml gitlab gitlab/gitlab
    ```
 
 {{< /tab >}}
@@ -2458,19 +2350,15 @@ It renders as:
 
 1. Edit `docker-compose.yml`:
 
-   ```yaml
-   version: "3.6"
-   services:
+   ```yaml version: "3.6" services:
      gitlab:
        environment:
-         GITLAB_OMNIBUS_CONFIG: |
-           external_url "https://gitlab.example.com"
+         GITLAB_OMNIBUS_CONFIG: | external_url "https://gitlab.example.com"
    ```
 
 1. Save the file and restart GitLab:
 
-   ```shell
-   docker compose up -d
+   ```shell docker compose up -d
    ```
 
 {{< /tab >}}
@@ -2479,20 +2367,16 @@ It renders as:
 
 1. Edit `/home/git/gitlab/config/gitlab.yml`:
 
-   ```yaml
-   production: &base
-     gitlab:
+   ```yaml production: &base gitlab:
        host: "gitlab.example.com"
    ```
 
 1. Save the file and restart GitLab:
 
    ```shell
-   # For systems running systemd
-   sudo systemctl restart gitlab.target
+   # For systems running systemd sudo systemctl restart gitlab.target
 
-   # For systems running SysV init
-   sudo service gitlab restart
+   # For systems running SysV init sudo service gitlab restart
    ```
 
 {{< /tab >}}

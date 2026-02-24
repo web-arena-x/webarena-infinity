@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408832325402-Authenticati
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Team, Professional, or Enterprise |
 
-Location:  Dashboard > Settings > Security
+Location: Dashboard > Settings > Security
 
 This article only applies if you have Zendesk Chat Phase 4. See [Determining your Zendesk Chat account version](https://support.zendesk.com/hc/en-us/articles/4408836197658#topic_cxd_svd_4fb). If you're on a previous version, authentication is managed in Zendesk Support. For details, see [Global security and sign-in resources](https://support.zendesk.com/hc/en-us/articles/4408887485210).
 

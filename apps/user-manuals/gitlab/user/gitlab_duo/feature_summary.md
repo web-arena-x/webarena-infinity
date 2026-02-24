@@ -31,8 +31,7 @@ The following features are part of the GitLab Duo Agent Platform.
 The following features are generally available on GitLab.com, GitLab Self-Managed, and GitLab Dedicated.
 They require a Premium or Ultimate subscription and one of the available add-ons.
 
-The GitLab Duo with Amazon Q features are available as a separate add-on, and
-are available on GitLab Self-Managed only.
+The GitLab Duo with Amazon Q features are available as a separate add-on, and are available on GitLab Self-Managed only.
 
 | Feature | GitLab Duo Core | GitLab Duo Pro | GitLab Duo Enterprise | GitLab Duo with Amazon Q |
 |---------|----------|---------|----------------|--------------------------|
@@ -72,14 +71,11 @@ They require a Premium or Ultimate subscription and the GitLab Duo Enterprise ad
 
 Your organization can self-host your language models.
 
-To learn which GitLab Duo features are available with GitLab Duo Self-Hosted,
-see the
-[supported features list](../../administration/gitlab_duo_self_hosted/_index.md#supported-gitlab-duo-features).
+To learn which GitLab Duo features are available with GitLab Duo Self-Hosted, see the [supported features list](../../administration/gitlab_duo_self_hosted/_index.md#supported-gitlab-duo-features).
 
 ## Amazon Q Developer Pro included with GitLab Duo With Amazon Q
 
-License credits for [Amazon Q Developer Pro](https://aws.amazon.com/q/developer/) are included
-with a subscription to GitLab Duo with Amazon Q.
+License credits for [Amazon Q Developer Pro](https://aws.amazon.com/q/developer/) are included with a subscription to GitLab Duo with Amazon Q.
 
 This subscription includes access to agentic chat and command-line tools, including:
 

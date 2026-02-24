@@ -40,8 +40,8 @@ DELETE /projects/:id/pages
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/2/pages"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/2/pages"
 ```
 
 ## Get Pages settings for a project
@@ -68,8 +68,7 @@ Supported attributes:
 | --------- | -------------- | -------- | ---------------------------------------- |
 | `id`      | integer or string | Yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
 
-If successful, returns [`200`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute                                 | Type       | Description                                                                                                                  |
 | ----------------------------------------- | ---------- | -----------------------                                                                                                      |
@@ -90,18 +89,18 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/2/pages"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/2/pages"
 ```
 
 Example response:
 
 ```json
 {
-  "url": "http://html-root-4160ce5f0e9a6c90ccb02755b7fc80f5a2a09ffbb1976cf80b653.pages.gdk.test:3010",
-  "is_unique_domain_enabled": true,
-  "force_https": false,
-  "deployments": [
+ "url": "http://html-root-4160ce5f0e9a6c90ccb02755b7fc80f5a2a09ffbb1976cf80b653.pages.gdk.test:3010",
+ "is_unique_domain_enabled": true,
+ "force_https": false,
+ "deployments": [
     {
       "created_at": "2024-01-05T18:58:14.916Z",
       "url": "http://html-root-4160ce5f0e9a6c90ccb02755b7fc80f5a2a09ffbb1976cf80b653.pages.gdk.test:3010/",
@@ -114,8 +113,8 @@ Example response:
       "path_prefix": "mr3",
       "root_directory": null
     }
-  ],
-  "primary_domain": null
+ ],
+ "primary_domain": null
 }
 ```
 
@@ -147,8 +146,7 @@ Supported attributes:
 | `pages_https_only`              | boolean        | No       | Whether to force HTTPs                                                                                              |
 | `pages_primary_domain`          | string         | No       | Set the primary domain from the existing assigned domains to redirect all Pages requests to. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/481334) in GitLab 17.8. |
 
-If successful, returns [`200`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute                                 | Type       | Description                                                                                                                  |
 | ----------------------------------------- | ---------- | -----------------------                                                                                                      |
@@ -169,21 +167,21 @@ Example request:
 
 ```shell
 curl --request PATCH \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/:id/pages" \
-  --form 'pages_unique_domain_enabled=true' \
-  --form 'pages_https_only=true' \
-  --form 'pages_primary_domain=https://custom.example.com'
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/:id/pages" \
+ --form 'pages_unique_domain_enabled=true' \
+ --form 'pages_https_only=true' \
+ --form 'pages_primary_domain=https://custom.example.com'
 ```
 
 Example response:
 
 ```json
 {
-  "url": "http://html-root-4160ce5f0e9a6c90ccb02755b7fc80f5a2a09ffbb1976cf80b653.pages.gdk.test:3010",
-  "is_unique_domain_enabled": true,
-  "force_https": false,
-  "deployments": [
+ "url": "http://html-root-4160ce5f0e9a6c90ccb02755b7fc80f5a2a09ffbb1976cf80b653.pages.gdk.test:3010",
+ "is_unique_domain_enabled": true,
+ "force_https": false,
+ "deployments": [
     {
       "created_at": "2024-01-05T18:58:14.916Z",
       "url": "http://html-root-4160ce5f0e9a6c90ccb02755b7fc80f5a2a09ffbb1976cf80b653.pages.gdk.test:3010/",
@@ -196,7 +194,7 @@ Example response:
       "path_prefix": "mr3",
       "root_directory": null
     }
-  ],
-  "primary_domain": null
+ ],
+ "primary_domain": null
 }
 ```

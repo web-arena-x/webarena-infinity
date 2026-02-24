@@ -41,7 +41,7 @@ Expense categories are templates for reimbursable expenses a firm has for a part
 5. Name your activity category. You can use the name to easily identify the category in a list. The name will also show in a bill.
 6. Enter the rate for the expense category.
 7. Under **Permission groups**, search for permission groups and users specific to your firm. Only these groups and users will have access to this activity category. If you do not enter any group or name, all firm users will be able to use the activity category.
-8. Under **Tax rate**, choose how you want tax to be associated with this category The selected tax option will be applied to all expense entries created under this category.  
+8. Under **Tax rate**, choose how you want tax to be associated with this category The selected tax option will be applied to all expense entries created under this category. 
    - You can choose to not apply any tax or apply your primary tax, your secondary tax, or both your primary and secondary tax rates. Learn more about setting up tax rates [here](https://help.clio.com/hc/en-us/articles/9285437408667).
    - If you select **Use tax applied to invoice** or if you do not select any option, expenses created under this category will inherit the tax setting chosen when generating a bill.
 9. Click **Save category**.

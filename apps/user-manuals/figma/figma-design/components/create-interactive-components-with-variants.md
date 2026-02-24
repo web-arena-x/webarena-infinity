@@ -43,7 +43,7 @@ You can only create interactive components using variants from the same componen
 Interactive components introduces a new [prototype action](https://help.figma.com/hc/en-us/articles/360040035874): **Change to**.
 
 1. Navigate to the **Prototype** tab of the right sidebar.
-2. Click the  on the frame's bounding box and drag it to the destination variant. You can also click the  in the **Interactions** section of the **Prototype** panel, set the action to **Change to**, then select the destination variant using the dropdown menu.
+2. Click the on the frame's bounding box and drag it to the destination variant. You can also click the in the **Interactions** section of the **Prototype** panel, set the action to **Change to**, then select the destination variant using the dropdown menu.
 3. Once the connection has been made, use the **Interaction** panel to adjust the trigger and action.
 
 ![](https://help.figma.com/hc/article_attachments/24732407117463)
@@ -126,10 +126,10 @@ Your prototypes likely involve interactions across multiple frames. By default, 
 
 - **State memorization**: Figma memorizes the last set variant of your interactive component.
 
-  For example, you might have an interactive component for a checkbox. If you set the interactive component to the checked variant, Figma remembers the state of that variant. This means that if you navigate away from that frame and come back to it later, the interactive component will remain in the checked state.
+ For example, you might have an interactive component for a checkbox. If you set the interactive component to the checked variant, Figma remembers the state of that variant. This means that if you navigate away from that frame and come back to it later, the interactive component will remain in the checked state.
 - **State sharing**: Figma shares states between matching interactive components. States are only shared after the component has been initially interacted with.
 
-  For example, you might have an interactive component for a checkbox, with an instance of the component on each of two frames. If you set the interactive component to the checked variant on the first frame, then navigate to the second frame, the matching component on the second frame will also be set to the checked variant.
+ For example, you might have an interactive component for a checkbox, with an instance of the component on each of two frames. If you set the interactive component to the checked variant on the first frame, then navigate to the second frame, the matching component on the second frame will also be set to the checked variant.
 
 If you don’t want to maintain states across frames, check off **Reset component state** on the **Interaction details** panel of the prototype interaction.
 

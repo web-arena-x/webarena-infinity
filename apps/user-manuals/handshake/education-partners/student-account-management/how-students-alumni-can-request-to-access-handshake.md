@@ -7,9 +7,9 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360006170614-How-Stu
 To provide equal opportunity to Handshake, students and alumni are always able to create and request an account on either the main login page or your school-specific domain:
 
 - Handshake's website
-  - <https://app.joinhandshake.com/register>
+ - <https://app.joinhandshake.com/register>
 - Your institutions specific domain page
-  - https://yourschooldomain.joinhandshake.com/register
+ - https://yourschooldomain.joinhandshake.com/register
 
 **Note**: both of these options have the same registration process.
 
@@ -49,6 +49,6 @@ For more information on creating custom request messages, refer to [How to Confi
 Depending on your school's settings and the email address they used, the student will either be:
 
 - auto-approved to connect with your institution
-  - refer to [School Settings: Details](https://support.joinhandshake.com/hc/en-us/articles/115002923087#:~:text=Auto%20approve%20students,Support%20to%20update!)for more information on this feature
+ - refer to [School Settings: Details](https://support.joinhandshake.com/hc/en-us/articles/115002923087#:~:text=Auto%20approve%20students,Support%20to%20update!)for more information on this feature
 - in the Pending Requests waiting to be approved by a career services user
-  - refer to [Processing Student & Alumni Connection Requests](https://support.joinhandshake.com/hc/en-us/articles/222262007) for more information on approving student requests
+ - refer to [Processing Student & Alumni Connection Requests](https://support.joinhandshake.com/hc/en-us/articles/222262007) for more information on approving student requests

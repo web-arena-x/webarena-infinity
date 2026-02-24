@@ -1,4 +1,4 @@
-# First Destination Survey (FDS) MBA CSEA Questions  - Part Time
+# First Destination Survey (FDS) MBA CSEA Questions - Part Time
 
 Source: https://support.joinhandshake.com/hc/en-us/articles/360041289033-First-Destination-Survey-FDS-MBA-CSEA-Questions-Part-Time
 
@@ -27,7 +27,7 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360041289033-First-D
 
 ### ***Left the Workforce***
 
-1. What are you primarily doing after graduation?  
+1. What are you primarily doing after graduation? 
    - Volunteering
    - Continuing Education
    - Military
@@ -78,13 +78,13 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360041289033-First-D
 ### ***Starting a New Business as an Owner/Founder***
 
 1. Who is your employer?
-2. What industry is your employer in?  
+2. What industry is your employer in? 
    - (Dropdown) MBACSEA industry list
 3. What city is this position located in?
 
 #### Offer Details
 
-1. What is the status of your job offer?  
+1. What is the status of your job offer? 
    - Accepted
    - Rejected
    - Pending
@@ -93,7 +93,7 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360041289033-First-D
 #### Employer Details
 
 1. Who is the employer who extended this offer?
-2. What industry is your employer in?  
+2. What industry is your employer in? 
    - (Dropdown) MBACSEA industry list
 3. What city is this position located in?
 
@@ -103,28 +103,28 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360041289033-First-D
    - Over 30 Hours a week
    - Under 30 Hours a week
 2. What is your job title?
-3. Were you already working in this position during school?  
+3. Were you already working in this position during school? 
    - Yes
    - No
 4. What date did you accept this offer?
-5. What is your job function?  
+5. What is your job function? 
    - (Dropdown) MBACSEA job functions
 
 #### Salary Details
 
 1. How are you compensated?
-2. Under how are you compensated?  
+2. Under how are you compensated? 
    - Monthly Stipend
    - Hourly Wage
    - Annual Salary
-3. Does your employer have a bonus structure?  
+3. Does your employer have a bonus structure? 
    - Yes
    - No
 4. What is the amount of your signing bonus in U.S. dollars?
 
 #### Job Source
 
-1. Do you believe that school facilitated or graduate facilitated activities helped prepare you most for the accepted job offer?  
+1. Do you believe that school facilitated or graduate facilitated activities helped prepare you most for the accepted job offer? 
    - School facilitated
      - Conversion of internship; internship obtained through school sources
      - Scheduled interviews on or off campus for full-time employment

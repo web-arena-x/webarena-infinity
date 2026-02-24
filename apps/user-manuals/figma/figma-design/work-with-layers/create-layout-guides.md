@@ -103,7 +103,7 @@ You can add a layout guide to any frame. Remember that components are also frame
 To add a layout guide:
 
 1. Select a frame.
-2. Click  **Add layout guide** in the **Layout guide** section of the right sidebar. A [uniform grid](#uniform-grid) will be applied to the frame by default.
+2. Click **Add layout guide** in the **Layout guide** section of the right sidebar. A [uniform grid](#uniform-grid) will be applied to the frame by default.
 
 To edit a layout guide, you can click on the **Layout guide settings** icon to change the layout guide type and adjust its settings.
 
@@ -118,7 +118,7 @@ As we mentioned above, you can add many layout guides to a single frame. This is
 ![Red grid with combined Column and Row layout guides for vertical and horizontal alignment on a design canvas.](https://help.figma.com/hc/article_attachments/30983720124439)
 
 1. Select the frame you would like to add another layout guide to.
-2. Click  next to **Layout guide** in the right sidebar.
+2. Click next to **Layout guide** in the right sidebar.
 3. Select the layout guide in the dropdown provided.
 4. Define any other relevant properties.
 5. Repeat to add more layout guides to the frame.
@@ -135,7 +135,7 @@ To toggle the visibility for all layout guides in a file at once:
 To hide or show a specific layout guides:
 
 1. Select the frame where the layout guide exists.
-2. From the **Layout guide** section of the right sidebar, find the layout guide you want to toggle, and click /  to show/hide it.
+2. From the **Layout guide** section of the right sidebar, find the layout guide you want to toggle, and click / to show/hide it.
 
 ## Create and apply layout guide styles
 
@@ -148,8 +148,8 @@ Once you have perfected the ideal layout guide, you can create a style to reuse 
 To create a new layout guide style:
 
 1. Select a frame in the canvas with the layout guide(s) applied.
-2. In the right sidebar, click  **Apply styles** in the **Layout guide** section.
-3. Click  **Create style**.
+2. In the right sidebar, click **Apply styles** in the **Layout guide** section.
+3. Click **Create style**.
 4. Give the layout guide style a name and description.
 5. Click **Create style**.
 
@@ -158,7 +158,7 @@ To create a new layout guide style:
 To apply a layout guide style:
 
 1. Create or select a frame in the canvas.
-2. In the right sidebar, click  **Apply styles** in the **Layout guide** section.
+2. In the right sidebar, click **Apply styles** in the **Layout guide** section.
 3. Choose a layout guide style from the list to apply it to the frame.
 
 Note: Related Components will be determined by:

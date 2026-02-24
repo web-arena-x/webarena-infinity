@@ -15,14 +15,9 @@ title: User identity
 
 GitLab integrates with a number of third party tools and protocols to better support authentication and authorization.
 
-Connect GitLab to your organization's existing identity infrastructure to centralize user
-management and enforce security policies. You can integrate with LDAP, SAML, OAuth, or SCIM
-identity providers and directory services for authentication and authorization.
+Connect GitLab to your organization's existing identity infrastructure to centralize user management and enforce security policies. You can integrate with LDAP, SAML, OAuth, or SCIM identity providers and directory services for authentication and authorization.
 
-On GitLab Self-Managed and GitLab Dedicated, administrators can integrate with identity providers
-like Active Directory, Google Workspace, or Azure AD to automatically provision users, sync group
-memberships, and enable single sign-on. GitLab.com groups can also integrate with SAML identity
-providers for centralized authentication and user provisioning.
+On GitLab Self-Managed and GitLab Dedicated, administrators can integrate with identity providers like Active Directory, Google Workspace, or Azure AD to automatically provision users, sync group memberships, and enable single sign-on. GitLab.com groups can also integrate with SAML identity providers for centralized authentication and user provisioning.
 
 Choose from multiple integration methods based on your organization's needs:
 
@@ -50,7 +45,7 @@ For more information, see the links shown on this page for each external provide
 
 | Capability                                      | GitLab.com                              | GitLab Self-Managed                       |
 |-------------------------------------------------|-----------------------------------------|------------------------------------|
-| **User Provisioning**                           | SCIM<br>SAML <sup>1</sup> | LDAP <sup>1</sup><br>SAML <sup>1</sup><br>[OmniAuth Providers](../../integration/omniauth.md#supported-providers) <sup>1</sup><br>SCIM  |
+| **User Provisioning**                           | SCIM<br>SAML <sup>1</sup> | LDAP <sup>1</sup><br>SAML <sup>1</sup><br>[OmniAuth Providers](../../integration/omniauth.md#supported-providers) <sup>1</sup><br>SCIM |
 | **User Detail Updating** (not group management) | Not Available                           | LDAP Sync                          |
 | **Authentication**                              | SAML at top-level group (1 provider)    | LDAP (multiple providers)<br>Generic OAuth 2.0<br>SAML (only 1 permitted per unique provider)<br>Kerberos<br>JWT<br>Smart card<br>[OmniAuth Providers](../../integration/omniauth.md#supported-providers) (only 1 permitted per unique provider) |
 | **Provider-to-GitLab Role Sync**                | SAML Group Sync                         | LDAP Group Sync<br>SAML Group Sync ([GitLab 15.1](https://gitlab.com/gitlab-org/gitlab/-/issues/285150) and later) |

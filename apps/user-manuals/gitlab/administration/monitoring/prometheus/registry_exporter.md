@@ -19,13 +19,12 @@ To enable it:
 1. Edit `/etc/gitlab/gitlab.rb` and enable [debug mode](https://docs.docker.com/registry/#debug) for the Registry:
 
    ```ruby
-   registry['debug_addr'] = "localhost:5001"  # localhost:5001/metrics
+   registry['debug_addr'] = "localhost:5001" # localhost:5001/metrics
    ```
 
 1. Save the file and [reconfigure GitLab](../../restart_gitlab.md#reconfigure-a-linux-package-installation)
    for the changes to take effect.
 
-Prometheus automatically begins collecting performance data from
-the registry exporter exposed under `localhost:5001/metrics`.
+Prometheus automatically begins collecting performance data from the registry exporter exposed under `localhost:5001/metrics`.
 
 [← Back to the main Prometheus page](_index.md)

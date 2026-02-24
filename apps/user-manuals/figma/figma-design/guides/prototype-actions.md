@@ -14,7 +14,7 @@ Available on [any plan](https://help.figma.com/hc/en-us/articles/360040328273).
 
 Anyone with `can edit` access to a file can create prototypes.
 
-New to Prototyping? Check out our  [Getting Started with Prototyping](guide-to-prototyping-in-figma.md) guide.
+New to Prototyping? Check out our [Getting Started with Prototyping](guide-to-prototyping-in-figma.md) guide.
 
 The action defines the next step or event in the prototype. It is the response from the interaction trigger event. For example, the action could be to **Navigate to** another frame, or open an external URL.
 

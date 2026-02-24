@@ -13,23 +13,23 @@ For steps to access templates, review [Creating and Sending Targeted Emails](htt
 ### Available Handshake Templates:
 
 - [Student Registration - Virtual Career Fair](#h_01F0V4EZZ77VWFQ7VKYK1VZSS6)
-  - Market your virtual career fair and encourage students to register. Insert the career fair's student preview links for students to easily view details and register for the fair
-  - [Direct link to Template](https://app.joinhandshake.com/edu/mass_emails/new?template=studentRegistrationVCF)
+ - Market your virtual career fair and encourage students to register. Insert the career fair's student preview links for students to easily view details and register for the fair
+ - [Direct link to Template](https://app.joinhandshake.com/edu/mass_emails/new?template=studentRegistrationVCF)
 - [Student Session Sign Up - Virtual Career Fair](#h_01F0V4FC2ZZ0B8D268AR9T027G)
-  - Encourage students to sign up for sessions at your upcoming virtual carer fair
-  - [Direct link to Template](https://app.joinhandshake.com/edu/mass_emails/new?template=studentSessionSignup)
+ - Encourage students to sign up for sessions at your upcoming virtual carer fair
+ - [Direct link to Template](https://app.joinhandshake.com/edu/mass_emails/new?template=studentSessionSignup)
 - [Register for events on Handshake](#h_01F0V30XGFD0A6JHSPC9GWG7HA)
-  - Show students how easy it is to discover and register for career fairs, on-campus events, interviews, and more on Handshake
+ - Show students how easy it is to discover and register for career fairs, on-campus events, interviews, and more on Handshake
 - [Employer “Registration Open Now”- Virtual Career Fair](#h_01F0XMQ6GFCH5QPM5522RBR2FT)
 
-  - Send outreach to your employers that registration for your fair is now open
-  - [Direct link to Template](https://app.joinhandshake.com/edu/mass_emails/new?template=employersRegistrationVCF)
+ - Send outreach to your employers that registration for your fair is now open
+ - [Direct link to Template](https://app.joinhandshake.com/edu/mass_emails/new?template=employersRegistrationVCF)
 - [Mobile Activations](#h_01F0V31VQK00FXHMEHF5KYH5XG)
-  - Prompt students to download mobile app
+ - Prompt students to download mobile app
 - [Activate your account - General](#h_01F0V347JNA1SQWG9BYNJTNKD7)
-  - Encourage all students to activate their Handshake accounts
+ - Encourage all students to activate their Handshake accounts
 - [Fraudulent Employer Information](#h_01F0V32SD90412K3F50ZTX61CD)
-  - Educate your students on the common signs for fraudulent activity in the job search process
+ - Educate your students on the common signs for fraudulent activity in the job search process
 
 ## Student Registration - Virtual Career Fair
 

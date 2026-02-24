@@ -16,7 +16,7 @@ title: Custom fields
 {{< history >}}
 
 - [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/479571) in GitLab 17.11 [with a flag](../../administration/feature_flags/_index.md) named `custom_fields_feature`.
-  Enabled on GitLab.com, GitLab Self-Managed, and GitLab Dedicated.
+ Enabled on GitLab.com, GitLab Self-Managed, and GitLab Dedicated.
 - [Generally available](https://gitlab.com/gitlab-org/gitlab/-/issues/479571) in GitLab 18.0. Feature flag `custom_fields_feature` removed.
 
 {{< /history >}}
@@ -36,14 +36,12 @@ Choose from various field types to accommodate different data requirements and p
 
 ## Configure custom fields for a group
 
-Configure custom fields for top-level groups to make them available for work items in that group,
-its subgroups, and projects.
+Configure custom fields for top-level groups to make them available for work items in that group, its subgroups, and projects.
 
 ### Create a custom field
 
 Create custom fields to capture the specific information your team needs to track.
-You can configure each field for one or more work item types, tailoring your workflow to
-your organization's requirements.
+You can configure each field for one or more work item types, tailoring your workflow to your organization's requirements.
 
 Keep these limits in mind:
 
@@ -78,8 +76,7 @@ To create a custom field:
 ### Edit a custom field
 
 Edit existing custom fields to reflect changing needs in your organization.
-You can modify a field's name, the work item types it applies to, and the available options without
-losing existing data.
+You can modify a field's name, the work item types it applies to, and the available options without losing existing data.
 
 Prerequisites:
 

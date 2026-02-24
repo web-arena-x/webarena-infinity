@@ -28,7 +28,7 @@ Candidates will not be able to apply unless there are approved jobs associated w
 
 - To remove a selected job, click the blue button **Remove** to the far right of the page.
 - If you want to create a new job to attach, click the white blue **Create a new job**.
-  - Upon clicking, you will be redirected to the job form page where you can create a new job. After creating the job, return to the interview schedule page and attach the job.
+ - Upon clicking, you will be redirected to the job form page where you can create a new job. After creating the job, return to the interview schedule page and attach the job.
 
 ![Choose](https://support.joinhandshake.com/hc/article_attachments/25995122249111)
 

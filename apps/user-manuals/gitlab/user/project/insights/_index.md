@@ -63,8 +63,7 @@ For example, a GitLab report with the key `bugsCharts` has the deep link URL `ht
 
 ### Default file
 
-GitLab reads insights from the
-[default configuration file](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/fixtures/insights/default.yml).
+GitLab reads insights from the [default configuration file](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/fixtures/insights/default.yml).
 
 Project insights are configured with the [`.gitlab/insights.yml`](#configuration) file in the project. If a project doesn't have a configuration file, it uses the [group configuration](#for-groups).
 
@@ -85,8 +84,8 @@ The following example shows a single definition that displays a report with one 
 
 ```yaml
 bugsCharts:
-  title: "Charts for bugs"
-  charts:
+ title: "Charts for bugs"
+ charts:
     - title: "Monthly bugs created"
       description: "Open bugs created per month"
       type: bar
@@ -105,15 +104,15 @@ The following example shows a complete configuration for a `.gitlab/insights.yml
 
 ```yaml
 .projectsOnly: &projectsOnly
-  projects:
+ projects:
     only:
       - 3
       - groupA/projectA
       - groupA/subgroupB/projectC
 
 bugsCharts:
-  title: "Charts for bugs"
-  charts:
+ title: "Charts for bugs"
+ charts:
     - title: "Monthly bugs created"
       description: "Open bugs created per month"
       type: bar
@@ -183,7 +182,7 @@ Use `title` to update the chart title. The title displays on the insights report
 
 ```yaml
 monthlyBugsCreated:
-  title: "Monthly bugs created"
+ title: "Monthly bugs created"
 ```
 
 #### `description`
@@ -194,8 +193,8 @@ Use `description` to add a description of the chart. The description displays ab
 
 ```yaml
 monthlyBugsCreated:
-  title: "Monthly bugs created"
-  description: "Open bugs created per month"
+ title: "Monthly bugs created"
+ description: "Open bugs created per month"
 ```
 
 #### `type`
@@ -204,7 +203,7 @@ Use `type` to define the chart type.
 
 **Supported values**:
 
-| Name  | Example: |
+| Name | Example: |
 | ----- | ------- |
 | `bar` | ![Insights example bar chart](img/insights_example_bar_chart_v11_10.png) |
 | `bar` (time series with `group_by`) | ![Insights example bar time series chart](img/insights_example_bar_time_series_chart_v11_10.png) |
@@ -217,8 +216,8 @@ The `dora` data source supports the `bar` and `line` [chart types](#type).
 
 ```yaml
 monthlyBugsCreated:
-  title: "Monthly bugs created"
-  type: bar
+ title: "Monthly bugs created"
+ type: bar
 ```
 
 #### `query`
@@ -229,10 +228,10 @@ Use `query` to define the data source and filtering conditions for the chart.
 
 ```yaml
 monthlyBugsCreated:
-  title: "Monthly bugs created"
-  description: "Open bugs created per month"
-  type: bar
-  query:
+ title: "Monthly bugs created"
+ description: "Open bugs created per month"
+ type: bar
+ query:
     data_source: issuables
     params:
       issuable_type: issue
@@ -252,10 +251,10 @@ The legacy format without the `data_source` parameter is still supported:
 
 ```yaml
 monthlyBugsCreated:
-  title: "Monthly bugs created"
-  description: "Open bugs created per month"
-  type: bar
-  query:
+ title: "Monthly bugs created"
+ description: "Open bugs created per month"
+ type: bar
+ query:
     issuable_type: issue
     issuable_state: opened
     filter_labels:
@@ -307,16 +306,15 @@ By default, the `opened` state filter is applied.
 
 Use `query.params.filter_labels` to filter by labels applied to the queried issuable.
 
-By default, no label filter is applied. All defined labels must
-be applied to the issuable for it to be selected.
+By default, no label filter is applied. All defined labels must be applied to the issuable for it to be selected.
 
 **Example**:
 
 ```yaml
 monthlyBugsCreated:
-  title: "Monthly regressions created"
-  type: bar
-  query:
+ title: "Monthly regressions created"
+ type: bar
+ query:
     data_source: issuables
     params:
       issuable_type: issue
@@ -335,9 +333,9 @@ Grouping is not applied by default.
 
 ```yaml
 weeklyBugsBySeverity:
-  title: "Weekly bugs by severity"
-  type: stacked-bar
-  query:
+ title: "Weekly bugs by severity"
+ type: stacked-bar
+ query:
     data_source: issuables
     params:
       issuable_type: issue
@@ -365,11 +363,9 @@ Use `query.group_by` to define the X-axis of the chart.
 
 Use `query.period_limit` to define how far back in time to query issuables (using the `query.period_field`).
 
-The unit is related to the value defined in `query.group_by`. For example, if you
-defined `query.group_by: 'day'`, and `query.period_limit: 365`, the chart displays data from the last 365 days.
+The unit is related to the value defined in `query.group_by`. For example, if you defined `query.group_by: 'day'`, and `query.period_limit: 365`, the chart displays data from the last 365 days.
 
-By default, default values are applied depending on the `query.group_by`
-you defined.
+By default, default values are applied depending on the `query.group_by` you defined.
 
 | `query.group_by` | Default value |
 | ---------------- | ------------- |
@@ -395,8 +391,7 @@ The `period_field` is automatically set to:
 
 {{< alert type="note" >}}
 
-Until [this bug](https://gitlab.com/gitlab-org/gitlab/-/issues/26911), is resolved,
-you may see `created_at` in place of `merged_at`. `created_at` is used instead.
+Until [this bug](https://gitlab.com/gitlab-org/gitlab/-/issues/26911), is resolved, you may see `created_at` in place of `merged_at`. `created_at` is used instead.
 
 {{< /alert >}}
 
@@ -408,8 +403,8 @@ Use DORA-specific queries with the `dora` data source to create a DORA chart def
 
 ```yaml
 dora:
-  title: "DORA charts"
-  charts:
+ title: "DORA charts"
+ charts:
     - title: "DORA deployment frequency"
       type: bar # or line
       query:
@@ -479,8 +474,7 @@ Use `projects` to limit where issuables are queried from:
 
 ##### `projects.only`
 
-Use `projects.only` to specify the projects from which issuables
-are queried.
+Use `projects.only` to specify the projects from which issuables are queried.
 
 Projects listed in this parameter are ignored when:
 
@@ -492,17 +486,17 @@ Projects listed in this parameter are ignored when:
 
 ```yaml
 monthlyBugsCreated:
-  title: "Monthly bugs created"
-  description: "Open bugs created per month"
-  type: bar
-  query:
+ title: "Monthly bugs created"
+ description: "Open bugs created per month"
+ type: bar
+ query:
     data_source: issuables
     params:
       issuable_type: issue
       issuable_state: opened
       filter_labels:
         - bug
-  projects:
+ projects:
     only:
       - 3                         # You can use the project ID
       - groupA/projectA           # Or full project path
@@ -532,12 +526,12 @@ To configure project insights, create a file `.gitlab/insights.yml` either:
 
 - Locally, in the root directory of your project, and push your changes.
 - From the UI:
-  1. On the top bar, select **Search or go to** and find your project.
-  1. Above the file list, select the branch you want to commit to, select the plus icon, then select **New file**.
-  1. For the **Filename**, enter `.gitlab/insights.yml`.
-  1. In the file editor, enter the configuration.
+ 1. On the top bar, select **Search or go to** and find your project.
+ 1. Above the file list, select the branch you want to commit to, select the plus icon, then select **New file**.
+ 1. For the **Filename**, enter `.gitlab/insights.yml`.
+ 1. In the file editor, enter the configuration.
      See a [configuration example](#example).
-  1. Select **Commit changes**.
+ 1. Select **Commit changes**.
 
 #### For groups
 

@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408832701850-About-automa
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -126,8 +126,8 @@ As mentioned previously, automations, unlike triggers, do not execute an action 
 - **Let's consider an example where the action will happen when the automation runs.** Suppose a ticket update at 10:15am satisfies the conditions for an automation to send an email notification. If your automations run at 11:10, then the notification will not be sent until 55 minutes after the conditions are met. If your automations, however, run at 10:20, then the notification will be sent 5 minutes after the conditions are met.
 
 - **Let's look at example with a time-based "Hours since" condition.** Time-based conditions have to be satisfied within a window of time or after a minimum amount of time has passed. The first time an automation runs after an event occurs counts as "zero" hours since that event happened (because it's less than one whole hour). Suppose you have an automation that performs an action two hours after a ticket is solved and a ticket is solved at 9:15am. Here's what will happen:
-  1. If your automations run at 10:10am, the ticket has been solved for only 55 minutes and the automation will not fire.
-  2. Automations run again at 11:10am, the ticket has been solved 1 hour and 55 minutes, which the automation counts as one hour (because it is less than two hours).
-  3. Automations run again at 12:10pm, the ticket has been solved 2 hours and 55 minutes, which the automation counts as two hours. This means the condition is met and the automation will fire and update the ticket.
+ 1. If your automations run at 10:10am, the ticket has been solved for only 55 minutes and the automation will not fire.
+ 2. Automations run again at 11:10am, the ticket has been solved 1 hour and 55 minutes, which the automation counts as one hour (because it is less than two hours).
+ 3. Automations run again at 12:10pm, the ticket has been solved 2 hours and 55 minutes, which the automation counts as two hours. This means the condition is met and the automation will fire and update the ticket.
 
 Note: You can see when an automation fired for a ticket by viewing the events for that ticket. For more information, see [Viewing a ticket's audit trail](https://support.zendesk.com/hc/en-us/articles/4408829602970).

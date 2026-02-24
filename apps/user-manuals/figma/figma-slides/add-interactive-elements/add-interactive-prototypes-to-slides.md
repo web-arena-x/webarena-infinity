@@ -8,19 +8,11 @@ Before you Start
 
 Who can use this feature
 
-Available on
-[any plan](https://help.figma.com/hc/en-us/articles/360040328273-Choose-a-Figma-Plan)
+Available on [any plan](https://help.figma.com/hc/en-us/articles/360040328273-Choose-a-Figma-Plan)
 
-Anyone with `can edit` access to a slide deck
-and at least `can
-view` access to the
-prototype file can add prototypes to slides
+Anyone with `can edit` access to a slide deck and at least `can view` access to the prototype file can add prototypes to slides
 
-To interact with prototypes while viewing a presentation,
-audience members must be logged in to their Figma account,
-have at least `can view` access to the slide deck,
-and have at least `can view` access to the prototype
-file.
+To interact with prototypes while viewing a presentation, audience members must be logged in to their Figma account, have at least `can view` access to the slide deck, and have at least `can view` access to the prototype file.
 
 You can add clickable prototypes from Figma Design to your slide deck. Use prototypes to give your audience a realistic demos, facilitate user research sessions, or get alignment on product decisions.
 
@@ -35,7 +27,7 @@ There are a few things to keep in mind when adding a prototype:
 
 To add a prototype to a slide:
 
-1. Click  **Live interactions** in the toolbar.
+1. Click **Live interactions** in the toolbar.
 2. Select **Prototype**.
 3. Choose from your recent prototypes or insert a prototype link from Figma Design.
 4. Configure your prototype:

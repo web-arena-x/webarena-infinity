@@ -15,10 +15,10 @@ You can generate and print a QR Code for a drawing so that the drawing can easi
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Standard' level permissions or higher to the project's Drawings tool.   
+ - 'Standard' level permissions or higher to the project's Drawings tool.  
     *Note:* For users to view the drawing, they must have 'Read Only' level permissions or higher to the project's Drawings tool.
 - **Additional Information:**
-  - QR code must be scanned with the Procore app:
+ - QR code must be scanned with the Procore app:
     - [Scan a QR Code (Android)](https://support.procore.com/procore-mobile-android/user-guide/camera-android/tutorials/scan-a-qr-code-with-the-procore-camera-to-view-an-item-android "Scan a QR Code with the Procore Camera (Android)")
     - [Scan a QR Code (iOS)](https://support.procore.com/procore-mobile-ios/user-guide/camera-ios/tutorials/scan-a-qr-code-with-the-procore-camera-to-view-an-item-ios "Scan a QR Code the Procore Camera to View an Item (iOS)")
 

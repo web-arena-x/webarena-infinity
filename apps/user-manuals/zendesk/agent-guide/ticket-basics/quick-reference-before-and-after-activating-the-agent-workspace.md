@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4882193306394-Quick-refere
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > Workspaces > Agent tools > Agent Workspace
+Location: Admin Center > Workspaces > Agent tools > Agent Workspace
 
 This is a quick overview of some of the main interface changes agents will notice after you upgrade to the [Zendesk Agent Workspace](https://support.zendesk.com/hc/en-us/articles/4408821259930). You can use it to compare the standard agent interface and the Agent Workspace. This article covers the basics, additional changes are available when you activate features like Zendesk messaging.
 
@@ -34,10 +34,10 @@ This is an example of a simple ticket before and after the Agent Workspace has b
 
 | Number | Standard agent interface | Agent Workspace |
 | --- | --- | --- |
-|  |  |  |
+| | | |
 | 1 | Ticket tabs show the ticket number and summary. | Ticket tabs change to show different information depending on the conversation type. See [Using ticket tabs](https://support.zendesk.com/hc/en-us/articles/4408844108826). |
 | 2 | Customer information is available in a tab on the left side of the interface. | Customer context information (along with apps and knowledge articles) are available from a context panel on the right side of the ticket. See [Viewing customer context](https://support.zendesk.com/hc/en-us/articles/4408829170458). Admins can [configure the user essentials card](https://support.zendesk.com/hc/en-us/articles/5768595554714) to show the most relevant information about the ticket requester. |
-| 3 | The composer window is at the top of the ticket. The most-recent comments are listed at the top of the ticket. You have to scroll down to see the initial comment from the requester. | The composer window is at the bottom of the ticket. The most-recent comments are listed at the bottom of the ticket for a more-natural conversation flow. You have to scroll up to see the initial comment from the requester. See  [Sample ticket](https://support.zendesk.com/hc/en-us/articles/4408821259930#topic_j53_h5h_bhb). |
+| 3 | The composer window is at the top of the ticket. The most-recent comments are listed at the top of the ticket. You have to scroll down to see the initial comment from the requester. | The composer window is at the bottom of the ticket. The most-recent comments are listed at the bottom of the ticket for a more-natural conversation flow. You have to scroll up to see the initial comment from the requester. See [Sample ticket](https://support.zendesk.com/hc/en-us/articles/4408821259930#topic_j53_h5h_bhb). |
 | 4 | Apps are available from a button on the upper right. | Apps (along with customer context information and knowledge articles) are available from a context panel on the right side of the ticket. See [Using the context panel](https://support.zendesk.com/hc/en-us/articles/4408836526362). Agents can add shortcuts to access their favorite apps. See [Managing app shortcuts](https://support.zendesk.com/hc/en-us/articles/6066877041690). |
 | 5 | Ticket actions, like merge and print, are available from a drop-down menu. | Click the options menu icon () to view ticket actions. See [Using the conversation header](https://support.zendesk.com/hc/en-us/articles/4408823962906#topic_n4m_fyc_zlb) |
 | 6 | The toggle between conversations and events is located in a menu below the composer windows. | You can toggle between ticket events and conversations by clicking an icon. You can also filter between public comments and internal notes. See [Using the conversation header](https://support.zendesk.com/hc/en-us/articles/4408823962906#topic_n4m_fyc_zlb). |

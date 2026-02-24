@@ -12,8 +12,7 @@ title: Praefect Rake tasks
 
 {{< /details >}}
 
-Rake tasks are available for projects that have been created on Praefect storage. See the
-[Praefect documentation](../gitaly/praefect/_index.md) for information on configuring Praefect.
+Rake tasks are available for projects that have been created on Praefect storage. See the [Praefect documentation](../gitaly/praefect/_index.md) for information on configuring Praefect.
 
 ## Replica checksums
 
@@ -26,12 +25,12 @@ Run this Rake task on the node that GitLab is installed and not on the node that
 
 - Linux package installations:
 
-  ```shell
-  sudo gitlab-rake "gitlab:praefect:replicas[project_id]"
-  ```
+ ```shell
+ sudo gitlab-rake "gitlab:praefect:replicas[project_id]"
+ ```
 
 - Self-compiled installations:
 
-  ```shell
-  sudo -u git -H bundle exec rake "gitlab:praefect:replicas[project_id]" RAILS_ENV=production
-  ```
+ ```shell
+ sudo -u git -H bundle exec rake "gitlab:praefect:replicas[project_id]" RAILS_ENV=production
+ ```

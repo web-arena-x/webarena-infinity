@@ -20,50 +20,34 @@ Pipelines are always created for the following scenarios:
 Pipeline creation is also affected by the following CI/CD variables:
 
 - If `$FORCE_GITLAB_CI` is set, pipelines are created. Not recommended to use.
-  See [Avoid `$FORCE_GITLAB_CI`](#avoid-force_gitlab_ci).
+ See [Avoid `$FORCE_GITLAB_CI`](#avoid-force_gitlab_ci).
 - If `$GITLAB_INTERNAL` is not set, pipelines are not created.
 
-No pipeline is created in any other cases (for example, when pushing a branch with no
-MR for it).
+No pipeline is created in any other cases (for example, when pushing a branch with no MR for it).
 
 The source of truth for these workflow rules is defined in [`.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab-ci.yml).
 
 ### Avoid `$FORCE_GITLAB_CI`
 
-The pipeline is very complex and we need to clearly understand the kind of
-pipeline we want to trigger. We need to know which jobs we should run and
-which ones we shouldn't.
+The pipeline is very complex and we need to clearly understand the kind of pipeline we want to trigger. We need to know which jobs we should run and which ones we shouldn't.
 
-If we use `$FORCE_GITLAB_CI` to force trigger a pipeline,
-we don't really know what kind of pipeline it is. The result can be that we don't
-run the jobs we want, or we run too many jobs we don't care about.
+If we use `$FORCE_GITLAB_CI` to force trigger a pipeline, we don't really know what kind of pipeline it is. The result can be that we don't run the jobs we want, or we run too many jobs we don't care about.
 
 Some more context and background can be found at:
 [Avoid blanket changes to avoid unexpected run](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/102881)
 
-Here's a list of where we're using this right now, and should try to move away
-from using `$FORCE_GITLAB_CI`.
+Here's a list of where we're using this right now, and should try to move away from using `$FORCE_GITLAB_CI`.
 
 - [JiHu validation pipeline](https://handbook.gitlab.com/handbook/ceo/chief-of-staff-team/jihu-support/jihu-validation-pipelines/)
 
-See the next section for how we can enable pipelines without using
-`$FORCE_GITLAB_CI`.
+See the next section for how we can enable pipelines without using `$FORCE_GITLAB_CI`.
 
 #### Alternative to `$FORCE_GITLAB_CI`
 
 Essentially, we use different variables to enable different pipelines.
-An example doing this is `$START_AS_IF_FOSS`. When we want to trigger a
-cross project FOSS pipeline, we set `$START_AS_IF_FOSS`, along with a set of
-other variables like `$ENABLE_RSPEC_UNIT`, `$ENABLE_RSPEC_SYSTEM`, and so on
-so forth to enable each jobs we want to run in the as-if-foss cross project
-downstream pipeline.
+An example doing this is `$START_AS_IF_FOSS`. When we want to trigger a cross project FOSS pipeline, we set `$START_AS_IF_FOSS`, along with a set of other variables like `$ENABLE_RSPEC_UNIT`, `$ENABLE_RSPEC_SYSTEM`, and so on so forth to enable each jobs we want to run in the as-if-foss cross project downstream pipeline.
 
-The advantage of this over `$FORCE_GITLAB_CI` is that we have full control
-over how we want to run the pipeline because `$START_AS_IF_FOSS` is only used
-for this purpose, and changing how the pipeline behaves under this variable
-will not affect other types of pipelines, while using `$FORCE_GITLAB_CI` we
-do not know what exactly the pipeline is because it's used for multiple
-purposes.
+The advantage of this over `$FORCE_GITLAB_CI` is that we have full control over how we want to run the pipeline because `$START_AS_IF_FOSS` is only used for this purpose, and changing how the pipeline behaves under this variable will not affect other types of pipelines, while using `$FORCE_GITLAB_CI` we do not know what exactly the pipeline is because it's used for multiple purposes.
 
 ## Default image
 
@@ -75,41 +59,31 @@ It includes Ruby, Go, Git, Git LFS, Chrome, Node, Yarn, PostgreSQL, and Graphics
 
 <!-- vale gitlab_base.Spelling = YES -->
 
-The images used in our pipelines are configured in the
-[`gitlab-org/gitlab-build-images`](https://gitlab.com/gitlab-org/gitlab-build-images)
+The images used in our pipelines are configured in the [`gitlab-org/gitlab-build-images`](https://gitlab.com/gitlab-org/gitlab-build-images)
 project, which is push-mirrored to [`gitlab/gitlab-build-images`](https://dev.gitlab.org/gitlab/gitlab-build-images)
 for redundancy.
 
-The current version of the build images can be found in the
-["Used by GitLab section"](https://gitlab.com/gitlab-org/gitlab-build-images/blob/master/.gitlab-ci.yml).
+The current version of the build images can be found in the ["Used by GitLab section"](https://gitlab.com/gitlab-org/gitlab-build-images/blob/master/.gitlab-ci.yml).
 
 ## Default variables
 
-In addition to the [predefined CI/CD variables](../../ci/variables/predefined_variables.md),
-each pipeline includes default variables defined in
-[`.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab-ci.yml).
+In addition to the [predefined CI/CD variables](../../ci/variables/predefined_variables.md), each pipeline includes default variables defined in [`.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab-ci.yml).
 
 ### Variable naming
 
-Starting in March 2025, we have begun prefixing new environment variables
-that are exclusively used for the monolith CI pipelines with `GLCI_`.
+Starting in March 2025, we have begun prefixing new environment variables that are exclusively used for the monolith CI pipelines with `GLCI_`.
 
-This allows us to track if an environment variable is intended for CI
-(`GLCI_`), the product (`GITLAB_`), or tools and systems not owned by us.
-That helps us better evaluate the impact of environment variable changes
-in our pipeline configuration.
+This allows us to track if an environment variable is intended for CI (`GLCI_`), the product (`GITLAB_`), or tools and systems not owned by us.
+That helps us better evaluate the impact of environment variable changes in our pipeline configuration.
 
 ### Required CI variables
 
-Some CI/CD jobs require specific variables to run. Unlike optional variables,
-if these variables are not defined, those jobs are skipped entirely.
+Some CI/CD jobs require specific variables to run. Unlike optional variables, if these variables are not defined, those jobs are skipped entirely.
 
 #### `GLCI_MEDIUM_RUNNER_REQUIRED`
 
 This variable enables system (feature) test jobs that require runners with at least 4 cores and 16 GB of RAM.
-Chrome version 133+ requires additional compute resources to run reliably. Otherwise, system test
-jobs become unpredictably unstable due to insufficient resources for the PostgreSQL database and
-Rails application.
+Chrome version 133+ requires additional compute resources to run reliably. Otherwise, system test jobs become unpredictably unstable due to insufficient resources for the PostgreSQL database and Rails application.
 
 Define this variable in the CI/CD settings and set it to a runner tag that has at least 4 cores and 16 GB of RAM.
 For complete configuration details, see the [testing section](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/207000#testing) of the MR that introduced this variable.
@@ -130,33 +104,22 @@ For environment-specific details, see the [test environments section](https://gi
 
 The current stages are:
 
-- `sync`: This stage is used to synchronize changes from [`gitlab-org/gitlab`](https://gitlab.com/gitlab-org/gitlab) to
-  [`gitlab-org/gitlab-foss`](https://gitlab.com/gitlab-org/gitlab-foss).
-- `prepare`: This stage includes jobs that prepare artifacts that are needed by
-  jobs in subsequent stages.
-- `build-images`: This stage includes jobs that prepare Docker images
-  that are needed by jobs in subsequent stages or downstream pipelines.
+- `sync`: This stage is used to synchronize changes from [`gitlab-org/gitlab`](https://gitlab.com/gitlab-org/gitlab) to [`gitlab-org/gitlab-foss`](https://gitlab.com/gitlab-org/gitlab-foss).
+- `prepare`: This stage includes jobs that prepare artifacts that are needed by jobs in subsequent stages.
+- `build-images`: This stage includes jobs that prepare Docker images that are needed by jobs in subsequent stages or downstream pipelines.
 - `fixtures`: This stage includes jobs that prepare fixtures needed by frontend tests.
 - `lint`: This stage includes linting and static analysis jobs.
 - `test`: This stage includes most of the tests, and DB/migration jobs.
-- `post-test`: This stage includes jobs that build reports or gather data from
-  the `test` stage's jobs (for example, coverage, Knapsack metadata, and so on).
-  It also includes Docs Review App jobs.
-- `qa`: This stage includes jobs that perform QA tasks against the Review App
-  that is deployed in stage `review`.
-- `post-qa`: This stage includes jobs that build reports or gather data from
-  the `qa` stage's jobs (for example, Review App performance report).
-- `pages`: This stage includes a job that deploys the various reports as
-  GitLab Pages (for example, [`coverage-ruby`](https://gitlab-org.gitlab.io/gitlab/coverage-ruby/),
-  and `webpack-report` (found at `https://gitlab-org.gitlab.io/gitlab/webpack-report/`, but there is
-  [an issue with the deployment](https://gitlab.com/gitlab-org/gitlab/-/issues/233458)).
+- `post-test`: This stage includes jobs that build reports or gather data from the `test` stage's jobs (for example, coverage, Knapsack metadata, and so on).
+ It also includes Docs Review App jobs.
+- `qa`: This stage includes jobs that perform QA tasks against the Review App that is deployed in stage `review`.
+- `post-qa`: This stage includes jobs that build reports or gather data from the `qa` stage's jobs (for example, Review App performance report).
+- `pages`: This stage includes a job that deploys the various reports as GitLab Pages (for example, [`coverage-ruby`](https://gitlab-org.gitlab.io/gitlab/coverage-ruby/), and `webpack-report` (found at `https://gitlab-org.gitlab.io/gitlab/webpack-report/`, but there is [an issue with the deployment](https://gitlab.com/gitlab-org/gitlab/-/issues/233458)).
 - `notify`: This stage includes jobs that notify various failures to Slack.
 
 ## Dependency Proxy
 
-Some of the jobs are using images from Docker Hub, where we also use
-`${GITLAB_DEPENDENCY_PROXY_ADDRESS}` as a prefix to the image path, so that we pull
-images from our [Dependency Proxy](../../user/packages/dependency_proxy/_index.md).
+Some of the jobs are using images from Docker Hub, where we also use `${GITLAB_DEPENDENCY_PROXY_ADDRESS}` as a prefix to the image path, so that we pull images from our [Dependency Proxy](../../user/packages/dependency_proxy/_index.md).
 By default, this variable is set from the value of `${GITLAB_DEPENDENCY_PROXY}`.
 
 - `CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX` is [a GitLab predefined CI/CD variable](../../ci/variables/predefined_variables.md) that gives the top-level group image prefix to pull images through the Dependency Proxy.
@@ -176,36 +139,29 @@ image: ${GITLAB_DEPENDENCY_PROXY}alpine:edge
 image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/alpine:edge
 ```
 
-Forks that reside on any other personal namespaces or groups fall back to
-Docker Hub unless `GITLAB_DEPENDENCY_PROXY` is also defined there.
+Forks that reside on any other personal namespaces or groups fall back to Docker Hub unless `GITLAB_DEPENDENCY_PROXY` is also defined there.
 
 ### Work around for when a pipeline is started by a Project access token user
 
-When a pipeline is started by a Project access token user (for example, the `release-tools approver bot` user which
-automatically updates the Gitaly version used in the main project),
-[the Dependency proxy isn't accessible](https://gitlab.com/gitlab-org/gitlab/-/issues/332411#note_1130388163)
+When a pipeline is started by a Project access token user (for example, the `release-tools approver bot` user which automatically updates the Gitaly version used in the main project), [the Dependency proxy isn't accessible](https://gitlab.com/gitlab-org/gitlab/-/issues/332411#note_1130388163)
 and the job fails at the `Preparing the "docker+machine" executor` step.
-To work around that, we have a special workflow rule, that overrides the
-`${GITLAB_DEPENDENCY_PROXY_ADDRESS}` variable so that Dependency proxy isn't used in that case:
+To work around that, we have a special workflow rule, that overrides the `${GITLAB_DEPENDENCY_PROXY_ADDRESS}` variable so that Dependency proxy isn't used in that case:
 
 ```yaml
 - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $GITLAB_USER_LOGIN =~ /project_\d+_bot\d*/'
-  variables:
+ variables:
     GITLAB_DEPENDENCY_PROXY_ADDRESS: ""
 ```
 
 {{< alert type="note" >}}
 
-We don't directly override the `${GITLAB_DEPENDENCY_PROXY}` variable because group-level
-variables have higher precedence over `.gitlab-ci.yml` variables.
+We don't directly override the `${GITLAB_DEPENDENCY_PROXY}` variable because group-level variables have higher precedence over `.gitlab-ci.yml` variables.
 
 {{< /alert >}}
 
 ## External CI/CD secrets
 
-As part of <https://gitlab.com/groups/gitlab-org/quality/engineering-productivity/-/epics/46>, in February 2024, we
-started to dogfood [the usage of GCP Secret Manager](../../ci/secrets/gcp_secret_manager.md) to
-[store the `ADD_JH_FILES_TOKEN` CI variable](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/144228).
+As part of <https://gitlab.com/groups/gitlab-org/quality/engineering-productivity/-/epics/46>, in February 2024, we started to dogfood [the usage of GCP Secret Manager](../../ci/secrets/gcp_secret_manager.md) to [store the `ADD_JH_FILES_TOKEN` CI variable](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/144228).
 
 As part of this, [the `qual-ci-secret-mgmt-e78c9b95` GCP project was created](https://gitlab.com/gitlab-org/quality/engineering-productivity-infrastructure/-/issues/99#note_1605141484).
 
@@ -215,7 +171,7 @@ Most of the jobs [extend from a few CI definitions](../../ci/yaml/_index.md#exte
 defined in [`.gitlab/ci/global.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab/ci/global.gitlab-ci.yml)
 that are scoped to a single [configuration keyword](../../ci/yaml/_index.md#job-keywords).
 
-| Job definitions  | Description |
+| Job definitions | Description |
 |------------------|-------------|
 | `.default-retry` | Allows a job to [retry](../../ci/yaml/_index.md#retry) upon `unknown_failure`, `api_failure`, `runner_system_failure`, `job_execution_timeout`, or `stuck_or_timeout_failure`. |
 | `.default-before_script` | Allows a job to use a default `before_script` definition suitable for Ruby/Rails tasks that may need a database running (for example, tests). |
@@ -240,13 +196,9 @@ that are scoped to a single [configuration keyword](../../ci/yaml/_index.md#job-
 
 We're using the [`rules` keyword](../../ci/yaml/_index.md#rules) extensively.
 
-All `rules` definitions are defined in
-[`rules.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab/ci/rules.gitlab-ci.yml),
-then included in individual jobs via [`extends`](../../ci/yaml/_index.md#extends).
+All `rules` definitions are defined in [`rules.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab/ci/rules.gitlab-ci.yml), then included in individual jobs via [`extends`](../../ci/yaml/_index.md#extends).
 
-The `rules` definitions are composed of `if:` conditions and `changes:` patterns,
-which are also defined in
-[`rules.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab/ci/rules.gitlab-ci.yml)
+The `rules` definitions are composed of `if:` conditions and `changes:` patterns, which are also defined in [`rules.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab/ci/rules.gitlab-ci.yml)
 and included in `rules` definitions via [YAML anchors](../../ci/yaml/yaml_optimization.md#anchors)
 
 ### `if:` conditions
@@ -286,7 +238,7 @@ and included in `rules` definitions via [YAML anchors](../../ci/yaml/yaml_optimi
 | `yaml-lint-patterns`         | Only create job for YAML-related changes.                                |
 | `docs-patterns`              | Only create job for docs-related changes.                                |
 | `frontend-dependency-patterns` | Only create job when frontend dependencies are updated (for example, `package.json`, and `yarn.lock`) changes. |
-| `frontend-patterns-for-as-if-foss`  | Only create job for frontend-related changes that have impact on FOSS. |
+| `frontend-patterns-for-as-if-foss` | Only create job for frontend-related changes that have impact on FOSS. |
 | `backend-patterns`           | Only create job for backend-related changes.                           |
 | `db-patterns`                | Only create job for DB-related changes. |
 | `backstage-patterns`         | Only create job for backstage-related changes (that is, Danger, fixtures, RuboCop, specs). |
@@ -337,24 +289,24 @@ This example shows how to extend complex YAML data structures with `!reference` 
 
 ```yaml
 .strict-ee-only-rules:
-  # `rules` is an array of hashes
-  rules:
+ # `rules` is an array of hashes
+ rules:
     - if: '$CI_PROJECT_NAME !~ /^gitlab(-ee)?$/ '
       when: never
 
 # `if-security-merge-request` is a hash
 .if-security-merge-request: &if-security-merge-request
-  if: '$CI_PROJECT_NAMESPACE == "gitlab-org/security"'
+ if: '$CI_PROJECT_NAMESPACE == "gitlab-org/security"'
 
 # `code-qa-patterns` is an array
 .code-qa-patterns: &code-qa-patterns
-  - "{package.json,yarn.lock}"
-  - ".browserslistrc"
-  - "babel.config.js"
-  - "jest.config.{base,integration,unit}.js"
+ - "{package.json,yarn.lock}"
+ - ".browserslistrc"
+ - "babel.config.js"
+ - "jest.config.{base,integration,unit}.js"
 
 .qa:rules:as-if-foss:
-  rules:
+ rules:
     # We extend the `rules` array with an array of hashes directly
     - !reference [".strict-ee-only-rules", rules]
     # We extend a single array entry with a hash
@@ -363,8 +315,8 @@ This example shows how to extend complex YAML data structures with `!reference` 
       changes: *code-qa-patterns
 
 qa:selectors-as-if-foss:
-  # We include the rules from .qa:rules:as-if-foss in this job
-  extends:
+ # We include the rules from .qa:rules:as-if-foss in this job
+ extends:
     - .qa:rules:as-if-foss
 ```
 
@@ -385,8 +337,8 @@ You can just extend the `.fast-no-clone-job`:
 **Before**:
 
 ```yaml
-  # Note: No `extends:` is present in the job
-  a-job:
+ # Note: No `extends:` is present in the job
+ a-job:
     script:
       - source scripts/rspec_helpers.sh scripts/slack
       - echo "No need for a git clone!"
@@ -395,8 +347,8 @@ You can just extend the `.fast-no-clone-job`:
 **After**:
 
 ```yaml
-  # Note: No `extends:` is present in the job
-  a-job:
+ # Note: No `extends:` is present in the job
+ a-job:
     extends:
       - .fast-no-clone-job
     variables:
@@ -418,11 +370,11 @@ For this scenario, you have to:
 **Before**:
 
 ```yaml
-  .base-job:
+ .base-job:
     before_script:
       echo "Hello from .base-job"
 
-  a-job:
+ a-job:
     extends:
       - .base-job
     script:
@@ -433,11 +385,11 @@ For this scenario, you have to:
 **After**:
 
 ```yaml
-  .base-job:
+ .base-job:
     before_script:
       echo "Hello from .base-job"
 
-  a-job:
+ a-job:
     extends:
       - .base-job
       - .fast-no-clone-job
@@ -458,14 +410,14 @@ For this scenario, you have to:
 - This pattern does not work if a script relies on `git` to access the repository, because we don't have the repository without cloning or fetching.
 - The job using this pattern needs to have `curl` available.
 - If you need to run `bundle install` in the job (even using `BUNDLE_ONLY`), you need to:
-  - Download the gems that are stored in the `gitlab-org/gitlab` project.
+ - Download the gems that are stored in the `gitlab-org/gitlab` project.
     - You can use the `download_local_gems` shell command for that purpose.
-  - Include the `Gemfile`, `Gemfile.lock` and `Gemfile.checksum` (if applicable)
+ - Include the `Gemfile`, `Gemfile.lock` and `Gemfile.checksum` (if applicable)
 
 #### Where is this pattern used?
 
 - For now, we use this pattern for the following jobs, and those do not block private repositories:
-  - `rspec:coverage` for:
+ - `rspec:coverage` for:
     - `config/bundler_setup.rb`
     - `Gemfile`
     - `Gemfile.checksum`
@@ -473,30 +425,21 @@ For this scenario, you have to:
     - `scripts/merge-simplecov`
     - `spec/simplecov_env_core.rb`
     - `spec/simplecov_env.rb`
-  - `prepare-as-if-foss-env` for:
+ - `prepare-as-if-foss-env` for:
     - `scripts/setup/generate-as-if-foss-env.rb`
 
 Additionally, `scripts/utils.sh` is always downloaded from the API when this pattern is used (this file contains the code for `.fast-no-clone-job`).
 
 ### Runner tags
 
-On GitLab.com, both unprivileged and privileged runners are
-available. For projects in the `gitlab-org` group and forks of those
-projects, only one of the following tags should be added to a job:
+On GitLab.com, both unprivileged and privileged runners are available. For projects in the `gitlab-org` group and forks of those projects, only one of the following tags should be added to a job:
 
 - `gitlab-org`: by default but only if the job doesn't need to be run in privileged mode.
-- `gitlab-org-docker`: when job needs to be run in privileged mode. If you need
-  [Docker-in-Docker support](../../ci/docker/using_docker_build.md#use-docker-in-docker),
-  use `gitlab-org-docker` instead of `gitlab-org`.
+- `gitlab-org-docker`: when job needs to be run in privileged mode. If you need [Docker-in-Docker support](../../ci/docker/using_docker_build.md#use-docker-in-docker), use `gitlab-org-docker` instead of `gitlab-org`.
 
-The `gitlab-org-docker` tag is added by the `.use-docker-in-docker` job
-definition above.
+The `gitlab-org-docker` tag is added by the `.use-docker-in-docker` job definition above.
 
-To ensure compatibility with forks, avoid using both `gitlab-org` and
-`gitlab-org-docker` simultaneously. No instance runners
-have both `gitlab-org` and `gitlab-org-docker` tags. For forks of
-`gitlab-org` projects, jobs will get stuck if both tags are supplied because
-no matching runners are available.
+To ensure compatibility with forks, avoid using both `gitlab-org` and `gitlab-org-docker` simultaneously. No instance runners have both `gitlab-org` and `gitlab-org-docker` tags. For forks of `gitlab-org` projects, jobs will get stuck if both tags are supplied because no matching runners are available.
 
 See [the GitLab Repositories handbook page](https://handbook.gitlab.com/handbook/engineering/gitlab-repositories/#cicd-configuration)
 for more information.
@@ -518,13 +461,13 @@ require 'gitlab'
 
 # Good
 if Object.const_defined?(:RSpec)
-  # Ok, we're testing, we know we're going to stub `Gitlab`, so we just ignore
+ # Ok, we're testing, we know we're going to stub `Gitlab`, so we just ignore
 else
-  require 'gitlab'
+ require 'gitlab'
 
-  if Gitlab.singleton_class.method_defined?(:com?)
+ if Gitlab.singleton_class.method_defined?(:com?)
     abort 'lib/gitlab.rb is loaded, and this means we can no longer load the client and we cannot proceed'
-  end
+ end
 end
 ```
 
@@ -564,11 +507,11 @@ jobs = ['job1', 'job2']
 allow(client).to yield_jobs(:pipeline_jobs, jobs)
 
 def yield_jobs(api_method, jobs)
-  messages = receive_message_chain(api_method, :auto_paginate)
+ messages = receive_message_chain(api_method, :auto_paginate)
 
-  jobs.inject(messages) do |stub, job_name|
+ jobs.inject(messages) do |stub, job_name|
     stub.and_yield(double(name: job_name))
-  end
+ end
 end
 # rubocop:enable RSpec/VerifiedDoubles
 ```

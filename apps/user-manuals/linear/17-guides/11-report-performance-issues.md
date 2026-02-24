@@ -17,8 +17,7 @@ Follow these steps to capture a performance snapshot in Google Chrome:
 
 ### 1. Open Chrome DevTools
 
-Right-click anywhere on the Linear app page and select **Inspect**, or press  
-`Cmd`+`Option`+`I` (Mac) or `Ctrl`+`Shift`+`I` (Windows/Linux).
+Right-click anywhere on the Linear app page and select **Inspect**, or press `Cmd`+`Option`+`I` (Mac) or `Ctrl`+`Shift`+`I` (Windows/Linux).
 
 ![1. Open Chrome DevTools](https://webassets.linear.app/images/ornj730p/production/2b188bb6cab20de70e379dc017babc1e1ee547d2-1203x1024.png?q=95&auto=format&dpr=2)
 

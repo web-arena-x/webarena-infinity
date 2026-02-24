@@ -29,8 +29,8 @@ Local Measure ensures that we never store your PII. Your PII will remain within 
 
 - This includes your AWS (Connect) environment as well as your chosen AI Services environment
 
-- The Engage AI Service will be deployed to your Amazon Connect environment. It consists of a number of elements including Lambda function and API Gateway.  
-  This will be used to:
+- The Engage AI Service will be deployed to your Amazon Connect environment. It consists of a number of elements including Lambda function and API Gateway. 
+ This will be used to:
 
 - Send context (including transcripts) along with prompts from your Amazon Connect environment to your AI Service
 - Receive the result from the AI Service

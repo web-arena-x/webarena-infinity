@@ -39,7 +39,7 @@ Parameters:
 | --------- | -------------- | -------- | ----------- |
 | `id`      | integer or string | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group. |
 | `sort`    | string         | no       | The direction of the order. Possible values: `desc` or `asc`. |
-| `simple`  | boolean        | no       | If `true`, only returns limited fields for each release. |
+| `simple` | boolean        | no       | If `true`, only returns limited fields for each release. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>"
@@ -50,7 +50,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "name": "standard release",
     "tag_name": "releasetag",
     "description": "",
@@ -83,6 +83,6 @@ Example response:
     "upcoming_release": false,
     "commit_path": "/testgroup/test/-/commit/e8cbb845ae5a53a2fef2938cf63cf82efc10d993",
     "tag_path": "/testgroup/test/-/tags/testtag"
-  }
+ }
 ]
 ```

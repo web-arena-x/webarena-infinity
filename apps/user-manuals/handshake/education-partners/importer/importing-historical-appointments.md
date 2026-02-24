@@ -37,10 +37,10 @@ The fields listed below should be formatted as shown and saved as a CSV. Column 
 | student\_email **\*Required** | The email of the student involved. *Must be a student in the system.* |
 | start\_date **\*Required** | The start date and time, must be formatted as:   - yyyy-mm-dd**T**hh:mm:ss   **Warning:** This defaults to UTC. \*Please see: [Date and Time Formatting](https://support.joinhandshake.com/hc/en-us/articles/231942648-Date-Formatting) |
 | end\_date **\*Required** | The end date and time, must be formatted as:   - yyyy-mm-dd**T**hh:mm:ss   **Warning:** This defaults to UTC. \*Please see: [Date and Time Formatting](https://support.joinhandshake.com/hc/en-us/articles/231942648-Date-Formatting) |
-| description **\*Required** | A description of the appointment  **Warning:** This is viewable by the student. Cannot be left blank. |
-| status **\*Required** | Must be one of the following (case sensitive):  ``` approved cancelled completed no_show declined requested started ``` |
-| import\_identifier **\*Required** | This required identifier must be completely unique. This is used as the main identifier for the appointment by the Importer. If you are importing notes or labels onto this appointment, the two import identifiers for the matching appointment and note/label must match. The import\_identifier can be anything but it must be totally unique across all of Handshake. We would recommend identifiers such as:  YOURSCHOOLNAMEhistoricalappt100  YOURSCHOOLNAMEhistoricalappt101  YOURSCHOOLNAMEhistoricalappt102  YOURSCHOOLNAMEhistoricalappt103 |
-| walkin | Must use boolean values:  ``` TRUE FALSE ``` |
+| description **\*Required** | A description of the appointment **Warning:** This is viewable by the student. Cannot be left blank. |
+| status **\*Required** | Must be one of the following (case sensitive): ``` approved cancelled completed no_show declined requested started ``` |
+| import\_identifier **\*Required** | This required identifier must be completely unique. This is used as the main identifier for the appointment by the Importer. If you are importing notes or labels onto this appointment, the two import identifiers for the matching appointment and note/label must match. The import\_identifier can be anything but it must be totally unique across all of Handshake. We would recommend identifiers such as: YOURSCHOOLNAMEhistoricalappt100 YOURSCHOOLNAMEhistoricalappt101 YOURSCHOOLNAMEhistoricalappt102 YOURSCHOOLNAMEhistoricalappt103 |
+| walkin | Must use boolean values: ``` TRUE FALSE ``` |
 
 **Example File:**
 

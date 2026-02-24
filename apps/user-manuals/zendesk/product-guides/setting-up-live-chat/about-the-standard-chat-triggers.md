@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408834380442-About-the-st
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Team, Professional, or Enterprise |
 
@@ -44,12 +44,12 @@ The conditions of the trigger are set up as follows:
 
 - **Run trigger: When a visitor requests a chat**
 - **Check conditions: Check all of the following conditions**
-  - **Account status | Not equal | Offline**
-  - **Still on site | 60**
-  - **Visitor served | Is false**
+ - **Account status | Not equal | Offline**
+ - **Still on site | 60**
+ - **Visitor served | Is false**
 - **Perform the following actions**
-  - **Set triggered | Is true**
-  - **Send message to visitor |**Customer Service | We apologize for keeping you waiting. Our operators are busy at the moment, please leave us a message with your email address and we'll get back to you shortly.
+ - **Set triggered | Is true**
+ - **Send message to visitor |**Customer Service | We apologize for keeping you waiting. Our operators are busy at the moment, please leave us a message with your email address and we'll get back to you shortly.
 
 ## Proactive Greeting
 
@@ -60,13 +60,13 @@ Note: If you use department routing, [proactive messages may bypass any routin
 The conditions of the trigger are set up as follows:
 
 - **Run trigger: When a visitor has loaded the chat widget**
-- **Check conditions: Check all of the following conditions**  
-  - **Still on site | 30**
-  - **Visitor previous visits | Equals |** 0
-  - **Visitor requesting chat | Is false**
-  - **Visitor served | Is false**
-- **Perform the following actions**  
-  - **Send message to visitor |**Customer Service | Welcome! Can we help you with anything?
+- **Check conditions: Check all of the following conditions** 
+ - **Still on site | 30**
+ - **Visitor previous visits | Equals |** 0
+ - **Visitor requesting chat | Is false**
+ - **Visitor served | Is false**
+- **Perform the following actions** 
+ - **Send message to visitor |**Customer Service | Welcome! Can we help you with anything?
 
 ## Checkout Page
 
@@ -75,13 +75,13 @@ The Checkout Page trigger is more of a skeleton to get you started than a ready-
 The conditions of the trigger are set up as follows:
 
 - **Run trigger: When a visitor has loaded the chat widget**
-- **Check conditions: Check all of the following conditions**  
-  - **Visitor page URL | Equals |**www.zendesk.com/cart
-  - **Still on site | 60**
-  - **Visitor requesting chat | Is false**
-  - **Visitor served | Is false**
-- **Perform the following actions**  
-  - **Send message to visitor |** Stephanie | Hi, are you having any trouble checking out? Feel free to reach out to us with any questions.
+- **Check conditions: Check all of the following conditions** 
+ - **Visitor page URL | Equals |**www.zendesk.com/cart
+ - **Still on site | 60**
+ - **Visitor requesting chat | Is false**
+ - **Visitor served | Is false**
+- **Perform the following actions** 
+ - **Send message to visitor |** Stephanie | Hi, are you having any trouble checking out? Feel free to reach out to us with any questions.
 
 ## First Reply
 
@@ -93,11 +93,11 @@ The conditions of the trigger are set up as follows:
 
 - **Run trigger: When a visitor requests a chat**
 - **Check conditions: Check all of the following conditions**
-  - **Visitor requesting chat | Is true**
-  - **Visitor served | Is false**
-- **Perform the following actions**  
-  - **Wait |**5
-  - **Send message to visitor |** Customer Service | Thanks for your message, please wait a moment while our agents attend to you.
+ - **Visitor requesting chat | Is true**
+ - **Visitor served | Is false**
+- **Perform the following actions** 
+ - **Wait |**5
+ - **Send message to visitor |** Customer Service | Thanks for your message, please wait a moment while our agents attend to you.
 
 ## Languages
 
@@ -109,12 +109,12 @@ The conditions of the trigger are set up as follows:
 
 - **Run trigger: When a visitor has loaded the chat widget**
 - **Check conditions: Check all of the following conditions**
-  - **Visitor country code | Equals |**FR
-  - **Visitor requesting chat | Is false**
-  - **Visitor served | Is false**
-  - **Still on site | 60**
-- **Perform the following actions**  
-  - **Send message to visitor |**Service client | Bonjour. Est-ce que je peux vous aider?
+ - **Visitor country code | Equals |**FR
+ - **Visitor requesting chat | Is false**
+ - **Visitor served | Is false**
+ - **Still on site | 60**
+- **Perform the following actions** 
+ - **Send message to visitor |**Service client | Bonjour. Est-ce que je peux vous aider?
 
 ## Message Tagged Visitors
 
@@ -128,12 +128,12 @@ The conditions of the trigger are set up as follows:
 
 - **Run trigger: When a visitor has loaded the chat widget**
 - **Check conditions: Check all of the following conditions**
-  - **Still on site | 30**
-  - **Visitor requesting chat | Is false**
-  - **Visitor served | Is false**
-  - **Visitor tag | Contains (case sensitive) |**5times
-- **Perform the following actions**  
-  - **Send message to visitor |**Customer Service | Hi, welcome back to our site! Is there anything we can help you with?
+ - **Still on site | 30**
+ - **Visitor requesting chat | Is false**
+ - **Visitor served | Is false**
+ - **Visitor tag | Contains (case sensitive) |**5times
+- **Perform the following actions** 
+ - **Send message to visitor |**Customer Service | Hi, welcome back to our site! Is there anything we can help you with?
 
 ## Pricing Page
 
@@ -143,12 +143,12 @@ The conditions of the trigger are set up as follows:
 
 - **Run trigger: When a visitor has loaded the chat widget**
 - **Check conditions: Check all of the following conditions**
-  - **Visitor page URL | Contains |** pricing
-  - **Still on site | 30**
-  - **Visitor requesting chat | Is false**
-  - **Visitor served | Is false**
-- **Perform the following actions**  
-  - **Send message to visitor |**Customer Service | Hi, are you interested in our paid plans?
+ - **Visitor page URL | Contains |** pricing
+ - **Still on site | 30**
+ - **Visitor requesting chat | Is false**
+ - **Visitor served | Is false**
+- **Perform the following actions** 
+ - **Send message to visitor |**Customer Service | Hi, are you interested in our paid plans?
 
 ## Proactive Greeting by Name
 
@@ -162,11 +162,11 @@ The conditions of the trigger are set up as follows:
 
 - **Run trigger: When a visitor has loaded the chat widget**
 - **Check conditions: Check all of the following conditions**
-  - **Visitor previous visits | Greater than or equal to |**1
-  - **Visitor name | Does not contain |**Visitor
-- **Perform the following actions**  
-  - **Wait |**30
-  - **Send message to visitor |**Customer Service | Hi @visitor\_name, welcome back! What can we help you with?
+ - **Visitor previous visits | Greater than or equal to |**1
+ - **Visitor name | Does not contain |**Visitor
+- **Perform the following actions** 
+ - **Wait |**30
+ - **Send message to visitor |**Customer Service | Hi @visitor\_name, welcome back! What can we help you with?
 
 ## Product Discounts
 
@@ -176,12 +176,12 @@ The conditions of the trigger are set up as follows:
 
 - **Run trigger: When a visitor requests a chat**
 - **Check conditions: Check all of the following conditions**
-  - **Visitor tag URL | Contains |**[product name]
-  - **Still on page | 30**
-  - **Visitor requesting chat | Is false**
-  - **Visitor served | Is false**
-- **Perform the following actions**  
-  - **Send message to visitor |**Customer Service | Hi, are you interested in [insert product name]? We're offering a one-time 20% discount. Chat with me to find out more.
+ - **Visitor tag URL | Contains |**[product name]
+ - **Still on page | 30**
+ - **Visitor requesting chat | Is false**
+ - **Visitor served | Is false**
+- **Perform the following actions** 
+ - **Send message to visitor |**Customer Service | Hi, are you interested in [insert product name]? We're offering a one-time 20% discount. Chat with me to find out more.
 
 ## Request Contact Details
 
@@ -193,10 +193,10 @@ The conditions of the trigger are set up as follows:
 
 - **Run trigger: When a visitor requests a chat**
 - **Check conditions: Check all of the following conditions**
-  - **Account status | Equals | Away**
-- **Perform the following actions**  
-  - **Add tag |**Away\_request
-  - **Send message to visitor |**Customer Service | Hi, sorry we are away at the moment. Please leave your email address and we will get back to you as soon as possible.
+ - **Account status | Equals | Away**
+- **Perform the following actions** 
+ - **Add tag |**Away\_request
+ - **Send message to visitor |**Customer Service | Hi, sorry we are away at the moment. Please leave your email address and we will get back to you as soon as possible.
 
 ## Tag Repeat Visitors
 
@@ -206,6 +206,6 @@ The conditions of the trigger are set up as follows:
 
 - **Run trigger: When a visitor has loaded the chat widget**
 - **Check conditions: Check all of the following conditions**
-  - **Visitor previous visits | greater than or equal to |**5
-- **Perform the following actions**  
-  - **Add tag |** 5times
+ - **Visitor previous visits | greater than or equal to |**5
+- **Perform the following actions** 
+ - **Add tag |** 5times

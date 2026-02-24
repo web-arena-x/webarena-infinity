@@ -11,12 +11,12 @@ To search for and filter drawings in the project's Drawings log.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Read Only' or higher permissions on the Drawings tool.
+ - 'Read Only' or higher permissions on the Drawings tool.
 - **Additional Information:**
-  - The search function respects any selected filter parameters and will only search for items within the filtered results.
-  - The Drawings tool remembers up to five of your last searches. The list of recent search terms appears when you click into the Search bar.   
+ - The search function respects any selected filter parameters and will only search for items within the filtered results.
+ - The Drawings tool remembers up to five of your last searches. The list of recent search terms appears when you click into the Search bar.  
     *Note*: Click 'x' if you want to remove a recent search term from the list.
-  - If you want to search for text that appears within drawings, see [Search Text Within Drawings](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/search-text-within-drawings "Search Text Within Drawings").
+ - If you want to search for text that appears within drawings, see [Search Text Within Drawings](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/search-text-within-drawings "Search Text Within Drawings").
 
 ## Steps
 
@@ -27,12 +27,12 @@ To search for and filter drawings in the project's Drawings log.
 #### Search for Drawings
 
 1. Navigate to the project's **Drawings** tool.
-2. Enter a term in the search bar.   
+2. Enter a term in the search bar.  
    *Note:* If you want to search through only drawing numbers or titles, enter one of the following search modifiers into the search bar:
-   - Enter "number:" before your search term to search drawing numbers.  
+   - Enter "number:" before your search term to search drawing numbers. 
        
      ![drawing-number-search.png](https://support.procore.com/@api/deki/files/81283/drawing-number-search.png?revision=1)
-   - Enter "title:" before your search term to search drawing titles.  
+   - Enter "title:" before your search term to search drawing titles. 
        
      ![drawing-title-search.png](https://support.procore.com/@api/deki/files/81281/drawing-title-search.png?revision=2)
 3. Click **Search**.
@@ -57,7 +57,7 @@ To search for and filter drawings in the project's Drawings log.
 
 #### Sort Drawing Sets Edit section
 
-1. Click **Drawing Sets**.  
+1. Click **Drawing Sets**. 
    *Note*: Make sure the List view is selected.
 2. Click one of the following column titles to sort by that parameter:
 

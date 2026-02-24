@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8919342194074-Troubleshoot
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -105,34 +105,34 @@ When you test the integration, make sure to check the http status code that is r
 
 ### 2xx: Success
 
-- **200 OK:** The request was successful, and the server responded with the expected data.  
-  - This is the ideal response when testing an integration.
+- **200 OK:** The request was successful, and the server responded with the expected data. 
+ - This is the ideal response when testing an integration.
 
 ### 4xx: Client errors
 
 Errors in this range generally indicate an issue with the request sent in the integration builder.
 
-- **400 Bad Request:** The server could not understand the request due to invalid syntax or missing parameters.  
-  - Check the request payload for errors, missing fields, or incorrect formatting.
-- **401 Unauthorized:** Authentication is required but was not provided or is invalid.  
-  - Verify the API key, token, or other authentication credentials. Double-check authorization headers.
-- **403 Forbidden:** The server understood the request but refuses to authorize it.  
-  - Ensure that your IP addresses are allowlisted, or verify permissions for the API.
-- **404 Not Found:** The requested resource could not be found on the server.  
-  - Check the URL or endpoint. Ensure the correct path is being used and the resource exists.
+- **400 Bad Request:** The server could not understand the request due to invalid syntax or missing parameters. 
+ - Check the request payload for errors, missing fields, or incorrect formatting.
+- **401 Unauthorized:** Authentication is required but was not provided or is invalid. 
+ - Verify the API key, token, or other authentication credentials. Double-check authorization headers.
+- **403 Forbidden:** The server understood the request but refuses to authorize it. 
+ - Ensure that your IP addresses are allowlisted, or verify permissions for the API.
+- **404 Not Found:** The requested resource could not be found on the server. 
+ - Check the URL or endpoint. Ensure the correct path is being used and the resource exists.
 
 ### 5xx: Server Errors
 
 Errors in this range typically indicate an issue on the backend server.
 
-- **500 Internal Server Error:** A generic error indicating that something went wrong on the backend server.  
-  - Contact the backend team with details of the request for further debugging.
-- **502 Bad Gateway:** The server received an invalid response from an upstream server.  
-  - This often indicates an issue with the backend's internal services or dependencies.
-- **503 Service Unavailable:** The server is currently unable to handle the request, possibly due to overload or maintenance.  
-  - Retry after some time, and check if there is scheduled downtime.
-- **504 Gateway Timeout:** The server did not receive a timely response from an upstream server.  
-  - Ensure the backend service is operational and check for latency issues.
+- **500 Internal Server Error:** A generic error indicating that something went wrong on the backend server. 
+ - Contact the backend team with details of the request for further debugging.
+- **502 Bad Gateway:** The server received an invalid response from an upstream server. 
+ - This often indicates an issue with the backend's internal services or dependencies.
+- **503 Service Unavailable:** The server is currently unable to handle the request, possibly due to overload or maintenance. 
+ - Retry after some time, and check if there is scheduled downtime.
+- **504 Gateway Timeout:** The server did not receive a timely response from an upstream server. 
+ - Ensure the backend service is operational and check for latency issues.
 
 ## Investigate any technical errors in the dialogue
 

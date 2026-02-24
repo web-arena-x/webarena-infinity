@@ -22,31 +22,31 @@ Premium partners can configure most permissions and have additional permission o
 **The default permissions for all Basic and Premium partners with the Recruiter (Standard) role type are**: 
 
 - **Posts**
-  - Post content (as yourself)
+ - Post content (as yourself)
 - **Jobs**
-  - View jobs
-  - Manage jobs
-  - Manage job applicants
+ - View jobs
+ - Manage jobs
+ - Manage job applicants
 - **On-Campus Interviews**
-  - View on-campus interviews
-  - Manage on-campus interviews
-  - Manage on-campus interviews applicants
+ - View on-campus interviews
+ - Manage on-campus interviews
+ - Manage on-campus interviews applicants
 - **Events**
-  - Attend events
-  - Manage events
-  - Manage event attendees
+ - Attend events
+ - Manage events
+ - Manage event attendees
 - **Career Fairs**
-  - Attend fairs
-  - Manage fairs
-  - Manage fair attendees
+ - Attend fairs
+ - Manage fairs
+ - Manage fair attendees
 - **1:1 Schedules (Limited)**
-  - Attend 1:1 schedules (Limited)
-  - Manage 1:1 schedules (Limited)
-  - Manage 1:1 schedule attendees (Limited)
+ - Attend 1:1 schedules (Limited)
+ - Manage 1:1 schedules (Limited)
+ - Manage 1:1 schedule attendees (Limited)
 - **Schools & Contacts**
-  - View schools
-  - Manage schools
-  - Manage contact List
+ - View schools
+ - Manage schools
+ - Manage contact List
 - **Candidate sourcing (1:1, Limited)**
 
 **Permissions with Essentials**

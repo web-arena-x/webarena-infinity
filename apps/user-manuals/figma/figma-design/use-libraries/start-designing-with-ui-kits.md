@@ -43,7 +43,7 @@ You can add UI kits to a design file from the Libraries modal or from the Figma 
 ### From the Libraries modal
 
 1. Select the **Assets** tab in the left sidebar.
-2. Click  **Libraries** to open the **Libraries** modal.
+2. Click **Libraries** to open the **Libraries** modal.
 3. Select **UI kits** in the sidebar.
 4. Click **Add to file** next to the UI kit you want to enable in the file. To remove from the file, click **Remove**.
 
@@ -85,7 +85,7 @@ If you’re a team admin for a Professional team or admin for an organization, y
 When the UI kits feature is disabled globally, you won't be able to add individual UI kits to files and their assets won't be discoverable. However, team members can still [make a copy of UI kits](#h_01J0Y2QYS4GKV112NWZHD6019J) from the Community and use the assets from the duplicated file.
 
 1. Open your team or organization space in the file browser.
-2. Click  **Admin** from the left sidebar.
+2. Click **Admin** from the left sidebar.
 3. Open the **Settings** tab, and go to **Resources** > **UI kit**.
 4. Use the toggle to enable or disable the UI kits feature. This setting applies to all files within the team or organization.
 

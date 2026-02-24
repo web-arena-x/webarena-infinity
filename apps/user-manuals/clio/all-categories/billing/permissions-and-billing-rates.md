@@ -8,13 +8,13 @@ Accessing bills in Clio requires that a user have billing permissions. Access to
 
 Firm users with administrator permissions can also change each firm user’s billing rate and billing rate visibility. A user’s billing rate is the standard user rate for activities. Billing rate visibility is a setting that restricts access to billing rates when creating time entries.
 
-**Tip:**  Learn more about rate hierarchy when creating time and expense activities [here](https://help.clio.com/hc/en-us/articles/9289801180187).
+**Tip:** Learn more about rate hierarchy when creating time and expense activities [here](https://help.clio.com/hc/en-us/articles/9289801180187).
 
 ## Manage billing permissions
 
 You can only access bills in Clio if you have the billing permission enabled on your user account. Without this permission, you cannot create, view, or manage bills. Follow the steps below to add or remove a user's billing permissions.
 
-**Note:**  Only administrators can change other firm users’ permissions.
+**Note:** Only administrators can change other firm users’ permissions.
 
 1. Go to **Settings** > **Manage Users**.
 2. Click **Edit** below a user’s name.
@@ -44,7 +44,7 @@ Change your own billing rate Change another user's billing rate
 
 Billing rate visibility is a setting that can restrict whether a user can view their own or even other users’ billing rates when creating time entries. Each user can view all billing rates for all users, only their own billing rate, or no billing rate including their own.
 
-**Note:**  Only administrators can change other firm users’ billing rate visibility.
+**Note:** Only administrators can change other firm users’ billing rate visibility.
 
 1. Go to **Settings** > **Manage Users**.
 2. Click **Edit** below a user’s name.
@@ -62,6 +62,6 @@ Matter Dashboard:
 :   With billing rate visibility restrictions, the financial section of the Matter Dashboard (Work in Progress, Outstanding Balances, Matter Trust Funds) will not be visible to you.
 
 Activities:
-:   **None:** You will see an asterisk (\*) instead of user rates when viewing activities.  
-    **Own:** You will see your own rate, but an asterisk (\*) will replace the rates of other firm users.  
+:   **None:** You will see an asterisk (\*) instead of user rates when viewing activities. 
+    **Own:** You will see your own rate, but an asterisk (\*) will replace the rates of other firm users. 
     **All:** You will see all user rates without restrictions.

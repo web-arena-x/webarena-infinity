@@ -6,7 +6,7 @@ Source: https://help.clio.com/hc/en-us/articles/9285331482779-Filter-and-Export-
 
 Bills in Clio can be filtered and exported in bulk as PDF or CSV files. You can also generate statements of account for all clients to view key financial information, such as payments and balances.
 
-**Tip:**  You can also download and print individual bills. Learn more [here](https://help.clio.com/hc/en-us/articles/9285222010395).
+**Tip:** You can also download and print individual bills. Learn more [here](https://help.clio.com/hc/en-us/articles/9285222010395).
 
 ## Filter bills
 
@@ -37,7 +37,7 @@ The statements of account export shows bill invoice amounts, payments, and balan
 
 You can generate this export for all clients with approved bills or for specific clients. You can also select relevant filters and selections, such as date range, showing a client’s trust balance or operating balance, or selecting a different bill theme to view the export.
 
-**Note:**  This export will only show bills that have been approved. It will not show bills in draft or bills pending approval.
+**Note:** This export will only show bills that have been approved. It will not show bills in draft or bills pending approval.
 
 1. Go to **Billing**.
 2. Click the down arrow next to **New bills** and select **New statements of account.**

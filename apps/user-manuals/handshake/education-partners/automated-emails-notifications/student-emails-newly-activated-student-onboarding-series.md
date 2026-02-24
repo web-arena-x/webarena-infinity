@@ -11,8 +11,8 @@ These emails are automatically generated to students after they have activated t
 All students receive the same version of each email in this series. Emails contain the following calls to action:
 
 - - Welcome series 1 (+30 min): Fill out your profile
-  - Welcome series 2 (+7 days): View jobs
-  - Welcome series 3 (+20 days): Apply to jobs
+ - Welcome series 2 (+7 days): View jobs
+ - Welcome series 3 (+20 days): Apply to jobs
 
 Below are examples of each email in the series.
 

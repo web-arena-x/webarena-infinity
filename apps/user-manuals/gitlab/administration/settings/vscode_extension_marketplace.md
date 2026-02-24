@@ -13,8 +13,7 @@ title: Configure VS Code Extension Marketplace
 
 {{< /details >}}
 
-The VS Code Extension Marketplace provides access to extensions that enhance the functionality of the
-Web IDE and Workspaces. Administrators can configure access to the marketplace for the entire instance.
+The VS Code Extension Marketplace provides access to extensions that enhance the functionality of the Web IDE and Workspaces. Administrators can configure access to the marketplace for the entire instance.
 
 {{< alert type="note" >}}
 

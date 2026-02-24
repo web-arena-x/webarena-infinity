@@ -14,12 +14,10 @@ title: 'Tutorial: Set up a project for idea management'
 
 <!-- vale gitlab_base.FutureTense = NO -->
 
-Idea management refers to the collection, organization, evaluation, and implementation of ideas
-within an organization or community.
+Idea management refers to the collection, organization, evaluation, and implementation of ideas within an organization or community.
 Ideas can originate from various stakeholders, such as employees, customers, or partners.
 
-A separate idea backlog allows the team to capture and prioritize potential concepts and suggestions
-before they're fully fleshed out.
+A separate idea backlog allows the team to capture and prioritize potential concepts and suggestions before they're fully fleshed out.
 Having this separate backlog enables efficient management of raw ideas.
 It does so without cluttering the main backlog with unrefined or not validated concepts.
 
@@ -37,11 +35,8 @@ To set up GitLab for idea management in a project:
 
 ## Before you begin
 
-- If you're using an existing project for this tutorial, make sure you have at least the Reporter role
-  for the project.
-- If you follow the steps below and later decide to create a
-  parent group for your project, to make
-  best use of labels, you'll have to promote the project labels to group labels.
+- If you're using an existing project for this tutorial, make sure you have at least the Reporter role for the project.
+- If you follow the steps below and later decide to create a parent group for your project, to make best use of labels, you'll have to promote the project labels to group labels.
 
 ## Create a project
 
@@ -72,8 +67,7 @@ For this tutorial, suppose you've decided on the following status workflow:
 
 After you agree on the status workflow, write it all down somewhere your teammates can always access.
 
-For example, add it to a [wiki](../../user/project/wiki/_index.md) in your project, or your company
-handbook published with [GitLab Pages](../../user/project/pages/_index.md).
+For example, add it to a [wiki](../../user/project/wiki/_index.md) in your project, or your company handbook published with [GitLab Pages](../../user/project/pages/_index.md).
 
 <!-- Idea for expanding this tutorial:
      Add steps for [creating a wiki page](../../user/project/wiki/_index.md#create-a-new-wiki-page). -->
@@ -89,17 +83,12 @@ handbook published with [GitLab Pages](../../user/project/pages/_index.md).
 
 Next, you'll create labels to add to ideas to represent the status workflow.
 
-The best tool for this is [scoped labels](../../user/project/labels.md#scoped-labels), which you
-can use to set mutually exclusive attributes.
+The best tool for this is [scoped labels](../../user/project/labels.md#scoped-labels), which you can use to set mutually exclusive attributes.
 
-Checking with the list of statuses you've assembled
-[previously](#define-the-idea-workflow), you'll want to create matching
-scoped labels.
+Checking with the list of statuses you've assembled [previously](#define-the-idea-workflow), you'll want to create matching scoped labels.
 
-The double colon (`::`) in the name of a scoped label prevents two labels of the same scope being
-used together.
-For example, if you add the `status::backlog` label to an issue that already has `status::in review`, the
-previous one is removed.
+The double colon (`::`) in the name of a scoped label prevents two labels of the same scope being used together.
+For example, if you add the `status::backlog` label to an issue that already has `status::in review`, the previous one is removed.
 
 {{< alert type="note" >}}
 
@@ -115,8 +104,7 @@ To create each label:
 1. Select **Manage** > **Labels**.
 1. Select **New label**.
 1. In the **Title** field, enter the name of the label. Start with `status::in review`.
-1. Optional. Select a color by selecting from the available colors, or enter a hex color value for
-   a specific color in the **Background color** field.
+1. Optional. Select a color by selecting from the available colors, or enter a hex color value for a specific color in the **Background color** field.
 1. Select **Create label**.
 
 Repeat these steps to create all the labels you'll need:
@@ -184,8 +172,6 @@ Try it out by dragging some issues from the **Open** list to one of the label li
 
 Next, you can:
 
-- Create an [issue template](../../user/project/description_templates.md) to gather all the important
-  details from your stakeholders.
+- Create an [issue template](../../user/project/description_templates.md) to gather all the important details from your stakeholders.
 - Use [comments and threads](../../user/discussions/_index.md) to gather more information about an idea.
-- [Relate](../../user/project/issues/related_issues.md) issues in your team backlog to issues in your
-  idea project.
+- [Relate](../../user/project/issues/related_issues.md) issues in your team backlog to issues in your idea project.

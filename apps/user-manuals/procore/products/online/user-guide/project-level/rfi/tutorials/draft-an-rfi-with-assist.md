@@ -19,7 +19,7 @@ Draft an RFI with Procore AI is designed to help you write better RFIs and surf
 ## Things to Consider
 
 - ****Required User Permissions:****
-  - 'Standard' level permissions or higher on the project's RFIs tool.
+ - 'Standard' level permissions or higher on the project's RFIs tool.
 
 ****Prerequisites:****
 
@@ -30,16 +30,15 @@ Draft an RFI with Procore AI is designed to help you write better RFIs and surf
 
 1. Navigate to the project's ****RFIs**** tool.
 2. Click **Create**.
-3. Click **Draft with RFI Agent**.  
-   This will open the agent.  
+3. Click **Draft with RFI Agent**. 
+   This will open the agent. 
    ![draft-rfi-agent-button.png](https://support.procore.com/@api/deki/files/543042/draft-rfi-agent-button.png?revision=1)
-4. Enter the question(s) you have and any information about potential cost or schedule impacts.   
+4. Enter the question(s) you have and any information about potential cost or schedule impacts.  
    ![draft-rfi-agent-question.png](https://support.procore.com/@api/deki/files/543044/draft-rfi-agent-question.png?revision=1)
 5. Click the **send**![send-button-orange.png](https://support.procore.com/@api/deki/files/543050/send-button-orange.png?revision=1&size=bestfit&width=20&height=20)button.
 6. The RFI agent will process the information you provided and suggest a subject, question, cost impact, and schedule impact where applicable.
-7. Click **Apply to RFI**if you are satisfied with the agent's suggestions and begin completing the rest of your RFI.   
-   OR  
-   Click **Find Related Items**to check for existing information that might address your question.
+7. Click **Apply to RFI**if you are satisfied with the agent's suggestions and begin completing the rest of your RFI.  
+   OR Click **Find Related Items**to check for existing information that might address your question.
    - This action sends a prompt to Procore's AI to search for any relevant information that could help answer the question.
    - Review the generated report for any valuable insights.
    - This process helps you quickly determine if your question has already been answered.

@@ -17,14 +17,12 @@ title: Wiki-specific Markdown
 The following topics show how links inside wikis behave.
 
 When you link to wiki pages, use the page slug rather than the page name.
-A page slug is the URL-friendly version of the page title, where spaces are replaced with hyphens
-and special characters are removed or converted.
+A page slug is the URL-friendly version of the page title, where spaces are replaced with hyphens and special characters are removed or converted.
 For example, a page titled "How to Use GitLab" has the slug `How-to-Use-GitLab`.
 
 ### Wiki-style links
 
-In addition to standard [Markdown links](../../markdown.md#links), wikis support special wiki-style
-link syntax that provides a more convenient way to link between wiki pages.
+In addition to standard [Markdown links](../../markdown.md#links), wikis support special wiki-style link syntax that provides a more convenient way to link between wiki pages.
 
 #### Double bracket syntax
 
@@ -47,8 +45,7 @@ This displays `Home-page-new-slug` as the link text.
 
 #### Double bracket syntax with custom text
 
-If the page slug is different from the title you want to display, use the pipe (`|`) character to
-separate the display text from the page slug:
+If the page slug is different from the title you want to display, use the pipe (`|`) character to separate the display text from the page slug:
 
 ```markdown
 [[How to use GitLab|how-to-use-gitlab]]
@@ -91,8 +88,7 @@ This automatically renders as a link with the text "Home page new slug" (hyphens
 
 ### Direct page link
 
-A direct page link includes the slug for a page that points to that page,
-at the base level of the wiki.
+A direct page link includes the slug for a page that points to that page, at the base level of the wiki.
 
 This example links to a `documentation` page at the root of your wiki:
 
@@ -104,8 +100,7 @@ This example links to a `documentation` page at the root of your wiki:
 
 A direct file link points to a file extension for a file, relative to the current page.
 
-If the following example is on a page at `<your_wiki>/documentation/related`,
-it links to `<your_wiki>/documentation/file.md`:
+If the following example is on a page at `<your_wiki>/documentation/related`, it links to `<your_wiki>/documentation/file.md`:
 
 ```markdown
 [Link to File](file.md)
@@ -113,32 +108,27 @@ it links to `<your_wiki>/documentation/file.md`:
 
 ### Hierarchical link
 
-A hierarchical link can be constructed relative to the current wiki page by using relative paths like `./<page>` or
-`../<page>`.
+A hierarchical link can be constructed relative to the current wiki page by using relative paths like `./<page>` or `../<page>`.
 
-If this example is on a page at `<your_wiki>/documentation/main`,
-it links to `<your_wiki>/documentation/related`:
+If this example is on a page at `<your_wiki>/documentation/main`, it links to `<your_wiki>/documentation/related`:
 
 ```markdown
 [Link to Related Page](related)
 ```
 
-If this example is on a page at `<your_wiki>/documentation/related/content`,
-it links to `<your_wiki>/documentation/main`:
+If this example is on a page at `<your_wiki>/documentation/related/content`, it links to `<your_wiki>/documentation/main`:
 
 ```markdown
 [Link to Related Page](../main)
 ```
 
-If this example is on a page at `<your_wiki>/documentation/main`,
-it links to `<your_wiki>/documentation/related.md`:
+If this example is on a page at `<your_wiki>/documentation/main`, it links to `<your_wiki>/documentation/related.md`:
 
 ```markdown
 [Link to Related Page](related.md)
 ```
 
-If this example is on a page at `<your_wiki>/documentation/related/content`,
-it links to `<your_wiki>/documentation/main.md`:
+If this example is on a page at `<your_wiki>/documentation/related/content`, it links to `<your_wiki>/documentation/main.md`:
 
 ```markdown
 [Link to Related Page](../main.md)
@@ -162,9 +152,7 @@ This example links to `<wiki_root>/documentation.md`:
 
 ## diagrams.net editor
 
-In wikis, you can use the [diagrams.net](https://app.diagrams.net/) editor to create diagrams. You
-can also edit diagrams created with the diagrams.net editor. The diagram editor is available in both
-the plain text editor and the rich text editor.
+In wikis, you can use the [diagrams.net](https://app.diagrams.net/) editor to create diagrams. You can also edit diagrams created with the diagrams.net editor. The diagram editor is available in both the plain text editor and the rich text editor.
 
 For more information, see [Diagrams.net](../../../administration/integration/diagrams_net.md).
 
@@ -173,8 +161,7 @@ For more information, see [Diagrams.net](../../../administration/integration/dia
 To create a diagram in the plain text editor:
 
 1. On the wiki page you want to edit, select **Edit**.
-1. In the text box, make sure you're using the plain text editor
-   (the button on the bottom left says **Switch to rich text editing**).
+1. In the text box, make sure you're using the plain text editor (the button on the bottom left says **Switch to rich text editing**).
 1. In the editor's toolbar, select **Insert or edit diagram** ({{< icon name="diagram" >}}).
 1. Create the diagram in the [app.diagrams.net](https://app.diagrams.net/) editor.
 1. Select **Save & exit**.
@@ -184,23 +171,20 @@ A Markdown image reference to the diagram is inserted in the wiki content.
 To edit a diagram in the plain text editor:
 
 1. On the wiki page you want to edit, select **Edit**.
-1. In the text box, make sure you're using the plain text editor
-   (the button on the bottom left says **Switch to rich text editing**).
+1. In the text box, make sure you're using the plain text editor (the button on the bottom left says **Switch to rich text editing**).
 1. Position your cursor in the Markdown image reference that contains the diagram.
 1. Select **Insert or edit diagram** ({{< icon name="diagram" >}}).
 1. Edit the diagram in the [app.diagrams.net](https://app.diagrams.net/) editor.
 1. Select **Save & exit**.
 
-A Markdown image reference to the diagram is inserted in the wiki content,
-replacing the previous diagram.
+A Markdown image reference to the diagram is inserted in the wiki content, replacing the previous diagram.
 
 ### Rich text editor
 
 To create a diagram in the rich text editor:
 
 1. On the wiki page you want to edit, select **Edit**.
-1. In the text box, make sure you're using the rich text editor
-   (the button on the bottom left says **Switch to plain text editing**).
+1. In the text box, make sure you're using the rich text editor (the button on the bottom left says **Switch to plain text editing**).
 1. In the editor's toolbar, select **More options** ({{< icon name="plus" >}}).
 1. In the dropdown list, select **Create or edit diagram**.
 1. Create the diagram in the [app.diagrams.net](https://app.diagrams.net/) editor.
@@ -211,8 +195,7 @@ The diagram as visualized in the diagrams.net editor is inserted in the wiki con
 To edit a diagram in the rich text editor:
 
 1. On the wiki page you want to edit, select **Edit**.
-1. In the text box, make sure you're using the rich text editor
-   (the button on the bottom left says **Switch to plain text editing**).
+1. In the text box, make sure you're using the rich text editor (the button on the bottom left says **Switch to plain text editing**).
 1. Select the diagram that you want to edit.
 1. In the floating toolbar, select **Edit diagram** ({{< icon name="diagram" >}}).
 1. Edit the diagram in the [app.diagrams.net](https://app.diagrams.net/) editor.

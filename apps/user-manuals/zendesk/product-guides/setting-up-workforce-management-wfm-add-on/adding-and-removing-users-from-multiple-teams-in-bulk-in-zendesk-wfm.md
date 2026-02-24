@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/9226702189082-Adding-and-r
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Workforce Management (WFM) or Workforce Engagement Management (WEM) |
 
@@ -14,29 +14,22 @@ Verified AI summary ◀▼
 
 As a WFM admin, you can manage team assignments in bulk from the User management page. Easily add or remove multiple users from one or more teams at once. This streamlines your roster management, saving time and effort. Simply select users, choose the teams to update, and confirm your changes. This feature enhances your ability to organize and adjust team structures efficiently.
 
-Teams in Zendesk Workforce management (WFM) are part of your organization structure and
-provide a way for you to manage your roster. You can add and remove users from one or
-multiple teams at once from the User management page.
+Teams in Zendesk Workforce management (WFM) are part of your organization structure and provide a way for you to manage your roster. You can add and remove users from one or multiple teams at once from the User management page.
 
-You must be a WFM admin to add or remove users from teams using the User management
-page.
+You must be a WFM admin to add or remove users from teams using the User management page.
 
 This article contains the following topics:
 
-- [Adding users to
-  teams](#topic_yjf_xkb_gfc)
-- [Removing users from
-  teams](#topic_v4b_hlb_gfc)
+- [Adding users to teams](#topic_yjf_xkb_gfc)
+- [Removing users from teams](#topic_v4b_hlb_gfc)
 
 Related articles:
 
-- [Creating and managing teams in Zendesk
-  WFM](https://support.zendesk.com/hc/en-us/articles/6443329411994)
+- [Creating and managing teams in Zendesk WFM](https://support.zendesk.com/hc/en-us/articles/6443329411994)
 
 ## Adding users to teams
 
-You can add one or multiple users at once to one or multiple teams from the
-User management page.
+You can add one or multiple users at once to one or multiple teams from the User management page.
 
 **To add users to teams**
 
@@ -48,16 +41,14 @@ User management page.
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/wfm_teams.png)
 5. Select one or more teams to add the selected users to.
-6. Enter the beginning of a team’s name to autocomplete or select from the
-   drop-down menu.
+6. Enter the beginning of a team’s name to autocomplete or select from the drop-down menu.
 7. Click **Add**.
 
    ![](https://zen-marketing-documentation.s3.us-west-1.amazonaws.com/docs/en/wfm_add_to_teams_add.png)
 
 ## Removing users from teams
 
-You can remove one or multiple users at once from one or multiple teams
-using the User management page.
+You can remove one or multiple users at once from one or multiple teams using the User management page.
 
 **To remove users from teams**
 
@@ -70,9 +61,7 @@ using the User management page.
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/wfm_teams.png)
 5. Select one or more teams to remove the selected users from.
 
-   Enter the
-   beginning of a team’s name to autocomplete or select from the drop-down
-   menu.
+   Enter the beginning of a team’s name to autocomplete or select from the drop-down menu.
 6. Click **Remove**.
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/wfm_teams_remove.png)

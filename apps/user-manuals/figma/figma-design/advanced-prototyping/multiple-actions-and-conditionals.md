@@ -41,12 +41,12 @@ Every prototype interaction has a trigger and one or more actions. A trigger is 
 Multiple actions allow you to add an unlimited number of actions on one trigger.
 
 1. Create a [prototype interaction](https://help.figma.com/hc/en-us/articles/360040315773).
-2. To add an additional action, click  **Add action**.
+2. To add an additional action, click **Add action**.
 3. From the **Interaction** panel, select any action from the **Action** dropdown menu.
 
 ![Figma prototype setup showing interaction panel with multiple trigger actions for navigating and overlay options.](https://help.figma.com/hc/article_attachments/24296415473047)
 
-Tip:  Collapse or expand details of each action by clicking the chevron to the left of the action name.
+Tip: Collapse or expand details of each action by clicking the chevron to the left of the action name.
 
 ### Reorder actions
 
@@ -59,14 +59,14 @@ To reorder actions:
 
 ![Creating a drag interaction in Figma's prototype panel with scrolling behavior settings displayed.](https://help.figma.com/hc/article_attachments/24296390030999)
 
-Tip:  You can drag and drop any action into a **Conditional** action.
+Tip: You can drag and drop any action into a **Conditional** action.
 
 Changing the order of actions can change the outcome of a prototype.
 
 For example, two sample prototype actions are listed below. For this example, the starting value of `numberVar` is `1`.
 
 ```
-1. Set numberVar to 2  
+1. Set numberVar to 2 
 2. Conditional: if numberVar == 2, Navigate to Frame 2
 ```
 
@@ -75,7 +75,7 @@ In the first action, the number variable is set to a value of `2`. This means th
 Now, switch the order of the actions:
 
 ```
-1. Conditional: if numberVar == 2, Navigate to Frame 2  
+1. Conditional: if numberVar == 2, Navigate to Frame 2 
 2. Set numberVar to 2
 ```
 

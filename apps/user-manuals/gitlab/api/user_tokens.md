@@ -39,8 +39,8 @@ Supported attributes:
 | Attribute    | Type    | Required | Description |
 |:-------------|:--------|:---------|:------------|
 | `user_id`    | integer | yes      | ID of user account. |
-| `name`       | string  | yes      | Name of personal access token. |
-| `description`| string  | no       | Description of personal access token. Maximum: 255 characters. |
+| `name`       | string | yes      | Name of personal access token. |
+| `description`| string | no       | Description of personal access token. Maximum: 255 characters. |
 | `expires_at` | date    | no       | Expiration date of the access token in ISO format (`YYYY-MM-DD`). If undefined, the date is set to the [maximum allowable lifetime limit](../user/profile/personal_access_tokens.md#access-token-expiration). |
 | `scopes`     | array   | yes      | Array of approved scopes. For a list of possible values, see [Personal access token scopes](../user/profile/personal_access_tokens.md#personal-access-token-scopes). |
 
@@ -48,10 +48,10 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --data "name=mytoken" --data "expires_at=2017-04-04" \
-  --data "scopes[]=api" \
-  --url "https://gitlab.example.com/api/v4/users/42/personal_access_tokens"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --data "name=mytoken" --data "expires_at=2017-04-04" \
+ --data "scopes[]=api" \
+ --url "https://gitlab.example.com/api/v4/users/42/personal_access_tokens"
 ```
 
 Example response:
@@ -101,16 +101,16 @@ Supported attributes:
 |:-------------|:-------|:---------|:------------|
 | `name`       | string | yes      | Name of personal access token. |
 | `description`| string | no       | Description of personal access token. Maximum: 255 characters. |
-| `scopes`     | array  | yes      | Array of approved scopes. Only accepts `k8s_proxy` and `self_rotate`. |
-| `expires_at` | array  | no       | Expiration date of the access token in ISO format (`YYYY-MM-DD`). If undefined, the date is set to the [maximum allowable lifetime limit](../user/profile/personal_access_tokens.md#access-token-expiration). |
+| `scopes`     | array | yes      | Array of approved scopes. Only accepts `k8s_proxy` and `self_rotate`. |
+| `expires_at` | array | no       | Expiration date of the access token in ISO format (`YYYY-MM-DD`). If undefined, the date is set to the [maximum allowable lifetime limit](../user/profile/personal_access_tokens.md#access-token-expiration). |
 
 Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --data "name=mytoken" --data "scopes[]=k8s_proxy" \
-  --url "https://gitlab.example.com/api/v4/user/personal_access_tokens"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --data "name=mytoken" --data "scopes[]=k8s_proxy" \
+ --url "https://gitlab.example.com/api/v4/user/personal_access_tokens"
 ```
 
 Example response:
@@ -151,14 +151,14 @@ Supported attributes:
 | Attribute | Type    | Required | Description |
 |:----------|:--------|:---------|:------------|
 | `user_id` | integer | yes      | ID of user account |
-| `state`   | string  | no       | Filter tokens based on state. Possible values: `all`, `active`, or `inactive`. |
+| `state`   | string | no       | Filter tokens based on state. Possible values: `all`, `active`, or `inactive`. |
 
 Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/42/impersonation_tokens"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/users/42/impersonation_tokens"
 ```
 
 Example response:
@@ -221,8 +221,8 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/42/impersonation_tokens/2"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/users/42/impersonation_tokens/2"
 ```
 
 Example response:
@@ -263,19 +263,19 @@ Supported attributes:
 | Attribute    | Type    | Required | Description |
 |:-------------|:--------|:---------|:------------|
 | `user_id`    | integer | yes      | ID of user account |
-| `name`       | string  | yes      | Name of impersonation token |
-| `description`| string  | no       | Description of impersonation token |
+| `name`       | string | yes      | Name of impersonation token |
+| `description`| string | no       | Description of impersonation token |
 | `expires_at` | date    | yes      | Expiration date of the impersonation token in ISO format (`YYYY-MM-DD`). If undefined, the date is set to the [maximum allowable lifetime limit](../user/profile/personal_access_tokens.md#access-token-expiration). |
-| `scopes`     | array   | yes      | Array of approved scopes. For a list of possible values, see [Personal access token scopes](../user/profile/personal_access_tokens.md#personal-access-token-scopes).  |
+| `scopes`     | array   | yes      | Array of approved scopes. For a list of possible values, see [Personal access token scopes](../user/profile/personal_access_tokens.md#personal-access-token-scopes). |
 
 Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --data "name=mytoken" --data "expires_at=2017-04-04" \
-  --data "scopes[]=api" \
-  --url "https://gitlab.example.com/api/v4/users/42/impersonation_tokens"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --data "name=mytoken" --data "expires_at=2017-04-04" \
+ --data "scopes[]=api" \
+ --url "https://gitlab.example.com/api/v4/users/42/impersonation_tokens"
 ```
 
 Example response:
@@ -321,6 +321,6 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/42/impersonation_tokens/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/users/42/impersonation_tokens/1"
 ```

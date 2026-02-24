@@ -60,4 +60,4 @@ To add a workspace from another email account:
 3. Select **Create or join a workspace**.
 4. If you have other workspaces associated with your user account, you will see a list of those workspaces to select.
 
-You can also switch workspaces by typing  `O then W.`
+You can also switch workspaces by typing `O then W.`

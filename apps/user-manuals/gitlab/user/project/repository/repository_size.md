@@ -18,20 +18,17 @@ It can differ slightly from one instance to another due to compression, housekee
 
 ## Size calculation
 
-The project overview page shows the size of all files in the repository, including repository files,
-artifacts, and LFS. This size is updated every 15 minutes.
+The project overview page shows the size of all files in the repository, including repository files, artifacts, and LFS. This size is updated every 15 minutes.
 
 The size of a repository is determined by computing the accumulated size of all files in the repository.
-This calculation is similar to executing `du --summarize --bytes` on your repository's
-[hashed storage path](../../../administration/repository_storage_paths.md).
+This calculation is similar to executing `du --summarize --bytes` on your repository's [hashed storage path](../../../administration/repository_storage_paths.md).
 
 ## Size and storage limits
 
 Administrators can set a [repository size limit](../../../administration/settings/account_and_limit_settings.md#repository-size-limit)
 for GitLab Self-Managed. For GitLab SaaS, size limits are [pre-defined](../../gitlab_com/_index.md#account-and-limit-settings).
 
-When a project reaches its size limit, certain operations like pushing, creating merge requests,
-and uploading LFS objects are restricted.
+When a project reaches its size limit, certain operations like pushing, creating merge requests, and uploading LFS objects are restricted.
 
 ## Before you rewrite Git history
 
@@ -52,32 +49,24 @@ When there are still pipelines running during a cleanup, they can interact with 
 
 ### Garbage collection grace period
 
-GitLab runs Git garbage collection with a grace period of 30 minutes. This
-process cleans up objects that are both:
+GitLab runs Git garbage collection with a grace period of 30 minutes. This process cleans up objects that are both:
 
 - Not reachable from any reference.
 - At least 30 minutes old.
 
-If the data you wanted to remove is reachable from any commit or is less than
-30 minutes old, Git garbage collection will not remove it.
+If the data you wanted to remove is reachable from any commit or is less than 30 minutes old, Git garbage collection will not remove it.
 
 As a result, you must wait at least 30 minutes before selecting **Prune unreachable objects** after running housekeeping.
 
 ### History cannot be rewritten on forked project
 
-The builtin methods cannot be used on repositories that are forked. The way
-GitLab objects are stored across forks makes it impossible for Git to garbage
-collect objects that are shared between forks.
+The builtin methods cannot be used on repositories that are forked. The way GitLab objects are stored across forks makes it impossible for Git to garbage collect objects that are shared between forks.
 
 ### Workaround: Archive the project
 
-If you [archive](../working_with_projects.md#archive-a-project) before doing the
-cleanup, the repository will be read-only. This will ensure no one will make
-changes while the cleanup is in progress.
+If you [archive](../working_with_projects.md#archive-a-project) before doing the cleanup, the repository will be read-only. This will ensure no one will make changes while the cleanup is in progress.
 
-Archiving a repository will also remove the fork relation. This would allow you
-the clean up data. But if the data was pulled up into a fork, cleanup would need
-to happen there as well.
+Archiving a repository will also remove the fork relation. This would allow you the clean up data. But if the data was pulled up into a fork, cleanup would need to happen there as well.
 
 ## Methods to reduce repository size
 
@@ -90,11 +79,8 @@ The following methods are available to reduce the size of a repository:
 Before you reduce your repository size, you should [create a full backup of your repository](../../../administration/backup_restore/_index.md).
 These methods are irreversible and can potentially affect your project's history and data.
 
-When you reduce your repository size with any of the available methods, you don't need to block
-access to your project. You can perform these operations while your project remains accessible to
-users. These methods don't have any known performance implications and don't cause downtime.
-However, you should perform these actions during periods of low activity to minimize
-the potential impact on users.
+When you reduce your repository size with any of the available methods, you don't need to block access to your project. You can perform these operations while your project remains accessible to users. These methods don't have any known performance implications and don't cause downtime.
+However, you should perform these actions during periods of low activity to minimize the potential impact on users.
 
 ### Purge files from repository history
 
@@ -114,8 +100,7 @@ This process:
 
 {{< alert type="note" >}}
 
-Information about commits, including file content, is cached in the database, and remains visible
-even after they have been removed from the repository.
+Information about commits, including file content, is cached in the database, and remains visible even after they have been removed from the repository.
 
 {{< /alert >}}
 
@@ -134,15 +119,14 @@ This process:
 
 {{< alert type="warning" >}}
 
-Removing internal Git references causes associated merge request commits, pipelines, and change
-details to become unavailable.
+Removing internal Git references causes associated merge request commits, pipelines, and change details to become unavailable.
 
 {{< /alert >}}
 
 Prerequisites:
 
 - The list of objects to remove. Use the [`git filter-repo`](https://github.com/newren/git-filter-repo)
-  to produce a list of objects in a`commit-map` file.
+ to produce a list of objects in a`commit-map` file.
 
 To clean up a repository:
 
@@ -152,8 +136,7 @@ To clean up a repository:
 1. Upload the list of objects to remove. For example, the `commit-map` file in the `filter-repo` directory.
 
    If your `commit-map` file is too large, the background cleanup process might time out and fail.
-   As a result, the repository size isn't reduced as expected. To address this, split the file and
-   upload it in parts. Start with `20000` and reduce as needed. For example:
+   As a result, the repository size isn't reduced as expected. To address this, split the file and upload it in parts. Start with `20000` and reduce as needed. For example:
 
    ```shell
    split -l 20000 filter-repo/commit-map filter-repo/commit-map-
@@ -198,8 +181,7 @@ This process:
 
 {{< alert type="note" >}}
 
-You can also replace strings with the replacement string `***REMOVED***`. For more information, see
-[redact text from repository](#redact-text-from-repository).
+You can also replace strings with the replacement string `***REMOVED***`. For more information, see [redact text from repository](#redact-text-from-repository).
 
 {{< /alert >}}
 
@@ -208,13 +190,12 @@ Prerequisites:
 - You must have the Owner role for the project.
 - [A list of object IDs](#get-a-list-of-object-ids) to remove.
 - Your project must not be:
-  - A fork of a public upstream project.
-  - A public upstream project with downstream forks.
+ - A fork of a public upstream project.
+ - A public upstream project with downstream forks.
 
 {{< alert type="note" >}}
 
-To ensure successful blob removal, consider temporarily restricting repository access during the
-process. New commits pushed during blob removal can cause the operation to fail.
+To ensure successful blob removal, consider temporarily restricting repository access during the process. New commits pushed during blob removal can cause the operation to fail.
 
 {{< /alert >}}
 
@@ -229,8 +210,7 @@ To remove blobs from your repository:
 1. On the confirmation dialog, enter your project path.
 1. Select **Yes, remove blobs**.
 1. Wait for the blob removal to complete before continuing:
-   - If [email notifications](../../../user/profile/notifications.md) are enabled,
-     wait until you receive an email stating that the repository history rewrite is completed.
+   - If [email notifications](../../../user/profile/notifications.md) are enabled, wait until you receive an email stating that the repository history rewrite is completed.
    - If email notifications are not enabled, wait at least 5 minutes.
 1. On the left sidebar, select **Settings** > **General**.
 1. Expand the section labeled **Advanced**.
@@ -240,10 +220,7 @@ To remove blobs from your repository:
 
 {{< alert type="note" >}}
 
-If the project containing the sensitive information has been forked, the housekeeping task might
-succeed without completing this process. Housekeeping must maintain the integrity of the
-[special object pool repository](../../../administration/housekeeping.md#object-pool-repositories),
-which contains the forked data.
+If the project containing the sensitive information has been forked, the housekeeping task might succeed without completing this process. Housekeeping must maintain the integrity of the [special object pool repository](../../../administration/housekeeping.md#object-pool-repositories), which contains the forked data.
 For help, contact GitLab Support.
 
 {{< /alert >}}
@@ -270,11 +247,11 @@ To get a list of blobs at a given commit or branch sorted by size:
    Example output:
 
    ```plaintext
-   100644 blob 8150ee86f923548d376459b29afecbe8495514e9  133508 doc/howto/img/remote-development-new-workspace-button.png
-   100644 blob cde4360b3d3ee4f4c04c998d43cfaaf586f09740  214231 doc/howto/img/dependency_proxy_macos_config_new.png
-   100644 blob 2ad0e839a709e73a6174e78321e87021b20be445  216452 doc/howto/img/gdk-in-gitpod.jpg
-   100644 blob 115dd03fc0828a9011f012abbc58746f7c587a05  242304 doc/howto/img/gitpod-button-repository.jpg
-   100644 blob c41ebb321a6a99f68ee6c353dd0ed29f52c1dc80  491158 doc/howto/img/dependency_proxy_macos_config.png
+   100644 blob 8150ee86f923548d376459b29afecbe8495514e9 133508 doc/howto/img/remote-development-new-workspace-button.png
+   100644 blob cde4360b3d3ee4f4c04c998d43cfaaf586f09740 214231 doc/howto/img/dependency_proxy_macos_config_new.png
+   100644 blob 2ad0e839a709e73a6174e78321e87021b20be445 216452 doc/howto/img/gdk-in-gitpod.jpg
+   100644 blob 115dd03fc0828a9011f012abbc58746f7c587a05 242304 doc/howto/img/gitpod-button-repository.jpg
+   100644 blob c41ebb321a6a99f68ee6c353dd0ed29f52c1dc80 491158 doc/howto/img/dependency_proxy_macos_config.png
    ```
 
    The third column in the output is the object ID of the blob. For example: `8150ee86f923548d376459b29afecbe8495514e9`.
@@ -290,8 +267,7 @@ To get a list of blobs at a given commit or branch sorted by size:
 
 {{< /history >}}
 
-Permanently delete sensitive or confidential information that was accidentally committed, ensuring
-it's no longer accessible in your repository's history.
+Permanently delete sensitive or confidential information that was accidentally committed, ensuring it's no longer accessible in your repository's history.
 Replaces a list of strings with `***REMOVED***`.
 
 {{< alert type="warning" >}}
@@ -307,8 +283,8 @@ While redacting files in GitLab removes exposed secrets, it also:
 - Updates commit hashes because the redaction updates their content.
 - Drops commit signatures during the rewrite process.
 - Breaks features that depend on commit hashes, including:
-  - Open merge requests. Open merge requests might fail to merge, and require a manual rebase.
-  - Links to previous commits, which results in 404 errors.
+ - Open merge requests. Open merge requests might fail to merge, and require a manual rebase.
+ - Links to previous commits, which results in 404 errors.
 - Might break pipelines that reference old commit SHAs and require reconfiguration.
 
 For better repository integrity, you should instead:
@@ -323,8 +299,7 @@ This approach:
 
 For more information, see [secret push protection](../../application_security/secret_detection/secret_push_protection/_index.md).
 
-Alternatively, to completely delete specific files from a repository, see
-[Remove blobs](#remove-blobs).
+Alternatively, to completely delete specific files from a repository, see [Remove blobs](#remove-blobs).
 
 Prerequisites:
 
@@ -348,9 +323,7 @@ To redact text from your repository:
 
 {{< alert type="note" >}}
 
-If the project containing the sensitive information has been forked, the housekeeping task might fail to
-complete this redaction process to maintain the integrity of the special object pool repository
-[which contains the forked data](../../../administration/housekeeping.md#object-pool-repositories).
+If the project containing the sensitive information has been forked, the housekeeping task might fail to complete this redaction process to maintain the integrity of the special object pool repository [which contains the forked data](../../../administration/housekeeping.md#object-pool-repositories).
 For help, contact GitLab Support.
 
 {{< /alert >}}
@@ -361,8 +334,7 @@ These sections have solutions for issues you might encounter.
 
 ### Incorrect repository statistics shown in the GUI
 
-If the repository size or commit number displayed in the GitLab interface differs from the
-exported `.tar.gz` or local repository:
+If the repository size or commit number displayed in the GitLab interface differs from the exported `.tar.gz` or local repository:
 
 1. Ask a GitLab administrator to force an update using the Rails console.
 1. The administrator should run the following commands:
@@ -403,24 +375,22 @@ If you've completed a repository cleanup process but the storage usage remains u
 
 ### Blobs are not removed
 
-When blobs are successfully removed, GitLab adds an entry in the project audit logs and sends an
-email notification to the person who initiated the action.
+When blobs are successfully removed, GitLab adds an entry in the project audit logs and sends an email notification to the person who initiated the action.
 
-If the blob removal fails, GitLab sends an email notification to the initiator with the subject
-`<project_name> | Project history rewrite failure`. The email body contains the full error message.
+If the blob removal fails, GitLab sends an email notification to the initiator with the subject `<project_name> | Project history rewrite failure`. The email body contains the full error message.
 
 Possible errors and solutions:
 
 - `validating object ID: invalid object ID`:
 
-  The object ID list contains a syntax error or an incorrect object ID. To resolve this:
+ The object ID list contains a syntax error or an incorrect object ID. To resolve this:
 
     1. Regenerate the [object IDs list](#get-a-list-of-object-ids).
     1. Re-run the [blob removal steps](#remove-blobs).
 
 - `source repository checksum altered`:
 
-  This occurs when someone pushes a commit during the blob removal process. To resolve this:
+ This occurs when someone pushes a commit during the blob removal process. To resolve this:
 
     1. Temporarily block all pushes to the repository.
     1. Re-run the [blob removal steps](#remove-blobs).

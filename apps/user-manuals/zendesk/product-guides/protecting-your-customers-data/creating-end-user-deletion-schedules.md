@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/6062884435866-Creating-end
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -96,6 +96,6 @@ Table 1. End-user deletion schedule categories
 
    | Category | Description |
 | --- | --- |
-| Last active | Deletes end users based on when they were last active in your Zendesk account. At least one Last active condition is required. Deletion schedules delete end users that have been *inactive* for the time period specified in the Last active field. For example, if Last active is set to 365 days, and the end user commented on an article within that time, the end user is not deleted. The clock starts over, and the end user will be deleted 365 days from the last active date.  Activities that count toward an end user's activity in the help center or community include:  - Viewing and searching for articles and posts - Commenting on articles and posts - Submitting or viewing a support request  Activities that count toward an end user's activity in Support include:   - Ticket comments made by the end user as the requester on a ticket - Ticket comments made by the end user as a CC on the ticket |
+| Last active | Deletes end users based on when they were last active in your Zendesk account. At least one Last active condition is required. Deletion schedules delete end users that have been *inactive* for the time period specified in the Last active field. For example, if Last active is set to 365 days, and the end user commented on an article within that time, the end user is not deleted. The clock starts over, and the end user will be deleted 365 days from the last active date. Activities that count toward an end user's activity in the help center or community include: - Viewing and searching for articles and posts - Commenting on articles and posts - Submitting or viewing a support request Activities that count toward an end user's activity in Support include:   - Ticket comments made by the end user as the requester on a ticket - Ticket comments made by the end user as a CC on the ticket |
 | Organization | Deletes end users based on organization, if you have multiple [organizations](https://support.zendesk.com/hc/en-us/articles/4408886146842). |
 | Tags | Deletes end users with the selected [user tags](https://support.zendesk.com/hc/en-us/articles/4408881573658). |

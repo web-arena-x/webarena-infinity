@@ -16,7 +16,7 @@ Normally, after you’ve converted a lead to a contact you have no need to rever
 - In the exported data file (a CSV file) locate the contacts you want to revert back to leads and then move them into a new, separate spreadsheet.
 - Reimport those user records as leads (see [Importing leads, contacts, and deals using a CSV file](https://support.zendesk.com/hc/en-us/articles/4408845638298)).
 
-  Note: Reimporting these user records does not preserve any notes or tasks that were associated with these contacts in your Sell account.
+ Note: Reimporting these user records does not preserve any notes or tasks that were associated with these contacts in your Sell account.
 
 **Use tags to indicate which of your contacts are actually leads**
 

@@ -16,7 +16,7 @@ Jump to review release notes:
 
 ## For Career Services
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Category** | **Feature** | **Release Timeline** |
 | **Fair Data** | View number of group and 1:1 sessions per employer on employer registration page ([Help](../events-career-fairs/virtual-fairs-monitoring-fair-engagement.md)) | RELEASED 7/20/20 |
@@ -25,7 +25,7 @@ Jump to review release notes:
 | **Employer Scheduling** | Change fair schedule owner for employers ([Help](../events-fairs-management/virtual-fairs-supporting-employers.md#h_01EED95R1E5F4RXV1G80D5F8PY)) | RELEASED 7/27/20 |
 | **Fair Marketing** | Refreshed student invite template ([Help](https://support.joinhandshake.com/hc/en-us/articles/360052073953)) | RELEASED 8/7/20 |
 | **Fair Data** | Quick downloads—student and employer signups and attendance ([Help](https://support.joinhandshake.com/hc/en-us/articles/360049998814#h_01EG1AF0VG925JV0PC6TFTZPQT)) | RELEASED 8/18/20 |
-| **Testing** | Career services can [go to this link](http://app.joinhandshake.com/video_sessions/test_session) to create a test session to check that video/audio are working. You can also invite other career services staff to participate. ([Help](https://support.joinhandshake.com/hc/en-us/articles/360055116693))  \*\*This is also available for employers\*\* | RELEASED 9/9/20 |
+| **Testing** | Career services can [go to this link](http://app.joinhandshake.com/video_sessions/test_session) to create a test session to check that video/audio are working. You can also invite other career services staff to participate. ([Help](https://support.joinhandshake.com/hc/en-us/articles/360055116693)) \*\*This is also available for employers\*\* | RELEASED 9/9/20 |
 | **Fair Management** | Session details page allows you to review qualifications set on 1:1 sessions, see all sessions in progress and check in on no show statuses for students and employer hosts. | RELEASED 9/13/20 |
 | **Fair Data** | Virtual fair registration and attendance data fields in Insights + new saved virtual report templates ([Help](https://support.joinhandshake.com/hc/en-us/articles/360050876554)) | RELEASED 9/13/20 |
 | **Fair Management** | Display specific 1:1 qualifications on employer registration page | RELEASED 9/29/20 |
@@ -48,7 +48,7 @@ Jump to review release notes:
 
 ## For Students
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Category** | **Feature** | **Release Timeline** |
 | **Attend Sessions** | Sign up for and participate in group and 1:1 sessions [Web & iOS] ([Help](https://support.joinhandshake.com/hc/en-us/articles/360051394454)) | RELEASED 7/20/20 |
@@ -60,10 +60,10 @@ Jump to review release notes:
 | **Fair Follow Up** | Post-fair email with employers to follow and a fair experience survey | RELEASED 9/2/20 |
 | **Attend Sessions** | Students receive a popup notification 1 minute prior to session end time | RELEASED 9/9/20 |
 | **Accessibility** | Allow interpreters to join sessions and add captions for students who request ([Help](https://support.joinhandshake.com/hc/en-us/articles/360053331294)) | RELEASED 9/11/20 |
-| **Fair Follow Up** | After 60% of sessions, students see a popup suggesting they follow the employer they just met with + view open positions.  The other 40% of the time, they see a survey asking them to rate video quality in the session. | RELEASED 9/13/20 |
+| **Fair Follow Up** | After 60% of sessions, students see a popup suggesting they follow the employer they just met with + view open positions. The other 40% of the time, they see a survey asking them to rate video quality in the session. | RELEASED 9/13/20 |
 | **Fair Discovery** | Display employers attending the fair in order of relevance to the student | RELEASED 9/16/20 |
 | **Fair Discovery** | “Just in Time” email for fairs with low session signups ([Help](https://support.joinhandshake.com/hc/en-us/articles/360052073953)) | RELEASED 9/22/20 |
-| **Fair Discovery** | \*\*See below for details on automatic removal of 1:1 qualifications\*\*  Update reminder email sent 2 days before the fair to indicate if new 1:1 sessions are available | RELEASED 9/25/20 |
+| **Fair Discovery** | \*\*See below for details on automatic removal of 1:1 qualifications\*\* Update reminder email sent 2 days before the fair to indicate if new 1:1 sessions are available | RELEASED 9/25/20 |
 | **Attend Sessions** | If an employer cancels their entire schedule, all students signed up for sessions get a cancellation notification | RELEASED 10/6/20 |
 | **Attend Sessions** | “Join Video” button is synced with the global time, allowing students to always be able to join meetings and virtual events at the correct time, even if their device’s time or timezone is off. | RELEASED 10/7/20 |
 | **Attend Sessions** | Employers can enable students to share their screen during 1:1 and group sessions | RELEASED 10/21/20 |
@@ -84,7 +84,7 @@ Jump to review release notes:
 
 ## For Employers
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Category** | **Feature** | **Release Timeline** |
 | **Managing Schedules** | Schedule owner can create schedules for representatives ([Help](../../employer/fairs/creating-a-schedule-for-virtual-fairs.md)) | RELEASED 7/20/20 |
@@ -102,7 +102,7 @@ Jump to review release notes:
 | **Managing Schedules** | Swap schedule with another user | RELEASED 9/8/20 |
 | **Managing Schedules** | Schedule owner receives automated reminder emails to create their schedule 3 weeks, 2 weeks, 1 week, and 1 day before the fair. | RELEASED 9/8/20 |
 | **Session Participation** | Employers receive a popup notification 1 minute prior to session end time | RELEASED 9/9/20 |
-| **Session Participation** | Employers can [go to this link](http://app.joinhandshake.com/video_sessions/test_session) to create a test session to check that video/audio are working. They can also invite colleagues to participate. ([Help](https://support.joinhandshake.com/hc/en-us/articles/360055116693))  \*\*This is also available for career services\*\* | RELEASED 9/9/20 |
+| **Session Participation** | Employers can [go to this link](http://app.joinhandshake.com/video_sessions/test_session) to create a test session to check that video/audio are working. They can also invite colleagues to participate. ([Help](https://support.joinhandshake.com/hc/en-us/articles/360055116693)) \*\*This is also available for career services\*\* | RELEASED 9/9/20 |
 | **Editing Schedules** | After publishing a schedule, attendees can re-add 1:1 sessions to cancelled slots | RELEASED 9/11/20 |
 | **Managing Schedules** | If an employer registers for a hidden career fair, all users at that employer can see the fair in Handshake. | RELEASED 9/11/20 |
 | **Session Participation** | Premium employers can record their sessions | RELEASED 9/11/20 |
@@ -120,7 +120,7 @@ Jump to review release notes:
 | **Managing Schedules** | Employer users with the recruiter, owner, or admin role can change the schedule owner via their fair registration | RELEASED 9/23/20 |
 | **Managing Schedules** | Reminder email to employers that have not created a schedule 48 hours before student registration opens | RELEASED 9/24/20 |
 | **Session Participation** | Schedule page auto-refreshes and displays a notification every time a student cancels or signs up for a session | RELEASED 9/25/20 |
-| **Managing Schedules** | Qualifications on 1:1s will be removed 48 hours before the fair unless the employer opts out. This will only apply to schedules created moving forward.  We will send an email to employers notifying them about this 72 hours before the fair. | RELEASED 9/25/20 |
+| **Managing Schedules** | Qualifications on 1:1s will be removed 48 hours before the fair unless the employer opts out. This will only apply to schedules created moving forward. We will send an email to employers notifying them about this 72 hours before the fair. | RELEASED 9/25/20 |
 | **Editing Schedules** | Employer users can remove their entire schedule. A cancellation email is sent to any impacted students. | RELEASED 9/28/20 |
 | **Driving Registrations** | An email is sent to employers with 1+ active job postings at a school hosting an upcoming virtual fair with less than 20 registrations, encouraging them to register. | RELEASED 9/28/20 |
 | **Streamline Registration** | Remove prompt for representatives during registration—employers will continue to identify representatives when creating their schedule | RELEASED 10/26/20 |

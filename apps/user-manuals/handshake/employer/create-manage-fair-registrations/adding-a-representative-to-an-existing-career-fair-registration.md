@@ -40,7 +40,7 @@ You can add representatives to an existing career fair registration as long as t
 
 ![Not_seeing_the_contact_you_re_looking_for__Create_it_here._.png](https://support.joinhandshake.com/hc/article_attachments/25997410544407)
 
-2. In the pop up modal, enter the user’s details and click the blue **Create Contact** button.   
+2. In the pop up modal, enter the user’s details and click the blue **Create Contact** button.  
 The following fields are required:
 
 - Email

@@ -12,9 +12,7 @@ title: Using Dpl as a deployment tool
 
 {{< /details >}}
 
-[Dpl](https://github.com/travis-ci/dpl) (pronounced like the letters D-P-L) is a deploy tool made for
-continuous deployment that's developed and used by Travis CI, but can also be
-used with GitLab CI/CD.
+[Dpl](https://github.com/travis-ci/dpl) (pronounced like the letters D-P-L) is a deploy tool made for continuous deployment that's developed and used by Travis CI, but can also be used with GitLab CI/CD.
 
 Dpl can be used to deploy to any of the [supported providers](https://github.com/travis-ci/dpl#supported-providers).
 
@@ -30,8 +28,7 @@ Dpl can be installed on any machine with:
 gem install dpl
 ```
 
-This allows you to test all commands from your local terminal, rather than
-having to test it on a CI server.
+This allows you to test all commands from your local terminal, rather than having to test it on a CI server.
 
 If you don't have Ruby installed you can do it on Debian-compatible Linux with:
 
@@ -48,11 +45,11 @@ All possible parameters can be found in the [Heroku API section](https://github.
 
 ```yaml
 staging:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - gem install dpl
     - dpl heroku api --app=my-app-staging --api_key=$HEROKU_STAGING_API_KEY
-  environment: staging
+ environment: staging
 ```
 
 The previous example used Dpl to deploy `my-app-staging` to Heroku server with API key stored in `HEROKU_STAGING_API_KEY` secure variable.
@@ -68,48 +65,45 @@ You must install it:
 
 ```yaml
 staging:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - apt-get update -yq
     - apt-get install -y ruby-dev
     - gem install dpl
     - dpl heroku api --app=my-app-staging --api_key=$HEROKU_STAGING_API_KEY
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == "main"
-  environment: staging
+ environment: staging
 ```
 
-The first line `apt-get update -yq` updates the list of available packages,
-where second `apt-get install -y ruby-dev` installs the Ruby runtime on system.
+The first line `apt-get update -yq` updates the list of available packages, where second `apt-get install -y ruby-dev` installs the Ruby runtime on system.
 The previous example is valid for all Debian-compatible systems.
 
 ## Usage in staging and production
 
-It's pretty common in the development workflow to have staging (development) and
-production environments.
+It's pretty common in the development workflow to have staging (development) and production environments.
 
-Consider the following example: you would like to deploy the `main`
-branch to `staging` and all tags to the `production` environment.
+Consider the following example: you would like to deploy the `main` branch to `staging` and all tags to the `production` environment.
 The final `.gitlab-ci.yml` for that setup would look like this:
 
 ```yaml
 staging:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - gem install dpl
     - dpl heroku api --app=my-app-staging --api_key=$HEROKU_STAGING_API_KEY
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == "main"
-  environment: staging
+ environment: staging
 
 production:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - gem install dpl
     - dpl heroku api --app=my-app-production --api_key=$HEROKU_PRODUCTION_API_KEY
-  rules:
+ rules:
     - if: $CI_COMMIT_TAG
-  environment: production
+ environment: production
 ```
 
 You created two deploy jobs that are executed on different events:
@@ -131,9 +125,7 @@ To store API keys as secure variables:
 1. Expand **Variables**.
 
 The variables defined in the project settings are sent along with the build script to the runner.
-The secure variables are stored out of the repository. Never store secrets in
-your project's `.gitlab-ci.yml` file. It is also important that the secret's value
-is hidden in the job log.
+The secure variables are stored out of the repository. Never store secrets in your project's `.gitlab-ci.yml` file. It is also important that the secret's value is hidden in the job log.
 
 You access added variable by prefixing it's name with `$` (on non-Windows runners)
 or `%` (for Windows Batch runners):

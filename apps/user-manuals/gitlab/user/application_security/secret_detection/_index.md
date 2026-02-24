@@ -13,16 +13,9 @@ description: Detection, prevention, monitoring, storage, revocation, and reporti
 
 {{< /details >}}
 
-Your application might use external resources, including a CI/CD
-service, a database, or external storage. Access to these resources
-requires authentication, usually using static methods like private
-keys and tokens. These methods are called "secrets" because they're
-not meant to be shared with anyone else.
+Your application might use external resources, including a CI/CD service, a database, or external storage. Access to these resources requires authentication, usually using static methods like private keys and tokens. These methods are called "secrets" because they're not meant to be shared with anyone else.
 
-To minimize the risk of exposing your secrets, always [store secrets outside of the repository](../../../ci/secrets/_index.md). However, secrets are sometimes accidentally committed to Git
-repositories. After a sensitive value is pushed to a remote
-repository, anyone with access to the repository can use the secret to
-impersonate the authorized user.
+To minimize the risk of exposing your secrets, always [store secrets outside of the repository](../../../ci/secrets/_index.md). However, secrets are sometimes accidentally committed to Git repositories. After a sensitive value is pushed to a remote repository, anyone with access to the repository can use the secret to impersonate the authorized user.
 
 Secret detection monitors your activity to both:
 
@@ -31,23 +24,12 @@ Secret detection monitors your activity to both:
 
 You should take a multi-layered security approach and enable all available secret detection methods:
 
-- [Secret push protection](secret_push_protection/_index.md) scans commits for secrets when you
-  push changes to GitLab. The push is blocked if secrets are detected, unless you skip secret push protection.
-  This method reduces the risk of secrets being leaked.
-- [Pipeline secret detection](pipeline/_index.md) runs as part of a project's CI/CD pipeline. Commits
-  to the repository's default branch are scanned for secrets. If pipeline secret detection is
-  enabled in merge request pipelines, commits to the development branch are scanned for secrets,
-  enabling you to respond before they're committed to the default branch.
-- [Client-side secret detection](client/_index.md) scans descriptions and comments in both issues and
-  merge requests for secrets before they're saved to GitLab. When a secret is detected you can
-  choose to edit the input and remove the secret or, if it's a false positive, save the description
-  or comment.
+- [Secret push protection](secret_push_protection/_index.md) scans commits for secrets when you push changes to GitLab. The push is blocked if secrets are detected, unless you skip secret push protection.
+ This method reduces the risk of secrets being leaked.
+- [Pipeline secret detection](pipeline/_index.md) runs as part of a project's CI/CD pipeline. Commits to the repository's default branch are scanned for secrets. If pipeline secret detection is enabled in merge request pipelines, commits to the development branch are scanned for secrets, enabling you to respond before they're committed to the default branch.
+- [Client-side secret detection](client/_index.md) scans descriptions and comments in both issues and merge requests for secrets before they're saved to GitLab. When a secret is detected you can choose to edit the input and remove the secret or, if it's a false positive, save the description or comment.
 
-If a secret is committed to a repository, GitLab records the exposure
-in the vulnerability report. For some secret types, GitLab can even
-automatically revoke the exposed secret. You should always revoke and
-replace exposed secrets as soon as possible. For secret-specific remediation guidance,
-review the details provided in the vulnerability report.
+If a secret is committed to a repository, GitLab records the exposure in the vulnerability report. For some secret types, GitLab can even automatically revoke the exposed secret. You should always revoke and replace exposed secrets as soon as possible. For secret-specific remediation guidance, review the details provided in the vulnerability report.
 
 ## Related topics
 

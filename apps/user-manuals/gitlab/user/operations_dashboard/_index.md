@@ -12,8 +12,7 @@ title: Operations Dashboard
 
 {{< /details >}}
 
-The Operations Dashboard provides a summary of each project's operational health,
-including pipeline and alert status.
+The Operations Dashboard provides a summary of each project's operational health, including pipeline and alert status.
 
 To access the dashboard:
 
@@ -32,8 +31,7 @@ To add a project to the dashboard:
 1. Search and add one or more projects using the **Search your projects** field.
 1. Select **Add projects**.
 
-Once added, the dashboard displays the project's number of active alerts,
-last commit, pipeline status, and when it was last deployed.
+Once added, the dashboard displays the project's number of active alerts, last commit, pipeline status, and when it was last deployed.
 
 The Operations and [Environments](../../ci/environments/environments_dashboard.md) dashboards share the same list of projects. Adding or removing a project from one adds or removes the project from the other.
 
@@ -45,5 +43,4 @@ You can drag project cards to change their order. The card order is currently on
 
 ## Making it the default dashboard when you sign in
 
-The Operations Dashboard can also be made the default GitLab dashboard shown when
-you sign in. To make it the default, see [Profile preferences](../profile/preferences.md).
+The Operations Dashboard can also be made the default GitLab dashboard shown when you sign in. To make it the default, see [Profile preferences](../profile/preferences.md).

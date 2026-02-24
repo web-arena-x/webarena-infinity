@@ -7,8 +7,7 @@ title: Dependencies
 
 ## Dependency updates
 
-We use the [Renovate GitLab Bot](https://gitlab.com/gitlab-org/frontend/renovate-gitlab-bot) to
-automatically create merge requests for updating (some) Node and Ruby dependencies in several projects.
+We use the [Renovate GitLab Bot](https://gitlab.com/gitlab-org/frontend/renovate-gitlab-bot) to automatically create merge requests for updating (some) Node and Ruby dependencies in several projects.
 You can find the up-to-date list of projects managed by the renovate bot in the project's README.
 
 Some key dependencies updated using renovate are:
@@ -31,11 +30,9 @@ Updating dependencies automatically has several benefits, have a look at this [e
 
 It is okay to reject Community Contributions that solely bump dependencies.
 Simple dependency updates are better done automatically for the reasons provided above.
-If a community contribution needs to be rebased, runs into conflicts, or goes stale, the effort required
-to instruct the contributor to correct it often outweighs the benefits.
+If a community contribution needs to be rebased, runs into conflicts, or goes stale, the effort required to instruct the contributor to correct it often outweighs the benefits.
 
-If a dependency update is accompanied with significant migration efforts, due to major version updates,
-a community contribution is acceptable.
+If a dependency update is accompanied with significant migration efforts, due to major version updates, a community contribution is acceptable.
 
 Here is a message you can use to explain to community contributors as to why we reject simple updates:
 

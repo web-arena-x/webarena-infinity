@@ -27,25 +27,23 @@ To have jobs in each branch use the same cache, define a cache with the `key: $C
 
 ```yaml
 cache:
-  key: $CI_COMMIT_REF_SLUG
+ key: $CI_COMMIT_REF_SLUG
 ```
 
-This configuration prevents you from accidentally overwriting the cache. However, the
-first pipeline for a merge request is slow. The next time a commit is pushed to the branch, the
-cache is re-used and jobs run faster.
+This configuration prevents you from accidentally overwriting the cache. However, the first pipeline for a merge request is slow. The next time a commit is pushed to the branch, the cache is re-used and jobs run faster.
 
 To enable per-job and per-branch caching:
 
 ```yaml
 cache:
-  key: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
+ key: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
 ```
 
 To enable per-stage and per-branch caching:
 
 ```yaml
 cache:
-  key: "$CI_JOB_STAGE-$CI_COMMIT_REF_SLUG"
+ key: "$CI_JOB_STAGE-$CI_COMMIT_REF_SLUG"
 ```
 
 ### Share caches across jobs in different branches
@@ -54,14 +52,14 @@ To share a cache across all branches and all jobs, use the same key for everythi
 
 ```yaml
 cache:
-  key: one-key-to-rule-them-all
+ key: one-key-to-rule-them-all
 ```
 
 To share a cache between branches, but have a unique cache for each job:
 
 ```yaml
 cache:
-  key: $CI_JOB_NAME
+ key: $CI_JOB_NAME
 ```
 
 ### Use a variable to control a job's cache policy
@@ -78,20 +76,20 @@ For example:
 
 ```yaml
 conditional-policy:
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       variables:
         POLICY: pull-push
     - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
       variables:
         POLICY: pull
-  stage: build
-  cache:
+ stage: build
+ cache:
     key: gems
     policy: $POLICY
     paths:
       - vendor/bundle
-  script:
+ script:
     - echo "This job pulls and pushes the cache depending on the branch"
     - echo "Downloading dependencies..."
 ```
@@ -107,35 +105,32 @@ These examples show how to cache common dependencies by programming language.
 
 ### Node.js
 
-If your project uses [npm](https://www.npmjs.com/) to install Node.js
-dependencies, the following example defines a default `cache` so that all jobs inherit it.
-By default, npm stores cache data in the home folder (`~/.npm`). However, you
-[can't cache things outside of the project directory](../yaml/_index.md#cachepaths).
+If your project uses [npm](https://www.npmjs.com/) to install Node.js dependencies, the following example defines a default `cache` so that all jobs inherit it.
+By default, npm stores cache data in the home folder (`~/.npm`). However, you [can't cache things outside of the project directory](../yaml/_index.md#cachepaths).
 Instead, tell npm to use `./.npm`, and cache it per-branch:
 
 ```yaml
 default:
-  image: node:latest
-  cache:  # Cache modules in between jobs
+ image: node:latest
+ cache: # Cache modules in between jobs
     key: $CI_COMMIT_REF_SLUG
     paths:
       - .npm/
-  before_script:
+ before_script:
     - npm ci --cache .npm --prefer-offline
 
 test_async:
-  script:
+ script:
     - node ./specs/start.js ./specs/async.spec.js
 ```
 
 #### Compute the cache key from the lock file
 
-You can use [`cache:key:files`](../yaml/_index.md#cachekeyfiles) to compute the cache
-key from a lock file like `package-lock.json` or `yarn.lock`, and reuse it in many jobs.
+You can use [`cache:key:files`](../yaml/_index.md#cachekeyfiles) to compute the cache key from a lock file like `package-lock.json` or `yarn.lock`, and reuse it in many jobs.
 
 ```yaml
 default:
-  cache:  # Cache modules using lock file
+ cache: # Cache modules using lock file
     key:
       files:
         - package-lock.json
@@ -146,16 +141,15 @@ default:
 #### Yarn with offline mirror
 
 If you're using [Yarn](https://yarnpkg.com/), you can use [`yarn-offline-mirror`](https://classic.yarnpkg.com/blog/2016/11/24/offline-mirror/)
-to cache the zipped `node_modules` tarballs. The cache generates more quickly, because
-fewer files have to be compressed:
+to cache the zipped `node_modules` tarballs. The cache generates more quickly, because fewer files have to be compressed:
 
 ```yaml
 job:
-  script:
+ script:
     - echo 'yarn-offline-mirror ".yarn-cache/"' >> .yarnrc
     - echo 'yarn-offline-mirror-pruning true' >> .yarnrc
     - yarn install --frozen-lockfile --no-progress
-  cache:
+ cache:
     key:
       files:
         - yarn.lock
@@ -165,51 +159,46 @@ job:
 
 ### PHP
 
-If your project uses [Composer](https://getcomposer.org/) to install
-PHP dependencies, the following example defines a default `cache` so that
-all jobs inherit it. PHP libraries modules are installed in `vendor/` and
-are cached per-branch:
+If your project uses [Composer](https://getcomposer.org/) to install PHP dependencies, the following example defines a default `cache` so that all jobs inherit it. PHP libraries modules are installed in `vendor/` and are cached per-branch:
 
 ```yaml
 default:
-  image: php:latest
-  cache:  # Cache libraries in between jobs
+ image: php:latest
+ cache: # Cache libraries in between jobs
     key: $CI_COMMIT_REF_SLUG
     paths:
       - vendor/
-  before_script:
+ before_script:
     # Install and run Composer
     - curl --show-error --silent "https://getcomposer.org/installer" | php
     - php composer.phar install
 
 test:
-  script:
+ script:
     - vendor/bin/phpunit --configuration phpunit.xml --coverage-text --colors=never
 ```
 
 ### Python
 
-If your project uses [pip](https://pip.pypa.io/en/stable/) to install
-Python dependencies, the following example defines a default `cache` so that
-all jobs inherit it. pip's cache is defined under `.cache/pip/` and is cached per-branch:
+If your project uses [pip](https://pip.pypa.io/en/stable/) to install Python dependencies, the following example defines a default `cache` so that all jobs inherit it. pip's cache is defined under `.cache/pip/` and is cached per-branch:
 
 ```yaml
 default:
-  image: python:latest
-  cache:                      # Pip's cache doesn't store the python packages
+ image: python:latest
+ cache:                      # Pip's cache doesn't store the python packages
     paths:                    # https://pip.pypa.io/en/stable/topics/caching/
       - .cache/pip
-  before_script:
+ before_script:
     - python -V               # Print out python version for debugging
     - pip install virtualenv
     - virtualenv venv
     - source venv/bin/activate
 
-variables:  # Change pip's cache directory to be inside the project directory because GitLab can only cache local items.
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+variables: # Change pip's cache directory to be inside the project directory because GitLab can only cache local items.
+ PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
 test:
-  script:
+ script:
     - python setup.py test
     - pip install ruff
     - ruff --format=gitlab .
@@ -217,37 +206,32 @@ test:
 
 ### Ruby
 
-If your project uses [Bundler](https://bundler.io) to install
-gem dependencies, the following example defines a default `cache` so that all
-jobs inherit it. Gems are installed in `vendor/ruby/` and are cached per-branch:
+If your project uses [Bundler](https://bundler.io) to install gem dependencies, the following example defines a default `cache` so that all jobs inherit it. Gems are installed in `vendor/ruby/` and are cached per-branch:
 
 ```yaml
 default:
-  image: ruby:latest
-  cache:                                            # Cache gems in between builds
+ image: ruby:latest
+ cache:                                            # Cache gems in between builds
     key: $CI_COMMIT_REF_SLUG
     paths:
       - vendor/ruby
-  before_script:
+ before_script:
     - ruby -v                                       # Print out ruby version for debugging
-    - bundle config set --local path 'vendor/ruby'  # The location to install the specified gems to
+    - bundle config set --local path 'vendor/ruby' # The location to install the specified gems to
     - bundle install -j $(nproc)                    # Install dependencies into ./vendor/ruby
 
 rspec:
-  script:
+ script:
     - rspec spec
 ```
 
-If you have jobs that need different gems, use the `prefix`
-keyword in the global `cache` definition. This configuration generates a different
-cache for each job.
+If you have jobs that need different gems, use the `prefix` keyword in the global `cache` definition. This configuration generates a different cache for each job.
 
-For example, a testing job might not need the same gems as a job that deploys to
-production:
+For example, a testing job might not need the same gems as a job that deploys to production:
 
 ```yaml
 default:
-  cache:
+ cache:
     key:
       files:
         - Gemfile.lock
@@ -256,43 +240,40 @@ default:
       - vendor/ruby
 
 test_job:
-  stage: test
-  before_script:
+ stage: test
+ before_script:
     - bundle config set --local path 'vendor/ruby'
     - bundle install --without production
-  script:
+ script:
     - bundle exec rspec
 
 deploy_job:
-  stage: production
-  before_script:
+ stage: production
+ before_script:
     - bundle config set --local path 'vendor/ruby'   # The location to install the specified gems to
     - bundle install --without test
-  script:
+ script:
     - bundle exec deploy
 ```
 
 ### Go
 
-If your project uses [Go Modules](https://go.dev/wiki/Modules) to install
-Go dependencies, the following example defines `cache` in a `go-cache` template, that
-any job can extend. Go modules are installed in `${GOPATH}/pkg/mod/` and
-are cached for all of the `go` projects:
+If your project uses [Go Modules](https://go.dev/wiki/Modules) to install Go dependencies, the following example defines `cache` in a `go-cache` template, that any job can extend. Go modules are installed in `${GOPATH}/pkg/mod/` and are cached for all of the `go` projects:
 
 ```yaml
 .go-cache:
-  variables:
+ variables:
     GOPATH: $CI_PROJECT_DIR/.go
-  before_script:
+ before_script:
     - mkdir -p .go
-  cache:
+ cache:
     paths:
       - .go/pkg/mod/
 
 test:
-  image: golang:latest
-  extends: .go-cache
-  script:
+ image: golang:latest
+ extends: .go-cache
+ script:
     - go test ./... -v -short
 ```
 
@@ -302,24 +283,21 @@ These examples show how to cache compiled objects and downloaded files to speed 
 
 ### Cache C/C++ compilation using Ccache
 
-If you are compiling C/C++ projects, you can use [Ccache](https://ccache.dev/) to
-speed up your build times. Ccache speeds up recompilation by caching previous compilations
-and detecting when the same compilation is being done again. When building big projects like the Linux kernel,
-you can expect significantly faster compilations.
+If you are compiling C/C++ projects, you can use [Ccache](https://ccache.dev/) to speed up your build times. Ccache speeds up recompilation by caching previous compilations and detecting when the same compilation is being done again. When building big projects like the Linux kernel, you can expect significantly faster compilations.
 
 Use `cache` to reuse the created cache between jobs, for example:
 
 ```yaml
 job:
-  cache:
+ cache:
     paths:
       - ccache
-  before_script:
-    - export PATH="/usr/lib/ccache:$PATH"  # Override compiler path with ccache (this example is for Debian)
+ before_script:
+    - export PATH="/usr/lib/ccache:$PATH" # Override compiler path with ccache (this example is for Debian)
     - export CCACHE_DIR="${CI_PROJECT_DIR}/ccache"
     - export CCACHE_BASEDIR="${CI_PROJECT_DIR}"
-    - export CCACHE_COMPILERCHECK=content  # Compiler mtime might change in the container, use checksums instead
-  script:
+    - export CCACHE_COMPILERCHECK=content # Compiler mtime might change in the container, use checksums instead
+ script:
     - ccache --zero-stats || true
     - time make                            # Actually build your code while measuring time and cache efficiency.
     - ccache --show-stats || true
@@ -329,20 +307,16 @@ If you have multiple projects in a single repository you do not need a separate 
 
 ### Cache downloads with cURL
 
-If your project uses [cURL](https://curl.se/) to download dependencies or files,
-you can cache the downloaded content. The files are automatically updated when
-newer downloads are available.
+If your project uses [cURL](https://curl.se/) to download dependencies or files, you can cache the downloaded content. The files are automatically updated when newer downloads are available.
 
 ```yaml
 job:
-  script:
+ script:
     - curl --remote-time --time-cond .curl-cache/caching.md --output .curl-cache/caching.md "https://docs.gitlab.com/ci/caching/"
-  cache:
+ cache:
     paths:
       - .curl-cache/
 ```
 
 In this example cURL downloads a file from a webserver and saves it to a local file in `.curl-cache/`.
-The `--remote-time` flag saves the last modification time reported by the server,
-and cURL compares it to the timestamp of the cached file with `--time-cond`. If the remote file has
-a more recent timestamp the local cache is automatically updated.
+The `--remote-time` flag saves the last modification time reported by the server, and cURL compares it to the timestamp of the cached file with `--time-cond`. If the remote file has a more recent timestamp the local cache is automatically updated.

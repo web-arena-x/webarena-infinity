@@ -59,28 +59,26 @@ It also expects a GlobalID as an input rather than a single integer.
 
 This query returns the specified information for the three users with the listed username.
 
-- Because GraphiQL uses the session token to authorize access to resources,
-  the output is limited to the projects and groups accessible to the currently authenticated user.
+- Because GraphiQL uses the session token to authorize access to resources, the output is limited to the projects and groups accessible to the currently authenticated user.
 - If you are signed in as an instance administrator, you have access to all resources.
 
 ### Show administrators only
 
-If you are signed in as an administrator, you can show the matching administrators
-on the instance by adding the `admins: true` parameter to the query.
+If you are signed in as an administrator, you can show the matching administrators on the instance by adding the `admins: true` parameter to the query.
 Change the second line to:
 
 ```graphql
-  users(usernames: ["user1", "user3", "user4"], admins: true) {
+ users(usernames: ["user1", "user3", "user4"], admins: true) {
     ...
-  }
+ }
 ```
 
 Or you can get all of the administrators:
 
 ```graphql
-  users(admins: true) {
+ users(admins: true) {
     ...
-  }
+ }
 ```
 
 ## Pagination and graph nodes
@@ -92,19 +90,15 @@ The query includes:
 
 ### `pageInfo`
 
-This contains the data needed to implement pagination. GitLab uses cursor-based
-[pagination](getting_started.md#pagination). For more information, see
-[Pagination](https://graphql.org/learn/pagination/) in the GraphQL documentation.
+This contains the data needed to implement pagination. GitLab uses cursor-based [pagination](getting_started.md#pagination). For more information, see [Pagination](https://graphql.org/learn/pagination/) in the GraphQL documentation.
 
 ### `nodes`
 
 In a GraphQL query, `nodes` represents a collection of [`nodes` on a graph](https://en.wikipedia.org/wiki/Vertex_(graph_theory)).
-In this case, the collection of nodes is a collection of `User` objects. For each one,
-the output includes:
+In this case, the collection of nodes is a collection of `User` objects. For each one, the output includes:
 
 - The user's `id`.
-- The `membership` fragment, which represents project or group membership that belongs
-  to that user. Fragments are indicated by the `...memberships` notation.
+- The `membership` fragment, which represents project or group membership that belongs to that user. Fragments are indicated by the `...memberships` notation.
 
 ## Related topics
 

@@ -53,19 +53,19 @@ Handshake Plus includes:
 
 - **Daily cost** (billed weekly)
 - Features included with Plus, such as:
-  - Wider job distribution
-  - Automated outreach to top candidates
-  - More matches and filtering
-  - Job performance analytics
-  - Additional candidate messages
+ - Wider job distribution
+ - Automated outreach to top candidates
+ - More matches and filtering
+ - Job performance analytics
+ - Additional candidate messages
 
 2. Enter your payment details *or* confirm your current payment method.
 
 - To update your payment method, click **Update payment** and provide:
 
-  - Email address
-  - Card number, expiration date, and security code
-  - Country and ZIP code
+ - Email address
+ - Card number, expiration date, and security code
+ - Country and ZIP code
 
 3. Check the box to agree to Handshake’s [Terms of Service](https://joinhandshake.com/tos/) and [Privacy Policy](https://joinhandshake.com/privacy-policy/).
 

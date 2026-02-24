@@ -15,21 +15,21 @@ The Daily Construction Report section allows you to track the total number of wo
 ## Things to Consider
 
 - **Required User Permissions:**
-  - *To create entries:*
-    - 'Standard' or 'Admin' level permissions on the project's Daily Log tool.  
+ - *To create entries:*
+    - 'Standard' or 'Admin' level permissions on the project's Daily Log tool. 
       OR
-  - **To create pending entries as a collaborator*:*
+ - **To create pending entries as a collaborator*:*
     - 'Read Only' or 'Standard' permissions to the Daily Log tool with the ['Collaborator Entry Only' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#Daily_Log "Grant Granular Permissions in a Permission Template") enabled on your permission template. See [Create Daily Log Entries as a Collaborator](https://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/create-daily-log-entries-as-a-collaborator "Create Daily Log Entries as a Collaborator").
 - **Additional Information:**
-  - Entries made by collaborators are marked as 'pending' until approved by an administrator.
-  - There are additional workforce labor categories that can be added to the Daily Construction Report in the Daily Log: (e.g. Women, Veteran, Minority, First-Year Apprentice, Local (City), and Local (County)). In order to track hours for these additional workforce labor types, these fields must first be configured in the Daily Log section of the Company Admin tool, and then applied to one or more projects. See [How do I enable additional workforce labor types for the Daily Log?](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/enable-additional-workforce-labor-types-for-the-daily-log "How do I enable additional workforce labor types for the Daily Log?")  
+ - Entries made by collaborators are marked as 'pending' until approved by an administrator.
+ - There are additional workforce labor categories that can be added to the Daily Construction Report in the Daily Log: (e.g. Women, Veteran, Minority, First-Year Apprentice, Local (City), and Local (County)). In order to track hours for these additional workforce labor types, these fields must first be configured in the Daily Log section of the Company Admin tool, and then applied to one or more projects. See [How do I enable additional workforce labor types for the Daily Log?](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/enable-additional-workforce-labor-types-for-the-daily-log "How do I enable additional workforce labor types for the Daily Log?") 
     *Note*: After configured and applied, a 'Workforce Hours' column will be available with a link to 'Add Hours' link will appear in the Daily Construction Report section.
 
 ## Steps
 
 1. Navigate to the project's **Daily Log** tool.
 2. Scroll to the Daily Construction Report section.
-3. Fill out the following fields as appropriate:  
+3. Fill out the following fields as appropriate: 
    ***Tip!***Certain fields in the Daily Construction Report log can be configured as required, optional, or hidden in the Company level Admin tool. See [Create New Configurable Fieldsets](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/create-new-configurable-fieldsets "Create New Configurable Fieldsets").
    - **#**: This uneditable field counts the number of entries in a section (e.g. the first entry created will be # 1, and the second entry will be # 2).
    - **Company**: Select the company name from the drop-down menu. Companies must be added to the Directory tool to be selected in this drop-down menu. See [Add a Company to the Project Directory](https://support.procore.com/products/online/user-guide/project-level/directory/tutorials/add-a-company-to-the-project-directory "products/online/user-guide/project-level/directory/tutorials/add-a-company-to-the-project-directory").
@@ -40,11 +40,11 @@ The Daily Construction Report section allows you to track the total number of wo
    - **Others**: Enter the number of any other workers and the total number of hours worked.
    - **Comments**: Enter any comments that may help clarify the entry.
    - **Attachments**: Attach any additional files to the entry. Click **Attach File(s)** and then drag-and-drop a file from your computer to the **Drag and Drop your File(s)** area, or click **Upload Files** to select a file from your computer. Once you save your item, users will be able to view the attachment in Procore's viewer or download the attachment.
-4. *Optional:* If additional 'Workforce Hours' fields have been configured in the Company level Admin tool, you will see an 'Add Hours' link. See [How do I enable additional workforce labor types for the Daily Log?](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/enable-additional-workforce-labor-types-for-the-daily-log "How do I enable additional workforce labor types for the Daily Log?")  
+4. *Optional:* If additional 'Workforce Hours' fields have been configured in the Company level Admin tool, you will see an 'Add Hours' link. See [How do I enable additional workforce labor types for the Daily Log?](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/enable-additional-workforce-labor-types-for-the-daily-log "How do I enable additional workforce labor types for the Daily Log?") 
      
    ![dl-dcr-add-hours.png](https://support.procore.com/@api/deki/files/82750/dl-dcr-add-hours.png?revision=1)
    1. Click the **Add Hours** link.
-   2. Enter the hours for each category you want to track hours for.  
+   2. Enter the hours for each category you want to track hours for. 
         
       ![dl-workforce-hours.png](https://support.procore.com/@api/deki/files/82752/dl-workforce-hours.png?revision=1)
    3. Click **Add Hours** to confirm.

@@ -27,8 +27,7 @@ This feature is available for testing, but not ready for production use.
 
 {{< /alert >}}
 
-The compliance overview dashboard provides visual insights into your group's compliance posture through interactive
-charts and metrics. It helps you quickly identify areas that need attention and track your overall compliance status.
+The compliance overview dashboard provides visual insights into your group's compliance posture through interactive charts and metrics. It helps you quickly identify areas that need attention and track your overall compliance status.
 
 The compliance overview dashboard displays four key areas of compliance monitoring:
 
@@ -51,8 +50,7 @@ To view the compliance overview dashboard:
 
 ## Compliance framework coverage
 
-The framework coverage section provides an overview of how many projects in your group have compliance frameworks
-assigned.
+The framework coverage section provides an overview of how many projects in your group have compliance frameworks assigned.
 
 The framework coverage section displays:
 
@@ -88,8 +86,7 @@ The failed controls chart displays three categories:
 
 ## Frameworks table
 
-The frameworks table highlights compliance frameworks that require immediate attention. This view helps you identify
-frameworks with configuration issues or missing components.
+The frameworks table highlights compliance frameworks that require immediate attention. This view helps you identify frameworks with configuration issues or missing components.
 
 The frameworks table displays:
 
@@ -98,8 +95,8 @@ The frameworks table displays:
 - **Requirements**: Total number of requirements in the framework (highlighted in red if zero).
 - **Requirements without controls**: Lists specific requirements that don't have associated controls.
 - **Policies**: Security policies linked to the framework, including:
-  - Scan execution policies.
-  - Vulnerability management policies.
-  - Scan result policies.
-  - Pipeline execution policies.
+ - Scan execution policies.
+ - Vulnerability management policies.
+ - Scan result policies.
+ - Pipeline execution policies.
 - **Actions**: Edit framework button (visible to users with admin permissions).

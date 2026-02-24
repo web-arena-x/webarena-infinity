@@ -23,7 +23,7 @@ There are many advantages to messaging employers on Handshake! For instance, emp
 
 - Recommend jobs that may be a good fit for you
 - Share their availability and schedule virtual meetings
-  - *For additional information, refer to [Virtual Chats with Employers](https://support.joinhandshake.com/hc/en-us/articles/4405106704151)*
+ - *For additional information, refer to [Virtual Chats with Employers](https://support.joinhandshake.com/hc/en-us/articles/4405106704151)*
 - Inform you about upcoming employer-hosted events or meetings
 
 If you want to learn more about which employers can message students or how employers find students to connect with, check out [Receiving Employer Messages in Handshake](https://support.joinhandshake.com/hc/en-us/articles/360053662093).

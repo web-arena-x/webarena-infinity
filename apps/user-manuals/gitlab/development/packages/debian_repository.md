@@ -42,7 +42,7 @@ When it comes to Debian, packages don't exist on their own. They belong to a _di
 
 - A [Debian repository](https://wiki.debian.org/DebianRepository) is made up of many releases.
 - Each release is given a stable codename. For the public Debian repository, these are names like "bullseye" and "jessie".
-  - There is also the concept of suites which are essentially aliases of codenames synonymous with release channels like "stable" and "edge". Over time they change and point to different _codenames_.
+ - There is also the concept of suites which are essentially aliases of codenames synonymous with release channels like "stable" and "edge". Over time they change and point to different _codenames_.
 - Each release has many components. In the public repository, these are "main", "contrib", and "non-free".
 - Each release has many architectures such as "amd64", "arm64", or "i386".
 - Each release has a signed Release file (see below about [GPG signing](#what-are-gpg-keys-and-what-are-signed-releases))
@@ -137,7 +137,7 @@ sequenceDiagram
     ParseDebian822Service-->>-ExtractDebMetadataService: Parse String as Debian RFC822 control data format
     ExtractDebMetadataService-->>-ExtractMetadataService: Return the parsed control file
     ExtractMetadataService->>+ParseDebian822Service: if .dsc, .changes, or buildinfo
-    ParseDebian822Service-->>-ExtractMetadataService:  Parse String as Debian RFC822 control data format
+    ParseDebian822Service-->>-ExtractMetadataService: Parse String as Debian RFC822 control data format
     ExtractMetadataService-->>-ExtractChangesMetadataService: Parse Metadata file
     ExtractChangesMetadataService-->>-ProcessPackageFileService: Return list of files and hashes from the .changes file
     loop process files listed in .changes
@@ -148,7 +148,7 @@ sequenceDiagram
         ParseDebian822Service-->>-ExtractDebMetadataService: Parse String as Debian RFC822 control data format
         ExtractDebMetadataService-->>-ExtractMetadataService: Return the parsed control file
         ExtractMetadataService->>+ParseDebian822Service: if .dsc, .changes, or buildinfo
-        ParseDebian822Service-->>-ExtractMetadataService:  Parse String as Debian RFC822 control data format
+        ParseDebian822Service-->>-ExtractMetadataService: Parse String as Debian RFC822 control data format
         ExtractMetadataService-->>-ProcessPackageFileService: Use parsed metadata to update "unknown" (or known) file
     end
     ProcessPackageFileService->>+GenerateDistributionWorker: Find distribution and start service

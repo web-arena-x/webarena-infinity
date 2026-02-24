@@ -15,7 +15,7 @@ When sending a submittal package out for review, Procore sends an 'Action Requir
 ## Things to Consider
 
 - **Required User Permissions**:
-  - 'Standard' or 'Admin' on the project's Submittals tool.
+ - 'Standard' or 'Admin' on the project's Submittals tool.
 
 ## Steps
 

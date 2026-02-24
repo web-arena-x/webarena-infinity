@@ -74,11 +74,11 @@ To test your connection, open a website in a browser, such as Chrome. If the web
 - Your Google Account storage is shared across Gmail, Google Photos, and Google Drive. Other items like WhatsApp backups or Drive for Desktop syncs can also take up space.
 - In Gmail, messages and attachments, such as items in your “Spam” and “Trash” take up space.
 - When your Google Account reaches its storage limit:
-  - You can’t send or receive messages.
-  - Messages sent to you return to the sender.
+ - You can’t send or receive messages.
+ - Messages sent to you return to the sender.
 - To clear up storage:
-  - **Delete large attachments:** Go through your inbox and delete emails with large attachments you no longer need.
-  - **Empty Trash and Spam:** Clear your emails in your “Trash” and “Spam” regularly.
+ - **Delete large attachments:** Go through your inbox and delete emails with large attachments you no longer need.
+ - **Empty Trash and Spam:** Clear your emails in your “Trash” and “Spam” regularly.
 
 [Free up your storage now](http://one.google.com/storage/management)
 

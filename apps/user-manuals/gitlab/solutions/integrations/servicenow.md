@@ -13,33 +13,25 @@ description: "Configure ServiceNow to centralize and automate GitLab workflows."
 
 {{< /details >}}
 
-ServiceNow offers several integrations to help centralize and automate your
-management of GitLab workflows.
+ServiceNow offers several integrations to help centralize and automate your management of GitLab workflows.
 
 To simplify your stack and streamline your processes, you should use GitLab [deployment approvals](../../api/oauth2.md) whenever possible.
 
 ## GitLab spoke
 
-With the GitLab spoke in ServiceNow, you can automate actions for GitLab
-projects, groups, users, issues, merge requests, branches, and repositories.
+With the GitLab spoke in ServiceNow, you can automate actions for GitLab projects, groups, users, issues, merge requests, branches, and repositories.
 
-For a full list of features, see the
-[GitLab spoke documentation (Xanadu Release)](https://docs.servicenow.com/bundle/xanadu-integrate-applications/page/administer/integrationhub-store-spokes/concept/gitlab-spoke.html).
+For a full list of features, see the [GitLab spoke documentation (Xanadu Release)](https://docs.servicenow.com/bundle/xanadu-integrate-applications/page/administer/integrationhub-store-spokes/concept/gitlab-spoke.html).
 
-You must [configure GitLab as an OAuth 2.0 authentication service provider](../../integration/oauth_provider.md),
-which involves creating an application and then providing the Application ID
-and Secret in ServiceNow.
+You must [configure GitLab as an OAuth 2.0 authentication service provider](../../integration/oauth_provider.md), which involves creating an application and then providing the Application ID and Secret in ServiceNow.
 
 ## GitLab SCM and Continuous Integration for DevOps
 
-In ServiceNow DevOps, you can integrate with GitLab repositories and GitLab CI/CD
-to centralize your view of GitLab activity and your change management processes.
+In ServiceNow DevOps, you can integrate with GitLab repositories and GitLab CI/CD to centralize your view of GitLab activity and your change management processes.
 You can:
 
-- Track information about activity in GitLab repositories and CI/CD pipelines in
-  ServiceNow.
-- Integrate with GitLab CI/CD pipelines, by automating the creation of change
-  tickets and determining criteria for changes to auto-approve.
+- Track information about activity in GitLab repositories and CI/CD pipelines in ServiceNow.
+- Integrate with GitLab CI/CD pipelines, by automating the creation of change tickets and determining criteria for changes to auto-approve.
 
 For more information, refer to the following ServiceNow resources:
 

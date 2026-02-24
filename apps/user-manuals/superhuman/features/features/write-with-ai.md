@@ -54,19 +54,19 @@ For example, if you prompt Write with AI to send a follow-up and schedule a meet
 ## Tips for Writing AI Prompts
 
 - **Be clear and concise** — Use specific, straightforward language to get more accurate responses.
-  - Example: *Use the meeting notes below to write a friendly, concise follow-up email with clear action items.*
+ - Example: *Use the meeting notes below to write a friendly, concise follow-up email with clear action items.*
 - **State your objective upfront** — Let AI know from the start what you're trying to achieve.
-  - Example: *I’m an Account Executive trying to close a deal with ABC Company. Write a follow-up email that re-engages a prospect who went cold after our last conversation. Include a friendly tone and a clear call to action.*
+ - Example: *I’m an Account Executive trying to close a deal with ABC Company. Write a follow-up email that re-engages a prospect who went cold after our last conversation. Include a friendly tone and a clear call to action.*
 - **Provide examples** — Share relevant examples or inputs to help guide tone, format, or structure.
-  - Example: *Here are two past onboarding emails we've sent to new users. Use the same tone and structure to draft one for our latest AI launch.*
+ - Example: *Here are two past onboarding emails we've sent to new users. Use the same tone and structure to draft one for our latest AI launch.*
 - **Specify the format** — Clearly state how you want the output delivered (e.g., bullet points, paragraphs).
-  - Example: *Write a concise email communicating the pros and cons of calendar blocking. Include 3-4 points in bullet format.*
+ - Example: *Write a concise email communicating the pros and cons of calendar blocking. Include 3-4 points in bullet format.*
 - **Use paraphrasing** — If the first response isn’t quite right, rephrase your prompt and try again.
-  - Example: *Reword this sales email to be more concise and action-oriented, with a stronger call to action at the end.*
+ - Example: *Reword this sales email to be more concise and action-oriented, with a stronger call to action at the end.*
 - **Incorporate useful context** — Include relevant company terms or background to improve accuracy.
-  - Example: *Discuss the impact of Superhuman, the fastest email experience ever made, to increase responsiveness and reduce email anxiety. Here’s our latest blog post copy for context.*
+ - Example: *Discuss the impact of Superhuman, the fastest email experience ever made, to increase responsiveness and reduce email anxiety. Here’s our latest blog post copy for context.*
 - **Challenge Superhuman AI** — If the output misses the mark, give feedback and guide it in the right direction.
-  - Example: *This follow-up email feels too generic. Make it more personalized by referencing the customer’s recent product usage and include a specific next step.*
+ - Example: *This follow-up email feels too generic. Make it more personalized by referencing the customer’s recent product usage and include a specific next step.*
 
 ## FAQs
 

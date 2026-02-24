@@ -13,27 +13,20 @@ title: Configuring Git Protocol v2
 
 {{< /details >}}
 
-Git protocol v2 improves the v1 wire protocol in several ways and is
-enabled by default in GitLab for HTTP requests. To enable SSH, additional
-configuration is required by an administrator.
+Git protocol v2 improves the v1 wire protocol in several ways and is enabled by default in GitLab for HTTP requests. To enable SSH, additional configuration is required by an administrator.
 
-More details about the new features and improvements are available in
-the [Google Open Source Blog](https://opensource.googleblog.com/2018/05/introducing-git-protocol-version-2.html).
+More details about the new features and improvements are available in the [Google Open Source Blog](https://opensource.googleblog.com/2018/05/introducing-git-protocol-version-2.html).
 
 ## Prerequisites
 
 From the client side, `git` `v2.18.0` or later must be installed.
 
-From the server side, if we want to configure SSH we need to set the `sshd`
-server to accept the `GIT_PROTOCOL` environment.
+From the server side, if we want to configure SSH we need to set the `sshd` server to accept the `GIT_PROTOCOL` environment.
 
 In installations using [GitLab Helm Charts](https://docs.gitlab.com/charts/)
-and [All-in-one Docker image](../install/docker/_index.md), the SSH
-service is already configured to accept the `GIT_PROTOCOL` environment. Users
-need not do anything more.
+and [All-in-one Docker image](../install/docker/_index.md), the SSH service is already configured to accept the `GIT_PROTOCOL` environment. Users need not do anything more.
 
-For installations from the Linux package or self-compiled installations, update
-the SSH configuration of your server manually by adding this line to the `/etc/ssh/sshd_config` file:
+For installations from the Linux package or self-compiled installations, update the SSH configuration of your server manually by adding this line to the `/etc/ssh/sshd_config` file:
 
 ```plaintext
 AcceptEnv GIT_PROTOCOL
@@ -51,8 +44,7 @@ sudo systemctl restart ssh
 
 ## Instructions
 
-To use the new protocol, clients need to either pass the configuration
-`-c protocol.version=2` to the Git command, or set it globally:
+To use the new protocol, clients need to either pass the configuration `-c protocol.version=2` to the Git command, or set it globally:
 
 ```shell
 git config --global protocol.version 2
@@ -108,10 +100,8 @@ You should see that the `GIT_PROTOCOL` environment variable is sent:
 debug1: Sending env GIT_PROTOCOL = version=2
 ```
 
-For the server side, you can use the [same examples from HTTP](#http-connections), changing the
-URL to use SSH.
+For the server side, you can use the [same examples from HTTP](#http-connections), changing the URL to use SSH.
 
 ### Observe Git protocol version of connections
 
-For information on observing the Git protocol versions are being used in a production environment,
-see the [relevant documentation](gitaly/monitoring.md#queries).
+For information on observing the Git protocol versions are being used in a production environment, see the [relevant documentation](gitaly/monitoring.md#queries).

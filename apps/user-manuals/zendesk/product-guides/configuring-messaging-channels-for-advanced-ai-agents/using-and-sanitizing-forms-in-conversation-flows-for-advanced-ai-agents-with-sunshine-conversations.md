@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357720543514-Using-and-sa
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -22,7 +22,7 @@ In this article we will cover:
 
 - [Using Forms with AI agents - Advanced](#h_01G7EGYGY2R55EQAG7SG0MFVM9)
 - [Sanitize Customer Responses](#h_01G7EGYCDE84M7G0SVB7DE4BAR)
-  - [How to Sanitize Form Data](#h_01G7EGY0WX66AKMWR7HD7TRYCY)
+ - [How to Sanitize Form Data](#h_01G7EGY0WX66AKMWR7HD7TRYCY)
 
 ## Using Forms with AI agent - Advanced
 
@@ -32,7 +32,7 @@ Once your form is created, go to your respective Dialogue that you would like to
 
 ### Steps:
 
-1. Add an AI agent message with the shorthand code to capture the form and insert it. In the picture below we are adding our lead\_capture form. However, you will add the name of your form in between template: and ))% in the snippet below.  
+1. Add an AI agent message with the shorthand code to capture the form and insert it. In the picture below we are adding our lead\_capture form. However, you will add the name of your form in between template: and ))% in the snippet below. 
      
    `%((template: nameOfTemplate))%`
 2. Add a *customer message (Free Text Written)* block right after the AI agent message. This captures the user's responses.

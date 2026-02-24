@@ -34,29 +34,22 @@ For more information, see the history.
 
 {{< /alert >}}
 
-When viewing a [`CODEOWNERS` file](_index.md#codeowners-file), GitLab runs
-validations to help you find syntax and permission issues. If no syntax issues
-are found, GitLab:
+When viewing a [`CODEOWNERS` file](_index.md#codeowners-file), GitLab runs validations to help you find syntax and permission issues. If no syntax issues are found, GitLab:
 
 - Does not run more validators against the file.
 - Runs more permissions validations against the first 200 unique user and group references found in the file.
 
 How this works:
 
-1. Find all references that can access the project. If a user or group reference is
-   added, but does not have project access, show an error.
-1. For each valid user reference, check that the user has permission to approve
-   merge requests in the project. If the user does not have that permission, show an error.
+1. Find all references that can access the project. If a user or group reference is added, but does not have project access, show an error.
+1. For each valid user reference, check that the user has permission to approve merge requests in the project. If the user does not have that permission, show an error.
 1. For each valid group reference, check that the maximum role value is Developer or higher.
    For each group reference that has a value lower than Developer, show an error.
-1. For each valid group reference, check that they group contains at least one user with
-   permission to approve merge requests. For any group reference containing zero users with
-   permission to approve merge requests, show an error.
+1. For each valid group reference, check that they group contains at least one user with permission to approve merge requests. For any group reference containing zero users with permission to approve merge requests, show an error.
 
 ## Approvals do not show
 
-The [`CODEOWNERS` file](_index.md#codeowners-file) must be present in the target branch before the
-merge request is created.
+The [`CODEOWNERS` file](_index.md#codeowners-file) must be present in the target branch before the merge request is created.
 
 Code Owner approval rules only update when the merge request is created.
 If you update the `CODEOWNERS` file, close the merge request and create a new one.
@@ -66,24 +59,20 @@ If you update the `CODEOWNERS` file, close the merge request and create a new on
 A Code Owner approval rule is optional if any of these conditions are true:
 
 - The user or group is not a member of the project.
-  Code Owners [cannot inherit members from parent groups](https://gitlab.com/gitlab-org/gitlab/-/issues/288851/).
+ Code Owners [cannot inherit members from parent groups](https://gitlab.com/gitlab-org/gitlab/-/issues/288851/).
 - The user or group is [malformed or inaccessible](advanced.md#malformed-owners).
 - [Code Owner approval on a protected branch](../repository/branches/protected.md#require-code-owner-approval) has not been set up.
 - The section is [marked as optional](reference.md#optional-sections).
-- No eligible code owners are available to approve the merge request due to conflicts
-  with other [merge request approval settings](../merge_requests/approvals/settings.md).
+- No eligible code owners are available to approve the merge request due to conflicts with other [merge request approval settings](../merge_requests/approvals/settings.md).
 
 ## User not shown as possible approver
 
-A user might not show as an approver on the Code Owner merge request approval rules
-if any of these conditions are true:
+A user might not show as an approver on the Code Owner merge request approval rules if any of these conditions are true:
 
 - A rule prevents the specific user from approving the merge request.
-  Check the project [merge request approval](../merge_requests/approvals/settings.md#edit-merge-request-approval-settings) settings.
-- A Code Owner group has a visibility of private, and the current user is not a
-  member of the Code Owner group.
-- The specific username is spelled incorrectly or
-  [malformed in the `CODEOWNERS` file](advanced.md#malformed-owners).
+ Check the project [merge request approval](../merge_requests/approvals/settings.md#edit-merge-request-approval-settings) settings.
+- A Code Owner group has a visibility of private, and the current user is not a member of the Code Owner group.
+- The specific username is spelled incorrectly or [malformed in the `CODEOWNERS` file](advanced.md#malformed-owners).
 - Current user is an external user who does not have permission to the internal Code Owner group.
 
 ## Approval rule is invalid
@@ -104,8 +93,7 @@ The workaround is to check that the group or user has been invited to the projec
 When a user or group change their names, the `CODEOWNERS` isn't automatically updated with the new names.
 To enter the new names, you must edit the file.
 
-Organizations using SAML SSO can [set usernames](../../../integration/saml.md#set-a-username) to
-prevent users from changing their usernames.
+Organizations using SAML SSO can [set usernames](../../../integration/saml.md#set-a-username) to prevent users from changing their usernames.
 
 ## Incompatibility with Global group memberships locks
 

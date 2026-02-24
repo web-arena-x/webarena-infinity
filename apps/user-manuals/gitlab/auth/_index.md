@@ -8,14 +8,9 @@ description: User identity, authentication, permissions, access controls, and se
 
 GitLab uses authentication and authorization to protect your resources without limiting collaboration.
 
-Authentication verifies who you are using methods such as passwords, two-factor authentication,
-SSH keys, access tokens, and external identity providers like SAML and OAuth. Authorization
-determines what you can do with roles and granular permissions to control access to groups,
-projects, and resources. Together, these systems create a security framework that scales from
-individual users to enterprise organizations.
+Authentication verifies who you are using methods such as passwords, two-factor authentication, SSH keys, access tokens, and external identity providers like SAML and OAuth. Authorization determines what you can do with roles and granular permissions to control access to groups, projects, and resources. Together, these systems create a security framework that scales from individual users to enterprise organizations.
 
-Understanding the GitLab security model helps you implement access controls that balance security
-requirements with operational efficiency.
+Understanding the GitLab security model helps you implement access controls that balance security requirements with operational efficiency.
 
 {{< cards >}}
 

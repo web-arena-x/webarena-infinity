@@ -48,10 +48,10 @@ Add the script to the page and assign the client SDK to `window`:
 ```html
 <script src="https://unpkg.com/@gitlab/application-sdk-browser/dist/gl-sdk.min.js"></script>
 <script>
-  window.glClient = window.glSDK.glClientSDK({
+ window.glClient = window.glSDK.glClientSDK({
     appId: 'YOUR_APP_ID',
     host: 'YOUR_HOST',
-  });
+ });
 </script>
 ```
 
@@ -67,17 +67,17 @@ Apart from `appId` and `host`, you can configure the Browser SDK with the follow
 
 ```typescript
 interface GitLabClientSDKOptions {
-  appId: string;
-  host: string;
-  hasCookieConsent?: boolean;
-  trackerId?: string;
-  pagePingTracking?:
+ appId: string;
+ host: string;
+ hasCookieConsent?: boolean;
+ trackerId?: string;
+ pagePingTracking?:
     | boolean
     | {
         minimumVisitLength?: number;
         heartbeatDelay?: number;
       };
-  plugins?: AllowedPlugins;
+ plugins?: AllowedPlugins;
 }
 ```
 
@@ -93,14 +93,13 @@ interface GitLabClientSDKOptions {
 ### Plugins
 
 - `Client Hints`: An alternative to tracking the User Agent, which is particularly useful in browsers that are freezing the User Agent string.
-  Enabling this plugin will automatically capture the following context:
+ Enabling this plugin will automatically capture the following context:
 
-  For example,
-  [`iglu:org.ietf/http_client_hints/jsonschema/1-0-0`](https://github.com/snowplow/iglu-central/blob/master/schemas/org.ietf/http_client_hints/jsonschema/1-0-0)
-  has the following configuration:
+ For example, [`iglu:org.ietf/http_client_hints/jsonschema/1-0-0`](https://github.com/snowplow/iglu-central/blob/master/schemas/org.ietf/http_client_hints/jsonschema/1-0-0)
+ has the following configuration:
 
-  ```json
-  {
+ ```json
+ {
      "isMobile":false,
      "brands":[
         {
@@ -112,8 +111,8 @@ interface GitLabClientSDKOptions {
            "version":"89"
         }
      ]
-  }
-  ```
+ }
+ ```
 
 - `Link Click Tracking`: With this plugin, the tracker adds click event listeners to all link elements. Link clicks are tracked as self-describing events. Each link-click event captures the link's `href` attribute. The event also has fields for the link's ID, classes, and target (where the linked document is opened, such as a new tab or new window).
 
@@ -125,13 +124,13 @@ By default all plugins are enabled. You can disable or enable these plugins thro
 
 ```typescript
 const tracker = glClientSDK({
-  ...options,
-  plugins: {
+ ...options,
+ plugins: {
     clientHints: true,
     linkTracking: true,
     performanceTiming: true,
     errorTracking: true,
-  },
+ },
 });
 ```
 
@@ -167,7 +166,7 @@ The `eventAttributes` object supports the following optional properties:
 | Property          | Type        | Description |
 |:------------------|:------------|:------------|
 | `title`           | `String`    | Override the default page title. |
-| `contextCallback` | `Function`  | A callback that fires on the page view. |
+| `contextCallback` | `Function` | A callback that fires on the page view. |
 | `context`         | `Object`    | Add context (additional information) on the page view. |
 | `timestamp`       | `timestamp` | Set the true timestamp or overwrite the device-sent timestamp on an event. |
 
@@ -210,16 +209,16 @@ For example, `trackError` can be used in `try...catch` like below:
 
 ```javascript
 try {
-  // Call the function that throws an error
-  throwError();
+ // Call the function that throws an error
+ throwError();
 } catch (error) {
-  glClient.trackError({
+ glClient.trackError({
     message: error.message, // "This is a custom error"
     filename: error.fileName || 'unknown', // The file in which the error occurred (for example, "index.html")
     lineno: error.lineNumber || 0, // The line number where the error occurred (for example, 2)
     colno: error.columnNumber || 0, // The column number where the error occurred (for example, 6)
     error: error, // The Error object itself
-  });
+ });
 }
 ```
 
@@ -269,7 +268,7 @@ glClient.setDocumentTitle(title);
 
 | Property | Type     | Description                        |
 | :------- | :------- | :--------------------------------- |
-| `title`  | `String` | The document title you want to set. |
+| `title` | `String` | The document title you want to set. |
 
 ## Contribute
 

@@ -25,7 +25,7 @@ Tip: [Use Figma AI to quickly rename layers in bulk](https://help.figma.com/hc/e
 You can access the **Rename layers****modal** a number of different ways.
 
 1. Select the layers you want to rename from the canvas, or in the layers panel.
-2. To toggle the **Rename Layers Modal** you can then do one of the following:  
+2. To toggle the **Rename Layers Modal** you can then do one of the following: 
    1. Right-click on the layers in the panel and choose **Rename**.
    2. Use the keyboard shortcuts:
       - Mac: `Command ⌘` - `R`
@@ -85,8 +85,8 @@ If you already have a unique name for each layer, but would like to group them f
 
 ## Rename part of a layer's name
 
-While you were using the modal, you may have noticed a " **Match**" field. This allows you to identify which part of the layer's name you want to update.  
-  
+While you were using the modal, you may have noticed a " **Match**" field. This allows you to identify which part of the layer's name you want to update. 
+ 
 By leaving this blank you can update the entire name, but you can also use this field to remove or update part of the layer's name (for example, change the " *Icon/*" part in the name "*Icon/Home*" to "*Image/*").
 
 1. Select the layers you want to rename.

@@ -43,15 +43,15 @@ When a student with a private profile completes the First Destination Survey whi
 ## **Language Updates**
 
 - **First Page of Survey**
-  - Changed "We know you're busy leading up to graduation, so we made sure this survey will only take a few minutes" to **"Please take a few minutes to help other students learn from your post-graduation plans!"**
-  - ![](https://support.joinhandshake.com/hc/article_attachments/25995548824983)
+ - Changed "We know you're busy leading up to graduation, so we made sure this survey will only take a few minutes" to **"Please take a few minutes to help other students learn from your post-graduation plans!"**
+ - ![](https://support.joinhandshake.com/hc/article_attachments/25995548824983)
 - **Student Dashboard Link**
-  - Changed "Complete this mandatory survey for your school" to "Complete the First Destination Survey for your school"
+ - Changed "Complete this mandatory survey for your school" to "Complete the First Destination Survey for your school"
     - ![](https://support.joinhandshake.com/hc/article_attachments/25995548826391)
 - **Graphs before the student answers a question**
-  - Changed "Answer the questions below to see how you compare to your classmates." to "Answer the questions below to see school-wide trends."
+ - Changed "Answer the questions below to see how you compare to your classmates." to "Answer the questions below to see school-wide trends."
     - ![](https://support.joinhandshake.com/hc/article_attachments/25995551571479)
 - **Reminder emails**
-  - [View all new reminder content here](https://support.joinhandshake.com/hc/en-us/articles/360000716048)
+ - [View all new reminder content here](https://support.joinhandshake.com/hc/en-us/articles/360000716048)
 - **Work Authorization Update:**
-  - We just officially removed a question related to work authorization from the survey. It will not be included in any surveys created in the future and for anyone filling out an existing survey from today onward. Any legacy data from this question will still be available for reporting purposes. This question was previously optional for respondents to answer but there was strong support from schools for not including it at all - we appreciate everyone’s feedback!
+ - We just officially removed a question related to work authorization from the survey. It will not be included in any surveys created in the future and for anyone filling out an existing survey from today onward. Any legacy data from this question will still be available for reporting purposes. This question was previously optional for respondents to answer but there was strong support from schools for not including it at all - we appreciate everyone’s feedback!

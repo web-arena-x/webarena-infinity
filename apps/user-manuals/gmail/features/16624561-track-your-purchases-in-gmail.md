@@ -20,7 +20,7 @@ You can easily track all your online purchases with Gmail's Purchases view. It g
 The "Purchases" view organizes your order information into 2 sections:
 
 - **Arriving soon:** This section is at the top and shows cards for orders with an estimated delivery date of today or the future. Orders are chronologically listed by the arrival.
-  - For more info, select **Track package** or **More details**.
+ - For more info, select **Track package** or **More details**.
 - **Purchases:** This section is below the "Arriving soon" cards and shows a list of purchase-related emails in your inbox.
 
 ## Related resources

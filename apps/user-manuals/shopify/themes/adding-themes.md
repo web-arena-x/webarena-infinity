@@ -62,7 +62,7 @@ Desktop
 4. The theme will be added to the Theme library section of your [Themes](https://admin.shopify.com/themes) page of your admin.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage themes**.
 4. In the **Design your store in seconds** section near the bottom of the page, describe your business and tap **Generate themes** to generate up to 3 free personalized themes.
@@ -85,7 +85,7 @@ Desktop
 4. Click the **Add** button for the theme. The theme will be added to the Theme library section of your [Themes](https://admin.shopify.com/themes) page of your admin.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage themes**.
 4. In the **Popular free themes** section near the bottom of the page, view the top free themes from the Shopify Theme Store or tap **Visit theme store** to browse all available themes.
@@ -105,7 +105,7 @@ To [get support for a paid theme](theme-support.md), contact the theme developer
 1. Visit the [Shopify Theme Store](https://themes.shopify.com) and choose a paid theme.
 2. Click **Try theme** to add the theme to your online store.
 3. In your Shopify admin, click **Online Store** > **Themes**.
-4. In the **Theme library** section, click the  button to open the actions menu next to the theme that you want to preview.
+4. In the **Theme library** section, click the button to open the actions menu next to the theme that you want to preview.
 5. Click **Preview**.
 
 You can [customize a theme's settings](customizing-themes.md) while you're previewing it. If you're happy with the theme, then you can [buy the theme](adding-themes.md#buy-a-theme). Any customizations that you made to the theme are saved. You can't edit the theme code or use the AI code generator when the theme is on trial.
@@ -147,7 +147,7 @@ Desktop
 4. Click **Upload**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage themes**.
 4. In the **Theme library** section, tap **Import theme** > **Upload zip file**.
@@ -187,10 +187,10 @@ The online store preview bar displays the following information about your theme
 
 You can customize the preview with the following actions:
 
-* In the  **View as** section, you can select a different country or language to preview. Learn more about [international markets](https://help.shopify.com/en/manual/international/managing) and [adding additional languages to your theme](https://help.shopify.com/en/manual/international/localization-and-translation).
-* Click the  button to [share a preview of your theme](adding-themes.md#share-theme-preview).
+* In the **View as** section, you can select a different country or language to preview. Learn more about [international markets](https://help.shopify.com/en/manual/international/managing) and [adding additional languages to your theme](https://help.shopify.com/en/manual/international/localization-and-translation).
+* Click the button to [share a preview of your theme](adding-themes.md#share-theme-preview).
 * Click **Close preview** to close the preview and display your published theme.
-  + Click **Edit theme** to open the theme editor and customize the theme.
+ + Click **Edit theme** to open the theme editor and customize the theme.
 * Click near the top of the preview bar to collapse it. You can click it again to expand it.
 
 ### Share a theme preview with others
@@ -204,24 +204,24 @@ There are two types of theme previews:
 * **Visitor previews**: Vistor previews are visible to anyone with the URL and don't require authentication. These previews expire 2 days after the URL is created. Visitor preview URLs use the format `https://<token>-<shop_id>.shopifypreview.com`.
 * **Merchant previews**: Merchant previews require admin authentication and have access to checkouts. These previews expire 30 days after the URL is created. Merchant preview URLs use your primary domain format with a token parameter.
 
-When you click **Preview** on a theme, the merchant preview URL displays in your browser's address bar. To create a visitor preview link to share with others, click the  button in the preview bar. You can create new links as often as you want, and creating a new link won't affect old preview links.
+When you click **Preview** on a theme, the merchant preview URL displays in your browser's address bar. To create a visitor preview link to share with others, click the button in the preview bar. You can create new links as often as you want, and creating a new link won't affect old preview links.
 
 #### Steps:
 
 Desktop
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
-2. For the theme that you want to share, click the  button to open the actions menu, and then click **Preview**.
+2. For the theme that you want to share, click the button to open the actions menu, and then click **Preview**.
 3. Optional: Select a different country, language, or both to change the preview.
-4. Click the  button to copy the link to your clipboard.
+4. Click the button to copy the link to your clipboard.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage themes**.
-4. For the theme that you want to share, tap the  button to open the actions menu, and then tap **Preview**.
+4. For the theme that you want to share, tap the button to open the actions menu, and then tap **Preview**.
 5. Optional: Select a different country, language, or both to change the preview.
-6. Tap  to copy the link to your clipboard.
+6. Tap to copy the link to your clipboard.
 
 ### Theme preview troubleshooting
 

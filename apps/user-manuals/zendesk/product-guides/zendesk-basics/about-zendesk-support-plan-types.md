@@ -41,14 +41,14 @@ Legacy enterprise plan customers can purchase the Priority Support and Advanced 
 
 This section gives detailed information about the legacy Support plans that were offered between November 11th, 2015 and February 1st 2021.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | Category | Pricing plan | |
 | **Support Essential** | **Support Elite** (Discontinued in April 2023.) See SKU modernization. |
 | **Customer support from the Zendesk team** | | |
-| Email Support |  | 24x7 |
-| Phone Support (in English) |  | 24x7 |
-| Service-level guarantee |  | Y |
+| Email Support | | 24x7 |
+| Phone Support (in English) | | 24x7 |
+| Service-level guarantee | | Y |
 | Professional Services | Paid add-on | Paid add-on |
 | Chat Support (in English) | Y | Y |
 | **Customer communication channels** | | |
@@ -57,73 +57,73 @@ This section gives detailed information about the legacy Support plans that were
 | Web Widget | Y | Y |
 | Support & Chat SDK | Y | Y |
 | [Phone support](https://www.zendesk.com/talk/) | Paid add-on | Paid add-on |
-| [Phone: CTI Toolkit & Integrations](https://www.zendesk.com/talk/pricing/) |  | Paid add-on |
+| [Phone: CTI Toolkit & Integrations](https://www.zendesk.com/talk/pricing/) | | Paid add-on |
 | [Chat](https://www.zendesk.com/chat/) | Paid add-on | Paid add-on |
-| [Social Messaging](https://www.zendesk.com/message/) |  | Paid add-on |
+| [Social Messaging](https://www.zendesk.com/message/) | | Paid add-on |
 | **Agent efficiency** | | |
 | Pre-defined responses (Macros) | Y | Y |
 | Mobile app | Y | Y |
 | Translated agent interface (28 languages) | Y | Y |
 | Essentials Card | Y | Y |
 | Interaction History | Y | Y |
-| Custom & Group Views |  | Y |
-| Dynamic content |  | Y |
-| Collaboration add-on (Light Agents and Side Conversations) |  | Paid add-on |
-| Contextual Workspaces |  | Y |
-| Guided Mode |  | Y |
-| Skills-based routing |  | Y |
+| Custom & Group Views | | Y |
+| Dynamic content | | Y |
+| Collaboration add-on (Light Agents and Side Conversations) | | Paid add-on |
+| Contextual Workspaces | | Y |
+| Guided Mode | | Y |
+| Skills-based routing | | Y |
 | **Help desk management** | | |
 | Ticket sharing between Zendesk Support accounts | Y | Automated |
 | Ticket file attachment size | 50MB | 50MB |
-| Custom business rules (triggers & automations) |  | Y |
-| Business Hours |  | Multiple |
-| Service Level Agreement (SLA) management |  | Y |
-| Multiple Ticket Forms |  | Y |
-| Conditional Ticket Fields |  | Y |
-| Custom roles and permissions |  | Y |
-| [Premium Sandbox](https://www.zendesk.com/support/premium-sandbox/) |  | Paid add-on |
-| Sandbox test environment |  | Paid add-on |
-| Multibrand |  | Up to 300 brands |
+| Custom business rules (triggers & automations) | | Y |
+| Business Hours | | Multiple |
+| Service Level Agreement (SLA) management | | Y |
+| Multiple Ticket Forms | | Y |
+| Conditional Ticket Fields | | Y |
+| Custom roles and permissions | | Y |
+| [Premium Sandbox](https://www.zendesk.com/support/premium-sandbox/) | | Paid add-on |
+| Sandbox test environment | | Paid add-on |
+| Multibrand | | Up to 300 brands |
 | **Customer relationship management** | | |
 | Contacts & ticket history | Y | Y |
 | Contact Form | Y | Y |
 | Device data log | Y | Y |
-| Group contacts by organization |  | Multiple |
-| Custom user and organization fields |  | Y |
-| Customer satisfaction ratings (CSAT) & follow-up survey |  | Y |
-| Customer Lists |  | Paid add-on |
-| Net Promoter Score℠ Surveys |  | Paid add-on |
-| Satisfaction Prediction |  | Y |
+| Group contacts by organization | | Multiple |
+| Custom user and organization fields | | Y |
+| Customer satisfaction ratings (CSAT) & follow-up survey | | Y |
+| Customer Lists | | Paid add-on |
+| Net Promoter Score℠ Surveys | | Paid add-on |
+| Satisfaction Prediction | | Y |
 | **Reporting & Analytics** | | |
 | Overview dashboard | Y | Y |
 | Zendesk Benchmark | Y | Y |
-| Performance dashboards |  | Y |
-| Dashboards and reporting, powered by Zendesk Explore |  | Y |
-| Customizable reports and dashboards, powered by Zendesk Explore |  | Paid add-on |
+| Performance dashboards | | Y |
+| Dashboards and reporting, powered by Zendesk Explore | | Y |
+| Customizable reports and dashboards, powered by Zendesk Explore | | Paid add-on |
 | **Platform** | | |
-| Public apps & integrations |  | Y |
-| Private custom apps & integrations |  | Y |
-| More Storage |  | Paid add-on |
-| Custom Objects, powered by Sunshine |  | Y |
-| 99.9% Uptime SLA |  | Y |
+| Public apps & integrations | | Y |
+| Private custom apps & integrations | | Y |
+| More Storage | | Paid add-on |
+| Custom Objects, powered by Sunshine | | Y |
+| 99.9% Uptime SLA | | Y |
 | API rate limit | 10 RPM | 700 RPM |
 | **Security features** | | |
 | SSL encryption | Y | SNI |
 | Digitally signed emails (DKIM/DMARC) | Y | Y |
 | Two-Factor Authentication | Y | Y |
 | Agent device management | Y | Y |
-| Host mapping |  | Y |
+| Host mapping | | Y |
 | Single sign-on (SSO) for web and mobile | JWT / SAML | JWT / SAML |
-| Automatic redaction |  | Y |
+| Automatic redaction | | Y |
 | Network access restriction | Y | Y |
-| Business rules analysis |  | Y |
-| Audit logs |  | Y |
-| Email compliance archive |  | Y |
-| Data center location |  | Y |
+| Business rules analysis | | Y |
+| Audit logs | | Y |
+| Email compliance archive | | Y |
+| Data center location | | Y |
 | Encryption: data at rest and in motion | Y | Y |
 | Disaster recovery | Y | Enhanced |
-| Ability to configure for HIPAA |  | Y |
-| **Full security specs** |  | [View Specs](https://www.zendesk.com/product/zendesk-security/) |
+| Ability to configure for HIPAA | | Y |
+| **Full security specs** | | [View Specs](https://www.zendesk.com/product/zendesk-security/) |
 
 ### Legacy plans before November 11, 2015
 

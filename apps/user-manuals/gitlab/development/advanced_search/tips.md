@@ -102,22 +102,19 @@ Elastic::ProcessBookkeepingService.new.execute
 
 ## Dependent association index updates
 
-You can use elastic_index_dependant_association to automatically update associated records in the index
-when specific fields change. For example, to reindex all work items when a project's `visibility_level` changes
+You can use elastic_index_dependant_association to automatically update associated records in the index when specific fields change. For example, to reindex all work items when a project's `visibility_level` changes
 
 ```ruby
-  elastic_index_dependant_association :work_items, on_change: :visibility_level, depends_on_finished_migration: :add_mapping_migration
+ elastic_index_dependant_association :work_items, on_change: :visibility_level, depends_on_finished_migration: :add_mapping_migration
 ```
 
-The `depends_on_finished_migration` parameter is optional and ensures the update only occurs after the specified advanced
-search migration has completed (such as a migration that added the necessary field to the mapping).
+The `depends_on_finished_migration` parameter is optional and ensures the update only occurs after the specified advanced search migration has completed (such as a migration that added the necessary field to the mapping).
 
 ## Testing
 
 {{< alert type="warning" >}}
 
-Elasticsearch tests do not run on every merge request. Add `~pipeline:run-search-tests` or `~group::global search` labels to the merge
-request to run tests with the production versions of Elasticsearch and PostgreSQL.
+Elasticsearch tests do not run on every merge request. Add `~pipeline:run-search-tests` or `~group::global search` labels to the merge request to run tests with the production versions of Elasticsearch and PostgreSQL.
 
 {{< /alert >}}
 
@@ -126,8 +123,7 @@ request to run tests with the production versions of Elasticsearch and PostgreSQ
 #### Testing a migration that changes a mapping of an index
 
 1. Make sure the index doesn't already have the changes applied. Remember the migration cron worker runs in the background so it's possible the migration was already applied.
-   - Optional. [In GitLab 18.0 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/352424),
-     to disable the migration worker, run the following commands:
+   - Optional. [In GitLab 18.0 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/352424), to disable the migration worker, run the following commands:
 
      ```ruby
        settings = ApplicationSetting.last # Ensure this setting does not return `nil`
@@ -159,7 +155,7 @@ On the Rails console we can use the `Gitlab::Search::Client` to construct the qu
 An example query using the helper looks like:
 
 ```ruby
-  Gitlab::Search::Client.new.search(
+ Gitlab::Search::Client.new.search(
     index: 'gitlab-production-vulnerabilities',
     routing: 'group_110', # data is distributed across shards and the query builder passes routing information.
     body: {
@@ -167,5 +163,5 @@ An example query using the helper looks like:
         term: { vulnerability_id: 4356 }
       }
     }
-  )
+ )
 ```

@@ -22,7 +22,7 @@ Use tables for:
 ## Add a table
 
 1. Select one of the following options:
-   - **From the toolbar**: Click the  **Table** icon.
+   - **From the toolbar**: Click the **Table** icon.
    - **Keyboard shortcut**: Press `Shift` + `T` on your keyboard.
 2. Click and drag to create the number of columns and rows you need.
 3. Release to place the table on your board.
@@ -39,10 +39,10 @@ You can edit the styling, size, and position of cells, rows, and columns in your
 
 - To select the entire table, single click on the table.
 - To select an individual cell, first select the table, then click on a cell.
-- To select an entire row or column, click  the grabber icon on the left of a row or the top of a column.
+- To select an entire row or column, click the grabber icon on the left of a row or the top of a column.
 - To select multiple rows, columns, or cells:
-  - Hold `⌘ Command` (Mac) or `Ctrl` (Windows) and click to select each item.
-  - Hold `⇧ Shift` and click to select all items within a range.
+ - Hold `⌘ Command` (Mac) or `Ctrl` (Windows) and click to select each item.
+ - Hold `⇧ Shift` and click to select all items within a range.
 
 Tip! To jump to the next cell, press `Tab`. To jump to the previous cell, hold `⇧ Shift` and press `Tab`.
 
@@ -91,7 +91,7 @@ Select the cell, row, column, or table you want to edit. From the toolbar, you c
 #### Add a row or column in the middle of the table
 
 1. Select the table and hover your mouse over the blue dot (located at the border line of the row or column, to the top or left of the table).
-2. Click  the plus sign to add a row or column.
+2. Click the plus sign to add a row or column.
 
 ![Table is selected, then mouse is hovering over blue dot above the table, at the border line of the column.](https://help.figma.com/hc/article_attachments/12974698551447)
 
@@ -121,7 +121,7 @@ Tip! If you select an individual cell, you can select to **Delete content** from
 ### Move rows and columns
 
 1. Select the row(s) or column(s).
-2. Click and hold  the grabber icon, then drag the row or column to the desired position in the table.
+2. Click and hold the grabber icon, then drag the row or column to the desired position in the table.
 
 ![Column is selected, then dragged and moved to the end of the table.](https://help.figma.com/hc/article_attachments/12974850832407)
 
@@ -169,7 +169,7 @@ If the number of cells you copy is greater than the number of cells in the secon
 
 You can import CSV files directly into FigJam as tables.
 
-1. Click  in the top toolbar.
+1. Click in the top toolbar.
 2. Go to **File** > **Import**.
 3. Select a CSV file and click **Open**.
 

@@ -7,12 +7,12 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360010205734-October
 # **Questions**
 
 - How can career centers and Handshake democratize credentials?
-  - **Give all students access to real world professional experiences**
-  - Gather feedback from students, employers and faculty on experiences
-  - Share learnings with current and future students
+ - **Give all students access to real world professional experiences**
+ - Gather feedback from students, employers and faculty on experiences
+ - Share learnings with current and future students
 
 - Do we anticipate campus employment being included into the experiential learning components on Handshake?
-  - Yes, we would like to make sure that students can track all experiential learning opportunities during school, even those that take place on campus.
+ - Yes, we would like to make sure that students can track all experiential learning opportunities during school, even those that take place on campus.
 
 - What are the other systems you need to connect experiences data to?
 

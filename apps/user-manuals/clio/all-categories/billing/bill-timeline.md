@@ -28,4 +28,4 @@ To export a bill timeline:
 
 1. Go to the **Billing** tab or the **Bills** subtab of a matter or client.
 2. Click the **Bill ID** number to view the bill.
-3. Scroll down, under **Bill Timeline** click  **Export**.
+3. Scroll down, under **Bill Timeline** click **Export**.

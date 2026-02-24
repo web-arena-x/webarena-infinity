@@ -26,8 +26,8 @@ The benefits of using the desktop app are:
 
 The Linear web app can be access by logging in to [linear.app](https://linear.app). Linear will launch directly in your browser window.
 
-Nearly all functionality in the desktop app including offline mode is available on the web in most browsers. We support the most recent three versions of Chrome, Firebox and Safari.  
-  
+Nearly all functionality in the desktop app including offline mode is available on the web in most browsers. We support the most recent three versions of Chrome, Firebox and Safari. 
+ 
 **Open in desktop app:** This browser preference opens Linear links in the desktop app if installed. Universal links can be configured from the browser version [Account > Preferences > Behavior > Open in desktop app](https://linear.app/settings/account/preferences).
 
 > [!NOTE]
@@ -75,13 +75,13 @@ Linear automatically syncs all changes in realtime as they happen. This is criti
 You'll start seeing the words "Syncing" appear next to the workspace name at the top of your sidebar when the app detects that there are a lot of changes waiting to be synced or when sending changes take longer than expected. The number next to it shows how many changes are waiting to be sent. They'll be reloaded and retried even if you restart the application before restoring connectivity.
 
 > [!NOTE]
-> **Offline mode is designed as a failsafe and not a full-fledged feature.**  
+> **Offline mode is designed as a failsafe and not a full-fledged feature.** 
 > We do not check the creation date of each change before updating data. This means that if you make a lot of edits while in offline mode, you could overwrite changes from someone on your team (e.g. if you edited the issue description or they had updated status).
 
 ### Network requests to localhost
 
-We periodically check if the Linear desktop app is installed on your computer. We achieve this by sending network requests to your localhost (your computer) on different ports. Each port check helps us determine if our desktop app is running. This then allows us to seamlessly open certain URLs directly in the desktop app, enhancing your user experience and ensuring better integration between our web and desktop applications.  
-  
+We periodically check if the Linear desktop app is installed on your computer. We achieve this by sending network requests to your localhost (your computer) on different ports. Each port check helps us determine if our desktop app is running. This then allows us to seamlessly open certain URLs directly in the desktop app, enhancing your user experience and ensuring better integration between our web and desktop applications. 
+ 
 The ports we check are `44450`, `18450`, and `33234`.
 
 ### Automatic app updates
@@ -118,7 +118,7 @@ We may in the future but it's not on the roadmap for now. Linux users can use Li
 
 <details>
 <summary>My app is stuck in offline mode.</summary>
-Being stuck in offline mode may relate to a known Chromium bug. Please toggle your wifi off and on  again from your computer's menubar.
+Being stuck in offline mode may relate to a known Chromium bug. Please toggle your wifi off and on again from your computer's menubar.
 </details>
 
 <details>
@@ -133,12 +133,12 @@ If accessing Linear in browser and encountering a _Local Network access was deni
 
 ![Local Network access was denied error, "Couldn't open in desktop app"](https://webassets.linear.app/images/ornj730p/production/af3a2265ff0a5a9e67e93b702a0cea8caf08f785-917x297.png?q=95&auto=format&dpr=2)
 
-To resolve, navigate into your browser settings and search for _Local Network Access_—you should spot the configuration specific to Linear under _Site Settings_:  
+To resolve, navigate into your browser settings and search for _Local Network Access_—you should spot the configuration specific to Linear under _Site Settings_: 
 
 
 ![linear.app Allowed local network access](https://webassets.linear.app/images/ornj730p/production/032fbed63738c8603cf6b48b90a26c4d2012be00-1456x218.png?q=95&auto=format&dpr=2)
 
-  
+ 
 After clicking into this setting, ensure _Local network access_ is set to _Allow_:
 
 ![Local network access settings configured to Allow](https://webassets.linear.app/images/ornj730p/production/7ba14535c3e6b31a708c878e3ec7c64d351780e6-1384x210.png?q=95&auto=format&dpr=2)

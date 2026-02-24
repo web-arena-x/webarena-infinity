@@ -13,15 +13,13 @@ When ordering the columns it's advised to order by distinct columns only. Consid
 
 | `id` | `created_at`          |
 |------|-----------------------|
-| `1`  | `2021-01-04 14:13:43` |
-| `2`  | `2021-01-05 19:03:12` |
-| `3`  | `2021-01-05 19:03:12` |
+| `1` | `2021-01-04 14:13:43` |
+| `2` | `2021-01-05 19:03:12` |
+| `3` | `2021-01-05 19:03:12` |
 
 If we order by `created_at`, the result would likely depend on how the records are located on the disk.
 
-Using the tie-breaker column is advised when the data is exposed via a well defined interface and its consumed
-by an automated process, such as an API. Without the tie-breaker column, the order of the rows could change
-(data is re-imported) which could cause problems that are hard to debug, such as:
+Using the tie-breaker column is advised when the data is exposed via a well defined interface and its consumed by an automated process, such as an API. Without the tie-breaker column, the order of the rows could change (data is re-imported) which could cause problems that are hard to debug, such as:
 
 - An integration comparing the rows to determine changes breaks.
 - E-tag cache values change, which requires a complete re-download.
@@ -77,14 +75,14 @@ LIMIT 20
 Execution plan:
 
 ```plaintext
- Limit  (cost=1.99..30.97 rows=20 width=910) (actual time=1.217..1.220 rows=20 loops=1)
+ Limit (cost=1.99..30.97 rows=20 width=910) (actual time=1.217..1.220 rows=20 loops=1)
    Buffers: shared hit=33 read=2
    I/O Timings: read=0.983 write=0.000
-   ->  Incremental Sort  (cost=1.99..919.33 rows=633 width=910) (actual time=1.215..1.216 rows=20 loops=1)
+   -> Incremental Sort (cost=1.99..919.33 rows=633 width=910) (actual time=1.215..1.216 rows=20 loops=1)
          Sort Key: merge_requests.created_at, merge_requests.id
          Buffers: shared hit=33 read=2
          I/O Timings: read=0.983 write=0.000
-         ->  Index Scan using index_merge_requests_on_author_id_and_created_at on public.merge_requests  (cost=0.57..890.84 rows=633 width=910) (actual time=0.038..1.139 rows=22 loops=1)
+         -> Index Scan using index_merge_requests_on_author_id_and_created_at on public.merge_requests (cost=0.57..890.84 rows=633 width=910) (actual time=0.038..1.139 rows=22 loops=1)
                Index Cond: (merge_requests.author_id = 1)
                Buffers: shared hit=24 read=2
                I/O Timings: read=0.983 write=0.000
@@ -101,13 +99,13 @@ set enable_incremental_sort=off;
 ```
 
 ```plaintext
- Limit  (cost=907.69..907.74 rows=20 width=910) (actual time=2.911..2.917 rows=20 loops=1)
+ Limit (cost=907.69..907.74 rows=20 width=910) (actual time=2.911..2.917 rows=20 loops=1)
    Buffers: shared hit=1004
-   ->  Sort  (cost=907.69..909.27 rows=633 width=910) (actual time=2.908..2.911 rows=20 loops=1)
+   -> Sort (cost=907.69..909.27 rows=633 width=910) (actual time=2.908..2.911 rows=20 loops=1)
          Sort Key: created_at, id
-         Sort Method: top-N heapsort  Memory: 52kB
+         Sort Method: top-N heapsort Memory: 52kB
          Buffers: shared hit=1004
-         ->  Index Scan using index_merge_requests_on_author_id_and_created_at on merge_requests  (cost=0.57..890.84 rows=633 width=910) (actual time=0.042..1.974 rows=1111 loops=1)
+         -> Index Scan using index_merge_requests_on_author_id_and_created_at on merge_requests (cost=0.57..890.84 rows=633 width=910) (actual time=0.042..1.974 rows=1111 loops=1)
                Index Cond: (author_id = 1)
                Buffers: shared hit=1111
  Planning Time: 0.386 ms
@@ -209,15 +207,15 @@ OFFSET 0
 The execution plan shows that we read significantly more rows than requested (20), and the rows are sorted in memory:
 
 ```plaintext
- Limit  (cost=10716.87..10716.92 rows=20 width=1300) (actual time=1472.305..1472.308 rows=20 loops=1)
-   ->  Sort  (cost=10716.87..10717.03 rows=61 width=1300) (actual time=1472.303..1472.305 rows=20 loops=1)
+ Limit (cost=10716.87..10716.92 rows=20 width=1300) (actual time=1472.305..1472.308 rows=20 loops=1)
+   -> Sort (cost=10716.87..10717.03 rows=61 width=1300) (actual time=1472.303..1472.305 rows=20 loops=1)
          Sort Key: issues.iid
-         Sort Method: top-N heapsort  Memory: 41kB
-         ->  Nested Loop  (cost=1.00..10715.25 rows=61 width=1300) (actual time=0.215..1331.647 rows=177267 loops=1)
-               ->  Index Only Scan using index_projects_on_namespace_id_and_id on projects  (cost=0.44..3.77 rows=19 width=4) (actual time=0.077..1.057 rows=270 loops=1)
+         Sort Method: top-N heapsort Memory: 41kB
+         -> Nested Loop (cost=1.00..10715.25 rows=61 width=1300) (actual time=0.215..1331.647 rows=177267 loops=1)
+               -> Index Only Scan using index_projects_on_namespace_id_and_id on projects (cost=0.44..3.77 rows=19 width=4) (actual time=0.077..1.057 rows=270 loops=1)
                      Index Cond: (namespace_id = 9970)
                      Heap Fetches: 25
-               ->  Index Scan using index_issues_on_project_id_and_iid on issues  (cost=0.56..559.28 rows=448 width=1300) (actual time=0.101..4.781 rows=657 loops=270)
+               -> Index Scan using index_issues_on_project_id_and_iid on issues (cost=0.56..559.28 rows=448 width=1300) (actual time=0.101..4.781 rows=657 loops=270)
                      Index Cond: (project_id = projects.id)
  Planning Time: 12.281 ms
  Execution Time: 1472.391 ms
@@ -247,8 +245,8 @@ SQL query:
 SELECT "issues".*
 FROM "issues"
 WHERE
-  "issues"."project_id" = 5
-  AND ("issues"."state_id" IN (1))
+ "issues"."project_id" = 5
+ AND ("issues"."state_id" IN (1))
 ORDER BY "issues"."iid" ASC
 LIMIT 20
 OFFSET 0
@@ -299,12 +297,12 @@ Example: filtering issues in a project by an assignee
 project = Project.find(5)
 
 project
-  .issues
-  .joins(:issue_assignees)
-  .where(issue_assignees: { user_id: 10 })
-  .order(:iid)
-  .page(1)
-  .per(20)
+ .issues
+ .joins(:issue_assignees)
+ .where(issue_assignees: { user_id: 10 })
+ .order(:iid)
+ .page(1)
+ .per(20)
 ```
 
 ```sql
@@ -312,7 +310,7 @@ SELECT "issues".*
 FROM "issues"
 INNER JOIN "issue_assignees" ON "issue_assignees"."issue_id" = "issues"."id"
 WHERE "issues"."project_id" = 5
-  AND "issue_assignees"."user_id" = 10
+ AND "issue_assignees"."user_id" = 10
 ORDER BY "issues"."iid" ASC
 LIMIT 20
 OFFSET 0
@@ -333,14 +331,14 @@ In this particular example, the `issue_assignees` query would likely be executed
 Running the query in production for the GitLab project produces the following execution plan:
 
 ```plaintext
- Limit  (cost=411.20..411.21 rows=1 width=1300) (actual time=24.071..24.077 rows=20 loops=1)
-   ->  Sort  (cost=411.20..411.21 rows=1 width=1300) (actual time=24.070..24.073 rows=20 loops=1)
+ Limit (cost=411.20..411.21 rows=1 width=1300) (actual time=24.071..24.077 rows=20 loops=1)
+   -> Sort (cost=411.20..411.21 rows=1 width=1300) (actual time=24.070..24.073 rows=20 loops=1)
          Sort Key: issues.iid
-         Sort Method: top-N heapsort  Memory: 91kB
-         ->  Nested Loop  (cost=1.00..411.19 rows=1 width=1300) (actual time=0.826..23.705 rows=190 loops=1)
-               ->  Index Scan using index_issue_assignees_on_user_id on issue_assignees  (cost=0.44..81.37 rows=92 width=4) (actual time=0.741..13.202 rows=215 loops=1)
+         Sort Method: top-N heapsort Memory: 91kB
+         -> Nested Loop (cost=1.00..411.19 rows=1 width=1300) (actual time=0.826..23.705 rows=190 loops=1)
+               -> Index Scan using index_issue_assignees_on_user_id on issue_assignees (cost=0.44..81.37 rows=92 width=4) (actual time=0.741..13.202 rows=215 loops=1)
                      Index Cond: (user_id = 4156052)
-               ->  Index Scan using issues_pkey on issues  (cost=0.56..3.58 rows=1 width=1300) (actual time=0.048..0.048 rows=1 loops=215)
+               -> Index Scan using issues_pkey on issues (cost=0.56..3.58 rows=1 width=1300) (actual time=0.048..0.048 rows=1 loops=215)
                      Index Cond: (id = issue_assignees.issue_id)
                      Filter: (project_id = 278964)
                      Rows Removed by Filter: 0
@@ -361,30 +359,30 @@ Ideas for improving the `issue_assignees` filter:
 
 - Add `project_id` column to the `issue_assignees` table so when performing the `JOIN`, the extra `project_id` filter further filters the rows. The sorting likely happens in memory:
 
-  ```sql
-  SELECT "issues".*
-  FROM "issues"
-  INNER JOIN "issue_assignees" ON "issue_assignees"."issue_id" = "issues"."id"
-  WHERE "issues"."project_id" = 5
+ ```sql
+ SELECT "issues".*
+ FROM "issues"
+ INNER JOIN "issue_assignees" ON "issue_assignees"."issue_id" = "issues"."id"
+ WHERE "issues"."project_id" = 5
     AND "issue_assignees"."user_id" = 10
     AND "issue_assignees"."project_id" = 5
-  ORDER BY "issues"."iid" ASC
-  LIMIT 20
-  OFFSET 0
-  ```
+ ORDER BY "issues"."iid" ASC
+ LIMIT 20
+ OFFSET 0
+ ```
 
 - Add the `iid` column to the `issue_assignees` table. Notice that the `ORDER BY` column is different and the `project_id` filter is gone from the `issues` table:
 
-  ```sql
-  SELECT "issues".*
-  FROM "issues"
-  INNER JOIN "issue_assignees" ON "issue_assignees"."issue_id" = "issues"."id"
-  WHERE "issue_assignees"."user_id" = 10
+ ```sql
+ SELECT "issues".*
+ FROM "issues"
+ INNER JOIN "issue_assignees" ON "issue_assignees"."issue_id" = "issues"."id"
+ WHERE "issue_assignees"."user_id" = 10
     AND "issue_assignees"."project_id" = 5
-  ORDER BY "issue_assignees"."iid" ASC
-  LIMIT 20
-  OFFSET 0
-  ```
+ ORDER BY "issue_assignees"."iid" ASC
+ LIMIT 20
+ OFFSET 0
+ ```
 
 The query now performs well for any number of `issue_assignees` records, however, we pay a very high price for it:
 
@@ -392,7 +390,7 @@ The query now performs well for any number of `issue_assignees` records, however
 - We need to keep the two columns in sync.
 - We need more indexes on the `issue_assignees` table to support the query.
 - The new database query is very specific to the assignee search and needs complex backend code to build it.
-  - If the assignee is filtered by the user, then order by a different column, remove the `project_id` filter, etc.
+ - If the assignee is filtered by the user, then order by a different column, remove the `project_id` filter, etc.
 
 {{< alert type="note" >}}
 

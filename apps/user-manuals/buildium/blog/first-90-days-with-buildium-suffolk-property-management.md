@@ -14,8 +14,7 @@ Door Count
 
 Portfolio Type
 
-Multifamily
-Single-family
+Multifamily Single-family
 
 Buildium Customer Since
 

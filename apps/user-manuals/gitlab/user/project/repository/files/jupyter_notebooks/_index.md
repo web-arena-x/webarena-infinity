@@ -13,22 +13,18 @@ title: Jupyter Notebook files
 
 {{< /details >}}
 
-[Jupyter Notebook](https://jupyter.org/) (previously, IPython Notebook) files are used for
-interactive computing in many fields. They contain a complete record of the
-user's sessions and include:
+[Jupyter Notebook](https://jupyter.org/) (previously, IPython Notebook) files are used for interactive computing in many fields. They contain a complete record of the user's sessions and include:
 
 - Code.
 - Narrative text.
 - Equations.
 - Rich output.
 
-When you add a Jupyter Notebook (with `.ipynb` extension) to your repository,
-it's rendered into HTML when you view it:
+When you add a Jupyter Notebook (with `.ipynb` extension) to your repository, it's rendered into HTML when you view it:
 
 ![Jupyter Notebook Rich Output](img/jupyter_notebook_v17_10.png)
 
-Interactive features, including JavaScript plots, don't work when viewed in
-GitLab.
+Interactive features, including JavaScript plots, don't work when viewed in GitLab.
 
 ## Cleaner diffs and raw diffs
 
@@ -45,7 +41,4 @@ Cleaner notebook diffs are not generated when the notebook is too large.
 
 ## Jupyter Git integration
 
-Jupyter can be configured as an OAuth application with repository access, acting
-on behalf of the authenticated user. See the
-[Runbooks documentation](../../../clusters/runbooks/_index.md) for an
-example configuration.
+Jupyter can be configured as an OAuth application with repository access, acting on behalf of the authenticated user. See the [Runbooks documentation](../../../clusters/runbooks/_index.md) for an example configuration.

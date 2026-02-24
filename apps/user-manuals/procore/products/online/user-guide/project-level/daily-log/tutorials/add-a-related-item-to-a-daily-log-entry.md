@@ -11,11 +11,11 @@ To add related log items to daily log entries.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' permission on the project's Daily Log tool.
+ - 'Admin' permission on the project's Daily Log tool.
 - **Additional Information:**
-  - For a selection to appear in the 'Type' menu, the corresponding tool must be an active tool on the project. See [Add and Remove Tools from a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-and-remove-project-tools "Add and Remove Tools on a Project").
-  - For a selection to appear in the 'Description' menu, you must be granted the appropriate permission to view that item in the corresponding Procore tool.
-  - Related items are NOT supported by Photos, Observed Weather Conditions, and Timecards logs.
+ - For a selection to appear in the 'Type' menu, the corresponding tool must be an active tool on the project. See [Add and Remove Tools from a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-and-remove-project-tools "Add and Remove Tools on a Project").
+ - For a selection to appear in the 'Description' menu, you must be granted the appropriate permission to view that item in the corresponding Procore tool.
+ - Related items are NOT supported by Photos, Observed Weather Conditions, and Timecards logs.
 
 ## Prerequisites
 
@@ -26,21 +26,21 @@ To add related log items to daily log entries.
 ### Add Related Items
 
 1. Navigate to the **Daily Log** tool.
-2. Select the checkbox next to any entries you want to relate to another item.  
+2. Select the checkbox next to any entries you want to relate to another item. 
      
    ![select-item.png](https://support.procore.com/@api/deki/files/319707/dl-check-related-to.png?revision=1&size=bestfit&width=390&height=185)
 3. Click **Add** **Related Item**at the top of the page.
 4. Select the type of item you want to relate in the side panel.
 5. Select the specific item you wish to relate to the Daily Log entry.
 6. *Optional:*Add notes.
-7. Click **Add**when you are done.  
+7. Click **Add**when you are done. 
    ![add-related-item-dl.png](https://support.procore.com/@api/deki/files/319708/add-related-item-dl.png?revision=1)
 
 ### Delete Relate Items
 
 1. Navigate to the ****Daily Log**** tool and view the day containing the item to be deleted.
 2. Click on the link in the 'Related Items' column of the entry containing the item being deleted.
-3. Click the trash can ![icon-delete-trash4.png](https://support.procore.com/@api/deki/files/105888/icon-delete-trash4.png?revision=1&size=bestfit&width=20&height=20) next to the item you want to delete.  
+3. Click the trash can ![icon-delete-trash4.png](https://support.procore.com/@api/deki/files/105888/icon-delete-trash4.png?revision=1&size=bestfit&width=20&height=20) next to the item you want to delete. 
    ![delete-related-item.png](https://support.procore.com/@api/deki/files/329591/delete-related-item.png?revision=1&size=bestfit&width=346&height=241)
 4. Click **Delete**in the confirmation window to finalize the deletion.
 

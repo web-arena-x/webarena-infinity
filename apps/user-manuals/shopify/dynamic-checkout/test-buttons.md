@@ -31,13 +31,11 @@ Desktop
    * **Google Pay** - `?shopify-debug=true&show=Google`
    * **PayPal** - `?shopify-debug=true&show=PayPal`
    * **Venmo** (United States only)- `?shopify-debug=true&show=Venmo`
-   * **Unbranded** - `?shopify-debug=true&show=checkout`
-     For example, the URL to test the accelerated checkout button for Amazon Pay might display in this way: `https://mystore.myshopify.com/products/myproduct?shopify-debug=true&show=Amazon`
+   * **Unbranded** - `?shopify-debug=true&show=checkout` For example, the URL to test the accelerated checkout button for Amazon Pay might display in this way: `https://mystore.myshopify.com/products/myproduct?shopify-debug=true&show=Amazon`
 5. Repeat to test accelerated checkout buttons for other payment methods configured in your payment settings.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage themes**.
 4. Tap **View your store**.
@@ -49,6 +47,5 @@ Mobile
    * **Google Pay** - `?shopify-debug=true&show=Google`
    * **PayPal** - `?shopify-debug=true&show=PayPal`
    * **Venmo** (United States only)- `?shopify-debug=true&show=Venmo`
-   * **Unbranded** - `?shopify-debug=true&show=checkout`
-     For example, the URL to test the accelerated checkout button for Amazon Pay might display in this way: `https://mystore.myshopify.com/products/myproduct?shopify-debug=true&show=Amazon`
+   * **Unbranded** - `?shopify-debug=true&show=checkout` For example, the URL to test the accelerated checkout button for Amazon Pay might display in this way: `https://mystore.myshopify.com/products/myproduct?shopify-debug=true&show=Amazon`
 7. Repeat to test accelerated checkout buttons for other payment methods configured in your payment settings.

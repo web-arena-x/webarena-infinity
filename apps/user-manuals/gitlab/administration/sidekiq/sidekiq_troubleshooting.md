@@ -12,30 +12,17 @@ title: Troubleshooting Sidekiq
 
 {{< /details >}}
 
-Sidekiq is the background job processor GitLab uses to asynchronously run
-tasks. When things go wrong it can be difficult to troubleshoot. These
-situations also tend to be high-pressure because a production system job queue
-may be filling up. Users notice when this happens because new branches
-may not show up and merge requests may not be updated. The following are some
-troubleshooting steps to help you diagnose the bottleneck.
+Sidekiq is the background job processor GitLab uses to asynchronously run tasks. When things go wrong it can be difficult to troubleshoot. These situations also tend to be high-pressure because a production system job queue may be filling up. Users notice when this happens because new branches may not show up and merge requests may not be updated. The following are some troubleshooting steps to help you diagnose the bottleneck.
 
-GitLab administrators/users should consider working through these
-debug steps with GitLab Support so the backtraces can be analyzed by our team.
+GitLab administrators/users should consider working through these debug steps with GitLab Support so the backtraces can be analyzed by our team.
 It may reveal a bug or necessary improvement in GitLab.
 
-In any of the backtraces, be wary of suspecting cases where every
-thread appears to be waiting in the database, Redis, or waiting to acquire
-a mutex. This **may** mean there's contention in the database, for example,
-but look for one thread that is different than the rest. This other thread
-may be using all available CPU, or have a Ruby Global Interpreter Lock,
-preventing other threads from continuing.
+In any of the backtraces, be wary of suspecting cases where every thread appears to be waiting in the database, Redis, or waiting to acquire a mutex. This **may** mean there's contention in the database, for example, but look for one thread that is different than the rest. This other thread may be using all available CPU, or have a Ruby Global Interpreter Lock, preventing other threads from continuing.
 
 ## Log arguments to Sidekiq jobs
 
 Some arguments passed to Sidekiq jobs are logged by default.
-To avoid logging sensitive information (for instance, password reset tokens),
-GitLab logs numeric arguments for all workers, with overrides for some specific
-workers where their arguments are not sensitive.
+To avoid logging sensitive information (for instance, password reset tokens), GitLab logs numeric arguments for all workers, with overrides for some specific workers where their arguments are not sensitive.
 
 Example log output:
 
@@ -45,10 +32,7 @@ Example log output:
 {"severity":"INFO","time":"2020-06-08T14:39:50.648Z","class":"NewIssueWorker","args":["455","1"],"retry":3,"queue":"new_issue","backtrace":true,"jid":"a24af71f96fd129ec47f5d1e","created_at":"2020-06-08T14:39:50.643Z","meta.user":"root","meta.project":"h5bp/html5-boilerplate","meta.root_namespace":"h5bp","meta.caller_id":"Projects::IssuesController#create","correlation_id":"f9UCZHqhuP7","uber-trace-id":"28f65730f99f55a3:a5d2b62dec38dffc:48ddd092707fa1b7:1","enqueued_at":"2020-06-08T14:39:50.646Z","pid":65011,"message":"NewIssueWorker JID-a24af71f96fd129ec47f5d1e: start","job_status":"start","scheduling_latency_s":0.001144}
 ```
 
-When using [Sidekiq JSON logging](../logs/_index.md#sidekiqlog),
-arguments logs are limited to a maximum size of 10 kilobytes of text;
-any arguments after this limit are discarded and replaced with a
-single argument containing the string `"..."`.
+When using [Sidekiq JSON logging](../logs/_index.md#sidekiqlog), arguments logs are limited to a maximum size of 10 kilobytes of text; any arguments after this limit are discarded and replaced with a single argument containing the string `"..."`.
 
 You can set `SIDEKIQ_LOG_ARGUMENTS` [environment variable](https://docs.gitlab.com/omnibus/settings/environment-variables.html)
 to `0` (false) to disable argument logging.
@@ -61,19 +45,14 @@ gitlab_rails['env'] = {"SIDEKIQ_LOG_ARGUMENTS" => "0"}
 
 ## Investigating Sidekiq queue backlogs or slow performance
 
-Symptoms of slow Sidekiq performance include problems with merge request status updates,
-and delays before CI pipelines start running.
+Symptoms of slow Sidekiq performance include problems with merge request status updates, and delays before CI pipelines start running.
 
 Potential causes include:
 
-- The GitLab instance may need more Sidekiq workers. By default, a single-node Linux package installation
-  runs one worker, restricting the execution of Sidekiq jobs to a maximum of one CPU core.
-  [Read more about running multiple Sidekiq workers](extra_sidekiq_processes.md).
+- The GitLab instance may need more Sidekiq workers. By default, a single-node Linux package installation runs one worker, restricting the execution of Sidekiq jobs to a maximum of one CPU core.
+ [Read more about running multiple Sidekiq workers](extra_sidekiq_processes.md).
 
-- The instance is configured with more Sidekiq workers, but most of the extra workers are
-  not configured to run any job that is queued. This can result in a backlog of jobs
-  when the instance is busy, if the workload has changed in the months or years since
-  the workers were configured, or as a result of GitLab product changes.
+- The instance is configured with more Sidekiq workers, but most of the extra workers are not configured to run any job that is queued. This can result in a backlog of jobs when the instance is busy, if the workload has changed in the months or years since the workers were configured, or as a result of GitLab product changes.
 
 Gather data on the state of the Sidekiq workers with the following Ruby script.
 
@@ -112,7 +91,7 @@ Gather data on the state of the Sidekiq workers with the following Ruby script.
 
      ```shell
      cat > /etc/cron.d/sidekiqcheck <<EOF
-     */5 * * * *  root  /opt/gitlab/bin/gitlab-rails runner /var/opt/gitlab/sidekiqcheck.rb > /tmp/sidekiqcheck_$(date '+\%Y\%m\%d-\%H:\%M').out 2>&1
+     */5 * * * * root /opt/gitlab/bin/gitlab-rails runner /var/opt/gitlab/sidekiqcheck.rb > /tmp/sidekiqcheck_$(date '+\%Y\%m\%d-\%H:\%M').out 2>&1
      EOF
      ```
 
@@ -120,8 +99,7 @@ Gather data on the state of the Sidekiq workers with the following Ruby script.
 
 1. Analyze the output. The following commands assume that you have a directory of output files.
 
-   1. `grep 'Busy: ' *` shows how many jobs were being run. `grep 'Enqueued: ' *`
-      shows the backlog of work at that time.
+   1. `grep 'Busy: ' *` shows how many jobs were being run. `grep 'Enqueued: ' *` shows the backlog of work at that time.
 
    1. Look at the number of busy threads across the workers in samples where Sidekiq is under load:
 
@@ -169,29 +147,23 @@ Gather data on the state of the Sidekiq workers with the following Ruby script.
           Threads: 25 (25 busy)
         ```
 
-   1. Look at the `---- Queues (xxx) ----` section of the output file to
-      determine what jobs were queued up at the time.
+   1. Look at the `---- Queues (xxx) ----` section of the output file to determine what jobs were queued up at the time.
 
    1. The files also include low level details about the state of Sidekiq at the time.
       This could be useful for identifying where spikes in workload are coming from.
 
-      - The `----------- workers -----------` section details the jobs that make up the
-        `Busy` count in the summary.
-      - The `----------- Queued Jobs -----------` section provides details on
-        jobs that are `Enqueued`.
+      - The `----------- workers -----------` section details the jobs that make up the `Busy` count in the summary.
+      - The `----------- Queued Jobs -----------` section provides details on jobs that are `Enqueued`.
 
 ## Thread dump
 
-Send the Sidekiq process ID the `TTIN` signal to output thread
-backtraces in the log file.
+Send the Sidekiq process ID the `TTIN` signal to output thread backtraces in the log file.
 
 ```shell
 kill -TTIN <sidekiq_pid>
 ```
 
-Check in `/var/log/gitlab/sidekiq/current` or `$GITLAB_HOME/log/sidekiq.log` for
-the backtrace output. The backtraces are lengthy and generally start with
-several `WARN` level messages. Here's an example of a single thread's backtrace:
+Check in `/var/log/gitlab/sidekiq/current` or `$GITLAB_HOME/log/sidekiq.log` for the backtrace output. The backtraces are lengthy and generally start with several `WARN` level messages. Here's an example of a single thread's backtrace:
 
 ```plaintext
 2016-04-13T06:21:20.022Z 31517 TID-orn4urby0 WARN: ActiveRecord::RecordNotFound: Couldn't find Note with 'id'=3375386
@@ -211,8 +183,7 @@ Move on to other troubleshooting methods if this happens.
 
 ## Ruby profiling with `rbspy`
 
-[rbspy](https://rbspy.github.io) is an easy to use and low-overhead Ruby profiler that can be used to create
-flamegraph-style diagrams of CPU usage by Ruby processes.
+[rbspy](https://rbspy.github.io) is an easy to use and low-overhead Ruby profiler that can be used to create flamegraph-style diagrams of CPU usage by Ruby processes.
 
 No changes to GitLab are required to use it and it has no dependencies. To install it:
 
@@ -227,8 +198,7 @@ sudo ./rbspy record --pid <sidekiq_pid> --duration 60 --file /tmp/sidekiq_profil
 
 ![Example rbspy flamegraph](img/sidekiq_flamegraph_v14_6.png)
 
-In this example of a flamegraph generated by `rbspy`, almost all of the Sidekiq process's time is spent in `rev_parse`, a native C
-function in Rugged. In the stack, we can see `rev_parse` is being called by the `ExpirePipelineCacheWorker`.
+In this example of a flamegraph generated by `rbspy`, almost all of the Sidekiq process's time is spent in `rev_parse`, a native C function in Rugged. In the stack, we can see `rev_parse` is being called by the `ExpirePipelineCacheWorker`.
 
 `rbspy` requires additional [capabilities](https://man7.org/linux/man-pages/man7/capabilities.7.html)
 in [containerized environments](https://rbspy.github.io/using-rbspy/index.html#containers).
@@ -240,7 +210,7 @@ It requires at least the `SYS_PTRACE` capability, otherwise it terminates with a
 
 ```yaml
 securityContext:
-  capabilities:
+ capabilities:
     add:
       - SYS_PTRACE
 ```
@@ -259,7 +229,7 @@ docker run --cap-add SYS_PTRACE [...]
 
 ```yaml
 services:
-  ruby_container_name:
+ ruby_container_name:
     # ...
     cap_add:
       - SYS_PTRACE
@@ -271,9 +241,7 @@ services:
 
 ## Process profiling with `perf`
 
-Linux has a process profiling tool called `perf` that is helpful when a certain
-process is eating up a lot of CPU. If you see high CPU usage and Sidekiq isn't
-responding to the `TTIN` signal, this is a good next step.
+Linux has a process profiling tool called `perf` that is helpful when a certain process is eating up a lot of CPU. If you see high CPU usage and Sidekiq isn't responding to the `TTIN` signal, this is a good next step.
 
 If `perf` is not installed on your system, install it with `apt-get` or `yum`:
 
@@ -301,25 +269,19 @@ $ sudo perf report
 
 # Sample output
 Samples: 348K of event 'cycles', Event count (approx.): 280908431073
- 97.69%            ruby  nokogiri.so         [.] xmlXPathNodeSetMergeAndClear
-  0.18%            ruby  libruby.so.2.1.0    [.] objspace_malloc_increase
-  0.12%            ruby  libc-2.12.so        [.] _int_malloc
-  0.10%            ruby  libc-2.12.so        [.] _int_free
+ 97.69%            ruby nokogiri.so         [.] xmlXPathNodeSetMergeAndClear
+ 0.18%            ruby libruby.so.2.1.0    [.] objspace_malloc_increase
+ 0.12%            ruby libc-2.12.so        [.] _int_malloc
+ 0.10%            ruby libc-2.12.so        [.] _int_free
 ```
 
-The sample output from the `perf` report shows that 97% of the CPU is
-being spent inside Nokogiri and `xmlXPathNodeSetMergeAndClear`. For something
-this obvious you should then go investigate what job in GitLab would use
-Nokogiri and XPath. Combine with `TTIN` or `gdb` output to show the
-corresponding Ruby code where this is happening.
+The sample output from the `perf` report shows that 97% of the CPU is being spent inside Nokogiri and `xmlXPathNodeSetMergeAndClear`. For something this obvious you should then go investigate what job in GitLab would use Nokogiri and XPath. Combine with `TTIN` or `gdb` output to show the corresponding Ruby code where this is happening.
 
 ## The GNU Project Debugger (`gdb`)
 
-`gdb` can be another effective tool for debugging Sidekiq. It gives you a little
-more interactive way to look at each thread and see what's causing problems.
+`gdb` can be another effective tool for debugging Sidekiq. It gives you a little more interactive way to look at each thread and see what's causing problems.
 
-Attaching to a process with `gdb` suspends the standard operation
-of the process (Sidekiq does not process jobs while `gdb` is attached).
+Attaching to a process with `gdb` suspends the standard operation of the process (Sidekiq does not process jobs while `gdb` is attached).
 
 Start by attaching to the Sidekiq PID:
 
@@ -347,23 +309,22 @@ from /opt/gitlab/embedded/service/gem/ruby/2.1.0/gems/nokogiri-1.6.7.2/lib/nokog
 ...
 ```
 
-If you see a suspicious thread, like the Nokogiri one in the example, you may want
-to get more information:
+If you see a suspicious thread, like the Nokogiri one in the example, you may want to get more information:
 
 ```plaintext
 thread 21
 bt
 
 # Example output
-#0  0x00007ff0d6afe111 in xmlXPathNodeSetMergeAndClear () from /opt/gitlab/embedded/service/gem/ruby/2.1.0/gems/nokogiri-1.6.7.2/lib/nokogiri/nokogiri.so
-#1  0x00007ff0d6b0b836 in xmlXPathNodeCollectAndTest () from /opt/gitlab/embedded/service/gem/ruby/2.1.0/gems/nokogiri-1.6.7.2/lib/nokogiri/nokogiri.so
-#2  0x00007ff0d6b09037 in xmlXPathCompOpEval () from /opt/gitlab/embedded/service/gem/ruby/2.1.0/gems/nokogiri-1.6.7.2/lib/nokogiri/nokogiri.so
-#3  0x00007ff0d6b09017 in xmlXPathCompOpEval () from /opt/gitlab/embedded/service/gem/ruby/2.1.0/gems/nokogiri-1.6.7.2/lib/nokogiri/nokogiri.so
-#4  0x00007ff0d6b092e0 in xmlXPathCompOpEval () from /opt/gitlab/embedded/service/gem/ruby/2.1.0/gems/nokogiri-1.6.7.2/lib/nokogiri/nokogiri.so
-#5  0x00007ff0d6b0bc37 in xmlXPathRunEval () from /opt/gitlab/embedded/service/gem/ruby/2.1.0/gems/nokogiri-1.6.7.2/lib/nokogiri/nokogiri.so
-#6  0x00007ff0d6b0be5f in xmlXPathEvalExpression () from /opt/gitlab/embedded/service/gem/ruby/2.1.0/gems/nokogiri-1.6.7.2/lib/nokogiri/nokogiri.so
-#7  0x00007ff0d6a97dc3 in evaluate (argc=2, argv=0x1022d058, self=<value optimized out>) at xml_xpath_context.c:221
-#8  0x00007ff0daeab0ea in vm_call_cfunc_with_frame (th=0x1022a4f0, reg_cfp=0x1032b810, ci=<value optimized out>) at vm_insnhelper.c:1510
+#0 0x00007ff0d6afe111 in xmlXPathNodeSetMergeAndClear () from /opt/gitlab/embedded/service/gem/ruby/2.1.0/gems/nokogiri-1.6.7.2/lib/nokogiri/nokogiri.so
+#1 0x00007ff0d6b0b836 in xmlXPathNodeCollectAndTest () from /opt/gitlab/embedded/service/gem/ruby/2.1.0/gems/nokogiri-1.6.7.2/lib/nokogiri/nokogiri.so
+#2 0x00007ff0d6b09037 in xmlXPathCompOpEval () from /opt/gitlab/embedded/service/gem/ruby/2.1.0/gems/nokogiri-1.6.7.2/lib/nokogiri/nokogiri.so
+#3 0x00007ff0d6b09017 in xmlXPathCompOpEval () from /opt/gitlab/embedded/service/gem/ruby/2.1.0/gems/nokogiri-1.6.7.2/lib/nokogiri/nokogiri.so
+#4 0x00007ff0d6b092e0 in xmlXPathCompOpEval () from /opt/gitlab/embedded/service/gem/ruby/2.1.0/gems/nokogiri-1.6.7.2/lib/nokogiri/nokogiri.so
+#5 0x00007ff0d6b0bc37 in xmlXPathRunEval () from /opt/gitlab/embedded/service/gem/ruby/2.1.0/gems/nokogiri-1.6.7.2/lib/nokogiri/nokogiri.so
+#6 0x00007ff0d6b0be5f in xmlXPathEvalExpression () from /opt/gitlab/embedded/service/gem/ruby/2.1.0/gems/nokogiri-1.6.7.2/lib/nokogiri/nokogiri.so
+#7 0x00007ff0d6a97dc3 in evaluate (argc=2, argv=0x1022d058, self=<value optimized out>) at xml_xpath_context.c:221
+#8 0x00007ff0daeab0ea in vm_call_cfunc_with_frame (th=0x1022a4f0, reg_cfp=0x1032b810, ci=<value optimized out>) at vm_insnhelper.c:1510
 ```
 
 To output a backtrace from all threads at once:
@@ -373,8 +334,7 @@ set pagination off
 thread apply all bt
 ```
 
-Once you're done debugging with `gdb`, be sure to detach from the process and
-exit:
+Once you're done debugging with `gdb`, be sure to detach from the process and exit:
 
 ```plaintext
 detach
@@ -383,29 +343,20 @@ exit
 
 ## Sidekiq kill signals
 
-TTIN was described previously as the signal to print backtraces for logging, however
-Sidekiq responds to other signals as well. For example, TSTP and TERM can be used
-to gracefully shut Sidekiq down, see
-[the Sidekiq Signals docs](https://github.com/mperham/sidekiq/wiki/Signals#ttin).
+TTIN was described previously as the signal to print backtraces for logging, however Sidekiq responds to other signals as well. For example, TSTP and TERM can be used to gracefully shut Sidekiq down, see [the Sidekiq Signals docs](https://github.com/mperham/sidekiq/wiki/Signals#ttin).
 
 ## Check for blocking queries
 
-Sometimes the speed at which Sidekiq processes jobs can be so fast that it can
-cause database contention. Check for blocking queries when backtraces documented previously
-show that many threads are stuck in the database adapter.
+Sometimes the speed at which Sidekiq processes jobs can be so fast that it can cause database contention. Check for blocking queries when backtraces documented previously show that many threads are stuck in the database adapter.
 
-The PostgreSQL wiki has details on the query you can run to see blocking
-queries. The query is different based on PostgreSQL version. See
-[Lock Monitoring](https://wiki.postgresql.org/wiki/Lock_Monitoring) for
-the query details.
+The PostgreSQL wiki has details on the query you can run to see blocking queries. The query is different based on PostgreSQL version. See [Lock Monitoring](https://wiki.postgresql.org/wiki/Lock_Monitoring) for the query details.
 
 ## Managing Sidekiq queues
 
 It is possible to use [Sidekiq API](https://github.com/mperham/sidekiq/wiki/API)
 to perform a number of troubleshooting steps on Sidekiq.
 
-These are the administrative commands and it should only be used if currently
-administration interface is not suitable due to scale of installation.
+These are the administrative commands and it should only be used if currently administration interface is not suitable due to scale of installation.
 
 All these commands should be run using `gitlab-rails console`.
 
@@ -420,25 +371,25 @@ Sidekiq::Queue.new("pipeline_processing:build_queue").size
 ```ruby
 queue = Sidekiq::Queue.new("chaos:chaos_sleep")
 queue.each do |job|
-  # job.klass # => 'MyWorker'
-  # job.args # => [1, 2, 3]
-  # job.jid # => jid
-  # job.queue # => chaos:chaos_sleep
-  # job["retry"] # => 3
-  # job.item # => {
-  #   "class"=>"Chaos::SleepWorker",
-  #   "args"=>[1000],
-  #   "retry"=>3,
-  #   "queue"=>"chaos:chaos_sleep",
-  #   "backtrace"=>true,
-  #   "queue_namespace"=>"chaos",
-  #   "jid"=>"39bc482b823cceaf07213523",
-  #   "created_at"=>1566317076.266069,
-  #   "correlation_id"=>"c323b832-a857-4858-b695-672de6f0e1af",
-  #   "enqueued_at"=>1566317076.26761},
-  # }
+ # job.klass # => 'MyWorker'
+ # job.args # => [1, 2, 3]
+ # job.jid # => jid
+ # job.queue # => chaos:chaos_sleep
+ # job["retry"] # => 3
+ # job.item # => {
+ #   "class"=>"Chaos::SleepWorker",
+ #   "args"=>[1000],
+ #   "retry"=>3,
+ #   "queue"=>"chaos:chaos_sleep",
+ #   "backtrace"=>true,
+ #   "queue_namespace"=>"chaos",
+ #   "jid"=>"39bc482b823cceaf07213523",
+ #   "created_at"=>1566317076.266069,
+ #   "correlation_id"=>"c323b832-a857-4858-b695-672de6f0e1af",
+ #   "enqueued_at"=>1566317076.26761},
+ # }
 
-  # job.delete if job.jid == 'abcdef1234567890'
+ # job.delete if job.jid == 'abcdef1234567890'
 end
 ```
 
@@ -447,29 +398,28 @@ end
 ```ruby
 workers = Sidekiq::Workers.new
 workers.each do |process_id, thread_id, work|
-  # process_id is a unique identifier per Sidekiq process
-  # thread_id is a unique identifier per thread
-  # work is a Hash which looks like:
-  # {"queue"=>"chaos:chaos_sleep",
-  #  "payload"=>
-  #  { "class"=>"Chaos::SleepWorker",
-  #    "args"=>[1000],
-  #    "retry"=>3,
-  #    "queue"=>"chaos:chaos_sleep",
-  #    "backtrace"=>true,
-  #    "queue_namespace"=>"chaos",
-  #    "jid"=>"b2a31e3eac7b1a99ff235869",
-  #    "created_at"=>1566316974.9215662,
-  #    "correlation_id"=>"e484fb26-7576-45f9-bf21-b99389e1c53c",
-  #    "enqueued_at"=>1566316974.9229589},
-  #  "run_at"=>1566316974}],
+ # process_id is a unique identifier per Sidekiq process
+ # thread_id is a unique identifier per thread
+ # work is a Hash which looks like:
+ # {"queue"=>"chaos:chaos_sleep",
+ # "payload"=>
+ # { "class"=>"Chaos::SleepWorker",
+ #    "args"=>[1000],
+ #    "retry"=>3,
+ #    "queue"=>"chaos:chaos_sleep",
+ #    "backtrace"=>true,
+ #    "queue_namespace"=>"chaos",
+ #    "jid"=>"b2a31e3eac7b1a99ff235869",
+ #    "created_at"=>1566316974.9215662,
+ #    "correlation_id"=>"e484fb26-7576-45f9-bf21-b99389e1c53c",
+ #    "enqueued_at"=>1566316974.9229589},
+ # "run_at"=>1566316974}],
 end
 ```
 
 ### Remove Sidekiq jobs for given parameters (destructive)
 
-The general method to kill jobs conditionally is the following command, which
-removes jobs that are queued but not started. Running jobs cannot be killed.
+The general method to kill jobs conditionally is the following command, which removes jobs that are queued but not started. Running jobs cannot be killed.
 
 ```ruby
 queue = Sidekiq::Queue.new('<queue name>')
@@ -501,7 +451,7 @@ id_list = [100]
 
 queue = Sidekiq::Queue.new('repository_import')
 queue.each do |job|
-  job.delete if id_list.include?(job.args[0])
+ job.delete if id_list.include?(job.args[0])
 end
 ```
 
@@ -510,7 +460,7 @@ end
 ```ruby
 queue = Sidekiq::Queue.new('repository_import')
 queue.each do |job|
-  job.delete if job.jid == 'my-job-id'
+ job.delete if job.jid == 'my-job-id'
 end
 ```
 
@@ -520,30 +470,26 @@ end
 queue = Sidekiq::Queue.new("default")
 
 queue.each do |job|
-  if job.klass == "TodosDestroyer::PrivateFeaturesWorker"
+ if job.klass == "TodosDestroyer::PrivateFeaturesWorker"
     # Uncomment the line below to actually delete jobs
     #job.delete
     puts "Deleted job ID #{job.jid}"
-  end
+ end
 end
 ```
 
 ## Canceling running jobs (destructive)
 
 This is highly risky operation and use it as last resort.
-Doing that might result in data corruption, as the job
-is interrupted mid-execution and it is not guaranteed
-that proper rollback of transactions is implemented.
+Doing that might result in data corruption, as the job is interrupted mid-execution and it is not guaranteed that proper rollback of transactions is implemented.
 
 ```ruby
 Gitlab::SidekiqDaemon::Monitor.cancel_job('job-id')
 ```
 
-This requires the Sidekiq to be run with `SIDEKIQ_MONITOR_WORKER=1`
-environment variable.
+This requires the Sidekiq to be run with `SIDEKIQ_MONITOR_WORKER=1` environment variable.
 
-To perform of the interrupt we use `Thread.raise` which
-has number of drawbacks, as mentioned in [Why Ruby's Timeout is dangerous (and `Thread.raise` is terrifying)](https://jvns.ca/blog/2015/11/27/why-rubys-timeout-is-dangerous-and-thread-dot-raise-is-terrifying/#timeout-how-it-works-and-why-thread-raise-is-terrifying).
+To perform of the interrupt we use `Thread.raise` which has number of drawbacks, as mentioned in [Why Ruby's Timeout is dangerous (and `Thread.raise` is terrifying)](https://jvns.ca/blog/2015/11/27/why-rubys-timeout-is-dangerous-and-thread-dot-raise-is-terrifying/#timeout-how-it-works-and-why-thread-raise-is-terrifying).
 
 ## Manually trigger a cron job
 
@@ -608,8 +554,7 @@ Occasionally, jobs that are expected to run (for example, cron jobs) are observe
 
 This can happen when a job failed and the idempotency key was not cleared properly. For example, [stopping Sidekiq kills any remaining jobs after 25 seconds](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/4918).
 
-[By default, the key expires after 6 hours](https://gitlab.com/gitlab-org/gitlab/-/blob/87c92f06eb92716a26679cd339f3787ae7edbdc3/lib/gitlab/sidekiq_middleware/duplicate_jobs/duplicate_job.rb#L23),
-but if you want to clear the idempotency key immediately, follow the following steps (the example provided is for `Geo::VerificationBatchWorker`):
+[By default, the key expires after 6 hours](https://gitlab.com/gitlab-org/gitlab/-/blob/87c92f06eb92716a26679cd339f3787ae7edbdc3/lib/gitlab/sidekiq_middleware/duplicate_jobs/duplicate_job.rb#L23), but if you want to clear the idempotency key immediately, follow the following steps (the example provided is for `Geo::VerificationBatchWorker`):
 
 1. Find the worker class and `args` of the job in the Sidekiq logs:
 

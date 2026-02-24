@@ -58,8 +58,7 @@ To view your daily contributions:
 
 ### Show private contributions on your user profile page
 
-The contributions calendar graph and recent activity list displays your
-[contribution actions](#user-contribution-events) to private projects.
+The contributions calendar graph and recent activity list displays your [contribution actions](#user-contribution-events) to private projects.
 
 To view private contributions:
 
@@ -73,14 +72,13 @@ To view private contributions:
 ### Follow a user's activity
 
 You can follow users whose activity you're interested in.
-In [GitLab 15.5 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/360755),
-the maximum number of users you can follow is 300.
+In [GitLab 15.5 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/360755), the maximum number of users you can follow is 300.
 
 To follow a user, either:
 
 - From a user's profile, select **Follow**.
 - Hover over a user's name, and select **Follow** ([introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/76050)
-  in GitLab 15.0).
+ in GitLab 15.0).
 
 To view the activity of users you follow:
 
@@ -89,14 +87,12 @@ To view the activity of users you follow:
 
 ### Retrieve user activity as a feed
 
-GitLab provides RSS feeds of user activity. To subscribe to the
-RSS feed of a user's activity:
+GitLab provides RSS feeds of user activity. To subscribe to the RSS feed of a user's activity:
 
 1. Go to the [user's profile](_index.md#access-your-user-profile).
 1. In the upper-right corner, select the feed symbol ({{< icon name="rss" >}}) to display the results as an RSS feed in Atom format.
 
-The URL of the result contains both a feed token, and
-the user's activity that you're authorized to view.
+The URL of the result contains both a feed token, and the user's activity that you're authorized to view.
 You can add this URL to your feed reader.
 
 ### Reset the user activity feed token
@@ -109,8 +105,7 @@ To reset your feed token:
 1. In the upper-right corner, select your avatar.
 1. Select **Edit profile**.
 1. Select **Personal access tokens**.
-1. Scroll down. In the **Feed token** section, select the
-   **reset this token** link.
+1. Scroll down. In the **Feed token** section, select the **reset this token** link.
 1. On the confirmation dialog, select **OK**.
 
 A new token is generated.

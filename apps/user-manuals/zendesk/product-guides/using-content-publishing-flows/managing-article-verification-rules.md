@@ -6,19 +6,17 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408832243482-Managing-art
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Enterprise or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Guide Enterprise |
 
-Location:  Knowledge admin > Settings (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/guide_icon_settings.png)) > Article verification
+Location: Knowledge admin > Settings (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/guide_icon_settings.png)) > Article verification
 
-If you are using [article verification](https://support.zendesk.com/hc/en-us/articles/5588297664666), you can set reminders based on
-[article verification rules](https://support.zendesk.com/hc/en-us/articles/4408828628634) to notify you when articles need to be
-reviewed and verified. You can edit, duplicate, or delete any existing rule as needed
+If you are using [article verification](https://support.zendesk.com/hc/en-us/articles/5588297664666), you can set reminders based on [article verification rules](https://support.zendesk.com/hc/en-us/articles/4408828628634) to notify you when articles need to be reviewed and verified. You can edit, duplicate, or delete any existing rule as needed
 
 You must be an administrator to manage article verification rules.
 
@@ -30,8 +28,7 @@ This article covers the following topics:
 
 ## Editing article verification rules
 
-You can edit an existing article verification rule to change the name, frequency, or
-filter.
+You can edit an existing article verification rule to change the name, frequency, or filter.
 
 **To edit an article verification rule**
 
@@ -45,8 +42,7 @@ filter.
 
 ## Duplicating article verification rules
 
-You can duplicate an existing article verification rule if you'd like to create a new rule
-based on the existing rule.
+You can duplicate an existing article verification rule if you'd like to create a new rule based on the existing rule.
 
 **To duplicate an article verification rule**
 
@@ -57,17 +53,13 @@ based on the existing rule.
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/article_verification_rule_options_menu.png)
 
-   The duplicated rule opens in edit
-   mode.
+   The duplicated rule opens in edit mode.
 
 ## Deleting article verification rules
 
 You can delete an existing article verification rule if you no longer need it.
 
-Note: If you delete a rule that has generated unverified articles in the
-past, those articles will remain unverified until they are manually verified. The only way
-to remove unverified articles from the Needs verification list and reminder emails is to
-manually verify those articles. See [About article verification](https://support.zendesk.com/hc/en-us/articles/5588297664666).
+Note: If you delete a rule that has generated unverified articles in the past, those articles will remain unverified until they are manually verified. The only way to remove unverified articles from the Needs verification list and reminder emails is to manually verify those articles. See [About article verification](https://support.zendesk.com/hc/en-us/articles/5588297664666).
 
 **To delete an article verification rule**
 
@@ -79,5 +71,4 @@ manually verify those articles. See [About article verification](https://support
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/article_verification_rule_options_menu.png)
 5. Click **Ok** to confirm that you want to delete the rule.
 
-   The rule is deleted and
-   removed from your list of article verification rules.
+   The rule is deleted and removed from your list of article verification rules.

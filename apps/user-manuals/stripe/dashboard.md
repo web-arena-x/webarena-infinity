@@ -263,11 +263,11 @@ The mobile app lets you create and accept payments [in-person](/no-code/get-star
 
 | Payment capability | iOS | Android |
 | --- | --- | --- |
-| [Tap to pay](/no-code/in-person) |  |  |
-| [Manual card entry](https://support.stripe.com/questions/b7bd8ea6-d20c-40f8-a273-4d6c4902957a) |  |  |
-| [Invoices](/no-code/invoices) |  |  |
-| [Payment Links](/no-code/payment-links) (including QR codes) |  |  |
-| [Subscriptions](/no-code/subscriptions) |  |  |
+| [Tap to pay](/no-code/in-person) | | |
+| [Manual card entry](https://support.stripe.com/questions/b7bd8ea6-d20c-40f8-a273-4d6c4902957a) | | |
+| [Invoices](/no-code/invoices) | | |
+| [Payment Links](/no-code/payment-links) (including QR codes) | | |
+| [Subscriptions](/no-code/subscriptions) | | |
 
 ## Stripe organizations
 
@@ -277,16 +277,16 @@ If you have multiple Stripe accounts for regulatory or financial requirements yo
 
 - ### [Developer resources](/development)
 
-  Sign up for the newsletter, follow Stripe on X, or chat with the community on the official Discord.
+ Sign up for the newsletter, follow Stripe on X, or chat with the community on the official Discord.
 - ### [Partner directory](https://stripe.partners/?f_help-me-with=implementation-and-development-services)
 
-  Get expert help from certified service partners or use prebuilt integrations from technology partners.
+ Get expert help from certified service partners or use prebuilt integrations from technology partners.
 - ### [Stripe Apps](https://marketplace.stripe.com/)
 
-  Connect your business tools, like customer management and accounting systems, to Stripe.
+ Connect your business tools, like customer management and accounting systems, to Stripe.
 - ### [Support site](https://support.stripe.com/)
 
-  Learn the answers to common account questions and get troubleshooting tips and tricks.
+ Learn the answers to common account questions and get troubleshooting tips and tricks.
 
 ## See also
 

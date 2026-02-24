@@ -12,8 +12,7 @@ title: Restore GitLab
 
 {{< /details >}}
 
-GitLab restore operations recover data from backups to maintain system
-continuity and recover from data loss. Restore operations:
+GitLab restore operations recover data from backups to maintain system continuity and recover from data loss. Restore operations:
 
 - Recover database records and configuration
 - Restore Git repositories, container registry images, and uploaded content
@@ -23,33 +22,25 @@ continuity and recover from data loss. Restore operations:
 - Restore project-level secure files
 - Recover external merge request diffs
 
-The restore process requires an existing GitLab installation of the same
-version as the backup. Follow the [prerequisites](#restore-prerequisites) and
-test the complete restore process before using it in production.
+The restore process requires an existing GitLab installation of the same version as the backup. Follow the [prerequisites](#restore-prerequisites) and test the complete restore process before using it in production.
 
 ## Restore prerequisites
 
 ### The destination GitLab instance must already be working
 
-You need to have a working GitLab installation before you can perform a
-restore. This is because the system user performing the restore actions (`git`)
-is usually not allowed to create or delete the SQL database needed to import
-data into (`gitlabhq_production`).
+You need to have a working GitLab installation before you can perform a restore. This is because the system user performing the restore actions (`git`)
+is usually not allowed to create or delete the SQL database needed to import data into (`gitlabhq_production`).
 
 ### The destination GitLab instance must not have existing data
 
 The restore process handles existing data differently depending on the data type:
 
 - PostgreSQL data is automatically erased during the restore process.
-- Git repositories: If repositories with the same name already exist, the restore fails
-  with a "repository already exists" error. For more information, see
-  [issue 118459](https://gitlab.com/gitlab-org/gitlab/-/issues/118459).
+- Git repositories: If repositories with the same name already exist, the restore fails with a "repository already exists" error. For more information, see [issue 118459](https://gitlab.com/gitlab-org/gitlab/-/issues/118459).
 - File system data is attempted to be moved to a separate directory before restoration.
-- Object storage data is not automatically cleared. You must manually clear object storage
-  buckets before restoring to avoid retaining orphaned data.
+- Object storage data is not automatically cleared. You must manually clear object storage buckets before restoring to avoid retaining orphaned data.
 
-For a reliable restore process, for example when automating production-to-staging
-restores, use a fresh GitLab installation at the same version as the backup.
+For a reliable restore process, for example when automating production-to-staging restores, use a fresh GitLab installation at the same version as the backup.
 
 Restoring SQL data skips views owned by PostgreSQL extensions.
 
@@ -58,29 +49,18 @@ Restoring SQL data skips views owned by PostgreSQL extensions.
 You can only restore a backup to exactly the same version and type (CE or EE)
 of GitLab on which it was created. For example, CE 15.1.4.
 
-If your backup is a different version than the current installation, you must
-[downgrade](../../update/package/downgrade.md) or [upgrade](../../update/package/_index.md) your GitLab installation
-before restoring the backup.
+If your backup is a different version than the current installation, you must [downgrade](../../update/package/downgrade.md) or [upgrade](../../update/package/_index.md) your GitLab installation before restoring the backup.
 
 ### GitLab secrets must be restored
 
-To restore a backup, you must also restore the GitLab secrets. If you are
-migrating to a new GitLab instance, you must copy the GitLab secrets file from
-the old server. These include the database encryption key, CI/CD variables, and
-variables used for two-factor authentication. Without the keys, multiple issues
-occur, including loss of access by users with two-factor authentication
-enabled, and GitLab Runners cannot sign in.
+To restore a backup, you must also restore the GitLab secrets. If you are migrating to a new GitLab instance, you must copy the GitLab secrets file from the old server. These include the database encryption key, CI/CD variables, and variables used for two-factor authentication. Without the keys, multiple issues occur, including loss of access by users with two-factor authentication enabled, and GitLab Runners cannot sign in.
 
 {{< alert type="warning" >}}
 
-**WebAuthn devices are disabled when restoring to a different FQDN:**
-WebAuthn registrations (such as YubiKeys) are cryptographically bound to the origin
-(domain/hostname) where they were created. If you restore a backup to a GitLab instance
-with a different FQDN than the original instance, all WebAuthn devices will be disabled.
+**WebAuthn devices are disabled when restoring to a different FQDN:** WebAuthn registrations (such as YubiKeys) are cryptographically bound to the origin (domain/hostname) where they were created. If you restore a backup to a GitLab instance with a different FQDN than the original instance, all WebAuthn devices will be disabled.
 Users will need to re-register their WebAuthn devices after the restore is complete.
 
-For more information about WebAuthn and hostname requirements, see
-[Two-factor authentication](../../user/profile/account/two_factor_authentication.md#information-for-gitlab-administrators).
+For more information about WebAuthn and hostname requirements, see [Two-factor authentication](../../user/profile/account/two_factor_authentication.md#information-for-gitlab-administrators).
 
 {{< /alert >}}
 
@@ -133,8 +113,7 @@ See also:
 ### Certain GitLab configuration must match the original backed up environment
 
 You likely want to separately restore your previous `/etc/gitlab/gitlab.rb` (for Linux package installations)
-or `/home/git/gitlab/config/gitlab.yml` (for self-compiled installations) and
-any TLS or SSH keys and certificates.
+or `/home/git/gitlab/config/gitlab.yml` (for self-compiled installations) and any TLS or SSH keys and certificates.
 
 Certain configuration is coupled to data in PostgreSQL. For example:
 
@@ -145,9 +124,7 @@ For more information, see [Data not included in backup](backup_gitlab.md#data-no
 
 ### Restoring directories that are mount points
 
-If you're restoring into directories that are mount points, you must ensure these directories are
-empty before attempting a restore. Otherwise, GitLab attempts to move these directories before
-restoring the new data, which causes an error.
+If you're restoring into directories that are mount points, you must ensure these directories are empty before attempting a restore. Otherwise, GitLab attempts to move these directories before restoring the new data, which causes an error.
 
 Read more about [configuring NFS mounts](../nfs.md).
 
@@ -155,22 +132,18 @@ Read more about [configuring NFS mounts](../nfs.md).
 
 This procedure assumes that:
 
-- You have installed the exact same version and type (CE/EE) of GitLab
-  with which the backup was created.
+- You have installed the exact same version and type (CE/EE) of GitLab with which the backup was created.
 - You have run `sudo gitlab-ctl reconfigure` at least once.
 - GitLab is running. If not, start it using `sudo gitlab-ctl start`.
 
-First ensure your backup tar file is in the backup directory described in the
-`gitlab.rb` configuration `gitlab_rails['backup_path']`. The default is
-`/var/opt/gitlab/backups`. The backup file needs to be owned by the `git` user.
+First ensure your backup tar file is in the backup directory described in the `gitlab.rb` configuration `gitlab_rails['backup_path']`. The default is `/var/opt/gitlab/backups`. The backup file needs to be owned by the `git` user.
 
 ```shell
 sudo cp 11493107454_2018_04_25_10.6.4-ce_gitlab_backup.tar /var/opt/gitlab/backups/
 sudo chown git:git /var/opt/gitlab/backups/11493107454_2018_04_25_10.6.4-ce_gitlab_backup.tar
 ```
 
-Stop the processes that are connected to the database. Leave the rest of GitLab
-running:
+Stop the processes that are connected to the database. Leave the rest of GitLab running:
 
 ```shell
 sudo gitlab-ctl stop puma
@@ -179,11 +152,9 @@ sudo gitlab-ctl stop sidekiq
 sudo gitlab-ctl status
 ```
 
-Next, ensure you have completed the [restore prerequisites](#restore-prerequisites) steps and have run `gitlab-ctl reconfigure`
-after copying over the GitLab secrets file from the original installation.
+Next, ensure you have completed the [restore prerequisites](#restore-prerequisites) steps and have run `gitlab-ctl reconfigure` after copying over the GitLab secrets file from the original installation.
 
-Next, restore the backup, specifying the ID of the backup you wish to
-restore:
+Next, restore the backup, specifying the ID of the backup you wish to restore:
 
 > [!warning]
 > The following command overwrites the contents of your GitLab database!
@@ -193,23 +164,20 @@ restore:
 sudo gitlab-backup restore BACKUP=11493107454_2018_04_25_10.6.4-ce
 ```
 
-If there's a GitLab version mismatch between your backup tar file and the
-installed version of GitLab, the restore command aborts with an error
-message:
+If there's a GitLab version mismatch between your backup tar file and the installed version of GitLab, the restore command aborts with an error message:
 
 ```plaintext
 GitLab version mismatch:
-  Your current GitLab version (16.5.0-ee) differs from the GitLab version in the backup!
-  Please switch to the following version and try again:
-  version: 16.4.3-ee
+ Your current GitLab version (16.5.0-ee) differs from the GitLab version in the backup!
+ Please switch to the following version and try again:
+ version: 16.4.3-ee
 ```
 
 Install the correct GitLab version, and then try again.
 
 {{< alert type="warning" >}}
 
-The restore command requires [additional parameters](backup_gitlab.md#back-up-and-restore-for-installations-using-pgbouncer) when
-your installation is using PgBouncer, for either performance reasons or when using it with a Patroni cluster.
+The restore command requires [additional parameters](backup_gitlab.md#back-up-and-restore-for-installations-using-pgbouncer) when your installation is using PgBouncer, for either performance reasons or when using it with a Patroni cluster.
 
 {{< /alert >}}
 
@@ -226,9 +194,7 @@ sudo gitlab-ctl start
 sudo gitlab-rake gitlab:check SANITIZE=true
 ```
 
-Verify that the database values can be decrypted
-especially if `/etc/gitlab/gitlab-secrets.json` was restored, or if a different server is
-the target for the restore.
+Verify that the database values can be decrypted especially if `/etc/gitlab/gitlab-secrets.json` was restored, or if a different server is the target for the restore.
 
 ```shell
 sudo gitlab-rake gitlab:doctor:secrets
@@ -261,29 +227,17 @@ Post-restore verification guides:
 
 ## Restore for Docker image and GitLab Helm chart installations
 
-For GitLab installations using the Docker image or the GitLab Helm chart on a
-Kubernetes cluster, the restore task expects the restore directories to be
-empty. However, with Docker and Kubernetes volume mounts, some system level
-directories may be created at the volume roots, such as the `lost+found`
-directory found in Linux operating systems. These directories are usually owned
-by `root`, which can cause access permission errors because the restore Rake task
-runs as the `git` user. To restore a GitLab installation, users have to confirm
-the restore target directories are empty.
+For GitLab installations using the Docker image or the GitLab Helm chart on a Kubernetes cluster, the restore task expects the restore directories to be empty. However, with Docker and Kubernetes volume mounts, some system level directories may be created at the volume roots, such as the `lost+found` directory found in Linux operating systems. These directories are usually owned by `root`, which can cause access permission errors because the restore Rake task runs as the `git` user. To restore a GitLab installation, users have to confirm the restore target directories are empty.
 
-For both these installation types, the backup tarball has to be available in
-the backup location (default location is `/var/opt/gitlab/backups`).
+For both these installation types, the backup tarball has to be available in the backup location (default location is `/var/opt/gitlab/backups`).
 
 ### Restore for Helm chart installations
 
-The GitLab Helm chart uses the process documented in
-[restoring a GitLab Helm chart installation](https://docs.gitlab.com/charts/backup-restore/restore.html#restoring-a-gitlab-installation)
+The GitLab Helm chart uses the process documented in [restoring a GitLab Helm chart installation](https://docs.gitlab.com/charts/backup-restore/restore.html#restoring-a-gitlab-installation)
 
 ### Restore for Docker image installations
 
-If you're using [Docker Swarm](../../install/docker/installation.md#install-gitlab-by-using-docker-swarm-mode),
-the container might restart during the restore process because Puma is shut down,
-and so the container health check fails. To work around this problem,
-temporarily disable the health check mechanism.
+If you're using [Docker Swarm](../../install/docker/installation.md#install-gitlab-by-using-docker-swarm-mode), the container might restart during the restore process because Puma is shut down, and so the container health check fails. To work around this problem, temporarily disable the health check mechanism.
 
 1. Edit `docker-compose.yml`:
 
@@ -322,8 +276,7 @@ docker exec -it <name of container> gitlab-rake gitlab:check SANITIZE=true
 
 ## Restore for self-compiled installations
 
-1. First, ensure your backup tar file is in the backup directory described in the
-   `gitlab.yml` configuration:
+1. First, ensure your backup tar file is in the backup directory described in the `gitlab.yml` configuration:
 
    ```yaml
    ## Backup settings
@@ -383,23 +336,15 @@ docker exec -it <name of container> gitlab-rake gitlab:check SANITIZE=true
 
 ## Restoring only one or a few projects or groups from a backup
 
-Although the Rake task used to restore a GitLab instance doesn't support
-restoring a single project or group, you can use a workaround by restoring
-your backup to a separate, temporary GitLab instance, and then export your
-project or group from there:
+Although the Rake task used to restore a GitLab instance doesn't support restoring a single project or group, you can use a workaround by restoring your backup to a separate, temporary GitLab instance, and then export your project or group from there:
 
-1. [Install a new GitLab](../../install/_index.md) instance at the same version as
-   the backed-up instance from which you want to restore.
-1. Restore the backup into this new instance, then
-   export your [project](../../user/project/settings/import_export.md)
-   or [group](../../user/project/settings/import_export.md#migrate-groups-by-uploading-an-export-file-deprecated). For
-   more information about what is and isn't exported, see the export feature's documentation.
+1. [Install a new GitLab](../../install/_index.md) instance at the same version as the backed-up instance from which you want to restore.
+1. Restore the backup into this new instance, then export your [project](../../user/project/settings/import_export.md)
+   or [group](../../user/project/settings/import_export.md#migrate-groups-by-uploading-an-export-file-deprecated). For more information about what is and isn't exported, see the export feature's documentation.
 1. After the export is complete, go to the old instance and then import it.
-1. After importing the projects or groups that you wanted is complete, you may
-   delete the new, temporary GitLab instance.
+1. After importing the projects or groups that you wanted is complete, you may delete the new, temporary GitLab instance.
 
-A feature request to provide direct restore of individual projects or groups
-is being discussed in [issue #17517](https://gitlab.com/gitlab-org/gitlab/-/issues/17517).
+A feature request to provide direct restore of individual projects or groups is being discussed in [issue #17517](https://gitlab.com/gitlab-org/gitlab/-/issues/17517).
 
 ## Restoring an incremental repository backup
 
@@ -407,13 +352,11 @@ Each backup archive contains a full self-contained backup, including those creat
 
 ## Restore options
 
-The command-line tool GitLab provides to restore from backup can accept more
-options.
+The command-line tool GitLab provides to restore from backup can accept more options.
 
 ### Specify backup to restore when there are more than one
 
-Backup files use a naming scheme [starting with a backup ID](backup_archive_process.md#backup-id). When more than one backup exists, you must specify which
-`<backup-id>_gitlab_backup.tar` file to restore by setting the environment variable `BACKUP=<backup-id>`.
+Backup files use a naming scheme [starting with a backup ID](backup_archive_process.md#backup-id). When more than one backup exists, you must specify which `<backup-id>_gitlab_backup.tar` file to restore by setting the environment variable `BACKUP=<backup-id>`.
 
 ### Disable prompts during restore
 
@@ -429,15 +372,15 @@ To disable these prompts, set the `GITLAB_ASSUME_YES` environment variable to `1
 
 - Linux package installations:
 
-  ```shell
-  sudo GITLAB_ASSUME_YES=1 gitlab-backup restore
-  ```
+ ```shell
+ sudo GITLAB_ASSUME_YES=1 gitlab-backup restore
+ ```
 
 - Self-compiled installations:
 
-  ```shell
-  sudo -u git -H GITLAB_ASSUME_YES=1 bundle exec rake gitlab:backup:restore RAILS_ENV=production
-  ```
+ ```shell
+ sudo -u git -H GITLAB_ASSUME_YES=1 bundle exec rake gitlab:backup:restore RAILS_ENV=production
+ ```
 
 The `force=yes` environment variable also disables these prompts.
 
@@ -460,15 +403,15 @@ To exclude specific tasks:
 
 - Linux package installations:
 
-  ```shell
-  sudo gitlab-backup restore BACKUP=<backup-id> SKIP=db,uploads
-  ```
+ ```shell
+ sudo gitlab-backup restore BACKUP=<backup-id> SKIP=db,uploads
+ ```
 
 - Self-compiled installations:
 
-  ```shell
-  sudo -u git -H bundle exec rake gitlab:backup:restore BACKUP=<backup-id> SKIP=db,uploads RAILS_ENV=production
-  ```
+ ```shell
+ sudo -u git -H bundle exec rake gitlab:backup:restore BACKUP=<backup-id> SKIP=db,uploads RAILS_ENV=production
+ ```
 
 ### Restore specific repository storages
 
@@ -481,30 +424,25 @@ To exclude specific tasks:
 {{< alert type="warning" >}}
 
 GitLab 17.1 and earlier are [affected by a race condition](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/158412)
-that can cause data loss. The problem affects repositories that have been forked and use GitLab
-[object pools](../repository_storage_paths.md#hashed-object-pools). To avoid data loss,
-only restore backups by using GitLab 17.2 or later.
+that can cause data loss. The problem affects repositories that have been forked and use GitLab [object pools](../repository_storage_paths.md#hashed-object-pools). To avoid data loss, only restore backups by using GitLab 17.2 or later.
 
 {{< /alert >}}
 
-When using [multiple repository storages](../repository_storage_paths.md),
-repositories from specific repository storages can be restored separately
-using the `REPOSITORIES_STORAGES` option. The option accepts a comma-separated list of
-storage names.
+When using [multiple repository storages](../repository_storage_paths.md), repositories from specific repository storages can be restored separately using the `REPOSITORIES_STORAGES` option. The option accepts a comma-separated list of storage names.
 
 For example:
 
 - Linux package installations:
 
-  ```shell
-  sudo gitlab-backup restore BACKUP=<backup-id> REPOSITORIES_STORAGES=storage1,storage2
-  ```
+ ```shell
+ sudo gitlab-backup restore BACKUP=<backup-id> REPOSITORIES_STORAGES=storage1,storage2
+ ```
 
 - Self-compiled installations:
 
-  ```shell
-  sudo -u git -H bundle exec rake gitlab:backup:restore BACKUP=<backup-id> REPOSITORIES_STORAGES=storage1,storage2
-  ```
+ ```shell
+ sudo -u git -H bundle exec rake gitlab:backup:restore BACKUP=<backup-id> REPOSITORIES_STORAGES=storage1,storage2
+ ```
 
 ### Restore specific repositories
 
@@ -517,59 +455,52 @@ For example:
 {{< alert type="warning" >}}
 
 GitLab 17.1 and earlier are [affected by a race condition](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/158412)
-that can cause data loss. The problem affects repositories that have been forked and use GitLab
-[object pools](../repository_storage_paths.md#hashed-object-pools). To avoid data loss, only restore backups by using GitLab
-17.2 or later.
+that can cause data loss. The problem affects repositories that have been forked and use GitLab [object pools](../repository_storage_paths.md#hashed-object-pools). To avoid data loss, only restore backups by using GitLab 17.2 or later.
 
 {{< /alert >}}
 
 You can restore specific repositories using the `REPOSITORIES_PATHS` and the `SKIP_REPOSITORIES_PATHS` options.
-Both options accept a comma-separated list of project and group paths. If you
-specify a group path, all repositories in all projects in the group and
-descendant groups are included or skipped, depending on which option you used.
+Both options accept a comma-separated list of project and group paths. If you specify a group path, all repositories in all projects in the group and descendant groups are included or skipped, depending on which option you used.
 Both the groups and projects must exist in the specified backup or on the target instance.
 
 {{< alert type="note" >}}
 
 The `REPOSITORIES_PATHS` and `SKIP_REPOSITORIES_PATHS` options apply only to Git repositories.
-They do not apply to project or group database entries. If you created a repositories backup
-with `SKIP=db`, by itself it cannot be used to restore specific repositories to a new instance.
+They do not apply to project or group database entries. If you created a repositories backup with `SKIP=db`, by itself it cannot be used to restore specific repositories to a new instance.
 
 {{< /alert >}}
 
-For example, to restore all repositories for all projects in Group A (`group-a`), the repository for
-Project C in Group B (`group-b/project-c`), and skip the Project D in Group A (`group-a/project-d`):
+For example, to restore all repositories for all projects in Group A (`group-a`), the repository for Project C in Group B (`group-b/project-c`), and skip the Project D in Group A (`group-a/project-d`):
 
 - Linux package installations:
 
-  ```shell
-  sudo gitlab-backup restore BACKUP=<backup-id> REPOSITORIES_PATHS=group-a,group-b/project-c SKIP_REPOSITORIES_PATHS=group-a/project-d
-  ```
+ ```shell
+ sudo gitlab-backup restore BACKUP=<backup-id> REPOSITORIES_PATHS=group-a,group-b/project-c SKIP_REPOSITORIES_PATHS=group-a/project-d
+ ```
 
 - Self-compiled installations:
 
-  ```shell
-  sudo -u git -H bundle exec rake gitlab:backup:restore BACKUP=<backup-id> REPOSITORIES_PATHS=group-a,group-b/project-c SKIP_REPOSITORIES_PATHS=group-a/project-d
-  ```
+ ```shell
+ sudo -u git -H bundle exec rake gitlab:backup:restore BACKUP=<backup-id> REPOSITORIES_PATHS=group-a,group-b/project-c SKIP_REPOSITORIES_PATHS=group-a/project-d
+ ```
 
 ### Restore untarred backups
 
-If an [untarred backup](backup_gitlab.md#skipping-tar-creation) (made with `SKIP=tar`) is found,
-and no backup is chosen with `BACKUP=<backup-id>`, the untarred backup is used.
+If an [untarred backup](backup_gitlab.md#skipping-tar-creation) (made with `SKIP=tar`) is found, and no backup is chosen with `BACKUP=<backup-id>`, the untarred backup is used.
 
 For example:
 
 - Linux package installations:
 
-  ```shell
-  sudo gitlab-backup restore
-  ```
+ ```shell
+ sudo gitlab-backup restore
+ ```
 
 - Self-compiled installations:
 
-  ```shell
-  sudo -u git -H bundle exec rake gitlab:backup:restore
-  ```
+ ```shell
+ sudo -u git -H bundle exec rake gitlab:backup:restore
+ ```
 
 ### Restoring using server-side repository backups
 
@@ -582,9 +513,7 @@ For example:
 
 {{< /history >}}
 
-When a server-side backup is collected, the restore process defaults to use the server-side restore mechanism shown in
-[Create server-side repository backups](backup_gitlab.md#create-server-side-repository-backups). You can configure backup restoration so that the Gitaly
-node that hosts each repository is responsible for pulling the necessary backup data directly from object storage.
+When a server-side backup is collected, the restore process defaults to use the server-side restore mechanism shown in [Create server-side repository backups](backup_gitlab.md#create-server-side-repository-backups). You can configure backup restoration so that the Gitaly node that hosts each repository is responsible for pulling the necessary backup data directly from object storage.
 
 1. [Configure a server-side backup destination in Gitaly](../gitaly/configure_gitaly.md#configure-server-side-backups).
 1. Start a server-side backup restore process and specifying the [ID of the backup](backup_archive_process.md#backup-id) you wish to restore:
@@ -613,8 +542,7 @@ sudo -u git -H bundle exec rake gitlab:backup:restore BACKUP=11493107454_2018_04
 kubectl exec <Toolbox pod name> -it -- backup-utility --restore -t <backup_ID> --repositories-server-side
 ```
 
-When using [cron-based backups](https://docs.gitlab.com/charts/backup-restore/backup.html#cron-based-backup),
-add the `--repositories-server-side` flag to the extra arguments.
+When using [cron-based backups](https://docs.gitlab.com/charts/backup-restore/backup.html#cron-based-backup), add the `--repositories-server-side` flag to the extra arguments.
 
 {{< /tab >}}
 
@@ -622,36 +550,30 @@ add the `--repositories-server-side` flag to the extra arguments.
 
 ## Troubleshooting
 
-The following are possible problems you might encounter, along with potential
-solutions.
+The following are possible problems you might encounter, along with potential solutions.
 
 ### Restoring database backup using output warnings from a Linux package installation
 
-If you're using backup restore procedures, you may encounter the following
-warning messages:
+If you're using backup restore procedures, you may encounter the following warning messages:
 
 ```plaintext
 ERROR: must be owner of extension pg_trgm
 ERROR: must be owner of extension btree_gist
 ERROR: must be owner of extension plpgsql
-WARNING:  no privileges could be revoked for "public" (two occurrences)
-WARNING:  no privileges were granted for "public" (two occurrences)
+WARNING: no privileges could be revoked for "public" (two occurrences)
+WARNING: no privileges were granted for "public" (two occurrences)
 ```
 
-Be advised that the backup is successfully restored in spite of these warning
-messages.
+Be advised that the backup is successfully restored in spite of these warning messages.
 
-The Rake task runs this as the `gitlab` user, which doesn't have superuser
-access to the database. When restore is initiated, it also runs as the `gitlab`
-user, but it also tries to alter the objects it doesn't have access to.
-Those objects have no influence on the database backup or restore, but display
-a warning message.
+The Rake task runs this as the `gitlab` user, which doesn't have superuser access to the database. When restore is initiated, it also runs as the `gitlab` user, but it also tries to alter the objects it doesn't have access to.
+Those objects have no influence on the database backup or restore, but display a warning message.
 
 For more information, see:
 
 - PostgreSQL issue tracker:
-  - [Not being a superuser](https://www.postgresql.org/message-id/201110220712.30886.adrian.klaver@gmail.com).
-  - [Having different owners](https://www.postgresql.org/message-id/2039.1177339749@sss.pgh.pa.us).
+ - [Not being a superuser](https://www.postgresql.org/message-id/201110220712.30886.adrian.klaver@gmail.com).
+ - [Having different owners](https://www.postgresql.org/message-id/2039.1177339749@sss.pgh.pa.us).
 
 - Stack Overflow: [Resulting errors](https://stackoverflow.com/questions/4368789/error-must-be-owner-of-language-plpgsql).
 
@@ -673,5 +595,4 @@ To resolve this, you can update the Git [server hooks](../server_hooks.md) for G
 
 ### Successful restore with repositories showing as empty when using `fapolicyd`
 
-When using `fapolicyd` for increased security, GitLab can report that a restore was successful but repositories show as empty. For more troubleshooting help, see
-[Gitaly Troubleshooting documentation](../gitaly/troubleshooting.md#repositories-are-shown-as-empty-after-a-gitlab-restore).
+When using `fapolicyd` for increased security, GitLab can report that a restore was successful but repositories show as empty. For more troubleshooting help, see [Gitaly Troubleshooting documentation](../gitaly/troubleshooting.md#repositories-are-shown-as-empty-after-a-gitlab-restore).

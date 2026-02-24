@@ -57,6 +57,4 @@ Logs:
 
 Example:
 
-If you set a rate limit of 150 for `GET /users/:id/followers` and send 155 requests in a minute, the
-final five requests are blocked. After a minute, you could continue sending requests until you
-exceed the rate limit again.
+If you set a rate limit of 150 for `GET /users/:id/followers` and send 155 requests in a minute, the final five requests are blocked. After a minute, you could continue sending requests until you exceed the rate limit again.

@@ -29,7 +29,7 @@ Teams you have joined will appear in your sidebar.
 Each team has the following pages to organize your work:
 
 * [Triage](https://linear.app/docs/triage)* Newly created issues to be reviewed, assigned or prioritized before entering the team's workflow
-* [Issues](https://linear.app/docs/default-views)  Default views of all issues in this team
+* [Issues](https://linear.app/docs/default-views) Default views of all issues in this team
 * [Cycles](https://linear.app/docs/use-cycles)* Review current, past and upcoming cycles to plan and schedule your team's workload
 * [Projects](https://linear.app/docs/projects#view-your-projects) Default views of all projects linked to this team, along with custom views of projects that you can add and edit.
 * [Views](https://linear.app/docs/custom-views#overview) Custom views filtered to this team's issue, visible to members of the team
@@ -43,16 +43,8 @@ Team settings allow you to configure each team differently to support different 
 
 Available team settings can be configured depending on your role.
 
-Team settings page | Configure
---- | ---
-General | Customize team name and team identifier, set timezone, enable and manage estimates, set up issue creation by email, toggle detailed issue history.
-Members | Manage team members
-Issue labels | Manage team-level labels and label groups
-Templates | Manage team-level issue, project, and document templates
-Recurring issues | View all existing and create new recurring issues
-Slack notifications | Set team-level notifications to Slack
-Issue statuses & automations | Customize workflows, add and edit statuses, set up git automations and branch naming preferences, enable auto-close and auto-archive
-Triage | Enable Triage, assign Triage responsibility (compatible with PagerDuty and incident.io)
+Team settings page | Configure --- | --- General | Customize team name and team identifier, set timezone, enable and manage estimates, set up issue creation by email, toggle detailed issue history.
+Members | Manage team members Issue labels | Manage team-level labels and label groups Templates | Manage team-level issue, project, and document templates Recurring issues | View all existing and create new recurring issues Slack notifications | Set team-level notifications to Slack Issue statuses & automations | Customize workflows, add and edit statuses, set up git automations and branch naming preferences, enable auto-close and auto-archive Triage | Enable Triage, assign Triage responsibility (compatible with PagerDuty and incident.io)
 Cycles | Enable and configure cycles, set cycle automations
 
 ## Working with other teams
@@ -86,12 +78,7 @@ To create or join a team:
 
 The number of teams that can be created is dependent on a workspace's subscription:
 
-Plan | Team limit
---- | ---
-Free | 2
-Basic | 5
-Business | Unlimited
-Enterprise | Unlimited
+Plan | Team limit --- | --- Free | 2 Basic | 5 Business | Unlimited Enterprise | Unlimited
 
 ### Team creation settings
 
@@ -149,8 +136,8 @@ If you want to permanently remove a team and everything associated with it, dele
 1. Open **Team settings** for the team you want to retire.
 2. Select **Retire team**.
 3. Follow the prompts to resolve anything that must be handled before retirement.
-  * Choose what to do with active and backlog issues.
-  * Address any sub-teams.
+ * Choose what to do with active and backlog issues.
+ * Address any sub-teams.
 4. Confirm retirement.
 
 **What happens when a team is retired**

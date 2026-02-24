@@ -23,10 +23,8 @@ This information is available for groups and [instances](../../../administration
 
 Use DevOps adoption for groups to:
 
-- Identify subgroups that are lagging in their adoption of GitLab features, so you can guide them on
-  their DevOps journey.
-- Find subgroups that have adopted certain features, and provide guidance to other subgroups on
-  how to use those features.
+- Identify subgroups that are lagging in their adoption of GitLab features, so you can guide them on their DevOps journey.
+- Find subgroups that have adopted certain features, and provide guidance to other subgroups on how to use those features.
 - Verify if you are getting the return on investment that you expected from GitLab.
 
 ## Feature adoption
@@ -37,7 +35,7 @@ DevOps adoption shows feature adoption for development, security, and operations
 |-------------|---------|
 | Development | Approvals<br>Code owners<br>Issues<br>Merge requests |
 | Security    | DAST<br>Dependency scanning<br>Fuzz testing<br>SAST |
-| Operations  | Deployments<br>Pipelines<br>Runners |
+| Operations | Deployments<br>Pipelines<br>Runners |
 
 A feature shows as **adopted** when a group or subgroup has used the feature in a project in the last full calendar month.
 For example, if an issue was created in a project in a group, the group has adopted issues in that time.
@@ -49,7 +47,7 @@ The **Overview** tab illustrates the:
 - Total number of features adopted.
 - Features adopted in each category.
 - Number of features adopted in each category by month in the **Adoption over time** bar chart.
-  The chart shows only data from the date you enabled DevOps adoption for the group.
+ The chart shows only data from the date you enabled DevOps adoption for the group.
 - Number of features adopted in each category by subgroup in the **Adoption by subgroup** table.
 
 The **Dev**, **Sec**, and **Ops** tabs illustrate the features adopted in development, security, and operations by subgroup.

@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408844177050-Setting-up-c
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Team, Professional, or Enterprise |
 
@@ -32,8 +32,8 @@ Only administrators can create tags. Agents must select from existing tags that 
 
 - Regardless of your settings, all administrators can create and delete tags in the Predefined Tags List ( Settings > Account > Chat Tags tab). For details, see [Editing available tags in the Predefined Tags List](#topic_lpp_4w4_nt).
 - If the Allow Tag Creation setting is enabled, they can also create new chat tags in these two places:
-  - While setting up a shortcut
-  - During a chat session in the chat panel
+ - While setting up a shortcut
+ - During a chat session in the chat panel
 
 Note that this setting is enabled by default.
 

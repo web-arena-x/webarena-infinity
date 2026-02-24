@@ -18,8 +18,7 @@ Settings for import- and export-related features.
 
 ## Configure allowed import sources
 
-Before you can import projects from other systems, you must enable the
-[import source](../../user/gitlab_com/_index.md#default-import-sources) for that system.
+Before you can import projects from other systems, you must enable the [import source](../../user/gitlab_com/_index.md#default-import-sources) for that system.
 
 1. Sign in to GitLab as a user with Administrator access level.
 1. In the upper-right corner, select **Admin**.
@@ -30,9 +29,7 @@ Before you can import projects from other systems, you must enable the
 
 ## Disable unused import sources
 
-Only import projects from sources you trust. If you import a project from an untrusted source,
-an attacker could steal your sensitive data. For example, an imported project
-with a malicious `.gitlab-ci.yml` file could allow an attacker to exfiltrate group CI/CD variables.
+Only import projects from sources you trust. If you import a project from an untrusted source, an attacker could steal your sensitive data. For example, an imported project with a malicious `.gitlab-ci.yml` file could allow an attacker to exfiltrate group CI/CD variables.
 
 GitLab Self-Managed administrators can reduce their attack surface by disabling import sources they don't need:
 
@@ -44,8 +41,7 @@ GitLab Self-Managed administrators can reduce their attack surface by disabling 
 
 ## Enable project export
 
-To enable the export of
-[projects and their data](../../user/project/settings/import_export.md#export-a-project-and-its-data):
+To enable the export of [projects and their data](../../user/project/settings/import_export.md#export-a-project-and-its-data):
 
 1. Sign in to GitLab as a user with Administrator access level.
 1. In the upper-right corner, select **Admin**.
@@ -81,9 +77,7 @@ To enable migration of groups and projects by direct transfer:
 1. Select the **Enabled** checkbox.
 1. Select **Save changes**.
 
-The same setting
-[is available](../../api/settings.md#available-settings) in the API as the
-`bulk_import_enabled` attribute.
+The same setting [is available](../../api/settings.md#available-settings) in the API as the `bulk_import_enabled` attribute.
 
 ## Enable silent admin exports
 
@@ -95,8 +89,7 @@ The same setting
 
 {{< /history >}}
 
-Enable silent admin exports to prevent [audit events](../compliance/audit_event_reports.md) when
-instance administrators trigger a [project or group file export](../../user/project/settings/import_export.md) or download the export file.
+Enable silent admin exports to prevent [audit events](../compliance/audit_event_reports.md) when instance administrators trigger a [project or group file export](../../user/project/settings/import_export.md) or download the export file.
 Exports from non-administrators still generate audit events.
 
 To enable silent admin project and group file exports:
@@ -143,8 +136,7 @@ To skip confirmation when administrators reassign placeholder users:
 1. Expand **Import and export settings**.
 1. Under **Skip confirmation when administrators reassign placeholder users**, select the **Enabled** checkbox.
 
-When this setting is enabled, administrators can reassign contributions and memberships
-to non-bot users with any of the following states:
+When this setting is enabled, administrators can reassign contributions and memberships to non-bot users with any of the following states:
 
 - `active`
 - `banned`
@@ -176,12 +168,9 @@ To modify the maximum file size for imports in GitLab:
 1. Expand **Import and export settings**.
 1. Increase or decrease by changing the value in **Maximum import size (MiB)**.
 
-This setting applies only to repositories
-[imported from a GitLab export file](../../user/project/settings/import_export.md#import-a-project-and-its-data).
+This setting applies only to repositories [imported from a GitLab export file](../../user/project/settings/import_export.md#import-a-project-and-its-data).
 
-If you choose a size larger than the configured value for the web server,
-you may receive errors. See the [troubleshooting section](account_and_limit_settings.md#troubleshooting) for more
-details.
+If you choose a size larger than the configured value for the web server, you may receive errors. See the [troubleshooting section](account_and_limit_settings.md#troubleshooting) for more details.
 
 For GitLab.com repository size limits, read [accounts and limit settings](../../user/gitlab_com/_index.md#account-and-limit-settings).
 
@@ -228,12 +217,9 @@ To modify this setting:
 
 {{< /history >}}
 
-When you import a project using [file exports](../../user/project/settings/import_export.md) or
-[direct transfer](../../user/group/import/_index.md), you can specify the
-maximum decompressed file size for imported archives. The default value is 25 GiB.
+When you import a project using [file exports](../../user/project/settings/import_export.md) or [direct transfer](../../user/group/import/_index.md), you can specify the maximum decompressed file size for imported archives. The default value is 25 GiB.
 
-When you import a compressed file, the decompressed size cannot exceed the maximum decompressed file size limit. If the
-decompressed size exceeds the configured limit, the following error is returned:
+When you import a compressed file, the decompressed size cannot exceed the maximum decompressed file size limit. If the decompressed size exceeds the configured limit, the following error is returned:
 
 ```plaintext
 Decompressed archive size validation failed.
@@ -277,15 +263,12 @@ You can specify the maximum number of import jobs that are executed simultaneous
 - [Bitbucket Cloud importer](../../user/import/bitbucket_cloud.md)
 - [Bitbucket Server importer](../../user/import/bitbucket_server.md)
 
-The job limit is not applied when importing merge requests because there is a hard-coded limit for merge requests to
-avoid overloading servers.
+The job limit is not applied when importing merge requests because there is a hard-coded limit for merge requests to avoid overloading servers.
 
 The default job limit is:
 
 - For the GitHub importer, 1000.
-- For the Bitbucket Cloud and Bitbucket Server importer, 100. The Bitbucket importers have a low default limit because
-  we haven't yet determined a good default limit. Instance administrators should experiment with
-  a higher limit.
+- For the Bitbucket Cloud and Bitbucket Server importer, 100. The Bitbucket importers have a low default limit because we haven't yet determined a good default limit. Instance administrators should experiment with a higher limit.
 
 To modify this setting:
 
@@ -303,17 +286,13 @@ To modify this setting:
 {{< /history >}}
 
 Direct transfer exports can consume a significant amount of resources.
-To prevent using up the database or Sidekiq processes,
-administrators can configure the `concurrent_relation_batch_export_limit` setting.
+To prevent using up the database or Sidekiq processes, administrators can configure the `concurrent_relation_batch_export_limit` setting.
 
-The default value is `8` jobs, which corresponds to a
-[reference architecture for up to 40 RPS or 2,000 users](../reference_architectures/2k_users.md).
-If you encounter `PG::QueryCanceled: ERROR: canceling statement due to statement timeout` errors
-or jobs getting interrupted due to Sidekiq memory limits, you might want to reduce this number.
+The default value is `8` jobs, which corresponds to a [reference architecture for up to 40 RPS or 2,000 users](../reference_architectures/2k_users.md).
+If you encounter `PG::QueryCanceled: ERROR: canceling statement due to statement timeout` errors or jobs getting interrupted due to Sidekiq memory limits, you might want to reduce this number.
 If you have enough resources, you can increase this number to process more concurrent export jobs.
 
-To modify this setting, send an API request to `/api/v4/application/settings`
-with `concurrent_relation_batch_export_limit`.
+To modify this setting, send an API request to `/api/v4/application/settings` with `concurrent_relation_batch_export_limit`.
 For more information, see [application settings API](../../api/settings.md).
 
 ### Export batch size
@@ -333,11 +312,9 @@ For more information, see [application settings API](../../api/settings.md).
 
 ## Error: `Help page documentation base url is blocked: execution expired`
 
-While enabling application settings like [import source](#configure-allowed-import-sources), you might get a `Help page documentation base url is blocked: execution expired`
-error. To work around this error:
+While enabling application settings like [import source](#configure-allowed-import-sources), you might get a `Help page documentation base url is blocked: execution expired` error. To work around this error:
 
-1. Add `docs.gitlab.com`, or [the redirect help documentation pages URL](help_page.md#redirect-help-pages), to the
-   [allowlist](../../security/webhooks.md#allow-outbound-requests-to-certain-ip-addresses-and-domains).
+1. Add `docs.gitlab.com`, or [the redirect help documentation pages URL](help_page.md#redirect-help-pages), to the [allowlist](../../security/webhooks.md#allow-outbound-requests-to-certain-ip-addresses-and-domains).
 1. Select **Save Changes**.
 
 ## Related topics

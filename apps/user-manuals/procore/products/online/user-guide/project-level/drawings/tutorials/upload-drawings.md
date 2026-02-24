@@ -15,19 +15,18 @@ When you upload drawings to Procore, Procore scans the PDF file using [Optical 
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' permissions on the Drawings tool.  
-    OR  
-    'Read Only' or 'Standard' permissions with the ['Upload Drawings' or 'Upload and Review Drawings' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#Drawings "Grant Granular Permissions in a Permission Template") enabled on your permission template.
+ - 'Admin' permissions on the Drawings tool. 
+    OR 'Read Only' or 'Standard' permissions with the ['Upload Drawings' or 'Upload and Review Drawings' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#Drawings "Grant Granular Permissions in a Permission Template") enabled on your permission template.
 - **Additional Information:**
-  - Drawings must be uploaded in the PDF file format. The PDF file must be version 1.6 or later.
-  - Notification emails are sent after the upload has completed processing. See [Who receives a notification for updates in the Drawings tool?](https://support.procore.com/faq/who-receives-a-notification-for-updates-in-the-drawings-tool "Who receives a notification for updates in the Drawings tool?")
-  - If your drawing upload fails, it could be due to a file that is encrypted, password protected, or corrupt. See [Why are my drawing uploads failing?](https://support.procore.com/faq/why-are-my-drawing-uploads-failing "Why are my drawing uploads failing?")
+ - Drawings must be uploaded in the PDF file format. The PDF file must be version 1.6 or later.
+ - Notification emails are sent after the upload has completed processing. See [Who receives a notification for updates in the Drawings tool?](https://support.procore.com/faq/who-receives-a-notification-for-updates-in-the-drawings-tool "Who receives a notification for updates in the Drawings tool?")
+ - If your drawing upload fails, it could be due to a file that is encrypted, password protected, or corrupt. See [Why are my drawing uploads failing?](https://support.procore.com/faq/why-are-my-drawing-uploads-failing "Why are my drawing uploads failing?")
 
 ## Video
 
-|  |
+| |
 | --- |
-|  |
+| |
 
 ## Steps
 
@@ -35,18 +34,15 @@ When you upload drawings to Procore, Procore scans the PDF file using [Optical 
 2. Click **Upload**.
 3. Click **Attach Files**.
 
-   Tip  
-   For best results, format your drawings for OCR. See [How can I improve the accuracy of OCR on my drawings?](https://support.procore.com/faq/how-can-i-improve-the-accuracy-of-ocr-on-my-drawings "How can I improve the accuracy of OCR on my drawings?")
+   Tip For best results, format your drawings for OCR. See [How can I improve the accuracy of OCR on my drawings?](https://support.procore.com/faq/how-can-i-improve-the-accuracy-of-ocr-on-my-drawings "How can I improve the accuracy of OCR on my drawings?")
 4. Select the files to upload from your computer.
 5. Once uploaded, click **Attach**.
 6. Click the **Select or Create Set** drop-down menu under **Drawing Set**.
-7. Choose one of these options:  
-   **Select a Drawing Set**  
-   To add the drawing to an existing set: Start typing the set name. Procore shows any sets matching your entry and you can highlight the match to select it.   
-   ![select-drawing-set.png](https://support.procore.com/@api/deki/files/479833/select-drawing-set.png?revision=1&size=bestfit&width=750&height=314)  
+7. Choose one of these options: 
+   **Select a Drawing Set** To add the drawing to an existing set: Start typing the set name. Procore shows any sets matching your entry and you can highlight the match to select it.
+   ![select-drawing-set.png](https://support.procore.com/@api/deki/files/479833/select-drawing-set.png?revision=1&size=bestfit&width=750&height=314) 
      
-   **Create a Drawing Set**  
-   To add the drawing to a new set: Type a set name and click **Create Set [Your Set Name]**.  
+   **Create a Drawing Set** To add the drawing to a new set: Type a set name and click **Create Set [Your Set Name]**.
      
    ![create-drawing-set.png](https://support.procore.com/@api/deki/files/479832/create-drawing-set.png?revision=1&size=bestfit&width=750&height=294)
 8. Fill in these fields:
@@ -57,28 +53,27 @@ When you upload drawings to Procore, Procore scans the PDF file using [Optical 
      - Click the field to select a date from the calendar.
    - **Default Received Date**: The date a drawing was received or issued by the creator of the drawings (i.e. the design team).
      - Click the field to select a date from the calendar.
-   - **Advanced Options**: Click the**arrow** ![caret-icon.png](https://support.procore.com/@api/deki/files/115902/caret-icon.png?revision=1&size=bestfit&width=13&height=17) icon next to Advanced Options to show the following options.  
+   - **Advanced Options**: Click the**arrow** ![caret-icon.png](https://support.procore.com/@api/deki/files/115902/caret-icon.png?revision=1&size=bestfit&width=13&height=17) icon next to Advanced Options to show the following options. 
        
-     ![upload-drawings-advanced-options.png](https://support.procore.com/@api/deki/files/479834/upload-drawings-advanced-options.png?revision=2&size=bestfit&width=750&height=814)  
-     - **Default Revision**:If your set has a default drawing revision number or letter, enter it here. The default revision will be set as the 'Revision' for all drawings in this upload.  
+     ![upload-drawings-advanced-options.png](https://support.procore.com/@api/deki/files/479834/upload-drawings-advanced-options.png?revision=2&size=bestfit&width=750&height=814) 
+     - **Default Revision**:If your set has a default drawing revision number or letter, enter it here. The default revision will be set as the 'Revision' for all drawings in this upload. 
        *Note:* If a default revision is not specified, Procore will use the drawing number to determine the revision.
-     - **Drawing No. Contains Revision**: Click the drop-down menu and select the option that applies to the drawings. If a drawing number contains a revision, the drawing number will be separated at the first decimal or underscore into the Drawing No. and the Revision. For example, a drawing with 'A203.01' would show 'A203' as the Drawing No., and '01' as the Revision.   
+     - **Drawing No. Contains Revision**: Click the drop-down menu and select the option that applies to the drawings. If a drawing number contains a revision, the drawing number will be separated at the first decimal or underscore into the Drawing No. and the Revision. For example, a drawing with 'A203.01' would show 'A203' as the Drawing No., and '01' as the Revision.  
        *Note:* See 'Get From Filename' below for guidelines on filenames if you use both settings.
        - **No Rev in Drawing Number**: Select if the drawings do not include revisions in the drawing numbers.
        - **Rev is After First Decimal**: Select if the drawings contain revisions after the first decimal of a drawing number (example: A203.**01**).
        - **Rev is After First Underscore**: Select if the drawings contain revisions after the first underscore of a drawing number (example: A203\_**01**).
        - **Rev is After Last Underscore**: Select if the drawings contain revisions after the last underscore of a drawing number (example: A203\_\_EE\_\_**01**)
      - **Drawing Number**:
-       - **Get From Filename**: Mark the checkbox if you want Procore to pull the number and title of an individual drawing based off of the filename. This will bypass OCR and result in higher accuracy in the naming of your drawings.  
+       - **Get From Filename**: Mark the checkbox if you want Procore to pull the number and title of an individual drawing based off of the filename. This will bypass OCR and result in higher accuracy in the naming of your drawings. 
          ***Important!***If you are using the 'Drawing No. Contains Revision' setting above, drawing filenames should match the following formats:
-         - For 'No Rev in Drawing Number': *Number\_Title.pdf*   
-           *Note:* If there is no underscore between the drawing number and title, the entire filename will be entered for the drawing number.
+         - For 'No Rev in Drawing Number': *Number\_Title.pdf* *Note:* If there is no underscore between the drawing number and title, the entire filename will be entered for the drawing number.
          - For 'Rev is After First Decimal': *Number.RevNumber\_Title.pdf*
          - For 'Rev is After First Underscore': *Number\_RevNumber\_Title.pdf*
          - For 'Rev is After Last Underscore': *Number\_Title\_RevNumber.pdf*
      - **Drawing Language**: Procore's OCR can scan for drawings in English, French, German, and Spanish. The language for your drawings is automatically selected based on the locale of the project or company, but you can select another language from the drop-down menu if necessary. See [Can I change the language that Procore scans my drawings for?](https://support.procore.com/faq/can-i-change-the-language-that-procore-scans-my-drawings-for "Can I change the language that Procore scans my drawings for?")
-9. After the upload has been processed, you can [Review and Confirm the Drawings](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/review-and-confirm-drawings "Review and Confirm Drawings").  
-   *Note:* A progress indicator is available in the 'Items to Review' pop up window.  
+9. After the upload has been processed, you can [Review and Confirm the Drawings](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/review-and-confirm-drawings "Review and Confirm Drawings"). 
+   *Note:* A progress indicator is available in the 'Items to Review' pop up window. 
    ![drawings-items-to-review-pop-up.png](https://support.procore.com/@api/deki/files/528910/drawings-items-to-review-pop-up.png?revision=1&size=bestfit&width=930&height=350)
 
 ## Next Steps

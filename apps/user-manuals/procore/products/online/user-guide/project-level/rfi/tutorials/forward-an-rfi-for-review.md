@@ -23,14 +23,14 @@ In this scenario, the architect would use the steps below to forward the RFI to
 ## Things to Consider
 
 - **Required User Permissions:**
-  - To forward an RFI, 'Standard' or 'Admin' level permission on the project's RFIs tool.   
+ - To forward an RFI, 'Standard' or 'Admin' level permission on the project's RFIs tool.  
     AND
-  - You must be the assignee on the workflow who currently has Ball in Court (BIC) responsibility for the RFI.
+ - You must be the assignee on the workflow who currently has Ball in Court (BIC) responsibility for the RFI.
 - **Additional Information:**
-  - An assignee is limited to forwarding an RFI to one (1) user at a time.
-  - If you receive a forwarded RFI, you are required to submit your RFI answer by the same due date as other assignees on the workflow.
-  - After the response is submitted, BIC responsibility will shift back to the original **Assignee** who forwarded the RFI.
-  - To learn the difference between the **Add Assignee** and **Forward for Review** functions, see [What's the difference between adding an assignee to a RFI and forwarding an RFI for review?](https://support.procore.com/faq/whats-the-difference-between-adding-an-assignee-to-an-rfi-and-forwarding-an-rfi-for-review "What's the difference between adding an assignee to a RFI and forwarding an RFI for review?")
+ - An assignee is limited to forwarding an RFI to one (1) user at a time.
+ - If you receive a forwarded RFI, you are required to submit your RFI answer by the same due date as other assignees on the workflow.
+ - After the response is submitted, BIC responsibility will shift back to the original **Assignee** who forwarded the RFI.
+ - To learn the difference between the **Add Assignee** and **Forward for Review** functions, see [What's the difference between adding an assignee to a RFI and forwarding an RFI for review?](https://support.procore.com/faq/whats-the-difference-between-adding-an-assignee-to-an-rfi-and-forwarding-an-rfi-for-review "What's the difference between adding an assignee to a RFI and forwarding an RFI for review?")
 
 ## Steps
 
@@ -38,15 +38,15 @@ In this scenario, the architect would use the steps below to forward the RFI to
 2. Locate the RFI that you want to forward in the **Items** tab.
 3. Click **View**.
 4. Scroll to the **Responses** card.
-5. Click the ![icon-plus-quick-create-mobile.png](https://support.procore.com/@api/deki/files/292512/icon-plus-quick-create-mobile.png?revision=1&size=bestfit&width=31&height=31) icon.   
+5. Click the ![icon-plus-quick-create-mobile.png](https://support.procore.com/@api/deki/files/292512/icon-plus-quick-create-mobile.png?revision=1&size=bestfit&width=31&height=31) icon.  
    *Note:* This button only displays if you are designated as an Assignee on the RFI with the current Ball In Court responsibility.
 6. Click **Forward for Review**.
-7. Select the individual that you want to review the RFI from the **Forward To** drop-down menu.  
+7. Select the individual that you want to review the RFI from the **Forward To** drop-down menu. 
    *Notes:*
    - For a name to appear as a selection in this list:
      - The user must be added to the Project Directory. See [Add a User Account to the Project Directory](https://support.procore.com/products/online/user-guide/project-level/directory/tutorials/add-user-account-to-project-directory "Add a User Account to the Project Directory").
      - The user must also be granted 'Standard' level permissions or higher on the RFIs tool. See [Manage Project Permissions Templates](https://support.procore.com/products/online/user-guide/company-level/permissions/tutorials/manage-project-permissions-templates "Manage Project Permissions Templates").
-8. Click **Forward for Review**.   
+8. Click **Forward for Review**.  
    A green banner displays to confirm the Ball In Court responsibility shifted to the user selected. The user is added to the **Assignees** list and emails are sent according to the project's settings. See [When does the RFIs tool send email notifications?](https://support.procore.com/faq/when-does-the-rfis-tool-send-email-notifications "When does the RFIs tool send email notifications?")
 
 ## Next Steps

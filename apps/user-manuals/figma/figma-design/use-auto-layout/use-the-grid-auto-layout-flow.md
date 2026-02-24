@@ -45,7 +45,7 @@ This article covers just one aspect of working auto layout. Check out these othe
 
 ## Columns and rows (tracks)
 
-The grid auto layout flow brings two-dimensional layout control—rows and columns—into your designs. Once you’ve [enabled grid](https://help.figma.com/hc/en-us/articles/5731482952599) on a frame, you can choose the desired number of rows and columns by clicking on the grid picker in the right sidebar. Enter a value in the  **Number of columns** and  **Number of rows** fields, or use the interactive selector.
+The grid auto layout flow brings two-dimensional layout control—rows and columns—into your designs. Once you’ve [enabled grid](https://help.figma.com/hc/en-us/articles/5731482952599) on a frame, you can choose the desired number of rows and columns by clicking on the grid picker in the right sidebar. Enter a value in the **Number of columns** and **Number of rows** fields, or use the interactive selector.
 
 **Tip**: You can use mathematical operations—like add `+`, subtract `-`, multiply `*`, and divide `/`—to change the number of tracks (columns and rows) in a grid.
 
@@ -57,7 +57,7 @@ To resize a track:
 
 1. Select the frame and hover until the blue dots appear in the top or left side of the frame.
 2. Hover over a blue dot and select the label that appears. This label indicates the current track size or resizing property.
-3. From there, you can update the track size from the label or the list of tracks in right sidebar.  
+3. From there, you can update the track size from the label or the list of tracks in right sidebar. 
    - Use the dropdowns to select a resizing option
    - Enter a specific value or resizing option from the label on canvas or fields in the right sidebar
 
@@ -65,7 +65,7 @@ You can also manually resize tracks by clicking and dragging their edges. This w
 
 **Tip**: You can resize multiple tracks at the same time. Hold `⌘ Command` (MacOS) / `Ctrl` (Windows) to select more than one track, or hold `⇧ Shift` to select a range of tracks. Then use the dropdown or fields to choose a different value.
 
-![An animation showing track resizing in a grid auto layout frame. The cursor changes the resizing properties of each track to fill container, which makes the whole frame responsive.  ](https://help.figma.com/hc/article_attachments/36755123855639)
+![An animation showing track resizing in a grid auto layout frame. The cursor changes the resizing properties of each track to fill container, which makes the whole frame responsive. ](https://help.figma.com/hc/article_attachments/36755123855639)
 
 ### Delete columns and rows
 
@@ -73,7 +73,7 @@ To delete a track from a grid:
 
 1. Select the frame and hover over the track you want to delete.
 2. Hover over the blue dot for the track, and select the label that appears.
-3. Press `Delete` / `Backspace` on your keyboard to delete the track, or go to the right sidebar and click  next to the track you'd like to delete.
+3. Press `Delete` / `Backspace` on your keyboard to delete the track, or go to the right sidebar and click next to the track you'd like to delete.
 
 This will delete any contents contained inside the column or row. If a cell object spans across multiple tracks, then it will be resized and moved the closest available track.
 
@@ -83,19 +83,19 @@ This will delete any contents contained inside the column or row. If a cell obje
 
 ### Gap between
 
-**Gap between** sets the distance between columns and rows. You can do this using the  **Gap between rows** and  **Gap between columns** fields in the right sidebar when the grid auto layout frame is selected. Enter a number value into the field, nudge the values using your arrow keys, or scrub the field using your cursor.
+**Gap between** sets the distance between columns and rows. You can do this using the **Gap between rows** and **Gap between columns** fields in the right sidebar when the grid auto layout frame is selected. Enter a number value into the field, nudge the values using your arrow keys, or scrub the field using your cursor.
 
 ![Three-by-three grid with blue cells and pink shading indicating gaps between rows and columns.](https://help.figma.com/hc/article_attachments/31880567224727)
 
 ### Padding
 
-Padding controls the empty or white space between the boundary of the auto layout frame and the frame’s cells. Using the  **Horizontal padding** and  **Vertical padding** fields in the right sidebar, you can set padding uniformly, vertically and horizontally, or have different values for top, right, bottom, and left paddings.
+Padding controls the empty or white space between the boundary of the auto layout frame and the frame’s cells. Using the **Horizontal padding** and **Vertical padding** fields in the right sidebar, you can set padding uniformly, vertically and horizontally, or have different values for top, right, bottom, and left paddings.
 
 - **Default**: Padding controls are separated into vertical (top and bottom) and horizontal (left and right) padding by default.
-- **Individual padding**: Click  to use top, right, bottom, and left padding fields.
+- **Individual padding**: Click to use top, right, bottom, and left padding fields.
 - **Uniform padding or CSS shorthand**: Hold `⌘ Command` or `Ctrl` and click into any padding field. You can also type CSS shorthand.
-  - Example: Entering `1,2,3,4` sets top: 1px, right: 2px, bottom: 3px, and left: 4px
-  - Example: Entering `1,2` sets top/bottom: 1px and left/right: 2px
+ - Example: Entering `1,2,3,4` sets top: 1px, right: 2px, bottom: 3px, and left: 4px
+ - Example: Entering `1,2` sets top/bottom: 1px and left/right: 2px
 
 **Tip:** Press the `Tab` key to move between input fields.
 

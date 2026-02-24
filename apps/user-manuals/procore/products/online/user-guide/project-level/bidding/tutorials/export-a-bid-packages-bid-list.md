@@ -11,19 +11,19 @@ To export a bid package's bid list to a PDF or CSV.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.  
+ - 'Admin' level permissions on the project's Bidding tool. 
     OR
-  - You created the bid package.  
+ - You created the bid package. 
     OR
-  - You are a user cc'd on the bid package.  
+ - You are a user cc'd on the bid package. 
     OR
-  - You are the Bid Package Manager.
+ - You are the Bid Package Manager.
 
 ## Steps
 
 1. Navigate to the project's **Bidding** tool.
 2. Open the bid package.
-3. Click the **Bidders** tab.  
+3. Click the **Bidders** tab. 
    *Note:* If your project has been updated to [Bid Management Enhanced Experience](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/about-bid-management-enhanced-experience "About Bid Management Enhanced Experience"), click the **Bidding** tab.
 4. Click the **Export** menu and select **PDF** or**CSV**.
 

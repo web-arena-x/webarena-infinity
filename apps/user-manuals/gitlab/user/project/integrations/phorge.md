@@ -18,8 +18,7 @@ title: Phorge
 
 {{< /history >}}
 
-You can use [Phorge](https://we.phorge.it/) as an
-[external issue tracker](../../../integration/external-issue-tracker.md) in GitLab.
+You can use [Phorge](https://we.phorge.it/) as an [external issue tracker](../../../integration/external-issue-tracker.md) in GitLab.
 
 ## Configure the integration
 
@@ -38,5 +37,4 @@ To configure Phorge in a GitLab project:
 1. Select **Save changes**.
 
 In that GitLab project, you can see a link to your Phorge project.
-You can now reference your Phorge issues and tasks in GitLab with
-`T<ID>`, where `<ID>` is a Maniphest task ID (for example, `T123`).
+You can now reference your Phorge issues and tasks in GitLab with `T<ID>`, where `<ID>` is a Maniphest task ID (for example, `T123`).

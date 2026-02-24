@@ -16,13 +16,13 @@ It's strongly recommended that you ensure all teammates who'll be attending virt
 
 - Only the company Owner can invite staff to join the company directly. To locate the Owner of your company profile, refer to [Who is the Owner of my Company's Profile?](https://support.joinhandshake.com/hc/en-us/articles/360019711833-Who-is-the-Owner-of-my-Company-s-Profile).
 - Your teammate(s) must have an active Handshake account to claim their schedule and host a virtual session.
-  - If you're the Owner of the company profile, you can send them an invite link to facilitate the process. For additional details, refer to [How to Invite Staff Members to Join Handshake](../add-or-remove-teammates/how-to-invite-staff-members-to-join-handshake.md).
+ - If you're the Owner of the company profile, you can send them an invite link to facilitate the process. For additional details, refer to [How to Invite Staff Members to Join Handshake](../add-or-remove-teammates/how-to-invite-staff-members-to-join-handshake.md).
 - You may not see your colleagues on the Teammates page if they haven't created a Handshake account, haven't been approved at your company, or are connected to the wrong company.
-  - To approve new user requests, refer to [How to Approve Teammates at a Company](https://support.joinhandshake.com/hc/en-us/articles/115011178208).
-  - If your colleague is connected to the wrong company profile, share [Leaving a Company in Handshake](https://support.joinhandshake.com/hc/en-us/articles/218693308).
-  - To help your colleagues create an account, share [Create an Employer User Account, Join a Company, and Connect with Schools](https://support.joinhandshake.com/hc/en-us/articles/219133047).
-- After teammates register for their account and connect to the company profile, they can be added to virtual fair sessions.  
-  - To claim a schedule, refer to [Claiming & Participating in a Schedule](https://support.joinhandshake.com/hc/en-us/articles/360051272393-Claiming-Participating-in-a-Schedule).
+ - To approve new user requests, refer to [How to Approve Teammates at a Company](https://support.joinhandshake.com/hc/en-us/articles/115011178208).
+ - If your colleague is connected to the wrong company profile, share [Leaving a Company in Handshake](https://support.joinhandshake.com/hc/en-us/articles/218693308).
+ - To help your colleagues create an account, share [Create an Employer User Account, Join a Company, and Connect with Schools](https://support.joinhandshake.com/hc/en-us/articles/219133047).
+- After teammates register for their account and connect to the company profile, they can be added to virtual fair sessions. 
+ - To claim a schedule, refer to [Claiming & Participating in a Schedule](https://support.joinhandshake.com/hc/en-us/articles/360051272393-Claiming-Participating-in-a-Schedule).
 
 **Ensure your device and browser are setup**
 
@@ -43,9 +43,9 @@ Learn how to [Share Your Screen in a Video Session](https://support.joinhandshak
 As you prepare for the fair, familiarize yourself with ways to keep track of participants you want to engage with further.
 
 - As the fair approaches, view your RSVPs to get familiar with students planning to attend.
-  - *To access your RSVPs, refer to [Accessing](https://support.joinhandshake.com/hc/en-us/articles/8706498263447)[Event and Fair RSVPs](https://support.joinhandshake.com/hc/en-us/articles/8706498263447).*
+ - *To access your RSVPs, refer to [Accessing](https://support.joinhandshake.com/hc/en-us/articles/8706498263447)[Event and Fair RSVPs](https://support.joinhandshake.com/hc/en-us/articles/8706498263447).*
 - During the fair, manage your RSVPs with evaluations, notes, and labels to follow up more efficiently. 
-  - *For additional details, refer to [Managing RSVPs with Evaluations, Notes, & Labels](https://support.joinhandshake.com/hc/en-us/articles/360055303813).*
+ - *For additional details, refer to [Managing RSVPs with Evaluations, Notes, & Labels](https://support.joinhandshake.com/hc/en-us/articles/360055303813).*
 
 **Managing your sessions**
 

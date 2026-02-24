@@ -68,21 +68,21 @@ Contact your company profile owner or an admin to request a role change or to ha
 2. The following fields can be edited:
 
 - **Representatives**
-  - Names of Representatives Attending this Session
+ - Names of Representatives Attending this Session
 - **Basic Information**
-  - Employer Description
-  - Schedule Owner
+ - Employer Description
+ - Schedule Owner
 - **Open Roles**
-  - Are the role(s) you want to fill posted on Handshake?
-  - Jobs on Handshake/Job Titles
-  - Do any of the positions that you are hiring for require [U.S. work authorization](https://www.justice.gov/crt/best-practices-recruiting-and-hiring-workers)?
-  - Would you sponsor a [work visa](https://www.uscis.gov/working-united-states/temporary-nonimmigrant-workers) for the right candidate?
-  - Are you willing to hire candidates that are temporarily authorized to work for a defined period in their field of study? (e.g. for a job / internship under [OPT/CPT](https://www.ice.gov/sevis/practical-training))
+ - Are the role(s) you want to fill posted on Handshake?
+ - Jobs on Handshake/Job Titles
+ - Do any of the positions that you are hiring for require [U.S. work authorization](https://www.justice.gov/crt/best-practices-recruiting-and-hiring-workers)?
+ - Would you sponsor a [work visa](https://www.uscis.gov/working-united-states/temporary-nonimmigrant-workers) for the right candidate?
+ - Are you willing to hire candidates that are temporarily authorized to work for a defined period in their field of study? (e.g. for a job / internship under [OPT/CPT](https://www.ice.gov/sevis/practical-training))
 - **Looking For**
-  - Employment Types
-  - Job Types
-  - School Years
-  - Major Groups
+ - Employment Types
+ - Job Types
+ - School Years
+ - Major Groups
 
 **Note**: Any field you are unable to edit must be updated by the school hosting the fair. For assistance, contact the career fair's point of contact. Their information is available on the fair’s Details page.
 

@@ -82,8 +82,7 @@ Prerequisites:
 - You must have administrator access to the instance.
 - You must configure the [ClickHouse integration](../../integration/clickhouse.md).
 
-To analyze runner usage, you can export a CSV file that contains the number of jobs and executed runner minutes. The
-CSV file shows the runner type and job status for each project. The CSV is sent to your email when the export is completed.
+To analyze runner usage, you can export a CSV file that contains the number of jobs and executed runner minutes. The CSV file shows the runner type and job status for each project. The CSV is sent to your email when the export is completed.
 
 To export compute minutes used by instance runners:
 
@@ -94,8 +93,7 @@ To export compute minutes used by instance runners:
 
 ## Feedback
 
-To help us improve the runner fleet dashboard, you can provide feedback in
-[issue 421737](https://gitlab.com/gitlab-org/gitlab/-/issues/421737).
+To help us improve the runner fleet dashboard, you can provide feedback in [issue 421737](https://gitlab.com/gitlab-org/gitlab/-/issues/421737).
 In particular:
 
 - How easy or difficult it was to set up GitLab to make the dashboard work.

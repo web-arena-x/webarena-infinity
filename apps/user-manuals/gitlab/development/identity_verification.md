@@ -17,9 +17,9 @@ To view logs associated to the [email stage](../security/identity_verification.m
 
 - Query the GitLab production logs with the following KQL:
 
-  ```plaintext
-  json.controller:"RegistrationsIdentityVerificationController" AND json.username:replace_username_here
-  ```
+ ```plaintext
+ json.controller:"RegistrationsIdentityVerificationController" AND json.username:replace_username_here
+ ```
 
 Valuable debugging information can be found in the `json.action` and `json.location` columns.
 
@@ -29,13 +29,13 @@ To view logs associated to the [phone stage](../security/identity_verification.m
 
 - Query the GitLab production logs with the following KQL:
 
-  ```plaintext
-  json.message: "IdentityVerification::Phone" AND json.username:replace_username_here
-  ```
+ ```plaintext
+ json.message: "IdentityVerification::Phone" AND json.username:replace_username_here
+ ```
 
 On rows where `json.event` is `Failed Attempt`, you can find valuable debugging information in the `json.reason` column such as:
 
-| Reason  | Description |
+| Reason | Description |
 |---------|-------------|
 | `invalid_phone_number` | Either there was a typo in the phone number, or the user used a VOIP number. GitLab does not allow users to sign up with non-mobile phone numbers. |
 | `invalid_code` | The user entered an incorrect verification code. |
@@ -52,7 +52,7 @@ json.message: "IdentityVerification::Phone" AND json.event: "Telesign transactio
 
 Status update logs include the following fields:
 
-| Field  | Description |
+| Field | Description |
 |---------|-------------|
 | `telesign_status` | Delivery status of the SMS. See the [Telesign documentation](https://developer.telesign.com/enterprise/reference/smsdeliveryreports#status-codes) for possible status codes and their descriptions. |
 | `telesign_status_updated_on` | A timestamp indicating when the SMS delivery status was last updated. |
@@ -64,13 +64,13 @@ To view logs associated to the [credit card stage](../security/identity_verifica
 
 - Query the GitLab production logs with the following KQL:
 
-  ```plaintext
-  json.message: "IdentityVerification::CreditCard" AND json.username:replace_username_here
-  ```
+ ```plaintext
+ json.message: "IdentityVerification::CreditCard" AND json.username:replace_username_here
+ ```
 
 On rows where `json.event` is `Failed Attempt`, you can find valuable debugging information in the `json.reason` column such as:
 
-| Reason  | Description |
+| Reason | Description |
 |---------|-------------|
 | `rate_limited` | The user had 10 or more failed attempts, so they were rate-limited for one hour. |
 | `related_to_banned_user` | The user tried a credit card number already related to a banned user. |
@@ -81,9 +81,9 @@ To view logs associated with the [credit card stage](../security/identity_verifi
 
 - Query the GitLab production logs with the following KQL:
 
-  ```plaintext
-  json.controller:"GitlabSubscriptions::SubscriptionsController" AND json.action:"payment_form" AND json.params.value:"cc_registration_validation"
-  ```
+ ```plaintext
+ json.controller:"GitlabSubscriptions::SubscriptionsController" AND json.action:"payment_form" AND json.params.value:"cc_registration_validation"
+ ```
 
 ## Code walkthrough
 

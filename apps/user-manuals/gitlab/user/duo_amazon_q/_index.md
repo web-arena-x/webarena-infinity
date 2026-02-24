@@ -37,13 +37,11 @@ For a click-through demo, see [the GitLab Duo with Amazon Q Product Tour](https:
 
 To get a subscription for GitLab Duo with Amazon Q, contact your Account Executive.
 
-Alternatively, to request a trial,
-[fill out this form](https://about.gitlab.com/partners/technology-partners/aws/#form).
+Alternatively, to request a trial, [fill out this form](https://about.gitlab.com/partners/technology-partners/aws/#form).
 
 ## Set up GitLab Duo with Amazon Q
 
-When you have a GitLab Duo with Amazon Q subscription and GitLab 17.11 or later, you can
-[set up GitLab Duo with Amazon Q on your instance](setup.md).
+When you have a GitLab Duo with Amazon Q subscription and GitLab 17.11 or later, you can [set up GitLab Duo with Amazon Q on your instance](setup.md).
 
 ## Use GitLab Duo with Amazon Q in an issue
 
@@ -53,8 +51,7 @@ To invoke GitLab Duo with Amazon Q for an issue, you will use [quick actions](..
 
 Turn an idea in an issue into a merge request that contains the proposed implementation.
 
-Amazon Q uses the issue title and description, along with project context, to create a merge request
-with code to address the issue.
+Amazon Q uses the issue title and description, along with project context, to create a merge request with code to address the issue.
 
 #### From the issue description
 
@@ -98,8 +95,7 @@ To invoke GitLab Duo with Amazon Q for a merge request, you will use [quick acti
 ### Review a merge request
 
 Amazon Q can analyze your merge request and suggest improvements to your code.
-It can find things like security issues, quality issues, inefficiencies,
-and other errors.
+It can find things like security issues, quality issues, inefficiencies, and other errors.
 
 [You can have Amazon Q review automatically](setup.md#enter-the-arn-in-gitlab-and-enable-amazon-q)
 when you open or reopen a merge request, or you can manually start a review.
@@ -110,8 +106,7 @@ To manually start:
 1. On the **Overview** tab, in a comment, type `/q review`.
 1. Select **Comment**.
 
-Amazon Q performs a review of the merge request changes
-and displays the results in comments.
+Amazon Q performs a review of the merge request changes and displays the results in comments.
 
 ### Make code changes based on feedback
 
@@ -140,8 +135,7 @@ Amazon Q creates a merge request with the suggested tests.
 #### From a merge request
 
 1. Open your merge request.
-1. On the **Changes** tab, leave an inline comment where you want to add tests. Include
-   as much detail as possible in your feedback, such as file name, class name and line number.
+1. On the **Changes** tab, leave an inline comment where you want to add tests. Include as much detail as possible in your feedback, such as file name, class name and line number.
 1. In the comment, type `/q dev` on a new line and select **Add comment now**.
 
 Amazon Q updates the merge request with the suggested tests.

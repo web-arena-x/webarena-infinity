@@ -12,22 +12,14 @@ title: Web exporter (dedicated metrics server)
 
 {{< /details >}}
 
-Improve reliability and performance of your GitLab monitoring by collecting metrics
-separately from your main application server. A dedicated metrics server isolates
-monitoring traffic from user requests, preventing metrics collection from impacting
-application performance.
+Improve reliability and performance of your GitLab monitoring by collecting metrics separately from your main application server. A dedicated metrics server isolates monitoring traffic from user requests, preventing metrics collection from impacting application performance.
 
-For medium to large installations, this separation can provide more consistent data
-collection during peak usage times and can reduce the risk of missing critical metrics
-during high load periods.
+For medium to large installations, this separation can provide more consistent data collection during peak usage times and can reduce the risk of missing critical metrics during high load periods.
 
 ## How GitLab metrics collection works
 
-When monitoring GitLab with Prometheus, GitLab runs various collectors that
-sample the application for data related to usage, load and performance. GitLab can then make
-this data available to a Prometheus scraper by running one or more Prometheus exporters.
-A Prometheus exporter is an HTTP server that serializes metric data into a format the
-Prometheus scraper understands.
+When monitoring GitLab with Prometheus, GitLab runs various collectors that sample the application for data related to usage, load and performance. GitLab can then make this data available to a Prometheus scraper by running one or more Prometheus exporters.
+A Prometheus exporter is an HTTP server that serializes metric data into a format the Prometheus scraper understands.
 
 {{< alert type="note" >}}
 
@@ -38,24 +30,15 @@ To export background job metrics, learn how to [configure the Sidekiq metrics se
 
 We provide two mechanisms by which web application metrics can be exported:
 
-- Through the main Rails application. This means the application server we use,
-  Puma, makes metric data available through its own `/-/metrics` endpoint. This is the default,
-  and is described in GitLab Metrics. You should use this default
-  for small GitLab installations where the amount of metrics collected is small.
-- Through a dedicated metrics server. Enabling this server causes Puma to launch an
-  additional process whose sole responsibility is to serve metrics. This approach leads
-  to better fault isolation and performance for very large GitLab installations, but
-  comes with additional memory use. We recommend this approach for medium to large
-  GitLab installations that seek high performance and availability.
+- Through the main Rails application. This means the application server we use, Puma, makes metric data available through its own `/-/metrics` endpoint. This is the default, and is described in GitLab Metrics. You should use this default for small GitLab installations where the amount of metrics collected is small.
+- Through a dedicated metrics server. Enabling this server causes Puma to launch an additional process whose sole responsibility is to serve metrics. This approach leads to better fault isolation and performance for very large GitLab installations, but comes with additional memory use. We recommend this approach for medium to large GitLab installations that seek high performance and availability.
 
-Both the dedicated server and the Rails `/-/metrics` endpoint serve the same data, so
-they are functionally equivalent and differ merely in their performance characteristics.
+Both the dedicated server and the Rails `/-/metrics` endpoint serve the same data, so they are functionally equivalent and differ merely in their performance characteristics.
 
 To enable the dedicated server:
 
 1. [Enable Prometheus](_index.md#configuring-prometheus).
-1. Edit `/etc/gitlab/gitlab.rb` to add (or find and uncomment) the following lines. Make sure
-   `puma['exporter_enabled']` is set to `true`:
+1. Edit `/etc/gitlab/gitlab.rb` to add (or find and uncomment) the following lines. Make sure `puma['exporter_enabled']` is set to `true`:
 
    ```ruby
    puma['exporter_enabled'] = true

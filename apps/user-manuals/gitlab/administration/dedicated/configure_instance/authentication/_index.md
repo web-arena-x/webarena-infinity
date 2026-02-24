@@ -111,12 +111,10 @@ When configuring SAML SSO for Switchboard, you might encounter the following iss
 
 #### Error: `Invalid SAML response received...`
 
-This error occurs because Switchboard expects encrypted SAML assertions,
-but your identity provider is not configured to encrypt them:
+This error occurs because Switchboard expects encrypted SAML assertions, but your identity provider is not configured to encrypt them:
 
 ```plaintext
 Invalid SAML response received: Responses must contain exactly one Encrypted Assertion
 ```
 
-To resolve this issue, ensure the encryption certificate provided by GitLab
-is imported and enabled in your IdP application settings.
+To resolve this issue, ensure the encryption certificate provided by GitLab is imported and enabled in your IdP application settings.

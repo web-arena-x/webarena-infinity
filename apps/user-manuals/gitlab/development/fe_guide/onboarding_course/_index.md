@@ -55,9 +55,9 @@ GitLab team members are happy to support you regardless.
 ### Lesson 1
 
 - What is a development environment?
-  - What is the GDK?
-  - Installing the GDK.
-  - GDK tips and tricks.
-  - Using Gitpod to run the GDK.
+ - What is the GDK?
+ - Installing the GDK.
+ - GDK tips and tricks.
+ - Using Gitpod to run the GDK.
 - Navigating the GitLab codebase.
 - Writing a good merge request.

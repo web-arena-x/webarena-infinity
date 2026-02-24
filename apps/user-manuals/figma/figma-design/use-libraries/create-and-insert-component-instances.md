@@ -45,9 +45,9 @@ To open the Assets panel:
 3. Find the component you want to use
 4. Click and drag the component onto the canvas to create an instance of that component.
 
-**Tip**: You can customize the appearance of the Assets tab to match your preferences. Click  to switch between a grid or list view, and show or hide sub-folders.
+**Tip**: You can customize the appearance of the Assets tab to match your preferences. Click to switch between a grid or list view, and show or hide sub-folders.
 
-**Note**: Is the library you need missing from the Assets panel? Click  to browse available libraries in your team or organization and add them to your file.
+**Note**: Is the library you need missing from the Assets panel? Click to browse available libraries in your team or organization and add them to your file.
 
 - [Manage libraries for your drafts](https://help.figma.com/hc/en-us/articles/360038743434)
 - [Manage libraries in design files](https://help.figma.com/hc/en-us/articles/1500008731201)

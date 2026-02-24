@@ -16,7 +16,7 @@ You can apply a text style to an entire text layer or a range of text within a l
 
 Use the table below to see which properties are included in text styles. For more guidance on building typographic systems in Figma, check out our [best practices guide](https://www.figma.com/best-practices/typography-systems-in-figma/).
 
-|  |  |
+| | |
 | --- | --- |
 | **Text property** | **Supported in text styles** |
 | Font family, weight, and size | ✓ |
@@ -41,17 +41,17 @@ Create a text style from any text layer that has the properties you want to use.
 
 1. Select the layer.
 2. In the **Typography** section of the right sidebar, click .
-3. Click  to create a new style.
+3. Click to create a new style.
 4. Give the style a name and click **Create style** to apply.
 
 ### From Local styles
 
 Once you have created at least one color style within a file, you can view the **Text styles** section under **Local styles** in the right sidebar.
 
-1. Click  next to the **Text styles** section to create a new style.
+1. Click next to the **Text styles** section to create a new style.
 2. Give the style a name and description and click **Create style**.
 
-Tip! In the Create new text style modal, click  under the **Properties** section to view and edit more type settings.
+Tip! In the Create new text style modal, click under the **Properties** section to view and edit more type settings.
 
 ## Apply text styles
 
@@ -80,7 +80,7 @@ Edit local styles from the right sidebar and from the style picker.
 1. Click on an empty spot in the canvas to make sure you have nothing selected.
 2. In the right sidebar, you'll see a list of local styles.
 3. Hover over the style you want to edit.
-4. Click  to open the **Edit text style** modal.
+4. Click to open the **Edit text style** modal.
 5. Make your changes to the style properties. You can see a preview of your changes in the modal.
 6. Update the name and description (optional).
 7. Click anywhere outside the modal to save your changes.
@@ -89,7 +89,7 @@ Edit local styles from the right sidebar and from the style picker.
 
 1. Select a text layer that uses a text style. It doesn't have to be the text style you want to edit.
 2. In the **Typography** section of the right sidebar, click .
-3. Hover over the style you want to edit. Click  to open the **Edit text style** modal.
+3. Hover over the style you want to edit. Click to open the **Edit text style** modal.
 4. Make your changes to the style properties. You can see a preview of your changes in the modal.
 5. Update the name and description (optional).
 6. Click anywhere outside the modal to save your changes.
@@ -102,7 +102,7 @@ If your styles are published to a team library, you need to edit the style in th
 2. In the **Typography** section of the right sidebar, click .
 3. Right-click the style you want to edit and select **Go to style definition**.
 4. In the right sidebar, you'll see a list of local styles. Hover over the style you want to edit.
-5. Click  to open the **Edit text style** modal.
+5. Click to open the **Edit text style** modal.
 6. Make your changes to the style properties. You can see a preview of your changes in the modal.
 7. Update the name and description if needed, then click anywhere outside the modal to save your changes.
 

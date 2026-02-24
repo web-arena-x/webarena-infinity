@@ -153,8 +153,8 @@ In this section, you'll build a simple Kubernetes manifest as an OCI artifact, t
             MANIFEST_PATH: "./clusters/applications/nginx"
             IMAGE_TITLE: NGINX example   # Image title to use in OCI annotation
             AGENT_KUBECONTEXT: my-group/optional-subgroup/my-repository:testing
-            FLUX_OCI_REPO_NAME: nginx-example  # Flux OCIRepository to reconcile
-            NAMESPACE: flux-system  # Namespace for the OCIRepository resource
+            FLUX_OCI_REPO_NAME: nginx-example # Flux OCIRepository to reconcile
+            NAMESPACE: flux-system # Namespace for the OCIRepository resource
         # This section configures a GitLab environment for the nginx deployment specifically
         environment:
             name: applications/nginx
@@ -162,7 +162,7 @@ In this section, you'll build a simple Kubernetes manifest as an OCI artifact, t
                 agent: $AGENT_KUBECONTEXT
                 dashboard:
                   namespace: default
-                  flux_resource_path: kustomize.toolkit.fluxcd.io/v1/namespaces/flux-system/kustomizations/nginx-example  # You will deploy this resource in the next step
+                  flux_resource_path: kustomize.toolkit.fluxcd.io/v1/namespaces/flux-system/kustomizations/nginx-example # You will deploy this resource in the next step
         image:
             name: "fluxcd/flux-cli:v2.4.0"
             entrypoint: [""]

@@ -20,9 +20,8 @@ You can customize GitLab Duo to match your workflow, coding standards, or projec
 When you customize GitLab Duo, apply the following best practices:
 
 - Start with minimal, clear, and simple instructions, and add more as needed.
-  Keep the instruction file as short as possible.
-- Make sure the instructions are specific and actionable. Provide examples as
-  needed.
+ Keep the instruction file as short as possible.
+- Make sure the instructions are specific and actionable. Provide examples as needed.
 - Choose the method that matches your use case.
 - Combine multiple methods to tailor and control how GitLab Duo behaves.
 - Document your choices in comments to explain why certain instructions exist.

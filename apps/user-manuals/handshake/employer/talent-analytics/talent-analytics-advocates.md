@@ -34,9 +34,9 @@ If you do not have access, reach out to your company's Owner or Admin to request
 **The page features two header sections with the following summary metrics for all advocates**:
 
 - Engagement on campaigns including advocates
-  - This engagement rate is compared to campaigns without advocates.
-- Advocate response rate  
-  - % of initial candidate messages advocates responded to
+ - This engagement rate is compared to campaigns without advocates.
+- Advocate response rate 
+ - % of initial candidate messages advocates responded to
 
 2. Use the filter labeled **All time** above the header sections to filter the data by campaign date.
 
@@ -57,15 +57,15 @@ If you do not have access, reach out to your company's Owner or Admin to request
 **The table below the header sections contains the following metrics for each advocate**:
 
 - Advocate name
-  - If the Advocate no longer has the role of Advocate, the headline "Former Advocate" displays under their name.
+ - If the Advocate no longer has the role of Advocate, the headline "Former Advocate" displays under their name.
 - Days since active
-  - Note: if an advocate has never logged into Handshake, they still appear with an indication that they are not active (yet).
+ - Note: if an advocate has never logged into Handshake, they still appear with an indication that they are not active (yet).
 - Message inclusions
-  - Number of times advocate was introduced
+ - Number of times advocate was introduced
 - Candidate engaged
-  - Number of candidates who reached out to the advocate
+ - Number of candidates who reached out to the advocate
 - Response rate
-  - % of initial candidate messages advocates responded to
+ - % of initial candidate messages advocates responded to
 - Median response time
 
 ![Advocates engagement.png](https://support.joinhandshake.com/hc/article_attachments/25997411079959)

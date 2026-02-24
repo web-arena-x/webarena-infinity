@@ -20,7 +20,7 @@ You can add comments to design and [FigJam files](https://help.figma.com/hc/en-
 
 ## Browser and desktop app
 
-Click  in the toolbar, or press `C` to enter comment mode. Your cursor will turn into a .
+Click in the toolbar, or press `C` to enter comment mode. Your cursor will turn into a .
 
 ![An animation of a user adding a comment to a file. The user is typing we should update this button to reflect the current ui.](https://help.figma.com/hc/article_attachments/31566587262359)
 

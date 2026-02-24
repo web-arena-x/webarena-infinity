@@ -19,18 +19,17 @@ Some extra environment variables for the location of the forked repository are a
 - `QA_THIRD_PARTY_DOCKER_USER` (a username that has access to the container registry for this repository)
 - `QA_THIRD_PARTY_DOCKER_PASSWORD` (a password/token for the username to authenticate with)
 
-The test configures the GitLab plugin in Jenkins with a URL of the GitLab instance that are used
-to run the tests. Bi-directional networking is needed between a GitLab instance and Jenkins, so GitLab can also be started in a Docker container.
+The test configures the GitLab plugin in Jenkins with a URL of the GitLab instance that are used to run the tests. Bi-directional networking is needed between a GitLab instance and Jenkins, so GitLab can also be started in a Docker container.
 
 To start a Docker container for GitLab based on the nightly image:
 
 ```shell
 docker run \
-  --publish 80:80 \
-  --name gitlab \
-  --hostname localhost \
-  --network test
-  gitlab/gitlab-ee:nightly
+ --publish 80:80 \
+ --name gitlab \
+ --hostname localhost \
+ --network test
+ gitlab/gitlab-ee:nightly
 ```
 
 To run the tests from the `/qa` directory:
@@ -46,13 +45,11 @@ bin/qa Test::Instance::All http://localhost -- qa/specs/features/ee/browser_ui/3
 
 The test automatically spins up a Docker container for Jenkins and tear down once the test completes.
 
-If you need to run Jenkins manually outside of the tests, refer to the README for the
-[third party images project](https://gitlab.com/gitlab-org/quality/third-party-docker-public/-/blob/main/jenkins/README.md)
+If you need to run Jenkins manually outside of the tests, refer to the README for the [third party images project](https://gitlab.com/gitlab-org/quality/third-party-docker-public/-/blob/main/jenkins/README.md)
 
 ### Troubleshooting
 
-If Jenkins Docker container exits without providing any information in the logs, try increasing the memory used by
-the Docker Engine.
+If Jenkins Docker container exits without providing any information in the logs, try increasing the memory used by the Docker Engine.
 
 ## Gitaly Cluster (Praefect) tests
 
@@ -107,13 +104,13 @@ Finally, configure NGINX to pass requests for `gitlab-gitaly-cluster.test` to th
 # On macOS, in /usr/local/etc/nginx/nginx.conf
 
 server {
-  server_name gitlab-gitaly-cluster.test;
-  client_max_body_size 500m;
+ server_name gitlab-gitaly-cluster.test;
+ client_max_body_size 500m;
 
-  location / {
+ location / {
     proxy_pass http://127.0.0.1:32772;
     proxy_set_header Host gitlab-gitaly-cluster.test;
-  }
+ }
 }
 ```
 
@@ -153,16 +150,16 @@ Example:
 
 ```shell
 docker run \
-  --detach \
-  --hostname interface_ip_address \
-  --publish 80:80 \
-  --name gitlab \
-  --restart always \
-  --volume ~/ee_volume/config:/etc/gitlab \
-  --volume ~/ee_volume/logs:/var/log/gitlab \
-  --volume ~/ee_volume/data:/var/opt/gitlab \
-  --shm-size 256m \
-  gitlab/gitlab-ee:latest
+ --detach \
+ --hostname interface_ip_address \
+ --publish 80:80 \
+ --name gitlab \
+ --restart always \
+ --volume ~/ee_volume/config:/etc/gitlab \
+ --volume ~/ee_volume/logs:/var/log/gitlab \
+ --volume ~/ee_volume/data:/var/opt/gitlab \
+ --shm-size 256m \
+ gitlab/gitlab-ee:latest
 ```
 
 Where `interface_ip_address` is your local network's interface IP, which you can find with the `ifconfig` command.
@@ -376,8 +373,7 @@ For instructions on how to run these tests using the `gitlab-qa` gem, refer to [
 Tests that are tagged with `:ldap_tls` and `:ldap_no_tls` meta are orchestrated tests where the sign-in happens via LDAP.
 
 These tests spin up a Docker container [(`osixia/openldap`)](https://hub.docker.com/r/osixia/openldap) running an instance of [OpenLDAP](https://www.openldap.org/).
-The container uses fixtures [checked into the GitLab-QA repository](https://gitlab.com/gitlab-org/gitlab-qa/-/tree/9ffb9ad3be847a9054967d792d6772a74220fb42/fixtures/ldap) to create
-base data such as users and groups including the administrator group. The password for [all users](https://gitlab.com/gitlab-org/gitlab-qa/-/blob/9ffb9ad3be847a9054967d792d6772a74220fb42/fixtures/ldap/2_add_users.ldif) including [the `tanuki` user](https://gitlab.com/gitlab-org/gitlab-qa/-/blob/9ffb9ad3be847a9054967d792d6772a74220fb42/fixtures/ldap/tanuki.ldif) is `password`.
+The container uses fixtures [checked into the GitLab-QA repository](https://gitlab.com/gitlab-org/gitlab-qa/-/tree/9ffb9ad3be847a9054967d792d6772a74220fb42/fixtures/ldap) to create base data such as users and groups including the administrator group. The password for [all users](https://gitlab.com/gitlab-org/gitlab-qa/-/blob/9ffb9ad3be847a9054967d792d6772a74220fb42/fixtures/ldap/2_add_users.ldif) including [the `tanuki` user](https://gitlab.com/gitlab-org/gitlab-qa/-/blob/9ffb9ad3be847a9054967d792d6772a74220fb42/fixtures/ldap/tanuki.ldif) is `password`.
 
 A GitLab instance is also created in a Docker container based on our [LDAP setup](../../../../administration/auth/ldap/_index.md) documentation.
 
@@ -516,30 +512,30 @@ For example, to switch back and forth between the two environments, you could ut
 
 ```ruby
 it 'tests toggling between canary and non-canary nodes' do
-  Runtime::Browser.visit(:gitlab, Page::Main::Login)
+ Runtime::Browser.visit(:gitlab, Page::Main::Login)
 
-  # After starting the browser session, use the target_canary method ...
+ # After starting the browser session, use the target_canary method ...
 
-  Runtime::Browser::Session.target_canary(true)
-  Flow::Login.sign_in
+ Runtime::Browser::Session.target_canary(true)
+ Flow::Login.sign_in
 
-  verify_session_on_canary(true)
+ verify_session_on_canary(true)
 
-  Runtime::Browser::Session.target_canary(false)
+ Runtime::Browser::Session.target_canary(false)
 
-  # Refresh the page ...
+ # Refresh the page ...
 
-  verify_session_on_canary(false)
+ verify_session_on_canary(false)
 
-  # Log out and clean up ...
+ # Log out and clean up ...
 end
 
 def verify_session_on_canary(enable_canary)
-  Page::Main::Menu.perform do |menu|
+ Page::Main::Menu.perform do |menu|
     aggregate_failures 'testing session log in' do
       expect(menu.canary?).to be(enable_canary)
     end
-  end
+ end
 end
 ```
 
@@ -573,16 +569,16 @@ Additionally, the following setup is required on the GDK:
 
 - Set environment variables for product analytics configuration. The following variables are default for running devkit locally.
 
-  ```shell
-  export PA_CONFIGURATOR_URL=http://test:test@localhost:4567
-  export PA_COLLECTOR_HOST=http://localhost:9091
-  export PA_CUBE_API_URL=http://localhost:4000
-  export PA_CUBE_API_KEY=thisisnotarealkey43ff15165ce01e4ff47d75092e3b25b2c0b20dc27f6cd5a8aed7b7bd855df88c9e0748d7afd37adda6d981c16177b086acf496bbdc62dbb
-  ```
+ ```shell
+ export PA_CONFIGURATOR_URL=http://test:test@localhost:4567
+ export PA_COLLECTOR_HOST=http://localhost:9091
+ export PA_CUBE_API_URL=http://localhost:4000
+ export PA_CUBE_API_KEY=thisisnotarealkey43ff15165ce01e4ff47d75092e3b25b2c0b20dc27f6cd5a8aed7b7bd855df88c9e0748d7afd37adda6d981c16177b086acf496bbdc62dbb
+ ```
 
 - Ultimate license applied.
-  - [How to request the license](https://handbook.gitlab.com/handbook/developer-onboarding/#working-on-gitlab-ee-developer-licenses).
-  - [How to activate GitLab EE with a license file or key](https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/administration/license_file.md#activate-gitlab-ee-with-a-license-file-or-key).
+ - [How to request the license](https://handbook.gitlab.com/handbook/developer-onboarding/#working-on-gitlab-ee-developer-licenses).
+ - [How to activate GitLab EE with a license file or key](https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/administration/license_file.md#activate-gitlab-ee-with-a-license-file-or-key).
 - Simulate SaaS enabled. Instructions can be [found here](https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/development/ee_features.md#simulate-a-saas-instance).
 
 Once Product Analytics services are running and are connected to your GDK, the tests can be executed with:

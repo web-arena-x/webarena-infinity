@@ -51,20 +51,20 @@ Disclaimer: Zendesk doesn't provide support for the Power Query M language. See 
 If you are using the Power Query M language to query data, there’s a slight difference in the beginning part of the query. The legacy connector uses **Zendesk.Tables()** to initialize the Source:
 
 ```
-let  
-    Source = Zendesk.Tables("https://yoursubdomain.zendesk.com"),  
-    views = Source{[Key="tickets"]}[Data]  
-in  
+let 
+    Source = Zendesk.Tables("https://yoursubdomain.zendesk.com"), 
+    views = Source{[Key="tickets"]}[Data] 
+in 
     views
 ```
 
 The new connector uses **ZendeskData.Contents()** to initialize the Source:
 
 ```
-let  
-    Source = ZendeskData.Contents("https://yoursubdomain.zendesk.com", []),  
-    Users = Source{[Name="Users"]}[Data]  
-in  
+let 
+    Source = ZendeskData.Contents("https://yoursubdomain.zendesk.com", []), 
+    Users = Source{[Name="Users"]}[Data] 
+in 
     Users
 ```
 

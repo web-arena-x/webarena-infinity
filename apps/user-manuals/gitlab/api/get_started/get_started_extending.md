@@ -33,8 +33,7 @@ Use webhooks to notify external services about GitLab events.
 
 Webhooks listen for specific events like pushes, merges, and commits.
 When one of those events occurs, GitLab sends an HTTP POST payload to the webhook's configured URL.
-The payload sent by the webhook provides details about the event,
-like the event name, project ID, and user and commit details.
+The payload sent by the webhook provides details about the event, like the event name, project ID, and user and commit details.
 Then the external system identifies and processes the event.
 
 As an example, you can have a webhook that triggers a new Jenkins build every time code is pushed to GitLab.
@@ -42,8 +41,7 @@ As an example, you can have a webhook that triggers a new Jenkins build every ti
 You can configure webhooks per project or for the entire GitLab instance.
 Per-project webhooks listen to events for one particular project.
 
-You can use webhooks to integrate GitLab with a variety of external tools,
-including CI/CD systems, chat and messaging platforms, and monitoring and logging tools.
+You can use webhooks to integrate GitLab with a variety of external tools, including CI/CD systems, chat and messaging platforms, and monitoring and logging tools.
 
 For more information, see:
 
@@ -51,18 +49,15 @@ For more information, see:
 
 ## Step 3: Use the APIs
 
-Use the REST API or GraphQL API to interact programmatically with GitLab
-and build custom integrations, retrieve data, or automate processes.
-The APIs cover various aspects of GitLab, including projects, issues,
-merge requests, and repositories.
+Use the REST API or GraphQL API to interact programmatically with GitLab and build custom integrations, retrieve data, or automate processes.
+The APIs cover various aspects of GitLab, including projects, issues, merge requests, and repositories.
 
 The GitLab REST APIs follow RESTful principles and use JSON as the data format for requests and responses.
 You can authenticate these requests and responses by using personal access tokens or OAuth 2.0 tokens.
 
 GitLab also offers a GraphQL API, which is more flexible and efficient when querying data.
 
-Start by exploring the APIs with cURL or a REST client
-to understand the requests and responses.
+Start by exploring the APIs with cURL or a REST client to understand the requests and responses.
 Then use the API to automate tasks, like creating projects and adding members to groups.
 
 For more information, see:

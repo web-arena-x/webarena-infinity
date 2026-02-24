@@ -15,37 +15,37 @@ Access to Handshake consists of both configurable and non-configurable permissio
 **The default permissions for the Admin role are**:
 
 - **Posts**
-  - Post content (as yourself)
-  - Post content as your company
+ - Post content (as yourself)
+ - Post content as your company
 - **Jobs**
-  - View jobs
-  - Manage jobs
-  - Manage job applicants
+ - View jobs
+ - Manage jobs
+ - Manage job applicants
 - **On-Campus Interviews**
-  - View on-campus interviews
-  - Manage on-campus interviews
-  - Manage on-campus interviews applicants
+ - View on-campus interviews
+ - Manage on-campus interviews
+ - Manage on-campus interviews applicants
 - **Events**
-  - Attend events
-  - Manage events
-  - Manage event attendees
+ - Attend events
+ - Manage events
+ - Manage event attendees
 - **Career Fairs**
-  - Attend fairs
-  - Manage fairs
-  - Manage fair attendees
+ - Attend fairs
+ - Manage fairs
+ - Manage fair attendees
 - **1:1 Schedules (Limited)**
-  - Attend 1:1 schedules (Limited)
-  - Manage 1:1 schedules (Limited)
-  - Manage 1:1 schedule attendees (Limited)
+ - Attend 1:1 schedules (Limited)
+ - Manage 1:1 schedules (Limited)
+ - Manage 1:1 schedule attendees (Limited)
 - **Schools & Contacts**
-  - View schools
-  - Manage schools
-  - Manage contact list
+ - View schools
+ - Manage schools
+ - Manage contact list
 - **Candidate sourcing (1:1, Limited)**
 - **Administration**
-  - Manage team (*with the exception of other Administrators, or the Owner*)
-  - Manage employer settings
-  - Edit employer brand page
+ - Manage team (*with the exception of other Administrators, or the Owner*)
+ - Manage employer settings
+ - Edit employer brand page
 
 **Permissions with Essentials**
 
@@ -62,7 +62,7 @@ Access to Handshake consists of both configurable and non-configurable permissio
 **Permissions enabled for Admin when Essentials + Campaign add-on is added**:
 
 - **Candidate sourcing (Advanced)**
-  - Manage campaigns
+ - Manage campaigns
 
 **Non-configurable Essentials + Campaign add-on permissions**: 
 
@@ -73,23 +73,23 @@ Access to Handshake consists of both configurable and non-configurable permissio
 **TES-based permissions enabled**:
 
 - **Candidate sourcing (Advanced)**
-  - View candidate engagement
-  - Talent List
-  - Tagged in message intros or campaigns
-  - Candidate sourcing (Bulk Messaging)
-  - Message introductions
-  - Manage campaigns
+ - View candidate engagement
+ - Talent List
+ - Tagged in message intros or campaigns
+ - Candidate sourcing (Bulk Messaging)
+ - Message introductions
+ - Manage campaigns
 - **Schools & Contacts**
-  - Manage your school lists
-  - Manage your teammates’ school lists
+ - Manage your school lists
+ - Manage your teammates’ school lists
 - **Analytics & Reporting**
-  - Analytics (Standard)
-  - Insights (Standard)
+ - Analytics (Standard)
+ - Insights (Standard)
 
 **TES-based permissions available**:
 
 - **Candidate sourcing (Advanced)**
-  - Tagged in message intros or campaigns
+ - Tagged in message intros or campaigns
 
 **TES-based non-configurable permissions**: 
 
@@ -105,8 +105,8 @@ Access to Handshake consists of both configurable and non-configurable permissio
 
 - **Check-in kiosk**
 - **1:1 Schedules (Advanced)**
-  - Attend 1:1 schedules (Advanced)
-  - Manage 1:1 schedules (Advanced)
+ - Attend 1:1 schedules (Advanced)
+ - Manage 1:1 schedules (Advanced)
 - **Use mobile events app**
 
 **Permissions with School Explorer**

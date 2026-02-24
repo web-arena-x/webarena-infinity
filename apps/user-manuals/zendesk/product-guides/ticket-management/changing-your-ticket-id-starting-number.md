@@ -6,21 +6,18 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408886154906-Changing-you
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > Objects and rules > Tickets >
+Location: Admin Center > Objects and rules > Tickets >
 Settings
 
-By default your Zendesk Support ticket ID will start at 1, then increase. If you want your
-ticket IDs to begin at another number, you can manually set the starting number for the ticket
-ID counter. This change does not affect any current tickets existing in your account, only new
-tickets moving forward.
+By default your Zendesk Support ticket ID will start at 1, then increase. If you want your ticket IDs to begin at another number, you can manually set the starting number for the ticket ID counter. This change does not affect any current tickets existing in your account, only new tickets moving forward.
 
 **To change the ticket ID starting number**
 
@@ -29,8 +26,7 @@ tickets moving forward.
 2. Click **Assignments and notifications** to expand it.
 3. In the **Ticket IDs** field, enter a new number into the field.
 
-   You can increase
-   your current ticket ID but you can't decrease the number.
+   You can increase your current ticket ID but you can't decrease the number.
 
    Changing the ticket ID starting number can't be undone.
 

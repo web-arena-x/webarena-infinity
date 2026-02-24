@@ -7,8 +7,7 @@ title: Contribute to GitLab development
 ---
 
 Thank you for your interest in contributing to GitLab.
-You can contribute new features, changes to code or processes, typo fixes,
-or updates to language in the interface.
+You can contribute new features, changes to code or processes, typo fixes, or updates to language in the interface.
 
 This guide details how to contribute to the development of GitLab.
 
@@ -25,8 +24,7 @@ For a step-by-step guide for first-time contributors, see [Tutorial: Make a GitL
 
 {{< alert type="note" >}}
 
-All contributions must be submitted in English. GitLab engineering work is done in English,
-and merge requests and issues in other languages cannot be reviewed or accepted.
+All contributions must be submitted in English. GitLab engineering work is done in English, and merge requests and issues in other languages cannot be reviewed or accepted.
 
 {{< /alert >}}
 
@@ -45,8 +43,7 @@ For example:
 
 We have [development style guides for each technology](style_guides.md) to help you align with our coding standards.
 
-If you want to contribute to the [website](https://about.gitlab.com/) or the [handbook](https://handbook.gitlab.com/handbook/),
-go to the footer of any page and select **View page source** to open the page in the repository.
+If you want to contribute to the [website](https://about.gitlab.com/) or the [handbook](https://handbook.gitlab.com/handbook/), go to the footer of any page and select **View page source** to open the page in the repository.
 
 ## Choose or create an issue
 
@@ -66,30 +63,22 @@ For details, see [the issues workflow](issue_workflow.md).
 
 ## Join the community
 
-[Start your contributor onboarding](https://contributors.gitlab.com/start) to get access to
-the [community forks](https://gitlab.com/gitlab-community),
-a set of forks mirrored from GitLab repositories in order to improve the contributor experience.
-When you start onboarding you will receive an onboarding issue in the
-[community onboarding project](https://gitlab.com/gitlab-community/community-members/onboarding/-/issues).
+[Start your contributor onboarding](https://contributors.gitlab.com/start) to get access to the [community forks](https://gitlab.com/gitlab-community), a set of forks mirrored from GitLab repositories in order to improve the contributor experience.
+When you start onboarding you will receive an onboarding issue in the [community onboarding project](https://gitlab.com/gitlab-community/community-members/onboarding/-/issues).
 For more information, read about the community forks in the [Meta repository README](https://gitlab.com/gitlab-community/meta#why).
 
-Additionally, we recommend you join the [GitLab Discord server](https://discord.com/invite/gitlab),
-where GitLab team members and the wider community are ready and waiting to answer your questions
-and offer support for making contributions.
+Additionally, we recommend you join the [GitLab Discord server](https://discord.com/invite/gitlab), where GitLab team members and the wider community are ready and waiting to answer your questions and offer support for making contributions.
 
 ## Choose a development environment
 
 To write and test your code locally, choose a local development environment.
 
-- [GitLab Development Kit (GDK)](https://gitlab.com/gitlab-org/gitlab-development-kit), is a local
-  development environment that includes an installation of GitLab Self-Managed, sample projects,
-  and administrator access with which you can test functionality.
+- [GitLab Development Kit (GDK)](https://gitlab.com/gitlab-org/gitlab-development-kit), is a local development environment that includes an installation of GitLab Self-Managed, sample projects, and administrator access with which you can test functionality.
 
-- [GDK-in-a-box](first_contribution/configure-dev-env-gdk-in-a-box.md),
-  packages GDK into a pre-configured container image that you can connect to with VS Code.
-  Follow [Configure GDK-in-a-box](first_contribution/configure-dev-env-gdk-in-a-box.md) to set up GDK-in-a-box.
+- [GDK-in-a-box](first_contribution/configure-dev-env-gdk-in-a-box.md), packages GDK into a pre-configured container image that you can connect to with VS Code.
+ Follow [Configure GDK-in-a-box](first_contribution/configure-dev-env-gdk-in-a-box.md) to set up GDK-in-a-box.
 
-  To install GDK and its dependencies, follow the steps in [Install the GDK development environment](first_contribution/configure-dev-env-gdk.md).
+ To install GDK and its dependencies, follow the steps in [Install the GDK development environment](first_contribution/configure-dev-env-gdk.md).
 
 ## Make changes and open a merge request
 
@@ -104,19 +93,16 @@ Use `@gitlab-bot help` to ping a GitLab Merge Request coach. For more informatio
 
 ### How community merge requests are triaged
 
-When you create a merge request, a merge request coach will assign relevant reviewers or
-guide you through the review themselves if possible.
+When you create a merge request, a merge request coach will assign relevant reviewers or guide you through the review themselves if possible.
 
 The goal is to have a merge request reviewed within a week after a reviewer is assigned.
 At times this may take longer due to high workload, holidays, or other reasons.
-If you need to, find a
-[merge request coach](https://handbook.gitlab.com/handbook/marketing/developer-relations/contributor-success/merge-request-coach-lifecycle/#current-merge-request-coaches)
+If you need to, find a [merge request coach](https://handbook.gitlab.com/handbook/marketing/developer-relations/contributor-success/merge-request-coach-lifecycle/#current-merge-request-coaches)
 who specializes in the type of code you have written and mention them in the merge request.
 For example, if you have written some frontend code, you should mention the frontend merge request coach.
 If your code has multiple disciplines, you can mention multiple merge request coaches.
 
-For details about timelines and how you can request help or escalate a merge request,
-see the [Wider Community Merge Request guide](https://handbook.gitlab.com/handbook/engineering/infrastructure/engineering-productivity/merge-request-triage/).
+For details about timelines and how you can request help or escalate a merge request, see the [Wider Community Merge Request guide](https://handbook.gitlab.com/handbook/engineering/infrastructure/engineering-productivity/merge-request-triage/).
 
 After your merge request is reviewed and merged, your changes will be deployed to GitLab.com and included in the next release!
 
@@ -124,8 +110,7 @@ After your merge request is reviewed and merged, your changes will be deployed t
 
 When you submit code to GitLab, we really want it to get merged!
 However, we review submissions carefully, and this takes time.
-Code submissions are usually reviewed by two
-[domain experts](../code_review.md#domain-experts) before being merged:
+Code submissions are usually reviewed by two [domain experts](../code_review.md#domain-experts) before being merged:
 
 - A [reviewer](../code_review.md#the-responsibility-of-the-reviewer).
 - A [maintainer](../code_review.md#the-responsibility-of-the-maintainer).
@@ -139,13 +124,11 @@ Read our [merge request guidelines for contributors before you start for the fir
 
 - [Make sure to follow our commit message guidelines](merge_request_workflow.md#commit-messages-guidelines).
 - Write a great description that includes steps to reproduce your implementation.
-- Automated testing is required. Take your time to understand the different
-  [testing levels](../testing_guide/testing_levels.md#how-to-test-at-the-correct-level) and apply them accordingly.
+- Automated testing is required. Take your time to understand the different [testing levels](../testing_guide/testing_levels.md#how-to-test-at-the-correct-level) and apply them accordingly.
 
 ## Contributing to Premium/Ultimate features with an Enterprise Edition license
 
-If you would like to work on GitLab features that are within a paid tier, the code that lives in the
-[EE directory](https://gitlab.com/gitlab-org/gitlab/-/tree/master/ee), it requires a GitLab Enterprise Edition license.
+If you would like to work on GitLab features that are within a paid tier, the code that lives in the [EE directory](https://gitlab.com/gitlab-org/gitlab/-/tree/master/ee), it requires a GitLab Enterprise Edition license.
 Request an Enterprise Edition Developers License according to the [documented process](https://handbook.gitlab.com/handbook/marketing/developer-relations/contributor-success/community-contributors-workflows/#contributing-to-the-gitlab-enterprise-edition-ee).
 
 ## Get help
@@ -153,6 +136,6 @@ Request an Enterprise Edition Developers License according to the [documented pr
 How to find help contributing to GitLab:
 
 - Type `@gitlab-bot help` in a comment on a merge request or issue to tag a MR coach.
-  - See [How GitLab Merge Request Coaches Can Help You](merge_request_coaches.md) for more information.
+ - See [How GitLab Merge Request Coaches Can Help You](merge_request_coaches.md) for more information.
 - Join the [GitLab Community Discord](https://discord.gg/gitlab) and ask for help in the `#contribute` channel.
 - Email the Contributor Success team at `contributors@gitlab.com`.

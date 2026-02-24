@@ -28,7 +28,7 @@ GET /projects/:id/triggers
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/triggers"
+ --url "https://gitlab.example.com/api/v4/projects/1/triggers"
 ```
 
 ```json
@@ -45,8 +45,7 @@ curl --header "PRIVATE-TOKEN: <your_access_token>" \
 ]
 ```
 
-The trigger token is displayed in full if the trigger token was created by the authenticated
-user. Trigger tokens created by other users are shortened to four characters.
+The trigger token is displayed in full if the trigger token was created by the authenticated user. Trigger tokens created by other users are shortened to four characters.
 
 ## Get trigger token details
 
@@ -63,7 +62,7 @@ GET /projects/:id/triggers/:trigger_id
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/triggers/5"
+ --url "https://gitlab.example.com/api/v4/projects/1/triggers/5"
 ```
 
 ```json
@@ -93,9 +92,9 @@ POST /projects/:id/triggers
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --form description="my description" \
-  --url "https://gitlab.example.com/api/v4/projects/1/triggers"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --form description="my description" \
+ --url "https://gitlab.example.com/api/v4/projects/1/triggers"
 ```
 
 ```json
@@ -121,14 +120,14 @@ PUT /projects/:id/triggers/:trigger_id
 | Attribute     | Type           | Required | Description |
 |---------------|----------------|----------|-------------|
 | `id`          | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
-| `trigger_id`  | integer        | Yes      | The trigger ID |
+| `trigger_id` | integer        | Yes      | The trigger ID |
 | `description` | string         | No       | The trigger name |
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --form description="my description" \
-  --url "https://gitlab.example.com/api/v4/projects/1/triggers/10"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --form description="my description" \
+ --url "https://gitlab.example.com/api/v4/projects/1/triggers/10"
 ```
 
 ```json
@@ -158,8 +157,8 @@ DELETE /projects/:id/triggers/:trigger_id
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/triggers/5"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/triggers/5"
 ```
 
 ## Trigger a pipeline with a token
@@ -176,8 +175,7 @@ Trigger a pipeline by using a [pipeline trigger token](../ci/triggers/_index.md#
 or a [CI/CD job token](../ci/jobs/ci_job_token.md) for authentication.
 
 With a CI/CD job token, the [triggered pipeline is a multi-project pipeline](../ci/pipelines/downstream_pipelines.md#trigger-a-multi-project-pipeline-by-using-the-api).
-The job that authenticates the request becomes associated with the upstream pipeline,
-which is visible on the pipeline graph.
+The job that authenticates the request becomes associated with the upstream pipeline, which is visible on the pipeline graph.
 
 If you use a trigger token in a job, the job is not associated with the upstream pipeline.
 
@@ -199,52 +197,52 @@ Example request with [variables](../ci/variables/_index.md):
 
 ```shell
 curl --request POST \
-  --form "variables[VAR1]=value1" \
-  --form "variables[VAR2]=value2" \
-  --url "https://gitlab.example.com/api/v4/projects/123/trigger/pipeline?token=2cb1840fb9dfc9fb0b7b1609cd29cb&ref=main"
+ --form "variables[VAR1]=value1" \
+ --form "variables[VAR2]=value2" \
+ --url "https://gitlab.example.com/api/v4/projects/123/trigger/pipeline?token=2cb1840fb9dfc9fb0b7b1609cd29cb&ref=main"
 ```
 
 Example request with [inputs](../ci/inputs/_index.md):
 
 ```shell
 curl --request POST \
-  --header "Content-Type: application/json" \
-  --data '{"inputs": {"environment": "environment", "scan_security": false, "level": 3}}' \
-  --url "https://gitlab.example.com/api/v4/projects/123/trigger/pipeline?token=2cb1840fb9dfc9fb0b7b1609cd29cb&ref=main"
+ --header "Content-Type: application/json" \
+ --data '{"inputs": {"environment": "environment", "scan_security": false, "level": 3}}' \
+ --url "https://gitlab.example.com/api/v4/projects/123/trigger/pipeline?token=2cb1840fb9dfc9fb0b7b1609cd29cb&ref=main"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 257,
-  "iid": 118,
-  "project_id": 123,
-  "sha": "91e2711a93e5d9e8dddfeb6d003b636b25bf6fc9",
-  "ref": "main",
-  "status": "created",
-  "source": "trigger",
-  "created_at": "2022-03-31T01:12:49.068Z",
-  "updated_at": "2022-03-31T01:12:49.068Z",
-  "web_url": "http://127.0.0.1:3000/test-group/test-project/-/pipelines/257",
-  "before_sha": "0000000000000000000000000000000000000000",
-  "tag": false,
-  "yaml_errors": null,
-  "user": {
+ "id": 257,
+ "iid": 118,
+ "project_id": 123,
+ "sha": "91e2711a93e5d9e8dddfeb6d003b636b25bf6fc9",
+ "ref": "main",
+ "status": "created",
+ "source": "trigger",
+ "created_at": "2022-03-31T01:12:49.068Z",
+ "updated_at": "2022-03-31T01:12:49.068Z",
+ "web_url": "http://127.0.0.1:3000/test-group/test-project/-/pipelines/257",
+ "before_sha": "0000000000000000000000000000000000000000",
+ "tag": false,
+ "yaml_errors": null,
+ "user": {
     "id": 1,
     "username": "root",
     "name": "Administrator",
     "state": "active",
     "avatar_url": "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "web_url": "http://127.0.0.1:3000/root"
-  },
-  "started_at": null,
-  "finished_at": null,
-  "committed_at": null,
-  "duration": null,
-  "queued_duration": null,
-  "coverage": null,
-  "detailed_status": {
+ },
+ "started_at": null,
+ "finished_at": null,
+ "committed_at": null,
+ "duration": null,
+ "queued_duration": null,
+ "coverage": null,
+ "detailed_status": {
     "icon": "status_created",
     "text": "created",
     "label": "created",
@@ -254,7 +252,7 @@ Example response:
     "details_path": "/test-group/test-project/-/pipelines/257",
     "illustration": null,
     "favicon": "/assets/ci_favicons/favicon_status_created-4b975aa976d24e5a3ea7cd9a5713e6ce2cd9afd08b910415e96675de35f64955.png"
-  },
-  "archived": false
+ },
+ "archived": false
 }
 ```

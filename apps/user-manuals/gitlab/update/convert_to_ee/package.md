@@ -15,14 +15,11 @@ title: Convert a Linux package CE instance to EE
 You can convert an existing Linux package instance from Community Edition (CE) to Enterprise Edition (EE).
 To convert the instance, you install the EE Linux package on top of the CE instance.
 
-You don't need the same version of CE to EE. For example, CE 18.0 to EE 18.1 should work. However, upgrading the same
-version (for example, CE 18.1 to EE 18.1) is **recommended**.
+You don't need the same version of CE to EE. For example, CE 18.0 to EE 18.1 should work. However, upgrading the same version (for example, CE 18.1 to EE 18.1) is **recommended**.
 
 {{< alert type="warning" >}}
 
-After you convert from EE from CE, don't revert back to CE if you plan to go to EE again. Reverting back to CE can cause
-[database issues](package_troubleshooting.md#500-error-when-accessing-project-repository-settings) that may require
-Support intervention.
+After you convert from EE from CE, don't revert back to CE if you plan to go to EE again. Reverting back to CE can cause [database issues](package_troubleshooting.md#500-error-when-accessing-project-repository-settings) that may require Support intervention.
 
 {{< /alert >}}
 
@@ -57,9 +54,7 @@ To convert a Linux package CE instance to EE:
 
    {{< /tabs >}}
 
-1. Add the `gitlab-ee` [Apt or Yum repository](https://packages.gitlab.com/gitlab/gitlab-ee/install). These commands
-   find your OS version and automatically set up the repository. If you are not comfortable installing the repository
-   through a piped script, you can first [check the script's contents](https://packages.gitlab.com/gitlab/gitlab-ee/install).
+1. Add the `gitlab-ee` [Apt or Yum repository](https://packages.gitlab.com/gitlab/gitlab-ee/install). These commands find your OS version and automatically set up the repository. If you are not comfortable installing the repository through a piped script, you can first [check the script's contents](https://packages.gitlab.com/gitlab/gitlab-ee/install).
 
    {{< tabs >}}
 
@@ -81,8 +76,7 @@ To convert a Linux package CE instance to EE:
 
    {{< /tabs >}}
 
-   To use `dpkg` or `rpm` instead of using `apt-get` or `yum` follow
-   [upgrade with a downloaded package](../package/_index.md#upgrade-with-a-downloaded-package).
+   To use `dpkg` or `rpm` instead of using `apt-get` or `yum` follow [upgrade with a downloaded package](../package/_index.md#upgrade-with-a-downloaded-package).
 
 1. Install the `gitlab-ee` Linux package. The install automatically uninstalls the `gitlab-ce` package on your GitLab.
 
@@ -140,13 +134,10 @@ To convert a Linux package CE instance to EE:
 
    {{< /tabs >}}
 
-1. Optional. [Set up the Elasticsearch integration](../../integration/advanced_search/elasticsearch.md) to enable
-   [advanced search](../../user/search/advanced_search.md).
+1. Optional. [Set up the Elasticsearch integration](../../integration/advanced_search/elasticsearch.md) to enable [advanced search](../../user/search/advanced_search.md).
 
-That's it! You can now use GitLab Enterprise Edition! To upgrade to a newer
-version, follow [Upgrading Linux package instances](_index.md).
+That's it! You can now use GitLab Enterprise Edition! To upgrade to a newer version, follow [Upgrading Linux package instances](_index.md).
 
 ## Revert back to CE
 
-For information on reverting an EE instance to CE, see
-[how to revert from EE to CE](revert.md).
+For information on reverting an EE instance to CE, see [how to revert from EE to CE](revert.md).

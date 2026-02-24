@@ -36,10 +36,10 @@ Click the dropdown to choose an already existing label or type in the **Choose a
 
 - Adding an existing label: If you choose a label from the dropdown, the label will be applied to the Experience immediately. ![Tagged](https://support.joinhandshake.com/hc/article_attachments/15164831475351)
 - Creating a new label: after you click the **+ Create** button, in the popup that appears, enter the following information, then click the blue **Save** button: 
-  - **Label**: Type in the name of the employer label you would like create, select a
-  - **Used For**: select the best choice for items this label may be used on. If you only want this new label to be used on Experiences, select Experiences.
-  - **Type**: **Seen by staff only** or **Seen by staff and students (Public)**.
-  - Once the label is saved, the label will be applied directly to the experience. ![Create_Employer_Label_Image.png](https://support.joinhandshake.com/hc/article_attachments/25997002748951)
+ - **Label**: Type in the name of the employer label you would like create, select a
+ - **Used For**: select the best choice for items this label may be used on. If you only want this new label to be used on Experiences, select Experiences.
+ - **Type**: **Seen by staff only** or **Seen by staff and students (Public)**.
+ - Once the label is saved, the label will be applied directly to the experience. ![Create_Employer_Label_Image.png](https://support.joinhandshake.com/hc/article_attachments/25997002748951)
 
 ### Adding an employer label to multiple Experiences in bulk
 

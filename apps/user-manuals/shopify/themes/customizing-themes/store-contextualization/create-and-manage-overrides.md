@@ -70,20 +70,20 @@ After you add the **Quick order list** section, consider hiding the following bl
 
 ## Resetting your market to store Default
 
-You can reset the market's inheritance with the store Default content and layout by clicking the  icon. For more information on how sections are grouped into a page template, refer to [section groups](../theme-editor/customizing-sections.md#section-groups).
+You can reset the market's inheritance with the store Default content and layout by clicking the icon. For more information on how sections are grouped into a page template, refer to [section groups](../theme-editor/customizing-sections.md#section-groups).
 
 Understanding reset actions
 
 | Reset action | Description | Example |
 | --- | --- | --- |
-| **Reset a setting or visibility override on a section or block** | When you reset a setting or visibility override on a section or block, you're removing a specific override that was applied to the section or block. After the override is removed, the setting in the section or block will return to inheriting values used in the store Default. |  |
-| **Reset an entire section or block from the menu** | When you reset an entire section or block, you're removing all of the override settings that were applied to that section or block. After the overrides are removed, the section or block will return to inheriting all of the setting values used in the store Default. |  |
-| **Reset an entire template or section group** | When you reset a template, you're removing all of the override settings that were applied to the template sections, including changes made to the order of the sections. |  |
+| **Reset a setting or visibility override on a section or block** | When you reset a setting or visibility override on a section or block, you're removing a specific override that was applied to the section or block. After the override is removed, the setting in the section or block will return to inheriting values used in the store Default. | |
+| **Reset an entire section or block from the menu** | When you reset an entire section or block, you're removing all of the override settings that were applied to that section or block. After the overrides are removed, the section or block will return to inheriting all of the setting values used in the store Default. | |
+| **Reset an entire template or section group** | When you reset a template, you're removing all of the override settings that were applied to the template sections, including changes made to the order of the sections. | |
 
 #### Steps:
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Click **Edit theme** next to the theme that you want to edit.
 3. Click the **Market** drop-down menu at the top of the page, and then select a market that you want to customize.
-4. Find the template that you want to reset, and click the  icon.
+4. Find the template that you want to reset, and click the icon.
 5. Click **Save**.

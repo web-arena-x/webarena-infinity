@@ -5,27 +5,18 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: Upgrading external PostgreSQL databases
 ---
 
-When upgrading your PostgreSQL database engine, it is important to follow all steps
-recommended by the PostgreSQL community and your cloud provider. Two
-kinds of upgrades exist for PostgreSQL databases:
+When upgrading your PostgreSQL database engine, it is important to follow all steps recommended by the PostgreSQL community and your cloud provider. Two kinds of upgrades exist for PostgreSQL databases:
 
-- Minor version upgrades: These include only bug and security fixes. They are
-  always backward-compatible with your existing application database model.
+- Minor version upgrades: These include only bug and security fixes. They are always backward-compatible with your existing application database model.
 
-  The minor version upgrade process consists of replacing the PostgreSQL binaries
-  and restarting the database service. The data directory remains unchanged.
+ The minor version upgrade process consists of replacing the PostgreSQL binaries and restarting the database service. The data directory remains unchanged.
 
-- Major version upgrades: These change the internal storage format and the database
-  catalog. As a result, object statistics used by the query optimizer
-  [are not transferred to the new version](https://www.postgresql.org/docs/16/pgupgrade.html)
-  and must be rebuilt with `ANALYZE`.
+- Major version upgrades: These change the internal storage format and the database catalog. As a result, object statistics used by the query optimizer [are not transferred to the new version](https://www.postgresql.org/docs/16/pgupgrade.html)
+ and must be rebuilt with `ANALYZE`.
 
-  Not following the documented major version upgrade process often results in
-  poor database performance and high CPU use on the database server.
+ Not following the documented major version upgrade process often results in poor database performance and high CPU use on the database server.
 
-All major cloud providers support in-place major version upgrades of database
-instances, using the `pg_upgrade` utility. However you must follow the pre- and
-post- upgrade steps to reduce the risk of performance degradation or database disruption.
+All major cloud providers support in-place major version upgrades of database instances, using the `pg_upgrade` utility. However you must follow the pre- and post- upgrade steps to reduce the risk of performance degradation or database disruption.
 
 Read carefully the major version upgrade steps of your external database platform:
 
@@ -37,14 +28,9 @@ Read carefully the major version upgrade steps of your external database platfor
 ## Always `ANALYZE` your database after a major version upgrade
 
 It is mandatory to run the [`ANALYZE` operation](https://www.postgresql.org/docs/16/sql-analyze.html)
-to refresh the `pg_statistic` table after a major version upgrade, because optimizer statistics
-[are not transferred by `pg_upgrade`](https://www.postgresql.org/docs/16/pgupgrade.html).
+to refresh the `pg_statistic` table after a major version upgrade, because optimizer statistics [are not transferred by `pg_upgrade`](https://www.postgresql.org/docs/16/pgupgrade.html).
 This should be done for all databases on the upgraded PostgreSQL service/instance/cluster.
 
-When you plan your maintenance window, you should include the `ANALYZE` duration
-because this operation might significantly degrade GitLab performance.
+When you plan your maintenance window, you should include the `ANALYZE` duration because this operation might significantly degrade GitLab performance.
 
-To speed up the `ANALYZE` operation, use the
-[`vacuumdb` utility](https://www.postgresql.org/docs/16/app-vacuumdb.html),
-with `--analyze-only --jobs=njobs` to execute the `ANALYZE` command in parallel by
-running `njobs` commands simultaneously.
+To speed up the `ANALYZE` operation, use the [`vacuumdb` utility](https://www.postgresql.org/docs/16/app-vacuumdb.html), with `--analyze-only --jobs=njobs` to execute the `ANALYZE` command in parallel by running `njobs` commands simultaneously.

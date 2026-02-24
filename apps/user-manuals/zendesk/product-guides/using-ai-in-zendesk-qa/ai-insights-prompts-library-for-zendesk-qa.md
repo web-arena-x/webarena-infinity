@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/9250434748058-AI-insights-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Quality Assurance (QA) or Workforce Engagement Management (WEM) |
 
@@ -14,24 +14,18 @@ Verified AI summary ◀▼
 
 The AI insights prompts library, part of the early access program, helps you enhance quality assurance by using AI models for autoscoring and risk detection. Customize or use pre-made prompts focused on soft skills and industry needs to improve agent performance. Ensure your prompts work by filtering conversations based on results. Explore categories like communication clarity, data privacy, and more.
 
-Location:  Zendesk QA > Settings > AI
+Location: Zendesk QA > Settings > AI
 
-Zendesk QA [prompt-based categories](https://support.zendesk.com/hc/en-us/articles/9277382490138) and [spotlights](https://support.zendesk.com/hc/en-us/articles/9327313916570) leverage the latest AI models, allowing you to
-customize AI-powered prompts using natural language for quality [autoscoring](https://support.zendesk.com/hc/en-us/articles/7043747123354#understanding_autoscoring_categories) and risk detection.
+Zendesk QA [prompt-based categories](https://support.zendesk.com/hc/en-us/articles/9277382490138) and [spotlights](https://support.zendesk.com/hc/en-us/articles/9327313916570) leverage the latest AI models, allowing you to customize AI-powered prompts using natural language for quality [autoscoring](https://support.zendesk.com/hc/en-us/articles/7043747123354#understanding_autoscoring_categories) and risk detection.
 
-When creating new AI insights, you can access the AI prompt library by clicking the
-Prompt Library button under the AI Insight Description.
+When creating new AI insights, you can access the AI prompt library by clicking the Prompt Library button under the AI Insight Description.
 
-The AI insights prompt library offers a curated selection of prompts focused on
-soft skills and organized by industry-specific needs, simplifying implementation. You
-can use these prompts as they are or customize them to fit your specific
-requirements.
+The AI insights prompt library offers a curated selection of prompts focused on soft skills and organized by industry-specific needs, simplifying implementation. You can use these prompts as they are or customize them to fit your specific requirements.
 
 Related articles
 
 - [About AI insights in Zendesk QA](https://support.zendesk.com/hc/en-us/articles/9224552305946)
-- [Best practices for creating AI insights prompts
-  in Zendesk QA](https://support.zendesk.com/hc/en-us/articles/9464975500954)
+- [Best practices for creating AI insights prompts in Zendesk QA](https://support.zendesk.com/hc/en-us/articles/9464975500954)
 
 The following prompts are available:
 
@@ -42,7 +36,7 @@ The following prompts are available:
 
 ## Category prompts list
 
-|  |  |
+| | |
 | --- | --- |
 | **Category prompt** | **Description** |
 | **General** | |
@@ -99,7 +93,7 @@ The following prompts are available:
 | PII sharing | Did the agent provide information about date of birth, bank account, credit card number or social security number? |
 | Sharing confidential information | Did the agent share information not necessarily available to the public, such as new listings, marketing strategies, and so on? |
 | Unnecessary financial guidance | Did the agent share trading tips or suggestions that can lead to customers losing their assets? |
-| **Retail** |  |
+| **Retail** | |
 | Appropriate discount offer | Did the agent offer percentage discount at the right time? |
 | Communication alignment | The agent fully aligned with the customer's effort level (e.g., highly empathetic and reassuring when high effort was detected). |
 | Consumer rights | Did the agent show that they know and adhere to consumer protection laws, such as the US Federal Trade Commission (FTC) regulations and the EU Consumer Rights Directive, when addressing client concerns and complaints? |
@@ -127,7 +121,7 @@ The following prompts are available:
 
 ## Spotlight prompts list
 
-|  |  |
+| | |
 | --- | --- |
 | **Spotlight prompt** | **Description** |
 | **General** | |

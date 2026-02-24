@@ -12,9 +12,7 @@ title: Snippets API
 
 {{< /details >}}
 
-Use this API to manage [snippets](../user/snippets.md). Related APIs exist for
-[project snippets](project_snippets.md) and
-[moving snippets between storages](snippet_repository_storage_moves.md).
+Use this API to manage [snippets](../user/snippets.md). Related APIs exist for [project snippets](project_snippets.md) and [moving snippets between storages](snippet_repository_storage_moves.md).
 
 ## List all snippets for current user
 
@@ -28,35 +26,34 @@ Supported attributes:
 
 | Attribute        | Type     | Required | Description |
 |------------------|----------|----------|-------------|
-| `created_after`  | datetime | No       | Return snippets created after the given time. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
+| `created_after` | datetime | No       | Return snippets created after the given time. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
 | `created_before` | datetime | No       | Return snippets created before the given time. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
-| `page`           | integer  | No       | Page to retrieve. |
-| `per_page`       | integer  | No       | Number of snippets to return per page. |
+| `page`           | integer | No       | Page to retrieve. |
+| `per_page`       | integer | No       | Number of snippets to return per page. |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute       | Type    | Description |
 |-----------------|---------|-------------|
-| `author`        | object  | User object representing snippet author. |
-| `created_at`    | string  | Date and time when snippet was created. |
-| `description`   | string  | Description of snippet. |
-| `file_name`     | string  | Name of snippet file. |
+| `author`        | object | User object representing snippet author. |
+| `created_at`    | string | Date and time when snippet was created. |
+| `description`   | string | Description of snippet. |
+| `file_name`     | string | Name of snippet file. |
 | `id`            | integer | ID of snippet. |
 | `imported`      | boolean | If `true`, the snippet was imported. |
-| `imported_from` | string  | Source of import. |
+| `imported_from` | string | Source of import. |
 | `project_id`    | integer | ID of associated project. For personal snippets, `null`. |
-| `raw_url`       | string  | URL to raw snippet content. |
-| `title`         | string  | Title of snippet. |
-| `updated_at`    | string  | Date and time when snippet was last updated. |
-| `visibility`    | string  | Visibility level of snippet. |
-| `web_url`       | string  | URL to snippet in GitLab UI. |
+| `raw_url`       | string | URL to raw snippet content. |
+| `title`         | string | Title of snippet. |
+| `updated_at`    | string | Date and time when snippet was last updated. |
+| `visibility`    | string | Visibility level of snippet. |
+| `web_url`       | string | URL to snippet in GitLab UI. |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/snippets"
+ --url "https://gitlab.example.com/api/v4/snippets"
 ```
 
 Example response:
@@ -124,60 +121,59 @@ Supported attributes:
 |-----------|---------|----------|----------------------------|
 | `id`      | integer | Yes      | ID of snippet to retrieve. |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute          | Type    | Description |
 |--------------------|---------|-------------|
-| `author`           | object  | User object representing snippet author. |
-| `created_at`       | string  | Date and time when snippet was created. |
-| `description`      | string  | Description of snippet. |
-| `expires_at`       | string  | Date and time when snippet expires. |
-| `file_name`        | string  | Name of snippet file. |
-| `http_url_to_repo` | string  | HTTP URL to snippet repository. |
+| `author`           | object | User object representing snippet author. |
+| `created_at`       | string | Date and time when snippet was created. |
+| `description`      | string | Description of snippet. |
+| `expires_at`       | string | Date and time when snippet expires. |
+| `file_name`        | string | Name of snippet file. |
+| `http_url_to_repo` | string | HTTP URL to snippet repository. |
 | `id`               | integer | ID of snippet. |
 | `imported`         | boolean | If `true`, the snippet was imported. |
-| `imported_from`    | string  | Source of import. |
+| `imported_from`    | string | Source of import. |
 | `project_id`       | integer | ID of associated project. For personal snippets, `null`. |
-| `raw_url`          | string  | URL to raw snippet content. |
-| `ssh_url_to_repo`  | string  | SSH URL to snippet repository. |
-| `title`            | string  | Title of snippet. |
-| `updated_at`       | string  | Date and time when snippet was last updated. |
-| `visibility`       | string  | Visibility level of snippet. |
-| `web_url`          | string  | URL to snippet in GitLab UI. |
+| `raw_url`          | string | URL to raw snippet content. |
+| `ssh_url_to_repo` | string | SSH URL to snippet repository. |
+| `title`            | string | Title of snippet. |
+| `updated_at`       | string | Date and time when snippet was last updated. |
+| `visibility`       | string | Visibility level of snippet. |
+| `web_url`          | string | URL to snippet in GitLab UI. |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/snippets/1"
+ --url "https://gitlab.example.com/api/v4/snippets/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "title": "test",
-  "file_name": "add.rb",
-  "description": "Ruby test snippet",
-  "visibility": "private",
-  "imported": false,
-  "imported_from": "none",
-  "author": {
+ "id": 1,
+ "title": "test",
+ "file_name": "add.rb",
+ "description": "Ruby test snippet",
+ "visibility": "private",
+ "imported": false,
+ "imported_from": "none",
+ "author": {
     "id": 1,
     "username": "john_smith",
     "email": "john@example.com",
     "name": "John Smith",
     "state": "active",
     "created_at": "2012-05-23T08:00:58Z"
-  },
-  "expires_at": null,
-  "updated_at": "2012-06-28T10:52:04Z",
-  "created_at": "2012-06-28T10:52:04Z",
-  "project_id": null,
-  "web_url": "http://example.com/snippets/1",
-  "raw_url": "http://example.com/snippets/1/raw"
+ },
+ "expires_at": null,
+ "updated_at": "2012-06-28T10:52:04Z",
+ "created_at": "2012-06-28T10:52:04Z",
+ "project_id": null,
+ "web_url": "http://example.com/snippets/1",
+ "raw_url": "http://example.com/snippets/1/raw"
 }
 ```
 
@@ -201,7 +197,7 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/snippets/1/raw"
+ --url "https://gitlab.example.com/api/v4/snippets/1/raw"
 ```
 
 Example response:
@@ -222,9 +218,9 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description |
 |-------------|---------|----------|-------------|
-| `file_path` | string  | Yes      | URL-encoded path to file. |
+| `file_path` | string | Yes      | URL-encoded path to file. |
 | `id`        | integer | Yes      | ID of snippet to retrieve. |
-| `ref`       | string  | Yes      | Reference to a tag, branch or commit. |
+| `ref`       | string | Yes      | Reference to a tag, branch or commit. |
 
 If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the raw file content.
 
@@ -232,7 +228,7 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/snippets/1/files/main/snippet%2Erb/raw"
+ --url "https://gitlab.example.com/api/v4/snippets/1/files/main/snippet%2Erb/raw"
 ```
 
 Example response:
@@ -265,28 +261,27 @@ Supported attributes:
 | `files`           | array of hashes | No       | An array of snippet files. |
 | `visibility`      | string          | No       | Visibility level for the snippet. Possible values: `public`, `private`, and `internal`. On GitLab.com, the `internal` value is not available. |
 
-If successful, returns [`201 Created`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`201 Created`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute          | Type    | Description |
 |--------------------|---------|-------------|
-| `author`           | object  | User object representing snippet author. |
-| `created_at`       | string  | Date and time when snippet was created. |
-| `description`      | string  | Description of snippet. |
-| `expires_at`       | string  | Date and time when snippet expires. |
-| `file_name`        | string  | Name of snippet file. |
+| `author`           | object | User object representing snippet author. |
+| `created_at`       | string | Date and time when snippet was created. |
+| `description`      | string | Description of snippet. |
+| `expires_at`       | string | Date and time when snippet expires. |
+| `file_name`        | string | Name of snippet file. |
 | `files`            | array   | Array of snippet files. |
-| `http_url_to_repo` | string  | HTTP URL to snippet repository. |
+| `http_url_to_repo` | string | HTTP URL to snippet repository. |
 | `id`               | integer | ID of snippet. |
 | `imported`         | boolean | If `true`, the snippet was imported. |
-| `imported_from`    | string  | Source of import. |
+| `imported_from`    | string | Source of import. |
 | `project_id`       | integer | ID of associated project. For personal snippets, `null`. |
-| `raw_url`          | string  | URL to raw snippet content. |
-| `ssh_url_to_repo`  | string  | SSH URL to snippet repository. |
-| `title`            | string  | Title of snippet. |
-| `updated_at`       | string  | Date and time when snippet was last updated. |
-| `visibility`       | string  | Visibility level of snippet. |
-| `web_url`          | string  | URL to snippet in GitLab UI. |
+| `raw_url`          | string | URL to raw snippet content. |
+| `ssh_url_to_repo` | string | SSH URL to snippet repository. |
+| `title`            | string | Title of snippet. |
+| `updated_at`       | string | Date and time when snippet was last updated. |
+| `visibility`       | string | Visibility level of snippet. |
+| `web_url`          | string | URL to snippet in GitLab UI. |
 
 Example request:
 
@@ -301,15 +296,15 @@ curl --request POST "https://gitlab.example.com/api/v4/snippets" \
 
 ```json
 {
-  "title": "This is a snippet",
-  "description": "Hello World snippet",
-  "visibility": "internal",
-  "files": [
+ "title": "This is a snippet",
+ "description": "Hello World snippet",
+ "visibility": "internal",
+ "files": [
     {
       "content": "Hello world",
       "file_path": "test.txt"
     }
-  ]
+ ]
 }
 ```
 
@@ -317,35 +312,35 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "title": "This is a snippet",
-  "description": "Hello World snippet",
-  "visibility": "internal",
-  "imported": false,
-  "imported_from": "none",
-  "author": {
+ "id": 1,
+ "title": "This is a snippet",
+ "description": "Hello World snippet",
+ "visibility": "internal",
+ "imported": false,
+ "imported_from": "none",
+ "author": {
     "id": 1,
     "username": "john_smith",
     "email": "john@example.com",
     "name": "John Smith",
     "state": "active",
     "created_at": "2012-05-23T08:00:58Z"
-  },
-  "expires_at": null,
-  "updated_at": "2012-06-28T10:52:04Z",
-  "created_at": "2012-06-28T10:52:04Z",
-  "project_id": null,
-  "web_url": "http://example.com/snippets/1",
-  "raw_url": "http://example.com/snippets/1/raw",
-  "ssh_url_to_repo": "ssh://git@gitlab.example.com:snippets/1.git",
-  "http_url_to_repo": "https://gitlab.example.com/snippets/1.git",
-  "file_name": "test.txt",
-  "files": [
+ },
+ "expires_at": null,
+ "updated_at": "2012-06-28T10:52:04Z",
+ "created_at": "2012-06-28T10:52:04Z",
+ "project_id": null,
+ "web_url": "http://example.com/snippets/1",
+ "raw_url": "http://example.com/snippets/1/raw",
+ "ssh_url_to_repo": "ssh://git@gitlab.example.com:snippets/1.git",
+ "http_url_to_repo": "https://gitlab.example.com/snippets/1.git",
+ "file_name": "test.txt",
+ "files": [
     {
       "path": "text.txt",
       "raw_url": "https://gitlab.example.com/-/snippets/1/raw/main/renamed.md"
     }
-  ]
+ ]
 }
 ```
 
@@ -376,28 +371,27 @@ Supported attributes:
 | `title`               | string          | No            | Title of a snippet. |
 | `visibility`          | string          | No            | Visibility level for the snippet. Possible values: `public`, `private`, and `internal`. On GitLab.com, the `internal` value is not available. |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute          | Type    | Description |
 |--------------------|---------|-------------|
-| `author`           | object  | User object representing snippet author. |
-| `created_at`       | string  | Date and time when snippet was created. |
-| `description`      | string  | Description of snippet. |
-| `expires_at`       | string  | Date and time when snippet expires. |
-| `file_name`        | string  | Name of snippet file. |
+| `author`           | object | User object representing snippet author. |
+| `created_at`       | string | Date and time when snippet was created. |
+| `description`      | string | Description of snippet. |
+| `expires_at`       | string | Date and time when snippet expires. |
+| `file_name`        | string | Name of snippet file. |
 | `files`            | array   | Array of snippet files. |
-| `http_url_to_repo` | string  | HTTP URL to snippet repository. |
+| `http_url_to_repo` | string | HTTP URL to snippet repository. |
 | `id`               | integer | ID of snippet. |
 | `imported`         | boolean | If `true`, the snippet was imported. |
-| `imported_from`    | string  | Source of import. |
+| `imported_from`    | string | Source of import. |
 | `project_id`       | integer | ID of associated project. For personal snippets, `null`. |
-| `raw_url`          | string  | URL to raw snippet content. |
-| `ssh_url_to_repo`  | string  | SSH URL to snippet repository. |
-| `title`            | string  | Title of snippet. |
-| `updated_at`       | string  | Date and time when snippet was last updated. |
-| `visibility`       | string  | Visibility level of snippet. |
-| `web_url`          | string  | URL to snippet in GitLab UI. |
+| `raw_url`          | string | URL to raw snippet content. |
+| `ssh_url_to_repo` | string | SSH URL to snippet repository. |
+| `title`            | string | Title of snippet. |
+| `updated_at`       | string | Date and time when snippet was last updated. |
+| `visibility`       | string | Visibility level of snippet. |
+| `web_url`          | string | URL to snippet in GitLab UI. |
 
 Example request:
 
@@ -412,14 +406,14 @@ curl --request PUT "https://gitlab.example.com/api/v4/snippets/1" \
 
 ```json
 {
-  "title": "foo",
-  "files": [
+ "title": "foo",
+ "files": [
     {
       "action": "move",
       "previous_path": "test.txt",
       "file_path": "renamed.md"
     }
-  ]
+ ]
 }
 ```
 
@@ -427,35 +421,35 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "title": "test",
-  "description": "description of snippet",
-  "visibility": "internal",
-  "imported": false,
-  "imported_from": "none",
-  "author": {
+ "id": 1,
+ "title": "test",
+ "description": "description of snippet",
+ "visibility": "internal",
+ "imported": false,
+ "imported_from": "none",
+ "author": {
     "id": 1,
     "username": "john_smith",
     "email": "john@example.com",
     "name": "John Smith",
     "state": "active",
     "created_at": "2012-05-23T08:00:58Z"
-  },
-  "expires_at": null,
-  "updated_at": "2012-06-28T10:52:04Z",
-  "created_at": "2012-06-28T10:52:04Z",
-  "project_id": null,
-  "web_url": "http://example.com/snippets/1",
-  "raw_url": "http://example.com/snippets/1/raw",
-  "ssh_url_to_repo": "ssh://git@gitlab.example.com:snippets/1.git",
-  "http_url_to_repo": "https://gitlab.example.com/snippets/1.git",
-  "file_name": "renamed.md",
-  "files": [
+ },
+ "expires_at": null,
+ "updated_at": "2012-06-28T10:52:04Z",
+ "created_at": "2012-06-28T10:52:04Z",
+ "project_id": null,
+ "web_url": "http://example.com/snippets/1",
+ "raw_url": "http://example.com/snippets/1/raw",
+ "ssh_url_to_repo": "ssh://git@gitlab.example.com:snippets/1.git",
+ "http_url_to_repo": "https://gitlab.example.com/snippets/1.git",
+ "file_name": "renamed.md",
+ "files": [
     {
       "path": "renamed.md",
       "raw_url": "https://gitlab.example.com/-/snippets/1/raw/main/renamed.md"
     }
-  ]
+ ]
 }
 ```
 
@@ -477,13 +471,13 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/snippets/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/snippets/1"
 ```
 
 The following are possible return codes:
 
-| Code  | Description |
+| Code | Description |
 |-------|-------------|
 | `204` | Delete was successful. No data is returned. |
 | `404` | Snippet wasn't found. |
@@ -500,33 +494,32 @@ Supported attributes:
 
 | Attribute        | Type     | Required | Description |
 |------------------|----------|----------|-------------|
-| `created_after`  | datetime | No       | Return snippets created after the given time. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
+| `created_after` | datetime | No       | Return snippets created after the given time. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
 | `created_before` | datetime | No       | Return snippets created before the given time. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
-| `page`           | integer  | No       | Page to retrieve. |
-| `per_page`       | integer  | No       | Number of snippets to return per page. |
+| `page`           | integer | No       | Page to retrieve. |
+| `per_page`       | integer | No       | Number of snippets to return per page. |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute     | Type    | Description |
 |---------------|---------|-------------|
-| `author`      | object  | User object representing snippet author. |
-| `created_at`  | string  | Date and time when snippet was created. |
-| `description` | string  | Description of snippet. |
-| `file_name`   | string  | Name of snippet file. |
+| `author`      | object | User object representing snippet author. |
+| `created_at` | string | Date and time when snippet was created. |
+| `description` | string | Description of snippet. |
+| `file_name`   | string | Name of snippet file. |
 | `id`          | integer | ID of snippet. |
-| `project_id`  | integer | ID of associated project. For personal snippets, `null`. |
-| `raw_url`     | string  | URL to raw snippet content. |
-| `title`       | string  | Title of snippet. |
-| `updated_at`  | string  | Date and time when snippet was last updated. |
-| `visibility`  | string  | Visibility level of snippet. |
-| `web_url`     | string  | URL to snippet in GitLab UI. |
+| `project_id` | integer | ID of associated project. For personal snippets, `null`. |
+| `raw_url`     | string | URL to raw snippet content. |
+| `title`       | string | Title of snippet. |
+| `updated_at` | string | Date and time when snippet was last updated. |
+| `visibility` | string | Visibility level of snippet. |
+| `web_url`     | string | URL to snippet in GitLab UI. |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/snippets/public?per_page=2&page=1"
+ --url "https://gitlab.example.com/api/v4/snippets/public?per_page=2&page=1"
 ```
 
 Example response:
@@ -582,8 +575,7 @@ Example response:
 {{< /history >}}
 
 List all snippets the current user has access to.
-Users with the Administrator or Auditor access levels can see all snippets
-(both personal and project).
+Users with the Administrator or Auditor access levels can see all snippets (both personal and project).
 
 ```plaintext
 GET /snippets/all
@@ -595,43 +587,42 @@ Supported attributes:
 |----------------------|----------|----------|-------------|
 | `created_after`      | datetime | No       | Return snippets created after the given time. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
 | `created_before`     | datetime | No       | Return snippets created before the given time. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
-| `page`               | integer  | No       | Page to retrieve. |
-| `per_page`           | integer  | No       | Number of snippets to return per page. |
+| `page`               | integer | No       | Page to retrieve. |
+| `per_page`           | integer | No       | Number of snippets to return per page. |
 | `repository_storage` | string   | No       | Filter by repository storage used by snippet _(administrators only)_. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/419640) in GitLab 16.3. |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute            | Type    | Description |
 |----------------------|---------|-------------|
-| `author`             | object  | User object representing snippet author. |
-| `created_at`         | string  | Date and time when snippet was created. |
-| `description`        | string  | Description of snippet. |
-| `file_name`          | string  | Name of snippet file. |
+| `author`             | object | User object representing snippet author. |
+| `created_at`         | string | Date and time when snippet was created. |
+| `description`        | string | Description of snippet. |
+| `file_name`          | string | Name of snippet file. |
 | `files`              | array   | Array of snippet files. |
 | `id`                 | integer | ID of snippet. |
 | `imported`           | boolean | If `true`, the snippet was imported. |
-| `imported_from`      | string  | Source of import. |
+| `imported_from`      | string | Source of import. |
 | `project_id`         | integer | ID of associated project. For personal snippets, `null`. |
-| `raw_url`            | string  | URL to raw snippet content. |
-| `repository_storage` | string  | Repository storage used by snippet. |
-| `title`              | string  | Title of snippet. |
-| `updated_at`         | string  | Date and time when snippet was last updated. |
-| `visibility`         | string  | Visibility level of snippet. |
-| `web_url`            | string  | URL to snippet in GitLab UI. |
+| `raw_url`            | string | URL to raw snippet content. |
+| `repository_storage` | string | Repository storage used by snippet. |
+| `title`              | string | Title of snippet. |
+| `updated_at`         | string | Date and time when snippet was last updated. |
+| `visibility`         | string | Visibility level of snippet. |
+| `web_url`            | string | URL to snippet in GitLab UI. |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/snippets/all?per_page=2&page=1"
+ --url "https://gitlab.example.com/api/v4/snippets/all?per_page=2&page=1"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 113,
     "title": "Internal Project Snippet",
     "description": null,
@@ -654,8 +645,8 @@ Example response:
     "file_name": "",
     "files": [],
     "repository_storage": "default"
-  },
-  {
+ },
+ {
     "id": 112,
     "title": "Private Personal Snippet",
     "description": null,
@@ -678,8 +669,8 @@ Example response:
     "file_name": "",
     "files": [],
     "repository_storage": "default"
-  },
-  {
+ },
+ {
     "id": 111,
     "title": "Public Personal Snippet",
     "description": null,
@@ -702,7 +693,7 @@ Example response:
     "file_name": "",
     "files": [],
     "repository_storage": "default"
-  }
+ }
 ]
 ```
 
@@ -721,28 +712,27 @@ Supported attributes:
 |-----------|---------|----------|----------------|
 | `id`      | integer | Yes      | ID of snippet. |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute           | Type    | Description |
 |---------------------|---------|-------------|
 | `akismet_submitted` | boolean | If `true`, the details were submitted to Akismet. |
-| `ip_address`        | string  | IP address used to create snippet. |
-| `user_agent`        | string  | User agent string used to create snippet. |
+| `ip_address`        | string | IP address used to create snippet. |
+| `user_agent`        | string | User agent string used to create snippet. |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/snippets/1/user_agent_detail"
+ --url "https://gitlab.example.com/api/v4/snippets/1/user_agent_detail"
 ```
 
 Example response:
 
 ```json
 {
-  "user_agent": "AppleWebKit/537.36",
-  "ip_address": "127.0.0.1",
-  "akismet_submitted": false
+ "user_agent": "AppleWebKit/537.36",
+ "ip_address": "127.0.0.1",
+ "akismet_submitted": false
 }
 ```

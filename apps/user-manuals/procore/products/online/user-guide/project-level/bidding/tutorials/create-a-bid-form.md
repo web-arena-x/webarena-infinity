@@ -21,7 +21,7 @@ After inviting companies to bid with bid forms, you can compare bids side-by-si
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.
+ - 'Admin' level permissions on the project's Bidding tool.
 
 ## Prerequisites
 
@@ -29,9 +29,9 @@ After inviting companies to bid with bid forms, you can compare bids side-by-si
 
 ## Video
 
-|  |
+| |
 | --- |
-|  |
+| |
 
 ## Steps
 
@@ -60,7 +60,7 @@ You can also create bid forms with a CSV import. See [Import Bid Forms to the B
 5. In the 'Bid Form Name' field, enter a name for the bid form.
    - Once you begin typing, Procore will automatically suggest a name based on your company's trades and cost codes. If your company has not configured trades, the list will be populated with industry standard trades.
 6. If you want to save your bid form before adding line items:
-   - Click **Save** to save the bid form without adding bidders.  
+   - Click **Save** to save the bid form without adding bidders. 
      OR
    - Click **Save and Add Bidders** to add bidders. See**[Add Bidders to a Bid Form](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/add-bidders-to-a-bid-form "Add Bidders to a Bid Form (Beta)")**.
 7. Fill out your bid form by adding sections and line items to the Base Bid and Alternates areas as necessary. See the [Add Sections](#Add_Sections "Create a Bid Form") and [Add Line Items](#Add_Line_Items "Create a Bid Form") section below.
@@ -74,9 +74,8 @@ Sections are not available on bid packages that were created prior to this feat
 
 1. Click **Add Section**.
 2. Enter a name for the section.
-3. To add a line item for the section, click the **Add Line Item** menu or the **plus +**icon for the section**.   
-   ![bidding-add-line-item.png](https://support.procore.com/@api/deki/files/445920/bidding-add-line-item.png?revision=1)**  
-   *Note:*See the steps for [Add Line Items](#Add_Line_Items "Create a Bid Form") below for more detail on adding line items.
+3. To add a line item for the section, click the **Add Line Item** menu or the **plus +**icon for the section**.  
+   ![bidding-add-line-item.png](https://support.procore.com/@api/deki/files/445920/bidding-add-line-item.png?revision=1)** *Note:*See the steps for [Add Line Items](#Add_Line_Items "Create a Bid Form") below for more detail on adding line items.
 4. Continue adding sections and line items as necessary.
 5. *Optional:* To reorder sections or line items, click and drag over the grip ![icon-reorder-grip.png](https://support.procore.com/@api/deki/files/120680/icon-reorder-grip.png?revision=1&size=bestfit&height=16) icon and drop it in a new area.
 6. *Optional:* If you need to delete a section, click the **vertical ellipsis** ![icon-ellipsis-vertical.png](https://support.procore.com/@api/deki/files/158014/icon-ellipsis-vertical.png?revision=2&size=bestfit&width=16&height=16) icon and select **Delete**. This will delete the section and all of its line items.
@@ -89,21 +88,21 @@ Sections are not available on bid packages that were created prior to this feat
    - **Plain Text**: Select if you want to add a general line item without a cost code.
 3. Fill out fields for the line item:
    - **Items**:
-     - For a Cost Code line item, click the **Select Cost Code** drop-down menu and select a cost code.  
+     - For a Cost Code line item, click the **Select Cost Code** drop-down menu and select a cost code. 
        *Tip!* Use the Search bar to quickly find a cost code.
      - For a Plain Text line item, click into the field and enter a name for the item.
    - **Description**: Enter a description for the line item, if necessary.
-   - **Response Field Type**: Select a response type for the line item. The 'Response Field Type' automatically populates based on the previous line item added, but you can change it as needed. For more information on response types, see [How do I set the accounting method for bids?](https://support.procore.com/faq/how-do-i-set-the-accounting-method-for-bids "How do I set the accounting method for bids?")   
+   - **Response Field Type**: Select a response type for the line item. The 'Response Field Type' automatically populates based on the previous line item added, but you can change it as needed. For more information on response types, see [How do I set the accounting method for bids?](https://support.procore.com/faq/how-do-i-set-the-accounting-method-for-bids "How do I set the accounting method for bids?")  
      *Note:* The 'Response Field Type' column is only available for bid packages that were created after the [Flexible Response Types](https://support.procore.com/tc/procore/Legacy/Release_Documentation_Archives/2023/Bidding%3A_Flexible_Response_Types "Bidding: Flexible Response Types (Coming Soon)") feature was released.
      - **Amount**: Select if an amount should be entered.
      - **Unit/Quantity**: Select if a unit and quantity should be entered.
-     - **Include/Exclude**: Select if this line item should be entered as an inclusion or exclusion for the bid.  
+     - **Include/Exclude**: Select if this line item should be entered as an inclusion or exclusion for the bid. 
        *Note:*The 'Include/Exclude' option is only available to select in the Base Bid section. The Alternates section uses 'Amount' and 'Unit & Quantity'.
        - ***Tip!*** If you want a bid to be submitted as a lump sum instead of having itemized amounts, you can select 'Include/Exclude' as the 'Response Field Type' for all line items. This ensures that bidders specify what is or isn't included in their bid, and allows an amount to be entered in the 'Total' field at the end of the bid. See [Submit a Bid on Behalf of a Bidder](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/submit-a-bid-on-behalf-of-a-bidder "Submit a Bid on Behalf of a Bidder") or [Submit a Bid](https://support.procore.com/products/online/user-guide/company-level/planroom/tutorials/submit-a-bid "Submit a Bid").
 4. To add additional line items, click **Add Line Item** and repeat the same process.
 5. If you want to allow bidders to provide alternative options or substitutions, scroll to the Alternates section and add line items as necessary.
 6. When the bid form is complete:
-   - Click **Save** to save the bid form without adding bidders.  
+   - Click **Save** to save the bid form without adding bidders. 
      OR
    - Click **Save and Add Bidders** to add and invite bidders. See**[Add Bidders to a Bid Form](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/add-bidders-to-a-bid-form "Add Bidders to a Bid Form (Beta)").**
 

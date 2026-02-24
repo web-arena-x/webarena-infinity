@@ -20,22 +20,18 @@ title: GitLab agent for Kubernetes configuration
 
 {{< /history >}}
 
-When you [set up workspace infrastructure](configuration.md#set-up-workspace-infrastructure),
-you must configure a GitLab agent for Kubernetes to support workspaces. This guide assumes that a GitLab
-agent is already installed in the Kubernetes cluster.
+When you [set up workspace infrastructure](configuration.md#set-up-workspace-infrastructure), you must configure a GitLab agent for Kubernetes to support workspaces. This guide assumes that a GitLab agent is already installed in the Kubernetes cluster.
 
 Prerequisites:
 
 - You must complete the setup steps in [Tutorial: Set up the GitLab agent for Kubernetes](set_up_gitlab_agent_and_proxies.md).
 - The agent configuration must have the `remote_development` module enabled, and the required fields of this module must be correctly set.
 
-  {{< alert type="note" >}}
+ {{< alert type="note" >}}
 
-  If you disable the `remote_development` module on an agent that has active workspaces,
-  those workspaces become unusable. For more information, see
-  [workspace settings](settings.md#enabled).
+ If you disable the `remote_development` module on an agent that has active workspaces, those workspaces become unusable. For more information, see [workspace settings](settings.md#enabled).
 
-  {{< /alert >}}
+ {{< /alert >}}
 - The agent must be allowed in a group for the purpose of creating workspaces. During workspace creation, users can select allowed agents that are associated with any parent group of the workspace project.
 - The workspace creator must have the Developer role to the project of the agent.
 
@@ -70,10 +66,8 @@ graph TD
     class wp active;
 ```
 
-If you allow a cluster agent for a specific group, for example, `subgroup-1`,
-it is available to create workspaces in all projects under that group.
-Consider the scope of the allowed group carefully, as it determines where the cluster agent can
-host workspaces.
+If you allow a cluster agent for a specific group, for example, `subgroup-1`, it is available to create workspaces in all projects under that group.
+Consider the scope of the allowed group carefully, as it determines where the cluster agent can host workspaces.
 
 ## Allow a cluster agent for workspaces in a group
 
@@ -111,8 +105,7 @@ GitLab updates the status of the selected agent to **Blocked**, and removes the 
 
 {{< alert type="note" >}}
 
-Removing an allowed cluster agent from a group does not immediately stop running workspaces using
-the agent. Running workspaces stop when they are automatically terminated or manually stopped.
+Removing an allowed cluster agent from a group does not immediately stop running workspaces using the agent. Running workspaces stop when they are automatically terminated or manually stopped.
 
 {{< /alert >}}
 
@@ -135,8 +128,7 @@ To allow a cluster agent for workspaces on the instance:
 1. In the upper-right corner, select **Admin**.
 1. On the left sidebar, select **Settings** > **General**.
 1. Expand **Available agents for workspaces**.
-1. From the list of agents with workspaces enabled, find the agent you want to allow, and select the
-   availability toggle.
+1. From the list of agents with workspaces enabled, find the agent you want to allow, and select the availability toggle.
 
 ## Remove an allowed cluster agent for workspaces on the instance
 
@@ -159,23 +151,19 @@ To remove an allowed cluster agent from the instance:
 
 {{< alert type="note" >}}
 
-Removing an allowed cluster agent from an instance does not immediately stop running workspaces using
-the agent. Running workspaces stop when they are automatically terminated or manually stopped.
+Removing an allowed cluster agent from an instance does not immediately stop running workspaces using the agent. Running workspaces stop when they are automatically terminated or manually stopped.
 
 {{< /alert >}}
 
 ## Legacy agent authorization strategy
 
-In GitLab 17.1 and earlier, the availability of an agent in a group was not a prerequisite for
-creating workspaces.
-You can use any agent in the top-level group of a workspace project to create a workspace,
-if both of the following are true:
+In GitLab 17.1 and earlier, the availability of an agent in a group was not a prerequisite for creating workspaces.
+You can use any agent in the top-level group of a workspace project to create a workspace, if both of the following are true:
 
 - The remote development module is enabled.
 - You have at least the Developer role for the top-level group.
 
-For example, if the path to your workspace project is `top-level-group/subgroup-1/subgroup-2/workspace-project`,
-you can use any configured agent in `top-level-group` and in any of its subgroups.
+For example, if the path to your workspace project is `top-level-group/subgroup-1/subgroup-2/workspace-project`, you can use any configured agent in `top-level-group` and in any of its subgroups.
 
 ## Configuring user access with remote development
 
@@ -186,8 +174,7 @@ Be careful when configuring both `user_access` and `remote_development` in the s
 The `remote_development` clusters manage user credentials (such as personal access tokens) as Kubernetes Secrets.
 Any misconfiguration in `user_access` might cause this private data to be accessible over the Kubernetes API.
 
-For more information about configuring `user_access`, see
-[Configure Kubernetes access](../clusters/agent/user_access.md#configure-kubernetes-access).
+For more information about configuring `user_access`, see [Configure Kubernetes access](../clusters/agent/user_access.md#configure-kubernetes-access).
 
 ## Related topics
 

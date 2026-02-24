@@ -57,9 +57,9 @@ This will direct you to a Dashboard that includes actions the student has taken 
 - Last Login Date
 - Total Logins
 - Documents
-  - loaded to the students profile
+ - loaded to the students profile
 - Notes
-  - General (only shared notes can be accessed)
+ - General (only shared notes can be accessed)
 - Appointments
 - Career Interests
 - Applications

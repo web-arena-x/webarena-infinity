@@ -27,9 +27,9 @@ To begin, select your current login status to follow the proper steps to reset y
 
 - Contain eight characters, or**more**
 - Contain characters from **two** of the following **three** character classes:
-  - Alphabetic (e.g., a-z, A-Z)
-  - Numeric (i.e. 0–9)
-  - Punctuation and other characters (e.g.,!@#$%^&\*()\_+|~-=\`{}[]:";'<>?,./)
+ - Alphabetic (e.g., a-z, A-Z)
+ - Numeric (i.e. 0–9)
+ - Punctuation and other characters (e.g.,!@#$%^&\*()\_+|~-=\`{}[]:";'<>?,./)
 - **Note: passwords are not encrypted.**
 
 4. Click the **Save new password** button to update.
@@ -58,8 +58,8 @@ To begin, select your current login status to follow the proper steps to reset y
 
 5. The page will refresh with a confirmation message that reads "Check your inbox! Follow the instructions there to continue."
 
-6. Go to your inbox and open the email, then click the blue link **Reset My Password**.  
-  
+6. Go to your inbox and open the email, then click the blue link **Reset My Password**. 
+ 
 Subject: Password Reset Request
 
 From: handshake@m.joinhandshake.com
@@ -72,8 +72,7 @@ Please click the following link to reset your password: Reset My Password
 
 If you did not request a password reset, please disregard this email.
 
-Thank you,  
-The Handshake Team"
+Thank you, The Handshake Team"
 
 ![Reset_Password_Image.png](https://support.joinhandshake.com/hc/article_attachments/26001302522903)
 
@@ -85,9 +84,9 @@ The Handshake Team"
 
 - Contain eight characters, or**more**
 - Contain characters from **two** of the following **three** character classes:
-  - Alphabetic (e.g., a-z, A-Z)
-  - Numeric (i.e. 0–9)
-  - Punctuation and other characters (e.g.,!@#$%^&\*()\_+|~-=\`{}[]:";'<>?,./)
+ - Alphabetic (e.g., a-z, A-Z)
+ - Numeric (i.e. 0–9)
+ - Punctuation and other characters (e.g.,!@#$%^&\*()\_+|~-=\`{}[]:";'<>?,./)
 - **Note: passwords are not encrypted.**
 
 8. The page will refresh with a confirmation message that reads "Password created. Success! Now let’s use it to log in.
@@ -101,11 +100,11 @@ Once your password is updated, you'll receive an email notification to confirm t
 If the password reset email isn't showing up for you, we recommend to take the steps below:
 
 - **Check your spam and junk mail.** Since this is an automated email, some providers may filter the message from your inbox. If you're using a common mail client, you can find instructions below.
-  - [For Gmail](https://www.thundertix.com/gmail-spam-folder-location-a-how-to-guide/)
-  - [For Outlook](https://support.office.microsoft.com/en-us/article/Overview-of-the-Junk-Email-Filter-5ae3ea8e-cf41-4fa0-b02a-3b96e21de089?CorrelationId=0d285260-4f8f-4cc9-9990-689f1087ea8c&ui=en-US&rs=en-US&ad=US)
+ - [For Gmail](https://www.thundertix.com/gmail-spam-folder-location-a-how-to-guide/)
+ - [For Outlook](https://support.office.microsoft.com/en-us/article/Overview-of-the-Junk-Email-Filter-5ae3ea8e-cf41-4fa0-b02a-3b96e21de089?CorrelationId=0d285260-4f8f-4cc9-9990-689f1087ea8c&ui=en-US&rs=en-US&ad=US)
 - **Keyword search all mailboxes** using "Email Confirmation" (the email's subject line). This can better surface the email if it's been filtered to an unexpected location.
 - **Add Handshake to your address book** with the following contact email: "handshake@m.joinhandshake.com". After adding this contact, resend the confirmation email from Handshake (Step 3 on the **thanks for signing up** page).
-  - This will help ensure delivery of future emails, and is important for keeping you up to date in your professional life.
+ - This will help ensure delivery of future emails, and is important for keeping you up to date in your professional life.
 - **Contact your institution's IT department** and ask if they know of any reasons emails from Handshake would be denied.
 
 If you’ve followed all the steps above and still haven’t received your confirmation email, please reach out to our Support team. We’ll assist you in getting the email delivered.

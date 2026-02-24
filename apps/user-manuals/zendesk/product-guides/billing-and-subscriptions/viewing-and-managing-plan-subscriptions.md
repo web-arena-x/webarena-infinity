@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408834640666-Viewing-and-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > Account > Billing > Subscription
+Location: Admin Center > Account > Billing > Subscription
 
 Subscriptions for most Zendesk products are managed in [Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554). This article describes how to use Admin Center to help you view and manage subscriptions for your Zendesk account.
 

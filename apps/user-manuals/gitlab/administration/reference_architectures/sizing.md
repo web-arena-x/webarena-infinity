@@ -13,11 +13,9 @@ title: Assess reference architecture size
 
 {{< /details >}}
 
-To select an appropriate reference architecture, you should use a systematic approach for assessing and sizing GitLab
-environments based on reference architectures.
+To select an appropriate reference architecture, you should use a systematic approach for assessing and sizing GitLab environments based on reference architectures.
 
-To determine the appropriate reference architecture and any required component-specific adjustments, the following
-information helps you analyze:
+To determine the appropriate reference architecture and any required component-specific adjustments, the following information helps you analyze:
 
 - Requests per second (RPS) patterns.
 - Workload characteristics.
@@ -26,36 +24,27 @@ information helps you analyze:
 ## Before you begin
 
 You can use this information if you have a complex environment to select an appropriate reference architecture.
-You might not require this level of detail, and you can assess the size of your environment by using the
-[information for less complex environments](_index.md).
+You might not require this level of detail, and you can assess the size of your environment by using the [information for less complex environments](_index.md).
 
 {{< alert type="note" >}}
 
-Need expert guidance? Sizing your architecture correctly is critical for optimal performance. Our
-[Professional Services](https://about.gitlab.com/professional-services/) team can evaluate your specific architecture
-and provide tailored recommendations for performance, stability, and availability optimization.
+Need expert guidance? Sizing your architecture correctly is critical for optimal performance. Our [Professional Services](https://about.gitlab.com/professional-services/) team can evaluate your specific architecture and provide tailored recommendations for performance, stability, and availability optimization.
 
 {{< /alert >}}
 
-To follow this documentation, you must have Prometheus monitoring deployed with the GitLab instance. Prometheus
-provides the accurate metrics required for proper sizing assessment.
+To follow this documentation, you must have Prometheus monitoring deployed with the GitLab instance. Prometheus provides the accurate metrics required for proper sizing assessment.
 
 If you haven't yet configured Prometheus:
 
-1. Configure monitoring with [Prometheus](../monitoring/prometheus/_index.md). Reference architecture documentation
-   provides details on Prometheus configuration for each environment size. For cloud-native GitLab, you can use the
-   [`kube-prometheus-stack`](https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack) Helm chart
-   to configure metrics scraping.
+1. Configure monitoring with [Prometheus](../monitoring/prometheus/_index.md). Reference architecture documentation provides details on Prometheus configuration for each environment size. For cloud-native GitLab, you can use the [`kube-prometheus-stack`](https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack) Helm chart to configure metrics scraping.
 1. Collect data for 7-14 days to gather meaningful data patterns.
 1. Read the rest of this information.
 
 If you can't configure Prometheus monitoring:
 
-- [Compare current environment](#analyze-current-environment-and-validate-recommendations) specifications to the nearest
-  reference architecture to estimate sizing.
+- [Compare current environment](#analyze-current-environment-and-validate-recommendations) specifications to the nearest reference architecture to estimate sizing.
 - Use the [`get-rps.rb` script](https://gitlab.com/gitlab-com/support/toolbox/dotfiles/-/blob/main/scripts/get-rps.rb)
-  for basic peak RPS extraction from logs. Log analysis has significant limitations. It provides less reliable data than
-  metrics and not available for cloud-native GitLab.
+ for basic peak RPS extraction from logs. Log analysis has significant limitations. It provides less reliable data than metrics and not available for cloud-native GitLab.
 
 If migrating from other platforms, the following PromQL queries cannot be applied without existing GitLab metrics.
 However, the general assessment methodology remains valid:
@@ -64,27 +53,22 @@ However, the general assessment methodology remains valid:
 1. Identify anticipated additional workloads.
 1. Assess number of large repositories
 1. Incorporate growth projections.
-1. Select a reference architecture with
-   [appropriate buffer](_index.md#if-in-doubt-start-large-monitor-and-then-scale-down).
+1. Select a reference architecture with [appropriate buffer](_index.md#if-in-doubt-start-large-monitor-and-then-scale-down).
 
 ### Running PromQL queries
 
-Running PromQL queries depends on the monitoring solution you use. As noted in
-[Prometheus monitoring documentation](../monitoring/prometheus/_index.md#how-prometheus-works), monitoring data can be
-accessed either by connecting directly to Prometheus or by using a dashboard tool like Grafana.
+Running PromQL queries depends on the monitoring solution you use. As noted in [Prometheus monitoring documentation](../monitoring/prometheus/_index.md#how-prometheus-works), monitoring data can be accessed either by connecting directly to Prometheus or by using a dashboard tool like Grafana.
 
 ## Determine your baseline size
 
-Requests per second (RPS) is the primary metric for sizing GitLab infrastructure. Different traffic types (API, Web, Git
-operations) stress different components, so each is analyzed separately to find true capacity requirements.
+Requests per second (RPS) is the primary metric for sizing GitLab infrastructure. Different traffic types (API, Web, Git operations) stress different components, so each is analyzed separately to find true capacity requirements.
 
 ### Extract peak traffic metrics
 
 Run these queries to understand your maximum load. These queries show you:
 
 - Absolute peaks, which are the highest spike you've seen. Absolute peaks show worst-case scenarios.
-- Sustained peaks, which are the 95th percentile and considered - your typical "busy" level. Sustained peaks reveal
-  typical high-load periods.
+- Sustained peaks, which are the 95th percentile and considered - your typical "busy" level. Sustained peaks reveal typical high-load periods.
 
 If absolute peaks are rare anomalies, sizing for sustained load may be appropriate.
 
@@ -192,8 +176,7 @@ To identify typical high-load levels, filtering out rare spikes:
 
 To map traffic to reference architectures, using the results you recorded earlier:
 
-1. Consult the [initial sizing guide](_index.md#initial-sizing-guide) to see which reference architecture each traffic
-   type suggests.
+1. Consult the [initial sizing guide](_index.md#initial-sizing-guide) to see which reference architecture each traffic type suggests.
 1. Fill in an analysis table. Use the following table as a guide:
 
    | Traffic type       | Peak RPS | Peak suggested RA     | Sustained RPS | Sustained suggested RA |
@@ -203,8 +186,7 @@ To map traffic to reference architectures, using the results you recorded earlie
    | Git pull and clone | ________ | _____ (up to ___ RPS) | _____________ | _____ (up to ____ RPS) |
    | Git push           | ________ | _____ (up to ___ RPS) | _____________ | _____ (up to ____ RPS) |
 
-1. Compare all reference architectures in the **Peak Suggested RA** column and select the largest size. Repeat for
-   the **Sustained Suggested RA** column.
+1. Compare all reference architectures in the **Peak Suggested RA** column and select the largest size. Repeat for the **Sustained Suggested RA** column.
 1. Document the baseline:
    - Largest peak RA suggested.
    - Largest sustained RA suggested.
@@ -219,29 +201,23 @@ At this point, there are two candidate reference architecture sizes:
 To choose a reference architecture:
 
 1. If peak and sustained suggest the same RA, use that RA.
-1. If peak suggests a larger RA than sustained. Calculate the gap. Is peak RPS within 10-15% of the sustained RA's upper
-   limit?
+1. If peak suggests a larger RA than sustained. Calculate the gap. Is peak RPS within 10-15% of the sustained RA's upper limit?
 
 General guidelines:
 
-- If peak RPS exceeds the sustained RA limit by less than 10-15%, sustained RA can be considered with acceptable risk
-  because reference architectures have built-in headroom.
+- If peak RPS exceeds the sustained RA limit by less than 10-15%, sustained RA can be considered with acceptable risk because reference architectures have built-in headroom.
 - Beyond 15%, start with the peak-based RA, then monitor and adjust if metrics support downsizing.
-  - Example 1: Peak is 110 RPS, Large RA handles "up to 100 RPS" → 10% over → Large should suffice (Reference architectures have built-in headroom)
-  - Example 2: Peak is 150 RPS, Large RA handles "up to 100 RPS" → 50% over → Use X-Large (up to 200 RPS)
-  - Example 3: Peak is 100 RPS (Large/100 RPS) but sustained is 50 RPS (Medium/60 RPS). Raw RPS graphs show automation spikes cause peaks while majority of time load is <50 RPS. User evaluates whether to start conservative with Large then scale down, or start Medium with [workload-specific scaling](#identify-component-adjustments) (higher risk).
+ - Example 1: Peak is 110 RPS, Large RA handles "up to 100 RPS" → 10% over → Large should suffice (Reference architectures have built-in headroom)
+ - Example 2: Peak is 150 RPS, Large RA handles "up to 100 RPS" → 50% over → Use X-Large (up to 200 RPS)
+ - Example 3: Peak is 100 RPS (Large/100 RPS) but sustained is 50 RPS (Medium/60 RPS). Raw RPS graphs show automation spikes cause peaks while majority of time load is <50 RPS. User evaluates whether to start conservative with Large then scale down, or start Medium with [workload-specific scaling](#identify-component-adjustments) (higher risk).
 
-For environments under 40 RPS and where high availability (HA) is a requirement, consult the
-[high availability section](_index.md#high-availability-ha) to identify whether switching to the 60 RPS / 3,000 user
-architecture with supported reductions is needed.
+For environments under 40 RPS and where high availability (HA) is a requirement, consult the [high availability section](_index.md#high-availability-ha) to identify whether switching to the 60 RPS / 3,000 user architecture with supported reductions is needed.
 
 ### Before you proceed
 
-Having completed this section, you've established your baseline reference architecture size. This forms the foundation,
-but the following sections identify whether specific workload requires component adjustments beyond the standard configuration.
+Having completed this section, you've established your baseline reference architecture size. This forms the foundation, but the following sections identify whether specific workload requires component adjustments beyond the standard configuration.
 
-Before proceeding, ensure you've documented the details you've gathered in this section. You can use the following as a
-guide:
+Before proceeding, ensure you've documented the details you've gathered in this section. You can use the following as a guide:
 
 ```markdown
 Reference architecture assessment summary:
@@ -261,9 +237,7 @@ Highest RPS Peak timestamp for workload analysis: _____
 
 ## Identify component adjustments
 
-Workload assessment identifies specific usage patterns that require component adjustments beyond the base reference
-architecture. While RPS determines overall size, workload patterns determine the shape. Two environments with identical
-RPS can have vastly different resource needs.
+Workload assessment identifies specific usage patterns that require component adjustments beyond the base reference architecture. While RPS determines overall size, workload patterns determine the shape. Two environments with identical RPS can have vastly different resource needs.
 
 Different workloads stress different parts of GitLab architecture:
 
@@ -276,10 +250,7 @@ Using the peak timestamp from the earlier section, identify which endpoints rece
 
 {{< alert type="note" >}}
 
-If your RPS metrics show consistently high traffic during off-hours (>50% of peak), this suggests heavy automation
-beyond typical patterns. For example, peak traffic that reaches 100 RPS during business hours but maintains 50+ RPS during
-nights and weekends indicates significant automated workload. Consider this when
-[evaluating component adjustments](#determine-component-adjustments).
+If your RPS metrics show consistently high traffic during off-hours (>50% of peak), this suggests heavy automation beyond typical patterns. For example, peak traffic that reaches 100 RPS during business hours but maintains 50+ RPS during nights and weekends indicates significant automated workload. Consider this when [evaluating component adjustments](#determine-component-adjustments).
 
 {{< /alert >}}
 
@@ -295,12 +266,9 @@ nights and weekends indicates significant automated workload. Consider this when
 
 1. Review the results for the distribution of top endpoints during the absolute RPS peak. The results might have:
 
-   - No visible endpoint pattern. In this case, continue with reference architecture selected earlier. Ensure robust
-     monitoring is in place to measure the impact of any workload changes.
-   - A majority of heavy API usage for non-Git traffic. In this case, webhooks and issue, group, and project API calls
-     indicate a database-intensive pattern.
-   - A majority of Git- or Sidekiq-related endpoints. In this case, merge request diffs, pipeline jobs, branches, commits,
-     file operations, CI/CD jobs, security scanning, and import operations indicate a Sidekiq/Gitaly-intensive pattern.
+   - No visible endpoint pattern. In this case, continue with reference architecture selected earlier. Ensure robust monitoring is in place to measure the impact of any workload changes.
+   - A majority of heavy API usage for non-Git traffic. In this case, webhooks and issue, group, and project API calls indicate a database-intensive pattern.
+   - A majority of Git- or Sidekiq-related endpoints. In this case, merge request diffs, pipeline jobs, branches, commits, file operations, CI/CD jobs, security scanning, and import operations indicate a Sidekiq/Gitaly-intensive pattern.
 
 1. Record findings:
 
@@ -314,9 +282,7 @@ nights and weekends indicates significant automated workload. Consider this when
 
 ### Determine component adjustments
 
-The indicators above provide initial signals of additional workloads. Because of built-in headroom in reference
-architectures, these workloads may be handled without adjustments. However, if strong indicators exist and high levels
-of automation are known, consider the following adjustments.
+The indicators above provide initial signals of additional workloads. Because of built-in headroom in reference architectures, these workloads may be handled without adjustments. However, if strong indicators exist and high levels of automation are known, consider the following adjustments.
 
 Based on the workload pattern identified earlier, different components require scaling:
 
@@ -332,15 +298,10 @@ Resource adjustments vary based on workload intensity and saturation metrics:
 1. Start with 1.25x-1.5x current resources.
 1. Refine based on monitoring data after implementation.
 
-If you are planning to deploy cloud-native GitLab, workload patterns identified in this assessment have additional
-implications for Kubernetes configuration:
+If you are planning to deploy cloud-native GitLab, workload patterns identified in this assessment have additional implications for Kubernetes configuration:
 
-- High off-hours traffic. Ensure minimum pod counts are sufficient for baseline load rather than allowing scale-to-zero
-  during quiet periods. For example, with 100 RPS during business hours and consistent 50 RPS at night caused by
-  automation, minimum pod count configuration needs to align with baseline off-hours load.
-- Rapid traffic spikes. Default HPA settings may not scale fast enough. Monitor pod scaling behavior during initial
-  rollout to prevent request queuing during these transitions. For example, a rapid spike from 50 to 200 RPS caused by
-  ramping up from quiet to working hours or a specific automation spike.
+- High off-hours traffic. Ensure minimum pod counts are sufficient for baseline load rather than allowing scale-to-zero during quiet periods. For example, with 100 RPS during business hours and consistent 50 RPS at night caused by automation, minimum pod count configuration needs to align with baseline off-hours load.
+- Rapid traffic spikes. Default HPA settings may not scale fast enough. Monitor pod scaling behavior during initial rollout to prevent request queuing during these transitions. For example, a rapid spike from 50 to 200 RPS caused by ramping up from quiet to working hours or a specific automation spike.
 
 ##### Database scaling
 
@@ -360,8 +321,8 @@ Use this Prometheus query to identify read/write distribution:
 ```prometheus
 # Percentage of READ operations
 (
-  (sum(rate(gitlab_transaction_db_count_total[5m])) - sum(rate(gitlab_transaction_db_write_count_total[5m]))) /
-  sum(rate(gitlab_transaction_db_count_total[5m]))
+ (sum(rate(gitlab_transaction_db_count_total[5m])) - sum(rate(gitlab_transaction_db_write_count_total[5m]))) /
+ sum(rate(gitlab_transaction_db_count_total[5m]))
 ) * 100
 ```
 
@@ -384,16 +345,13 @@ In the next section, you assess special data characteristics that might require 
 
 ## Assess special infrastructure requirements
 
-Repository characteristics and network usage patterns can significantly impact GitLab performance beyond what RPS metrics
-reveal.
+Repository characteristics and network usage patterns can significantly impact GitLab performance beyond what RPS metrics reveal.
 
-Large monorepos, extensive binary files, and network-intensive operations require infrastructure adjustments that
-standard sizing doesn't account for.
+Large monorepos, extensive binary files, and network-intensive operations require infrastructure adjustments that standard sizing doesn't account for.
 
 ### Large monorepos
 
-Large monorepos (several gigabytes or more) fundamentally change how Git operations perform. A single clone of a 10 GB
-repository consumes more resources than hundreds of clones of typical repositories.
+Large monorepos (several gigabytes or more) fundamentally change how Git operations perform. A single clone of a 10 GB repository consumes more resources than hundreds of clones of typical repositories.
 
 These repositories affect not just Gitaly, but also Rails, Sidekiq, and the database depending on the workload.
 
@@ -416,8 +374,7 @@ To identify a repository's size:
 
 #### Infrastructure adjustments for monorepos
 
-Large repositories require both vertical scaling and operational adjustments. These repositories affect performance
-across the entire stack, from Git operations and CPU usage to memory consumption and network bandwidth.
+Large repositories require both vertical scaling and operational adjustments. These repositories affect performance across the entire stack, from Git operations and CPU usage to memory consumption and network bandwidth.
 
 | Scenario                 | Component adjustments |
 |:-------------------------|:----------------------|
@@ -428,8 +385,7 @@ Additional optimization strategies for monorepo environments are documented in [
 
 ### Network-heavy workloads
 
-Network saturation causes unique problems that are often difficult to diagnose. Unlike CPU or memory bottlenecks that
-affect specific operations, network saturation can cause seemingly random timeouts across all GitLab functions.
+Network saturation causes unique problems that are often difficult to diagnose. Unlike CPU or memory bottlenecks that affect specific operations, network saturation can cause seemingly random timeouts across all GitLab functions.
 
 Common network load sources:
 
@@ -465,18 +421,16 @@ and sustained high traffic (requiring network-enhanced VMs).
 
 #### Network capacity requirements
 
-The thresholds below are approximate guidelines only. Actual network bandwidth guarantees vary significantly by cloud
-provider and VM type. Always verify the network specifications (baseline and burst limits) for your specific instance
-types to ensure they align with your workload patterns.
+The thresholds below are approximate guidelines only. Actual network bandwidth guarantees vary significantly by cloud provider and VM type. Always verify the network specifications (baseline and burst limits) for your specific instance types to ensure they align with your workload patterns.
 
 Based on outbound and inbound traffic measurements:
 
 | Network load | Threshold | Why this threshold                                                 | Action required |
 |:-------------|:----------|:-------------------------------------------------------------------|:----------------|
 | Standard     | <1 Gbps   | Within baseline bandwidth of most standard instances               | Standard instances sufficient |
-| Moderate     | 1-3 Gbps  | May exceed AWS baseline but within GCP/Azure standard instances    | <ul><li>AWS: Monitor for throttling, might need network-enhanced</li><li>GCP/Azure: Standard instances usually sufficient</li></ul> |
+| Moderate     | 1-3 Gbps | May exceed AWS baseline but within GCP/Azure standard instances    | <ul><li>AWS: Monitor for throttling, might need network-enhanced</li><li>GCP/Azure: Standard instances usually sufficient</li></ul> |
 | High         | 3-10 Gbps | Exceeds AWS baseline. Approaches limits of some standard instances | <ul><li>AWS: Network-enhanced VMs required</li><li>GCP/Azure: Verify instance bandwidth specifications</li></ul> |
-| Very High    | >10 Gbps  | Exceeds most standard instance capabilities                        | <ul><li>Network-enhanced VMs required across all providers</li><li>For large artifacts, disable [object proxy download](../object_storage.md#proxy-download)</li></ul> |
+| Very High    | >10 Gbps | Exceeds most standard instance capabilities                        | <ul><li>Network-enhanced VMs required across all providers</li><li>For large artifacts, disable [object proxy download](../object_storage.md#proxy-download)</li></ul> |
 
 ### Before you proceed
 
@@ -497,8 +451,7 @@ Data Profile Summary:
 
 Understanding the existing environment provides crucial context for recommendations:
 
-- If the current environment handles workload without performance issues, it serves as valuable validation for sizing
-  estimates.
+- If the current environment handles workload without performance issues, it serves as valuable validation for sizing estimates.
 - Conversely, environments with performance problems require careful analysis to avoid perpetuating under-sizing.
 
 ### Document the current environment
@@ -506,11 +459,11 @@ Understanding the existing environment provides crucial context for recommendati
 Collect comprehensive environment data to establish the current state:
 
 - Architecture details:
-  - Type: high availability (HA) or non-high availability (non-HA).
-  - Deployment method: Linux package or cloud-native GitLab.
+ - Type: high availability (HA) or non-high availability (non-HA).
+ - Deployment method: Linux package or cloud-native GitLab.
 - Component specifications:
-  - Node count and specifications for each component.
-  - Custom configurations or deviations.
+ - Node count and specifications for each component.
+ - Custom configurations or deviations.
 
 ### Identify nearest reference architecture
 
@@ -535,28 +488,25 @@ Compare the current environment against the recommended reference architecture y
 If the current environment:
 
 - Has no performance issues and current resources < recommended RA:
-  - Recommendations are conservative and provide future headroom.
-  - Proceed with recommended RA.
-  - Monitor post-implementation for potential optimization opportunities.
+ - Recommendations are conservative and provide future headroom.
+ - Proceed with recommended RA.
+ - Monitor post-implementation for potential optimization opportunities.
 - Has no performance issues and current resources ≈ recommended RA:
-  - Strong validation of your sizing assessment.
-  - Current environment confirms recommended size is appropriate.
+ - Strong validation of your sizing assessment.
+ - Current environment confirms recommended size is appropriate.
 - Has no performance issues and current resources > recommended RA:
-  - Current environment might be over-provisioned or has valid reasons for additional resources that need to be analysed.
-    Check CPU/memory [resource utilization](../monitoring/prometheus/_index.md#sample-prometheus-queries) on Rails,
-    Gitaly, the database, and Sidekiq.
+ - Current environment might be over-provisioned or has valid reasons for additional resources that need to be analysed.
+    Check CPU/memory [resource utilization](../monitoring/prometheus/_index.md#sample-prometheus-queries) on Rails, Gitaly, the database, and Sidekiq.
 
-    Low utilization (<40%) suggests over-provisioning. High utilization might indicate specific workload requirements
-    not captured in RPS analysis.
-  - Review whether recommendations need adjustment for undiscovered requirements.
+    Low utilization (<40%) suggests over-provisioning. High utilization might indicate specific workload requirements not captured in RPS analysis.
+ - Review whether recommendations need adjustment for undiscovered requirements.
 
 If current environment has performance issues:
 
-- Use current specifications as minimum baseline only. Recommendations from earlier sections should exceed current
-  specifications.
+- Use current specifications as minimum baseline only. Recommendations from earlier sections should exceed current specifications.
 - If recommendations are significantly lower than current, investigate:
-  - Workload patterns not captured in the assessment.
-  - Component-specific bottlenecks requiring targeted scaling.
+ - Workload patterns not captured in the assessment.
+ - Component-specific bottlenecks requiring targeted scaling.
 
 ### Before you proceed
 
@@ -578,8 +528,7 @@ In the next section, you assess growth projections to ensure sizing remains appr
 
 ## Plan for future capacity
 
-Infrastructure changes require significant lead time for procurement, migration, and testing. Growth estimation ensures
-the recommended architecture remains viable throughout the implementation period and beyond.
+Infrastructure changes require significant lead time for procurement, migration, and testing. Growth estimation ensures the recommended architecture remains viable throughout the implementation period and beyond.
 
 Historical trends combined with business plans provide the most accurate growth projections.
 
@@ -598,8 +547,7 @@ Expected business changes that impact infrastructure needs:
 - New project developments.
 - Increased development activity on existing projects.
 
-Evaluate whether any of these factors (or other organizational changes) could affect load on the environment and require
-infrastructure adjustments. Document relevant changes and their expected timeline.
+Evaluate whether any of these factors (or other organizational changes) could affect load on the environment and require infrastructure adjustments. Document relevant changes and their expected timeline.
 
 #### Determine growth buffer strategy
 
@@ -634,14 +582,9 @@ Compile findings from all previous sections to determine the optimal reference a
 Gather the key outputs from each section to form the sizing decision:
 
 1. Start with the reference architecture identified based on [RPS analysis](#determine-your-baseline-size).
-1. Apply any needed component adjustments based on [workload patterns](#identify-component-adjustments) and
-   [data characteristics](#assess-special-infrastructure-requirements). Skip this step if no patterns are identified or
-   if standard configuration is sufficient.
-1. Validate against [current state](#analyze-current-environment-and-validate-recommendations). If current environment
-   performs well but exceeds recommendations, document the reasons. If it has performance issues, ensure recommendations
-   exceed current specifications.
-1. Accommodate [growth in your plan for future capacity](#plan-for-future-capacity). Determine if the current RA is
-   sufficient or if sizing for projected growth is needed.
+1. Apply any needed component adjustments based on [workload patterns](#identify-component-adjustments) and [data characteristics](#assess-special-infrastructure-requirements). Skip this step if no patterns are identified or if standard configuration is sufficient.
+1. Validate against [current state](#analyze-current-environment-and-validate-recommendations). If current environment performs well but exceeds recommendations, document the reasons. If it has performance issues, ensure recommendations exceed current specifications.
+1. Accommodate [growth in your plan for future capacity](#plan-for-future-capacity). Determine if the current RA is sufficient or if sizing for projected growth is needed.
 
 ### Document final recommendation
 
@@ -653,8 +596,8 @@ Final Architecture Recommendation
 
 - Selected RA: [Size] based on [Absolute/Sustained] Peak RPS of [value]
 - Component adjustments required:
-  - [ ] No adjustments needed - standard RA configuration sufficient
-  - [ ] Adjustments required:
+ - [ ] No adjustments needed - standard RA configuration sufficient
+ - [ ] Adjustments required:
       - Rails: _____
       - Sidekiq: _____
       - Database: _____

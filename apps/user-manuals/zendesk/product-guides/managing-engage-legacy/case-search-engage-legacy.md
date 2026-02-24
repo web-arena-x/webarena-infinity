@@ -8,7 +8,7 @@ Engage's case searching functionality helps support agents and teams quickly ret
 
 ## **‍****Implementation steps**
 
-Case search allows a service agent to search for cases using the existing contact search feature that exists within Engage. A new cases tab has been added next to the contact search to separate the two types of searches within Engage.  
+Case search allows a service agent to search for cases using the existing contact search feature that exists within Engage. A new cases tab has been added next to the contact search to separate the two types of searches within Engage. 
 If a match or multiple matches are found, the system displays the relevant case(s) to the agent in real-time.
 
 Case Search reuses the existing Contact Search icon in the left panel to perform Case searches.

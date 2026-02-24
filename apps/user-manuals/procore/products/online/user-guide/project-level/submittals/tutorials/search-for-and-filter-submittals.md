@@ -15,10 +15,10 @@ Because of the large number of submittals that can be created on a project, the�
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Read Only' level permissions or higher on the project's Submittals tool.
+ - 'Read Only' level permissions or higher on the project's Submittals tool.
 - **Additional Information:**
-  - Any filters that you apply in a project's Submittals tool will stay applied for your current and future sessions in the same project until you clear the filters.
-  - Search terms and applied filters respect each other's parameters. For example, if you apply one or more filters before starting a search, the search results only include items applicable to the filters.
+ - Any filters that you apply in a project's Submittals tool will stay applied for your current and future sessions in the same project until you clear the filters.
+ - Search terms and applied filters respect each other's parameters. For example, if you apply one or more filters before starting a search, the search results only include items applicable to the filters.
 
 ## Steps
 
@@ -35,21 +35,16 @@ Because of the large number of submittals that can be created on a project, the�
    The search feature supports the use of advanced search symbols. To learn more, see [What is an advanced search symbol in Procore?](https://support.procore.com/faq/what-is-an-advanced-search-symbol-in-procore "What is an advanced search symbol in Procore?")
 
    - **Title**
-     - Enter a full search term.  
+     - Enter a full search term. 
        *Examples:*
      - A search for the term 'alarm' would return submittals titled 'Fire Alarm System' and 'Security Alarm Sounder.'
      - A search for the term 'alarm' and 'system' would return submittals titled 'Fire Alarm System', 'Fire Alarm Cable', 'Security Alarm Sounder', and 'Security System Console'.
      - A search for the term 'cab', would return 'CAB Submittal', but the results would NOT include 'Fire Alarm Cable' or 'Telecommunications Cabinets.'
-   - **Description**  
-     Enter a word or phrase.
-   - **Submittal Number**  
-     Enter a full or partial submittal number.
-   - **Package Number**  
-     Enter a full or partial submittal package number.
-   - **Package Title**  
-     Enter a full or partial submittal package title.
-   - **Spec Section**   
-     Enter a spec section number or a partial description.
+   - **Description** Enter a word or phrase.
+   - **Submittal Number** Enter a full or partial submittal number.
+   - **Package Number** Enter a full or partial submittal package number.
+   - **Package Title** Enter a full or partial submittal package title.
+   - **Spec Section** Enter a spec section number or a partial description.
 4. To clear the search results, click the X at the end of the **Search** box.
 
 ### Filter the Submittals Log
@@ -64,7 +59,7 @@ Because of the large number of submittals that can be created on a project, the�
    - **Division**. This reveals a list of divisions connected to the submittals. A division is a grouping of spec sections. You can mark one or more checkboxes.
    - **Location**. Select *Location* from the drop-down list. Then, you have these options to narrow your selection to specific sub-locations:
      - If you want to include the project's sub-locations in your search, mark the ​**Include Sub-locations**checkbox. To ignore sub-locations, remove the checkmark. See [How do I filter by multi-tiered locations?](https://support.procore.com/faq/how-do-i-filter-items-by-multi-tiered-locations "How do I filter by multi-tiered locations?")
-     - If you want to include only a specific location (or locations) in your search, mark the corresponding checkboxes.   
+     - If you want to include only a specific location (or locations) in your search, mark the corresponding checkboxes.  
        *Note*: For the checkboxes above to appear as selections, at least one (1) submittal on your project must be associated with a sub-location.
    - **Private**. This reveals checkboxes where you can select 'Yes' or 'No' to choose whether you want to view Submittals marked 'Private'.  See [Mark a Submittal as Private](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/mark-a-submittal-as-private "Mark a Submittal as Private").
    - **Received From**. This reveals a list of individuals who have been selected as Received From on your submittals. You can mark one or more checkboxes.
@@ -78,9 +73,8 @@ Because of the large number of submittals that can be created on a project, the�
    - **Type**. This reveals a list of submittal types. You can mark one or more checkboxes. See [Create Custom Submittal Types](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/create-custom-submittal-types "Create Custom Submittal Types").
 4. Press ESC on your keyboard to view the filtered list of submittals.
 5. *Optional:* Repeat the steps above to add more filters.
-6. To clear one filter, click the X next to its name.  
-   OR  
-   To clear all filters, click **Clear All**.
+6. To clear one filter, click the X next to its name. 
+   OR To clear all filters, click **Clear All**.
 
 ### Sort the Submittals Log
 
@@ -98,7 +92,7 @@ Because of the large number of submittals that can be created on a project, the�
    - Received Date
    - Due Date
    - Distributed Date
-   - Custom Fields ('Number', 'Date', 'Checkbox', and 'Plain Text')  
+   - Custom Fields ('Number', 'Date', 'Checkbox', and 'Plain Text') 
      *Note:* Columns for custom fields are hidden by default. See [Customize the Column Display in the Submittals Tool](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/customize-the-column-display-in-the-submittals-tool "Customize the Column Display in the Submittals Tool") for information about showing, hiding, and rearranging columns in the submittals log.
 4. *Optional:* Click the column name again to switch the results between ascending and descending order.
 

@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357751694362-About-intent
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -19,18 +19,18 @@ This article covers all that you need to know to get started with Intents. The f
 - [What is an Intent?](#h_01FE35CVBYHJJ54AAF18KZD1F1)
 - [Types of Intents](#h_01FE35JES8DXM2NS3B3QRC4SYC)
 - [Intent topics](#h_01FE36FTHBD0E17E66EZGVR8K3)  
-  - [Examples of single- and multi-topic intents](#h_01FE34TECWP82PC6C65ZZAXX0Q)
+ - [Examples of single- and multi-topic intents](#h_01FE34TECWP82PC6C65ZZAXX0Q)
 - [Intent Training Best Practices](#h_01GDX97H4RR4Y4P39NAG1DEBVC)
-  - [How do you build Intents?](#h_01GDX97QEE5ECA7XVASMGV5XHZ)
-  - [How many Intents should you have?](#h_01GDXA3KF37C0DRRBE5921R2QN)
-  - [Should you add Intents for every situation?](#h_01GDXA4AATS2M3HP1PGH1XJM0Y)
-  - [When to merge or delete an Intent](#h_01GDXA4KM7JKT9J2N25MZSK19D)
+ - [How do you build Intents?](#h_01GDX97QEE5ECA7XVASMGV5XHZ)
+ - [How many Intents should you have?](#h_01GDXA3KF37C0DRRBE5921R2QN)
+ - [Should you add Intents for every situation?](#h_01GDXA4AATS2M3HP1PGH1XJM0Y)
+ - [When to merge or delete an Intent](#h_01GDXA4KM7JKT9J2N25MZSK19D)
 
 ## What is an Intent?
 
 An intent is a grouping of semantically-similar messages, or [expressions](https://support.zendesk.com/hc/en-us/articles/8357751704474), to be precise, that represent a customer query. 
 
-When it comes to building your Intents, we will ask you to think about the Intent structure.   
+When it comes to building your Intents, we will ask you to think about the Intent structure.  
 An intent structure refers to the complete list of all the meaningful and structural intents in your AI agent (we will cover what these are in just a minute), and the "weight" of each intent, namely the number of expressions each intent has. 
 
 A good intent structure is the foundation of a strong AI model. And a good intent structure reflects reality. This means intents are based on real customer data, are clearly defined, and the expressions trained to them do not overlap with one another. 
@@ -43,7 +43,7 @@ Well-functioning AI agents have two types of intents: Meaningful intents and str
 
 **Structural intents** are intents that support the conversation flow and are not AI agent or industry-specific. Below you will find some of the most common structural intents, however, it is important to verify from conversations with the AI agent which structural intents are the most important, as these can vary depending on language, culture or user behavior. 
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | Greeting | How are you? | Appreciation | Goodbye |
 | Affirmative | Negative | I want to speak to a human | I have a problem/I need help |

@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4438792937114-Comparing-fe
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Explore Professional or Enterprise |
 
@@ -22,7 +22,7 @@ Tip: In a hurry? Check out the [comparison of the most-used features](#h_01G3Y7Z
 
 This article will be updated as new features are released for the new dashboard builder.
 
-|  |  |
+| | |
 | --- | --- |
 | *Legacy dashboard builder* | *New dashboard builder* |
 
@@ -43,7 +43,7 @@ This article contains the following topics:
 
 ## Most-used features
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | **Feature** | **Legacy dashboard builder** | **New dashboard builder** | |
 | General availability | Post–general availability |
@@ -57,7 +57,7 @@ This article contains the following topics:
 
 ## Viewing and sharing
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | **Feature** | **Legacy dashboard builder** | **New dashboard builder** | |
 | General availability | Post–general availability |
@@ -72,7 +72,7 @@ This article contains the following topics:
 
 ## Components
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | **Feature** | **Legacy dashboard builder** | **New dashboard builder** | |
 | General availability | Post–general availability |
@@ -93,7 +93,7 @@ This article contains the following topics:
 
 ## Component options
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | **Feature** | **Legacy dashboard builder** | **New dashboard builder** | |
 | General availability | Post–general availability |
@@ -107,7 +107,7 @@ This article contains the following topics:
 
 ## Filters
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | **Feature** | **Legacy dashboard builder** | **New dashboard builder** | |
 | General availability | Post–general availability |
@@ -117,7 +117,7 @@ This article contains the following topics:
 
 ## Filter options
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | **Feature** | **Legacy dashboard builder** | **New dashboard builder** | |
 | General availability | Post–general availability |
@@ -130,7 +130,7 @@ This article contains the following topics:
 
 ## Layout
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | **Feature** | **Legacy dashboard builder** | **New dashboard builder** | |
 | General availability | Post–general availability |
@@ -148,7 +148,7 @@ This article contains the following topics:
 
 ## Dashboard options
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | **Feature** | **Legacy dashboard builder** | **New dashboard builder** | |
 | General availability | Post–general availability |
@@ -160,7 +160,7 @@ This article contains the following topics:
 
 ## Permissions
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | **Feature** | **Legacy dashboard builder** | **New dashboard builder** | |
 | General availability | Post–general availability |
@@ -168,7 +168,7 @@ This article contains the following topics:
 
 ## Auditing
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | **Feature** | **Legacy dashboard builder** | **New dashboard builder** | |
 | General availability | Post–general availability |

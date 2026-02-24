@@ -35,7 +35,7 @@ This method works for all properties containing color, such as [stroke](https://
 
 1. Select layer you wish to edit.
 2. In the right sidebar, find the property you wish to edit and click the color swatch to open the color picker.
-3. From the color picker, click the  **Eyedropper** icon or use the keyboard shortcut:
+3. From the color picker, click the **Eyedropper** icon or use the keyboard shortcut:
    - Mac: `⌃ Control` `C` or `I`
    - Windows: `I`
 

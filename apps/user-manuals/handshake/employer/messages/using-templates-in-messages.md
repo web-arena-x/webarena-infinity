@@ -13,8 +13,8 @@ Whether you're composing individual or bulk messages to students, or creating ca
 **Topics**:
 
 - [Using templates](#h_01J0BRXF6AWXDM9NDCAHGW5JY8)
-  - [Individual or bulk messages](#h_01J1GF195NYAQDT63DA8H8BVR8)
-  - [Campaigns](#h_01J1GF1BPAP3RC0RZAT55PS1P5)
+ - [Individual or bulk messages](#h_01J1GF195NYAQDT63DA8H8BVR8)
+ - [Campaigns](#h_01J1GF1BPAP3RC0RZAT55PS1P5)
 
 ### 
 

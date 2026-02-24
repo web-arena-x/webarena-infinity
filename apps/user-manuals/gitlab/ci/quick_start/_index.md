@@ -14,8 +14,7 @@ title: 'Tutorial: Create and run your first GitLab CI/CD pipeline'
 
 This tutorial shows you how to configure and run your first CI/CD pipeline in GitLab.
 
-If you are already familiar with [basic CI/CD concepts](../_index.md), you can learn about
-common keywords in [Tutorial: Create a complex pipeline](tutorial.md).
+If you are already familiar with [basic CI/CD concepts](../_index.md), you can learn about common keywords in [Tutorial: Create a complex pipeline](tutorial.md).
 
 ## Prerequisites
 
@@ -52,8 +51,7 @@ To view available runners:
 1. Select **Settings** > **CI/CD**.
 1. Expand **Runners**.
 
-As long as you have at least one runner that's active, with a green circle next to it,
-you have a runner available to process your jobs.
+As long as you have at least one runner that's active, with a green circle next to it, you have a runner available to process your jobs.
 
 If you don't have access to these settings, contact your GitLab administrator.
 
@@ -69,8 +67,7 @@ When your CI/CD jobs run, in a later step, they will run on your local machine.
 
 ## Create a `.gitlab-ci.yml` file
 
-Now create a `.gitlab-ci.yml` file. It is a [YAML](https://en.wikipedia.org/wiki/YAML) file where
-you specify instructions for GitLab CI/CD.
+Now create a `.gitlab-ci.yml` file. It is a [YAML](https://en.wikipedia.org/wiki/YAML) file where you specify instructions for GitLab CI/CD.
 
 In this file, you define:
 
@@ -87,8 +84,7 @@ To create a `.gitlab-ci.yml` file in your project:
 
    ![The new file button to create a file in the current folder.](img/new_file_v13_6.png)
 
-1. For the **Filename**, type `.gitlab-ci.yml` and in the larger window,
-   paste this sample code:
+1. For the **Filename**, type `.gitlab-ci.yml` and in the larger window, paste this sample code:
 
    ```yaml
    build-job:
@@ -153,20 +149,15 @@ For the complete `.gitlab-ci.yml` syntax, see the full [CI/CD YAML syntax refere
 
 - Use the [pipeline editor](../pipeline_editor/_index.md) to edit your `.gitlab-ci.yml` file.
 - Each job contains a script section and belongs to a stage:
-  - [`stage`](../yaml/_index.md#stage) describes the sequential execution of jobs.
+ - [`stage`](../yaml/_index.md#stage) describes the sequential execution of jobs.
     If there are runners available, jobs in a single stage run in parallel.
-  - Use the [`needs` keyword](../yaml/_index.md#needs) to [run jobs out of stage order](../yaml/needs.md),
-    to increase pipeline speed and efficiency.
+ - Use the [`needs` keyword](../yaml/_index.md#needs) to [run jobs out of stage order](../yaml/needs.md), to increase pipeline speed and efficiency.
 - You can set additional configuration to customize how your jobs and stages perform:
-  - Use the [`rules`](../yaml/_index.md#rules) keyword to specify when to run or skip jobs.
-    The `only` and `except` legacy keywords are still supported, but can't be used
-    with `rules` in the same job.
-  - Keep information across jobs and stages persistent in a pipeline with [`cache`](../yaml/_index.md#cache)
-    and [`artifacts`](../yaml/_index.md#artifacts). These keywords are ways to store
-    dependencies and job output, even when using ephemeral runners for each job.
-  - Use the [`default`](../yaml/_index.md#default) keyword to specify additional
-    configurations that are applied to all jobs. This keyword is often used to define
-    [`before_script`](../yaml/_index.md#before_script) and [`after_script`](../yaml/_index.md#after_script)
+ - Use the [`rules`](../yaml/_index.md#rules) keyword to specify when to run or skip jobs.
+    The `only` and `except` legacy keywords are still supported, but can't be used with `rules` in the same job.
+ - Keep information across jobs and stages persistent in a pipeline with [`cache`](../yaml/_index.md#cache)
+    and [`artifacts`](../yaml/_index.md#artifacts). These keywords are ways to store dependencies and job output, even when using ephemeral runners for each job.
+ - Use the [`default`](../yaml/_index.md#default) keyword to specify additional configurations that are applied to all jobs. This keyword is often used to define [`before_script`](../yaml/_index.md#before_script) and [`after_script`](../yaml/_index.md#after_script)
     sections that should run on every job.
 
 ## Related topics
@@ -182,9 +173,6 @@ Migrate from:
 Watch:
 
 - <i class="fa-youtube-play" aria-hidden="true"></i>&nbsp;[First time GitLab & CI/CD](https://www.youtube.com/watch?v=kTNfi5z6Uvk&t=553s).
-  This includes a quick introduction to GitLab, the first steps with CI/CD, building a Go project,
-  running tests, using the CI/CD pipeline editor, detecting secrets and security vulnerabilities
-  and offers more exercises for asynchronous practice.
+ This includes a quick introduction to GitLab, the first steps with CI/CD, building a Go project, running tests, using the CI/CD pipeline editor, detecting secrets and security vulnerabilities and offers more exercises for asynchronous practice.
 - <i class="fa-youtube-play" aria-hidden="true"></i>&nbsp;[Intro to GitLab CI](https://www.youtube.com/watch?v=l5705U8s_nQ&t=358s).
-  This workshop uses the Web IDE to quickly get going with building source code using CI/CD,
-  and run unit tests.
+ This workshop uses the Web IDE to quickly get going with building source code using CI/CD, and run unit tests.

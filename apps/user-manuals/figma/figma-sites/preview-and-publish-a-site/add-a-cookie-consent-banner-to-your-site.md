@@ -132,12 +132,12 @@ There are two styles you can use for your banner:
 
 The cookie consent banner requires a link to the privacy policy governing your site. This link can point to a page on your site, or to an external site.
 
-1. In the **Privacy policy** field, click the  **dropdown** to choose a page from your site, or paste an external link.
+1. In the **Privacy policy** field, click the **dropdown** to choose a page from your site, or paste an external link.
 2. Click **Save**.
 
 ### 5. Test the cookie consent banner
 
-The cookie consent banner appears when you preview the site. It’s also available to test on the published site. Click  on a webpage on the canvas to preview it with the cookie banner. After making a selection, reload the site file to reset the cookie consent banner to it’s first-visit state.
+The cookie consent banner appears when you preview the site. It’s also available to test on the published site. Click on a webpage on the canvas to preview it with the cookie banner. After making a selection, reload the site file to reset the cookie consent banner to it’s first-visit state.
 
 **Note**: When previewing, Figma displays the [explicit consent banner](#h_01K59TKGGPVG587F8QRMR8HRDT) by default.
 

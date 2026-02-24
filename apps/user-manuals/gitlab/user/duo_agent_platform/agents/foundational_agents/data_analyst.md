@@ -16,13 +16,12 @@ title: Data Analyst Agent
 
 {{< history >}}
 
-- [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/578342) in GitLab 18.6
-  [with a feature flag](../../../../administration/feature_flags/_index.md) named `foundational_analytics_agent`.
-  Disabled by default.
+- [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/578342) in GitLab 18.6 [with a feature flag](../../../../administration/feature_flags/_index.md) named `foundational_analytics_agent`.
+ Disabled by default.
 - [Changed](https://gitlab.com/gitlab-org/gitlab/-/issues/583940)
-  to [beta](../../../../policy/development_stages_support.md#beta) in GitLab 18.7.
+ to [beta](../../../../policy/development_stages_support.md#beta) in GitLab 18.7.
 - [Enabled on GitLab.com, GitLab Self-Managed, and GitLab Dedicated](https://gitlab.com/gitlab-org/gitlab/-/issues/583940)
-  in GitLab 18.7.
+ in GitLab 18.7.
 
 {{< /history >}}
 
@@ -34,8 +33,7 @@ This feature is available for testing, but not ready for production use.
 
 {{< /alert >}}
 
-The Data Analyst Agent is a specialized AI assistant that helps you query, visualize, and surface
-data across the GitLab platform. It uses [GitLab Query Language (GLQL)](../../../glql/_index.md)
+The Data Analyst Agent is a specialized AI assistant that helps you query, visualize, and surface data across the GitLab platform. It uses [GitLab Query Language (GLQL)](../../../glql/_index.md)
 to retrieve and analyze data, then provides clear, actionable insights about your projects and groups.
 
 Use the Data Analyst Agent when you need help with:
@@ -45,8 +43,7 @@ Use the Data Analyst Agent when you need help with:
 - Trend analysis: Identifying patterns in your development workflow.
 - Status monitoring: Checking the state of work items across your project or group.
 - Work item discovery: Finding issues, merge requests, or epics by author, label, milestone, or other criteria.
-- GLQL query generation: Creating queries to embed anywhere that supports GitLab Flavored Markdown,
-  including issues, merge requests, epics, comments, wikis, snippets, and releases.
+- GLQL query generation: Creating queries to embed anywhere that supports GitLab Flavored Markdown, including issues, merge requests, epics, comments, wikis, snippets, and releases.
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
 For an overview, see the [GitLab Duo Data Analyst beta release demo](https://youtu.be/9MTT2P_t-CU).
@@ -56,12 +53,10 @@ You can leave feedback in [issue 574028](https://gitlab.com/gitlab-org/gitlab/-/
 
 ## Known issues
 
-- The agent can perform light aggregation on queried data, but results may be
-  incomplete for datasets exceeding 100 items.
+- The agent can perform light aggregation on queried data, but results may be incomplete for datasets exceeding 100 items.
 - GLQL supports querying [specific areas](../../../glql/_index.md#supported-areas)
-  but not all GitLab data sources.
-- The agent cannot output directly to work items or dashboards. However, you can copy the generated GLQL
-  queries and embed them on any page that supports GitLab Flavored Markdown.
+ but not all GitLab data sources.
+- The agent cannot output directly to work items or dashboards. However, you can copy the generated GLQL queries and embed them on any page that supports GitLab Flavored Markdown.
 
 ## Access the Data Analyst Agent
 
@@ -85,29 +80,29 @@ Prerequisites:
 ## Example prompts
 
 - Volume and counting:
-  - "How many merge requests were merged this month?"
-  - "Count the issues created last week."
-  - "How many bugs are currently open?"
+ - "How many merge requests were merged this month?"
+ - "Count the issues created last week."
+ - "How many bugs are currently open?"
 - Team performance:
-  - "What has @username worked on this month?"
-  - "Show me merge requests merged by team X in the last two weeks."
-  - "Show me a table of issues with titles and labels assigned to me."
-  - "List open merge requests by author."
+ - "What has @username worked on this month?"
+ - "Show me merge requests merged by team X in the last two weeks."
+ - "Show me a table of issues with titles and labels assigned to me."
+ - "List open merge requests by author."
 - Status and monitoring:
-  - "Show me open issues with ~priority::1 and ~bug labels."
-  - "Show me overdue issues."
-  - "What merge requests are waiting for review?"
-  - "List issues in the current milestone."
+ - "Show me open issues with ~priority::1 and ~bug labels."
+ - "Show me overdue issues."
+ - "What merge requests are waiting for review?"
+ - "List issues in the current milestone."
 - Trend analysis:
-  - "Show me the merge request activity over the last month."
-  - "What's the trend of bug creation this quarter?"
-  - "Compare issue closure rates between this month and last month."
+ - "Show me the merge request activity over the last month."
+ - "What's the trend of bug creation this quarter?"
+ - "Compare issue closure rates between this month and last month."
 - GLQL query generation:
-  - "Write a GLQL query for open issues assigned to me."
-  - "Create a table showing all merge requests merged this week."
-  - "Generate a GLQL embedded view for team X's open work."
-  - "What's the GLQL syntax for filtering by multiple labels?"
+ - "Write a GLQL query for open issues assigned to me."
+ - "Create a table showing all merge requests merged this week."
+ - "Generate a GLQL embedded view for team X's open work."
+ - "What's the GLQL syntax for filtering by multiple labels?"
 - Work item discovery:
-  - "List merge requests targeting the main branch."
-  - "Find issues updated in the last 24 hours."
-  - "Show me open bugs assigned to team X."
+ - "List merge requests targeting the main branch."
+ - "Find issues updated in the last 24 hours."
+ - "Show me open bugs assigned to team X."

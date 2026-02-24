@@ -20,10 +20,8 @@ Invite colleagues to create an account and join your company profile on Handshak
 
 3. Copy and share the invite link.
 
-- **On-campus, Basic, Plus, and Pro employers**  
-  In the pop-up modal, copy the invite link that appears and share it with your colleague(s).
-- **Essentials and TES employers**  
-  In the pop-up modal, select the appropriate role for the user(s) you want to invite, then copy the invite link and share it with your colleague(s).
+- **On-campus, Basic, Plus, and Pro employers** In the pop-up modal, copy the invite link that appears and share it with your colleague(s).
+- **Essentials and TES employers** In the pop-up modal, select the appropriate role for the user(s) you want to invite, then copy the invite link and share it with your colleague(s).
 
 The invitation link is valid for **48 h**ours. After it expires, a new link must be generated and sent.
 

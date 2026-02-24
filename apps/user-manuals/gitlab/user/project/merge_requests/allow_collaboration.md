@@ -13,41 +13,30 @@ title: Collaborate on merge requests across forks
 
 {{< /details >}}
 
-When you open a merge request from your [fork](../repository/forking_workflow.md), you can allow upstream
-members to collaborate with you on your branch.
-When you enable this option, members who have permission to merge to the target branch get
-permission to write to the merge request's source branch.
+When you open a merge request from your [fork](../repository/forking_workflow.md), you can allow upstream members to collaborate with you on your branch.
+When you enable this option, members who have permission to merge to the target branch get permission to write to the merge request's source branch.
 
-The members of the upstream project can then make small fixes or rebase branches
-before merging.
+The members of the upstream project can then make small fixes or rebase branches before merging.
 
-This feature is available for merge requests across forked projects that are
-[publicly accessible](../../public_access.md).
+This feature is available for merge requests across forked projects that are [publicly accessible](../../public_access.md).
 
 ## Allow commits from upstream members
 
-As the author of a merge request, you can allow commit edits from
-upstream members of the project you're contributing to:
+As the author of a merge request, you can allow commit edits from upstream members of the project you're contributing to:
 
-1. While creating or editing a merge request, scroll to **Contribution** and
-   select the **Allow commits from members who can merge to the target branch**
-   checkbox.
+1. While creating or editing a merge request, scroll to **Contribution** and select the **Allow commits from members who can merge to the target branch** checkbox.
 1. Finish creating your merge request.
 
-After you create the merge request, the merge request widget displays the message
-**Members who can merge are allowed to add commits**. Upstream members can then:
+After you create the merge request, the merge request widget displays the message **Members who can merge are allowed to add commits**. Upstream members can then:
 
 - Commit directly to your branch.
 - Retry the pipelines and jobs of the merge request.
 
 ## Prevent commits from upstream members
 
-As the author of a merge request, you can prevent commit edits from
-upstream members of the project you're contributing to:
+As the author of a merge request, you can prevent commit edits from upstream members of the project you're contributing to:
 
-1. While creating or editing a merge request, scroll to **Contribution** and
-   clear the **Allow commits from members who can merge to the target branch**
-   checkbox.
+1. While creating or editing a merge request, scroll to **Contribution** and clear the **Allow commits from members who can merge to the target branch** checkbox.
 1. Finish creating your merge request.
 
 ## Push to the fork as the upstream member
@@ -64,15 +53,10 @@ For more information, see [use Git to push to a fork as an upstream member](../.
 
 ### Pipeline status unavailable from MR page of forked project
 
-When a user forks a project, the permissions of the forked copy are not copied
-from the original project. The creator of the fork must grant permissions to the
-forked copy before members in the upstream project can view or merge the changes
-in the merge request.
+When a user forks a project, the permissions of the forked copy are not copied from the original project. The creator of the fork must grant permissions to the forked copy before members in the upstream project can view or merge the changes in the merge request.
 
-To see the pipeline status from the merge request page of a forked project
-going back to the original project:
+To see the pipeline status from the merge request page of a forked project going back to the original project:
 
 1. [Create a group](../../group/_index.md#create-a-group) containing all the upstream members.
 1. On the top bar, select **Search or go to** and find the forked project.
-1. Go to the **Manage** > **Members** page in the forked project and invite the newly-created
-   group to the forked project.
+1. Go to the **Manage** > **Members** page in the forked project and invite the newly-created group to the forked project.

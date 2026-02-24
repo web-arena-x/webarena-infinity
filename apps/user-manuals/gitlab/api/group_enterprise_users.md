@@ -45,7 +45,7 @@ Supported attributes:
 | `search`         | string         | no       | Return users with a matching name, email, or username. Use partial values to increase results. |
 | `active`         | boolean        | no       | Return only active users. |
 | `blocked`        | boolean        | no       | Return only blocked users. |
-| `created_after`  | datetime       | no       | Return users created after the specified time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`). |
+| `created_after` | datetime       | no       | Return users created after the specified time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`). |
 | `created_before` | datetime       | no       | Return users created before the specified time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`). |
 | `two_factor`     | string         | no       | Return users based on their two-factor authentication (2FA) enrollment status. Possible values: `enabled`, `disabled`. |
 
@@ -59,7 +59,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 66,
     "username": "user22",
     "name": "Sidney Jones22",
@@ -111,8 +111,8 @@ Example response:
         "active": true
       }
     ]
-  },
-  ...
+ },
+ ...
 ]
 ```
 
@@ -147,57 +147,57 @@ Example response:
 
 ```json
 {
-  "id": 66,
-  "username": "user22",
-  "name": "Sidney Jones22",
-  "state": "active",
-  "avatar_url": "https://www.gravatar.com/avatar/xxx?s=80&d=identicon",
-  "web_url": "http://my.gitlab.com/user22",
-  "created_at": "2021-09-10T12:48:22.381Z",
-  "bio": "",
-  "location": null,
-  "public_email": "",
-  "linkedin": "",
-  "twitter": "",
-  "website_url": "",
-  "organization": null,
-  "job_title": "",
-  "pronouns": null,
-  "bot": false,
-  "work_information": null,
-  "followers": 0,
-  "following": 0,
-  "local_time": null,
-  "last_sign_in_at": null,
-  "confirmed_at": "2021-09-10T12:48:22.330Z",
-  "last_activity_on": null,
-  "email": "user22@example.org",
-  "theme_id": 1,
-  "color_scheme_id": 1,
-  "projects_limit": 100000,
-  "current_sign_in_at": null,
-  "identities": [
+ "id": 66,
+ "username": "user22",
+ "name": "Sidney Jones22",
+ "state": "active",
+ "avatar_url": "https://www.gravatar.com/avatar/xxx?s=80&d=identicon",
+ "web_url": "http://my.gitlab.com/user22",
+ "created_at": "2021-09-10T12:48:22.381Z",
+ "bio": "",
+ "location": null,
+ "public_email": "",
+ "linkedin": "",
+ "twitter": "",
+ "website_url": "",
+ "organization": null,
+ "job_title": "",
+ "pronouns": null,
+ "bot": false,
+ "work_information": null,
+ "followers": 0,
+ "following": 0,
+ "local_time": null,
+ "last_sign_in_at": null,
+ "confirmed_at": "2021-09-10T12:48:22.330Z",
+ "last_activity_on": null,
+ "email": "user22@example.org",
+ "theme_id": 1,
+ "color_scheme_id": 1,
+ "projects_limit": 100000,
+ "current_sign_in_at": null,
+ "identities": [
     {
       "provider": "group_saml",
       "extern_uid": "2435223452345",
       "saml_provider_id": 1
     }
-  ],
-  "can_create_group": true,
-  "can_create_project": true,
-  "two_factor_enabled": false,
-  "external": false,
-  "private_profile": false,
-  "commit_email": "user22@example.org",
-  "shared_runners_minutes_limit": null,
-  "extra_shared_runners_minutes_limit": null,
-  "scim_identities": [
+ ],
+ "can_create_group": true,
+ "can_create_project": true,
+ "two_factor_enabled": false,
+ "external": false,
+ "private_profile": false,
+ "commit_email": "user22@example.org",
+ "shared_runners_minutes_limit": null,
+ "extra_shared_runners_minutes_limit": null,
+ "scim_identities": [
     {
       "extern_uid": "2435223452345",
       "group_id": 1,
       "active": true
     }
-  ]
+ ]
 }
 ```
 
@@ -236,57 +236,57 @@ Example of successful response:
 
 ```json
 {
-  "id": 66,
-  "username": "user22",
-  "name": "New name",
-  "state": "active",
-  "avatar_url": "https://www.gravatar.com/avatar/xxx?s=80&d=identicon",
-  "web_url": "http://my.gitlab.com/user22",
-  "created_at": "2021-09-10T12:48:22.381Z",
-  "bio": "",
-  "location": null,
-  "public_email": "",
-  "linkedin": "",
-  "twitter": "",
-  "website_url": "",
-  "organization": null,
-  "job_title": "",
-  "pronouns": null,
-  "bot": false,
-  "work_information": null,
-  "followers": 0,
-  "following": 0,
-  "local_time": null,
-  "last_sign_in_at": null,
-  "confirmed_at": "2021-09-10T12:48:22.330Z",
-  "last_activity_on": null,
-  "email": "new-email@example.com",
-  "theme_id": 1,
-  "color_scheme_id": 1,
-  "projects_limit": 100000,
-  "current_sign_in_at": null,
-  "identities": [
+ "id": 66,
+ "username": "user22",
+ "name": "New name",
+ "state": "active",
+ "avatar_url": "https://www.gravatar.com/avatar/xxx?s=80&d=identicon",
+ "web_url": "http://my.gitlab.com/user22",
+ "created_at": "2021-09-10T12:48:22.381Z",
+ "bio": "",
+ "location": null,
+ "public_email": "",
+ "linkedin": "",
+ "twitter": "",
+ "website_url": "",
+ "organization": null,
+ "job_title": "",
+ "pronouns": null,
+ "bot": false,
+ "work_information": null,
+ "followers": 0,
+ "following": 0,
+ "local_time": null,
+ "last_sign_in_at": null,
+ "confirmed_at": "2021-09-10T12:48:22.330Z",
+ "last_activity_on": null,
+ "email": "new-email@example.com",
+ "theme_id": 1,
+ "color_scheme_id": 1,
+ "projects_limit": 100000,
+ "current_sign_in_at": null,
+ "identities": [
     {
       "provider": "group_saml",
       "extern_uid": "2435223452345",
       "saml_provider_id": 1
     }
-  ],
-  "can_create_group": true,
-  "can_create_project": true,
-  "two_factor_enabled": false,
-  "external": false,
-  "private_profile": false,
-  "commit_email": "user22@example.org",
-  "shared_runners_minutes_limit": null,
-  "extra_shared_runners_minutes_limit": null,
-  "scim_identities": [
+ ],
+ "can_create_group": true,
+ "can_create_project": true,
+ "two_factor_enabled": false,
+ "external": false,
+ "private_profile": false,
+ "commit_email": "user22@example.org",
+ "shared_runners_minutes_limit": null,
+ "extra_shared_runners_minutes_limit": null,
+ "scim_identities": [
     {
       "extern_uid": "2435223452345",
       "group_id": 1,
       "active": true
     }
-  ]
+ ]
 }
 ```
 
@@ -316,7 +316,7 @@ Supported attributes:
 |:--------------|:---------------|:---------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`          | integer or string | yes      | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of a top-level group.                                                                                                                                                                                                          |
 | `user_id`     | integer        | yes      | ID of user account.                                                                                                                                                                                                                                                                      |
-| `hard_delete` | boolean        | no       | If `false`, deletes the user and moves their contributions [to a system-wide "Ghost User"](../user/profile/account/delete_account.md#associated-records). If `true`, deletes the user, their associated contributions, and any groups owned solely by the user. Default value: `false`.  |
+| `hard_delete` | boolean        | no       | If `false`, deletes the user and moves their contributions [to a system-wide "Ghost User"](../user/profile/account/delete_account.md#associated-records). If `true`, deletes the user, their associated contributions, and any groups owned solely by the user. Default value: `false`. |
 
 Example request:
 

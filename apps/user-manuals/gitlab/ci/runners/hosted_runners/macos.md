@@ -29,15 +29,13 @@ GitLab offers the following machine type for hosted runners on macOS. To build f
 | Runner Tag               | vCPUS | Memory | Storage |
 | ------------------------ | ----- | ------ | ------- |
 | `saas-macos-medium-m1`   | 4     | 8 GB   | 50 GB   |
-| `saas-macos-large-m2pro` | 6     | 16 GB  | 50 GB   |
+| `saas-macos-large-m2pro` | 6     | 16 GB | 50 GB   |
 
 ## Supported macOS images
 
-In comparison to our hosted runners on Linux, where you can run any Docker image,
-GitLab provides a set of VM images for macOS.
+In comparison to our hosted runners on Linux, where you can run any Docker image, GitLab provides a set of VM images for macOS.
 
-You can execute your build in one of the following images, which you specify
-in your `.gitlab-ci.yml` file. Each image runs a specific version of macOS and Xcode.
+You can execute your build in one of the following images, which you specify in your `.gitlab-ci.yml` file. Each image runs a specific version of macOS and Xcode.
 
 | VM image                   | Status       |              |
 |----------------------------|--------------|--------------|
@@ -63,24 +61,24 @@ The following sample `.gitlab-ci.yml` file shows how to start using the hosted r
 
 ```yaml
 .macos_saas_runners:
-  tags:
+ tags:
     - saas-macos-medium-m1
-  image: macos-14-xcode-15
-  before_script:
+ image: macos-14-xcode-15
+ before_script:
     - echo "started by ${GITLAB_USER_NAME} / @${GITLAB_USER_LOGIN}"
 
 build:
-  extends:
+ extends:
     - .macos_saas_runners
-  stage: build
-  script:
+ stage: build
+ script:
     - echo "running scripts in the build job"
 
 test:
-  extends:
+ extends:
     - .macos_saas_runners
-  stage: test
-  script:
+ stage: test
+ script:
     - echo "running scripts in the test job"
 ```
 
@@ -88,8 +86,7 @@ test:
 
 Before you can integrate GitLab with Apple services, install to a device, or deploy to the Apple App Store, you must [code sign](https://developer.apple.com/documentation/security/code_signing_services) your application.
 
-Included in each runner on macOS VM image is [fastlane](https://fastlane.tools/),
-an open-source solution aimed at simplifying mobile app deployment.
+Included in each runner on macOS VM image is [fastlane](https://fastlane.tools/), an open-source solution aimed at simplifying mobile app deployment.
 
 For information about how to set up code signing for your application, see the instructions in the [Mobile DevOps documentation](../../mobile_devops/mobile_devops_tutorial_ios.md#configure-code-signing-with-fastlane).
 
@@ -101,16 +98,13 @@ Related topics:
 
 ## Optimizing Homebrew
 
-By default, Homebrew checks for updates at the start of any operation. Homebrew has a
-release cycle that may be more frequent than the GitLab macOS image release cycle. This
-difference in release cycles may cause steps that call `brew` to take extra time to complete
-while Homebrew makes updates.
+By default, Homebrew checks for updates at the start of any operation. Homebrew has a release cycle that may be more frequent than the GitLab macOS image release cycle. This difference in release cycles may cause steps that call `brew` to take extra time to complete while Homebrew makes updates.
 
 To reduce build time due to unintended Homebrew updates, set the `HOMEBREW_NO_AUTO_UPDATE` variable in `.gitlab-ci.yml`:
 
 ```yaml
 variables:
-  HOMEBREW_NO_AUTO_UPDATE: 1
+ HOMEBREW_NO_AUTO_UPDATE: 1
 ```
 
 ## Optimizing CocoaPods
@@ -119,8 +113,7 @@ If you use CocoaPods in a project, you should consider the following optimizatio
 
 **CocoaPods CDN**
 
-You can use content delivery network (CDN) access to download packages from the CDN instead of having to clone an entire
-project repository. CDN access is available in CocoaPods 1.8 or later and is supported by all GitLab hosted runners on macOS.
+You can use content delivery network (CDN) access to download packages from the CDN instead of having to clone an entire project repository. CDN access is available in CocoaPods 1.8 or later and is supported by all GitLab hosted runners on macOS.
 
 To enable CDN access, ensure your Podfile starts with:
 
@@ -130,8 +123,7 @@ source 'https://cdn.cocoapods.org/'
 
 **Use GitLab caching**
 
-Use caching in CocoaPods packages in GitLab to only run `pod install`
-when pods change, which can improve build performance.
+Use caching in CocoaPods packages in GitLab to only run `pod install` when pods change, which can improve build performance.
 
 To [configure caching](../../caching/_index.md) for your project:
 
@@ -155,8 +147,7 @@ To [configure caching](../../caching/_index.md) for your project:
 
 **Include pods in source control**
 
-You can also [include the pods directory in source control](https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control). This eliminates the need to install pods as part of the CI job,
-but it does increase the overall size of your project's repository.
+You can also [include the pods directory in source control](https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control). This eliminates the need to install pods as part of the CI job, but it does increase the overall size of your project's repository.
 
 ## Known issues and usage constraints
 
@@ -164,11 +155,10 @@ but it does increase the overall size of your project's repository.
 - It is not possible to bring your own OS image.
 - The keychain for user `gitlab` is not publicly available. You must create a keychain instead.
 - Hosted runners on macOS run in headless mode.
-  Any workloads that require UI interactions such as `testmanagerd` are not supported.
-- Job performance might vary between job executions as Apple silicon chips have efficiency and
-  performance cores. You can't control core allocation or scheduling, which might lead to inconsistencies.
+ Any workloads that require UI interactions such as `testmanagerd` are not supported.
+- Job performance might vary between job executions as Apple silicon chips have efficiency and performance cores. You can't control core allocation or scheduling, which might lead to inconsistencies.
 - The availability of AWS bare metal macOS machines used for hosted runners on macOS is limited. Jobs might experience extended queuing times when no machines are available.
 - Hosted runner instances on macOS sometimes do not respond to requests, which results in jobs hanging until the maximum job duration is reached.
 - macOS uses a case-insensitive file system by default.
-  This behavior can result in unexpected errors if you have duplicate file paths that are equal except case.
-  These duplicate paths could be in the Git working tree or Git refs where branches and tags are stored.
+ This behavior can result in unexpected errors if you have duplicate file paths that are equal except case.
+ These duplicate paths could be in the Git working tree or Git refs where branches and tags are stored.

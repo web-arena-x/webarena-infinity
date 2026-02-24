@@ -31,8 +31,7 @@ for details on which headers and token types are supported. Undocumented authent
 
 {{< alert type="note" >}}
 
-[Twine 3.4.2](https://twine.readthedocs.io/en/stable/changelog.html?highlight=FIPS#id28) or greater
-is recommended when FIPS mode is enabled.
+[Twine 3.4.2](https://twine.readthedocs.io/en/stable/changelog.html?highlight=FIPS#id28) or greater is recommended when FIPS mode is enabled.
 {{< /alert >}}
 
 ## Download a package file from a group
@@ -52,18 +51,17 @@ GET groups/:id/-/packages/pypi/files/:sha256/:file_identifier
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/groups/1/-/packages/pypi/files/5y57017232013c8ac80647f4ca153k3726f6cba62d055cd747844ed95b3c65ff/my.pypi.package-0.0.1.tar.gz"
+ --url "https://gitlab.example.com/api/v4/groups/1/-/packages/pypi/files/5y57017232013c8ac80647f4ca153k3726f6cba62d055cd747844ed95b3c65ff/my.pypi.package-0.0.1.tar.gz"
 ```
 
 To write the output to a file:
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/groups/1/-/packages/pypi/files/5y57017232013c8ac80647f4ca153k3726f6cba62d055cd747844ed95b3c65ff/my.pypi.package-0.0.1.tar.gz" >> my.pypi.package-0.0.1.tar.gz
+ --url "https://gitlab.example.com/api/v4/groups/1/-/packages/pypi/files/5y57017232013c8ac80647f4ca153k3726f6cba62d055cd747844ed95b3c65ff/my.pypi.package-0.0.1.tar.gz" >> my.pypi.package-0.0.1.tar.gz
 ```
 
-This writes the downloaded file to `my.pypi.package-0.0.1.tar.gz` in the current
-directory.
+This writes the downloaded file to `my.pypi.package-0.0.1.tar.gz` in the current directory.
 
 ## Group-level simple API index
 
@@ -79,7 +77,7 @@ GET groups/:id/-/packages/pypi/simple
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/groups/1/-/packages/pypi/simple"
+ --url "https://gitlab.example.com/api/v4/groups/1/-/packages/pypi/simple"
 ```
 
 Example response:
@@ -87,13 +85,13 @@ Example response:
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
+ <head>
     <title>Links for Group</title>
-  </head>
-  <body>
+ </head>
+ <body>
     <h1>Links for Group</h1>
     <a href="https://gitlab.example.com/api/v4/groups/1/-/packages/pypi/simple/my-pypi-package" data-requires-python="">my.pypi.package</a><br><a href="https://gitlab.example.com/api/v4/groups/1/-/packages/pypi/simple/package-2" data-requires-python="3.8">package_2</a><br>
-  </body>
+ </body>
 </html>
 ```
 
@@ -101,7 +99,7 @@ To write the output to a file:
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/groups/1/-/packages/pypi/simple" >> simple_index.html
+ --url "https://gitlab.example.com/api/v4/groups/1/-/packages/pypi/simple" >> simple_index.html
 ```
 
 This writes the downloaded file to `simple_index.html` in the current directory.
@@ -121,7 +119,7 @@ GET groups/:id/-/packages/pypi/simple/:package_name
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/groups/1/-/packages/pypi/simple/my.pypi.package"
+ --url "https://gitlab.example.com/api/v4/groups/1/-/packages/pypi/simple/my.pypi.package"
 ```
 
 Example response:
@@ -129,13 +127,13 @@ Example response:
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
+ <head>
     <title>Links for my.pypi.package</title>
-  </head>
-  <body>
+ </head>
+ <body>
     <h1>Links for my.pypi.package</h1>
     <a href="https://gitlab.example.com/api/v4/groups/1/-/packages/pypi/files/5y57017232013c8ac80647f4ca153k3726f6cba62d055cd747844ed95b3c65ff/my.pypi.package-0.0.1-py3-none-any.whl#sha256=5y57017232013c8ac80647f4ca153k3726f6cba62d055cd747844ed95b3c65ff" data-requires-python="&gt;=3.6">my.pypi.package-0.0.1-py3-none-any.whl</a><br><a href="https://gitlab.example.com/api/v4/groups/1/-/packages/pypi/files/9s9w01b0bcd52b709ec052084e33a5517ffca96f7728ddd9f8866a30cdf76f2/my.pypi.package-0.0.1.tar.gz#sha256=9s9w011b0bcd52b709ec052084e33a5517ffca96f7728ddd9f8866a30cdf76f2" data-requires-python="&gt;=3.6">my.pypi.package-0.0.1.tar.gz</a><br>
-  </body>
+ </body>
 </html>
 ```
 
@@ -143,7 +141,7 @@ To write the output to a file:
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/groups/1/-/packages/pypi/simple/my.pypi.package" >> simple.html
+ --url "https://gitlab.example.com/api/v4/groups/1/-/packages/pypi/simple/my.pypi.package" >> simple.html
 ```
 
 This writes the downloaded file to `simple.html` in the current directory.
@@ -165,18 +163,17 @@ GET projects/:id/packages/pypi/files/:sha256/:file_identifier
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/pypi/files/5y57017232013c8ac80647f4ca153k3726f6cba62d055cd747844ed95b3c65ff/my.pypi.package-0.0.1.tar.gz"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/pypi/files/5y57017232013c8ac80647f4ca153k3726f6cba62d055cd747844ed95b3c65ff/my.pypi.package-0.0.1.tar.gz"
 ```
 
 To write the output to a file:
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/pypi/files/5y57017232013c8ac80647f4ca153k3726f6cba62d055cd747844ed95b3c65ff/my.pypi.package-0.0.1.tar.gz" >> my.pypi.package-0.0.1.tar.gz
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/pypi/files/5y57017232013c8ac80647f4ca153k3726f6cba62d055cd747844ed95b3c65ff/my.pypi.package-0.0.1.tar.gz" >> my.pypi.package-0.0.1.tar.gz
 ```
 
-This writes the downloaded file to `my.pypi.package-0.0.1.tar.gz` in the current
-directory.
+This writes the downloaded file to `my.pypi.package-0.0.1.tar.gz` in the current directory.
 
 ## Project-level simple API index
 
@@ -192,7 +189,7 @@ GET projects/:id/packages/pypi/simple
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/pypi/simple"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/pypi/simple"
 ```
 
 Example response:
@@ -200,13 +197,13 @@ Example response:
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
+ <head>
     <title>Links for Project</title>
-  </head>
-  <body>
+ </head>
+ <body>
     <h1>Links for Project</h1>
     <a href="https://gitlab.example.com/api/v4/projects/1/packages/pypi/simple/my-pypi-package" data-requires-python="">my.pypi.package</a><br><a href="https://gitlab.example.com/api/v4/projects/1/packages/pypi/simple/package-2" data-requires-python="3.8">package_2</a><br>
-  </body>
+ </body>
 </html>
 ```
 
@@ -214,7 +211,7 @@ To write the output to a file:
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/pypi/simple" >> simple_index.html
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/pypi/simple" >> simple_index.html
 ```
 
 This writes the downloaded file to `simple_index.html` in the current directory.
@@ -234,7 +231,7 @@ GET projects/:id/packages/pypi/simple/:package_name
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/pypi/simple/my.pypi.package"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/pypi/simple/my.pypi.package"
 ```
 
 Example response:
@@ -242,13 +239,13 @@ Example response:
 ```html
 <!DOCTYPE html>
 <html>
-  <head>
+ <head>
     <title>Links for my.pypi.package</title>
-  </head>
-  <body>
+ </head>
+ <body>
     <h1>Links for my.pypi.package</h1>
     <a href="https://gitlab.example.com/api/v4/projects/1/packages/pypi/files/5y57017232013c8ac80647f4ca153k3726f6cba62d055cd747844ed95b3c65ff/my.pypi.package-0.0.1-py3-none-any.whl#sha256=5y57017232013c8ac80647f4ca153k3726f6cba62d055cd747844ed95b3c65ff" data-requires-python="&gt;=3.6">my.pypi.package-0.0.1-py3-none-any.whl</a><br><a href="https://gitlab.example.com/api/v4/projects/1/packages/pypi/files/9s9w01b0bcd52b709ec052084e33a5517ffca96f7728ddd9f8866a30cdf76f2/my.pypi.package-0.0.1.tar.gz#sha256=9s9w011b0bcd52b709ec052084e33a5517ffca96f7728ddd9f8866a30cdf76f2" data-requires-python="&gt;=3.6">my.pypi.package-0.0.1.tar.gz</a><br>
-  </body>
+ </body>
 </html>
 ```
 
@@ -256,7 +253,7 @@ To write the output to a file:
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/pypi/simple/my.pypi.package" >> simple.html
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/pypi/simple/my.pypi.package" >> simple.html
 ```
 
 This writes the downloaded file to `simple.html` in the current directory.

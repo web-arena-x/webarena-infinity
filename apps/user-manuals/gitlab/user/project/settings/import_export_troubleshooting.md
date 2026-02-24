@@ -17,8 +17,7 @@ If you have problems with [migrating projects by using file exports](import_expo
 
 ## Troubleshooting commands
 
-Finds information about the status of the import and further logs using the JID,
-using the [Rails console](../../../administration/operations/rails_console.md):
+Finds information about the status of the import and further logs using the JID, using the [Rails console](../../../administration/operations/rails_console.md):
 
 ```ruby
 Project.find_by_full_path('group/project').import_state.slice(:jid, :status, :last_error)
@@ -49,30 +48,26 @@ If users aren't imported with imported projects, see the [preserving user contri
 A common reason for missing users is that the [public email setting](../../profile/_index.md#set-your-public-email) isn't configured for users.
 To resolve this issue, ask users to configure this setting using the GitLab UI.
 
-If there are too many users for manual configuration to be feasible,
-you can set all user profiles to use a public email address using the
-[Rails console](../../../administration/operations/rails_console.md#starting-a-rails-console-session):
+If there are too many users for manual configuration to be feasible, you can set all user profiles to use a public email address using the [Rails console](../../../administration/operations/rails_console.md#starting-a-rails-console-session):
 
 ```ruby
 User.where("public_email IS NULL OR public_email = '' ").find_each do |u|
-  next if u.bot?
+ next if u.bot?
 
-  puts "Setting #{u.username}'s currently empty public email to #{u.email}…"
-  u.public_email = u.email
-  u.save!
+ puts "Setting #{u.username}'s currently empty public email to #{u.email}…"
+ u.public_email = u.email
+ u.save!
 end
 ```
 
 ## Import workarounds for large repositories
 
 [Maximum import size limitations](import_export.md#import-a-project-and-its-data)
-can prevent an import from being successful. If changing the import limits is not possible, you can
-try one of the workarounds listed here.
+can prevent an import from being successful. If changing the import limits is not possible, you can try one of the workarounds listed here.
 
 ### Workaround option 1
 
-The following local workflow can be used to temporarily
-reduce the repository size for another import attempt:
+The following local workflow can be used to temporarily reduce the repository size for another import attempt:
 
 1. Create a temporary working directory from the export:
 
@@ -113,14 +108,8 @@ reduce the repository size for another import attempt:
    ```
 
 1. Import this new, smaller file into GitLab.
-1. In a full clone of the original repository,
-   use `git remote set-url origin <new-url> && git push --force --all`
-   to complete the import.
-1. Update the imported repository's
-   [branch protection rules](../repository/branches/protected.md) and
-   its [default branch](../repository/branches/default.md), and
-   delete the temporary, `smaller-tmp-main` branch, and
-   the local, temporary data.
+1. In a full clone of the original repository, use `git remote set-url origin <new-url> && git push --force --all` to complete the import.
+1. Update the imported repository's [branch protection rules](../repository/branches/protected.md) and its [default branch](../repository/branches/default.md), and delete the temporary, `smaller-tmp-main` branch, and the local, temporary data.
 
 ### Workaround option 2
 
@@ -135,16 +124,14 @@ Rather than attempting to push all changes at once, this workaround:
 - Separates the project import from the Git Repository import
 - Incrementally pushes the repository to GitLab
 
-1. Make a local clone of the repository to migrate. In a later step, you push this clone outside of
-   the project export.
+1. Make a local clone of the repository to migrate. In a later step, you push this clone outside of the project export.
 1. Download the export and remove the `project.bundle` (which contains the Git repository):
 
    ```shell
    tar -czvf new_export.tar.gz --exclude='project.bundle' @old_export.tar.gz
    ```
 
-1. Import the export without a Git repository. It asks you to confirm to import without a
-   repository.
+1. Import the export without a Git repository. It asks you to confirm to import without a repository.
 1. Save this bash script as a file and run it after adding the appropriate origin.
 
    ```shell
@@ -182,13 +169,11 @@ Rather than attempting to push all changes at once, this workaround:
 
 ## Sidekiq process fails to export a project
 
-Occasionally the Sidekiq process can fail to export a project, for example if
-it is terminated during execution.
+Occasionally the Sidekiq process can fail to export a project, for example if it is terminated during execution.
 
 GitLab.com users should [contact Support](https://about.gitlab.com/support/#contact-support) to resolve this issue.
 
-GitLab Self-Managed administrators can use the Rails console to bypass the Sidekiq process and
-manually trigger the project export:
+GitLab Self-Managed administrators can use the Rails console to bypass the Sidekiq process and manually trigger the project export:
 
 ```ruby
 project = Project.find(1)
@@ -215,12 +200,8 @@ ProjectExportWorker.new.perform(current_user.id, project.id)
 
 ## Manually execute export steps
 
-You usually export a project through [the web interface](import_export.md#export-a-project-and-its-data) or through [the API](../../../api/project_import_export.md). Exporting using these
-methods can sometimes fail without giving enough information to troubleshoot. In these cases,
-[open a Rails console session](../../../administration/operations/rails_console.md#starting-a-rails-console-session) and loop through
-[all the defined exporters](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/services/projects/import_export/export_service.rb).
-Execute each line individually, rather than pasting the entire block at once, so you can see any
-errors each command returns.
+You usually export a project through [the web interface](import_export.md#export-a-project-and-its-data) or through [the API](../../../api/project_import_export.md). Exporting using these methods can sometimes fail without giving enough information to troubleshoot. In these cases, [open a Rails console session](../../../administration/operations/rails_console.md#starting-a-rails-console-session) and loop through [all the defined exporters](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/services/projects/import_export/export_service.rb).
+Execute each line individually, rather than pasting the entire block at once, so you can see any errors each command returns.
 
 ```ruby
 # User needs to have permission to export
@@ -259,25 +240,21 @@ After the project is successfully uploaded, the exported project is located in a
 ## Import using the REST API fails when using a group access token
 
 [Group access tokens](../../group/settings/group_access_tokens.md)
-don't work for project or group import operations. When a group access token initiates an import,
-the import fails with this message:
+don't work for project or group import operations. When a group access token initiates an import, the import fails with this message:
 
 ```plaintext
 Error adding importer user to Project members.
 Validation failed: User project bots cannot be added to other groups / projects
 ```
 
-To use [Import REST API](../../../api/project_import_export.md),
-pass regular user account credentials such as [personal access tokens](../../profile/personal_access_tokens.md).
+To use [Import REST API](../../../api/project_import_export.md), pass regular user account credentials such as [personal access tokens](../../profile/personal_access_tokens.md).
 
 ## Error: `PG::QueryCanceled: ERROR: canceling statement due to statement timeout`
 
 Some migrations can time out with the error: `PG::QueryCanceled: ERROR: canceling statement due to statement timeout`.
-One way to avoid this problem is to have the migration batch size reduced. This makes a migration less likely to time
-out, but makes migrations slower.
+One way to avoid this problem is to have the migration batch size reduced. This makes a migration less likely to time out, but makes migrations slower.
 
-To have the batch sized reduced, you must have a feature flag enabled. For more information, see
-[issue 456948](https://gitlab.com/gitlab-org/gitlab/-/issues/456948).
+To have the batch sized reduced, you must have a feature flag enabled. For more information, see [issue 456948](https://gitlab.com/gitlab-org/gitlab/-/issues/456948).
 
 ## Error: `command exited with error code 15 and Unable to save [FILTERED] into [FILTERED]`
 
@@ -289,8 +266,7 @@ command exited with error code 15 and Unable to save [FILTERED] into [FILTERED]
 
 This error occurs during export or import when Sidekiq receives a `SIGTERM`, often while executing the `tar` command.
 
-In Kubernetes environments like GitLab.com and GitLab Dedicated, the operating system triggers `SIGTERM` signals
-due to memory or disk shortage, code deployments, or instance upgrades.
+In Kubernetes environments like GitLab.com and GitLab Dedicated, the operating system triggers `SIGTERM` signals due to memory or disk shortage, code deployments, or instance upgrades.
 To identify the root cause, an administrator should investigate why Kubernetes terminated the instance.
 
 In non-Kubernetes environments, this error might occur if the instance is terminated while executing the `tar` command.
@@ -298,9 +274,8 @@ However, this error does not occur due to disk shortage, so memory shortage is t
 
 If you get this error:
 
-- When you export a file, GitLab retries the export until the
-  maximum number of retries is reached and then marks the export as failed.
-  For GitLab.com, try the export during the weekend when less load exists on the instance.
+- When you export a file, GitLab retries the export until the maximum number of retries is reached and then marks the export as failed.
+ For GitLab.com, try the export during the weekend when less load exists on the instance.
 - When you import a file, you must retry the import yourself. GitLab does not retry the import automatically.
 
 ## Troubleshooting performance issues
@@ -329,16 +304,16 @@ Timeout errors occur due to the `Gitlab::Import::StuckProjectImportJobsWorker` m
 
 ```ruby
 module Gitlab
-  module Import
+ module Import
     class StuckProjectImportJobsWorker
       include Gitlab::Import::StuckImportJob
       # ...
     end
-  end
+ end
 end
 
 module Gitlab
-  module Import
+ module Import
     module StuckImportJob
       # ...
       IMPORT_JOBS_EXPIRATION = 15.hours.to_i
@@ -351,7 +326,7 @@ module Gitlab
       end
       # ...
     end
-  end
+ end
 end
 ```
 
@@ -360,14 +335,14 @@ Marked stuck import jobs as failed. JIDs: xyz
 ```
 
 ```plaintext
-  +-----------+    +-----------------------------------+
-  |Export Job |--->| Calls ActiveRecord `as_json` and  |
-  +-----------+    | `to_json` on all project models   |
+ +-----------+    +-----------------------------------+
+ |Export Job |--->| Calls ActiveRecord `as_json` and |
+ +-----------+    | `to_json` on all project models   |
                    +-----------------------------------+
 
-  +-----------+    +-----------------------------------+
-  |Import Job |--->| Loads all JSON in memory, then    |
-  +-----------+    | inserts into the DB in batches    |
+ +-----------+    +-----------------------------------+
+ |Import Job |--->| Loads all JSON in memory, then    |
+ +-----------+    | inserts into the DB in batches    |
                    +-----------------------------------+
 ```
 

@@ -41,41 +41,22 @@ In the publishing window, review the details below before clicking **Publish**.
 
 Site titleSite URLStatusIssuesWho can view
 
-The site title appears in browser tabs, search engine results, and social
-media. Adding a title helps people understand what site they viewing,
-improves
-SEO, and improves accessibility.
+The site title appears in browser tabs, search engine results, and social media. Adding a title helps people understand what site they viewing, improves SEO, and improves accessibility.
 
-**Tip:** We recommend
-[reviewing and updating the site settings](https://help.figma.com/hc/en-us/articles/31242875661591)
+**Tip:** We recommend [reviewing and updating the site settings](https://help.figma.com/hc/en-us/articles/31242875661591)
 before publishing.
 
-After publishing your site, it will become available at a random figma.site
-subdomain, like `https://hut-grid-glade.figma.site`. Once
-published,
-you can
-[add a custom domain for your site](https://help.figma.com/hc/en-us/articles/31414274019863).
+After publishing your site, it will become available at a random figma.site subdomain, like `https://hut-grid-glade.figma.site`. Once published, you can [add a custom domain for your site](https://help.figma.com/hc/en-us/articles/31414274019863).
 
-**Note:** It’s not currently possible to change
-your
-assigned [figma.site](http://figma.site) subdomain.
+**Note:** It’s not currently possible to change your assigned [figma.site](http://figma.site) subdomain.
 
-The default status is **Not published**. If the site is
-live,
-you’ll see **Published** instead.
+The default status is **Not published**. If the site is live, you’ll see **Published** instead.
 
-**Issues** shows a list of technical issues that might prevent
-your site from working properly. Click the
- right arrow to
-explore
-flagged issues.
+**Issues** shows a list of technical issues that might prevent your site from working properly. Click the right arrow to explore flagged issues.
 
 We recommend addressing all issues before publishing, but it’s not required.
 
-On the Organization and Enterprise plans, you can publish your app so
-it’s
-available to everyone on the web, or
-[restrict access to an internal audience only](edit-website-settings.md#h_01K57S9AA98823NSSS95S0RMD1).
+On the Organization and Enterprise plans, you can publish your app so it’s available to everyone on the web, or [restrict access to an internal audience only](edit-website-settings.md#h_01K57S9AA98823NSSS95S0RMD1).
 
 **Note**: In some cases, a site will fail to publish. If this occurs, we recommend you:
 
@@ -108,17 +89,17 @@ If needed, you can revert to a previously published version of your site. Republ
 
 To republish a previous version:
 
-1. Click the  **File** icon in the left navigation bar.
+1. Click the **File** icon in the left navigation bar.
 2. Click **Publish** in the left sidebar.
-3. Click the  **right arrow** at the end of the **Last published** row.
-4. Navigate to the version you’d like to restore, click  **More**, then select **Republish**.
+3. Click the **right arrow** at the end of the **Last published** row.
+4. Navigate to the version you’d like to restore, click **More**, then select **Republish**.
 
 ## Unpublish a site
 
 Unpublishing your site will remove it from the public web. If you decide to republish later, Figma will reuse the same domain.
 
-1. In the site you want to unpublish, click  **Site settings** in the left navigation bar.
-2. If required, click  **General** in the left sidebar.
+1. In the site you want to unpublish, click **Site settings** in the left navigation bar.
+2. If required, click **General** in the left sidebar.
 3. Click **Unpublish.**
 
 ## **Frequently asked questions**

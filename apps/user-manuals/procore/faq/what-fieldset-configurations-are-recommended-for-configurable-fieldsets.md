@@ -22,19 +22,17 @@ For instructions on creating new configurable fieldsets, see [Create New Configu
 
 1. Navigate to the Company level **Admin** tool.
 2. Under 'Tool Settings', click the tool you want to create configurable fieldsets for.
-3. Click the **Fieldsets** tab.  
-   ![admin-fieldsets-tab.png](https://support.procore.com/@api/deki/files/121033/admin-fieldsets-tab.png?revision=2)  
+3. Click the **Fieldsets** tab. 
+   ![admin-fieldsets-tab.png](https://support.procore.com/@api/deki/files/121033/admin-fieldsets-tab.png?revision=2) 
    *Note:* Tools without other settings in the Company level Admin tool will open to this page automatically.
 4. Click **Create Fieldset** and if required, select the fieldset type.
 5. Enter a name for the fieldset, then click **Create**.
 6. On the 'Edit Fieldset' page, each field name has the following options:
-   - Click the toggle to the ON**![](/)**![icon-toggle-on.png](https://support.procore.com/@api/deki/files/93011/icon-toggle-on.png?revision=1&size=bestfit&width=25&height=25) position to make the field visible in the section.  
-     OR  
-     Click the toggle to the OFF ![icon-toggle-off.png](https://support.procore.com/@api/deki/files/93010/icon-toggle-off.png?revision=1&size=bestfit&width=25&height=25) position to hide the field in the section.  
+   - Click the toggle to the ON**![](/)**![icon-toggle-on.png](https://support.procore.com/@api/deki/files/93011/icon-toggle-on.png?revision=1&size=bestfit&width=25&height=25) position to make the field visible in the section. 
+     OR Click the toggle to the OFF ![icon-toggle-off.png](https://support.procore.com/@api/deki/files/93010/icon-toggle-off.png?revision=1&size=bestfit&width=25&height=25) position to hide the field in the section.
      *Note:* A ![icon-toggle-on2.png](https://support.procore.com/@api/deki/files/243454/icon-toggle-on2.png?revision=1&size=bestfit&width=25&height=25) icon indicates that the field is visible by default and cannot be changed to hidden.
-   - Mark the 'Required' checkbox to designate the field as required.  
-     OR  
-     Clear the 'Required' checkbox to designate the field as optional.  
+   - Mark the 'Required' checkbox to designate the field as required. 
+     OR Clear the 'Required' checkbox to designate the field as optional.
      *Notes:*
      - Fields without a checkbox are optional by default and cannot be changed to required.
      - A gray marked checkbox ![icon-checkbox-marked-grayed-out.png](https://support.procore.com/@api/deki/files/243455/icon-checkbox-marked-grayed-out.png?revision=1&size=bestfit&width=17&height=17) indicates that the field is required by default and cannot be changed to optional.

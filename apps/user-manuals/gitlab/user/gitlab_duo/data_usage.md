@@ -9,10 +9,7 @@ title: GitLab Duo data usage
 GitLab Duo uses generative AI to help increase your velocity and make you more productive. Each AI-native feature operates independently and is not required for other features to function.
 
 GitLab uses the right large language models (LLMs) for specific tasks.
-These LLMs are [Anthropic Claude](https://claude.com/product/overview),
-[Fireworks AI-hosted Codestral](https://mistral.ai/news/codestral),
-[Google Vertex AI models](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/overview),
-and [OpenAI models](https://platform.openai.com/docs/models).
+These LLMs are [Anthropic Claude](https://claude.com/product/overview), [Fireworks AI-hosted Codestral](https://mistral.ai/news/codestral), [Google Vertex AI models](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/overview), and [OpenAI models](https://platform.openai.com/docs/models).
 
 ## Progressive enhancement
 
@@ -28,33 +25,21 @@ GitLab Duo AI-native features are powered by a generative AI model. The processi
 
 ## Data retention
 
-The below reflects the current retention periods of GitLab AI model
-[Sub-Processors](https://about.gitlab.com/privacy/subprocessors/#third-party-sub-processors):
+The below reflects the current retention periods of GitLab AI model [Sub-Processors](https://about.gitlab.com/privacy/subprocessors/#third-party-sub-processors):
 
-For GitLab Duo requests, GitLab has a zero-day data retention policy
-with Anthropic, Fireworks AI, AWS, and Google.
+For GitLab Duo requests, GitLab has a zero-day data retention policy with Anthropic, Fireworks AI, AWS, and Google.
 
-These vendors discard model input and output data immediately after the output is
-provided and do not store input and output data for abuse monitoring. The exception
-to this is when Fireworks AI, Anthropic, and VertexAI prompt caching is enabled for
-Code Suggestions and GitLab Duo Chat (Agentic).
+These vendors discard model input and output data immediately after the output is provided and do not store input and output data for abuse monitoring. The exception to this is when Fireworks AI, Anthropic, and VertexAI prompt caching is enabled for Code Suggestions and GitLab Duo Chat (Agentic).
 
-For more information on how to turn off prompt caching, see
-[prompt caching](../project/repository/code_suggestions/_index.md#prompt-caching).
+For more information on how to turn off prompt caching, see [prompt caching](../project/repository/code_suggestions/_index.md#prompt-caching).
 
 > [!note]
 > For OpenAI models, you cannot turn off prompt caching. If you have turned off prompt caching and you use an OpenAI model, GitLab attempts to invalidate the cache by adding the current timestamp to the prompt. Ensure that you use a model that is suitable for your data retention requirements.
 
-All GitLab AI model Sub-Processors are restricted from using model input and
-output to train models and are under data protection agreements with GitLab that
-prohibit the use of Customer Content for their own purposes, except to perform
-their independent legal obligations.
+All GitLab AI model Sub-Processors are restricted from using model input and output to train models and are under data protection agreements with GitLab that prohibit the use of Customer Content for their own purposes, except to perform their independent legal obligations.
 
-GitLab Duo Chat and GitLab Duo Agent Platform retain chat history and workflow
-history, respectively, to help you return quickly to previously discussed topics and for anti-abuse purposes.
-You can delete chats in the GitLab Duo Chat interface. GitLab does not otherwise
-retain input and output data unless customers provide consent through a GitLab
-[support ticket](https://about.gitlab.com/support/portal/).
+GitLab Duo Chat and GitLab Duo Agent Platform retain chat history and workflow history, respectively, to help you return quickly to previously discussed topics and for anti-abuse purposes.
+You can delete chats in the GitLab Duo Chat interface. GitLab does not otherwise retain input and output data unless customers provide consent through a GitLab [support ticket](https://about.gitlab.com/support/portal/).
 
 For more information, see [AI feature logging](../../administration/logs/_index.md).
 
@@ -78,10 +63,10 @@ GitLab Duo collects aggregated or de-identified first-party usage data through a
 - Status code responses
 - API responses times
 - Code Suggestions also collects:
-  - Language the suggestion was in (for example, Python)
-  - Editor being used (for example, VS Code)
-  - Number of suggestions shown, accepted, rejected, or that had errors
-  - Duration of time that a suggestion was shown
+ - Language the suggestion was in (for example, Python)
+ - Editor being used (for example, VS Code)
+ - Number of suggestions shown, accepted, rejected, or that had errors
+ - Duration of time that a suggestion was shown
 
 ## Model accuracy and quality
 
@@ -105,10 +90,7 @@ GitLab is actively iterating on all our AI-assisted capabilities to improve the 
 
 {{< /history >}}
 
-GitLab Duo includes secret detection and redaction, powered by Gitleaks. It automatically
-detects and removes sensitive information like API keys, credentials, and tokens from your
-code before processing it with large language models. This security feature is particularly
-important for compliance with data protection regulations, like GDPR.
+GitLab Duo includes secret detection and redaction, powered by Gitleaks. It automatically detects and removes sensitive information like API keys, credentials, and tokens from your code before processing it with large language models. This security feature is particularly important for compliance with data protection regulations, like GDPR.
 
 Your code goes through a pre-scan security workflow when using GitLab Duo:
 

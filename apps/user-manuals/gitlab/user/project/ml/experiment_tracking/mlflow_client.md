@@ -20,20 +20,19 @@ title: MLflow client compatibility
 {{< /history >}}
 
 [MLflow](https://mlflow.org/) is a popular open source tool for Machine Learning experiment tracking.
-GitLab [Model experiment tracking](_index.md) and GitLab
-[Model registry](../model_registry/_index.md) are compatible with the MLflow client. The setup requires minimal changes to existing code.
+GitLab [Model experiment tracking](_index.md) and GitLab [Model registry](../model_registry/_index.md) are compatible with the MLflow client. The setup requires minimal changes to existing code.
 
 ## Enable MLflow client integration
 
 Prerequisites:
 
 - A GitLab-compatible Python client:
-  - Recommended: The [GitLab MLOps Python client](https://gitlab.com/gitlab-org/modelops/mlops/gitlab-mlops).
-  - Another option is the MLflow client version. The MLflow client is [compatible with GitLab](https://gitlab.com/gitlab-org/modelops/mlops/mlflow-compatibility-qa).
+ - Recommended: The [GitLab MLOps Python client](https://gitlab.com/gitlab-org/modelops/mlops/gitlab-mlops).
+ - Another option is the MLflow client version. The MLflow client is [compatible with GitLab](https://gitlab.com/gitlab-org/modelops/mlops/mlflow-compatibility-qa).
 - A [personal](../../../profile/personal_access_tokens.md), [project](../../settings/project_access_tokens.md), or [group](../../../group/settings/group_access_tokens.md) access token with at least the Developer role and the `api` scope.
 - The project ID. To find the project ID:
-  1. On the top bar, select **Search or go to** and find your project.
-  1. Select **Settings** > **General**.
+ 1. On the top bar, select **Search or go to** and find your project.
+ 1. Select **Settings** > **General**.
 
 To use MLflow client compatibility from a local environment:
 
@@ -47,13 +46,11 @@ To use MLflow client compatibility from a local environment:
 
 1. If the training code contains the call to `mlflow.set_tracking_uri()`, remove it.
 
-In the model registry, you can copy the tracking URI from the overflow menu in the upper right
-by selecting the vertical ellipsis ({{< icon name="ellipsis_v" >}}).
+In the model registry, you can copy the tracking URI from the overflow menu in the upper right by selecting the vertical ellipsis ({{< icon name="ellipsis_v" >}}).
 
 ## Model experiments
 
-When running the training code, MLflow client can be used to create experiments, runs,
-models, model versions, log parameters, metrics, metadata, and artifacts on GitLab.
+When running the training code, MLflow client can be used to create experiments, runs, models, model versions, log parameters, metrics, metadata, and artifacts on GitLab.
 
 After experiments are logged, they are listed under `/<your project>/-/ml/experiments`.
 
@@ -156,7 +153,7 @@ import mlflow
 import mlflow.pyfunc
 
 run_id = "<your_run_id>"
-download_path = "models"  # Local folder to download to
+download_path = "models" # Local folder to download to
 
 mlflow.pyfunc.load_model(f"runs:/{run_id}/", dst_path=download_path)
 
@@ -173,8 +170,7 @@ model.predict(data=sample_input)
 
 {{< /history >}}
 
-If your training code is being run from a CI/CD job, GitLab can use that information to enhance
-run metadata. To associate a run to a CI/CD job:
+If your training code is being run from a CI/CD job, GitLab can use that information to enhance run metadata. To associate a run to a CI/CD job:
 
 1. In the [Project CI variables](../../../../ci/variables/_index.md), include the following variables:
    - `MLFLOW_TRACKING_URI`: `"<your gitlab endpoint>/api/v4/projects/<your project id>/ml/mlflow"`
@@ -197,8 +193,7 @@ run metadata. To associate a run to a CI/CD job:
 
 ## Model registry
 
-You can also manage models and model versions by using the MLflow
-client. Models are registered under `/<your project>/-/ml/models`.
+You can also manage models and model versions by using the MLflow client. Models are registered under `/<your project>/-/ml/models`.
 
 ### Models
 
@@ -277,9 +272,7 @@ description = 'Model version description'
 model_version = client.create_model_version(model_name, source="", description=description)
 ```
 
-If the version parameter is not passed, it will be auto-incremented from the latest uploaded
-version. You can set the version by passing a tag during model version creation. The version
-must follow [SemVer](https://semver.org/) format.
+If the version parameter is not passed, it will be auto-incremented from the latest uploaded version. You can set the version by passing a tag during model version creation. The version must follow [SemVer](https://semver.org/) format.
 
 ```python
 from mlflow import MlflowClient
@@ -343,7 +336,7 @@ from mlflow import MlflowClient
 
 client = MlflowClient()
 model_name = '<your_model_name>'
-version = '<your_version'  # for example: '1.0.0'
+version = '<your_version' # for example: '1.0.0'
 
 # Alternatively search the version
 version = mlflow.search_registered_models(filter_string="name='{model_name}'")[0].latest_versions[0].version
@@ -356,9 +349,7 @@ model = mlflow.pyfunc.load_model(f"models:/{model_name}/latest")
 
 #### Logging metrics and parameters to a model version
 
-Every model version is also a run, allowing users to log parameters
-and metrics. The run ID can either be found at the Model version page in GitLab,
-or by using the MLflow client:
+Every model version is also a run, allowing users to log parameters and metrics. The run ID can either be found at the Model version page in GitLab, or by using the MLflow client:
 
 ```python
 from mlflow import MlflowClient
@@ -423,8 +414,7 @@ if os.getenv('GITLAB_CI'):
 
 ## Supported MLflow client methods and caveats
 
-GitLab supports the following methods from the MLflow client. More information can be found in the [MLflow Documentation](https://mlflow.org/docs/latest/index.html). The MlflowClient counterparts
-of the methods below are also supported with the same caveats.
+GitLab supports the following methods from the MLflow client. More information can be found in the [MLflow Documentation](https://mlflow.org/docs/latest/index.html). The MlflowClient counterparts of the methods below are also supported with the same caveats.
 
 | Method                   | Supported       | Version added | Comments                                                                                     |
 |--------------------------|-----------------|---------------|----------------------------------------------------------------------------------------------|

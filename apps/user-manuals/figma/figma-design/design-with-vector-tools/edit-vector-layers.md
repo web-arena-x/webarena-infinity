@@ -8,11 +8,9 @@ Before you Start
 
 Who can use this feature
 
-Available on
-[any plan](https://help.figma.com/hc/en-us/articles/360040328273)
+Available on [any plan](https://help.figma.com/hc/en-us/articles/360040328273)
 
-Anyone with `can edit` access to a file can edit
-vector layers
+Anyone with `can edit` access to a file can edit vector layers
 
 Vector edit mode lets you select, adjust, and change the properties of vector layers, [including basic shapes](../create-and-edit-layers/shape-tools.md) and custom vector networks drawn with the [Pen](vector-networks.md), [Brush](https://help.figma.com/hc/en-us/articles/31440438150935), or [Pencil](https://help.figma.com/hc/en-us/articles/31440438150935) tools.
 
@@ -37,8 +35,8 @@ While in vector edit mode, you can interact with the existing points and paths o
 - **Add points**: To add additional points, select the **Pen** tool in the toolbar or press `P`. Then, click along the vector network’s path to start adding additional points.
 - **Edit multiple vector layers:** You can edit multiple vector layers at once by pressing `Shift` and clicking on a layer to add it to your current selection.
 - **Switch vector layers:**To change to a different vector layer outside your current selection, press the modifier key and click on the layer:
-  - **Mac:** `Command`
-  - **Windows:** `Control`
+ - **Mac:** `Command`
+ - **Windows:** `Control`
 
 ## Create strokes with variable widths
 
@@ -51,7 +49,7 @@ There are a few things to keep in mind when using the Variable width tool:
 
 To change the width of a stroke:
 
-1. Select  **Variable width** from the secondary toolbar.
+1. Select **Variable width** from the secondary toolbar.
 2. Hover over the stroke until you see a pink handle appear.
 3. Click to add a new width point, then use the handles to expand or contract the stroke or enter a new value in the field. You can hover your cursor along a vector path to locate and place a width point directly on a vector point, in the middle of two vector points or in the middle of two width points. Hold `Control` to temporarily disable snapping.
 4. Click and drag the width point to reposition it along the stroke’s path. Hold `Shift` and click to select multiple width points at once. To remove a width point, select it and press `Delete`.
@@ -70,11 +68,11 @@ To use the Cut tool:
 
 1. Select one or more vector layers.
 2. Press `Enter` to open vector edit mode.
-3. Select the  **Cut** from the secondary toolbar or press `X`.
+3. Select the **Cut** from the secondary toolbar or press `X`.
 4. Choose your cutting method:
-   - **To split a vector path:** Click on a point or anywhere on the path to create a break.  
+   - **To split a vector path:** Click on a point or anywhere on the path to create a break. 
      ![Animation showing using the cut tool on a green triangle to split the vector path. ](https://help.figma.com/hc/article_attachments/35302241666199)
-   - **To divide a vector object** Click and drag across one or more paths to cut through them. The divided portion will be moved to its own layer.  
+   - **To divide a vector object** Click and drag across one or more paths to cut through them. The divided portion will be moved to its own layer. 
      ![Animation showing using the cut tool on a green triangle to divide the vector path. ](https://help.figma.com/hc/article_attachments/35302241668887)
 
 ## Create curved paths with bézier handles
@@ -83,7 +81,7 @@ The Bend tool allows you to add bézier handles to create a curve in a path.
 
 To add bézier handles to a vector network:
 
-1. Select the  **Bend** tool in the secondary toolbar.
+1. Select the **Bend** tool in the secondary toolbar.
 2. Click on a point or path where you want to add a curve.
 3. Use the bézier handles to adjust the length and slope of the curve.
 
@@ -105,7 +103,7 @@ You can use the Mirroring settings to specify how a set of bézier handles mirro
 
 You can select specific points and paths inside a vector network using the Lasso tool.
 
-1. Select the  **Lasso** tool from the secondary toolbar or press `Q`.
+1. Select the **Lasso** tool from the secondary toolbar or press `Q`.
 2. Click and drag to draw a shape around the points and paths you want to select. You can then manipulate the selected points, or delete them from the vector network.
 
 ![Animation showing how to use the lasso tool to select vector points. ](https://help.figma.com/hc/article_attachments/31937315234583)
@@ -129,11 +127,11 @@ You can add fills to any closed regions of a vector network. If there are multip
 
 To add a fill to a closed region:
 
-1. Select the  **Paint** tool from the secondary toolbar or press `Shift` `B`.
+1. Select the **Paint** tool from the secondary toolbar or press `Shift` `B`.
 2. Hover over the region of the vector network you want to add a fill to. A pattern of diagonal stripes indicates which region is currently selected.
 3. The cursor will change to a droplet icon with a:
-   - a  plus if you can add a fill to that region
-   - a  minus if there is an existing fill that you can remove
+   - a plus if you can add a fill to that region
+   - a minus if there is an existing fill that you can remove
 4. Click to add or remove a fill to the shape or region.
 
 Figma uses a grey fill by default. You can change the fill using the settings in the **Fill** section of the right sidebar. Learn more about [fill properties](https://help.figma.com/hc/en-us/articles/360040623954-Add-fills-to-text-and-shape-layers).

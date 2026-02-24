@@ -6,17 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408832485914-Editing-team
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-This article describes how to use [Zendesk Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554) to view and update a team member's user
-profile. A team member is anyone you add to a Zendesk account who is not an end user. For
-example, your staff, agents, and admins.
+This article describes how to use [Zendesk Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554) to view and update a team member's user profile. A team member is anyone you add to a Zendesk account who is not an end user. For example, your staff, agents, and admins.
 
 To update a team member's roles and product access, see [Setting roles and access in Zendesk Admin Center](https://support.zendesk.com/hc/en-us/articles/4408824375450-).
 

@@ -47,8 +47,8 @@ If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the 
 | Attribute               | Type    | Description |
 |-------------------------|---------|-------------|
 | `id`                    | integer | The unique identifier of the runner controller token. |
-| `runner_controller_id`  | integer | The ID of the associated runner controller. |
-| `description`           | string  | A description for the token. |
+| `runner_controller_id` | integer | The ID of the associated runner controller. |
+| `description`           | string | A description for the token. |
 | `created_at`            | datetime| The date and time when the token was created. |
 | `updated_at`            | datetime| The date and time when the token was last updated. |
 
@@ -103,8 +103,8 @@ If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) with the
 | Attribute               | Type    | Description |
 |-------------------------|---------|-------------|
 | `id`                    | integer | The unique identifier of the runner controller token. |
-| `runner_controller_id`  | integer | The ID of the associated runner controller. |
-| `description`           | string  | A description for the token. |
+| `runner_controller_id` | integer | The ID of the associated runner controller. |
+| `description`           | string | A description for the token. |
 | `created_at`            | datetime| The date and time when the token was created. |
 | `updated_at`            | datetime| The date and time when the token was last updated. |
 
@@ -155,11 +155,11 @@ If successful, returns [`201 Created`](rest/troubleshooting.md#status-codes) wit
 | Attribute               | Type    | Description |
 |-------------------------|---------|-------------|
 | `id`                    | integer | The unique identifier of the runner controller token. |
-| `runner_controller_id`  | integer | The ID of the associated runner controller. |
-| `description`           | string  | A description for the token. |
+| `runner_controller_id` | integer | The ID of the associated runner controller. |
+| `description`           | string | A description for the token. |
 | `created_at`            | datetime| The date and time when the token was created. |
 | `updated_at`            | datetime| The date and time when the token was last updated. |
-| `token`                 | string  | The actual token value used for authentication. |
+| `token`                 | string | The actual token value used for authentication. |
 
 Example request:
 
@@ -229,11 +229,11 @@ If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) with the
 | Attribute               | Type    | Description |
 |-------------------------|---------|-------------|
 | `id`                    | integer | The unique identifier of the runner controller token. |
-| `runner_controller_id`  | integer | The ID of the associated runner controller. |
-| `description`           | string  | A description for the token. |
+| `runner_controller_id` | integer | The ID of the associated runner controller. |
+| `description`           | string | A description for the token. |
 | `created_at`            | datetime| The date and time when the token was created. |
 | `updated_at`            | datetime| The date and time when the token was last updated. |
-| `token`                 | string  | The actual token value used for authentication. |
+| `token`                 | string | The actual token value used for authentication. |
 
 Example request:
 

@@ -33,7 +33,7 @@ To add a transform to an object:
 
 1. In Figma Design, use the toolbar toggle to switch to **Draw**.
 2. Select the object you want to transform.
-3. In the right sidebar, select an option from the  **Additional transform modifier** menu.
+3. In the right sidebar, select an option from the **Additional transform modifier** menu.
 
 After adding a transform, you can click on it in the right sidebar to access the **Transform** settings. From here, you can adjust the number of repetitions and how the repetitions are spaced.
 

@@ -12,45 +12,31 @@ title: Integrate your GitLab server with Bitbucket Cloud
 
 {{< /details >}}
 
-You can set up Bitbucket.org as an OAuth 2.0 provider to use your Bitbucket.org
-account credentials to sign in to GitLab. You can also import your projects from
-Bitbucket.org.
+You can set up Bitbucket.org as an OAuth 2.0 provider to use your Bitbucket.org account credentials to sign in to GitLab. You can also import your projects from Bitbucket.org.
 
-- To use Bitbucket.org as an OmniAuth provider, follow the
-  [Bitbucket OmniAuth provider](#use-bitbucket-as-an-oauth-20-authentication-provider) section.
-- To import projects from Bitbucket, follow both the
-  [Bitbucket OmniAuth provider](#use-bitbucket-as-an-oauth-20-authentication-provider) and
-  [Bitbucket project import](#bitbucket-project-import) sections.
+- To use Bitbucket.org as an OmniAuth provider, follow the [Bitbucket OmniAuth provider](#use-bitbucket-as-an-oauth-20-authentication-provider) section.
+- To import projects from Bitbucket, follow both the [Bitbucket OmniAuth provider](#use-bitbucket-as-an-oauth-20-authentication-provider) and [Bitbucket project import](#bitbucket-project-import) sections.
 
 ## Use Bitbucket as an OAuth 2.0 authentication provider
 
-To enable the Bitbucket OmniAuth provider you must register your application
-with Bitbucket.org. Bitbucket generates an application ID and secret key for
-you to use.
+To enable the Bitbucket OmniAuth provider you must register your application with Bitbucket.org. Bitbucket generates an application ID and secret key for you to use.
 
 1. Sign in to [Bitbucket.org](https://bitbucket.org).
-1. Go to your individual user settings (**Bitbucket settings**) or a team's
-   settings (**Manage team**), depending on how you want to register the application.
-   It does not matter if the application is registered as an individual or a
-   team, that is entirely up to you.
+1. Go to your individual user settings (**Bitbucket settings**) or a team's settings (**Manage team**), depending on how you want to register the application.
+   It does not matter if the application is registered as an individual or a team, that is entirely up to you.
 1. In the left menu under **Access Management**, select **OAuth**.
 1. Select **Add consumer**.
 1. Provide the required details:
 
-   - **Name**: This can be anything. Consider something like `<Organization>'s GitLab`
-     or `<Your Name>'s GitLab` or something else descriptive.
+   - **Name**: This can be anything. Consider something like `<Organization>'s GitLab` or `<Your Name>'s GitLab` or something else descriptive.
    - **Application description**: Optional. Fill this in if you wish.
    - **Callback URL**: (Required in GitLab versions 8.15 and greater)
-     The URL to your GitLab installation, such as
-     `https://gitlab.example.com/users/auth`. Leaving this
-     field empty results in an `Invalid redirect_uri` message.
+     The URL to your GitLab installation, such as `https://gitlab.example.com/users/auth`. Leaving this field empty results in an `Invalid redirect_uri` message.
 
      {{< alert type="warning" >}}
 
      To help prevent an [OAuth 2 covert redirect](https://oauth.net/advisories/2014-1-covert-redirect/)
-     attack, append `/users/auth` to the end of your Bitbucket authorization callback URL. You must
-     include this authorization endpoint to authenticate with Bitbucket and import data from Bitbucket
-     repositories.
+     attack, append `/users/auth` to the end of your Bitbucket authorization callback URL. You must include this authorization endpoint to authenticate with Bitbucket and import data from Bitbucket repositories.
 
      {{< /alert >}}
 
@@ -66,9 +52,7 @@ you to use.
    - **Wikis**: `Read and write`
 
 1. Select **Save**.
-1. Select your newly created OAuth consumer, and you should now see a **Key** and
-   **Secret** in the list of OAuth consumers. Keep this page open as you continue
-   the configuration.
+1. Select your newly created OAuth consumer, and you should now see a **Key** and **Secret** in the list of OAuth consumers. Keep this page open as you continue the configuration.
 
 1. On your GitLab server, open the configuration file:
 
@@ -110,26 +94,20 @@ you to use.
          }
    ```
 
-   Where `<bitbucket_app_key>` is the **Key** and `<bitbucket_app_secret>` the **Secret**
-   from the Bitbucket application page.
+   Where `<bitbucket_app_key>` is the **Key** and `<bitbucket_app_secret>` the **Secret** from the Bitbucket application page.
 
 1. Save the configuration file.
 1. For the changes to take effect, [reconfigure GitLab](../administration/restart_gitlab.md#reconfigure-a-linux-package-installation)
    if you installed using the Linux package, or [restart](../administration/restart_gitlab.md#self-compiled-installations)
    if you self-compiled your installation.
 
-On the sign-in page there should now be a Bitbucket icon below the regular
-sign-in form. Select the icon to begin the authentication process. Bitbucket asks
-the user to sign in and authorize the GitLab application. If successful, the user
-is returned to GitLab and signed in.
+On the sign-in page there should now be a Bitbucket icon below the regular sign-in form. Select the icon to begin the authentication process. Bitbucket asks the user to sign in and authorize the GitLab application. If successful, the user is returned to GitLab and signed in.
 
 > [!note]
 > For multi-node architectures, the Bitbucket provider configuration must also be included on the Sidekiq nodes to be able to import projects.
 
 ## Bitbucket project import
 
-After the previous configuration is set up, you can use Bitbucket to sign in to
-GitLab and [start importing your projects](../user/import/bitbucket_cloud.md).
+After the previous configuration is set up, you can use Bitbucket to sign in to GitLab and [start importing your projects](../user/import/bitbucket_cloud.md).
 
-If you want to import projects from Bitbucket, but don't want to enable signing in,
-you can [disable Sign-Ins in the **Admin** area](omniauth.md#enable-or-disable-sign-in-with-an-omniauth-provider-without-disabling-import-sources).
+If you want to import projects from Bitbucket, but don't want to enable signing in, you can [disable Sign-Ins in the **Admin** area](omniauth.md#enable-or-disable-sign-in-with-an-omniauth-provider-without-disabling-import-sources).

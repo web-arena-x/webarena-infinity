@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408824587802-Quick-launch
 
 ## Quick launch checklists
 
-|  |  |
+| | |
 | --- | --- |
 | **PEOPLE** Structure your team | [Create groups](#create-groups) - 4 mins Create containers to organize your team |
 | [Add agents and admins](#add-agents-and-admins) - 6 mins Invite your team members |
@@ -37,11 +37,10 @@ Agent groups are important building blocks for creating business rules that impa
 
 ### Examples
 
-- You can define groups of agents based on the Zendesk channels they support.  
-  **Zendesk > Triage > Chat, Talk, Support**
-- You can define groups based on the functions agents perform, or their level of expertise.  
-  **Zendesk > Triage > Sales, Finance, Shipping**  
-  **Zendesk > Triage > Tier 1 Agents, Tier 2 Agents, Tier 3 Agents**
+- You can define groups of agents based on the Zendesk channels they support. 
+ **Zendesk > Triage > Chat, Talk, Support**
+- You can define groups based on the functions agents perform, or their level of expertise. 
+ **Zendesk > Triage > Sales, Finance, Shipping** **Zendesk > Triage > Tier 1 Agents, Tier 2 Agents, Tier 3 Agents**
 
 ### Best practice
 

@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357758765978-Creating-an-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -14,8 +14,8 @@ This article covers:
 
 - [What is an Automation Report?](#h_01F5E2QBBXEK4B5D5NKJ0H8FKN)
 - [Creating your first Automation Report](#h_01F5E2QGKHRCNYA9ED9MXK1N66)
-  - [I don't have data in the AI agents - Advanced Dashboard yet](#h_01F5E2CC94X892N56WQ2G03PEN)
-  - [I already have data in the](#h_01F5E2CJ7E5YZP9D08AV4RT476) [AI agents - Advanced](#h_01F5E2CC94X892N56WQ2G03PEN) [Dashboard](#h_01F5E2CJ7E5YZP9D08AV4RT476)
+ - [I don't have data in the AI agents - Advanced Dashboard yet](#h_01F5E2CC94X892N56WQ2G03PEN)
+ - [I already have data in the](#h_01F5E2CJ7E5YZP9D08AV4RT476) [AI agents - Advanced](#h_01F5E2CC94X892N56WQ2G03PEN) [Dashboard](#h_01F5E2CJ7E5YZP9D08AV4RT476)
 - [Creating another Automation Report](#h_01F5E2QGKHRCNYA9ED9MXK1N66)
 
 ## What is an Automation Report?

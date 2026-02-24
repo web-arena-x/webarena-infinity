@@ -13,8 +13,7 @@ title: Web Editor
 
 {{< /details >}}
 
-The Web Editor is a browser-based tool for making changes to your GitLab repositories without
-local setup. You can:
+The Web Editor is a browser-based tool for making changes to your GitLab repositories without local setup. You can:
 
 - Edit single files and view live Markdown previews.
 - Create new files and directories.
@@ -30,8 +29,7 @@ For changes to multiple files, use the [Web IDE](../web_ide/_index.md).
 
 {{< alert type="note" >}}
 
-To manage files in a [protected branch](branches/protected.md),
-you must have the appropriate [permissions](../../permissions.md).
+To manage files in a [protected branch](branches/protected.md), you must have the appropriate [permissions](../../permissions.md).
 
 {{< /alert >}}
 
@@ -113,10 +111,8 @@ To edit a text file in the Web Editor:
 
 {{< alert type="note" >}}
 
-If someone edits and commits changes to the same file while you are editing,
-you can't commit your changes. The following error message is displayed:
-`Someone edited the file the same time you did. Please check out the file and
-make sure your change will not unintentionally remove theirs.`
+If someone edits and commits changes to the same file while you are editing, you can't commit your changes. The following error message is displayed:
+`Someone edited the file the same time you did. Please check out the file and make sure your change will not unintentionally remove theirs.`
 
 {{< /alert >}}
 
@@ -135,8 +131,7 @@ To close the preview panel, select the **Write** tab.
 
 #### Link to specific lines
 
-To link to single or multiple lines in the Web Editor, add hash
-information to the filename segment of the URL. For example:
+To link to single or multiple lines in the Web Editor, add hash information to the filename segment of the URL. For example:
 
 - `MY_FILE.js#L3` highlights line 3 in `MY_FILE.js`.
 - `MY_FILE.js#L3-10` highlights lines 3 to 10 in `MY_FILE.js`.
@@ -150,8 +145,7 @@ Prerequisites:
 - You must work on a merge request from a fork.
 - [Allow commits from upstream members](../merge_requests/allow_collaboration.md#allow-commits-from-upstream-members) must be enabled.
 
-If you're working on a merge request from a forked project,
-you can edit a file and commit changes. To do this:
+If you're working on a merge request from a forked project, you can edit a file and commit changes. To do this:
 
 1. Go to the merge request.
 1. Go to the file you want to edit.
@@ -215,10 +209,8 @@ To delete a file in the Web Editor:
 
 {{< alert type="note" >}}
 
-If someone edits and commits changes to the same file while you are editing,
-you can't commit your changes. The following error message is displayed:
-`Someone edited the file the same time you did. Please check out the file and
-make sure your change will not unintentionally remove theirs.`
+If someone edits and commits changes to the same file while you are editing, you can't commit your changes. The following error message is displayed:
+`Someone edited the file the same time you did. Please check out the file and make sure your change will not unintentionally remove theirs.`
 
 {{< /alert >}}
 
@@ -267,8 +259,7 @@ To cancel changes, edit, upload, or delete a file, from the Web Editor:
 
 {{< /history >}}
 
-The **Actions** ({{< icon name="ellipsis_v" >}}) menu consolidates file operations into the
-dropdown list. From this menu, you can:
+The **Actions** ({{< icon name="ellipsis_v" >}}) menu consolidates file operations into the dropdown list. From this menu, you can:
 
 - Edit a file.
 - Upload a file.
@@ -318,8 +309,7 @@ To create a [branch](branches/_index.md) in the Web Editor:
 
 ## Create a tag
 
-You can create [tags](tags/_index.md) to mark milestones such as
-production releases and release candidates. To create a tag in the Web Editor:
+You can create [tags](tags/_index.md) to mark milestones such as production releases and release candidates. To create a tag in the Web Editor:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Next to the repository name, select the plus icon ({{< icon name="plus" >}}) > **New tag**.
@@ -329,8 +319,7 @@ production releases and release candidates. To create a tag in the Web Editor:
 ## Editor accessibility options
 
 The web editor is based on the [Monaco Editor](https://github.com/microsoft/monaco-editor)
-which has several [accessibility features](https://github.com/microsoft/monaco-editor/wiki/Monaco-Editor-Accessibility-Guide),
-including:
+which has several [accessibility features](https://github.com/microsoft/monaco-editor/wiki/Monaco-Editor-Accessibility-Guide), including:
 
 | Feature                          | Shortcut on Windows or Linux      | Shortcut on macOS                                    | Details |
 |----------------------------------|-----------------------------------|------------------------------------------------------|---------|
@@ -341,7 +330,7 @@ including:
 
 - [Create merge requests](../merge_requests/creating_merge_requests.md)
 - [Branches](branches/_index.md)
-  - [Default branch](branches/default.md)
-  - [Protected branches](branches/protected.md)
+ - [Default branch](branches/default.md)
+ - [Protected branches](branches/protected.md)
 - [Web IDE](../web_ide/_index.md)
 - [File tree browser](files/file_tree_browser.md)

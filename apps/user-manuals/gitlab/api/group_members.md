@@ -20,7 +20,7 @@ For information about project members, see the [Project members API](project_mem
 
 - The `group_saml_identity` and `group_scim_identity` attributes are only visible to group owners for [SSO-enabled groups](../user/group/saml_sso/_index.md).
 - The `email` attribute is only visible to group owners for [enterprise users](../user/enterprise_user/_index.md)
-  of the group when an API request is sent to the group itself, or that group's subgroups or projects.
+ of the group when an API request is sent to the group itself, or that group's subgroups or projects.
 
 ## List all members of a group
 
@@ -43,14 +43,14 @@ GET /groups/:id/members
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/members"
+ --url "https://gitlab.example.com/api/v4/groups/:id/members"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "username": "raymond_smith",
     "name": "Raymond Smith",
@@ -70,8 +70,8 @@ Example response:
     "access_level": 30,
     "group_saml_identity": null,
     "is_using_seat": true
-  },
-  {
+ },
+ {
     "id": 2,
     "username": "john_doe",
     "name": "John Doe",
@@ -95,7 +95,7 @@ Example response:
       "provider": "group_saml",
       "saml_provider_id": 10
     }
-  }
+ }
 ]
 ```
 
@@ -111,8 +111,7 @@ Example response:
 
 Gets a list of group members viewable by the authenticated user, including inherited members, invited users, and permissions through ancestor groups.
 
-If a user is a member of this group and also of one or more ancestor groups,
-only its membership with the highest `access_level` is returned.
+If a user is a member of this group and also of one or more ancestor groups, only its membership with the highest `access_level` is returned.
 This represents the effective permission of the user.
 
 Members from an invited group are returned if either:
@@ -124,8 +123,7 @@ Members from an invited group are returned if either:
 {{< alert type="note" >}}
 
 The invited group members have shared membership in the shared group.
-This means that if the requester is a member of a shared group, but not a member of an invited private group,
-then using this endpoint the requester can get all the shared group members, including the invited private group members.
+This means that if the requester is a member of a shared group, but not a member of an invited private group, then using this endpoint the requester can get all the shared group members, including the invited private group members.
 
 {{< /alert >}}
 
@@ -145,14 +143,14 @@ GET /groups/:id/members/all
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/members/all"
+ --url "https://gitlab.example.com/api/v4/groups/:id/members/all"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "username": "raymond_smith",
     "name": "Raymond Smith",
@@ -171,8 +169,8 @@ Example response:
     "expires_at": "2012-10-22",
     "access_level": 30,
     "group_saml_identity": null
-  },
-  {
+ },
+ {
     "id": 2,
     "username": "john_doe",
     "name": "John Doe",
@@ -196,8 +194,8 @@ Example response:
       "provider": "group_saml",
       "saml_provider_id": 10
     }
-  },
-  {
+ },
+ {
     "id": 3,
     "username": "foo_bar",
     "name": "Foo bar",
@@ -216,7 +214,7 @@ Example response:
     "expires_at": "2012-11-22",
     "access_level": 30,
     "group_saml_identity": null
-  }
+ }
 ]
 ```
 
@@ -235,7 +233,7 @@ GET /groups/:id/members/:user_id
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/members/:user_id"
+ --url "https://gitlab.example.com/api/v4/groups/:id/members/:user_id"
 ```
 
 To update or remove a custom role from a group member, pass an empty `member_role_id` value:
@@ -243,33 +241,33 @@ To update or remove a custom role from a group member, pass an empty `member_rol
 ```shell
 # Updates a group membership
 curl --request PUT --header "Content-Type: application/json" \
-  --header "Authorization: Bearer <your_access_token>" \
-  --data '{"member_role_id": null, "access_level": 10}' "https://gitlab.example.com/api/v4/groups/<group_id>/members/<user_id>"
+ --header "Authorization: Bearer <your_access_token>" \
+ --data '{"member_role_id": null, "access_level": 10}' "https://gitlab.example.com/api/v4/groups/<group_id>/members/<user_id>"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "username": "raymond_smith",
-  "name": "Raymond Smith",
-  "state": "active",
-  "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
-  "web_url": "http://192.168.1.8:3000/root",
-  "access_level": 30,
-  "email": "john@example.com",
-  "created_at": "2012-10-22T14:13:35Z",
-  "created_by": {
+ "id": 1,
+ "username": "raymond_smith",
+ "name": "Raymond Smith",
+ "state": "active",
+ "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
+ "web_url": "http://192.168.1.8:3000/root",
+ "access_level": 30,
+ "email": "john@example.com",
+ "created_at": "2012-10-22T14:13:35Z",
+ "created_by": {
     "id": 2,
     "username": "john_doe",
     "name": "John Doe",
     "state": "active",
     "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
     "web_url": "http://192.168.1.8:3000/root"
-  },
-  "expires_at": null,
-  "group_saml_identity": null
+ },
+ "expires_at": null,
+ "group_saml_identity": null
 }
 ```
 
@@ -289,8 +287,7 @@ Gets a member of a group, including members inherited or invited through ancesto
 {{< alert type="note" >}}
 
 The invited group members have shared membership in the shared group.
-This means that if the requester is a member of a shared group, but not a member of an invited private group,
-then using this endpoint the requester can get all the shared group members, including the invited private group members.
+This means that if the requester is a member of a shared group, but not a member of an invited private group, then using this endpoint the requester can get all the shared group members, including the invited private group members.
 
 {{< /alert >}}
 
@@ -305,32 +302,32 @@ GET /groups/:id/members/all/:user_id
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/members/all/:user_id"
+ --url "https://gitlab.example.com/api/v4/groups/:id/members/all/:user_id"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "username": "raymond_smith",
-  "name": "Raymond Smith",
-  "state": "active",
-  "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
-  "web_url": "http://192.168.1.8:3000/root",
-  "access_level": 30,
-  "created_at": "2012-10-22T14:13:35Z",
-  "created_by": {
+ "id": 1,
+ "username": "raymond_smith",
+ "name": "Raymond Smith",
+ "state": "active",
+ "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
+ "web_url": "http://192.168.1.8:3000/root",
+ "access_level": 30,
+ "created_at": "2012-10-22T14:13:35Z",
+ "created_by": {
     "id": 2,
     "username": "john_doe",
     "name": "John Doe",
     "state": "active",
     "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
     "web_url": "http://192.168.1.8:3000/root"
-  },
-  "email": "john@example.com",
-  "expires_at": null,
-  "group_saml_identity": null
+ },
+ "email": "john@example.com",
+ "expires_at": null,
+ "group_saml_identity": null
 }
 ```
 
@@ -354,7 +351,7 @@ GET /groups/:id/billable_members
 | Attribute | Type              | Required | Description |
 |-----------|-------------------|----------|-------------|
 | `id`      | integer or string | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group. |
-| `search`  | string            | no       | A query string to search for group members by name, username, or public email. |
+| `search` | string            | no       | A query string to search for group members by name, username, or public email. |
 | `sort`    | string            | no       | A query string containing parameters that specify the sort attribute and order. See supported values below. |
 
 The supported values for the `sort` attribute are:
@@ -369,19 +366,19 @@ The supported values for the `sort` attribute are:
 | `oldest_joined`         | Oldest joined                |
 | `oldest_sign_in`        | Oldest sign in               |
 | `recent_sign_in`        | Recent sign in               |
-| `last_activity_on_asc`  | Last active date, ascending  |
+| `last_activity_on_asc` | Last active date, ascending |
 | `last_activity_on_desc` | Last active date, descending |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/billable_members"
+ --url "https://gitlab.example.com/api/v4/groups/:id/billable_members"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "username": "raymond_smith",
     "name": "Raymond Smith",
@@ -393,8 +390,8 @@ Example response:
     "removable": true,
     "created_at": "2021-01-03T12:16:02.000Z",
     "last_login_at": "2022-10-09T01:33:06.000Z"
-  },
-  {
+ },
+ {
     "id": 2,
     "username": "john_doe",
     "name": "John Doe",
@@ -407,8 +404,8 @@ Example response:
     "removable": true,
     "created_at": "2021-01-04T18:46:42.000Z",
     "last_login_at": "2022-09-29T22:18:46.000Z"
-  },
-  {
+ },
+ {
     "id": 3,
     "username": "foo_bar",
     "name": "Foo bar",
@@ -420,7 +417,7 @@ Example response:
     "removable": false,
     "created_at": "2021-01-09T07:12:31.000Z",
     "last_login_at": "2022-10-10T07:28:56.000Z"
-  }
+ }
 ]
 ```
 
@@ -434,13 +431,9 @@ Prerequisites:
 - This API endpoint works on top-level groups only. It does not work on subgroups.
 - This API endpoint requires permission to administer memberships for the group.
 
-Lists all projects and groups a user is a member of. Only projects and groups in the group hierarchy
-are included. For instance, if the requested group is `Top-Level Group`, and the requested user is a direct member
-of both `Top-Level Group / Subgroup One` and `Other Group / Subgroup Two`, then only `Top-Level Group / Subgroup One`
-is returned, because `Other Group / Subgroup Two` is not in the `Top-Level Group` hierarchy.
+Lists all projects and groups a user is a member of. Only projects and groups in the group hierarchy are included. For instance, if the requested group is `Top-Level Group`, and the requested user is a direct member of both `Top-Level Group / Subgroup One` and `Other Group / Subgroup Two`, then only `Top-Level Group / Subgroup One` is returned, because `Other Group / Subgroup Two` is not in the `Top-Level Group` hierarchy.
 
-This API endpoint takes [pagination](rest/_index.md#pagination) parameters `page` and `per_page` to restrict
-the list of memberships.
+This API endpoint takes [pagination](rest/_index.md#pagination) parameters `page` and `per_page` to restrict the list of memberships.
 
 ```plaintext
 GET /groups/:id/billable_members/:user_id/memberships
@@ -453,14 +446,14 @@ GET /groups/:id/billable_members/:user_id/memberships
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/billable_members/:user_id/memberships"
+ --url "https://gitlab.example.com/api/v4/groups/:id/billable_members/:user_id/memberships"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 168,
     "source_id": 131,
     "source_full_name": "Top-Level Group / Subgroup One",
@@ -471,8 +464,8 @@ Example response:
       "string_value": "Developer",
       "integer_value": 30
     }
-  },
-  {
+ },
+ {
     "id": 169,
     "source_id": 63,
     "source_full_name": "Top-Level Group / Subgroup One / My Project",
@@ -483,7 +476,7 @@ Example response:
       "string_value": "Maintainer",
       "integer_value": 40
     }
-  }
+ }
 ]
 ```
 
@@ -526,14 +519,14 @@ GET /groups/:id/billable_members/:user_id/indirect
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/billable_members/:user_id/indirect"
+ --url "https://gitlab.example.com/api/v4/groups/:id/billable_members/:user_id/indirect"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 168,
     "source_id": 132,
     "source_full_name": "Invited Group / Subgroup One",
@@ -544,7 +537,7 @@ Example response:
       "string_value": "Developer",
       "integer_value": 30
     }
-  }
+ }
 ]
 ```
 
@@ -553,8 +546,7 @@ Example response:
 Removes a billable member from a group and its subgroups and projects.
 
 The user does not need to be a group member to qualify for removal.
-For example, if the user was added directly to a project in the group, you can
-still use this API endpoint to remove them.
+For example, if the user was added directly to a project in the group, you can still use this API endpoint to remove them.
 
 > [!note]
 > Member removal is handled asynchronously, so the changes complete in a few minutes.
@@ -570,16 +562,14 @@ DELETE /groups/:id/billable_members/:user_id
 
 ```shell
 curl --request DELETE --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/billable_members/:user_id"
+ --url "https://gitlab.example.com/api/v4/groups/:id/billable_members/:user_id"
 ```
 
 ## Change membership state of a user in a group
 
 Changes the membership state of a user in a group.
 
-When a user is over [the free user limit](../user/free_user_limit.md), changing their membership state
-for a group or project to `awaiting` or `active` can allow them to access that group or project. The change
-is applied to applied to all subgroups and projects.
+When a user is over [the free user limit](../user/free_user_limit.md), changing their membership state for a group or project to `awaiting` or `active` can allow them to access that group or project. The change is applied to applied to all subgroups and projects.
 
 ```plaintext
 PUT /groups/:id/members/:user_id/state
@@ -593,14 +583,14 @@ PUT /groups/:id/members/:user_id/state
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/members/:user_id/state?state=active"
+ --url "https://gitlab.example.com/api/v4/groups/:id/members/:user_id/state?state=active"
 ```
 
 Example response:
 
 ```json
 {
-  "success":true
+ "success":true
 }
 ```
 
@@ -616,10 +606,10 @@ POST /groups/:id/members
 | ---------------- | ----------------- | ---------------------------------- | ----------- |
 | `id`             | integer or string | yes                                | The ID or [URL-encoded path of the group](rest/_index.md#namespaced-paths). |
 | `user_id`        | integer or string | yes, if `username` is not provided | The user ID of the new member or multiple IDs separated by commas. |
-| `username`       | string            | yes, if `user_id` is not provided  | The username of the new member or multiple usernames separated by commas. |
+| `username`       | string            | yes, if `user_id` is not provided | The username of the new member or multiple usernames separated by commas. |
 | `access_level`   | integer           | yes                                | A valid [access level](../user/permissions.md#default-roles) Possible values: `0` (No access), `5` (Minimal access), `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), `50` (Owner). Default: `30`. |
 | `expires_at`     | string            | no                                 | A date string in the format `YEAR-MONTH-DAY`. |
-| `invite_source`  | string            | no                                 | The source of the invitation that starts the member creation process. GitLab team members can view more information in this confidential issue: `https://gitlab.com/gitlab-org/gitlab/-/issues/327120>`. |
+| `invite_source` | string            | no                                 | The source of the invitation that starts the member creation process. GitLab team members can view more information in this confidential issue: `https://gitlab.com/gitlab-org/gitlab/-/issues/327120>`. |
 | `member_role_id` | integer           | no                                 | Ultimate only. The ID of a custom member role. |
 
 ```shell
@@ -631,33 +621,32 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "username": "raymond_smith",
-  "name": "Raymond Smith",
-  "state": "active",
-  "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
-  "web_url": "http://192.168.1.8:3000/root",
-  "created_at": "2012-10-22T14:13:35Z",
-  "created_by": {
+ "id": 1,
+ "username": "raymond_smith",
+ "name": "Raymond Smith",
+ "state": "active",
+ "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
+ "web_url": "http://192.168.1.8:3000/root",
+ "created_at": "2012-10-22T14:13:35Z",
+ "created_by": {
     "id": 2,
     "username": "john_doe",
     "name": "John Doe",
     "state": "active",
     "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
     "web_url": "http://192.168.1.8:3000/root"
-  },
-  "expires_at": "2012-10-22",
-  "access_level": 30,
-  "email": "john@example.com",
-  "group_saml_identity": null
+ },
+ "expires_at": "2012-10-22",
+ "access_level": 30,
+ "email": "john@example.com",
+ "group_saml_identity": null
 }
 ```
 
 > [!note]
 > If [administrator approval for role promotions](../administration/settings/sign_up_restrictions.md#turn-on-administrator-approval-for-role-promotions) is turned on, membership requests that promote existing users into a billable role require administrator approval.
 
-To enable **Manage Non-Billable Promotions**,
-you must first enable the `enable_member_promotion_management` application setting.
+To enable **Manage Non-Billable Promotions**, you must first enable the `enable_member_promotion_management` application setting.
 
 Example of queueing a single user:
 
@@ -668,9 +657,9 @@ curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
 
 ```json
 {
-  "message":{
+ "message":{
     "username_1":"Request queued for administrator approval."
-  }
+ }
 }
 ```
 
@@ -685,11 +674,11 @@ curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
 
 ```json
 {
-  "queued_users": {
+ "queued_users": {
     "username_1": "Request queued for administrator approval.",
     "username_2": "Request queued for administrator approval."
-  },
-  "status": "success"
+ },
+ "status": "success"
 }
 ```
 
@@ -711,55 +700,53 @@ PUT /groups/:id/members/:user_id
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/members/:user_id?access_level=40"
+ --url "https://gitlab.example.com/api/v4/groups/:id/members/:user_id?access_level=40"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "username": "raymond_smith",
-  "name": "Raymond Smith",
-  "state": "active",
-  "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
-  "web_url": "http://192.168.1.8:3000/root",
-  "created_at": "2012-10-22T14:13:35Z",
-  "created_by": {
+ "id": 1,
+ "username": "raymond_smith",
+ "name": "Raymond Smith",
+ "state": "active",
+ "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
+ "web_url": "http://192.168.1.8:3000/root",
+ "created_at": "2012-10-22T14:13:35Z",
+ "created_by": {
     "id": 2,
     "username": "john_doe",
     "name": "John Doe",
     "state": "active",
     "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
     "web_url": "http://192.168.1.8:3000/root"
-  },
-  "expires_at": "2012-10-22",
-  "access_level": 40,
-  "email": "john@example.com",
-  "group_saml_identity": null
+ },
+ "expires_at": "2012-10-22",
+ "access_level": 40,
+ "email": "john@example.com",
+ "group_saml_identity": null
 }
 ```
 
 > [!note]
 > If [administrator approval for role promotions](../administration/settings/sign_up_restrictions.md#turn-on-administrator-approval-for-role-promotions) is turned on, membership requests that promote existing users into a billable role require administrator approval.
 
-To enable **Manage non-billable promotions**,
-you must first enable the `enable_member_promotion_management` application setting.
+To enable **Manage non-billable promotions**, you must first enable the `enable_member_promotion_management` application setting.
 
 Example response:
 
 ```json
 {
-  "message":{
+ "message":{
     "username_1":"Request queued for administrator approval."
-  }
+ }
 }
 ```
 
 ### Set override flag for a member of a group
 
-By default, the access level of LDAP group members is set to the value specified
-by LDAP through Group Sync. You can allow access level overrides by calling this endpoint.
+By default, the access level of LDAP group members is set to the value specified by LDAP through Group Sync. You can allow access level overrides by calling this endpoint.
 
 ```plaintext
 POST /groups/:id/members/:user_id/override
@@ -772,39 +759,38 @@ POST /groups/:id/members/:user_id/override
 
 ```shell
 curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/members/:user_id/override"
+ --url "https://gitlab.example.com/api/v4/groups/:id/members/:user_id/override"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "username": "raymond_smith",
-  "name": "Raymond Smith",
-  "state": "active",
-  "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
-  "web_url": "http://192.168.1.8:3000/root",
-  "created_at": "2012-10-22T14:13:35Z",
-  "created_by": {
+ "id": 1,
+ "username": "raymond_smith",
+ "name": "Raymond Smith",
+ "state": "active",
+ "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
+ "web_url": "http://192.168.1.8:3000/root",
+ "created_at": "2012-10-22T14:13:35Z",
+ "created_by": {
     "id": 2,
     "username": "john_doe",
     "name": "John Doe",
     "state": "active",
     "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
     "web_url": "http://192.168.1.8:3000/root"
-  },
-  "expires_at": "2012-10-22",
-  "access_level": 40,
-  "email": "john@example.com",
-  "override": true
+ },
+ "expires_at": "2012-10-22",
+ "access_level": 40,
+ "email": "john@example.com",
+ "override": true
 }
 ```
 
 ### Remove override for a member of a group
 
-Sets the override flag to false and allows LDAP Group Sync to reset the access
-level to the LDAP-prescribed value.
+Sets the override flag to false and allows LDAP Group Sync to reset the access level to the LDAP-prescribed value.
 
 ```plaintext
 DELETE /groups/:id/members/:user_id/override
@@ -817,32 +803,32 @@ DELETE /groups/:id/members/:user_id/override
 
 ```shell
 curl --request DELETE --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/members/:user_id/override"
+ --url "https://gitlab.example.com/api/v4/groups/:id/members/:user_id/override"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "username": "raymond_smith",
-  "name": "Raymond Smith",
-  "state": "active",
-  "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
-  "web_url": "http://192.168.1.8:3000/root",
-  "created_at": "2012-10-22T14:13:35Z",
-  "created_by": {
+ "id": 1,
+ "username": "raymond_smith",
+ "name": "Raymond Smith",
+ "state": "active",
+ "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
+ "web_url": "http://192.168.1.8:3000/root",
+ "created_at": "2012-10-22T14:13:35Z",
+ "created_by": {
     "id": 2,
     "username": "john_doe",
     "name": "John Doe",
     "state": "active",
     "avatar_url": "https://www.gravatar.com/avatar/c2525a7f58ae3776070e44c106c48e15?s=80&d=identicon",
     "web_url": "http://192.168.1.8:3000/root"
-  },
-  "expires_at": "2012-10-22",
-  "access_level": 40,
-  "email": "john@example.com",
-  "override": false
+ },
+ "expires_at": "2012-10-22",
+ "access_level": 40,
+ "email": "john@example.com",
+ "override": false
 }
 ```
 
@@ -851,9 +837,7 @@ Example response:
 Removes a user from a group where the user has been explicitly assigned a role.
 
 The user needs to be a group member to qualify for removal.
-For example, if the user was added directly to a project in the group but not this
-group explicitly, you cannot use this API endpoint to remove them. See
-[Remove a billable member from a group](#remove-a-billable-member-from-a-group) for an alternative approach.
+For example, if the user was added directly to a project in the group but not this group explicitly, you cannot use this API endpoint to remove them. See [Remove a billable member from a group](#remove-a-billable-member-from-a-group) for an alternative approach.
 
 ```plaintext
 DELETE /groups/:id/members/:user_id
@@ -863,16 +847,16 @@ DELETE /groups/:id/members/:user_id
 |----------------------|-------------------|----------|-------------|
 | `id`                 | integer or string | yes      | The ID or [URL-encoded path of the group](rest/_index.md#namespaced-paths). |
 | `user_id`            | integer           | yes      | The user ID of the member. |
-| `skip_subresources`  | boolean           | false    | Whether the deletion of direct memberships of the removed member in subgroups and projects should be skipped. Default is `false`. |
+| `skip_subresources` | boolean           | false    | Whether the deletion of direct memberships of the removed member in subgroups and projects should be skipped. Default is `false`. |
 | `unassign_issuables` | boolean           | false    | Whether the removed member should be unassigned from any issues or merge requests inside a given group or project. Default is `false`. |
 
 Example request:
 
 ```shell
 curl --request DELETE --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/members/:user_id"
+ --url "https://gitlab.example.com/api/v4/groups/:id/members/:user_id"
 curl --request DELETE --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/:id/members/:user_id"
+ --url "https://gitlab.example.com/api/v4/projects/:id/members/:user_id"
 ```
 
 ## Approve a member for a group
@@ -892,7 +876,7 @@ Example request:
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/members/:member_id/approve"
+ --url "https://gitlab.example.com/api/v4/groups/:id/members/:member_id/approve"
 ```
 
 ## Approve all pending members for a group
@@ -911,13 +895,12 @@ Example request:
 
 ```shell
 curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/members/approve_all"
+ --url "https://gitlab.example.com/api/v4/groups/:id/members/approve_all"
 ```
 
 ## List pending members of a group and its subgroups and projects
 
-For a group and its subgroups and projects, get a list of all members in an `awaiting` state and those
-who are invited but do not have a GitLab account.
+For a group and its subgroups and projects, get a list of all members in an `awaiting` state and those who are invited but do not have a GitLab account.
 
 Prerequisites:
 
@@ -940,14 +923,14 @@ GET /groups/:id/pending_members
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/pending_members"
+ --url "https://gitlab.example.com/api/v4/groups/:id/pending_members"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 168,
     "name": "Alex Garcia",
     "username": "alex_garcia",
@@ -956,20 +939,20 @@ Example response:
     "web_url": "http://example.com/alex_garcia",
     "approved": false,
     "invited": false
-  },
-  {
+ },
+ {
     "id": 169,
     "email": "sidney@example.com",
     "avatar_url": "http://gravatar.com/../e346561cd8.jpeg",
     "approved": false,
     "invited": true
-  },
-  {
+ },
+ {
     "id": 170,
     "email": "zhang@example.com",
     "avatar_url": "http://gravatar.com/../e32131cd8.jpeg",
     "approved": true,
     "invited": true
-  }
+ }
 ]
 ```

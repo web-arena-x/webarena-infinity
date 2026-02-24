@@ -14,7 +14,7 @@ Users on [any team or plan](https://help.figma.com/hc/en-us/articles/36004032827
 
 Users with can edit access can create prototypes.
 
-New to Prototyping? Check out our  [Getting Started with Prototyping](guide-to-prototyping-in-figma.md) guide.
+New to Prototyping? Check out our [Getting Started with Prototyping](guide-to-prototyping-in-figma.md) guide.
 
 Animations can be used to create smooth transitions between pages and define the behavior for actions like expanding a menu, swiping between pages, or opening a gallery.
 

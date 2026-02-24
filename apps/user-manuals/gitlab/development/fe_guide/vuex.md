@@ -10,8 +10,7 @@ title: Vuex
 **[Vuex](https://vuex.vuejs.org) is deprecated at GitLab** and no new Vuex stores should be created.
 You can still maintain existing Vuex stores but we strongly recommend [migrating away from Vuex entirely](migrating_from_vuex.md).
 
-The rest of the information included on this page is explained in more detail in the
-official [Vuex documentation](https://vuex.vuejs.org).
+The rest of the information included on this page is explained in more detail in the official [Vuex documentation](https://vuex.vuejs.org).
 
 ## Separation of concerns
 
@@ -25,17 +24,15 @@ When using Vuex at GitLab, separate these concerns into different files to impro
 
 ```plaintext
 └── store
-  ├── index.js          # where we assemble modules and export the store
-  ├── actions.js        # actions
-  ├── mutations.js      # mutations
-  ├── getters.js        # getters
-  ├── state.js          # state
-  └── mutation_types.js # mutation types
+ ├── index.js          # where we assemble modules and export the store
+ ├── actions.js        # actions
+ ├── mutations.js      # mutations
+ ├── getters.js        # getters
+ ├── state.js          # state
+ └── mutation_types.js # mutation types
 ```
 
-The following example shows an application that lists and adds users to the
-state. (For a more complex example implementation, review the security
-applications stored in this [repository](https://gitlab.com/gitlab-org/gitlab/-/tree/master/ee/app/assets/javascripts/vue_shared/security_reports/store)).
+The following example shows an application that lists and adds users to the state. (For a more complex example implementation, review the security applications stored in this [repository](https://gitlab.com/gitlab-org/gitlab/-/tree/master/ee/app/assets/javascripts/vue_shared/security_reports/store)).
 
 ### `index.js`
 
@@ -50,12 +47,12 @@ import mutations from './mutations';
 import state from './state';
 
 export const createStore = () =>
-  new Vuex.Store({
+ new Vuex.Store({
     actions,
     getters,
     mutations,
     state,
-  });
+ });
 ```
 
 ### `state.js`
@@ -65,7 +62,7 @@ The first thing you should do before writing any code is to design the state.
 Often we need to provide data from HAML to our Vue application. Let's store it in the state for better access.
 
 ```javascript
-  export default () => ({
+ export default () => ({
     endpoint: null,
 
     isLoading: false,
@@ -75,7 +72,7 @@ Often we need to provide data from HAML to our Vue application. Let's store it i
     errorAddingUser: false,
 
     users: [],
-  });
+ });
 ```
 
 #### Access `state` properties
@@ -91,11 +88,11 @@ An action is usually composed by a `type` and a `payload` and they describe what
 In this file, we write the actions that call mutations for handling a list of users:
 
 ```javascript
-  import * as types from './mutation_types';
-  import axios from '~/lib/utils/axios_utils';
-  import { createAlert } from '~/alert';
+ import * as types from './mutation_types';
+ import axios from '~/lib/utils/axios_utils';
+ import { createAlert } from '~/alert';
 
-  export const fetchUsers = ({ state, dispatch }) => {
+ export const fetchUsers = ({ state, dispatch }) => {
     commit(types.REQUEST_USERS);
 
     axios.get(state.endpoint)
@@ -104,15 +101,15 @@ In this file, we write the actions that call mutations for handling a list of us
         commit(types.RECEIVE_USERS_ERROR, error)
         createAlert({ message: 'There was an error' })
       });
-  }
+ }
 
-  export const addUser = ({ state, dispatch }, user) => {
+ export const addUser = ({ state, dispatch }, user) => {
     commit(types.REQUEST_ADD_USER);
 
     axios.post(state.endpoint, user)
       .then(({ data }) => commit(types.RECEIVE_ADD_USER_SUCCESS, data))
       .catch((error) => commit(types.REQUEST_ADD_USER_ERROR, error));
-  }
+ }
 ```
 
 #### Dispatching actions
@@ -123,14 +120,14 @@ To dispatch an action from a component, use the `mapActions` helper:
 import { mapActions } from 'vuex';
 
 {
-  methods: {
+ methods: {
     ...mapActions([
       'addUser',
     ]),
     onClickUser(user) {
       this.addUser(user);
     },
-  },
+ },
 };
 ```
 
@@ -139,8 +136,7 @@ import { mapActions } from 'vuex';
 The mutations specify how the application state changes in response to actions sent to the store.
 The only way to change state in a Vuex store is by committing a mutation.
 
-Most mutations are committed from an action using `commit`. If you don't have any
-asynchronous operations, you can call mutations from a component using the `mapMutations` helper.
+Most mutations are committed from an action using `commit`. If you don't have any asynchronous operations, you can call mutations from a component using the `mapMutations` helper.
 
 See the Vuex documentation for examples of [committing mutations from components](https://vuex.vuejs.org/guide/mutations.html#committing-mutations-in-components).
 
@@ -200,9 +196,9 @@ It may be tempting to write a mutation like so:
 ```javascript
 // Bad
 export default {
-  [types.MARK_AS_CLOSED](state, item) {
+ [types.MARK_AS_CLOSED](state, item) {
     Object.assign(item, {closed: true})
-  }
+ }
 }
 ```
 
@@ -210,7 +206,7 @@ While this approach works it has several dependencies:
 
 - Correct selection of `item` in the component/action.
 - The `item` property is already declared in the `closed` state.
-  - A new `confidential` property would not be reactive.
+ - A new `confidential` property would not be reactive.
 - Noting that `item` is referenced by `items`.
 
 A mutation written like this is harder to maintain and more error prone. We should rather write a mutation like this:
@@ -218,7 +214,7 @@ A mutation written like this is harder to maintain and more error prone. We shou
 ```javascript
 // Good
 export default {
-  [types.MARK_AS_CLOSED](state, itemId) {
+ [types.MARK_AS_CLOSED](state, itemId) {
     const item = state.items.find(x => x.id === itemId);
 
     if (!item) {
@@ -226,7 +222,7 @@ export default {
     }
 
     Vue.set(item, 'closed', true);
-  },
+ },
 };
 ```
 
@@ -247,7 +243,7 @@ This can be done through the `getters`:
 ```javascript
 // get all the users with pets
 export const getUsersWithPets = (state, getters) => {
-  return state.users.filter(user => user.pet !== undefined);
+ return state.users.filter(user => user.pet !== undefined);
 };
 ```
 
@@ -257,11 +253,11 @@ To access a getter from a component, use the `mapGetters` helper:
 import { mapGetters } from 'vuex';
 
 {
-  computed: {
+ computed: {
     ...mapGetters([
       'getUsersWithPets',
     ]),
-  },
+ },
 };
 ```
 
@@ -279,12 +275,9 @@ export const ADD_USER = 'ADD_USER';
 
 ### Initializing a store's state
 
-It's common for a Vuex store to need some initial state before its `action`s can
-be used. Often this includes data like API endpoints, documentation URLs, or
-IDs.
+It's common for a Vuex store to need some initial state before its `action`s can be used. Often this includes data like API endpoints, documentation URLs, or IDs.
 
-To set this initial state, pass it as a parameter to your store's creation
-function when mounting your Vue component:
+To set this initial state, pass it as a parameter to your store's creation function when mounting your Vue component:
 
 ```javascript
 // in the Vue app's initialization script (for example, mount_show.js)
@@ -298,19 +291,18 @@ import AwesomeVueApp from './components/awesome_vue_app.vue'
 Vue.use(Vuex);
 
 export default () => {
-  const el = document.getElementById('js-awesome-vue-app');
+ const el = document.getElementById('js-awesome-vue-app');
 
-  return new Vue({
+ return new Vue({
     el,
     name: 'AwesomeVueRoot',
     store: createStore(el.dataset),
     render: h => h(AwesomeVueApp)
-  });
+ });
 };
 ```
 
-The store function, in turn, can pass this data along to the state's creation
-function:
+The store function, in turn, can pass this data along to the state's creation function:
 
 ```javascript
 // in store/index.js
@@ -320,50 +312,45 @@ import mutations from './mutations';
 import createState from './state';
 
 export default initialState => ({
-  actions,
-  mutations,
-  state: createState(initialState),
+ actions,
+ mutations,
+ state: createState(initialState),
 });
 ```
 
-And the state function can accept this initial data as a parameter and bake it
-into the `state` object it returns:
+And the state function can accept this initial data as a parameter and bake it into the `state` object it returns:
 
 ```javascript
 // in store/state.js
 
 export default ({
-  projectId,
-  documentationPath,
-  anOptionalProperty = true
+ projectId,
+ documentationPath,
+ anOptionalProperty = true
 }) => ({
-  projectId,
-  documentationPath,
-  anOptionalProperty,
+ projectId,
+ documentationPath,
+ anOptionalProperty,
 
-  // other state properties here
+ // other state properties here
 });
 ```
 
 #### Why not just ...spread the initial state?
 
-The astute reader sees an opportunity to cut out a few lines of code from
-the example above:
+The astute reader sees an opportunity to cut out a few lines of code from the example above:
 
 ```javascript
 // Don't do this!
 
 export default initialState => ({
-  ...initialState,
+ ...initialState,
 
-  // other state properties here
+ // other state properties here
 });
 ```
 
-We made the conscious decision to avoid this pattern to improve the ability to
-discover and search our frontend codebase. The same applies
-when [providing data to a Vue app](vue.md#providing-data-from-haml-to-javascript). The reasoning for this is described in
-[this discussion](https://gitlab.com/gitlab-org/frontend/rfcs/-/issues/56#note_302514865):
+We made the conscious decision to avoid this pattern to improve the ability to discover and search our frontend codebase. The same applies when [providing data to a Vue app](vue.md#providing-data-from-haml-to-javascript). The reasoning for this is described in [this discussion](https://gitlab.com/gitlab-org/frontend/rfcs/-/issues/56#note_302514865):
 
 > Consider a `someStateKey` is being used in the store state. You _may_ not be
 > able to grep for it directly if it was provided only by `el.dataset`. Instead,
@@ -380,7 +367,7 @@ when [providing data to a Vue app](vue.md#providing-data-from-haml-to-javascript
 import { mapActions, mapState, mapGetters } from 'vuex';
 
 export default {
-  computed: {
+ computed: {
     ...mapGetters([
       'getUsersWithPets'
     ]),
@@ -389,8 +376,8 @@ export default {
       'users',
       'error',
     ]),
-  },
-  methods: {
+ },
+ methods: {
     ...mapActions([
       'fetchUsers',
       'addUser',
@@ -398,14 +385,14 @@ export default {
     onClickAddUser(data) {
       this.addUser(data);
     }
-  },
-  created() {
+ },
+ created() {
     this.fetchUsers()
-  }
+ }
 }
 </script>
 <template>
-  <ul>
+ <ul>
     <li v-if="isLoading">
       Loading...
     </li>
@@ -420,7 +407,7 @@ export default {
         {{ user }}
       </li>
     </template>
-  </ul>
+ </ul>
 </template>
 ```
 
@@ -432,8 +419,7 @@ Refer to [Vuex documentation](https://vuex.vuejs.org/guide/testing.html) regardi
 
 #### Testing components that need a store
 
-Smaller components might use `store` properties to access the data. To write unit tests for those
-components, we need to include the store and provide the correct state:
+Smaller components might use `store` properties to access the data. To write unit tests for those components, we need to include the store and provide the correct state:
 
 ```javascript
 //component_spec.js
@@ -447,22 +433,22 @@ import Component from './component.vue'
 Vue.use(Vuex);
 
 describe('component', () => {
-  let store;
-  let wrapper;
+ let store;
+ let wrapper;
 
-  const createComponent = () => {
+ const createComponent = () => {
     store = createStore();
 
     wrapper = mount(Component, {
       store,
     });
-  };
+ };
 
-  beforeEach(() => {
+ beforeEach(() => {
     createComponent();
-  });
+ });
 
-  it('should show a user', async () => {
+ it('should show a user', async () => {
     const user = {
       name: 'Foo',
       age: '30',
@@ -472,24 +458,21 @@ describe('component', () => {
     await store.dispatch('addUser', user);
 
     expect(wrapper.text()).toContain(user.name);
-  });
+ });
 });
 ```
 
-Some test files may still use the
-[deprecated `createLocalVue` function](https://gitlab.com/gitlab-org/gitlab/-/issues/220482)
-from `@vue/test-utils` and `localVue.use(Vuex)`. This is unnecessary, and should be
-avoided or removed when possible.
+Some test files may still use the [deprecated `createLocalVue` function](https://gitlab.com/gitlab-org/gitlab/-/issues/220482)
+from `@vue/test-utils` and `localVue.use(Vuex)`. This is unnecessary, and should be avoided or removed when possible.
 
 ### Two way data binding
 
-When storing form data in Vuex, it is sometimes necessary to update the value stored. The store
-should never be mutated directly, and an action should be used instead.
+When storing form data in Vuex, it is sometimes necessary to update the value stored. The store should never be mutated directly, and an action should be used instead.
 To use `v-model` in our code, we need to create computed properties in this form:
 
 ```javascript
 export default {
-  computed: {
+ computed: {
     someValue: {
       get() {
         return this.$store.state.someValue;
@@ -498,7 +481,7 @@ export default {
         this.$store.dispatch("setSomeValue", value);
       }
     }
-  }
+ }
 };
 ```
 
@@ -506,7 +489,7 @@ An alternative is to use `mapState` and `mapActions`:
 
 ```javascript
 export default {
-  computed: {
+ computed: {
     ...mapState(['someValue']),
     localSomeValue: {
       get() {
@@ -516,10 +499,10 @@ export default {
         this.setSomeValue(value)
       }
     }
-  },
-  methods: {
+ },
+ methods: {
     ...mapActions(['setSomeValue'])
-  }
+ }
 };
 ```
 
@@ -530,25 +513,25 @@ The helper can be used like so:
 ```javascript
 // this store is non-functional and only used to give context to the example
 export default {
-  state: {
+ state: {
     baz: '',
     bar: '',
     foo: ''
-  },
-  actions: {
+ },
+ actions: {
     updateBar() {...},
     updateAll() {...},
-  },
-  getters: {
+ },
+ getters: {
     getFoo() {...},
-  }
+ }
 }
 ```
 
 ```javascript
 import { mapComputed } from '~/vuex_shared/bindings'
 export default {
-  computed: {
+ computed: {
     /**
      * @param {(string[]|Object[])} list - list of string matching state keys or list objects
      * @param {string} list[].key - the key matching the key present in the vuex state
@@ -566,7 +549,7 @@ export default {
       ],
       'updateAll',
     ),
-  }
+ }
 }
 ```
 
@@ -579,7 +562,7 @@ For instance, with a store like:
 ```javascript
 // this store is non-functional and only used to give context to the example
 export default {
-  state: {
+ state: {
     foo: {
       qux: {
         baz: '',
@@ -587,14 +570,14 @@ export default {
         foo: '',
       },
     },
-  },
-  actions: {
+ },
+ actions: {
     updateBar() {...},
     updateAll() {...},
-  },
-  getters: {
+ },
+ getters: {
     getFoo() {...},
-  }
+ }
 }
 ```
 
@@ -603,7 +586,7 @@ The `root` could be:
 ```javascript
 import { mapComputed } from '~/vuex_shared/bindings'
 export default {
-  computed: {
+ computed: {
     ...mapComputed(
       [
         'baz',
@@ -613,6 +596,6 @@ export default {
       'updateAll',
       (state) => state.foo.qux,
     ),
-  }
+ }
 }
 ```

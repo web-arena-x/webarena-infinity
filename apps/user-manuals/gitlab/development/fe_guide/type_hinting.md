@@ -5,17 +5,11 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Type hinting overview
 ---
 
-The Frontend codebase of the GitLab project currently does not require nor enforces types. Adding
-type annotations is optional, and we don't currently enforce any type safety in the JavaScript
-codebase. However, type annotations might be very helpful in adding clarity to the codebase,
-especially in shared utilities code. This document aims to cover how type hinting currently works,
-how to add new type annotations, and how to set up type hinting in the GitLab project.
+The Frontend codebase of the GitLab project currently does not require nor enforces types. Adding type annotations is optional, and we don't currently enforce any type safety in the JavaScript codebase. However, type annotations might be very helpful in adding clarity to the codebase, especially in shared utilities code. This document aims to cover how type hinting currently works, how to add new type annotations, and how to set up type hinting in the GitLab project.
 
 ## JSDoc
 
-[JSDoc](https://jsdoc.app/) is a tool to document and describe types in JavaScript code, using
-specially formed comments. JSDoc's types vocabulary is relatively limited, but it is widely
-supported [by many IDEs](https://en.wikipedia.org/wiki/JSDoc#JSDoc_in_use).
+[JSDoc](https://jsdoc.app/) is a tool to document and describe types in JavaScript code, using specially formed comments. JSDoc's types vocabulary is relatively limited, but it is widely supported [by many IDEs](https://en.wikipedia.org/wiki/JSDoc#JSDoc_in_use).
 
 ### Examples
 
@@ -38,8 +32,7 @@ function add(a, b) {
 
 ##### Optional parameters
 
-Use square brackets `[]` around a parameter name to mark it as optional. A default value can be
-provided by using the `[name=value]` syntax:
+Use square brackets `[]` around a parameter name to mark it as optional. A default value can be provided by using the `[name=value]` syntax:
 
 ```javascript
 /**
@@ -75,8 +68,7 @@ function createUrl(config) {
 
 #### Annotating types of variables that are not immediately assigned a value
 
-For tools and IDEs it's hard to infer type of a value that doesn't immediately receive a value. We
-can use [`@type`](https://jsdoc.app/tags-type) notation to assign type to such variables:
+For tools and IDEs it's hard to infer type of a value that doesn't immediately receive a value. We can use [`@type`](https://jsdoc.app/tags-type) notation to assign type to such variables:
 
 ```javascript
 /** @type {number} */
@@ -89,8 +81,7 @@ Consult [JSDoc official website](https://jsdoc.app/) for more syntax details.
 
 #### Use lowercase names for basic types
 
-Both uppercase and lowercase are acceptable, but in most cases use lowercase
-for a primitive or an object: `boolean`, `number`, `string`, `symbol`, or `object`.
+Both uppercase and lowercase are acceptable, but in most cases use lowercase for a primitive or an object: `boolean`, `number`, `string`, `symbol`, or `object`.
 
 ```javascript
 /**
@@ -117,13 +108,12 @@ let element;
  * @returns {Intl.DateTimeFormat}
  */
 const createDateTimeFormat = (formatOptions) =>
-  Intl.DateTimeFormat(getPreferredLocales(), formatOptions);
+ Intl.DateTimeFormat(getPreferredLocales(), formatOptions);
 ```
 
 #### Import existing type definitions via `import('path/to/module')`
 
-Here are examples of how to annotate a type of the Vue Test Utils Wrapper variables, that are not
-immediately defined:
+Here are examples of how to annotate a type of the Vue Test Utils Wrapper variables, that are not immediately defined:
 
 ```javascript
 /** @type {import('helpers/vue_test_utils_helper').ExtendedWrapper} */
@@ -141,17 +131,14 @@ wrapper = shallowMount(/* ... */);
 
 {{< alert type="note" >}}
 
-`import()` is [not a native JSDoc construct](https://github.com/jsdoc/jsdoc/issues/1645), but it is
-recognized by many IDEs and tools. In this case we're aiming for better clarity in the code and
-improved Developer Experience with an IDE.
+`import()` is [not a native JSDoc construct](https://github.com/jsdoc/jsdoc/issues/1645), but it is recognized by many IDEs and tools. In this case we're aiming for better clarity in the code and improved Developer Experience with an IDE.
 
 {{< /alert >}}
 
 #### JSDoc is limited
 
 As was stated above, JSDoc has limited vocabulary. And using it would not describe the type fully.
-But sometimes it's possible to use 3rd party library's type definitions to make type inference to
-work for our code. Here's an example of such approach:
+But sometimes it's possible to use 3rd party library's type definitions to make type inference to work for our code. Here's an example of such approach:
 
 ```diff
 - export const mountExtended = (...args) => extendedWrapper(mount(...args));
@@ -159,9 +146,7 @@ work for our code. Here's an example of such approach:
 + export const mountExtended = compose(extendedWrapper, mount);
 ```
 
-Here we use TypeScript type definitions from `compose` function, to add inferred type definitions to
-`mountExtended` function. In this case `mountExtended` arguments will be of same type as `mount`
-arguments. And return type will be the same as `extendedWrapper` return type.
+Here we use TypeScript type definitions from `compose` function, to add inferred type definitions to `mountExtended` function. In this case `mountExtended` arguments will be of same type as `mount` arguments. And return type will be the same as `extendedWrapper` return type.
 
 We can still use JSDoc's syntax to add description to the function, for example:
 
@@ -172,13 +157,11 @@ export const mountExtended = compose(extendedWrapper, mount);
 
 ## System requirements
 
-A setup might be required for type definitions from GitLab codebase and from 3rd party packages to
-be properly displayed in IDEs and tools.
+A setup might be required for type definitions from GitLab codebase and from 3rd party packages to be properly displayed in IDEs and tools.
 
 ### VS Code settings
 
-If you are having trouble getting VS Code IntelliSense working you may need to increase the amount of
-memory the TS server is allowed to use. To do this, add the following to your `settings.json` file:
+If you are having trouble getting VS Code IntelliSense working you may need to increase the amount of memory the TS server is allowed to use. To do this, add the following to your `settings.json` file:
 
 ```json
 {
@@ -189,40 +172,21 @@ memory the TS server is allowed to use. To do this, add the following to your `s
 
 ### Aliases
 
-Our codebase uses many aliases for imports. For example, `import Api from '~/api';` would import a
-`app/assets/javascripts/api.js` file. But IDEs might not know that alias and so might not know the
-type of the `Api`. To fix that for most IDEs, we need to create a
-[`jsconfig.json`](https://code.visualstudio.com/docs/languages/jsconfig) file.
+Our codebase uses many aliases for imports. For example, `import Api from '~/api';` would import a `app/assets/javascripts/api.js` file. But IDEs might not know that alias and so might not know the type of the `Api`. To fix that for most IDEs, we need to create a [`jsconfig.json`](https://code.visualstudio.com/docs/languages/jsconfig) file.
 
-There is a script in the GitLab project that can generate a `jsconfig.json` file based on webpack
-configuration and current environment variables. To generate or update the `jsconfig.json` file,
-run from the GitLab project root:
+There is a script in the GitLab project that can generate a `jsconfig.json` file based on webpack configuration and current environment variables. To generate or update the `jsconfig.json` file, run from the GitLab project root:
 
 ```shell
 node scripts/frontend/create_jsconfig.js
 ```
 
-`jsconfig.json` is added to gitignore list, so creating or changing it does not cause Git changes in
-the GitLab project. This also means it is not included in Git pulls, so it has to be manually
-generated or updated.
+`jsconfig.json` is added to gitignore list, so creating or changing it does not cause Git changes in the GitLab project. This also means it is not included in Git pulls, so it has to be manually generated or updated.
 
 ### 3rd party TypeScript definitions
 
-While more and more libraries use TypeScript for type definitions, some still might have JSDoc
-annotated types or no types at all. To cover that gap, TypeScript community started a
-[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) initiative, that creates and
-supports standalone type definitions for popular JavaScript libraries. We can use those definitions
-by either explicitly installing the type packages (`yarn add -D "@types/lodash"`) or by using a
-feature called [Automatic Type Acquisition (ATA)](https://www.typescriptlang.org/tsconfig/#typeAcquisition),
-that is available in some Language Services
-(for example, [ATA in VS Code](https://github.com/microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio#user-content--automatic-acquisition-of-type-definitions)).
+While more and more libraries use TypeScript for type definitions, some still might have JSDoc annotated types or no types at all. To cover that gap, TypeScript community started a [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) initiative, that creates and supports standalone type definitions for popular JavaScript libraries. We can use those definitions by either explicitly installing the type packages (`yarn add -D "@types/lodash"`) or by using a feature called [Automatic Type Acquisition (ATA)](https://www.typescriptlang.org/tsconfig/#typeAcquisition), that is available in some Language Services (for example, [ATA in VS Code](https://github.com/microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio#user-content--automatic-acquisition-of-type-definitions)).
 
-Automatic Type Acquisition (ATA) automatically fetches type definitions from the DefinitelyTyped
-list. But for ATA to work, a globally installed `npm` might be required. IDEs can provide a fallback
-configuration options to set location of the `npm` executables. Consult your IDE documentation for
-details.
+Automatic Type Acquisition (ATA) automatically fetches type definitions from the DefinitelyTyped list. But for ATA to work, a globally installed `npm` might be required. IDEs can provide a fallback configuration options to set location of the `npm` executables. Consult your IDE documentation for details.
 
-ATA is not guaranteed to work and Lodash is a backbone for many of our utility functions,
-so we have [DefinitelyTyped definitions for Lodash](https://www.npmjs.com/package/@types/lodash)
-explicitly added to our `devDependencies` in the `package.json`. This ensures that everyone gets
-type hints for `lodash`-based functions out of the box.
+ATA is not guaranteed to work and Lodash is a backbone for many of our utility functions, so we have [DefinitelyTyped definitions for Lodash](https://www.npmjs.com/package/@types/lodash)
+explicitly added to our `devDependencies` in the `package.json`. This ensures that everyone gets type hints for `lodash`-based functions out of the box.

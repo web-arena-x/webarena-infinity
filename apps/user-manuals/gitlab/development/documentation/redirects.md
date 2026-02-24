@@ -6,17 +6,15 @@ description: Learn how to contribute to GitLab Documentation.
 title: Redirects in GitLab documentation
 ---
 
-When you move, rename, or delete a page, you must add a redirect. Redirects reduce
-how often users get 404s when they visit the documentation site from out-of-date links.
+When you move, rename, or delete a page, you must add a redirect. Redirects reduce how often users get 404s when they visit the documentation site from out-of-date links.
 
 Add a redirect to ensure:
 
 - Users see the new page and can update or delete their bookmark.
-- External sites can update their links, especially sites that have automation that
-  checks for redirected links.
+- External sites can update their links, especially sites that have automation that checks for redirected links.
 - The documentation site global navigation does not link to a missing page.
 
-  The links in the global navigation are already tested in the `docs-gitlab-com` project.
+ The links in the global navigation are already tested in the `docs-gitlab-com` project.
 
 Be sure to assign a technical writer to any merge request that moves, renames, or deletes a page.
 Technical Writers can help with any questions and can review your change.
@@ -30,15 +28,8 @@ Technical Writers can help with any questions and can review your change.
 
 There are two types of redirects:
 
-- [Redirects added into the documentation files themselves](#redirect-to-a-page-that-already-exists), for users who
-  view the docs in `/help` on GitLab Self-Managed instances. For example,
-  [`/help` on GitLab.com](https://gitlab.com/help). These must be added in the same
-  MR that renames or moves a doc. Redirects to internal pages expire after three months
-  and redirects to external pages (starting with `https:`) expire after a year.
-- [GitLab Pages redirects](../../user/project/pages/redirects.md), which are added
-  automatically after redirect files expire. They must not be manually added by
-  contributors and expire after nine months. Redirects pointing to external sites
-  are not added to the GitLab Pages redirects.
+- [Redirects added into the documentation files themselves](#redirect-to-a-page-that-already-exists), for users who view the docs in `/help` on GitLab Self-Managed instances. For example, [`/help` on GitLab.com](https://gitlab.com/help). These must be added in the same MR that renames or moves a doc. Redirects to internal pages expire after three months and redirects to external pages (starting with `https:`) expire after a year.
+- [GitLab Pages redirects](../../user/project/pages/redirects.md), which are added automatically after redirect files expire. They must not be manually added by contributors and expire after nine months. Redirects pointing to external sites are not added to the GitLab Pages redirects.
 
 Expired redirect files are removed from the documentation projects as part of the Technical Writing team's [monthly tasks](https://gitlab.com/gitlab-org/technical-writing/team-tasks/-/blob/main/.gitlab/issue_templates/tw-monthly-tasks.md).
 
@@ -74,8 +65,7 @@ To redirect a page to another page in the same repository:
 
 ### Update links in other repositories
 
-After your changes are committed, search for and update all other repositories that
-might link to the old file:
+After your changes are committed, search for and update all other repositories that might link to the old file:
 
 1. In <https://gitlab.com/gitlab-com/www-gitlab-com>, search for full URLs:
 
@@ -83,11 +73,9 @@ might link to the old file:
    grep -r "docs.gitlab.com/path/to/file" .
    ```
 
-1. In <https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/data/en-us/navigation.yaml>,
-   search for the path, and remove the entry.
+1. In <https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/data/en-us/navigation.yaml>, search for the path, and remove the entry.
 
-1. In [all of the doc projects](site_architecture/_index.md#source-files), search for links in the docs
-   and codebase. Search for all variations, including full URL and just the path.
+1. In [all of the doc projects](site_architecture/_index.md#source-files), search for links in the docs and codebase. Search for all variations, including full URL and just the path.
    For example, go to the root directory of the `gitlab` project and run:
 
    ```shell
@@ -97,8 +85,7 @@ might link to the old file:
    grep -r "path/to/file" .
    ```
 
-   You might need to try variations of relative links, such as `../path/to/file` or
-   `../file` to find every case.
+   You might need to try variations of relative links, such as `../path/to/file` or `../file` to find every case.
 
 1. In <https://gitlab.com/gitlab-org/customers-gitlab-com>, search for full URLs:
 
@@ -114,51 +101,42 @@ Instead, you duplicate the file, and add the redirect code to the old file.
 1. Create the new file.
 1. Copy the contents of the old file to the new one.
 1. In the old file, delete all the content.
-1. In the old file, add the redirect code and follow the rest of the steps in
-   the [Redirect to a page that already exists](#redirect-to-a-page-that-already-exists) topic.
+1. In the old file, add the redirect code and follow the rest of the steps in the [Redirect to a page that already exists](#redirect-to-a-page-that-already-exists) topic.
 
 ## Use code to add a redirect
 
 If you prefer to use a script to create the redirect:
 
-Add the redirect code to the old documentation file by running the
-following Rake task. The first argument is the path of the old file,
-and the second argument is the path of the new file:
+Add the redirect code to the old documentation file by running the following Rake task. The first argument is the path of the old file, and the second argument is the path of the new file:
 
-- To redirect to a page in the same project, use relative paths and
-  the `.md` extension. Both old and new paths start from the same location.
-  In the following example, both paths are relative to `doc/`:
+- To redirect to a page in the same project, use relative paths and the `.md` extension. Both old and new paths start from the same location.
+ In the following example, both paths are relative to `doc/`:
 
-  ```shell
-  bundle exec rake "gitlab:docs:redirect[doc/user/search/old_file.md, doc/api/new_file.md]"
-  ```
+ ```shell
+ bundle exec rake "gitlab:docs:redirect[doc/user/search/old_file.md, doc/api/new_file.md]"
+ ```
 
 - To redirect to a page in a different project or site, use the full URL (with `https://`) :
 
-  ```shell
-  bundle exec rake "gitlab:docs:redirect[doc/user/search/old_file.md, https://example.com]"
-  ```
+ ```shell
+ bundle exec rake "gitlab:docs:redirect[doc/user/search/old_file.md, https://example.com]"
+ ```
 
 - Alternatively, you can omit the arguments and be prompted to enter the values:
 
-  ```shell
-  bundle exec rake gitlab:docs:redirect
-  ```
+ ```shell
+ bundle exec rake gitlab:docs:redirect
+ ```
 
 ## Redirecting a page created before the release
 
 If you create a new page and then rename it before it's added to a release on the 18th:
 
-Instead of following that procedure, ask a Technical Writer to manually add the redirect
-to [`redirects.yaml`](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/data/redirects.yaml).
+Instead of following that procedure, ask a Technical Writer to manually add the redirect to [`redirects.yaml`](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/data/redirects.yaml).
 
 ## Exceptions to creating a redirect
 
-In some cases you can skip adding the redirect and just delete the file. The page
-must have already been removed from (or never existed in) the navigation, and one
-of the following must be true:
+In some cases you can skip adding the redirect and just delete the file. The page must have already been removed from (or never existed in) the navigation, and one of the following must be true:
 
-- The page was added and removed in the same release, so it was never included in
-  a GitLab Self-Managed release.
-- The page does not contain any content of value, like a placeholder page or a page
-  with extremely low usage statistics.
+- The page was added and removed in the same release, so it was never included in a GitLab Self-Managed release.
+- The page does not contain any content of value, like a placeholder page or a page with extremely low usage statistics.

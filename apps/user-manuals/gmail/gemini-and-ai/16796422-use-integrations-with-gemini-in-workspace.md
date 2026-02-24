@@ -25,7 +25,7 @@ To use an integration with Gemini in Workspace, make sure:
 
 ## Explore available integrations
 
-|  |  |
+| | |
 | --- | --- |
 | **App** | **Description** |
 | [Asana](https://workspace.google.com/marketplace/app/asana_integration_alpha/991974521385?e=reset) | Search projects, tasks, subtasks, and find status. |

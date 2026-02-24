@@ -26,22 +26,18 @@ On the Consul server nodes, it is important to [restart the Consul service](../c
 
 ## PgBouncer error `ERROR: pgbouncer cannot connect to server`
 
-You may get this error when running `gitlab-rake gitlab:db:configure` or you
-may see the error in the PgBouncer log file.
+You may get this error when running `gitlab-rake gitlab:db:configure` or you may see the error in the PgBouncer log file.
 
 ```plaintext
-PG::ConnectionBad: ERROR:  pgbouncer cannot connect to server
+PG::ConnectionBad: ERROR: pgbouncer cannot connect to server
 ```
 
-The problem may be that your PgBouncer node's IP address is not included in the
-`trust_auth_cidr_addresses` setting in `/etc/gitlab/gitlab.rb` on the database nodes.
+The problem may be that your PgBouncer node's IP address is not included in the `trust_auth_cidr_addresses` setting in `/etc/gitlab/gitlab.rb` on the database nodes.
 
-You can confirm that this is the issue by checking the PostgreSQL log on the leader
-database node. If you see the following error then `trust_auth_cidr_addresses`
-is the problem.
+You can confirm that this is the issue by checking the PostgreSQL log on the leader database node. If you see the following error then `trust_auth_cidr_addresses` is the problem.
 
 ```plaintext
-2018-03-29_13:59:12.11776 FATAL:  no pg_hba.conf entry for host "123.123.123.123", user "pgbouncer", database "gitlabhq_production", SSL off
+2018-03-29_13:59:12.11776 FATAL: no pg_hba.conf entry for host "123.123.123.123", user "pgbouncer", database "gitlabhq_production", SSL off
 ```
 
 To fix the problem, add the IP address to `/etc/gitlab/gitlab.rb`.
@@ -54,20 +50,15 @@ postgresql['trust_auth_cidr_addresses'] = %w(123.123.123.123/32 <other_cidrs>)
 
 ## PgBouncer nodes don't fail over after Patroni switchover
 
-Due to a [known issue](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/8166) that
-affects versions of GitLab prior to 16.5.0, the automatic failover of PgBouncer nodes does not
-happen after a [Patroni switchover](replication_and_failover.md#manual-failover-procedure-for-patroni). In this
-example, GitLab failed to detect a paused database, then attempted to `RESUME` a
-not-paused database:
+Due to a [known issue](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/8166) that affects versions of GitLab prior to 16.5.0, the automatic failover of PgBouncer nodes does not happen after a [Patroni switchover](replication_and_failover.md#manual-failover-procedure-for-patroni). In this example, GitLab failed to detect a paused database, then attempted to `RESUME` a not-paused database:
 
 ```plaintext
 INFO -- : Running: gitlab-ctl pgb-notify --pg-database gitlabhq_production --newhost database7.example.com --user pgbouncer --hostuser gitlab-consul
 ERROR -- : STDERR: Error running command: GitlabCtl::Errors::ExecutionError
-ERROR -- : STDERR: ERROR: ERROR:  database gitlabhq_production is not paused
+ERROR -- : STDERR: ERROR: ERROR: database gitlabhq_production is not paused
 ```
 
-To ensure a [Patroni switchover](replication_and_failover.md#manual-failover-procedure-for-patroni) succeeds,
-you must manually restart the PgBouncer service on all PgBouncer nodes with this command:
+To ensure a [Patroni switchover](replication_and_failover.md#manual-failover-procedure-for-patroni) succeeds, you must manually restart the PgBouncer service on all PgBouncer nodes with this command:
 
 ```shell
 gitlab-ctl restart pgbouncer
@@ -77,8 +68,7 @@ gitlab-ctl restart pgbouncer
 
 If a replica cannot start or rejoin the cluster, or when it lags behind and cannot catch up, it might be necessary to reinitialize the replica:
 
-1. [Check the replication status](replication_and_failover.md#check-replication-status) to confirm which server
-   needs to be reinitialized. For example:
+1. [Check the replication status](replication_and_failover.md#check-replication-status) to confirm which server needs to be reinitialized. For example:
 
    ```plaintext
    + Cluster: postgresql-ha (6970678148837286213) ------+---------+--------------+----+-----------+
@@ -86,21 +76,18 @@ If a replica cannot start or rejoin the cluster, or when it lags behind and cann
    +-------------------------------------+--------------+---------+--------------+----+-----------+
    | gitlab-database-1.example.com       | 172.18.0.111 | Replica | running      | 55 |         0 |
    | gitlab-database-2.example.com       | 172.18.0.112 | Replica | start failed |    |   unknown |
-   | gitlab-database-3.example.com       | 172.18.0.113 | Leader  | running      | 55 |           |
+   | gitlab-database-3.example.com       | 172.18.0.113 | Leader | running      | 55 |           |
    +-------------------------------------+--------------+---------+--------------+----+-----------+
    ```
 
-1. Sign in to the broken server and reinitialize the database and replication. Patroni shuts
-   down PostgreSQL on that server, remove the data directory, and reinitialize it from scratch:
+1. Sign in to the broken server and reinitialize the database and replication. Patroni shuts down PostgreSQL on that server, remove the data directory, and reinitialize it from scratch:
 
    ```shell
    sudo gitlab-ctl patroni reinitialize-replica --member gitlab-database-2.example.com
    ```
 
-   This can be run on any Patroni node, but be aware that `sudo gitlab-ctl patroni reinitialize-replica`
-   without `--member` restarts the server it is run on.
-   You should run it locally on the broken server to reduce the risk of
-   unintended data loss.
+   This can be run on any Patroni node, but be aware that `sudo gitlab-ctl patroni reinitialize-replica` without `--member` restarts the server it is run on.
+   You should run it locally on the broken server to reduce the risk of unintended data loss.
 1. Monitor the logs:
 
    ```shell
@@ -126,21 +113,15 @@ This may be required if your Patroni cluster is in an unknown or bad state and n
 +-------------------------------------+--------------+---------+---------+----+-----------+
 ```
 
-Before deleting the Patroni state in Consul,
-[try to resolve the `gitlab-ctl` errors](#errors-running-gitlab-ctl) on the Patroni nodes.
+Before deleting the Patroni state in Consul, [try to resolve the `gitlab-ctl` errors](#errors-running-gitlab-ctl) on the Patroni nodes.
 
-This process results in a reinitialized Patroni cluster when
-the first Patroni node starts.
+This process results in a reinitialized Patroni cluster when the first Patroni node starts.
 
 To reset the Patroni state in Consul:
 
-1. Take note of the Patroni node that was the leader, or that the application thinks is the current leader,
-   if the current state shows more than one, or none:
-   - Look on the PgBouncer nodes in `/var/opt/gitlab/consul/databases.ini`,
-     which contains the hostname of the current leader.
-   - Look in the Patroni logs `/var/log/gitlab/patroni/current` (or the older rotated and
-     compressed logs `/var/log/gitlab/patroni/@40000*`) on all database nodes to see
-     which server was most recently identified as the leader by the cluster:
+1. Take note of the Patroni node that was the leader, or that the application thinks is the current leader, if the current state shows more than one, or none:
+   - Look on the PgBouncer nodes in `/var/opt/gitlab/consul/databases.ini`, which contains the hostname of the current leader.
+   - Look in the Patroni logs `/var/log/gitlab/patroni/current` (or the older rotated and compressed logs `/var/log/gitlab/patroni/@40000*`) on all database nodes to see which server was most recently identified as the leader by the cluster:
 
      ```plaintext
      INFO: no action. I am a secondary (database1.local) and following a leader (database2.local)
@@ -159,9 +140,7 @@ To reset the Patroni state in Consul:
    ```
 
 1. Start one Patroni node, which initializes the Patroni cluster to elect as a leader.
-   It's highly recommended to start the previous leader (noted in the first step),
-   so as to not lose existing writes that may have not been replicated because
-   of the broken cluster state:
+   It's highly recommended to start the previous leader (noted in the first step), so as to not lose existing writes that may have not been replicated because of the broken cluster state:
 
    ```shell
    sudo gitlab-ctl start patroni
@@ -177,11 +156,10 @@ If you are still seeing issues, the next step is restoring the last healthy back
 
 ## Errors in the Patroni log about a `pg_hba.conf` entry for `127.0.0.1`
 
-The following log entry in the Patroni log indicates the replication is not working
-and a configuration change is needed:
+The following log entry in the Patroni log indicates the replication is not working and a configuration change is needed:
 
 ```plaintext
-FATAL:  no pg_hba.conf entry for replication connection from host "127.0.0.1", user "gitlab_replicator"
+FATAL: no pg_hba.conf entry for replication connection from host "127.0.0.1", user "gitlab_replicator"
 ```
 
 To fix the problem, ensure the loopback interface is included in the CIDR addresses list:
@@ -215,7 +193,7 @@ The pending restart status means that those nodes are waiting for a restart to a
 To know what those pending restart settings are, execute the following in the instance you need to verify:
 
 ```shell
-sudo gitlab-psql -c "select name, setting,  short_desc, sourcefile, sourceline  from pg_settings where pending_restart"
+sudo gitlab-psql -c "select name, setting, short_desc, sourcefile, sourceline from pg_settings where pending_restart"
 ```
 
 To apply the pending configuration changes, restart the affected nodes:
@@ -228,8 +206,8 @@ To apply the pending configuration changes, restart the affected nodes:
 This error in Patroni logs indicates that the database is not replicating:
 
 ```plaintext
-FATAL:  could not receive data from WAL stream:
-ERROR:  requested starting point 0/5000000 is ahead of the WAL flush position of this server 0/4000388
+FATAL: could not receive data from WAL stream:
+ERROR: requested starting point 0/5000000 is ahead of the WAL flush position of this server 0/4000388
 ```
 
 This example error is from a replica that was initially misconfigured, and had never replicated.
@@ -243,27 +221,24 @@ Patroni may fail to start, logging an error and stack trace:
 ```plaintext
 MemoryError
 Traceback (most recent call last):
-  File "/opt/gitlab/embedded/bin/patroni", line 8, in <module>
+ File "/opt/gitlab/embedded/bin/patroni", line 8, in <module>
     sys.exit(main())
 [..]
-  File "/opt/gitlab/embedded/lib/python3.7/ctypes/__init__.py", line 273, in _reset_cache
+ File "/opt/gitlab/embedded/lib/python3.7/ctypes/__init__.py", line 273, in _reset_cache
     CFUNCTYPE(c_int)(lambda: None)
 ```
 
-If the stack trace ends with `CFUNCTYPE(c_int)(lambda: None)`, this code triggers `MemoryError`
-if the Linux server has been hardened for security.
+If the stack trace ends with `CFUNCTYPE(c_int)(lambda: None)`, this code triggers `MemoryError` if the Linux server has been hardened for security.
 
 The code causes Python to write temporary executable files, and if it cannot find a file system in which to do this. For example, if `noexec` is set on the `/tmp` file system, it fails with `MemoryError` ([read more in the issue](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/6184)).
 
 ## Errors running `gitlab-ctl`
 
-Patroni nodes can get into a state where `gitlab-ctl` commands fail
-and `gitlab-ctl reconfigure` cannot fix the node.
+Patroni nodes can get into a state where `gitlab-ctl` commands fail and `gitlab-ctl reconfigure` cannot fix the node.
 
 If this co-incides with a version upgrade of PostgreSQL, [follow a different procedure](#postgresql-major-version-upgrade-fails-on-a-patroni-replica)
 
-One common symptom is that `gitlab-ctl` cannot determine
-information it needs about the installation if the database server is failing to start:
+One common symptom is that `gitlab-ctl` cannot determine information it needs about the installation if the database server is failing to start:
 
 ```plaintext
 Malformed configuration JSON file found at /opt/gitlab/embedded/nodes/<HOSTNAME>.json.
@@ -275,12 +250,11 @@ Error while reinitializing replica on the current node: Attributes not found in
 /opt/gitlab/embedded/nodes/<HOSTNAME>.json, has reconfigure been run yet?
 ```
 
-Similarly, the nodes file (`/opt/gitlab/embedded/nodes/<HOSTNAME>.json`) should contain a lot of information,
-but might get created with only:
+Similarly, the nodes file (`/opt/gitlab/embedded/nodes/<HOSTNAME>.json`) should contain a lot of information, but might get created with only:
 
 ```json
 {
-  "name": "<HOSTNAME>"
+ "name": "<HOSTNAME>"
 }
 ```
 
@@ -295,8 +269,7 @@ the current state of PostgreSQL on this node is discarded:
    sudo gitlab-ctl stop postgresql
    ```
 
-1. Remove `/var/opt/gitlab/postgresql/data` in case its state prevents
-   PostgreSQL from starting:
+1. Remove `/var/opt/gitlab/postgresql/data` in case its state prevents PostgreSQL from starting:
 
    ```shell
    cd /var/opt/gitlab/postgresql
@@ -307,8 +280,7 @@ the current state of PostgreSQL on this node is discarded:
 
    Take care with this step to avoid data loss.
    This step can be also achieved by renaming `data/`:
-   make sure there's enough free disk for a new copy of the primary database,
-   and remove the extra directory when the replica is fixed.
+   make sure there's enough free disk for a new copy of the primary database, and remove the extra directory when the replica is fixed.
 
    {{< /alert >}}
 
@@ -343,35 +315,28 @@ the current state of PostgreSQL on this node is discarded:
    sudo gitlab-ctl patroni reinitialize-replica
    ```
 
-If this procedure doesn't work and if the cluster is unable to elect a leader,
-[there is a another fix](#reset-the-patroni-state-in-consul) which should only be
-used as a last resort.
+If this procedure doesn't work and if the cluster is unable to elect a leader, [there is a another fix](#reset-the-patroni-state-in-consul) which should only be used as a last resort.
 
 ## PostgreSQL major version upgrade fails on a Patroni replica
 
-A Patroni replica can get stuck in a loop during `gitlab-ctl pg-upgrade`, and
-the upgrade fails.
+A Patroni replica can get stuck in a loop during `gitlab-ctl pg-upgrade`, and the upgrade fails.
 
 An example set of symptoms is as follows:
 
-1. A `postgresql` service is defined,
-   which shouldn't usually be present on a Patroni node. It is present because
-   `gitlab-ctl pg-upgrade` adds it to create a new empty database:
+1. A `postgresql` service is defined, which shouldn't usually be present on a Patroni node. It is present because `gitlab-ctl pg-upgrade` adds it to create a new empty database:
 
    ```plaintext
    run: patroni: (pid 1972) 1919s; run: log: (pid 1971) 1919s
    down: postgresql: 1s, normally up, want up; run: log: (pid 1973) 1919s
    ```
 
-1. PostgreSQL generates `PANIC` log entries in
-   `/var/log/gitlab/postgresql/current` as Patroni is removing
-   `/var/opt/gitlab/postgresql/data` as part of reinitializing the replica:
+1. PostgreSQL generates `PANIC` log entries in `/var/log/gitlab/postgresql/current` as Patroni is removing `/var/opt/gitlab/postgresql/data` as part of reinitializing the replica:
 
    ```plaintext
-   DETAIL:  Could not open file "pg_xact/0000": No such file or directory.
-   WARNING:  terminating connection because of crash of another server process
-   LOG:  all server processes terminated; reinitializing
-   PANIC:  could not open file "global/pg_control": No such file or directory
+   DETAIL: Could not open file "pg_xact/0000": No such file or directory.
+   WARNING: terminating connection because of crash of another server process
+   LOG: all server processes terminated; reinitializing
+   PANIC: could not open file "global/pg_control": No such file or directory
    ```
 
 1. In `/var/log/gitlab/patroni/current`, Patroni logs the following.
@@ -389,13 +354,9 @@ This workaround applies when the Patroni cluster is in the following state:
 - The [leader has been successfully upgraded to the new major version](replication_and_failover.md#upgrading-postgresql-major-version-in-a-patroni-cluster).
 - The step to upgrade PostgreSQL on replicas is failing.
 
-This workaround completes the PostgreSQL upgrade on a Patroni replica
-by setting the node to use the new PostgreSQL version, and then reinitializing
-it as a replica in the new cluster that was created
-when the leader was upgraded:
+This workaround completes the PostgreSQL upgrade on a Patroni replica by setting the node to use the new PostgreSQL version, and then reinitializing it as a replica in the new cluster that was created when the leader was upgraded:
 
-1. Check the cluster status on all nodes to confirm which is the leader
-   and what state the replicas are in
+1. Check the cluster status on all nodes to confirm which is the leader and what state the replicas are in
 
    ```shell
    sudo gitlab-ctl patroni members
@@ -407,17 +368,14 @@ when the leader was upgraded:
    sudo ls -al /opt/gitlab/embedded/bin | grep postgres
    ```
 
-1. Replica: ensure the nodes file is correct and `gitlab-ctl` can run. This resolves
-   the [errors running `gitlab-ctl`](#errors-running-gitlab-ctl) issue if the replica
-   has any of those errors as well:
+1. Replica: ensure the nodes file is correct and `gitlab-ctl` can run. This resolves the [errors running `gitlab-ctl`](#errors-running-gitlab-ctl) issue if the replica has any of those errors as well:
 
    ```shell
    sudo gitlab-ctl stop patroni
    sudo gitlab-ctl reconfigure
    ```
 
-1. Replica: relink the PostgreSQL binaries to the required version
-   to fix the `incompatible server version` error:
+1. Replica: relink the PostgreSQL binaries to the required version to fix the `incompatible server version` error:
 
    1. Edit `/etc/gitlab/gitlab.rb` and specify the required version:
 
@@ -431,9 +389,7 @@ when the leader was upgraded:
       sudo gitlab-ctl reconfigure
       ```
 
-   1. Check the binaries are relinked. The binaries distributed for
-      PostgreSQL vary between major releases, it's typical to
-      have a small number of incorrect symbolic links:
+   1. Check the binaries are relinked. The binaries distributed for PostgreSQL vary between major releases, it's typical to have a small number of incorrect symbolic links:
 
       ```shell
       sudo ls -al /opt/gitlab/embedded/bin | grep postgres
@@ -449,8 +405,7 @@ when the leader was upgraded:
 
 1. Replica: optionally monitor the database in two additional terminal sessions:
 
-   - Disk use increases as `pg_basebackup` runs. Track progress of the
-     replica initialization with:
+   - Disk use increases as `pg_basebackup` runs. Track progress of the replica initialization with:
 
      ```shell
      cd /var/opt/gitlab/postgresql
@@ -494,8 +449,7 @@ Repeat this procedure on the other replica if required.
 
 ## PostgreSQL replicas stuck in loop while being created
 
-If PostgreSQL replicas appear to migrate but then restart in a loop, check the
-`/opt/gitlab-data/postgresql/` folder permissions on your replicas and primary server.
+If PostgreSQL replicas appear to migrate but then restart in a loop, check the `/opt/gitlab-data/postgresql/` folder permissions on your replicas and primary server.
 
 You can also see this error message in the logs:
 `could not get COPY data stream: ERROR: could not open file "<file>" Permission denied`.

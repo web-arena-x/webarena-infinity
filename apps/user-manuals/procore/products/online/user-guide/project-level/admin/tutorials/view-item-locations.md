@@ -15,9 +15,9 @@ After you have created your list of project locations, you can associate items l
 ## Things to Consider
 
 - ****************Required User Permissions****************:
-  - 'Read Only' or higher level permissions on the project's Admin tool.
-  - Users can only see items associated to a location if they have permission to view that item in its source tool.
-  - You can see items for the following tools:
+ - 'Read Only' or higher level permissions on the project's Admin tool.
+ - Users can only see items associated to a location if they have permission to view that item in its source tool.
+ - You can see items for the following tools:
     - Punch List
     - Photos
     - Submittals
@@ -35,11 +35,10 @@ After you have created your list of project locations, you can associate items l
 
 1. Navigate to the project's **Admin** tool.
 2. Click **Locations**.
-3. Click **View Location Items** to open the side panel.  
-   OR  
-   Click **View Location Hierarchy.**Then click **Location Items**to open the side panel.
+3. Click **View Location Items** to open the side panel. 
+   OR Click **View Location Hierarchy.**Then click **Location Items**to open the side panel.
 4. Click the **location** on the list or heat map to show the items for that location.
-5. Click each tab to see items for that tool.  
+5. Click each tab to see items for that tool. 
    ![location-items.png](https://support.procore.com/@api/deki/files/485286/location-items.png?revision=1&size=bestfit&width=295&height=281)
 
 ### View Item Locations from Drawings
@@ -54,5 +53,5 @@ This experience is available in **Australia, Canada, Ireland, United Kingdom, U
 4. Click **Location Items** to view items in Procore that are associated with that location.
 5. Click each tab to see items for that tool.
 6. Click the **location** on the list or heat map to show the items for that location.
-7. Click each tab to see items for that tool.  
+7. Click each tab to see items for that tool. 
    ![location-items.png](https://support.procore.com/@api/deki/files/485286/location-items.png?revision=1&size=bestfit&width=295&height=281)

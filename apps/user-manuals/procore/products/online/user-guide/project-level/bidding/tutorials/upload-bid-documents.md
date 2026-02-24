@@ -19,9 +19,9 @@ Bid packages containing more than 100,000 files may lead to degraded application
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Standard' or 'Admin' level permissions on the project's Documents tool.
+ - 'Standard' or 'Admin' level permissions on the project's Documents tool.
 - **Additional Information:**
-  - You should upload your bid documents before you create a bid package. See [Create a Bid Package](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/create-a-bid-package "Create a Bid Package").
+ - You should upload your bid documents before you create a bid package. See [Create a Bid Package](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/create-a-bid-package "Create a Bid Package").
 
 ## Steps
 
@@ -31,8 +31,8 @@ To learn more about adding and updating bid files, see [Attach Bid Documents to
 
 1. Navigate to the project's **Documents** tool.
 2. Determine how you want to organize the bid documents.
-3. [Create a Folder](https://support.procore.com/products/online/user-guide/project-level/documents/tutorials/create-a-new-folder-in-the-project-level-documents-tool "Create a Folder") and/or subfolders accordingly.   
-   Below is an example folder structure:  
+3. [Create a Folder](https://support.procore.com/products/online/user-guide/project-level/documents/tutorials/create-a-new-folder-in-the-project-level-documents-tool "Create a Folder") and/or subfolders accordingly.  
+   Below is an example folder structure: 
      
    ![bid-documents-example.png](https://support.procore.com/@api/deki/files/21656/bid-documents-example.png?revision=1&size=bestfit&width=275&height=244)
 4. Upload documents as needed. See [Upload Files or Folders to the Project Level Documents Tool](https://support.procore.com/products/online/user-guide/project-level/documents/tutorials/upload-files-or-folders-to-the-project-level-documents-tool "Upload Files or Folders to the Project Level Documents Tool").

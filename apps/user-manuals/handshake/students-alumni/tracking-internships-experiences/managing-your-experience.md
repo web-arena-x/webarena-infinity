@@ -23,44 +23,44 @@ All the experiences that you've requested will be listed on the page. Locate the
 Once you've navigated to a particular experience, you can explore the Details Overview page! Here, the information you entered into Handshake when you requested the experience will be displayed.
 
 - **Basic Information**
-  - EMPLOYER
-  - TERM
-  - JOB
-  - TEMPLATE
+ - EMPLOYER
+ - TERM
+ - JOB
+ - TEMPLATE
 - **Attachments**
-  - *If you'd like to add an attachment to your experience, follow the instructions outlined in* [Uploading an Attachment to an Experience](uploading-an-attachment-to-an-experience.md)
+ - *If you'd like to add an attachment to your experience, follow the instructions outlined in* [Uploading an Attachment to an Experience](uploading-an-attachment-to-an-experience.md)
 - **Student**
-  - NAME
-  - SCHOOL
-  - CURRENT SCHOOL YEAR
+ - NAME
+ - SCHOOL
+ - CURRENT SCHOOL YEAR
 - **Job**
-  - TITLE
-  - DEPARTMENT
-  - INDUSTRY
-  - START DATE
-  - SALARY
-  - JOB TYPE
-  - ACCEPTANCE DATE (if applicable)
-  - END DATE (if applicable)
+ - TITLE
+ - DEPARTMENT
+ - INDUSTRY
+ - START DATE
+ - SALARY
+ - JOB TYPE
+ - ACCEPTANCE DATE (if applicable)
+ - END DATE (if applicable)
 - **Employer**
-  - EMPLOYER
-  - PHONE
-  - LOCATION
-  - EMAIL
+ - EMPLOYER
+ - PHONE
+ - LOCATION
+ - EMAIL
 - **Approvers**
-  - Faculty Member
+ - Faculty Member
     - STATUS
     - NAME
     - EMAIL ADDRESS
     - TITLE
     - PHONE NUMBER
-  - Internship Supervisor
+ - Internship Supervisor
     - STATUS
     - NAME
     - EMAIL ADDRESS
     - TITLE
     - PHONE NUMBER
-  - **Survey Response** (applicable)
+ - **Survey Response** (applicable)
 
 ![Experience_Details_Overview_Page.png](https://support.joinhandshake.com/hc/article_attachments/25991264792599)
 

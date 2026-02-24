@@ -22,14 +22,13 @@ let(:project) { create(:project) }
 user.organization == project.organization
 ```
 
-If an ActiveRecord model needs an organization, it is best to use the common organization in the factory as
-a default value for `organization`:
+If an ActiveRecord model needs an organization, it is best to use the common organization in the factory as a default value for `organization`:
 
 ```ruby
 FactoryBot.define do
-  factory :sbom_component, class: 'Sbom::Component' do
+ factory :sbom_component, class: 'Sbom::Component' do
     organization { association :common_organization }
-  end
+ end
 end
 ```
 
@@ -69,12 +68,12 @@ This will create a `current_organization` method that will be returned by `Gitla
 require 'spec_helper'
 
 RSpec.describe ProjectsController, :with_current_organization do
-  let(:project) { create(:project) }
+ let(:project) { create(:project) }
 
-  it 'sets Current.organization' do
+ it 'sets Current.organization' do
     get :index
 
     expect(Current.organization).to eq(project.organization)
-  end
+ end
 end
 ```

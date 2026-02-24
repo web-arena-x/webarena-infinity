@@ -55,8 +55,8 @@ Sometimes you’ll want to manually call out a message for your executive — th
 
 - Hit **S** to star or flag an email for your executive.
 - Hit **/** to start a Search.
-  - For Gmail users, search for **is:starred**
-  - For Outlook users, search for **is:flagged**
+ - For Gmail users, search for **is:starred**
+ - For Outlook users, search for **is:flagged**
 - Hit **Enter** to run the Search.
 - Hit **Cmd+K** or **Ctrl+K** → **New Split Inbox**.
 - Select **New Split Inbox with search** then name your Split.

@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408828207770-Understandin
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Enterprise or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Talk Enterprise |
 

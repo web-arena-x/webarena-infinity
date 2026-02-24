@@ -42,12 +42,10 @@ In addition, Geo also supports [BuildKit cache images](https://github.com/moby/b
 
 ### Docker
 
-For more information on supported registry storage drivers see
-[Docker registry storage drivers](https://distribution.github.io/distribution/storage-drivers/)
+For more information on supported registry storage drivers see [Docker registry storage drivers](https://distribution.github.io/distribution/storage-drivers/)
 
 Read the [Load balancing considerations](https://distribution.github.io/distribution/about/deploying/#load-balancing-considerations)
-when deploying the Registry, and how to set up the storage driver for the GitLab integrated
-[container registry](../../packages/container_registry.md#use-object-storage).
+when deploying the Registry, and how to set up the storage driver for the GitLab integrated [container registry](../../packages/container_registry.md#use-object-storage).
 
 ### Registries that support OCI artifacts
 
@@ -64,10 +62,7 @@ For more information, see the [OCI Distribution Specification](https://github.co
 
 ## Configure container registry replication
 
-You can enable a storage-agnostic replication so it
-can be used for cloud or local storage. Whenever a new image is pushed to the
-**primary** site, each **secondary** site pulls it to its own container
-repository.
+You can enable a storage-agnostic replication so it can be used for cloud or local storage. Whenever a new image is pushed to the **primary** site, each **secondary** site pulls it to its own container repository.
 
 To configure container registry replication:
 
@@ -77,12 +72,9 @@ To configure container registry replication:
 
 ### Configure primary site
 
-Make sure that you have container registry set up and working on
-the **primary** site before following the next steps.
+Make sure that you have container registry set up and working on the **primary** site before following the next steps.
 
-To be able to replicate new container images, the container registry must send notification events to the
-**primary** site for every push. The token shared between the container registry and the web nodes on the
-**primary** is used to make communication more secure.
+To be able to replicate new container images, the container registry must send notification events to the **primary** site for every push. The token shared between the container registry and the web nodes on the **primary** is used to make communication more secure.
 
 1. SSH into your GitLab **primary** server and sign in as root (for GitLab HA, you only need a Registry node):
 
@@ -112,17 +104,13 @@ To be able to replicate new container images, the container registry must send n
 
    {{< alert type="note" >}}
 
-   Replace `<example.com>` with the `external_url` defined in your primary site's `/etc/gitlab/gitlab.rb` file, and
-   replace `<replace_with_a_secret_token>` with a case-sensitive alphanumeric string
-   that starts with a letter. You can generate one with `/dev/urandom tr -dc _A-Z-a-z-0-9 | head -c 32 | sed "s/^[0-9]*//"; echo`
+   Replace `<example.com>` with the `external_url` defined in your primary site's `/etc/gitlab/gitlab.rb` file, and replace `<replace_with_a_secret_token>` with a case-sensitive alphanumeric string that starts with a letter. You can generate one with `/dev/urandom tr -dc _A-Z-a-z-0-9 | head -c 32 | sed "s/^[0-9]*//"; echo`
 
    {{< /alert >}}
 
    {{< alert type="note" >}}
 
-   If you use an external Registry (not the one integrated with GitLab), you only need to specify
-   the notification secret (`registry['notification_secret']`) in the
-   `/etc/gitlab/gitlab.rb` file.
+   If you use an external Registry (not the one integrated with GitLab), you only need to specify the notification secret (`registry['notification_secret']`) in the `/etc/gitlab/gitlab.rb` file.
 
    {{< /alert >}}
 
@@ -140,17 +128,11 @@ To be able to replicate new container images, the container registry must send n
 
 ### Configure secondary site
 
-Make sure you have container registry set up and working on
-the **secondary** site before following the next steps.
+Make sure you have container registry set up and working on the **secondary** site before following the next steps.
 
-The following steps should be done on each **secondary** site you're
-expecting to see the container images replicated.
+The following steps should be done on each **secondary** site you're expecting to see the container images replicated.
 
-Because we need to allow the **secondary** site to communicate securely with
-the **primary** site container registry, we need to have a single key
-pair for all the sites. The **secondary** site uses this key to
-generate a short-lived JWT that is pull-only-capable to access the
-**primary** site container registry.
+Because we need to allow the **secondary** site to communicate securely with the **primary** site container registry, we need to have a single key pair for all the sites. The **secondary** site uses this key to generate a short-lived JWT that is pull-only-capable to access the **primary** site container registry.
 
 For each application and Sidekiq node on the **secondary** site:
 
@@ -224,17 +206,13 @@ To fix this, make sure that the authorization headers being sent with the regist
 
 When replicating container images in Geo, you might see the error `token from untrusted issuer: "<token>"`.
 
-This issue occurs when the container registry configuration is incorrect, causing Sidekiq's JWT
-authentication to fail.
+This issue occurs when the container registry configuration is incorrect, causing Sidekiq's JWT authentication to fail.
 
 To resolve this issue:
 
 1. Ensure both sites share a single signing key pair, as described in [configure secondary site](#configure-secondary-site).
-1. Verify that both container registries and both primary and secondary sites are configured
-   to use the same token issuer. For more information, see
-   [configure GitLab and registry on separate nodes](../../packages/container_registry.md#configure-gitlab-and-registry-on-separate-nodes-linux-package-installations).
-1. For multi-node deployments, confirm that the issuer configured on the Sidekiq node matches
-   the value configured on the registries.
+1. Verify that both container registries and both primary and secondary sites are configured to use the same token issuer. For more information, see [configure GitLab and registry on separate nodes](../../packages/container_registry.md#configure-gitlab-and-registry-on-separate-nodes-linux-package-installations).
+1. For multi-node deployments, confirm that the issuer configured on the Sidekiq node matches the value configured on the registries.
 
 ### Manually trigger a container registry sync event
 

@@ -9,29 +9,29 @@ Namespaces are containers for projects and associated resources. A `Namespace` i
 
 ```mermaid
 graph TD
-  Namespace -.- Group
-  Namespace -.- ProjectNamespace
-  Namespace -.- UserNamespace
+ Namespace -.- Group
+ Namespace -.- ProjectNamespace
+ Namespace -.- UserNamespace
 ```
 
 A `User` has one `UserNamespace`, and can be a member of many `Namespaces`.
 
 ```mermaid
 graph TD
-  Namespace -.- Group
-  Namespace -.- ProjectNamespace
-  Namespace -.- UserNamespace
+ Namespace -.- Group
+ Namespace -.- ProjectNamespace
+ Namespace -.- UserNamespace
 
-  User -- has one --- UserNamespace
-  Namespace --- Member --- User
+ User -- has one --- UserNamespace
+ Namespace --- Member --- User
 ```
 
 `Group` exists in a recursive hierarchical relationship. `Groups` have many `ProjectNamespaces` which parent one `Project`.
 
 ```mermaid
 graph TD
-  Group -- has many --- ProjectNamespace -- has one --- Project
-  Group -- has many --- Group
+ Group -- has many --- ProjectNamespace -- has one --- Project
+ Group -- has many --- Group
 ```
 
 ## Querying namespaces
@@ -50,19 +50,19 @@ The root is the top most `Namespace` in the hierarchy. A root has a `nil` `paren
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
 graph TD
-  accTitle: Root namespaces
-  accDescr: Diagram showing a namespace hierarchy, starting with the root namespace at the top
+ accTitle: Root namespaces
+ accDescr: Diagram showing a namespace hierarchy, starting with the root namespace at the top
 
-  classDef active stroke-width:3px
-  classDef sel stroke-width:2px
+ classDef active stroke-width:3px
+ classDef sel stroke-width:2px
 
-  A --- A.A --- A.A.A
-  A.A --- A.A.B
-  A --- A.B --- A.B.A
-  A.B --- A.B.B
+ A --- A.A --- A.A.A
+ A.A --- A.A.B
+ A --- A.B --- A.B.A
+ A.B --- A.B.B
 
-  class A.A.B active
-  class A sel
+ class A.A.B active
+ class A sel
 ```
 
 ```ruby
@@ -78,19 +78,19 @@ The descendants of a namespace are its children, their children, and so on.
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
 graph TD
-  accTitle: Descendent namespaces
-  accDescr: Diagram showing namespace descendants, including children namespaces and their children namespaces
+ accTitle: Descendent namespaces
+ accDescr: Diagram showing namespace descendants, including children namespaces and their children namespaces
 
-  classDef active stroke-width:3px
-  classDef sel stroke-width:2px
+ classDef active stroke-width:3px
+ classDef sel stroke-width:2px
 
-  A --- A.A --- A.A.A
-  A.A --- A.A.B
-  A --- A.B --- A.B.A
-  A.B --- A.B.B
+ A --- A.A --- A.A.A
+ A.A --- A.A.B
+ A --- A.B --- A.B.A
+ A.B --- A.B.B
 
-  class A.A active
-  class A.A.A,A.A.B sel
+ class A.A active
+ class A.A.A,A.A.B sel
 ```
 
 We can return ourself and our descendants through `self_and_descendants`.
@@ -128,19 +128,19 @@ The ancestors of a namespace are its parent, its parent's parent, and so on.
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
 graph TD
-  accTitle: Ancestor namespaces
-  accDescr: Diagram showing ancestors of a namespace, including its parent, its parent's parent, and so on
+ accTitle: Ancestor namespaces
+ accDescr: Diagram showing ancestors of a namespace, including its parent, its parent's parent, and so on
 
-  classDef active stroke-width:3px
-  classDef sel stroke-width:2px
+ classDef active stroke-width:3px
+ classDef sel stroke-width:2px
 
-  A --- A.A --- A.A.A
-  A.A --- A.A.B
-  A --- A.B --- A.B.A
-  A.B --- A.B.B
+ A --- A.A --- A.A.A
+ A.A --- A.A.B
+ A --- A.B --- A.B.A
+ A.B --- A.B.B
 
-  class A.A active
-  class A sel
+ class A.A active
+ class A sel
 ```
 
 We can return ourself and our ancestors through `self_and_ancestors`.
@@ -178,19 +178,19 @@ A Namespace hierarchy is a `Namespace`, its ancestors, and its descendants.
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
 graph TD
-  accTitle: Hierarchies
-  accDescr: Diagram showing the namespace hierarchy, including the namespace, its ancestors, and its descendants
+ accTitle: Hierarchies
+ accDescr: Diagram showing the namespace hierarchy, including the namespace, its ancestors, and its descendants
 
-  classDef active stroke-width:3px
-  classDef sel stroke-width:2px
+ classDef active stroke-width:3px
+ classDef sel stroke-width:2px
 
-  A --- A.A --- A.A.A
-  A.A --- A.A.B
-  A --- A.B --- A.B.A
-  A.B --- A.B.B
+ A --- A.A --- A.A.A
+ A.A --- A.A.B
+ A --- A.B --- A.B.A
+ A.B --- A.B.B
 
-  class A.A active
-  class A,A.A.A,A.A.B sel
+ class A.A active
+ class A,A.A.A,A.A.B sel
 ```
 
 We can query a namespace hierarchy:
@@ -232,8 +232,7 @@ namespace_object.recursive_self_and_hierarchy
 
 ### Search using trie data structure
 
-`Namespaces::Traversal::TrieNode` implements a trie data structure to efficiently search within
-`namespaces.traversal_ids` hierarchy for a set of Namespaces.
+`Namespaces::Traversal::TrieNode` implements a trie data structure to efficiently search within `namespaces.traversal_ids` hierarchy for a set of Namespaces.
 
 ```ruby
 traversal_ids = [[9970, 123], [9970, 456]] # Derived from (for example): Namespace.where(...).map(&:traversal_ids)
@@ -256,18 +255,18 @@ Given the scenario:
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
 graph TD
-  accTitle: Namespace query implementation
-  accDescr: Diagram showing how linear queries are executed using the namespaces traversal ids array column
+ accTitle: Namespace query implementation
+ accDescr: Diagram showing how linear queries are executed using the namespaces traversal ids array column
 
-  classDef active stroke-width:3px
-  classDef sel stroke-width:2px
+ classDef active stroke-width:3px
+ classDef sel stroke-width:2px
 
-  A --- A.A --- A.A.A
-  A.A --- A.A.B
-  A --- A.B --- A.B.A
-  A.B --- A.B.B
+ A --- A.A --- A.A.A
+ A.A --- A.A.B
+ A --- A.B --- A.B.A
+ A.B --- A.B.B
 
-  class A.A.B active
+ class A.A.B active
 ```
 
 The `traversal_ids` for `Namespace` `A.A.B` would be `[A, A.A, A.A.B]`.
@@ -301,7 +300,7 @@ We then build descendant linear query scopes using comparison operators:
 
 ```sql
 WHERE namespaces.traversal_ids > ARRAY[1,2,3]
-  AND namespaces.traversal_ids < next_traversal_ids_sibling(ARRAY[1,2,3])
+ AND namespaces.traversal_ids < next_traversal_ids_sibling(ARRAY[1,2,3])
 ```
 
 ### Superset
@@ -311,19 +310,19 @@ WHERE namespaces.traversal_ids > ARRAY[1,2,3]
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
 graph TD
-  accTitle: Superset
-  accDescr: Diagram showing how namespace queries can return duplicate results
+ accTitle: Superset
+ accDescr: Diagram showing how namespace queries can return duplicate results
 
-  classDef active stroke-width:3px
-  classDef sel stroke-width:2px
+ classDef active stroke-width:3px
+ classDef sel stroke-width:2px
 
-  A --- A.A --- A.A.A
-  A.A --- A.A.B
-  A --- A.B --- A.B.A
-  A.B --- A.B.B
+ A --- A.A --- A.A.A
+ A.A --- A.A.B
+ A --- A.B --- A.B.A
+ A.B --- A.B.B
 
-  class A,A.A active
-  class A.A.A,A.A.B,A.B,A.B.A,A.B.B sel
+ class A,A.A active
+ class A.A.A,A.A.B,A.B,A.B.A,A.B.B sel
 ```
 
 ```ruby

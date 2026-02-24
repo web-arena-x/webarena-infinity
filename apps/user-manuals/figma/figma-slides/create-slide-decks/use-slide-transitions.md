@@ -20,9 +20,9 @@ Slide transitions are visual effects that play as you progress through your deck
 
 1. Select the slide you want to add a transition to. You can select multiple sides using the keyboard shortcuts:
    - Hold `⌘ Command` or `Control` and click to select individual slides
-   - Hold  `Shift` and click to select a range of slides
+   - Hold `Shift` and click to select a range of slides
 2. Select the **Animate** tab in the right sidebar.
-3. Choose a transition from the **Style** dropdown menu. A preview of the transition plays in the right sidebar. You can identify which slides have a transition by looking for the  icon in the left sidebar.
+3. Choose a transition from the **Style** dropdown menu. A preview of the transition plays in the right sidebar. You can identify which slides have a transition by looking for the icon in the left sidebar.
 4. If the transition type you choose includes directional options, select an arrow to set which direction the transition should start from.
 5. Select an easing or spring animation preset from the Curve dropdown menu. This determines the acceleration of the transition between the current slide and the next slide. Learn more about [easing and spring animations](../../figma-design/guides/prototype-easing-and-spring-animations.md#h_01J1BASVXK6SSF3NSMDZCY32HX).
 6. Choose a duration for the animation.

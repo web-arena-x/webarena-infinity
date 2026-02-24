@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408824253978-Zendesk-voic
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Talk Team, Professional, or Enterprise |
 
@@ -62,22 +62,22 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Argentina: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documentation to provide** |
 | Business name | - Business registration document |
-| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following:  - Business registration document showing a local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following: - Business registration document showing a local address - Utility bill - Tax notice - Rent receipt - Title deed |
 | Commercial registry number | - Business registration document |
 
 ### Argentina: Toll-free Numbers
 
 **Argentina's toll-free prefix**: +54 800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documentation to provide** |
 | Business name | - Business registration document |
-| Business address *Must be within Argentina* | One of the following:  - Business registration document showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *Must be within Argentina* | One of the following: - Business registration document showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### Argentina: Documentation Guidelines
 
@@ -95,7 +95,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Australia: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documentation to provide** |
 | Business name | - No documentation required |
@@ -105,18 +105,18 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Australia's mobile prefix**: +61 4
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documentation to provide** |
 | Business name | - Business registration document |
-| Business address *May be anywhere in the world* | One of the following:  - Business registration document or commercial registry or equivalent showing address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *May be anywhere in the world* | One of the following: - Business registration document or commercial registry or equivalent showing address - Utility bill - Tax notice - Rent receipt - Title deed |
 | Business ID number | - Business registration document |
 
 ### Australia: Toll-free Numbers
 
 **Australia's toll-free prefixes:** +61 1300, +61 1800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documentation to provide** |
 | Business name | - No documentation required |
@@ -124,7 +124,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 | Business website or relevant social media page | - No documentation required |
 | Business registration number | - No documentation required |
 | Authorized representative's first and last name | - No documentation required |
-| Authorized Representative Contact Email  *Email should match your business name or website* | - No documentation required |
+| Authorized Representative Contact Email *Email should match your business name or website* | - No documentation required |
 
 ### Australia: Documentation Guidelines
 
@@ -134,19 +134,19 @@ Registered companies can retrieve this document through the ASIC Connect portal 
 
 The following is an example of what this document looks like:
 
-|  |
+| |
 | --- |
 | mceclip1.png |
 
 ### Australia: Voice Guidelines
 
-|  |  |
+| | |
 | --- | --- |
-| Outbound calls from Australia Toll-free numbers | Australian Toll-free phone numbers (+61 1300, +61 1800) can only receive inbound calls. Outbound calls from these numbers violate Australian Communications and Media Authority (ACMA) regulations.  To learn more about outbound calling using toll-free numbers please review [this resource](https://support.zendesk.com/hc/en-us/articles/4408835827866). |
+| Outbound calls from Australia Toll-free numbers | Australian Toll-free phone numbers (+61 1300, +61 1800) can only receive inbound calls. Outbound calls from these numbers violate Australian Communications and Media Authority (ACMA) regulations. To learn more about outbound calling using toll-free numbers please review [this resource](https://support.zendesk.com/hc/en-us/articles/4408835827866). |
 
 ### Australia: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | **Portable numbers** | To port Geographic (local) numbers, include the category type.   - Geographic (local) numbers (+61 2, +61 3, +61 7, +61 8) - Mobile numbers (+61 4) - Toll-free and shared-cost numbers (+61 1300, +61 1800) - Toll-free 13 numbers (+61 13XX) - Toll-free number activation ( Toll-free numbers purchased directly from the regulator, you are not porting from an external provider.) |
 | **Restrictions** | - Most international phone numbers have VOICE capability only. Only Mobile numbers have VOICE and SMS. - To port Category-C geographic numbers with associated ranges, port those numbers together or disassociate them prior porting. To expedite, confirm the category of your geographic numbers with your current service provider prior to submitting your porting request. - For **mobile numbers**, we can port from the following carriers **only**:   - Telstra   - Lebara   - Lyca Mobile   - Telstra Wholesale Service Providers   - TPG-Vodafone   - Vodafone Service Providers   - Pivotel |
@@ -162,49 +162,49 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Austria: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documentation to provide** |
 | Business name | - Business registration document |
-| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following:  - Business registration document showing matching address - Utility bill - Tax notice - Rent receipt - Title deed |
-| Name of authorized representative | One of the following:  - Government-issued ID - Passport - Bank confirmation of identity |
+| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following: - Business registration document showing matching address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Name of authorized representative | One of the following: - Government-issued ID - Passport - Bank confirmation of identity |
 
 ### Austria: National Numbers
 
 **Austria's national prefix**: +43720
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documentation to provide** |
 | Business name | - Business registration document |
-| Business address *Must be within Austria* | One of the following:  - Business registration document showing Austrian address - Utility bill - Tax notice - Rent receipt - Title deed |
-| Name of authorized representative | One of the following:  - Government-issued ID - Passport - Bank confirmation of identity |
+| Business address *Must be within Austria* | One of the following: - Business registration document showing Austrian address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Name of authorized representative | One of the following: - Government-issued ID - Passport - Bank confirmation of identity |
 
 ### Austria: Mobile Numbers
 
 **Austria's mobile prefix**: +436
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documentation to provide** |
 | Business name | - Business registration document |
-| Business address *Must be within Austria* | One of the following:  - Business registration document showing Austrian address - Utility bill - Tax notice - Rent receipt - Title deed |
-| Name of authorized representative | One of the following:  - Government-issued ID - Passport - Bank confirmation of identity |
+| Business address *Must be within Austria* | One of the following: - Business registration document showing Austrian address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Name of authorized representative | One of the following: - Government-issued ID - Passport - Bank confirmation of identity |
 
 ### Austria: Toll-free Numbers
 
 **Austria's toll-free prefix**: +43800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documentation to provide** |
 | Business name | - Business registration document |
 | Business address *Must be within Austria* | - No documentation required |
-| Name of authorized representative | One of the following:  - Government-issued ID - Passport - Bank confirmation of identity |
+| Name of authorized representative | One of the following: - Government-issued ID - Passport - Bank confirmation of identity |
 
 ### Austria: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | Portable numbers | - Geographic (local) numbers - Non-geographic (national) numbers (+43720) - Toll-Free Numbers (+43800) |
 | Restrictions | - Most of International Phone Numbers have Voice capability only, no SMS. - Austrian local numbers are often assigned in ranges. Some ranges may be assigned as a set of separate numbers, and some only as master numbers with extensions. Please check which set up you have before porting to make sure you know how many actual numbers you have. - Typically, conditions of service contracts limit porting opportunities. Check with your current provider if there are any timeframe restrictions on porting. It does occasionally happen, that the service contract does not allow immediate porting. |
@@ -221,7 +221,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities:** Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
@@ -237,7 +237,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Belgium: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial register (extrait BCE) |
@@ -247,7 +247,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Belgium: National Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial register (extrait BCE) |
@@ -257,17 +257,17 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Belgium: Mobile Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial register (extrait BCE) |
 | Business address *Must be within Belgium* | One of the following:   - Excerpt from the commercial register (extrait BCE) - Utility bill - Tax notice - Rent receipt - Title deed |
-| Business registration number  *The enterprise/company number (Ondernemingsnummer/Numéro d’entreprise) as it appears on the official registration (ex: 0xxx.xxx.xxx).* | Excerpt from the commercial register (extrait BCE) |
+| Business registration number *The enterprise/company number (Ondernemingsnummer/Numéro d’entreprise) as it appears on the official registration (ex: 0xxx.xxx.xxx).* | Excerpt from the commercial register (extrait BCE) |
 | Authorized Representative Contact Email | None required |
 
 ### Belgium: Toll-free Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial register (extrait BCE) |
@@ -277,7 +277,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Belgium: Porting guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | **Portable numbers** | To port Geographic (local) numbers, include the category type.   - Geographic (local) numbers - Toll-free numbers (+32 800) - National numbers (+32 78) |
 | **Restrictions** | Most international phone numbers have VOICE capability only, no SMS. |
@@ -296,7 +296,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Benin's mobile prefix**: +2296
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
@@ -316,7 +316,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Bosnia & Herzegovina's national prefix**: +38770
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
@@ -350,45 +350,45 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Brazil: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Excerpt from the commercial register |
-| Business address *A PO Box is not acceptable* | One of the following:  - Excerpt from the commercial register showing Brazilian address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *A PO Box is not acceptable* | One of the following: - Excerpt from the commercial register showing Brazilian address - Utility bill - Tax notice - Rent receipt - Title deed |
 | ID Type and Number | None required |
 
 ### Brazil: National Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Excerpt from the commercial register |
-| Business address *Must be within Brazil* | One of the following:  - Excerpt from the commercial register showing Brazilian address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *Must be within Brazil* | One of the following: - Excerpt from the commercial register showing Brazilian address - Utility bill - Tax notice - Rent receipt - Title deed |
 | ID Type and Number | None required |
 
 ### Brazil: Mobile Numbers
 
 **Brazil's mobile prefix:** +55679, +55479, +55349, +55249, +55619, +55219, +55199, +55229, +55319, +55439, +55119, +5512, +55329, +55819
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
-| Business name  *Must be a registered business in Brazil with a valid CNPJ* | - Excerpt from the commercial register |
-| Business address *Must be within Brazil* | One of the following:  - Excerpt from the commercial register showing Brazilian address - Utility bill - Tax notice - Rent receipt - Title deed |
-| Business Registration Number  *Must be a CNPJ* | None required |
+| Business name *Must be a registered business in Brazil with a valid CNPJ* | - Excerpt from the commercial register |
+| Business address *Must be within Brazil* | One of the following: - Excerpt from the commercial register showing Brazilian address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business Registration Number *Must be a CNPJ* | None required |
 
 ### Brazil: Toll-free Numbers
 
 **Brazil's toll-free prefix:** +55 800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | One of the following:   - The Brazilian National Registry of Legal Entities document (Cadastro Nacional de Pessoas Jurídicas, “CNPJ”), [Download here](https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp) - Excerpt from the commercial register |
-| Business address *Must be within Brazil* | One of the following:  - The Brazilian National Registry of Legal Entities document (Cadastro Nacional de Pessoas Jurídicas, “CNPJ”), [Download here](https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp) - Excerpt from the commercial register showing Brazilian address - Utility bill - Tax notice - Title deed or lease agreement |
+| Business address *Must be within Brazil* | One of the following: - The Brazilian National Registry of Legal Entities document (Cadastro Nacional de Pessoas Jurídicas, “CNPJ”), [Download here](https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp) - Excerpt from the commercial register showing Brazilian address - Utility bill - Tax notice - Title deed or lease agreement |
 | Number of The Brazilian National Registry of Legal Entities "CNPJ" | - The Brazilian National Registry of Legal Entities document (Cadastro Nacional de Pessoas Jurídicas, “CNPJ”), [Download here](https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp) |
 | Name of Authorized Representative | - Government-issued ID (such as passport or driver’s license) |
-| Authorization of Representative | One of the following:  - Certified copy of Articles of Incorporation or By-laws registered by the competent commercial register designating the individual as an authorized representative - Power of attorney - Certified copy of a Corporate registration registered by the competent commercial register designating the individual as an authorized representative |
+| Authorization of Representative | One of the following: - Certified copy of Articles of Incorporation or By-laws registered by the competent commercial register designating the individual as an authorized representative - Power of attorney - Certified copy of a Corporate registration registered by the competent commercial register designating the individual as an authorized representative |
 
 ### Brazil: Documentation Guidelines
 
@@ -400,7 +400,7 @@ For example, to keep 25 toll-free numbers, submit five bundles, each with a uniq
 
 ### Brazil: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | **Portable numbers** | - Geographic (local) numbers - Toll-free numbers (+55 800) |
 | **Restrictions** | - Most international phone numbers have VOICE capability only, no SMS. - For Geographic (local) numbers we support only the following localities. Other localities are currently not portable.   - +55 11 São Paulo   - +55 19 São Paulo (Campinas)   - +55 21 Rio de Janeiro   - +55 27 Espírito Santo (Vitoria)   - +55 31 Minas Gerais (Belo Horizonte)   - +55 33 Minas Gerais (Governador Valadares)   - +55 41 Paraná (Curitiba)   - +55 48 Santa Catarina (Florianópolis)   - +55 51 Rio Grande do Sul (Porto Alegre)   - +55 62 Goiás (Goiania)   - +55 71 Bahia (Salvador)   - +55 81 Pernambuco (Recife)   - +55 85 Ceará (Fortaleza) |
@@ -416,26 +416,26 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Bulgaria: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Excerpt from the commercial register |
-| Registered Office Address *Must be within locality or region covered by the phone number's prefix; a PO Box is not acceptable where a local address is required. Address document must be dated in the last 3 months.* | One of the following:  - Utility bill - Tax notice - Rent receipt - Title deed |
-| Unified Identification Code  *The UIC/BULSTAT Code issued by the Bulgarian Registry Agency* | - No documentation required |
+| Registered Office Address *Must be within locality or region covered by the phone number's prefix; a PO Box is not acceptable where a local address is required. Address document must be dated in the last 3 months.* | One of the following: - Utility bill - Tax notice - Rent receipt - Title deed |
+| Unified Identification Code *The UIC/BULSTAT Code issued by the Bulgarian Registry Agency* | - No documentation required |
 | Email Address of Authorized Representative | - No documentation required |
 | Authorized Representative’s Name | - No documentation required |
-| Business Website  *Public facing website or verified social media account* | - No documentation required |
+| Business Website *Public facing website or verified social media account* | - No documentation required |
 | Authorized Representative’s Phone number | - No documentation required |
 
 ### Bulgaria: Toll-free Numbers
 
 **Bulgaria's toll-free prefix**: +359 800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business Name | - Excerpt from the commercial register |
-| Registered Business Address  *May be anywhere in the world* | - No documentation required |
+| Registered Business Address *May be anywhere in the world* | - No documentation required |
 | Unified Identification Code | - No documentation required |
 | Email Address | - No documentation required |
 
@@ -449,27 +449,27 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Canada: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Currently there is no information required and no documents that you need to provide for local numbers in Canada. | |
 
 ### Canada: Toll-free Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Currently there is no information required and no documents that you need to provide for toll-free numbers in Canada. | |
 
 ### Canada: SMS Guidelines
 
-|  |  |
+| | |
 | --- | --- |
-| Toll-free Numbers | Each toll-free number must go through a **Toll-free message verification** process before it can be used to send outbound messages. Unverified toll-free numbers will see their outbound messages blocked by telephony carriers.  Fill in the [Toll-free message verification for US/Canada](https://forms.gle/m5NQ7GkVfiCL6PmR7) form and send your details for verification. Please allow approximately 5 business days for this process.  Note: Messages sent from unverified toll-free phone numbers will return: "We couldn't deliver this message to +1 (XXX) XXX-XXXX". |
+| Toll-free Numbers | Each toll-free number must go through a **Toll-free message verification** process before it can be used to send outbound messages. Unverified toll-free numbers will see their outbound messages blocked by telephony carriers. Fill in the [Toll-free message verification for US/Canada](https://forms.gle/m5NQ7GkVfiCL6PmR7) form and send your details for verification. Please allow approximately 5 business days for this process. Note: Messages sent from unverified toll-free phone numbers will return: "We couldn't deliver this message to +1 (XXX) XXX-XXXX". |
 
 ### Canada: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | **Portable numbers** | - Geographic (local) numbers - Mobile numbers - Toll-free numbers |
 | **Restrictions** | - Most numbers are portable. In rare cases, Twilio may not have rate-center (geographic) coverage for particular phone numbers. - The maximum amount of numbers per port is 1000 |
@@ -487,9 +487,9 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 Starting mid-August 2025, new local regulations in Chile require using specific phone number prefixes for outbound calls, depending on the call type:
 
-- 600 numbers: For commercial communications when the customer has explicitly requested the contact.  
-- 809 numbers: For unsolicited or mass outreach campaigns.  
-  
+- 600 numbers: For commercial communications when the customer has explicitly requested the contact. 
+- 809 numbers: For unsolicited or mass outreach campaigns. 
+ 
 Exemptions: Emergency alerts, two-factor authentication messages, and certain government surveys are not affected by this change.
 
 Please note that Chilean telecom operators will monitor compliance and may block calls that do not follow these requirements. Calls reported by end users risk escalation and blocking by the carrier.
@@ -500,35 +500,35 @@ To avoid disruption, ensure you are using the correct number prefixes based on y
 
 **Capabilities:** Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial register |
-| Business address (must be within Chile) | One of the following:  - Government-issued ID showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address (must be within Chile) | One of the following: - Government-issued ID showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### Chile: Local Numbers
 
 **Capabilities**: Voice + SMS
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial register |
-| Business address (must be within Chile) | One of the following:  - Government-issued ID showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address (must be within Chile) | One of the following: - Government-issued ID showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### Chile: Mobile Numbers
 
 **Capabilities**: SMS
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial register |
-| Business address (must be within Chile) | One of the following:  - Government-issued ID showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address (must be within Chile) | One of the following: - Government-issued ID showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### Chile: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | Portable numbers | - Geographic (local) numbers - Toll-free numbers |
 | Required information | - Government-issued ID (for individuals) or RUT (for companies) - Account SID (internal only) |
@@ -543,11 +543,11 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities:** Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial register |
-| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following:  - Government-issued ID showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following: - Government-issued ID showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### Colombia: Toll-free Numbers
 
@@ -555,11 +555,11 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Colombia's toll-free prefix**: +571 800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial register |
-| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following:  - Government-issued ID showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following: - Government-issued ID showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### Colombia: Porting Guidelines
 
@@ -575,7 +575,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Costa Rica's national prefix**: +506
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Corporate identity card (Cedula Juridica) |
@@ -588,7 +588,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Costa Rica's toll-free prefix**: +506 800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | One of the following:   - Corporate identity card (Cedula Juridica) for Costa Rican companies - Business Registration for non-Costa Rican companies |
@@ -610,7 +610,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Croatia's toll-free prefix**: +385 800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the court register showing name of Authorized Representative |
@@ -628,12 +628,12 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Czechia: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
-| Business address (must be within locality or region covered by the phone number's prefix) | One of the following:  - Business registration showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
-| Registered Business Address  (if different) | None required |
+| Business address (must be within locality or region covered by the phone number's prefix) | One of the following: - Business registration showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Registered Business Address (if different) | None required |
 | Business ID number | None required |
 | Name of authorized representative | None required |
 | Address of authorized representative | None required |
@@ -642,7 +642,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Czechia's national prefix**: +420 910
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
@@ -654,21 +654,21 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Czechia's mobile prefix**: +420 73
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration document |
 | Business address (can be anywhere in the world) | None required |
 | Business ID number | None required |
-| Name of authorized representative | One of the following:  - Government-issued ID - Passport |
-| Authorization of authorized representative | One of the following:  - Power of attorney - Other documentation showing the individual is a director or country manager for the business |
+| Name of authorized representative | One of the following: - Government-issued ID - Passport |
+| Authorization of authorized representative | One of the following: - Power of attorney - Other documentation showing the individual is a director or country manager for the business |
 | Address of authorized representative | None required |
 
 ### Czechia: Toll-free Numbers
 
 **Czechia's toll-free prefix**: +420 800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
@@ -678,13 +678,13 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Czechia: SMS Guidelines
 
-|  |
+| |
 | --- |
 | Starting July 14, 2025, all SMS messages sent from international phone numbers to the Czech Republic will be blocked by local mobile operators O2 and T-Mobile to comply with new regulations and prevent fraud. Messages sent before this date may also be filtered or display a generic sender name. Additional mobile operators in the Czech Republic may introduce similar measures in the future. |
 
 ### Czechia: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | Portable numbers | - Geographic (local) numbers - National numbers (+420910) - Toll-free numbers (+420800) |
 | Restrictions | Most international phone numbers have VOICE capability only, no SMS. |
@@ -702,11 +702,11 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities:** Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
-| Business address (must be within Denmark) | One of the following:  - Business registration document showing address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address (must be within Denmark) | One of the following: - Business registration document showing address - Utility bill - Tax notice - Rent receipt - Title deed |
 | Business registration number | None required |
 
 ### Denmark: Mobile Numbers
@@ -715,7 +715,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Denmark's mobile prefixes**: +4525, +4592, +4541
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
@@ -727,7 +727,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Denmark's toll-free prefix**: +4580
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
@@ -735,7 +735,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Denmark: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | Portable numbers | - Geographic (local) numbers - Toll-free numbers (+4580) |
 | Restrictions | Most international phone numbers have VOICE capability only, no SMS. |
@@ -752,7 +752,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities:** Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration document |
@@ -770,7 +770,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities:** Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial register |
@@ -790,7 +790,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Egypt's toll-free prefix**: +20800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
@@ -808,12 +808,12 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities:** Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration document |
-| Business address (must be within locality or region covered by the phone number's prefix; a PO Box is not acceptable) | One of the following:  - Business registration document showing a local address - Utility bill - Tax notice - Rent receipt - Title deed |
-| Name of an authorized representative | One of the following:  - Government-issued ID - Passport |
+| Business address (must be within locality or region covered by the phone number's prefix; a PO Box is not acceptable) | One of the following: - Business registration document showing a local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Name of an authorized representative | One of the following: - Government-issued ID - Passport |
 | Authorization of authorised representative | Business registration document showing the name of the authorized representative |
 
 ### El Salvador: Porting Guidelines
@@ -830,7 +830,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Estonia's national prefix**: +372
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Extract from the commercial register |
@@ -842,7 +842,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Estonia's mobile prefixes**: +372 81, +372 82, +372 83, +372 84, +372 85, +372 86, +372 87
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Extract from the commercial register |
@@ -860,7 +860,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities:** Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
@@ -872,7 +872,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Finland's mobile prefix**: +358 75
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
@@ -884,7 +884,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Finland's toll-free prefix**: +358 800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
@@ -892,7 +892,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Finland: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | **Portable numbers** | - Geographic (local) numbers - Toll-free numbers |
 | **Restrictions** | Most international phone numbers have VOICE capability only, SMS is not possible. |
@@ -907,66 +907,66 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Guidelines on number types and their use cases
 
-|  |  |
+| | |
 | --- | --- |
-| **Number Type:**  Local  **Capability:** Voice only  **Prefix Range:** +331 to +335  **Regulatory Requirements:** Local | **Permitted Use Cases:**   - You can use this number for making manual outbound calls - Any use case not listed in the Forbidden Use Cases  **Forbidden Use Cases:**   - Calling Emergency Services - Automated Outbound Calling (Auto-Dialing) - Sales and Telemarketing Calls (i.e., companies trying to sell items/services without end-user consent. For this use case, use the new “Polyvalent Numbers” number range.)  **Note:**   - The permitted and forbidden use cases for Local and National are the same. Therefore, use Local or National numbers based on your prefix preference. |
-| **Number Type:** National  **Capability:** Voice only  **Prefix:** +339  **Regulatory Requirements:** National | **Permitted Use Cases:**   - You can use this number for making manual outbound calls - Any use case not listed in the Forbidden Use Cases  **Forbidden Use Cases:**   - Calling Emergency Services - Automated Outbound Calling (Auto-Dialing) - Sales and Telemarketing Calls (i.e., companies trying to sell items/services without end-user consent. For this use case, use the new “Polyvalent Numbers” number range.)  **Note:**   - The permitted and forbidden use cases for Local and National are the same. Therefore, use Local or National numbers based on your prefix preference. |
-| **Number Type:** Mobile  **Capability:** Voice and SMS  **Prefix Range:** +336, +3373 to +3378  **Regulatory Requirements:** Mobile | **Permitted Use Cases:**   - You can use this number for making manual outbound calls - P2P Messaging: Interpersonal messages sent in a messaging conversation (e.g., support agent messaging a customer about their ticket).  **Forbidden Use Cases:**   - A2P Messaging: Automated messages from companies (e.g., delivery notifications, one-time passwords, booking confirmations). For this use case, use the new “Technical Platform Numbers” number range. - Automated Outbound Calling (Auto-Dialing)  **Note:**   - Mobile numbers are only for interpersonal messaging (P2P) (e.g., support agent messaging a customer about their ticket). - If you need to send automated messages (A2P), you will need to select Technical Platform Numbers. |
-| **Number Type:** Polyvalent Numbers  **Capability:** Voice only  **Prefix:** +33948353  **Regulatory Requirements:** National | **Permitted Use Cases:**   - Sales and Telemarketing Calls (i.e., calls made by companies attempting to sell items/services without end-user consent) - Automated Outbound Calling (Auto-Dialing)   **Forbidden Use Case:**   - One-way calling is not permitted; the end user must be able to return the call.   **Note:**   - This number range is specifically designated for sales and telemarketing use cases. It is intended for companies that attempt to sell items/services without end-user consent. You can use this number type to call other businesses or individuals; however, the answer rate may be affected due to the nature of this number range (Sales and Telemarketing Calls). |
-| **Number Type:** Technical Platform Numbers  **Capability:** Voice and SMS  **Prefix:** +3393903  **Regulatory Requirements:** National | **Permitted Use Cases:**   - A2P Messaging: Automated messages from companies (e.g., delivery notifications, one-time passwords, booking confirmations). - Automated Outbound Calling (Auto-Dialing) - Conversational Messaging (using the Time2Chat solution provider): Automated messages generated by bots and/or messages using templates.  **Forbidden Use Cases:**   - Sales and Telemarketing Calls: Companies trying to sell items/services without end-user consent. For this use case, use the new “Polyvalent Numbers” number range.  **Note:**  - Technical Platform Numbers can accommodate both A2P and P2P messaging. |
-| **Number Type:** Toll-free  **Capability:** Voice only  **Prefix Range:** +33800 to +33805  **Regulatory Requirements:** Toll-free | **Permitted Use Case**   - You can use this number to receive inbound calls   **Forbidden Use Case**   - Directory Services: Use of directory services is prohibited. Directory services are websites or applications that allow users to find phone numbers and addresses for individuals or businesses.   **Note:**   - This is the recommended number if you want to provide end-users with a toll-free option to call at no charge. |
+| **Number Type:** Local **Capability:** Voice only **Prefix Range:** +331 to +335 **Regulatory Requirements:** Local | **Permitted Use Cases:**   - You can use this number for making manual outbound calls - Any use case not listed in the Forbidden Use Cases **Forbidden Use Cases:**   - Calling Emergency Services - Automated Outbound Calling (Auto-Dialing) - Sales and Telemarketing Calls (i.e., companies trying to sell items/services without end-user consent. For this use case, use the new “Polyvalent Numbers” number range.) **Note:**   - The permitted and forbidden use cases for Local and National are the same. Therefore, use Local or National numbers based on your prefix preference. |
+| **Number Type:** National **Capability:** Voice only **Prefix:** +339 **Regulatory Requirements:** National | **Permitted Use Cases:**   - You can use this number for making manual outbound calls - Any use case not listed in the Forbidden Use Cases **Forbidden Use Cases:**   - Calling Emergency Services - Automated Outbound Calling (Auto-Dialing) - Sales and Telemarketing Calls (i.e., companies trying to sell items/services without end-user consent. For this use case, use the new “Polyvalent Numbers” number range.) **Note:**   - The permitted and forbidden use cases for Local and National are the same. Therefore, use Local or National numbers based on your prefix preference. |
+| **Number Type:** Mobile **Capability:** Voice and SMS **Prefix Range:** +336, +3373 to +3378 **Regulatory Requirements:** Mobile | **Permitted Use Cases:**   - You can use this number for making manual outbound calls - P2P Messaging: Interpersonal messages sent in a messaging conversation (e.g., support agent messaging a customer about their ticket). **Forbidden Use Cases:**   - A2P Messaging: Automated messages from companies (e.g., delivery notifications, one-time passwords, booking confirmations). For this use case, use the new “Technical Platform Numbers” number range. - Automated Outbound Calling (Auto-Dialing) **Note:**   - Mobile numbers are only for interpersonal messaging (P2P) (e.g., support agent messaging a customer about their ticket). - If you need to send automated messages (A2P), you will need to select Technical Platform Numbers. |
+| **Number Type:** Polyvalent Numbers **Capability:** Voice only **Prefix:** +33948353 **Regulatory Requirements:** National | **Permitted Use Cases:**   - Sales and Telemarketing Calls (i.e., calls made by companies attempting to sell items/services without end-user consent) - Automated Outbound Calling (Auto-Dialing)   **Forbidden Use Case:**   - One-way calling is not permitted; the end user must be able to return the call.   **Note:**   - This number range is specifically designated for sales and telemarketing use cases. It is intended for companies that attempt to sell items/services without end-user consent. You can use this number type to call other businesses or individuals; however, the answer rate may be affected due to the nature of this number range (Sales and Telemarketing Calls). |
+| **Number Type:** Technical Platform Numbers **Capability:** Voice and SMS **Prefix:** +3393903 **Regulatory Requirements:** National | **Permitted Use Cases:**   - A2P Messaging: Automated messages from companies (e.g., delivery notifications, one-time passwords, booking confirmations). - Automated Outbound Calling (Auto-Dialing) - Conversational Messaging (using the Time2Chat solution provider): Automated messages generated by bots and/or messages using templates. **Forbidden Use Cases:**   - Sales and Telemarketing Calls: Companies trying to sell items/services without end-user consent. For this use case, use the new “Polyvalent Numbers” number range. **Note:** - Technical Platform Numbers can accommodate both A2P and P2P messaging. |
+| **Number Type:** Toll-free **Capability:** Voice only **Prefix Range:** +33800 to +33805 **Regulatory Requirements:** Toll-free | **Permitted Use Case**   - You can use this number to receive inbound calls   **Forbidden Use Case**   - Directory Services: Use of directory services is prohibited. Directory services are websites or applications that allow users to find phone numbers and addresses for individuals or businesses.   **Note:**   - This is the recommended number if you want to provide end-users with a toll-free option to call at no charge. |
 
 ### France: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial register (Extrait K-bis) showing name of Authorized Representative |
-| Business address *Must be within France; a PO Box is not acceptable where a local address is required.* | One of the following:  - Excerpt from the commercial register showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
-| Business registration number  *The “Immatriculation au RCS numéro” (ex: 000 000 000) appearing on the excerpt from the commercial register (Extrait Kbis) OR the Siren/Siret number accessible through the SIRENE directory.* | Excerpt from the commercial register (Extrait K-bis) |
+| Business address *Must be within France; a PO Box is not acceptable where a local address is required.* | One of the following: - Excerpt from the commercial register showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business registration number *The “Immatriculation au RCS numéro” (ex: 000 000 000) appearing on the excerpt from the commercial register (Extrait Kbis) OR the Siren/Siret number accessible through the SIRENE directory.* | Excerpt from the commercial register (Extrait K-bis) |
 | Business Website | None required |
 | Name of authorized representative | None required |
 | Authorized Representative Contact Email | None required |
 
 ### France: National Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial register (Extrait K-bis) showing name of Authorized Representative |
-| Business address *Must be within France; a PO Box is not acceptable where a local address is required.* | One of the following:  - Excerpt from the commercial register showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
-| Business registration number  *The “Immatriculation au RCS numéro” (ex: 000 000 000) appearing on the excerpt from the commercial register (Extrait Kbis) OR the Siren/Siret number accessible through the SIRENE directory.* | Excerpt from the commercial register (Extrait K-bis) |
+| Business address *Must be within France; a PO Box is not acceptable where a local address is required.* | One of the following: - Excerpt from the commercial register showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business registration number *The “Immatriculation au RCS numéro” (ex: 000 000 000) appearing on the excerpt from the commercial register (Extrait Kbis) OR the Siren/Siret number accessible through the SIRENE directory.* | Excerpt from the commercial register (Extrait K-bis) |
 | Business Website | None required |
 | Name of authorized representative | None required |
 | Authorized Representative Contact Email | None required |
 
 ### France: Mobile Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial register (Extrait K-bis) showing name of Authorized Representative |
-| Business address *Must be within France; a PO Box is not acceptable where a local address is required.* | One of the following:  - Excerpt from the commercial register showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
-| Business registration number  *The “Immatriculation au RCS numéro” (ex: 000 000 000) appearing on the excerpt from the commercial register (Extrait Kbis) OR the Siren/Siret number accessible through the SIRENE directory.* | Excerpt from the commercial register (Extrait K-bis) |
+| Business address *Must be within France; a PO Box is not acceptable where a local address is required.* | One of the following: - Excerpt from the commercial register showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business registration number *The “Immatriculation au RCS numéro” (ex: 000 000 000) appearing on the excerpt from the commercial register (Extrait Kbis) OR the Siren/Siret number accessible through the SIRENE directory.* | Excerpt from the commercial register (Extrait K-bis) |
 | Business Website | None required |
 | Name of authorized representative | None required |
 | Authorized Representative Contact Email | None required |
 
 ### France: Toll-free Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial register (Extrait K-bis) showing name of Authorized Representative |
-| European Economic Area Address  Must be in European Economic Area | One of the following:  - Excerpt from the commercial register showing European Economic Area Address - Utility bill - Tax notice - Rent receipt - Title deed |
-| Business registration number  *The official registration number appearing on the commercial register excerpt. If registered in France, provide the “Immatriculation au RCS numéro” (ex: 000 000 000) appearing on the excerpt from the commercial register (Extrait Kbis) OR the Siren/Siret number accessible through the SIRENE directory.* | Excerpt from the commercial register (Extrait K-bis) |
+| European Economic Area Address Must be in European Economic Area | One of the following: - Excerpt from the commercial register showing European Economic Area Address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business registration number *The official registration number appearing on the commercial register excerpt. If registered in France, provide the “Immatriculation au RCS numéro” (ex: 000 000 000) appearing on the excerpt from the commercial register (Extrait Kbis) OR the Siren/Siret number accessible through the SIRENE directory.* | Excerpt from the commercial register (Extrait K-bis) |
 | Business Website | None required |
 | Name of authorized representative | None required |
 | Authorized Representative Contact Email | None required |
 
 ### France: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | Portable numbers | - Geographic (local) numbers (+33 1 to +33 5) - Non-geographic (national) numbers (+33 9) |
 | Restrictions | Most international phone numbers have VOICE capability only. |
@@ -981,47 +981,47 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Germany: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | One of the following:   - Excerpt from the commercial register (Handelsregisterauszug) - Trade license (‘Gewerbeanmeldung’, ‘GewerbeUmmeldung’, or ‘Empfangsbescheinigung für Gewerbeanmeldung’) - Tax ID Number Notification Letter (‘Bestätigung Freier Beruf Finanzamt’) |
-| Address  *Must be within locality or region covered by the phone number's prefix; a PO Box is not acceptable where a local address is required. Must match the address appearing on the official registration document.* | One of the following:   - Excerpt from the commercial register (Handelsregisterauszug) - Trade license (‘Gewerbeanmeldung’, ‘GewerbeUmmeldung’, or ‘Empfangsbescheinigung für Gewerbeanmeldung’) - Tax ID Number Notification Letter (‘Bestätigung Freier Beruf Finanzamt’) |
-| Business Registration Number  *Provide the registration number (Nummer der Firma; ex: HRB 000000) appearing on the excerpt from the commercial register (Handelsregisterauszug), if available. Otherwise, provide a VAT ID or tax number (Steuernummer).* | One of the following:   - Excerpt from the commercial register (Handelsregisterauszug) showing Business Registration Number - Tax ID Number Notification Letter (‘Bestätigung Freier Beruf Finanzamt’) |
+| Address *Must be within locality or region covered by the phone number's prefix; a PO Box is not acceptable where a local address is required. Must match the address appearing on the official registration document.* | One of the following:   - Excerpt from the commercial register (Handelsregisterauszug) - Trade license (‘Gewerbeanmeldung’, ‘GewerbeUmmeldung’, or ‘Empfangsbescheinigung für Gewerbeanmeldung’) - Tax ID Number Notification Letter (‘Bestätigung Freier Beruf Finanzamt’) |
+| Business Registration Number *Provide the registration number (Nummer der Firma; ex: HRB 000000) appearing on the excerpt from the commercial register (Handelsregisterauszug), if available. Otherwise, provide a VAT ID or tax number (Steuernummer).* | One of the following:   - Excerpt from the commercial register (Handelsregisterauszug) showing Business Registration Number - Tax ID Number Notification Letter (‘Bestätigung Freier Beruf Finanzamt’) |
 | Authorized Representative’s Name | None required |
 | Authorized Representative’s Email | None required |
-| Website  *The website or social media url for the business/entity, if available.* | None required |
+| Website *The website or social media url for the business/entity, if available.* | None required |
 | Comments (Optional) | None required |
 
 ### Germany: National Numbers
 
 **Germany's national prefix**: +49 32
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial register (Handelsregisterauszug) |
-| Business Address  *Must be within Germany.* | One of the following:   - Excerpt from the commercial register (Handelsregisterauszug) showing German address - Trade license (Gewerbeanmeldung) showing German address |
+| Business Address *Must be within Germany.* | One of the following:   - Excerpt from the commercial register (Handelsregisterauszug) showing German address - Trade license (Gewerbeanmeldung) showing German address |
 
 ### Germany: Mobile Numbers
 
 **Germany's mobile prefix**: +49 157, +49 158
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | One of the following:   - Excerpt from the commercial register (Handelsregisterauszug) - Trade license (‘Gewerbeanmeldung’, ‘GewerbeUmmeldung’, or ‘Empfangsbescheinigung für Gewerbeanmeldung’) - Tax ID Number Notification Letter (‘Bestätigung Freier Beruf Finanzamt’) |
-| Address  *Must be within Germany; a PO Box is not acceptable. Must match the address appearing on the official registration document.* | One of the following:   - Excerpt from the commercial register (Handelsregisterauszug) - Trade license (‘Gewerbeanmeldung’, ‘GewerbeUmmeldung’, or ‘Empfangsbescheinigung für Gewerbeanmeldung’) - Tax ID Number Notification Letter (‘Bestätigung Freier Beruf Finanzamt’) |
-| Business Registration Number  *Provide the registration number (Nummer der Firma; ex: HRB 000000) appearing on the excerpt from the commercial register (Handelsregisterauszug), if available. Otherwise, provide a VAT ID or tax number (Steuernummer).* | One of the following:   - Excerpt from the commercial register (Handelsregisterauszug) showing Business Registration Number - Tax ID Number Notification Letter (‘Bestätigung Freier Beruf Finanzamt’) |
+| Address *Must be within Germany; a PO Box is not acceptable. Must match the address appearing on the official registration document.* | One of the following:   - Excerpt from the commercial register (Handelsregisterauszug) - Trade license (‘Gewerbeanmeldung’, ‘GewerbeUmmeldung’, or ‘Empfangsbescheinigung für Gewerbeanmeldung’) - Tax ID Number Notification Letter (‘Bestätigung Freier Beruf Finanzamt’) |
+| Business Registration Number *Provide the registration number (Nummer der Firma; ex: HRB 000000) appearing on the excerpt from the commercial register (Handelsregisterauszug), if available. Otherwise, provide a VAT ID or tax number (Steuernummer).* | One of the following:   - Excerpt from the commercial register (Handelsregisterauszug) showing Business Registration Number - Tax ID Number Notification Letter (‘Bestätigung Freier Beruf Finanzamt’) |
 | Authorized Representative’s Name | None required |
 | Authorized Representative’s Email | None required |
-| Website  *The website or social media url for the business/entity, if available.* | None required |
+| Website *The website or social media url for the business/entity, if available.* | None required |
 | Comments (Optional) | None required |
 
 ### Germany: Toll-free Numbers
 
 **Germany's toll-free prefix**: +49 800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial register (Handelsregisterauszug) |
@@ -1032,7 +1032,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Germany: Restrictions**
 
-|  |
+| |
 | --- |
 | **Restrictions** |
 | German mobile numbers are only available to German-registered GmbH and AG companies. |
@@ -1041,14 +1041,14 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Note**: Numbers prefixed with +49 1806 are non-portable.
 
-|  |  |
+| | |
 | --- | --- |
 | Portable numbers | - Geographic (local) numbers (+491 to +499) - Toll-free numbers (+49800) |
 | Restrictions | - Most international phone numbers have VOICE capability only, no SMS - German local numbers are often assigned in ranges. Ranges must be ported together. Partial range portability is not supported - Often conditions of service contracts are limiting for porting opportunities. Check with your current provider if there are any timeframe restrictions on porting. Oftentimes the service contract does not allow immediate porting - Mobile number porting is not supported |
-| Required information | - Letter of Authorization dated within the last 30 days:  - [Geographical (local) LOA](https://twilio-cms-prod.s3.amazonaws.com/documents/German_Geo_LOA.pdf) - [Toll-free LOA](https://twilio.zendesk.com/hc/article_attachments/360089310074/German_Non_Geo_LOA.pdf)  - Applicable regulatory compliance documentation (above) - Copy of the most recent phone bill (within the last 30 days) - For Toll-free numbers, you need to provide a number allocation letter from [the German Regulator](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0800/start.html) “Zuteilungsbescheid” for each number |
+| Required information | - Letter of Authorization dated within the last 30 days: - [Geographical (local) LOA](https://twilio-cms-prod.s3.amazonaws.com/documents/German_Geo_LOA.pdf) - [Toll-free LOA](https://twilio.zendesk.com/hc/article_attachments/360089310074/German_Non_Geo_LOA.pdf) - Applicable regulatory compliance documentation (above) - Copy of the most recent phone bill (within the last 30 days) - For Toll-free numbers, you need to provide a number allocation letter from [the German Regulator](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0800/start.html) “Zuteilungsbescheid” for each number |
 | Timeframe | After you've submitted all required documentation and information, it can take up to six weeks, depending on the complexity of the port and the time required by the current service provider. |
 | Regulatory bodies | [Bundesnetzagentur](https://www.bundesnetzagentur.de) (BNetzA) |
-| Other details | You can also activate new German toll-free numbers allocated by the regulator. For activation, see [Applying for and activating German toll-free numbers](https://www.twilio.com/docs/phone-numbers/regulatory/applying-and-activating-german-toll-free-numbers).  **Note:** Here you have a direct link to their [Online application (0)800](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0800/start.html) |
+| Other details | You can also activate new German toll-free numbers allocated by the regulator. For activation, see [Applying for and activating German toll-free numbers](https://www.twilio.com/docs/phone-numbers/regulatory/applying-and-activating-german-toll-free-numbers). **Note:** Here you have a direct link to their [Online application (0)800](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0800/start.html) |
 | How to submit | [Contact the Zendesk support team](https://support.zendesk.com/hc/en-us/articles/4408843597850-Contacting-Zendesk-Customer-Support) with the required documentation and information. |
 
 ## 🇬🇷 Greece
@@ -1057,12 +1057,12 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Greece: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
-| Business Name  *Must match the name listed on the official commercial register document.* | - Extract from the commercial register |
+| Business Name *Must match the name listed on the official commercial register document.* | - Extract from the commercial register |
 | Business address *A Greek operational address. Must be within locality or region covered by the phone number's prefix; a PO Box is not acceptable where a local address is required. For businesses registered outside of Greece, this may differ from the address appearing on the official registry document.* | Once of the following:   - Extract from the commercial register showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
-| Business Registration Number  *Must match the number listed on the official commercial register document.* | None required |
+| Business Registration Number *Must match the number listed on the official commercial register document.* | None required |
 | Business Website | None required |
 | Name of Authorized Representative | None required |
 | Email of Authorized Representative | None required |
@@ -1071,7 +1071,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Greece's toll-free prefix: +30 800**
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | One of the following:   - Articles of Association - Articles of Incorporation - Extract from the commercial register |
@@ -1081,7 +1081,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Greece: SMS Guidelines
 
-|  |
+| |
 | --- |
 | Starting September 18, 2024, all messages from international phone numbers to Greece will be blocked to prevent fraud. |
 
@@ -1093,11 +1093,11 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities:** Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
-| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following:  - Excerpt from the commercial register showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following: - Excerpt from the commercial register showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### Grenada: Porting Guidelines
 
@@ -1111,7 +1111,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Hong Kong's national prefix**: +85230, +85258
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Business registration certificate |
@@ -1122,7 +1122,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Hong Kong's toll-free prefix**: +852 800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Business registration certificate |
@@ -1131,7 +1131,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Hong Kong: SMS Guidelines
 
-|  |
+| |
 | --- |
 | Starting November 18, 2024, messages sent from international phone numbers to the mobile operator China Mobile in Hong Kong will be blocked. |
 
@@ -1145,12 +1145,12 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Hungary: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business Name | - Excerpt from the commercial register |
-| Business Address *Must be within locality or region covered by the phone number's prefix; a PO Box is not acceptable where a local address is required. Address document must be dated in the last 3 months.* | One of the following:  - Utility bill - Tax notice - Rent receipt - Title deed |
-| Business Registration Number  *The Cégjegyzékszám (ex: 01-09-123456) for companies or Nyilvántartási száma (ex: 1234567890) for sole traders/freelancers* | - No documentation required |
+| Business Address *Must be within locality or region covered by the phone number's prefix; a PO Box is not acceptable where a local address is required. Address document must be dated in the last 3 months.* | One of the following: - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business Registration Number *The Cégjegyzékszám (ex: 01-09-123456) for companies or Nyilvántartási száma (ex: 1234567890) for sole traders/freelancers* | - No documentation required |
 | Business Website | - No documentation required |
 | Authorized Representative’s Name | - No documentation required |
 | Authorized Representative’s Phone number | - No documentation required |
@@ -1163,7 +1163,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 | --- | --- |
 | Business Name | - No documentation required |
 | Registered Seat | - No documentation required |
-| Business Address  *Must be within Hungary* | One of the following:  - Extract from the commercial register or business registration showing Hungarian address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business Address *Must be within Hungary* | One of the following: - Extract from the commercial register or business registration showing Hungarian address - Utility bill - Tax notice - Rent receipt - Title deed |
 | Invoicing Address *If different* | - No documentation required |
 | Business Registration Number | - No documentation required |
 | Contact Information (business email or mailing address) | - No documentation required |
@@ -1176,7 +1176,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 | --- | --- |
 | Business Name | - No documentation required |
 | Registered Seat | - No documentation required |
-| Business Address  *Must be within Hungary* | One of the following:  - Extract from the commercial register or business registration showing Hungarian address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business Address *Must be within Hungary* | One of the following: - Extract from the commercial register or business registration showing Hungarian address - Utility bill - Tax notice - Rent receipt - Title deed |
 | Invoicing Address *If different* | - No documentation required |
 | Business Registration Number | - No documentation required |
 | Contact Information (business email or mailing address) | - No documentation required |
@@ -1191,19 +1191,19 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Iceland: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Excerpt from the commercial register |
-| Business address *Must be within Iceland* | One of the following  - Excerpt from the commercial register showing Icelandic address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *Must be within Iceland* | One of the following - Excerpt from the commercial register showing Icelandic address - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### Iceland: Mobile Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Excerpt from the commercial register |
-| Business address *Must be within Iceland* | One of the following  - Excerpt from the commercial register showing Icelandic address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *Must be within Iceland* | One of the following - Excerpt from the commercial register showing Icelandic address - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### Iceland: Porting Guidelines
 
@@ -1215,7 +1215,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 India: Voice Guidelines
 
-|  |
+| |
 | --- |
 | Effective August 1, 2024, outbound voice calls from Indian numbers (+91) to Indian (+91) destinations will be blocked. This includes numbers added as external numbers for outbound calls. |
 
@@ -1229,45 +1229,45 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Indonesia: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration document |
-| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following:  - Business registration - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following: - Business registration - Utility bill - Tax notice - Rent receipt - Title deed |
 | Name of authorised representative | One of the following:   - National ID for Indonesian citizens - Passport for non-Indonesians - Residence Permit (KITAP/KITAS) for-non Indonesians |
 
 ### Indonesia: Mobile Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration document |
-| Business address *May be anywhere in the world* | One of the following:  - Business registration - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *May be anywhere in the world* | One of the following: - Business registration - Utility bill - Tax notice - Rent receipt - Title deed |
 | Name of authorised representative | One of the following:   - National ID for Indonesian citizens - Passport for non-Indonesians - Residence Permit (KITAP/KITAS) for-non Indonesians |
 
 ### Indonesia: Toll-free Numbers
 
 **Indonesia's toll-free prefixes**: +62 7803, +62 1803
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration document |
-| Business address *May be anywhere in the world* | One of the following:  - Business registration - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *May be anywhere in the world* | One of the following: - Business registration - Utility bill - Tax notice - Rent receipt - Title deed |
 | Name of authorised representative | One of the following:   - National ID for Indonesian citizens - Passport for non-Indonesians - Residence Permit (KITAP/KITAS) for-non Indonesians |
 
 ### Indonesia: Voice Guidelines
 
 #### **Indonesia: Restrictions**
 
-|  |
+| |
 | --- |
 | **Restrictions** |
 | Toll-free numbers are not allowed for callback service. |
 
 ### Indonesia: SMS Guidelines
 
-|  |
+| |
 | --- |
 | Starting September 21, 2024, messages sent from international phone numbers to the mobile operators Telkomsel, Axiata, and Smart in Indonesia will be blocked. |
 
@@ -1281,7 +1281,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Iran: Voice and SMS Guidelines
 
-|  |
+| |
 | --- |
 | Starting March 15, 2025, to align with evolving regulatory requirements, Zendesk will stop delivering voice and messaging traffic to recipients in Iran. |
 
@@ -1291,30 +1291,30 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 Regulations only. To confirm if you can buy a new number for this country, check if the country is listed in the **[My talk line is in](https://support.zendesk.com/hc/en-us/articles/4408846483482#h_30ac4ae7-1a1d-4bdd-94eb-7dbe23bac857)** menu on the availability and pricing page.
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
 | Business address *Must include Eircode and be within locality or region covered by the phone number's prefix* | None required |
 | Business Website | None required |
-| Authorized Representative Name  *Authorized representative should be a senior manager in the company who is responsible for Phone Numbers* | None required |
+| Authorized Representative Name *Authorized representative should be a senior manager in the company who is responsible for Phone Numbers* | None required |
 | Authorized Representative Contact Email | None required |
-| Business Registration Number  *Company Registration Number (CRN) issued by the Companies Registration Office (CRO) (ex: NC123456)* | None required |
-| Business Classification  *Note: Reply "ISV"* | None required |
+| Business Registration Number *Company Registration Number (CRN) issued by the Companies Registration Office (CRO) (ex: NC123456)* | None required |
+| Business Classification *Note: Reply "ISV"* | None required |
 
 ### Ireland: Toll-free Numbers
 
 **Ireland's toll-free prefix**: +353 1800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Business registration document |
-| Business address  *May be anywhere in the world* | None required |
+| Business address *May be anywhere in the world* | None required |
 
 ### Ireland: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | Portable numbers | - Geographic (local) numbers - Toll-free numbers (+353 1800) |
 | Restrictions | - Most international phone numbers have VOICE capability only, no SMS. - Almost all phone numbers can be ported. Full ranges of numbers can also be ported. Porting a part of a range is not always possible, it depends on the losing carrier's acceptance to process a fragmented port request. |
@@ -1340,7 +1340,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Israel's national prefix**: +972
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | None required | None required |
@@ -1349,7 +1349,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities:** Voice + SMS
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | None required | None required |
@@ -1358,7 +1358,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities:** SMS, Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | None required | None required |
@@ -1369,7 +1369,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Israel's toll-free prefix**: +972 180
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | None required | None required |
@@ -1384,13 +1384,13 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Italy: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - No documentation required |
-| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following:  - Business registration document showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following: - Business registration document showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
 | VAT (or Business Registration ID, if VAT is unavailable) | - No documentation required |
-| Name of authorized representative | One of the following:  - Government-issued ID (must include the ID number, issuing authority, and issue date) - Passport (must include the ID number, issuing authority, and issue date) |
+| Name of authorized representative | One of the following: - Government-issued ID (must include the ID number, issuing authority, and issue date) - Passport (must include the ID number, issuing authority, and issue date) |
 | Date of birth of authorized representative | - No documentation required |
 | Place of birth of authorized representative | - No documentation required |
 | Fiscal Code of Authorized Representative | - No documentation required |
@@ -1400,13 +1400,13 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Italy's mobile prefix**: +393
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - No documentation required |
-| Business address  *May be anywhere in the world* | One of the following:  - Business registration document showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *May be anywhere in the world* | One of the following: - Business registration document showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
 | VAT (or Business Registration ID, if VAT is unavailable) | - No documentation required |
-| Name of authorized representative | One of the following:  - Government-issued ID (must include the ID number, issuing authority, and issue date) - Passport (must include the ID number, issuing authority, and issue date) |
+| Name of authorized representative | One of the following: - Government-issued ID (must include the ID number, issuing authority, and issue date) - Passport (must include the ID number, issuing authority, and issue date) |
 | Date of birth of authorized representative | - No documentation required |
 | Place of birth of authorized representative | - No documentation required |
 | Fiscal Code of Authorized Representative | - No documentation required |
@@ -1416,13 +1416,13 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Italy's toll-free prefix**: +39800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - No documentation required |
-| Business address  *May be anywhere in the world* | One of the following:  - Business registration document showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *May be anywhere in the world* | One of the following: - Business registration document showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
 | VAT (or Business Registration ID, if VAT is unavailable) | - No documentation required |
-| Name of authorized representative | One of the following:  - Government-issued ID (must include the ID number, issuing authority, and issue date) - Passport (must include the ID number, issuing authority, and issue date) |
+| Name of authorized representative | One of the following: - Government-issued ID (must include the ID number, issuing authority, and issue date) - Passport (must include the ID number, issuing authority, and issue date) |
 | Date of birth of authorized representative | - No documentation required |
 | Place of birth of authorized representative | - No documentation required |
 | Fiscal Code of Authorized Representative | - No documentation required |
@@ -1430,7 +1430,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Italy: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | Portable numbers | - Geographic (local) numbers |
 | Restrictions | - Most international phone numbers have VOICE capability only, no SMS. - The Letter of Authorization must be in Italian. You can use [English translation](https://twilio.zendesk.com/hc/article_attachments/360089191634/Italy_Geo_LOA__English_guide_.pdf) for guidance - Italian Porting requires Secret Codes (Codice Segreto) on the LOA. Secret Codes are PIN Codes that are requested from the losing communication provider. Providers can share codes for each number or one code for a group of numbers - Zendesk can support porting only with major carriers in Italy. Sometimes numbers are provided by resellers and the real carrier is only determined during the porting process. Only the following carriers are supported for porting:   - BT   - CloudItalia   - Colt   - Fastweb   - Sky   - Tim   - Tiscali   - TWT   - Uno   - Verizon   - Vodafone   - Wind |
@@ -1445,50 +1445,50 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Japan: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
-| Japan Regulatory Bundle Application  & TNUP (Telecommunications Numbering Use Plan), for Resellers | Completed Japan Regulatory Bundle application. This means an application must be completed and signed by the authorized representative. NOTE: Resellers should append a copy of their TNUP to the scan of their completed Application for the “Reseller Bundle”. See Notice to Resellers ([November 2022](https://help.twilio.com/articles/9956319880859-Notice-Resellers-of-Japanese-Phone-Numbers-must-provide-valid-Telecommunications-Numbering-Use-Plan-TNUP-November-2022))  Download the application here:   - English version (.[pdf](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---english.pdf "pdf") | .[docx](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---english.docx "docx")) - Japanese version (.[pdf](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---japanese.pdf "pdf") | .[docx](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---japanese.docx "docx")) |
-| Business name | Corporate registration document.  The supporting document(s) must have been issued within the last six months and be valid at the time of upload |
-| Business address | Corporate registration document.  If the applicant’s physical address in Japan is different from the address appearing on the corporate registration document, please provide one of the following to prove the local office address:   - Certificate of tax payment of the local corporate entity. - Utility bill of the local office address.   Note: A mailer will be sent to verify the applicant's physical  address.  The supporting document(s) must have been issued within the last six months and be valid at the time of upload. |
+| Japan Regulatory Bundle Application & TNUP (Telecommunications Numbering Use Plan), for Resellers | Completed Japan Regulatory Bundle application. This means an application must be completed and signed by the authorized representative. NOTE: Resellers should append a copy of their TNUP to the scan of their completed Application for the “Reseller Bundle”. See Notice to Resellers ([November 2022](https://help.twilio.com/articles/9956319880859-Notice-Resellers-of-Japanese-Phone-Numbers-must-provide-valid-Telecommunications-Numbering-Use-Plan-TNUP-November-2022)) Download the application here:   - English version (.[pdf](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---english.pdf "pdf") | .[docx](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---english.docx "docx")) - Japanese version (.[pdf](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---japanese.pdf "pdf") | .[docx](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---japanese.docx "docx")) |
+| Business name | Corporate registration document. The supporting document(s) must have been issued within the last six months and be valid at the time of upload |
+| Business address | Corporate registration document. If the applicant’s physical address in Japan is different from the address appearing on the corporate registration document, please provide one of the following to prove the local office address:   - Certificate of tax payment of the local corporate entity. - Utility bill of the local office address.   Note: A mailer will be sent to verify the applicant's physical  address. The supporting document(s) must have been issued within the last six months and be valid at the time of upload. |
 | Business purpose | Corporate registration document *The* supporting document(s) must have been issued within the last six months and be valid at time of upload. |
 | Authorization of representative | One of the following:   - Power of attorney - Corporate registration showing name of authorized representative - Letter on the company letterhead under seal showing the person is duly authorized to execute the contract with us |
 | Name of authorized representative | Two forms of photo identification are required to verify the authorized representative's name, photo, date of birth, and address:   - Passport - Driver’s license - Certificate of driving record - My Number Card\* - “Zairyu” residency card (non-Japanese national) - Certificate of special permanent resident (non-Japanese national)   Note: Do not upload the back side of the My Number card. |
-| Address of authorized representative | If one of the authorized representative’s photo IDs (such as their passport) does not show an address or the address shown is not current, submit a third verification document showing the current address which can include:   - Certificate of tax payment (within the previous  six months) - Utility bill (within the previous six months)   Note: A mailer will be sent to verify the authorized representative’s physical address.  The supporting document(s) must have been issued within the last six months and be valid at the time of upload |
+| Address of authorized representative | If one of the authorized representative’s photo IDs (such as their passport) does not show an address or the address shown is not current, submit a third verification document showing the current address which can include:   - Certificate of tax payment (within the previous  six months) - Utility bill (within the previous six months)   Note: A mailer will be sent to verify the authorized representative’s physical address. The supporting document(s) must have been issued within the last six months and be valid at the time of upload |
 
 ### Japan: National Numbers
 
 **Japan's national prefix**: +8150
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
-| Japan Regulatory Bundle application and \*\*Telecommunications Numbering Use Plan (TNUP), if applicable | Completed Japan Regulatory Bundle Application. Documents you provide must be dated within the last three months.  Note: Resellers should append a copy of their TNUP to the scan of their completed application for the “Reseller Bundle”. See Notice to Resellers [(November 2022)](https://help.twilio.com/articles/9956319880859-Notice-Resellers-of-Japanese-Phone-Numbers-must-provide-valid-Telecommunications-Numbering-Use-Plan-TNUP-November-2022 "(November 2022)") An application must be completed and signed by the authorized representative.  Download the application here:   - English version (.[pdf](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---english.pdf "pdf") | .[docx](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---english.docx "docx")) - Japanese version (.[pdf](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---japanese.pdf "pdf") | .[docx](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---japanese.docx "docx")) |
-| Business name | Corporate registration document  The supporting document(s) must have been issued within the last six months and be valid at the time of upload |
-| Business address (must be a physical address, a P.O. box is not acceptable) | Corporate registration document  If the applicant’s physical address in Japan is different from the address appearing on the corporate registration document, please provide one of the following to prove the local office address:   - Certificate of tax payment - Utility bill   The supporting document(s) must have been issued within the last six months and be valid at the time of upload.  Note: A mailer will be sent to verify the applicant's physical  address. Documents you provide must be dated within the last three months. |
+| Japan Regulatory Bundle application and \*\*Telecommunications Numbering Use Plan (TNUP), if applicable | Completed Japan Regulatory Bundle Application. Documents you provide must be dated within the last three months. Note: Resellers should append a copy of their TNUP to the scan of their completed application for the “Reseller Bundle”. See Notice to Resellers [(November 2022)](https://help.twilio.com/articles/9956319880859-Notice-Resellers-of-Japanese-Phone-Numbers-must-provide-valid-Telecommunications-Numbering-Use-Plan-TNUP-November-2022 "(November 2022)") An application must be completed and signed by the authorized representative. Download the application here:   - English version (.[pdf](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---english.pdf "pdf") | .[docx](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---english.docx "docx")) - Japanese version (.[pdf](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---japanese.pdf "pdf") | .[docx](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---japanese.docx "docx")) |
+| Business name | Corporate registration document The supporting document(s) must have been issued within the last six months and be valid at the time of upload |
+| Business address (must be a physical address, a P.O. box is not acceptable) | Corporate registration document If the applicant’s physical address in Japan is different from the address appearing on the corporate registration document, please provide one of the following to prove the local office address:   - Certificate of tax payment - Utility bill   The supporting document(s) must have been issued within the last six months and be valid at the time of upload. Note: A mailer will be sent to verify the applicant's physical  address. Documents you provide must be dated within the last three months. |
 | Business purpose | Corporate registration document. The supporting document(s) must have been issued within the last six months and be valid at time of upload. |
 | Authorization of representative | To prove that the representative is authorized to act on behalf of the business, provide one of the following:   - Power of attorney - Corporate registration showing name of authorized representative - Letter on the company letterhead under seal showing the person is duly authorized to execute the contract with us |
 | Name of authorized representative | Two forms of photo identification are required to verify the authorized representative's name, photo, date of birth, and address:   - Passport - Driver’s license - Certificate of driving record - My Number Card\* - “Zairyu” residency card (non-Japanese national) - Certificate of special permanent resident (non-Japanese national)   Do not upload the back side of My Number card |
-| Address of authorized representative | If one of the authorized representative’s photo ID (such as their passport) does not show an address or the address shown is not current, submit a third verification document showing the current address which can include:   - Certificate of tax payment (within the previous six months). - Utility bill (within the previous six months)   Note: A mailer will be sent to verify the authorized representative’s physical address.  The supporting document(s) must have been issued within the last six months and be valid at the time of upload |
+| Address of authorized representative | If one of the authorized representative’s photo ID (such as their passport) does not show an address or the address shown is not current, submit a third verification document showing the current address which can include:   - Certificate of tax payment (within the previous six months). - Utility bill (within the previous six months)   Note: A mailer will be sent to verify the authorized representative’s physical address. The supporting document(s) must have been issued within the last six months and be valid at the time of upload |
 
 ### Japan: Toll-free Numbers
 
 **Japan's toll-free prefixes**: +81120, +81800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
-| Japan Regulatory Bundle application and \*\*Telecommunications Numbering Use Plan (TNUP), if applicable | Completed Japan Regulatory Bundle application  Note: Resellers should append a copy of their TNUP to the scan of their completed application for the “Reseller Bundle”. See Notice to Resellers [(November 2022)](https://help.twilio.com/articles/9956319880859-Notice-Resellers-of-Japanese-Phone-Numbers-must-provide-valid-Telecommunications-Numbering-Use-Plan-TNUP-November-2022 "(November 2022)")  An application must be completed and signed by the authorized representative.  Download the application here:   - English version (.[pdf](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---english.pdf "pdf") | .[docx](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---english.docx "docx")) - Japanese version (.[pdf](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---japanese.pdf "pdf") | .[docx](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---japanese.docx "docx")) |
-| Business name | Corporate registration document  The supporting document(s) must have been issued within the last six months and be valid at the time of upload |
-| Business address (must be a physical address, a P.O. box is not acceptable) | Corporate registration document  If the applicant’s physical address in Japan is different from the address appearing on the corporate registration document, please provide one of the following to prove the local office address:   - Certificate of tax payment - Utility bill   Note: A mailer will be sent to verify the applicant's physical  address.  The supporting document(s) must have been issued within the last six months and be valid at the time of upload. |
+| Japan Regulatory Bundle application and \*\*Telecommunications Numbering Use Plan (TNUP), if applicable | Completed Japan Regulatory Bundle application Note: Resellers should append a copy of their TNUP to the scan of their completed application for the “Reseller Bundle”. See Notice to Resellers [(November 2022)](https://help.twilio.com/articles/9956319880859-Notice-Resellers-of-Japanese-Phone-Numbers-must-provide-valid-Telecommunications-Numbering-Use-Plan-TNUP-November-2022 "(November 2022)") An application must be completed and signed by the authorized representative. Download the application here:   - English version (.[pdf](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---english.pdf "pdf") | .[docx](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---english.docx "docx")) - Japanese version (.[pdf](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---japanese.pdf "pdf") | .[docx](https://www.twilio.com/content/dam/twilio-com/global/en/guidelines/bundle-application-may-2025---japanese.docx "docx")) |
+| Business name | Corporate registration document The supporting document(s) must have been issued within the last six months and be valid at the time of upload |
+| Business address (must be a physical address, a P.O. box is not acceptable) | Corporate registration document If the applicant’s physical address in Japan is different from the address appearing on the corporate registration document, please provide one of the following to prove the local office address:   - Certificate of tax payment - Utility bill   Note: A mailer will be sent to verify the applicant's physical  address. The supporting document(s) must have been issued within the last six months and be valid at the time of upload. |
 | Business purpose | Corporate registration document. The supporting document(s) must have been issued within the last six months and be valid at time of upload. |
 | Authorization of representative | To prove that the representative is authorized to act on behalf of the business, provide one of the following:   - Power of attorney - Corporate registration showing name of authorized representative - Letter on the company letterhead under seal showing the person is duly authorized to execute the contract with us |
 | Name of authorized representative | Two forms of photo identification are required to verify the authorized representative's name, photo, date of birth, and address:   - Passport - Driver’s license - Certificate of driving record - My number card\* - “Zairyu” residency card (non-Japanese national) - Certificate of special permanent resident (non-Japanese national)   Note: Do not upload the back side of My number card. |
-| Address of authorized representative | If one of the authorized representative’s photo IDs (such as their passport) does not show an address or the address shown is not current, submit a third verification document showing the current address which can include:   - Certificate of tax payment (within the previous six months). - Utility bill (within the previous six months)   Note: A mailer will be sent to verify the Authorized Representative’s physical address.  The supporting document(s) must have been issued within the last six months and be valid at the time of upload. |
+| Address of authorized representative | If one of the authorized representative’s photo IDs (such as their passport) does not show an address or the address shown is not current, submit a third verification document showing the current address which can include:   - Certificate of tax payment (within the previous six months). - Utility bill (within the previous six months)   Note: A mailer will be sent to verify the Authorized Representative’s physical address. The supporting document(s) must have been issued within the last six months and be valid at the time of upload. |
 
 ### Japan: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | Portable numbers | - Toll-Free numbers (+81800, +81120) |
 | Restrictions | - Most of International Phone Numbers have Voice capability only, no SMS. Porting supported from following providers:   - NTT Communications   - NTT East / NTT West   - KDDI   - Rakuten Communications - Original physical LOA will need to be posted to Twilio's carrier provider, once port has been approved. |
@@ -1510,7 +1510,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Jordan's toll-free prefix**: +962 800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration |
@@ -1519,7 +1519,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Jordan: Restrictions
 
-|  |
+| |
 | --- |
 | **Restriction** |
 | Numbers are not allowed for calling card or callback services. |
@@ -1534,7 +1534,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Kenya: SMS Guidelines
 
-|  |
+| |
 | --- |
 | All messages sent from international phone numbers to Safaricom mobile operator in Kenya will be blocked by network operators starting August 1, 2024. |
 
@@ -1548,7 +1548,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Lebanon: SMS Guidelines
 
-|  |
+| |
 | --- |
 | Starting October 10, 2024, all messages from international phone numbers to Lebanon will be blocked to prevent fraud. |
 
@@ -1566,7 +1566,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities**: Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration |
@@ -1580,7 +1580,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Lithuania's mobile prefix**: +3706
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration |
@@ -1601,7 +1601,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities**: Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Extract from the commercial register (Registre du Commerce et des Sociétés) |
@@ -1611,7 +1611,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities**: Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Extract from the commercial register |
@@ -1633,7 +1633,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Macao's mobile prefix**: +8536
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
@@ -1651,7 +1651,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Malaysia's mobile prefixes**: +6016, +6011
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration |
@@ -1659,22 +1659,22 @@ Regulations only. To confirm if you can buy a new number for this country, check
 | Name of authorized representative | One of the following:   - Government-issued ID with picture - Passport |
 | Identity document number of authorized representative | One of the following:   - Government-issued ID with picture - Passport |
 | Identity document from the issuing country of the authorized representative | One of the following:   - Government-issued ID with picture - Passport |
-| Address of authorized representative  (must within Malaysia) | One of the following:   - Government-issued ID showing Malaysian address (for Malaysian citizens or permanent residents) - Work permit showing company and company address (for non-Malaysian citizens) - Student ID showing university address (for non-Malaysian citizens) |
+| Address of authorized representative (must within Malaysia) | One of the following:   - Government-issued ID showing Malaysian address (for Malaysian citizens or permanent residents) - Work permit showing company and company address (for non-Malaysian citizens) - Student ID showing university address (for non-Malaysian citizens) |
 | Letter of authorization for authorized representative | Executed letter of authorization |
 
 ### Malaysia: Toll-free Numbers
 
 **Malaysia's toll-free prefix**: +601800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration |
-| Business address  (can be anywhere in the world) | One of the following:   - Business registration - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address (can be anywhere in the world) | One of the following:   - Business registration - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### Malaysia: SMS Guidelines
 
-|  |
+| |
 | --- |
 | Effective September 1, 2024, due to updated requirements from the Malaysian telecommunications regulator (MCMC) to combat fraud, all SMS messages sent to Malaysia that contain any of the following content in the message body will be blocked:   - Mobile or fixed-line phone numbers - Requests for a person’s personal information (e.g. name, identification number, card number, bank account number, etc.) - URLs |
 
@@ -1692,7 +1692,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities**: Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
@@ -1710,7 +1710,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Mauritius' mobile prefix**: +2305
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Business registration document |
@@ -1733,7 +1733,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities**: Voice, Voice + SMS
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration |
@@ -1749,7 +1749,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Myanmar: SMS Guidelines
 
-|  |
+| |
 | --- |
 | All messages sent from international phone numbers to Mytel mobile operator in Myanmar will be blocked by network operators starting August 1, 2024. |
 
@@ -1763,29 +1763,29 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Netherlands: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Excerpt from the commercial register (KvK) |
-| Business address (must be within locality or region covered by the phone number's prefix; a PO Box is not acceptable where a local address is required) | One of the following:  - Excerpt from the commercial register (KvK) showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address (must be within locality or region covered by the phone number's prefix; a PO Box is not acceptable where a local address is required) | One of the following: - Excerpt from the commercial register (KvK) showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
 | Netherlands VAT number | - None required |
 
 ### Netherlands: National Numbers
 
 **Netherlands' national prefix**: +3185
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Excerpt from the commercial register (KvK) |
-| Business address (must be within the Netherlands) | One of the following:  - Excerpt from the commercial register (KvK) showing Netherlands address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address (must be within the Netherlands) | One of the following: - Excerpt from the commercial register (KvK) showing Netherlands address - Utility bill - Tax notice - Rent receipt - Title deed |
 | Netherlands VAT number | - None required |
 
 ### Netherlands: Mobile Numbers
 
 **Netherlands' mobile prefix**: +3197
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - None required |
@@ -1795,7 +1795,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Netherlands' toll-free prefix**: +31800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - None required |
@@ -1804,7 +1804,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Netherlands: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | Portable numbers | - Geographic (local) numbers - Non-geographic (national) numbers (+3185) - Toll-free numbers |
 | Restrictions | - Most international phone numbers have VOICE capability only, no SMS. - Some service providers’ contracts do not allow phone numbers to be ported while the contract is active. Before submitting your order, check with your provider to ensure your contract allows you to port your phone numbers |
@@ -1823,15 +1823,15 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities**: Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
-| Business name | One of the following:  - Excerpt from the commercial register - Business registration |
-| Business address (must be in New Zealand) | One of the following:  - Excerpt from the commercial register showing the local address - Business registration showing the local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business name | One of the following: - Excerpt from the commercial register - Business registration |
+| Business address (must be in New Zealand) | One of the following: - Excerpt from the commercial register showing the local address - Business registration showing the local address - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### New Zealand: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | Portable numbers | - Geographic (local) numbers (+643, +644, +646, +647, +649) - Toll-free numbers (+64508 or +64800) |
 | Restrictions | Most international phone numbers have VOICE capability only, no SMS. |
@@ -1848,7 +1848,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Norway: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business Name *The officially registered name of the business; Must be registered in Norway* | - No documentation required |
@@ -1859,32 +1859,32 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Norway's mobile prefix**: +4759
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business Name *The officially registered name of the business; Must be registered in Norway* | - Norwegian Certificate of Registration (Firmaattest) |
-| Business Address *Must be within Norway; a PO box is not acceptable* | One of the following:  - Norwegian Certificate of Registration (Firmaattest) - Utility bill |
+| Business Address *Must be within Norway; a PO box is not acceptable* | One of the following: - Norwegian Certificate of Registration (Firmaattest) - Utility bill |
 | Business Registration Number *The company's registration number (organisasjonsnummer) as it appears on the Certificate of Registration (Firmaattest)* | - Norwegian Certificate of Registration (Firmaattest) |
-| Name of Authorized Representative *Provide the name as it appears on the Norwegian Government ID or Passport. Must match the name appearing on a Power of Attorney or Certificate of Registration (Firmaattest)* | One of the following:  - Norwegian Government-issued ID - Norwegian Passport |
-| Authorization of Authorized Representative | One of the following:  - Power of attorney - Other official documentation such as the commercial registry identifying the person as a country manager and an authorized representative |
+| Name of Authorized Representative *Provide the name as it appears on the Norwegian Government ID or Passport. Must match the name appearing on a Power of Attorney or Certificate of Registration (Firmaattest)* | One of the following: - Norwegian Government-issued ID - Norwegian Passport |
+| Authorization of Authorized Representative | One of the following: - Power of attorney - Other official documentation such as the commercial registry identifying the person as a country manager and an authorized representative |
 
 ### Norway: Toll-free Numbers
 
 **Norway's toll-free prefix**: +47800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business Name *The officially registered name of the business; Must be registered in Norway* | - Norwegian Certificate of Registration (Firmaattest) |
-| Business Address *Must be within Norway; a PO box is not acceptable.* | One of the following:  - Norwegian Certificate of Registration (Firmaattest) showing address in Norway - Utility bill showing address in Norway |
+| Business Address *Must be within Norway; a PO box is not acceptable.* | One of the following: - Norwegian Certificate of Registration (Firmaattest) showing address in Norway - Utility bill showing address in Norway |
 | Business Registration Number *The company's registration number (organisasjonsnummer) as it appears on the Certificate of Registration (Firmaattest)* | - Norwegian Certificate of Registration (Firmaattest) |
-| Name of Authorized Representative *Provide the name as it appears on the Norwegian Government ID or Passport. Must match the name appearing on a Power of Attorney or Certificate of Registration (Firmaattest)* | One of the following:  - Norwegian Government-issued ID with picture - Norwegian Passport |
-| Authorization of Authorized Representative | One of the following:  - Power of attorney - Other official documentation such as the commercial registry identifying the person as a country manager and an authorized representative |
+| Name of Authorized Representative *Provide the name as it appears on the Norwegian Government ID or Passport. Must match the name appearing on a Power of Attorney or Certificate of Registration (Firmaattest)* | One of the following: - Norwegian Government-issued ID with picture - Norwegian Passport |
+| Authorization of Authorized Representative | One of the following: - Power of attorney - Other official documentation such as the commercial registry identifying the person as a country manager and an authorized representative |
 | Norwegian Merverdiavgift (MVA) number *(a Norwegian VAT number)* | - No documentation required |
 
 ### Norway: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | Portable numbers | Geographic (local) numbers |
 | Restrictions | Most international phone numbers have VOICE capability only, no SMS. |
@@ -1903,12 +1903,12 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities**: Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration (Certificado de Registro Público) showing name of authorised representative or legal representative |
-| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following:  - Business registration (Certificado de Registro Público) showing address - Utility bill - Tax notice - Rent receipt - Title deed |
-| Name of authorized representative or legal representative | One of the following:  - National Identity document (Cedula de Identidad) for Panamanian citizens or residents - Passport for foreign citizens that are non-residents |
+| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following: - Business registration (Certificado de Registro Público) showing address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Name of authorized representative or legal representative | One of the following: - National Identity document (Cedula de Identidad) for Panamanian citizens or residents - Passport for foreign citizens that are non-residents |
 | Letter of Declaration | Signed Letter of Declaration. Please copy the form for the template located [here](https://www.twilio.com/docs/phone-numbers/regulatory/form-letter-of-declaration-template "here"). |
 
 ### Panama: Toll-free Numbers
@@ -1917,12 +1917,12 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Panama's toll-free prefix**: +507800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration (Certificado de Registro Público) showing name of authorised representative or legal representative |
-| Business address (must be within Panama) | One of the following:  - Business registration (Certificado de Registro Público) showing address - Utility bill - Tax notice - Rent receipt - Title deed |
-| Name of authorized representative or legal representative | One of the following:  - National Identity document (Cedula de Identidad) for Panamanian citizens or residents - Passport for foreign citizens that are non-residents |
+| Business address (must be within Panama) | One of the following: - Business registration (Certificado de Registro Público) showing address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Name of authorized representative or legal representative | One of the following: - National Identity document (Cedula de Identidad) for Panamanian citizens or residents - Passport for foreign citizens that are non-residents |
 
 ### Panama: Porting Guidelines
 
@@ -1940,7 +1940,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Peru's toll-free prefix**: +51800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | There are currently no regulatory requirements for toll-free phone numbers in Peru. | |
@@ -1955,7 +1955,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Philippines: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | One of the following:   - Certificate of registration of business name Department of Trade & Industry Phillipines - Certificate of Registration from Securities and Exchange Commission Philippines |
@@ -1966,7 +1966,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities:** SMS
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | None required as there are currently no regulatory requirements for Mobile numbers in the Philippines. | |
@@ -1975,7 +1975,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Philippines' toll-free prefix**: +63 1800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Copy of (SEC) Company Registration |
@@ -1983,7 +1983,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Philippines: SMS Guidelines
 
-|  |
+| |
 | --- |
 | To prevent potential fraud, all messages sent from international numbers to the Philippines will be blocked starting April 7, 2025. If you need to send SMS to the Philippines, you must use a Philippine mobile number. |
 
@@ -2001,14 +2001,14 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities**: Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from a relevant business register (for example, the National Court Register or business activity register) |
 | Business address (must be within locality or region covered by the phone number's prefix; a PO Box is not acceptable where a local address is required) | None required |
 | Business registration number: | Excerpt from a relevant business register such as National ID (REGON), National Tax ID (NIP), National Court Register (KRS), or business activity register |
 | Name of authorized representative | None required |
-| Authorization of authorized representative | One of the following:  - Power of attorney - Other official documentation identifying the person as an authorized representative (for example, business registration identifying the individual as a country manager) |
+| Authorization of authorized representative | One of the following: - Power of attorney - Other official documentation identifying the person as an authorized representative (for example, business registration identifying the individual as a country manager) |
 
 ### Poland: Mobile Numbers
 
@@ -2016,14 +2016,14 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Polands's mobile prefixes**: +4873, +4879
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from a relevant business register (for example, the National Court Register or business activity register). |
 | Business address (can be anywhere in the world) | None required |
 | Business registration number | Excerpt from a relevant business register such as National ID (REGON), National Tax ID (NIP), National Court Register (KRS), or business activity register. |
 | Name of authorized representative | None required |
-| Authorization of authorized representative | One of the following:  - Power of attorney - Other official documentation identifying the person as an authorized representative (for example, business registration identifying the individual as a country manager) |
+| Authorization of authorized representative | One of the following: - Power of attorney - Other official documentation identifying the person as an authorized representative (for example, business registration identifying the individual as a country manager) |
 
 ### Poland: Toll-free Numbers
 
@@ -2031,7 +2031,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Poland's toll-free prefix**: +48800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from a relevant business register (for example, the National Court Register or business activity register). |
@@ -2050,7 +2050,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Portugal's national prefix**: +351 30
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the Commercial register |
@@ -2061,7 +2061,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Portugal's mobile prefix**: +351 9
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the Commercial register |
@@ -2072,7 +2072,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Portugal's toll-free prefix**: +351 800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the Commercial register |
@@ -2082,7 +2082,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Portugal: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | **Portable numbers** | Toll-free numbers (+351 800) |
 | **Restrictions** | Most international phone numbers have VOICE capability only, SMS is not possible. |
@@ -2101,7 +2101,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities**: Voice, SMS, Voice + SMS
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | There is currently no information available for local phone numbers in Puerto Rico. | |
@@ -2118,37 +2118,37 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Romania's national prefix**: +40
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
-| Business name | One of the following:  - Trade registry certificate - Fiscal registration, and or VAT certificate - Excerpt from the commercial or trade registry |
-| Business address (must be in Romania) | One of the following:  - Excerpt from the commercial or trade registry showing matching address - Utility bill - Tax notice - Rent receipt - Title deed |
-| Proof of trade registry or fiscal number | One of the following:  - Trade registry certificate - Fiscal registration, and or VAT certificate - Excerpt from the commercial or trade registry |
-| Name of authorized representative | One of the following:  - Passport - Identity card - Residence or Labor permit |
-| Proof that representative is authorized to act on behalf of the business | One of the following:  - Power of attorney - Other documentation showing the individual is a director or country manager for the business |
+| Business name | One of the following: - Trade registry certificate - Fiscal registration, and or VAT certificate - Excerpt from the commercial or trade registry |
+| Business address (must be in Romania) | One of the following: - Excerpt from the commercial or trade registry showing matching address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Proof of trade registry or fiscal number | One of the following: - Trade registry certificate - Fiscal registration, and or VAT certificate - Excerpt from the commercial or trade registry |
+| Name of authorized representative | One of the following: - Passport - Identity card - Residence or Labor permit |
+| Proof that representative is authorized to act on behalf of the business | One of the following: - Power of attorney - Other documentation showing the individual is a director or country manager for the business |
 | Date of birth of authorized representative | None required |
-| Address of authorized representative | One of the following:  - Government-issued ID - Passport - Romanian Residence or Labor permit |
-| Proof of series, number, and expiry date of the identity document of authorized representative | One of the following:  - Passport - Identity card - Residence or Labor permit |
+| Address of authorized representative | One of the following: - Government-issued ID - Passport - Romanian Residence or Labor permit |
+| Proof of series, number, and expiry date of the identity document of authorized representative | One of the following: - Passport - Identity card - Residence or Labor permit |
 
 ### Romania: Toll-free Numbers
 
 **Romania's toll-free prefix**: +40800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
-| Business name | One of the following:  - Trade registry certificate - Fiscal registration, and or VAT certificate - Excerpt from the commercial or trade registry |
-| Business address (can be anywhere in the world) | One of the following:  - Excerpt from the commercial or trade registry showing matching address - Utility bill - Tax notice - Rent receipt - Title deed |
-| Proof of trade registry or fiscal number | One of the following:  - Trade registry certificate - Fiscal registration, and or VAT certificate - Excerpt from the commercial or trade registry |
-| Name of authorized representative | One of the following:  - Passport - Identity card - Romanian Residence or Labor permit |
-| Proof that representative is authorized to act on behalf of the business | One of the following:  - Power of attorney - Other documentation showing the individual is a director or country manager for the business |
+| Business name | One of the following: - Trade registry certificate - Fiscal registration, and or VAT certificate - Excerpt from the commercial or trade registry |
+| Business address (can be anywhere in the world) | One of the following: - Excerpt from the commercial or trade registry showing matching address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Proof of trade registry or fiscal number | One of the following: - Trade registry certificate - Fiscal registration, and or VAT certificate - Excerpt from the commercial or trade registry |
+| Name of authorized representative | One of the following: - Passport - Identity card - Romanian Residence or Labor permit |
+| Proof that representative is authorized to act on behalf of the business | One of the following: - Power of attorney - Other documentation showing the individual is a director or country manager for the business |
 | Date of birth of authorized representative | None required |
 | Address of authorized representative | None required |
-| Proof of series, number, and expiry date of identity document of authorized representative | One of the following:  - Passport - Identity card - Romanian Residence or Labor permit |
+| Proof of series, number, and expiry date of identity document of authorized representative | One of the following: - Passport - Identity card - Romanian Residence or Labor permit |
 
 ### Romania: SMS Guidelines
 
-|  |
+| |
 | --- |
 | Effective January 15, 2025, a new regulation from the network operator Telekom Romania will be enforced, and all messages sent from international phone numbers to this operator will be blocked. |
 
@@ -2162,7 +2162,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Russia SMS Guidelines
 
-|  |
+| |
 | --- |
 | All SMS messaging traffic sent from international phone numbers to Russian phone numbers on the MTS, Megafon, YOTA, and MOTIV networks will be blocked by Russian carriers starting July 16, 2024. |
 
@@ -2176,7 +2176,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Saudi Arabia: SMS Guidelines
 
-|  |
+| |
 | --- |
 | In an effort to prevent potential fraud, all SMS messaging traffic from international phone numbers to Saudi Arabian phone numbers will be blocked starting August 16, 2024. |
 
@@ -2192,7 +2192,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Singapore's mobile prefix**: +658
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Business registration |
@@ -2205,7 +2205,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Singapore's national prefix**: +653
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Name of Authorized Representative | One of the following:   - National ID card - Passport - Employment Pass |
@@ -2220,7 +2220,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Singapore's toll-free prefix**: +65800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Business registration |
@@ -2242,15 +2242,15 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Slovakia's mobile prefix**: +4219
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration |
 | Business address (can be anywhere in the world) | None required |
 | Proof of registered seat | Business registration |
 | Business registration number | Business registration |
-| Name of authorized representative | One of the following:  - Government-issued ID - Passport |
-| Proof that representative is authorized to act on behalf of the company | One of the following:  - Power of attorney - Other documentation showing the individual is a director or country manager for the business |
+| Name of authorized representative | One of the following: - Government-issued ID - Passport |
+| Proof that representative is authorized to act on behalf of the company | One of the following: - Power of attorney - Other documentation showing the individual is a director or country manager for the business |
 
 ### Slovakia: Toll-free Numbers
 
@@ -2258,15 +2258,15 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Slovakia's toll-free prefix**: +421800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration |
 | Business address (can be anywhere in the world) | None required |
 | Proof of registered seat | Business registration |
 | Proof of business registration number | Business registration |
-| Name of authorized representative | One of the following:  - Government-issued ID - Passport |
-| Proof that representative is authorized to act on behalf of the company | One of the following:  - Power of attorney - Other documentation showing the individual is a director or country manager for the business |
+| Name of authorized representative | One of the following: - Government-issued ID - Passport |
+| Proof that representative is authorized to act on behalf of the company | One of the following: - Power of attorney - Other documentation showing the individual is a director or country manager for the business |
 
 ### Slovakia: Porting Guidelines
 
@@ -2282,11 +2282,11 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities**: Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
-| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following:  - Excerpt from the commercial register showing the local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following: - Excerpt from the commercial register showing the local address - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### Slovenia: Mobile Numbers
 
@@ -2294,7 +2294,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Slovenia's mobile prefix**: +38631
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Currently you do not need to provide documentation for mobile numbers in Slovenia. | |
@@ -2313,11 +2313,11 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities**: Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
-| Business name | One of the following:  - Business registration - Certified photocopy of business letterhead or other similar document containing the Business Registration Number to verify the business registration |
-| Business address *Must be within locality or region covered by the phone number's prefix* | One of the following:  - Bank statement - Municipal rates or tax invoice - Recent telephone account statement - New motor vehicle license |
+| Business name | One of the following: - Business registration - Certified photocopy of business letterhead or other similar document containing the Business Registration Number to verify the business registration |
+| Business address *Must be within locality or region covered by the phone number's prefix* | One of the following: - Bank statement - Municipal rates or tax invoice - Recent telephone account statement - New motor vehicle license |
 | Name of authorized representative | Government-issued ID (must include photo, full name, and identity number) |
 | Address of authorized representative | None required |
 | Identity Number of Authorized Representative | Government-issued ID (must include photo, full name, and identity number) |
@@ -2328,11 +2328,11 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities**: Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
-| Business name | One of the following:  - Business registration - Certified photocopy of business letterhead or other similar document containing the Business Registration Number to verify the business registration |
-| Business address  *May be anywhere in the world* | One of the following:  - Bank statement - Municipal rates or tax invoice - Recent telephone account statement - New motor vehicle license |
+| Business name | One of the following: - Business registration - Certified photocopy of business letterhead or other similar document containing the Business Registration Number to verify the business registration |
+| Business address *May be anywhere in the world* | One of the following: - Bank statement - Municipal rates or tax invoice - Recent telephone account statement - New motor vehicle license |
 | Name of authorized representative | Government-issued ID (must include photo, full name, and identity number) |
 | Address of authorized representative | None required |
 | Identity Number of Authorized Representative | Government-issued ID (must include photo, full name, and identity number) |
@@ -2345,11 +2345,11 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **South Africa's mobile prefix**: +2760
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
-| Business name | One of the following:  - Business registration - Certified photocopy of business letterhead or other similar document containing the business registration number so the business registration can be verified in reference to this document |
-| Business address (must be within South Africa) | One of the following:  - Bank statement - Municipal rates or tax invoice - Recent telephone account statement - New motor vehicle license |
+| Business name | One of the following: - Business registration - Certified photocopy of business letterhead or other similar document containing the business registration number so the business registration can be verified in reference to this document |
+| Business address (must be within South Africa) | One of the following: - Bank statement - Municipal rates or tax invoice - Recent telephone account statement - New motor vehicle license |
 | Name of authorized representative | Government-issued ID (must include photo, full name, and identity number) |
 | Address of authorized representative | None required |
 | Number of authorized representative | Government-issued ID (must include photo, full name, and identity number) |
@@ -2362,11 +2362,11 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **South Africa's toll-free prefix**: +27800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
-| Business name | One of the following:  - Business registration - Certified photocopy of business letterhead or other similar document containing the business registration number to verify the business registration |
-| Business address (must be within South Africa) | One of the following:  - Bank statement - Municipal rates or tax invoice - Recent telephone account statement - New motor vehicle license |
+| Business name | One of the following: - Business registration - Certified photocopy of business letterhead or other similar document containing the business registration number to verify the business registration |
+| Business address (must be within South Africa) | One of the following: - Bank statement - Municipal rates or tax invoice - Recent telephone account statement - New motor vehicle license |
 | Name of authorized representative | Government-issued ID (must include photo, full name, and identity number) |
 | Address of authorized representative (can be anywhere in the world) | None required |
 | Identity number of authorized representative | Government-issued ID (must include photo, full name, and identity number) |
@@ -2381,15 +2381,15 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### South Korea: Toll-free Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Business Registration Certificate (사업자등록증) |
-| Business address  *Anywhere in the Republic of Korea; a P.O. Box is not acceptable.* | One of the following:   - Business Registration Certificate (사업자등록증) - Utility bill - Tax notice - Rent receipt - Title deed |
-| Business Registration Number  *KR-BRN issued by the National Tax Authority* | - None required |
+| Business address *Anywhere in the Republic of Korea; a P.O. Box is not acceptable.* | One of the following:   - Business Registration Certificate (사업자등록증) - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business Registration Number *KR-BRN issued by the National Tax Authority* | - None required |
 | Business Website | - None required |
-| SK Corporate Service Application Form  *A copy of the order form is located [here](https://drive.google.com/file/d/16lcGHiaeeo_kCizU-C2mw9RjVyoeuBJU/view?usp=sharing). Please complete the form and upload it with your bundle application. Must show company's corporate seal otherwise, must show CEO signature if CEO is the applicant.* | - SK Corporate Service Application Form |
-| Proof of Authority  *If the SK Corporate Service Application Form is stamped with the corporate seal, a Corporation Seal Verification Certificate is required. If it is signed by the CEO, the CEO’s Government ID must be provided instead.* | One of the following:   - Corporation Seal Verification Certificate - CEO’s government issued ID |
+| SK Corporate Service Application Form *A copy of the order form is located [here](https://drive.google.com/file/d/16lcGHiaeeo_kCizU-C2mw9RjVyoeuBJU/view?usp=sharing). Please complete the form and upload it with your bundle application. Must show company's corporate seal otherwise, must show CEO signature if CEO is the applicant.* | - SK Corporate Service Application Form |
+| Proof of Authority *If the SK Corporate Service Application Form is stamped with the corporate seal, a Corporation Seal Verification Certificate is required. If it is signed by the CEO, the CEO’s Government ID must be provided instead.* | One of the following:   - Corporation Seal Verification Certificate - CEO’s government issued ID |
 | Authorized Representative’s First Name | - None required |
 | Authorized Representative’s Last Name | - None required |
 | Authorized Representative’s Work Email | - None required |
@@ -2414,45 +2414,45 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Spain: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Business registration |
 | Spanish fiscal identification number: CIF (Código de Identificación Fiscal) | - Business registration |
-| Business address **Must be within the locality or region covered by the phone number's prefix** | One of the following:  - Business registration showing address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address **Must be within the locality or region covered by the phone number's prefix** | One of the following: - Business registration showing address - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### Spain: National Numbers
 
 **Spain's national prefix**: +34518
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Business registration |
 | Spanish fiscal identification number: CIF (Código de Identificación Fiscal) | - Business registration |
-| Business address (must be within Spain) | One of the following:  - Business registration showing address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address (must be within Spain) | One of the following: - Business registration showing address - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### Spain: Mobile Numbers
 
 **Spain's mobile prefixes**: +34911, +34955, +3498, +34931, +34960, +34971
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Business registration |
 | Spanish fiscal identification number: CIF (Código de Identificación Fiscal) | - Business registration |
-| Business address (must be within Spain) | One of the following:  - Business registration showing address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address (must be within Spain) | One of the following: - Business registration showing address - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### Spain: Toll-free Numbers
 
 **Spain's toll-free prefix**: +34900
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - Business registration |
 | Spanish fiscal identification number: CIF (Código de Identificación Fiscal) | - Business registration |
-| Business address (must be within Spain) | One of the following:  - Business registration showing address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address (must be within Spain) | One of the following: - Business registration showing address - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### Spain: Documentation Guidelines
 
@@ -2462,7 +2462,7 @@ Registered companies can access this document through the Mercantile Registry's 
 
 ### Spain: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | Portable numbers | - Geographic (local) numbers (+34 8, +34 9) - Non-geographic numbers (+34 901, +34 902) - Toll-free numbers (+34 900, +34 800) |
 | Restrictions | - Most of International Phone Numbers have VOICE capability only, no SMS. Letter of Authorization must be in Spanish. You can use English translation for guidance:   - [Geo and Non-Geo English Guide](https://twilio.zendesk.com/hc/article_attachments/360091339973/Spain_Geo_Non-Geo_LOA__English_guide_.pdf) |
@@ -2483,11 +2483,11 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Sri Lanka's toll-free prefix**: +941120
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration |
-| Business address (can be anywhere in the world) | One of the following:  - Business registration - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address (can be anywhere in the world) | One of the following: - Business registration - Utility bill - Tax notice - Rent receipt - Title deed |
 | Business registration number | Business registration |
 | Letter of authorization (LoA) | Executed letter of authorization. You can copy the [LoA template](https://www.twilio.com/docs/phone-numbers/regulatory/letter-authorization-loa-template), fill it in, then upload it to the Console. |
 
@@ -2505,7 +2505,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Capabilities**: Voice
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | There is currently no information available for local phone numbers in Sudan. | |
@@ -2522,31 +2522,31 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Sweden's national prefix**: +4610
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
-| Business address  *Must be within Sweden* | One of the following:  - Certificate of Registration (Registreringsbevis) - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *Must be within Sweden* | One of the following: - Certificate of Registration (Registreringsbevis) - Utility bill - Tax notice - Rent receipt - Title deed |
 | Business Website | None required |
-| Business Registration Number  *The organization number (Organisationsnummer) issued by the Swedish Companies Registration Office (Bolagsverket) (ex: NNNNNN-NNNN).* | Certificate of Registration (Registreringsbevis) |
+| Business Registration Number *The organization number (Organisationsnummer) issued by the Swedish Companies Registration Office (Bolagsverket) (ex: NNNNNN-NNNN).* | Certificate of Registration (Registreringsbevis) |
 | Authorized Representative Contact Email | None required |
 
 ### Sweden: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
-| Business address  *Must be within locality or region covered by the phone number's prefix; a PO Box is not acceptable where a local address is required.* | One of the following:  - Certificate of Registration (Registreringsbevis) - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *Must be within locality or region covered by the phone number's prefix; a PO Box is not acceptable where a local address is required.* | One of the following: - Certificate of Registration (Registreringsbevis) - Utility bill - Tax notice - Rent receipt - Title deed |
 | Business Website | None required |
-| Business Registration Number  *The organization number (Organisationsnummer) issued by the Swedish Companies Registration Office (Bolagsverket) (ex: NNNNNN-NNNN).* | Certificate of Registration (Registreringsbevis) |
+| Business Registration Number *The organization number (Organisationsnummer) issued by the Swedish Companies Registration Office (Bolagsverket) (ex: NNNNNN-NNNN).* | Certificate of Registration (Registreringsbevis) |
 | Authorized Representative Contact Email | None required |
 
 ### Sweden: Mobile Numbers
 
 #### **Sweden's mobile prefix**: +467
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | There is currently no information available for mobile phone numbers in Sweden. | |
@@ -2555,11 +2555,11 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Sweden's toll-free prefix**: +46200
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
-| Business address  *May be anywhere in the world* | None required |
+| Business address *May be anywhere in the world* | None required |
 | Business Website | None required |
 | Authorized Representative Contact Email | None required |
 
@@ -2579,7 +2579,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Switzerland prefix**: +41
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial or official business register |
@@ -2593,7 +2593,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Switzerland mobile prefix**: +417
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the commercial or official business register |
@@ -2602,7 +2602,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Switzerland: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | Portable numbers | Geographic (local) numbers |
 | Restrictions | - Most international phone numbers have VOICE capability only, no SMS - Some service providers’ contracts do not allow phone numbers to be ported while the contract is active. Before submitting your order, check with your provider to ensure your contract allows you to port your phone numbers |
@@ -2617,31 +2617,31 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Taiwan: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Company registration showing the business name |
-| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following:  - Company registration showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address *Must be within the locality or region covered by the phone number's prefix* | One of the following: - Company registration showing local address - Utility bill - Tax notice - Rent receipt - Title deed |
 | Company registration number | Company registration showing the company’s registration number |
-| Name of authorized representative | One of the following:  - National ID - Passport - Residence permit |
+| Name of authorized representative | One of the following: - National ID - Passport - Residence permit |
 
 ### Taiwan: Toll-free Numbers
 
 **Taiwan's toll-free prefix**: +88680
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - If Taiwanese: No documentation required - If foreign: Proof of identity required, such as the company registration for foreign entities |
-| Business address (can be anywhere in the world) | One of the following:  - Company registration showing Taiwan address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address (can be anywhere in the world) | One of the following: - Company registration showing Taiwan address - Utility bill - Tax notice - Rent receipt - Title deed |
 | Company registration number | None required |
-| Name of authorized representative | One of the following:  - National ID - Passport - Residence permit |
+| Name of authorized representative | One of the following: - National ID - Passport - Residence permit |
 
 ### Taiwan: SMS Guidelines
 
-|  |
+| |
 | --- |
-| Note: From June 27, 2023, outbound SMS sent to Taiwanese numbers (+886) that include shortened URLs or unregistered full-length URLs will be blocked due to updated Taiwanese telecommunications regulator’s requirements.  To avoid your phone number being blocked, you must register the URLs and phone numbers that you want to include in your SMS in a ticket to Zendesk Customer Support. It can take up to three business days to register the URL. However, you can submit multiple URLs for registration in the same support ticket.  **To send outbound SMS to numbers in Taiwan**  1. Stop using shortened URLs in your outbound SMS to Taiwanese numbers. 2. Contact [Zendesk Customer Support](https://support.zendesk.com/hc/en-us/articles/4408843597850-Contacting-Zendesk-Customer-Support) to register the full-length URLs that you want to include in the body of your messages. In the ticket include the following information:  - State that the information is for “Taiwan URL registration” - Zendesk subdomain - Business name associated with the URL domain(s) - Example message body - Full-length URL(s) that you want to register - Use case and impact related to the URL(s)   Note: From October 8, 2025, outbound SMS to Taiwanese numbers (+886) that do not begin with a registered brand name may be blocked or flagged by Taiwan operators due to updated NCC requirements; broader enforcement is expected November 1, 2025.  To avoid your SMS being blocked, you must register your SMS brand and ensure all messages to Taiwan begin with that brand at the very start of the message body.  Every SMS to Taiwan must begin with the exact brand you submitted, at the very start of the message. Here are some examples of what this change to SMS content looks like in practice:   - Correct: [MyBrand] Your verification code is 123456. - Also correct: MyBrand: Your verification code is 123456. - Incorrect: Your verification code is 123456.   **To send outbound SMS to numbers in Taiwan**   1. Update your templates and business rules so each SMS begins with your brand (e.g., [MyBrand] Your code is 123456.) 2. Contact [Zendesk Customer Support](https://support.zendesk.com/hc/en-us/articles/4408843597850-Contacting-Zendesk-Customer-Support) to register your brand. In the ticket include the following information:  - State that the request is for “Taiwan SMS brand registration” - Zendesk subdomain - Legal company name - Company website - Company address - Contact email - Brand name to appear at the start of the SMS   - If the brand differs from your legal name, attach supporting documentation - 1–3 example message bodies starting with the brand |
+| Note: From June 27, 2023, outbound SMS sent to Taiwanese numbers (+886) that include shortened URLs or unregistered full-length URLs will be blocked due to updated Taiwanese telecommunications regulator’s requirements. To avoid your phone number being blocked, you must register the URLs and phone numbers that you want to include in your SMS in a ticket to Zendesk Customer Support. It can take up to three business days to register the URL. However, you can submit multiple URLs for registration in the same support ticket. **To send outbound SMS to numbers in Taiwan** 1. Stop using shortened URLs in your outbound SMS to Taiwanese numbers. 2. Contact [Zendesk Customer Support](https://support.zendesk.com/hc/en-us/articles/4408843597850-Contacting-Zendesk-Customer-Support) to register the full-length URLs that you want to include in the body of your messages. In the ticket include the following information: - State that the information is for “Taiwan URL registration” - Zendesk subdomain - Business name associated with the URL domain(s) - Example message body - Full-length URL(s) that you want to register - Use case and impact related to the URL(s)   Note: From October 8, 2025, outbound SMS to Taiwanese numbers (+886) that do not begin with a registered brand name may be blocked or flagged by Taiwan operators due to updated NCC requirements; broader enforcement is expected November 1, 2025. To avoid your SMS being blocked, you must register your SMS brand and ensure all messages to Taiwan begin with that brand at the very start of the message body. Every SMS to Taiwan must begin with the exact brand you submitted, at the very start of the message. Here are some examples of what this change to SMS content looks like in practice:   - Correct: [MyBrand] Your verification code is 123456. - Also correct: MyBrand: Your verification code is 123456. - Incorrect: Your verification code is 123456.   **To send outbound SMS to numbers in Taiwan**   1. Update your templates and business rules so each SMS begins with your brand (e.g., [MyBrand] Your code is 123456.) 2. Contact [Zendesk Customer Support](https://support.zendesk.com/hc/en-us/articles/4408843597850-Contacting-Zendesk-Customer-Support) to register your brand. In the ticket include the following information: - State that the request is for “Taiwan SMS brand registration” - Zendesk subdomain - Legal company name - Company website - Company address - Contact email - Brand name to appear at the start of the SMS   - If the brand differs from your legal name, attach supporting documentation - 1–3 example message bodies starting with the brand |
 
 ### Taiwan: Porting Guidelines
 
@@ -2655,7 +2655,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Thailand: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the Commercial register showing the name of the legal representative. |
@@ -2667,7 +2667,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Thailand's toll-free prefix**: +66 1800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Excerpt from the Commercial register |
@@ -2677,7 +2677,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Thailand: SMS Guidelines
 
-|  |
+| |
 | --- |
 | Effective October 6, 2025, Thai mobile operators will block SMS from international phone numbers to recipients in Thailand, due to new operator requirements. |
 
@@ -2697,11 +2697,11 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Tunisia's national prefix**: +216
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None to provide |
-| Business address (must be within Tunisia) | One of the following:  - Excerpt from the commercial register showing the Tunisia address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address (must be within Tunisia) | One of the following: - Excerpt from the commercial register showing the Tunisia address - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### Tunisia: Porting Guidelines
 
@@ -2717,11 +2717,11 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Uganda's national prefix**: +25620
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
-| Business address (must be within Uganda) | One of the following:  - Excerpt from the commercial register showing the Uganda address - Utility bill - Tax notice - Rent receipt - Title deed |
+| Business address (must be within Uganda) | One of the following: - Excerpt from the commercial register showing the Uganda address - Utility bill - Tax notice - Rent receipt - Title deed |
 
 ### Uganda: Toll-free Numbers
 
@@ -2729,7 +2729,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Uganda's toll-free prefix**: +256800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
@@ -2749,7 +2749,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **UAE's toll-free prefix**: +971800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
@@ -2766,26 +2766,26 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### United Kingdom: Phone Number Regulations
 
-Please note: Ofcom, the UK's telecom regulator, has updated telecom regulations, requiring a new business verification (regulatory bundle) for all UK numbers.  
-  
-From September 30, 2024, all UK numbers must have an bundle approved.  
-  
-Self-Service submission using the Business Verification tab is unavailable. Contact [Zendesk Customer Support](https://support.zendesk.com/hc/en-us/articles/4408843597850) with the required information to purchase new numbers and to submit a regulatory bundle for numbers in your account.  
-  
+Please note: Ofcom, the UK's telecom regulator, has updated telecom regulations, requiring a new business verification (regulatory bundle) for all UK numbers. 
+ 
+From September 30, 2024, all UK numbers must have an bundle approved. 
+ 
+Self-Service submission using the Business Verification tab is unavailable. Contact [Zendesk Customer Support](https://support.zendesk.com/hc/en-us/articles/4408843597850) with the required information to purchase new numbers and to submit a regulatory bundle for numbers in your account. 
+ 
 If the necessary documentation for the regulatory compliance bundle isn't provided in time for review, processing, and approval, there is a risk of being non-compliant. This could lead to potential call and message blocking, and possible number reclamation that could occur at any time after this date.
 
 ### United Kingdom: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - No documentation required |
-| Registration Authority  *Note: Reply one of "UK:CRN", "US:EIN", "CA:CBN", "AU:ACN", "OTHER". OTHER is for all other registration authorities.* | - No documentation required |
+| Registration Authority *Note: Reply one of "UK:CRN", "US:EIN", "CA:CBN", "AU:ACN", "OTHER". OTHER is for all other registration authorities.* | - No documentation required |
 | Business Registration Number | - No documentation required |
 | Website address | - No documentation required |
 | Business Address *Must be a valid United Kingdom address.* | - No documentation required |
-| Authorized Representative’s Name  *Note: Authorized representative should be a senior person in the company who is responsible for Phone Numbers* | - No documentation required |
-| Authorized Representative’s Phone Number  *Note: This must be a valid mobile number only where the customer can be reached. This cannot be a number which you've acquired from a provider such as Zendesk Talk.* | - No documentation required |
+| Authorized Representative’s Name *Note: Authorized representative should be a senior person in the company who is responsible for Phone Numbers* | - No documentation required |
+| Authorized Representative’s Phone Number *Note: This must be a valid mobile number only where the customer can be reached. This cannot be a number which you've acquired from a provider such as Zendesk Talk.* | - No documentation required |
 | Authorized Representative’s Work Email | - No documentation required |
 | Comments (Optional) | - No documentation required |
 
@@ -2793,16 +2793,16 @@ If the necessary documentation for the regulatory compliance bundle isn't provid
 
 **United Kingdom's national prefix:** +4433
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - No documentation required |
-| Registration Authority  *Note: Reply one of "UK:CRN", "US:EIN", "CA:CBN", "AU:ACN", "OTHER". OTHER is for all other registration authorities.* | - No documentation required |
+| Registration Authority *Note: Reply one of "UK:CRN", "US:EIN", "CA:CBN", "AU:ACN", "OTHER". OTHER is for all other registration authorities.* | - No documentation required |
 | Business Registration Number | - No documentation required |
 | Website address | - No documentation required |
 | Business Address *Must be a valid United Kingdom address.* | - No documentation required |
-| Authorized Representative’s Name  *Note: Authorized representative should be a senior person in the company who is responsible for Phone Numbers* | - No documentation required |
-| Authorized Representative’s Phone Number  *Note: This must be a valid mobile number only where the customer can be reached. This cannot be a number which you've acquired from a provider such as Zendesk Talk.* | - No documentation required |
+| Authorized Representative’s Name *Note: Authorized representative should be a senior person in the company who is responsible for Phone Numbers* | - No documentation required |
+| Authorized Representative’s Phone Number *Note: This must be a valid mobile number only where the customer can be reached. This cannot be a number which you've acquired from a provider such as Zendesk Talk.* | - No documentation required |
 | Authorized Representative’s Work Email | - No documentation required |
 | Comments (Optional) | - No documentation required |
 
@@ -2810,16 +2810,16 @@ If the necessary documentation for the regulatory compliance bundle isn't provid
 
 **United Kingdom's mobile prefix**: +447
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - No documentation required |
-| Registration Authority  *Note: Reply one of "UK:CRN", "US:EIN", "CA:CBN", "AU:ACN", "OTHER". OTHER is for all other registration authorities.* | - No documentation required |
+| Registration Authority *Note: Reply one of "UK:CRN", "US:EIN", "CA:CBN", "AU:ACN", "OTHER". OTHER is for all other registration authorities.* | - No documentation required |
 | Business Registration Number | - No documentation required |
 | Website address | - No documentation required |
 | Business Address *Must be a valid address. May be anywhere in the world* | - No documentation required |
-| Authorized Representative’s Name  *Note: Authorized representative should be a senior person in the company who is responsible for Phone Numbers* | - No documentation required |
-| Authorized Representative’s Phone Number  *Note: This must be a valid mobile number only where the customer can be reached. This cannot be a number which you've acquired from a provider such as Zendesk Talk.* | - No documentation required |
+| Authorized Representative’s Name *Note: Authorized representative should be a senior person in the company who is responsible for Phone Numbers* | - No documentation required |
+| Authorized Representative’s Phone Number *Note: This must be a valid mobile number only where the customer can be reached. This cannot be a number which you've acquired from a provider such as Zendesk Talk.* | - No documentation required |
 | Authorized Representative’s Work Email | - No documentation required |
 | Comments (Optional) | - No documentation required |
 
@@ -2827,28 +2827,28 @@ If the necessary documentation for the regulatory compliance bundle isn't provid
 
 **United Kingdom's toll-free prefixes**: +44808, +44800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | - No documentation required |
-| Registration Authority  *Note: Reply one of "UK:CRN", "US:EIN", "CA:CBN", "AU:ACN", "OTHER". OTHER is for all other registration authorities.* | - No documentation required |
+| Registration Authority *Note: Reply one of "UK:CRN", "US:EIN", "CA:CBN", "AU:ACN", "OTHER". OTHER is for all other registration authorities.* | - No documentation required |
 | Business Registration Number | - No documentation required |
 | Website address | - No documentation required |
 | Business Address *Must be a valid address. May be anywhere in the world* | - No documentation required |
-| Authorized Representative’s Name  *Note: Authorized representative should be a senior person in the company who is responsible for Phone Numbers* | - No documentation required |
-| Authorized Representative’s Phone Number  *Note: This must be a valid mobile number only where the customer can be reached. This cannot be a number which you've acquired from a provider such as Zendesk Talk.* | - No documentation required |
+| Authorized Representative’s Name *Note: Authorized representative should be a senior person in the company who is responsible for Phone Numbers* | - No documentation required |
+| Authorized Representative’s Phone Number *Note: This must be a valid mobile number only where the customer can be reached. This cannot be a number which you've acquired from a provider such as Zendesk Talk.* | - No documentation required |
 | Authorized Representative’s Work Email | - No documentation required |
 | Comments (Optional) | - No documentation required |
 
 ### United Kingdom: SMS Guidelines
 
-|  |
+| |
 | --- |
 | UK carriers will block any SMS messages sent to the UK from international numbers. Therefore, to communicate with UK customers via SMS, you must use a domestic UK phone number that is capable of sending messages. |
 
 ### United Kingdom: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | Portable numbers | - Geographic (local) numbers (+44 1,+44 2) - Mobile numbers (+44 7) - Non-geographic (national) numbers (+44 3) - Non-geographic (toll-free) numbers (+44 808, +44 800) |
 | Restrictions | - Most international phone numbers have VOICE capability only. Only Mobile numbers have VOICE and SMS - Most numbers are portable. In rare cases, some numbers are not. This is either because some service providers assign phone numbers, or because some providers do not have porting agreements with the major network operators |
@@ -2864,7 +2864,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### United States: Local Numbers
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Currently there is no information required and no documents that you need to provide for local numbers in the United States. | |
@@ -2879,14 +2879,14 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### United States: SMS Guidelines
 
-|  |  |
+| | |
 | --- | --- |
-| Local Numbers | Registration for **A2P 10DLC** is mandatory if you plan to use local US numbers for sending outbound SMS messages to phone numbers within the United States.  To register your Zendesk subdomain, fill in the [Zendesk Text A2P 10DLC Registration](https://docs.google.com/forms/d/e/1FAIpQLSczRJea0elsl4iamCzt6nWaTj7k1sbq-0XYHBsWM8YRecZP5g/viewform) form.  The process should be completed within an estimated 1 to 2 weeks. For more details on A2P 10DLC, [see this article](https://support.zendesk.com/hc/en-us/articles/4408837560730). |
-| Toll-free Numbers | Each toll-free number must go through a **Toll-free message verification** process before it can be used to send outbound messages. Unverified toll-free numbers will see their outbound messages blocked by telephony carriers.  Fill in the [Toll-free message verification for US/Canada](https://forms.gle/m5NQ7GkVfiCL6PmR7) form and send your details for verification. Please allow approximately 5 business days for this process.  Note: Messages sent from unverified toll-free phone numbers will return: "We couldn't deliver this message to +1 (XXX) XXX-XXXX". |
+| Local Numbers | Registration for **A2P 10DLC** is mandatory if you plan to use local US numbers for sending outbound SMS messages to phone numbers within the United States. To register your Zendesk subdomain, fill in the [Zendesk Text A2P 10DLC Registration](https://docs.google.com/forms/d/e/1FAIpQLSczRJea0elsl4iamCzt6nWaTj7k1sbq-0XYHBsWM8YRecZP5g/viewform) form. The process should be completed within an estimated 1 to 2 weeks. For more details on A2P 10DLC, [see this article](https://support.zendesk.com/hc/en-us/articles/4408837560730). |
+| Toll-free Numbers | Each toll-free number must go through a **Toll-free message verification** process before it can be used to send outbound messages. Unverified toll-free numbers will see their outbound messages blocked by telephony carriers. Fill in the [Toll-free message verification for US/Canada](https://forms.gle/m5NQ7GkVfiCL6PmR7) form and send your details for verification. Please allow approximately 5 business days for this process. Note: Messages sent from unverified toll-free phone numbers will return: "We couldn't deliver this message to +1 (XXX) XXX-XXXX". |
 
 ### United States: Porting Guidelines
 
-|  |  |
+| | |
 | --- | --- |
 | Portable numbers | - Geographic (local) numbers - Toll-free numbers - VoIP numbers |
 | Restrictions | - Most numbers are portable. In rare cases, Twilio may not have geographic coverage for that number and won’t be able to port it - The maximum amount of numbers per port is 1000 |
@@ -2905,7 +2905,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Uruguay's toll-free prefixes**: +598 4
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
@@ -2925,7 +2925,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Venezuela's toll-free prefix**: +58800
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | None required |
@@ -2946,7 +2946,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 **Vietnam's toll-free prefix**: +84120
 
-|  |  |
+| | |
 | --- | --- |
 | **Required information** | **Documents to provide** |
 | Business name | Business registration |
@@ -2955,7 +2955,7 @@ Regulations only. To confirm if you can buy a new number for this country, check
 
 ### Vietnam: SMS Guidelines
 
-|  |
+| |
 | --- |
 | Effective August 25, 2025, Vietnam operators will block all messages sent from international phone numbers. |
 

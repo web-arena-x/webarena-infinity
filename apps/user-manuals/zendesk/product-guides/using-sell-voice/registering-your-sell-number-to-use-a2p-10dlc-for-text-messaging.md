@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/5890447031450-Registering-
 
 ![Available on all Sell plans](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/plan_available_sell_all.png)
 
-**Important**: From **July 5, 2023**, US carriers **block/filter** SMS to US numbers if they are not registered under A2P 10DLC.   
+**Important**: From **July 5, 2023**, US carriers **block/filter** SMS to US numbers if they are not registered under A2P 10DLC.  
 By **August 30 2023**, all SMS to US numbers that are not registered under A2P 10DLC will be **completely blocked**.
 
 A2P 10DLC (Application-to-Person 10-Digit Long Code) is a messaging solution that's designed and sanctioned for businesses to send text messages from local 10DLC numbers in the United States (US). If your business communicates with a US-based audience, you must register for A2P 10 DLC.

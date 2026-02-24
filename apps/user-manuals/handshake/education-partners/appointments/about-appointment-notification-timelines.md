@@ -21,8 +21,8 @@ They will be prompted to complete the pre-appointment survey while they are sche
 
 **When will CS (Career Services users) be notified regarding appointments?**
 
-This will depend on their notification preferences. Users can choose to receive notifications either by email or via Handshake, or both!   
-  
+This will depend on their notification preferences. Users can choose to receive notifications either by email or via Handshake, or both!  
+ 
 *To manage your notifications, refer to* [Career Services User Settings: Manage Your Notifications](../user-account-settings/career-services-user-settings-manage-your-notifications.md).
 
 ![Appointment_Notification_Preferences.png](https://support.joinhandshake.com/hc/article_attachments/25997328740119)

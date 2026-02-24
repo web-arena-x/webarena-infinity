@@ -22,9 +22,9 @@ This article contains the following topics:
 Relay helps brands bring better support experiences to their consumers through proactive messaging for support use cases. Before you get started, make sure that the following prerequisites are in place:
 
 - Zendesk Suite Professional or higher.
-- At least one integration with WhatsApp and/or SMS (Twilio or MessageBird) via Sunshine Conversations or Talk Text.  
-  Learn how to [set up a WhatsApp](../third-party-and-social-messaging-channels/adding-whatsapp-channels-to-the-agent-workspace.md) or [SMS channel with Sunshine Conversations](https://docs.smooch.io/guide/twilio-sms/#configuring-twilio).  
-  [Add SMS as a channel through Talk Text](../setting-up-and-using-text/getting-started-with-text.md)
+- At least one integration with WhatsApp and/or SMS (Twilio or MessageBird) via Sunshine Conversations or Talk Text. 
+ Learn how to [set up a WhatsApp](../third-party-and-social-messaging-channels/adding-whatsapp-channels-to-the-agent-workspace.md) or [SMS channel with Sunshine Conversations](https://docs.smooch.io/guide/twilio-sms/#configuring-twilio). 
+ [Add SMS as a channel through Talk Text](../setting-up-and-using-text/getting-started-with-text.md)
 - You need to be signed in as a Zendesk admin to complete the setup.
 - You must [activate Custom Objects](../custom-data/activating-custom-objects.md).
 - You must have [permission to add, view, edit, and delete custom objects](https://support.zendesk.com/hc/en-us/articles/6034260247066-Configuring-agent-access-to-custom-object-records).
@@ -101,8 +101,8 @@ A report for each campaign can be viewed by clicking on the three dots to the ri
    - Use a search query using [Zendesk advanced search syntax](../../agent-guide/ticket-basics/using-zendesk-support-advanced-search.md#topic_j4c_44w_rm). Common data points used in this audience creation include user tags, custom user fields, created dates, and system user fields.
    - Use a set of conditions.
 
-Relay will present each dynamic value that was identified when the template was created.   
-- Static types should be used if, for example, you’re going to send the same template each week, and want to change the day of the week each time. Every user receiving this template will receive the same value in a single send, but you can change that value the next time you send it.  
+Relay will present each dynamic value that was identified when the template was created.  
+- Static types should be used if, for example, you’re going to send the same template each week, and want to change the day of the week each time. Every user receiving this template will receive the same value in a single send, but you can change that value the next time you send it. 
 - Dynamic values will pull in relevant system user fields and all custom user fields.
 
 ### Sending a new campaign
@@ -111,10 +111,10 @@ You'll now be able to see a summary of the channel you will send to and the tota
 
 **To send a new campaign**
 
-- Click **Send**.  
-  Do not navigate to a different page in Relay until sending is complete. You can navigate to other pages within Support on other tabs.  
-  Your audience must stay below 10,000 users. If your audience exceeds this threshold, then you will miss users in your search results.  
-  Relay will send about eight messages per second for Sunshine conversations or 4 per second for Talk text, which equates to a maximum of 28k messages per hour or 14k messages per hour, respectively
+- Click **Send**. 
+ Do not navigate to a different page in Relay until sending is complete. You can navigate to other pages within Support on other tabs. 
+ Your audience must stay below 10,000 users. If your audience exceeds this threshold, then you will miss users in your search results. 
+ Relay will send about eight messages per second for Sunshine conversations or 4 per second for Talk text, which equates to a maximum of 28k messages per hour or 14k messages per hour, respectively
 
 ### Viewing existing messaging templates
 
@@ -154,7 +154,7 @@ If this template is on a WhatsApp channel, the template will be submitted to Met
 
 **Message step**
 
-WhatsApp requires several additional pieces of information prior to approving a template for sending.  
+WhatsApp requires several additional pieces of information prior to approving a template for sending. 
 **To set up WhatsApp**
 
 1. Select the category for the message template. Relay does not support the Authentication message category. For more information about the message category, [see here](https://developers.facebook.com/docs/whatsapp/updates-to-pricing/new-template-guidelines/).

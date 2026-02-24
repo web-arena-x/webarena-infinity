@@ -29,7 +29,7 @@ You must have:
 
 - Cosign v2.0 or later installed.
 - For GitLab Self-Managed, the GitLab container registry [configured with a metadata database](../../../administration/packages/container_registry_metadata_database.md)
-  to display signatures.
+ to display signatures.
 
 ## Set image and service image
 
@@ -37,10 +37,10 @@ In the `.gitlab-ci.yml` file, use the `docker:cli` image and enable Docker-in-Do
 
 ```yaml
 build_and_sign:
-  stage: build
-  image: docker:cli
-  services:
-    - docker:dind  # Enable Docker-in-Docker service to allow Docker commands inside the container
+ stage: build
+ image: docker:cli
+ services:
+    - docker:dind # Enable Docker-in-Docker service to allow Docker commands inside the container
 ```
 
 ## Define CI/CD variables
@@ -49,10 +49,10 @@ Define variables for the image tag and URI using GitLab CI/CD predefined variabl
 
 ```yaml
 variables:
-  IMAGE_TAG: $CI_COMMIT_SHORT_SHA  # Use the commit short SHA as the image tag
-  IMAGE_URI: $CI_REGISTRY_IMAGE:$IMAGE_TAG  # Construct the full image URI with the registry, project path, and tag
-  COSIGN_YES: "true"  # Automatically confirm actions in Cosign without user interaction
-  FF_SCRIPT_SECTIONS: "true"  # Enables GitLab's CI script sections for better multi-line script output
+ IMAGE_TAG: $CI_COMMIT_SHORT_SHA # Use the commit short SHA as the image tag
+ IMAGE_URI: $CI_REGISTRY_IMAGE:$IMAGE_TAG # Construct the full image URI with the registry, project path, and tag
+ COSIGN_YES: "true" # Automatically confirm actions in Cosign without user interaction
+ FF_SCRIPT_SECTIONS: "true" # Enables GitLab's CI script sections for better multi-line script output
 ```
 
 ## Prepare OIDC token
@@ -61,8 +61,8 @@ Set up an OIDC token for keyless signing with Cosign.
 
 ```yaml
 id_tokens:
-  SIGSTORE_ID_TOKEN:
-    aud: sigstore  # Provide an OIDC token for keyless signing with Cosign
+ SIGSTORE_ID_TOKEN:
+    aud: sigstore # Provide an OIDC token for keyless signing with Cosign
 ```
 
 ## Prepare the container
@@ -94,7 +94,7 @@ In the `script` section of the `.gitlab-ci.yml` file, enter the following comman
 ```yaml
 - IMAGE_DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' "$IMAGE_URI")
 - |
-  cosign sign "$IMAGE_DIGEST" \
+ cosign sign "$IMAGE_DIGEST" \
     --registry-referrers-mode oci-1-1 \
     --annotations "com.gitlab.ci.user.name=$GITLAB_USER_NAME" \
     --annotations "com.gitlab.ci.pipeline.id=$CI_PIPELINE_ID" \
@@ -112,7 +112,7 @@ In the `.gitlab-ci.yml` file, include a verification step using the `cosign veri
 
 ```yaml
 - |
-  cosign verify \
+ cosign verify \
     --annotations "tag=$IMAGE_TAG" \
     --certificate-identity "$CI_PROJECT_URL//.gitlab-ci.yml@refs/heads/$CI_COMMIT_REF_NAME" \
     --certificate-oidc-issuer "$CI_SERVER_URL" \
@@ -120,8 +120,7 @@ In the `.gitlab-ci.yml` file, include a verification step using the `cosign veri
 ```
 
 The verification step ensures that the provenance data attached to the image is correct, and was not tampered with.
-The `cosign verify` command verifies the signature and checks the annotations. The output shows all the annotations
-you've added to the image during the signing process.
+The `cosign verify` command verifies the signature and checks the annotations. The output shows all the annotations you've added to the image during the signing process.
 
 In the output, you can see all annotations added earlier, including:
 
@@ -132,8 +131,7 @@ In the output, you can see all annotations added earlier, including:
 - Project path
 - Image source and revision
 
-By verifying these annotations, you can ensure that the image's provenance data is intact
-and matches what you expect based on your build process.
+By verifying these annotations, you can ensure that the image's provenance data is intact and matches what you expect based on your build process.
 
 ## Example `.gitlab-ci.yml` configuration
 
@@ -141,25 +139,25 @@ When you follow all the previous steps, the `.gitlab-ci.yml` file should look li
 
 ```yaml
 stages:
-  - build
+ - build
 
 build_and_sign:
-  stage: build
-  image: docker:cli
-  services:
-    - docker:dind  # Enable Docker-in-Docker service to allow Docker commands inside the container
-  variables:
-    IMAGE_TAG: $CI_COMMIT_SHORT_SHA  # Use the commit short SHA as the image tag
-    IMAGE_URI: $CI_REGISTRY_IMAGE:$IMAGE_TAG  # Construct the full image URI with the registry, project path, and tag
-    COSIGN_YES: "true"  # Automatically confirm actions in Cosign without user interaction
-    FF_SCRIPT_SECTIONS: "true"  # Enables GitLab's CI script sections for better multi-line script output
-  id_tokens:
+ stage: build
+ image: docker:cli
+ services:
+    - docker:dind # Enable Docker-in-Docker service to allow Docker commands inside the container
+ variables:
+    IMAGE_TAG: $CI_COMMIT_SHORT_SHA # Use the commit short SHA as the image tag
+    IMAGE_URI: $CI_REGISTRY_IMAGE:$IMAGE_TAG # Construct the full image URI with the registry, project path, and tag
+    COSIGN_YES: "true" # Automatically confirm actions in Cosign without user interaction
+    FF_SCRIPT_SECTIONS: "true" # Enables GitLab's CI script sections for better multi-line script output
+ id_tokens:
     SIGSTORE_ID_TOKEN:
-      aud: sigstore  # Provide an OIDC token for keyless signing with Cosign
-  before_script:
-    - apk add --no-cache cosign jq  # Install Cosign (mandatory) and jq (optional)
-    - docker login -u "gitlab-ci-token" -p "$CI_JOB_TOKEN" "$CI_REGISTRY"  # Log in to the Docker registry using GitLab CI token
-  script:
+      aud: sigstore # Provide an OIDC token for keyless signing with Cosign
+ before_script:
+    - apk add --no-cache cosign jq # Install Cosign (mandatory) and jq (optional)
+    - docker login -u "gitlab-ci-token" -p "$CI_JOB_TOKEN" "$CI_REGISTRY" # Log in to the Docker registry using GitLab CI token
+ script:
     # Build the Docker image using the specified tag and push it to the registry
     - docker build --pull -t "$IMAGE_URI" .
     - docker push "$IMAGE_URI"
@@ -190,5 +188,5 @@ build_and_sign:
         --annotations "tag=$IMAGE_TAG" \
         --certificate-identity "$CI_PROJECT_URL//.gitlab-ci.yml@refs/heads/$CI_COMMIT_REF_NAME" \
         --certificate-oidc-issuer "$CI_SERVER_URL" \
-        "$IMAGE_URI" | jq .  # Use jq to format the verification output for easier readability
+        "$IMAGE_URI" | jq . # Use jq to format the verification output for easier readability
 ```

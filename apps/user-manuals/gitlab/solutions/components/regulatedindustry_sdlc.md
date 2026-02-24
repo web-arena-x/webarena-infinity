@@ -17,6 +17,4 @@ This document provides the instruction and functional detail for GitLab Regulate
 
 <!--
 Note: This page is not in the Global Navigation as it does not contain any content.
-When the content is added, you can remove `ignore_in_report: true` from the frontmatter
-at the top of the page. Then add it to the navigation: https://docs.gitlab.com/development/documentation/site_architecture/global_nav/#add-a-navigation-entry
--->
+When the content is added, you can remove `ignore_in_report: true` from the frontmatter at the top of the page. Then add it to the navigation: https://docs.gitlab.com/development/documentation/site_architecture/global_nav/#add-a-navigation-entry -->

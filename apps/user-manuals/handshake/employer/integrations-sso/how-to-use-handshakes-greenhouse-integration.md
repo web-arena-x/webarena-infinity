@@ -18,9 +18,9 @@ Below, we have outlined the steps to post and manage a job on Handshake with Gre
 
 Greenhouse can be set up for newly created jobs in Handshake or jobs that do not have applicants yet.
 
-- Active (existing) jobs in Handshake with applicants cannot be linked to Greenhouse postings.  
-  - To sync applications for an existing job, you will need to close the current posting and create a new one.
-  - Duplicating active (existing) or closed jobs will result in an unsuccessful connection between Handshake and Greenhouse.
+- Active (existing) jobs in Handshake with applicants cannot be linked to Greenhouse postings. 
+ - To sync applications for an existing job, you will need to close the current posting and create a new one.
+ - Duplicating active (existing) or closed jobs will result in an unsuccessful connection between Handshake and Greenhouse.
 
 1. Once your job is in Handshake, select the job from Greenhouse from the **Add job from ATS** dropdown.
 
@@ -58,9 +58,9 @@ Students can apply directly in Handshake without being redirected to Greenhouse.
 
 - Students apply for your job by clicking **Quick Apply** on the job posting in Handshake.
 - Students can upload documents as needed, and answer the required and optional questions set up in Greenhouse. These questions include custom demographic questions and attachment-type questions.
-  - **Note**: Handshake accepts the following file types: pdf, doc, docx, txt, rtf, and supports a file size attachment of up to **20** MB.
+ - **Note**: Handshake accepts the following file types: pdf, doc, docx, txt, rtf, and supports a file size attachment of up to **20** MB.
 - A student's educational background can be sent to Greenhouse based on the job's educational requirements.
-  - If needed, Handshake pulls this information from the student's profile and sends it to Greenhouse.
+ - If needed, Handshake pulls this information from the student's profile and sends it to Greenhouse.
 
 ![Applications with education included .png](https://support.joinhandshake.com/hc/article_attachments/25997308847255)
 
@@ -84,7 +84,7 @@ Once a student submits an application, it will automatically appear in Greenhous
 - First name, Last name, and email address
 - Source as Handshake
 - Resume and Cover Letter *(if required)*
-  - Below the **Application** or **Details** tab > *Source & Responsibility* section (in Greenhouse)
+ - Below the **Application** or **Details** tab > *Source & Responsibility* section (in Greenhouse)
 - Responses provided to any required or optional Job Post Questions.
 - Responses to custom demographic questions *(if any)*
 

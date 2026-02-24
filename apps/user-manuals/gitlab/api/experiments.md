@@ -28,15 +28,15 @@ GET /experiments
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/experiments"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/experiments"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "key": "code_quality_walkthrough",
     "definition": {
       "name": "code_quality_walkthrough",
@@ -60,8 +60,8 @@ Example response:
         }
       ]
     }
-  },
-  {
+ },
+ {
     "key": "ci_runner_templates",
     "definition": {
       "name": "ci_runner_templates",
@@ -81,6 +81,6 @@ Example response:
         }
       ]
     }
-  }
+ }
 ]
 ```

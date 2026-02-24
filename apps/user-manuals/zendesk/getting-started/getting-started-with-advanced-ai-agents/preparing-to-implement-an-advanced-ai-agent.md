@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357751615258-Preparing-to
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -25,8 +25,7 @@ We recommended you include the following people on your AI agent implementation 
 
 ### Project lead
 
-Their job title is typically something like Head of Customer Support, Head of Customer
-Experience, or Director of Customer Service and Operations.
+Their job title is typically something like Head of Customer Support, Head of Customer Experience, or Director of Customer Service and Operations.
 
 The project lead is responsible for:
 
@@ -38,8 +37,7 @@ The project lead is responsible for:
 
 ### AI agent builders
 
-Their job title is typically something like Customer Support Agent, Customer Service Agent,
-or Customer Care Agent. Choose two or three experienced people.
+Their job title is typically something like Customer Support Agent, Customer Service Agent, or Customer Care Agent. Choose two or three experienced people.
 
 The AI agent builders are responsible for:
 
@@ -49,8 +47,7 @@ The AI agent builders are responsible for:
 
 ### CRM admin
 
-Their job title is typically something like CRM Administrator, CRM Manager, Ops Manager, or
-Developer/Product Manager for API Integrations.
+Their job title is typically something like CRM Administrator, CRM Manager, Ops Manager, or Developer/Product Manager for API Integrations.
 
 The CRM admin is responsible for:
 
@@ -60,8 +57,7 @@ The CRM admin is responsible for:
 
 ### Custom integration engineer
 
-This role is needed only if the project includes an integration. Their job title is
-typically something like Backend Engineer.
+This role is needed only if the project includes an integration. Their job title is typically something like Backend Engineer.
 
 The custom integration engineer is responsible for:
 
@@ -71,8 +67,7 @@ The custom integration engineer is responsible for:
 
 ## Setting goals
 
-It's important for the team to understand and agree what problems you’re solving and what
-you want to achieve.
+It's important for the team to understand and agree what problems you’re solving and what you want to achieve.
 
 Some example goals and KPIs are:
 
@@ -94,15 +89,11 @@ The following information is helpful to have for onboarding:
 
 ### Brand guidelines
 
-Get a copy of your internal
-brand guidelines that describe the tone of voice to use when communicating with your
-customers. Often the marketing team owns this document.
+Get a copy of your internal brand guidelines that describe the tone of voice to use when communicating with your customers. Often the marketing team owns this document.
 
 ### Custom integration
 
-If the project includes an integration, collect the
-following as well:
+If the project includes an integration, collect the following as well:
 
-- Agreed prioritization of the automations your team wants to build, as they may impact
-  different backend integrations
+- Agreed prioritization of the automations your team wants to build, as they may impact different backend integrations
 - Outputs from [custom integration preparations](https://support.zendesk.com/hc/en-us/articles/8357756827674)

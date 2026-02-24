@@ -17,18 +17,13 @@ Many items are migrated when using the direct transfer method, and some are excl
 
 ## Migrated group items
 
-The group items that are migrated depend on the version of GitLab you use on the destination. To determine if a
-specific group item is migrated:
+The group items that are migrated depend on the version of GitLab you use on the destination. To determine if a specific group item is migrated:
 
 1. Check the [`groups/stage.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/bulk_imports/groups/stage.rb)
-   file for all editions and the
-   [`groups/stage.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/ee/bulk_imports/groups/stage.rb) file
-   for Enterprise Edition for your version on the destination. For example, for version 15.9:
+   file for all editions and the [`groups/stage.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/ee/bulk_imports/groups/stage.rb) file for Enterprise Edition for your version on the destination. For example, for version 15.9:
    - <https://gitlab.com/gitlab-org/gitlab/-/blob/15-9-stable-ee/lib/bulk_imports/groups/stage.rb> (all editions).
-   - <https://gitlab.com/gitlab-org/gitlab/-/blob/15-9-stable-ee/ee/lib/ee/bulk_imports/groups/stage.rb> (Enterprise
-     Edition).
-1. Check the
-   [`group/import_export.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/import_export/group/import_export.yml)
+   - <https://gitlab.com/gitlab-org/gitlab/-/blob/15-9-stable-ee/ee/lib/ee/bulk_imports/groups/stage.rb> (Enterprise Edition).
+1. Check the [`group/import_export.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/import_export/group/import_export.yml)
    file for groups for your version on the destination. For example, for version 15.9:
    <https://gitlab.com/gitlab-org/gitlab/-/blob/15-9-stable-ee/lib/gitlab/import_export/group/import_export.yml>.
 
@@ -44,12 +39,12 @@ Group items that are migrated to the destination GitLab instance include:
 - Epic board lists
 - Group labels
 
-  {{< alert type="note" >}}
+ {{< alert type="note" >}}
 
-  Group labels cannot retain any associated label priorities during import.
-  You must prioritize these labels again manually after you migrate the relevant project to the destination instance.
+ Group labels cannot retain any associated label priorities during import.
+ You must prioritize these labels again manually after you migrate the relevant project to the destination instance.
 
-  {{< /alert >}}
+ {{< /alert >}}
 
 - Group milestones
 - Iterations
@@ -66,14 +61,14 @@ Group items that are migrated to the destination GitLab instance include:
 Some group items are excluded from migration because they:
 
 - Might contain sensitive information:
-  - CI/CD variables
-  - Deploy tokens
-  - Webhooks
+ - CI/CD variables
+ - Deploy tokens
+ - Webhooks
 - Are not supported:
-  - Custom fields
-  - Iteration cadence settings
-  - Pending member invitations
-  - Push rules
+ - Custom fields
+ - Iteration cadence settings
+ - Pending member invitations
+ - Push rules
 
 In addition, users and any [personal access tokens](../../profile/personal_access_tokens.md) they create are excluded from migration.
 
@@ -88,28 +83,22 @@ In addition, users and any [personal access tokens](../../profile/personal_acces
 
 {{< /history >}}
 
-If you choose to migrate projects when you [select groups to migrate](direct_transfer_migrations.md#select-the-groups-and-projects-to-import),
-project items are migrated with the projects.
+If you choose to migrate projects when you [select groups to migrate](direct_transfer_migrations.md#select-the-groups-and-projects-to-import), project items are migrated with the projects.
 
-The project items that are migrated depends on the version of GitLab you use on the destination. To determine if a
-specific project item is migrated:
+The project items that are migrated depends on the version of GitLab you use on the destination. To determine if a specific project item is migrated:
 
 1. Check the [`projects/stage.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/bulk_imports/projects/stage.rb)
-   file for all editions and the
-   [`projects/stage.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/ee/bulk_imports/projects/stage.rb)
+   file for all editions and the [`projects/stage.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/ee/bulk_imports/projects/stage.rb)
    file for Enterprise Edition for your version on the destination. For example, for version 15.9:
    - <https://gitlab.com/gitlab-org/gitlab/-/blob/15-9-stable-ee/lib/bulk_imports/projects/stage.rb> (all editions).
-   - <https://gitlab.com/gitlab-org/gitlab/-/blob/15-9-stable-ee/ee/lib/ee/bulk_imports/projects/stage.rb> (Enterprise
-     Edition).
-1. Check the
-   [`project/import_export.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/import_export/project/import_export.yml)
+   - <https://gitlab.com/gitlab-org/gitlab/-/blob/15-9-stable-ee/ee/lib/ee/bulk_imports/projects/stage.rb> (Enterprise Edition).
+1. Check the [`project/import_export.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/import_export/project/import_export.yml)
    file for projects for your version on the destination. For example, for version 15.9:
    <https://gitlab.com/gitlab-org/gitlab/-/blob/15-9-stable-ee/lib/gitlab/import_export/project/import_export.yml>.
 
 Any other project items are not migrated.
 
-If you choose not to migrate projects along with groups or if you want to retry a project migration, you can
-initiate project-only migrations using the [API](../../../api/bulk_imports.md).
+If you choose not to migrate projects along with groups or if you want to retry a project migration, you can initiate project-only migrations using the [API](../../../api/bulk_imports.md).
 
 Project items that are migrated to the destination GitLab instance include:
 
@@ -117,12 +106,12 @@ Project items that are migrated to the destination GitLab instance include:
 - Badges
 - Branches (including protected branches)
 
-  {{< alert type="note" >}}
+ {{< alert type="note" >}}
 
-  Imported branches respect the [default branch protection settings](../../project/repository/branches/protected.md) of the destination group.
-  These settings might cause an unprotected branch to be imported as protected.
+ Imported branches respect the [default branch protection settings](../../project/repository/branches/protected.md) of the destination group.
+ These settings might cause an unprotected branch to be imported as protected.
 
-  {{< /alert >}}
+ {{< /alert >}}
 
 - CI pipelines
 - Commit comments
@@ -148,15 +137,14 @@ Project items that are migrated to the destination GitLab instance include:
 - Uploads
 - Vulnerability reports
 
-  {{< alert type="note" >}}
+ {{< alert type="note" >}}
 
-  [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/501466) in GitLab 17.7.
-  Vulnerability reports are migrated without their status.
-  For more information, see [issue 512859](https://gitlab.com/gitlab-org/gitlab/-/issues/512859).
-  For the `ActiveRecord::RecordNotUnique` error when migrating vulnerability reports,
-  see [issue 509904](https://gitlab.com/gitlab-org/gitlab/-/issues/509904).
+ [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/501466) in GitLab 17.7.
+ Vulnerability reports are migrated without their status.
+ For more information, see [issue 512859](https://gitlab.com/gitlab-org/gitlab/-/issues/512859).
+ For the `ActiveRecord::RecordNotUnique` error when migrating vulnerability reports, see [issue 509904](https://gitlab.com/gitlab-org/gitlab/-/issues/509904).
 
-  {{< /alert >}}
+ {{< /alert >}}
 
 - Wikis
 
@@ -199,34 +187,33 @@ Setting-related project items that are migrated to the destination GitLab instan
 Some project items are excluded from migration because they:
 
 - Might contain sensitive information:
-  - CI/CD job logs
-  - CI/CD variables
-  - Container registry images
-  - Deploy keys
-  - Deploy tokens
-  - Encrypted tokens
-  - Job artifacts
-  - Pipeline schedule variables
-  - Pipeline triggers
-  - Webhooks
+ - CI/CD job logs
+ - CI/CD variables
+ - Container registry images
+ - Deploy keys
+ - Deploy tokens
+ - Encrypted tokens
+ - Job artifacts
+ - Pipeline schedule variables
+ - Pipeline triggers
+ - Webhooks
 - Are not supported:
-  - Agents
-  - [Child CI/CD pipelines](https://gitlab.com/gitlab-org/gitlab/-/issues/571159)
-  - Container registry
-  - Custom fields
-  - Environments
-  - Feature flags
-  - Infrastructure registry
-  - Instance administrators in branch protection rules when migrating
-    from GitLab Self-Managed to GitLab.com or GitLab Dedicated
-  - Linked issues
-  - Merge request approval rules
-  - Merge request dependencies
-  - Package registry
-  - Pages domains
-  - Pending member invitations
-  - Remote mirrors
-  - Wiki comments
+ - Agents
+ - [Child CI/CD pipelines](https://gitlab.com/gitlab-org/gitlab/-/issues/571159)
+ - Container registry
+ - Custom fields
+ - Environments
+ - Feature flags
+ - Infrastructure registry
+ - Instance administrators in branch protection rules when migrating from GitLab Self-Managed to GitLab.com or GitLab Dedicated
+ - Linked issues
+ - Merge request approval rules
+ - Merge request dependencies
+ - Package registry
+ - Pages domains
+ - Pending member invitations
+ - Remote mirrors
+ - Wiki comments
 
     {{< alert type="note" >}}
 
@@ -235,7 +222,6 @@ Some project items are excluded from migration because they:
     {{< /alert >}}
 
 - Do not contain recoverable data:
-  - Merge requests with no diff or source information
-    (for more information, see [issue 537943](https://gitlab.com/gitlab-org/gitlab/-/issues/537943))
+ - Merge requests with no diff or source information (for more information, see [issue 537943](https://gitlab.com/gitlab-org/gitlab/-/issues/537943))
 
 In addition, users and any [personal access tokens](../../profile/personal_access_tokens.md) they create are excluded from migration.

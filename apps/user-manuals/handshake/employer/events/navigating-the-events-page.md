@@ -11,7 +11,7 @@ It displays key information for each event, including the event name, scheduled 
 Your ability to view, create, or manage events depends on your employer account type, role, and permissions.
 
 - **Basic employers**: **Owners** and **Recruiters** can create and manage only the events they have personally created. Events created by other teammates will appear on your list but are **view-only**.
-  - To manage events created by teammates, you must upgrade to an eligible paid plan.
+ - To manage events created by teammates, you must upgrade to an eligible paid plan.
 - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**, can create and manage events created by themselves or by teammates, provided they have the appropriate permissions.
 
 Features available only to Premium partners are indicated by an asterisk (\*).*For more information, please check out this* [*resource*](https://www.joinhandshake.com/employers-premium/)*.*
@@ -24,8 +24,8 @@ If the **Events** option isn’t available in the left navigation bar or you're 
 
 - Review your access in [A Guide to Employer Role Types in Handshake](https://support.joinhandshake.com/hc/en-us/articles/360033919514).
 - To view or manage events, you must request the appropriate role or permissions from your company’s Owner or Admin.
-  - Not sure who that is? Refer to [Who is the Owner of My Company’s Profile?](https://support.joinhandshake.com/hc/en-us/articles/360019711833).
-  - If the owner is no longer active, contact our Support team.
+ - Not sure who that is? Refer to [Who is the Owner of My Company’s Profile?](https://support.joinhandshake.com/hc/en-us/articles/360019711833).
+ - If the owner is no longer active, contact our Support team.
 
 **Topics**
 
@@ -51,13 +51,13 @@ A set of filters is located at the top of the **Events** table, which allows you
 **You can filter events by the following criteria**:
 
 - **Keyword search**
-  - Enter the name of the event in the text box to the left.
+ - Enter the name of the event in the text box to the left.
 - **Include past events**
 - **Host**
 - **Format**
-  - Hybrid
-  - In-Person
-  - Virtual
+ - Hybrid
+ - In-Person
+ - Virtual
 
 ![Filters.png](https://support.joinhandshake.com/hc/article_attachments/25995122992919)
 
@@ -69,20 +69,20 @@ To further refine your search, click the button **All filters**. Once clicked, a
 - **End date**
 - **Location**
 - **Status**
-  - Approved
-  - Declined
-  - Pending
+ - Approved
+ - Declined
+ - Pending
 - **Type**
-  - Classroom presentation
-  - Employer on-site
-  - Group appointment
-  - Handshake virtual session
-  - Info session
-  - Mock interview
-  - Networking
-  - Speaker/panel
-  - Virtual session
-  - Workshop
+ - Classroom presentation
+ - Employer on-site
+ - Group appointment
+ - Handshake virtual session
+ - Info session
+ - Mock interview
+ - Networking
+ - Speaker/panel
+ - Virtual session
+ - Workshop
 - **Owner**
 
 ![All filters in sidesheet.png](https://support.joinhandshake.com/hc/article_attachments/25995122991255)
@@ -110,6 +110,6 @@ Click the three-dot menu icon to the far right of the event to display all actio
 
 - View event
 - **\***Duplicate event
-  - *Learn* [*How to Duplicate an Event*](https://support.joinhandshake.com/hc/en-us/articles/21890977546903).
+ - *Learn* [*How to Duplicate an Event*](https://support.joinhandshake.com/hc/en-us/articles/21890977546903).
 
 ![Ellipsis icon to the right showing options.png](https://support.joinhandshake.com/hc/article_attachments/25995104439703)

@@ -15,8 +15,7 @@ description: API endpoints to list and update project security options like secr
 
 Every API call to project security settings must be [authenticated](rest/authentication.md).
 
-If a project is private, and a user isn't a member of the project to which the security setting
-belongs, requests to that project returns a `404 Not Found` status code.
+If a project is private, and a user isn't a member of the project to which the security setting belongs, requests to that project returns a `404 Not Found` status code.
 
 ## List project security settings
 

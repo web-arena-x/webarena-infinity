@@ -26,9 +26,7 @@ description: Project Vulnerabilities API for listing and creating project vulner
 {{< alert type="warning" >}}
 
 This API is in the process of being deprecated and considered unstable.
-The response payload may be subject to change or breakage
-across GitLab releases. Use the
-[GraphQL API](graphql/reference/_index.md#queryvulnerabilities)
+The response payload may be subject to change or breakage across GitLab releases. Use the [GraphQL API](graphql/reference/_index.md#queryvulnerabilities)
 instead.
 
 {{< /alert >}}
@@ -36,16 +34,13 @@ instead.
 Use this API to manage [project vulnerabilities](../user/application_security/vulnerabilities/_index.md).
 Every call to this API requires authentication.
 
-If a user isn't a member of a private project, requests to the private project return a `404 Not Found`
-status code.
+If a user isn't a member of a private project, requests to the private project return a `404 Not Found` status code.
 
 ## List project vulnerabilities
 
 List all of a project's vulnerabilities.
 
-If an authenticated user does not have permission to
-[use the Project Security Dashboard](../user/permissions.md#project-permissions),
-`GET` requests for vulnerabilities of this project result in a `403` status code.
+If an authenticated user does not have permission to [use the Project Security Dashboard](../user/permissions.md#project-permissions), `GET` requests for vulnerabilities of this project result in a `403` status code.
 
 Responses are [paginated](rest/_index.md#pagination) and return 20 results by default.
 
@@ -118,9 +113,7 @@ Example response:
 
 Creates a new vulnerability.
 
-If an authenticated user does not have a permission to
-[create a new vulnerability](../user/permissions.md#project-permissions),
-this request results in a `403` status code.
+If an authenticated user does not have a permission to [create a new vulnerability](../user/permissions.md#project-permissions), this request results in a `403` status code.
 
 ```plaintext
 POST /projects/:id/vulnerabilities?finding_id=<your_finding_id>
@@ -128,11 +121,10 @@ POST /projects/:id/vulnerabilities?finding_id=<your_finding_id>
 
 | Attribute           | Type              | Required   | Description                                                                                                                  |
 | ------------------- | ----------------- | ---------- | -----------------------------------------------------------------------------------------------------------------------------|
-| `id`                | integer or string | yes        | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) which the authenticated user is a member of  |
+| `id`                | integer or string | yes        | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) which the authenticated user is a member of |
 | `finding_id`        | integer or string | yes        | The ID of a Vulnerability Finding to create the new Vulnerability from |
 
-The other attributes of a newly created Vulnerability are populated from
-its source Vulnerability Finding, or with these default values:
+The other attributes of a newly created Vulnerability are populated from its source Vulnerability Finding, or with these default values:
 
 | Attribute    | Value                                                 |
 |--------------|-------------------------------------------------------|
@@ -199,8 +191,7 @@ Example response:
 
 ### Errors
 
-This error occurs when a Finding chosen to create a Vulnerability from is not found, or
-is already associated with a different Vulnerability:
+This error occurs when a Finding chosen to create a Vulnerability from is not found, or is already associated with a different Vulnerability:
 
 ```plaintext
 A Vulnerability Finding is not found or already attached to a different Vulnerability
@@ -212,10 +203,10 @@ Example response:
 
 ```json
 {
-  "message": {
+ "message": {
     "base": [
       "finding is not found or is already attached to a vulnerability"
     ]
-  }
+ }
 }
 ```

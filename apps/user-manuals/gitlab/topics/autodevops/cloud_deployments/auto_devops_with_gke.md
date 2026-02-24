@@ -15,13 +15,11 @@ title: Use Auto DevOps to deploy an application to Google Kubernetes Engine
 This tutorial gets you started with [Auto DevOps](../_index.md)
 using an example of how to deploy an application to Google Kubernetes Engine (GKE).
 
-You are using the GitLab native Kubernetes integration, so you don't need
-to create a Kubernetes cluster manually using the Google Cloud Platform console.
+You are using the GitLab native Kubernetes integration, so you don't need to create a Kubernetes cluster manually using the Google Cloud Platform console.
 You are creating and deploying an application that you create from a GitLab template.
 
 These instructions also work for GitLab Self-Managed.
-Ensure your own [runners are configured](../../../ci/runners/_index.md) and
-[Google OAuth is enabled](../../../integration/google.md).
+Ensure your own [runners are configured](../../../ci/runners/_index.md) and [Google OAuth is enabled](../../../integration/google.md).
 
 To deploy a project to Google Kubernetes Engine, follow the steps below:
 
@@ -36,10 +34,8 @@ To deploy a project to Google Kubernetes Engine, follow the steps below:
 
 ## Configure your Google account
 
-Before creating and connecting your Kubernetes cluster to your GitLab project,
-you need a [Google Cloud Platform account](https://console.cloud.google.com).
-Sign in with an existing Google account, such as the one you use to access Gmail
-or Google Drive, or create a new one.
+Before creating and connecting your Kubernetes cluster to your GitLab project, you need a [Google Cloud Platform account](https://console.cloud.google.com).
+Sign in with an existing Google account, such as the one you use to access Gmail or Google Drive, or create a new one.
 
 1. Follow the steps described in the ["Before you begin" section](https://cloud.google.com/kubernetes-engine/docs/deploy-app-cluster#before-you-begin)
    of the Kubernetes Engine documentation to enable the required APIs and related services.
@@ -48,9 +44,7 @@ or Google Drive, or create a new one.
 
 {{< alert type="note" >}}
 
-Every new Google Cloud Platform (GCP) account receives [$300 in credit](https://console.cloud.google.com/freetrial),
-and in partnership with Google, GitLab is able to offer an additional $200 for new
-GCP accounts to get started with the GitLab integration with Google Kubernetes Engine.
+Every new Google Cloud Platform (GCP) account receives [$300 in credit](https://console.cloud.google.com/freetrial), and in partnership with Google, GitLab is able to offer an additional $200 for new GCP accounts to get started with the GitLab integration with Google Kubernetes Engine.
 [Follow this link](https://cloud.google.com/partners?pcn_code=0014M00001h35gDQAQ#contact-form)
 and apply for credit.
 
@@ -58,15 +52,13 @@ and apply for credit.
 
 ## Create a Kubernetes cluster
 
-To create a new cluster on Google Kubernetes Engine (GKE), use Infrastructure as Code (IaC) approach
-by following steps in [Create a Google GKE cluster with OpenTofu and GitLab](../../../user/infrastructure/iac/_index.md) guide.
+To create a new cluster on Google Kubernetes Engine (GKE), use Infrastructure as Code (IaC) approach by following steps in [Create a Google GKE cluster with OpenTofu and GitLab](../../../user/infrastructure/iac/_index.md) guide.
 The guide requires you to create a new project that uses [Terraform](https://www.terraform.io/) to create a GKE cluster and install a GitLab agent for Kubernetes.
 This project is where configuration for the GitLab agent for Kubernetes resides.
 
 ## Create an application project from a template
 
-Use a GitLab project template to get started. As the name suggests,
-those projects provide a bare-bones application built on some well-known frameworks.
+Use a GitLab project template to get started. As the name suggests, those projects provide a bare-bones application built on some well-known frameworks.
 
 > [!warning]
 > Create the application project in the group hierarchy at the same level or below the project for cluster management. Otherwise, it fails to [authorize the agent](../../../user/clusters/agent/ci_cd_workflow.md#authorize-agent-access).
@@ -74,9 +66,7 @@ those projects provide a bare-bones application built on some well-known framewo
 1. In the upper-right corner, select **Create new** ({{< icon name="plus" >}}) and **New project/repository**.
 1. Select **Create from template**.
 1. Select the **Ruby on Rails** template.
-1. Give your project a name, optionally a description, and make it public so that
-   you can take advantage of the features available in the
-   [GitLab Ultimate plan](https://about.gitlab.com/pricing/).
+1. Give your project a name, optionally a description, and make it public so that you can take advantage of the features available in the [GitLab Ultimate plan](https://about.gitlab.com/pricing/).
 1. Select **Create project**.
 
 Now you have an application project you are going to deploy to the GKE cluster.
@@ -91,17 +81,14 @@ Now, configure the GitLab agent for Kubernetes so you can use it to deploy the a
 
 ```yaml
 ci_access:
-  projects:
+ projects:
     - id: path/to/application-project
 ```
 
 ## Install Ingress
 
-After your cluster is running, you must install NGINX Ingress Controller as a
-load balancer, to route traffic from the internet to your application.
-Install the NGINX Ingress Controller
-through the GitLab [Cluster management project template](../../../user/clusters/management_project_template.md),
-or manually with Google Cloud Shell:
+After your cluster is running, you must install NGINX Ingress Controller as a load balancer, to route traffic from the internet to your application.
+Install the NGINX Ingress Controller through the GitLab [Cluster management project template](../../../user/clusters/management_project_template.md), or manually with Google Cloud Shell:
 
 1. Go to your cluster's details page, and select the **Advanced Settings** tab.
 1. Select the link to Google Kubernetes Engine to visit the cluster on Google Cloud Console.
@@ -121,8 +108,7 @@ or manually with Google Cloud Shell:
 
 Follow these steps to configure the base domain and other settings required for Auto DevOps.
 
-1. A few minutes after you install NGINX, the load balancer obtains an IP address, and you can
-   get the external IP address with the following command:
+1. A few minutes after you install NGINX, the load balancer obtains an IP address, and you can get the external IP address with the following command:
 
    ```shell
    kubectl get service ingress-nginx-controller -n gitlab-managed-apps -ojson | jq -r '.status.loadBalancer.ingress[].ip'
@@ -141,9 +127,7 @@ Follow these steps to configure the base domain and other settings required for 
 
 ## Enable Auto DevOps and run the pipeline
 
-While Auto DevOps is enabled by default, Auto DevOps can be disabled for both
-the instance (for GitLab Self-Managed instances) and the group. Complete
-these steps to enable Auto DevOps if it's disabled:
+While Auto DevOps is enabled by default, Auto DevOps can be disabled for both the instance (for GitLab Self-Managed instances) and the group. Complete these steps to enable Auto DevOps if it's disabled:
 
 1. On the top bar, select **Search or go to** and find the application project.
 1. Select **Settings** > **CI/CD**.
@@ -174,70 +158,46 @@ The jobs are separated into stages:
 
 ![Pipeline stages](img/guide_pipeline_stages_v13_0.png)
 
-- **Build** - The application builds a Docker image and uploads it to your project's
-  [Container Registry](../../../user/packages/container_registry/_index.md) ([Auto Build](../stages.md#auto-build)).
-- **Test** - GitLab runs various checks on the application, but all jobs except `test`
-  are allowed to fail in the test stage:
+- **Build** - The application builds a Docker image and uploads it to your project's [Container Registry](../../../user/packages/container_registry/_index.md) ([Auto Build](../stages.md#auto-build)).
+- **Test** - GitLab runs various checks on the application, but all jobs except `test` are allowed to fail in the test stage:
 
-  - The `test` job runs unit and integration tests by detecting the language and
-    framework ([Auto Test](../stages.md#auto-test))
-  - The `code_quality` job checks the code quality and is allowed to fail
-    ([Auto Code Quality](../stages.md#auto-code-quality))
-  - The `container_scanning` job checks the Docker container if it has any
-    vulnerabilities and is allowed to fail ([auto container scanning](../stages.md#auto-container-scanning))
-  - The `dependency_scanning` job checks if the application has any dependencies
-    susceptible to vulnerabilities and is allowed to fail
-    ([Auto dependency scanning](../stages.md#auto-dependency-scanning))
-  - Jobs suffixed with `-sast` run static analysis on the current code to check for potential
-    security issues, and are allowed to fail ([Auto SAST](../stages.md#auto-sast))
-  - The `secret-detection` job checks for leaked secrets and is allowed to fail ([auto secret detection](../stages.md#auto-secret-detection))
+ - The `test` job runs unit and integration tests by detecting the language and framework ([Auto Test](../stages.md#auto-test))
+ - The `code_quality` job checks the code quality and is allowed to fail ([Auto Code Quality](../stages.md#auto-code-quality))
+ - The `container_scanning` job checks the Docker container if it has any vulnerabilities and is allowed to fail ([auto container scanning](../stages.md#auto-container-scanning))
+ - The `dependency_scanning` job checks if the application has any dependencies susceptible to vulnerabilities and is allowed to fail ([Auto dependency scanning](../stages.md#auto-dependency-scanning))
+ - Jobs suffixed with `-sast` run static analysis on the current code to check for potential security issues, and are allowed to fail ([Auto SAST](../stages.md#auto-sast))
+ - The `secret-detection` job checks for leaked secrets and is allowed to fail ([auto secret detection](../stages.md#auto-secret-detection))
 
 - **Review** - Pipelines on the default branch include this stage with a `dast_environment_deploy` job.
-  For more information, see [dynamic application security testing (DAST)](../../../user/application_security/dast/_index.md).
+ For more information, see [dynamic application security testing (DAST)](../../../user/application_security/dast/_index.md).
 
-- **Production** - After the tests and checks finish, the application deploys in
-  Kubernetes ([Auto Deploy](../stages.md#auto-deploy)).
+- **Production** - After the tests and checks finish, the application deploys in Kubernetes ([Auto Deploy](../stages.md#auto-deploy)).
 
-- **Performance** - Performance tests are run on the deployed application
-  ([Auto Browser Performance Testing](../stages.md#auto-browser-performance-testing)).
+- **Performance** - Performance tests are run on the deployed application ([Auto Browser Performance Testing](../stages.md#auto-browser-performance-testing)).
 
 - **Cleanup** - Pipelines on the default branch include this stage with a `stop_dast_environment` job.
 
-After running a pipeline, you should view your deployed website and learn how
-to monitor it.
+After running a pipeline, you should view your deployed website and learn how to monitor it.
 
 ### Monitor your project
 
-After successfully deploying your application, you can view its website and check
-on its health on the **Environments** page by navigating to
-**Operate** > **Environments**. This page displays details about
-the deployed applications, and the right-hand column displays icons that link
-you to common environment tasks:
+After successfully deploying your application, you can view its website and check on its health on the **Environments** page by navigating to **Operate** > **Environments**. This page displays details about the deployed applications, and the right-hand column displays icons that link you to common environment tasks:
 
 ![Environments](img/guide_environments_v12_3.png)
 
 - **Open live environment** ({{< icon name="external-link" >}}) - Opens the URL of the application deployed in production
-- **Monitoring** ({{< icon name="chart" >}}) - Opens the metrics page where Prometheus collects data
-  about the Kubernetes cluster and how the application
-  affects it in terms of memory usage, CPU usage, and latency
+- **Monitoring** ({{< icon name="chart" >}}) - Opens the metrics page where Prometheus collects data about the Kubernetes cluster and how the application affects it in terms of memory usage, CPU usage, and latency
 - **Deploy to** ({{< icon name="play" >}} {{< icon name="chevron-lg-down" >}}) - Displays a list of environments you can deploy to
 - **Terminal** ({{< icon name="terminal" >}}) - Opens a [web terminal](../../../ci/environments/_index.md#web-terminals-deprecated)
-  session inside the container where the application is running
-- **Re-deploy to environment** ({{< icon name="repeat" >}}) - For more information, see
-  [Retrying and rolling back](../../../ci/environments/deployments.md#retry-or-roll-back-a-deployment)
-- **Stop environment** ({{< icon name="stop" >}}) - For more information, see
-  [Stopping an environment](../../../ci/environments/_index.md#stopping-an-environment)
+ session inside the container where the application is running
+- **Re-deploy to environment** ({{< icon name="repeat" >}}) - For more information, see [Retrying and rolling back](../../../ci/environments/deployments.md#retry-or-roll-back-a-deployment)
+- **Stop environment** ({{< icon name="stop" >}}) - For more information, see [Stopping an environment](../../../ci/environments/_index.md#stopping-an-environment)
 
-GitLab displays the [deploy board](../../../user/project/deploy_boards.md) below the
-environment's information, with squares representing pods in your
-Kubernetes cluster, color-coded to show their status. Hovering over a square on
-the deploy board displays the state of the deployment, and selecting the square
-takes you to the pod's logs page.
+GitLab displays the [deploy board](../../../user/project/deploy_boards.md) below the environment's information, with squares representing pods in your Kubernetes cluster, color-coded to show their status. Hovering over a square on the deploy board displays the state of the deployment, and selecting the square takes you to the pod's logs page.
 
 {{< alert type="note" >}}
 
-The example shows only one pod hosting the application at the moment, but you can add
-more pods by defining the [`REPLICAS` CI/CD variable](../cicd_variables.md)
+The example shows only one pod hosting the application at the moment, but you can add more pods by defining the [`REPLICAS` CI/CD variable](../cicd_variables.md)
 in **Settings** > **CI/CD** > **Variables**.
 
 {{< /alert >}}
@@ -255,18 +215,13 @@ Next, create a feature branch to add content to your application:
    <p>You're on Rails! Powered by GitLab Auto DevOps.</p>
    ```
 
-1. Stage the file. Add a commit message, then create a new branch and a merge request
-   by selecting **Commit**.
+1. Stage the file. Add a commit message, then create a new branch and a merge request by selecting **Commit**.
 
    ![Web IDE commit](img/guide_ide_commit_v12_3.png)
 
-After submitting the merge request, GitLab runs your pipeline, and all the jobs
-in it, as [described previously](#deploy-the-application), in addition to
-a few more that run only on branches other than the default branch.
+After submitting the merge request, GitLab runs your pipeline, and all the jobs in it, as [described previously](#deploy-the-application), in addition to a few more that run only on branches other than the default branch.
 
-After a few minutes a test fails, which means a test was
-'broken' by your change. Select the failed `test` job to see more information
-about it:
+After a few minutes a test fails, which means a test was 'broken' by your change. Select the failed `test` job to see more information about it:
 
 ```plaintext
 Failure:
@@ -282,26 +237,19 @@ To fix the broken test:
 
 1. Return to your merge request.
 1. In the upper-right corner, select **Code**, then select **Open in Web IDE**.
-1. In the left-hand directory of files, find the `test/controllers/welcome_controller_test.rb`
-   file, and select it to open it.
+1. In the left-hand directory of files, find the `test/controllers/welcome_controller_test.rb` file, and select it to open it.
 1. Change line 7 to say `You're on Rails! Powered by GitLab Auto DevOps.`
 1. On the left sidebar, select **Source Control** ({{< icon name="merge" >}}).
 1. Write a commit message, and select **Commit**.
 
-Return to the **Overview** page of your merge request, and you should not only
-see the test passing, but also the application deployed as a
-[review application](../stages.md#auto-review-apps). You can visit it by selecting
-the **View app** {{< icon name="external-link" >}} button to see your changes deployed.
+Return to the **Overview** page of your merge request, and you should not only see the test passing, but also the application deployed as a [review application](../stages.md#auto-review-apps). You can visit it by selecting the **View app** {{< icon name="external-link" >}} button to see your changes deployed.
 
-After merging the merge request, GitLab runs the pipeline on the default branch,
-and then deploys the application to production.
+After merging the merge request, GitLab runs the pipeline on the default branch, and then deploys the application to production.
 
 ## Conclusion
 
 After implementing this project, you should have a solid understanding of the basics of Auto DevOps.
-You started from building and testing, to deploying and monitoring an application
-all in GitLab. Despite its automatic nature, Auto DevOps can also be configured
-and customized to fit your workflow. Here are some helpful resources for further reading:
+You started from building and testing, to deploying and monitoring an application all in GitLab. Despite its automatic nature, Auto DevOps can also be configured and customized to fit your workflow. Here are some helpful resources for further reading:
 
 1. [Auto DevOps](../_index.md)
 1. [Multiple Kubernetes clusters](../multiple_clusters_auto_devops.md)

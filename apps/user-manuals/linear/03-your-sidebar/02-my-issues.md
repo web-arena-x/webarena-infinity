@@ -44,7 +44,7 @@ By default, _My issues_ uses a unique grouping called _Focus_ that attempts to o
 * Cancelled
 
 Within each category, issues are ordered by priority, with started issues showing first.   
-  
+ 
 You can change the grouping options from the [display options](https://linear.app/docs/display-options) on the top-right of the view. 
 
 ### Created issues

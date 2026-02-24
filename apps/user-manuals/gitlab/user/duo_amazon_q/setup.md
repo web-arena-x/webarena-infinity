@@ -46,15 +46,13 @@ To set up GitLab Duo with Amazon Q, you must:
 ### Prerequisites
 
 - You must have GitLab Self-Managed:
-  - On GitLab 17.11 or later.
-  - Amazon Q uses the GitLab instance's REST APIs to read and write data when performing requested actions and must be able to access your HTTPS URL ([the SSL certificate must not be self-signed](https://docs.gitlab.com/omnibus/settings/ssl/)).
-  - The instance must allow inbound network access from Amazon Q services that originate from the following IP addresses, by using TCP/TLS on
-    the port your instance is configured to use. This is [port 443 by default](../../administration/package_information/defaults.md#ports).
+ - On GitLab 17.11 or later.
+ - Amazon Q uses the GitLab instance's REST APIs to read and write data when performing requested actions and must be able to access your HTTPS URL ([the SSL certificate must not be self-signed](https://docs.gitlab.com/omnibus/settings/ssl/)).
+ - The instance must allow inbound network access from Amazon Q services that originate from the following IP addresses, by using TCP/TLS on the port your instance is configured to use. This is [port 443 by default](../../administration/package_information/defaults.md#ports).
     - `34.228.181.128`
     - `44.219.176.187`
     - `54.226.244.221`
-  - With an Ultimate subscription that is synchronized with GitLab, and
-    the GitLab Duo with Amazon Q add-on.
+ - With an Ultimate subscription that is synchronized with GitLab, and the GitLab Duo with Amazon Q add-on.
 
 ### Create a profile in the Amazon Q Developer console
 
@@ -96,8 +94,7 @@ Now, create an AWS identity provider:
 
 ### Create an IAM role
 
-Next, you must create an IAM role that trusts the IAM identity provider and can
-access Amazon Q.
+Next, you must create an IAM role that trusts the IAM identity provider and can access Amazon Q.
 
 > [!note]
 > After you set up the IAM role, you cannot change the AWS account that's associated with the role.
@@ -108,8 +105,7 @@ access Amazon Q.
 1. For **Audience**, select the audience value you entered earlier.
 1. Select **Next**.
 1. On the **Add permissions** page:
-   - To use a managed policy, for **Permissions policies**, search for and
-     select `GitLabDuoWithAmazonQPermissionsPolicy`.
+   - To use a managed policy, for **Permissions policies**, search for and select `GitLabDuoWithAmazonQPermissionsPolicy`.
    - To create an inline policy, skip **Permissions policies** by selecting **Next**.
      You will create a policy later.
 1. Select **Next**.
@@ -196,8 +192,7 @@ To create an inline policy, rather than using a managed policy:
 Now edit the role:
 
 1. Find the role that you just created and select it.
-1. Change the session time to 12 hours. The `AssumeRoleWithWebIdentity` will fail
-   in the AI Gateway if the session is not set to 12 hours or more.
+1. Change the session time to 12 hours. The `AssumeRoleWithWebIdentity` will fail in the AI Gateway if the session is not set to 12 hours or more.
 
    1. In the **Roles search** field, enter the name of your IAM role and then choose the role name.
    1. In **Summary**, choose **Edit** to edit the session duration.
@@ -238,8 +233,7 @@ When you save, an API should contact the AI Gateway to create an OAuth applicati
 
 To confirm that it was successful:
 
-- In the Amazon CloudWatch console log, check for a `204` status code. For more information, see
-  [What is Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)?
+- In the Amazon CloudWatch console log, check for a `204` status code. For more information, see [What is Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)?
 - In GitLab, a notification that says `Amazon Q settings have been saved` is displayed.
 - In GitLab, on the left sidebar, select **Applications**. The Amazon Q OAuth application is displayed.
 
@@ -286,8 +280,7 @@ With the condition key, you can limit who can use CMK for encrypting or decrypti
 }
 ```
 
-For more information, see
-[`kms:ViaService` in the AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-via-service).
+For more information, see [`kms:ViaService` in the AWS KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-via-service).
 
 ## Configure GitLab to use AWS hosted AI gateway
 
@@ -363,8 +356,7 @@ To turn off GitLab Duo with Amazon Q for a project:
 
 ## Troubleshooting
 
-If you experience issues connecting GitLab to Amazon Q,
-ensure your GitLab installation meets [all the prerequisites](#prerequisites).
+If you experience issues connecting GitLab to Amazon Q, ensure your GitLab installation meets [all the prerequisites](#prerequisites).
 
 You might also encounter the following issue.
 

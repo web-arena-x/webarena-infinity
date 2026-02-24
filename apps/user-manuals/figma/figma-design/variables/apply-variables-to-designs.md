@@ -37,7 +37,7 @@ Tip: You can apply existing variables and styles to layers using the [eyedropper
 
 To use a color variable on a selected layer:
 
-1. Click  **Apply styles and variables** from the **Fill** or **Stroke** sections of the right panel.
+1. Click **Apply styles and variables** from the **Fill** or **Stroke** sections of the right panel.
 2. Select a variable from the picker to apply.
 
 You can also [apply color variables within a mixed selection](../color-gradients-and-images/view-and-adjust-colors-in-a-mixed-selection.md).
@@ -93,7 +93,7 @@ To use variables on a gradient color style:
 
 1. Deselect everything on the canvas by pressing `Esc`.
 2. From the right panel, edit an existing color style or create a new one.
-3. From the window, select the  **Gradient** icon.
+3. From the window, select the **Gradient** icon.
 4. Under **Stops**, click a color swatch from the list.
 5. From the new menu, open the **Libraries** tab and select a variable to apply to the gradient stop.
 6. Repeat for any remaining gradient stops.
@@ -117,11 +117,11 @@ To apply a number variable to a selected object:
 
 You can also choose one of the following methods:
 
-|  |  |
+| | |
 | --- | --- |
 | **Property** | **Additional methods** |
 | - Font size - Gap between - Layout guide count - Width and height - Maximum width and height | Open the dropdown menu and select **Apply variable** |
-| - Corner radius - Effects - Layout guide width, height, margin, offset, and gutter - Padding | - Click  **Apply variable** - Hold `Shift` and click into the field |
+| - Corner radius - Effects - Layout guide width, height, margin, offset, and gutter - Padding | - Click **Apply variable** - Hold `Shift` and click into the field |
 | - Layer opacity - Letter spacing - Line height - Paragraph indent - Paragraph spacing - Stroke weight | - Hold `Shift` and click into the field - Right-click and select **Apply variable** |
 
 From the **Library** picker, select a variable. Number variables are noted with a number icon.
@@ -135,7 +135,7 @@ Note: If the methods above aren't working, it’s possible you don’t have any 
 String variables can be applied to the text content of any text layer. This means if the string variable has the value `Figma`, then the text on canvas will display as `Figma`.
 
 1. Select a text layer.
-2. From the **Text** section at the top of the right sidebar, click  **Apply variable**.
+2. From the **Text** section at the top of the right sidebar, click **Apply variable**.
 3. Select a variable from the **Library** picker to apply.
 
 Tip: You can also use number variables on text content. This can be useful for building prototypes that require calculations, such as subtotals in a shopping experience. Learn how to use [variables in prototypes](https://help.figma.com/hc/en-us/articles/14506587589399).
@@ -163,7 +163,7 @@ Boolean variables can be applied to layer visibility.
 
 If the value of the boolean variable is `true` then the layer will be visible. If the value of the boolean variable is `false` then the layer will be hidden.
 
-1. From the **Appearance** section of the right sidebar, right-click the  visible /  hidden icon.
+1. From the **Appearance** section of the right sidebar, right-click the visible / hidden icon.
 2. Select a variable from the picker.
 
 ## Apply variables to variant instances
@@ -176,8 +176,8 @@ Boolean, number, and string variables can be applied to instances with variant *
 
 To detach a variable:
 
-- **For color, string, and boolean variables**: Hover over the variable in the relevant right sidebar section, and click the  **Detach variable** icon.
-- **For number variables**: Click into the property field and press `Delete` / `Backspace`. For certain properties, you can also click the  **Detach variable** icon.
+- **For color, string, and boolean variables**: Hover over the variable in the relevant right sidebar section, and click the **Detach variable** icon.
+- **For number variables**: Click into the property field and press `Delete` / `Backspace`. For certain properties, you can also click the **Detach variable** icon.
 
 ![](https://help.figma.com/hc/article_attachments/26978261986199)
 

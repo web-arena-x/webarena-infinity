@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408838197658-Resources-fo
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -19,15 +19,15 @@ This article includes links to resources related to working with agents and end-
 The resources in this article are organized into the following topics:
 
 - [Team members](#topic_qjv_qhs_cgb)
-  - [Creating and managing team members](#topic_rjv_qhs_cgb)
-  - [Team member roles and organization](#topic_tjv_qhs_cgb)
-  - [Team member tasks](#topic_vjv_qhs_cgb)
-  - [Advice and troubleshooting](#topic_wjv_qhs_cgb)
+ - [Creating and managing team members](#topic_rjv_qhs_cgb)
+ - [Team member roles and organization](#topic_tjv_qhs_cgb)
+ - [Team member tasks](#topic_vjv_qhs_cgb)
+ - [Advice and troubleshooting](#topic_wjv_qhs_cgb)
 - [End users](#topic_akv_qhs_cgb)
-  - [Managing end users](#topic_bkv_qhs_cgb)
-  - [Organizing end users](#topic_dkv_qhs_cgb)
-  - [End user security and access](#topic_fkv_qhs_cgb)
-  - [Advice and troubleshooting](#topic_hkv_qhs_cgb)
+ - [Managing end users](#topic_bkv_qhs_cgb)
+ - [Organizing end users](#topic_dkv_qhs_cgb)
+ - [End user security and access](#topic_fkv_qhs_cgb)
+ - [Advice and troubleshooting](#topic_hkv_qhs_cgb)
 
 ## Team members
 

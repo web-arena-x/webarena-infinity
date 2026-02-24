@@ -81,8 +81,7 @@ Prerequisites:
 - You must have permission to create an issue.
 - Only available for the plain text editor.
 - Only available when creating a new issue.
-  For a proposal to add support for generating descriptions when editing existing issues, see
-  [issue 474141](https://gitlab.com/gitlab-org/gitlab/-/issues/474141).
+ For a proposal to add support for generating descriptions when editing existing issues, see [issue 474141](https://gitlab.com/gitlab-org/gitlab/-/issues/474141).
 
 To generate an issue description:
 
@@ -94,8 +93,7 @@ The issue description is replaced with AI-generated text.
 
 Provide feedback on this experimental feature in [issue 409844](https://gitlab.com/gitlab-org/gitlab/-/issues/409844).
 
-**Data usage**: When you use this feature, the text you enter is sent to
-the large language model.
+**Data usage**: When you use this feature, the text you enter is sent to the large language model.
 
 ## Bulk edit issues
 
@@ -144,8 +142,7 @@ When bulk editing issues, you can edit the following attributes:
 {{< /history >}}
 
 When you move an issue, it's closed and copied to the target project.
-The original issue is not deleted. A [system note](../system_notes.md), which indicates
-where it came from and went to, is added to both issues.
+The original issue is not deleted. A [system note](../system_notes.md), which indicates where it came from and went to, is added to both issues.
 
 Be careful when moving an issue to a project with different access rules. Before moving the issue, make sure it does not contain sensitive data.
 
@@ -173,10 +170,8 @@ You can also use the [`/move` quick action](../quick_actions.md#move) in a comme
 
 {{< /history >}}
 
-When you move an issue to another project, all its child items are also moved to the target project
-and remain as child items of the moved issue.
-Each item is moved the same way as the parent, that is, it's closed in the original project and
-copied to the target project.
+When you move an issue to another project, all its child items are also moved to the target project and remain as child items of the moved issue.
+Each item is moved the same way as the parent, that is, it's closed in the original project and copied to the target project.
 
 ### Bulk move issues
 
@@ -227,11 +222,9 @@ Prerequisites:
 
 To do it:
 
-1. Optional (but recommended). [Create a backup](../../../administration/backup_restore/_index.md) before
-   attempting any changes in the console.
+1. Optional (but recommended). [Create a backup](../../../administration/backup_restore/_index.md) before attempting any changes in the console.
 1. Open the [Rails console](../../../administration/operations/rails_console.md).
-1. Run the following script. Make sure to change `project`, `admin_user`, and `target_project` to
-   your values.
+1. Run the following script. Make sure to change `project`, `admin_user`, and `target_project` to your values.
 
    ```ruby
    project = Project.find_by_full_path('full path of the project where issues are moved from')
@@ -284,10 +277,8 @@ When you view an issue that has a list in the description, you can also reorder 
 
 Prerequisites:
 
-- You must have at least the Planner role for the project, be the author of the issue, or be
-  assigned to the issue.
-- The issue's description must have an [ordered, unordered](../../markdown.md#lists), or
-  [task](../../markdown.md#task-lists) list.
+- You must have at least the Planner role for the project, be the author of the issue, or be assigned to the issue.
+- The issue's description must have an [ordered, unordered](../../markdown.md#lists), or [task](../../markdown.md#task-lists) list.
 
 To reorder list items, when viewing an issue:
 
@@ -315,9 +306,9 @@ To close an issue, you can either:
 
 - In an [issue board](../issue_board.md), drag an issue card from its list into the **Closed** list.
 - From any other page in the GitLab UI:
-  1. On the top bar, select **Search or go to** and find your project.
-  1. Select **Plan** > **Issues**, then select your issue to view it.
-  1. In the upper-right corner, select **More actions** ({{< icon name="ellipsis_v" >}}) and then **Close issue**.
+ 1. On the top bar, select **Search or go to** and find your project.
+ 1. Select **Plan** > **Issues**, then select your issue to view it.
+ 1. In the upper-right corner, select **More actions** ({{< icon name="ellipsis_v" >}}) and then **Close issue**.
 
 You can also use the [`/close` quick action](../quick_actions.md#close) in a comment or description.
 
@@ -340,44 +331,32 @@ You can also use the [`/reopen` quick action](../quick_actions.md#reopen) in a c
 
 ### Closing issues automatically
 
-You can close issues automatically by using certain words, called a _closing pattern_,
-in a commit message or merge request description. GitLab Self-Managed administrators
-can [change the default closing pattern](../../../administration/issue_closing_pattern.md).
+You can close issues automatically by using certain words, called a _closing pattern_, in a commit message or merge request description. GitLab Self-Managed administrators can [change the default closing pattern](../../../administration/issue_closing_pattern.md).
 
-If a commit message or merge request description contains text matching the [closing pattern](#default-closing-pattern),
-all issues referenced in the matched text are closed when either:
+If a commit message or merge request description contains text matching the [closing pattern](#default-closing-pattern), all issues referenced in the matched text are closed when either:
 
 - The commit is pushed to a project's [**default** branch](../repository/branches/default.md).
 - The commit or merge request is merged into the default branch.
 
-For example, if you include `Closes #4, #6, Related to #5` in a merge request
-description:
+For example, if you include `Closes #4, #6, Related to #5` in a merge request description:
 
 - Issues `#4` and `#6` are closed automatically when the MR is merged.
 - Issue `#5` is marked as a [related issue](related_issues.md), but it's not closed automatically.
 
-Alternatively, when you [create a merge request from an issue](../merge_requests/creating_merge_requests.md#from-an-issue),
-it inherits the issue's milestone and labels.
+Alternatively, when you [create a merge request from an issue](../merge_requests/creating_merge_requests.md#from-an-issue), it inherits the issue's milestone and labels.
 
-For performance reasons, automatic issue closing is disabled for the very first
-push from an existing repository.
+For performance reasons, automatic issue closing is disabled for the very first push from an existing repository.
 
 #### User responsibility when merging
 
-When you merge a merge request, it's your responsibility to check that it's appropriate for any targeted issues
-to close. Users can include issue closing patterns in the merge request description, and also in the body
-of a commit message. Closing messages in commit messages are easy to miss. In both cases, the merge request widget
-shows information about the issue to close on merge:
+When you merge a merge request, it's your responsibility to check that it's appropriate for any targeted issues to close. Users can include issue closing patterns in the merge request description, and also in the body of a commit message. Closing messages in commit messages are easy to miss. In both cases, the merge request widget shows information about the issue to close on merge:
 
 ![This merge request closes issue #2754.](img/closing_pattern_v17_4.png)
 
 When you merge a merge request, GitLab checks that you have permission to close the targeted issues.
-In public repositories, this check is important, because external users can create both merge requests
-and commits that contain closing patterns. When you are the user who merges, it's important
-that you are aware of the effects the merge has on both the code and issues in your project.
+In public repositories, this check is important, because external users can create both merge requests and commits that contain closing patterns. When you are the user who merges, it's important that you are aware of the effects the merge has on both the code and issues in your project.
 
-When [auto-merge](../merge_requests/auto_merge.md) is enabled for a merge request, no further changes can be made to
-the list of issues that will be automatically closed.
+When [auto-merge](../merge_requests/auto_merge.md) is enabled for a merge request, no further changes can be made to the list of issues that will be automatically closed.
 
 #### Default closing pattern
 
@@ -402,8 +381,8 @@ Available issue reference formats:
 - A cross-project issue (`group/project#123`).
 - The full URL of an issue (`https://gitlab.example.com/<project_full_path>/-/issues/123`).
 - The full URL of a work item (for example, task, objective, or key result):
-  - In a project (`https://gitlab.example.com/<project_full_path>/-/work_items/123`).
-  - In a group (`https://gitlab.example.com/groups/<group_full_path>/-/work_items/123`).
+ - In a project (`https://gitlab.example.com/<project_full_path>/-/work_items/123`).
+ - In a group (`https://gitlab.example.com/groups/<group_full_path>/-/work_items/123`).
 
 For example:
 
@@ -415,12 +394,9 @@ This commit is also related to #17 and fixes #18, #19
 and https://gitlab.example.com/group/otherproject/-/issues/23.
 ```
 
-The previous commit message closes `#18`, `#19`, `#20`, and `#21` in the project this commit is pushed to,
-as well as `#22` and `#23` in `group/otherproject`. `#17` is not closed as it does
-not match the pattern.
+The previous commit message closes `#18`, `#19`, `#20`, and `#21` in the project this commit is pushed to, as well as `#22` and `#23` in `group/otherproject`. `#17` is not closed as it does not match the pattern.
 
-You can use the closing patterns in multi-line commit messages or one-liners
-done from the command line with `git commit -m`.
+You can use the closing patterns in multi-line commit messages or one-liners done from the command line with `git commit -m`.
 
 The default issue closing pattern regex:
 
@@ -436,8 +412,7 @@ The default issue closing pattern regex:
 
 {{< /history >}}
 
-You can disable the automatic issue closing feature on a per-project basis
-in the [project's settings](#disable-automatic-issue-closing).
+You can disable the automatic issue closing feature on a per-project basis in the [project's settings](#disable-automatic-issue-closing).
 
 Prerequisites:
 
@@ -453,8 +428,7 @@ To disable automatic issue closing:
 
 Referenced issues are still displayed, but are not closed automatically.
 
-Changing this setting applies only to new merge requests or commits. Already
-closed issues remain as they are.
+Changing this setting applies only to new merge requests or commits. Already closed issues remain as they are.
 Disabling automatic issue closing only applies to issues in the project where the setting was disabled.
 Merge requests and commits in this project can still close another project's issues.
 
@@ -581,9 +555,7 @@ To promote an issue to an incident, see [Promote an issue to an incident](#promo
 
 You can promote an issue to an [epic](../../group/epics/_index.md) in the immediate parent group.
 
-Promoting a confidential issue to an epic creates a
-[confidential epic](../../group/epics/manage_epics.md#make-an-epic-confidential), retaining
-confidentiality.
+Promoting a confidential issue to an epic creates a [confidential epic](../../group/epics/manage_epics.md#make-an-epic-confidential), retaining confidentiality.
 
 When an issue is promoted to an epic:
 
@@ -603,9 +575,9 @@ Prerequisites:
 - The project to which the issue belongs must be in a group.
 - You must have at least the Planner role the project's immediate parent group.
 - You must either:
-  - Have at least the Planner role for the project.
-  - Be the author of the issue.
-  - Be assigned to the issue.
+ - Have at least the Planner role for the project.
+ - Be the author of the issue.
+ - Be assigned to the issue.
 
 To promote an issue to an epic:
 
@@ -715,18 +687,15 @@ To filter the list of issues:
    - Type
    - Weight
    - [Custom fields](../../work_items/custom_fields.md)
-1. Select or type the operator to use for filtering the attribute. The following operators are
-   available:
+1. Select or type the operator to use for filtering the attribute. The following operators are available:
    - `=`: Is
    - `!=`: Is not one of
    - `||`: Is one of (for Assignee, Author, Label, Type).
      Works like an inclusive OR.
-     For example, if you filter by `Assignee is one of Sidney Jones` and `Assignee is one of Zhang Wei`,
-     GitLab shows issues where either `Sidney`, `Zhang`, or both of them are assignees.
+     For example, if you filter by `Assignee is one of Sidney Jones` and `Assignee is one of Zhang Wei`, GitLab shows issues where either `Sidney`, `Zhang`, or both of them are assignees.
 1. Enter the text to filter the attribute by.
    You can filter some attributes by **None** or **Any**.
-1. Repeat this process to filter by multiple attributes. Multiple attributes are joined by a logical
-   `AND`.
+1. Repeat this process to filter by multiple attributes. Multiple attributes are joined by a logical `AND`.
 1. Press <kbd>Enter</kbd> or select the search icon ({{< icon name="search" >}}).
 
 #### Filter by title or description
@@ -742,11 +711,8 @@ To filter the list issues for text in a title or description:
 Filtering issues uses [PostgreSQL full text search](https://www.postgresql.org/docs/16/textsearch-intro.html)
 to match meaningful and significant words to answer a query.
 
-For example, if you search for `I am securing information for M&A`,
-GitLab can return results with `securing`, `secured`,
-or `information` in the title or description.
-However, GitLab doesn't match the sentence or the words `I`, `am` or `M&A` exactly,
-as they aren't deemed lexically meaningful or significant.
+For example, if you search for `I am securing information for M&A`, GitLab can return results with `securing`, `secured`, or `information` in the title or description.
+However, GitLab doesn't match the sentence or the words `I`, `am` or `M&A` exactly, as they aren't deemed lexically meaningful or significant.
 It's a limitation of PostgreSQL full text search.
 
 #### Filter issues by ID
@@ -783,18 +749,17 @@ When using the panel:
 To open the issue in full view:
 
 - Open the issue in a new tab. From the list of issues, either:
-  - Right-click the issue and open it in a new browser tab.
-  - Hold <kbd>Command</kbd> or <kbd>Control</kbd> and select the issue.
+ - Right-click the issue and open it in a new browser tab.
+ - Hold <kbd>Command</kbd> or <kbd>Control</kbd> and select the issue.
 - Select an issue, and from the panel, either:
-  - In the upper-left corner, select the issue reference, for example `my_project#123`.
-  - In the upper-right corner, select **Open in full page** ({{< icon name="maximize" >}}).
+ - In the upper-left corner, select the issue reference, for example `my_project#123`.
+ - In the upper-right corner, select **Open in full page** ({{< icon name="maximize" >}}).
 
 To always open issues in full page view, see [Set preference whether to open items in a drawer](../../work_items/_index.md#configure-list-display-preferences).
 
 ## Copy issue reference
 
-To refer to an issue elsewhere in GitLab, you can use its full URL or a short reference, which looks like
-`namespace/project-name#123`, where `namespace` is either a group or a username.
+To refer to an issue elsewhere in GitLab, you can use its full URL or a short reference, which looks like `namespace/project-name#123`, where `namespace` is either a group or a username.
 
 To copy the issue reference to your clipboard:
 
@@ -811,8 +776,7 @@ Read more about issue references in [GitLab-Flavored Markdown](../../markdown.md
 You can create a comment in an issue by sending an email.
 Sending an email to this address creates a comment that contains the email body.
 
-For more information about creating comments by sending an email and the necessary configuration, see
-[Reply to a comment by sending email](../../discussions/_index.md#reply-to-a-comment-by-sending-email).
+For more information about creating comments by sending an email and the necessary configuration, see [Reply to a comment by sending email](../../discussions/_index.md#reply-to-a-comment-by-sending-email).
 
 To copy the issue's email address:
 
@@ -824,12 +788,10 @@ To copy the issue's email address:
 
 An issue can be assigned to one or [more users](multiple_assignees_for_issues.md).
 
-The assignees can be changed as often as needed. The idea is that the assignees are
-people responsible for the issue.
+The assignees can be changed as often as needed. The idea is that the assignees are people responsible for the issue.
 When an issue is assigned to someone, it appears in their **Assigned issues** page.
 
-If a user is not a member of a project, an issue can only be assigned to them if they create it
-themselves or another project member assigns them.
+If a user is not a member of a project, an issue can only be assigned to them if they create it themselves or another project member assigns them.
 
 ### Change assignee on an issue
 
@@ -855,11 +817,9 @@ The assignee is changed without having to refresh the page.
 
 ## Similar issues
 
-To prevent duplication of issues on the same topic, GitLab searches for similar issues
-when you create a new issue.
+To prevent duplication of issues on the same topic, GitLab searches for similar issues when you create a new issue.
 
-As you type in the title text box of the **New issue** page, GitLab searches titles and descriptions
-across all issues in the current project. Only issues you have access to are returned.
+As you type in the title text box of the **New issue** page, GitLab searches titles and descriptions across all issues in the current project. Only issues you have access to are returned.
 Up to five similar issues, sorted by most recently updated, are displayed below the title text box.
 
 ## Health status
@@ -872,8 +832,7 @@ Up to five similar issues, sorted by most recently updated, are displayed below 
 {{< /details >}}
 
 To better track the risk in meeting your plans, you can assign a health status to each issue.
-You can use health status to signal to others in your organization whether issues are progressing
-as planned or need attention to stay on schedule.
+You can use health status to signal to others in your organization whether issues are progressing as planned or need attention to stay on schedule.
 
 Incorporate a review of issue health status into your daily stand-up, project status reports, or weekly meetings to address risks to timely delivery of your planned work.
 
@@ -906,8 +865,7 @@ You can see the issue's health status in:
 - Epic's **Child items** section
 - Issue cards in issue boards
 
-After an issue is closed, its health status can't be edited and the **Edit** button becomes disabled
-until the issue is reopened.
+After an issue is closed, its health status can't be edited and the **Edit** button becomes disabled until the issue is reopened.
 
 You can also set and clear health statuses using the [`/health_status`](../quick_actions.md#health_status) and [`/clear_health_status`](../quick_actions.md#clear_health_status)
 quick actions.
@@ -932,8 +890,7 @@ quick actions.
 <!-- vale gitlab_base.FutureTense = NO -->
 
 You can assign a status to issues to track their progress through your workflow.
-Status provides more granular tracking than the basic open/closed states, so you can use specific
-stages like **In progress**, **Done**, or **Won't do**.
+Status provides more granular tracking than the basic open/closed states, so you can use specific stages like **In progress**, **Done**, or **Won't do**.
 
 For more information about status, including how to configure custom statuses, see [Status](../../work_items/status.md).
 

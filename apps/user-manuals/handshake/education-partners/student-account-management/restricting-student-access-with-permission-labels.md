@@ -36,7 +36,7 @@ Depending upon your selection, you will see a header called Instructions or S
 5. Search or select from a drop down menu the label you’d like to use.
 
 - If you don’t see the label you’d like to use, you may click Create New Label and a new window will pop-up.
-  - *Note: Most schools have internal policies regarding label creation. Please check with your Handshake account owner if you’re unsure about whether or not you are empowered to generate a new label at your school.*
+ - *Note: Most schools have internal policies regarding label creation. Please check with your Handshake account owner if you’re unsure about whether or not you are empowered to generate a new label at your school.*
 
 On the form fill out the following information:
 

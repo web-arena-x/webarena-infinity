@@ -32,9 +32,9 @@ From the Selection colors section, you can:
 
 - Click on a normal fill to open the color picker. This allows you to adjust the fill properties such as fill type, color, opacity, and blend mode. Learn more about using the [color picker](update-fills-using-the-color-picker.md).
 - Click on a style or variable to open the **Libraries**tab in the color picker. This allows you to select from a list of styles or variables created in the file, or ones from libraries that have been added to the file.
-- Click  **Detach** to detach the style or variable.
-- Click the  **target** icon to select all layers that use that color.
-- Click **Style**  next to a normal fill to open the **Libraries** tab in the color picker. This allows you to apply a style or variable to the selected color, or create a new one.
+- Click **Detach** to detach the style or variable.
+- Click the **target** icon to select all layers that use that color.
+- Click **Style** next to a normal fill to open the **Libraries** tab in the color picker. This allows you to apply a style or variable to the selected color, or create a new one.
 - Use the percentage field to adjust the fill's opacity.
 
 ![Access the selection colors settings in the right sidebar. ](https://help.figma.com/hc/article_attachments/34353424621079)

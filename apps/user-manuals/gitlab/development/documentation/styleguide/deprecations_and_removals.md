@@ -20,8 +20,7 @@ If a feature is not generally available, you can delete the content outright ins
 
 ## Features not actively being developed
 
-When a feature is no longer actively developed, but not deprecated, add the following note under
-the topic title and version history:
+When a feature is no longer actively developed, but not deprecated, add the following note under the topic title and version history:
 
 ```markdown
 > [!note]
@@ -33,8 +32,7 @@ the topic title and version history:
 
 To deprecate a page or topic:
 
-1. Add `(deprecated)` after the title. Use a warning `alert` to explain when it was deprecated,
-   when it will be removed, and the replacement feature.
+1. Add `(deprecated)` after the title. Use a warning `alert` to explain when it was deprecated, when it will be removed, and the replacement feature.
 
    ```markdown
    title: Title (deprecated)
@@ -52,8 +50,7 @@ To deprecate a page or topic:
    > and is planned for removal in 15.4. Use [feature X](link-to-docs.md) instead.
    ```
 
-   If you're not sure when the feature will be removed or no
-   replacement feature exists, you don't need to add this information.
+   If you're not sure when the feature will be removed or no replacement feature exists, you don't need to add this information.
 
 1. If the deprecation is a [breaking change](../../../update/terminology.md#breaking-change), add this text:
 
@@ -63,8 +60,7 @@ To deprecate a page or topic:
 
    You can add any additional context-specific details that might help users.
 
-1. Add the following HTML comments above and below the content. For `remove_date`,
-   set a date three months after the [release where it will be removed](https://about.gitlab.com/releases/).
+1. Add the following HTML comments above and below the content. For `remove_date`, set a date three months after the [release where it will be removed](https://about.gitlab.com/releases/).
 
    ```markdown
    title: Title (deprecated)
@@ -98,10 +94,8 @@ To remove a page:
 1. Leave the page title. Remove all other content, including the history items and the `details` and `alert` shortcodes.
 1. After the `title`, change `(deprecated)` to `(removed)`.
 1. Update the YAML metadata:
-   - For `remove_date`, set the value to a date three months after
-     the release when the feature was removed.
-   - For the `redirect_to`, set a path to a file that makes sense. If no obvious
-     page exists, use the docs home page.
+   - For `remove_date`, set the value to a date three months after the release when the feature was removed.
+   - For the `redirect_to`, set a path to a file that makes sense. If no obvious page exists, use the docs home page.
 
    ```markdown
    ---
@@ -125,10 +119,8 @@ To remove a page:
    Use [feature X](link-to-docs.md) instead.
    ```
 
-1. Edit the [`navigation.yaml`](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/data/en-us/navigation.yaml) in `docs-gitlab-com`
-   to remove the page's entry from the global navigation.
-1. Search the [Deprecations and Removals](../../../update/deprecations.md) page for
-   links to the removed page. The links use full URLs like: `https://docs.gitlab.com/user/deprecated_page/`.
+1. Edit the [`navigation.yaml`](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/data/en-us/navigation.yaml) in `docs-gitlab-com` to remove the page's entry from the global navigation.
+1. Search the [Deprecations and Removals](../../../update/deprecations.md) page for links to the removed page. The links use full URLs like: `https://docs.gitlab.com/user/deprecated_page/`.
    If you find any links, update the relevant [YAML files](https://gitlab.com/gitlab-org/gitlab/-/tree/master/data/deprecations):
 
    - In the `body:` section, remove links to the removed page.
@@ -139,15 +131,13 @@ To remove a page:
      bin/rake gitlab:docs:compile_deprecations
      ```
 
-This content is removed from the documentation as part of the Technical Writing team's
-[regularly scheduled tasks](https://handbook.gitlab.com/handbook/product/ux/technical-writing/#regularly-scheduled-tasks).
+This content is removed from the documentation as part of the Technical Writing team's [regularly scheduled tasks](https://handbook.gitlab.com/handbook/product/ux/technical-writing/#regularly-scheduled-tasks).
 
 ## Remove a topic
 
 To remove a topic:
 
-1. Leave the title and the details of the deprecation and removal. Remove all other content,
-   including the history items and the `details` and `alert` shortcodes.
+1. Leave the title and the details of the deprecation and removal. Remove all other content, including the history items and the `details` and `alert` shortcodes.
 1. Add `(removed)` after the title.
 1. Add the following HTML comments above and below the topic.
    For `remove_date`, set a date three months after the release where it was removed.
@@ -172,8 +162,7 @@ To remove a topic:
    <!--- end_remove -->
    ```
 
-1. Search the [Deprecations and Removals](../../../update/deprecations.md) page for
-   links to the removed page. The links use full URLs like: `https://docs.gitlab.com/user/deprecated_page/`.
+1. Search the [Deprecations and Removals](../../../update/deprecations.md) page for links to the removed page. The links use full URLs like: `https://docs.gitlab.com/user/deprecated_page/`.
    If you find any links, update the relevant [YAML files](https://gitlab.com/gitlab-org/gitlab/-/tree/master/data/deprecations):
 
    - In the `body:` section, remove links to the removed page.
@@ -184,27 +173,20 @@ To remove a topic:
      bin/rake gitlab:docs:compile_deprecations
      ```
 
-This content is removed from the documentation as part of the Technical Writing team's
-[regularly scheduled tasks](https://handbook.gitlab.com/handbook/product/ux/technical-writing/#regularly-scheduled-tasks).
+This content is removed from the documentation as part of the Technical Writing team's [regularly scheduled tasks](https://handbook.gitlab.com/handbook/product/ux/technical-writing/#regularly-scheduled-tasks).
 
 ## Removing version-specific upgrade pages
 
 Version-specific upgrade pages are in the `doc/update/versions/` directory.
 
-We don't remove version-specific upgrade pages immediately for a major milestone. This gives
-users time to upgrade from older versions.
+We don't remove version-specific upgrade pages immediately for a major milestone. This gives users time to upgrade from older versions.
 
-For example, `doc/update/versions/14_changes.md` should
-be removed during the `.3` milestone. Therefore `14_changes.md` are
-removed in GitLab 17.3.
+For example, `doc/update/versions/14_changes.md` should be removed during the `.3` milestone. Therefore `14_changes.md` are removed in GitLab 17.3.
 
 Instead of removing the unsupported page:
 
-- [Add a note](#remove-a-topic) with a date three months in the future to ensure the page is removed during the
-  [monthly maintenance task](https://handbook.gitlab.com/handbook/product/ux/technical-writing/#regularly-scheduled-tasks).
+- [Add a note](#remove-a-topic) with a date three months in the future to ensure the page is removed during the [monthly maintenance task](https://handbook.gitlab.com/handbook/product/ux/technical-writing/#regularly-scheduled-tasks).
 - Do not add `Removed` to the title.
 
-If the `X_changes.md` page contains relative links to other sections
-that are removed as part of the versions cleanup, the `docs-lint links`
-job might fail. You can replace those relative links with an [archived version](https://archives.docs.gitlab.com).
+If the `X_changes.md` page contains relative links to other sections that are removed as part of the versions cleanup, the `docs-lint links` job might fail. You can replace those relative links with an [archived version](https://archives.docs.gitlab.com).
 Choose the latest minor version of the unsupported version to be removed.

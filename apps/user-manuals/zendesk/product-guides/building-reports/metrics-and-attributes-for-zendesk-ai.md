@@ -8,13 +8,11 @@ The metrics and attributes described in this article are used to create the repo
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Copilot |
 
-The metrics and attributes described in this article are used to create the reports
-included in the [Zendesk Copilot: Agent productivity prebuilt
-dashboard](https://support.zendesk.com/hc/en-us/articles/9308443151258) and the [Generative AI Agent Tools prebuilt dashboard](https://support.zendesk.com/hc/en-us/articles/6961627955994).
+The metrics and attributes described in this article are used to create the reports included in the [Zendesk Copilot: Agent productivity prebuilt dashboard](https://support.zendesk.com/hc/en-us/articles/9308443151258) and the [Generative AI Agent Tools prebuilt dashboard](https://support.zendesk.com/hc/en-us/articles/6961627955994).
 
 This article contains the following topics:
 
@@ -34,13 +32,12 @@ Note: This dataset retains data only from the previous 90 days.
 
 ### Copilot auto assist metrics
 
-This section lists and defines the metrics available in the Copilot auto assist
-dataset.
+This section lists and defines the metrics available in the Copilot auto assist dataset.
 
 Actions and action flows are planned to be added to the dataset at a later stage.
 Currently, only standard actions data is available in this dataset.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Metric** | **Definition** | **Formula** |
 | Auto assists | The number of Auto assist interactions that were shown to agents. | [Auto assist ID] |
@@ -66,10 +63,10 @@ Currently, only standard actions data is available in this dataset.
 | Good satisfaction tickets | The number of tickets with a good satisfaction rating. | IF ([Ticket satisfaction rating]="Good") THEN [Ticket ID] ENDIF |
 | Rated satisfaction tickets | Tickets that were rated either bad or good by the requester. | IF ([Ticket satisfaction rating]="Good" OR [Ticket satisfaction rating]="Bad") THEN [Ticket ID] ENDIF |
 | % Satisfaction score | The percentage of satisfaction surveys rated good. | D\_COUNT(Good satisfaction tickets)/D\_COUNT(Rated satisfaction tickets) |
-| Agent replies | The number of public replies added to a ticket by an agent. |  |
-| Assignee stations | The number of agents a ticket has been assigned to. |  |
-| Group station | The number of groups a ticket has been assigned to. |  |
-| Reopens | The number of times a ticket was reopened. |  |
+| Agent replies | The number of public replies added to a ticket by an agent. | |
+| Assignee stations | The number of agents a ticket has been assigned to. | |
+| Group station | The number of groups a ticket has been assigned to. | |
+| Reopens | The number of times a ticket was reopened. | |
 | Agents | The number of active agents and administrators in your Zendesk account. | [Agent ID] |
 | Agents used auto assist | The number of agents who used auto assist at least once by accepting, editing or dismissing it. | [Auto assist agent ID] |
 | First reply time (min) | The duration in minutes between when the ticket was created and the first public agent reply on the ticket. | VALUE(First reply time (min)) |
@@ -81,10 +78,9 @@ Currently, only standard actions data is available in this dataset.
 
 ### Copilot auto assist attributes
 
-This section lists and defines the attributes available in the Copilot auto
-assist dataset.
+This section lists and defines the attributes available in the Copilot auto assist dataset.
 
-|  |  |
+| | |
 | --- | --- |
 | **Attribute** | **Definition** |
 | Auto assist ID | The Auto assist interaction ID. |
@@ -133,11 +129,9 @@ assist dataset.
 
 ## Copilot suggestions dataset
 
-The Copilot suggestions dataset lists the metrics and attributes you can use to [create Explore reports](https://support.zendesk.com/hc/en-us/articles/4408821589530) to measure the engagement and
-performance of the following Copilot features: [similar tickets](../setting-up-ai-powered-agent-tools/turning-on-similar-tickets.md), [merging suggestions](https://support.zendesk.com/hc/en-us/articles/8044075423514-Turning-on-merging-suggestions), [quick answers](https://support.zendesk.com/hc/en-us/articles/8079579364250-Turning-on-quick-answers-for-Agent-Workspace), [suggested replies](../setting-up-ai-powered-agent-tools/turning-on-suggested-first-replies.md), and [suggested macros](../setting-up-ai-powered-agent-tools/turning-on-suggested-macros.md).
+The Copilot suggestions dataset lists the metrics and attributes you can use to [create Explore reports](https://support.zendesk.com/hc/en-us/articles/4408821589530) to measure the engagement and performance of the following Copilot features: [similar tickets](../setting-up-ai-powered-agent-tools/turning-on-similar-tickets.md), [merging suggestions](https://support.zendesk.com/hc/en-us/articles/8044075423514-Turning-on-merging-suggestions), [quick answers](https://support.zendesk.com/hc/en-us/articles/8079579364250-Turning-on-quick-answers-for-Agent-Workspace), [suggested replies](../setting-up-ai-powered-agent-tools/turning-on-suggested-first-replies.md), and [suggested macros](../setting-up-ai-powered-agent-tools/turning-on-suggested-macros.md).
 
-This dataset is used to create reports in the AI suggestions tab of the [Zendesk Copilot: Agent productivity prebuilt
-dashboard](https://support.zendesk.com/hc/en-us/articles/9308443151258).
+This dataset is used to create reports in the AI suggestions tab of the [Zendesk Copilot: Agent productivity prebuilt dashboard](https://support.zendesk.com/hc/en-us/articles/9308443151258).
 
 This section contains the following topics:
 
@@ -146,14 +140,13 @@ This section contains the following topics:
 
 ### Copilot suggestions metrics
 
-This section lists and defines the metrics available in the Copilot suggestions
-dataset.
+This section lists and defines the metrics available in the Copilot suggestions dataset.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Metric** | **Definition** | **Formula** |
 | Suggestions | The number of AI suggestions shown to agents. AI suggestions include similar tickets, merging suggestions, quick answers, suggested first replies, and suggested macros. Auto assist suggestions aren't included. | [Suggestion ID] |
-| Accepted suggestions | The number of AI suggestions accepted by agents.  - A [similar ticket](https://support.zendesk.com/hc/en-us/articles/8036381366426#topic_vlg_33v_xyb)   suggestion is considered accepted when a user opens or   hovers over at least one of the suggested similar   tickets. - A [merging   suggestion](https://support.zendesk.com/hc/en-us/articles/8044075423514) is considered accepted when the   user merges at least one of the suggested tickets. - A [quick answer](https://support.zendesk.com/hc/en-us/articles/8079579364250)   is considered accepted when a user gives it a thumbs-up   or copies it to the conversation. - A [suggested first   reply](https://support.zendesk.com/hc/en-us/articles/8037936748570) is counted as accepted when a user   presses Tab to accept the suggestion. Acceptance also   includes suggestions which were accepted and edited by   agents. - A [suggested   macro](https://support.zendesk.com/hc/en-us/articles/4408824813722) is considered accepted when a user   applies a suggested macro. | IF [Suggestion status]="Accepted" THEN [Suggestion ID] ENDIF |
+| Accepted suggestions | The number of AI suggestions accepted by agents. - A [similar ticket](https://support.zendesk.com/hc/en-us/articles/8036381366426#topic_vlg_33v_xyb)   suggestion is considered accepted when a user opens or   hovers over at least one of the suggested similar   tickets. - A [merging   suggestion](https://support.zendesk.com/hc/en-us/articles/8044075423514) is considered accepted when the   user merges at least one of the suggested tickets. - A [quick answer](https://support.zendesk.com/hc/en-us/articles/8079579364250)   is considered accepted when a user gives it a thumbs-up   or copies it to the conversation. - A [suggested first   reply](https://support.zendesk.com/hc/en-us/articles/8037936748570) is counted as accepted when a user   presses Tab to accept the suggestion. Acceptance also   includes suggestions which were accepted and edited by   agents. - A [suggested   macro](https://support.zendesk.com/hc/en-us/articles/4408824813722) is considered accepted when a user   applies a suggested macro. | IF [Suggestion status]="Accepted" THEN [Suggestion ID] ENDIF |
 | Ignored suggestions | The number of AI suggestions that were not accepted by agents. | IF [Suggestion status]="Ignored" THEN [Suggestion ID] ENDIF |
 | % Acceptance rate | The number of AI suggestions that were accepted, divided by the total number of AI suggestions shown. | COUNT(Accepted suggestions)/COUNT(Suggestions) |
 | AI suggestions tickets | The number of tickets with an AI suggestion shown at least once. | [Suggestion ticket ID] |
@@ -178,10 +171,9 @@ dataset.
 
 ### Copilot suggestions attributes
 
-This section lists and defines the attributes available in the Copilot
-suggestions dataset.
+This section lists and defines the attributes available in the Copilot suggestions dataset.
 
-|  |  |
+| | |
 | --- | --- |
 | **Attribute** | **Definition** |
 | Suggestion ID | The unique ID for the AI suggestion. |
@@ -225,33 +217,25 @@ suggestions dataset.
 
 ## Generative AI agent tools dataset
 
-The Generative AI agent tools dataset lists the metrics and attributes you can use to
-[create Explore reports](https://support.zendesk.com/hc/en-us/articles/4408821589530) based on agents’
-usage of the following generative AI features: [summarize](https://support.zendesk.com/hc/en-us/articles/5608712782362#topic_ky3_wvc_3xb), [expand](https://support.zendesk.com/hc/en-us/articles/5608712782362#topic_r5d_xvc_3xb), and [make more friendly and make more formal](https://support.zendesk.com/hc/en-us/articles/5608712782362#topic_w25_xvc_3xb).
-This dataset is used to create reports included in the AI agent tools tab of the
-[Zendesk Copilot: Agent productivity prebuilt
-dashboard](https://support.zendesk.com/hc/en-us/articles/9308443151258).
+The Generative AI agent tools dataset lists the metrics and attributes you can use to [create Explore reports](https://support.zendesk.com/hc/en-us/articles/4408821589530) based on agents’ usage of the following generative AI features: [summarize](https://support.zendesk.com/hc/en-us/articles/5608712782362#topic_ky3_wvc_3xb), [expand](https://support.zendesk.com/hc/en-us/articles/5608712782362#topic_r5d_xvc_3xb), and [make more friendly and make more formal](https://support.zendesk.com/hc/en-us/articles/5608712782362#topic_w25_xvc_3xb).
+This dataset is used to create reports included in the AI agent tools tab of the [Zendesk Copilot: Agent productivity prebuilt dashboard](https://support.zendesk.com/hc/en-us/articles/9308443151258).
 
 This dataset is also used to create the reports included in the [Generative AI Agent Tools prebuilt dashboard](https://support.zendesk.com/hc/en-us/articles/6961627955994).
 
-The Generative AI agent tools dashboard will be removed in
-September 2025 as part of the [Dashboard Builder transition
-process](https://support.zendesk.com/hc/en-us/articles/6307402972186-Explore-Analytics-dashboard-builder-transition).
+The Generative AI agent tools dashboard will be removed in September 2025 as part of the [Dashboard Builder transition process](https://support.zendesk.com/hc/en-us/articles/6307402972186-Explore-Analytics-dashboard-builder-transition).
 
 This section contains the following topics:
 
 - [Generative AI agent tools metrics](#topic_mfq_brk_3bc)
 - [Generative AI agent tools attributes](#topic_zx2_drk_3bc)
 
-Note: This dataset retains data only from the previous 1200
-days. Data is available from August 7th, 2025, onwards.
+Note: This dataset retains data only from the previous 1200 days. Data is available from August 7th, 2025, onwards.
 
 ### Generative AI agent tools metrics
 
-This section lists and defines the metrics available in the Generative AI agent
-tools dataset.
+This section lists and defines the metrics available in the Generative AI agent tools dataset.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Metric** | **Definition** | **Explore formula** |
 | Tickets | The total number of tickets. | [Ticket ID] |
@@ -293,14 +277,13 @@ tools dataset.
 
 ### Generative AI agent tools attributes
 
-This section lists and defines the attributes available in the Generative AI
-agent tools dataset.
+This section lists and defines the attributes available in the Generative AI agent tools dataset.
 
-|  |  |
+| | |
 | --- | --- |
 | **Attribute** | **Definition** |
 | AI usage type | The AI tool usage type. Possible values include **No AI Usage**, **Make more formal**, **Make more friendly**, **Expand**, and **Summarize**. |
-| AI usage - Ticket ID | The ticket ID associated with the AI tool usage.  **Note:** If an agent uses any AI tools on a new ticket before submitting their first comment, no associated ticket ID is recorded because no ticket ID exists until the agent clicks Submit. However, the AI tool usage is still counted as part of the **AI usage type** metric. |
+| AI usage - Ticket ID | The ticket ID associated with the AI tool usage. **Note:** If an agent uses any AI tools on a new ticket before submitting their first comment, no associated ticket ID is recorded because no ticket ID exists until the agent clicks Submit. However, the AI tool usage is still counted as part of the **AI usage type** metric. |
 | Agent name | The name of the agent who used the AI tool. |
 | Ticket ID | The ID of the ticket. |
 | Ticket status | The status of the ticket. Possible values include **New**, **Open**, **Pending**, **On-hold**, **Solved**, and **Closed**. |
@@ -326,9 +309,7 @@ agent tools dataset.
 
 ## Intelligent triage dataset
 
-The Intelligent triage dataset contains metrics and attributes that relate to tickets
-enriched with intent, language, and sentiment. This section lists all the available
-elements for the dataset.
+The Intelligent triage dataset contains metrics and attributes that relate to tickets enriched with intent, language, and sentiment. This section lists all the available elements for the dataset.
 
 This section contains the following topics:
 
@@ -337,8 +318,7 @@ This section contains the following topics:
 
 ## Intelligent triage metrics
 
-This section lists and defines all metrics available in the Intelligent triage
-dataset.
+This section lists and defines all metrics available in the Intelligent triage dataset.
 
 | Metric | Definition | Explore formula |
 | --- | --- | --- |
@@ -382,8 +362,7 @@ dataset.
 
 ## Intelligent triage attributes
 
-This section lists and defines all attributes available in the Intelligent triage
-dataset.
+This section lists and defines all attributes available in the Intelligent triage dataset.
 
 | Attribute | Definition |
 | --- | --- |
@@ -398,7 +377,7 @@ dataset.
 | Entity prediction added | Indicates if an entity was detected. |
 | Time - Entity detected | The time when the entity was detected on the ticket. |
 | Sentiment confidence | The confidence level of the sentiment prediction, Low, Medium, or High. |
-| Sentiment rating | The ticket's sentiment rating. One of:  - 1 - Very negative - 2 - Negative - 3 - Neutral - 4 - Positive - 5 - Very positive |
+| Sentiment rating | The ticket's sentiment rating. One of: - 1 - Very negative - 2 - Negative - 3 - Neutral - 4 - Positive - 5 - Very positive |
 | Sentiment prediction added | Indicates if a prediction was added for the sentiment, True or False. |
 | Sentiment | The detected sentiment level, Negative, Neutral, or Positive. |
 | Language | The language that intelligent triage detected for the ticket. |

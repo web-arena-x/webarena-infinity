@@ -10,8 +10,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408832656410-Attaching-do
 
 ![Available on all Sell plans](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/plan_available_sell_all.png)
 
-You can use the Sell mobile app to add and review documents related to a specific lead,
-contact, or deal.
+You can use the Sell mobile app to add and review documents related to a specific lead, contact, or deal.
 
 Documents are represented in the mobile app with the Document (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_docs.png)) icon.
 

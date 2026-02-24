@@ -6,33 +6,26 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408834893978-Enabling-age
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Admins can assign tickets to any group. Agents can assign tickets, manually or via a
-macro, to any of the groups they belong to if they have the appropriate permissions or
-if an admin has enabled group reassignment in their ticket settings.
+Admins can assign tickets to any group. Agents can assign tickets, manually or via a macro, to any of the groups they belong to if they have the appropriate permissions or if an admin has enabled group reassignment in their ticket settings.
 
 **To enable agents to assign tickets to any of their groups**
 
-- (Team and Professional) In the agent's profile, set **Access** to **Tickets
-  in agent's groups**.
+- (Team and Professional) In the agent's profile, set **Access** to **Tickets in agent's groups**.
 
-  Note: On Team and Professional plans, when you
-  restrict agent access to tickets within their group, those agents can no
-  longer update end user information or add end users to tickets.
-- (Enterprise) In the custom role for the agent, set their ticket access to
-  **Within their groups** or higher.
+ Note: On Team and Professional plans, when you restrict agent access to tickets within their group, those agents can no longer update end user information or add end users to tickets.
+- (Enterprise) In the custom role for the agent, set their ticket access to **Within their groups** or higher.
 
 **To enable agents to assign tickets to any group**
 
-- (Enterprise) In the custom role for the agent, select **Within their groups**
-  and **Assign ticket to any group**.
+- (Enterprise) In the custom role for the agent, select **Within their groups** and **Assign ticket to any group**.
 
 **To enable agents to reassign tickets back to their group**
 

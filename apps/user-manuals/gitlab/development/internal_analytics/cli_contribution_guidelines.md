@@ -94,15 +94,14 @@ The internal events generator _should not_:
 ## Development Practices
 
 - Feature documentation: Co-release documentation updates with CLI updates
-  - If the CLI is our recommended entrypoint for all instrumentation, it must always be feature-complete. It should
-    not lag behind the documentation or the features we announce to other teams.
+ - If the CLI is our recommended entrypoint for all instrumentation, it must always be feature-complete. It should not lag behind the documentation or the features we announce to other teams.
 - CLI documentation: Rely on inline or co-located documentation of CLI code as much as possible
-  - The more likely we are to stumble upon context/explanation while working on the CLI, the more likely we are to a) reduce the likelihood of unused/duplicate code and b) increase code navigability and speed of re-familiarization.
+ - The more likely we are to stumble upon context/explanation while working on the CLI, the more likely we are to a) reduce the likelihood of unused/duplicate code and b) increase code navigability and speed of re-familiarization.
 - Testing: Approach tests the same as you would for a frontend application
-  - Automated tests should be primarily UX-oriented E2E tests, with supplementary edge case testing and unit tests on an as-needed basis.
-  - Apply unit tests in places where they are absolutely necessary to guard against regressions.
+ - Automated tests should be primarily UX-oriented E2E tests, with supplementary edge case testing and unit tests on an as-needed basis.
+ - Apply unit tests in places where they are absolutely necessary to guard against regressions.
 - Verification: Always run the CLI directly when adding feature support
-  - We don't want to rely only on automated tests. If our goal is great user-experience, then we as users are a critical tool in making sure everything we merge serves that goal. If it's cumbersome & annoying to manually test, then it's probably also cumbersome and annoying to use.
+ - We don't want to rely only on automated tests. If our goal is great user-experience, then we as users are a critical tool in making sure everything we merge serves that goal. If it's cumbersome & annoying to manually test, then it's probably also cumbersome and annoying to use.
 
 ## FAQ
 

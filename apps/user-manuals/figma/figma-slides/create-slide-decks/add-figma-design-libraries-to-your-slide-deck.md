@@ -18,7 +18,7 @@ Add Figma Design libraries to your slide decks to access your team’s component
 
 ## Add a library to your slide deck
 
-1. Click  **Assets** in the toolbar.
+1. Click **Assets** in the toolbar.
 2. Click **Add your own**.
 3. Enter the library name in the search field or browse through libraries available to you.
 4. Click **Add to file**.
@@ -33,7 +33,7 @@ Component and component properties can be accessed in both slides and design mod
 
 To add a component:
 
-1. Click  **Assets** in the toolbar or use the keyboard shortcut Shift I.
+1. Click **Assets** in the toolbar or use the keyboard shortcut Shift I.
 2. Choose from recently used components or select a library.
 3. Drag a component onto the canvas to add an instance of it to your slide deck.
 
@@ -55,9 +55,9 @@ You can switch the variable mode on an object or slide so the design displays th
 
 **For frames, groups, components, and entire slides:** You can switch the mode if a nested layer has at least one variable applied and the variable has multiple modes.
 
-To switch modes on an object, select the object, click  **Apply variable mode** in the right sidebar, and choose which mode you want to apply.
+To switch modes on an object, select the object, click **Apply variable mode** in the right sidebar, and choose which mode you want to apply.
 
-To switch modes on an entire slide, deselect everything on the slide, click  **Apply variable mode**, and choose which mode you want to apply.
+To switch modes on an entire slide, deselect everything on the slide, click **Apply variable mode**, and choose which mode you want to apply.
 
 ### Apply styles
 
@@ -71,14 +71,14 @@ If you’re using slides mode, you can access the following style types:
 
 1. Select a text layer.
 2. Click the **Text style** dropdown in the right sidebar.
-3. Click  **Apply styles** to view a list of available library text styles.
+3. Click **Apply styles** to view a list of available library text styles.
 
 **Color styles**
 
 1. Select an object with a fill or stroke.
 2. Click the **Fill** dropdown.
 3. Do one of the following:
-   - To add a template color, click the  **plus** next to Template colors
+   - To add a template color, click the **plus** next to Template colors
    - To add a color outside of the template colors, select **Add color** below Others in this deck
 4. Select the **Libraries** tab to view a list of available styles.
 
@@ -88,14 +88,14 @@ If you’re using slides mode, you can access the following style types:
 
 When someone publishes an update to a component, style, or variable in a library, Figma notifies every file that uses these assets that an update is available. To see any updates to instances in your slides, you’ll need to accept any updates from published libraries. Learn more about [accepting library updates](../../figma-design/use-libraries/review-and-accept-library-updates.md).
 
-1. Click  **Assets** in the toolbar. You'll see a banner notification if updates are available for your components.
+1. Click **Assets** in the toolbar. You'll see a banner notification if updates are available for your components.
 2. Click **Update**.
 
 ## Remove a library
 
 If you no longer need to access a library, you can remove it from your slide deck.
 
-1. Click  **Assets** in the toolbar.
+1. Click **Assets** in the toolbar.
 2. Click **Add your own**.
 3. Click **Remove** next to the library you want to remove.
 

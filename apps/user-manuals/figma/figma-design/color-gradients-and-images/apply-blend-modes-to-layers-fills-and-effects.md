@@ -30,9 +30,9 @@ To apply a blend mode:
 
 1. Select the layer you wish to apply a blend mode to.
 2. Do one of the following:
-   - **Apply a blend mode to the entire layer:** Click  **Apply blend mode** in the **Appearance** section of the right sidebar.
-   - **Apply a blend mode to a fill or stroke fill:** Open the color picker in the **Fill** or **Stroke** sections of the right sidebar, then click  **Apply blend mode**.
-   - **Apply a blend mode to an effect:** You can apply blend modes to inner shadows, drop shadows, and noise effects. Select the effect in the right sidebar, then click  **Apply blend mode**.
+   - **Apply a blend mode to the entire layer:** Click **Apply blend mode** in the **Appearance** section of the right sidebar.
+   - **Apply a blend mode to a fill or stroke fill:** Open the color picker in the **Fill** or **Stroke** sections of the right sidebar, then click **Apply blend mode**.
+   - **Apply a blend mode to an effect:** You can apply blend modes to inner shadows, drop shadows, and noise effects. Select the effect in the right sidebar, then click **Apply blend mode**.
 3. Choose a blend mode option from the dropdown menu. Hover over each option to see a live preview on the canvas. Experimenting with different blend modes can reveal unexpected color relationships and add visual interest to your designs.
 
 ![Demonstrates applying a blend mode on a layer, with a live preview of the effect on a colorful bird image.](https://help.figma.com/hc/article_attachments/34208496556311)

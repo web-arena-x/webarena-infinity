@@ -28,10 +28,10 @@ Horizontal constraints define how a layer behaves, as you resize the frame along
 - **Right** maintains the layer’s position, relative to the right side of the frame.
 - **Left and right** maintains the layer’s size and position relative to both sides of the frame. This may cause layers to grow or shrink along the x axis, when resized.
 - **Center** maintains the layer’s position, relative to the horizontal center of the frame.
-- **Scale** will define the layer’s size and position as a percentage of the frame's dimensions. It will then maintain those proportions as you resize it.  
+- **Scale** will define the layer’s size and position as a percentage of the frame's dimensions. It will then maintain those proportions as you resize it. 
     
 
-  For example: The frame's width is 100px and the layer's width is 70px, so the layer takes up 70% of its parent frame. If we resize the frame to 200px wide, Figma will resize the layer to a width of 140px, 70% of 200px.
+ For example: The frame's width is 100px and the layer's width is 70px, so the layer takes up 70% of its parent frame. If we resize the frame to 200px wide, Figma will resize the layer to a width of 140px, 70% of 200px.
 
 ![Figma constraints panel showing X and Y position with Left and Scale settings selected.](https://help.figma.com/hc/article_attachments/25953942136599)
 

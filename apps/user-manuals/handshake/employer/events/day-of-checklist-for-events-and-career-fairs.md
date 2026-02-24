@@ -13,12 +13,12 @@ Follow these key steps before and during the event to ensure a smooth, successfu
 ![unchecked](https://support.joinhandshake.com/hc/article_attachments/34054623905431) **Access the event on Handshake**
 
 - Make sure you can access the event and navigate the Handshake platform either through the **Events app** or a desktop browser.
-  - **iOS users**: Download the **Handshake Events app** from the App Store
-  - **Web users**: Log in at [**app.joinhandshake.com**](https://app.joinhandshake.com)
+ - **iOS users**: Download the **Handshake Events app** from the App Store
+ - **Web users**: Log in at [**app.joinhandshake.com**](https://app.joinhandshake.com)
 
 > If you’re new to the Handshake Events app, take a few minutes to explore its layout and functionality before the day of the event.
 
-![unchecked](https://support.joinhandshake.com/hc/article_attachments/34054623905431) **Confirm QR codes are printed**  
+![unchecked](https://support.joinhandshake.com/hc/article_attachments/34054623905431) **Confirm QR codes are printed** 
 Your event lead should provide printed QR codes for attendee check-in. Bring them with you and display them clearly at the event.
 
 *Need a full pre-event checklist? Review* [*Preparing for the Day-of an Event*](https://support.joinhandshake.com/hc/en-us/articles/8035529891991)*.*
@@ -71,6 +71,6 @@ You can evaluate attendees using either the **Handshake Events app** or the web 
 
 > Curious about how to rate candidates or add notes during the event? Read more about[*Managing RSVPs with Evaluations, Notes, & Labels*](https://support.joinhandshake.com/hc/en-us/articles/360055303813).
 
-![unchecked](https://support.joinhandshake.com/hc/article_attachments/34054623905431)  **Report any issues or feedback to your event lead**
+![unchecked](https://support.joinhandshake.com/hc/article_attachments/34054623905431) **Report any issues or feedback to your event lead**
 
 - Share anything that went well or could be improved for future events.

@@ -10,9 +10,7 @@ title: Job token permission development guidelines
 Job token permissions allow fine-grained access control for CI/CD job tokens that access GitLab API endpoints.
 When enabled, the job token can only perform actions allowed for the project.
 
-Historically, job tokens have provided broad access to resources by default. With the introduction of
-fine-grained permissions for job tokens, we can enable granular access controls while adhering to the
-principle of least privilege.
+Historically, job tokens have provided broad access to resources by default. With the introduction of fine-grained permissions for job tokens, we can enable granular access controls while adhering to the principle of least privilege.
 
 This topic provide guidance on the requirements and contribution guidelines for new job token permissions.
 
@@ -22,7 +20,7 @@ Before being accepted, all new job token permissions must:
 
 - Be opt-in and disabled by default.
 - Complete a review by the GitLab security team.
-  - Tag `@gitlab-com/gl-security/product-security/appsec` for review
+ - Tag `@gitlab-com/gl-security/product-security/appsec` for review
 
 These requirements ensure that new permissions allow users to maintain explicit control over their security configuration, prevent unintended privilege escalation, and adhere to the principle of least privilege.
 
@@ -65,22 +63,22 @@ This example shows how to add support for `tags` API endpoints to the job token 
 # In lib/api/tags.rb
 
 resource :projects do
-  # Enable job token authentication for this endpoint
-  route_setting :authentication, job_token_allowed: true
-  # Require the `read_repository` policy for reading tags
-  route_setting :authorization, job_token_policies: :read_repository,
+ # Enable job token authentication for this endpoint
+ route_setting :authentication, job_token_allowed: true
+ # Require the `read_repository` policy for reading tags
+ route_setting :authorization, job_token_policies: :read_repository,
     allow_public_access_for_enabled_project_features: :repository
-  get ':id/repository/tags' do
+ get ':id/repository/tags' do
     # ... existing endpoint implementation
-  end
+ end
 
-  # Enable job token authentication for this endpoint
-  route_setting :authentication, job_token_allowed: true
-  # Require the `admin_repository` policy for creating tags
-  route_setting :authorization, job_token_policies: :admin_repository
-  post ':id/repository/tags' do
+ # Enable job token authentication for this endpoint
+ route_setting :authentication, job_token_allowed: true
+ # Require the `admin_repository` policy for creating tags
+ route_setting :authorization, job_token_policies: :admin_repository
+ post ':id/repository/tags' do
     # ... existing endpoint implementation
-  end
+ end
 end
 ```
 
@@ -114,17 +112,17 @@ Add the shared example to your API endpoint tests by including it with the requi
 
 ```ruby
 describe 'GET /projects/:id/repository/tags' do
-  let(:route) { "/projects/#{project.id}/repository/tags" }
+ let(:route) { "/projects/#{project.id}/repository/tags" }
 
-  it_behaves_like 'enforcing job token policies', :read_repository,
+ it_behaves_like 'enforcing job token policies', :read_repository,
     allow_public_access_for_enabled_project_features: :repository do
     let(:user) { developer }
     let(:request) do
       get api(route), params: { job_token: target_job.token }
     end
-  end
+ end
 
-  # Your other endpoint-specific tests...
+ # Your other endpoint-specific tests...
 end
 ```
 

@@ -8,9 +8,9 @@ title: Syntax highlighting development guidelines (repository blob viewer)
 This guide outlines best practices and implementation details for syntax highlighting in the repository source code viewer. GitLab uses two syntax highlighting libraries:
 
 - [Highlight.js](https://highlightjs.org/) for client-side highlighting in the source viewer
-  - See the [full list of supported languages](https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md)
+ - See the [full list of supported languages](https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md)
 - [Rouge](https://rubygems.org/gems/rouge) as a server-side fallback
-  - See the [full list of supported languages](https://github.com/rouge-ruby/rouge/wiki/list-of-supported-languages-and-lexers)
+ - See the [full list of supported languages](https://github.com/rouge-ruby/rouge/wiki/list-of-supported-languages-and-lexers)
 
 The source code viewer uses this dual approach to ensure broad language support and optimal performance when viewing files in the repository.
 
@@ -61,7 +61,7 @@ Example:
 // package.json
 
 //...
-  "dependencies": {
+ "dependencies": {
     "@gleam-lang/highlight.js-gleam": "^1.5.0",
 //...
 ```
@@ -72,7 +72,7 @@ Example:
 // highlight_js_language_loader.js
 
 //...
-  gleam: () => import(/* webpackChunkName: 'hl-gleam' */ '@gleam-lang/highlight.js-gleam'),
+ gleam: () => import(/* webpackChunkName: 'hl-gleam' */ '@gleam-lang/highlight.js-gleam'),
 //...
 ```
 
@@ -80,7 +80,7 @@ If the language is still displayed as plaintext, you might need to add language 
 
 ```javascript
 if (name.endsWith('.gleam')) {
-  language = 'gleam';
+ language = 'gleam';
 }
 ```
 

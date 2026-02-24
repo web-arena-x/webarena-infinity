@@ -37,9 +37,9 @@ When the 'Submittal Schedule Calculations' option is turned ON, you first enter 
 ## Things to Consider
 
 - **Required User Permissions**:
-  - 'Admin' level permission to the project's Submittals tool.
+ - 'Admin' level permission to the project's Submittals tool.
 - **Requirements**:
-  - The Submittals tool must be active on the project. See [Add and Remove Tools on a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-and-remove-project-tools "Add and Remove Tools on a Project").
+ - The Submittals tool must be active on the project. See [Add and Remove Tools on a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-and-remove-project-tools "Add and Remove Tools on a Project").
 
 ## Demo
 
@@ -47,16 +47,16 @@ When the 'Submittal Schedule Calculations' option is turned ON, you first enter 
 
 ## Steps
 
-1. Navigate to the Project level **Submittals** tool.  
+1. Navigate to the Project level **Submittals** tool. 
    This reveals the Submittals page.
-2. Click **Configure Settings**![icons-settings-gear.png](https://support.procore.com/@api/deki/files/89566/icons-settings-gear.png?revision=2&size=bestfit&width=15&height=15).   
+2. Click **Configure Settings**![icons-settings-gear.png](https://support.procore.com/@api/deki/files/89566/icons-settings-gear.png?revision=2&size=bestfit&width=15&height=15).  
    This reveals the Submittal Settings page.
 3. Scroll down the page.
 4. Place a checkmark in the **Enable Submittal Schedule Calculations** checkbox.
 5. Specify a number of days in the boxes that appear. The default number of days is 14.
    - **Default Internal Review Time**
    - **Default Design Team Review Time**
-6. Click **Update**.   
+6. Click **Update**.  
    The system saves your settings
 
 ## See Also

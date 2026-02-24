@@ -18,7 +18,7 @@ This article contains the following sections:
 
 The following table lists the standard source code editor shortcuts for OS X and Windows.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Description** | **OS X** | **Windows** |
 | Select all | Cmd-a | Ctrl-a |
@@ -44,7 +44,7 @@ The following table lists the standard source code editor shortcuts for OS X and
 
 The following table lists the search and multi-cursor source code shortcuts for OS X and Windows.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Description** | **OS X** | **Windows** |
 | Open search panel | Cmd-f | Ctrl-f |
@@ -59,7 +59,7 @@ The following table lists the search and multi-cursor source code shortcuts for 
 
 The following table lists the folding source code shortcuts for OS X and Windows.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Description** | **OS X** | **Windows** |
 | Collapse fold | Cmd-Opt-[ | Ctrl-Shift-[ |

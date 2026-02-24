@@ -16,17 +16,14 @@ title: 'Tutorial: Create a compliance pipeline (deprecated)'
 
 {{< alert type="warning" >}}
 
-This feature was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/159841) in GitLab 17.3
-and is planned for removal in 19.0. Use [pipeline execution policy type](../../user/application_security/policies/pipeline_execution_policies.md) instead.
+This feature was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/159841) in GitLab 17.3 and is planned for removal in 19.0. Use [pipeline execution policy type](../../user/application_security/policies/pipeline_execution_policies.md) instead.
 This change is a breaking change. For more information, see the [migration guide](../../user/compliance/compliance_pipelines.md#pipeline-execution-policies-migration).
 
 {{< /alert >}}
 
 <!-- vale gitlab_base.FutureTense = NO -->
 
-You can use [compliance pipelines](../../user/compliance/compliance_pipelines.md) to ensure specific
-compliance-related jobs are run on pipelines for all projects in a group. Compliance pipelines are applied
-to projects through [compliance frameworks](../../user/compliance/compliance_frameworks/_index.md).
+You can use [compliance pipelines](../../user/compliance/compliance_pipelines.md) to ensure specific compliance-related jobs are run on pipelines for all projects in a group. Compliance pipelines are applied to projects through [compliance frameworks](../../user/compliance/compliance_frameworks/_index.md).
 
 In this tutorial, you:
 
@@ -45,8 +42,8 @@ In this tutorial, you:
 Compliance frameworks are configured in top-level groups. In this tutorial, you create a top-level group that:
 
 - Contains two projects:
-  - The compliance pipeline project to store the compliance pipeline configuration.
-  - Another project that must run a job in its pipeline that is defined by the compliance pipeline configuration.
+ - The compliance pipeline project to store the compliance pipeline configuration.
+ - Another project that must run a job in its pipeline that is defined by the compliance pipeline configuration.
 - Has the compliance framework to apply to projects.
 
 To create the new group:
@@ -58,9 +55,7 @@ To create the new group:
 
 ## Create a new compliance pipeline project
 
-Now you're ready to create a compliance pipeline project. This project contains the
-[compliance pipeline configuration](../../user/compliance/compliance_pipelines.md#example-configuration) to apply to all
-projects with the compliance framework applied.
+Now you're ready to create a compliance pipeline project. This project contains the [compliance pipeline configuration](../../user/compliance/compliance_pipelines.md#example-configuration) to apply to all projects with the compliance framework applied.
 
 To create the compliance pipeline project:
 
@@ -98,8 +93,7 @@ To configure the compliance framework:
 1. Select **New framework**.
 1. In the **Name** field, enter `Tutorial compliance framework`.
 1. In the **Description** field, enter `Compliance framework for tutorial`.
-1. In the **Compliance pipeline configuration (optional)** field, enter
-   `.gitlab-ci.yml@tutorial-group/tutorial-compliance-project`.
+1. In the **Compliance pipeline configuration (optional)** field, enter `.gitlab-ci.yml@tutorial-group/tutorial-compliance-project`.
 1. In the **Background color** field, select a color of your choice.
 1. Select **Add framework**.
 
@@ -114,8 +108,7 @@ For convenience, make the new compliance framework the default for all new proje
 
 ## Create a new project and apply the compliance framework
 
-Your compliance framework is ready, so you can now create projects in the group and they automatically run the
-compliance pipeline configuration in their pipelines.
+Your compliance framework is ready, so you can now create projects in the group and they automatically run the compliance pipeline configuration in their pipelines.
 
 To create a new project for running the compliance pipeline configuration:
 
@@ -125,11 +118,9 @@ To create a new project for running the compliance pipeline configuration:
 1. In the **Project name** field, enter `Tutorial project`.
 1. Select **Create project**.
 
-On the project page, notice the `Tutorial compliance framework` label appears because that was set as the default
-compliance framework for the group.
+On the project page, notice the `Tutorial compliance framework` label appears because that was set as the default compliance framework for the group.
 
-Without any other pipeline configuration, `Tutorial project` can run the jobs defined in the compliance
-pipeline configuration in `Tutorial compliance project`.
+Without any other pipeline configuration, `Tutorial project` can run the jobs defined in the compliance pipeline configuration in `Tutorial compliance project`.
 
 To run the compliance pipeline configuration in `Tutorial project`:
 
@@ -138,16 +129,13 @@ To run the compliance pipeline configuration in `Tutorial project`:
 1. Select **New pipeline**.
 1. On the **New pipeline** page, select **Run pipeline**.
 
-Notice the pipeline runs a job called `compliance-job` in a **test** stage. Nice work, you've run your first compliance
-job!
+Notice the pipeline runs a job called `compliance-job` in a **test** stage. Nice work, you've run your first compliance job!
 
 ## Combine pipeline configurations
 
-If you want projects to run their own jobs as well as the compliance pipeline jobs, you must combine the compliance
-pipeline configuration and the regular pipeline configuration of the project.
+If you want projects to run their own jobs as well as the compliance pipeline jobs, you must combine the compliance pipeline configuration and the regular pipeline configuration of the project.
 
-To combine the pipeline configurations, you must define the regular pipeline configuration and then update the
-compliance pipeline configuration to refer to it.
+To combine the pipeline configurations, you must define the regular pipeline configuration and then update the compliance pipeline configuration to refer to it.
 
 To create the regular pipeline configuration:
 

@@ -47,13 +47,13 @@ Create an appointment type specifically for "Document Review"
 - The appointment medium does not have to be in-person, which enables asynchronous review.
 - This also makes it easy to report on particular appointment types.
 
-Once the appointment is scheduled, navigate to the student's profile (here's where you can consider the Label option outlined above) and navigate to the Documents tab:  
-  
-​  
-![Documents_tab_on_Student_s_profile.png](https://support.joinhandshake.com/hc/article_attachments/25992975969175)​  
-  
-  
-On the Documents page, you can review all the docs, add comments, and even upload a new document:  
+Once the appointment is scheduled, navigate to the student's profile (here's where you can consider the Label option outlined above) and navigate to the Documents tab: 
+ 
+​ 
+![Documents_tab_on_Student_s_profile.png](https://support.joinhandshake.com/hc/article_attachments/25992975969175)​ 
+ 
+ 
+On the Documents page, you can review all the docs, add comments, and even upload a new document: 
 ![List_of_student_documents.png](https://support.joinhandshake.com/hc/article_attachments/25992975970327)​​
 
 To communicate suggestions to students, you can add a comment from the Documents tab. If you do not see this option, you can send a message from the overall student profile.

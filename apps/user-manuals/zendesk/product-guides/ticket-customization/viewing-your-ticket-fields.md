@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408832419738-Viewing-your
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -36,9 +36,9 @@ You must be an admin to access and view your ticket fields in Admin Center.
 
 - In [Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554#topic_hfg_dyz_1hb), click ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ac_objects_rules_icon.png) **Objects and rules** in the sidebar, then select **Tickets > Fields**.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/new_ticket_fields_page.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/new_ticket_fields_page.png)
 
-  From here, you can browse, sort, search, and filter your ticket fields. You can also [export](https://support.zendesk.com/hc/en-us/articles/4408836502682--New-Importing-and-exporting-values-for-ticket-fields) ticket fields.
+ From here, you can browse, sort, search, and filter your ticket fields. You can also [export](https://support.zendesk.com/hc/en-us/articles/4408836502682--New-Importing-and-exporting-values-for-ticket-fields) ticket fields.
 
 ## Browsing and searching the ticket fields list
 
@@ -70,19 +70,19 @@ The following columns may be available for inclusion in the fields list:
 
 - **Active forms**, the number of forms a ticket field appears on. You can hover over the number to view a list of the forms using that field.
 
-  Note: This column is only available to customers on Support Enterprise and Zendesk Suite Growth plans and above.
+ Note: This column is only available to customers on Support Enterprise and Zendesk Suite Growth plans and above.
 - **Field ID**, unique numeric identifiers given to each ticket field, including partial ID numbers
 - **Type**, the ticket field’s format (Drop-down, multi-select, numeric, and the like).
 - **Created by**, the admin who created the field.
 - **Date created**, the date the field was created.
 - **Date modified**, when the field was last edited.
 - **Permissions**, including:
-  - Editable for end-users
-  - Visible for end-users
-  - Required for agents
-  - Required for end-users
+ - Editable for end-users
+ - Visible for end-users
+ - Required for agents
+ - Required for end-users
 
-  When displayed, the permissions options applied to the field are indicated by a check mark.
+ When displayed, the permissions options applied to the field are indicated by a check mark.
 
 Note: Column choice is session-based; that is, if you add columns to the fields list, then log off and log in on a new device, the list reverts to the four default columns.
 
@@ -121,4 +121,4 @@ You can apply multiple filters to the list. If you use more than one filter, the
 
 - Click the **x** by the label name under the search box.
 
-  Or click **Clear filters** to remove all filters.
+ Or click **Clear filters** to remove all filters.

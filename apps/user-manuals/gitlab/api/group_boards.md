@@ -15,8 +15,7 @@ title: Group issue boards API
 Use this API to manage [group issue boards](../user/project/issue_board.md#group-issue-boards).
 Every call to this API requires authentication.
 
-If a user is not a member of a group and the group is private, a `GET`
-request results in `404` status code.
+If a user is not a member of a group and the group is private, a `GET` request results in `404` status code.
 
 ## List all group issue boards in a group
 
@@ -38,7 +37,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "group issue board",
     "hide_backlog_list": false,
@@ -81,18 +80,17 @@ Example response:
         "position" : 3
       }
     ]
-  }
+ }
 ]
 ```
 
-Users on [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) see
-different parameters, due to the ability to have multiple group boards.
+Users on [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) see different parameters, due to the ability to have multiple group boards.
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "group issue board",
     "hide_backlog_list": false,
@@ -135,7 +133,7 @@ Example response:
         "position" : 3
       }
     ]
-  }
+ }
 ]
 ```
 
@@ -159,7 +157,7 @@ curl --header "PRIVATE-TOKEN: <your_access_token>" "https://gitlab.example.com/a
 Example response:
 
 ```json
-  {
+ {
     "id": 1,
     "name": "group issue board",
     "hide_backlog_list": false,
@@ -202,16 +200,15 @@ Example response:
         "position" : 3
       }
     ]
-  }
+ }
 ```
 
-Users on [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) see
-different parameters, due to the ability to have multiple group issue boards.
+Users on [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) see different parameters, due to the ability to have multiple group issue boards.
 
 Example response:
 
 ```json
-  {
+ {
     "id": 1,
     "name": "group issue board",
     "hide_backlog_list": false,
@@ -254,7 +251,7 @@ Example response:
         "position" : 3
       }
     ]
-  }
+ }
 ```
 
 ## Create a group issue board
@@ -284,7 +281,7 @@ curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" "https://gitla
 Example response:
 
 ```json
-  {
+ {
     "id": 1,
     "name": "newboard",
     "hide_backlog_list": false,
@@ -300,7 +297,7 @@ Example response:
     "assignee" : null,
     "labels" : [],
     "weight" : null
-  }
+ }
 ```
 
 ## Update a group issue board
@@ -330,7 +327,7 @@ curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" "https://gitlab
 Example response:
 
 ```json
-  {
+ {
     "id": 1,
     "name": "new_name",
     "hide_backlog_list": false,
@@ -370,7 +367,7 @@ Example response:
       "description": ""
     }],
     "weight": 4
-  }
+ }
 ```
 
 ## Delete a group issue board
@@ -419,7 +416,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id" : 1,
     "label" : {
       "name" : "Testing",
@@ -427,8 +424,8 @@ Example response:
       "description" : null
     },
     "position" : 1
-  },
-  {
+ },
+ {
     "id" : 2,
     "label" : {
       "name" : "Ready",
@@ -436,8 +433,8 @@ Example response:
       "description" : null
     },
     "position" : 2
-  },
-  {
+ },
+ {
     "id" : 3,
     "label" : {
       "name" : "Production",
@@ -445,7 +442,7 @@ Example response:
       "description" : null
     },
     "position" : 3
-  }
+ }
 ]
 ```
 
@@ -471,13 +468,13 @@ Example response:
 
 ```json
 {
-  "id" : 1,
-  "label" : {
+ "id" : 1,
+ "label" : {
     "name" : "Testing",
     "color" : "#F0AD4E",
     "description" : null
-  },
-  "position" : 1
+ },
+ "position" : 1
 }
 ```
 
@@ -506,10 +503,10 @@ Example response:
 
 ```json
 {
-  "id": 9,
-  "label": null,
-  "position": 0,
-  "milestone": {
+ "id": 9,
+ "label": null,
+ "position": 0,
+ "milestone": {
     "id": 7,
     "iid": 3,
     "group_id": 12,
@@ -521,7 +518,7 @@ Example response:
     "due_date": null,
     "start_date": null,
     "web_url": "https://gitlab.example.com/groups/issue-reproduce/-/milestones/3"
-  }
+ }
 }
 ```
 
@@ -548,13 +545,13 @@ Example response:
 
 ```json
 {
-  "id" : 1,
-  "label" : {
+ "id" : 1,
+ "label" : {
     "name" : "Testing",
     "color" : "#F0AD4E",
     "description" : null
-  },
-  "position" : 1
+ },
+ "position" : 1
 }
 ```
 

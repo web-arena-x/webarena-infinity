@@ -115,11 +115,9 @@ If no branch rules are displayed, it might be because:
 
 ## Use the GDK
 
-Instead of requesting access, it may be easier for you to run the query in the
-[GitLab Development Kit (GDK)](https://gitlab.com/gitlab-org/gitlab-development-kit).
+Instead of requesting access, it may be easier for you to run the query in the [GitLab Development Kit (GDK)](https://gitlab.com/gitlab-org/gitlab-development-kit).
 
-1. Sign in as the default admin, `root`, with the credentials from
-   [the GDK documentation](https://gitlab-org.gitlab.io/gitlab-development-kit/gdk_commands/#get-the-login-credentials).
+1. Sign in as the default admin, `root`, with the credentials from [the GDK documentation](https://gitlab-org.gitlab.io/gitlab-development-kit/gdk_commands/#get-the-login-credentials).
 1. Ensure you have some branch rules configured for the `flightjs/Flight` project.
 1. In your GDK instance, open GraphiQL: `http://gdk.test:3000/-/graphql-explorer`.
 1. Copy the query and paste it in the left window.

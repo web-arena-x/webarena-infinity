@@ -40,8 +40,7 @@ sudo gitlab-rake gitlab:incoming_email:secret:show
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-Use a Kubernetes secret to store the incoming email password. For more information,
-read about [Helm IMAP secrets](https://docs.gitlab.com/charts/installation/secrets.html#imap-password-for-incoming-emails).
+Use a Kubernetes secret to store the incoming email password. For more information, read about [Helm IMAP secrets](https://docs.gitlab.com/charts/installation/secrets.html#imap-password-for-incoming-emails).
 
 {{< /tab >}}
 
@@ -86,8 +85,7 @@ sudo gitlab-rake gitlab:incoming_email:secret:edit EDITOR=vim
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-Use a Kubernetes secret to store the incoming email password. For more information,
-read about [Helm IMAP secrets](https://docs.gitlab.com/charts/installation/secrets.html#imap-password-for-incoming-emails).
+Use a Kubernetes secret to store the incoming email password. For more information, read about [Helm IMAP secrets](https://docs.gitlab.com/charts/installation/secrets.html#imap-password-for-incoming-emails).
 
 {{< /tab >}}
 
@@ -125,8 +123,7 @@ echo -e "password: 'examplepassword'" | sudo gitlab-rake gitlab:incoming_email:s
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-Use a Kubernetes secret to store the incoming email password. For more information,
-read about [Helm IMAP secrets](https://docs.gitlab.com/charts/installation/secrets.html#imap-password-for-incoming-emails).
+Use a Kubernetes secret to store the incoming email password. For more information, read about [Helm IMAP secrets](https://docs.gitlab.com/charts/installation/secrets.html#imap-password-for-incoming-emails).
 
 {{< /tab >}}
 

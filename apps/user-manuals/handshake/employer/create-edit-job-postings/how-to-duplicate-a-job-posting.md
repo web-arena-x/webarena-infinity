@@ -10,8 +10,8 @@ Your ability to duplicate a job depends on your employer account type and whethe
 
 - **Basic employers**: **Owners** and **Recruiters** can only duplicate jobs they have personally created. Jobs posted by teammates will appear as **view-only** and cannot be duplicated.
 
-  - To duplicate jobs you did not create, you must upgrade to an eligible paid plan.
-  - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**,can duplicate any job posting, including those created by teammates, provided they have the appropriate permissions.
+ - To duplicate jobs you did not create, you must upgrade to an eligible paid plan.
+ - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**,can duplicate any job posting, including those created by teammates, provided they have the appropriate permissions.
 
 *To learn how to close an existing job instead, refer to* [*Close a Job Posting*](https://support.joinhandshake.com/hc/en-us/articles/115011841627)*.*
 
@@ -55,7 +55,7 @@ Some key areas to review are:
 
 - **Job title**: To avoid confusion with the original, consider updating the title.
 - **Schools**: Add only the schools you want to post this job to.
-  - Not ready to post yet? Click **Save as draft** in the upper-right corner to return to it later
+ - Not ready to post yet? Click **Save as draft** in the upper-right corner to return to it later
 - **Application open & close date**: Review and update the default dates as needed.
 
 6. Once you are ready, click the black button **Post job** in the lower-right corner of the page.

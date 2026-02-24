@@ -30,7 +30,7 @@ GET /projects/:id/external_status_checks
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "Compliance Tool",
     "project_id": 6,
@@ -46,7 +46,7 @@ GET /projects/:id/external_status_checks
         "code_owner_approval_required": false
       }
     ]
-  }
+ }
 ]
 ```
 
@@ -60,15 +60,14 @@ POST /projects/:id/external_status_checks
 
 {{< alert type="warning" >}}
 
-External status checks send information about all applicable merge requests to the
-defined external service. This includes confidential merge requests.
+External status checks send information about all applicable merge requests to the defined external service. This includes confidential merge requests.
 
 {{< /alert >}}
 
 | Attribute              | Type             | Required | Description                                    |
 |------------------------|------------------|----------|------------------------------------------------|
 | `id`                   | integer          | yes      | ID of a project                                |
-| `name`                 | string           | yes      | Display name of external status check service  |
+| `name`                 | string           | yes      | Display name of external status check service |
 | `external_url`         | string           | yes      | URL of external status check service           |
 | `shared_secret`        | string           | no       | HMAC secret for external status check          |
 | `protected_branch_ids` | `array<Integer>` | no       | IDs of protected branches to scope the rule by |
@@ -85,7 +84,7 @@ PUT /projects/:id/external_status_checks/:check_id
 |------------------------|------------------|----------|------------------------------------------------|
 | `id`                   | integer          | yes      | ID of a project                                |
 | `check_id`             | integer          | yes      | ID of an external status check service         |
-| `name`                 | string           | no       | Display name of external status check service  |
+| `name`                 | string           | no       | Display name of external status check service |
 | `external_url`         | string           | no       | URL of external status check service           |
 | `shared_secret`        | string           | no       | HMAC secret for external status check          |
 | `protected_branch_ids` | `array<Integer>` | no       | IDs of protected branches to scope the rule by |
@@ -159,9 +158,9 @@ POST /projects/:id/merge_requests/:merge_request_iid/status_check_responses
 | -------------------------- | ------- | -------- |---------------------------------------------------------------------------------------------------|
 | `id`                       | integer | yes      | ID of a project                                                                                   |
 | `merge_request_iid`        | integer | yes      | IID of a merge request                                                                            |
-| `sha`                      | string  | yes      | SHA at `HEAD` of the source branch                                                                |
+| `sha`                      | string | yes      | SHA at `HEAD` of the source branch                                                                |
 | `external_status_check_id` | integer | yes      | ID of an external status check                                                                    |
-| `status`                   | string  | no       | Set to `pending` to mark the check as pending, `passed` to pass the check, or `failed` to fail it |
+| `status`                   | string | no       | Set to `pending` to mark the check as pending, `passed` to pass the check, or `failed` to fail it |
 
 > [!note]
 > `sha` must be the SHA at the `HEAD` of the merge request's source branch.
@@ -174,9 +173,7 @@ POST /projects/:id/merge_requests/:merge_request_iid/status_check_responses
 
 {{< /history >}}
 
-For a single merge request, retry the specified failed external status check. Even
-though the merge request hasn't changed, this endpoint resends the current state of
-merge request to the defined external service.
+For a single merge request, retry the specified failed external status check. Even though the merge request hasn't changed, this endpoint resends the current state of merge request to the defined external service.
 
 ```plaintext
 POST /projects/:id/merge_requests/:merge_request_iid/status_checks/:external_status_check_id/retry
@@ -212,16 +209,16 @@ In case status check is already passed status code is 422
 
 ```json
 {
-  "object_kind": "merge_request",
-  "event_type": "merge_request",
-  "user": {
+ "object_kind": "merge_request",
+ "event_type": "merge_request",
+ "user": {
     "id": 1,
     "name": "Administrator",
     "username": "root",
     "avatar_url": "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "email": "[REDACTED]"
-  },
-  "project": {
+ },
+ "project": {
     "id": 6,
     "name": "Flight",
     "description": "Ipsa minima est consequuntur quisquam.",
@@ -238,8 +235,8 @@ In case status check is already passed status code is 422
     "url": "ssh://example.com/flightjs/Flight.git",
     "ssh_url": "ssh://example.com/flightjs/Flight.git",
     "http_url": "http://example.com/flightjs/Flight.git"
-  },
-  "object_attributes": {
+ },
+ "object_attributes": {
     "assignee_id": null,
     "author_id": 1,
     "created_at": "2022-12-07 07:53:43 UTC",
@@ -331,22 +328,22 @@ In case status check is already passed status code is 422
     "blocking_discussions_resolved": true,
     "first_contribution": false,
     "detailed_merge_status": "mergeable"
-  },
-  "labels": [
-  ],
-  "changes": {
-  },
-  "repository": {
+ },
+ "labels": [
+ ],
+ "changes": {
+ },
+ "repository": {
     "name": "Flight",
     "url": "ssh://example.com/flightjs/Flight.git",
     "description": "Ipsa minima est consequuntur quisquam.",
     "homepage": "http://example.com/flightjs/Flight"
-  },
-  "external_approval_rule": {
+ },
+ "external_approval_rule": {
     "id": 1,
     "name": "QA",
     "external_url": "https://example.com/"
-  }
+ }
 }
 ```
 

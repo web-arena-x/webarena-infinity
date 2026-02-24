@@ -26,30 +26,20 @@ For instructions on how to migrate to DAST version 5, see the [migration guide](
 
 {{< /alert >}}
 
-Browser-based DAST helps you identify security weaknesses (CWEs) in your web applications. After you
-deploy your web application, it becomes exposed to new types of attacks, many of which cannot be
-detected prior to deployment. For example, misconfigurations of your application server or incorrect
-assumptions about security controls may not be visible from the source code, but they can be
-detected with browser-based DAST.
+Browser-based DAST helps you identify security weaknesses (CWEs) in your web applications. After you deploy your web application, it becomes exposed to new types of attacks, many of which cannot be detected prior to deployment. For example, misconfigurations of your application server or incorrect assumptions about security controls may not be visible from the source code, but they can be detected with browser-based DAST.
 
-Dynamic application security testing (DAST) examines applications for vulnerabilities like these in
-deployed environments.
+Dynamic application security testing (DAST) examines applications for vulnerabilities like these in deployed environments.
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
 For an overview, see [DAST - advanced security testing](https://www.youtube.com/watch?v=nbeDUoLZJTo).
 
 {{< alert type="warning" >}}
 
-Do not run DAST scans against a production server. Not only can it perform any function that a
-user can, such as clicking buttons or submitting forms, but it may also trigger bugs, leading to
-modification or loss of production data. Only run DAST scans against a test server.
+Do not run DAST scans against a production server. Not only can it perform any function that a user can, such as clicking buttons or submitting forms, but it may also trigger bugs, leading to modification or loss of production data. Only run DAST scans against a test server.
 
 {{< /alert >}}
 
-The DAST browser-based analyzer was built by GitLab to scan modern-day web applications for
-vulnerabilities. Scans run in a browser to optimize testing applications heavily dependent on
-JavaScript, such as single-page applications. See
-[how DAST scans an application](#how-dast-scans-an-application) for more information.
+The DAST browser-based analyzer was built by GitLab to scan modern-day web applications for vulnerabilities. Scans run in a browser to optimize testing applications heavily dependent on JavaScript, such as single-page applications. See [how DAST scans an application](#how-dast-scans-an-application) for more information.
 
 To add the analyzer to your CI/CD pipeline, see [enabling the analyzer](configuration/enabling_the_analyzer.md).
 
@@ -115,15 +105,12 @@ After you configure DAST for a single project, you can extend the configuration 
 
 - Take care if your pipeline is configured to deploy to the same web server in each run. Running a DAST scan while a server is being updated leads to inaccurate and non-deterministic results.
 - Configure runners to use the [always pull policy](https://docs.gitlab.com/runner/executors/docker.html#using-the-always-pull-policy) to run the latest versions of the analyzers.
-- By default, DAST downloads all artifacts defined by previous jobs in the pipeline. If
-  your DAST job does not rely on `environment_url.txt` to define the URL under test or any other files created
-  in previous jobs, you shouldn't download artifacts. To avoid downloading
-  artifacts, extend the analyzer CI/CD job to specify no dependencies. For example, for the DAST proxy-based analyzer add the following to your `.gitlab-ci.yml` file:
+- By default, DAST downloads all artifacts defined by previous jobs in the pipeline. If your DAST job does not rely on `environment_url.txt` to define the URL under test or any other files created in previous jobs, you shouldn't download artifacts. To avoid downloading artifacts, extend the analyzer CI/CD job to specify no dependencies. For example, for the DAST proxy-based analyzer add the following to your `.gitlab-ci.yml` file:
 
-  ```yaml
-  dast:
+ ```yaml
+ dast:
     dependencies: []
-  ```
+ ```
 
 ## How DAST scans an application
 
@@ -144,8 +131,7 @@ Crawling is initialized with a navigation path containing one navigation that lo
 DAST then crawls navigation paths until all have been crawled.
 
 To crawl a navigation path, DAST opens a browser window and instructs it to perform all the navigation actions in the navigation path.
-When the browser has finished loading the result of the final action, DAST inspects the page for actions a user might take,
-creates a new navigation for each found, and adds them to the navigation path to form new navigation paths. For example:
+When the browser has finished loading the result of the final action, DAST inspects the page for actions a user might take, creates a new navigation for each found, and adds them to the navigation path to form new navigation paths. For example:
 
 1. DAST processes navigation path `LoadURL[https://example.com]`.
 1. DAST finds two user actions, `LeftClick[class=menu]` and `LeftClick[id=users]`.

@@ -81,7 +81,7 @@ You customize your variable font text from the type settings panel.
 To access the type settings panel:
 
 1. Select a text layer that is using a variable font.
-2. Click  from the right sidebar to open the type settings panel.
+2. Click from the right sidebar to open the type settings panel.
 3. Click the **Variable** tab.
 
 ![Access font variables from the variable tab.png](https://help.figma.com/hc/article_attachments/31412926600343)
@@ -95,7 +95,7 @@ Tip: Hover over an axis in the type settings panel to preview what the property
 Quickly access previous variable font settings you’ve applied to text. These settings are explicit to individual fonts, and Figma lists the most frequently used axis settings.
 
 1. Select one or more text layers using a variable font.
-2. Click the  to open the font style drop-down menu.
+2. Click the to open the font style drop-down menu.
 3. Options are listed just below the font families. Click a setting to apply it to the text.
 
 ## View variable font properties in Dev Mode

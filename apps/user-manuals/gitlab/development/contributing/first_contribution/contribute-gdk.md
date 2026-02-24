@@ -13,8 +13,7 @@ I want to change `Syntax highlighting theme` to `Code syntax highlighting theme`
 
 {{< alert type="warning" >}}
 
-This tutorial is designed to be a general introduction to contributing to the GitLab project
-and is not an example of a change that should be submitted for review.
+This tutorial is designed to be a general introduction to contributing to the GitLab project and is not an example of a change that should be submitted for review.
 
 {{< /alert >}}
 
@@ -30,13 +29,11 @@ Use your local IDE to make changes to the code in the GDK directory.
    The results show one `.haml` file and several `.po` files.
 
 1. Open the `app/views/profiles/preferences/show.html.haml` file.
-1. Update the string from `Syntax highlighting theme` to
-   `Code syntax highlighting theme`.
+1. Update the string from `Syntax highlighting theme` to `Code syntax highlighting theme`.
 1. Save the file.
 1. You can check that you were successful:
 
-   In the `gitlab-development-kit/gitlab` directory, type `git status`
-   to show the file you modified:
+   In the `gitlab-development-kit/gitlab` directory, type `git status` to show the file you modified:
 
    ```shell
            modified:   app/views/profiles/preferences/show.html.haml
@@ -54,8 +51,7 @@ Use your local IDE to make changes to the code in the GDK directory.
    that each area uses consistent language."
    ```
 
-   Follow the GitLab
-   [commit message guidelines](../merge_request_workflow.md#commit-messages-guidelines).
+   Follow the GitLab [commit message guidelines](../merge_request_workflow.md#commit-messages-guidelines).
 
 1. Push the changes to the new branch:
 
@@ -63,14 +59,12 @@ Use your local IDE to make changes to the code in the GDK directory.
    git push --set-upstream origin ui-updates
    ```
 
-1. You can [Create a merge request](mr-review.md) with the code change,
-   or continue to [update the translation files](#update-the-translation-files).
+1. You can [Create a merge request](mr-review.md) with the code change, or continue to [update the translation files](#update-the-translation-files).
 
 ## Update the translation files
 
 English UI strings are localized into many languages.
-These strings are saved in a `.pot` file, which must be regenerated
-any time you update UI text.
+These strings are saved in a `.pot` file, which must be regenerated any time you update UI text.
 
 To automatically regenerate the localization file:
 
@@ -83,8 +77,7 @@ To automatically regenerate the localization file:
 
    The `.pot` file will be generated in the `/locale` directory.
 
-   Now, in the `gitlab-development-kit/gitlab` directory, if you type `git status`
-   you should have both files listed:
+   Now, in the `gitlab-development-kit/gitlab` directory, if you type `git status` you should have both files listed:
 
    ```shell
            modified:   app/views/profiles/preferences/show.html.haml
@@ -101,8 +94,7 @@ For more information about localization, see [internationalization](../../i18n/e
 Documentation for GitLab is published on <https://docs.gitlab.com>.
 When you add or update a feature, you must update the documentation as well.
 
-1. To find the documentation for a feature, the easiest thing is to search the
-   documentation site. In this case, the setting is described on this documentation page:
+1. To find the documentation for a feature, the easiest thing is to search the documentation site. In this case, the setting is described on this documentation page:
 
    ```plaintext
    https://docs.gitlab.com/ee/user/profile/preferences.html
@@ -115,8 +107,7 @@ When you add or update a feature, you must update the documentation as well.
    doc/user/profile/preferences.md
    ```
 
-1. Go to this location in your local `gitlab` repository and update the `.md` file
-   and any related images.
+1. Go to this location in your local `gitlab` repository and update the `.md` file and any related images.
 
    Now when you run `git status`, you should have something like:
 

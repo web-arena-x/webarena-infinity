@@ -70,8 +70,7 @@ Example response:
 
 ## Get a single variable
 
-Get the details of a single variable. If there are multiple variables with the same key,
-use `filter` to select the correct `environment_scope`.
+Get the details of a single variable. If there are multiple variables with the same key, use `filter` to select the correct `environment_scope`.
 
 ```plaintext
 GET /projects/:id/variables/:key
@@ -81,14 +80,14 @@ GET /projects/:id/variables/:key
 | --------- | ----------------- | -------- | ----------- |
 | `id`      | integer or string | Yes      | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the project. |
 | `key`     | string            | Yes      | Key of a variable. |
-| `filter`  | hash              | No       | Filters results when multiple variables share the same key. Possible values: `[environment_scope]`. Premium and Ultimate only. |
+| `filter` | hash              | No       | Filters results when multiple variables share the same key. Possible values: `[environment_scope]`. Premium and Ultimate only. |
 
 Example request:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/variables/SCOPED_VARIABLE_1?filter[environment_scope]=production"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/variables/SCOPED_VARIABLE_1?filter[environment_scope]=production"
 ```
 
 Example response:
@@ -115,8 +114,7 @@ Example response:
 
 {{< /history >}}
 
-Create a new variable. If a variable with the same `key` already exists, the new variable
-must have a different `environment_scope`. Otherwise, GitLab returns a message similar to:
+Create a new variable. If a variable with the same `key` already exists, the new variable must have a different `environment_scope`. Otherwise, GitLab returns a message similar to:
 `VARIABLE_NAME has already been taken`.
 
 ```plaintext
@@ -161,8 +159,7 @@ Example response:
 
 ## Update a variable
 
-Update a project's variable. If there are multiple variables with the same key,
-use `filter` to select the correct `environment_scope`.
+Update a project's variable. If there are multiple variables with the same key, use `filter` to select the correct `environment_scope`.
 
 ```plaintext
 PUT /projects/:id/variables/:key
@@ -185,8 +182,8 @@ Example request:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/variables/SCOPED_VARIABLE_1?value=scoped-variable-updated-value&environment_scope=production&filter[environment_scope]=production"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/variables/SCOPED_VARIABLE_1?value=scoped-variable-updated-value&environment_scope=production&filter[environment_scope]=production"
 ```
 
 Example response:
@@ -207,8 +204,7 @@ Example response:
 
 ## Delete a variable
 
-Delete a project's variable. If there are multiple variables with the same key,
-use `filter` to select the correct `environment_scope`.
+Delete a project's variable. If there are multiple variables with the same key, use `filter` to select the correct `environment_scope`.
 
 ```plaintext
 DELETE /projects/:id/variables/:key
@@ -218,12 +214,12 @@ DELETE /projects/:id/variables/:key
 | --------- | ----------------- | -------- | ----------- |
 | `id`      | integer or string | Yes      | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the project. |
 | `key`     | string            | Yes      | Key of a variable. |
-| `filter`  | hash              | No       | Filters results when multiple variables share the same key. Possible values: `[environment_scope]`. Premium and Ultimate only. |
+| `filter` | hash              | No       | Filters results when multiple variables share the same key. Possible values: `[environment_scope]`. Premium and Ultimate only. |
 
 Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>"
-  --url "https://gitlab.example.com/api/v4/projects/1/variables/SCOPED_VARIABLE_1?filter[environment_scope]=production"
+ --header "PRIVATE-TOKEN: <your_access_token>"
+ --url "https://gitlab.example.com/api/v4/projects/1/variables/SCOPED_VARIABLE_1?filter[environment_scope]=production"
 ```

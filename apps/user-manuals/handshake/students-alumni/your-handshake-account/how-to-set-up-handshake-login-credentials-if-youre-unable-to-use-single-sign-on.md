@@ -32,7 +32,7 @@ If your school does **not** use SSO, just enter your email address and click *Ne
 
 5. A confirmation email will be sent to your inbox. Go to your inbox, find the email, and click on the *Set My Password* link. If you have trouble receiving the confirmation email, refer to [Troubleshooting Missing Confirmation Email](../getting-started-in-handshake/troubleshooting-missing-confirmation-email.md).
 
-6. Once confirmed, you’ll be prompted to create a new password. Enter your password in the provided fields, then click *Next*.  
+6. Once confirmed, you’ll be prompted to create a new password. Enter your password in the provided fields, then click *Next*. 
 **Tip:** Your password must be at least 8 characters long and include at least 2 of the following: letters, numbers, and special characters.
 
 After successfully setting your password, you’ll be able to log in to Handshake using your newly created credentials.

@@ -24,8 +24,7 @@ Basicemployers must log in to their Handshake account to view applications and a
 
 **Subject:** Job application summary for [JOB TITLE]
 
-**Body:**  
-"Your application summary for [JOB TITLE] is ready, now that the job has closed.  
+**Body:** "Your application summary for [JOB TITLE] is ready, now that the job has closed.
 This job received [NUMBER] applications and [NUMBER] qualified applicants.
 
 [Candidate cards with name, school, major, graduation date, application date]

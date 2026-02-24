@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357756844442-About-the-in
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -30,9 +30,8 @@ In this article, we will explore the key features and benefits of the integratio
 
 To access the integration builder, simply click on "API integrations" in the side navigation menu. This will take you to an overview list where all your future integrations will be conveniently listed and accessible. Initially, you will start with either no API integrations or an example API integration, depending on your onboarding journey.
 
-To create a new integration, click on "Add Integration" located in the top right corner.  
-Provide a name for the integration,  
-Add a short description with additional context.
+To create a new integration, click on "Add Integration" located in the top right corner. 
+Provide a name for the integration, Add a short description with additional context.
 
 Note: For APIs to be used by an [AI agent with agentic AI](https://support.zendesk.com/hc/en-us/articles/8966284087066) at the right time and in the right context, it’s extremely important to add a clear description. Make sure your description covers what the API is, how to use it, and the meaning of different parameters.
 
@@ -68,12 +67,12 @@ Once the request parameter is added, the primary setup for the API call can be p
 
 We offer the following Authorization types:
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | Authorization type | Description | Example |
-| API Key | A simple API Key that should be provided by the API owner. |  |
-| Bearer Token | Another token that should be provided by the API owner. |  |
-| Basic Auth | A username and password are used to authenticate with the API. |  |
+| API Key | A simple API Key that should be provided by the API owner. | |
+| Bearer Token | Another token that should be provided by the API owner. | |
+| Basic Auth | A username and password are used to authenticate with the API. | |
 | OAuth 2.0 | Several Authentication information is needed based on the grant type | Screenshot |
 | Custom | Authorization via expiration token | See [Using custom authorization with the integration builder](https://support.zendesk.com/hc/en-us/articles/8357749813658). |
 
@@ -124,12 +123,12 @@ The test button is easily identifiable by the label "Test" followed by the name 
 
 Within the Test Integration section, the integration builder presents the response obtained from the API. The content of the response is organized into the following objects:
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | Objects | Content | Example |
 | statusCode | HTTP response status codes indicate whether a specific HTTP request has been successfully completed. [Learn more](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). | "statusCode": 200 |
-| data | The data object showcases the relevant data of the API in the event of a successful request. However, if the request is unsuccessful, it provides additional information based on the corresponding status codes. | "data": {  "name": "Germany",  "capital": "Berlin",  "region": "Europe",  "population": 83240525,  "area": 357114 } |
-| requestParameters | Within the requestParameters object, the integration builder exhibits the request parameters along with the associated test values employed to invoke the API. | "requestParameters": {  "country": "de"} |
+| data | The data object showcases the relevant data of the API in the event of a successful request. However, if the request is unsuccessful, it provides additional information based on the corresponding status codes. | "data": { "name": "Germany", "capital": "Berlin", "region": "Europe", "population": 83240525, "area": 357114 } |
+| requestParameters | Within the requestParameters object, the integration builder exhibits the request parameters along with the associated test values employed to invoke the API. | "requestParameters": { "country": "de"} |
 
 #### Before utilizing the test functionality again to examine the integration with any modified configurations, please ensure to save the integration.
 
@@ -139,7 +138,7 @@ Within the Test Integration section, the integration builder presents the respon
 
 Each newly created integration includes three pre-configured scenarios. While two of these scenarios can be customized or deleted according to your needs, the third scenario, named "Fallback," cannot be edited. This "Fallback" scenario functions as the primary fallback option in case none of the previous scenarios get triggered.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | Scenario | Default query | Description |
 | Success | statusCode >= 200 and statusCode < 300 | The scenario that should capture the preferred/happy path if the statusCode is between 200 and 300. |
@@ -164,7 +163,7 @@ Since the default scenario queries can be modified and new scenarios can be adde
 
 To provide visual feedback, we have implemented a feature that indicates which scenario would be triggered based on the current API response. It also identifies scenarios that would theoretically be triggered but are not actually triggered due to a higher-order scenario being triggered. Additionally, it highlights scenarios that would not be triggered because their conditions are not fulfilled.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | Criteria match | Visualisation | Description |
 | Criteria matches first in order | Screenshot | The scenario highlighted by a blue solit dot represents the scenario that will be triggered. |

@@ -12,8 +12,7 @@ title: Reset user passwords
 
 {{< /details >}}
 
-You can reset user passwords by using the UI, a Rake task, a Rails console, or the
-[Users API](../api/users.md#modify-a-user).
+You can reset user passwords by using the UI, a Rake task, a Rails console, or the [Users API](../api/users.md#modify-a-user).
 
 ## Prerequisites
 
@@ -58,24 +57,23 @@ bundle exec rake "gitlab:password:reset"
 
 GitLab requests a username, a password, and confirmation of the password. When complete, the user password is updated.
 
-The Rake task can accept a username as an argument. For example, to reset the password for the user with username
-`sidneyjones`:
+The Rake task can accept a username as an argument. For example, to reset the password for the user with username `sidneyjones`:
 
 {{< tabs >}}
 
 {{< tab title="Linux package (Omnibus)" >}}
 
-  ```shell
-  sudo gitlab-rake "gitlab:password:reset[sidneyjones]"
-  ```
+ ```shell
+ sudo gitlab-rake "gitlab:password:reset[sidneyjones]"
+ ```
 
 {{< /tab >}}
 
 {{< tab title="Self-compiled (source)" >}}
 
-  ```shell
-  bundle exec rake "gitlab:password:reset[sidneyjones]"
-  ```
+ ```shell
+ bundle exec rake "gitlab:password:reset[sidneyjones]"
+ ```
 
 {{< /tab >}}
 
@@ -110,8 +108,7 @@ Prerequisites:
      user = User.find_by(email: 'user@example.com')
      ```
 
-1. Reset the password by setting a value for `user.password` and `user.password_confirmation`. For example, to set a new random
-   password:
+1. Reset the password by setting a value for `user.password` and `user.password_confirmation`. For example, to set a new random password:
 
    ```ruby
    new_password = ::User.random_password
@@ -152,19 +149,15 @@ Prerequisites:
 You can reset the root password through the [Rake task](#use-a-rake-task) or [Rails console](#use-a-rails-console) processes outlined previously.
 
 - If the root account name hasn't changed, use the username `root`.
-- If the root account name has changed and you don't know the new username,
-  you might be able to use a Rails console with user ID `1`. In almost all
-  cases, the first user is the default administrator account.
+- If the root account name has changed and you don't know the new username, you might be able to use a Rails console with user ID `1`. In almost all cases, the first user is the default administrator account.
 
 ## Troubleshooting
 
-Use the following information to troubleshoot issues when resetting a
-user password.
+Use the following information to troubleshoot issues when resetting a user password.
 
 ### Email confirmation issues
 
-If the new password doesn't work, it might be an email confirmation issue. You can
-attempt to fix this issue in a Rails console. For example, if a new `root` password isn't working:
+If the new password doesn't work, it might be an email confirmation issue. You can attempt to fix this issue in a Rails console. For example, if a new `root` password isn't working:
 
 1. Start a [Rails console](../administration/operations/rails_console.md).
 1. Find the user and skip reconfirmation:
@@ -178,9 +171,7 @@ attempt to fix this issue in a Rails console. For example, if a new `root` passw
 
 ### Unmet password requirements
 
-The password might be too short, too weak, or not meet complexity
-requirements. Ensure the password you are attempting to set meets all
-[password requirements](../user/profile/user_passwords.md#password-requirements).
+The password might be too short, too weak, or not meet complexity requirements. Ensure the password you are attempting to set meets all [password requirements](../user/profile/user_passwords.md#password-requirements).
 
 ### Expired password
 

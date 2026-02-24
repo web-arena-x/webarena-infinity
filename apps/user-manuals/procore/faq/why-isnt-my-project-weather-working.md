@@ -16,9 +16,8 @@ If coordinates have already been added to your project and you are still experie
 
 The weather forecasts on Procore's Project Home page and the project's Daily Log tool support data from the following third-party weather provider:
 
-- **Visual Crossing  
-  Status Page:**[https://status.visualcrossing.com/](https://status.visualcrossing.com/ "https://status.visualcrossing.com/")  
-  By default, Procore uses [Visual Crossing](https://www.visualcrossing.com/ "https://www.visualcrossing.com/") to predict and record weather for projects. This service takes a number of data sources from the National Oceanic and Atmospheric Administration (NOAA) and other agencies and uses a proprietary algorithm to provide hyper-local weather data. Procore provides its users with a daily forecast for each day on the Project Home page and in the Daily Log tool. It also stores the weather data indefinitely for future reference. Weather data is updated every hour. To learn more about the app and for answers to your questions about the Visual Crossing weather service, visit [Visual Crossing](https://www.visualcrossing.com/ "https://www.visualcrossing.com/").
+- **Visual Crossing Status Page:**[https://status.visualcrossing.com/](https://status.visualcrossing.com/ "https://status.visualcrossing.com/")
+ By default, Procore uses [Visual Crossing](https://www.visualcrossing.com/ "https://www.visualcrossing.com/") to predict and record weather for projects. This service takes a number of data sources from the National Oceanic and Atmospheric Administration (NOAA) and other agencies and uses a proprietary algorithm to provide hyper-local weather data. Procore provides its users with a daily forecast for each day on the Project Home page and in the Daily Log tool. It also stores the weather data indefinitely for future reference. Weather data is updated every hour. To learn more about the app and for answers to your questions about the Visual Crossing weather service, visit [Visual Crossing](https://www.visualcrossing.com/ "https://www.visualcrossing.com/").
 
 ## See Also
 

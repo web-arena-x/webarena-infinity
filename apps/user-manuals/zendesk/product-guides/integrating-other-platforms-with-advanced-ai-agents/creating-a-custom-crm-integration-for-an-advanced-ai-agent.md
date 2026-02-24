@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357758272154-Creating-a-c
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -17,10 +17,10 @@ This article contains the following topics:
 - [Creating and configuring a custom CRM integration](#h_01GR0W8VKKZ7A6S71MJHD5J040)
 - [Assigning the custom CRM integration to an AI agent](#h_01GR0W920GB5YCSGC1F10VBPYP)
 - [Building an application](#h_01GS7FTM5DF2D3GKG3QAB1RR1T)
-  - [Step 1: Connecting to the message source](#1--Connecting-to-messages-source)
-  - [Step 2: Ultimate API at a glance](#2--Ultimate-bot-API-at-a-glance)
-  - [Step 3: Sending messages to AI agents - Advanced and the conversation lifecycle](#3--Sending-messages-to-the-bot-&-conversation-lifecycle)
-  - [Step 4: Webhook Events](#h_01GRX6YZT47NVEA6225WQTY3W2)
+ - [Step 1: Connecting to the message source](#1--Connecting-to-messages-source)
+ - [Step 2: Ultimate API at a glance](#2--Ultimate-bot-API-at-a-glance)
+ - [Step 3: Sending messages to AI agents - Advanced and the conversation lifecycle](#3--Sending-messages-to-the-bot-&-conversation-lifecycle)
+ - [Step 4: Webhook Events](#h_01GRX6YZT47NVEA6225WQTY3W2)
 
 ## Creating and configuring a custom CRM integration
 
@@ -30,14 +30,14 @@ You can create a new custom CRM integration in AI agents - Advanced.
 
 1. In [AI agents - Advanced](https://support.zendesk.com/hc/en-us/articles/8357756913178), click **Custom CRMs** in the sidebar.
 2. Click **Create custom CRM** in the top-right corner.
-3. In **Integration name**, provide a name for your custom CRM integration.  
+3. In **Integration name**, provide a name for your custom CRM integration. 
    The integration is added to the list of custom CRMs. However, you still need to configure additional technical information about the integration.
-4. Click the options menu (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/options-menu-icon-small.png)) for the integration you just created and click **Edit**.  
-   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_custom_crm_edit.png)  
-   The details page for your custom CRM opens.  
+4. Click the options menu (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/options-menu-icon-small.png)) for the integration you just created and click **Edit**. 
+   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_custom_crm_edit.png) 
+   The details page for your custom CRM opens. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_custom_crm_details.png)
 5. In **Webhook URL**, enter a URL starting with https.
-6. Under **Webhook secret**, click **Regenerate**.  
+6. Under **Webhook secret**, click **Regenerate**. 
    Make note of this secret and store it in a secure location. This is a read-only secret that gives access to the API for only this AI agent. This token is used for any communication between your integration and this AI agent. The access token should be unique for every AI agent that is going to install this integration.
 7. Click **Save**.
 
@@ -48,8 +48,8 @@ After you create and configure a custom CRM integration, you can assign it to an
 **To assign and define the custom CRM integration**
 
 1. In [AI agents - Advanced](https://support.zendesk.com/hc/en-us/articles/8357756913178), click **Settings** in the sidebar, then select **CRM integration**.
-2. Click **Select your CRM** and select the custom CRM integration you created above.  
-   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_custom_crm_assign.png)  
+2. Click **Select your CRM** and select the custom CRM integration you created above. 
+   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_custom_crm_assign.png) 
    The integration is assigned to your AI agent and waiting to have new conversations.
 
 ## Building an application
@@ -69,8 +69,7 @@ Depending on the system it’ll have different requirements to authenticate, it�
 
 The idea is that you need to take over chat conversations as the first receiver in the system of choice, depending on the system this usually involves creating an agent account that is going to be used to access the API and is set as the default first receiver of chat conversations.
 
-Below is an example from LivePerson and their Public API documentation  
-[Third-Party Bots — Public API | LivePerson Developer Center](https://developers.liveperson.com/third-party-bots-public-api.html)
+Below is an example from LivePerson and their Public API documentation [Third-Party Bots — Public API | LivePerson Developer Center](https://developers.liveperson.com/third-party-bots-public-api.html)
 
 ### Step 2: Ultimate API at a glance
 
@@ -80,7 +79,7 @@ To connect to the right AI agent you need to always send the AI agent ID & the a
 
 You will need to use the [Ultimate API documentation](https://developer.ultimate.ai/ "/wiki/spaces/TECHNICAL/pages/3110207502") to support you in connecting to our chat endpoints.
 
-|  |
+| |
 | --- |
 | The response codes you can expect are: |
 | 200: OK |

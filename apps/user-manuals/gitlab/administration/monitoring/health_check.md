@@ -14,30 +14,17 @@ description: Perform health, liveness, and readiness checks.
 
 {{< /details >}}
 
-GitLab provides liveness and readiness probes to indicate service health and
-reachability to required services. These probes report on the status of the
-database connection, Redis connection, and access to the file system. These
-endpoints [can be provided to schedulers like Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) to hold
-traffic until the system is ready or restart the container as needed.
+GitLab provides liveness and readiness probes to indicate service health and reachability to required services. These probes report on the status of the database connection, Redis connection, and access to the file system. These endpoints [can be provided to schedulers like Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) to hold traffic until the system is ready or restart the container as needed.
 
-Health check endpoints are typically used for load balancers
-and other Kubernetes scheduling systems that need to determine
-service availability before redirecting traffic.
+Health check endpoints are typically used for load balancers and other Kubernetes scheduling systems that need to determine service availability before redirecting traffic.
 
-You should not use these endpoints to determine effective uptime
-on large Kubernetes deployments. Doing so can show false negatives
-when pods are removed by autoscaling, node failure, or for
-other normal and otherwise non-disruptive operational needs.
+You should not use these endpoints to determine effective uptime on large Kubernetes deployments. Doing so can show false negatives when pods are removed by autoscaling, node failure, or for other normal and otherwise non-disruptive operational needs.
 
-To determine uptime on large Kubernetes deployments, look at traffic
-to the UI. This is properly balanced and scheduled, and therefore is
-a better indicator of effective uptime. You can also monitor the sign-in
-page `/users/sign_in` endpoint.
+To determine uptime on large Kubernetes deployments, look at traffic to the UI. This is properly balanced and scheduled, and therefore is a better indicator of effective uptime. You can also monitor the sign-in page `/users/sign_in` endpoint.
 
 <!-- vale gitlab_base.Spelling = NO -->
 
-On GitLab.com, tools such as [Pingdom](https://www.pingdom.com/) and
-Apdex measurements are used to determine uptime.
+On GitLab.com, tools such as [Pingdom](https://www.pingdom.com/) and Apdex measurements are used to determine uptime.
 
 <!-- vale gitlab_base.Spelling = YES -->
 
@@ -69,10 +56,7 @@ GET http://localhost/-/liveness
 ## Health
 
 Checks whether the application server is running.
-It does not verify the database or other services
-are running. This endpoint circumvents Rails Controllers
-and is implemented as additional middleware `BasicHealthCheck`
-very early into the request processing lifecycle.
+It does not verify the database or other services are running. This endpoint circumvents Rails Controllers and is implemented as additional middleware `BasicHealthCheck` very early into the request processing lifecycle.
 
 ```plaintext
 GET /-/health
@@ -139,12 +123,9 @@ Available checks:
 
 ## Readiness
 
-The readiness probe checks whether the GitLab instance is ready
-to accept traffic via Rails Controllers. The check by default
-does validate only instance-checks.
+The readiness probe checks whether the GitLab instance is ready to accept traffic via Rails Controllers. The check by default does validate only instance-checks.
 
-If the `all=1` parameter is specified, the check also validates
-the dependent services (Database, Redis, Gitaly etc.)
+If the `all=1` parameter is specified, the check also validates the dependent services (Database, Redis, Gitaly etc.)
 and gives a status for each.
 
 ```plaintext
@@ -179,14 +160,12 @@ This check is being exempt from Rack Attack.
 {{< alert type="warning" >}}
 
 In GitLab [12.4](https://about.gitlab.com/upcoming-releases/)
-the response body of the Liveness check was changed
-to match the example below.
+the response body of the Liveness check was changed to match the example below.
 
 {{< /alert >}}
 
 Checks whether the application server is running.
-This probe is used to know if Rails Controllers
-are not deadlocked due to a multi-threading.
+This probe is used to know if Rails Controllers are not deadlocked due to a multi-threading.
 
 ```plaintext
 GET /-/liveness

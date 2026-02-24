@@ -13,8 +13,7 @@ description: "Troubleshooting GitLab direct transfer migrations with Rails conso
 
 {{< /details >}}
 
-In a [rails console session](../../../administration/operations/rails_console.md#starting-a-rails-console-session),
-you can find the failure or error messages for the group import attempt using:
+In a [rails console session](../../../administration/operations/rails_console.md#starting-a-rails-console-session), you can find the failure or error messages for the group import attempt using:
 
 ```ruby
 # Get relevant import records
@@ -33,8 +32,7 @@ entities.map(&:failures).flatten
 entities.where(status: [-1]).pluck(:destination_name, :destination_namespace, :status)
 ```
 
-You can also see all migrated entities with any failures related to them using an
-[API endpoint](../../../api/bulk_imports.md#list-all-group-or-project-migrations-entities).
+You can also see all migrated entities with any failures related to them using an [API endpoint](../../../api/bulk_imports.md#list-all-group-or-project-migrations-entities).
 
 ## Stale imports
 
@@ -43,24 +41,20 @@ To resolve these issues, inspect the logs from both the source and destination i
 
 ### Source instance
 
-On the source instance, stale imports are often due to excessive memory usage,
-which might restart Sidekiq processes and interrupt export jobs.
+On the source instance, stale imports are often due to excessive memory usage, which might restart Sidekiq processes and interrupt export jobs.
 The destination instance might wait for the export files until the migration eventually times out.
 
-To check if the [group](../../../api/group_relations_export.md#export-status) or [project](../../../api/project_relations_export.md#export-status) relations were successfully exported,
-run the following command:
+To check if the [group](../../../api/group_relations_export.md#export-status) or [project](../../../api/project_relations_export.md#export-status) relations were successfully exported, run the following command:
 
 ```shell
 curl --request GET --location "https://example.gitlab.com/api/v4/projects/:ID/export_relations/status" \
 --header "PRIVATE-TOKEN: <your_access_token>"
 ```
 
-If a relation has a status other than `1`, the relation was not successfully exported
-and the issue is on the source instance.
+If a relation has a status other than `1`, the relation was not successfully exported and the issue is on the source instance.
 
 You can also run the following command to search for interrupted export jobs.
-Keep in mind that Sidekiq logs might rotate after restarts, so be sure to
-check the rotated logs as well.
+Keep in mind that Sidekiq logs might rotate after restarts, so be sure to check the rotated logs as well.
 
 ```shell
 grep `BulkImports::RelationBatchExportWorker` sidekiq.log | grep "interrupted_count"
@@ -69,27 +63,24 @@ grep `BulkImports::RelationBatchExportWorker` sidekiq.log | grep "interrupted_co
 If Sidekiq restarts are causing the issue:
 
 - Configure a separate Sidekiq process for export jobs.
-  For more information, see [Sidekiq configuration for import](../../../administration/sidekiq/configuration_for_imports.md).
-  If the problem persists, reduce Sidekiq concurrency to limit the number of jobs processed simultaneously.
+ For more information, see [Sidekiq configuration for import](../../../administration/sidekiq/configuration_for_imports.md).
+ If the problem persists, reduce Sidekiq concurrency to limit the number of jobs processed simultaneously.
 - Increase Sidekiq memory limits:
-  If your instance has available memory, [increase the maximum RSS limit](../../../administration/sidekiq/sidekiq_memory_killer.md#configuring-the-limits) for Sidekiq processes.
-  For example, you can increase the limit from 2 GB to 3 GB to prevent frequent restarts.
+ If your instance has available memory, [increase the maximum RSS limit](../../../administration/sidekiq/sidekiq_memory_killer.md#configuring-the-limits) for Sidekiq processes.
+ For example, you can increase the limit from 2 GB to 3 GB to prevent frequent restarts.
 - Increase maximum interruption count:
-  To allow more interruptions before a job fails, you can increase the maximum interruption count for
-  [`BulkImports::RelationBatchExportWorker`](https://gitlab.com/gitlab-org/gitlab/-/blob/b8e11d267cdd4a00807984f98a9d8d8cfa51602e/app/workers/bulk_imports/relation_batch_export_worker.rb#L4):
+ To allow more interruptions before a job fails, you can increase the maximum interruption count for [`BulkImports::RelationBatchExportWorker`](https://gitlab.com/gitlab-org/gitlab/-/blob/b8e11d267cdd4a00807984f98a9d8d8cfa51602e/app/workers/bulk_imports/relation_batch_export_worker.rb#L4):
 
-  1. Add the following configuration to increase the limit to `20` (the default value is `3`):
+ 1. Add the following configuration to increase the limit to `20` (the default value is `3`):
 
      ```ruby
      sidekiq_options max_retries_after_interruption: 20
      ```
 
-  1. Restart Sidekiq for the changes to take effect.
+ 1. Restart Sidekiq for the changes to take effect.
 
-You can now trigger a new migration or use the
-[relations export API](../../../api/project_relations_export.md#schedule-new-export) to manually trigger the export.
-Check the [export status](../../../api/project_relations_export.md#export-status) to see if
-relations are being exported successfully.
+You can now trigger a new migration or use the [relations export API](../../../api/project_relations_export.md#schedule-new-export) to manually trigger the export.
+Check the [export status](../../../api/project_relations_export.md#export-status) to see if relations are being exported successfully.
 
 For example, to trigger the export of a specific project, run the following command:
 
@@ -109,17 +100,16 @@ With this API, you can migrate specific groups and projects individually.
 
 ## Error: `404 Group Not Found`
 
-If you attempt to import a group that has a path comprised of only numbers (for example, `5000`), GitLab attempts to
-find the group by ID instead of the path. This causes a `404 Group Not Found` error in GitLab 15.4 and earlier.
+If you attempt to import a group that has a path comprised of only numbers (for example, `5000`), GitLab attempts to find the group by ID instead of the path. This causes a `404 Group Not Found` error in GitLab 15.4 and earlier.
 
 To solve this, you must change the source group path to include a non-numerical character using either:
 
 - The GitLab UI:
 
-  1. On the top bar, select **Search or go to** and find your group.
-  1. Select **Settings** > **General**.
-  1. Expand **Advanced**.
-  1. Under **Change group URL**, change the group URL to include non-numeric characters.
+ 1. On the top bar, select **Search or go to** and find your group.
+ 1. Select **Settings** > **General**.
+ 1. Expand **Advanced**.
+ 1. Under **Change group URL**, change the group URL to include non-numeric characters.
 
 - The [Groups API](../../../api/groups.md#update-group-attributes).
 
@@ -132,19 +122,15 @@ You can receive other `404` errors when importing a group, for example:
 "exception_class": "BulkImports::NetworkError",
 ```
 
-This error indicates a problem transferring from the source instance. To solve this, check that you have met the
-[prerequisites](direct_transfer_migrations.md#prerequisites) on the source instance.
+This error indicates a problem transferring from the source instance. To solve this, check that you have met the [prerequisites](direct_transfer_migrations.md#prerequisites) on the source instance.
 
 ## Mismatched group or project path names
 
-If a source group or project path doesn't conform to [naming rules](../../reserved_names.md#rules-for-usernames-project-and-group-names-and-slugs), the path is normalized to
-ensure it is valid. For example, `Destination-Project-Path` is normalized to `destination-project-path`.
+If a source group or project path doesn't conform to [naming rules](../../reserved_names.md#rules-for-usernames-project-and-group-names-and-slugs), the path is normalized to ensure it is valid. For example, `Destination-Project-Path` is normalized to `destination-project-path`.
 
 ## Error: `command exited with error code 15 and Unable to save [FILTERED] into [FILTERED]`
 
-You might receive the error `command exited with error code 15 and Unable to save [FILTERED] into [FILTERED]` in logs
-when migrating projects by using direct transfer. If you receive this error, you can safely ignore it. GitLab retries
-the exited command.
+You might receive the error `command exited with error code 15 and Unable to save [FILTERED] into [FILTERED]` in logs when migrating projects by using direct transfer. If you receive this error, you can safely ignore it. GitLab retries the exited command.
 
 ## Error: `Batch export [batch_number] from source instance failed`
 
@@ -166,8 +152,7 @@ To resolve this issue:
 1. Identify and fix the problem on the source instance.
 1. Delete the partially imported project or group from the destination instance and initiate a new import.
 
-For more information about the relations and batches that failed to export,
-use the export status API endpoints for [projects](../../../api/project_relations_export.md#export-status)
+For more information about the relations and batches that failed to export, use the export status API endpoints for [projects](../../../api/project_relations_export.md#export-status)
 and [groups](../../../api/group_relations_export.md#export-status) on the source instance.
 
 ## Error: `duplicate key value violates unique constraint`
@@ -175,11 +160,10 @@ and [groups](../../../api/group_relations_export.md#export-status) on the source
 When importing records, you might get the following error:
 
 ```plaintext
-PG::UniqueViolation: ERROR:  duplicate key value violates unique constraint
+PG::UniqueViolation: ERROR: duplicate key value violates unique constraint
 ```
 
-This error might occur when a Sidekiq worker processing the import
-restarts due to high memory or CPU usage during import.
+This error might occur when a Sidekiq worker processing the import restarts due to high memory or CPU usage during import.
 
 To reduce Sidekiq memory or CPU issues during import:
 
@@ -195,11 +179,9 @@ BulkImports::FileDownloadService::ServiceError Invalid content type
 ```
 
 This error is related to how network traffic is routed between instances.
-If a content type other than `application/gzip` is returned,
-your network requests might be bypassing GitLab Workhorse.
+If a content type other than `application/gzip` is returned, your network requests might be bypassing GitLab Workhorse.
 
 To resolve this issue:
 
-- Check that your Ingress is configured to route traffic through
-  GitLab Workhorse on port `8181` rather than directly to Puma.
+- Check that your Ingress is configured to route traffic through GitLab Workhorse on port `8181` rather than directly to Puma.
 - Consider enabling [proxy downloads](../../../administration/object_storage.md#proxy-download) for object storage.

@@ -16,14 +16,11 @@ When viewing the Calendar tab, your calendars are separated into **My calendars*
 
 **Note:** You cannot delete the Tasks, Statute of Limitations, and Firm calendars.
 
-Task calendar
-:   This calendar shows you tasks that are assigned to you. You cannot view another user’s tasks on this calendar. Learn more about tasks [here](https://help.clio.com/hc/en-us/articles/9204917906971).
+Task calendar :   This calendar shows you tasks that are assigned to you. You cannot view another user’s tasks on this calendar. Learn more about tasks [here](https://help.clio.com/hc/en-us/articles/9204917906971).
 
-Statute of Limitations
-:   This calendar shows you the statute of limitation dates for your matters. If you see a calendar event on this calendar, you cannot edit the event itself; however, you can click the event to go to the matter information, which you can edit.
+Statute of Limitations :   This calendar shows you the statute of limitation dates for your matters. If you see a calendar event on this calendar, you cannot edit the event itself; however, you can click the event to go to the matter information, which you can edit.
 
-Firm calendar
-:   This calendar is automatically shared among all users on the account. Its purpose is to show events and appointments that require full firm visibility. You can, however, change permissions for the calendar and change who in the firm can see it. Learn more about [calendar permissions](https://help.clio.com/hc/articles/9289973325467).
+Firm calendar :   This calendar is automatically shared among all users on the account. Its purpose is to show events and appointments that require full firm visibility. You can, however, change permissions for the calendar and change who in the firm can see it. Learn more about [calendar permissions](https://help.clio.com/hc/articles/9289973325467).
 
 ## Create calendars
 

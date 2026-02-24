@@ -4,9 +4,9 @@ Source: https://help.superhuman.com/hc/en-us/articles/38458392810643-Default-Spl
 
 ---
 
-|  |
+| |
 | --- |
-| ⚡ **TL;DR**  Use Splits to organize your inbox and prioritize important emails first.   - **Desktop:** Click **Settings ⚙️ → Split Inbox** **Library** to see a list of built-in Splits. To add to VIP, Team, or News, hit **Cmd+K** (Mac) **or Ctrl+K** (Windows) **→ Add to Split.** - **Mobile: Two-finger tap**then type **Split Inbox Library**to see built-in Splits. To add to VIP, Team, or News, do a **two-finger** **tap**, then type **Add to Split**. - To help you reach Inbox Zero, the total number of conversations appears beside each Split. - Default and Custom Splits are available. - When setting up Splits, aim for no more than seven for optimal productivity. |
+| ⚡ **TL;DR** Use Splits to organize your inbox and prioritize important emails first.   - **Desktop:** Click **Settings ⚙️ → Split Inbox** **Library** to see a list of built-in Splits. To add to VIP, Team, or News, hit **Cmd+K** (Mac) **or Ctrl+K** (Windows) **→ Add to Split.** - **Mobile: Two-finger tap**then type **Split Inbox Library**to see built-in Splits. To add to VIP, Team, or News, do a **two-finger** **tap**, then type **Add to Split**. - To help you reach Inbox Zero, the total number of conversations appears beside each Split. - Default and Custom Splits are available. - When setting up Splits, aim for no more than seven for optimal productivity. |
 
 Split Inboxes are intentional sections at the top of your inbox that help you stay focused and organized. They help you prioritize important emails and batch process similar messages.
 

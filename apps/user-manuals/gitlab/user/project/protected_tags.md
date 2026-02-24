@@ -50,8 +50,7 @@ Prerequisites:
 
    {{< alert type="note" >}}
 
-   In GitLab Premium and Ultimate, you can also add groups or individual users
-   to **Allowed to create**.
+   In GitLab Premium and Ultimate, you can also add groups or individual users to **Allowed to create**.
 
    {{< /alert >}}
 
@@ -98,8 +97,7 @@ The eligible groups for protected tag permissions are:
 
 #### Share projects with groups
 
-You can share the project with a group or subgroup so that their members are eligible for
-protected tag permissions.
+You can share the project with a group or subgroup so that their members are eligible for protected tag permissions.
 
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
@@ -126,23 +124,19 @@ Inherited project membership from parent groups is not sufficient for protected 
 
 ## Wildcard protected tags
 
-You can specify a wildcard protected tag, which protects all tags
-matching the wildcard. For example:
+You can specify a wildcard protected tag, which protects all tags matching the wildcard. For example:
 
 | Wildcard protected tag | Matching tags                 |
 |------------------------|-------------------------------|
 | `v*`                   | `v1.0.0`, `version-9.1`       |
-| `*-deploy`             | `march-deploy`, `1.0-deploy`  |
+| `*-deploy`             | `march-deploy`, `1.0-deploy` |
 | `*gitlab*`             | `gitlab`, `gitlab/v1`         |
 | `*`                    | `v1.0.1rc2`, `accidental-tag` |
 
-Two different wildcards can potentially match the same tag. For example,
-`*-stable` and `production-*` would both match a `production-stable` tag.
-In that case, if _any_ of these protected tags have a setting like
-**Allowed to create**, then `production-stable` also inherit this setting.
+Two different wildcards can potentially match the same tag. For example, `*-stable` and `production-*` would both match a `production-stable` tag.
+In that case, if _any_ of these protected tags have a setting like **Allowed to create**, then `production-stable` also inherit this setting.
 
-If you select a protected tag's name, GitLab displays a list of
-all matching tags.
+If you select a protected tag's name, GitLab displays a list of all matching tags.
 
 ## Allow deploy keys to create protected tags
 
@@ -150,12 +144,8 @@ You can permit a [deploy key](deploy_keys/_index.md) to create protected tags.
 
 Prerequisites:
 
-- The deploy key must be enabled for your project. A project deploy key is enabled by default when
-  it is created. However, a public deploy key must be
-  [granted](deploy_keys/_index.md#grant-project-access-to-a-public-deploy-key) access to the
-  project.
-- The deploy key must have [write access](deploy_keys/_index.md#permissions) to your project
-  repository.
+- The deploy key must be enabled for your project. A project deploy key is enabled by default when it is created. However, a public deploy key must be [granted](deploy_keys/_index.md#grant-project-access-to-a-public-deploy-key) access to the project.
+- The deploy key must have [write access](deploy_keys/_index.md#permissions) to your project repository.
 - The owner of the deploy key must have at least read access to the project.
 - The owner of the deploy key must also be a member of the project.
 
@@ -170,21 +160,14 @@ To allow a deploy key to create a protected tag:
 
 ## Prevent tag creation with branch names
 
-A tag and a branch with identical names can contain different commits. If your
-tags and branches use the same names, users running `git checkout`
-commands might check out the _tag_ `qa` when they instead meant to check out
-the _branch_ `qa`. As an added security measure, avoid creating tags with the
-same name as branches. Confusing the two could lead to potential
-security or operational issues.
+A tag and a branch with identical names can contain different commits. If your tags and branches use the same names, users running `git checkout` commands might check out the _tag_ `qa` when they instead meant to check out the _branch_ `qa`. As an added security measure, avoid creating tags with the same name as branches. Confusing the two could lead to potential security or operational issues.
 
 To prevent this problem:
 
 1. Identify the branch names you do not want used as tags.
-1. As described in [Configure protected tags](#configure-protected-tags),
-   create a protected tag:
+1. As described in [Configure protected tags](#configure-protected-tags), create a protected tag:
 
-   - For the **Name**, provide a name, such as `stable`. You can also create a wildcard
-     like `stable-*` to match multiple names, like `stable-v1` and `stable-v2`.
+   - For the **Name**, provide a name, such as `stable`. You can also create a wildcard like `stable-*` to match multiple names, like `stable-v1` and `stable-v2`.
    - For **Allowed to Create**, select **No one**.
    - Select **Protect**.
 
@@ -197,8 +180,7 @@ The permissions to create protected tags define if a user can:
 - Initiate and run CI/CD pipelines.
 - Execute actions on jobs associated with these tags.
 
-These permissions ensure that only authorized users can trigger and manage
-CI/CD processes for protected tags.
+These permissions ensure that only authorized users can trigger and manage CI/CD processes for protected tags.
 
 ## Unprotect a tag
 
@@ -225,8 +207,7 @@ To unprotect a tag:
 
 You can delete tags that have protection rules applied to them.
 This removes the tag from the repository, not the protection rule itself.
-If you want to remove the protection rule without deleting the tag,
-see [Unprotect a tag](#unprotect-a-tag).
+If you want to remove the protection rule without deleting the tag, see [Unprotect a tag](#unprotect-a-tag).
 
 Prerequisites:
 
@@ -240,8 +221,7 @@ To delete a protected tag:
 1. On the confirmation dialog, enter the tag name and select **Yes, delete protected tag**.
 
 Protected tags can only be deleted by using GitLab either from the UI or API.
-These protections prevent you from accidentally deleting a tag through local
-Git commands or third-party Git clients.
+These protections prevent you from accidentally deleting a tag through local Git commands or third-party Git clients.
 
 ## Related topics
 

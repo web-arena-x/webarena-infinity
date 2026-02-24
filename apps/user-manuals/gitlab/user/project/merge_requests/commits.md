@@ -23,50 +23,45 @@ You can add multiple commits before pushing your changes.
 
 - Commit message:
 
-  A commit message identifies what is changed and why. Use descriptive messages to clarify the changes.
-  In GitLab, you can add keywords to the commit message to perform one of the following actions:
+ A commit message identifies what is changed and why. Use descriptive messages to clarify the changes.
+ In GitLab, you can add keywords to the commit message to perform one of the following actions:
 
-  - Trigger a GitLab CI/CD pipeline:
+ - Trigger a GitLab CI/CD pipeline:
 
-    If the project is configured with [GitLab CI/CD](../../../ci/_index.md),
-    you trigger a pipeline per push, not per commit.
+    If the project is configured with [GitLab CI/CD](../../../ci/_index.md), you trigger a pipeline per push, not per commit.
 
-  - Skip pipelines:
+ - Skip pipelines:
 
-    Add the [`ci skip`](../../../ci/pipelines/_index.md#skip-a-pipeline) keyword to
-    your commit message to make GitLab CI/CD skip the pipeline.
+    Add the [`ci skip`](../../../ci/pipelines/_index.md#skip-a-pipeline) keyword to your commit message to make GitLab CI/CD skip the pipeline.
 
-  - Cross-link issues and merge requests:
+ - Cross-link issues and merge requests:
 
     Use [cross-linking](../issues/crosslinking_issues.md#from-commit-messages)
     to keep track of related parts of your workflow.
-    If you mention an issue or a merge request in a commit message, they are displayed
-    on their respective thread.
+    If you mention an issue or a merge request in a commit message, they are displayed on their respective thread.
 
 - Cherry-pick a commit:
 
-  In GitLab, you can [cherry-pick a commit](cherry_pick_changes.md#cherry-pick-a-single-commit)
-  from the UI.
+ In GitLab, you can [cherry-pick a commit](cherry_pick_changes.md#cherry-pick-a-single-commit)
+ from the UI.
 
 - Revert a commit:
 
-  [Revert a commit](revert_changes.md#revert-a-commit)
-  from the UI to a selected branch.
+ [Revert a commit](revert_changes.md#revert-a-commit)
+ from the UI to a selected branch.
 
 - Sign a commit:
 
-  Add extra security by [signing your commits](../repository/signed_commits/_index.md).
+ Add extra security by [signing your commits](../repository/signed_commits/_index.md).
 
 For additional information, see [Stage, commit, and push changes](../../../topics/git/commit.md).
 
 ## Merge request commits
 
-Each merge request has a history of the commits made to the source branch
-after the merge request was created.
+Each merge request has a history of the commits made to the source branch after the merge request was created.
 
 These commits are displayed on the merge request's **Commits** tab.
-From this tab, you can review commit messages and copy a commit's SHA when you need to
-[cherry-pick changes](cherry_pick_changes.md).
+From this tab, you can review commit messages and copy a commit's SHA when you need to [cherry-pick changes](cherry_pick_changes.md).
 
 ### View commits in a merge request
 
@@ -83,19 +78,14 @@ To see the commits included in a merge request:
    - Select **Prev** or **Next**.
    - Use keyboard shortcuts: <kbd>X</kbd> (previous commit) and <kbd>C</kbd> (next commit).
 
-If your merge request builds upon a previous merge request, you might
-need to [include more commits for context](#show-commits-from-previous-merge-requests).
+If your merge request builds upon a previous merge request, you might need to [include more commits for context](#show-commits-from-previous-merge-requests).
 
 ### Show commits from previous merge requests
 
-When you review a merge request, you might need information from previous commits
-to help understand the commits you're reviewing. You might need more context
-if another merge request:
+When you review a merge request, you might need information from previous commits to help understand the commits you're reviewing. You might need more context if another merge request:
 
-- Changed files your current merge request doesn't modify, so those files aren't shown
-  in your current merge request's diff.
-- Changed files that you're modifying in your current merge request, and you need
-  to see the progression of work.
+- Changed files your current merge request doesn't modify, so those files aren't shown in your current merge request's diff.
+- Changed files that you're modifying in your current merge request, and you need to see the progression of work.
 
 To add previously merged commits to a merge request for more context:
 
@@ -106,15 +96,13 @@ To add previously merged commits to a merge request for more context:
 1. Select the commits that you want to add.
 1. Select **Save changes**.
 
-Previously merged commits are referred to as **Context Commits** in
-the [API](../../../api/merge_request_context_commits.md).
+Previously merged commits are referred to as **Context Commits** in the [API](../../../api/merge_request_context_commits.md).
 
 ### Add a comment to a commit
 
 {{< alert type="warning" >}}
 
-Threads created this way are lost if the commit ID changes after a
-force push.
+Threads created this way are lost if the commit ID changes after a force push.
 
 {{< /alert >}}
 
@@ -138,14 +126,10 @@ To view the changes between previously merged commits:
 
    ![Previously merged commits](img/previously_merged_commits_v16_0.png)
 
-If you selected to add previously merged commits for context, those commits are
-also shown in the list.
+If you selected to add previously merged commits for context, those commits are also shown in the list.
 
 ### Find the merge request that introduced a change
 
-When you view the commit details page, GitLab links to one or more merge requests
-that contain that commit.
+When you view the commit details page, GitLab links to one or more merge requests that contain that commit.
 
-This behavior only applies to commits that are in the most recent version of a merge
-request. If the commits were in a merge request and were rebased out of that merge
-request, the commits are not linked.
+This behavior only applies to commits that are in the most recent version of a merge request. If the commits were in a merge request and were rebased out of that merge request, the commits are not linked.

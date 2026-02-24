@@ -6,7 +6,7 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/115007031667-Handsha
 
 This article will give an overview of the different stages within the Handshake Customer Lifecycle!
 
-|  |  |
+| | |
 | --- | --- |
 | **Overall Stage Name** | **Key Tasks** |
 | **Training & Configuration** | - Completing Online Trainings - Completing School Settings Configuration - Beginning IT Discussions on SSO, Unblocking IPs / Domains, Student File |
@@ -18,7 +18,7 @@ This article will give an overview of the different stages within the Handshake 
 
 **Student Data Stages**
 
-|  |  |
+| | |
 | --- | --- |
 | **Stage Name** | **Description** |
 | **Not Discussed** | - Student file conversations have not begun |
@@ -30,7 +30,7 @@ This article will give an overview of the different stages within the Handshake 
 
 **SSO Stages**
 
-|  |  |
+| | |
 | --- | --- |
 | **Stage Name** | **Description** |
 | **Not Discussed** | - IT POC has not been assigned or added to Handshake |
@@ -42,7 +42,7 @@ This article will give an overview of the different stages within the Handshake 
 
 **Employer Contact Data Stages**
 
-|  |  |
+| | |
 | --- | --- |
 | **Stage Name** | **Description** |
 | **Not Discussed (no survey or ticket)** | - No one has been added to the importer |

@@ -6,24 +6,19 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408829088026-Deactivating
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Guide Professional or Enterprise |
 
-You can deactivate a help center, if necessary, after it has been activated. You must be a
-Support admin to deactivate a help center. Deactivating your help center does not delete the
-help center or any of its contents. It simply hides it from end-users.
+You can deactivate a help center, if necessary, after it has been activated. You must be a Support admin to deactivate a help center. Deactivating your help center does not delete the help center or any of its contents. It simply hides it from end-users.
 
-When deactivated, end-users can no longer access that help center. Knowledge admins and agents
-can access a help center when it is deactivated, and agents using [Knowledge in agent workspace](https://support.zendesk.com/hc/en-us/articles/5581313653530-About-Knowledge-in-Agent-Workspace) can still access internal
-articles.
+When deactivated, end-users can no longer access that help center. Knowledge admins and agents can access a help center when it is deactivated, and agents using [Knowledge in agent workspace](https://support.zendesk.com/hc/en-us/articles/5581313653530-About-Knowledge-in-Agent-Workspace) can still access internal articles.
 
-If you have set up multiple brands, you can deactivate the help center for each brand
-individually.
+If you have set up multiple brands, you can deactivate the help center for each brand individually.
 
 **To deactivate your help center**
 
@@ -34,5 +29,4 @@ individually.
 3. Click **Update**.
 4. Click **Yes, deactivate** to confirm that you want to deactivate your help center.
 
-You can reactivate your help center by clicking **Activate** at the top of the settings
-page.
+You can reactivate your help center by clicking **Activate** at the top of the settings page.

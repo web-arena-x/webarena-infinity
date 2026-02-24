@@ -24,10 +24,7 @@ Quoting from the [MergeTree documentation](https://clickhouse.com/docs/en/engine
 
 <!-- vale gitlab_base.Simplicity = YES -->
 
-When used with remote storage backends such as
-[Amazon S3](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-s3),
-this makes a very efficient storage scheme. It allows for storage policies, which
-allows data to be on local disks for a period of time and then move it to object storage.
+When used with remote storage backends such as [Amazon S3](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-s3), this makes a very efficient storage scheme. It allows for storage policies, which allows data to be on local disks for a period of time and then move it to object storage.
 
 An [example configuration](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes_configure) can look like this:
 
@@ -53,7 +50,7 @@ An [example configuration](https://clickhouse.com/docs/en/engines/table-engines/
         <move_from_local_disks_to_gcs> <!-- policy name -->
             <volumes>
                 <hot> <!-- volume name -->
-                    <disk>fast_ssd</disk>  <!-- disk name -->
+                    <disk>fast_ssd</disk> <!-- disk name -->
                 </hot>
                 <cold>
                     <disk>gcs</disk>
@@ -84,17 +81,13 @@ SETTINGS storage_policy = 'move_from_local_disks_to_gcs'
 
 {{< alert type="note" >}}
 
-In this storage policy, the move happens implicitly. It is also possible to keep
-_hot_ data on local disks for a fixed period of time and then move them as _cold_.
+In this storage policy, the move happens implicitly. It is also possible to keep _hot_ data on local disks for a fixed period of time and then move them as _cold_.
 
 {{< /alert >}}
 
-This approach is possible with
-[Table TTLs](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#mergetree-table-ttl),
-which are also available with MergeTree table engine.
+This approach is possible with [Table TTLs](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#mergetree-table-ttl), which are also available with MergeTree table engine.
 
-The ClickHouse documentation shows this feature in detail, in the example of
-[implementing a hot - warm - cold architecture](https://clickhouse.com/docs/en/guides/developer/ttl#implementing-a-hotwarmcold-architecture).
+The ClickHouse documentation shows this feature in detail, in the example of [implementing a hot - warm - cold architecture](https://clickhouse.com/docs/en/guides/developer/ttl#implementing-a-hotwarmcold-architecture).
 
 You can take a similar approach for the example shown above. First, adjust the storage policy:
 
@@ -105,7 +98,7 @@ You can take a similar approach for the example shown above. First, adjust the s
         <local_disk_and_gcs> <!-- policy name -->
             <volumes>
                 <hot> <!-- volume name -->
-                    <disk>fast_ssd</disk>  <!-- disk name -->
+                    <disk>fast_ssd</disk> <!-- disk name -->
                 </hot>
                 <cold>
                     <disk>gcs</disk>
@@ -132,12 +125,9 @@ TTL
 SETTINGS storage_policy = 'local_disk_and_gcs';
 ```
 
-This creates the table so that data older than 1 year (evaluated against the
-`event_date` column) is moved to GCS. Such a storage policy can be helpful for append-only
-tables (like audit events) where only the most recent data is accessed frequently.
+This creates the table so that data older than 1 year (evaluated against the `event_date` column) is moved to GCS. Such a storage policy can be helpful for append-only tables (like audit events) where only the most recent data is accessed frequently.
 You can drop the data altogether, which can be a regulatory requirement.
 
 We don't mention modifying TTLs in this guide, but that is possible as well.
-See ClickHouse documentation for
-[modifying TTL](https://clickhouse.com/docs/en/sql-reference/statements/alter/ttl#modify-ttl)
+See ClickHouse documentation for [modifying TTL](https://clickhouse.com/docs/en/sql-reference/statements/alter/ttl#modify-ttl)
 for details.

@@ -8,7 +8,7 @@ If you processed a job in the Importer and noticed that a few of your rows faile
 
  **Identify Failed Rows:**
 
-1. From your job's overview page, you will see a **status** **update** at the top of the page**:**  
+1. From your job's overview page, you will see a **status** **update** at the top of the page**:** 
 ![Screen_Shot_2018-07-06_at_11.02.48_AM.png](https://support.joinhandshake.com/hc/article_attachments/25995548710679)
 
 2. If there are any failed rows (highlighted in red under the **Progress** bar), select the **View / Download Results** button in the upper right corner of the job overview page:

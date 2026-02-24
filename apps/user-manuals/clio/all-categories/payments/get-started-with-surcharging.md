@@ -17,7 +17,7 @@ Surcharging rules are enforced by major credit card networks, including Visa and
 - Mastercard requires that you provide notification of the intent to surcharge at least 30 days before surcharging commences. You can use their [Merchant Surcharge Disclosure Form](https://www.mastercard.us/en-us/surcharge-disclosure-webform.html) to submit your notification.
 - Visa requires that the acquirer (a financial institution or payment facilitator) be notified of an intent to use surcharging 30 days before surcharging begins.
 
-  **Note:** Clio handles this requirement on your behalf.
+ **Note:** Clio handles this requirement on your behalf.
 - Post signage in your office stating that surcharging only applies to credit card payments and include the surcharge amount.
 - Offer clients the option to choose an alternative payment method (such as debit or echeck) before the surcharge is added to their bill.
 

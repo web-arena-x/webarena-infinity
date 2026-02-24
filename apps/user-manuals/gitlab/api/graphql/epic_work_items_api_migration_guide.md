@@ -29,8 +29,7 @@ To ensure that your integrations continue working:
 
 - If you use the [Epic GraphQL API](reference/_index.md#epic), migrate to the Work Item API before the Epic GraphQL API is removed.
 - If you use the [REST API](../epics.md), you can continue using it, but you should migrate to future-proof your integrations.
-- For new features (such as assignees, health status, linked items with other types), you must
-  use the `WorkItem` GraphQL API.
+- For new features (such as assignees, health status, linked items with other types), you must use the `WorkItem` GraphQL API.
 
 ## API status
 
@@ -56,13 +55,11 @@ The [Epic GraphQL API](reference/_index.md#epic) is planned for removal in GitLa
 
 ## Migrate to the Work Item API
 
-The Work Item API uses widgets to represent epic attributes like health status, assignees, and
-hierarchy.
+The Work Item API uses widgets to represent epic attributes like health status, assignees, and hierarchy.
 
 ### Set up the GraphiQL explorer
 
-To run these examples, you can use GraphiQL, an interactive GraphQL API explorer where you can play
-around with existing queries:
+To run these examples, you can use GraphiQL, an interactive GraphQL API explorer where you can play around with existing queries:
 
 1. Open the GraphiQL explorer tool:
    - For GitLab.com, go to <https://gitlab.com/-/graphql-explorer>.
@@ -84,7 +81,7 @@ For example, an epic at `/gitlab-org/-/epics/123` has the same IID `123` as a wo
 
 ```graphql
 query Epics {
-  group(fullPath: "gitlab-org") {
+ group(fullPath: "gitlab-org") {
     epics {
       nodes {
         id
@@ -92,7 +89,7 @@ query Epics {
         title
       }
     }
-  }
+ }
 }
 ```
 
@@ -100,7 +97,7 @@ Example response:
 
 ```json
 {
-  "data": {
+ "data": {
     "group": {
       "epics": {
         "nodes": [
@@ -117,7 +114,7 @@ Example response:
         ]
       }
     }
-  }
+ }
 }
 ```
 
@@ -125,7 +122,7 @@ Example response:
 
 ```graphql
 query EpicsAsWorkItem {
-  group(fullPath: "gitlab-org") {
+ group(fullPath: "gitlab-org") {
     workItems(types: [EPIC]) {
       nodes {
         id
@@ -133,7 +130,7 @@ query EpicsAsWorkItem {
         title
       }
     }
-  }
+ }
 }
 ```
 
@@ -141,7 +138,7 @@ Example response:
 
 ```json
 {
-  "data": {
+ "data": {
     "group": {
       "workItems": {
         "nodes": [
@@ -158,7 +155,7 @@ Example response:
         ]
       }
     }
-  }
+ }
 }
 ```
 
@@ -168,12 +165,12 @@ Example response:
 
 ```graphql
 mutation CreateEpic {
-  createEpic(input: { title: "New epic", groupPath: "gitlab-org" }) {
+ createEpic(input: { title: "New epic", groupPath: "gitlab-org" }) {
     epic {
       id
       title
     }
-  }
+ }
 }
 ```
 
@@ -181,14 +178,14 @@ Example response:
 
 ```json
 {
-  "data": {
+ "data": {
     "createEpic": {
       "epic": {
         "id": "gid://gitlab/Epic/806",
         "title": "New epic"
       }
     }
-  }
+ }
 }
 ```
 
@@ -295,7 +292,7 @@ To query epics with widgets:
 
 ```graphql
 query DetailedEpicQuery {
-  group(fullPath: "gitlab-org") {
+ group(fullPath: "gitlab-org") {
     epic(iid: 1000) {
       id
       iid
@@ -335,7 +332,7 @@ query DetailedEpicQuery {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -343,7 +340,7 @@ Example response:
 
 ```json
 {
-  "data": {
+ "data": {
     "group": {
       "epic": {
         "id": "gid://gitlab/Epic/5579",
@@ -425,7 +422,7 @@ Example response:
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -433,7 +430,7 @@ Example response:
 
 ```graphql
 query DetailedEpicWorkItem {
-  namespace(fullPath: "gitlab-org") {
+ namespace(fullPath: "gitlab-org") {
     workItem(iid: "10") {
       id
       title
@@ -509,7 +506,7 @@ query DetailedEpicWorkItem {
         __typename
       }
     }
-  }
+ }
 }
 ```
 
@@ -517,7 +514,7 @@ Example response:
 
 ```json
 {
-  "data": {
+ "data": {
     "namespace": {
       "workItem": {
         "id": "gid://gitlab/WorkItem/146171815",
@@ -745,7 +742,7 @@ Example response:
         ]
       }
     }
-  }
+ }
 }
 ```
 
@@ -765,7 +762,7 @@ For example, run the query below to create an epic with:
 
 ```graphql
 mutation createEpicWithWidgets {
-  workItemCreate(
+ workItemCreate(
     input: {
       title: "New work item epic"
       namespacePath: "gitlab-org"
@@ -776,7 +773,7 @@ mutation createEpicWithWidgets {
       startAndDueDateWidget: { startDate: "2024-10-12", dueDate: "2024-12-12", isFixed: true }
       assigneesWidget: { assigneeIds: "gid://gitlab/User/<UserID>" }
     }
-  ) {
+ ) {
     workItem {
       id
       title
@@ -808,7 +805,7 @@ mutation createEpicWithWidgets {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -816,7 +813,7 @@ Example response:
 
 ```json
 {
-  "data": {
+ "data": {
     "workItemCreate": {
       "workItem": {
         "id": "gid://gitlab/WorkItem/2252",
@@ -852,22 +849,19 @@ Example response:
         ]
       }
     }
-  }
+ }
 }
 ```
 
 #### Update a work item epic using widgets
 
-To edit a work item, re-use the widget inputs from
-[Create a work item epic with widgets](#create-a-work-item-epic-with-widgets), but use the
-`workItemUpdate` mutation instead.
+To edit a work item, re-use the widget inputs from [Create a work item epic with widgets](#create-a-work-item-epic-with-widgets), but use the `workItemUpdate` mutation instead.
 
-Get the global ID of the work item (format `gid://gitlab/WorkItem/<WorkItemID>`) and use it as `id`
-for the `input`:
+Get the global ID of the work item (format `gid://gitlab/WorkItem/<WorkItemID>`) and use it as `id` for the `input`:
 
 ```graphql
 mutation updateEpicWorkItemWithWidgets {
-  workItemUpdate(
+ workItemUpdate(
     input: {
       id: "gid://gitlab/WorkItem/<WorkItemID>"
       title: "Updated work item epic title"
@@ -877,7 +871,7 @@ mutation updateEpicWorkItemWithWidgets {
       startAndDueDateWidget: { startDate: "2025-10-12", dueDate: "2025-12-12", isFixed: true }
       assigneesWidget: { assigneeIds: "gid://gitlab/User/45" }
     }
-  ) {
+ ) {
     workItem {
       id
       title
@@ -909,7 +903,7 @@ mutation updateEpicWorkItemWithWidgets {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -917,7 +911,7 @@ Example response:
 
 ```json
 {
-  "data": {
+ "data": {
     "workItemUpdate": {
       "workItem": {
         "id": "gid://gitlab/WorkItem/2252",
@@ -953,7 +947,7 @@ Example response:
         ]
       }
     }
-  }
+ }
 }
 ```
 
@@ -963,13 +957,13 @@ To delete an epic work item, use the `workItemDelete` mutation:
 
 ```graphql
 mutation deleteEpicWorkItem {
-  workItemDelete(input: { id: "gid://gitlab/WorkItem/<WorkItemID>" }) {
+ workItemDelete(input: { id: "gid://gitlab/WorkItem/<WorkItemID>" }) {
     clientMutationId
     errors
     namespace {
       id
     }
-  }
+ }
 }
 ```
 
@@ -977,7 +971,7 @@ Example response:
 
 ```json
 {
-  "data": {
+ "data": {
     "workItemDelete": {
       "clientMutationId": null,
       "errors": [],
@@ -985,6 +979,6 @@ Example response:
         "id": "gid://gitlab/Group/24"
       }
     }
-  }
+ }
 }
 ```

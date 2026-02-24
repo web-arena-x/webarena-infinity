@@ -6,13 +6,11 @@ title: Metadata
 ---
 
 Each documentation Markdown page contains YAML front matter.
-All values in the metadata are treated as strings and are used for the
-documentation website only.
+All values in the metadata are treated as strings and are used for the documentation website only.
 
 ## Stage and group metadata
 
-Each page should have metadata related to the stage and group it
-belongs to, an information block, and the page title. For example:
+Each page should have metadata related to the stage and group it belongs to, an information block, and the page title. For example:
 
 ```yaml
 ---
@@ -26,11 +24,10 @@ title: Example page title
 To populate the metadata, include this information:
 
 - `stage`: The [Stage](https://handbook.gitlab.com/handbook/product/categories/#devops-stages)
-  that the majority of the page's content belongs to.
+ that the majority of the page's content belongs to.
 - `group`: The [Group](https://handbook.gitlab.com/handbook/company/structure/#product-groups)
-  that the majority of the page's content belongs to.
-- `info`: How to find the Technical Writer associated with the page's stage and
-  group.
+ that the majority of the page's content belongs to.
+- `info`: How to find the Technical Writer associated with the page's stage and group.
 - `title`: The page title that appears as the H1 (level one heading) at the top of the page.
 
 ### Exceptions
@@ -89,20 +86,15 @@ The `description` tag:
 - Can be used in search result snippets.
 - Is shown when the page is included in a [`cards` shortcode](styleguide/_index.md#cards).
 
-For the top-level pages, like **Use GitLab** and one level underneath,
-the description should be a short sentence that starts with an active verb.
-The description should give users a clear idea of the information they will find
-on the page and the value of visiting the page.
+For the top-level pages, like **Use GitLab** and one level underneath, the description should be a short sentence that starts with an active verb.
+The description should give users a clear idea of the information they will find on the page and the value of visiting the page.
 
-For other pages, descriptions are not actively maintained. However, if you want to add one,
-use a short description of what the page is about.
+For other pages, descriptions are not actively maintained. However, if you want to add one, use a short description of what the page is about.
 For guidance, see the Google [Best practices for creating quality meta descriptions](https://developers.google.com/search/docs/appearance/snippet#meta-descriptions).
 
 ## Avoid pages being added to global navigation
 
-If a specific page shouldn't be added to the global navigation (have an entry added to
-[`navigation.yaml`](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/data/en-us/navigation.yaml), add
-the following to the page's metadata:
+If a specific page shouldn't be added to the global navigation (have an entry added to [`navigation.yaml`](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/data/en-us/navigation.yaml), add the following to the page's metadata:
 
 ```yaml
 ignore_in_report: true
@@ -111,9 +103,8 @@ ignore_in_report: true
 When this metadata is set on a page:
 
 - The [`pages_not_in_nav.cjs`](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/scripts/pages_not_in_nav.cjs)
-  script ignores the page when processing the documentation.
-- Technical writers doing the Technical Writing team's monthly tasks aren't prompted to add the page to the global
-  navigation.
+ script ignores the page when processing the documentation.
+- Technical writers doing the Technical Writing team's monthly tasks aren't prompted to add the page to the global navigation.
 
 ## Indicate GitLab Dedicated support
 
@@ -134,14 +125,12 @@ When a page applies to GitLab Dedicated, use:
 gitlab_dedicated: yes
 ```
 
-For pages with partial availability on GitLab Dedicated, use `gitlab_dedicated: yes`
-and update the [product availability details](styleguide/availability_details.md)
+For pages with partial availability on GitLab Dedicated, use `gitlab_dedicated: yes` and update the [product availability details](styleguide/availability_details.md)
 for any topics that don't apply to GitLab Dedicated.
 
 ## Indicate lack of product availability details
 
-On pages that purposely do not have availability details, add this metadata to the
-top of the page:
+On pages that purposely do not have availability details, add this metadata to the top of the page:
 
 ```yaml
 availability_details: no
@@ -176,8 +165,7 @@ change, you must update the `CODEOWNERS` file. To do this, you run the `codeowne
 This task:
 
 1. Checks all files in the `doc` directory.
-1. Reads the value of `group` from the metadata. Any value in `group` that
-   [isn't known to the Rake task](https://gitlab.com/gitlab-org/gitlab/-/blob/e89a2961e7da448089957514041f21e477eb774f/lib/tasks/gitlab/tw/codeowners.rake#L20)
+1. Reads the value of `group` from the metadata. Any value in `group` that [isn't known to the Rake task](https://gitlab.com/gitlab-org/gitlab/-/blob/e89a2961e7da448089957514041f21e477eb774f/lib/tasks/gitlab/tw/codeowners.rake#L20)
    causes the page to be treated as not assigned to a technical writer.
 1. Uses the information in the `codeowners.rake` file to populate the `CODEOWNERS` file.
 
@@ -195,11 +183,11 @@ When you update the `codeowners.rake` file:
 
 - To specify multiple writers for a single group, use a space between writer names. Files are assigned to both writers.
 
-  ```ruby
-  CodeOwnerRule.new('Group Name', '@writer1 @writer2'),
-  ```
+ ```ruby
+ CodeOwnerRule.new('Group Name', '@writer1 @writer2'),
+ ```
 
-  - To assign different writers in a group to documentation in different directories, use the `path` parameter to specify a directory:
+ - To assign different writers in a group to documentation in different directories, use the `path` parameter to specify a directory:
 
     ```ruby
     CodeOwnerRule.new('Group Name', ->(path) { path.start_with?('/doc/user') ? '@writer1' : '@writer2' }),
@@ -210,6 +198,6 @@ When you update the `codeowners.rake` file:
 
 - For a group that does not have an assigned writer, include the group name in the file and comment out the line:
 
-  ```ruby
-  # CodeOwnerRule.new('Group Name', ''),
-  ```
+ ```ruby
+ # CodeOwnerRule.new('Group Name', ''),
+ ```

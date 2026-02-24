@@ -45,8 +45,7 @@ To use full screen mode, your web browser must also support it. If your web brow
 
 {{< /history >}}
 
-Job logs are divided into sections that can be collapsed or expanded. Each section displays
-the duration.
+Job logs are divided into sections that can be collapsed or expanded. Each section displays the duration.
 
 In the following example:
 
@@ -58,8 +57,7 @@ In the following example:
 ### Custom collapsible sections
 
 You can create [collapsible sections in job logs](#expand-and-collapse-job-log-sections)
-by manually outputting special codes
-that GitLab uses to delimit collapsible sections:
+by manually outputting special codes that GitLab uses to delimit collapsible sections:
 
 - Section start marker: `\e[0Ksection_start:UNIX_TIMESTAMP:SECTION_NAME\r\e[0K` + `TEXT_OF_SECTION_HEADER`
 - Section end marker: `\e[0Ksection_end:UNIX_TIMESTAMP:SECTION_NAME\r\e[0K`
@@ -69,26 +67,22 @@ For example, using `echo`:
 
 ```yaml
 job1:
-  script:
+ script:
     - echo -e "\e[0Ksection_start:`date +%s`:my_first_section\r\e[0KHeader of the 1st collapsible section"
     - echo 'this line should be hidden when collapsed'
     - echo -e "\e[0Ksection_end:`date +%s`:my_first_section\r\e[0K"
 ```
 
 The escape syntax may differ depending on the shell that your runner uses.
-For example if it is using Zsh, you may need to escape the special characters
-with `\\e` or `\\r`.
+For example if it is using Zsh, you may need to escape the special characters with `\\e` or `\\r`.
 
 In the example above:
 
 - `date +%s`: Command that produces the Unix timestamp (for example `1560896352`).
-- `my_first_section`: The name given to the section. The name can only be composed
-  of letters, numbers, and the `_`, `.`, or `-` characters.
-- `\r\e[0K`: Escape sequence that prevents the section markers from displaying in the
-  rendered (colored) job log. They are displayed when viewing the raw job log, accessed
-  in the upper-right corner of the job log by selecting **Show complete raw** ({{< icon name="doc-text" >}}).
-  - `\r`: carriage return (returns the cursor to the start of the line).
-  - `\e[0K`: ANSI escape code to clear the line from the cursor position to the end of the line.
+- `my_first_section`: The name given to the section. The name can only be composed of letters, numbers, and the `_`, `.`, or `-` characters.
+- `\r\e[0K`: Escape sequence that prevents the section markers from displaying in the rendered (colored) job log. They are displayed when viewing the raw job log, accessed in the upper-right corner of the job log by selecting **Show complete raw** ({{< icon name="doc-text" >}}).
+ - `\r`: carriage return (returns the cursor to the start of the line).
+ - `\e[0K`: ANSI escape code to clear the line from the cursor position to the end of the line.
     (`\e[K` alone does not work; the `0` must be included).
 
 Sample raw job log:
@@ -105,8 +99,7 @@ Sample job console log:
 
 #### Use a script to improve display of collapsible sections
 
-To remove the `echo` statements that create the section markers from the job output,
-you can move the job contents to a script file and invoke it from the job:
+To remove the `echo` statements that create the section markers from the job output, you can move the job contents to a script file and invoke it from the job:
 
 1. Create a script that can handle the section headers. For example:
 
@@ -147,18 +140,16 @@ you can move the job contents to a script file and invoke it from the job:
 ### Pre-collapse sections
 
 You can make the job log automatically collapse collapsible sections by adding the `collapsed` option to the section start.
-Add `[collapsed=true]` after the section name and before the `\r`. The section end marker
-remains unchanged:
+Add `[collapsed=true]` after the section name and before the `\r`. The section end marker remains unchanged:
 
 - Section start marker with `[collapsed=true]`: `\e[0Ksection_start:UNIX_TIMESTAMP:SECTION_NAME[collapsed=true]\r\e[0K` + `TEXT_OF_SECTION_HEADER`
 - Section end marker (unchanged): `\e[0Ksection_end:UNIX_TIMESTAMP:SECTION_NAME\r\e[0K`
 
-Add the updated section start text to the CI configuration. For example,
-using `echo`:
+Add the updated section start text to the CI configuration. For example, using `echo`:
 
 ```yaml
 job1:
-  script:
+ script:
     - echo -e "\e[0Ksection_start:`date +%s`:my_first_section[collapsed=true]\r\e[0KHeader of the 1st collapsible section"
     - echo 'this line should be hidden automatically after loading the job log'
     - echo -e "\e[0Ksection_end:`date +%s`:my_first_section\r\e[0K"
@@ -187,8 +178,7 @@ For more details, see [Delete job logs](../../user/storage_management_automation
 {{< /history >}}
 
 You can generate a timestamp in the [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html)
-for each line in a CI/CD job log. With job log timestamps, you can identify the duration
-of a specific section in the job. By default, job logs do not include a timestamp for each log line.
+for each line in a CI/CD job log. With job log timestamps, you can identify the duration of a specific section in the job. By default, job logs do not include a timestamp for each log line.
 
 When timestamps are enabled, the job log uses approximately 10% more storage space.
 
@@ -203,10 +193,10 @@ For example, [add the variable to your `.gitlab-ci.yml` file](../variables/_inde
 
 ```yaml
 variables:
-  FF_TIMESTAMPS: true
+ FF_TIMESTAMPS: true
 
 job:
-  script:
+ script:
     - echo "This job's log has ISO 8601 timestamps!"
 ```
 
@@ -220,20 +210,14 @@ To provide feedback on this feature, leave a comment on [issue 463391](https://g
 
 ### Job log slow to update
 
-When you visit the job log page for a running job, there could be a delay of up to
-60 seconds before a log update. The default refresh time is 60 seconds, but after
-the log is viewed in the UI one time, log updates should occur every 3 seconds.
+When you visit the job log page for a running job, there could be a delay of up to 60 seconds before a log update. The default refresh time is 60 seconds, but after the log is viewed in the UI one time, log updates should occur every 3 seconds.
 
 ### Error: `This job does not have a trace` in GitLab 18.0 or later
 
-After upgrading a GitLab Self-Managed instance to 18.0 or later, you might see
-`This job does not have a trace` errors. This could be caused by a failed upgrade migration
-on an instance with both:
+After upgrading a GitLab Self-Managed instance to 18.0 or later, you might see `This job does not have a trace` errors. This could be caused by a failed upgrade migration on an instance with both:
 
 - Object storage enabled
 - Incremental logging previously enabled with the removed feature flag `ci_enable_live_trace`.
-  This feature flag is enabled by default in GitLab Environment Toolkit or Helm Chart deployments,
-  but could also be enabled manually.
+ This feature flag is enabled by default in GitLab Environment Toolkit or Helm Chart deployments, but could also be enabled manually.
 
-To restore the ability to view job logs on affected jobs,
-[re-enable incremental logging](../../administration/settings/continuous_integration.md#configure-incremental-logging)
+To restore the ability to view job logs on affected jobs, [re-enable incremental logging](../../administration/settings/continuous_integration.md#configure-incremental-logging)

@@ -27,10 +27,10 @@ License approval policies apply only to [protected](../project/repository/branch
 The following video provides an overview of these policies.
 
 <div class="video-fallback">
-  See the video: <a href="https://www.youtube.com/watch?v=34qBQ9t8qO8">Overview of GitLab License Approval Policies</a>.
+ See the video: <a href="https://www.youtube.com/watch?v=34qBQ9t8qO8">Overview of GitLab License Approval Policies</a>.
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/34qBQ9t8qO8" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/34qBQ9t8qO8" frameborder="0" allowfullscreen> </iframe>
 </figure>
 
 ## Prerequisites to creating a new license approval policy
@@ -92,8 +92,7 @@ The final state is when a successful pipeline run has been completed, parsed, an
 
 ### License approval policies block merge requests due to `unknown` licenses
 
-License approval policies may block merge requests due to `unknown` licenses in certain scenarios. This can happen in
-any of the following situations:
+License approval policies may block merge requests due to `unknown` licenses in certain scenarios. This can happen in any of the following situations:
 
 - The dependency scanning job fails to identify a license for a particular component.
 - A new or uncommon license is used that is not recognized by the scanning tool.

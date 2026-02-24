@@ -23,7 +23,7 @@ To download and install the Procore Imports on a PC or laptop computer runni
    Download Now
 2. After the download completes, the installer launches automatically. If it does not launch, you can:
    - Click the file named **ProcoreImportsSetup.exe**. You can find this file in the download location.
-3. When installed, Procore Imports launches automatically. If it does not launch, double-click the **Procore Imports** icon on your computer's desktop.   
+3. When installed, Procore Imports launches automatically. If it does not launch, double-click the **Procore Imports** icon on your computer's desktop.  
      
    You can now log into your account and begin using Procore Imports. See [Log in to Procore Imports](https://support.procore.com/products/procore-imports/tutorials/log-in-to-procore-imports "Logging into Procore Drive").
 

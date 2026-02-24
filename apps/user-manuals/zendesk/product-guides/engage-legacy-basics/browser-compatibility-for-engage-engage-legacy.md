@@ -11,9 +11,9 @@ For optimal performance and to access all features without interruptions, it is 
 | Browser | Supported Version | Notes |
 | --- | --- | --- |
 | Google Chrome | Latest two version | Recommended for optimal performance and feature compatibility. |
-| Mozilla Firefox | Versions are supported until their Firefox [end-of-life date] (https://support.mozilla.org/en-US/kb/firefox-esr-release-cycle). |  |
-| Microsoft Edge | Latest two version |  |
-| Apple Safari | Latest two version |  |
+| Mozilla Firefox | Versions are supported until their Firefox [end-of-life date] (https://support.mozilla.org/en-US/kb/firefox-esr-release-cycle). | |
+| Microsoft Edge | Latest two version | |
+| Apple Safari | Latest two version | |
 
 ‍
 

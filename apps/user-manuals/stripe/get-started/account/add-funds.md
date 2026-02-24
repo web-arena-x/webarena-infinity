@@ -161,10 +161,10 @@ You also receive a [balance.available](/api/events/types#event_types-balance.ava
 
 ```
 {
-  "id": "{{EVENT_ID}}",
-  "object": "event",
-  "type": "balance.available",
-  "data": {
+ "id": "{{EVENT_ID}}",
+ "object": "event",
+ "type": "balance.available",
+ "data": {
     "object": {
       "object": "balance",
       //...
@@ -213,7 +213,7 @@ You also receive a [balance.available](/api/events/types#event_types-balance.ava
       }
       // ...
     }
-  }
+ }
 }
 ```
 

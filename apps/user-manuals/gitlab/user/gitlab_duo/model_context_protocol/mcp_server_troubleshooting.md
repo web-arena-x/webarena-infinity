@@ -19,11 +19,9 @@ When working with GitLab MCP server, you might encounter the following issues.
 
 ## Error: `Server's protocol version is not supported: 2025-06-18`
 
-In GitLab 18.6 and earlier, you might get this error when the MCP client library
-does not support the GitLab MCP server protocol specification.
+In GitLab 18.6 and earlier, you might get this error when the MCP client library does not support the GitLab MCP server protocol specification.
 
-To resolve this issue, ask the AI tool provider
-to update their client implementation.
+To resolve this issue, ask the AI tool provider to update their client implementation.
 
 ## Troubleshoot the GitLab MCP Server in Cursor
 
@@ -91,9 +89,7 @@ rm -rf ~/.mcp-auth/mcp-remote*
 
 ## Debugging and development tools
 
-[MCP Inspector](https://modelcontextprotocol.io/legacy/tools/inspector) is an interactive
-developer tool for testing and debugging MCP servers. To run this tool, use the command
-line and access the web interface to inspect the GitLab MCP Server.
+[MCP Inspector](https://modelcontextprotocol.io/legacy/tools/inspector) is an interactive developer tool for testing and debugging MCP servers. To run this tool, use the command line and access the web interface to inspect the GitLab MCP Server.
 
 ```shell
 npx -y @modelcontextprotocol/inspector npx

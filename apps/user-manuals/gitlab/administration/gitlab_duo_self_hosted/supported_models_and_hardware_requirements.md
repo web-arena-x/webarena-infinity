@@ -37,23 +37,22 @@ You can use:
 
 The AI Gateway supports multiple providers through LiteLLM.
 
-GitLab-supported models offer different levels of functionality for GitLab Duo features,
-depending on the specific model and feature combination. 
+GitLab-supported models offer different levels of functionality for GitLab Duo features, depending on the specific model and feature combination.
 
 - Full functionality: The model can likely handle the feature without any loss of quality.
 - Partial functionality: The model supports the feature, but there might be compromises or limitations.
 - Limited functionality: The model is unsuitable for the feature, likely resulting in significant quality loss or performance issues.
-  Models that have limited functionality for a feature will not receive GitLab support for that specific feature.
+ Models that have limited functionality for a feature will not receive GitLab support for that specific feature.
 
 <!-- vale gitlab_base.Spelling = NO -->
 
 | Model family | Model | Supported platforms | Code completion | Code generation | GitLab Duo Chat (Classic) | GitLab Duo Agent Platform |
 |-------------|-------|---------------------|-----------------|-----------------|-----------------|-----------------|
-| General | [Gemini 2.5 Flash](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash) | [Vertex](https://cloud.google.com/vertex-ai) | {{< icon name="dash-circle" >}} Limited functionality | {{< icon name="dash-circle" >}} Limited functionality | {{< icon name="dash-circle" >}} Limited functionality |  {{< icon name="check-circle-dashed" >}} Partial functionality |
-| Mistral Codestral | [Codestral 22B v0.1](https://huggingface.co/mistralai/Codestral-22B-v0.1) | [vLLM](supported_llm_serving_platforms.md#for-self-hosted-model-deployments) | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-dashed" >}} Partial functionality |  Limited functionality |
+| General | [Gemini 2.5 Flash](https://docs.cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-flash) | [Vertex](https://cloud.google.com/vertex-ai) | {{< icon name="dash-circle" >}} Limited functionality | {{< icon name="dash-circle" >}} Limited functionality | {{< icon name="dash-circle" >}} Limited functionality | {{< icon name="check-circle-dashed" >}} Partial functionality |
+| Mistral Codestral | [Codestral 22B v0.1](https://huggingface.co/mistralai/Codestral-22B-v0.1) | [vLLM](supported_llm_serving_platforms.md#for-self-hosted-model-deployments) | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-dashed" >}} Partial functionality | Limited functionality |
 | Mistral | [Mistral Small 24B Instruct 2506](https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506) | [vLLM](supported_llm_serving_platforms.md#for-self-hosted-model-deployments) | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality | Limited functionality |
-| Claude 3 |  [Claude 3.5 Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet) | [AWS Bedrock](https://aws.amazon.com/bedrock/claude/) | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-dashed" >}} Partial functionality |
-| Claude 3 |  [Claude 3.7 Sonnet](https://www.anthropic.com/news/claude-3-7-sonnet) | [AWS Bedrock](https://aws.amazon.com/bedrock/claude/) | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality |  {{< icon name="check-circle-dashed" >}} Partial functionality |
+| Claude 3 | [Claude 3.5 Sonnet](https://www.anthropic.com/news/claude-3-5-sonnet) | [AWS Bedrock](https://aws.amazon.com/bedrock/claude/) | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-dashed" >}} Partial functionality |
+| Claude 3 | [Claude 3.7 Sonnet](https://www.anthropic.com/news/claude-3-7-sonnet) | [AWS Bedrock](https://aws.amazon.com/bedrock/claude/) | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-dashed" >}} Partial functionality |
 | Claude 4 | [Claude 4 Sonnet](https://www.anthropic.com/news/claude-4)                                                                          | [AWS Bedrock](https://aws.amazon.com/bedrock/claude/) | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality |
 | GPT | [GPT-4 Turbo](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models?tabs=python-secure#gpt-4) | [Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview) | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-dashed" >}} Partial functionality | Limited functionality |
 | GPT | [GPT-4o](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models?tabs=python-secure#gpt-4o-and-gpt-4-turbo) | [Azure OpenAI](https://learn.microsoft.com/en-us/azure/ai-services/openai/overview) | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality | {{< icon name="check-circle-filled" >}} Full functionality | Limited functionality |
@@ -83,8 +82,7 @@ depending on the specific model and feature combination.
 
 You can use your own compatible models and platform with GitLab Duo features. For compatible models not included in supported model families, use the general model family.
 
-Compatible models are excluded from the definition of Customer Integrated Models in the [AI Functionality Terms](https://handbook.gitlab.com/handbook/legal/ai-functionality-terms/). Compatible models and platforms must adhere to the OpenAI API specification. Models and platforms that have
-previously been marked as experimental or beta are now considered compatible models.
+Compatible models are excluded from the definition of Customer Integrated Models in the [AI Functionality Terms](https://handbook.gitlab.com/handbook/legal/ai-functionality-terms/). Compatible models and platforms must adhere to the OpenAI API specification. Models and platforms that have previously been marked as experimental or beta are now considered compatible models.
 
 This feature is in beta and is therefore subject to change as we gather feedback and improve the integration:
 
@@ -150,13 +148,13 @@ The following hardware specifications are the minimum requirements for running G
 ### Base system requirements
 
 - **CPU**:
-  - Minimum: 8 cores (16 threads)
-  - Recommended: 16+ cores for production environments
+ - Minimum: 8 cores (16 threads)
+ - Recommended: 16+ cores for production environments
 - **RAM**:
-  - Minimum: 32 GB
-  - Recommended: 64 GB for most models
+ - Minimum: 32 GB
+ - Recommended: 64 GB for most models
 - **Storage**:
-  - SSD with sufficient space for model weights and data.
+ - SSD with sufficient space for model weights and data.
 
 ### GPU requirements by model size
 
@@ -203,9 +201,9 @@ With a `a2-ultragpu-8g` (8 x NVIDIA A100 80 GB - 1360 GB vRAM) machine on GCP or
 | Mistral-7B-Instruct-v0.3    | 1                  | 3.23                         | 479.0                      | 148.41                                | 3.22                        | 148.36    |
 | Mistral-7B-Instruct-v0.3    | 10                 | 4.95                         | 678.3                      | 135.98                                | 6.85                        | 989.11    |
 | Mistral-7B-Instruct-v0.3    | 100                | 10.14                        | 713.27                     | 69.63                                 | 13.96                       | 5108.75   |
-| Mixtral-8x7B-Instruct-v0.1  | 1                  | 6.08                         | 709.0                      | 116.69                                | 6.07                        | 116.64    |
-| Mixtral-8x7B-Instruct-v0.1  | 10                 | 9.95                         | 645.0                      | 63.68                                 | 13.40                       | 481.06    |
-| Mixtral-8x7B-Instruct-v0.1  | 100                | 13.83                        | 585.01                     | 41.80                                 | 20.38                       | 2869.12   |
+| Mixtral-8x7B-Instruct-v0.1 | 1                  | 6.08                         | 709.0                      | 116.69                                | 6.07                        | 116.64    |
+| Mixtral-8x7B-Instruct-v0.1 | 10                 | 9.95                         | 645.0                      | 63.68                                 | 13.40                       | 481.06    |
+| Mixtral-8x7B-Instruct-v0.1 | 100                | 13.83                        | 585.01                     | 41.80                                 | 20.38                       | 2869.12   |
 | Mixtral-8x22B-Instruct-v0.1 | 1                  | 14.39                        | 828.0                      | 57.56                                 | 14.38                       | 57.55     |
 | Mixtral-8x22B-Instruct-v0.1 | 10                 | 20.57                        | 629.7                      | 30.24                                 | 28.02                       | 224.71    |
 | Mixtral-8x22B-Instruct-v0.1 | 100                | 27.58                        | 592.49                     | 21.34                                 | 36.80                       | 1609.85   |

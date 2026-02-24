@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408819871130-Viewing-the-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -18,9 +18,7 @@ Verified AI summary ◀▼
 
 The integration log helps you monitor data syncing between your support system and integrations like Salesforce, Jira, and Shopify. It lets you track activities, identify issues, and filter logs by date, time, product, or status. You can view detailed information for each activity, including date, product, status, and a description of the event, to ensure smooth operation and troubleshoot errors effectively.
 
-The integration log in Admin Center provides information about data syncing
-between Zendesk Support and your integrations. It enables you to check that the
-integrations are running successfully and identify any issues.
+The integration log in Admin Center provides information about data syncing between Zendesk Support and your integrations. It enables you to check that the integrations are running successfully and identify any issues.
 
 This article contains the following sections:
 
@@ -36,66 +34,47 @@ Related articles:
 
 ## About the integration logs
 
-The integration log lists activities in the last 7 days for the following
-integrations:
+The integration log lists activities in the last 7 days for the following integrations:
 
 **Salesforce**
 
-- Ticket sync: Synchronization of Zendesk tickets to Salesforce Cases when
-  they are created or modified in Zendesk
+- Ticket sync: Synchronization of Zendesk tickets to Salesforce Cases when they are created or modified in Zendesk
 
-  Note: Tickets that are created or
-  modified in Salesforce are not included in the integrations
-  log.
-- Accounts to Organization sync: Synchronization of Salesforce Accounts to
-  Zendesk organizations in Support when they are created or modified in
-  Salesforce
-- Contact to Users sync: Synchronization of Salesforce Contacts to Zendesk
-  users when they are created or modified in Salesforce
-- Leads to Users sync: Synchronization of Salesforce Leads to Zendesk users
-  when they are created or modified in Salesforce
+ Note: Tickets that are created or modified in Salesforce are not included in the integrations log.
+- Accounts to Organization sync: Synchronization of Salesforce Accounts to Zendesk organizations in Support when they are created or modified in Salesforce
+- Contact to Users sync: Synchronization of Salesforce Contacts to Zendesk users when they are created or modified in Salesforce
+- Leads to Users sync: Synchronization of Salesforce Leads to Zendesk users when they are created or modified in Salesforce
 
 **Jira**
 
-- Informational and error messages for field sync events. These messages appear
-  when a Zendesk ticket is updated, or a Jira issue is updated or deleted, and the
-  webhook sends data to Zendesk. These events help you track updates that sync
-  between Zendesk and Jira.
+- Informational and error messages for field sync events. These messages appear when a Zendesk ticket is updated, or a Jira issue is updated or deleted, and the webhook sends data to Zendesk. These events help you track updates that sync between Zendesk and Jira.
 
 **Shopify**
 
-- Customer, order, and fulfillment events received by Sunshine profiles and
-  events
+- Customer, order, and fulfillment events received by Sunshine profiles and events
 
 **Bot builder for messaging**
 
-- API calls made by a conversation bot. For more information, see [Using the Make API call step in a
-  conversation bot](https://support.zendesk.com/hc/en-us/articles/4572971586586)
+- API calls made by a conversation bot. For more information, see [Using the Make API call step in a conversation bot](https://support.zendesk.com/hc/en-us/articles/4572971586586)
 
 **Custom actions**
 
-- Run and test events for custom actions created for use with the auto assist
-  and action flow features. For more information, see [Creating and managing actions for auto
-  assist and action flows](https://support.zendesk.com/hc/en-us/articles/8013439366810).
+- Run and test events for custom actions created for use with the auto assist and action flow features. For more information, see [Creating and managing actions for auto assist and action flows](https://support.zendesk.com/hc/en-us/articles/8013439366810).
 
 **Action flows**
 
-- Details about action flow run and test events. See [Understanding the action builder and
-  action flows (EAP)](https://support.zendesk.com/hc/en-us/articles/8855513857306).
+- Details about action flow run and test events. See [Understanding the action builder and action flows (EAP)](https://support.zendesk.com/hc/en-us/articles/8855513857306).
 
 **Private ZIS integrations**
 
-- Executions of the integration's ZIS flow. You can customize related log
-  messages using [Succeed](https://developer.zendesk.com/documentation/integration-services/developer-guide/succeed-state/) and [Fail](https://developer.zendesk.com/documentation/integration-services/developer-guide/fail-state/) states
+- Executions of the integration's ZIS flow. You can customize related log messages using [Succeed](https://developer.zendesk.com/documentation/integration-services/developer-guide/succeed-state/) and [Fail](https://developer.zendesk.com/documentation/integration-services/developer-guide/fail-state/) states
 
 **Messaging, social channels, and Sunshine Conversations API**
 
-- Error logs for messaging and social channels powered by Sunshine
-  Conversations.
+- Error logs for messaging and social channels powered by Sunshine Conversations.
 
-![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/integrations_log.png)  
-The log contains the following information
-for each activity:
+![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/integrations_log.png) 
+The log contains the following information for each activity:
 
 | Column | Description |
 | --- | --- |
@@ -106,28 +85,22 @@ for each activity:
 
 ## Viewing the integration log
 
-You can view the integration log in Admin Center. Activities can be filtered by date
-and time and by product or status.
+You can view the integration log in Admin Center. Activities can be filtered by date and time and by product or status.
 
 **To view the integration log**
 
 - In [Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554#topic_hfg_dyz_1hb), click ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ac_apps_integrations_icon.png)
-  **Apps and integrations** in the sidebar, then select **Integrations >
-  Logs**.
+ **Apps and integrations** in the sidebar, then select **Integrations >
+ Logs**.
 
 **To filter the integration log**
 
-1. On the **Integration log** page, click **Filter** and select the date
-   and time in **Start date**, **End date**, **Start time**, and
-   **End time**.
+1. On the **Integration log** page, click **Filter** and select the date and time in **Start date**, **End date**, **Start time**, and **End time**.
 2. (Optional) Specify a **Status** or **Product**.
 3. Click **Apply filters**.
 
-   The Product drop-down list displays only
-   products with errors. If there are no errors, the list will be
-   empty.
+   The Product drop-down list displays only products with errors. If there are no errors, the list will be empty.
 
 **To view details of a log entry**
 
-- On the **Integration log** page, click on any row to open the details
-  panel with more information.
+- On the **Integration log** page, click on any row to open the details panel with more information.

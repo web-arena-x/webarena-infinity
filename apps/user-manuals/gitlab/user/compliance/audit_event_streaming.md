@@ -25,25 +25,21 @@ title: Audit event streaming for top-level groups
 
 With audit event streaming for top-level groups, group owners can:
 
-- Set a streaming destination for a top-level group to receive all audit events about the group, subgroups, and projects
-  as structured JSON.
-- Manage their audit logs in third-party systems. Any service that can receive structured JSON data can be used as the
-  streaming destination.
+- Set a streaming destination for a top-level group to receive all audit events about the group, subgroups, and projects as structured JSON.
+- Manage their audit logs in third-party systems. Any service that can receive structured JSON data can be used as the streaming destination.
 
 Each streaming destination:
 
 - Can have up to 20 custom HTTP headers included with each streamed event.
 - For GitLab.com, must allow traffic from the [GitLab.com IP address range](../gitlab_com/_index.md#ip-range).
 
-GitLab can stream a single event more than once to the same destination. Use the `id` key in the payload to deduplicate
-incoming data.
+GitLab can stream a single event more than once to the same destination. Use the `id` key in the payload to deduplicate incoming data.
 
 Audit events are sent using the POST request method protocol supported by HTTP.
 
 {{< alert type="warning" >}}
 
-Streaming destinations receive all audit event data, which could include sensitive information. Make sure you trust
-the streaming destination.
+Streaming destinations receive all audit event data, which could include sensitive information. Make sure you trust the streaming destination.
 
 {{< /alert >}}
 
@@ -72,8 +68,7 @@ To add streaming destinations to a top-level group:
 1. In the **Name** and **Destination URL** fields, add a destination name and URL.
 1. Optional. Locate the **Custom HTTP headers** table.
 1. To make the header active, select the **Active** checkbox. The header will be sent with the audit event.
-1. Select **Add header** to create a new name and value pair. Enter as many name and value pairs as required. You can add up to
-   20 headers per streaming destination.
+1. Select **Add header** to create a new name and value pair. Enter as many name and value pairs as required. You can add up to 20 headers per streaming destination.
 1. After all headers have been filled out, select **Add** to add the new streaming destination.
 
 ### Update an HTTP destination
@@ -100,8 +95,7 @@ To update a streaming destination's custom HTTP headers:
 1. Locate the **Custom HTTP headers** table.
 1. Locate the header that you wish to update.
 1. To make the header active, select the **Active** checkbox. The header will be sent with the audit event.
-1. Select **Add header** to create a new name and value pair. Enter as many name and value pairs as required. You can add up to
-   20 headers per streaming destination.
+1. Select **Add header** to create a new name and value pair. Enter as many name and value pairs as required. You can add up to 20 headers per streaming destination.
 1. Select **Save** to update the streaming destination.
 
 ### Verify event authenticity
@@ -112,13 +106,11 @@ To update a streaming destination's custom HTTP headers:
 
 {{< /history >}}
 
-Each streaming destination has a unique verification token (`verificationToken`) that can be used to verify the authenticity of the event. This
-token is either specified by the Owner or generated automatically when the event destination is created and cannot be changed.
+Each streaming destination has a unique verification token (`verificationToken`) that can be used to verify the authenticity of the event. This token is either specified by the Owner or generated automatically when the event destination is created and cannot be changed.
 
 The `verificationToken` parameter can only be set by using the [GraphQL API](../../api/graphql/audit_event_streaming_groups.md#add-a-new-streaming-destination).
 
-Each streamed event contains the verification token in the `X-Gitlab-Event-Streaming-Token` HTTP header that can be verified against
-the destination's value when listing streaming destinations.
+Each streamed event contains the verification token in the `X-Gitlab-Event-Streaming-Token` HTTP header that can be verified against the destination's value when listing streaming destinations.
 
 Prerequisites:
 
@@ -180,8 +172,7 @@ To update a streaming destination's namespace filters:
 
 ### Override default content type header
 
-By default, streaming destinations use a `content-type` header of `application/x-www-form-urlencoded`. However, you
-might want to set the `content-type` header to something else. For example, `application/json`.
+By default, streaming destinations use a `content-type` header of `application/x-www-form-urlencoded`. However, you might want to set the `content-type` header to something else. For example, `application/json`.
 
 To override the `content-type` header default value for a top-level group streaming destination, use either:
 
@@ -281,8 +272,7 @@ To add AWS S3 streaming destinations to a top-level group:
 1. On the main area, select the **Streams** tab.
 1. Select **Add streaming destination** and select **AWS S3** to show the section for adding destinations.
 1. Enter a random string to use as a name for the new destination.
-1. Enter the **Access Key ID**, **Secret Access Key**, **Bucket Name**, and **AWS Region** from previously-created AWS
-   access key and bucket to add to the new destination.
+1. Enter the **Access Key ID**, **Secret Access Key**, **Bucket Name**, and **AWS Region** from previously-created AWS access key and bucket to add to the new destination.
 1. Select **Add** to add the new streaming destination.
 
 ### Update an AWS S3 destination
@@ -298,8 +288,7 @@ To update an AWS S3 streaming destination to a top-level group:
 1. On the main area, select the **Streams** tab.
 1. Select the AWS S3 stream to expand.
 1. Enter a random string to use as a name for the destination.
-1. To update the destination, enter the **Access Key ID**, **Secret Access Key**, **Bucket Name**, and **AWS Region**
-   from previously-created AWS access key and bucket.
+1. To update the destination, enter the **Access Key ID**, **Secret Access Key**, **Bucket Name**, and **AWS Region** from previously-created AWS access key and bucket.
 1. To update the Secret Access Key, select **Add a new Secret Access Key** and enter a AWS Secret Access Key.
 1. Select **Save**.
 
@@ -363,8 +352,7 @@ The destination resumes receiving audit events immediately.
 
 ## Delete streaming destinations
 
-Delete streaming destinations for a top-level group. When the last destination is successfully deleted, streaming is
-disabled for the top-level group.
+Delete streaming destinations for a top-level group. When the last destination is successfully deleted, streaming is disabled for the top-level group.
 
 Prerequisites:
 

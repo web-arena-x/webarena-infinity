@@ -15,17 +15,16 @@ Users who have been assigned 'Admin' level permissions to the Submittals tool ha
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Submittals tool.
-- **Prerequisites:**  
-  The minimum requirements for a submittal to be distributed are as follows:
-  - The submittal must have a minimum of one (1) approver added to the submittal workflow.
-  - The submittal must have at least one (1) approver response.
+ - 'Admin' level permissions on the project's Submittals tool.
+- **Prerequisites:** The minimum requirements for a submittal to be distributed are as follows:
+ - The submittal must have a minimum of one (1) approver added to the submittal workflow.
+ - The submittal must have at least one (1) approver response.
 - **Additional Information:**
-  - You cannot distribute submittals in the Recycle Bin.
+ - You cannot distribute submittals in the Recycle Bin.
 
 ## Video
 
-|  |
+| |
 | --- |
 | *Video content may not accurately reflect the current state of the system, and/or it may be out of date.* |
 
@@ -36,7 +35,7 @@ Users who have been assigned 'Admin' level permissions to the Submittals tool ha
 1. Navigate to the project's ****Submittals**** tool.
 2. Click the ****Items****tab.
 3. Click ****View****next to the submittal you want to distribute.
-4. If at least one required member of the submittal workflow has submitted their response, click ****Close and Distribute****.  
+4. If at least one required member of the submittal workflow has submitted their response, click ****Close and Distribute****. 
    ![submittal-close-and-distribute.png](https://support.procore.com/@api/deki/files/338162/submittal-close-and-distribute.png?revision=1&size=bestfit&width=313&height=72)
 5. Enter the information you want to include in the distribution.
 
@@ -48,9 +47,7 @@ Users who have been assigned 'Admin' level permissions to the Submittals tool ha
 6. Mark the checkbox if you want to automatically **C**reate a Revision Upon Close and Distribution****.
 7. Mark the checkboxes for what General Information to include in the distribution.
 8. Mark the checkboxes to select which Workflow Responses to include in the distribution.
-9. Click ****Distribute****  
-   OR  
-   **Distribute and Create Revision** to distribute the submittal.
+9. Click ****Distribute**** OR **Distribute and Create Revision** to distribute the submittal.
 
 ##### Note
 
@@ -60,9 +57,9 @@ The following events occur when a submittal is distributed:
 - The PDF shows the name and company of the person who distributed the submittal.
 - The submittal's status is set to *Closed.*
 - The date, action, and timestamp are logged in the Change History tab of the submittal.
-- The 'Submittal Distributed' banner appears (as illustrated below) showing the date and time the submittal was distributed.  
+- The 'Submittal Distributed' banner appears (as illustrated below) showing the date and time the submittal was distributed. 
     
-  ![submittal-distributed.png](https://support.procore.com/@api/deki/files/48513/submittal-distributed.png?revision=2)
+ ![submittal-distributed.png](https://support.procore.com/@api/deki/files/48513/submittal-distributed.png?revision=2)
 
 ## See Also
 

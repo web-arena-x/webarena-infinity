@@ -6,19 +6,17 @@ description: Settings and commands in the GitLab Workflow extension for VS Code.
 title: GitLab Workflow extension settings and commands
 ---
 
-The GitLab Workflow extension for VS Code integrates with the VS Code Command Palette, extends existing
-VS Code integrations with Git, and provides configuration options.
+The GitLab Workflow extension for VS Code integrates with the VS Code Command Palette, extends existing VS Code integrations with Git, and provides configuration options.
 
 ## Command Palette commands
 
-This extension provides several sets of commands that you can trigger in the
-[Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette):
+This extension provides several sets of commands that you can trigger in the [Command Palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette):
 
 ### Manage projects and code
 
 - `GitLab: Authenticate`
 - [`GitLab: Compare Current Branch with Default Branch`](_index.md#compare-with-default-branch):
-  Compare your branch with the repository's default branch and view changes on GitLab.
+ Compare your branch with the repository's default branch and view changes on GitLab.
 - `GitLab: Open Current Project on GitLab`
 - [`GitLab: Open Remote Repository`](remote_urls.md): Browse a remote GitLab repository.
 - `GitLab: Pipeline Actions - View, Create, Retry, or Cancel`
@@ -31,8 +29,7 @@ This extension provides several sets of commands that you can trigger in the
 - `GitLab: Copy Link to Active File on GitLab`
 - `GitLab: Create New Issue on Current Project`
 - `GitLab: Create New Merge Request on Current Project`: Open the merge request page to create a merge request.
-- [`GitLab: Open Active File on GitLab`](_index.md#open-current-file-in-gitlab-ui): View active file
-  on GitLab with highlighting active line number and selected text block.
+- [`GitLab: Open Active File on GitLab`](_index.md#open-current-file-in-gitlab-ui): View active file on GitLab with highlighting active line number and selected text block.
 - `GitLab: Open Merge Request for Current Branch`
 - [`GitLab: Search Project Issues (Supports Filters)`](_index.md#search-issues-and-merge-requests).
 - [`GitLab: Search Project Merge Requests (Supports Filters)`](_index.md#search-issues-and-merge-requests).
@@ -42,9 +39,9 @@ This extension provides several sets of commands that you can trigger in the
 ### Manage CI/CD pipelines
 
 - [`GitLab: Show Merged GitLab CI/CD Configuration`](cicd.md#show-merged-gitlab-cicd-configuration):
-  Show a preview of the GitLab CI/CD configuration file `.gitlab-ci.yml` with all includes resolved.
+ Show a preview of the GitLab CI/CD configuration file `.gitlab-ci.yml` with all includes resolved.
 - [`GitLab: Validate GitLab CI/CD Configuration`](cicd.md#test-gitlab-cicd-configuration):
-  Test the GitLab CI/CD configuration file `.gitlab-ci.yml`.
+ Test the GitLab CI/CD configuration file `.gitlab-ci.yml`.
 
 ### AI-assisted features
 
@@ -57,8 +54,7 @@ This extension provides several sets of commands that you can trigger in the
 
 - `GitLab: Apply Snippet Patch`
 - `GitLab: Clone Wiki`
-- [`GitLab: Create Snippet`](_index.md#create-a-snippet): Create a public, internal, or private snippet
-  from an entire file or selection.
+- [`GitLab: Create Snippet`](_index.md#create-a-snippet): Create a public, internal, or private snippet from an entire file or selection.
 - [`GitLab: Create Snippet Patch`](_index.md#create-a-patch-file): Create a `.patch` file from the entire file, or a selection.
 - [`GitLab: Insert Snippet`](_index.md#insert-a-snippet): Insert a single-file or multi-file project snippet.
 - `GitLab: Publish Workspace to GitLab`
@@ -74,19 +70,17 @@ This extension provides several sets of commands that you can trigger in the
 This extension also integrates with some commands provided by VS Code:
 
 - `Git: Clone`: Search for and clone projects for every GitLab instance you set up. For more information, see:
-  - [Clone GitLab projects](remote_urls.md#clone-a-git-project)
+ - [Clone GitLab projects](remote_urls.md#clone-a-git-project)
     in the extension documentation.
-  - [Cloning a repository](https://code.visualstudio.com/docs/sourcecontrol/overview#_cloning-a-repository)
+ - [Cloning a repository](https://code.visualstudio.com/docs/sourcecontrol/overview#_cloning-a-repository)
     in the VS Code documentation.
 - `Git: Add Remote...`: Add existing projects as remotes from every GitLab instance you set up.
 
 ## Extension settings
 
-To learn how to change settings in VS Code, see the VS Code documentation for
-[User and Workspace Settings](https://code.visualstudio.com/docs/configure/settings).
+To learn how to change settings in VS Code, see the VS Code documentation for [User and Workspace Settings](https://code.visualstudio.com/docs/configure/settings).
 
-If you use self-signed certificates to connect to your GitLab instance, read the community-contributed
-[settings for self-signed certificates](troubleshooting.md#configure-self-signed-certificates).
+If you use self-signed certificates to connect to your GitLab instance, read the community-contributed [settings for self-signed certificates](troubleshooting.md#configure-self-signed-certificates).
 
 | Setting | Default | Information |
 | ------- | ------- | ----------- |

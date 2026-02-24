@@ -18,9 +18,7 @@ title: Runner controllers API
 
 {{< /history >}}
 
-The runner controllers API allows you to manage runner controllers for GitLab Runner job
-orchestration and admission control. This API provides endpoints to create, read, update,
-and delete runner controllers.
+The runner controllers API allows you to manage runner controllers for GitLab Runner job orchestration and admission control. This API provides endpoints to create, read, update, and delete runner controllers.
 
 Prerequisites:
 

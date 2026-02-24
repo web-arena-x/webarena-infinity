@@ -56,8 +56,7 @@ To get the credentials (a pair of Client ID and Client Secret), you must [create
    ```
 
 1. Configure the [common settings](omniauth.md#configure-common-settings)
-   to add `salesforce` as a single sign-on provider. This enables Just-In-Time
-   account provisioning for users who do not have an existing GitLab account.
+   to add `salesforce` as a single sign-on provider. This enables Just-In-Time account provisioning for users who do not have an existing GitLab account.
 
 1. Add the provider configuration.
 
@@ -101,8 +100,6 @@ If everything goes well, the user is returned to GitLab and is signed in.
 
 {{< alert type="note" >}}
 
-GitLab requires the email address of each new user. After the user is signed in
-using Salesforce, GitLab redirects the user to the profile page where they must
-provide the email and verify the email.
+GitLab requires the email address of each new user. After the user is signed in using Salesforce, GitLab redirects the user to the profile page where they must provide the email and verify the email.
 
 {{< /alert >}}

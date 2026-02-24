@@ -22,17 +22,16 @@ Below are possible error messages and tips on resolving issues.
 
 - **Explanation**: This indicates there is an issue with the file.
 - **Possible Resolutions**:
-  - **Option 1**: Open the file in a PDF program such as Adobe Acrobat, then save the file as a PDF again. The process of opening and saving a file in a PDF viewer can sometimes resolve errors.
-  - **Option 2**: Open the file in a PDF viewer such as Preview on Mac, or Acrobat on PC or Mac. If the file is corrupt, an error message should appear. Corrupt files cannot be viewed and you will need to create or request a new version of the file to upload.
-  - **Option 3**: If you are still having issues with the file, Procore recommends requesting a new file from the design team for the project.
+ - **Option 1**: Open the file in a PDF program such as Adobe Acrobat, then save the file as a PDF again. The process of opening and saving a file in a PDF viewer can sometimes resolve errors.
+ - **Option 2**: Open the file in a PDF viewer such as Preview on Mac, or Acrobat on PC or Mac. If the file is corrupt, an error message should appear. Corrupt files cannot be viewed and you will need to create or request a new version of the file to upload.
+ - **Option 3**: If you are still having issues with the file, Procore recommends requesting a new file from the design team for the project.
 
 ###### "Your upload is not an Adobe 9.0+ compliant PDF."
 
 - **Explanation**: The file could be an outdated PDF that needs to be updated before uploading to Procore.
 - **Possible Resolutions:**
-  - **Option 1: Adjust settings in Adobe Acrobat Pro.**   
-    Follow the steps below:
-    1. Open the file in **Adobe Acrobat Pro**.  
+ - **Option 1: Adjust settings in Adobe Acrobat Pro.** Follow the steps below:
+    1. Open the file in **Adobe Acrobat Pro**. 
        *Note:* Make sure the file is not encrypted, password protected, or corrupt.
     2. Click **File** > **Save As**.
     3. In the Save as PDF window, click the **Format** menu and select **Adobe PDF Files, Optimized**.
@@ -42,8 +41,7 @@ Below are possible error messages and tips on resolving issues.
     7. If you need to preserve the original file, enter a new name for this file before saving.
     8. Click **Save**.
     9. Upload the PDF to Procore.
-  - **Option 2**: **Use the 'Microsoft Print to PDF' function in Bluebeam.**   
-    Follow the steps below:
+ - **Option 2**: **Use the 'Microsoft Print to PDF' function in Bluebeam.** Follow the steps below:
     1. Open the file in **Bluebeam**.
     2. Click **File** > **Print**, or press **CTRL + P** (Windows) or **COMMAND + P** (Mac) on your keyboard.
     3. Next to Name, select **Microsoft Print to PDF**.
@@ -52,7 +50,7 @@ Below are possible error messages and tips on resolving issues.
     6. Click the 'Print Data Type' menu Select **Auto**.
     7. Click **OK**.
     8. Click **Print**.
-    9. Enter a filename for the new file.  
+    9. Enter a filename for the new file. 
        *Note:* Make sure **PDF** is selected as the file type.
     10. Click **OK**.
     11. Upload the PDF to Procore.

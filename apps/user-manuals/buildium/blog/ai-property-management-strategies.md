@@ -110,7 +110,7 @@ By leveraging AI technologies, property managers can optimize resource allocatio
 
 But there is a learning curve with AI tools. Property managers can dip their toes into these sometimes-murky waters by using tools and apps that already integrate AI into their own processes.
 
-For example, [Buildium’s Lumina AI](https://www.buildium.com/built-for-whats-next/#lp-step-1), a suite of agentic AI tools, can automate the most time-consuming and error-prone processes  Buildium also has an extensive list of [Marketplace partners](https://marketplace.buildium.com/), some of which are using AI to automate business processes, enhance the tenant experience, and even manage investments. You can give the platform a try risk free with a [guided demo](https://www.buildium.com/request-demo/) or [14-day free trial](https://www.buildium.com/free-trial/).
+For example, [Buildium’s Lumina AI](https://www.buildium.com/built-for-whats-next/#lp-step-1), a suite of agentic AI tools, can automate the most time-consuming and error-prone processes Buildium also has an extensive list of [Marketplace partners](https://marketplace.buildium.com/), some of which are using AI to automate business processes, enhance the tenant experience, and even manage investments. You can give the platform a try risk free with a [guided demo](https://www.buildium.com/request-demo/) or [14-day free trial](https://www.buildium.com/free-trial/).
 
 ***Buildium’s Commitment to Safe and Secure AI***
 

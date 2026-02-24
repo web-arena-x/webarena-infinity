@@ -49,27 +49,27 @@ If a job was recently removed from an approved interview schedule, or if a job w
 The employer can follow the steps outlined in [How to Add a Job to an Interview Schedule](https://support.joinhandshake.com/hc/en-us/articles/226198347).
 
 If you would like to assist with adding a job to the interview schedule, follow the steps below.   
-  
+ 
 There are two ways to access the Jobs tab of the interview schedule:
 
 - The Interview Overview page
-  - Click the blue **Attach** link, located below the jobs header.
+ - Click the blue **Attach** link, located below the jobs header.
 
 ![Attach_Job_Interview_Image.png](https://support.joinhandshake.com/hc/article_attachments/25997410452631)
 
 - The Interview Details page
-  - Click the **Manage Jobs** button in the upper right corner of the page.
+ - Click the **Manage Jobs** button in the upper right corner of the page.
 
 ![Manage_Jobs_Button_Interview_Image.png](https://support.joinhandshake.com/hc/article_attachments/25997410454295)
 
 Once on the jobs tab, you will have the option to select one of the following options:
 
 - **Create a New Job**
-  - Use this option to create a new job from scratch and add new details, requirements and qualifications.
+ - Use this option to create a new job from scratch and add new details, requirements and qualifications.
 - **Copy Job Details**
-  - Copy job details from an existing job. This will create a new job posting and will not import any existing applicants.
+ - Copy job details from an existing job. This will create a new job posting and will not import any existing applicants.
 - **Use Existing job**
-  - Use this option to attach an existing job and all its current applicants to the interview schedule.
+ - Use this option to attach an existing job and all its current applicants to the interview schedule.
 
 Follow the prompts given for the option you have selected. Once the job(s) is attached, click **Save Changes**in the lower-right corner of the page to update.
 

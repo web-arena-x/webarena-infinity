@@ -52,8 +52,7 @@ The rate limits:
 
 Requests over the rate limit are logged into the `auth.log` file.
 
-For example, if you set a limit of 400 for `GET /projects/:id`, requests to the API endpoint that
-exceed a rate of 400 requests per minute are blocked. Access to the endpoint is restored after one minute.
+For example, if you set a limit of 400 for `GET /projects/:id`, requests to the API endpoint that exceed a rate of 400 requests per minute are blocked. Access to the endpoint is restored after one minute.
 
 For more information about project API endpoints, see the [projects API](../../api/projects.md#list-all-projects).
 
@@ -65,8 +64,7 @@ For more information about project API endpoints, see the [projects API](../../a
 
 {{< /history >}}
 
-Configure the rate limit for each project and user for requests to the
-[delete members endpoint](../../api/project_members.md#remove-a-member-from-a-project).
+Configure the rate limit for each project and user for requests to the [delete members endpoint](../../api/project_members.md#remove-a-member-from-a-project).
 
 Prerequisites:
 
@@ -88,9 +86,7 @@ The rate limit:
 
 Requests over the rate limit are logged into the `auth.log` file.
 
-For example, if you set a limit of 60, requests to the API endpoint that exceed
-a rate of 60 requests per minute are blocked. Access to the endpoint resumes
-after one minute.
+For example, if you set a limit of 60, requests to the API endpoint that exceed a rate of 60 requests per minute are blocked. Access to the endpoint resumes after one minute.
 
 ## Configure rate limits on listing project members
 
@@ -100,8 +96,7 @@ after one minute.
 
 {{< /history >}}
 
-Configure the rate limit for requests to the
-[list project members endpoint](../../api/project_members.md#list-all-members-of-a-project).
+Configure the rate limit for requests to the [list project members endpoint](../../api/project_members.md#list-all-members-of-a-project).
 
 Prerequisites:
 
@@ -123,6 +118,4 @@ The rate limit:
 
 Requests over the rate limit are logged into the `auth.log` file.
 
-For example, if you set a limit of 200, requests to the API endpoint that
-exceed a rate of 200 requests per minute
-are blocked. Access to the endpoint resumes after one minute.
+For example, if you set a limit of 200, requests to the API endpoint that exceed a rate of 200 requests per minute are blocked. Access to the endpoint resumes after one minute.

@@ -20,7 +20,7 @@ Guides are helpful when you're trying to precisely position layers or objects in
 
 Before you can add guides to your file, you must enable rulers on the canvas.
 
-1. Open the  **Main menu**.
+1. Open the **Main menu**.
 2. Hover over **View** and select **Rulers**.
 
 ![Main menu open with View option selected, highlighting Rulers to enable them on the canvas.](https://help.figma.com/hc/article_attachments/30236760930583)

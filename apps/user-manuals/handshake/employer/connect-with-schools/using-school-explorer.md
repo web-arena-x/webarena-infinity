@@ -86,12 +86,12 @@ To take action on multiple schools at once:
 2. Once selected, the following bulk actions will appear:
 
 - **Start Segment with these schools**
-  - *Learn* [*How to Build a Segment*](https://support.joinhandshake.com/hc/en-us/articles/360024196474).
+ - *Learn* [*How to Build a Segment*](https://support.joinhandshake.com/hc/en-us/articles/360024196474).
 - **Add to list**
 - **More**
-  - New List from selected
-  - New Job from selected
-  - New Event from selected
+ - New List from selected
+ - New Job from selected
+ - New Event from selected
     - *Learn more about* [*Creating and Managing School Lists*](https://support.joinhandshake.com/hc/en-us/articles/360033920474).
 
 ![Bulk actions displayed.png](https://support.joinhandshake.com/hc/article_attachments/35435487768471)

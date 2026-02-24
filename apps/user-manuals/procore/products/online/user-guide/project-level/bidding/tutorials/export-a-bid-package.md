@@ -11,13 +11,13 @@ To export a bid package's information.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.  
+ - 'Admin' level permissions on the project's Bidding tool. 
     OR
-  - You created the bid package.  
+ - You created the bid package. 
     OR
-  - You are a user cc'd on the bid package.  
+ - You are a user cc'd on the bid package. 
     OR
-  - You are the Bid Package Manager.
+ - You are the Bid Package Manager.
 
 ## Steps
 

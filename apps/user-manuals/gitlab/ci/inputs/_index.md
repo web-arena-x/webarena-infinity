@@ -23,58 +23,45 @@ Use CI/CD inputs to increase the flexibility of CI/CD configuration. Inputs and 
 can be used in similar ways, but have different benefits:
 
 - Inputs provide typed parameters for reusable templates with built-in validation at pipeline creation time.
-  To define specific values when the pipeline runs, use inputs instead of CI/CD variables.
-- CI/CD variables offer flexible values that can be defined at multiple levels, but can be modified
-  throughout pipeline execution. Use variables for values that need to be accessible in the job's runtime environment.
-  You can also use [predefined variables](../variables/predefined_variables.md) with `rules`
-  for dynamic pipeline configuration.
+ To define specific values when the pipeline runs, use inputs instead of CI/CD variables.
+- CI/CD variables offer flexible values that can be defined at multiple levels, but can be modified throughout pipeline execution. Use variables for values that need to be accessible in the job's runtime environment.
+ You can also use [predefined variables](../variables/predefined_variables.md) with `rules` for dynamic pipeline configuration.
 
 ## CI/CD Inputs and variables comparison
 
 Inputs:
 
-- **Purpose**: Defined in CI configurations (templates, components or `.gitlab-ci.yml`) and assigned values
-  when a pipeline is triggered, allowing consumers to customize reusable CI configurations.
-- **Modification**: Once passed at pipeline initialization, input values are interpolated in the CI/CD
-  configuration and remain fixed for the entire pipeline run.
-- **Scope**: Available only in the file they are defined, whether in the `.gitlab-ci.yml` or a file
-  being `include`d. You can pass them explicitly to other files - using `include:inputs` - or pipeline
-  using `trigger:inputs`.
-- **Validation**: Provide robust validation capabilities including type checking, regex patterns,
-  predefined option lists, and helpful descriptions for users.
+- **Purpose**: Defined in CI configurations (templates, components or `.gitlab-ci.yml`) and assigned values when a pipeline is triggered, allowing consumers to customize reusable CI configurations.
+- **Modification**: Once passed at pipeline initialization, input values are interpolated in the CI/CD configuration and remain fixed for the entire pipeline run.
+- **Scope**: Available only in the file they are defined, whether in the `.gitlab-ci.yml` or a file being `include`d. You can pass them explicitly to other files - using `include:inputs` - or pipeline using `trigger:inputs`.
+- **Validation**: Provide robust validation capabilities including type checking, regex patterns, predefined option lists, and helpful descriptions for users.
 
 CI/CD Variables:
 
-- **Purpose**: Values that can be set as environment variables during job execution and in various parts
-  of the pipeline for passing data between jobs.
-- **Modification**: Can be dynamically generated or modified during pipeline execution through dotenv artifacts,
-  conditional rules, or directly in job scripts.
-- **Scope**: Can be defined globally (affecting all jobs), at the job level (affecting only specific jobs),
-  or for the entire project or group through the GitLab UI.
-- **Validation**: Simple key-value pairs with minimal built-in validation, though you can add some controls through
-  the GitLab UI for project variables.
+- **Purpose**: Values that can be set as environment variables during job execution and in various parts of the pipeline for passing data between jobs.
+- **Modification**: Can be dynamically generated or modified during pipeline execution through dotenv artifacts, conditional rules, or directly in job scripts.
+- **Scope**: Can be defined globally (affecting all jobs), at the job level (affecting only specific jobs), or for the entire project or group through the GitLab UI.
+- **Validation**: Simple key-value pairs with minimal built-in validation, though you can add some controls through the GitLab UI for project variables.
 
 ## Define input parameters with `spec:inputs`
 
-Use `spec:inputs` in the CI/CD configuration [header](../yaml/_index.md#header-keywords) to define input parameters that
-can be passed to the configuration file.
+Use `spec:inputs` in the CI/CD configuration [header](../yaml/_index.md#header-keywords) to define input parameters that can be passed to the configuration file.
 
-Use the `$[[ inputs.input-id ]]` interpolation format outside the header section to declare where to use
-the inputs.
+Use the `$[[ inputs.input-id ]]` interpolation format outside the header section to declare where to use the inputs.
 
 For example:
 
 ```yaml
 spec:
-  inputs:
+ inputs:
     job-stage:
       default: test
     environment:
       default: production
 ---
 scan-website:
-  stage: $[[ inputs.job-stage ]]
-  script: ./scan-website $[[ inputs.environment ]]
+ stage: $[[ inputs.job-stage ]]
+ script: ./scan-website $[[ inputs.environment ]]
 ```
 
 In this example, the inputs are `job-stage` and `environment`.
@@ -86,48 +73,36 @@ With `spec:inputs`:
 - A string containing an input must be less than 1 MB.
 - A string inside an input must be less than 1 KB.
 - Inputs can use CI/CD variables, but have the same [variable limitations as the `include` keyword](../yaml/includes.md#use-variables-with-include).
-- If the file that defines `spec:inputs` also contains job definitions, add a YAML document
-  separator (`---`) after the header.
+- If the file that defines `spec:inputs` also contains job definitions, add a YAML document separator (`---`) after the header.
 
 Then you set the values for the inputs when you:
 
 - [Trigger a new pipeline](#for-a-pipeline) using this configuration file.
-  You should always set default values when using inputs to configure new pipelines
-  with any method other than `include`. Otherwise the pipeline could fail to start
-  if a new pipeline triggers automatically, including in:
-  - Merge request pipelines
-  - Branch pipelines
-  - Tag pipelines
+ You should always set default values when using inputs to configure new pipelines with any method other than `include`. Otherwise the pipeline could fail to start if a new pipeline triggers automatically, including in:
+ - Merge request pipelines
+ - Branch pipelines
+ - Tag pipelines
 - [Include the configuration](#for-configuration-added-with-include) in your pipeline.
-  Any inputs that are mandatory must be added to the `include:inputs` section, and are used
-  every time the configuration is included.
+ Any inputs that are mandatory must be added to the `include:inputs` section, and are used every time the configuration is included.
 
 ### Input configuration
 
 To configure inputs, use:
 
-- [`spec:inputs:default`](../yaml/_index.md#specinputsdefault) to define default values for inputs
-  when not specified. When you specify a default, the inputs are no longer mandatory.
-- [`spec:inputs:description`](../yaml/_index.md#specinputsdescription) to give a description to
-  a specific input. The description does not affect the input, but can help people
-  understand the input details or expected values.
-- [`spec:inputs:options`](../yaml/_index.md#specinputsoptions) to specify a list of allowed values
-  for an input.
-- [`spec:inputs:regex`](../yaml/_index.md#specinputsregex) to specify a regular expression
-  that the input must match.
-- [`spec:inputs:type`](../yaml/_index.md#specinputstype) to force a specific input type, which
-  can be `string` (default when not specified), `array`, `number`, or `boolean`.
-- [`spec:inputs:rules`](../yaml/_index.md#specinputsrules) to define conditional `options`
-  and `default` values based on the values of other inputs.
+- [`spec:inputs:default`](../yaml/_index.md#specinputsdefault) to define default values for inputs when not specified. When you specify a default, the inputs are no longer mandatory.
+- [`spec:inputs:description`](../yaml/_index.md#specinputsdescription) to give a description to a specific input. The description does not affect the input, but can help people understand the input details or expected values.
+- [`spec:inputs:options`](../yaml/_index.md#specinputsoptions) to specify a list of allowed values for an input.
+- [`spec:inputs:regex`](../yaml/_index.md#specinputsregex) to specify a regular expression that the input must match.
+- [`spec:inputs:type`](../yaml/_index.md#specinputstype) to force a specific input type, which can be `string` (default when not specified), `array`, `number`, or `boolean`.
+- [`spec:inputs:rules`](../yaml/_index.md#specinputsrules) to define conditional `options` and `default` values based on the values of other inputs.
 
-You can define multiple inputs per CI/CD configuration file, and each input can have
-multiple configuration parameters.
+You can define multiple inputs per CI/CD configuration file, and each input can have multiple configuration parameters.
 
 For example, in a file named `scan-website-job.yml`:
 
 ```yaml
 spec:
-  inputs:
+ inputs:
     job-prefix:     # Mandatory string input
       description: "Define a prefix for the job name"
     job-stage:      # Optional string input with a default value when not provided
@@ -135,7 +110,7 @@ spec:
     environment:    # Mandatory input that must match one of the options
       options: ['test', 'staging', 'production']
     concurrency:
-      type: number  # Optional numeric input with a default value when not provided
+      type: number # Optional numeric input with a default value when not provided
       default: 1
     version:        # Mandatory string input that must match the regular expression
       type: string
@@ -146,8 +121,8 @@ spec:
 ---
 
 "$[[ inputs.job-prefix ]]-scan-website":
-  stage: $[[ inputs.job-stage ]]
-  script:
+ stage: $[[ inputs.job-stage ]]
+ script:
     - echo "scanning website -e $[[ inputs.environment ]] -c $[[ inputs.concurrency ]] -v $[[ inputs.version ]]"
     - if $[[ inputs.export_results ]]; then echo "export results"; fi
 ```
@@ -172,12 +147,11 @@ The input types are:
 - `number`
 - `string` (default when not specified)
 
-When an input replaces an entire YAML value in the CI/CD configuration, it is interpolated
-into the configuration as its specified type. For example:
+When an input replaces an entire YAML value in the CI/CD configuration, it is interpolated into the configuration as its specified type. For example:
 
 ```yaml
 spec:
-  inputs:
+ inputs:
     array_input:
       type: array
     boolean_input:
@@ -189,24 +163,23 @@ spec:
 ---
 
 test_job:
-  allow_failure: $[[ inputs.boolean_input ]]
-  needs: $[[ inputs.array_input ]]
-  parallel: $[[ inputs.number_input ]]
-  script: $[[ inputs.string_input ]]
+ allow_failure: $[[ inputs.boolean_input ]]
+ needs: $[[ inputs.array_input ]]
+ parallel: $[[ inputs.number_input ]]
+ script: $[[ inputs.string_input ]]
 ```
 
-When an input is inserted into a YAML value as part of a larger string, the input
-is always interpolated as a string. For example:
+When an input is inserted into a YAML value as part of a larger string, the input is always interpolated as a string. For example:
 
 ```yaml
 spec:
-  inputs:
+ inputs:
     port:
       type: number
 ---
 
 test_job:
-  script: curl "https://gitlab.com:$[[ inputs.port ]]"
+ script: curl "https://gitlab.com:$[[ inputs.port ]]"
 ```
 
 #### Array type
@@ -217,15 +190,11 @@ test_job:
 
 {{< /history >}}
 
-The content of the items in an array type can be any valid YAML map, sequence, or scalar. More complex YAML features
-like [`!reference`](../yaml/yaml_optimization.md#reference-tags) cannot be used. When using the value of an array
-input in a string (for example `echo "My rules: $[[ inputs.rules-config ]]"` in your `script:` section), you might
-see unexpected results. The array input is converted to its string representation, which might not match your
-expectations for complex YAML structures such as maps.
+The content of the items in an array type can be any valid YAML map, sequence, or scalar. More complex YAML features like [`!reference`](../yaml/yaml_optimization.md#reference-tags) cannot be used. When using the value of an array input in a string (for example `echo "My rules: $[[ inputs.rules-config ]]"` in your `script:` section), you might see unexpected results. The array input is converted to its string representation, which might not match your expectations for complex YAML structures such as maps.
 
 ```yaml
 spec:
-  inputs:
+ inputs:
     rules-config:
       type: array
       default:
@@ -235,12 +204,11 @@ spec:
 ---
 
 test_job:
-  rules: $[[ inputs.rules-config ]]
-  script: ls
+ rules: $[[ inputs.rules-config ]]
+ script: ls
 ```
 
-Array inputs must be formatted as JSON, for example `["array-input-1", "array-input-2"]`,
-when manually passing inputs for:
+Array inputs must be formatted as JSON, for example `["array-input-1", "array-input-2"]`, when manually passing inputs for:
 
 - [Manually triggered pipelines](../pipelines/_index.md#run-a-pipeline-manually).
 - The [pipeline triggers API](../../api/pipeline_triggers.md#trigger-a-pipeline-with-a-token).
@@ -254,7 +222,7 @@ Inputs support different value types. You can pass multi-string values using the
 
 ```yaml
 spec:
-  inputs:
+ inputs:
     closed_message:
       description: Message to announce when an issue is closed.
       default: 'Hi {{author}} :wave:,
@@ -273,14 +241,11 @@ spec:
 
 {{< /history >}}
 
-Use [`spec:inputs:rules`](../yaml/_index.md#specinputsrules) to define different `options` and `default` values for an input
-based on the values of other inputs. You can use this configuration when one input should have different
-allowed values depending on the context provided by other inputs.
+Use [`spec:inputs:rules`](../yaml/_index.md#specinputsrules) to define different `options` and `default` values for an input based on the values of other inputs. You can use this configuration when one input should have different allowed values depending on the context provided by other inputs.
 
 Each rule in the `rules` list can have:
 
-- `if`: An expression that checks the values of one or more inputs to determine when this rule applies. Uses the same syntax as
-  [`$[[ inputs.input-id ]]` interpolation](#define-input-parameters-with-specinputs).
+- `if`: An expression that checks the values of one or more inputs to determine when this rule applies. Uses the same syntax as [`$[[ inputs.input-id ]]` interpolation](#define-input-parameters-with-specinputs).
 - `options`: A list of allowed values for the input when this rule matches.
 - `default`: The default value to use when this rule matches.
 
@@ -291,7 +256,7 @@ For example, to define instance types that vary based on cloud provider and envi
 
 ```yaml
 spec:
-  inputs:
+ inputs:
     cloud_provider:
       options: ['aws', 'gcp', 'azure']
       default: 'aws'
@@ -317,12 +282,12 @@ spec:
         - if: $[[ inputs.cloud_provider ]] == 'azure'
           options: ['Standard_B1s', 'Standard_B2s', 'Standard_D2s_v3']
           default: 'Standard_B1s'
-        - options: ['small', 'medium', 'large']  # Fallback for any other case
+        - options: ['small', 'medium', 'large'] # Fallback for any other case
           default: 'small'
 ---
 
 deploy:
-  script: |
+ script: |
     echo "Deploying to $[[ inputs.cloud_provider ]]"
     echo "Environment: $[[ inputs.environment ]]"
     echo "Instance: $[[ inputs.instance_type ]]"
@@ -330,19 +295,16 @@ deploy:
 
 In this example:
 
-- When `cloud_provider` is `aws` and `environment` is `development`, the user can select
-  from `t3.micro` or `t3.small` instance types, with `t3.micro` as the default.
-- When `cloud_provider` is `aws` and `environment` is `production`, different instance
-  types are available (`t3.xlarge`, `t3.2xlarge`, `m5.xlarge`).
-- When `cloud_provider` is `gcp`, GCP-specific instance types are available regardless
-  of the environment.
+- When `cloud_provider` is `aws` and `environment` is `development`, the user can select from `t3.micro` or `t3.small` instance types, with `t3.micro` as the default.
+- When `cloud_provider` is `aws` and `environment` is `production`, different instance types are available (`t3.xlarge`, `t3.2xlarge`, `m5.xlarge`).
+- When `cloud_provider` is `gcp`, GCP-specific instance types are available regardless of the environment.
 - If none of the conditions match, the fallback rule provides generic size options.
 
 You can also use the `||` (OR) operator to match multiple conditions. For example:
 
 ```yaml
 spec:
-  inputs:
+ inputs:
     deployment_type:
       options: ['canary', 'blue-green', 'rolling', 'recreate']
       default: 'rolling'
@@ -358,11 +320,10 @@ spec:
 ---
 
 deploy:
-  script: echo "Deploying with $[[ inputs.deployment_type ]] strategy"
+ script: echo "Deploying with $[[ inputs.deployment_type ]] strategy"
 ```
 
-In this example, the `requires_approval` input is set to `true` when `deployment_type` is either
-`canary` or `blue-green`. In all other cases, the default is `false` and both `true` or `false` are allowed options.
+In this example, the `requires_approval` input is set to `true` when `deployment_type` is either `canary` or `blue-green`. In all other cases, the default is `false` and both `true` or `false` are allowed options.
 
 ## Set input values
 
@@ -374,19 +335,17 @@ In this example, the `requires_approval` input is set to `true` when `deployment
 
 {{< /history >}}
 
-Use [`include:inputs`](../yaml/_index.md#includeinputs) to set the values for inputs
-when the included configuration is added to the pipeline, including for:
+Use [`include:inputs`](../yaml/_index.md#includeinputs) to set the values for inputs when the included configuration is added to the pipeline, including for:
 
 - [CI/CD components](../components/_index.md)
 - [Custom CI/CD templates](../examples/_index.md#adding-templates-to-your-gitlab-installation)
 - Any other configuration added with `include`.
 
-For example, to include and set the input values for `scan-website-job.yml` from the
-[input configuration example](#input-configuration):
+For example, to include and set the input values for `scan-website-job.yml` from the [input configuration example](#input-configuration):
 
 ```yaml
 include:
-  - local: 'scan-website-job.yml'
+ - local: 'scan-website-job.yml'
     inputs:
       job-prefix: 'some-service-'
       environment: 'staging'
@@ -412,10 +371,10 @@ Inputs must be specified separately for each include entry. For example:
 
 ```yaml
 include:
-  - component: $CI_SERVER_FQDN/the-namespace/the-project/the-component@1.0
+ - component: $CI_SERVER_FQDN/the-namespace/the-project/the-component@1.0
     inputs:
       stage: my-stage
-  - local: path/to/file.yml
+ - local: path/to/file.yml
     inputs:
       stage: my-stage
 ```
@@ -444,9 +403,7 @@ For enhanced security, you should [disable pipeline variables](../variables/_ind
 You should always set default values when defining inputs for pipelines.
 Otherwise the pipeline could fail to start if a new pipeline triggers automatically.
 For example, merge request pipelines can trigger for changes to a merge request's source branch.
-You cannot manually set inputs for merge request pipelines, so if any input is missing a default,
-the pipeline fails to create. This can also happen for branch pipelines, tag pipelines,
-and other automatically triggered pipelines.
+You cannot manually set inputs for merge request pipelines, so if any input is missing a default, the pipeline fails to create. This can also happen for branch pipelines, tag pipelines, and other automatically triggered pipelines.
 
 You can set input values with:
 
@@ -462,8 +419,7 @@ A pipeline can take up to 20 inputs.
 
 Feedback is welcome on [this issue](https://gitlab.com/gitlab-org/gitlab/-/issues/533802).
 
-You can pass inputs to [downstream pipelines](../pipelines/downstream_pipelines.md),
-if the downstream pipeline's configuration file uses [`spec:inputs`](#define-input-parameters-with-specinputs).
+You can pass inputs to [downstream pipelines](../pipelines/downstream_pipelines.md), if the downstream pipeline's configuration file uses [`spec:inputs`](#define-input-parameters-with-specinputs).
 
 For example, with [`trigger:inputs`](../yaml/_index.md#triggerinputs):
 
@@ -473,13 +429,13 @@ For example, with [`trigger:inputs`](../yaml/_index.md#triggerinputs):
 
 ```yaml
 trigger-job:
-  trigger:
+ trigger:
     strategy: mirror
     include:
       - local: path/to/child-pipeline.yml
         inputs:
           job-name: "defined"
-  rules:
+ rules:
     - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
 ```
 
@@ -489,12 +445,12 @@ trigger-job:
 
 ```yaml
 trigger-job:
-  trigger:
+ trigger:
     strategy: mirror
     project: project-group/my-downstream-project
     inputs:
       job-name: "defined"
-  rules:
+ rules:
     - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
 ```
 
@@ -518,17 +474,16 @@ This feature is available for testing, but not ready for production use.
 
 {{< /alert >}}
 
-You can reuse input definitions across multiple CI/CD configurations by defining them in external files
-and including them with [`spec:include`](../yaml/_index.md#specinclude).
+You can reuse input definitions across multiple CI/CD configurations by defining them in external files and including them with [`spec:include`](../yaml/_index.md#specinclude).
 
 Create a file with input definitions, for example in a file named `shared-inputs.yml`:
 
 ```yaml
 inputs:
-  environment:
+ environment:
     description: "Deployment environment"
     options: ['staging', 'production']
-  region:
+ region:
     default: 'us-east-1'
 ```
 
@@ -536,25 +491,25 @@ Then you can include the external inputs in your `.gitlab-ci.yml` with `local`:
 
 ```yaml
 spec:
-  include:
+ include:
     - local: /shared-inputs.yml
 ---
 
 deploy:
-  script: echo "Deploying to $[[ inputs.environment ]] in $[[ inputs.region ]]"
+ script: echo "Deploying to $[[ inputs.environment ]] in $[[ inputs.region ]]"
 ```
 
 If the file is stored outside your project, you can use:
 
 - `project` for files in another GitLab project. Use the full project path and define the filename with `file`.
-  You can optionally also define the `ref` to fetch the file from.
+ You can optionally also define the `ref` to fetch the file from.
 - `remote` for file on another server. Use the full URL to the file.
 
 You can also include multiple input files at the same time, for example:
 
 ```yaml
 spec:
-  include:
+ include:
     - local: /shared-inputs.yml
     - project: 'my-group/shared-configs'
       ref: main
@@ -565,16 +520,15 @@ spec:
 
 ### Override inputs from an external file
 
-If you define an input in both an included input file, and the `inputs:` section in the `.gitlab-ci.yml` configuration,
-the inputs from the file are overridden.
+If you define an input in both an included input file, and the `inputs:` section in the `.gitlab-ci.yml` configuration, the inputs from the file are overridden.
 
 For example, in a `shared-inputs.yml` file:
 
 ```yaml
 inputs:
-  environment:
+ environment:
     options: ['staging', 'production']
-  region:
+ region:
     default: 'us-east-1'
 ```
 
@@ -582,15 +536,14 @@ Then then you include the file in your `.gitlab-ci.yml`:
 
 ```yaml
 spec:
-  include:
+ include:
     - local: /shared-inputs.yml
-  inputs:
+ inputs:
     environment: 'canary'
 ---
 ```
 
-In this case, the `environment` input options in the file are overridden by the
-`inputs: environment` configuration in the `.gitlab-ci.yml` file.
+In this case, the `environment` input options in the file are overridden by the `inputs: environment` configuration in the `.gitlab-ci.yml` file.
 
 ## Specify functions to manipulate input values
 
@@ -615,13 +568,13 @@ With functions:
 
 ```yaml
 spec:
-  inputs:
+ inputs:
     test:
       default: 'test $MY_VAR'
 ---
 
 test-job:
-  script: echo $[[ inputs.test | expand_vars | truncate(5,8) ]]
+ script: echo $[[ inputs.test | expand_vars | truncate(5,8) ]]
 ```
 
 In this example, assuming the input uses the default value and `$MY_VAR` is an unmasked project variable with value `my value`:
@@ -642,25 +595,23 @@ In this example, assuming the input uses the default value and `$MY_VAR` is an u
 
 Use `expand_vars` to expand [CI/CD variables](../variables/_index.md) in the input value.
 
-Only variables you can [use with the `include` keyword](../yaml/includes.md#use-variables-with-include) and which are
-**not** [masked](../variables/_index.md#mask-a-cicd-variable) can be expanded.
+Only variables you can [use with the `include` keyword](../yaml/includes.md#use-variables-with-include) and which are **not** [masked](../variables/_index.md#mask-a-cicd-variable) can be expanded.
 [Nested variable expansion](../variables/where_variables_can_be_used.md#nested-variable-expansion) is not supported.
 
 Example:
 
 ```yaml
 spec:
-  inputs:
+ inputs:
     test:
       default: 'test $MY_VAR'
 ---
 
 test-job:
-  script: echo $[[ inputs.test | expand_vars ]]
+ script: echo $[[ inputs.test | expand_vars ]]
 ```
 
-In this example, if `$MY_VAR` is unmasked (exposed in job logs) with a value of `my value`, then the input
-would expand to `test my value`.
+In this example, if `$MY_VAR` is unmasked (exposed in job logs) with a value of `my value`, then the input would expand to `test my value`.
 
 #### `truncate`
 
@@ -702,14 +653,14 @@ Example:
 
 ```yaml
 spec:
-  inputs:
+ inputs:
     test:
       default: |
         A string with single ' and double " quotes and   blanks
 ---
 
 test-job:
-  script: printf '%s\n' $[[ inputs.test | posix_escape ]]
+ script: printf '%s\n' $[[ inputs.test | posix_escape ]]
 ```
 
 In this example, `posix_escape` escapes characters that could be shell control or metadata characters:
@@ -724,8 +675,7 @@ The escaped input preserves special characters and spacing as provided.
 > [!warning]
 > Do not rely on `posix_escape` for security purposes with untrusted input values.
 
-`posix_escape` makes a best-effort attempt to preserve the input value exactly, but some
-character combinations could still cause undesired results. Even when using `posix_escape`, it is possible that:
+`posix_escape` makes a best-effort attempt to preserve the input value exactly, but some character combinations could still cause undesired results. Even when using `posix_escape`, it is possible that:
 
 - Shell code included in the string might be executed.
 - Single or double quotes might be used to escape any surrounding quoting.
@@ -745,7 +695,7 @@ For example:
 
 ```yaml
 test-job:
-  script: echo $[[ inputs.test | expand_vars | posix_escape ]]
+ script: echo $[[ inputs.test | expand_vars | posix_escape ]]
 ```
 
 ## Troubleshooting
@@ -753,50 +703,42 @@ test-job:
 ### YAML syntax errors when using `inputs`
 
 [CI/CD variable expressions](../jobs/job_rules.md#cicd-variable-expressions)
-in `rules:if` expect a comparison of a CI/CD variable with a string, otherwise
-[a variety of syntax errors could be returned](../jobs/job_troubleshooting.md#this-gitlab-ci-configuration-is-invalid-for-variable-expressions).
+in `rules:if` expect a comparison of a CI/CD variable with a string, otherwise [a variety of syntax errors could be returned](../jobs/job_troubleshooting.md#this-gitlab-ci-configuration-is-invalid-for-variable-expressions).
 
-You must ensure that expressions remain properly formatted after input values are
-inserted into the configuration, which might require the use of additional quote characters.
+You must ensure that expressions remain properly formatted after input values are inserted into the configuration, which might require the use of additional quote characters.
 
 For example:
 
 ```yaml
 spec:
-  inputs:
+ inputs:
     branch:
       default: $CI_DEFAULT_BRANCH
 ---
 
 job-name:
-  rules:
+ rules:
     - if: $CI_COMMIT_REF_NAME == $[[ inputs.branch ]]
 ```
 
 In this example:
 
-- Using `include: inputs: branch: $CI_DEFAULT_BRANCH` is valid. The `if:` clause evaluates to
-  `if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH`, which is a valid variable expression.
-- Using `include: inputs: branch: main` is **invalid**. The `if:` clause evaluates to
-  `if: $CI_COMMIT_REF_NAME == main`, which is invalid because `main` is a string but is not quoted.
+- Using `include: inputs: branch: $CI_DEFAULT_BRANCH` is valid. The `if:` clause evaluates to `if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH`, which is a valid variable expression.
+- Using `include: inputs: branch: main` is **invalid**. The `if:` clause evaluates to `if: $CI_COMMIT_REF_NAME == main`, which is invalid because `main` is a string but is not quoted.
 
 Alternatively, add quotes to resolve some variable expression issues. For example:
 
 ```yaml
 spec:
-  inputs:
+ inputs:
     environment:
       default: "$ENVIRONMENT"
 ---
 
 $[[ inputs.environment | expand_vars ]] job:
-  script: echo
-  rules:
+ script: echo
+ rules:
     - if: '"$[[ inputs.environment | expand_vars ]]" == "production"'
 ```
 
-In this example, quoting the input block and also the entire variable expression
-ensures valid `if:` syntax after the input is evaluated. The internal and external quotes
-in the expression must not be the same character. You can use `"` for the internal quotes
-and `'` for the external quotes, or the inverse. On the other hand, the job name does
-not require any quoting.
+In this example, quoting the input block and also the entire variable expression ensures valid `if:` syntax after the input is evaluated. The internal and external quotes in the expression must not be the same character. You can use `"` for the internal quotes and `'` for the external quotes, or the inverse. On the other hand, the job name does not require any quoting.

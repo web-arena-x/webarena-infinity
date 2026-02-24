@@ -34,7 +34,7 @@ The UI will change to the language selected from the agent user profile dropdown
 
 ### Main languages
 
-|  |  |
+| | |
 | --- | --- |
 | ar | Arabic |
 | pt-br | Portuguese (Brazil) |
@@ -74,7 +74,7 @@ The UI will change to the language selected from the agent user profile dropdown
 
 If selected, translations default back to the main variant.
 
-|  |  |
+| | |
 | --- | --- |
 | en-ca | English (Canada) |
 | pt | Portuguese |
@@ -90,7 +90,7 @@ Talk supports the same languages as Support, with the following exceptions:
 
 These are available in the following languages:
 
-|  |  |
+| | |
 | --- | --- |
 | zh-cn | Simplified Chinese |
 | da | Danish |
@@ -113,48 +113,48 @@ These are available in the following languages:
 
 ### Main languages
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | ar | Arabic | *excl. Unity SDK* |
-| pt-br | Portuguese (Brazil) |  |
-| bg | Bulgarian |  |
-| cs | Czech |  |
-| da | Danish |  |
-| nl | Dutch |  |
-| en-gb | English (United Kingdom) |  |
-| en-us | English (United States) |  |
+| pt-br | Portuguese (Brazil) | |
+| bg | Bulgarian | |
+| cs | Czech | |
+| da | Danish | |
+| nl | Dutch | |
+| en-gb | English (United Kingdom) | |
+| en-us | English (United States) | |
 | fil | Filipino | *excl. Unity SDK* |
-| fi | Finnish |  |
-| fr | French |  |
-| de | German |  |
-| el | Greek |  |
+| fi | Finnish | |
+| fr | French | |
+| de | German | |
+| el | Greek | |
 | he | Hebrew | *excl. Unity SDK* |
 | hi | Hindi | *excl. Unity SDK* |
-| hu | Hungarian |  |
-| id | Indonesian |  |
-| it | Italian |  |
-| ja | Japanese |  |
-| ko | Korean |  |
+| hu | Hungarian | |
+| id | Indonesian | |
+| it | Italian | |
+| ja | Japanese | |
+| ko | Korean | |
 | ms | Malay | *excl. Unity SDK* |
-| no | Norwegian |  |
-| pl | Polish |  |
-| ro | Romanian |  |
-| ru | Russian |  |
-| zh-cn | Simplified Chinese |  |
-| sk | Slovak |  |
-| es | Spanish |  |
-| sv | Swedish |  |
-| th | Thai |  |
-| zh-tw | Traditional Chinese |  |
-| tr | Turkish |  |
-| uk | Ukrainian |  |
-| vi | Vietnamese |  |
+| no | Norwegian | |
+| pl | Polish | |
+| ro | Romanian | |
+| ru | Russian | |
+| zh-cn | Simplified Chinese | |
+| sk | Slovak | |
+| es | Spanish | |
+| sv | Swedish | |
+| th | Thai | |
+| zh-tw | Traditional Chinese | |
+| tr | Turkish | |
+| uk | Ukrainian | |
+| vi | Vietnamese | |
 
 ### Language variants
 
 If selected, translations default back to the main variant.
 
-|  |  |
+| | |
 | --- | --- |
 | en-ca | English (Canada) |
 | fr-ca | French (Canada) |
@@ -166,7 +166,7 @@ If selected, translations default back to the main variant.
 
 ### Main languages
 
-|  |  |
+| | |
 | --- | --- |
 | ar | Arabic |
 | pt-br | Portuguese (Brazil) |
@@ -209,7 +209,7 @@ If selected, translations default back to the main variant.
 
 If selected, translations default back to the main variant.
 
-|  |  |
+| | |
 | --- | --- |
 | en-ca | English (Canada) |
 | pt | Portuguese |
@@ -237,7 +237,7 @@ For variants, translations fall back to their respective parent language, when t
 
 The suggested macros and suggested first replies features support the languages below. Note that results for less commonly used languages might not be as reliable as those for more commonly used languages.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | Afrikaans Amharic Arabic Assamese Azerbaijani Belarusian Bulgarian Bengali Breton Bosnian Catalan Czech Welsh Danish German Greek English Esperanto Spanish Estonian Basque Persian Finnish French Western Frisian Irish Scottish Gaelic Galician Gujarati Hausa Hebrew | Hindi Croatian Hungarian Armenian Indonesian Icelandic Italian Japanese Javanese Georgian Kazakh Khmer Kannada Korean Kurdish Kyrgyz Latin Lao Lithuanian Latvian Malagasy Macedonian Malayalam Mongolian Marathi Malay Burmese Nepali Dutch Norwegian Oromo | Oriya Panjabi Polish Pashto Portuguese Romanian Russian Sanskrit Sindhi Sinhala Slovak Slovenian Somali Albanian Serbian Sundanese Swedish Swahili Tamil Telugu Thai Tagalog Turkish Uyghur Ukrainian Urdu Uzbek Vietnamese Xhosa Yiddish Chinese |
 
@@ -249,7 +249,7 @@ Generative search for help center works in any [language supported by OpenAI](ht
 
 The redaction suggestion feature supports the following languages. Part of the [Advanced Data Privacy and Protection add-on](https://support.zendesk.com/hc/en-us/articles/6561144266906).
 
-|  |  |
+| | |
 | --- | --- |
 | en-us | English |
 | es | Spanish |
@@ -296,7 +296,7 @@ Live conversation translation supports the following languages.
 
 The following languages are supported for sentiment and intent. Part of the [Copilot add-on](https://support.zendesk.com/hc/en-us/articles/5524125586330). See also [language](#h_01K2J618F2V783VM0C8EXMZWCT) and [entity](#h_01K2J8T962ZMC5TFK61WKXRZ77).
 
-|  |  |
+| | |
 | --- | --- |
 | ar | Arabic |
 | bg | Bulgarian |
@@ -333,7 +333,7 @@ The following languages are supported for sentiment and intent. Part of the [Cop
 
 Language detection supports the following languages. Part of the [Copilot add-on](https://support.zendesk.com/hc/en-us/articles/5524125586330). See also [sentiment and intent](#01JMG85537JM5P75KQ3NWGKV1P) and [entity](#h_01K2J8T962ZMC5TFK61WKXRZ77).
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | Afrikaans | Albanian | Amharic |
 | Arabic | Aragonese | Armenian |
@@ -389,7 +389,7 @@ Entity does not support additional languages. The entity is detected if the tick
 
 Macro suggestions for admins supports the following languages. Part of the [Copilot add-on](https://support.zendesk.com/hc/en-us/articles/5524125586330).
 
-|  |  |
+| | |
 | --- | --- |
 | de | German |
 | en-us | English (United States) |
@@ -413,7 +413,7 @@ Merging suggestions for tickets does not support additional languages.
 
 Post-call and voicemail transcription uses automatic transcription language detection and works for the following languages:
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | Bulgarian (bg) | Flemish (nl-BE) | Japanese (ja) | Russian (ru) |
 | Catalan (ca) | French (fr) | Korean (ko) | Slovak (sk) |
@@ -423,7 +423,7 @@ Post-call and voicemail transcription uses automatic transcription language dete
 | Dutch (nl) | Hindi (hi) | Norwegian (no) | Turkish (tr) |
 | English (en) | Hungarian (hu) | Polish (pl) | Ukrainian (uk) |
 | Estonian (et) | Indonesian (id) | Portuguese (pt) | Vietnamese (vi) |
-| Finnish (fi) | Italian (it) | Romanian (ro) |  |
+| Finnish (fi) | Italian (it) | Romanian (ro) | |
 
 Real-time transcription uses the agent's Zendesk profile language to inform the transcription model of the conversation language, and all Zendesk Support agent languages are supported except Arabic and Hebrew.
 
@@ -494,7 +494,7 @@ Tickets must be from end users and written in English, French, German, Japanese,
 
 #### Languages supported in generative replies
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | Albanian Amharic Arabic Armenian Bengali Bosnian Bulgarian Burmese Catalan Chinese Croatian Cushitic Czech Danish Dutch English Estonian Ewe Finnish French Georgian German Greek Gujarati Haitian Hausa Hebrew | Hindi Hmong Hungarian Icelandic Igbo Indonesian Italian Japanese Kannada Kazakh Kinyarwanda Korean Latvian Lingala Lithuanian Luganda Macedonian Malay Malayalam Marathi Mongolian Norwegian Odia Oromo Persian Polish | Portuguese Punjabi Romanian Russian Serbian Shona Slovak Slovenian Somali Sotho Spanish Swahili Swedish Tagalog Tamil Te Reo Maori Telugu Thai Turkish Twi Ukrainian Urdu Vietnamese Wolof Xhosa Yoruba Zulu |
 
@@ -502,7 +502,7 @@ Tickets must be from end users and written in English, French, German, Japanese,
 
 #### Languages supported in the user interface
 
-|  |  |
+| | |
 | --- | --- |
 | pt-br | Portuguese (Brazil) |
 | en-us | English (United States) |
@@ -542,7 +542,7 @@ See [Languages supported by AI agents - Advanced](https://support.zendesk.com/hc
 
 ### Main languages
 
-|  |  |
+| | |
 | --- | --- |
 | pt-br | Portuguese (Brazil) |
 | bg | Bulgarian |
@@ -578,7 +578,7 @@ See [Languages supported by AI agents - Advanced](https://support.zendesk.com/hc
 
 If selected, translations default back to the main variant.
 
-|  |  |
+| | |
 | --- | --- |
 | en-ca | English (Canada) |
 | pt | Portuguese |
@@ -591,7 +591,7 @@ If selected, translations default back to the main variant.
 
 ### Main languages
 
-|  |  |
+| | |
 | --- | --- |
 | pt-br | Portuguese (Brazil) |
 | bg | Bulgarian |
@@ -627,7 +627,7 @@ If selected, translations default back to the main variant.
 
 If selected, translations default back to the main variant.
 
-|  |  |
+| | |
 | --- | --- |
 | en-ca | English (Canada) |
 | pt | Portuguese |
@@ -640,7 +640,7 @@ If selected, translations default back to the main variant.
 
 ### Main languages
 
-|  |  |
+| | |
 | --- | --- |
 | pt-br | Portuguese (Brazil) |
 | bg | Bulgarian |
@@ -676,7 +676,7 @@ If selected, translations default back to the main variant.
 
 If selected, translations default back to the main variant.
 
-|  |  |
+| | |
 | --- | --- |
 | en-ca | English (Canada) |
 | pt | Portuguese |
@@ -689,47 +689,47 @@ If selected, translations default back to the main variant.
 
 ### Main languages
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | ar | Arabic | *Chat only* |
-| pt-br | Portuguese (Brazil) |  |
-| bg | Bulgarian |  |
-| cs | Czech |  |
-| da | Danish |  |
-| nl | Dutch |  |
-| en-gb | English (United Kingdom) |  |
-| en-us | English (United States) |  |
+| pt-br | Portuguese (Brazil) | |
+| bg | Bulgarian | |
+| cs | Czech | |
+| da | Danish | |
+| nl | Dutch | |
+| en-gb | English (United Kingdom) | |
+| en-us | English (United States) | |
 | fil | Filipino | *Chat only* |
-| fi | Finnish |  |
-| fr | French |  |
-| de | German |  |
-| el | Greek |  |
+| fi | Finnish | |
+| fr | French | |
+| de | German | |
+| el | Greek | |
 | he | Hebrew | *Chat only* |
-| hi | Hindi |  |
-| hu | Hungarian |  |
-| id | Indonesian |  |
-| it | Italian |  |
-| ja | Japanese |  |
-| ko | Korean |  |
+| hi | Hindi | |
+| hu | Hungarian | |
+| id | Indonesian | |
+| it | Italian | |
+| ja | Japanese | |
+| ko | Korean | |
 | ms | Malay | *Chat only* |
-| no | Norwegian |  |
-| pl | Polish |  |
-| ro | Romanian |  |
-| ru | Russian |  |
-| zh-cn | Simplified Chinese |  |
-| es | Spanish |  |
-| sv | Swedish |  |
-| th | Thai |  |
-| zh-tw | Traditional Chinese |  |
-| tr | Turkish |  |
+| no | Norwegian | |
+| pl | Polish | |
+| ro | Romanian | |
+| ru | Russian | |
+| zh-cn | Simplified Chinese | |
+| es | Spanish | |
+| sv | Swedish | |
+| th | Thai | |
+| zh-tw | Traditional Chinese | |
+| tr | Turkish | |
 | uk | Ukrainian | *Support only* |
-| vi | Vietnamese |  |
+| vi | Vietnamese | |
 
 ### Language variants
 
 If selected, translations default back to the main variant.
 
-|  |  |
+| | |
 | --- | --- |
 | en-ca | English (Canada) |
 | fr-ca | French (Canada) |
@@ -743,7 +743,7 @@ If selected, translations default back to the main variant.
 
 ### Main languages
 
-|  |  |
+| | |
 | --- | --- |
 | ar | Arabic |
 | pt-br | Portuguese (Brazil) |
@@ -783,7 +783,7 @@ If selected, translations default back to the main variant.
 
 ### Main languages
 
-|  |  |
+| | |
 | --- | --- |
 | sq | Albanian |
 | ar | Arabic |
@@ -836,7 +836,7 @@ If selected, translations default back to the main variant.
 
 If selected, translations default back to the main variant.
 
-|  |  |
+| | |
 | --- | --- |
 | en-ca | English (Canada) |
 | pt | Portuguese |
@@ -849,7 +849,7 @@ If selected, translations default back to the main variant.
 
 ### Main languages
 
-|  |  |
+| | |
 | --- | --- |
 | pt-br | Portuguese (Brazil) |
 | bg | Bulgarian |

@@ -10,9 +10,7 @@ When working with projects, you might encounter the following issues, or require
 
 ## `An error occurred while fetching commit data`
 
-When you visit a project, the message `An error occurred while fetching commit data` might be displayed
-if you use an ad blocker in your browser. The solution is to disable your ad blocker
-for the GitLab instance you are trying to access.
+When you visit a project, the message `An error occurred while fetching commit data` might be displayed if you use an ad blocker in your browser. The solution is to disable your ad blocker for the GitLab instance you are trying to access.
 
 ## Find projects using an SQL query
 
@@ -45,15 +43,14 @@ project.repository.expire_exists_cache
 
 ## Find projects that are pending deletion
 
-If you need to find all projects marked for deletion but that have not yet been deleted,
-[start a Rails console session](../../administration/operations/rails_console.md#starting-a-rails-console-session) and run the following:
+If you need to find all projects marked for deletion but that have not yet been deleted, [start a Rails console session](../../administration/operations/rails_console.md#starting-a-rails-console-session) and run the following:
 
 ```ruby
 projects = Project.where(pending_delete: true)
 projects.each do |p|
-  puts "Project ID: #{p.id}"
-  puts "Project name: #{p.name}"
-  puts "Repository path: #{p.repository.full_path}"
+ puts "Project ID: #{p.id}"
+ puts "Project name: #{p.name}"
+ puts "Repository path: #{p.repository.full_path}"
 end
 ```
 
@@ -98,8 +95,7 @@ project.delete_error
 
 ## Toggle a feature for all projects within a group
 
-While toggling a feature in a project can be done through the [projects API](../../api/projects.md),
-you may need to do this for a large number of projects.
+While toggling a feature in a project can be done through the [projects API](../../api/projects.md), you may need to do this for a large number of projects.
 
 To toggle a specific feature, you can [start a Rails console session](../../administration/operations/rails_console.md#starting-a-rails-console-session)
 and run the following function:
@@ -113,18 +109,17 @@ Commands that change data can cause damage if not run correctly or under the rig
 ```ruby
 projects = Group.find_by_name('_group_name').projects
 projects.each do |p|
-  ## replace <feature-name> with the appropriate feature name in all instances
-  state = p.<feature-name>
+ ## replace <feature-name> with the appropriate feature name in all instances
+ state = p.<feature-name>
 
-  if state != 0
+ if state != 0
     puts "#{p.name} has <feature-name> already enabled. Skipping..."
-  else
+ else
     puts "#{p.name} didn't have <feature-name> enabled. Enabling..."
     p.project_feature.update!(<feature-name>: ProjectFeature::PRIVATE)
-  end
+ end
 end
 ```
 
 To find features that can be toggled, run `pp p.project_feature`.
-Available permission levels are listed in
-[concerns/featurable.rb](https://gitlab.com/gitlab-org/gitlab/blob/master/app/models/concerns/featurable.rb).
+Available permission levels are listed in [concerns/featurable.rb](https://gitlab.com/gitlab-org/gitlab/blob/master/app/models/concerns/featurable.rb).

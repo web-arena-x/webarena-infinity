@@ -5,12 +5,9 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: Internal API
 ---
 
-The internal API is used by different GitLab components, it cannot be
-used by other consumers. This documentation is intended for people
-working on the GitLab codebase.
+The internal API is used by different GitLab components, it cannot be used by other consumers. This documentation is intended for people working on the GitLab codebase.
 
-This documentation does not yet include the internal API used by
-GitLab Pages.
+This documentation does not yet include the internal API used by GitLab Pages.
 
 For information on the GitLab Subscriptions internal API, see [the dedicated page](gitlab_subscriptions.md).
 
@@ -19,22 +16,13 @@ For information on the GitLab Subscriptions internal API, see [the dedicated pag
 API endpoints should be externally accessible by default, with proper authentication and authorization.
 Before adding a new internal endpoint, consider if the API would benefit the wider GitLab community and can be made externally accessible.
 
-One reason we might favor internal API endpoints sometimes is when using such an endpoint requires
-internal data that external actors cannot have. For example, in the internal Pages API we might use
-a secret token that identifies a request as internal or sign a request with a public key that is
-not available to a wider community.
+One reason we might favor internal API endpoints sometimes is when using such an endpoint requires internal data that external actors cannot have. For example, in the internal Pages API we might use a secret token that identifies a request as internal or sign a request with a public key that is not available to a wider community.
 
-Another reason to separate something into an internal API is when request to such API endpoint
-should never go through an edge (public) load balancer. This way we can configure different rate
-limiting rules and policies around how the endpoint is being accessed, because we know that only
-internal requests can be made to that endpoint going through an internal load balancer.
+Another reason to separate something into an internal API is when request to such API endpoint should never go through an edge (public) load balancer. This way we can configure different rate limiting rules and policies around how the endpoint is being accessed, because we know that only internal requests can be made to that endpoint going through an internal load balancer.
 
 ## Authentication
 
-These methods are all authenticated using a shared secret. This secret
-is stored in a file at the path configured in `config/gitlab.yml` by
-default this is in the root of the rails app named
-`.gitlab_shell_secret`
+These methods are all authenticated using a shared secret. This secret is stored in a file at the path configured in `config/gitlab.yml` by default this is in the root of the rails app named `.gitlab_shell_secret`
 
 To authenticate using that token, clients:
 
@@ -44,14 +32,10 @@ To authenticate using that token, clients:
 
 ## Git Authentication
 
-Called by [Gitaly](https://gitlab.com/gitlab-org/gitaly) and
-[GitLab Shell](https://gitlab.com/gitlab-org/gitlab-shell) to check access to a
-repository.
+Called by [Gitaly](https://gitlab.com/gitlab-org/gitaly) and [GitLab Shell](https://gitlab.com/gitlab-org/gitlab-shell) to check access to a repository.
 
-- When called from GitLab Shell: No changes are passed, and the internal
-  API replies with the information needed to pass the request on to Gitaly.
-- When called from Gitaly in a `pre-receive` hook: The changes are passed
-  and validated to determine if the push is allowed.
+- When called from GitLab Shell: No changes are passed, and the internal API replies with the information needed to pass the request on to Gitaly.
+- When called from Gitaly in a `pre-receive` hook: The changes are passed and validated to determine if the push is allowed.
 
 Calls are limited to 50 seconds each.
 
@@ -63,13 +47,13 @@ POST /internal/allowed
 
 | Attribute | Type   | Required | Description |
 |:----------|:-------|:---------|:------------|
-| `key_id`  | string | no       | ID of the SSH-key used to connect to GitLab Shell |
+| `key_id` | string | no       | ID of the SSH-key used to connect to GitLab Shell |
 | `username` | string | no      | Username from the certificate used to connect to GitLab Shell |
-| `project`  | string | no (if `gl_repository` is passed) | Path to the project |
-| `gl_repository`  | string | no (if `project` is passed) | Repository identifier, such as `project-7` |
+| `project` | string | no (if `gl_repository` is passed) | Path to the project |
+| `gl_repository` | string | no (if `project` is passed) | Repository identifier, such as `project-7` |
 | `protocol` | string | yes     | SSH when called from GitLab Shell, HTTP or SSH when called from Gitaly |
 | `action`   | string | yes     | Git command being run (`git-upload-pack`, `git-receive-pack`, `git-upload-archive`) |
-| `changes`  | string | yes     | `<oldrev> <newrev> <refname>` when called from Gitaly, the magic string `_any` when called from GitLab Shell |
+| `changes` | string | yes     | `<oldrev> <newrev> <refname>` when called from Gitaly, the magic string `_any` when called from GitLab Shell |
 | `check_ip` | string | no     | IP address from which call to GitLab Shell was made |
 
 Example request:
@@ -84,13 +68,13 @@ Example response:
 
 ```json
 {
-  "status": true,
-  "gl_repository": "project-3",
-  "gl_project_path": "gnuwget/wget2",
-  "gl_id": "user-1",
-  "gl_username": "root",
-  "git_config_options": [],
-  "gitaly": {
+ "status": true,
+ "gl_repository": "project-3",
+ "gl_project_path": "gnuwget/wget2",
+ "gl_id": "user-1",
+ "gl_username": "root",
+ "git_config_options": [],
+ "gitaly": {
     "repository": {
       "storage_name": "default",
       "relative_path": "@hashed/4e/07/4e07408562bedb8b60ce05c1decfe3ad16b72230967de01f640b7e4729b49fce.git",
@@ -101,8 +85,8 @@ Example response:
     },
     "address": "unix:/Users/bvl/repos/gitlab/gitaly.socket",
     "token": null
-  },
-  "gl_console_messages": []
+ },
+ "gl_console_messages": []
 }
 ```
 
@@ -113,12 +97,11 @@ Example response:
 
 ## LFS Authentication
 
-This is the endpoint that gets called from GitLab Shell to provide
-information for LFS clients when the repository is accessed over SSH.
+This is the endpoint that gets called from GitLab Shell to provide information for LFS clients when the repository is accessed over SSH.
 
 | Attribute | Type   | Required | Description |
 |:----------|:-------|:---------|:------------|
-| `key_id`  | string | no       | ID of the SSH-key used to connect to GitLab Shell |
+| `key_id` | string | no       | ID of the SSH-key used to connect to GitLab Shell |
 | `username`| string | no       | Username from the certificate used to connect to GitLab Shell |
 | `project` | string | no       | Path to the project |
 
@@ -131,10 +114,10 @@ curl --request POST --header "Gitlab-Shell-Api-Request: <JWT token>" \
 
 ```json
 {
-  "username": "root",
-  "lfs_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImFjdG9yIjoicm9vdCJ9LCJqdGkiOiIyYWJhZDcxZC0xNDFlLTQ2NGUtOTZlMi1mODllYWRiMGVmZTYiLCJpYXQiOjE1NzAxMTc2NzYsIm5iZiI6MTU3MDExNzY3MSwiZXhwIjoxNTcwMTE5NDc2fQ.g7atlBw1QMY7QEBVPE0LZ8ZlKtaRzaMRmNn41r2YITM",
-  "repository_http_path": "http://localhost:3001/gnuwget/wget2.git",
-  "expires_in": 1800
+ "username": "root",
+ "lfs_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImFjdG9yIjoicm9vdCJ9LCJqdGkiOiIyYWJhZDcxZC0xNDFlLTQ2NGUtOTZlMi1mODllYWRiMGVmZTYiLCJpYXQiOjE1NzAxMTc2NzYsIm5iZiI6MTU3MDExNzY3MSwiZXhwIjoxNTcwMTE5NDc2fQ.g7atlBw1QMY7QEBVPE0LZ8ZlKtaRzaMRmNn41r2YITM",
+ "repository_http_path": "http://localhost:3001/gnuwget/wget2.git",
+ "expires_in": 1800
 }
 ```
 
@@ -144,9 +127,7 @@ curl --request POST --header "Gitlab-Shell-Api-Request: <JWT token>" \
 
 ## Authorized Keys Check
 
-This endpoint is called by the GitLab Shell authorized keys
-check. Which is called by OpenSSH or GitLab SSHD for
-[fast SSH key lookup](../../administration/operations/fast_ssh_key_lookup.md).
+This endpoint is called by the GitLab Shell authorized keys check. Which is called by OpenSSH or GitLab SSHD for [fast SSH key lookup](../../administration/operations/fast_ssh_key_lookup.md).
 
 | Attribute | Type   | Required | Description |
 |:----------|:-------|:---------|:------------|
@@ -166,10 +147,10 @@ Example response:
 
 ```json
 {
-  "id": 11,
-  "title": "admin@example.com",
-  "key": "ssh-rsa ...",
-  "created_at": "2019-06-27T15:29:02.219Z"
+ "id": 11,
+ "title": "admin@example.com",
+ "key": "ssh-rsa ...",
+ "created_at": "2019-06-27T15:29:02.219Z"
 }
 ```
 
@@ -179,8 +160,7 @@ Example response:
 
 ## Authorized Certs
 
-This endpoint is called by the GitLab Shell to get the namespace that has a particular CA SSH certificate
-configured. It also accepts `user_identifier` to return a GitLab user for specified identifier.
+This endpoint is called by the GitLab Shell to get the namespace that has a particular CA SSH certificate configured. It also accepts `user_identifier` to return a GitLab user for specified identifier.
 
 | Attribute             | Type   | Required | Description |
 |:----------------------|:-------|:---------|:------------|
@@ -201,9 +181,9 @@ Example response:
 
 ```json
 {
-  "success": true,
-  "namespace": "gitlab-org",
-  "username": "root"
+ "success": true,
+ "namespace": "gitlab-org",
+ "username": "root"
 }
 ```
 
@@ -213,8 +193,7 @@ Example response:
 
 ## Get user for user ID or key
 
-This endpoint is used when a user performs `ssh git@gitlab.com`. It
-discovers the user associated with an SSH key.
+This endpoint is used when a user performs `ssh git@gitlab.com`. It discovers the user associated with an SSH key.
 
 | Attribute | Type   | Required | Description |
 |:----------|:-------|:---------|:------------|
@@ -235,9 +214,9 @@ Example response:
 
 ```json
 {
-  "id": 7,
-  "name": "Dede Eichmann",
-  "username": "rubi"
+ "id": 7,
+ "name": "Dede Eichmann",
+ "username": "rubi"
 }
 ```
 
@@ -247,8 +226,7 @@ Example response:
 
 ## Instance information
 
-This gets some generic information about the instance. It's used
-by Geo nodes to get information about each other.
+This gets some generic information about the instance. It's used by Geo nodes to get information about each other.
 
 ```plaintext
 GET /internal/check
@@ -264,10 +242,10 @@ Example response:
 
 ```json
 {
-  "api_version": "v4",
-  "gitlab_version": "12.3.0-pre",
-  "gitlab_rev": "d69c988e6a6",
-  "redis": true
+ "api_version": "v4",
+ "gitlab_version": "12.3.0-pre",
+ "gitlab_rev": "d69c988e6a6",
+ "redis": true
 }
 ```
 
@@ -279,12 +257,11 @@ Example response:
 
 ## Get new 2FA recovery codes using an SSH key
 
-This is called from GitLab Shell and allows users to get new 2FA
-recovery codes based on their SSH key.
+This is called from GitLab Shell and allows users to get new 2FA recovery codes based on their SSH key.
 
 | Attribute | Type   | Required | Description |
 |:----------|:-------|:---------|:------------|
-| `key_id`  | integer | no | The ID of the SSH key used as found in the authorized-keys file or through the `/authorized_keys` check |
+| `key_id` | integer | no | The ID of the SSH key used as found in the authorized-keys file or through the `/authorized_keys` check |
 | `user_id` | integer | no | Deprecated. User ID for which to generate new recovery codes |
 
 ```plaintext
@@ -302,8 +279,8 @@ Example response:
 
 ```json
 {
-  "success": true,
-  "recovery_codes": [
+ "success": true,
+ "recovery_codes": [
     "d93ee7037944afd5",
     "19d7b84862de93dd",
     "1e8c52169195bf71",
@@ -314,7 +291,7 @@ Example response:
     "dfb4748afc4f12a7",
     "0e5f53d1399d7979",
     "af04d5622153b020"
-  ]
+ ]
 }
 ```
 
@@ -324,15 +301,14 @@ Example response:
 
 ## Get new personal access-token
 
-Called from GitLab Shell and allows users to generate a new
-personal access token.
+Called from GitLab Shell and allows users to generate a new personal access token.
 
 | Attribute | Type   | Required | Description |
 |:----------|:-------|:---------|:------------|
 | `name` | string | yes | The name of the new token |
 | `scopes` | string array | yes | The authorization scopes for the new token, these must be valid token scopes |
 | `expires_at` | string | no | Expiration date of the access token in ISO format (`YYYY-MM-DD`). |
-| `key_id`  | integer | no | The ID of the SSH key used as found in the authorized-keys file or through the `/authorized_keys` check |
+| `key_id` | integer | no | The ID of the SSH key used as found in the authorized-keys file or through the `/authorized_keys` check |
 | `user_id` | integer | no | User ID for which to generate the new token |
 
 ```plaintext
@@ -351,10 +327,10 @@ Example response:
 
 ```json
 {
-  "success": true,
-  "token": "Hf_79B288hRv_3-TSD1R",
-  "scopes": ["read_user","read_repository"],
-  "expires_at": "2020-07-24"
+ "success": true,
+ "token": "Hf_79B288hRv_3-TSD1R",
+ "scopes": ["read_user","read_repository"],
+ "expires_at": "2020-07-24"
 }
 ```
 
@@ -369,7 +345,7 @@ This endpoint is called by the error tracking Go REST API application to authent
 | Attribute    | Type    | Required | Description                                                        |
 |:-------------|:--------|:---------|:-------------------------------------------------------------------|
 | `project_id` | integer | yes      | The ID of the project which has the associated key.                |
-| `public_key` | string  | yes      | The [public key](../../api/error_tracking.md#create-a-client-key) generated by the integrated Error Tracking feature. |
+| `public_key` | string | yes      | The [public key](../../api/error_tracking.md#create-a-client-key) generated by the integrated Error Tracking feature. |
 
 ```plaintext
 POST /internal/error_tracking/allowed
@@ -395,8 +371,7 @@ Example response:
 
 ## Incrementing counter on pre-receive
 
-This is called from the Gitaly hooks increasing the reference counter
-for a push that might be accepted.
+This is called from the Gitaly hooks increasing the reference counter for a push that might be accepted.
 
 | Attribute | Type   | Required | Description |
 |:----------|:-------|:---------|:------------|
@@ -417,16 +392,13 @@ Example response:
 
 ```json
 {
-  "reference_counter_increased": true
+ "reference_counter_increased": true
 }
 ```
 
 ## PostReceive
 
-Called from Gitaly after a receiving a push. This triggers the
-`PostReceive`-worker in Sidekiq, processes the passed push options and
-builds the response including messages that need to be displayed to
-the user.
+Called from Gitaly after a receiving a push. This triggers the `PostReceive`-worker in Sidekiq, processes the passed push options and builds the response including messages that need to be displayed to the user.
 
 | Attribute | Type   | Required | Description |
 |:----------|:-------|:---------|:------------|
@@ -452,13 +424,13 @@ Example response:
 
 ```json
 {
-  "messages": [
+ "messages": [
     {
       "message": "Hello from post-receive",
       "type": "alert"
     }
-  ],
-  "reference_counter_decreased": true
+ ],
+ "reference_counter_decreased": true
 }
 ```
 
@@ -473,16 +445,11 @@ Example response:
 The following endpoints are used by the GitLab agent server for Kubernetes (`kas`)
 for various purposes.
 
-These endpoints are all authenticated using JWT. The JWT secret is stored in a file
-specified in `config/gitlab.yml`. By default, the location is in the root of the
-GitLab Rails app in a file called `.gitlab_kas_secret`.
+These endpoints are all authenticated using JWT. The JWT secret is stored in a file specified in `config/gitlab.yml`. By default, the location is in the root of the GitLab Rails app in a file called `.gitlab_kas_secret`.
 
 ### GitLab agent for Kubernetes information
 
-Called from the GitLab agent server for Kubernetes (`kas`) to retrieve agent
-information for the given agent token. This returns the Gitaly connection
-information for the agent's project in order for `kas` to fetch and update
-the agent's configuration.
+Called from the GitLab agent server for Kubernetes (`kas`) to retrieve agent information for the given agent token. This returns the Gitaly connection information for the agent's project in order for `kas` to fetch and update the agent's configuration.
 
 ```plaintext
 GET /internal/kubernetes/agent_info
@@ -497,14 +464,9 @@ curl --request GET --header "Gitlab-Kas-Api-Request: <JWT token>" \
 
 ### GitLab agent for Kubernetes project information
 
-Called from the GitLab agent server for Kubernetes (`kas`) to retrieve project
-information for the given agent token. This returns the Gitaly
-connection for the requested project. GitLab `kas` uses this to configure
-the agent to fetch Kubernetes resources from the project repository to
-sync.
+Called from the GitLab agent server for Kubernetes (`kas`) to retrieve project information for the given agent token. This returns the Gitaly connection for the requested project. GitLab `kas` uses this to configure the agent to fetch Kubernetes resources from the project repository to sync.
 
-Only public projects are supported. For private projects, the ability for the
-agent to be authorized is [not yet implemented](https://gitlab.com/gitlab-org/gitlab/-/issues/220912).
+Only public projects are supported. For private projects, the ability for the agent to be authorized is [not yet implemented](https://gitlab.com/gitlab-org/gitlab/-/issues/220912).
 
 | Attribute | Type   | Required | Description |
 |:----------|:-------|:---------|:------------|
@@ -523,8 +485,7 @@ curl --request GET --header "Gitlab-Kas-Api-Request: <JWT token>" \
 
 ### GitLab agent for Kubernetes usage metrics
 
-Called from the GitLab agent server for Kubernetes (`kas`) to increase the usage
-metric counters.
+Called from the GitLab agent server for Kubernetes (`kas`) to increase the usage metric counters.
 
 | Attribute                                                                 | Type          | Required | Description                                                                                                                                                     |
 |:--------------------------------------------------------------------------|:--------------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -537,10 +498,10 @@ metric counters.
 | `unique_counters`                                                         | hash          | no       | Array of unique numbers                                                                                                                                         |
 | `unique_counters["k8s_api_proxy_requests_unique_users_via_ci_access"]`    | integer array | no       | The set of unique user ids that have interacted a CI Tunnel via `ci_access` to track the `k8s_api_proxy_requests_unique_users_via_ci_access` metric event       |
 | `unique_counters["k8s_api_proxy_requests_unique_agents_via_ci_access"]`   | integer array | no       | The set of unique agent ids that have interacted a CI Tunnel via `ci_access` to track the `k8s_api_proxy_requests_unique_agents_via_ci_access` metric event     |
-| `unique_counters["k8s_api_proxy_requests_unique_users_via_user_access"]`  | integer array | no       | The set of unique user ids that have interacted a CI Tunnel via `user_access` to track the `k8s_api_proxy_requests_unique_users_via_user_access` metric event   |
+| `unique_counters["k8s_api_proxy_requests_unique_users_via_user_access"]` | integer array | no       | The set of unique user ids that have interacted a CI Tunnel via `user_access` to track the `k8s_api_proxy_requests_unique_users_via_user_access` metric event   |
 | `unique_counters["k8s_api_proxy_requests_unique_agents_via_user_access"]` | integer array | no       | The set of unique agent ids that have interacted a CI Tunnel via `user_access` to track the `k8s_api_proxy_requests_unique_agents_via_user_access` metric event |
 | `unique_counters["k8s_api_proxy_requests_unique_users_via_pat_access"]`   | integer array | no       | The set of unique user ids that have used the KAS Kubernetes API proxy with PAT to track the `k8s_api_proxy_requests_unique_users_via_pat_access` metric event   |
-| `unique_counters["k8s_api_proxy_requests_unique_agents_via_pat_access"]`  | integer array | no       | The set of unique agent ids that have used the KAS Kubernetes API proxy with PAT to track the `k8s_api_proxy_requests_unique_agents_via_pat_access` metric event |
+| `unique_counters["k8s_api_proxy_requests_unique_agents_via_pat_access"]` | integer array | no       | The set of unique agent ids that have used the KAS Kubernetes API proxy with PAT to track the `k8s_api_proxy_requests_unique_agents_via_pat_access` metric event |
 | `unique_counters["flux_git_push_notified_unique_projects"]`               | integer array | no       | The set of unique projects ids that have been notified to reconcile their Flux workloads to track the `flux_git_push_notified_unique_projects` metric event     |
 
 ```plaintext
@@ -567,9 +528,9 @@ Called from the GitLab agent server for Kubernetes (`kas`) to track events.
 | `events["k8s_api_proxy_requests_unique_users_via_user_access"]`               | hash array    | no       | Array of events for `k8s_api_proxy_requests_unique_users_via_user_access` |
 | `events["k8s_api_proxy_requests_unique_users_via_user_access"]["user_id"]`    | integer       | no       | The user ID for the event                                                 |
 | `events["k8s_api_proxy_requests_unique_users_via_user_access"]["project_id"]` | integer       | no       | The project ID for the event                                              |
-| `events["k8s_api_proxy_requests_unique_users_via_pat_access"]`                | hash array    | no       | Array of events for `k8s_api_proxy_requests_unique_users_via_pat_access`  |
+| `events["k8s_api_proxy_requests_unique_users_via_pat_access"]`                | hash array    | no       | Array of events for `k8s_api_proxy_requests_unique_users_via_pat_access` |
 | `events["k8s_api_proxy_requests_unique_users_via_pat_access"]["user_id"]`     | integer       | no       | The user ID for the event                                                 |
-| `events["k8s_api_proxy_requests_unique_users_via_pat_access"]["project_id"]`  | integer       | no       | The project ID for the event                                              |
+| `events["k8s_api_proxy_requests_unique_users_via_pat_access"]["project_id"]` | integer       | no       | The project ID for the event                                              |
 
 ```plaintext
 POST /internal/kubernetes/agent_events
@@ -579,10 +540,10 @@ Example Request:
 
 ```shell
 curl --request POST \
-  --url "http://localhost:3000/api/v4/internal/kubernetes/agent_events" \
-  --header "Gitlab-Kas-Api-Request: <JWT token>" \
-  --header "Content-Type: application/json" \
-  --data '{
+ --url "http://localhost:3000/api/v4/internal/kubernetes/agent_events" \
+ --header "Gitlab-Kas-Api-Request: <JWT token>" \
+ --header "Content-Type: application/json" \
+ --data '{
     "events": {
       "k8s_api_proxy_requests_unique_users_via_ci_access": [
         {
@@ -591,14 +552,12 @@ curl --request POST \
         }
       ]
     }
-  }'
+ }'
 ```
 
 ### Create Starboard vulnerability
 
-Called from the GitLab agent server for Kubernetes (`kas`) to create a security vulnerability
-from a Starboard vulnerability report. This request is idempotent. Multiple requests with the same data
-create a single vulnerability. The response contains the UUID of the created vulnerability finding.
+Called from the GitLab agent server for Kubernetes (`kas`) to create a security vulnerability from a Starboard vulnerability report. This request is idempotent. Multiple requests with the same data create a single vulnerability. The response contains the UUID of the created vulnerability finding.
 
 | Attribute       | Type   | Required | Description |
 |:----------------|:-------|:---------|:------------|
@@ -616,7 +575,7 @@ curl --request PUT --header "Gitlab-Kas-Api-Request: <JWT token>" \
      --header "Authorization: Bearer <agent token>" --header "Content-Type: application/json" \
      --url "http://localhost:3000/api/v4/internal/kubernetes/modules/starboard_vulnerability" \
      --data '{
-  "vulnerability": {
+ "vulnerability": {
     "name": "CVE-123-4567 in libc",
     "severity": "high",
     "confidence": "unknown",
@@ -635,12 +594,12 @@ curl --request PUT --header "Gitlab-Kas-Api-Request: <JWT token>" \
         "value": "CVE-123-4567"
       }
     ]
-  },
-  "scanner": {
+ },
+ "scanner": {
     "id": "starboard_trivy",
     "name": "Trivy (via Starboard Operator)",
     "vendor": "GitLab"
-  }
+ }
 }'
 ```
 
@@ -648,15 +607,14 @@ Example response:
 
 ```json
 {
-  "uuid": "4773b2ee-5ba5-5e9f-b48c-5f7a17f0faac"
+ "uuid": "4773b2ee-5ba5-5e9f-b48c-5f7a17f0faac"
 }
 ```
 
 ### Resolve Starboard vulnerabilities
 
 Called from the GitLab agent server for Kubernetes (`kas`) to resolve Starboard security vulnerabilities.
-Accepts a list of finding UUIDs and marks all Starboard vulnerabilities not identified by
-the list as resolved.
+Accepts a list of finding UUIDs and marks all Starboard vulnerabilities not identified by the list as resolved.
 
 | Attribute | Type         | Required | Description                                                                                                                       |
 |:----------|:-------------|:---------|:----------------------------------------------------------------------------------------------------------------------------------|
@@ -677,9 +635,7 @@ curl --request POST --header "Gitlab-Kas-Api-Request: <JWT token>" \
 
 ### Scan Execution Policies
 
-Called from GitLab agent server for Kubernetes (`kas`) to retrieve `scan_execution_policies`
-configured for the project belonging to the agent token. GitLab `kas` uses
-this to configure the agent to scan images in the Kubernetes cluster based on the policy.
+Called from GitLab agent server for Kubernetes (`kas`) to retrieve `scan_execution_policies` configured for the project belonging to the agent token. GitLab `kas` uses this to configure the agent to scan images in the Kubernetes cluster based on the policy.
 
 ```plaintext
 GET /internal/kubernetes/modules/starboard_vulnerability/scan_execution_policies
@@ -696,23 +652,21 @@ Example response:
 
 ```json
 {
-  "policies": [
+ "policies": [
     {
       "name": "Policy",
       "description": "Policy description",
       "enabled": true,
-      "yaml": "---\nname: Policy\ndescription: 'Policy description'\nenabled: true\nactions:\n- scan: container_scanning\nrules:\n- type: pipeline\n  branches:\n  - main\n",
+      "yaml": "---\nname: Policy\ndescription: 'Policy description'\nenabled: true\nactions:\n- scan: container_scanning\nrules:\n- type: pipeline\n branches:\n - main\n",
       "updated_at": "2022-06-02T05:36:26+00:00"
     }
-  ]
+ ]
 }
 ```
 
 ### Policy Configuration
 
-Called from GitLab agent server for Kubernetes (`kas`) to retrieve `policies_configuration`
-configured for the project belonging to the agent token. GitLab `kas` uses
-this to configure the agent to scan images in the Kubernetes cluster based on the configuration.
+Called from GitLab agent server for Kubernetes (`kas`) to retrieve `policies_configuration` configured for the project belonging to the agent token. GitLab `kas` uses this to configure the agent to scan images in the Kubernetes cluster based on the configuration.
 
 ```plaintext
 GET /internal/kubernetes/modules/starboard_vulnerability/policies_configuration
@@ -729,7 +683,7 @@ Example response:
 
 ```json
 {
-  "configurations": [
+ "configurations": [
     {
       "cadence": "30 2 * * *",
       "namespaces": [
@@ -738,7 +692,7 @@ Example response:
       ],
       "updated_at": "2022-06-02T05:36:26+00:00"
     }
-  ]
+ ]
 }
 ```
 
@@ -759,8 +713,8 @@ Example request:
 
 ```shell
 curl --request GET \
-  --url "https://gitlab.com/v4/namespaces/storage/limit_exclusions" \
-  --header 'PRIVATE-TOKEN: <admin access token>'
+ --url "https://gitlab.com/v4/namespaces/storage/limit_exclusions" \
+ --header 'PRIVATE-TOKEN: <admin access token>'
 ```
 
 Example response:
@@ -792,28 +746,28 @@ POST /namespaces/:id/storage/limit_exclusion
 
 | Attribute   | Type    | Required | Description |
 |:------------|:--------|:---------|:------------|
-| `reason`    | string  | yes      | The reason to exclude the namespace. |
+| `reason`    | string | yes      | The reason to exclude the namespace. |
 
 Example request:
 
 ```shell
 curl --request POST \
-  --url "https://gitlab.com/v4/namespaces/123/storage/limit_exclusion" \
-  --header 'Content-Type: application/json' \
-  --header 'PRIVATE-TOKEN: <admin access token>' \
-  --data '{
+ --url "https://gitlab.com/v4/namespaces/123/storage/limit_exclusion" \
+ --header 'Content-Type: application/json' \
+ --header 'PRIVATE-TOKEN: <admin access token>' \
+ --data '{
     "reason": "a reason to exclude the Namespace"
-  }'
+ }'
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "namespace_id": 1234,
-  "namespace_name": "A Namespace Name",
-  "reason": "a reason to exclude the Namespace"
+ "id": 1,
+ "namespace_id": 1234,
+ "namespace_name": "A Namespace Name",
+ "reason": "a reason to exclude the Namespace"
 }
 ```
 
@@ -829,8 +783,8 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --url "https://gitlab.com/v4/namespaces/123/storage/limit_exclusion" \
-  --header 'PRIVATE-TOKEN: <admin access token>'
+ --url "https://gitlab.com/v4/namespaces/123/storage/limit_exclusion" \
+ --header 'PRIVATE-TOKEN: <admin access token>'
 ```
 
 Example response:
@@ -852,8 +806,7 @@ Example response:
 
 {{< /details >}}
 
-The group SCIM API partially implements the [RFC7644 protocol](https://www.rfc-editor.org/rfc/rfc7644). This API provides the `/groups/:group_path/Users` and `/groups/:group_path/Users/:id` endpoints. The base URL is `<http|https>://<GitLab host>/api/scim/v2`. Because this API is for
-system use for SCIM provider integration, it is subject to change without notice.
+The group SCIM API partially implements the [RFC7644 protocol](https://www.rfc-editor.org/rfc/rfc7644). This API provides the `/groups/:group_path/Users` and `/groups/:group_path/Users/:id` endpoints. The base URL is `<http|https>://<GitLab host>/api/scim/v2`. Because this API is for system use for SCIM provider integration, it is subject to change without notice.
 
 To use this API, enable [Group SSO](../../user/group/saml_sso/_index.md) for the group.
 This API is only in use where [SCIM for Group SSO](../../user/group/saml_sso/scim_setup.md) is enabled. It's a prerequisite to the creation of SCIM identities.
@@ -891,7 +844,7 @@ Parameters:
 
 | Attribute | Type    | Required | Description                                                                                                                             |
 |:----------|:--------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------|
-| `filter`   | string  | no     | A [filter](#available-filters) expression. |
+| `filter`   | string | no     | A [filter](#available-filters) expression. |
 | `group_path` | string | yes    | Full path to the group. |
 | `startIndex` | integer | no    | The 1-based index indicating where to start returning results from. A value of less than one is interpreted as 1. |
 | `count` | integer | no    | Desired maximum number of query results. |
@@ -914,13 +867,13 @@ Example response:
 
 ```json
 {
-  "schemas": [
+ "schemas": [
     "urn:ietf:params:scim:api:messages:2.0:ListResponse"
-  ],
-  "totalResults": 1,
-  "itemsPerPage": 20,
-  "startIndex": 1,
-  "Resources": [
+ ],
+ "totalResults": 1,
+ "itemsPerPage": 20,
+ "startIndex": 1,
+ "Resources": [
     {
       "schemas": [
         "urn:ietf:params:scim:schemas:core:2.0:User"
@@ -938,7 +891,7 @@ Example response:
         }
       ]
     }
-  ]
+ ]
 }
 ```
 
@@ -952,7 +905,7 @@ Parameters:
 
 | Attribute | Type    | Required | Description                                                                                                                             |
 |:----------|:--------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------|
-| `id`   | string  | yes     | External UID of the user. |
+| `id`   | string | yes     | External UID of the user. |
 | `group_path` | string | yes    | Full path to the group. |
 
 Example request:
@@ -966,21 +919,21 @@ Example response:
 
 ```json
 {
-  "schemas": [
+ "schemas": [
     "urn:ietf:params:scim:schemas:core:2.0:User"
-  ],
-  "id": "0b1d561c-21ff-4092-beab-8154b17f82f2",
-  "active": true,
-  "name.formatted": "Test User",
-  "userName": "username",
-  "meta": { "resourceType":"User" },
-  "emails": [
+ ],
+ "id": "0b1d561c-21ff-4092-beab-8154b17f82f2",
+ "active": true,
+ "name.formatted": "Test User",
+ "userName": "username",
+ "meta": { "resourceType":"User" },
+ "emails": [
     {
       "type": "work",
       "value": "name@example.com",
       "primary": true
     }
-  ]
+ ]
 }
 ```
 
@@ -998,7 +951,7 @@ Parameters:
 | `userName`   | string      | yes | Username of the user. |
 | `emails`     | JSON string | yes | Work email. |
 | `name`       | JSON string | yes | Name of the user. |
-| `meta`       | string      | no  | Resource type (`User`). |
+| `meta`       | string      | no | Resource type (`User`). |
 
 Example request:
 
@@ -1012,21 +965,21 @@ Example response:
 
 ```json
 {
-  "schemas": [
+ "schemas": [
     "urn:ietf:params:scim:schemas:core:2.0:User"
-  ],
-  "id": "0b1d561c-21ff-4092-beab-8154b17f82f2",
-  "active": true,
-  "name.formatted": "Test User",
-  "userName": "username",
-  "meta": { "resourceType":"User" },
-  "emails": [
+ ],
+ "id": "0b1d561c-21ff-4092-beab-8154b17f82f2",
+ "active": true,
+ "name.formatted": "Test User",
+ "userName": "username",
+ "meta": { "resourceType":"User" },
+ "emails": [
     {
       "type": "work",
       "value": "name@example.com",
       "primary": true
     }
-  ]
+ ]
 }
 ```
 
@@ -1058,9 +1011,9 @@ Parameters:
 
 | Attribute | Type    | Required | Description                                                                                                                             |
 |:----------|:--------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------|
-| `id`   | string  | yes     | External UID of the user. |
+| `id`   | string | yes     | External UID of the user. |
 | `group_path` | string | yes    | Full path to the group. |
-| `Operations`   | JSON string  | yes     | An [operations](#available-operations) expression. |
+| `Operations`   | JSON string | yes     | An [operations](#available-operations) expression. |
 
 Example request to update the user's `id`:
 
@@ -1163,7 +1116,7 @@ Parameters:
 
 | Attribute | Type    | Required | Description                                                                                                                             |
 |:----------|:--------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------|
-| `filter`   | string  | no     | A [filter](#available-filters) expression. |
+| `filter`   | string | no     | A [filter](#available-filters) expression. |
 | `startIndex` | integer | no    | The 1-based index indicating where to start returning results from. A value of less than one is interpreted as 1. |
 | `count` | integer | no    | Desired maximum number of query results. |
 
@@ -1185,13 +1138,13 @@ Example response:
 
 ```json
 {
-  "schemas": [
+ "schemas": [
     "urn:ietf:params:scim:api:messages:2.0:ListResponse"
-  ],
-  "totalResults": 1,
-  "itemsPerPage": 20,
-  "startIndex": 1,
-  "Resources": [
+ ],
+ "totalResults": 1,
+ "itemsPerPage": 20,
+ "startIndex": 1,
+ "Resources": [
     {
       "schemas": [
         "urn:ietf:params:scim:schemas:core:2.0:User"
@@ -1209,7 +1162,7 @@ Example response:
         }
       ]
     }
-  ]
+ ]
 }
 ```
 
@@ -1223,7 +1176,7 @@ Parameters:
 
 | Attribute | Type    | Required | Description                                                                                                                             |
 |:----------|:--------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------|
-| `id`   | string  | yes     | External UID of the user. |
+| `id`   | string | yes     | External UID of the user. |
 
 Example request:
 
@@ -1236,21 +1189,21 @@ Example response:
 
 ```json
 {
-  "schemas": [
+ "schemas": [
     "urn:ietf:params:scim:schemas:core:2.0:User"
-  ],
-  "id": "0b1d561c-21ff-4092-beab-8154b17f82f2",
-  "active": true,
-  "name.formatted": "Test User",
-  "userName": "username",
-  "meta": { "resourceType":"User" },
-  "emails": [
+ ],
+ "id": "0b1d561c-21ff-4092-beab-8154b17f82f2",
+ "active": true,
+ "name.formatted": "Test User",
+ "userName": "username",
+ "meta": { "resourceType":"User" },
+ "emails": [
     {
       "type": "work",
       "value": "name@example.com",
       "primary": true
     }
-  ]
+ ]
 }
 ```
 
@@ -1268,7 +1221,7 @@ Parameters:
 | `userName`   | string      | yes | Username of the user. |
 | `emails`     | JSON string | yes | Work email. |
 | `name`       | JSON string | yes | Name of the user. |
-| `meta`       | string      | no  | Resource type (`User`). |
+| `meta`       | string      | no | Resource type (`User`). |
 
 Example request:
 
@@ -1282,21 +1235,21 @@ Example response:
 
 ```json
 {
-  "schemas": [
+ "schemas": [
     "urn:ietf:params:scim:schemas:core:2.0:User"
-  ],
-  "id": "0b1d561c-21ff-4092-beab-8154b17f82f2",
-  "active": true,
-  "name.formatted": "Test User",
-  "userName": "username",
-  "meta": { "resourceType":"User" },
-  "emails": [
+ ],
+ "id": "0b1d561c-21ff-4092-beab-8154b17f82f2",
+ "active": true,
+ "name.formatted": "Test User",
+ "userName": "username",
+ "meta": { "resourceType":"User" },
+ "emails": [
     {
       "type": "work",
       "value": "name@example.com",
       "primary": true
     }
-  ]
+ ]
 }
 ```
 
@@ -1319,8 +1272,8 @@ Parameters:
 
 | Attribute | Type    | Required | Description                                                                                                                             |
 |:----------|:--------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------|
-| `id`   | string  | yes     | External UID of the user. |
-| `Operations`   | JSON string  | yes     | An [operations](#available-operations) expression. |
+| `id`   | string | yes     | External UID of the user. |
+| `Operations`   | JSON string | yes     | An [operations](#available-operations) expression. |
 
 Example request:
 
@@ -1334,8 +1287,7 @@ Returns an empty response with a `204` status code if successful.
 
 #### Block a single SCIM provisioned user
 
-The user is placed in a `blocked` state and signed out. This means
-the user cannot sign in or push or pull code.
+The user is placed in a `blocked` state and signed out. This means the user cannot sign in or push or pull code.
 
 ```plaintext
 DELETE /api/scim/v2/application/Users/:id
@@ -1375,7 +1327,7 @@ Parameters:
 
 | Attribute | Type    | Required | Description                                                                                                               |
 |:----------|:--------|:---------|:--------------------------------------------------------------------------------------------------------------------------|
-| `filter`   | string  | no     | A filter expression to search groups by name. |
+| `filter`   | string | no     | A filter expression to search groups by name. |
 | `startIndex` | integer | no    | The 1-based index indicating where to start returning results from. |
 | `count` | integer | no    | Desired maximum number of query results. |
 | `excludedAttributes` | string | no | Comma-separated list of attributes to exclude from the response. |
@@ -1398,13 +1350,13 @@ Example response:
 
 ```json
 {
-  "schemas": [
+ "schemas": [
     "urn:ietf:params:scim:api:messages:2.0:ListResponse"
-  ],
-  "totalResults": 1,
-  "itemsPerPage": 20,
-  "startIndex": 1,
-  "Resources": [
+ ],
+ "totalResults": 1,
+ "itemsPerPage": 20,
+ "startIndex": 1,
+ "Resources": [
     {
       "schemas": [
         "urn:ietf:params:scim:schemas:core:2.0:Group"
@@ -1416,7 +1368,7 @@ Example response:
         "resourceType": "Group"
       }
     }
-  ]
+ ]
 }
 ```
 
@@ -1430,7 +1382,7 @@ Parameters:
 
 | Attribute | Type    | Required | Description                                                                                                               |
 |:----------|:--------|:---------|:--------------------------------------------------------------------------------------------------------------------------|
-| `id`   | string  | yes     | SCIM group ID (UUID format). |
+| `id`   | string | yes     | SCIM group ID (UUID format). |
 
 Example request:
 
@@ -1443,15 +1395,15 @@ Example response:
 
 ```json
 {
-  "schemas": [
+ "schemas": [
     "urn:ietf:params:scim:schemas:core:2.0:Group"
-  ],
-  "id": "86e7d437-1a55-4731-b3a3-2867fb4d2a94",
-  "displayName": "Developers",
-  "members": [],
-  "meta": {
+ ],
+ "id": "86e7d437-1a55-4731-b3a3-2867fb4d2a94",
+ "displayName": "Developers",
+ "members": [],
+ "meta": {
     "resourceType": "Group"
-  }
+ }
 }
 ```
 
@@ -1482,15 +1434,15 @@ Example response:
 
 ```json
 {
-  "schemas": [
+ "schemas": [
     "urn:ietf:params:scim:schemas:core:2.0:Group"
-  ],
-  "id": "86e7d437-1a55-4731-b3a3-2867fb4d2a94",
-  "displayName": "Developers",
-  "members": [],
-  "meta": {
+ ],
+ "id": "86e7d437-1a55-4731-b3a3-2867fb4d2a94",
+ "displayName": "Developers",
+ "members": [],
+ "meta": {
     "resourceType": "Group"
-  }
+ }
 }
 ```
 
@@ -1514,8 +1466,8 @@ Parameters:
 
 | Attribute | Type    | Required | Description                                                                                                               |
 |:----------|:--------|:---------|:--------------------------------------------------------------------------------------------------------------------------|
-| `id`   | string  | yes     | SCIM group ID. |
-| `Operations`   | JSON array  | yes     | Array of operations to perform. Each operation includes `op` (operation type), `path` (attribute to modify), and `value` (new value). |
+| `id`   | string | yes     | SCIM group ID. |
+| `Operations`   | JSON array | yes     | Array of operations to perform. Each operation includes `op` (operation type), `path` (attribute to modify), and `value` (new value). |
 
 Supported operations:
 
@@ -1553,9 +1505,9 @@ Parameters:
 | Attribute    | Type   | Required | Description               |
 | ------------ | ------ | -------- | ------------------------- |
 | `id`         | string | yes      | SCIM group ID. |
-| `schemas`    | array  | yes      | SCIM schemas array. Must include `["urn:ietf:params:scim:schemas:core:2.0:Group"]`. |
+| `schemas`    | array | yes      | SCIM schemas array. Must include `["urn:ietf:params:scim:schemas:core:2.0:Group"]`. |
 | `displayName` | string | yes     | Group display name. |
-| `members`    | array  | no       | Array of members, each with a `value` attribute containing the user's SCIM ID. |
+| `members`    | array | no       | Array of members, each with a `value` attribute containing the user's SCIM ID. |
 
 Example request:
 

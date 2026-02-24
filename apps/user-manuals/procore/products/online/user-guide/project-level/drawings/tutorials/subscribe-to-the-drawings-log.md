@@ -21,8 +21,8 @@ Admin users will have the option to publish new drawings or revisions, or publis
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' permissions to add people to the subscription list.
-  - 'Read Only' or above permissions to subscribe to the Drawings log.
+ - 'Admin' permissions to add people to the subscription list.
+ - 'Read Only' or above permissions to subscribe to the Drawings log.
 
 ## Steps
 
@@ -32,8 +32,8 @@ Admin users will have the option to publish new drawings or revisions, or publis
 ### Subscribe Yourself
 
 1. Navigate to your project's **Drawings**tool.
-2. Next to 'Subscribe', move the toggle  ![icon-toggle-on.png](https://support.procore.com/@api/deki/files/93011/icon-toggle-on.png?revision=1&size=bestfit&width=20&height=20) to the ON position.  
-   ![clipboard_e07bec856d4cd5e330df95491a7f1a3e7.png](https://support.procore.com/@api/deki/files/528692/clipboard_e07bec856d4cd5e330df95491a7f1a3e7.png?revision=1)  
+2. Next to 'Subscribe', move the toggle  ![icon-toggle-on.png](https://support.procore.com/@api/deki/files/93011/icon-toggle-on.png?revision=1&size=bestfit&width=20&height=20) to the ON position. 
+   ![clipboard_e07bec856d4cd5e330df95491a7f1a3e7.png](https://support.procore.com/@api/deki/files/528692/clipboard_e07bec856d4cd5e330df95491a7f1a3e7.png?revision=1) 
    ​
 
 ### Subscribe Members of your Team
@@ -41,7 +41,7 @@ Admin users will have the option to publish new drawings or revisions, or publis
 1. Navigate to your project's **Drawings**tool.
 2. Click the**Configure Settings** ****![icons-settings-gear.png](https://support.procore.com/@api/deki/files/89566/icons-settings-gear.png?revision=2&size=bestfit&width=15&height=15)**** icon.
 3. In the Drawing Log Settings page under "General Settings," click the drop-down menu under **Drawing Log Subscribers**.
-4. Add users who should be subscribed to your Drawings page.   
+4. Add users who should be subscribed to your Drawings page.  
    *﻿Note﻿:* If you add a group to the drawing log subscribers, any additions or subtractions to the group will not be reflected in this list. For example, if you add a person to an "Internal" group in the Directory, that person will not be added to the drawing log subscribers to reflect the group change.
 5. Click **Update** at the bottom of the page to save your settings.
 

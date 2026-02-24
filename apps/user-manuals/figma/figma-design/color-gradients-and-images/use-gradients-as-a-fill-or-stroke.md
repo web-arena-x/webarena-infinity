@@ -29,19 +29,19 @@ Gradients are graduated blends of two or more colors or tints of the same color.
 
 1. Select a layer on the canvas.
 2. Click the swatch in the **Fill** or **Stroke** section of the right sidebar to open the color picker.
-3. Select  **Gradient** from the fill options.
+3. Select **Gradient** from the fill options.
 4. Select a gradient type from the dropdown menu.
 5. Use the settings to configure the gradient.
 
 By default, each gradient starts with two color stops. Color stops define where a gradient transitions from one color to the next. You can click and drag a stop to change its placement on the gradient.
 
-To add additional color stops, click anywhere along the gradient color slider, or click the  plus next to **Stops** in the gradient settings.
+To add additional color stops, click anywhere along the gradient color slider, or click the plus next to **Stops** in the gradient settings.
 
-To remove a color stop, select it and press Delete on your keyboard or click the  minus next to it in the gradient settings.
+To remove a color stop, select it and press Delete on your keyboard or click the minus next to it in the gradient settings.
 
-Click  **Flip gradient** to reverse the gradient.
+Click **Flip gradient** to reverse the gradient.
 
-Click  **Rotate gradient** to change the gradient’s orientation.
+Click **Rotate gradient** to change the gradient’s orientation.
 
 ![Linear gradient configuration panel in design tool with color stops and gradient preview.](https://help.figma.com/hc/article_attachments/34209120745239)
 
@@ -60,7 +60,7 @@ To apply a variable to a gradient color stop:
 To detach a variable from a gradient color stop:
 
 1. Hover over the color stop that has the variable applied.
-2. Click  **Detach variable**.
+2. Click **Detach variable**.
 
 ![Gradient settings panel showing a linear gradient with three color stops and options to detach variables or adjust stops.](https://help.figma.com/hc/article_attachments/34209120746135)
 

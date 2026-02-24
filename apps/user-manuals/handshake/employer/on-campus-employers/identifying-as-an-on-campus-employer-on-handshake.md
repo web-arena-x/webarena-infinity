@@ -46,10 +46,10 @@ On-campus employment refers to work performed directly for your educational inst
 2. **Confirm your employer type**
 
 - Designate your account as an **On campus employer**:
-  - Click **Company Settings** from your name dropdown.
-  - On the **Details** tab, check the box labeled **On campus employer**.
-  - Select the school you are affiliated with from the **School** dropdown.
+ - Click **Company Settings** from your name dropdown.
+ - On the **Details** tab, check the box labeled **On campus employer**.
+ - Select the school you are affiliated with from the **School** dropdown.
     - **Note**: An associated school is required for on campus employer.
-  - Click the black **Update employer** button in the lower-right corner.
+ - Click the black **Update employer** button in the lower-right corner.
 
 ![On-campus employer.png](https://support.joinhandshake.com/hc/article_attachments/38584442952343)

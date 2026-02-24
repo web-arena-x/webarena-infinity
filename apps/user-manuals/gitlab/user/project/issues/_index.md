@@ -25,21 +25,18 @@ Issues:
 For more information about issues, see the GitLab blog post:
 [Always start a discussion with an issue](https://about.gitlab.com/blog/2016/03/03/start-with-an-issue/).
 
-Issues are always associated with a specific project. If you have multiple
-projects in a group, you can view all of the projects' issues at once.
+Issues are always associated with a specific project. If you have multiple projects in a group, you can view all of the projects' issues at once.
 
 <div class="video-fallback">
-  See the video: <a href="https://www.youtube.com/watch?v=Mt1EzlKToig">Issues - Setting up your Organization with GitLab</a>.
+ See the video: <a href="https://www.youtube.com/watch?v=Mt1EzlKToig">Issues - Setting up your Organization with GitLab</a>.
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/Mt1EzlKToig" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/Mt1EzlKToig" frameborder="0" allowfullscreen> </iframe>
 </figure>
 <!-- Video published on 2023-10-30 -->
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
-To learn how the GitLab Strategic Marketing department uses GitLab issues with [labels](../labels.md) and
-[issue boards](../issue_board.md), see the video on
-[Managing Commitments with Issues](https://www.youtube.com/watch?v=cuIHNintg1o&t=3).
+To learn how the GitLab Strategic Marketing department uses GitLab issues with [labels](../labels.md) and [issue boards](../issue_board.md), see the video on [Managing Commitments with Issues](https://www.youtube.com/watch?v=cuIHNintg1o&t=3).
 <!-- Video published on 2020-04-10 -->
 
 ## Issues as work items
@@ -57,15 +54,12 @@ To learn how the GitLab Strategic Marketing department uses GitLab issues with [
 
 {{< /history >}}
 
-We have changed how issues look by migrating them to a unified framework for work items to better
-meet the product needs of our Agile Planning offering.
+We have changed how issues look by migrating them to a unified framework for work items to better meet the product needs of our Agile Planning offering.
 
-For more information, see [epic 9290](https://gitlab.com/groups/gitlab-org/-/epics/9290) and the blog post
-[First look: The new Agile planning experience in GitLab](https://about.gitlab.com/blog/2024/06/18/first-look-the-new-agile-planning-experience-in-gitlab/)
+For more information, see [epic 9290](https://gitlab.com/groups/gitlab-org/-/epics/9290) and the blog post [First look: The new Agile planning experience in GitLab](https://about.gitlab.com/blog/2024/06/18/first-look-the-new-agile-planning-experience-in-gitlab/)
 (June 2024).
 
-If you run into any issues while trying out this change, you can use the
-[feedback issue](https://gitlab.com/gitlab-org/gitlab/-/issues/523713) to provide more details.
+If you run into any issues while trying out this change, you can use the [feedback issue](https://gitlab.com/gitlab-org/gitlab/-/issues/523713) to provide more details.
 
 ### Work item Markdown reference
 

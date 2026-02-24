@@ -14,9 +14,7 @@ title: Upgrading the Geo sites
 
 {{< alert type="warning" >}}
 
-Read these sections carefully before updating your Geo sites. Not following
-version-specific upgrade steps may result in unexpected downtime. If you have
-any specific questions, [contact Support](https://about.gitlab.com/support/#contact-support).
+Read these sections carefully before updating your Geo sites. Not following version-specific upgrade steps may result in unexpected downtime. If you have any specific questions, [contact Support](https://about.gitlab.com/support/#contact-support).
 A database major version upgrade requires [re-initializing the PostgreSQL replication](https://docs.gitlab.com/omnibus/settings/database.html#upgrading-a-geo-instance)
 to Geo secondaries. This applies to both Linux-packaged and externally-managed databases.
 This may result in a larger than expected downtime.
@@ -37,28 +35,23 @@ Upgrading Geo sites involves performing:
 {{< alert type="note" >}}
 
 These general upgrade steps require downtime in a multi-node setup.
-If you want to avoid downtime, consider using
-[zero-downtime upgrades](../../../update/zero_downtime.md#upgrade-multi-node-geo-instances).
+If you want to avoid downtime, consider using [zero-downtime upgrades](../../../update/zero_downtime.md#upgrade-multi-node-geo-instances).
 
 {{< /alert >}}
 
-To upgrade the Geo sites when a new GitLab version is released, upgrade **primary**
-and all **secondary** sites:
+To upgrade the Geo sites when a new GitLab version is released, upgrade **primary** and all **secondary** sites:
 
 1. Optional. [Pause replication on each **secondary** site](pause_resume_replication.md)
    to protect the disaster recovery (DR) capability of the **secondary** sites.
 1. SSH into each node of the **primary** site.
 1. [Upgrade GitLab on the **primary** site](../../../update/package/_index.md).
 1. Perform testing on the **primary** site, particularly if you paused replication in step 1 to protect DR.
-   For more information about post-upgrade testing, see
-   [run upgrade health checks](../../../update/plan_your_upgrade.md#run-upgrade-health-checks).
+   For more information about post-upgrade testing, see [run upgrade health checks](../../../update/plan_your_upgrade.md#run-upgrade-health-checks).
 1. Ensure that the secrets in the `/etc/gitlab/gitlab-secrets.json` file of both the primary site and the secondary site are the same. The file must be the same on all of a site's nodes.
 1. SSH into each node of **secondary** sites.
 1. [Upgrade GitLab on each **secondary** site](../../../update/package/_index.md).
 1. If you paused replication in step 1, [resume replication on each **secondary**](../_index.md#pausing-and-resuming-replication).
-   Then, restart Puma and Sidekiq on each **secondary** site. This is to ensure they
-   are initialized against the newer database schema that is now replicated from
-   the previously upgraded **primary** site.
+   Then, restart Puma and Sidekiq on each **secondary** site. This is to ensure they are initialized against the newer database schema that is now replicated from the previously upgraded **primary** site.
 
    ```shell
    sudo gitlab-ctl restart sidekiq
@@ -69,8 +62,7 @@ and all **secondary** sites:
 
 ### Check status after upgrading
 
-Now that the upgrade process is complete, you may want to check whether
-everything is working correctly:
+Now that the upgrade process is complete, you may want to check whether everything is working correctly:
 
 1. Run the Geo Rake task on an application node for the primary and secondary sites. Everything should be green:
 
@@ -79,7 +71,6 @@ everything is working correctly:
    ```
 
 1. Check the **primary** site's Geo dashboard for any errors.
-1. Test the data replication by pushing code to the **primary** site and see if it
-   is received by **secondary** sites.
+1. Test the data replication by pushing code to the **primary** site and see if it is received by **secondary** sites.
 
 If you encounter any issues, see the [Geo troubleshooting guide](troubleshooting/_index.md).

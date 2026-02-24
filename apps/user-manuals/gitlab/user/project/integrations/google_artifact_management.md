@@ -20,8 +20,7 @@ description: Connect a Google Artifact Registry to your GitLab project to view, 
 
 {{< /history >}}
 
-You can use the Google Artifact Management integration to
-configure and connect a [Google Artifact Registry](https://cloud.google.com/artifact-registry) repository to your GitLab project.
+You can use the Google Artifact Management integration to configure and connect a [Google Artifact Registry](https://cloud.google.com/artifact-registry) repository to your GitLab project.
 
 After you connect the Google Artifact Registry to your project, you can view, push, and pull Docker and [OCI](https://opencontainers.org/) images in a [Google Artifact Registry](https://cloud.google.com/artifact-registry) repository.
 
@@ -33,8 +32,8 @@ Prerequisites:
 - You must have the [permissions needed](https://cloud.google.com/iam/docs/granting-changing-revoking-access#required-permissions) to manage access to the Google Cloud project with the Artifact Registry repository.
 - A [workload identity federation](../../../integration/google_cloud_iam.md) (WLIF) pool and provider must be configured to authenticate to Google Cloud.
 - A [Google Artifact Registry repository](https://cloud.google.com/artifact-registry/docs/repositories) with the following configuration:
-  - [Docker](https://cloud.google.com/artifact-registry/docs/supported-formats) format.
-  - [Standard](https://cloud.google.com/artifact-registry/docs/repositories/create-repos) mode. Other repository formats and modes are not supported.
+ - [Docker](https://cloud.google.com/artifact-registry/docs/supported-formats) format.
+ - [Standard](https://cloud.google.com/artifact-registry/docs/repositories/create-repos) mode. Other repository formats and modes are not supported.
 
 To connect a Google Artifact Registry repository to a GitLab project:
 
@@ -73,25 +72,20 @@ You can use these environment variables to interact with the Artifact Registry, 
 
 | Variable                                       | GitLab | Runner | Description |
 |------------------------------------------------|--------|--------|-------------|
-| `GOOGLE_ARTIFACT_REGISTRY_PROJECT_ID`          | 16.10  | 16.10  | The Google Cloud project ID where the Artifact Registry repository is located. |
-| `GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_NAME`     | 16.10  | 16.10  | The name of the connected Artifact Registry repository. |
-| `GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_LOCATION` | 16.10  | 16.10  | The Google Cloud location of the connected Artifact Registry repository. |
+| `GOOGLE_ARTIFACT_REGISTRY_PROJECT_ID`          | 16.10 | 16.10 | The Google Cloud project ID where the Artifact Registry repository is located. |
+| `GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_NAME`     | 16.10 | 16.10 | The name of the connected Artifact Registry repository. |
+| `GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_LOCATION` | 16.10 | 16.10 | The Google Cloud location of the connected Artifact Registry repository. |
 
 ### Authenticate with the Google Artifact Registry
 
-You can configure a pipeline to authenticate with the Google Artifact Registry during pipeline
-execution. GitLab uses the configured [workload identity pool](../../../integration/google_cloud_iam.md) IAM policies
-and populates the `GOOGLE_APPLICATION_CREDENTIALS` and `CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE`
-environment credentials. These environment credentials are automatically detected by client tools,
-like [gcloud CLI](https://cloud.google.com/sdk/gcloud) and [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md).
+You can configure a pipeline to authenticate with the Google Artifact Registry during pipeline execution. GitLab uses the configured [workload identity pool](../../../integration/google_cloud_iam.md) IAM policies and populates the `GOOGLE_APPLICATION_CREDENTIALS` and `CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE` environment credentials. These environment credentials are automatically detected by client tools, like [gcloud CLI](https://cloud.google.com/sdk/gcloud) and [crane](https://github.com/google/go-containerregistry/blob/main/cmd/crane/README.md).
 
 To authenticate with the Google Artifact Registry, in the project's `.gitlab-ci.yml` file, use the [`identity`](../../../ci/yaml/_index.md#identity) keyword set to `google_cloud`.
 
 #### IAM policies
 
 Your Google Cloud project must have specific IAM policies to use the Google Artifact Management integration.
-When you [set up this integration](#set-up-the-google-artifact-registry-in-a-gitlab-project), on-screen instructions
-provide the steps to create the following IAM policies in your Google Cloud project:
+When you [set up this integration](#set-up-the-google-artifact-registry-in-a-gitlab-project), on-screen instructions provide the steps to create the following IAM policies in your Google Cloud project:
 
 - Grant [Artifact Registry Reader](https://cloud.google.com/iam/docs/understanding-roles#artifactregistry.reader) role to GitLab project members with [Guest](../../permissions.md#roles) role or above.
 - Grant [Artifact Registry Writer](https://cloud.google.com/iam/docs/understanding-roles#artifactregistry.writer) role to GitLab project members with [Developer](../../permissions.md#roles) role or above.
@@ -104,12 +98,12 @@ To create these IAM policies manually, use the following `gcloud` commands. Repl
 
 ```shell
 gcloud projects add-iam-policy-binding '<your_google_cloud_project_id>' \
-  --member='principalSet://iam.googleapis.com/projects/<your_google_cloud_project_number>/locations/global/workloadIdentityPools/<your_workload_identity_pool_id>/attribute.guest_access/true' \
-  --role='roles/artifactregistry.reader'
+ --member='principalSet://iam.googleapis.com/projects/<your_google_cloud_project_number>/locations/global/workloadIdentityPools/<your_workload_identity_pool_id>/attribute.guest_access/true' \
+ --role='roles/artifactregistry.reader'
 
 gcloud projects add-iam-policy-binding '<your_google_cloud_project_id>' \
-  --member='principalSet://iam.googleapis.com/projects/<your_google_cloud_project_number>/locations/global/workloadIdentityPools/<your_workload_identity_pool_id>/attribute.developer_access/true' \
-  --role='roles/artifactregistry.writer'
+ --member='principalSet://iam.googleapis.com/projects/<your_google_cloud_project_number>/locations/global/workloadIdentityPools/<your_workload_identity_pool_id>/attribute.developer_access/true' \
+ --role='roles/artifactregistry.writer'
 ```
 
 For a list of available claims, see [OIDC custom claims](../../../integration/google_cloud_iam.md#oidc-custom-claims).
@@ -120,9 +114,9 @@ For a list of available claims, see [OIDC custom claims](../../../integration/go
 
 ```yaml
 list-images:
-  image: gcr.io/google.com/cloudsdktool/google-cloud-cli:466.0.0-alpine
-  identity: google_cloud
-  script:
+ image: gcr.io/google.com/cloudsdktool/google-cloud-cli:466.0.0-alpine
+ identity: google_cloud
+ script:
     - gcloud artifacts docker images list $GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_LOCATION-docker.pkg.dev/$GOOGLE_ARTIFACT_REGISTRY_PROJECT_ID/$GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_NAME/app
 ```
 
@@ -130,15 +124,15 @@ list-images:
 
 ```yaml
 list-images:
-  image:
+ image:
     name: gcr.io/go-containerregistry/crane:debug
     entrypoint: [""]
-  identity: google_cloud
-  before_script:
+ identity: google_cloud
+ before_script:
     # Temporary workaround for https://github.com/google/go-containerregistry/issues/1886
     - wget -q "https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v2.1.22/docker-credential-gcr_linux_amd64-2.1.22.tar.gz" -O - | tar xz -C /tmp && chmod +x /tmp/docker-credential-gcr && mv /tmp/docker-credential-gcr /usr/bin/
     - docker-credential-gcr configure-docker --registries=$GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_LOCATION-docker.pkg.dev
-  script:
+ script:
     - crane ls $GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_LOCATION-docker.pkg.dev/$GOOGLE_ARTIFACT_REGISTRY_PROJECT_ID/$GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_NAME/app
 ```
 
@@ -148,21 +142,21 @@ The following example shows how to set up authentication for Docker with the [st
 
 ```yaml
 pull-image:
-  image: docker:24.0.5-cli
-  identity: google_cloud
-  services:
+ image: docker:24.0.5-cli
+ identity: google_cloud
+ services:
     - docker:24.0.5-dind
-  variables:
+ variables:
     # The following two variables ensure that the DinD service starts in TLS
     # mode and that the Docker CLI is properly configured to communicate with
     # the API. More details about the importance of this can be found at
     # https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#use-the-docker-executor-with-docker-in-docker
     DOCKER_HOST: tcp://docker:2376
     DOCKER_TLS_CERTDIR: "/certs"
-  before_script:
+ before_script:
     - wget -q "https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v2.1.22/docker-credential-gcr_linux_amd64-2.1.22.tar.gz" -O - | tar xz -C /tmp && chmod +x /tmp/docker-credential-gcr && mv /tmp/docker-credential-gcr /usr/bin/
     - docker-credential-gcr configure-docker --registries=$GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_LOCATION-docker.pkg.dev
-  script:
+ script:
     - docker pull $GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_LOCATION-docker.pkg.dev/$GOOGLE_ARTIFACT_REGISTRY_PROJECT_ID/$GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_NAME/app:v0.1.0
 ```
 
@@ -174,7 +168,7 @@ To use the `upload-artifact-registry` component, add the following to your `.git
 
 ```yaml
 include:
-  - component: gitlab.com/google-gitlab-components/artifact-registry/upload-artifact-registry@main
+ - component: gitlab.com/google-gitlab-components/artifact-registry/upload-artifact-registry@main
     inputs:
       stage: deploy
       source: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
@@ -191,18 +185,18 @@ In the following example, the `gcloud` CLI is used to set up the Docker authenti
 
 ```yaml
 copy-image:
-  image: gcr.io/google.com/cloudsdktool/google-cloud-cli:466.0.0-alpine
-  identity: google_cloud
-  services:
+ image: gcr.io/google.com/cloudsdktool/google-cloud-cli:466.0.0-alpine
+ identity: google_cloud
+ services:
     - docker:24.0.5-dind
-  variables:
+ variables:
     SOURCE_IMAGE: $CI_REGISTRY_IMAGE:v0.1.0
     TARGET_IMAGE: $GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_LOCATION-docker.pkg.dev/$GOOGLE_ARTIFACT_REGISTRY_PROJECT_ID/$GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_NAME/app:v0.1.0
     DOCKER_HOST: tcp://docker:2375
-  before_script:
+ before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - gcloud auth configure-docker $GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_LOCATION-docker.pkg.dev
-  script:
+ script:
     - docker pull $SOURCE_IMAGE
     - docker tag $SOURCE_IMAGE $TARGET_IMAGE
     - docker push $TARGET_IMAGE
@@ -212,18 +206,18 @@ copy-image:
 
 ```yaml
 copy-image:
-  image:
+ image:
     name: gcr.io/go-containerregistry/crane:debug
     entrypoint: [""]
-  identity: google_cloud
-  variables:
+ identity: google_cloud
+ variables:
     SOURCE_IMAGE: $CI_REGISTRY_IMAGE:v0.1.0
     TARGET_IMAGE: $GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_LOCATION-docker.pkg.dev/$GOOGLE_ARTIFACT_REGISTRY_PROJECT_ID/$GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_NAME/app:v0.1.0
-  before_script:
+ before_script:
     # Temporary workaround for https://github.com/google/go-containerregistry/issues/1886
     - wget -q "https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v2.1.22/docker-credential-gcr_linux_amd64-2.1.22.tar.gz" -O - | tar xz -C /tmp && chmod +x /tmp/docker-credential-gcr && mv /tmp/docker-credential-gcr /usr/bin/
     - docker-credential-gcr configure-docker --registries=$GOOGLE_ARTIFACT_REGISTRY_REPOSITORY_LOCATION-docker.pkg.dev
-  script:
+ script:
     - crane auth login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - crane copy $SOURCE_IMAGE $TARGET_IMAGE
 ```

@@ -26,12 +26,12 @@ The accelerated checkout button displays beside or below the **Add to cart** but
 * Unbranded buttons display **Buy it now** text. If a customer clicks an unbranded **Buy it now** button, then they skip the cart and go to the checkout.
 
 * Branded buttons include the logo for third-party accelerated checkout methods. If a customer clicks on a branded button for a third-party accelerated checkout method, such as Apple Pay, then they go to the checkout for that method with their information pre-populated. Learn more about [accelerated checkouts](https://help.shopify.com/en/manual/payments/accelerated-checkouts). The following third-party accelerated checkout methods are available:
-  + [Amazon Pay](https://help.shopify.com/en/manual/payments/accelerated-checkouts/amazonpay/amazon-pay)
-  + [Apple Pay](https://help.shopify.com/en/manual/payments/accelerated-checkouts/apple-pay)
-  + [Google Pay](https://help.shopify.com/en/manual/payments/accelerated-checkouts/google-pay)
-  + [PayPal](https://help.shopify.com/en/manual/payments/paypal)
-  + [Shop Pay](https://help.shopify.com/en/manual/payments/shop-pay/shop-pay)
-  + [Venmo](https://help.shopify.com/en/manual/payments/paypal/supported-providers)
+ + [Amazon Pay](https://help.shopify.com/en/manual/payments/accelerated-checkouts/amazonpay/amazon-pay)
+ + [Apple Pay](https://help.shopify.com/en/manual/payments/accelerated-checkouts/apple-pay)
+ + [Google Pay](https://help.shopify.com/en/manual/payments/accelerated-checkouts/google-pay)
+ + [PayPal](https://help.shopify.com/en/manual/payments/paypal)
+ + [Shop Pay](https://help.shopify.com/en/manual/payments/shop-pay/shop-pay)
+ + [Venmo](https://help.shopify.com/en/manual/payments/paypal/supported-providers)
 
 Each payment method has specific requirements before it displays as a branded button.
 
@@ -111,8 +111,7 @@ Desktop
 8. Optional: [Test your accelerated checkout buttons](test-buttons.md).
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -140,8 +139,7 @@ Desktop
 7. Optional: [Test your accelerated checkout buttons](test-buttons.md).
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -168,8 +166,7 @@ Desktop
 7. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -194,8 +191,7 @@ Desktop
 5. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -225,8 +221,7 @@ Desktop
 7. Optional: [Test your accelerated checkout buttons](test-buttons.md).
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage themes**.
 4. Find the theme for which you created an alternate template, and then tap **Edit theme**.

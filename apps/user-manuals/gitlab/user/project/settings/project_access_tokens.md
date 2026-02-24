@@ -8,8 +8,7 @@ description: Authentication, create, revoke, and token expiration.
 
 {{< details >}}
 
-Tier: Premium, Ultimate
-Offering: GitLab.com, GitLab Self-Managed, GitLab Dedicated
+Tier: Premium, Ultimate Offering: GitLab.com, GitLab Self-Managed, GitLab Dedicated
 
 {{< /details >}}
 
@@ -19,8 +18,7 @@ Offering: GitLab.com, GitLab Self-Managed, GitLab Dedicated
 
 {{< /history >}}
 
-Project access tokens are similar to passwords, except you can limit access to resources,
-select a limited role, and provide an expiry date.
+Project access tokens are similar to passwords, except you can limit access to resources, select a limited role, and provide an expiry date.
 
 {{< alert type="note" >}}
 
@@ -32,22 +30,18 @@ Use a project access token to authenticate:
 
 - With the GitLab API.
 - With Git, when using HTTP Basic Authentication, use:
-  - Any non-blank value as a username.
-  - The project access token as the password.
+ - Any non-blank value as a username.
+ - The project access token as the password.
 
 {{< alert type="note" >}}
 
-On GitLab SaaS, you can use project access tokens with a Premium or Ultimate subscription. With a
-[trial license](https://about.gitlab.com/free-trial/) you can also create one project access token.
+On GitLab SaaS, you can use project access tokens with a Premium or Ultimate subscription. With a [trial license](https://about.gitlab.com/free-trial/) you can also create one project access token.
 
-On GitLab Self-Managed instances, you can use project access tokens with any subscription. If
-you have the Free tier, you can [restrict the creation of project access tokens](#restrict-the-creation-of-project-access-tokens) to limit potential abuse.
+On GitLab Self-Managed instances, you can use project access tokens with any subscription. If you have the Free tier, you can [restrict the creation of project access tokens](#restrict-the-creation-of-project-access-tokens) to limit potential abuse.
 
 {{< /alert >}}
 
-Project access tokens are similar to group access tokens and personal access tokens, but are
-scoped only to the associated project. You cannot use project access tokens to access resources
-that belong to other projects.
+Project access tokens are similar to group access tokens and personal access tokens, but are scoped only to the associated project. You cannot use project access tokens to access resources that belong to other projects.
 
 On GitLab Self-Managed instances, project access tokens are subject to the same maximum lifetime limits as personal access tokens if the limit is set.
 
@@ -102,8 +96,7 @@ A project access token is displayed. Save the project access token somewhere saf
 {{< alert type="warning" >}}
 
 Project access tokens are treated as internal users.
-If an internal user creates a project access token, that token is able to access
-all projects that have visibility level set to Internal.
+If an internal user creates a project access token, that token is able to access all projects that have visibility level set to Internal.
 
 {{< /alert >}}
 
@@ -116,8 +109,7 @@ all projects that have visibility level set to Internal.
 
 {{< /history >}}
 
-In GitLab 17.9 and later, you can view both active and inactive project
-access tokens on the access tokens page.
+In GitLab 17.9 and later, you can view both active and inactive project access tokens on the access tokens page.
 
 The inactive project access tokens table displays revoked and expired tokens until they are [automatically deleted](#inactive-token-retention).
 
@@ -152,7 +144,7 @@ See the warning in [create a project access token](#create-a-project-access-toke
 | `read_api`         | Grants read access to the scoped project API, including the [package registry](../../packages/package_registry/_index.md).                                                                                                                                                                |
 | `read_registry`    | Grants read access (pull) to the [container registry](../../packages/container_registry/_index.md) images if a project is private and authorization is required.                                                                                                                          |
 | `write_registry`   | Grants write access (push) to the [container registry](../../packages/container_registry/_index.md). You need both read and write access to push images.                                                                                                                              |
-| `read_repository`  | Grants read access (pull) to the repository.                                                                                                                                                                                                                                             |
+| `read_repository` | Grants read access (pull) to the repository.                                                                                                                                                                                                                                             |
 | `write_repository` | Grants read and write access (pull and push) to the repository.                                                                                                                                                                                                                          |
 | `create_runner`    | Grants permission to create runners in the project.                                                                                                                                                                                                                                      |
 | `manage_runner`    | Grants permission to manage runners in the project.                                                                                                                                                                                                                                      |
@@ -172,21 +164,15 @@ To limit potential abuse, you can restrict users from creating tokens for a grou
 
 ## Access token expiration
 
-Whether your existing project access tokens have expiry dates automatically applied
-depends on what GitLab offering you have, and when you upgraded to GitLab 16.0 or later:
+Whether your existing project access tokens have expiry dates automatically applied depends on what GitLab offering you have, and when you upgraded to GitLab 16.0 or later:
 
-- On GitLab.com, during the 16.0 milestone, existing project access tokens without
-  an expiry date were automatically given an expiry date of 365 days later than the current date.
+- On GitLab.com, during the 16.0 milestone, existing project access tokens without an expiry date were automatically given an expiry date of 365 days later than the current date.
 - On GitLab Self-Managed, if you upgraded from GitLab 15.11 or earlier to GitLab 16.0 or later:
-  - On or before July 23, 2024, existing project access tokens without an expiry
-    date were automatically given an expiry date of 365 days later than the current date.
+ - On or before July 23, 2024, existing project access tokens without an expiry date were automatically given an expiry date of 365 days later than the current date.
     This change is a breaking change.
-  - On or after July 24, 2024, existing project access tokens without an expiry
-    date did not have an expiry date set.
+ - On or after July 24, 2024, existing project access tokens without an expiry date did not have an expiry date set.
 
-On GitLab Self-Managed, if you do a new install of one of the following GitLab
-versions, your existing project access tokens do not have expiry dates
-automatically applied:
+On GitLab Self-Managed, if you do a new install of one of the following GitLab versions, your existing project access tokens do not have expiry dates automatically applied:
 
 - 16.0.9
 - 16.1.7
@@ -221,8 +207,8 @@ GitLab runs a check every day at 1:00 AM UTC to identify project access tokens t
 - In GitLab 17.6 and later, project maintainers and owners are notified by email when the check identifies their project access tokens as expiring in the next 60 days. An additional email is sent when the check identifies their project access tokens as expiring in the next 30 days.
 - Project maintainers and owners are notified by email when the check identifies their project access tokens as expiring in the next seven days.
 - In GitLab 17.7 and later, project members who have inherited the Owner or Maintainer role due to the project belonging to a group can also receive notification emails. You can enable this by changing:
-  - The [group setting](../../group/manage.md#expiry-emails-for-group-and-project-access-tokens) in any of the parent groups of the project.
-  - On GitLab Self-Managed, the [instance setting](../../../administration/settings/email.md#group-and-project-access-token-expiry-emails-to-inherited-members).
+ - The [group setting](../../group/manage.md#expiry-emails-for-group-and-project-access-tokens) in any of the parent groups of the project.
+ - On GitLab Self-Managed, the [instance setting](../../../administration/settings/email.md#group-and-project-access-token-expiry-emails-to-inherited-members).
 
 Your expired access tokens are listed in the [inactive project access tokens table](#revoke-or-rotate-a-project-access-token) until they are [automatically deleted](#inactive-token-retention).
 
@@ -239,8 +225,7 @@ Bot users for projects are [GitLab-created non-billable users](../../../subscrip
 Each time you create a project access token, a bot user is created and added to the project.
 This user is not a billable user, so it does not count toward the license limit.
 
-The bot users for projects have [permissions](../../permissions.md#project-permissions) that correspond with the
-selected role and [scope](#scopes-for-a-project-access-token) of the project access token.
+The bot users for projects have [permissions](../../permissions.md#project-permissions) that correspond with the selected role and [scope](#scopes-for-a-project-access-token) of the project access token.
 
 - The name is set to the name of the token.
 - The username is set to `project_{project_id}_bot_{random_string}`. For example, `project_123_bot_4ffca233d8298ea1`.
@@ -252,8 +237,7 @@ Bot users for projects:
 
 - Are included in a project's member list but cannot be modified.
 - Cannot be added to any other project.
-- Can have a maximum role of Owner for a project. For more information, see
-  [Create a project access token](../../../api/project_access_tokens.md#create-a-project-access-token).
+- Can have a maximum role of Owner for a project. For more information, see [Create a project access token](../../../api/project_access_tokens.md#create-a-project-access-token).
 
 When the project access token is [revoked](#revoke-or-rotate-a-project-access-token):
 

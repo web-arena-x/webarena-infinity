@@ -15,11 +15,11 @@ Several people may need to respond to an RFI before a correct answer can be prov
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permission on the project's RFIs tool.   
+ - 'Admin' level permission on the project's RFIs tool.  
     OR
-  - 'Read Only' or 'Standard' level permissions on the project's RFIs tool with the ['Act as RFI Manager' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#RFIs "Grant Granular Permissions in a Project Permissions Template") enabled on your permission template AND be the RFI's creator ('Standard' only) or RFI Manager.  
+ - 'Read Only' or 'Standard' level permissions on the project's RFIs tool with the ['Act as RFI Manager' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#RFIs "Grant Granular Permissions in a Project Permissions Template") enabled on your permission template AND be the RFI's creator ('Standard' only) or RFI Manager. 
     OR
-  - 'Read Only' or 'Standard' level permissions on the project's RFIs tool AND be the RFI's creator, an Assignee, or a Distribution List member on the RFI with the ['Mark Official Responses' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#RFIs "Grant Granular Permissions in a Project Permissions Template") enabled on your permission template.
+ - 'Read Only' or 'Standard' level permissions on the project's RFIs tool AND be the RFI's creator, an Assignee, or a Distribution List member on the RFI with the ['Mark Official Responses' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#RFIs "Grant Granular Permissions in a Project Permissions Template") enabled on your permission template.
 
 ##### Important
 
@@ -27,8 +27,8 @@ Several people may need to respond to an RFI before a correct answer can be prov
 - Users with the ['Act as RFI Manager' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#RFIs "Grant Granular Permissions in a Project Permissions Template") enabled on their permissions templates can view all responses to RFIs that they create ('Standard' only) or that they are designated as RFI Manager for even if the 'Only Show Official Responses to Standard and Read-Only Users' configuration setting is turned ON.
 
 - **Additional Information:**
-  - You can select more than one reply as the 'Official Response'.
-  - If it's still not obvious which reply should be marked as the "official response" the Project Manager/Engineer should reply to the RFI and ask the Assignees to summarize the findings and clearly state the correct answer in a new reply. To avoid misinterpretation and liability related issues, a Project Manager/Engineer should not attempt to interpret all replies, summarize the answer, and select their own reply as the "official response" for an RFI.
+ - You can select more than one reply as the 'Official Response'.
+ - If it's still not obvious which reply should be marked as the "official response" the Project Manager/Engineer should reply to the RFI and ask the Assignees to summarize the findings and clearly state the correct answer in a new reply. To avoid misinterpretation and liability related issues, a Project Manager/Engineer should not attempt to interpret all replies, summarize the answer, and select their own reply as the "official response" for an RFI.
 
 ## Steps
 

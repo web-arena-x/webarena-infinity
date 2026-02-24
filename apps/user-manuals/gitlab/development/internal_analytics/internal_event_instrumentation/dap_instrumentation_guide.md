@@ -107,20 +107,20 @@ For any AI model interaction, track token usage in AI Context and model informat
 
 ```ruby
 track_internal_event(
-  "token_usage_duo_workflow",
-  user: user,
-  project: project,
-  additional_properties: {
+ "token_usage_duo_workflow",
+ user: user,
+ project: project,
+ additional_properties: {
     model_provider: "anthropic",
     model_engine: "claude-3-5",
     model_name: "claude-3-5-sonnet-20241022"
-  },
-  ai_context: {
+ },
+ ai_context: {
     session_id: session.id,
     input_tokens: response.usage.input_tokens,
     output_tokens: response.usage.output_tokens,
     total_tokens: response.usage.total_tokens
-  }
+ }
 )
 ```
 
@@ -130,13 +130,13 @@ When using cached prompts, track cache usage in AI Context:
 
 ```ruby
 ai_context: {
-  session_id: session.id,
-  input_tokens: response.usage.input_tokens,
-  output_tokens: response.usage.output_tokens,
-  total_tokens: response.usage.total_tokens,
-  ephemeral_5m_input_tokens: response.usage.cache_creation_input_tokens,
-  ephemeral_1h_input_tokens: response.usage.cache_creation_1h_input_tokens,
-  cache_read: response.usage.cache_read_input_tokens
+ session_id: session.id,
+ input_tokens: response.usage.input_tokens,
+ output_tokens: response.usage.output_tokens,
+ total_tokens: response.usage.total_tokens,
+ ephemeral_5m_input_tokens: response.usage.cache_creation_input_tokens,
+ ephemeral_1h_input_tokens: response.usage.cache_creation_1h_input_tokens,
+ cache_read: response.usage.cache_read_input_tokens
 }
 ```
 
@@ -146,8 +146,8 @@ Always include complete model information in Standard Context:
 
 ```ruby
 additional_properties: {
-  model_provider: "anthropic",  # or "openai", "vertex", etc.
-  model_engine: "claude-3-5",   # or "gpt-4", etc.
-  model_name: "claude-3-5-sonnet-20241022"  # specific model version
+ model_provider: "anthropic", # or "openai", "vertex", etc.
+ model_engine: "claude-3-5",   # or "gpt-4", etc.
+ model_name: "claude-3-5-sonnet-20241022" # specific model version
 }
 ```

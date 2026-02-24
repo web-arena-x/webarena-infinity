@@ -7,9 +7,7 @@ title: 'Tutorial: Set up CI/CD Functions'
 
 This tutorial shows you how to create and use functions in your pipelines.
 
-Steps are reusable and composable pieces of a job. Each function defines structured inputs and
-outputs that can be consumed by other functions. You can configure functions in local files, GitLab.com repositories,
-or any other Git source.
+Steps are reusable and composable pieces of a job. Each function defines structured inputs and outputs that can be consumed by other functions. You can configure functions in local files, GitLab.com repositories, or any other Git source.
 
 In this tutorial, use the GitLab CLI (`glab`) to:
 
@@ -269,12 +267,9 @@ Add an output to your `hello` function.
        - echo '{"name":"greeting","value":"hello ${{inputs.who}}"}' | tee ${{output_file}}
    ```
 
-   - In this `spec`, you've defined a single output `greeting` without a default. Because
-     there is no default, the output `greeting` is required.
-   - Outputs are written to the `${{output_file}}` file provided at run time in JSON Line format. Each line written to the
-     output file must be a JSON object with two keys, `name` and `value`.
-   - This function runs `echo '{"name":"greeting","value":"hello ${{inputs.who}}"}'` and sends the output to the job log and
-     the output file (`tee ${{output_file}}`).
+   - In this `spec`, you've defined a single output `greeting` without a default. Because there is no default, the output `greeting` is required.
+   - Outputs are written to the `${{output_file}}` file provided at run time in JSON Line format. Each line written to the output file must be a JSON object with two keys, `name` and `value`.
+   - This function runs `echo '{"name":"greeting","value":"hello ${{inputs.who}}"}'` and sends the output to the job log and the output file (`tee ${{output_file}}`).
 
 1. In `step.yml`, add an output to the step:
 
@@ -303,8 +298,7 @@ Add an output to your `hello` function.
 
 ## Use a remote function
 
-Before you commit and run your code, add another function to your job to see the final `all_greetings` output of your main
-`step.yml`.
+Before you commit and run your code, add another function to your job to see the final `all_greetings` output of your main `step.yml`.
 
 This function invocation references a remote function named `echo-step`.
 The echo function takes a single input `echo`, prints it to the logs, and outputs it as `echo`.

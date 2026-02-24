@@ -14,7 +14,7 @@ For more information on the History feature, see [Browsing past chats in History
 
 **Glossary**
 
-|  |  |
+| | |
 | --- | --- |
 | Metric | Description |
 | chat\_id | Unique chat session identifier |
@@ -50,7 +50,7 @@ For more information on the History feature, see [Browsing past chats in History
 | department\_name | The department to where the chat was routed |
 | agent\_names | The names of the agents who served in the chat session |
 | agent\_ids | The agent IDs of all the agents who served the chat |
-| rating\_score | The satisfaction rating of the entire chat session  Ratings include the following:    • good    • bad    • none (chats without ratings) |
+| rating\_score | The satisfaction rating of the entire chat session Ratings include the following:    • good    • bad    • none (chats without ratings) |
 | rating\_comment | The comment when the chat was rated, either good or bad |
 | max\_response\_time (seconds) | The longest time it took the agent to respond to a message in the chat |
 | avg\_response\_time (seconds) | The average time it takes for an agent to respond to messages in the chat |

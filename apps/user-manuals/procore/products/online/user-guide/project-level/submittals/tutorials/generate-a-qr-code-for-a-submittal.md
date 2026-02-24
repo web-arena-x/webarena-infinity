@@ -15,9 +15,9 @@ You can generate a ﻿QR code for a submittal using the steps below and then pr
 ## Things to Consider
 
 - **Required User Permission**:
-  - 'Read-only' level permissions or higher on the Submittals tool.
+ - 'Read-only' level permissions or higher on the Submittals tool.
 - **Additional Information**:
-  - Procore generates one (1) unique QR code per submittal item.  
+ - Procore generates one (1) unique QR code per submittal item. 
     ***Important!***  You must scan this QR code using a mobile device running one of Procore's mobile apps. See [Scan a Submittal QR Code (Android)](https://support.procore.com/procore-mobile-android/user-guide/submittals-android/tutorials/scan-a-submittal-qr-code-android "products/procore-mobile-android/user-guide/submittals-android/tutorials/scan-a-submittal-qr-code-android") or [Scan a Submittal QR Code (iOS)](https://support.procore.com/procore-mobile-ios/user-guide/submittals-ios/tutorials/scan-a-submittal-qr-code-ios "Scan a Submittal QR Code (iOS)").
 
 ## Prerequisites
@@ -28,7 +28,7 @@ You can generate a ﻿QR code for a submittal using the steps below and then pr
 
 1. Navigate to the project's **Submittals** tool.
 2. Locate the submittal that you want to generate a QR code for. Then click **View**.
-3. Click the vertical ellipsis![icon-ellipsis-vertical.png](https://support.procore.com/@api/deki/files/158014/icon-ellipsis-vertical.png?revision=2&size=bestfit&width=17&height=17), then click **Generate QR Code**.   
+3. Click the vertical ellipsis![icon-ellipsis-vertical.png](https://support.procore.com/@api/deki/files/158014/icon-ellipsis-vertical.png?revision=2&size=bestfit&width=17&height=17), then click **Generate QR Code**.  
    *Notes*:
    - If the button is not available for use, see the Prerequisites above.
    - You can then use your web browser's print controls to either (1) print this page for use on the job site or (2) to export a copy of the page to the PDF format.

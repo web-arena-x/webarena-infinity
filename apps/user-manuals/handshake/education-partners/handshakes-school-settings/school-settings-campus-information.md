@@ -26,8 +26,8 @@ To access buildings, click **Buildings** on the left menu.
 
 #### Add Building
 
-Click the blue button **Add Building**, then type the name of the building in the provided space under **Building Name** and confirm the building location below.  
-  
+Click the blue button **Add Building**, then type the name of the building in the provided space under **Building Name** and confirm the building location below. 
+ 
 Click the blue button **Save** to update or the white button **Cancel** to cancel.
 
 ![Add Building.png](https://support.joinhandshake.com/hc/article_attachments/26001282759959)

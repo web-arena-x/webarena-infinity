@@ -54,13 +54,13 @@ You can only create components while in design mode. Use the toggle in the toolb
 To create a main component:
 
 1. Select the objects you want to be included in the component.
-2. Click  **Create component** in the right sidebar or use the keyboard shortcut:
+2. Click **Create component** in the right sidebar or use the keyboard shortcut:
    - **Mac**: `⌥ Option` `⌘ Command` `K`
    - **Windows**: `Ctrl` `Alt` `K`
 
 Note: You can also create multiple components at once by selecting two or more objects and clicking **Create multiple components** in the Create component options menu.
 
-Once a component is created, you can click  **Component Configuration** next to the component name to add a description and documentation link for collaborators. You can also apply component properties to the component. Learn more about [component properties](../../figma-design/components/explore-component-properties.md).
+Once a component is created, you can click **Component Configuration** next to the component name to add a description and documentation link for collaborators. You can also apply component properties to the component. Learn more about [component properties](../../figma-design/components/explore-component-properties.md).
 
 ![](https://help.figma.com/hc/article_attachments/30630199221015)
 
@@ -87,7 +87,7 @@ You can insert instances in slides mode or design mode.
 
 To insert an instance:
 
-1. Select  **Assets** in the toolbar.
+1. Select **Assets** in the toolbar.
 2. Select **Local components** to view all component created in the current slide deck.
 3. Click on a component to add an instance to the slide deck.
 

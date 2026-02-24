@@ -40,7 +40,7 @@ When designing in Figma Sites, you’ll have access to most of the features foun
 
 ### Design tools
 
-|  | Available in Figma Design | Available in Figma Sites |
+| | Available in Figma Design | Available in Figma Sites |
 | --- | --- | --- |
 | [Frames](https://help.figma.com/hc/en-us/articles/360041539473) | ✓ | ✓ |
 | [Shapes](https://help.figma.com/hc/en-us/articles/360040450133) | ✓ | ✓ |
@@ -69,7 +69,7 @@ When designing in Figma Sites, you’ll have access to most of the features foun
 
 ### Collaboration tools
 
-|  | Available in Figma Design | Available in Figma Sites |
+| | Available in Figma Design | Available in Figma Sites |
 | --- | --- | --- |
 | [Comments](https://help.figma.com/hc/en-us/articles/360041068574) | ✓ | ✓ |
 | [Spotlight](https://help.figma.com/hc/en-us/articles/360040322673) | ✓ | Spotlight won’t follow a person if they are in a fullscreen view like **Make** or **Settings**. |
@@ -77,7 +77,7 @@ When designing in Figma Sites, you’ll have access to most of the features foun
 
 ### Design systems and publishing
 
-|  | Available in Figma Design | Available in Figma Sites |
+| | Available in Figma Design | Available in Figma Sites |
 | --- | --- | --- |
 | [Components](https://help.figma.com/hc/en-us/articles/360038663154) | ✓ | You can create and manage components like in Figma Design. Only instances can be used in a webpage. |
 | [Components with variants](https://help.figma.com/hc/en-us/articles/360056440594) | ✓ | ✓ |
@@ -91,7 +91,7 @@ When designing in Figma Sites, you’ll have access to most of the features foun
 
 ## Supported properties between Figma Design and Figma Sites
 
-|  | Available in Figma Design | Available in Figma Sites |
+| | Available in Figma Design | Available in Figma Sites |
 | --- | --- | --- |
 | [Auto layout](https://help.figma.com/hc/en-us/articles/5731482952599) | ✓ | ✓ |
 | [Constraints](https://help.figma.com/hc/en-us/articles/360039957734) | ✓ | ✓ |

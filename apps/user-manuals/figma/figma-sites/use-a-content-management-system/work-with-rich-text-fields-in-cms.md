@@ -31,7 +31,7 @@ By separating formatting from styling, writers can focus on the semantic structu
 
 First, access a rich text field in your collection:
 
-1. Click  **CMS** in the left navigation bar and select the relevant collection.
+1. Click **CMS** in the left navigation bar and select the relevant collection.
 2. Select an item and click into a **rich text field**.
 
 Use the rich text editor to write and format your content. Once you’re done, you can style the content’s fonts, sizes, and other typographic properties using [rich text styles](#h_01KAD8HWHEQT9VQQZNG3Z0DXG5).
@@ -60,7 +60,7 @@ You can also write using Markdown syntax or paste Markdown-formatted content int
 
 ### Work with images
 
-To insert an image into a rich text field, select  **Insert image** in the toolbar. Then, adjust the layout of the image within the rich text field:
+To insert an image into a rich text field, select **Insert image** in the toolbar. Then, adjust the layout of the image within the rich text field:
 
 - **Align:** Align images to the left, right, or center. The image retains its original dimensions and fills the layer if it is larger than its container.
 - **Fill width:** Scale the image so it always fills the width of the containing layer.
@@ -76,7 +76,7 @@ You can also add [alt text](../design-a-site/improve-the-accessibility-of-your-s
 You can connect layers from the right sidebar while working on the webpage.
 
 1. Select a text layer in the CMS list or CMS page. Make sure you select the actual text layer and not any parent layers, like a frame.
-2. At the top of the right sidebar, click  **Apply variable or CMS field,** then choose a rich text field.
+2. At the top of the right sidebar, click **Apply variable or CMS field,** then choose a rich text field.
 
 ### Connect layers in connect view
 
@@ -84,7 +84,7 @@ You can connect layers from the right sidebar while working on the webpage.
 
 **Connect** view helps you quickly wire up an existing layout or review what’s already connected. In this view, you choose a field in the CMS, then select the target layer on the canvas.
 
-1. Click  **CMS** in the left navigation bar.
+1. Click **CMS** in the left navigation bar.
 2. Select the **Connect** tab.
 3. Click a rich text field in the collection, then click a target text layer in the CMS page or list to connect it.
 
@@ -115,8 +115,8 @@ A rich text layer is a text layer connected to a rich text field in a collection
 To disconnect a rich text layer:
 
 1. Select it in the CMS page or list on the canvas.
-2. In the right sidebar, click  **Remove connection**.
+2. In the right sidebar, click **Remove connection**.
 
 When you disconnect a rich text field, Figma converts the single rich text layer into individual layers for each heading, paragraph or image within the current item’s rich text field. All text elements will keep their current styling.
 
-**Tip**: You can also disconnect a rich text layer from **Connect** view by clicking  **Remove connection** on the rich text layer.
+**Tip**: You can also disconnect a rich text layer from **Connect** view by clicking **Remove connection** on the rich text layer.

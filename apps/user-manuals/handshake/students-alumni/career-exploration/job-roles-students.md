@@ -11,7 +11,7 @@ To help you with your search, our team has identified and created Job Roles in H
 Job Roles are incorporated in Handshake via:
 
 - Job postings
-  - *When employers create a new job, job roles are automatically assigned based on details in the job posting, and employers can edit added roles or choose to add more.*
+ - *When employers create a new job, job roles are automatically assigned based on details in the job posting, and employers can edit added roles or choose to add more.*
 - Job digest emails
 - Job search alert emails
 - Multiple blog posts in the [Job Roles category](https://joinhandshake.com/blog/students/category/job-roles/)

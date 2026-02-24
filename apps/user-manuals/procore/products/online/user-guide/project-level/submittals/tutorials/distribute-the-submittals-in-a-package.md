@@ -15,9 +15,9 @@ Users who have been assigned 'Admin' level permissions to the Submittals tool ha
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the Submittals tool.
+ - 'Admin' level permissions on the Submittals tool.
 - **Limitation:**
-  - After all approvals are submitted, the submittals in a package must be distributed individually.
+ - After all approvals are submitted, the submittals in a package must be distributed individually.
 
 ## Steps
 

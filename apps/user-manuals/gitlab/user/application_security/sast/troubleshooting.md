@@ -12,20 +12,15 @@ title: Troubleshooting SAST
 
 {{< /details >}}
 
-The following troubleshooting scenarios have been collected from customer support cases. If you
-experience a problem not addressed here, or the information here does not fix your problem, see the
-[GitLab Support](https://about.gitlab.com/support/) page for ways to get help.
+The following troubleshooting scenarios have been collected from customer support cases. If you experience a problem not addressed here, or the information here does not fix your problem, see the [GitLab Support](https://about.gitlab.com/support/) page for ways to get help.
 
 ## Debug-level logging
 
-Debug-level logging can help when troubleshooting. For details, see
-[debug-level logging](../troubleshooting_application_security.md#debug-level-logging).
+Debug-level logging can help when troubleshooting. For details, see [debug-level logging](../troubleshooting_application_security.md#debug-level-logging).
 
 ## Changes in the CI/CD template
 
-The GitLab-managed SAST CI/CD template controls which [analyzer](analyzers.md) jobs run and how
-they're configured. While you use the template, you might experience a job failure or other pipeline
-error. For example, you might:
+The GitLab-managed SAST CI/CD template controls which [analyzer](analyzers.md) jobs run and how they're configured. While you use the template, you might experience a job failure or other pipeline error. For example, you might:
 
 - See an error message like `'<your job>' needs 'spotbugs-sast' job, but 'spotbugs-sast' is not in any previous stage` when you view an affected pipeline.
 - Experience another type of unexpected issue with your CI/CD pipeline configuration.
@@ -34,29 +29,23 @@ If you're experiencing a job failure or seeing a SAST-related `yaml invalid` pip
 
 ```yaml
 include:
-  remote: 'https://gitlab.com/gitlab-org/gitlab/-/raw/v15.3.3-ee/lib/gitlab/ci/templates/Jobs/SAST.gitlab-ci.yml'
+ remote: 'https://gitlab.com/gitlab-org/gitlab/-/raw/v15.3.3-ee/lib/gitlab/ci/templates/Jobs/SAST.gitlab-ci.yml'
 ```
 
 If your GitLab instance has limited network connectivity, you can also download the file and host it elsewhere.
 
-You should only use this solution temporarily. Return to the standard template as soon as
-possible.
+You should only use this solution temporarily. Return to the standard template as soon as possible.
 
 ## Errors in a specific analyzer job
 
-GitLab SAST [analyzers](analyzers.md) are released as container images. If you're seeing a new error
-that doesn't appear to be related to the GitLab-managed SAST CI/CD template or changes in your own
-project, you can try
-[pinning the affected analyzer to a specific older version](_index.md#pinning-to-minor-image-version).
-You should only use this solution temporarily. Return to the standard template as soon as
-possible.
+GitLab SAST [analyzers](analyzers.md) are released as container images. If you're seeing a new error that doesn't appear to be related to the GitLab-managed SAST CI/CD template or changes in your own project, you can try [pinning the affected analyzer to a specific older version](_index.md#pinning-to-minor-image-version).
+You should only use this solution temporarily. Return to the standard template as soon as possible.
 
 Each [analyzer project](analyzers.md) has a `CHANGELOG.md` file listing the changes made in each available version.
 
 ## Job log messages
 
-The SAST job's log may include error messages that help pinpoint the root cause. Below are some
-of the error messages and recommended actions.
+The SAST job's log may include error messages that help pinpoint the root cause. Below are some of the error messages and recommended actions.
 
 ### Executable format
 
@@ -73,10 +62,7 @@ This message indicates that the job is being run on a different architecture, su
 Error response from daemon: error processing tar file: docker-tar: relocation error
 ```
 
-This error occurs when the Docker version that runs the SAST job is `19.03.0`. Consider updating to
-Docker `19.03.1` or greater. Older versions are not affected. For more details, see
-[issue 13830](https://gitlab.com/gitlab-org/gitlab/-/issues/13830#note_211354992) -
-"Current SAST container fails".
+This error occurs when the Docker version that runs the SAST job is `19.03.0`. Consider updating to Docker `19.03.1` or greater. Older versions are not affected. For more details, see [issue 13830](https://gitlab.com/gitlab-org/gitlab/-/issues/13830#note_211354992) - "Current SAST container fails".
 
 ### No matching files
 
@@ -112,11 +98,7 @@ To resolve this issue, edit the push rule so that it allows the branch naming fo
 ## SAST jobs run unexpectedly
 
 The [SAST CI template](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Security/SAST.gitlab-ci.yml)
-uses the `rules:exists` parameter. For performance reasons, a maximum number of 10000 matches are
-made against the given glob pattern. If the number of matches exceeds the maximum, the `rules:exists`
-parameter returns `true`. Depending on the number of files in your repository, a SAST job might be
-triggered even if the scanner doesn't support your project. For more details about this limitation,
-see the [`rules:exists` documentation](../../../ci/yaml/_index.md#rulesexists).
+uses the `rules:exists` parameter. For performance reasons, a maximum number of 10000 matches are made against the given glob pattern. If the number of matches exceeds the maximum, the `rules:exists` parameter returns `true`. Depending on the number of files in your repository, a SAST job might be triggered even if the scanner doesn't support your project. For more details about this limitation, see the [`rules:exists` documentation](../../../ci/yaml/_index.md#rulesexists).
 
 ## SpotBugs errors
 
@@ -124,8 +106,7 @@ Below are details of the most common SpotBugs errors that occur, and recommended
 
 ### UTF-8 unmappable character errors
 
-These errors occur when UTF-8 encoding isn't enabled on a SpotBugs build and there are UTF-8
-characters in the source code. To fix this error, enable UTF-8 for your project's build tool.
+These errors occur when UTF-8 encoding isn't enabled on a SpotBugs build and there are UTF-8 characters in the source code. To fix this error, enable UTF-8 for your project's build tool.
 
 For Gradle builds, add the following to your `build.gradle` file:
 
@@ -140,7 +121,7 @@ For Maven builds, add the following to your `pom.xml` file:
 
 ```xml
 <properties>
-  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+ <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 </properties>
 ```
 
@@ -157,7 +138,7 @@ The solution depends on whether you need to scan Groovy code:
 
 - If you don't have any Groovy code, or don't need to scan it, you should [disable the SpotBugs analyzer](analyzers.md#disable-specific-default-analyzers).
 - If you do need to scan Groovy code, you should use [pre-compilation](_index.md#using-pre-compilation-with-spotbugs-analyzer).
-  Pre-compilation avoids these failures by scanning an artifact you've already built in your pipeline, rather than trying to compile it in the `spotbugs-sast` job.
+ Pre-compilation avoids these failures by scanning an artifact you've already built in your pipeline, rather than trying to compile it in the `spotbugs-sast` job.
 
 ### Java out of memory error
 
@@ -195,10 +176,10 @@ You can configure the `before_script` section in each `.gitlab-ci.yml` file, or 
 ---
 pipeline_execution_policy:
 - name: SAST
-  description: 'Run SAST on C++ application'
-  enabled: true
-  pipeline_config_strategy: inject_ci
-  content:
+ description: 'Run SAST on C++ application'
+ enabled: true
+ pipeline_config_strategy: inject_ci
+ content:
     include:
     - project: my-group/compliance-project
       file: flawfinder.yml
@@ -209,10 +190,10 @@ pipeline_execution_policy:
 
 ```yaml
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 flawfinder-sast:
-  before_script:
+ before_script:
     - pip install cvt2utf
     - cvt2utf convert "$PWD" -i cpp
 ```

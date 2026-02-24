@@ -13,8 +13,7 @@ title: Tags API
 
 {{< /details >}}
 
-Use this API to manage [Git tags](../user/project/repository/tags/_index.md). This API also returns X.509
-signature information from signed tags.
+Use this API to manage [Git tags](../user/project/repository/tags/_index.md). This API also returns X.509 signature information from signed tags.
 
 ## List project repository tags
 
@@ -24,13 +23,11 @@ signature information from signed tags.
 
 {{< /history >}}
 
-Get a list of repository tags from a project, sorted by update date and time in
-descending order.
+Get a list of repository tags from a project, sorted by update date and time in descending order.
 
 {{< alert type="note" >}}
 
-If the repository is publicly accessible, authentication
-(`--header "PRIVATE-TOKEN: <your_access_token>"`) is not required.
+If the repository is publicly accessible, authentication (`--header "PRIVATE-TOKEN: <your_access_token>"`) is not required.
 
 {{< /alert >}}
 
@@ -53,27 +50,27 @@ If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the 
 
 | Attribute                | Type    | Description |
 |--------------------------|---------|-------------|
-| `commit`                 | object  | Commit information associated with the tag. |
-| `commit.author_email`    | string  | Email address of the commit author. |
-| `commit.author_name`     | string  | Name of the commit author. |
-| `commit.authored_date`   | string  | Date when the commit was authored in ISO 8601 format. |
-| `commit.committed_date`  | string  | Date when the commit was committed in ISO 8601 format. |
-| `commit.committer_email` | string  | Email address of the committer. |
-| `commit.committer_name`  | string  | Name of the committer. |
-| `commit.created_at`      | string  | Date when the commit was created in ISO 8601 format. |
-| `commit.id`              | string  | Full SHA of the commit. |
-| `commit.message`         | string  | Commit message. |
+| `commit`                 | object | Commit information associated with the tag. |
+| `commit.author_email`    | string | Email address of the commit author. |
+| `commit.author_name`     | string | Name of the commit author. |
+| `commit.authored_date`   | string | Date when the commit was authored in ISO 8601 format. |
+| `commit.committed_date` | string | Date when the commit was committed in ISO 8601 format. |
+| `commit.committer_email` | string | Email address of the committer. |
+| `commit.committer_name` | string | Name of the committer. |
+| `commit.created_at`      | string | Date when the commit was created in ISO 8601 format. |
+| `commit.id`              | string | Full SHA of the commit. |
+| `commit.message`         | string | Commit message. |
 | `commit.parent_ids`      | array   | Array of parent commit SHAs. |
-| `commit.short_id`        | string  | Short SHA of the commit. |
-| `commit.title`           | string  | Title of the commit. |
-| `created_at`             | string  | Date when the tag was created in ISO 8601 format. |
-| `message`                | string  | Tag message. |
-| `name`                   | string  | Name of the tag. |
+| `commit.short_id`        | string | Short SHA of the commit. |
+| `commit.title`           | string | Title of the commit. |
+| `created_at`             | string | Date when the tag was created in ISO 8601 format. |
+| `message`                | string | Tag message. |
+| `name`                   | string | Name of the tag. |
 | `protected`              | boolean | If `true`, the tag is protected. |
-| `release`                | object  | Release information associated with the tag. |
-| `release.description`    | string  | Description of the release. |
-| `release.tag_name`       | string  | Tag name of the release. |
-| `target`                 | string  | SHA that the tag points to. |
+| `release`                | object | Release information associated with the tag. |
+| `release.description`    | string | Description of the release. |
+| `release.tag_name`       | string | Tag name of the release. |
+| `target`                 | string | SHA that the tag points to. |
 
 Example request:
 
@@ -86,7 +83,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "commit": {
       "id": "2695effb5807a22ff3d138d593fd856244e155e7",
       "short_id": "2695effb",
@@ -112,7 +109,7 @@ Example response:
     "message": null,
     "protected": true,
     "created_at": "2017-07-26T11:08:53.000+02:00"
-  }
+ }
 ]
 ```
 
@@ -124,8 +121,7 @@ Example response:
 
 {{< /history >}}
 
-Get a specific repository tag determined by its name. This endpoint can be
-accessed without authentication if the repository is publicly accessible.
+Get a specific repository tag determined by its name. This endpoint can be accessed without authentication if the repository is publicly accessible.
 
 ```plaintext
 GET /projects/:id/repository/tags/:tag_name
@@ -133,7 +129,7 @@ GET /projects/:id/repository/tags/:tag_name
 
 Supported attributes:
 
-| Attribute  | Type              | Required | Description |
+| Attribute | Type              | Required | Description |
 |------------|-------------------|----------|-------------|
 | `id`       | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `tag_name` | string            | Yes      | Name of a tag. |
@@ -142,41 +138,41 @@ If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the 
 
 | Attribute                | Type    | Description |
 |--------------------------|---------|-------------|
-| `commit`                 | object  | Commit information associated with the tag. |
-| `commit.author_email`    | string  | Email address of the commit author. |
-| `commit.author_name`     | string  | Name of the commit author. |
-| `commit.authored_date`   | string  | Date when the commit was authored in ISO 8601 format. |
-| `commit.committed_date`  | string  | Date when the commit was committed in ISO 8601 format. |
-| `commit.committer_email` | string  | Email address of the committer. |
-| `commit.committer_name`  | string  | Name of the committer. |
-| `commit.created_at`      | string  | Date when the commit was created in ISO 8601 format. |
-| `commit.id`              | string  | Full SHA of the commit. |
-| `commit.message`         | string  | Commit message. |
+| `commit`                 | object | Commit information associated with the tag. |
+| `commit.author_email`    | string | Email address of the commit author. |
+| `commit.author_name`     | string | Name of the commit author. |
+| `commit.authored_date`   | string | Date when the commit was authored in ISO 8601 format. |
+| `commit.committed_date` | string | Date when the commit was committed in ISO 8601 format. |
+| `commit.committer_email` | string | Email address of the committer. |
+| `commit.committer_name` | string | Name of the committer. |
+| `commit.created_at`      | string | Date when the commit was created in ISO 8601 format. |
+| `commit.id`              | string | Full SHA of the commit. |
+| `commit.message`         | string | Commit message. |
 | `commit.parent_ids`      | array   | Array of parent commit SHAs. |
-| `commit.short_id`        | string  | Short SHA of the commit. |
-| `commit.title`           | string  | Title of the commit. |
-| `created_at`             | string  | Date when the tag was created in ISO 8601 format. |
-| `message`                | string  | Tag message. |
-| `name`                   | string  | Name of the tag. |
+| `commit.short_id`        | string | Short SHA of the commit. |
+| `commit.title`           | string | Title of the commit. |
+| `created_at`             | string | Date when the tag was created in ISO 8601 format. |
+| `message`                | string | Tag message. |
+| `name`                   | string | Name of the tag. |
 | `protected`              | boolean | If `true`, the tag is protected. |
-| `release`                | object  | Release information associated with the tag. |
-| `target`                 | string  | SHA that the tag points to. |
+| `release`                | object | Release information associated with the tag. |
+| `target`                 | string | SHA that the tag points to. |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/repository/tags/v1.0.0"
+ --url "https://gitlab.example.com/api/v4/projects/5/repository/tags/v1.0.0"
 ```
 
 Example response:
 
 ```json
 {
-  "name": "v5.0.0",
-  "message": null,
-  "target": "60a8ff033665e1207714d6670fcd7b65304ec02f",
-  "commit": {
+ "name": "v5.0.0",
+ "message": null,
+ "target": "60a8ff033665e1207714d6670fcd7b65304ec02f",
+ "commit": {
     "id": "60a8ff033665e1207714d6670fcd7b65304ec02f",
     "short_id": "60a8ff03",
     "title": "Initial commit",
@@ -191,10 +187,10 @@ Example response:
     "committer_name": "Arthur Verschaeve",
     "committer_email": "contact@arthurverschaeve.be",
     "committed_date": "2015-02-01T21:56:31.000+01:00"
-  },
-  "release": null,
-  "protected": false,
-  "created_at": "2017-07-26T11:08:53.000+02:00"
+ },
+ "release": null,
+ "protected": false,
+ "created_at": "2017-07-26T11:08:53.000+02:00"
 }
 ```
 
@@ -214,50 +210,50 @@ POST /projects/:id/repository/tags
 
 Supported attributes:
 
-| Attribute  | Type              | Required | Description |
+| Attribute | Type              | Required | Description |
 |------------|-------------------|----------|-------------|
 | `id`       | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `ref`      | string            | Yes      | Create a tag from a commit SHA, another tag name, or branch name. |
 | `tag_name` | string            | Yes      | Name of a tag. |
-| `message`  | string            | No       | Create an annotated tag. |
+| `message` | string            | No       | Create an annotated tag. |
 
 If successful, returns [`201 Created`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute                | Type    | Description |
 |--------------------------|---------|-------------|
-| `commit`                 | object  | Commit information associated with the tag. |
-| `commit.author_email`    | string  | Email address of the commit author. |
-| `commit.author_name`     | string  | Name of the commit author. |
-| `commit.authored_date`   | string  | Date when the commit was authored in ISO 8601 format. |
-| `commit.committed_date`  | string  | Date when the commit was committed in ISO 8601 format. |
-| `commit.committer_email` | string  | Email address of the committer. |
-| `commit.committer_name`  | string  | Name of the committer. |
-| `commit.created_at`      | string  | Date when the commit was created in ISO 8601 format. |
-| `commit.id`              | string  | Full SHA of the commit. |
-| `commit.message`         | string  | Commit message. |
+| `commit`                 | object | Commit information associated with the tag. |
+| `commit.author_email`    | string | Email address of the commit author. |
+| `commit.author_name`     | string | Name of the commit author. |
+| `commit.authored_date`   | string | Date when the commit was authored in ISO 8601 format. |
+| `commit.committed_date` | string | Date when the commit was committed in ISO 8601 format. |
+| `commit.committer_email` | string | Email address of the committer. |
+| `commit.committer_name` | string | Name of the committer. |
+| `commit.created_at`      | string | Date when the commit was created in ISO 8601 format. |
+| `commit.id`              | string | Full SHA of the commit. |
+| `commit.message`         | string | Commit message. |
 | `commit.parent_ids`      | array   | Array of parent commit SHAs. |
-| `commit.short_id`        | string  | Short SHA of the commit. |
-| `commit.title`           | string  | Title of the commit. |
-| `created_at`             | string  | Date when the tag was created in ISO 8601 format. |
-| `message`                | string  | Tag message. |
-| `name`                   | string  | Name of the tag. |
+| `commit.short_id`        | string | Short SHA of the commit. |
+| `commit.title`           | string | Title of the commit. |
+| `created_at`             | string | Date when the tag was created in ISO 8601 format. |
+| `message`                | string | Tag message. |
+| `name`                   | string | Name of the tag. |
 | `protected`              | boolean | If `true`, the tag is protected. |
-| `release`                | object  | Release information associated with the tag. |
-| `target`                 | string  | SHA that the tag points to. |
+| `release`                | object | Release information associated with the tag. |
+| `target`                 | string | SHA that the tag points to. |
 
 Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/repository/tags?tag_name=test&ref=main"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/repository/tags?tag_name=test&ref=main"
 ```
 
 Example response:
 
 ```json
 {
-  "commit": {
+ "commit": {
     "id": "2695effb5807a22ff3d138d593fd856244e155e7",
     "short_id": "2695effb",
     "title": "Initial commit",
@@ -272,26 +268,26 @@ Example response:
     "committer_name": "Jack Smith",
     "committer_email": "jack@example.com",
     "committed_date": "2012-05-28T04:42:42-07:00"
-  },
-  "release": null,
-  "name": "v1.0.0",
-  "target": "2695effb5807a22ff3d138d593fd856244e155e7",
-  "message": null,
-  "protected": false,
-  "created_at": null
+ },
+ "release": null,
+ "name": "v1.0.0",
+ "target": "2695effb5807a22ff3d138d593fd856244e155e7",
+ "message": null,
+ "protected": false,
+ "created_at": null
 }
 ```
 
 The type of tag created determines the contents of `created_at`, `target` and `message`:
 
 - For annotated tags:
-  - `created_at` contains the timestamp of tag creation.
-  - `message` contains the annotation.
-  - `target` contains the tag object's ID.
+ - `created_at` contains the timestamp of tag creation.
+ - `message` contains the annotation.
+ - `target` contains the tag object's ID.
 - For lightweight tags:
-  - `created_at` is null.
-  - `message` is null.
-  - `target` contains the commit ID.
+ - `created_at` is null.
+ - `message` is null.
+ - `target` contains the commit ID.
 
 Errors return status code `405` with an explanatory error message.
 
@@ -305,15 +301,14 @@ DELETE /projects/:id/repository/tags/:tag_name
 
 Supported attributes:
 
-| Attribute  | Type              | Required | Description |
+| Attribute | Type              | Required | Description |
 |------------|-------------------|----------|-------------|
 | `id`       | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `tag_name` | string            | Yes      | Name of a tag. |
 
 ## Get X.509 signature of a tag
 
-Get the [X.509 signature from a tag](../user/project/repository/signed_commits/x509.md),
-if it is signed. Unsigned tags return a `404 Not Found` response.
+Get the [X.509 signature from a tag](../user/project/repository/signed_commits/x509.md), if it is signed. Unsigned tags return a `404 Not Found` response.
 
 ```plaintext
 GET /projects/:id/repository/tags/:tag_name/signature
@@ -321,7 +316,7 @@ GET /projects/:id/repository/tags/:tag_name/signature
 
 Supported attributes:
 
-| Attribute  | Type              | Required | Description |
+| Attribute | Type              | Required | Description |
 |------------|-------------------|----------|-------------|
 | `id`       | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `tag_name` | string            | Yes      | Name of a tag. |
@@ -330,35 +325,35 @@ If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the 
 
 | Attribute                                             | Type    | Description |
 |-------------------------------------------------------|---------|-------------|
-| `signature_type`                                      | string  | Type of signature (`X509`). |
-| `verification_status`                                 | string  | Verification status of the signature. |
-| `x509_certificate`                                    | object  | X.509 certificate information. |
-| `x509_certificate.certificate_status`                 | string  | Status of the certificate. |
-| `x509_certificate.email`                              | string  | Email address from the certificate. |
+| `signature_type`                                      | string | Type of signature (`X509`). |
+| `verification_status`                                 | string | Verification status of the signature. |
+| `x509_certificate`                                    | object | X.509 certificate information. |
+| `x509_certificate.certificate_status`                 | string | Status of the certificate. |
+| `x509_certificate.email`                              | string | Email address from the certificate. |
 | `x509_certificate.id`                                 | integer | ID of the certificate. |
 | `x509_certificate.serial_number`                      | integer | Serial number of the certificate. |
-| `x509_certificate.subject`                            | string  | Subject of the certificate. |
-| `x509_certificate.subject_key_identifier`             | string  | Subject key identifier of the certificate. |
-| `x509_certificate.x509_issuer`                        | object  | Issuer information of the certificate. |
-| `x509_certificate.x509_issuer.crl_url`                | string  | Certificate revocation list URL. |
+| `x509_certificate.subject`                            | string | Subject of the certificate. |
+| `x509_certificate.subject_key_identifier`             | string | Subject key identifier of the certificate. |
+| `x509_certificate.x509_issuer`                        | object | Issuer information of the certificate. |
+| `x509_certificate.x509_issuer.crl_url`                | string | Certificate revocation list URL. |
 | `x509_certificate.x509_issuer.id`                     | integer | ID of the issuer. |
-| `x509_certificate.x509_issuer.subject`                | string  | Subject of the issuer. |
-| `x509_certificate.x509_issuer.subject_key_identifier` | string  | Subject key identifier of the issuer. |
+| `x509_certificate.x509_issuer.subject`                | string | Subject of the issuer. |
+| `x509_certificate.x509_issuer.subject_key_identifier` | string | Subject key identifier of the issuer. |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/repository/tags/v1.1.1/signature"
+ --url "https://gitlab.example.com/api/v4/projects/1/repository/tags/v1.1.1/signature"
 ```
 
 Example response if tag is X.509 signed:
 
 ```json
 {
-  "signature_type": "X509",
-  "verification_status": "unverified",
-  "x509_certificate": {
+ "signature_type": "X509",
+ "verification_status": "unverified",
+ "x509_certificate": {
     "id": 1,
     "subject": "CN=gitlab@example.org,OU=Example,O=World",
     "subject_key_identifier": "BC:BC:BC:BC:BC:BC:BC:BC:BC:BC:BC:BC:BC:BC:BC:BC:BC:BC:BC:BC",
@@ -371,7 +366,7 @@ Example response if tag is X.509 signed:
       "subject_key_identifier": "AB:AB:AB:AB:AB:AB:AB:AB:AB:AB:AB:AB:AB:AB:AB:AB:AB:AB:AB:AB",
       "crl_url": "http://example.com/pki.crl"
     }
-  }
+ }
 }
 ```
 
@@ -379,6 +374,6 @@ Example response if tag is unsigned:
 
 ```json
 {
-  "message": "404 GPG Signature Not Found"
+ "message": "404 GPG Signature Not Found"
 }
 ```

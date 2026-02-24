@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357749625498-About-confid
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -16,13 +16,13 @@ The confidence determines how certain the AI agent is that the expression receiv
 
 You can see this in your [Conversation Logs](https://support.zendesk.com/hc/en-us/articles/8357749580186) when you click on any message as to what it was recognized as and the percentage of confidence it had that it was that Intent.
 
-|  |  |
+| | |
 | --- | --- |
 | Screenshot_2022-10-05_at_08.45.06.png | Screenshot_2022-10-05_at_08.46.19.png |
 
 You have the possibility to choose what you would like the confidence threshold to be - how sure does the AI agent need to be in order to send an Intent reply?
 
-We set the confidence threshold for the AI agent to 60, and we find that most of our users have the threshold set somewhere between 50% and 70% as the sweet spot that provides the most value when training the AI agent. But you might be asking yourself... How do you know what is the best confidence threshold for you?  
+We set the confidence threshold for the AI agent to 60, and we find that most of our users have the threshold set somewhere between 50% and 70% as the sweet spot that provides the most value when training the AI agent. But you might be asking yourself... How do you know what is the best confidence threshold for you? 
 In order to decide this, you need to know what happens when you lower or higher the threshold. What happens when the AI agent receives an expression on either side of the threshold?
 
 In this article we will cover:
@@ -49,8 +49,8 @@ When a message comes in the AI kicks into gear and will compare the content of t
 
 - If it is above the threshold, that Intent is triggered which could be correct or incorrect - the lower you make the threshold, there is a higher likelihood that a wrong intent is triggered.
 - If it is below the threshold a Default Reply will be sent.
-- For ticket automation, if it's below the threshold - no reply is sent unless you have configured it otherwise.  
-  For chat automation it could be that then the customer is escalated, depending on how you have designed your default reply.
+- For ticket automation, if it's below the threshold - no reply is sent unless you have configured it otherwise. 
+ For chat automation it could be that then the customer is escalated, depending on how you have designed your default reply.
 
 The higher the confidence threshold, the more accurate the AI agent would be, but then more default replies would be sent. Therefore you need to consider 5 things:
 
@@ -64,7 +64,7 @@ The higher the confidence threshold, the more accurate the AI agent would be, bu
 
 To determine the confidence threshold, you can run a full analysis, however, if you are looking for how to you can do this in a simple way we can ask you an either-or question.
 
-|  |  |
+| | |
 | --- | --- |
 | In 100 messages, which is better? | |
 | 50 potentially incorrect answers + 50 correct answers | 100 Default Replies / No action taken |

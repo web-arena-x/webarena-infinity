@@ -18,10 +18,8 @@ A custom profile URL is a unique web address that links directly to your Handsha
 
 To claim your custom URL, follow these steps:
 
-1. **Complete at least 70% of your Handshake profile**  
-   Fill out key sections such as Education, Work & Volunteer Experience, Skills, and Interests to get closer to profile completion. For more tips, check out [Completing your Profile in Handshake](completing-your-profile-in-handshake.md).
-2. **Have a Community profile with visibility set to Public**  
-   Your profile must be set to "Public" in order for others to view your profile and share your link. Learn more about your profile visibility options in [Profile Privacy Options in Handshake.](../privacy-safety/profile-privacy-options-in-handshake.md)
+1. **Complete at least 70% of your Handshake profile** Fill out key sections such as Education, Work & Volunteer Experience, Skills, and Interests to get closer to profile completion. For more tips, check out [Completing your Profile in Handshake](completing-your-profile-in-handshake.md).
+2. **Have a Community profile with visibility set to Public** Your profile must be set to "Public" in order for others to view your profile and share your link. Learn more about your profile visibility options in [Profile Privacy Options in Handshake.](../privacy-safety/profile-privacy-options-in-handshake.md)
 
 Once you meet these requirements, the option to set your custom URL will be available on both the web and mobile versions of Handshake.
 

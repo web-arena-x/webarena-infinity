@@ -23,18 +23,18 @@ You can optionally apply various types of exclusions to your campaign. However, 
 **Default exclusions** *(applied to all campaigns by default)*
 
 - **Recently messaged**
-  - Excludes recipients who have received a message from the campaign creator in the last 48 hours, or who have muted you *(cannot be opted out of)*.
+ - Excludes recipients who have received a message from the campaign creator in the last 48 hours, or who have muted you *(cannot be opted out of)*.
 - **Students who are not seeking job opportunities**
-  - Excludes recipients who are not seeking job opportunities *(can be toggled).*
+ - Excludes recipients who are not seeking job opportunities *(can be toggled).*
 
 **Optional exclusions**
 
 - **Applied to a job**
-  - Excludes recipients who have recently applied to a job posted by your company on Handshake. The time frame for this exclusion can be 1, 3, 6, or 12 months.
+ - Excludes recipients who have recently applied to a job posted by your company on Handshake. The time frame for this exclusion can be 1, 3, 6, or 12 months.
 - **Received a message** *(from you or teammates)*
-  - Excludes recipients who have received a message from you *(campaign creator)* or any other teammate on Handshake. The time frame for this exclusion can be 1, 3, 6, or 12 months.
+ - Excludes recipients who have received a message from you *(campaign creator)* or any other teammate on Handshake. The time frame for this exclusion can be 1, 3, 6, or 12 months.
 - **Employer labels**
-  - Excludes recipients that have any custom labels attached to their profile by your company on Handshake.
+ - Excludes recipients that have any custom labels attached to their profile by your company on Handshake.
 
 ### 
 
@@ -43,9 +43,9 @@ You can optionally apply various types of exclusions to your campaign. However, 
 You can apply exclusions to the follow-up message in the **Write message** section of the campaign form.
 
 - **Exclude students who replied to this campaign** (*optional*)
-  - Excludes recipients who have already responded to the initial campaign message.
+ - Excludes recipients who have already responded to the initial campaign message.
 - **Exclude original job posting attachment** **(only displays in job form campaigns)**
-  - Prevents the job posting attachment from being included.
+ - Prevents the job posting attachment from being included.
 
 ![Audience settings in write message section.png](https://support.joinhandshake.com/hc/article_attachments/29974166311191)
 

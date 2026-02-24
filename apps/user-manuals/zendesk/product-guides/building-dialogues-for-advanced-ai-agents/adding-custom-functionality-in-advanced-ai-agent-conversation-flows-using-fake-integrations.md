@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357749820570-Adding-custo
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -61,7 +61,7 @@ To build a fake integration, you create an API Integration as usual. However, no
     - If you have a simple query, enter it in the **Scenario Query** field. For example, if you just need a boolean response, then having the query here is all you need.
     - If you need to define logic based on request parameters (coming from the conversation):
       1. Enter **requestParameters** in the **Scenario Query** field.
-      2. Under **Session Parameters**, enter the parameters for your fake integration. The screenshot below includes example parameters and JSONata expressions for returning the day of the week and the current time.  
+      2. Under **Session Parameters**, enter the parameters for your fake integration. The screenshot below includes example parameters and JSONata expressions for returning the day of the week and the current time. 
          ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ultimate_fake_integrations_2.png)
 11. Click **Save**.
 
@@ -76,10 +76,10 @@ In the [dialogue builder](https://support.zendesk.com/hc/en-us/articles/83577494
 3. Select the intent you want to update the dialogue for.
 4. Select the **Replies** tab.
 5. Select the reply you want to update the dialogue for, and then click **Edit Dialogue**.
-6. Click the plus icon (+) at the appropriate point in the dialogue and add an **API integration** block.  
+6. Click the plus icon (+) at the appropriate point in the dialogue and add an **API integration** block. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ultimate_fake_integrations_3.png)
-7. Select the fake integration you created above.  
+7. Select the fake integration you created above. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ultimate_fake_integrations_4.png)
 
-Now, when the fake integration branch is hit in the conversation, your fake API integration is called and the session parameters you defined in your success scenario will be available to the dialogue. The example below shows a fake integration feeding into a conditional block using day-of-week-based parameters returned by the fake integration.  
+Now, when the fake integration branch is hit in the conversation, your fake API integration is called and the session parameters you defined in your success scenario will be available to the dialogue. The example below shows a fake integration feeding into a conditional block using day-of-week-based parameters returned by the fake integration. 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ultimate_fake_integrations_5.png)

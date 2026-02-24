@@ -33,8 +33,8 @@ Like default roles, custom roles are [inherited](../../user/project/members/_ind
 - A Group or project membership can be associated with any custom role that is defined on the root-level group of the group or project.
 - The `member_roles` table includes individual permissions and a `base_access_level` value.
 - The `base_access_level` must be a valid access level.
-  - Possible values: `0` (No access), `5` (Minimal access), `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), `50` (Owner), `60` (Admin).
-  - The `base_access_level` determines which abilities are included in the custom role. For example, if the `base_access_level` is `10`, the custom role will include any abilities that a default Guest role would receive, plus any additional abilities that are enabled by the `member_roles` record by setting an attribute, such as `read_code`, to true.
+ - Possible values: `0` (No access), `5` (Minimal access), `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), `50` (Owner), `60` (Admin).
+ - The `base_access_level` determines which abilities are included in the custom role. For example, if the `base_access_level` is `10`, the custom role will include any abilities that a default Guest role would receive, plus any additional abilities that are enabled by the `member_roles` record by setting an attribute, such as `read_code`, to true.
 - A custom role can enable additional abilities for a `base_access_level` but it cannot disable a permission. As a result, custom roles are "additive only". The rationale for this choice is [in this comment](https://gitlab.com/gitlab-org/gitlab/-/issues/352891#note_1059561579).
 - Custom role abilities are supported at project level and group level.
 
@@ -46,11 +46,7 @@ Abilities are often [checked in multiple locations](authorizations.md#where-shou
 
 To assist with this, you can locally set `GITLAB_DEBUG_POLICIES=true`.
 
-This outputs information about which abilities are checked in the requests
-made in any specs that you run. The output also includes the line of code where the
-authorization check was made. Caller information is especially helpful in cases
-where there is metaprogramming used because those cases are difficult to find by
-grepping for ability name strings.
+This outputs information about which abilities are checked in the requests made in any specs that you run. The output also includes the line of code where the authorization check was made. Caller information is especially helpful in cases where there is metaprogramming used because those cases are difficult to find by grepping for ability name strings.
 
 For example:
 
@@ -64,18 +60,13 @@ GITLAB_DEBUG_POLICIES=true bundle exec rspec spec/controllers/groups_controller_
 POLICY CHECK DEBUG -> policy: GlobalPolicy, ability: create_group, called_from: ["/gitlab/app/controllers/application_controller.rb:245:in `can?'", "/gitlab/app/controllers/groups_controller.rb:255:in `authorize_create_group!'"]
 ```
 
-Use this setting to learn more about authorization checks while
-refactoring. You should not keep this setting enabled for any specs on the default branch.
+Use this setting to learn more about authorization checks while refactoring. You should not keep this setting enabled for any specs on the default branch.
 
 ### Understanding logic for individual abilities
 
-References to an ability may appear in a `DeclarativePolicy` class many times
-and depend on conditions and rules which reference other abilities. As a result,
-it can be challenging to know exactly which conditions apply to a particular
-ability.
+References to an ability may appear in a `DeclarativePolicy` class many times and depend on conditions and rules which reference other abilities. As a result, it can be challenging to know exactly which conditions apply to a particular ability.
 
-`DeclarativePolicy` provides a `ability_map` for each policy class, which
-pulls all rules for an ability into an array.
+`DeclarativePolicy` provides a `ability_map` for each policy class, which pulls all rules for an ability into an array.
 
 For example:
 
@@ -85,7 +76,7 @@ For example:
 
 > GroupPolicy.ability_map.map.select { |k,v| k == :read_group }
 => {:read_group=>
-  [[:enable, #<Rule public_group>],
+ [[:enable, #<Rule public_group>],
    [:enable, #<Rule logged_in_viewable>],
    [:enable, #<Rule guest>],
    [:enable, #<Rule admin>],
@@ -98,16 +89,12 @@ For example:
    [:prevent, #<Rule all?(ip_enforcement_prevents_access, ~owner, ~auditor)>]]}
 ```
 
-`DeclarativePolicy` also provides a `debug` method that can be used to
-understand the logic tree for a specific object and actor. The output is similar
-to the list of rules from `ability_map`. But, `DeclarativePolicy` stops
-evaluating rules after you `prevent` an ability, so it is possible that
-not all conditions are called.
+`DeclarativePolicy` also provides a `debug` method that can be used to understand the logic tree for a specific object and actor. The output is similar to the list of rules from `ability_map`. But, `DeclarativePolicy` stops evaluating rules after you `prevent` an ability, so it is possible that not all conditions are called.
 
 Example:
 
 ```ruby
-policy = GroupPolicy.new(User.last,  Group.last)
+policy = GroupPolicy.new(User.last, Group.last)
 policy.debug(:read_group)
 
 - [0] enable when public_group ((@custom_guest_user1 : Group/139))
@@ -120,11 +107,11 @@ policy.debug(:read_group)
 - [16] enable when has_projects ((@custom_guest_user1 : Group/139))
 - [16] enable when read_package_registry_deploy_token ((@custom_guest_user1 : Group/139))
 - [16] enable when write_package_registry_deploy_token ((@custom_guest_user1 : Group/139))
-  [21] prevent when all?(ip_enforcement_prevents_access, ~owner, ~auditor) ((@custom_guest_user1 : Group/139))
+ [21] prevent when all?(ip_enforcement_prevents_access, ~owner, ~auditor) ((@custom_guest_user1 : Group/139))
 
 => #<DeclarativePolicy::Runner::State:0x000000015c665050
  @called_conditions=
-  #<Set: {
+ #<Set: {
    "/dp/condition/GroupPolicy/public_group/Group:139",
    "/dp/condition/GroupPolicy/logged_in_viewable/User:83,Group:139",
    "/dp/condition/BasePolicy/admin/User:83",
@@ -150,20 +137,10 @@ There might be features that require additional abilities but try to minimize th
 
 This is also where your work should begin. Take all the abilities for the feature you work on, and consolidate those abilities into `read_`, `admin_`, or additional abilities if necessary.
 
-Many abilities in the `GroupPolicy` and `ProjectPolicy` classes have many
-redundant policies. There is an [epic for consolidating these Policy classes](https://gitlab.com/groups/gitlab-org/-/epics/6689).
-If you encounter similar permissions in these classes, consider refactoring so
-that they have the same name.
+Many abilities in the `GroupPolicy` and `ProjectPolicy` classes have many redundant policies. There is an [epic for consolidating these Policy classes](https://gitlab.com/groups/gitlab-org/-/epics/6689).
+If you encounter similar permissions in these classes, consider refactoring so that they have the same name.
 
-For example, you see in `GroupPolicy` that there is an ability called
-`read_group_security_dashboard` and in `ProjectPolicy` has an ability called
-`read_project_security_dashboard`. You'd like to make both customizable. Rather
-than adding a row to the `member_roles` table for each ability, consider
-renaming them to `read_security_dashboard` and adding `read_security_dashboard`
-to the `member_roles` table. Enabling `read_security_dashboard` on
-the parent group will allow the custom role to access the group security dashboard and the project security dashboard
-for each project in that group. Enabling the same permission on a specific project will allow access to that projects'
-security dashboard.
+For example, you see in `GroupPolicy` that there is an ability called `read_group_security_dashboard` and in `ProjectPolicy` has an ability called `read_project_security_dashboard`. You'd like to make both customizable. Rather than adding a row to the `member_roles` table for each ability, consider renaming them to `read_security_dashboard` and adding `read_security_dashboard` to the `member_roles` table. Enabling `read_security_dashboard` on the parent group will allow the custom role to access the group security dashboard and the project security dashboard for each project in that group. Enabling the same permission on a specific project will allow access to that projects' security dashboard.
 
 ## How to add support for an ability to custom roles
 
@@ -186,10 +163,10 @@ before in a separate merge request, before completing the below.
 | `milestone` | yes | Milestone in which this custom ability was added. |
 | `admin_ability` | no | Boolean value to indicate whether this ability is checked at the admin level. |
 | `group_ability` | yes | Boolean value to indicate whether this ability is checked on group level. |
-| `enabled_for_group_access_levels` | if `group_ability = true` | The array of access levels that already have access to this custom ability in a group. See the section on [understanding logic for individual abilities](#understanding-logic-for-individual-abilities) for help on determining the base access level for an ability. This is for information only and has no impact on how custom roles operate.  |
+| `enabled_for_group_access_levels` | if `group_ability = true` | The array of access levels that already have access to this custom ability in a group. See the section on [understanding logic for individual abilities](#understanding-logic-for-individual-abilities) for help on determining the base access level for an ability. This is for information only and has no impact on how custom roles operate. |
 | `project_ability` | yes | Boolean value to whether this ability is checked on project level. |
-| `enabled_for_project_access_levels` | if `project_ability = true` | The array of access levels that already have access to this custom ability in a project. See the section on [understanding logic for individual abilities](#understanding-logic-for-individual-abilities) for help on determining the base access level for an ability. This is for information only and has no impact on how custom roles operate.  |
-| `requirements` | no | The list of custom permissions this ability is dependent on. For instance `admin_vulnerability` is dependent on `read_vulnerability`. If none, then enter `[]`  |
+| `enabled_for_project_access_levels` | if `project_ability = true` | The array of access levels that already have access to this custom ability in a project. See the section on [understanding logic for individual abilities](#understanding-logic-for-individual-abilities) for help on determining the base access level for an ability. This is for information only and has no impact on how custom roles operate. |
+| `requirements` | no | The list of custom permissions this ability is dependent on. For instance `admin_vulnerability` is dependent on `read_vulnerability`. If none, then enter `[]` |
 | `available_from_access_level` | no | The access level of the predefined role from which this ability is available, if applicable. See the section on [understanding logic for individual abilities](#understanding-logic-for-individual-abilities) for help on determining the base access level for an ability. This is for information only and has no impact on how custom roles operate. |
 
 ### Step 2: Create a spec file and update validation schema
@@ -245,18 +222,18 @@ Custom roles may impact [advanced search functionality](../../user/search/advanc
 - Below is an example of the typical setup that is required to test a Rails Controller endpoint.
 
 ```ruby
-  let_it_be(:user) { create(:user) }
-  let_it_be(:project) { create(:project, :repository, :in_group) }
-  let_it_be(:role) { create(:member_role, :guest, :custom_permission, namespace: project.group) }
-  let_it_be(:membership) { create(:project_member, :guest, member_role: role, user: user, project: project) }
+ let_it_be(:user) { create(:user) }
+ let_it_be(:project) { create(:project, :repository, :in_group) }
+ let_it_be(:role) { create(:member_role, :guest, :custom_permission, namespace: project.group) }
+ let_it_be(:membership) { create(:project_member, :guest, member_role: role, user: user, project: project) }
 
-  before do
+ before do
     stub_licensed_features(custom_roles: true)
 
     sign_in(user)
-  end
+ end
 
-  describe MyController do
+ describe MyController do
     describe '#show' do
       it 'allows access' do
         get my_controller_path(project)
@@ -265,24 +242,24 @@ Custom roles may impact [advanced search functionality](../../user/search/advanc
         expect(response).to render_template(:show)
       end
     end
-  end
+ end
 ```
 
 - Below is an example of the typical setup that is required to test a GraphQL mutation.
 
 ```ruby
-  let_it_be(:user) { create(:user) }
-  let_it_be(:project) { create(:project, :repository, :in_group) }
-  let_it_be(:role) { create(:member_role, :guest, :custom_permission, namespace: project.group) }
-  let_it_be(:membership) { create(:project_member, :guest, member_role: role, user: user, project: project) }
+ let_it_be(:user) { create(:user) }
+ let_it_be(:project) { create(:project, :repository, :in_group) }
+ let_it_be(:role) { create(:member_role, :guest, :custom_permission, namespace: project.group) }
+ let_it_be(:membership) { create(:project_member, :guest, member_role: role, user: user, project: project) }
 
-  before do
+ before do
     stub_licensed_features(custom_roles: true)
 
     sign_in(user)
-  end
+ end
 
-  describe MyMutation do
+ describe MyMutation do
     include GraphqlHelpers
 
     describe '#show' do
@@ -290,18 +267,18 @@ Custom roles may impact [advanced search functionality](../../user/search/advanc
 
       it_behaves_like 'a working graphql query'
     end
-  end
+ end
 ```
 
 - Add tests to `ProjectPolicy` and/or `GroupPolicy`. Below is an example for testing `ProjectPolicy` related changes.
 
 ```ruby
-  context 'for a member role with read_dependency true' do
+ context 'for a member role with read_dependency true' do
     let(:member_role_abilities) { { read_dependency: true } }
     let(:allowed_abilities) { [:read_dependency] }
 
     it_behaves_like 'custom roles abilities'
-  end
+ end
 ```
 
 - Add [advanced search permissions tests](../advanced_search.md#permissions-tests) for impacted scopes if needed

@@ -17,9 +17,7 @@ That is, anything required to run the `webpack` script with `NODE_ENV=production
 Tools like `eslint`, `jest`, and various plugins and tools used in development are considered `devDependencies`.
 This distinction is used by omnibus to determine which dependencies it requires when building GitLab.
 
-Exceptions are made for some tools that we require in the
-`compile-production-assets` CI job such as `webpack-bundle-analyzer` to analyze our
-production assets post-compile.
+Exceptions are made for some tools that we require in the `compile-production-assets` CI job such as `webpack-bundle-analyzer` to analyze our production assets post-compile.
 
 ## Updating dependencies
 
@@ -31,8 +29,7 @@ Patches can be applied to dependencies with [`patch-package`](https://github.com
 
 ### What warrants a patch
 
-Dependencies should only be patched as a last resort, as they are technical
-debt. Here are some acceptable reasons for patching a dependency:
+Dependencies should only be patched as a last resort, as they are technical debt. Here are some acceptable reasons for patching a dependency:
 
 - it is unmaintained, so there isn't an upstream version which includes the change;
 - there is a vulnerability identified that we cannot wait for upstream to fix;

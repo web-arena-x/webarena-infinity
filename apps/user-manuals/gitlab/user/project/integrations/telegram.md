@@ -77,10 +77,8 @@ After you invite the bot to a Telegram channel, you can configure GitLab to send
 1. In the **Notification settings** section:
    - In **Channel identifier**, [paste the Telegram channel identifier](#configure-the-telegram-bot).
    - Optional. In **Message thread ID**, paste the unique identifier for the target message thread (topic in a forum supergroup).
-   - Optional. Select the **Notify only broken pipelines** checkbox
-     to receive notifications for failed pipelines only.
-   - Optional. From the **Branches for which notifications are to be sent** dropdown list,
-     select the branches you want to receive notifications for.
+   - Optional. Select the **Notify only broken pipelines** checkbox to receive notifications for failed pipelines only.
+   - Optional. From the **Branches for which notifications are to be sent** dropdown list, select the branches you want to receive notifications for.
 1. Optional. Select **Test settings**.
 1. Select **Save changes**.
 

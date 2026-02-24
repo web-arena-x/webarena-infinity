@@ -21,7 +21,7 @@ User contribution mapping is implemented within each importer to assign contribu
 | Placeholder membership   | `Import::Placeholders::Membership`       | A separate model to track imported memberships belonging to placeholder users. `Member` records are not created for placeholder users during a migration to prevent placeholders from appearing as members. |
 | Import user              | `Import::NamespaceImportUser`            | A placeholder user used when records can't be assigned to a regular placeholder. E.g. when the [placeholder user limit](../user/import/mapping.md#placeholder-user-limits) has been reached.                                                                     |
 | Placeholder detail       | `Import::PlaceholderUserDetail`          | A record that tracks which namespaces have placeholder users so that placeholder users can be deleted when their top-level group is deleted.                                                                |
-| Placeholder users table  | N/A                                      | Table of placeholder users where group owners can pick real users to assign to placeholder users on the UI. Located on the top-level group's members page under the placeholders tab. Only visible to group owners. |
+| Placeholder users table | N/A                                      | Table of placeholder users where group owners can pick real users to assign to placeholder users on the UI. Located on the top-level group's members page under the placeholders tab. Only visible to group owners. |
 
 ## Placeholder user creation during import
 
@@ -129,10 +129,7 @@ flowchart
 
    {{< alert type="note" >}}
 
-   Placeholder user references are cached before loading to avoid too many concurrent writes on the
-   `import_source_user_placeholder_references` table. If a database record references a placeholder
-   user's ID but a placeholder reference is not persisted for some reason, the contribution cannot
-   be reassigned and the placeholder user may not be deleted.
+   Placeholder user references are cached before loading to avoid too many concurrent writes on the `import_source_user_placeholder_references` table. If a database record references a placeholder user's ID but a placeholder reference is not persisted for some reason, the contribution cannot be reassigned and the placeholder user may not be deleted.
 
    {{< /alert >}}
 
@@ -262,7 +259,7 @@ flowchart LR
       have been reassigned
     )))
 %% Edge connections between nodes
-    OwnerAssigns  --> ConfirmAssignmentWithBypass --> ReassigmentStarts --> NotifyAssignee
+    OwnerAssigns --> ConfirmAssignmentWithBypass --> ReassigmentStarts --> NotifyAssignee
 ```
 
 Bypassing an assignee's confirmation can only be done in the following situations:
@@ -320,11 +317,11 @@ Example:
 
 ```diff
 "Snippet" => {
-  1 => {
+ 1 => {
     model: Snippet,
 -   columns: { "author_id" => "author_id" }
 +   columns: { "author_id" => "author_id", "last_updated_by_id" => "last_updated_by_id" }
-  }
+ }
 },
 ```
 
@@ -342,8 +339,8 @@ Examples:
      model: Snippet,
 -    columns: { "author_id" => "author_id" }
 +    columns: { "author_id" => "user_id" }
-+  },
-+  2 => {
++ },
++ 2 => {
 +    model: Snippet,
 +    columns: { "user_id" => "user_id" }
    }
@@ -363,8 +360,8 @@ After some time, `user_id` on the `snippets` table was changed again to `created
      model: Snippet,
 -    columns: { "user_id" => "user_id" }
 +    columns: { "user_id" => "created_by_id" }
-+  },
-+  3 => {
++ },
++ 3 => {
 +    model: Snippet,
 +    columns: { "created_by_id" => "created_by_id" }
    }
@@ -382,10 +379,10 @@ Direct transfer was updated to import `Todo`s. `Todo` has two user reference col
 ```diff
 },
 +"Todo" => {
-+  1 => {
++ 1 => {
 +    model: Todo,
 +    columns: { "user_id" => "user_id", "author_id" => "author_id"}
-+  }
++ }
 +},
 "Vulnerability" => {
 ```
@@ -400,10 +397,10 @@ Example:
 
 ```diff
 +"Sample" => {
-+  1 => {
++ 1 => {
 +    model: Sample,
 +    columns: { "author_id" => "author_id" }
-+  }
++ }
 +},
  "Snippet" => {
    1 => {
@@ -420,20 +417,20 @@ Some time after `Snippet` is renamed to `Sample`, the `Snippet` model is reintro
 
 ```diff
 "Sample" => {
-  1 => {
+ 1 => {
     model: Sample,
     columns: { "author_id" => "author_id" }
-  }
+ }
 },
 "Snippet" => {
-  1 => {
+ 1 => {
     model: Sample,
     columns: { "author_id" => "author_id" }
-  },
-+  2 => {
+ },
++ 2 => {
 +    model: Snippet,
 +    columns: { "user_id" => "user_id" }
-  }
+ }
 },
 ```
 

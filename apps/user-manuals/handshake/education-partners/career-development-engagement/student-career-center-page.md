@@ -19,7 +19,7 @@ Depending on the student engagement, they may have access to the following colle
 - **Personalized Jobs for you (jobs recommended to the student based on views and applications)**
 - **Job Roles** (jobs with roles of interest)
 - **Major Groups** (jobs that pertain to a certain major)
-  - When students have more than one major, the suggested jobs will be based on either the primary major selected, or if no primary major is designated, they'll be based on the first major listed.
+ - When students have more than one major, the suggested jobs will be based on either the primary major selected, or if no primary major is designated, they'll be based on the first major listed.
 - **On Campus Jobs** (jobs posted by your school for campus employment)
 - **Expiring Jobs** (jobs expiring within 2 weeks)
 - **Interested Industries** (jobs within the industries the student is interested in)

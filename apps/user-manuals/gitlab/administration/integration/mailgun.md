@@ -14,8 +14,7 @@ title: Mailgun
 {{< /details >}}
 
 When you use Mailgun to send emails for your GitLab instance and [Mailgun](https://www.mailgun.com/)
-integration is enabled and configured in GitLab, you can receive their webhook for
-tracking delivery failures. To set up the integration, you must:
+integration is enabled and configured in GitLab, you can receive their webhook for tracking delivery failures. To set up the integration, you must:
 
 1. [Configure your Mailgun domain](#configure-your-mailgun-domain).
 1. [Enable Mailgun integration](#enable-mailgun-integration).
@@ -49,14 +48,11 @@ Using the [Mailgun webhook guide](https://www.mailgun.com/blog/product/a-guide-t
 
 ## Enable Mailgun integration
 
-After configuring your Mailgun domain for the webhook endpoints,
-you're ready to enable the Mailgun integration:
+After configuring your Mailgun domain for the webhook endpoints, you're ready to enable the Mailgun integration:
 
 1. Sign in to GitLab as an [Administrator](../../user/permissions.md) user.
 1. In the upper-right corner, select **Admin**.
 1. On the left sidebar, go to **Settings** > **General** and expand the **Mailgun** section.
 1. Select the **Enable Mailgun** checkbox.
-1. Enter the Mailgun HTTP webhook signing key as described in
-   [the Mailgun documentation](https://documentation.mailgun.com/docs/mailgun/user-manual/get-started/) and
-   shown in the API security (`https://app.mailgun.com/app/account/security/api_keys`) section for your Mailgun account.
+1. Enter the Mailgun HTTP webhook signing key as described in [the Mailgun documentation](https://documentation.mailgun.com/docs/mailgun/user-manual/get-started/) and shown in the API security (`https://app.mailgun.com/app/account/security/api_keys`) section for your Mailgun account.
 1. Select **Save changes**.

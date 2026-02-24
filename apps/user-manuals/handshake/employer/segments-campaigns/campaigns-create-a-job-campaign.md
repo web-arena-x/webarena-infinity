@@ -39,10 +39,10 @@ Select a job to connect to this campaign (only one job posting can be attached t
 💡 Save time by posting jobs to Handshake. Jobs on Handshake see higher engagement from candidates.
 
 - - Enter the job title in the **Job title** field. This title will be shown to candidates.
-  - Enter the job URL in the **External** **URL** field.
+ - Enter the job URL in the **External** **URL** field.
     - **Note**: URL must begin with http:// or https://.
-  - Enter the city and state in the **Location** field. *(optional)*
-  - Enter the name of the campaign in the **Campaign name** field. This will not be shown to candidates.
+ - Enter the city and state in the **Location** field. *(optional)*
+ - Enter the name of the campaign in the **Campaign name** field. This will not be shown to candidates.
 
 ![Posted externally.png](https://support.joinhandshake.com/hc/article_attachments/24849556574231)
 
@@ -59,10 +59,10 @@ When the fields are completed, click the black button **Continue** in the lower-
 Select an audience for your campaign. You can choose to:
 
 - [Create new segment](#h_01HMC4P437D1EQVW67YT5SJZBZ)
-  - Based on the job description, create a new segment using our recommended segment filters.
-  - Audiences are generated based on the requirements within the job description.
+ - Based on the job description, create a new segment using our recommended segment filters.
+ - Audiences are generated based on the requirements within the job description.
 - [Use existing segment](#h_01HMC4QP60QKKC2Q0QQ6HSCG1Z)
-  - Choose from a segment you've created before.
+ - Choose from a segment you've created before.
 
 ![Define audience.png](https://support.joinhandshake.com/hc/article_attachments/29973386110487)
 
@@ -82,9 +82,9 @@ You can adjust the following filters:
 - Majors
 - Work authorization
 - Location
-  - Add up to 5 locations. Location includes candidates who live in or are interested in the location.
+ - Add up to 5 locations. Location includes candidates who live in or are interested in the location.
 - Underrepresented groups
-  - **Note**: Campaigns can't be sent using *only* filters for underrepresented groups. Additional candidate filters will be needed.
+ - **Note**: Campaigns can't be sent using *only* filters for underrepresented groups. Additional candidate filters will be needed.
 
 **Schools**
 
@@ -128,15 +128,15 @@ We exclude candidates who have received a campaign from you in the past two days
 To exclude specific audiences, customize the filters below as needed:
 
 - **Applied to a job**
-  - In the last 1 month
-  - In the last 3 months
-  - In the last 6 months
-  - In the last 12 months
+ - In the last 1 month
+ - In the last 3 months
+ - In the last 6 months
+ - In the last 12 months
 - **Received a message**
-  - In the last 1 month
-  - In the last 3 months
-  - In the last 6 months
-  - In the last 12 months
+ - In the last 1 month
+ - In the last 3 months
+ - In the last 6 months
+ - In the last 12 months
     - **From**
       - Any teammate
       - You
@@ -173,15 +173,15 @@ We exclude candidates who have received a campaign from you in the past two days
 To exclude specific audiences, customize the filters below as needed:
 
 - **Applied to a job**
-  - In the last 1 month
-  - In the last 3 months
-  - In the last 6 months
-  - In the last 12 months
+ - In the last 1 month
+ - In the last 3 months
+ - In the last 6 months
+ - In the last 12 months
 - **Received a message**
-  - In the last 1 month
-  - In the last 3 months
-  - In the last 6 months
-  - In the last 12 months
+ - In the last 1 month
+ - In the last 3 months
+ - In the last 6 months
+ - In the last 12 months
     - **From**
       - Any teammate
       - You
@@ -197,16 +197,14 @@ Once your settings are customized, click the black button **Continue** in the lo
 
 Campaigns appear as an email and in-app message to candidates. This is what candidates will read to decide if they're interested in the job, and will expect your response when they reply.
 
-**Subject line**  
-This will be used in the email notification.
+**Subject line** This will be used in the email notification.
 
-**Message**  
-Candidates get a lot of campaigns—the best ones are concise, personalized, and feel like a conversation. Try to use bullet points and avoid jargon.
+**Message** Candidates get a lot of campaigns—the best ones are concise, personalized, and feel like a conversation. Try to use bullet points and avoid jargon.
 
 - Compose your message in the text box and format it as desired.
 - To insert the job link in the message, click the gray-colored text **Insert job apply link** below the text box.
 - To use a message template, click the blue-colored text **Use template** above the text box.
-  - In the pop-up modal, select a template, then click the black button **Use template**.
+ - In the pop-up modal, select a template, then click the black button **Use template**.
 - To save your message as a new template, click the blue-colored text **Save as template**.
 
 ![Write message.png](https://support.joinhandshake.com/hc/article_attachments/25991250666007)
@@ -249,9 +247,9 @@ When ready, click the black button **Continue** in the lower-right corner of the
 To schedule the delivery of your campaign, toggle the button to the right of one or both of the following options to enable them:
 
 - (**AI-powered**) Get more qualified applicants with dynamic targeting.
-  - **Tip**: Dynamic targeting is auto-enabled on all campaigns to help optimize campaigns to only reach qualified, interested candidates. This feature makes sure your message resonates with recipients, targets candidates who are likely to apply, and expands your audience to reach more candidates if your campaign is under-performing. You can choose to toggle this off before sending your campaign.
+ - **Tip**: Dynamic targeting is auto-enabled on all campaigns to help optimize campaigns to only reach qualified, interested candidates. This feature makes sure your message resonates with recipients, targets candidates who are likely to apply, and expands your audience to reach more candidates if your campaign is under-performing. You can choose to toggle this off before sending your campaign.
 - **Customize start time**
-  - You can customize the start time of the campaign according to your preferences. Otherwise, it will begin sending shortly.
+ - You can customize the start time of the campaign according to your preferences. Otherwise, it will begin sending shortly.
 
 ![Schedule delivery .png](https://support.joinhandshake.com/hc/article_attachments/24849556595863)
 

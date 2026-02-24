@@ -10,10 +10,10 @@ Your major is added to our profile via one of the following ways:
 
 - Uploaded by your school
 
-  - If your school pre-created an account for you, your major and minor are uploaded to your profile for you. This is usually added from data provided by your school registrar.
+ - If your school pre-created an account for you, your major and minor are uploaded to your profile for you. This is usually added from data provided by your school registrar.
 - Added by yourself
 
-  - If you created an account yourself, you received the option to add a major for yourself during the account creation process.
+ - If you created an account yourself, you received the option to add a major for yourself during the account creation process.
 
 ### **Update or add major**
 

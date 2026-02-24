@@ -54,7 +54,7 @@ While in design mode, you can access the same [export formats and settings](../.
 1. Select the layers you want to export. To select an entire slide to export, do one of the following:
    - **In slide view:** Click a blank space on the canvas to deselect everything
    - **In grid view:** Hover just above a slide and click the blue outline that appears
-2. Click the  plus in the **Export** section of the right sidebar to add an export configuration. You can add as many export configurations to a selection as needed.
+2. Click the plus in the **Export** section of the right sidebar to add an export configuration. You can add as many export configurations to a selection as needed.
 3. Configure the export settings. Learn more about [Figma's export formats and settings](https://help.figma.com/hc/en-us/articles/13402894554519).
 4. (Optional) Click **Preview** to see how your asset will look. If you have multiple layers selected, the **Preview** setting does not display.
 5. Click **Export**.

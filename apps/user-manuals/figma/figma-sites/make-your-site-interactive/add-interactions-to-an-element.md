@@ -198,12 +198,12 @@ In some cases, Figma may not find a matching interaction. To troubleshoot and fi
 
 After copy and pasting into a Figma Sites file, check for any unsupported triggers or actions using the **Review issues** modal.
 
-To access this modal, click  **Review issues** at the bottom left corner of the file. You can also click **Publish** in the left sidebar, then click **Issues**.
+To access this modal, click **Review issues** at the bottom left corner of the file. You can also click **Publish** in the left sidebar, then click **Issues**.
 
 ![Figma interface showing an Interaction tab with a selected interaction type, "Mouse move inside," with the unsupported action icon.](https://help.figma.com/hc/article_attachments/31937329770647)
 
 **Update the interaction**
 
-In the **Interaction** tab of the right sidebar, unsupported interactions are represented by the  icon.
+In the **Interaction** tab of the right sidebar, unsupported interactions are represented by the icon.
 
 Click the interaction and choose a different trigger or action to get it working again.

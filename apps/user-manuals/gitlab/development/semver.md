@@ -13,23 +13,23 @@ In order to use SemanticVersionable you must first create a database migration t
 
 ```ruby
 class AddVersionPartsToModelVersions < Gitlab::Database::Migration[2.2]
-  milestone '16.9'
+ milestone '16.9'
 
-  def up
+ def up
     add_column :ml_model_versions, :semver_major, :integer
     add_column :ml_model_versions, :semver_minor, :integer
     add_column :ml_model_versions, :semver_patch, :integer
     add_column :ml_model_versions, :semver_prerelease, :text
     add_column :ml_model_versions, :semver_prefixed, :boolean, default: false
-  end
+ end
 
-  def down
+ def down
     remove_column :ml_model_versions, :semver_major, :integer
     remove_column :ml_model_versions, :semver_minor, :integer
     remove_column :ml_model_versions, :semver_patch, :integer
     remove_column :ml_model_versions, :semver_prerelease, :text
     remove_column :ml_model_versions, :semver_prefixed, :boolean
-  end
+ end
 end
 ```
 
@@ -37,10 +37,10 @@ Once the columns are in the database, you can enable the module by including it 
 
 ```ruby
 module Ml
-  class ModelVersion < ApplicationRecord
+ class ModelVersion < ApplicationRecord
     include SemanticVersionable
-  ...
-  end
+ ...
+ end
 end
 ```
 

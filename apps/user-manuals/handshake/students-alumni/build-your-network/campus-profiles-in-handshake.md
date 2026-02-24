@@ -63,11 +63,11 @@ You can also use the filters at the top of the page to discover more peers to co
 - **Employer**
 - **Job role**
 - **All filters (**opens as a side sheet)
-  - **Major**
-  - **Degree**
-  - **Grad year**
-  - **Skill**
-  - **Organization**
+ - **Major**
+ - **Degree**
+ - **Grad year**
+ - **Skill**
+ - **Organization**
 
 ![People search filters.png](https://support.joinhandshake.com/hc/article_attachments/29973545464983)
 

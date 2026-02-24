@@ -15,9 +15,9 @@ The Safety Violations section tracks any hazardous actions or events that have�
 ## Things to Consider
 
 - ****Required User Permissions:****
-  - ********To create entries:********
+ - ********To create entries:********
     - 'Standard' or 'Admin' level permissions on the project's Daily Log tool.
-  - ****************To create pending entries as a collaborator****************:
+ - ****************To create pending entries as a collaborator****************:
     - 'Read Only' or 'Standard' permissions to the Daily Log tool with the ['Collaborator Entry Only' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#Daily_Log "Grant Granular Permissions in a Permission Template") enabled on your permissions template. See [Create Daily Log Entries as a Collaborator](https://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/create-daily-log-entries-as-a-collaborator "Create Daily Log Entries as a Collaborator").
 
 ## Steps

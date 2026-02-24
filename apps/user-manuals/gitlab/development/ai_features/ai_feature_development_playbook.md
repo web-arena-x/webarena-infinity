@@ -21,8 +21,7 @@ The AI feature development process consists of five key interdependent and itera
 
 This phase prepares AI features so they are ready to be built by engineering. It supplements the [plan phase of the build track of the product development flow](https://handbook.gitlab.com/handbook/product-development/product-development-flow/#build-phase-1-plan).
 
-At this point, the customer problem should be well understood, either because of a clearly stated requirement,
-or by working through the [product development flow validation track](https://handbook.gitlab.com/handbook/product-development/product-development-flow/#validation-track).
+At this point, the customer problem should be well understood, either because of a clearly stated requirement, or by working through the [product development flow validation track](https://handbook.gitlab.com/handbook/product-development/product-development-flow/#validation-track).
 
 As part of this phase, teams decide if [approved models](../ai_architecture.md#models) satisfy the requirements of the new feature, or [submit a proposal for the approval of other models](../ai_architecture.md#supported-technologies). Teams also design or adopt testing and evaluation strategies, which includes identifying required datasets.
 
@@ -38,14 +37,12 @@ As part of this phase, teams decide if [approved models](../ai_architecture.md#m
 
 ### Develop
 
-The develop phase, and the closely aligned test and evaluate phase, are where we build AI features,
-address bugs or technical debt, and test the solutions before launching them. It supplements the [develop and test phase of the build track of the product development flow](https://handbook.gitlab.com/handbook/product-development/product-development-flow/#build-phase-2-develop--test).
+The develop phase, and the closely aligned test and evaluate phase, are where we build AI features, address bugs or technical debt, and test the solutions before launching them. It supplements the [develop and test phase of the build track of the product development flow](https://handbook.gitlab.com/handbook/product-development/product-development-flow/#build-phase-2-develop--test).
 
 This phase includes prompt engineering, where teams craft and refine prompts to achieve desired AI model behavior.
 This often requires multiple iterations to optimize for accuracy, consistency, and user experience.
 
-Development might include integrating chosen models with GitLab infrastructure through the AI Gateway,
-and implementing API interfaces.
+Development might include integrating chosen models with GitLab infrastructure through the AI Gateway, and implementing API interfaces.
 Teams must consider requirements for supporting [GitLab Duo Self-Hosted](../../administration/gitlab_duo_self_hosted/_index.md).
 
 #### Key Activities
@@ -56,8 +53,8 @@ Teams must consider requirements for supporting [GitLab Duo Self-Hosted](../../a
 - [Connecting a new feature via Cloud Connector](cloud_connector.md)
 - [Feature flag implementation](_index.md#push-feature-flags-to-ai-gateway)
 - Event tracking instrumentation:
-  - [AI usage tracking metrics](usage_tracking.md)
-  - [GitLab Duo feature classification](../internal_analytics/internal_event_instrumentation/duo_classification.md)
+ - [AI usage tracking metrics](usage_tracking.md)
+ - [GitLab Duo feature classification](../internal_analytics/internal_event_instrumentation/duo_classification.md)
 
 #### Resources
 
@@ -70,8 +67,7 @@ Teams must consider requirements for supporting [GitLab Duo Self-Hosted](../../a
 
 ### Test & Evaluate
 
-In the test and evaluate phase, we validate AI feature quality, performance, and security,
-using [traditional automated testing practices](../testing_guide/_index.md), as well as evaluation of AI-generated content.
+In the test and evaluate phase, we validate AI feature quality, performance, and security, using [traditional automated testing practices](../testing_guide/_index.md), as well as evaluation of AI-generated content.
 It supplements the [develop and test phase of the build track of the product development flow](https://handbook.gitlab.com/handbook/product-development/product-development-flow/#build-phase-2-develop--test).
 
 Evaluation involves creating datasets that represent real-world usage scenarios to ensure comprehensive coverage of the feature's behavior.
@@ -90,8 +86,7 @@ Teams implement evaluation strategies covering multiple aspects of the quality o
 This phase focuses on safely introducing AI features to production through controlled rollouts and comprehensive monitoring.
 It supplements the [launch phase of the build track of the product development flow](https://handbook.gitlab.com/handbook/product-development/product-development-flow/#build-phase-3-launch).
 
-We employ feature flags to control access and gradually expand user exposure,
-starting with internal teams before broader incremental release.
+We employ feature flags to control access and gradually expand user exposure, starting with internal teams before broader incremental release.
 Monitoring tracks technical metrics (latency, error rates, resource usage)
 and AI-specific indicators (model performance, response quality, user satisfaction).
 Alerting systems can be used to detect performance degradation, unusual patterns, or safety concerns that require immediate attention.
@@ -114,8 +109,7 @@ Alerting systems can be used to detect performance degradation, unusual patterns
 This phase focuses on iteratively improving the feature based on data, user feedback, and changing requirements.
 It supplements the [improve phase of the build track of the product development flow](https://handbook.gitlab.com/handbook/product-development/product-development-flow/#build-phase-4-improve).
 
-We analyze real-world usage patterns and performance metrics to identify opportunities for improvement,
-whether in prompt engineering, model selection, system architecture, or feature design.
+We analyze real-world usage patterns and performance metrics to identify opportunities for improvement, whether in prompt engineering, model selection, system architecture, or feature design.
 User feedback should capture qualitative insights about user satisfaction.
 Teams can iteratively refine prompts based on user interactions and feedback.
 

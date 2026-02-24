@@ -12,8 +12,8 @@ A deal is a business opportunity that you’ve identified through a lead or cont
 
 **To add a deal**
 
-1. From the Sell toolbar, select **Add > Deal**.  
-   Or use the keyboard shortcut **C** then **D** (see [Viewing and disabling keyboard shortcuts in Sell](https://support.zendesk.com/hc/en-us/articles/4408835039386)).  
+1. From the Sell toolbar, select **Add > Deal**. 
+   Or use the keyboard shortcut **C** then **D** (see [Viewing and disabling keyboard shortcuts in Sell](https://support.zendesk.com/hc/en-us/articles/4408835039386)). 
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell-add-lead.png)
 2. Enter as much deal information as you have for the opportunity (for example: Value, Source, and Stage). The required fields are **Deal Name** and **Primary Contact**.

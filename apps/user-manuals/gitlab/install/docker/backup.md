@@ -22,20 +22,14 @@ For more information, see [Back up and restore GitLab](../../administration/back
 
 {{< alert type="note" >}}
 
-If your GitLab configuration is provided entirely using the `GITLAB_OMNIBUS_CONFIG` environment variable
-(by using the ["Pre-configure Docker Container"](configuration.md#pre-configure-docker-container) steps),
-the configuration settings are not stored in the `gitlab.rb` file so you do not need
-to back up the `gitlab.rb` file.
+If your GitLab configuration is provided entirely using the `GITLAB_OMNIBUS_CONFIG` environment variable (by using the ["Pre-configure Docker Container"](configuration.md#pre-configure-docker-container) steps), the configuration settings are not stored in the `gitlab.rb` file so you do not need to back up the `gitlab.rb` file.
 
 {{< /alert >}}
 
 {{< alert type="warning" >}}
 
-To avoid [complicated steps](../../administration/backup_restore/troubleshooting_backup_gitlab.md#when-the-secrets-file-is-lost) when recovering
-GitLab from a backup, you should also follow the instructions in
-[Backing up the GitLab secrets file](../../administration/backup_restore/backup_gitlab.md#storing-configuration-files).
-The secrets file is stored either in the `/etc/gitlab/gitlab-secrets.json` file inside the container or in the
-`$GITLAB_HOME/config/gitlab-secrets.json` file [on the container host](installation.md#create-a-directory-for-the-volumes).
+To avoid [complicated steps](../../administration/backup_restore/troubleshooting_backup_gitlab.md#when-the-secrets-file-is-lost) when recovering GitLab from a backup, you should also follow the instructions in [Backing up the GitLab secrets file](../../administration/backup_restore/backup_gitlab.md#storing-configuration-files).
+The secrets file is stored either in the `/etc/gitlab/gitlab-secrets.json` file inside the container or in the `$GITLAB_HOME/config/gitlab-secrets.json` file [on the container host](installation.md#create-a-directory-for-the-volumes).
 
 {{< /alert >}}
 
@@ -47,8 +41,6 @@ Before you upgrade GitLab, create a database-only backup. If you encounter issue
 docker exec -t <container name> gitlab-backup create SKIP=artifacts,repositories,registry,uploads,builds,pages,lfs,packages,terraform_state
 ```
 
-The backup is written to `/var/opt/gitlab/backups` which should be on a
-[volume mounted by Docker](installation.md#create-a-directory-for-the-volumes).
+The backup is written to `/var/opt/gitlab/backups` which should be on a [volume mounted by Docker](installation.md#create-a-directory-for-the-volumes).
 
-For more information on using the backup to roll back an upgrade, see
-[roll back a Docker instance](../../update/package/downgrade.md#roll-back-a-docker-instance).
+For more information on using the backup to roll back an upgrade, see [roll back a Docker instance](../../update/package/downgrade.md#roll-back-a-docker-instance).

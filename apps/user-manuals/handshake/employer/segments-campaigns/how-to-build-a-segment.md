@@ -42,62 +42,62 @@ The table includes several icons, each representing a specific action:
 2. Use the filters to identify the subset of students you want to include. As you add filters, the dynamic query on the right side of the page will display the results. As you select more filters, the number of students included will generally decrease.
 
 - When using segment filters, the candidates included are determined by reviewing all of the education details that candidates have made available on their Handshake profiles.
-  - For example, if you're seeking BA candidates who majored in Business, the results may display candidates who have completed a B.A degree in that specific degree, and are in pursuit of a higher degree, e.g., Masters.
+ - For example, if you're seeking BA candidates who majored in Business, the results may display candidates who have completed a B.A degree in that specific degree, and are in pursuit of a higher degree, e.g., Masters.
 
 **Note**: segments are fluid, meaning students can move in and out of segments as their profiles change. As an example, if a student's major or school year changes on their Handshake profile, they will no longer be included in that segment.
 
 Filters in segments include:
 
 - **Schools**
-  - Select individual schools, or add a school list. *Learn more about [Creating and Managing School Lists](https://support.joinhandshake.com/hc/en-us/articles/360033920474)*.
+ - Select individual schools, or add a school list. *Learn more about [Creating and Managing School Lists](https://support.joinhandshake.com/hc/en-us/articles/360033920474)*.
 - **Handshake Open**
-  - Students in the Handshake Open Network attend 4-year accredited institutions in the United States who have not directly purchased and partnered with Handshake.
+ - Students in the Handshake Open Network attend 4-year accredited institutions in the United States who have not directly purchased and partnered with Handshake.
 - **Community and Technical Colleges**
-  - Exclude Community College and Technical Schools
-  - Include ONLY Community College and Technical Schools
+ - Exclude Community College and Technical Schools
+ - Include ONLY Community College and Technical Schools
 - **Profile Keyword**
 - **Major Group**
-  - Major Group consolidates majors across schools into a common taxonomy.
+ - Major Group consolidates majors across schools into a common taxonomy.
 - **Major Keyword**
 - **Major Category**
-  - STEM
-  - TEM Only
-  - Liberal Arts
+ - STEM
+ - TEM Only
+ - Liberal Arts
 - **Graduation and Class Standing**
-  - I'm looking for *(select one)*
+ - I'm looking for *(select one)*
     - New Grad Hires
     - Intern Hires
     - Recent Grad Hires
     - Custom *(choose a custom graduation date range)*
 - **Work Authorization**
-  - Does not have work authorization - will need sponsorship
-  - Has work authorization - will not need sponsorship
-  - Status unknown
+ - Does not have work authorization - will need sponsorship
+ - Has work authorization - will not need sponsorship
+ - Status unknown
 - **GPA**
 - **Organizations/Extracurriculars**
 - **Job Role Interests**
 - **Candidate Industry Interests**
 - **Candidate Job Seeking Interests**
-  - Full-Time
-  - Part-Time
+ - Full-Time
+ - Part-Time
     - *Learn more about [Segments: Job Seeking Interests](https://support.joinhandshake.com/hc/en-us/articles/10242537988759).*
 - **Achievements & Accolades**
 - **Student Location Preferences**
 - **Location**
-  - Candidate Location Preferences
-  - Current Location
+ - Candidate Location Preferences
+ - Current Location
 - **Language**
-  - Desired Language
-  - Proficiency Level
+ - Desired Language
+ - Proficiency Level
     - **Note**: you need to add at least one language proficiency level to save your segment.
 - **Skills & Experience**
-  - Desired Skills
-  - Coursework
-  - Work Experience
+ - Desired Skills
+ - Coursework
+ - Work Experience
 - **Underrepresented Groups**
-  - Organizations (by type)
-  - Institutions (by type)
-  - **Note**: *if you select an underrepresented group filter, you must select at least one other filter to populate results — these filters may not be used alone*.
+ - Organizations (by type)
+ - Institutions (by type)
+ - **Note**: *if you select an underrepresented group filter, you must select at least one other filter to populate results — these filters may not be used alone*.
 
 3. After selecting the filters, enter a segment name in the upper-right corner of the page, then click the blue button **Save Segment**.
 

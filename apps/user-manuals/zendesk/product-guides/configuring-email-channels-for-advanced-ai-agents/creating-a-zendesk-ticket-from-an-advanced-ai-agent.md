@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8929793141146-Creating-a-Z
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -46,15 +46,15 @@ With your Zendesk subdomain, you can construct the endpoint URL to your Zendesk 
 
 1. Navigate to the Environments section of the integration builder.
 2. For Method type, select POST.
-3. Add your constructed URL endpoint for the Ticket API.  
+3. Add your constructed URL endpoint for the Ticket API. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_create_ticket_1.png)
 
 ## Auth
 
 To access the Zendesk API, you will need to create a token in Admin Center.
 
-1. In Admin center, go to Apps and integrations and select APIs > Zendesk API.  
-   You will see the below screen where you can add a new token.  
+1. In Admin center, go to Apps and integrations and select APIs > Zendesk API. 
+   You will see the below screen where you can add a new token. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_create_ticket_2.png)
 2. Click **Add API token**.
 3. Give it a name such as **Create Ticket**.
@@ -65,9 +65,9 @@ Once you have these, you can add them to your integration in the integration bui
 1. In the **Environment** section, click **Authorization**.
 2. In **Authorization** type, select **Basic Auth**.
 3. Enter an admin email address with **/token** appended at the end.
-4. Paste your created token as the password.  
+4. Paste your created token as the password. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_create_ticket_3.png)
-5. Make sure to include the authorization token in the request by manually constructing it in the headers.  
+5. Make sure to include the authorization token in the request by manually constructing it in the headers. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_create_ticket_4.png)
 
 ## Request Parameters
@@ -127,8 +127,8 @@ In addition to the standard fields that can be created and sent in the body of t
 ## Building in the Dialogue Builder
 
 1. Add the API Node and select the Create Zendesk Ticket integration that you created above.
-2. Create an [action](https://support.zendesk.com/hc/en-us/articles/8357756651290) on the API node which sets the parameters from the conversation.  
-   It will look something like this:  
+2. Create an [action](https://support.zendesk.com/hc/en-us/articles/8357756651290) on the API node which sets the parameters from the conversation. 
+   It will look something like this: 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_create_ticket_11.png)
-3. Add a message for the Success and Fallback scenarios.  
+3. Add a message for the Success and Fallback scenarios. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_create_ticket_12.png)

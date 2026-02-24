@@ -23,8 +23,7 @@ The GitLab for Slack app might not appear in the list of integrations. To have t
 
 ## Error: `Project or alias not found`
 
-Some Slack commands must have a project full path or alias and fail with the following error
-if the project cannot be found:
+Some Slack commands must have a project full path or alias and fail with the following error if the project cannot be found:
 
 ```plaintext
 GitLab error: project or alias not found

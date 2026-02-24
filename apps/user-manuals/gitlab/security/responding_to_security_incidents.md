@@ -40,17 +40,17 @@ Security incidents related to credentials exposure can vary in severity from low
 
 - Determine the type and scope of the token.
 - Identify the token owner and the relevant team based on the token information.
-  - For personal access tokens, you can use the [personal access token API](../api/personal_access_tokens.md#get-details-on-a-personal-access-token) to quickly retrieve token details.
+ - For personal access tokens, you can use the [personal access token API](../api/personal_access_tokens.md#get-details-on-a-personal-access-token) to quickly retrieve token details.
 - [Revoke](../api/personal_access_tokens.md#revoke-a-personal-access-token) or [rotate](../api/group_access_tokens.md#rotate-a-group-access-token) the token after you have assessed its scope and potential impact. Revoking a production token is a balance between the security risk posed by the exposed token, and the availability risk revoking a token might cause. Only revoke the token if you are:
-  - Confident in your understanding of the potential impact of token revocation.
-  - Following your company's security incident response guidelines.
+ - Confident in your understanding of the potential impact of token revocation.
+ - Following your company's security incident response guidelines.
 - Document the time of credential exposure and the time when you revoked the credentials.
 - Review GitLab audit logs to identify any unauthorized activity associated with the exposed token. Depending on the scope and type of token, search for audit events related to:
-  - Newly created users.
-  - Tokens.
-  - Malicious pipelines.
-  - Changes to code.
-  - Changes to project settings.
+ - Newly created users.
+ - Tokens.
+ - Malicious pipelines.
+ - Changes to code.
+ - Changes to project settings.
 
 #### Event types
 
@@ -145,14 +145,14 @@ If you suspect that your GitLab instance has been compromised, you should:
 - Change any sensitive credentials, variables, tokens, and secrets. For example, those located in instance configuration, database, CI/CD pipelines, or elsewhere.
 - Update to the latest version of GitLab and adopt a plan to update after every security patch release.
 - In addition, the following suggestions are common steps taken in incident response plans when servers are compromised by malicious actors:
-  1. Save any server state and logs to a write-once location, for later investigation.
-  1. Look for unrecognized background processes.
-  1. Check for open ports on the system. Our [default ports guide](../administration/package_information/defaults.md) can be used as a starting point.
-  1. Rebuild the host from a known-good backup or from scratch, and apply all the latest security patches.
-  1. Review network logs for uncommon traffic.
-  1. Establish network monitoring and network-level controls.
-  1. Restrict inbound and outbound network access to authorized users and servers only.
-  1. Ensure all logs are routed to an independent write-only datastore.
+ 1. Save any server state and logs to a write-once location, for later investigation.
+ 1. Look for unrecognized background processes.
+ 1. Check for open ports on the system. Our [default ports guide](../administration/package_information/defaults.md) can be used as a starting point.
+ 1. Rebuild the host from a known-good backup or from scratch, and apply all the latest security patches.
+ 1. Review network logs for uncommon traffic.
+ 1. Establish network monitoring and network-level controls.
+ 1. Restrict inbound and outbound network access to authorized users and servers only.
+ 1. Ensure all logs are routed to an independent write-only datastore.
 
 #### Event types
 

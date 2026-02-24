@@ -6,11 +6,9 @@ description: Learn how GitLab docs' global navigation works and how to add new i
 title: Global navigation
 ---
 
-Global navigation (global nav) is the left-most pane in the documentation. You can use the
-global nav to browse the content.
+Global navigation (global nav) is the left-most pane in the documentation. You can use the global nav to browse the content.
 
-Research shows that people use Google to search for GitLab product documentation. When they land on a result,
-we want them to find topics nearby that are related to the content they're reading. The global nav provides this information.
+Research shows that people use Google to search for GitLab product documentation. When they land on a result, we want them to find topics nearby that are related to the content they're reading. The global nav provides this information.
 
 At the highest level, our global nav is **workflow-based**. Navigation needs to help users build a mental model of how to use GitLab.
 The levels under each of the higher workflow-based topics are the names of features. For example:
@@ -28,23 +26,18 @@ Without a navigation entry:
 
 Before you add an item to the left nav, choose the parts of speech you want to use.
 
-The nav entry should match the page title. However, if the title is too long,
-when you shorten the phrase, use either:
+The nav entry should match the page title. However, if the title is too long, when you shorten the phrase, use either:
 
 - A noun, like **Merge requests**.
 - An active verb, like **Install GitLab** or **Get started with runners**.
 
-Use a phrase that clearly indicates what the page is for. For example, **Get started** is not
-as helpful as **Get started with runners**.
+Use a phrase that clearly indicates what the page is for. For example, **Get started** is not as helpful as **Get started with runners**.
 
 ## Add a navigation entry
 
-The global nav is stored in the `gitlab-org/technical-writing/docs-gitlab-com` project, in the
-`data/en-us/navigation.yaml` file. The documentation website at `docs.gitlab.com` is built using Hugo and assembles documentation
-content from several projects (including `charts`, `gitlab`, `gitlab-runner`, and `omnibus-gitlab`).
+The global nav is stored in the `gitlab-org/technical-writing/docs-gitlab-com` project, in the `data/en-us/navigation.yaml` file. The documentation website at `docs.gitlab.com` is built using Hugo and assembles documentation content from several projects (including `charts`, `gitlab`, `gitlab-runner`, and `omnibus-gitlab`).
 
-**Do not** add items to the global nav without
-the consent of one of the technical writers.
+**Do not** add items to the global nav without the consent of one of the technical writers.
 
 To add a topic to the global navigation:
 
@@ -57,39 +50,32 @@ To add a topic to the global navigation:
 
 Documentation pages can be said to belong in the following groups:
 
-- GitLab users. This documentation is for day-to-day use of GitLab for users with any level
-  of permissions, from Reporter to Owner.
-- GitLab administrators. This tends to be documentation for GitLab Self-Managed instances that requires
-  access to the underlying infrastructure hosting GitLab.
-- Other documentation. This includes documentation for customers outside their day-to-day use of
-  GitLab and for contributors. Documentation that doesn't fit in the other groups belongs here.
+- GitLab users. This documentation is for day-to-day use of GitLab for users with any level of permissions, from Reporter to Owner.
+- GitLab administrators. This tends to be documentation for GitLab Self-Managed instances that requires access to the underlying infrastructure hosting GitLab.
+- Other documentation. This includes documentation for customers outside their day-to-day use of GitLab and for contributors. Documentation that doesn't fit in the other groups belongs here.
 
 With these groups in mind, the following are general rules for where new items should be added.
 
 - User documentation belongs in **Use GitLab**.
 - Administration documentation belongs under **Administer**. This documentation often includes sections that mention:
 
-  - Changing the `gitlab.rb` or `gitlab.yml` files.
-  - Accessing the rails console or running Rake tasks.
-  - Doing things in the **Admin** area.
-  - Tasks that can only be done by an instance administrator.
+ - Changing the `gitlab.rb` or `gitlab.yml` files.
+ - Accessing the rails console or running Rake tasks.
+ - Doing things in the **Admin** area.
+ - Tasks that can only be done by an instance administrator.
 
-- Other documentation belongs at the top-level, but care must be taken to not create an enormously
-  long top-level navigation, which defeats the purpose of it.
+- Other documentation belongs at the top-level, but care must be taken to not create an enormously long top-level navigation, which defeats the purpose of it.
 
-Making all documentation and navigation items adhere to these principles is being progressively
-rolled out.
+Making all documentation and navigation items adhere to these principles is being progressively rolled out.
 
 ### What to add
 
-Having decided where to add a navigation element, the next step is deciding what to add. The
-mechanics of what is required is [documented below](#data-file) but, in principle:
+Having decided where to add a navigation element, the next step is deciding what to add. The mechanics of what is required is [documented below](#data-file) but, in principle:
 
 - Navigation item text (that which the reader sees) should:
-  - Be as short as possible.
-  - Be contextual. It's rare to need to repeat text from a parent item.
-  - Avoid jargon or terms of art, unless ubiquitous. For example, **CI** is an acceptable
-    substitution for **Continuous Integration**.
+ - Be as short as possible.
+ - Be contextual. It's rare to need to repeat text from a parent item.
+ - Avoid jargon or terms of art, unless ubiquitous. For example, **CI** is an acceptable substitution for **Continuous Integration**.
 - Navigation links must follow the rules documented in the [data file](#data-file).
 
 ### Pages you don't need to add
@@ -99,16 +85,13 @@ Exclude these pages from the global nav:
 - Legal notices.
 - Pages in the `user/application_security/dast/checks/` directory.
 
-The following pages should probably be in the global nav, but the technical writers
-do not actively work to add them:
+The following pages should probably be in the global nav, but the technical writers do not actively work to add them:
 
 - Pages in the `/development` directory.
 - Pages authored by the support team, which are under the `doc/administration/troubleshooting` directory.
 
-Sometimes a feature page must be excluded from the global navigation. For example,
-pages for deprecated features might not be in the global nav, depending on how long ago the feature was deprecated.
-To make it clear these pages are excluded from the global navigation on purpose,
-add the following code to the page's front matter:
+Sometimes a feature page must be excluded from the global navigation. For example, pages for deprecated features might not be in the global nav, depending on how long ago the feature was deprecated.
+To make it clear these pages are excluded from the global navigation on purpose, add the following code to the page's front matter:
 
 ```yaml
 ignore_in_report: true
@@ -132,7 +115,7 @@ This ensures a repeatable pattern that familiarizes users with how to navigate t
 The structure for the **Use GitLab** section is:
 
 - Use GitLab
-  - Top-level page
+ - Top-level page
     - Get started page
     - Feature
     - Feature
@@ -162,10 +145,10 @@ For example:
 
 ```yaml
 - title: Getting started
-  url: 'user/get_started/'
+ url: 'user/get_started/'
 - title: Tutorials
-  url: 'tutorials/'
-  submenu:
+ url: 'tutorials/'
+ submenu:
     - title: Find your way around GitLab
       url: 'tutorials/gitlab_navigation/'
       submenu:
@@ -182,8 +165,7 @@ All nav links:
 - Must refer to unique pages.
 - Must not point to an anchor in a page, for example: `path/to/page/#anchor-link`.
 
-This must be followed so that we don't have duplicated links nor two `.active` links
-at the same time.
+This must be followed so that we don't have duplicated links nor two `.active` links at the same time.
 
 #### Syntax
 
@@ -192,9 +174,8 @@ For all components, **respect the indentation** and the following syntax rules.
 ##### Titles
 
 - Use sentence case, capitalizing feature names.
-- There's no need to wrap the titles, unless there's a special character in it. For example,
-  in `GitLab CI/CD`, there's a `/` present, therefore, it must be wrapped in quotes.
-  As convention, wrap the titles in double quotes: `title: "GitLab CI/CD"`.
+- There's no need to wrap the titles, unless there's a special character in it. For example, in `GitLab CI/CD`, there's a `/` present, therefore, it must be wrapped in quotes.
+ As convention, wrap the titles in double quotes: `title: "GitLab CI/CD"`.
 
 ##### URLs
 
@@ -204,14 +185,14 @@ URLs must be relative. In addition:
 - Do not start any relative link with a forward slash `/`.
 - Match the path you see on the website.
 - As convention, always wrap URLs in single quotes `'url'`.
-  To find the global nav link, from the full URL remove `https://docs.gitlab.com/`.
+ To find the global nav link, from the full URL remove `https://docs.gitlab.com/`.
 - Do not link to external URLs. Leaving the documentation site by clicking the left navigation is a confusing user experience.
 
 Examples of relative URLs:
 
 | Full URL                                                  | Global nav URL |
 | --------------------------------------------------------- | -------------- |
-| `https://docs.gitlab.com/api/avatar/`                     | `api/avatar/`  |
+| `https://docs.gitlab.com/api/avatar/`                     | `api/avatar/` |
 | `https://docs.gitlab.com/charts/installation/deployment/` | `charts/installation/deployment/` |
 | `https://docs.gitlab.com/install/`                        | `install/`     |
 | `https://docs.gitlab.com/omnibus/settings/database/`      | `omnibus/settings/database/` |
@@ -230,18 +211,15 @@ The [global nav URL](#urls) has a different prefix depending on the documentatio
 | ------------------------------------------------------------------------------ | ----------- | --------- |
 | <https://gitlab.com/gitlab-org/gitlab/-/tree/master/doc>                       | None        | `https://docs.gitlab.com/` |
 | <https://gitlab.com/charts/gitlab/tree/master/doc>                             | `charts/`   | `https://docs.gitlab.com/charts/` |
-| <https://gitlab.com/gitlab-org/omnibus-gitlab/tree/master/doc>                 | `omnibus/`  | `https://docs.gitlab.com/omnibus/` |
-| <https://gitlab.com/gitlab-org/cloud-native/gitlab-operator/-/tree/master/doc> | `operator`  | `https://docs.gitlab.com/operator/` |
+| <https://gitlab.com/gitlab-org/omnibus-gitlab/tree/master/doc>                 | `omnibus/` | `https://docs.gitlab.com/omnibus/` |
+| <https://gitlab.com/gitlab-org/cloud-native/gitlab-operator/-/tree/master/doc> | `operator` | `https://docs.gitlab.com/operator/` |
 | <https://gitlab.com/gitlab-org/gitlab-runner/-/tree/main/docs>                 | `runner/`   | `https://docs.gitlab.com/runner/` |
 | <https://gitlab.com/gitlab-org/cli/-/tree/main/docs/source>                    | `cli/`      | `https://docs.gitlab.com/cli/` |
 
 ### CSS classes
 
-The nav is styled in the general `main.css` file. To change
-its styles, keep them grouped for better development among the team.
+The nav is styled in the general `main.css` file. To change its styles, keep them grouped for better development among the team.
 
 ## Testing
 
-We run various checks on `navigation.yaml` in
-[`check-navigation.sh`](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/scripts/check-navigation.sh),
-which runs as a pipeline job when the YAML file is updated.
+We run various checks on `navigation.yaml` in [`check-navigation.sh`](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/scripts/check-navigation.sh), which runs as a pipeline job when the YAML file is updated.

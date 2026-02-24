@@ -15,10 +15,8 @@ To log into Handshake as an alum, you’ll need to set up Handshake credentials,
 
 You have two options if you no longer have access to your school email:
 
-1. **If You Had an Account Previously**  
-   If you had a Handshake account but no longer have access to your school email, reach out to your school’s career center. They can initiate an email change request to update your account with a personal email address. This will allow you to stay connected to your school’s Handshake instance.
-2. **If You’ve Never Had an Account**  
-   If you’ve never created an account, you can choose to **"Sign up"** during the login process. *For more information on this process, follow the steps in* [Getting Started with Handshake](../getting-started-in-handshake/getting-started-with-handshake.md).
+1. **If You Had an Account Previously** If you had a Handshake account but no longer have access to your school email, reach out to your school’s career center. They can initiate an email change request to update your account with a personal email address. This will allow you to stay connected to your school’s Handshake instance.
+2. **If You’ve Never Had an Account** If you’ve never created an account, you can choose to **"Sign up"** during the login process. *For more information on this process, follow the steps in* [Getting Started with Handshake](../getting-started-in-handshake/getting-started-with-handshake.md).
 
 ### Steps to Set Up Handshake Credentials
 

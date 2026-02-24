@@ -318,7 +318,7 @@ For more information, see:
 
 - [Use GitLab Duo Chat in VS Code](agentic_chat.md#use-gitlab-duo-chat-in-vs-code).
 - <i class="fa-youtube-play" aria-hidden="true"></i> [Application modernization with GitLab Duo (C++ to Java)](https://youtu.be/FjoAmt5eeXA?si=SLv9Mv8eSUAVwW5Z).
-  <!-- Video published on 2025-03-18 -->
+ <!-- Video published on 2025-03-18 -->
 
 In the GitLab UI, you can also explain code in:
 
@@ -350,8 +350,7 @@ In the GitLab UI, you can also explain code in:
 
 {{< /history >}}
 
-You can ask GitLab Duo Chat questions about code by pasting that code into
-the Chat window. For example:
+You can ask GitLab Duo Chat questions about code by pasting that code into the Chat window. For example:
 
 ```plaintext
 Provide a clear explanation of this Ruby code: def sum(a, b) a + b end.
@@ -390,8 +389,7 @@ You can also ask Chat to generate code. For example:
 {{< /history >}}
 
 You can ask follow-up questions to delve deeper into the topic or task at hand.
-This helps you get more detailed and precise responses tailored to your specific needs,
-whether it's for further clarification, elaboration, or additional assistance.
+This helps you get more detailed and precise responses tailored to your specific needs, whether it's for further clarification, elaboration, or additional assistance.
 
 A follow-up to the question `Write a Ruby function that prints 'Hello, World!' when called` could be:
 
@@ -456,8 +454,7 @@ Programming languages that require compiling the source code may throw cryptic e
 
 {{< /history >}}
 
-Add repository files to your GitLab Duo Chat conversations in VS Code or JetBrains IDEs
-by typing `/include` and choosing the files.
+Add repository files to your GitLab Duo Chat conversations in VS Code or JetBrains IDEs by typing `/include` and choosing the files.
 
 Prerequisites:
 
@@ -525,7 +522,7 @@ You can include additional instructions to be considered. For example:
 For more information, see:
 
 - <i class="fa-youtube-play" aria-hidden="true"></i> [Application modernization with GitLab Duo (C++ to Java)](https://youtu.be/FjoAmt5eeXA?si=SLv9Mv8eSUAVwW5Z).
-  <!-- Video published on 2025-03-18 -->
+ <!-- Video published on 2025-03-18 -->
 - <i class="fa-youtube-play" aria-hidden="true"></i> [Watch an overview](https://youtu.be/oxziu7_mWVk?si=fS2JUO-8doARS169)
 
 ## Fix code in the IDE
@@ -777,12 +774,10 @@ In GitLab 17.10 and later, you can have multiple simultaneous conversations with
 
 To delete a conversation, use the [chat history](_index.md#delete-a-conversation).
 
-To clear the chat window and start a new conversation in the same conversation thread,
-type `/reset` and select **Send**.
+To clear the chat window and start a new conversation in the same conversation thread, type `/reset` and select **Send**.
 
 In both cases, the conversation history will not be considered when you ask new questions.
-Starting a new conversation might help improve the answers when you switch contexts,
-because GitLab Duo Chat will not get confused by the unrelated conversations.
+Starting a new conversation might help improve the answers when you switch contexts, because GitLab Duo Chat will not get confused by the unrelated conversations.
 
 ## GitLab Duo Chat slash commands
 
@@ -815,7 +810,7 @@ Use the commands to quickly accomplish specific tasks.
 | Command | Purpose                                                                                                                       |
 |---------|-------------------------------------------------------------------------------------------------------------------------------|
 | /new    | [Start a new conversation, but keep the previous conversations in the chat history](#delete-or-start-a-new-conversation)      |
-| /reset  | [Clear the chat window and reset the conversation](#delete-or-start-a-new-conversation)                                       |
+| /reset | [Clear the chat window and reset the conversation](#delete-or-start-a-new-conversation)                                       |
 | /help   | Learn more about how GitLab Duo Chat works                                                                                           |
 
 > [!note]
@@ -871,7 +866,7 @@ These commands work only when using GitLab Duo Chat in supported IDEs:
 | Command   | Purpose                                           |
 |-----------|---------------------------------------------------|
 | /tests    | [Write tests](#write-tests-in-the-ide)            |
-| /explain  | [Explain code](#explain-selected-code)            |
+| /explain | [Explain code](#explain-selected-code)            |
 | /refactor | [Refactor the code](#refactor-code-in-the-ide)    |
 | /fix      | [Fix the code](#fix-code-in-the-ide)              |
-| /include  | [Include file context](#ask-about-specific-files-in-the-ide) |
+| /include | [Include file context](#ask-about-specific-files-in-the-ide) |

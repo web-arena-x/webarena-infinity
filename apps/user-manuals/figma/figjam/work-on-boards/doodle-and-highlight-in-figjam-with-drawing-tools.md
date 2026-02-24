@@ -43,8 +43,8 @@ Marker doodles are separate objects on the board that can't be contained by any 
 
 You can change a marker doodle's color and thickness — or stroke weight — at any time.
 
-1. With the  select tool V active, select the doodle on the board.
-2. Click the color picker to change color, or click  to change the stroke weight.
+1. With the select tool V active, select the doodle on the board.
+2. Click the color picker to change color, or click to change the stroke weight.
 
 #### Resize a doodle
 
@@ -91,8 +91,8 @@ Highlights can stick to any objects they touch, like sticky notes or images, and
 
 You can change a highlight's color and thickness — or stroke weight — at any time.
 
-1. With the  select tool `V` active, select one or more highlights on the board.
-2. Click the color picker to change color, or click  to change the stroke weight.
+1. With the select tool `V` active, select one or more highlights on the board.
+2. Click the color picker to change color, or click to change the stroke weight.
 
 [**Learn how to select multiple layers →**](https://help.figma.com/hc/en-us/articles/1500004292221-Select-move-and-order-objects#h_01F3PWAKB76XYA57PCZB37PKHV)
 
@@ -121,7 +121,7 @@ Add your personality to the board with washi tape. You can use one of FigJam’s
 To use washi tape:
 
 1. Click the drawing tools menu and select **washi tape** or press `W`.
-2. Select a washi tape design or click  to upload an image.
+2. Select a washi tape design or click to upload an image.
 3. Click and drag on the board where you want to add tape.
 
 Custom patterns are not saved in your washi tape toolbar after closing or refreshing the file’s tab. You’ll need to upload the image again for future use.

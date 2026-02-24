@@ -24,8 +24,7 @@ Topics assigned to a project are displayed in the **Project overview** and [**Pr
 
 {{< alert type="note" >}}
 
-Only users with access to the project can see the topics assigned to that project,
-but everyone (including unauthenticated users) can see the topics available on the GitLab instance.
+Only users with access to the project can see the topics assigned to that project, but everyone (including unauthenticated users) can see the topics available on the GitLab instance.
 Do not include sensitive information in the name of a topic.
 
 {{< /alert >}}
@@ -70,17 +69,17 @@ To subscribe to a topic:
 
 - From the **Explore topics** page:
 
-  1. On the left sidebar, expand the top-most chevron ({{< icon name="chevron-down" >}}).
-  1. Select **Explore**.
-  1. Select **Topics**.
-  1. Select the topic you want to subscribe to.
-  1. In the upper-right corner, select **Subscribe to the new projects feed** ({{< icon name="rss" >}}).
+ 1. On the left sidebar, expand the top-most chevron ({{< icon name="chevron-down" >}}).
+ 1. Select **Explore**.
+ 1. Select **Topics**.
+ 1. Select the topic you want to subscribe to.
+ 1. In the upper-right corner, select **Subscribe to the new projects feed** ({{< icon name="rss" >}}).
 
 - From a project:
 
-  1. On the top bar, select **Search or go to** and find your project.
-  1. In the **Project overview** page, from the **Topics** list select the topic you want to subscribe to.
-  1. In the upper-right corner, select **Subscribe to the new projects feed** ({{< icon name="rss" >}}).
+ 1. On the top bar, select **Search or go to** and find your project.
+ 1. In the **Project overview** page, from the **Topics** list select the topic you want to subscribe to.
+ 1. In the upper-right corner, select **Subscribe to the new projects feed** ({{< icon name="rss" >}}).
 
 The results are displayed as an RSS feed in Atom format.
 The URL of the result contains a feed token and the list of projects that have the topic. You can add this URL to your feed reader.
@@ -101,5 +100,4 @@ To assign topics to a project:
 
 ## Administer topics
 
-Instance administrators can administer all project topics from the
-[**Admin** area's Topics page](../../administration/admin_area.md#administering-topics).
+Instance administrators can administer all project topics from the [**Admin** area's Topics page](../../administration/admin_area.md#administering-topics).

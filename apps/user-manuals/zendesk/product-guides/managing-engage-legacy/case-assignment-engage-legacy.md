@@ -12,8 +12,7 @@ Case assignment gives a service agent the ability to assign a case to themselves
 
 **Important:** To create a Case, a customer profile needs to be created
 
-‍  
-In order to assign a case to an agent, the following steps need to be taken:
+‍ In order to assign a case to an agent, the following steps need to be taken:
 
 - Create a new case by clicking on the Cases tab in the right hand panel within the Engage Desktop. Click on the new case button found in the cases tab. You can Select the type of Case you want to create based on the cases templates that have been configured in Connect. This will open up a form to create your new case.
 

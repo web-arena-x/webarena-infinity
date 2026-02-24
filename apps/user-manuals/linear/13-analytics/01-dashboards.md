@@ -27,7 +27,7 @@ Dashboards can be created in multiple ways:
 
 
 * From the **Dashboards tab** in the workspace Views page or a team’s Views page: Navigate to the Views page for your workspace or a team, select the Dashboards tab, and choose “New dashboard”.
-* Directly from an existing insight: When viewing an Insight inside a View, open its context menu and select “Add to dashboard” to create a new dashboard or add it to an existing one.  
+* Directly from an existing insight: When viewing an Insight inside a View, open its context menu and select “Add to dashboard” to create a new dashboard or add it to an existing one. 
 
 
 Insights can be included on multiple dashboards.
@@ -42,7 +42,7 @@ Each insight added to a dashboard can be:
 
 * Displayed as a **chart**, **table**, or **single metric**
 * **Individually filtered** to customize the data shown
-* Explored directly — click into any slice or metric to view the underlying issues without leaving the dashboard  
+* Explored directly — click into any slice or metric to view the underlying issues without leaving the dashboard 
 
 
 This makes dashboards useful both for high-level overviews and deeper analysis, without needing to navigate away from the page. The formats supported on dashboards — charts, metric blocks, and tables — are the same as those available in [Insights](https://linear.app/docs/insights#create-insights). 

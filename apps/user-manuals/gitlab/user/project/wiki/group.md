@@ -12,9 +12,7 @@ title: Group wikis
 
 {{< /details >}}
 
-If you use GitLab groups to manage multiple projects, some of your documentation
-might span multiple groups. You can create group wikis, instead of [project wikis](_index.md),
-to ensure all group members have the correct access permissions to contribute.
+If you use GitLab groups to manage multiple projects, some of your documentation might span multiple groups. You can create group wikis, instead of [project wikis](_index.md), to ensure all group members have the correct access permissions to contribute.
 Group wikis are similar to [project wikis](_index.md), with a few limitations:
 
 - [Git LFS](../../../topics/git/lfs/_index.md) is not supported.
@@ -22,9 +20,7 @@ Group wikis are similar to [project wikis](_index.md), with a few limitations:
 
 For updates, follow [the epic that tracks feature parity with project wikis](https://gitlab.com/groups/gitlab-org/-/epics/2782).
 
-Similar to project wikis, group members with at least the Developer role
-can edit group wikis. Group wiki repositories can be moved using the
-[Group repository storage moves API](../../../api/group_repository_storage_moves.md).
+Similar to project wikis, group members with at least the Developer role can edit group wikis. Group wiki repositories can be moved using the [Group repository storage moves API](../../../api/group_repository_storage_moves.md).
 
 ## View a group wiki
 
@@ -38,24 +34,17 @@ To access a group wiki:
 
 ## Export a group wiki
 
-Users with the Owner role in a group can
-[import or export a group wiki](../settings/import_export.md#migrate-groups-by-uploading-an-export-file-deprecated) when they
-import or export a group.
+Users with the Owner role in a group can [import or export a group wiki](../settings/import_export.md#migrate-groups-by-uploading-an-export-file-deprecated) when they import or export a group.
 
-Content created in a group wiki is not deleted when an account is downgraded or a
-GitLab trial ends. The group wiki data is exported whenever the group owner of
-the wiki is exported.
+Content created in a group wiki is not deleted when an account is downgraded or a GitLab trial ends. The group wiki data is exported whenever the group owner of the wiki is exported.
 
-To access the group wiki data from the export file if the feature is no longer
-available, you have to:
+To access the group wiki data from the export file if the feature is no longer available, you have to:
 
 1. Extract the [export file tarball](../settings/import_export.md#migrate-groups-by-uploading-an-export-file-deprecated)
    with this command, replacing `FILENAME` with your file's name:
    `tar -xvzf FILENAME.tar.gz`
-1. Browse to the `repositories` directory. This directory contains a
-   [Git bundle](https://git-scm.com/docs/git-bundle) with the extension `.wiki.bundle`.
-1. Clone the Git bundle into a new repository, replacing `FILENAME` with
-   your bundle's name: `git clone FILENAME.wiki.bundle`
+1. Browse to the `repositories` directory. This directory contains a [Git bundle](https://git-scm.com/docs/git-bundle) with the extension `.wiki.bundle`.
+1. Clone the Git bundle into a new repository, replacing `FILENAME` with your bundle's name: `git clone FILENAME.wiki.bundle`
 
 All files in the wiki are available in this Git repository.
 
@@ -95,8 +84,7 @@ This operation deletes all data in the wiki.
 {{< alert type="warning" >}}
 
 This command changes data directly and could be damaging if not run correctly.
-You should run these instructions in a test environment first. Keep a backup of the
-instance ready so you can restore the instance, if necessary.
+You should run these instructions in a test environment first. Keep a backup of the instance ready so you can restore the instance, if necessary.
 
 {{< /alert >}}
 

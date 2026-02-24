@@ -22,11 +22,11 @@ RFI numbers in Procore must always be configured to use a starting number. Dep
 | **RFI Configuration Option** | **Prefix** | **Starting Number** | **Example** |
 | --- | --- | --- | --- |
 | Default Starting Number | None | 1 | 1, 2… |
-| Custom Starting Number of Consistent Length | None | User Defined (e.g., 0001 or 1001) | 0001, 0002…  1001, 1002… |
+| Custom Starting Number of Consistent Length | None | User Defined (e.g., 0001 or 1001) | 0001, 0002… 1001, 1002… |
 | Manual Prefix and Default Starting Number | User Defined (e.g., RFI-) | 1 | RFI-1, RFI-2… |
-| Manual Prefix and Custom Starting Number of Consistent Length | User Defined (e.g. RFI-) | User Defined (e.g. 001 or 101) | RFI-001, RFI-002…  RFI-101, RFI-102… |
+| Manual Prefix and Custom Starting Number of Consistent Length | User Defined (e.g. RFI-) | User Defined (e.g. 001 or 101) | RFI-001, RFI-002… RFI-101, RFI-102… |
 | Project Stage Prefix and Default Starting Number | Custom Stage (e.g., BID, PRE, RFI, PST, WAR) | 1 | BID-1, BID-2… |
-| Project Stage Prefix and Custom Starting Number of Consistent Length | Custom Stage  (e.g., BID, PRE, RFI, PST, WAR) | User Defined (e.g., 0001 or 1001) | BID-0001, BID-0002…  BID-1001, BID-1002… |
+| Project Stage Prefix and Custom Starting Number of Consistent Length | Custom Stage  (e.g., BID, PRE, RFI, PST, WAR) | User Defined (e.g., 0001 or 1001) | BID-0001, BID-0002… BID-1001, BID-1002… |
 
 #### Best Practices
 
@@ -41,12 +41,9 @@ For best results when configuring your RFI prefixes and/or numbering on a proje
 
 Please be aware of the following prefix and numbering limitations:
 
-- **Duplicate prefixes are NOT permitted**  
-  For example, you cannot use "PCST" or "P-CST" to represent both Pre-Construction and Post-Construction. Instead, Procore recommends using the default prefixes of Pre-Constructions (PRE) and Post-Construction (PST) or creating a unique prefix for each stage.
-- **Duplicate numbers are NOT permitted**  
-  For example, you cannot have two RFIs with the same number.
-- **Deleted RFI numbers are NEVER reused**  
-  The system does NOT reuse numbers from deleted RFIs.
+- **Duplicate prefixes are NOT permitted** For example, you cannot use "PCST" or "P-CST" to represent both Pre-Construction and Post-Construction. Instead, Procore recommends using the default prefixes of Pre-Constructions (PRE) and Post-Construction (PST) or creating a unique prefix for each stage.
+- **Duplicate numbers are NOT permitted** For example, you cannot have two RFIs with the same number.
+- **Deleted RFI numbers are NEVER reused** The system does NOT reuse numbers from deleted RFIs.
 
 If your project has been configured to use RFI Prefixes, be aware of the following:
 
@@ -58,38 +55,38 @@ If an authorized user enables the RFI Prefix by Project Stage option AFTER your
 
 ## Steps
 
-- [Configure a Manual Prefix and Starting Number](#Configure_a_Manual_Prefix_and_Starting_Number "Can I customize the RFI numbering scheme on a Procore project?")  
-  OR
+- [Configure a Manual Prefix and Starting Number](#Configure_a_Manual_Prefix_and_Starting_Number "Can I customize the RFI numbering scheme on a Procore project?") 
+ OR
 - [Configure a Project Stage Prefix and Starting Number](#Configure_a_Project_Stage_Prefix_and_Starting_Number "Can I customize the RFI numbering scheme on a Procore project?")
 
 ### Configure a Manual Prefix and Starting Number
 
 Do the following when creating the first RFI for your project. For step-by-step instructions, see [Create an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/create-an-rfi "Create an RFI").
 
-1. Navigate to the project's **RFIs** tool.   
+1. Navigate to the project's **RFIs** tool.  
    This reveals the RFIs page.
-2. Click **Create RFI**.   
+2. Click **Create RFI**.  
    This opens the New RFI page.
-3. In the **Number** field, type the desired start number in the custom sequence.   
+3. In the **Number** field, type the desired start number in the custom sequence.  
    *Examples*:
    - *To configure a starting number of consistent length*, t​​​​​ype: 0001 or 1001
    - *To configure a manual prefix followed a starting number*, type: RFI0001 or RFI-1001
-4. Continue to create the RFI as described in [Create an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/create-an-rfi "Create an RFI").  
+4. Continue to create the RFI as described in [Create an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/create-an-rfi "Create an RFI"). 
    The next time you create an RFI, the system will use your custom format to assign the next number to an RFI. You can change the numbering scheme at anytime, although it is NOT recommended.
 
 ### Configure a Project Stage Prefix and Starting Number
 
 You must have 'Admin' level permission to perform the following steps:
 
-1. Navigate to the project's **RFIs** tool.   
+1. Navigate to the project's **RFIs** tool.  
    This reveals the RFIs page.
-2. Click **Configure Settings**.   
+2. Click **Configure Settings**.  
    This opens the RFI Settings page.
-3. Next to the **RFI Prefix Number: Prefix by Stage** area, place a checkmark in the **Once Enabled and In Use, this Configuration Cannot be Disabled** box.   
-   This reveals a list of project stages from the Company level Admin tool.  
+3. Next to the **RFI Prefix Number: Prefix by Stage** area, place a checkmark in the **Once Enabled and In Use, this Configuration Cannot be Disabled** box.  
+   This reveals a list of project stages from the Company level Admin tool. 
    *Note*: Your [Procore Administrator](https://support.procore.com/procore-learning-paths/general-contractor/procore-administrator "Procore Administrator") can configure Procore to use the default project stages and/or create custom project stages in the Company level Admin tool. See [Add a Custom Project Stage](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-a-custom-project-stage "Add a Custom Project Stage").
 4. Mark the 'Prefix Stage Enabled' checkbox for each stage you want to use for prefixing the RFI numbers.
-5. Enter a prefix for each project stage selected. You can enter a combination of alphanumeric characters in this box.  
+5. Enter a prefix for each project stage selected. You can enter a combination of alphanumeric characters in this box. 
      
    ![rfi-prefix-number-prefix-by-project-stage.png](https://support.procore.com/@api/deki/files/92682/rfi-prefix-number-prefix-by-project-stage.png?revision=1)
 6. Scroll to the bottom of the page and click **Update**to save your changes.

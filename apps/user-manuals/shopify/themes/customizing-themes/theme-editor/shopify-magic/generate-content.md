@@ -16,8 +16,7 @@ Through [Shopify Magic](https://help.shopify.com/en/manual/shopify-admin/product
 
 ## Supported languages
 
-​
-Support for automatically generated product descriptions is currently available in the following languages:
+​ Support for automatically generated product descriptions is currently available in the following languages:
 
 * English
 * German

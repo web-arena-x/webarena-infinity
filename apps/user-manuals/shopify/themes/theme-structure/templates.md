@@ -112,8 +112,7 @@ Desktop
 7. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -147,8 +146,7 @@ Desktop
 5. Click **Create template**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -201,7 +199,7 @@ Desktop
 5. Click the resource that you want to preview with the selected template.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to preview a template with, and then tap **Edit theme**.
@@ -250,8 +248,7 @@ Desktop
 4. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Pages**.
 4. Tap the page that you want to apply a new template to.
@@ -268,8 +265,7 @@ Desktop
 4. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon .
 2. Tap a product that you want to apply a new template to.
 3. Tap **Online Store template**.
 4. Select the template that you want to apply to your product.
@@ -293,10 +289,9 @@ Desktop
 5. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Content** menu, tap the  icon, and then tap **Blog posts**.
-3. Tap  or  > **Manage blogs**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Content** menu, tap the icon, and then tap **Blog posts**.
+3. Tap or > **Manage blogs**.
 4. Tap a blog that you want to apply a template to.
 5. In the **Online store** section, tap the **Theme template** drop-down menu, and then select the template that you want to apply to your blog.
 6. Tap **Save** or **✓**.
@@ -311,9 +306,8 @@ Desktop
 4. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Content** menu, tap the  icon, and then tap **Blog posts**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Content** menu, tap the icon, and then tap **Blog posts**.
 3. Tap a blog post that you want to apply a template to.
 4. In the **Online store** section, tap the **Theme template** drop-down menu, and then select the template that you want to apply to your blog post.
 5. Tap **Save** or **✓**.

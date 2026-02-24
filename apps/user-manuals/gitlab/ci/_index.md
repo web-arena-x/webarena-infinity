@@ -13,12 +13,9 @@ title: Get started with GitLab CI/CD
 
 {{< /details >}}
 
-CI/CD is a continuous method of software development, where you continuously build,
-test, deploy, and monitor iterative code changes.
+CI/CD is a continuous method of software development, where you continuously build, test, deploy, and monitor iterative code changes.
 
-This iterative process helps reduce the chance that you develop new code based on
-buggy or failed previous versions. GitLab CI/CD can catch bugs early in the development cycle,
-and help ensure that the code deployed to production complies with your established code standards.
+This iterative process helps reduce the chance that you develop new code based on buggy or failed previous versions. GitLab CI/CD can catch bugs early in the development cycle, and help ensure that the code deployed to production complies with your established code standards.
 
 This process is part of a larger workflow:
 
@@ -32,11 +29,9 @@ It is a YAML file with its own custom syntax.
 
 By default, the file is named `.gitlab-ci.yml`, but you can use any filename.
 
-In this file, you define variables, dependencies between jobs, and specify when
-and how each job should be executed.
+In this file, you define variables, dependencies between jobs, and specify when and how each job should be executed.
 
-A pipeline is defined in the `.gitlab-ci.yml` file,
-and executes when the file runs on a runner.
+A pipeline is defined in the `.gitlab-ci.yml` file, and executes when the file runs on a runner.
 
 Pipelines are made up of stages and jobs:
 
@@ -71,19 +66,16 @@ For more information, see:
 
 ## Step 3: Use CI/CD variables and expressions
 
-GitLab CI/CD variables are key-value pairs you use to store and pass configuration settings
-and sensitive information, like passwords or API keys, to jobs in a pipeline.
+GitLab CI/CD variables are key-value pairs you use to store and pass configuration settings and sensitive information, like passwords or API keys, to jobs in a pipeline.
 
 GitLab CI/CD expressions allow you to inject data dynamically into your pipeline configuration.
 The data available depends on the expression context.
-For example, the `inputs` context allows you to access information passed into the
-configuration file from a parent file or when a pipeline is run.
+For example, the `inputs` context allows you to access information passed into the configuration file from a parent file or when a pipeline is run.
 
 ### CI/CD variables
 
 Use CI/CD variables to customize jobs by making values defined elsewhere accessible to jobs.
-You can hard-code CI/CD variables in your `.gitlab-ci.yml` file, set them in your project settings,
-or generate them dynamically. You can define them for the project, group, or instance.
+You can hard-code CI/CD variables in your `.gitlab-ci.yml` file, set them in your project settings, or generate them dynamically. You can define them for the project, group, or instance.
 
 The following types of variables are available:
 

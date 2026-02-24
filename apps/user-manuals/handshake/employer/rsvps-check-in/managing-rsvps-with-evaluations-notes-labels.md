@@ -23,16 +23,16 @@ Evaluations and Notes is a feature in the Events module for Premium partners. It
 **Note**: only one evaluation can be saved per student. If you have a colleague who also wants to rate the student, your colleague should add a note with their comments.
 
 - **Recommendation**
-  - Would you recommend the student?
+ - Would you recommend the student?
     - Select rating
       - Strong no
       - No
       - Yes
       - Strong Yes
 - **Comments**
-  - Include any relevant comments related to the student in the textbox if applicable.
+ - Include any relevant comments related to the student in the textbox if applicable.
 - **Photos**
-  - In this section, photos of the resume or notes uploaded through the Handshake events app will be displayed. *Learn more about the*[*Handshake Events App for Employers*](https://support.joinhandshake.com/hc/en-us/articles/14718725666199)*.*
+ - In this section, photos of the resume or notes uploaded through the Handshake events app will be displayed. *Learn more about the*[*Handshake Events App for Employers*](https://support.joinhandshake.com/hc/en-us/articles/14718725666199)*.*
 
 3. Click the black button **Submit** to save your evaluation and/or notes.
 
@@ -81,10 +81,10 @@ The following information is included in this CSV:
 - **Labels**
 - **Notes**
 - **Job Preferences**
-  - *Only included for in-person fairs with a check-in kiosk*
+ - *Only included for in-person fairs with a check-in kiosk*
 - **Evaluation Rating**
 - **Evaluation Photos**
-  - *Only available to employers who have the Events module*
+ - *Only available to employers who have the Events module*
 
 **Note**: if you set up a check-in kiosk, the students' responses to the kiosk questions will also be included.
 
@@ -121,7 +121,7 @@ In the pop-up modal, click the black button **Remove labels**, then choose the l
 Click on the student's name, then navigate to the **Labels** section in their profile, located at the lower-right of the page.
 
 - - To add a label, select the label from the dropdown or type to search for the label.
-  - To remove a label, click the **X** to the right of the label name.
+ - To remove a label, click the **X** to the right of the label name.
 
 ![Labels section on student's profile.png](https://support.joinhandshake.com/hc/article_attachments/25996988977687)
 

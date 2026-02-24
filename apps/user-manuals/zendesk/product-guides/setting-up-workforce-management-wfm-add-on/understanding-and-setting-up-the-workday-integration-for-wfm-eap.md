@@ -8,7 +8,7 @@ As an admin, you can integrate Workday with your Zendesk Workforce management (W
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Workforce Management (WFM) or Workforce Engagement Management (WEM) |
 
@@ -16,36 +16,24 @@ Verified AI summary ◀▼
 
 Integrate Workday with your Workforce Management to automatically import approved time off data, streamlining leave management. Syncs occur hourly, mapping users by email. Set up involves creating an OAuth client in Workday, configuring integration settings, and mapping time off reasons. Partial day requests need manual approval. You can edit or disconnect the integration anytime, ensuring flexibility in managing time off data.
 
-The Workday integration for Workforce management is currently available
-as part of an early access program (EAP). You can [sign up for the EAP here](https://docs.google.com/forms/d/1rlCjxcldFthYF-fQCoQCXefEyXaW5g0MEnREepTI8ZE/viewform?edit_requested=true#responses).
+The Workday integration for Workforce management is currently available as part of an early access program (EAP). You can [sign up for the EAP here](https://docs.google.com/forms/d/1rlCjxcldFthYF-fQCoQCXefEyXaW5g0MEnREepTI8ZE/viewform?edit_requested=true#responses).
 
 As an admin, you can integrate Workday with your Zendesk Workforce management (WFM)
 account to automatically import approved time off data from Workday into WFM.
 
 This article contains the following topics:
 
-- [About the Workday integration with
-  Workforce management](#topic_a4x_1nr_pgc)
-- [Connecting the Workday integration
-  with Zendesk WFM](#topic_vrb_ltr_pgc)
-- [Reviewing Workday partial time off
-  requests](#topic_ivd_btz_pgc)
-- [Editing the Workday integration
-  with Zendesk WFM](#topic_skp_sms_pgc)
-- [Disconnecting the Workday
-  integration with Zendesk WFM](#topic_s5g_1rt_pgc)
+- [About the Workday integration with Workforce management](#topic_a4x_1nr_pgc)
+- [Connecting the Workday integration with Zendesk WFM](#topic_vrb_ltr_pgc)
+- [Reviewing Workday partial time off requests](#topic_ivd_btz_pgc)
+- [Editing the Workday integration with Zendesk WFM](#topic_skp_sms_pgc)
+- [Disconnecting the Workday integration with Zendesk WFM](#topic_s5g_1rt_pgc)
 
 ## About the Workday integration with Workforce management
 
-After connecting Workday with WFM, Zendesk admins and team members in a [custom role with permission](https://support.zendesk.com/hc/en-us/articles/4408882153882) can configure the integration to
-automatically import time off data from Workday.
+After connecting Workday with WFM, Zendesk admins and team members in a [custom role with permission](https://support.zendesk.com/hc/en-us/articles/4408882153882) can configure the integration to automatically import time off data from Workday.
 
-When using this integration, approved time off requests in Workday are visible on
-the [WFM Time off management page](https://support.zendesk.com/hc/en-us/articles/6443393050394). Within the list, these requests can
-be identified by having Workday as their source. Full day time off requests appear under the
-Closed tab, while partial time off requests display under the Pending tab and must undergo
-[manual review and approval](#topic_ivd_btz_pgc) by an
-admin.
+When using this integration, approved time off requests in Workday are visible on the [WFM Time off management page](https://support.zendesk.com/hc/en-us/articles/6443393050394). Within the list, these requests can be identified by having Workday as their source. Full day time off requests appear under the Closed tab, while partial time off requests display under the Pending tab and must undergo [manual review and approval](#topic_ivd_btz_pgc) by an admin.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/wfm_schedule_timeoff_full.png)
 
@@ -57,36 +45,25 @@ Published Workday time off is displayed to agents on their [agent schedule](http
 
 ## Connecting the Workday integration with Zendesk WFM
 
-When you use the Workday integration for WFM, data from Workday, including
-time off and leave, syncs to WFM every hour.
+When you use the Workday integration for WFM, data from Workday, including time off and leave, syncs to WFM every hour.
 
-Workday users are mapped to WFM users by email. Time off data is synced only for mapped users. Users who have the same email address assigned to multiple users in Workday
-can't be synced.
+Workday users are mapped to WFM users by email. Time off data is synced only for mapped users. Users who have the same email address assigned to multiple users in Workday can't be synced.
 
-One Workday instance can be connected to multiple Zendesk instances. For the integration to
-work properly, separate OAuth clients have to be created in Workday and provided in the
-integration setup.
+One Workday instance can be connected to multiple Zendesk instances. For the integration to work properly, separate OAuth clients have to be created in Workday and provided in the integration setup.
 
 **To connect the Workday integration with Zendesk WFM**
 
-1. [Create an OAuth client in
-   Workday](#topic_q34_qtr_pgc)
-2. [Configure the Workday integration for WFM
-   in Admin Center](#topic_ily_vbs_pgc)
-3. [Configure the Workday with Zendesk WFM
-   integration settings](#topic_qd2_gqb_qgc)
+1. [Create an OAuth client in Workday](#topic_q34_qtr_pgc)
+2. [Configure the Workday integration for WFM in Admin Center](#topic_ily_vbs_pgc)
+3. [Configure the Workday with Zendesk WFM integration settings](#topic_qd2_gqb_qgc)
 
 ### Step 1: Creating an OAuth client in Workday
 
-Workday uses OAuth 2.0 for authorization. A Workday administrator must set up an OAuth 2.0 client in Workday to provide Zendesk secure access to your data in
-Workday.
+Workday uses OAuth 2.0 for authorization. A Workday administrator must set up an OAuth 2.0 client in Workday to provide Zendesk secure access to your data in Workday.
 
-After you save the OAuth configuration, Workday generates a Client ID and
-Client Secret. Save these securely. Both values are needed when [configuring the Workday integration for WFM in
-Admin Center](#topic_ily_vbs_pgc).
+After you save the OAuth configuration, Workday generates a Client ID and Client Secret. Save these securely. Both values are needed when [configuring the Workday integration for WFM in Admin Center](#topic_ily_vbs_pgc).
 
-Note: The Client Secret displays only once. Copy and save it in a secure location, such as a
-password manager.
+Note: The Client Secret displays only once. Copy and save it in a secure location, such as a password manager.
 
 **To set up an OAuth 2.0 client in Workday**
 
@@ -95,8 +72,7 @@ password manager.
 3. Scroll down to the OAuth 2.0 Settings section and turn on the **OAuth 2.0** configuration.
 4. Configure the API client:
    - **Search**: Select **Register API Client**.
-   - **Client Name**: Enter a meaningful name for your client, such as *Zendesk
-     connection*.
+   - **Client Name**: Enter a meaningful name for your client, such as *Zendesk connection*.
    - **Client Grant Type**: Choose **Authorization Code**. See [OAuth 2.0 Security Best Current Practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics) for more information about grant types.
    - **Client Redirect URL**: Enter
 

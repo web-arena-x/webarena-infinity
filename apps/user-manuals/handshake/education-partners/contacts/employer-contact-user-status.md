@@ -15,17 +15,17 @@ Topics:
 
 ### User Statuses in Handshake
 
-- **Active**: the contact has an active Handshake employer user profile.  
-  - When you open the contact and click **View User Profile**you will be directed to their user profile.
-  - You can reach out to them directly with a message in Handshake!
+- **Active**: the contact has an active Handshake employer user profile. 
+ - When you open the contact and click **View User Profile**you will be directed to their user profile.
+ - You can reach out to them directly with a message in Handshake!
 
-- **None**: the contact does not have an employer user profile in Handshake associated with the email currently listed within your contact list.   
-  - When you open the contact, you will not have the option to **View User Profile**, as Contacts that have this status have not yet started the Handshake registration process.
-  - To invite a contact to become a user, refer to[Inviting Contacts to Become Users: Standard Employer Invite Process](https://support.joinhandshake.com/hc/en-us/articles/218692768-Invite-contacts-to-become-users).
-  - If it has been a few weeks since you invited this contact to join Handshake you may want to reach out again with an invitation email.
+- **None**: the contact does not have an employer user profile in Handshake associated with the email currently listed within your contact list.  
+ - When you open the contact, you will not have the option to **View User Profile**, as Contacts that have this status have not yet started the Handshake registration process.
+ - To invite a contact to become a user, refer to[Inviting Contacts to Become Users: Standard Employer Invite Process](https://support.joinhandshake.com/hc/en-us/articles/218692768-Invite-contacts-to-become-users).
+ - If it has been a few weeks since you invited this contact to join Handshake you may want to reach out again with an invitation email.
 
 - **Pending**: the contact has created a profile, but has not confirmed their email address or has not been approved with their company. 
-  - If the user has not confirmed their email, the Email Status on their profile will state **Not confirmed Yet**.
+ - If the user has not confirmed their email, the Email Status on their profile will state **Not confirmed Yet**.
 
 ![Account Not Confirmed Yet status.png](https://support.joinhandshake.com/hc/article_attachments/17133435637399)
 

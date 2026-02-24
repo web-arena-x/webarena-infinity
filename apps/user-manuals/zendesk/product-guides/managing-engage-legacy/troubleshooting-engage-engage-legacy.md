@@ -97,7 +97,7 @@ Review the CloudWatch logs in Amazon Console for additional information.
 - A hard refresh should resolve most UI related issues.
 - If the button to Accept calls is not working, check that the agent doesn’t have Desk Phone enabled in their Agent settings, as this causes the call to be forwarded to another phone number and they can’t accept the call from the desktop.
 - Desktop shows the agent is logged in, but they do not receive calls.   
-  - Refresh the page and re-authenticate to log back into Amazon Connect.
-  - If the user did not log out at the end of their shift, and just closed the browser, the desktop won’t know their session has expired until they interact with the page or refresh it.
+ - Refresh the page and re-authenticate to log back into Amazon Connect.
+ - If the user did not log out at the end of their shift, and just closed the browser, the desktop won’t know their session has expired until they interact with the page or refresh it.
 
 ‍

@@ -21,8 +21,7 @@ Use this API to manage [issues](../user/project/issues/_index.md). You can:
 - Track issue movement and promotion between projects and epics.
 - Control access and visibility with authorization checks.
 
-If a user is not a member of a private project, a `GET`
-request on that project results in a `404` status code.
+If a user is not a member of a private project, a `GET` request on that project results in a `404` status code.
 
 Responses in this API are [paginated](rest/_index.md#pagination) and return 20 results by default.
 
@@ -36,9 +35,7 @@ When requested across groups or projects, it's expected to be the same as the `f
 
 ## List issues
 
-Get all issues the authenticated user has access to. By default it
-returns only issues created by the current user. To get all issues,
-use parameter `scope=all`.
+Get all issues the authenticated user has access to. By default it returns only issues created by the current user. To get all issues, use parameter `scope=all`.
 
 ```plaintext
 GET /issues
@@ -62,7 +59,7 @@ Supported attributes:
 | Attribute                       | Type          | Required   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |---------------------------------|---------------| ---------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `assignee_id`                   | integer       | No         | Return issues assigned to the given user `id`. Mutually exclusive with `assignee_username`. `None` returns unassigned issues. `Any` returns issues with an assignee.                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `assignee_username`             | string array  | No         | Return issues assigned to the given `username`. Similar to `assignee_id` and mutually exclusive with `assignee_id`. In GitLab CE, the `assignee_username` array should only contain a single value. Otherwise, an invalid parameter error is returned. Only issues assigned to all passed users are returned. |
+| `assignee_username`             | string array | No         | Return issues assigned to the given `username`. Similar to `assignee_id` and mutually exclusive with `assignee_id`. In GitLab CE, the `assignee_username` array should only contain a single value. Otherwise, an invalid parameter error is returned. Only issues assigned to all passed users are returned. |
 | `author_id`                     | integer       | No         | Return issues created by the given user `id`. Mutually exclusive with `author_username`. Combine with `scope=all` or `scope=assigned_to_me`.                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | `author_username`               | string        | No         | Return issues created by the given `username`. Similar to `author_id` and mutually exclusive with `author_id`.                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `confidential`                  | boolean       | No         | Filter confidential or public issues.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
@@ -70,7 +67,7 @@ Supported attributes:
 | `created_before`                | datetime      | No         | Return issues created on or before the given time. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`).                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `due_date`                      | string        | No         | Return issues that have no due date, are overdue, or whose due date is this week, this month, or between two weeks ago and next month. Accepts: `0` (no due date), `any`, `today`, `tomorrow`, `overdue`, `week`, `month`, `next_month_and_previous_two_weeks`.                                                                                                                                                                                                                                                                                                        |
 | `epic_id`        | integer       | No         | Return issues associated with the given epic ID. `None` returns issues that are not associated with an epic. `Any` returns issues that are associated with an epic. Premium and Ultimate only.                                                                                                                                                                                                                                                                                                                                                                         |
-| `health_status`  | string        | No         | Return issues with the specified `health_status`. _([Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/370721) in GitLab 15.4)._ In [GitLab 15.5 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/370721), `None` returns issues with no health status assigned, and `Any` returns issues with a health status assigned. Ultimate only.                                                                                                                                                                                                                |
+| `health_status` | string        | No         | Return issues with the specified `health_status`. _([Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/370721) in GitLab 15.4)._ In [GitLab 15.5 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/370721), `None` returns issues with no health status assigned, and `Any` returns issues with a health status assigned. Ultimate only.                                                                                                                                                                                                                |
 | `iids[]`                        | integer array | No         | Return only the issues having the given `iid`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `in`                            | string        | No         | Modify the scope of the `search` attribute. `title`, `description`, or a string joining them with comma. Default is `title,description`.                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `issue_type`                    | string        | No         | Filter to a given type of issue. One of `issue`, `incident`, `test_case` or `task`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -96,7 +93,7 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/issues"
+ --url "https://gitlab.example.com/api/v4/issues"
 ```
 
 Example response:
@@ -260,8 +257,7 @@ Issues created by users on GitLab Ultimate include the `health_status` property:
 
 {{< alert type="warning" >}}
 
-The `assignee` column is deprecated. We now show it as a single-sized array `assignees` to conform
-to the GitLab EE API.
+The `assignee` column is deprecated. We now show it as a single-sized array `assignees` to conform to the GitLab EE API.
 
 {{< /alert >}}
 
@@ -332,7 +328,7 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/4/issues"
+ --url "https://gitlab.example.com/api/v4/groups/4/issues"
 ```
 
 Example response:
@@ -524,7 +520,7 @@ Supported attributes:
 | `created_before`      | datetime       | No       | Return issues created on or before the given time. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
 | `due_date`            | string         | No       | Return issues that have no due date, are overdue, or whose due date is this week, this month, or between two weeks ago and next month. Accepts: `0` (no due date), `any`, `today`, `tomorrow`, `overdue`, `week`, `month`, `next_month_and_previous_two_weeks`. |
 | `epic_id`             | integer        | No       | Return issues associated with the given epic ID. `None` returns issues that are not associated with an epic. `Any` returns issues that are associated with an epic. Premium and Ultimate only. |
-| `iids[]`              | integer array  | No       | Return only the issues having the given `iid`. |
+| `iids[]`              | integer array | No       | Return only the issues having the given `iid`. |
 | `issue_type`          | string         | No       | Filter to a given type of issue. One of `issue`, `incident`, `test_case` or `task`. |
 | `iteration_id`        | integer        | No       | Return issues assigned to the given iteration ID. `None` returns issues that do not belong to an iteration. `Any` returns issues that belong to an iteration. Mutually exclusive with `iteration_title`. Premium and Ultimate only. |
 | `iteration_title`     | string         | No       | Return issues assigned to the iteration with the given title. Similar to `iteration_id` and mutually exclusive with `iteration_id`. Premium and Ultimate only. |
@@ -543,8 +539,7 @@ Supported attributes:
 | `with_labels_details` | boolean        | No       | If `true`, the response returns more details for each label in labels field: `:name`, `:color`, `:description`, `:description_html`, `:text_color`. Default is `false`. |
 | `cursor`              | string         | No       | Parameter used in keyset pagination. |
 
-This endpoint supports both offset-based and [keyset-based](rest/_index.md#keyset-based-pagination) pagination. You should use keyset-based
-pagination when requesting consecutive pages of results.
+This endpoint supports both offset-based and [keyset-based](rest/_index.md#keyset-based-pagination) pagination. You should use keyset-based pagination when requesting consecutive pages of results.
 
 Read more on [pagination](rest/_index.md#pagination).
 
@@ -552,7 +547,7 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/4/issues"
+ --url "https://gitlab.example.com/api/v4/projects/4/issues"
 ```
 
 Example response:
@@ -729,15 +724,15 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/issues/41"
+ --url "https://gitlab.example.com/api/v4/issues/41"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "milestone": {
+ "id": 1,
+ "milestone": {
     "due_date": null,
     "project_id": 4,
     "state": "closed",
@@ -748,19 +743,19 @@ Example response:
     "created_at": "2016-01-04T15:31:39.788Z",
     "updated_at": "2016-01-04T15:31:39.788Z",
     "closed_at": "2016-01-05T15:31:46.176Z"
-  },
-  "author": {
+ },
+ "author": {
     "state": "active",
     "web_url": "https://gitlab.example.com/root",
     "avatar_url": null,
     "username": "root",
     "id": 1,
     "name": "Administrator"
-  },
-  "description": "Omnis vero earum sunt corporis dolor et placeat.",
-  "state": "closed",
-  "iid": 1,
-  "assignees": [
+ },
+ "description": "Omnis vero earum sunt corporis dolor et placeat.",
+ "state": "closed",
+ "iid": 1,
+ "assignees": [
     {
       "avatar_url": null,
       "web_url": "https://gitlab.example.com/lennie",
@@ -769,61 +764,61 @@ Example response:
       "id": 9,
       "name": "Dr. Luella Kovacek"
     }
-  ],
-  "assignee": {
+ ],
+ "assignee": {
     "avatar_url": null,
     "web_url": "https://gitlab.example.com/lennie",
     "state": "active",
     "username": "lennie",
     "id": 9,
     "name": "Dr. Luella Kovacek"
-  },
-  "type": "ISSUE",
-  "labels": [],
-  "upvotes": 4,
-  "downvotes": 0,
-  "merge_requests_count": 0,
-  "title": "Ut commodi ullam eos dolores perferendis nihil sunt.",
-  "updated_at": "2016-01-04T15:31:46.176Z",
-  "created_at": "2016-01-04T15:31:46.176Z",
-  "closed_at": null,
-  "closed_by": null,
-  "subscribed": false,
-  "user_notes_count": 1,
-  "due_date": null,
-  "imported": false,
-  "imported_from": "none",
-  "web_url": "http://example.com/my-group/my-project/issues/1",
-  "references": {
+ },
+ "type": "ISSUE",
+ "labels": [],
+ "upvotes": 4,
+ "downvotes": 0,
+ "merge_requests_count": 0,
+ "title": "Ut commodi ullam eos dolores perferendis nihil sunt.",
+ "updated_at": "2016-01-04T15:31:46.176Z",
+ "created_at": "2016-01-04T15:31:46.176Z",
+ "closed_at": null,
+ "closed_by": null,
+ "subscribed": false,
+ "user_notes_count": 1,
+ "due_date": null,
+ "imported": false,
+ "imported_from": "none",
+ "web_url": "http://example.com/my-group/my-project/issues/1",
+ "references": {
     "short": "#1",
     "relative": "#1",
     "full": "my-group/my-project#1"
-  },
-  "time_stats": {
+ },
+ "time_stats": {
     "time_estimate": 0,
     "total_time_spent": 0,
     "human_time_estimate": null,
     "human_total_time_spent": null
-  },
-  "confidential": false,
-  "discussion_locked": false,
-  "issue_type": "issue",
-  "severity": "UNKNOWN",
-  "task_completion_status": {
+ },
+ "confidential": false,
+ "discussion_locked": false,
+ "issue_type": "issue",
+ "severity": "UNKNOWN",
+ "task_completion_status": {
     "count": 0,
     "completed_count": 0
-  },
-  "weight": null,
-  "has_tasks": false,
-  "_links": {
+ },
+ "weight": null,
+ "has_tasks": false,
+ "_links": {
     "self": "http://gitlab.example:3000/api/v4/projects/1/issues/1",
     "notes": "http://gitlab.example:3000/api/v4/projects/1/issues/1/notes",
     "award_emoji": "http://gitlab.example:3000/api/v4/projects/1/issues/1/award_emoji",
     "project": "http://gitlab.example:3000/api/v4/projects/1",
     "closed_as_duplicate_of": "http://gitlab.example.com/api/v4/projects/1/issues/75"
-  },
-  "moved_to_id": null,
-  "service_desk_reply_to": "service.desk@gitlab.com"
+ },
+ "moved_to_id": null,
+ "service_desk_reply_to": "service.desk@gitlab.com"
 }
 ```
 
@@ -857,8 +852,7 @@ Issues created by users on GitLab Premium or Ultimate include the `epic` propert
 }
 ```
 
-Users of [GitLab Ultimate](https://about.gitlab.com/pricing/) can also see the `health_status`
-property:
+Users of [GitLab Ultimate](https://about.gitlab.com/pricing/) can also see the `health_status` property:
 
 ```json
 [
@@ -873,8 +867,7 @@ property:
 
 {{< alert type="warning" >}}
 
-The `assignee` column is deprecated. We now show it as a single-sized array `assignees` to conform
-to the GitLab EE API.
+The `assignee` column is deprecated. We now show it as a single-sized array `assignees` to conform to the GitLab EE API.
 
 {{< /alert >}}
 
@@ -899,14 +892,14 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description                          |
 |-------------|---------|----------|--------------------------------------|
-| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).  |
+| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer | Yes      | The internal ID of a project's issue. |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/4/issues/41"
+ --url "https://gitlab.example.com/api/v4/projects/4/issues/41"
 ```
 
 Example response:
@@ -1028,8 +1021,7 @@ Issues created by users on GitLab Premium or Ultimate include the `epic` propert
 }
 ```
 
-Users of [GitLab Ultimate](https://about.gitlab.com/pricing/) can also see the `health_status`
-property:
+Users of [GitLab Ultimate](https://about.gitlab.com/pricing/) can also see the `health_status` property:
 
 ```json
 [
@@ -1061,12 +1053,12 @@ POST /projects/:id/issues
 
 Supported attributes:
 
-| Attribute                                 | Type           | Required | Description  |
+| Attribute                                 | Type           | Required | Description |
 |-------------------------------------------|----------------|----------|--------------|
 | `id`                                      | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `assignee_id`                             | integer        | No       | The ID of the user to assign the issue to. Only appears on GitLab Free. |
-| `assignee_ids`                            | integer array  | No       | The IDs of the users to assign the issue to. Premium and Ultimate only.|
-| `confidential`                            | boolean        | No       | Set an issue to be confidential. Default is `false`.  |
+| `assignee_ids`                            | integer array | No       | The IDs of the users to assign the issue to. Premium and Ultimate only.|
+| `confidential`                            | boolean        | No       | Set an issue to be confidential. Default is `false`. |
 | `created_at`                              | string         | No       | When the issue was created. Date time string, ISO 8601 formatted, for example `2016-03-11T03:45:40Z`. Requires administrator or project/group owner rights. |
 | `description`                             | string         | No       | The description of an issue. Limited to 1,048,576 characters. |
 | `discussion_to_resolve`                   | string         | No       | The ID of a discussion to resolve. This fills out the issue with a default description and mark the discussion as resolved. Use in combination with `merge_request_to_resolve_discussions_of`. |
@@ -1075,7 +1067,7 @@ Supported attributes:
 | `epic_iid`                                | integer | No | IID of the epic to add the issue to. Valid values are greater than or equal to 0. (deprecated, [scheduled for removal](https://gitlab.com/gitlab-org/gitlab/-/issues/35157) in API version 5). Premium and Ultimate only. |
 | `iid`                                     | integer or string | No       | The internal ID of the project's issue (requires administrator or project owner rights). |
 | `issue_type`                              | string         | No       | The type of issue. One of `issue`, `incident`, `test_case` or `task`. Default is `issue`. |
-| `labels`                                  | string         | No       | Comma-separated label names to assign to the new issue. If a label does not already exist, this creates a new project label and assigns it to the issue.  |
+| `labels`                                  | string         | No       | Comma-separated label names to assign to the new issue. If a label does not already exist, this creates a new project label and assigns it to the issue. |
 | `merge_request_to_resolve_discussions_of` | integer        | No       | The IID of a merge request in which to resolve all issues. This fills out the issue with a default description and mark all discussions as resolved. When passing a description or title, these values take precedence over the default values.|
 | `milestone_id`                            | integer        | No       | The global ID of a milestone to assign issue. To find the `milestone_id` associated with a milestone, view an issue with the milestone assigned and [use the API](#single-project-issue) to retrieve the issue's details. |
 | `title`                                   | string         | Yes      | The title of an issue. |
@@ -1085,8 +1077,8 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/4/issues?title=Issues%20with%20auth&labels=bug"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/4/issues?title=Issues%20with%20auth&labels=bug"
 ```
 
 Example response:
@@ -1154,8 +1146,7 @@ Example response:
 }
 ```
 
-If the target project has **Issues** [turned off](../user/project/settings/_index.md#toggle-project-features),
-you get the `403` response, along with the message:
+If the target project has **Issues** [turned off](../user/project/settings/_index.md#toggle-project-features), you get the `403` response, along with the message:
 
 ```json
 {
@@ -1248,29 +1239,29 @@ Supported attributes:
 |----------------|---------|----------|------------------------------------------------------------------------------------------------------------|
 | `id`           | integer or string | Yes | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid`    | integer | Yes      | The internal ID of a project's issue.                                                                       |
-| `add_labels`   | string  | No       | Comma-separated label names to add to an issue. If a label does not already exist, this creates a new project label and assigns it to the issue. |
+| `add_labels`   | string | No       | Comma-separated label names to add to an issue. If a label does not already exist, this creates a new project label and assigns it to the issue. |
 | `assignee_ids` | integer array | No | The ID of the users to assign the issue to. Set to `0` or provide an empty value to unassign all assignees. |
 | `confidential` | boolean | No       | Updates an issue to be confidential.                                                                        |
-| `description`  | string  | No       | The description of an issue. Limited to 1,048,576 characters.        |
-| `discussion_locked` | boolean | No  | Flag indicating if the issue's discussion is locked. If the discussion is locked only project members can add or edit comments. |
-| `due_date`     | string  | No       | The due date. Date time string in the format `YYYY-MM-DD`, for example `2016-03-11`.                                           |
+| `description` | string | No       | The description of an issue. Limited to 1,048,576 characters.        |
+| `discussion_locked` | boolean | No | Flag indicating if the issue's discussion is locked. If the discussion is locked only project members can add or edit comments. |
+| `due_date`     | string | No       | The due date. Date time string in the format `YYYY-MM-DD`, for example `2016-03-11`.                                           |
 | `epic_id`      | integer | No | ID of the epic to add the issue to. Valid values are greater than or equal to 0. Premium and Ultimate only. |
 | `epic_iid`     | integer | No | IID of the epic to add the issue to. Valid values are greater than or equal to 0. (deprecated, [scheduled for removal](https://gitlab.com/gitlab-org/gitlab/-/issues/35157) in API version 5). Premium and Ultimate only. |
-| `issue_type`   | string  | No       | Updates the type of issue. One of `issue`, `incident`, `test_case` or `task`. |
-| `labels`       | string  | No       | Comma-separated label names for an issue. Set to an empty string to unassign all labels. If a label does not already exist, this creates a new project label and assigns it to the issue. |
+| `issue_type`   | string | No       | Updates the type of issue. One of `issue`, `incident`, `test_case` or `task`. |
+| `labels`       | string | No       | Comma-separated label names for an issue. Set to an empty string to unassign all labels. If a label does not already exist, this creates a new project label and assigns it to the issue. |
 | `milestone_id` | integer | No       | The global ID of a milestone to assign the issue to. Set to `0` or provide an empty value to unassign a milestone.|
-| `remove_labels`| string  | No       | Comma-separated label names to remove from an issue.                                                       |
-| `state_event`  | string  | No       | The state event of an issue. To close the issue, use `close`, and to reopen it, use `reopen`.                      |
-| `title`        | string  | No       | The title of an issue.                                                                                      |
-| `updated_at`   | string  | No       | When the issue was updated. Date time string, ISO 8601 formatted, for example `2016-03-11T03:45:40Z` (requires administrator or project owner rights). Empty string or null values are not accepted.|
+| `remove_labels`| string | No       | Comma-separated label names to remove from an issue.                                                       |
+| `state_event` | string | No       | The state event of an issue. To close the issue, use `close`, and to reopen it, use `reopen`.                      |
+| `title`        | string | No       | The title of an issue.                                                                                      |
+| `updated_at`   | string | No       | When the issue was updated. Date time string, ISO 8601 formatted, for example `2016-03-11T03:45:40Z` (requires administrator or project owner rights). Empty string or null values are not accepted.|
 | `weight`       | integer | No       | The weight of the issue. Valid values are greater than or equal to 0. Premium and Ultimate only.           |
 
 Example request:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/4/issues/85?state_event=close"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/4/issues/85?state_event=close"
 ```
 
 Example response:
@@ -1413,15 +1404,15 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description                          |
 |-------------|---------|----------|--------------------------------------|
-| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).  |
+| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer | Yes      | The internal ID of a project's issue. |
 
 Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/4/issues/85"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/4/issues/85"
 ```
 
 If successful, returns [`204 No Content`](rest/troubleshooting.md#status-codes).
@@ -1438,7 +1429,7 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description                          |
 |-------------|---------|----------|--------------------------------------|
-| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).  |
+| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer | Yes      | The internal ID of the project's issue. |
 | `move_after_id` | integer | No | The global ID of a project's issue that should be placed after this issue. |
 | `move_before_id` | integer | No | The global ID of a project's issue that should be placed before this issue. |
@@ -1447,18 +1438,15 @@ Example request:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/4/issues/85/reorder?move_after_id=51&move_before_id=92"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/4/issues/85/reorder?move_after_id=51&move_before_id=92"
 ```
 
 ## Move an issue
 
-Moves an issue to a different project. If the target project
-is the source project or the user has insufficient permissions,
-an error message with status code `400` is returned.
+Moves an issue to a different project. If the target project is the source project or the user has insufficient permissions, an error message with status code `400` is returned.
 
-If a given label or milestone with the same name also exists in the target
-project, it's then assigned to the issue being moved.
+If a given label or milestone with the same name also exists in the target project, it's then assigned to the issue being moved.
 
 ```plaintext
 POST /projects/:id/issues/:issue_iid/move
@@ -1468,7 +1456,7 @@ Supported attributes:
 
 | Attribute       | Type    | Required | Description                          |
 |-----------------|---------|----------|--------------------------------------|
-| `id`            | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).  |
+| `id`            | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid`     | integer | Yes      | The internal ID of a project's issue. |
 | `to_project_id` | integer | Yes      | The ID of the new project.            |
 
@@ -1476,84 +1464,84 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --form to_project_id=5 \
-  --url "https://gitlab.example.com/api/v4/projects/4/issues/85/move"
+ --form to_project_id=5 \
+ --url "https://gitlab.example.com/api/v4/projects/4/issues/85/move"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 92,
-  "iid": 11,
-  "project_id": 5,
-  "title": "Sit voluptas tempora quisquam aut doloribus et.",
-  "description": "Repellat voluptas quibusdam voluptatem exercitationem.",
-  "state": "opened",
-  "created_at": "2016-04-05T21:41:45.652Z",
-  "updated_at": "2016-04-07T12:20:17.596Z",
-  "closed_at": null,
-  "closed_by": null,
-  "labels": [],
-  "upvotes": 4,
-  "downvotes": 0,
-  "merge_requests_count": 0,
-  "milestone": null,
-  "assignees": [{
+ "id": 92,
+ "iid": 11,
+ "project_id": 5,
+ "title": "Sit voluptas tempora quisquam aut doloribus et.",
+ "description": "Repellat voluptas quibusdam voluptatem exercitationem.",
+ "state": "opened",
+ "created_at": "2016-04-05T21:41:45.652Z",
+ "updated_at": "2016-04-07T12:20:17.596Z",
+ "closed_at": null,
+ "closed_by": null,
+ "labels": [],
+ "upvotes": 4,
+ "downvotes": 0,
+ "merge_requests_count": 0,
+ "milestone": null,
+ "assignees": [{
     "name": "Miss Monserrate Beier",
     "username": "axel.block",
     "id": 12,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/46f6f7dc858ada7be1853f7fb96e81da?s=80&d=identicon",
     "web_url": "https://gitlab.example.com/axel.block"
-  }],
-  "assignee": {
+ }],
+ "assignee": {
     "name": "Miss Monserrate Beier",
     "username": "axel.block",
     "id": 12,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/46f6f7dc858ada7be1853f7fb96e81da?s=80&d=identicon",
     "web_url": "https://gitlab.example.com/axel.block"
-  },
-  "type" : "ISSUE",
-  "author": {
+ },
+ "type" : "ISSUE",
+ "author": {
     "name": "Kris Steuber",
     "username": "solon.cremin",
     "id": 10,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/7a190fecbaa68212a4b68aeb6e3acd10?s=80&d=identicon",
     "web_url": "https://gitlab.example.com/solon.cremin"
-  },
-  "due_date": null,
-  "imported": false,
-  "imported_from": "none",
-  "web_url": "http://gitlab.example.com/my-group/my-project/issues/11",
-  "references": {
+ },
+ "due_date": null,
+ "imported": false,
+ "imported_from": "none",
+ "web_url": "http://gitlab.example.com/my-group/my-project/issues/11",
+ "references": {
     "short": "#11",
     "relative": "#11",
     "full": "my-group/my-project#11"
-  },
-  "time_stats": {
+ },
+ "time_stats": {
     "time_estimate": 0,
     "total_time_spent": 0,
     "human_time_estimate": null,
     "human_total_time_spent": null
-  },
-  "confidential": false,
-  "discussion_locked": false,
-  "issue_type": "issue",
-  "severity": "UNKNOWN",
-  "_links": {
+ },
+ "confidential": false,
+ "discussion_locked": false,
+ "issue_type": "issue",
+ "severity": "UNKNOWN",
+ "_links": {
     "self": "http://gitlab.example.com/api/v4/projects/1/issues/2",
     "notes": "http://gitlab.example.com/api/v4/projects/1/issues/2/notes",
     "award_emoji": "http://gitlab.example.com/api/v4/projects/1/issues/2/award_emoji",
     "project": "http://gitlab.example.com/api/v4/projects/1",
     "closed_as_duplicate_of": "http://gitlab.example.com/api/v4/projects/1/issues/75"
-  },
-  "task_completion_status":{
+ },
+ "task_completion_status":{
      "count":0,
      "completed_count":0
-  }
+ }
 }
 ```
 
@@ -1561,10 +1549,10 @@ Issues created by users on GitLab Premium or Ultimate include the `weight` prope
 
 ```json
 {
-  "project_id": 5,
-  "description": "Repellat voluptas quibusdam voluptatem exercitationem.",
-  "weight": null,
-  ...
+ "project_id": 5,
+ "description": "Repellat voluptas quibusdam voluptatem exercitationem.",
+ "weight": null,
+ ...
 }
 ```
 
@@ -1611,8 +1599,7 @@ Use `iid` of the `epic` attribute instead.
 ## Clone an issue
 
 Clone the issue to given project.
-Copies as much data as possible as long as the target project contains equivalent
-criteria, such as labels or milestones.
+Copies as much data as possible as long as the target project contains equivalent criteria, such as labels or milestones.
 
 If you have insufficient permissions, an error message with status code `400` is returned.
 
@@ -1633,29 +1620,29 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/1/clone?with_notes=true&to_project_id=6"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/1/clone?with_notes=true&to_project_id=6"
 ```
 
 Example response:
 
 ```json
 {
-  "id":290,
-  "iid":1,
-  "project_id":143,
-  "title":"foo",
-  "description":"closed",
-  "state":"opened",
-  "created_at":"2021-09-14T22:24:11.696Z",
-  "updated_at":"2021-09-14T22:24:11.696Z",
-  "closed_at":null,
-  "closed_by":null,
-  "labels":[
+ "id":290,
+ "iid":1,
+ "project_id":143,
+ "title":"foo",
+ "description":"closed",
+ "state":"opened",
+ "created_at":"2021-09-14T22:24:11.696Z",
+ "updated_at":"2021-09-14T22:24:11.696Z",
+ "closed_at":null,
+ "closed_by":null,
+ "labels":[
 
-  ],
-  "milestone":null,
-  "assignees":[
+ ],
+ "milestone":null,
+ "assignees":[
     {
       "id":179,
       "name":"John Doe2",
@@ -1664,63 +1651,63 @@ Example response:
       "avatar_url":"https://www.gravatar.com/avatar/10fc7f102be8de7657fb4d80898bbfe3?s=80\u0026d=identicon",
       "web_url":"https://gitlab.example.com/john"
     }
-  ],
-  "author":{
+ ],
+ "author":{
     "id":179,
     "name":"John Doe2",
     "username":"john",
     "state":"active",
     "avatar_url":"https://www.gravatar.com/avatar/10fc7f102be8de7657fb4d80898bbfe3?s=80\u0026d=identicon",
     "web_url":"https://gitlab.example.com/john"
-  },
-  "type":"ISSUE",
-  "assignee":{
+ },
+ "type":"ISSUE",
+ "assignee":{
     "id":179,
     "name":"John Doe2",
     "username":"john",
     "state":"active",
     "avatar_url":"https://www.gravatar.com/avatar/10fc7f102be8de7657fb4d80898bbfe3?s=80\u0026d=identicon",
     "web_url":"https://gitlab.example.com/john"
-  },
-  "user_notes_count":1,
-  "merge_requests_count":0,
-  "upvotes":0,
-  "downvotes":0,
-  "due_date":null,
-  "imported":false,
-  "imported_from": "none",
-  "confidential":false,
-  "discussion_locked":null,
-  "issue_type":"issue",
-  "severity": "UNKNOWN",
-  "web_url":"https://gitlab.example.com/namespace1/project2/-/issues/1",
-  "time_stats":{
+ },
+ "user_notes_count":1,
+ "merge_requests_count":0,
+ "upvotes":0,
+ "downvotes":0,
+ "due_date":null,
+ "imported":false,
+ "imported_from": "none",
+ "confidential":false,
+ "discussion_locked":null,
+ "issue_type":"issue",
+ "severity": "UNKNOWN",
+ "web_url":"https://gitlab.example.com/namespace1/project2/-/issues/1",
+ "time_stats":{
     "time_estimate":0,
     "total_time_spent":0,
     "human_time_estimate":null,
     "human_total_time_spent":null
-  },
-  "task_completion_status":{
+ },
+ "task_completion_status":{
     "count":0,
     "completed_count":0
-  },
-  "blocking_issues_count":0,
-  "has_tasks":false,
-  "_links":{
+ },
+ "blocking_issues_count":0,
+ "has_tasks":false,
+ "_links":{
     "self":"https://gitlab.example.com/api/v4/projects/143/issues/1",
     "notes":"https://gitlab.example.com/api/v4/projects/143/issues/1/notes",
     "award_emoji":"https://gitlab.example.com/api/v4/projects/143/issues/1/award_emoji",
     "project":"https://gitlab.example.com/api/v4/projects/143",
     "closed_as_duplicate_of": "http://gitlab.example.com/api/v4/projects/1/issues/75"
-  },
-  "references":{
+ },
+ "references":{
     "short":"#1",
     "relative":"#1",
     "full":"namespace1/project2#1"
-  },
-  "subscribed":true,
-  "moved_to_id":null,
-  "service_desk_reply_to":null
+ },
+ "subscribed":true,
+ "moved_to_id":null,
+ "service_desk_reply_to":null
 }
 ```
 
@@ -1731,8 +1718,7 @@ The following requests are related to [email notifications](../user/profile/noti
 ### Subscribe to an issue
 
 Subscribes the authenticated user to an issue to receive notifications.
-If the user is already subscribed to the issue, the status code `304`
-is returned.
+If the user is already subscribed to the issue, the status code `304` is returned.
 
 ```plaintext
 POST /projects/:id/issues/:issue_iid/subscribe
@@ -1742,89 +1728,89 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description                          |
 |-------------|---------|----------|--------------------------------------|
-| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).  |
+| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer | Yes      | The internal ID of a project's issue. |
 
 Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/93/subscribe"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/93/subscribe"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 92,
-  "iid": 11,
-  "project_id": 5,
-  "title": "Sit voluptas tempora quisquam aut doloribus et.",
-  "description": "Repellat voluptas quibusdam voluptatem exercitationem.",
-  "state": "opened",
-  "created_at": "2016-04-05T21:41:45.652Z",
-  "updated_at": "2016-04-07T12:20:17.596Z",
-  "closed_at": null,
-  "closed_by": null,
-  "labels": [],
-  "upvotes": 4,
-  "downvotes": 0,
-  "merge_requests_count": 0,
-  "milestone": null,
-  "assignees": [{
+ "id": 92,
+ "iid": 11,
+ "project_id": 5,
+ "title": "Sit voluptas tempora quisquam aut doloribus et.",
+ "description": "Repellat voluptas quibusdam voluptatem exercitationem.",
+ "state": "opened",
+ "created_at": "2016-04-05T21:41:45.652Z",
+ "updated_at": "2016-04-07T12:20:17.596Z",
+ "closed_at": null,
+ "closed_by": null,
+ "labels": [],
+ "upvotes": 4,
+ "downvotes": 0,
+ "merge_requests_count": 0,
+ "milestone": null,
+ "assignees": [{
     "name": "Miss Monserrate Beier",
     "username": "axel.block",
     "id": 12,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/46f6f7dc858ada7be1853f7fb96e81da?s=80&d=identicon",
     "web_url": "https://gitlab.example.com/axel.block"
-  }],
-  "assignee": {
+ }],
+ "assignee": {
     "name": "Miss Monserrate Beier",
     "username": "axel.block",
     "id": 12,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/46f6f7dc858ada7be1853f7fb96e81da?s=80&d=identicon",
     "web_url": "https://gitlab.example.com/axel.block"
-  },
-  "type" : "ISSUE",
-  "author": {
+ },
+ "type" : "ISSUE",
+ "author": {
     "name": "Kris Steuber",
     "username": "solon.cremin",
     "id": 10,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/7a190fecbaa68212a4b68aeb6e3acd10?s=80&d=identicon",
     "web_url": "https://gitlab.example.com/solon.cremin"
-  },
-  "due_date": null,
-  "web_url": "http://gitlab.example.com/my-group/my-project/issues/11",
-  "references": {
+ },
+ "due_date": null,
+ "web_url": "http://gitlab.example.com/my-group/my-project/issues/11",
+ "references": {
     "short": "#11",
     "relative": "#11",
     "full": "my-group/my-project#11"
-  },
-  "time_stats": {
+ },
+ "time_stats": {
     "time_estimate": 0,
     "total_time_spent": 0,
     "human_time_estimate": null,
     "human_total_time_spent": null
-  },
-  "confidential": false,
-  "discussion_locked": false,
-  "issue_type": "issue",
-  "severity": "UNKNOWN",
-  "_links": {
+ },
+ "confidential": false,
+ "discussion_locked": false,
+ "issue_type": "issue",
+ "severity": "UNKNOWN",
+ "_links": {
     "self": "http://gitlab.example.com/api/v4/projects/1/issues/2",
     "notes": "http://gitlab.example.com/api/v4/projects/1/issues/2/notes",
     "award_emoji": "http://gitlab.example.com/api/v4/projects/1/issues/2/award_emoji",
     "project": "http://gitlab.example.com/api/v4/projects/1",
     "closed_as_duplicate_of": "http://gitlab.example.com/api/v4/projects/1/issues/75"
-  },
-  "task_completion_status":{
+ },
+ "task_completion_status":{
      "count":0,
      "completed_count":0
-  }
+ }
 }
 ```
 
@@ -1832,10 +1818,10 @@ Issues created by users on GitLab Premium or Ultimate include the `weight` prope
 
 ```json
 {
-  "project_id": 5,
-  "description": "Repellat voluptas quibusdam voluptatem exercitationem.",
-  "weight": null,
-  ...
+ "project_id": 5,
+ "description": "Repellat voluptas quibusdam voluptatem exercitationem.",
+ "weight": null,
+ ...
 }
 ```
 
@@ -1881,9 +1867,7 @@ Use `iid` of the `epic` attribute instead.
 
 ### Unsubscribe from an issue
 
-Unsubscribes the authenticated user from the issue to not receive notifications
-from it. If the user is not subscribed to the issue, the
-status code `304` is returned.
+Unsubscribes the authenticated user from the issue to not receive notifications from it. If the user is not subscribed to the issue, the status code `304` is returned.
 
 ```plaintext
 POST /projects/:id/issues/:issue_iid/unsubscribe
@@ -1893,77 +1877,75 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description                          |
 |-------------|---------|----------|--------------------------------------|
-| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).  |
+| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer | Yes      | The internal ID of a project's issue. |
 
 Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/93/unsubscribe"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/93/unsubscribe"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 93,
-  "iid": 12,
-  "project_id": 5,
-  "title": "Incidunt et rerum ea expedita iure quibusdam.",
-  "description": "Et cumque architecto sed aut ipsam.",
-  "state": "opened",
-  "created_at": "2016-04-05T21:41:45.217Z",
-  "updated_at": "2016-04-07T13:02:37.905Z",
-  "labels": [],
-  "upvotes": 4,
-  "downvotes": 0,
-  "merge_requests_count": 0,
-  "milestone": null,
-  "assignee": {
+ "id": 93,
+ "iid": 12,
+ "project_id": 5,
+ "title": "Incidunt et rerum ea expedita iure quibusdam.",
+ "description": "Et cumque architecto sed aut ipsam.",
+ "state": "opened",
+ "created_at": "2016-04-05T21:41:45.217Z",
+ "updated_at": "2016-04-07T13:02:37.905Z",
+ "labels": [],
+ "upvotes": 4,
+ "downvotes": 0,
+ "merge_requests_count": 0,
+ "milestone": null,
+ "assignee": {
     "name": "Edwardo Grady",
     "username": "keyon",
     "id": 21,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/3e6f06a86cf27fa8b56f3f74f7615987?s=80&d=identicon",
     "web_url": "https://gitlab.example.com/keyon"
-  },
-  "type" : "ISSUE",
-  "closed_at": null,
-  "closed_by": null,
-  "author": {
+ },
+ "type" : "ISSUE",
+ "closed_at": null,
+ "closed_by": null,
+ "author": {
     "name": "Vivian Hermann",
     "username": "orville",
     "id": 11,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/5224fd70153710e92fb8bcf79ac29d67?s=80&d=identicon",
     "web_url": "https://gitlab.example.com/orville"
-  },
-  "subscribed": false,
-  "due_date": null,
-  "web_url": "http://gitlab.example.com/my-group/my-project/issues/12",
-  "references": {
+ },
+ "subscribed": false,
+ "due_date": null,
+ "web_url": "http://gitlab.example.com/my-group/my-project/issues/12",
+ "references": {
     "short": "#12",
     "relative": "#12",
     "full": "my-group/my-project#12"
-  },
-  "confidential": false,
-  "discussion_locked": false,
-  "issue_type": "issue",
-  "severity": "UNKNOWN",
-  "task_completion_status":{
+ },
+ "confidential": false,
+ "discussion_locked": false,
+ "issue_type": "issue",
+ "severity": "UNKNOWN",
+ "task_completion_status":{
      "count":0,
      "completed_count":0
-  }
+ }
 }
 ```
 
 ## Create a to-do item
 
-Manually creates a to-do item for the current user on an issue. If
-there already exists a to-do item for the user on that issue, status code `304` is
-returned.
+Manually creates a to-do item for the current user on an issue. If there already exists a to-do item for the user on that issue, status code `304` is returned.
 
 ```plaintext
 POST /projects/:id/issues/:issue_iid/todo
@@ -1973,40 +1955,40 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description                          |
 |-------------|---------|----------|--------------------------------------|
-| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).  |
+| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer | Yes      | The internal ID of a project's issue. |
 
 Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/93/todo"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/93/todo"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 112,
-  "project": {
+ "id": 112,
+ "project": {
     "id": 5,
     "name": "GitLab CI/CD",
     "name_with_namespace": "GitLab Org / GitLab CI/CD",
     "path": "gitlab-ci",
     "path_with_namespace": "gitlab-org/gitlab-ci"
-  },
-  "author": {
+ },
+ "author": {
     "name": "Administrator",
     "username": "root",
     "id": 1,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "web_url": "https://gitlab.example.com/root"
-  },
-  "action_name": "marked",
-  "target_type": "Issue",
-  "target": {
+ },
+ "action_name": "marked",
+ "target_type": "Issue",
+ "target": {
     "id": 93,
     "iid": 10,
     "project_id": 5,
@@ -2072,11 +2054,11 @@ Example response:
        "count":0,
        "completed_count":0
     }
-  },
-  "target_url": "https://gitlab.example.com/gitlab-org/gitlab-ci/issues/10",
-  "body": "Vel voluptas atque dicta mollitia adipisci qui at.",
-  "state": "pending",
-  "created_at": "2016-07-01T11:09:13.992Z"
+ },
+ "target_url": "https://gitlab.example.com/gitlab-org/gitlab-ci/issues/10",
+ "body": "Vel voluptas atque dicta mollitia adipisci qui at.",
+ "state": "pending",
+ "created_at": "2016-07-01T11:09:13.992Z"
 }
 ```
 
@@ -2094,8 +2076,7 @@ Example response:
 
 Promotes an issue to an epic by adding a comment with the [`/promote_to` quick action](../user/project/quick_actions.md#promote_to).
 
-For more information about promoting issues to epics, see
-[Promote an issue to an epic](../user/project/issues/managing_issues.md#promote-an-issue-to-an-epic).
+For more information about promoting issues to epics, see [Promote an issue to an epic](../user/project/issues/managing_issues.md#promote-an-issue-to-an-epic).
 
 ```plaintext
 POST /projects/:id/issues/:issue_iid/notes
@@ -2113,8 +2094,8 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/11/notes?body=Lets%20promote%20this%20to%20an%20epic%0A%0A%2Fpromote"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/11/notes?body=Lets%20promote%20this%20to%20an%20epic%0A%0A%2Fpromote"
 ```
 
 Example response:
@@ -2163,7 +2144,7 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description                              |
 |-------------|---------|----------|------------------------------------------|
-| `duration`  | string  | Yes      | The duration in human-readable format. For example: `3h30m`. |
+| `duration` | string | Yes      | The duration in human-readable format. For example: `3h30m`. |
 | `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).      |
 | `issue_iid` | integer | Yes      | The internal ID of a project's issue.     |
 
@@ -2171,18 +2152,18 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/93/time_estimate?duration=3h30m"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/93/time_estimate?duration=3h30m"
 ```
 
 Example response:
 
 ```json
 {
-  "human_time_estimate": "3h 30m",
-  "human_total_time_spent": null,
-  "time_estimate": 12600,
-  "total_time_spent": 0
+ "human_time_estimate": "3h 30m",
+ "human_total_time_spent": null,
+ "time_estimate": 12600,
+ "total_time_spent": 0
 }
 ```
 
@@ -2198,25 +2179,25 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description                          |
 |-------------|---------|----------|--------------------------------------|
-| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).  |
+| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer | Yes      | The internal ID of a project's issue. |
 
 Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/93/reset_time_estimate"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/93/reset_time_estimate"
 ```
 
 Example response:
 
 ```json
 {
-  "human_time_estimate": null,
-  "human_total_time_spent": null,
-  "time_estimate": 0,
-  "total_time_spent": 0
+ "human_time_estimate": null,
+ "human_total_time_spent": null,
+ "time_estimate": 0,
+ "total_time_spent": 0
 }
 ```
 
@@ -2232,27 +2213,27 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description                              |
 |-------------|---------|----------|------------------------------------------|
-| `duration`  | string  | Yes      | The duration in human-readable format. For example: `3h30m` |
+| `duration` | string | Yes      | The duration in human-readable format. For example: `3h30m` |
 | `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer | Yes      | The internal ID of a project's issue.    |
-| `summary`   | string  | No       | A summary of how the time was spent.  |
+| `summary`   | string | No       | A summary of how the time was spent. |
 
 Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/93/add_spent_time?duration=1h"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/93/add_spent_time?duration=1h"
 ```
 
 Example response:
 
 ```json
 {
-  "human_time_estimate": null,
-  "human_total_time_spent": "1h",
-  "time_estimate": 0,
-  "total_time_spent": 3600
+ "human_time_estimate": null,
+ "human_total_time_spent": "1h",
+ "time_estimate": 0,
+ "total_time_spent": 3600
 }
 ```
 
@@ -2275,18 +2256,18 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/93/reset_spent_time"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/93/reset_spent_time"
 ```
 
 Example response:
 
 ```json
 {
-  "human_time_estimate": null,
-  "human_total_time_spent": null,
-  "time_estimate": 0,
-  "total_time_spent": 0
+ "human_time_estimate": null,
+ "human_total_time_spent": null,
+ "time_estimate": 0,
+ "total_time_spent": 0
 }
 ```
 
@@ -2305,24 +2286,24 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description                          |
 |-------------|---------|----------|--------------------------------------|
-| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).  |
+| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer | Yes      | The internal ID of a project's issue. |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/93/time_stats"
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/93/time_stats"
 ```
 
 Example response:
 
 ```json
 {
-  "human_time_estimate": "2h",
-  "human_total_time_spent": "1h",
-  "time_estimate": 7200,
-  "total_time_spent": 3600
+ "human_time_estimate": "2h",
+ "human_total_time_spent": "1h",
+ "time_estimate": 7200,
+ "total_time_spent": 3600
 }
 ```
 
@@ -2345,21 +2326,21 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description                          |
 |-------------|---------|----------|--------------------------------------|
-| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).  |
+| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer | Yes      | The internal ID of a project's issue. |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/issues/11/related_merge_requests"
+ --url "https://gitlab.example.com/api/v4/projects/1/issues/11/related_merge_requests"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 29,
     "iid": 11,
     "project_id": 1,
@@ -2492,7 +2473,7 @@ Example response:
     "user": {
       "can_merge": true
     }
-  }
+ }
 ]
 ```
 
@@ -2518,14 +2499,14 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/issues/11/closed_by"
+ --url "https://gitlab.example.com/api/v4/projects/1/issues/11/closed_by"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 6471,
     "iid": 6432,
     "project_id": 1,
@@ -2576,7 +2557,7 @@ Example response:
       "human_time_estimate": null,
       "human_total_time_spent": null
     }
-  }
+ }
 ]
 ```
 
@@ -2595,36 +2576,36 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description                          |
 |-------------|---------|----------|--------------------------------------|
-| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).  |
+| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer | Yes      | The internal ID of a project's issue. |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  -url "https://gitlab.example.com/api/v4/projects/5/issues/93/participants"
+ -url "https://gitlab.example.com/api/v4/projects/5/issues/93/participants"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "John Doe1",
     "username": "user1",
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/c922747a93b40d1ea88262bf1aebee62?s=80&d=identicon",
     "web_url": "http://gitlab.example.com/user1"
-  },
-  {
+ },
+ {
     "id": 5,
     "name": "John Doe5",
     "username": "user5",
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/4aea8cf834ed91844a2da4ff7ae6b491?s=80&d=identicon",
     "web_url": "http://gitlab.example.com/user5"
-  }
+ }
 ]
 ```
 
@@ -2647,30 +2628,29 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description                          |
 |-------------|---------|----------|--------------------------------------|
-| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).  |
+| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer | Yes      | The internal ID of a project's issue. |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/93/user_agent_detail"
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/93/user_agent_detail"
 ```
 
 Example response:
 
 ```json
 {
-  "user_agent": "AppleWebKit/537.36",
-  "ip_address": "127.0.0.1",
-  "akismet_submitted": false
+ "user_agent": "AppleWebKit/537.36",
+ "ip_address": "127.0.0.1",
+ "akismet_submitted": false
 }
 ```
 
 ## List issue state events
 
-To track which state was set, who did it, and when it happened, use
-[Resource state events API](resource_state_events.md#issues).
+To track which state was set, who did it, and when it happened, use [Resource state events API](resource_state_events.md#issues).
 
 ## Incidents
 
@@ -2692,7 +2672,7 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description                          |
 |-------------|---------|----------|--------------------------------------|
-| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).  |
+| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer | Yes      | The internal ID of a project's issue. |
 | `file` | file | Yes      | The image file to be uploaded. |
 | `url` | string | No      | The URL to view more metric information. |
@@ -2702,10 +2682,10 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --form 'file=@/path/to/file.png' \
-  --form 'url=http://example.com' \
-  --form 'url_text=Example website' \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/93/metric_images"
+ --form 'file=@/path/to/file.png' \
+ --form 'url=http://example.com' \
+ --form 'url_text=Example website' \
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/93/metric_images"
 ```
 
 Example response:
@@ -2735,14 +2715,14 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description                          |
 |-------------|---------|----------|--------------------------------------|
-| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).  |
+| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer | Yes      | The internal ID of a project's issue. |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  -url "https://gitlab.example.com/api/v4/projects/5/issues/93/metric_images"
+ -url "https://gitlab.example.com/api/v4/projects/5/issues/93/metric_images"
 ```
 
 Example response:
@@ -2780,7 +2760,7 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description                          |
 |-------------|---------|----------|--------------------------------------|
-| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).  |
+| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer | Yes      | The internal ID of a project's issue. |
 | `image_id` | integer | Yes      | The ID of the image. |
 | `url` | string | No      | The URL to view more metric information. |
@@ -2790,10 +2770,10 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --request PUT \
-  --form 'url=http://example.com' \
-  --form 'url_text=Example website' \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/93/metric_images/1"
+ --request PUT \
+ --form 'url=http://example.com' \
+ --form 'url_text=Example website' \
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/93/metric_images/1"
 ```
 
 Example response:
@@ -2823,7 +2803,7 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description                          |
 |-------------|---------|----------|--------------------------------------|
-| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).  |
+| `id`        | integer or string | Yes      | The global ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer | Yes      | The internal ID of a project's issue. |
 | `image_id` | integer | Yes      | The ID of the image. |
 
@@ -2831,8 +2811,8 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --request DELETE \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/93/metric_images/1"
+ --request DELETE \
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/93/metric_images/1"
 ```
 
 Can return the following status codes:

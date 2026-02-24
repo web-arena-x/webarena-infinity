@@ -13,8 +13,7 @@ description: Vulnerability details, status, resolution, and linking issues.
 
 {{< /details >}}
 
-Each vulnerability in a project has a vulnerability page containing details of the vulnerability,
-including:
+Each vulnerability in a project has a vulnerability page containing details of the vulnerability, including:
 
 - Description
 - When it was detected
@@ -35,8 +34,7 @@ catalog, these details also include:
 
 For further details on this additional data, see [vulnerability risk assessment data](risk_assessment_data.md).
 
-If the scanner determined the vulnerability to be a false positive, an alert message is included at
-the top of the vulnerability's page.
+If the scanner determined the vulnerability to be a false positive, an alert message is included at the top of the vulnerability's page.
 
 ## SAST false positive detection
 
@@ -124,8 +122,7 @@ To explain the vulnerability:
 The response is shown on the right side of the page.
 
 On GitLab.com this feature is available. By default, it is powered by the Anthropic [`claude-3-haiku`](https://docs.anthropic.com/en/docs/about-claude/models#claude-3-a-new-generation-of-ai)
-model. GitLab cannot guarantee that the large language model produces results that are correct. Use the
-explanation with caution.
+model. GitLab cannot guarantee that the large language model produces results that are correct. Use the explanation with caution.
 
 ### Data shared with third-party AI APIs for Vulnerability Explanation
 
@@ -162,8 +159,7 @@ The following data is shared with third-party AI APIs:
 
 {{< /history >}}
 
-Use GitLab Duo Vulnerability resolution to automatically create a merge request that
-resolves the vulnerability. By default, it is powered by the Anthropic [`claude-3.5-sonnet`](https://console.cloud.google.com/vertex-ai/publishers/anthropic/model-garden/claude-3-5-sonnet) model.
+Use GitLab Duo Vulnerability resolution to automatically create a merge request that resolves the vulnerability. By default, it is powered by the Anthropic [`claude-3.5-sonnet`](https://console.cloud.google.com/vertex-ai/publishers/anthropic/model-garden/claude-3-5-sonnet) model.
 
 GitLab cannot guarantee that the large language model produces correct results.
 You should always review the proposed change before merging it. When reviewing, check that:
@@ -178,8 +174,8 @@ Prerequisites:
 - You must have the GitLab Ultimate subscription tier and GitLab Duo Enterprise.
 - You must be a member of the project.
 - The vulnerability must be a SAST finding from a supported analyzer:
-  - Any [GitLab-supported analyzer](../sast/analyzers.md).
-  - A properly integrated third-party SAST scanner that reports the vulnerability location and a CWE Identifier for each vulnerability.
+ - Any [GitLab-supported analyzer](../sast/analyzers.md).
+ - A properly integrated third-party SAST scanner that reports the vulnerability location and a CWE Identifier for each vulnerability.
 - The vulnerability must be of a [supported type](#supported-vulnerabilities-for-vulnerability-resolution).
 
 Learn more about [how to enable all GitLab Duo features](../../gitlab_duo/turn_on_off.md).
@@ -199,8 +195,7 @@ To resolve the vulnerability:
 1. After the pipeline is complete, on the [pipeline security tab](../detect/security_scanning_results.md), confirm that the vulnerability no longer appears.
 1. On the vulnerability report, [manually update the vulnerability](../vulnerability_report/_index.md#change-status-of-vulnerabilities).
 
-A merge request containing the AI remediation suggestions is opened. Review the suggested changes,
-then process the merge request according to your standard workflow.
+A merge request containing the AI remediation suggestions is opened. Review the suggested changes, then process the merge request according to your standard workflow.
 
 Provide feedback on this feature in [issue 476553](https://gitlab.com/gitlab-org/gitlab/-/issues/476553).
 
@@ -215,51 +210,51 @@ GitLab is actively working to expand coverage to more types of vulnerabilities.
 <details><summary style="color:#5943b6; margin-top: 1em;"><a>View the complete list of supported CWEs for Vulnerability Resolution</a></summary>
 
 <ul>
-  <li>CWE-23: Relative Path Traversal</li>
-  <li>CWE-73: External Control of File Name or Path</li>
-  <li>CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')</li>
-  <li>CWE-80: Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS)</li>
-  <li>CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')</li>
-  <li>CWE-116: Improper Encoding or Escaping of Output</li>
-  <li>CWE-118: Incorrect Access of Indexable Resource ('Range Error')</li>
-  <li>CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer</li>
-  <li>CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')</li>
-  <li>CWE-126: Buffer Over-read</li>
-  <li>CWE-190: Integer Overflow or Wraparound</li>
-  <li>CWE-200: Exposure of Sensitive Information to an Unauthorized Actor</li>
-  <li>CWE-208: Observable Timing Discrepancy</li>
-  <li>CWE-209: Generation of Error Message Containing Sensitive Information</li>
-  <li>CWE-272: Least Privilege Violation</li>
-  <li>CWE-287: Improper Authentication</li>
-  <li>CWE-295: Improper Certificate Validation</li>
-  <li>CWE-297: Improper Validation of Certificate with Host Mismatch</li>
-  <li>CWE-305: Authentication Bypass by Primary Weakness</li>
-  <li>CWE-310: Cryptographic Issues</li>
-  <li>CWE-311: Missing Encryption of Sensitive Data</li>
-  <li>CWE-323: Reusing a Nonce, Key Pair in Encryption</li>
-  <li>CWE-327: Use of a Broken or Risky Cryptographic Algorithm</li>
-  <li>CWE-328: Use of Weak Hash</li>
-  <li>CWE-330: Use of Insufficiently Random Values</li>
-  <li>CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)</li>
-  <li>CWE-345: Insufficient Verification of Data Authenticity</li>
-  <li>CWE-346: Origin Validation Error</li>
-  <li>CWE-352: Cross-Site Request Forgery</li>
-  <li>CWE-362: Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')</li>
-  <li>CWE-369: Divide By Zero</li>
-  <li>CWE-377: Insecure Temporary File</li>
-  <li>CWE-378: Creation of Temporary File With Insecure Permissions</li>
-  <li>CWE-400: Uncontrolled Resource Consumption</li>
-  <li>CWE-489: Active Debug Code</li>
-  <li>CWE-521: Weak Password Requirements</li>
-  <li>CWE-539: Use of Persistent Cookies Containing Sensitive Information</li>
-  <li>CWE-599: Missing Validation of OpenSSL Certificate</li>
-  <li>CWE-611: Improper Restriction of XML External Entity Reference</li>
-  <li>CWE-676: Use of potentially dangerous function</li>
-  <li>CWE-704: Incorrect Type Conversion or Cast</li>
-  <li>CWE-754: Improper Check for Unusual or Exceptional Conditions</li>
-  <li>CWE-770: Allocation of Resources Without Limits or Throttling</li>
-  <li>CWE-1004: Sensitive Cookie Without 'HttpOnly' Flag</li>
-  <li>CWE-1275: Sensitive Cookie with Improper SameSite Attribute</li>
+ <li>CWE-23: Relative Path Traversal</li>
+ <li>CWE-73: External Control of File Name or Path</li>
+ <li>CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')</li>
+ <li>CWE-80: Improper Neutralization of Script-Related HTML Tags in a Web Page (Basic XSS)</li>
+ <li>CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')</li>
+ <li>CWE-116: Improper Encoding or Escaping of Output</li>
+ <li>CWE-118: Incorrect Access of Indexable Resource ('Range Error')</li>
+ <li>CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer</li>
+ <li>CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')</li>
+ <li>CWE-126: Buffer Over-read</li>
+ <li>CWE-190: Integer Overflow or Wraparound</li>
+ <li>CWE-200: Exposure of Sensitive Information to an Unauthorized Actor</li>
+ <li>CWE-208: Observable Timing Discrepancy</li>
+ <li>CWE-209: Generation of Error Message Containing Sensitive Information</li>
+ <li>CWE-272: Least Privilege Violation</li>
+ <li>CWE-287: Improper Authentication</li>
+ <li>CWE-295: Improper Certificate Validation</li>
+ <li>CWE-297: Improper Validation of Certificate with Host Mismatch</li>
+ <li>CWE-305: Authentication Bypass by Primary Weakness</li>
+ <li>CWE-310: Cryptographic Issues</li>
+ <li>CWE-311: Missing Encryption of Sensitive Data</li>
+ <li>CWE-323: Reusing a Nonce, Key Pair in Encryption</li>
+ <li>CWE-327: Use of a Broken or Risky Cryptographic Algorithm</li>
+ <li>CWE-328: Use of Weak Hash</li>
+ <li>CWE-330: Use of Insufficiently Random Values</li>
+ <li>CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)</li>
+ <li>CWE-345: Insufficient Verification of Data Authenticity</li>
+ <li>CWE-346: Origin Validation Error</li>
+ <li>CWE-352: Cross-Site Request Forgery</li>
+ <li>CWE-362: Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')</li>
+ <li>CWE-369: Divide By Zero</li>
+ <li>CWE-377: Insecure Temporary File</li>
+ <li>CWE-378: Creation of Temporary File With Insecure Permissions</li>
+ <li>CWE-400: Uncontrolled Resource Consumption</li>
+ <li>CWE-489: Active Debug Code</li>
+ <li>CWE-521: Weak Password Requirements</li>
+ <li>CWE-539: Use of Persistent Cookies Containing Sensitive Information</li>
+ <li>CWE-599: Missing Validation of OpenSSL Certificate</li>
+ <li>CWE-611: Improper Restriction of XML External Entity Reference</li>
+ <li>CWE-676: Use of potentially dangerous function</li>
+ <li>CWE-704: Incorrect Type Conversion or Cast</li>
+ <li>CWE-754: Improper Check for Unusual or Exceptional Conditions</li>
+ <li>CWE-770: Allocation of Resources Without Limits or Throttling</li>
+ <li>CWE-1004: Sensitive Cookie Without 'HttpOnly' Flag</li>
+ <li>CWE-1275: Sensitive Cookie with Improper SameSite Attribute</li>
 </ul>
 </details>
 
@@ -268,15 +263,15 @@ GitLab is actively working to expand coverage to more types of vulnerabilities.
 Vulnerability Resolution sometimes cannot generate a suggested fix. Common causes include:
 
 - False positive detected:
-  - Before proposing a fix, the AI model assesses whether the vulnerability is valid. It may judge that the vulnerability is not a true vulnerability, or isn't worth fixing.
-  - This can happen if the vulnerability occurs in test code. Your organization might still choose to fix vulnerabilities even if they happen in test code, but models sometimes assess these to be false positives.
-  - If you agree that the vulnerability is a false-positive or is not worth fixing, you should [dismiss the vulnerability](#vulnerability-status-values) and [select a matching reason](#vulnerability-dismissal-reasons).
+ - Before proposing a fix, the AI model assesses whether the vulnerability is valid. It may judge that the vulnerability is not a true vulnerability, or isn't worth fixing.
+ - This can happen if the vulnerability occurs in test code. Your organization might still choose to fix vulnerabilities even if they happen in test code, but models sometimes assess these to be false positives.
+ - If you agree that the vulnerability is a false-positive or is not worth fixing, you should [dismiss the vulnerability](#vulnerability-status-values) and [select a matching reason](#vulnerability-dismissal-reasons).
     - To customize your SAST configuration or report a problem with a GitLab SAST rule, see [SAST rules](../sast/rules.md).
 - Temporary or unexpected error:
-  - The error message may state that `an unexpected error has occurred`, `the upstream AI provider request timed out`, `something went wrong`, or a similar cause.
-  - These errors may be caused by temporary problems with the AI provider or with GitLab Duo.
-  - A new request may succeed, so you can try to resolve the vulnerability again.
-  - If you continue to see these errors, contact GitLab for assistance.
+ - The error message may state that `an unexpected error has occurred`, `the upstream AI provider request timed out`, `something went wrong`, or a similar cause.
+ - These errors may be caused by temporary problems with the AI provider or with GitLab Duo.
+ - A new request may succeed, so you can try to resolve the vulnerability again.
+ - If you continue to see these errors, contact GitLab for assistance.
 
 ### Data shared with third-party AI APIs for Vulnerability Resolution
 
@@ -306,8 +301,7 @@ The following data is shared with third-party AI APIs:
 
 {{< /history >}}
 
-Use GitLab Duo Vulnerability resolution to automatically create a merge request suggestion comment that
-resolves the vulnerability finding. By default, it is powered by the Anthropic [`claude-3.5-sonnet`](https://console.cloud.google.com/vertex-ai/publishers/anthropic/model-garden/claude-3-5-sonnet) model.
+Use GitLab Duo Vulnerability resolution to automatically create a merge request suggestion comment that resolves the vulnerability finding. By default, it is powered by the Anthropic [`claude-3.5-sonnet`](https://console.cloud.google.com/vertex-ai/publishers/anthropic/model-garden/claude-3-5-sonnet) model.
 
 To resolve the vulnerability finding:
 
@@ -327,17 +321,17 @@ Provide feedback on this feature in [issue 476553](https://gitlab.com/gitlab-org
 Vulnerability Resolution in a merge request sometimes cannot generate a suggested fix. Common causes include:
 
 - False positive detected:
-  - Before proposing a fix, the AI model assesses whether the vulnerability is valid. It may judge that the vulnerability is not a true vulnerability, or isn't worth fixing.
-  - This can happen if the vulnerability occurs in test code. Your organization might still choose to fix vulnerabilities even if they happen in test code, but models sometimes assess these to be false positives.
-  - If you agree that the vulnerability is a false-positive or is not worth fixing, you should [dismiss the vulnerability](#vulnerability-status-values) and [select a matching reason](#vulnerability-dismissal-reasons).
+ - Before proposing a fix, the AI model assesses whether the vulnerability is valid. It may judge that the vulnerability is not a true vulnerability, or isn't worth fixing.
+ - This can happen if the vulnerability occurs in test code. Your organization might still choose to fix vulnerabilities even if they happen in test code, but models sometimes assess these to be false positives.
+ - If you agree that the vulnerability is a false-positive or is not worth fixing, you should [dismiss the vulnerability](#vulnerability-status-values) and [select a matching reason](#vulnerability-dismissal-reasons).
     - To customize your SAST configuration or report a problem with a GitLab SAST rule, see [SAST rules](../sast/rules.md).
 - Temporary or unexpected error:
-  - The error message may state that `an unexpected error has occurred`, `the upstream AI provider request timed out`, `something went wrong`, or a similar cause.
-  - These errors may be caused by temporary problems with the AI provider or with GitLab Duo.
-  - A new request may succeed, so you can try to resolve the vulnerability again.
-  - If you continue to see these errors, contact GitLab for assistance.
+ - The error message may state that `an unexpected error has occurred`, `the upstream AI provider request timed out`, `something went wrong`, or a similar cause.
+ - These errors may be caused by temporary problems with the AI provider or with GitLab Duo.
+ - A new request may succeed, so you can try to resolve the vulnerability again.
+ - If you continue to see these errors, contact GitLab for assistance.
 - `Resolution target could not be found in the merge request, unable to create suggestion` error:
-  - This error may occur when the target branch has not run a full security scan pipeline. See the [merge request documentation](../detect/security_scanning_results.md).
+ - This error may occur when the target branch has not run a full security scan pipeline. See the [merge request documentation](../detect/security_scanning_results.md).
 
 ## Vulnerability code flow
 
@@ -351,8 +345,7 @@ Vulnerability Resolution in a merge request sometimes cannot generate a suggeste
 For specific types of vulnerabilities, GitLab Advanced SAST provides [code flow](../sast/gitlab_advanced_sast.md#code-flow) information.
 A vulnerability's code flow is the path the data takes from the user input (source) to the vulnerable line of code (sink), through all assignments, manipulation, and sanitization.
 
-For details on how to view a vulnerability's code flow, see
-[Vulnerability code flow](../sast/gitlab_advanced_sast.md#code-flow).
+For details on how to view a vulnerability's code flow, see [Vulnerability code flow](../sast/gitlab_advanced_sast.md#code-flow).
 
 ![A code flow of a Python application across two files](img/code_flow_view_v17_7.png)
 
@@ -363,10 +356,8 @@ A vulnerability's status can be:
 - **Needs triage**: The default state for a newly discovered vulnerability.
 - **Confirmed**: A user has seen this vulnerability and confirmed it to be accurate.
 - **Dismissed**: A user has evaluated this vulnerability and [dismissed it](#vulnerability-dismissal-reasons).
-  Dismissed vulnerabilities are ignored if detected in subsequent scans.
-- **Resolved**: The vulnerability has been fixed or is no longer present. If a resolved
-  vulnerability is reintroduced and detected again, its record is reinstated and its status set to
-  **Needs triage**.
+ Dismissed vulnerabilities are ignored if detected in subsequent scans.
+- **Resolved**: The vulnerability has been fixed or is no longer present. If a resolved vulnerability is reintroduced and detected again, its record is reinstated and its status set to **Needs triage**.
 
 A vulnerability typically goes through the following lifecycle:
 
@@ -396,14 +387,7 @@ stateDiagram
 
 {{< /history >}}
 
-A vulnerability may be no longer detected because of changes made deliberately to remediate it or
-as a side effect of other changes. When a security scan runs and a vulnerability is no longer
-detected in the default branch, the scanner adds **No longer detected** to the record's activity log
-but the record's status does not change. Instead you should check and confirm the
-vulnerability has been resolved and if so,
-[manually change its status to **Resolved**](#change-the-status-of-a-vulnerability). You can also
-use a [vulnerability management policy](../policies/vulnerability_management_policy.md) to
-automatically change the status of vulnerabilities matching specific criteria to **Resolved**.
+A vulnerability may be no longer detected because of changes made deliberately to remediate it or as a side effect of other changes. When a security scan runs and a vulnerability is no longer detected in the default branch, the scanner adds **No longer detected** to the record's activity log but the record's status does not change. Instead you should check and confirm the vulnerability has been resolved and if so, [manually change its status to **Resolved**](#change-the-status-of-a-vulnerability). You can also use a [vulnerability management policy](../policies/vulnerability_management_policy.md) to automatically change the status of vulnerabilities matching specific criteria to **Resolved**.
 
 You can find a link to the commit that resolved the vulnerability at the top or bottom of the vulnerability page.
 
@@ -419,17 +403,11 @@ You can find a link to the commit that resolved the vulnerability at the top or 
 
 When you dismiss a vulnerability you must choose one of the following reasons:
 
-- **Acceptable risk**: The vulnerability is known, and has not been remediated or mitigated, but is
-  considered to be an acceptable business risk.
-- **False positive**: An error in reporting in which a test result incorrectly indicates the
-  presence of a vulnerability in a system when the vulnerability is not present.
-- **Mitigating control**: The vulnerability's risk is mitigated by a management, operational, or
-  technical control (that is, safeguard or countermeasure) employed by an organization that provides
-  equivalent or comparable protection for an information system.
-- **Used in tests**: The finding is not a vulnerability because it is part of a test or is test
-  data.
-- **Not applicable**: The vulnerability is known, and has not been remediated or mitigated, but is
-  considered to be in a part of the application that will not be updated.
+- **Acceptable risk**: The vulnerability is known, and has not been remediated or mitigated, but is considered to be an acceptable business risk.
+- **False positive**: An error in reporting in which a test result incorrectly indicates the presence of a vulnerability in a system when the vulnerability is not present.
+- **Mitigating control**: The vulnerability's risk is mitigated by a management, operational, or technical control (that is, safeguard or countermeasure) employed by an organization that provides equivalent or comparable protection for an information system.
+- **Used in tests**: The finding is not a vulnerability because it is part of a test or is test data.
+- **Not applicable**: The vulnerability is known, and has not been remediated or mitigated, but is considered to be in a part of the application that will not be updated.
 
 ## Change the status of a vulnerability
 
@@ -442,8 +420,7 @@ When you dismiss a vulnerability you must choose one of the following reasons:
 
 Prerequisites:
 
-- You must have at least the Maintainer role for the project, or a custom role with the
-  `admin_vulnerability` permission.
+- You must have at least the Maintainer role for the project, or a custom role with the `admin_vulnerability` permission.
 
 To change a vulnerability's status from its Vulnerability Page:
 
@@ -455,8 +432,7 @@ To change a vulnerability's status from its Vulnerability Page:
    when you want to change the vulnerability's status to **Dismissed**.
 1. In the **Comment** text box, provide a comment with more details about the reasons for dismissal. When you apply the **Dismissed** status, a comment is required.
 
-Details of the status change, including who made the change and when, are recorded in the
-vulnerability's action log.
+Details of the status change, including who made the change and when, are recorded in the vulnerability's action log.
 
 ## Create a GitLab issue for a vulnerability
 
@@ -495,15 +471,13 @@ To link a vulnerability to existing GitLab issues:
    - Enter the issue's ID (prefixed with a hash `#`).
 1. Select **Add**.
 
-The selected GitLab issues are added to the **Linked items** section, and the linked issues counter is
-updated.
+The selected GitLab issues are added to the **Linked items** section, and the linked issues counter is updated.
 
 GitLab issues linked to a vulnerability are shown in the vulnerability report and the vulnerability's page.
 
 Be aware of the following conditions between a vulnerability and a linked GitLab issue:
 
-- The vulnerability page shows related issues, but the issue page doesn't show the vulnerability
-  it's related to.
+- The vulnerability page shows related issues, but the issue page doesn't show the vulnerability it's related to.
 - An issue can only be related to one vulnerability at a time.
 - Issues can be linked across groups and projects.
 
@@ -512,7 +486,7 @@ Be aware of the following conditions between a vulnerability and a linked GitLab
 Prerequisites:
 
 - Ensure the Jira issues integration is [configured](../../../integration/jira/configure.md#configure-the-integration)
-  and the **Create Jira issues for vulnerabilities** checkbox is selected.
+ and the **Create Jira issues for vulnerabilities** checkbox is selected.
 
 To link a vulnerability to existing Jira issues, add the following line to the Jira issue's description:
 
@@ -523,8 +497,7 @@ To link a vulnerability to existing Jira issues, add the following line to the J
 `<id>` is any [vulnerability ID](../../../api/vulnerabilities.md#single-vulnerability).
 You can add several lines with different IDs to one description.
 
-Jira issues with appropriate description are added to the **Related Jira issues** section, and the linked issues counter is
-updated.
+Jira issues with appropriate description are added to the **Related Jira issues** section, and the linked issues counter is updated.
 
 Jira issues linked to a vulnerability are shown only on the vulnerability page.
 
@@ -535,19 +508,15 @@ Be aware of the following conditions between a vulnerability and a linked Jira i
 
 ## Resolve a vulnerability
 
-For some vulnerabilities a solution is already known but needs to be implemented manually. The
-**Solution** field in the Vulnerability page is provided by the security scanning tool that
-reported the security finding, or entered during the [manual creation of a vulnerability](../vulnerability_report/_index.md#manually-add-a-vulnerability).
+For some vulnerabilities a solution is already known but needs to be implemented manually. The **Solution** field in the Vulnerability page is provided by the security scanning tool that reported the security finding, or entered during the [manual creation of a vulnerability](../vulnerability_report/_index.md#manually-add-a-vulnerability).
 The GitLab tools utilize information from the [GitLab advisory database](../gitlab_advisory_database/_index.md).
 
-Additionally, some tools may include a software patch to apply the suggested solution. In those instances,
-a vulnerability's page includes a **Resolve with merge request** option.
+Additionally, some tools may include a software patch to apply the suggested solution. In those instances, a vulnerability's page includes a **Resolve with merge request** option.
 
 The following scanners are supported by this feature:
 
 - [Dependency scanning](../dependency_scanning/_index.md).
-  Automatic patch creation is only available for Node.js projects managed with
-  `yarn`. Automatic patch creation is only supported when [FIPS mode](../../../development/fips_gitlab.md#enable-fips-mode) is disabled.
+ Automatic patch creation is only available for Node.js projects managed with `yarn`. Automatic patch creation is only supported when [FIPS mode](../../../development/fips_gitlab.md#enable-fips-mode) is disabled.
 
 - [Container scanning](../container_scanning/_index.md).
 
@@ -586,8 +555,7 @@ To manually apply the patch that GitLab generated for a vulnerability:
 
 {{< alert type="note" >}}
 
-Security training is not accessible in an environment that is offline, meaning computers that are isolated from the public internet as a security measure. Specifically, the GitLab server needs the ability to query the API endpoints for any training provider you choose to enable. Some third-party training vendors may require you to sign up for a free account. Sign up for an account by going to
-any of [Secure Code Warrior](https://www.securecodewarrior.com/), [Kontra](https://application.security/), or [SecureFlag](https://www.secureflag.com/index.html).
+Security training is not accessible in an environment that is offline, meaning computers that are isolated from the public internet as a security measure. Specifically, the GitLab server needs the ability to query the API endpoints for any training provider you choose to enable. Some third-party training vendors may require you to sign up for a free account. Sign up for an account by going to any of [Secure Code Warrior](https://www.securecodewarrior.com/), [Kontra](https://application.security/), or [SecureFlag](https://www.secureflag.com/index.html).
 GitLab does not send any user information to these third-party vendors; GitLab does send the CWE or OWASP identifier and the language name of the file extension.
 
 {{< /alert >}}
@@ -608,8 +576,7 @@ Each integration submits the Vulnerability identifier, for example CWE or OWASP,
 The vulnerability page may include a training link relevant to the detected vulnerability if security training is enabled.
 The availability of training depends on whether the enabled training vendor has content matching the particular vulnerability.
 Training content is requested based on the vulnerability identifiers.
-The identifier given to a vulnerability varies from one vulnerability to the next and the available training
-content varies between vendors. Some vulnerabilities do not display training content.
+The identifier given to a vulnerability varies from one vulnerability to the next and the available training content varies between vendors. Some vulnerabilities do not display training content.
 Vulnerabilities with a CWE are most likely to return a training result.
 
 To view the security training for a vulnerability:

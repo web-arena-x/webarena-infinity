@@ -13,86 +13,76 @@ description: Security policies, enforcement, compliance, approvals, and scans.
 
 {{< /details >}}
 
-Policies provide security and compliance teams with a way to enforce controls globally in
-their organization.
+Policies provide security and compliance teams with a way to enforce controls globally in their organization.
 
 Security teams can ensure:
 
 - Security scanners are enforced in development team pipelines with proper configuration.
 - All scan jobs execute without any changes or alterations.
 - Proper approvals are provided on merge requests, based on results from those findings.
-- Vulnerabilities that are no longer detected are resolved automatically, reducing the workload of
-  triaging vulnerabilities.
+- Vulnerabilities that are no longer detected are resolved automatically, reducing the workload of triaging vulnerabilities.
 
 Compliance teams can enforce:
 
 - Multiple approvers on all merge requests
-- Projects settings based on organizational requirements, such as enabling or
-  locking merge request settings or repository settings.
+- Projects settings based on organizational requirements, such as enabling or locking merge request settings or repository settings.
 
 The following policy types are available:
 
-- [Scan execution policy](scan_execution_policies.md). Enforce security scans, either as part of the
-  pipeline or on a specified schedule.
-- [Merge request approval policy](merge_request_approval_policies.md). Enforce project-level settings and
-  approval rules based on scan results.
+- [Scan execution policy](scan_execution_policies.md). Enforce security scans, either as part of the pipeline or on a specified schedule.
+- [Merge request approval policy](merge_request_approval_policies.md). Enforce project-level settings and approval rules based on scan results.
 - [Pipeline execution policy](pipeline_execution_policies.md). Enforce CI/CD jobs as part of project pipelines.
-  - [Scheduled pipeline execution policy (experiment)](scheduled_pipeline_execution_policies.md). Enforce custom CI/CD jobs on a scheduled cadence across projects, independent of commit activity.
-- [Vulnerability management policy](vulnerability_management_policy.md). Automatically resolve
-  vulnerabilities that are no longer detected in the default branch.
+ - [Scheduled pipeline execution policy (experiment)](scheduled_pipeline_execution_policies.md). Enforce custom CI/CD jobs on a scheduled cadence across projects, independent of commit activity.
+- [Vulnerability management policy](vulnerability_management_policy.md). Automatically resolve vulnerabilities that are no longer detected in the default branch.
 
 ## Configure the policy scope
 
 ## `policy_scope` keyword
 
-Use the `policy_scope` keyword to enforce the policy on only those groups, projects, compliance
-frameworks, or a combination, that you specify.
+Use the `policy_scope` keyword to enforce the policy on only those groups, projects, compliance frameworks, or a combination, that you specify.
 
 | Field                   | Type     | Possible values          | Description |
 |-------------------------|----------|--------------------------|-------------|
-| `compliance_frameworks` | `array`  | Not applicable           | List of IDs of the compliance frameworks in scope for enforcement, in an array of objects with key `id`. |
+| `compliance_frameworks` | `array` | Not applicable           | List of IDs of the compliance frameworks in scope for enforcement, in an array of objects with key `id`. |
 | `projects`              | `object` | `including`, `excluding` | Use `excluding:` or `including:` then list the IDs of the projects you wish to include or exclude, in an array of objects with key `id`. |
 | `groups`                | `object` | `including`              | Use `including:` then list the IDs of the groups you wish to include, in an array of objects with key `id`. Only groups linked to the same security policy project can be listed in the policy. |
 
 ### Scope examples
 
-In this example, the scan execution policy enforces a SAST scan in every release pipeline, on
-every project with the compliance frameworks with an ID either `2` or `11` applied to them.
+In this example, the scan execution policy enforces a SAST scan in every release pipeline, on every project with the compliance frameworks with an ID either `2` or `11` applied to them.
 
 ```yaml
 ---
 scan_execution_policy:
 - name: Enforce specified scans in every release pipeline
-  description: This policy enforces a SAST scan for release branches
-  enabled: true
-  rules:
-  - type: pipeline
+ description: This policy enforces a SAST scan for release branches
+ enabled: true
+ rules:
+ - type: pipeline
     branches:
     - release/*
-  actions:
-  - scan: sast
-  policy_scope:
+ actions:
+ - scan: sast
+ policy_scope:
     compliance_frameworks:
       - id: 2
       - id: 11
 ```
 
-In this example, the scan execution policy enforces a secret detection and SAST scan on pipelines
-for the default branch, on all projects in the group with ID `203` (including all descendent
-subgroups and their projects), excluding the project with ID `64`.
+In this example, the scan execution policy enforces a secret detection and SAST scan on pipelines for the default branch, on all projects in the group with ID `203` (including all descendent subgroups and their projects), excluding the project with ID `64`.
 
 ```yaml
 - name: Enforce specified scans in every default branch pipeline
-  description: This policy enforces secret detection and SAST scans for the default branch
-  enabled: true
-  rules:
-  - type: pipeline
+ description: This policy enforces secret detection and SAST scans for the default branch
+ enabled: true
+ rules:
+ - type: pipeline
     branches:
     - main
-  actions:
-  - scan: secret_detection
-  - scan: sast
-  policy_scope:
+ actions:
+ - scan: secret_detection
+ - scan: sast
+ policy_scope:
     groups:
       including:
         - id: 203
@@ -103,14 +93,11 @@ subgroups and their projects), excluding the project with ID `64`.
 
 ## Separation of duties
 
-Separation of duties is vital to successfully implementing policies. Implement policies that achieve
-the necessary compliance and security requirements, while allowing development teams to achieve
-their goals.
+Separation of duties is vital to successfully implementing policies. Implement policies that achieve the necessary compliance and security requirements, while allowing development teams to achieve their goals.
 
 Security and compliance teams:
 
-- Should be responsible for defining policies and working with development teams to ensure the
-  policies meet their needs.
+- Should be responsible for defining policies and working with development teams to ensure the policies meet their needs.
 
 Development teams:
 
@@ -125,8 +112,8 @@ The Owner role and custom roles with the `manage_security_policy_link` permissio
 
 | Organization unit | Group owner or group `manage_security_policy_link` permission | Subgroup owner or subgroup `manage_security_policy_link` permission | Project owner or project `manage_security_policy_link` permission |
 |-------------------|---------------------------------------------------------------|---------------------------------------------------------------------|-------------------------------------------------------------------|
-| Group             | {{< yes >}} | {{< no >}}  | {{< no >}}  |
-| Subgroup          | {{< yes >}} | {{< yes >}} | {{< no >}}  |
+| Group             | {{< yes >}} | {{< no >}} | {{< no >}} |
+| Subgroup          | {{< yes >}} | {{< yes >}} | {{< no >}} |
 | Project           | {{< yes >}} | {{< yes >}} | {{< yes >}} |
 
 ### Required permissions
@@ -135,8 +122,8 @@ To create and manage security policies:
 
 - For policies enforced on groups: You must have at least the Maintainer role for the group.
 - For policies enforced on projects:
-  - You must be the project owner.
-  - You must be a group member with permissions to create projects in the group.
+ - You must be the project owner.
+ - You must be a group member with permissions to create projects in the group.
 
 > [!note]
 > If you're not a group member, you may face limitations in adding or editing policies for your project. The ability to create and manage policies requires permissions to create projects in the group. Make sure you have the required permissions in the group, even when working with project-level policies.
@@ -147,28 +134,20 @@ When implementing policies, consider the following recommendations.
 
 ### Branch names
 
-When specifying branch names in a policy, use a generic category of protected branches, such as
-**default branch** or **all protected branches**, not individual branch names.
+When specifying branch names in a policy, use a generic category of protected branches, such as **default branch** or **all protected branches**, not individual branch names.
 
-A policy is enforced on a project only if the specified branch exists in that project. For example,
-if your policy enforces rules on branch `main` but some projects in scope are using `production` as
-their default branch, the policy is not applied for the latter.
+A policy is enforced on a project only if the specified branch exists in that project. For example, if your policy enforces rules on branch `main` but some projects in scope are using `production` as their default branch, the policy is not applied for the latter.
 
 ### Push rules
 
-In GitLab 17.3 and earlier, if you use push rules to
-[validate branch names](../../project/repository/push_rules.md#validate-branch-names)
-ensure they allow creation of branches with the prefix `update-policy-`. This branch naming prefix
-is used when a security policy is created or amended. For example, `update-policy-1659094451`, where
-`1659094451` is the timestamp. If push rules block the creation of the branch the following error
-occurs:
+In GitLab 17.3 and earlier, if you use push rules to [validate branch names](../../project/repository/push_rules.md#validate-branch-names)
+ensure they allow creation of branches with the prefix `update-policy-`. This branch naming prefix is used when a security policy is created or amended. For example, `update-policy-1659094451`, where `1659094451` is the timestamp. If push rules block the creation of the branch the following error occurs:
 
 ```plaintext
 Branch name `update-policy-<timestamp>` does not follow the pattern `<branch_name_regex>`.
 ```
 
-In GitLab 17.4 and later, security policy
-projects are excluded from push rules that enforce branch name validation.
+In GitLab 17.4 and later, security policy projects are excluded from push rules that enforce branch name validation.
 
 ### Security policy projects
 
@@ -195,9 +174,7 @@ Project maintainers can create policies for projects that interfere with the exe
 
 ## Policy management
 
-The Policies page displays deployed policies for all available environments. You can check a
-policy's information (for example, description or enforcement status), and create and edit deployed
-policies:
+The Policies page displays deployed policies for all available environments. You can check a policy's information (for example, description or enforcement status), and create and edit deployed policies:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Secure** > **Policies**.
@@ -218,15 +195,11 @@ Use the policy editor to create, edit, and delete policies:
 
    The policy editor has two modes:
 
-   Rule mode
-   : Construct and preview policy rules using rule blocks and related controls.
+   Rule mode : Construct and preview policy rules using rule blocks and related controls.
 
-   YAML mode
-   : Enter a policy definition in YAML format. Suitable for expert users and cases that the rule
-   mode doesn't support.
+   YAML mode : Enter a policy definition in YAML format. Suitable for expert users and cases that the rule mode doesn't support.
 
-   You can switch between rule mode and YAML mode at any time. If your YAML has errors or
-   unsupported data, rule mode turns off automatically. Fix the YAML first to use rule mode again.
+   You can switch between rule mode and YAML mode at any time. If your YAML has errors or unsupported data, rule mode turns off automatically. Fix the YAML first to use rule mode again.
 
 1. Select **Configure with a merge request** to save and apply the changes.
 
@@ -234,8 +207,7 @@ Use the policy editor to create, edit, and delete policies:
 
 1. Review and merge the resulting merge request.
 
-   If you are a project owner and a security policy project is not associated with this project,
-   a security policy project is created and linked to this project when the merge request is created.
+   If you are a project owner and a security policy project is not associated with this project, a security policy project is created and linked to this project when the merge request is created.
 
 ### Annotate IDs in `policy.yml`
 
@@ -257,7 +229,7 @@ To enable this experimental feature, add an `annotate_ids` section to the `exper
 
 ```yaml
 experiments:
-  annotate_ids:
+ annotate_ids:
     enabled: true
 ```
 
@@ -272,13 +244,13 @@ For example:
 # Example policy.yml with annotated IDs
 approval_policy:
 - name: Your policy name
-  # ... other policy fields ...
-  policy_scope:
+ # ... other policy fields ...
+ policy_scope:
     projects:
       including:
       - id: 361 # my-group/my-project
-  actions:
-  - type: require_approval
+ actions:
+ - type: require_approval
     approvals_required: 1
     user_approvers_ids:
     - 75 # jane.doe
@@ -379,15 +351,11 @@ If the bot account no longer exists:
 
 When working with security policies, consider these troubleshooting tips:
 
-- You should not link a security policy project to both a development project and the group or
-  subgroup the development project belongs to. Linking this way results in approval
-  rules from the merge request approval policies not being applied to merge requests in the development project.
-- When creating a merge request approval policy, neither the array `severity_levels` nor the array
-  `vulnerability_states` in the [`scan_finding` rule](merge_request_approval_policies.md#scan_finding-rule-type)
-  can be left empty. For a working rule, at least one entry must exist for each array.
+- You should not link a security policy project to both a development project and the group or subgroup the development project belongs to. Linking this way results in approval rules from the merge request approval policies not being applied to merge requests in the development project.
+- When creating a merge request approval policy, neither the array `severity_levels` nor the array `vulnerability_states` in the [`scan_finding` rule](merge_request_approval_policies.md#scan_finding-rule-type)
+ can be left empty. For a working rule, at least one entry must exist for each array.
 - The owner of a project can enforce policies for that project, provided they also have permissions to create projects in the group.
-  Project owners who are not group members may face limitations in adding or editing policies. If you're unable to manage policies for your project,
-  contact your group administrator to ensure you have the necessary permissions in the group.
+ Project owners who are not group members may face limitations in adding or editing policies. If you're unable to manage policies for your project, contact your group administrator to ensure you have the necessary permissions in the group.
 
 If you are still experiencing issues, you can [view recent reported bugs](https://gitlab.com/gitlab-org/gitlab/-/issues/?sort=popularity&state=opened&label_name%5B%5D=group%3A%3Asecurity%20policies&label_name%5B%5D=type%3A%3Abug&first_page_size=20) and raise new unreported issues.
 
@@ -397,9 +365,9 @@ If you notice inconsistencies in any of the policies, such as policies that aren
 
 ```graphql
 mutation {
-  resyncSecurityPolicies(input: { fullPath: "group-or-project-path" }) {
+ resyncSecurityPolicies(input: { fullPath: "group-or-project-path" }) {
     errors
-  }
+ }
 }
 ```
 

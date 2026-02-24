@@ -14,10 +14,7 @@ title: Instance template repository
 
 {{< /details >}}
 
-In hosted systems, enterprises often have a need to share their own templates
-across teams. This feature allows an administrator to pick a project to be the
-instance-wide collection of file templates. These templates are then exposed to
-all users through the [Web Editor](../../user/project/repository/web_editor.md)
+In hosted systems, enterprises often have a need to share their own templates across teams. This feature allows an administrator to pick a project to be the instance-wide collection of file templates. These templates are then exposed to all users through the [Web Editor](../../user/project/repository/web_editor.md)
 while the project remains secure.
 
 ## Configuration
@@ -35,8 +32,7 @@ After you add templates, you can use them for the entire instance.
 They are available in the [Web Editor](../../user/project/repository/web_editor.md)
 and through the [API settings](../../api/settings.md).
 
-These templates cannot be used as a value of the
-[`include:template`](../../ci/yaml/_index.md#includetemplate) key in `.gitlab-ci.yml`.
+These templates cannot be used as a value of the [`include:template`](../../ci/yaml/_index.md#includetemplate) key in `.gitlab-ci.yml`.
 
 ## Supported file types and locations
 
@@ -45,7 +41,7 @@ GitLab supports Markdown files for issue and merge request templates and other f
 The following Markdown description templates are supported:
 
 | Type               | Directory                         | Extension         |
-| :---------------:  | :-----------:                     | :-----------:     |
+| :---------------: | :-----------:                     | :-----------:     |
 | Issue              | `.gitlab/issue_templates`         | `.md`             |
 | Merge request      | `.gitlab/merge_request_templates` | `.md`             |
 
@@ -56,12 +52,11 @@ Other supported file type templates include:
 | Type                    | Directory            | Extension     |
 | :---------------:       | :-----------:        | :-----------: |
 | `Dockerfile`            | `Dockerfile`         | `.dockerfile` |
-| `.gitignore`            | `gitignore`          | `.gitignore`  |
+| `.gitignore`            | `gitignore`          | `.gitignore` |
 | `.gitlab-ci.yml`        | `gitlab-ci`          | `.yml`        |
 | `LICENSE`               | `LICENSE`            | `.txt`        |
 
-Each template must be in its respective subdirectory, have the correct
-extension, and not be empty. The hierarchy should look like this:
+Each template must be in its respective subdirectory, have the correct extension, and not be empty. The hierarchy should look like this:
 
 ```plaintext
 |-- README.md
@@ -87,5 +82,4 @@ Your custom templates are displayed in the dropdown list when a new file is adde
 
 ![The GitLab UI for creating a new file, with a dropdown list displaying the Dockerfile templates to choose from.](img/file_template_user_dropdown_v17_10.png)
 
-If this feature is disabled or no templates are present,
-no **Custom** section displays in the selection dropdown list.
+If this feature is disabled or no templates are present, no **Custom** section displays in the selection dropdown list.

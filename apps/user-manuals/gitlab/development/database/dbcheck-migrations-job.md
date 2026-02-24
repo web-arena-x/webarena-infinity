@@ -7,15 +7,9 @@ title: db:check-migrations job
 
 This job runs on the test stage of a merge request pipeline. It checks:
 
-1. A schema dump comparison between the author's working branch and the target branch,
-   after executing a rollback of your new migrations. This check validates that the
-   schema properly resets to what it was before executing new migrations.
-1. A schema dump comparison between the author's working branch and the `db/structure.sql`
-   file that the author committed. This check validates that it contains all the expected changes
-   in the migration.
-1. A Git diff between the `db/schema_migrations` that the author committed and the
-   one that the script generated after running migrations. This check validates that everything
-   was properly committed.
+1. A schema dump comparison between the author's working branch and the target branch, after executing a rollback of your new migrations. This check validates that the schema properly resets to what it was before executing new migrations.
+1. A schema dump comparison between the author's working branch and the `db/structure.sql` file that the author committed. This check validates that it contains all the expected changes in the migration.
+1. A Git diff between the `db/schema_migrations` that the author committed and the one that the script generated after running migrations. This check validates that everything was properly committed.
 
 ## Troubleshooting
 
@@ -25,14 +19,10 @@ This job is not allowed to fail, but it can throw some false positives.
 
 **Examples:**
 
-1. When we drop a column and then roll back, the column is always
-   re-added at the end of the list of columns. If the column was previously not the last column,
-   the rollback can't return the schema back exactly to its previous state. Reference: [job failure](https://gitlab.com/gitlab-org/gitlab/-/jobs/2006544972#L138).
+1. When we drop a column and then roll back, the column is always re-added at the end of the list of columns. If the column was previously not the last column, the rollback can't return the schema back exactly to its previous state. Reference: [job failure](https://gitlab.com/gitlab-org/gitlab/-/jobs/2006544972#L138).
 1. Sometimes pg_dump can change how it orders the constraints and other database objects in minor PostgreSQL version upgrades.
-   This causes the job to fail by complaining about the ordering of statements in the schema that are not related
-   to the MR. Reference: [job failure](https://gitlab.com/gitlab-org/gitlab/-/jobs/12192481127).
-   - Do report this in #database Slack channel or create an issue, if not already done by someone else. Since this will
-     affect all the feature MRs.
+   This causes the job to fail by complaining about the ordering of statements in the schema that are not related to the MR. Reference: [job failure](https://gitlab.com/gitlab-org/gitlab/-/jobs/12192481127).
+   - Do report this in #database Slack channel or create an issue, if not already done by someone else. Since this will affect all the feature MRs.
 
 In such cases it's safer to add `pipeline:skip-check-migrations` label to the MR to skip this job.
 
@@ -53,17 +43,12 @@ graph LR
     DevC -.-> |CI pipeline<br>executes| JOB-FAILED((JOB FAILED!)):::error
 ```
 
-1. You check out the `dev` working branch from the `main` target branch. At this point,
-   each branch has their `HEAD` at commit A.
-1. Someone works on the `main` branch and drops the `fk_rails_dbebdaa8fe` constraint,
-   thus creating commit B on `main`.
+1. You check out the `dev` working branch from the `main` target branch. At this point, each branch has their `HEAD` at commit A.
+1. Someone works on the `main` branch and drops the `fk_rails_dbebdaa8fe` constraint, thus creating commit B on `main`.
 1. You add column `dependency_proxy_size` to your `dev` branch.
-1. The `db:check-migrations` job fails for your `dev` branch's CI/CD pipeline, because
-   the `structure.sql` file did not rollback to its expected state.
+1. The `db:check-migrations` job fails for your `dev` branch's CI/CD pipeline, because the `structure.sql` file did not rollback to its expected state.
 
-This happened because branch `dev` contained commits A and C, not B. Its database schema
-did not know about the removal of the `fk_rails_dbebdaa8fe` constraint. When comparing the two
-schemas, the `dev` branch contained this constraint while the `main` branch didn't.
+This happened because branch `dev` contained commits A and C, not B. Its database schema did not know about the removal of the `fk_rails_dbebdaa8fe` constraint. When comparing the two schemas, the `dev` branch contained this constraint while the `main` branch didn't.
 
 This example really happened. Read the [job failure logs](https://gitlab.com/gitlab-org/gitlab/-/jobs/1992050890).
 

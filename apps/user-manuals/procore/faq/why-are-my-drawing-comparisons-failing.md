@@ -6,13 +6,13 @@ Source: https://support.procore.com/faq/why-are-my-drawing-comparisons-failing
 
 ## Background
 
-|  |  |
+| | |
 | --- | --- |
 | A powerful feature in Procore is the ability to compare different drawing revisions to view any changes. Any additions to a drawing are highlighted in green while deletions are highlighted in red (as shown in the screenshot to the right). | drawing-comparison-example.png |
 
-|  |  |
+| | |
 | --- | --- |
-| drawing-comparison-example-failed.png | There are a few things to consider before you upload a drawing revision to ensure that the comparison tool can accurately diagnose and highlight changes to your drawings.  Please follow these recommended best practices:   1. Make sure the drawing is the same size as its previously uploaded revision. 2. Make sure the architect didn't accidentally shift the whole drawing a few pixels, which would cause the entire drawing to be highlighted as a change (as shown in the screenshot to the left). |
+| drawing-comparison-example-failed.png | There are a few things to consider before you upload a drawing revision to ensure that the comparison tool can accurately diagnose and highlight changes to your drawings. Please follow these recommended best practices:   1. Make sure the drawing is the same size as its previously uploaded revision. 2. Make sure the architect didn't accidentally shift the whole drawing a few pixels, which would cause the entire drawing to be highlighted as a change (as shown in the screenshot to the left). |
 
 ## Answer
 

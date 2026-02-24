@@ -11,10 +11,10 @@ If you'd like to change the default notification settings, you may do so at any 
 Below is a full list of all optional notifications for each section in Handshake, with screenshot examples below each table.
 
 - **Active**: Settings marked with an "X" in the table are active for all new student accounts by default.
-  - These are indicated in the screenshot examples by a green checkmark.
+ - These are indicated in the screenshot examples by a green checkmark.
 - **Inactive**: Settings left blank in the table and screenshot. These may be checked/unchecked in Handshake at any time.
 - **Not available**: Settings with "N/A" in the table are not available at this time.
-  - These are indicated in the screenshot examples as a red circle with a slash in the middle.
+ - These are indicated in the screenshot examples as a red circle with a slash in the middle.
 
 Topics:
 
@@ -34,50 +34,50 @@ Topics:
 
 ### Jobs
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
-|  | **Email** | **In app** | **Push (Mobile)** |
+| | **Email** | **In app** | **Push (Mobile)** |
 | New jobs | X | X | X |
-| Application reminders for expiring jobs | X |  | X |
+| Application reminders for expiring jobs | X | | X |
 | Application reminders for viewed and saved jobs | X | N/A | N/A |
 | Job recommendations | X | N/A | X |
-|  |  |  |  |
+| | | | |
 
 ![Jobs Notifications.png](https://support.joinhandshake.com/hc/article_attachments/34822122614423)
 
 ### Profile
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
-|  | **Email** | **In app** | **Push (Mobile)** |
+| | **Email** | **In app** | **Push (Mobile)** |
 | Profile views | X | X | X |
-| New followers |  | X | X |
-| Follow recommendations |  | X | X |
+| New followers | | X | X |
+| Follow recommendations | | X | X |
 
 ![Profile Notifications.png](https://support.joinhandshake.com/hc/article_attachments/34822122617367)
 
 ### Messages
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
-|  | **Email** | **In app** | **Push (Mobile)** |
+| | **Email** | **In app** | **Push (Mobile)** |
 | New message threads | X | N/A | N/A |
 | New messages | X | N/A | X |
-| Daily digest of unread messages |  | N/A | N/A |
+| Daily digest of unread messages | | N/A | N/A |
 | Weekly digest of unread messages | X | N/A | X |
 
 ![Messages notification.png](https://support.joinhandshake.com/hc/article_attachments/31141189431191)
 
 ### Career Fairs
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
-|  | **Email** | **In app** | **Push (Mobile)** |
-| Career fair updates |  | X | N/A |
+| | **Email** | **In app** | **Push (Mobile)** |
+| Career fair updates | | X | N/A |
 | Next steps after a career fair | X | N/A | N/A |
 | Career fair invitations | X | X | N/A |
 | Career fair reminders | X | X | X |
-| Employer added to a carer fair | X |  | N/A |
+| Employer added to a carer fair | X | | N/A |
 | Career fair waitlist changes | X | N/A | X |
 | Employer sessions for virtual career fair | X | N/A | N/A |
 
@@ -85,23 +85,23 @@ Topics:
 
 ### Events
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
-|  | **Email** | **In app** | **Push (Mobile)** |
-| Event updates |  |  | N/A |
+| | **Email** | **In app** | **Push (Mobile)** |
+| Event updates | | | N/A |
 | Waitlist changes | X | N/A | X |
-| Event invitations |  | X | N/A |
-| Event recommendations | X |  | N/A |
-| Event cancellations | X |  | N/A |
+| Event invitations | | X | N/A |
+| Event recommendations | X | | N/A |
+| Event cancellations | X | | N/A |
 | Event reminders | X | X | X |
 
 ![Events notifications.png](https://support.joinhandshake.com/hc/article_attachments/31141205966487)
 
 ### Feed
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
-|  | **Email** | **In app** | **Push (Mobile)** |
+| | **Email** | **In app** | **Push (Mobile)** |
 | New like on your post | N/A | X | X |
 | Mentions | N/A | X | X |
 | New posts from people you follow | N/A | X | X |
@@ -114,21 +114,21 @@ Topics:
 
 ### Interview Schedules
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
-|  | **Email** | **In app** | **Push (Mobile)** |
-| Interview assignments |  |  | N/A |
-| Employer interview alerts |  |  | N/A |
+| | **Email** | **In app** | **Push (Mobile)** |
+| Interview assignments | | | N/A |
+| Employer interview alerts | | | N/A |
 | Request to swap interview slot | X | X | N/A |
 | Request to swap interview slot is approved | X | X | N/A |
 | Request to swap interview slot is declined | X | X | N/A |
-| Interview time changes |  |  | N/A |
-| Interview date changes |  |  | N/A |
+| Interview time changes | | | N/A |
+| Interview date changes | | | N/A |
 | Interview slot available | X | X | X |
 | Interview slot available as an alternate | X | X | X |
 | Interview reminders | X | X | X |
 | Interview selections as primary | X | X | N/A |
-| Interview selections as alternate |  | X | N/A |
+| Interview selections as alternate | | X | N/A |
 | Employer wants to interview you | X | X | N/A |
 
 ![Interview Schedule Notifications.png](https://support.joinhandshake.com/hc/article_attachments/31141189443735)
@@ -137,9 +137,9 @@ Topics:
 
 ### Appointments
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
-|  | **Email** | **In app** | **Push (Mobile)** |
+| | **Email** | **In app** | **Push (Mobile)** |
 | New comments on appointments | X | X | N/A |
 | New appointments | X | X | N/A |
 | Missed appointments | X | X | N/A |
@@ -153,18 +153,18 @@ Topics:
 
 ### Applications
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
-|  | **Email** | **In app** | **Push (Mobile)** |
+| | **Email** | **In app** | **Push (Mobile)** |
 | Applications confirmations | X | N/A | N/A |
 
 ![Applications notifications.png](https://support.joinhandshake.com/hc/article_attachments/31141205977367)
 
 ### Job Reviews
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
-|  | **Email** | **In app** | **Push (Mobile)** |
+| | **Email** | **In app** | **Push (Mobile)** |
 | Review updates | X | N/A | N/A |
 
 ### Job Reviews notification.png
@@ -173,10 +173,10 @@ Topics:
 
 ### Documents
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
-|  | **Email** | **In app** | **Push (Mobile)** |
-| Documents updates |  | X | X |
+| | **Email** | **In app** | **Push (Mobile)** |
+| Documents updates | | X | X |
 | New comments on your documents | X | X | N/A |
 
 ![Documents notifications.png](https://support.joinhandshake.com/hc/article_attachments/31141205990807)
@@ -185,19 +185,19 @@ Topics:
 
 ### Experiences
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
-|  | **Email** | **In app** | **Push (Mobile)** |
-| Requests for experience evaluation |  |  | N/A |
+| | **Email** | **In app** | **Push (Mobile)** |
+| Requests for experience evaluation | | | N/A |
 | New comments on your experiences | X | X | N/A |
 
 ![Experiences notifications.png](https://support.joinhandshake.com/hc/article_attachments/31141205995159)
 
 ### General
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
-|  | **Email** | **In app** | **Push (Mobile)** |
+| | **Email** | **In app** | **Push (Mobile)** |
 | Handshake tips | X | X | N/A |
 | Special offers and promotions | X | X | X |
 

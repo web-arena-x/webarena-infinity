@@ -21,9 +21,7 @@ This tasks calls `db:reset` to create the database, and calls `db:seed_fu` to se
 
 ### Environment variables
 
-**MASS_INSERT**: Create millions of users (2m), projects (5m) and its
-relations. It's highly recommended to run the seed with it to catch slow queries
-while developing. Expect the process to take up to 20 extra minutes.
+**MASS_INSERT**: Create millions of users (2m), projects (5m) and its relations. It's highly recommended to run the seed with it to catch slow queries while developing. Expect the process to take up to 20 extra minutes.
 
 See also [Mass inserting Rails models](mass_insert.md).
 
@@ -33,8 +31,7 @@ See also [Mass inserting Rails models](mass_insert.md).
 
 #### Seeding issues for all projects or a single project
 
-You can seed issues for all or a given project with the `gitlab:seed:issues`
-task:
+You can seed issues for all or a given project with the `gitlab:seed:issues` task:
 
 ```shell
 # All projects
@@ -44,8 +41,7 @@ bin/rake gitlab:seed:issues
 bin/rake "gitlab:seed:issues[group-path/project-path]"
 ```
 
-By default, this seeds an average of 2 issues per week for the last 5 weeks per
-project.
+By default, this seeds an average of 2 issues per week for the last 5 weeks per project.
 
 #### Seeding issues for Insights charts
 
@@ -56,9 +52,7 @@ project.
 
 {{< /details >}}
 
-You can seed issues specifically for working with the
-[Insights charts](../user/project/insights/_index.md) with the
-`gitlab:seed:insights:issues` task:
+You can seed issues specifically for working with the [Insights charts](../user/project/insights/_index.md) with the `gitlab:seed:insights:issues` task:
 
 ```shell
 # All projects
@@ -68,14 +62,11 @@ bin/rake gitlab:seed:insights:issues
 bin/rake "gitlab:seed:insights:issues[group-path/project-path]"
 ```
 
-By default, this seeds an average of 10 issues per week for the last 52 weeks
-per project. All issues are also randomly labeled with team, type, severity,
-and priority.
+By default, this seeds an average of 10 issues per week for the last 52 weeks per project. All issues are also randomly labeled with team, type, severity, and priority.
 
 #### Seeding groups with subgroups
 
-You can seed groups with subgroups that contain milestones/projects/issues
-with the `gitlab:seed:group_seed` task:
+You can seed groups with subgroups that contain milestones/projects/issues with the `gitlab:seed:group_seed` task:
 
 ```shell
 bin/rake "gitlab:seed:group_seed[subgroup_depth, username, organization_path]"
@@ -182,13 +173,9 @@ bundle exec rake gitlab:seed:dependencies
 
 You can seed a project, group, or instance with [CI variables](../ci/variables/_index.md).
 
-By default, each command creates 10 CI variables. Variable names are prepended with its own
-default prefix (`VAR_` for project-level variables, `GROUP_VAR_` for group-level variables,
-and `INSTANCE_VAR_` for instance-level variables).
+By default, each command creates 10 CI variables. Variable names are prepended with its own default prefix (`VAR_` for project-level variables, `GROUP_VAR_` for group-level variables, and `INSTANCE_VAR_` for instance-level variables).
 
-Instance-level variables do not have environment scopes. Project-level and group-level variables
-use the default `"*"` environment scope if no `environment_scope` is supplied. If `environment_scope`
-is set to `"unique"`, each variable is created with its own unique environment.
+Instance-level variables do not have environment scopes. Project-level and group-level variables use the default `"*"` environment scope if no `environment_scope` is supplied. If `environment_scope` is set to `"unique"`, each variable is created with its own unique environment.
 
 ```shell
 # Seed a project with project-level CI variables
@@ -225,30 +212,23 @@ rake gitlab:seed:merge_trains:project
 
 ### Automation
 
-If you're very sure that you want to **wipe the current database** and refill
-seeds, you can set the `FORCE` environment variable to `yes`:
+If you're very sure that you want to **wipe the current database** and refill seeds, you can set the `FORCE` environment variable to `yes`:
 
 ```shell
 FORCE=yes bundle exec rake setup
 ```
 
-This skips the action confirmation/safety check, saving you from answering
-`yes` manually.
+This skips the action confirmation/safety check, saving you from answering `yes` manually.
 
 ### Discard `stdout`
 
-Since the script would print a lot of information, it could be slowing down
-your terminal, and it would generate more than 20G logs if you just redirect
-it to a file. If we don't care about the output, we could just redirect it to
-`/dev/null`:
+Since the script would print a lot of information, it could be slowing down your terminal, and it would generate more than 20G logs if you just redirect it to a file. If we don't care about the output, we could just redirect it to `/dev/null`:
 
 ```shell
 echo 'yes' | bundle exec rake setup > /dev/null
 ```
 
-Because you can't see the questions from `stdout`, you might just want
-to `echo 'yes'` to keep it running. It would still print the errors on `stderr`
-so no worries about missing errors.
+Because you can't see the questions from `stdout`, you might just want to `echo 'yes'` to keep it running. It would still print the errors on `stderr` so no worries about missing errors.
 
 ### Extra Project seed options
 
@@ -268,16 +248,11 @@ To run the test you can use the following commands:
 - `bin/rake spec:system` to run only the system tests
 
 `bin/rake spec` takes significant time to pass.
-Instead of running the full test suite locally, you can save a lot of time by running
-a single test or directory related to your changes. After you submit a merge request,
-CI runs full test suite for you. Green CI status in the merge request means
-full test suite is passed.
+Instead of running the full test suite locally, you can save a lot of time by running a single test or directory related to your changes. After you submit a merge request, CI runs full test suite for you. Green CI status in the merge request means full test suite is passed.
 
-You can't run `rspec .` since this tries to run all the `_spec.rb`
-files it can find, also the ones in `/tmp`
+You can't run `rspec .` since this tries to run all the `_spec.rb` files it can find, also the ones in `/tmp`
 
-You can pass RSpec command line options to the `spec:unit`,
-`spec:integration`, and `spec:system` tasks. For example, `bin/rake "spec:unit[--tag ~geo --dry-run]"`.
+You can pass RSpec command line options to the `spec:unit`, `spec:integration`, and `spec:system` tasks. For example, `bin/rake "spec:unit[--tag ~geo --dry-run]"`.
 
 For an RSpec test, to run a single test file you can run:
 
@@ -291,8 +266,7 @@ To run several tests inside one directory:
 
 ### Run RSpec tests which failed in merge request pipeline on your machine
 
-If your merge request pipeline failed with RSpec test failures,
-you can run all the failed tests on your machine with the following Rake task:
+If your merge request pipeline failed with RSpec test failures, you can run all the failed tests on your machine with the following Rake task:
 
 ```shell
 bin/rake spec:merge_request_rspec_failure
@@ -304,17 +278,13 @@ There are a few caveats for this Rake task:
 - The pipeline must have been completed.
 - You may need to wait for the test report to be parsed and retry again.
 
-This Rake task depends on the [unit test reports](../ci/testing/unit_test_reports.md) feature,
-which only gets parsed when it is requested for the first time.
+This Rake task depends on the [unit test reports](../ci/testing/unit_test_reports.md) feature, which only gets parsed when it is requested for the first time.
 
 ### Speed up tests, Rake tasks, and migrations
 
-[Spring](https://github.com/rails/spring) is a Rails application pre-loader. It
-speeds up development by keeping your application running in the background so
-you don't need to boot it every time you run a test, Rake task or migration.
+[Spring](https://github.com/rails/spring) is a Rails application pre-loader. It speeds up development by keeping your application running in the background so you don't need to boot it every time you run a test, Rake task or migration.
 
-If you want to use it, you must export the `ENABLE_SPRING` environment
-variable to `1`:
+If you want to use it, you must export the `ENABLE_SPRING` environment variable to `1`:
 
 ```shell
 export ENABLE_SPRING=1
@@ -336,8 +306,7 @@ One way to generate the initial list is to run the Rake task `rubocop:todo:gener
 bundle exec rake rubocop:todo:generate
 ```
 
-To generate TODO list for specific RuboCop rules, pass them comma-separated as
-argument to the Rake task:
+To generate TODO list for specific RuboCop rules, pass them comma-separated as argument to the Rake task:
 
 ```shell
 bundle exec rake 'rubocop:todo:generate[Gitlab/NamespacedClass,Lint/Syntax]'
@@ -351,8 +320,7 @@ on how to proceed from here.
 
 ### Run RuboCop in graceful mode
 
-You can run RuboCop in "graceful mode". This means all enabled cop rules are
-silenced which have "grace period" activated (via `Details: grace period`).
+You can run RuboCop in "graceful mode". This means all enabled cop rules are silenced which have "grace period" activated (via `Details: grace period`).
 
 Run:
 
@@ -363,22 +331,17 @@ bundle exec rake 'rubocop:check:graceful[Gitlab/NamespacedClass]'
 
 ## Compile Frontend Assets
 
-You shouldn't ever need to compile frontend assets manually in development, but
-if you ever need to test how the assets get compiled in a production
-environment you can do so with the following command:
+You shouldn't ever need to compile frontend assets manually in development, but if you ever need to test how the assets get compiled in a production environment you can do so with the following command:
 
 ```shell
 RAILS_ENV=production NODE_ENV=production bundle exec rake gitlab:assets:compile
 ```
 
-This compiles and minifies all JavaScript and CSS assets and copy them along
-with all other frontend assets (images, fonts, etc) into `/public/assets` where
-they can be easily inspected.
+This compiles and minifies all JavaScript and CSS assets and copy them along with all other frontend assets (images, fonts, etc) into `/public/assets` where they can be easily inspected.
 
 ## Emoji tasks
 
-To update the Emoji aliases file (used for Emoji autocomplete), run the
-following:
+To update the Emoji aliases file (used for Emoji autocomplete), run the following:
 
 ```shell
 bundle exec rake tanuki_emoji:aliases
@@ -390,8 +353,7 @@ To import the fallback Emoji images, run the following:
 bundle exec rake tanuki_emoji:import
 ```
 
-To update the Emoji digests file (used for Emoji autocomplete) based on the currently
-available Emoji, run the following:
+To update the Emoji digests file (used for Emoji autocomplete) based on the currently available Emoji, run the following:
 
 ```shell
 bundle exec rake tanuki_emoji:digests
@@ -417,8 +379,7 @@ To see the full list of API routes, you can run:
 bundle exec rake grape:path_helpers
 ```
 
-The generated list includes a full list of API endpoints and functional
-RESTful API verbs.
+The generated list includes a full list of API endpoints and functional RESTful API verbs.
 
 For the Rails controllers, run:
 
@@ -426,8 +387,7 @@ For the Rails controllers, run:
 bundle exec rails routes
 ```
 
-Since these take some time to create, it's often helpful to save the output to
-a file for quick reference.
+Since these take some time to create, it's often helpful to save the output to a file for quick reference.
 
 ## Show obsolete `ignored_columns`
 
@@ -441,8 +401,7 @@ Feel free to remove their definitions from their `ignored_columns` definitions.
 
 ## Validate GraphQL queries
 
-To check the validity of one or more of our front-end GraphQL queries,
-run:
+To check the validity of one or more of our front-end GraphQL queries, run:
 
 ```shell
 # Validate all queries
@@ -453,16 +412,13 @@ bundle exec rake gitlab:graphql:validate[path/to/query.graphql]
 bundle exec rake gitlab:graphql:validate[path/to/queries]
 ```
 
-This prints out a report with an entry for each query, explaining why
-each query is invalid if it fails to pass validation.
+This prints out a report with an entry for each query, explaining why each query is invalid if it fails to pass validation.
 
-We strip out `@client` fields during validation so it is important to mark
-client fields with the `@client` directive to avoid false positives.
+We strip out `@client` fields during validation so it is important to mark client fields with the `@client` directive to avoid false positives.
 
 ## Analyze GraphQL queries
 
-Analogous to `ANALYZE` in SQL, we can run `gitlab:graphql:analyze` to
-estimate the of the cost of running a query.
+Analogous to `ANALYZE` in SQL, we can run `gitlab:graphql:analyze` to estimate the of the cost of running a query.
 
 Usage:
 
@@ -475,11 +431,9 @@ bundle exec rake gitlab:graphql:analyze[path/to/query.graphql]
 bundle exec rake gitlab:graphql:analyze[path/to/queries]
 ```
 
-This prints out a report for each query, including the complexity
-of the query if it is valid.
+This prints out a report for each query, including the complexity of the query if it is valid.
 
-The complexity depends on the arguments in some cases, so the reported
-complexity is a best-effort assessment of the upper bound.
+The complexity depends on the arguments in some cases, so the reported complexity is a best-effort assessment of the upper bound.
 
 ## Update GraphQL documentation and schema definitions
 
@@ -500,14 +454,11 @@ The docs generator code comes from our side giving us more flexibility, like usi
 To edit the content, you may need to edit the following:
 
 - The template. You can edit the template at `tooling/graphql/docs/templates/default.md.haml`.
-  The actual renderer is at `Tooling::Graphql::Docs::Renderer`.
-- The applicable `description` field in the code, which
-  [Updates machine-readable schema files](#update-machine-readable-schema-files),
-  which is then used by the `rake` task described earlier.
+ The actual renderer is at `Tooling::Graphql::Docs::Renderer`.
+- The applicable `description` field in the code, which [Updates machine-readable schema files](#update-machine-readable-schema-files), which is then used by the `rake` task described earlier.
 
 `@parsed_schema` is an instance variable that the `graphql-docs` gem expects to have available.
-`Gitlab::Graphql::Docs::Helper` defines the `object` method we use. This is also where you
-should implement any new methods for new types you'd like to display.
+`Gitlab::Graphql::Docs::Helper` defines the `object` method we use. This is also where you should implement any new methods for new types you'd like to display.
 
 ### Update machine-readable schema files
 
@@ -529,8 +480,7 @@ bundle exec rake gitlab:graphql:update_all
 
 ## Update audit event types documentation
 
-For information on updating audit event types documentation, see
-[Generate documentation](audit_event_guide/_index.md#generate-documentation).
+For information on updating audit event types documentation, see [Generate documentation](audit_event_guide/_index.md#generate-documentation).
 
 ## Update OpenAPI client for Error Tracking feature
 
@@ -540,8 +490,7 @@ This Rake task needs `docker` to be installed.
 
 {{< /alert >}}
 
-To update generated code for OpenAPI client located in
-`gems/error_tracking_open_api` run the following commands:
+To update generated code for OpenAPI client located in `gems/error_tracking_open_api` run the following commands:
 
 ```shell
 # Run rake task
@@ -555,14 +504,12 @@ git commit -m 'Update ErrorTrackingOpenAPI from OpenAPI definition' gems/error_t
 
 ## Update banned SSH keys
 
-You can update the list of banned SSH keys from any Git repository by using the
-`gitlab:security:update_banned_ssh_keys` Rake task:
+You can update the list of banned SSH keys from any Git repository by using the `gitlab:security:update_banned_ssh_keys` Rake task:
 
 1. Find a public remote Git repository containing SSH public keys.
    The public key files must have the `.pub` file extension.
 1. Make sure that `/tmp/` directory has enough space to store the remote Git repository.
-1. To add the SSH keys to your banned-key list, run this command, replacing
-   `GIT_URL` and `OUTPUT_FILE` with appropriate values:
+1. To add the SSH keys to your banned-key list, run this command, replacing `GIT_URL` and `OUTPUT_FILE` with appropriate values:
 
    ```shell
    # @param git_url - Remote Git URL.
@@ -571,19 +518,13 @@ You can update the list of banned SSH keys from any Git repository by using the
    bundle exec rake "gitlab:security:update_banned_ssh_keys[GIT_URL, OUTPUT_FILE]"
    ```
 
-This task clones the remote repository, recursively walks the file system looking for files
-ending in `.pub`, parses those files as SSH public keys, and then adds the public key fingerprints
-to `output_file`. The contents of `config/security/banned_ssh_keys.yml` is read by GitLab and kept
-in memory. It is not recommended to increase the size of this file beyond 1 megabyte in size.
+This task clones the remote repository, recursively walks the file system looking for files ending in `.pub`, parses those files as SSH public keys, and then adds the public key fingerprints to `output_file`. The contents of `config/security/banned_ssh_keys.yml` is read by GitLab and kept in memory. It is not recommended to increase the size of this file beyond 1 megabyte in size.
 
 ## Output current navigation structure to YAML
 
 _This task relies on your current environment setup (licensing, feature flags, projects/groups), so output may vary from run-to-run or environment-to-environment. We may look to standardize output in a future iteration._
 
-Product, UX, and tech writing need a way to audit the entire GitLab navigation,
-yet may not be comfortable directly reviewing the code in `lib/sidebars`. You
-can dump the entire nav structure to YAML via the `gitlab:nav:dump_structure`
-Rake task:
+Product, UX, and tech writing need a way to audit the entire GitLab navigation, yet may not be comfortable directly reviewing the code in `lib/sidebars`. You can dump the entire nav structure to YAML via the `gitlab:nav:dump_structure` Rake task:
 
 ```shell
 bundle exec rake gitlab:nav:dump_structure

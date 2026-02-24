@@ -22,12 +22,8 @@ External users:
 - Can create subgroups, projects, and snippets in any top-level groups where they are members.
 - Cannot create groups, projects, or snippets in their personal namespace.
 
-External users are commonly created when a user outside an organization needs access to only a
-specific project. When assigning a role to an external user, you should be aware of the
-[project visibility](../user/public_access.md#change-project-visibility) and
-[permissions](../user/project/settings/_index.md#configure-project-features-and-permissions)
-associated with the role. For example, if an external user is assigned the Guest role for a
-private project, they cannot access the code.
+External users are commonly created when a user outside an organization needs access to only a specific project. When assigning a role to an external user, you should be aware of the [project visibility](../user/public_access.md#change-project-visibility) and [permissions](../user/project/settings/_index.md#configure-project-features-and-permissions)
+associated with the role. For example, if an external user is assigned the Guest role for a private project, they cannot access the code.
 
 {{< alert type="note" >}}
 
@@ -56,12 +52,9 @@ You can also create external users with:
 
 ## Make new users external by default
 
-You can configure your instance to make all new users external by default. You can modify these user
-accounts later to remove the external designation.
+You can configure your instance to make all new users external by default. You can modify these user accounts later to remove the external designation.
 
-When you configure this feature, you can also define a regular expression used to identify email
-addresses. New users with a matching email are excluded and not marked as an external user. This
-regular expression must:
+When you configure this feature, you can also define a regular expression used to identify email addresses. New users with a matching email are excluded and not marked as an external user. This regular expression must:
 
 - Use the Ruby format.
 - Be convertible to JavaScript.

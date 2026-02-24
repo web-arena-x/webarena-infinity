@@ -44,8 +44,7 @@ To give a user access to specific features:
 1. Select the features that group members can access.
 1. Select **Save changes**.
 
-The user now has access to these features anywhere in the instance
-that they have access and the features are turned on.
+The user now has access to these features anywhere in the instance that they have access and the features are turned on.
 
 {{< /tab >}}
 
@@ -75,8 +74,7 @@ These settings apply to:
 
 {{< /tabs >}}
 
-If you do not want to manually manage group membership, you can
-[synchronize membership by using LDAP or SAML](#synchronize-group-membership).
+If you do not want to manually manage group membership, you can [synchronize membership by using LDAP or SAML](#synchronize-group-membership).
 
 ### Multiple group membership
 

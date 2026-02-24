@@ -25,20 +25,18 @@ description: Create custom roles with tailored permissions to meet specific orga
 {{< /history >}}
 
 Custom roles allow you to create roles with only the specific [custom permissions](abilities.md)
-required by your organization. Each custom role is based on an existing default role. For example,
-you might create a custom role based on the Guest role, but also include permission to view code
-in a project repository.
+required by your organization. Each custom role is based on an existing default role. For example, you might create a custom role based on the Guest role, but also include permission to view code in a project repository.
 
 There are two types of custom roles:
 
 - Custom member roles:
-  - Can be assigned to members of a group or project.
-  - Gains the same permissions in any subgroups or projects. For more information, see [membership types](../../user/project/members/_index.md#membership-types).
-  - [Uses a seat](../../subscriptions/manage_users_and_seats.md#gitlabcom-billing-and-usage) and becomes a [billable user](../../subscriptions/manage_users_and_seats.md#billable-users).
+ - Can be assigned to members of a group or project.
+ - Gains the same permissions in any subgroups or projects. For more information, see [membership types](../../user/project/members/_index.md#membership-types).
+ - [Uses a seat](../../subscriptions/manage_users_and_seats.md#gitlabcom-billing-and-usage) and becomes a [billable user](../../subscriptions/manage_users_and_seats.md#billable-users).
     - A custom Guest member role that includes only the `read_code` permission does not use a seat.
 - Custom admin roles:
-  - Can be assigned to any user on the instance.
-  - Gains permissions to perform specific admin actions.
+ - Can be assigned to any user on the instance.
+ - Gains permissions to perform specific admin actions.
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
 For a demo of the custom roles feature, see [[Demo] Ultimate Guest can view code on private repositories via custom role](https://www.youtube.com/watch?v=46cp_-Rtxps).
@@ -47,12 +45,9 @@ For a demo of the custom roles feature, see [[Demo] Ultimate Guest can view code
 ## Create a custom member role
 
 To create a custom member role, you select a default GitLab role and add additional [permissions](abilities.md).
-The base role defines the minimum permissions available to the custom role. You cannot use
-[auditor](../../administration/auditor_users.md) as a base role.
+The base role defines the minimum permissions available to the custom role. You cannot use [auditor](../../administration/auditor_users.md) as a base role.
 
-Custom permissions can allow actions typically restricted to the Maintainer or Owner role. For
-example, a custom role with permission to manage CI/CD variables also allows management of CI/CD
-variables added by other Maintainers or Owners.
+Custom permissions can allow actions typically restricted to the Maintainer or Owner role. For example, a custom role with permission to manage CI/CD variables also allows management of CI/CD variables added by other Maintainers or Owners.
 
 Custom member roles are available to groups and projects:
 
@@ -88,8 +83,7 @@ You can also [use the API](../../api/graphql/reference/_index.md#mutationmemberr
 
 {{< /details >}}
 
-To create a custom admin role, you add [permissions](abilities.md) that allow actions typically
-limited to administrators. Each custom admin role can have one or more permissions.
+To create a custom admin role, you add [permissions](abilities.md) that allow actions typically limited to administrators. Each custom admin role can have one or more permissions.
 
 Prerequisites:
 
@@ -116,8 +110,7 @@ You can also [use the API](../../api/graphql/reference/_index.md#mutationmemberr
 
 {{< /history >}}
 
-You can edit the name, description, and permissions of a custom role, but you cannot edit the
-base role. If you need to change the base role, you must create a new custom role.
+You can edit the name, description, and permissions of a custom role, but you cannot edit the base role. If you need to change the base role, you must create a new custom role.
 
 Prerequisites:
 
@@ -138,12 +131,9 @@ You can also use the API to edit a [custom member role](../../api/graphql/refere
 
 ## View details of a custom role
 
-The **Roles and permissions** page lists basic information about all available default and custom roles. This
-includes information like the name, description, and number of users assigned each custom role. Each custom role
-includes either a `Custom member role` or `Custom admin role` badge.
+The **Roles and permissions** page lists basic information about all available default and custom roles. This includes information like the name, description, and number of users assigned each custom role. Each custom role includes either a `Custom member role` or `Custom admin role` badge.
 
-You can also view more detailed information about a custom role including the role ID,
-base role, and specific permissions.
+You can also view more detailed information about a custom role including the role ID, base role, and specific permissions.
 
 Prerequisites:
 
@@ -180,10 +170,7 @@ You can also use the API to delete a [custom member role](../../api/graphql/refe
 
 ## Assign a custom member role
 
-You can assign or modify roles for members of your groups and projects. You can do this for existing users or when you add a user to a
-[group](../group/_index.md#add-users-to-a-group),
-[project](../project/members/_index.md#add-users-to-a-project),
-or [instance](../profile/account/create_accounts.md).
+You can assign or modify roles for members of your groups and projects. You can do this for existing users or when you add a user to a [group](../group/_index.md#add-users-to-a-group), [project](../project/members/_index.md#add-users-to-a-project), or [instance](../profile/account/create_accounts.md).
 
 Prerequisites:
 
@@ -239,9 +226,7 @@ You can also [use the API](../../api/graphql/reference/_index.md#mutationmemberr
 When you [invite a group to a group](../project/members/sharing_projects_groups.md#invite-a-group-to-a-group)
 you can assign a custom role to every user in the group.
 
-The assigned role is compared to user roles and permissions in their original group. Generally,
-users are assigned the role with the smallest access level. However, if users
-have a custom role in their original group:
+The assigned role is compared to user roles and permissions in their original group. Generally, users are assigned the role with the smallest access level. However, if users have a custom role in their original group:
 
 - Only the base role is used for access level comparisons. Custom permissions are not compared.
 - If the custom roles both have the same base role, users keep their custom role from the original group.
@@ -264,14 +249,13 @@ You can assign custom roles and permissions to the following:
 
 | Object | Version       | Issue |
 |--------|---------------|-------|
-| Users  | 15.9          | Released |
+| Users | 15.9          | Released |
 | Groups | 17.7          | Partially supported. Further support for group assignment in projects is proposed in [Issue 468329](https://gitlab.com/gitlab-org/gitlab/-/issues/468329) |
 | Tokens | Not supported | [Issue 434354](https://gitlab.com/gitlab-org/gitlab/-/issues/434354) |
 
 ## Sync users to custom roles
 
-If you use tools like SAML or LDAP to manage your group membership, you can automatically sync your
-users to custom roles. For more information, see:
+If you use tools like SAML or LDAP to manage your group membership, you can automatically sync your users to custom roles. For more information, see:
 
 - [Configure SAML Group Links](../group/saml_sso/group_sync.md#configure-saml-group-links).
 - [Manage group memberships via LDAP](../group/access_and_permissions.md#manage-group-memberships-with-ldap).

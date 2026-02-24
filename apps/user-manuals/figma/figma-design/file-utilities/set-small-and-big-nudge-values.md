@@ -18,7 +18,7 @@ By default, small nudge is set to `1` and big nudge set to `10`. Both of these v
 
 ## Adjust nudge settings
 
-1. Click on the  menu.
+1. Click on the menu.
 2. Go to **Preferences > Nudge amount...**
 3. Enter your desired **Small nudge** and **Big nudge** in the fields provided.
-4. Click outside the window or use the  icon to apply and close.
+4. Click outside the window or use the icon to apply and close.

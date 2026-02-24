@@ -19,12 +19,11 @@ To set up your development environment:
 
 ### Debug Cursor
 
-Add `--debug` to the `mcp-remote` command for more detailed logging. View MCP server logs by opening the Output and selecting
-`MCP:SERVERNAME`. For the example below, it would be `MCP:user-GitLab-GDK`
+Add `--debug` to the `mcp-remote` command for more detailed logging. View MCP server logs by opening the Output and selecting `MCP:SERVERNAME`. For the example below, it would be `MCP:user-GitLab-GDK`
 
 ```json
 {
-  "mcpServers": {
+ "mcpServers": {
     "GitLab-GDK": {
       "command": "npx",
       "args": [
@@ -36,7 +35,7 @@ Add `--debug` to the `mcp-remote` command for more detailed logging. View MCP se
         "NODE_TLS_REJECT_UNAUTHORIZED": "0"
       }
     }
-  }
+ }
 }
 ```
 
@@ -61,7 +60,7 @@ Use the wrapper script in the Claude Desktop configuration.
 
 ```json
 {
-  "mcpServers": {
+ "mcpServers": {
     "GitLab-GDK": {
       "command": "/PATH_TO_REMOTE_WRAPPER_SCRIPT/mcp-remote-wrapper",
       "args": [
@@ -72,7 +71,7 @@ Use the wrapper script in the Claude Desktop configuration.
         "NODE_TLS_REJECT_UNAUTHORIZED": "0"
       }
     }
-  }
+ }
 }
 ```
 
@@ -84,14 +83,9 @@ Test the authentication from `mcp-remote` to GDK outside an AI assistant:
  NODE_TLS_REJECT_UNAUTHORIZED=0 npx mcp-remote https://gdk.test:3443/api/v4/mcp --debug
 ```
 
-If you switch branches, you may experience authentication issues which can include `UNABLE_TO_VERIFY_LEAF_SIGNATURE`
-errors in the logs. The untrusted certificate error in chain is specific to GDK instances that use TLS. The error is
-caused by the https client used in Node.js and the `mcp-remote` library via npx. The https client doesn't trust
-certificates signed outside a bundled certificate authorities list.
+If you switch branches, you may experience authentication issues which can include `UNABLE_TO_VERIFY_LEAF_SIGNATURE` errors in the logs. The untrusted certificate error in chain is specific to GDK instances that use TLS. The error is caused by the https client used in Node.js and the `mcp-remote` library via npx. The https client doesn't trust certificates signed outside a bundled certificate authorities list.
 
-If encountering authentication issues clearing your `~/.mcp-auth` directory, as a last resort, resets stored
-credentials for `mcp-remote`. When the AI Assistant reconnects to the MCP server, a browser window opens to prompt
-for authorization.
+If encountering authentication issues clearing your `~/.mcp-auth` directory, as a last resort, resets stored credentials for `mcp-remote`. When the AI Assistant reconnects to the MCP server, a browser window opens to prompt for authorization.
 
 ```shell
 rm -rf ~/.mcp-auth
@@ -118,8 +112,7 @@ npx -y @modelcontextprotocol/inspector npx
 
 #### The Tool Proposal process
 
-Our current development guidelines remain in early development. As we continue establishing tool development standards - especially for custom and
-aggregated tools - we've created an interim `mcp-tool-review-board` committee to evaluate proposed tools before implementation and guide teams planning new MCP tools.
+Our current development guidelines remain in early development. As we continue establishing tool development standards - especially for custom and aggregated tools - we've created an interim `mcp-tool-review-board` committee to evaluate proposed tools before implementation and guide teams planning new MCP tools.
 
 To add a new tool, please create a [MCP Tool Proposal issue](https://gitlab.com/gitlab-org/gitlab/-/issues/new?related_item_id=undefined&type=ISSUE&description_template=MCP%20Tool%20Proposal)
 and follow the template instructions.
@@ -193,8 +186,6 @@ For tools with distinct functionality that should remain separate from API expos
 
 {{< alert type="warning" >}}
 
-More tools aren't always better. The research shows that both context size and tool count have diminishing returns and
-eventually lead to performance degradation. Consider tool consolidation, specialized sub-agents, or dynamic tool routing
-instead of continuously expanding your toolset.
+More tools aren't always better. The research shows that both context size and tool count have diminishing returns and eventually lead to performance degradation. Consider tool consolidation, specialized sub-agents, or dynamic tool routing instead of continuously expanding your toolset.
 
 {{< /alert >}}

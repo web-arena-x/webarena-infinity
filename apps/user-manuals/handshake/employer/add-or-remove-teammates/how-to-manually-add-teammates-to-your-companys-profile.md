@@ -17,8 +17,8 @@ To avoid errors during the invite process, check if your colleague already has a
 **Topics**:
 
 - [Check if your colleague already has a Handshake account](#h_01K05GK6Z1RV5S6QN07WM3FB42)
-  - [No account exists](#h_01K0597KSQJK8M7BSPMWF2EV3J)
-  - [Account exists](#h_01K0598Q1TTB00H9BDD6J53FRC)
+ - [No account exists](#h_01K0597KSQJK8M7BSPMWF2EV3J)
+ - [Account exists](#h_01K0598Q1TTB00H9BDD6J53FRC)
 - [Manually adding teammate without an account](#h_01J4MWAYFHZ8JDJY814FW08WSB)
 - [Manually adding a teammate with an account](#h_01K05G1JTJHPBXNAV7Z3M9ZGDQ)
 
@@ -71,11 +71,11 @@ If your colleague does not have an account yet, you can manually add and invite 
 - **Visible on Company Profile**
 - **Bio**
 - **\*Role**
-  - **For additional guidance, refer to** [**A Guide to Employer Role Types in Handshake**](https://support.joinhandshake.com/hc/en-us/articles/360033919514)**.**
+ - **For additional guidance, refer to** [**A Guide to Employer Role Types in Handshake**](https://support.joinhandshake.com/hc/en-us/articles/360033919514)**.**
 - **Mobile Phone Number**
 - **\*Office Phone Number**
 - **Message**
-  - *This is the message that will be included in your colleague's invitation email.*
+ - *This is the message that will be included in your colleague's invitation email.*
 
 4. Click the green button **Create User** in the lower-right corner of the page to set up their initial account and send an invitation email.
 
@@ -114,7 +114,7 @@ When your teammate clicks the link in the email, they will be redirected to Hand
 If your colleague already has an account, they’ll need to take action based on their current Handshake status:
 
 - **Not connected to any company**: They can request to join your company, or you can add them on the Teammates page.
-  - **Note**: They must confirm their email address before they can be added to a company profile.
+ - **Note**: They must confirm their email address before they can be added to a company profile.
 - **Pending approval at another company**: They must cancel that pending request first.
 - **Connected to the wrong company**: They must disconnect from that company before joining yours.
 

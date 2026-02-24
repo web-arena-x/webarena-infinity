@@ -30,7 +30,7 @@ In the **Application process** section of the job form, select the option **On a
 Next, complete the following fields:
 
 - **External URL**: Enter the full link to your external application.
-  - **Note**: The URL must begin with http:// or https://.
+ - **Note**: The URL must begin with http:// or https://.
 - **Instructions for applicants** (optional): Add any brief notes to guide candidates (e.g., “Complete the full application” or “Attach a cover letter”).
 
 **Exceptions for Workday and Greenhouse**

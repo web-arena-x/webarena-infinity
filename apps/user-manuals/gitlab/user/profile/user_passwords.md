@@ -13,8 +13,7 @@ description: Secure user passwords through requirements enforcement and password
 
 {{< /details >}}
 
-If you use a password to sign in to GitLab, a strong password is very important. A weak or guessable password makes it
-easier for unauthorized people to sign in to your account.
+If you use a password to sign in to GitLab, a strong password is very important. A weak or guessable password makes it easier for unauthorized people to sign in to your account.
 
 Some organizations require you to meet certain requirements when choosing a password.
 
@@ -37,8 +36,7 @@ By default, GitLab enforces the following requirements:
 - Must not contain part of your name, username, or email address.
 - Must not contain a predictable word (for example, `gitlab` or `devops`).
 
-On GitLab Self-Managed and GitLab Dedicated, administrators can
-[modify password complexity requirements](../../administration/settings/sign_up_restrictions.md#modify-password-complexity-requirements).
+On GitLab Self-Managed and GitLab Dedicated, administrators can [modify password complexity requirements](../../administration/settings/sign_up_restrictions.md#modify-password-complexity-requirements).
 
 ## Compromised password detection
 
@@ -68,14 +66,12 @@ You can choose a password when you [create a user account](account/create_accoun
 
 ### Passwords for externally authenticated accounts
 
-If your account was created with an external [authentication and authorization provider](../../administration/auth/_index.md),
-GitLab automatically generates a random password to maintain data consistency.
+If your account was created with an external [authentication and authorization provider](../../administration/auth/_index.md), GitLab automatically generates a random password to maintain data consistency.
 
 This password has the following properties:
 
 - 128 characters in length
-- Generated using the Devise gem's
-  [`friendly_token` method](https://github.com/heartcombo/devise/blob/f26e05c20079c9acded3c0ee16da0df435a28997/lib/devise.rb#L492)
+- Generated using the Devise gem's [`friendly_token` method](https://github.com/heartcombo/devise/blob/f26e05c20079c9acded3c0ee16da0df435a28997/lib/devise.rb#L492)
 - Unique and secure
 
 You don't need to know or use this password.
@@ -112,34 +108,27 @@ To reset your password:
 1. Enter your email.
 1. Select **Reset password**.
 
-You are redirected to the sign-in page. If the provided email is verified and associated with an
-existing account, GitLab sends a password reset email.
+You are redirected to the sign-in page. If the provided email is verified and associated with an existing account, GitLab sends a password reset email.
 
 {{< alert type="note" >}}
 
-Your account can have more than one verified email address, and any email address
-associated with your account can be verified. However, only the primary email address
-can be used to sign in once the password is reset.
+Your account can have more than one verified email address, and any email address associated with your account can be verified. However, only the primary email address can be used to sign in once the password is reset.
 
 {{< /alert >}}
 
 ## Credential storage
 
-GitLab stores user passwords in a hashed format, not as plain text. To hash passwords, GitLab uses
-the [Devise](https://github.com/heartcombo/devise) authentication library.
+GitLab stores user passwords in a hashed format, not as plain text. To hash passwords, GitLab uses the [Devise](https://github.com/heartcombo/devise) authentication library.
 
 Password hashes use these security measures:
 
 - Hashing algorithm:
-  - Bcrypt: Used by default.
-  - PBKDF2+SHA512: Used when FIPS mode is enabled.
-- Stretching: Passwords are [stretched](https://en.wikipedia.org/wiki/Key_stretching) to protect against
-  brute-force attacks. The stretching factor depends on the hashing algorithm:
-  - Bcrypt: 10
-  - PBKDF2+SHA512: 20,000
+ - Bcrypt: Used by default.
+ - PBKDF2+SHA512: Used when FIPS mode is enabled.
+- Stretching: Passwords are [stretched](https://en.wikipedia.org/wiki/Key_stretching) to protect against brute-force attacks. The stretching factor depends on the hashing algorithm:
+ - Bcrypt: 10
+ - PBKDF2+SHA512: 20,000
 - Salting: A random [cryptographic salt](https://en.wikipedia.org/wiki/Salt_(cryptography))
-  is generated for each password to protect against pre-computed hash and
-  dictionary attacks. Each password has a unique salt.
+ is generated for each password to protect against pre-computed hash and dictionary attacks. Each password has a unique salt.
 
-OAuth access tokens are also stored in the database in PBKDF2+SHA512 format and
-stretched 20,000 times.
+OAuth access tokens are also stored in the database in PBKDF2+SHA512 format and stretched 20,000 times.

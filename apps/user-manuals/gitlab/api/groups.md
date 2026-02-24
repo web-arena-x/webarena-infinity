@@ -18,10 +18,7 @@ Endpoint responses might vary based on the [permissions](../user/permissions.md)
 
 ## Get a single group
 
-Get all details of a group. This endpoint can be accessed without authentication
-if the group is publicly accessible. In case the user that requests is an administrator
-if the group is publicly accessible. With authentication, it returns the `runners_token` and `enabled_git_access_protocol`
-for the group too, if the user is an administrator or has the Owner role.
+Get all details of a group. This endpoint can be accessed without authentication if the group is publicly accessible. In case the user that requests is an administrator if the group is publicly accessible. With authentication, it returns the `runners_token` and `enabled_git_access_protocol` for the group too, if the user is an administrator or has the Owner role.
 
 ```plaintext
 GET /groups/:id
@@ -52,23 +49,23 @@ Example response:
 
 ```json
 {
-  "id": 4,
-  "name": "Twitter",
-  "path": "twitter",
-  "description": "Aliquid qui quis dignissimos distinctio ut commodi voluptas est.",
-  "visibility": "public",
-  "avatar_url": null,
-  "web_url": "https://gitlab.example.com/groups/twitter",
-  "request_access_enabled": false,
-  "repository_storage": "default",
-  "full_name": "Twitter",
-  "full_path": "twitter",
-  "runners_token": "ba324ca7b1c77fc20bb9",
-  "file_template_project_id": 1,
-  "parent_id": null,
-  "enabled_git_access_protocol": "all",
-  "created_at": "2020-01-15T12:36:29.590Z",
-  "shared_with_groups": [
+ "id": 4,
+ "name": "Twitter",
+ "path": "twitter",
+ "description": "Aliquid qui quis dignissimos distinctio ut commodi voluptas est.",
+ "visibility": "public",
+ "avatar_url": null,
+ "web_url": "https://gitlab.example.com/groups/twitter",
+ "request_access_enabled": false,
+ "repository_storage": "default",
+ "full_name": "Twitter",
+ "full_path": "twitter",
+ "runners_token": "ba324ca7b1c77fc20bb9",
+ "file_template_project_id": 1,
+ "parent_id": null,
+ "enabled_git_access_protocol": "all",
+ "created_at": "2020-01-15T12:36:29.590Z",
+ "shared_with_groups": [
     {
       "group_id": 28,
       "group_name": "H5bp",
@@ -76,12 +73,12 @@ Example response:
       "group_access_level": 20,
       "expires_at": null
     }
-  ],
-  "prevent_sharing_groups_outside_hierarchy": false,
-  "only_allow_merge_if_pipeline_succeeds": false,
-  "allow_merge_on_skipped_pipeline": false,
-  "only_allow_merge_if_all_discussions_are_resolved": false,
-  "projects": [ // Deprecated and will be removed in API v5
+ ],
+ "prevent_sharing_groups_outside_hierarchy": false,
+ "only_allow_merge_if_pipeline_succeeds": false,
+ "allow_merge_on_skipped_pipeline": false,
+ "only_allow_merge_if_all_discussions_are_resolved": false,
+ "projects": [ // Deprecated and will be removed in API v5
     {
       "id": 7,
       "description": "Voluptas veniam qui et beatae voluptas doloremque explicabo facilis.",
@@ -160,8 +157,8 @@ Example response:
       "shared_with_groups": [],
       "request_access_enabled": false
     }
-  ],
-  "shared_projects": [ // Deprecated and will be removed in API v5
+ ],
+ "shared_projects": [ // Deprecated and will be removed in API v5
     {
       "id": 8,
       "description": "Velit eveniet provident fugiat saepe eligendi autem.",
@@ -215,10 +212,10 @@ Example response:
         }
       ]
     }
-  ],
-  "ip_restriction_ranges": null,
-  "math_rendering_limits_enabled": true,
-  "lock_math_rendering_limits_enabled": false
+ ],
+ "ip_restriction_ranges": null,
+ "math_rendering_limits_enabled": true,
+ "lock_math_rendering_limits_enabled": false
 }
 ```
 
@@ -240,18 +237,18 @@ Additional response attributes:
 
 ```json
 {
-  "id": 4,
-  "description": "Aliquid qui quis dignissimos distinctio ut commodi voluptas est.",
-  "shared_runners_minutes_limit": 133,
-  "extra_shared_runners_minutes_limit": 133,
-  "marked_for_deletion_on": "2020-04-03",
-  "membership_lock": false,
-  "wiki_access_level": "disabled",
-  "duo_features_enabled": true,
-  "lock_duo_features_enabled": false,
-  "duo_availability": "default_on",
-  "experiment_features_enabled": false,
-  ...
+ "id": 4,
+ "description": "Aliquid qui quis dignissimos distinctio ut commodi voluptas est.",
+ "shared_runners_minutes_limit": 133,
+ "extra_shared_runners_minutes_limit": 133,
+ "marked_for_deletion_on": "2020-04-03",
+ "membership_lock": false,
+ "wiki_access_level": "disabled",
+ "duo_features_enabled": true,
+ "lock_duo_features_enabled": false,
+ "duo_availability": "default_on",
+ "experiment_features_enabled": false,
+ ...
 }
 ```
 
@@ -265,19 +262,19 @@ Example response:
 
 ```json
 {
-  "id": 4,
-  "name": "Twitter",
-  "path": "twitter",
-  "description": "Aliquid qui quis dignissimos distinctio ut commodi voluptas est.",
-  "visibility": "public",
-  "avatar_url": null,
-  "web_url": "https://gitlab.example.com/groups/twitter",
-  "request_access_enabled": false,
-  "repository_storage": "default",
-  "full_name": "Twitter",
-  "full_path": "twitter",
-  "file_template_project_id": 1,
-  "parent_id": null
+ "id": 4,
+ "name": "Twitter",
+ "path": "twitter",
+ "description": "Aliquid qui quis dignissimos distinctio ut commodi voluptas est.",
+ "visibility": "public",
+ "avatar_url": null,
+ "web_url": "https://gitlab.example.com/groups/twitter",
+ "request_access_enabled": false,
+ "repository_storage": "default",
+ "full_name": "Twitter",
+ "full_path": "twitter",
+ "file_template_project_id": 1,
+ "parent_id": null
 }
 ```
 
@@ -285,8 +282,7 @@ Example response:
 
 ### List all groups
 
-Get a list of visible groups for the authenticated user. When accessed without
-authentication, only public groups are returned.
+Get a list of visible groups for the authenticated user. When accessed without authentication, only public groups are returned.
 
 By default, this request returns 20 results at a time because the API results [are paginated](rest/_index.md#pagination).
 
@@ -321,7 +317,7 @@ GET /groups
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "Foobar Group",
     "path": "foo-bar",
@@ -362,7 +358,7 @@ GET /groups
     "parent_id": null,
     "created_at": "2020-01-15T12:36:29.590Z",
     "ip_restriction_ranges": null
-  }
+ }
 ]
 ```
 
@@ -382,7 +378,7 @@ For GitLab Self-Managed instances, the [container registry metadata database](..
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "Foobar Group",
     "path": "foo-bar",
@@ -446,20 +442,17 @@ For GitLab Self-Managed instances, the [container registry metadata database](..
       "storage_size": 0,
       "uploads_size": 0,
       "wiki_size": 0
-  },
+ },
     "wiki_access_level": "private",
     "duo_features_enabled": true,
     "lock_duo_features_enabled": false,
     "duo_availability": "default_on",
     "experiment_features_enabled": false,
-  }
+ }
 ]
 ```
 
-Users of [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) also see the `wiki_access_level`,
-`duo_features_enabled`,
-`lock_duo_features_enabled`,
-`duo_availability`, and `experiment_features_enabled` attributes.
+Users of [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) also see the `wiki_access_level`, `duo_features_enabled`, `lock_duo_features_enabled`, `duo_availability`, and `experiment_features_enabled` attributes.
 
 You can search for groups by name or path, see below.
 
@@ -495,12 +488,12 @@ GET /groups?search=foobar
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "Foobar Group",
     "path": "foo-bar",
     "description": "An interesting group"
-  }
+ }
 ]
 ```
 
@@ -549,7 +542,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 9,
     "description": "foo",
     "default_branch": "main",
@@ -586,7 +579,7 @@ Example response:
     "public_jobs": true,
     "shared_with_groups": [],
     "request_access_enabled": false
-  }
+ }
 ]
 ```
 
@@ -762,7 +755,7 @@ Supported attributes:
 | `search`         | string         | no       | Return users with a matching name, email, or username. Use partial values to increase results. |
 | `active`         | boolean        | no       | Return only active users. |
 | `blocked`        | boolean        | no       | Return only blocked users. |
-| `created_after`  | datetime       | no       | Return users created after the specified time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`). |
+| `created_after` | datetime       | no       | Return users created after the specified time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`). |
 | `created_before` | datetime       | no       | Return users created before the specified time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`). |
 
 Example request:
@@ -775,7 +768,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 66,
     "username": "user22",
     "name": "Sidney Jones22",
@@ -827,8 +820,8 @@ Example response:
         "active": true
       }
     ]
-  },
-  ...
+ },
+ ...
 ]
 ```
 
@@ -858,14 +851,14 @@ Parameters:
 | `search`         | string         | no       | Search users by name, email, username. |
 | `active`         | boolean        | no       | Return only active users. |
 | `blocked`        | boolean        | no       | Return only blocked users. |
-| `created_after`  | datetime       | no       | Return users created after the specified time. |
+| `created_after` | datetime       | no       | Return users created after the specified time. |
 | `created_before` | datetime       | no       | Return users created before the specified time. |
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 66,
     "username": "user22",
     "name": "John Doe22",
@@ -904,8 +897,8 @@ Example response:
     "commit_email": "user22@example.org",
     "shared_runners_minutes_limit": null,
     "extra_shared_runners_minutes_limit": null
-  },
-  ...
+ },
+ ...
 ]
 ```
 
@@ -918,8 +911,7 @@ By default, this request returns 20 results at a time because the API results [a
 If you request this list as:
 
 - An unauthenticated user, the response returns only public groups.
-- An authenticated user, the response returns only the groups you're
-  a member of and does not include public groups.
+- An authenticated user, the response returns only the groups you're a member of and does not include public groups.
 
 Parameters:
 
@@ -944,7 +936,7 @@ GET /groups/:id/subgroups
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "Foobar Group",
     "path": "foo-bar",
@@ -984,14 +976,11 @@ GET /groups/:id/subgroups
     "file_template_project_id": 1,
     "parent_id": 123,
     "created_at": "2020-01-15T12:36:29.590Z"
-  }
+ }
 ]
 ```
 
-Users of [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) also see the `wiki_access_level`,
-`duo_features_enabled`,
-`lock_duo_features_enabled`,
-`duo_availability`, and `experiment_features_enabled` attributes.
+Users of [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) also see the `wiki_access_level`, `duo_features_enabled`, `lock_duo_features_enabled`, `duo_availability`, and `experiment_features_enabled` attributes.
 
 ### List descendant groups
 
@@ -1022,7 +1011,7 @@ GET /groups/:id/descendant_groups
 
 ```json
 [
-  {
+ {
     "id": 2,
     "name": "Bar Group",
     "path": "bar",
@@ -1061,8 +1050,8 @@ GET /groups/:id/descendant_groups
     "file_template_project_id": 1,
     "parent_id": 123,
     "created_at": "2020-01-15T12:36:29.590Z"
-  },
-  {
+ },
+ {
     "id": 3,
     "name": "Baz Group",
     "path": "baz",
@@ -1101,14 +1090,11 @@ GET /groups/:id/descendant_groups
     "file_template_project_id": 1,
     "parent_id": 123,
     "created_at": "2020-01-15T12:36:29.590Z"
-  }
+ }
 ]
 ```
 
-Users of [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) also see the `wiki_access_level`,
-`duo_features_enabled`,
-`lock_duo_features_enabled`,
-`duo_availability`, and `experiment_features_enabled` attributes.
+Users of [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) also see the `wiki_access_level`, `duo_features_enabled`, `lock_duo_features_enabled`, `duo_availability`, and `experiment_features_enabled` attributes.
 
 ### List shared groups
 
@@ -1137,7 +1123,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 101,
     "web_url": "http://gitlab.example.com/groups/some_path",
     "name": "group1",
@@ -1184,7 +1170,7 @@ Example response:
     "ldap_cn": "nil",
     "ldap_access": "nil",
     "wiki_access_level": "enabled"
-  }
+ }
 ]
 ```
 
@@ -1202,7 +1188,7 @@ Parameters:
 | `id`                                  | integer or string    | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group. |
 | `search`                              | string            | no       | Return the list of authorized groups matching the search criteria. |
 | `min_access_level`                    | integer           | no       | Limit to groups where current user has at least the specified access level. Possible values: `5` (Minimal access), `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), or `50` (Owner). |
-| `relation`                            | array of strings  | no       | Filter the groups by relation (direct or inherited). |
+| `relation`                            | array of strings | no       | Filter the groups by relation (direct or inherited). |
 | `with_custom_attributes`              | boolean           | no       | Include [custom attributes](custom_attributes.md) in response (administrators only). |
 
 ```plaintext
@@ -1213,7 +1199,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 33,
     "web_url": "http://gitlab.example.com/groups/flightjs",
     "name": "Flightjs",
@@ -1259,7 +1245,7 @@ Example response:
     "ldap_cn": null,
     "ldap_access": null,
     "wiki_access_level": "enabled"
-  }
+ }
 ]
 ```
 
@@ -1280,8 +1266,7 @@ Group audit events can be accessed via the [Group audit events API](audit_events
 
 {{< alert type="note" >}}
 
-On GitLab SaaS, you must use the GitLab UI to create groups without a parent group. You cannot
-use the API to do this.
+On GitLab SaaS, you must use the GitLab UI to create groups without a parent group. You cannot use the API to do this.
 
 {{< /alert >}}
 
@@ -1295,32 +1280,32 @@ Parameters:
 
 | Attribute                            | Type    | Required | Description |
 |--------------------------------------|---------|----------|-------------|
-| `name`                               | string  | yes      | The name of the group. |
-| `path`                               | string  | yes      | The path of the group. |
+| `name`                               | string | yes      | The name of the group. |
+| `path`                               | string | yes      | The path of the group. |
 | `auto_devops_enabled`                | boolean | no       | Default to Auto DevOps pipeline for all projects within this group. |
 | `avatar`                             | mixed   | no       | Image file for avatar of the group. |
-| `default_branch`                     | string  | no       | The [default branch](../user/project/repository/branches/default.md) name for group's projects. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/442298) in GitLab 16.11. |
+| `default_branch`                     | string | no       | The [default branch](../user/project/repository/branches/default.md) name for group's projects. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/442298) in GitLab 16.11. |
 | `default_branch_protection`          | integer | no       | [Deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/408314) in GitLab 17.0. Use `default_branch_protection_defaults` instead. |
 | `default_branch_protection_defaults` | hash    | no       | Introduced in GitLab 17.0. For available options, see [Options for `default_branch_protection_defaults`](#options-for-default_branch_protection_defaults). |
-| `description`                        | string  | no       | The group's description. |
-| `enabled_git_access_protocol`        | string  | no       | Enabled protocols for Git access. Allowed values are: `ssh`, `http`, and `all` to allow both protocols. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/436618) in GitLab 16.9. |
+| `description`                        | string | no       | The group's description. |
+| `enabled_git_access_protocol`        | string | no       | Enabled protocols for Git access. Allowed values are: `ssh`, `http`, and `all` to allow both protocols. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/436618) in GitLab 16.9. |
 | `emails_disabled`                    | boolean | no       | ([Deprecated](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/127899) in GitLab 16.5.) Disable email notifications. Use `emails_enabled` instead. |
 | `emails_enabled`                     | boolean | no       | Enable email notifications. |
 | `lfs_enabled`                        | boolean | no       | Enable/disable Large File Storage (LFS) for the projects in this group. |
 | `mentions_disabled`                  | boolean | no       | Disable the capability of a group from getting mentioned. |
 | `organization_id`                    | integer | no       | The organization ID for the group. |
 | `parent_id`                          | integer | no       | The parent group ID for creating nested group. |
-| `project_creation_level`             | string  | no       | Determine if developers can create projects in the group. Can be `administrator` (users with Admin Mode enabled), `noone` (No one), `maintainer` (users with the Maintainer role), or `developer` (users with the Developer or Maintainer role). |
+| `project_creation_level`             | string | no       | Determine if developers can create projects in the group. Can be `administrator` (users with Admin Mode enabled), `noone` (No one), `maintainer` (users with the Maintainer role), or `developer` (users with the Developer or Maintainer role). |
 | `request_access_enabled`             | boolean | no       | Allow users to request member access. |
-| `require_two_factor_authentication`  | boolean | no       | Require all users in this group to set up two-factor authentication. |
+| `require_two_factor_authentication` | boolean | no       | Require all users in this group to set up two-factor authentication. |
 | `share_with_group_lock`              | boolean | no       | Prevent sharing a project with another group within this group. |
-| `subgroup_creation_level`            | string  | no       | Allowed to [create subgroups](../user/group/subgroups/_index.md#create-a-subgroup). Can be `owner` (users with the Owner role), or `maintainer` (users with the Maintainer role). |
+| `subgroup_creation_level`            | string | no       | Allowed to [create subgroups](../user/group/subgroups/_index.md#create-a-subgroup). Can be `owner` (users with the Owner role), or `maintainer` (users with the Maintainer role). |
 | `two_factor_grace_period`            | integer | no       | Time before Two-factor authentication is enforced (in hours). |
-| `visibility`                         | string  | no       | The group's visibility. Can be `private`, `internal`, or `public`. |
+| `visibility`                         | string | no       | The group's visibility. Can be `private`, `internal`, or `public`. |
 | `membership_lock`                    | boolean | no       | Users cannot be added to projects in this group. Premium and Ultimate only. |
 | `extra_shared_runners_minutes_limit` | integer | no       | Can be set by administrators only. Additional compute minutes for this group. GitLab Self-Managed, Premium and Ultimate only. |
 | `shared_runners_minutes_limit`       | integer | no       | Can be set by administrators only. Maximum number of monthly compute minutes for this group. Can be `nil` (default; inherit system default), `0` (unlimited), or `> 0`. GitLab Self-Managed, Premium and Ultimate only. |
-| `wiki_access_level`                  | string  | no       | The wiki access level. Can be `disabled`, `private`, or `enabled`. Premium and Ultimate only. |
+| `wiki_access_level`                  | string | no       | The wiki access level. Can be `disabled`, `private`, or `enabled`. Premium and Ultimate only. |
 | `duo_availability` | string | no | GitLab Duo availability setting. Valid values are: `default_on`, `default_off`, `never_on`. Note: In the UI, `never_on` is displayed as "Always Off". |
 | `experiment_features_enabled` | boolean | no | Enable experiment features for this group. |
 
@@ -1344,8 +1329,7 @@ The `default_branch_protection` attribute determines whether users with the Deve
 
 {{< /history >}}
 
-The `default_branch_protection_defaults` attribute describes the default branch
-protection defaults. All parameters are optional.
+The `default_branch_protection_defaults` attribute describes the default branch protection defaults. All parameters are optional.
 
 | Key                          | Type    | Description |
 |:-----------------------------|:--------|:------------|
@@ -1381,8 +1365,7 @@ curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
 Schedules a group for deletion. Groups are deleted at the end of the retention period:
 
 - On GitLab.com, groups are retained for 30 days.
-- On GitLab Self-Managed, the retention period is controlled by the
-  [instance settings](../administration/settings/visibility_and_access_controls.md#deletion-protection).
+- On GitLab Self-Managed, the retention period is controlled by the [instance settings](../administration/settings/visibility_and_access_controls.md#deletion-protection).
 
 This endpoint can also immediately delete a subgroup that was previously scheduled for deletion.
 
@@ -1421,8 +1404,7 @@ curl --request DELETE --header "PRIVATE-TOKEN: <your_access_token>" \
 
 {{< /details >}}
 
-Bypasses the configured retention period and
-deletes a group and its data immediately.
+Bypasses the configured retention period and deletes a group and its data immediately.
 
 Prerequisites:
 
@@ -1518,28 +1500,28 @@ Example response:
 
 ```json
 {
-  "id": 96,
-  "web_url": "https://gitlab.example.com/groups/test-1",
-  "name": "test-1",
-  "path": "test-1",
-  "description": "",
-  "visibility": "public",
-  "share_with_group_lock": false,
-  "require_two_factor_authentication": false,
-  "two_factor_grace_period": 48,
-  "project_creation_level": "developer",
-  "auto_devops_enabled": null,
-  "subgroup_creation_level": "maintainer",
-  "emails_disabled": false,
-  "emails_enabled": true,
-  "mentions_disabled": null,
-  "lfs_enabled": true,
-  "archived": true,
-  "math_rendering_limits_enabled": true,
-  "lock_math_rendering_limits_enabled": false,
-  "default_branch": null,
-  "default_branch_protection": 2,
-  "default_branch_protection_defaults": {
+ "id": 96,
+ "web_url": "https://gitlab.example.com/groups/test-1",
+ "name": "test-1",
+ "path": "test-1",
+ "description": "",
+ "visibility": "public",
+ "share_with_group_lock": false,
+ "require_two_factor_authentication": false,
+ "two_factor_grace_period": 48,
+ "project_creation_level": "developer",
+ "auto_devops_enabled": null,
+ "subgroup_creation_level": "maintainer",
+ "emails_disabled": false,
+ "emails_enabled": true,
+ "mentions_disabled": null,
+ "lfs_enabled": true,
+ "archived": true,
+ "math_rendering_limits_enabled": true,
+ "lock_math_rendering_limits_enabled": false,
+ "default_branch": null,
+ "default_branch_protection": 2,
+ "default_branch_protection_defaults": {
     "allowed_to_push": [
       {
         "access_level": 40
@@ -1552,25 +1534,25 @@ Example response:
       }
     ],
     "developer_can_initial_push": false
-  },
-  "avatar_url": null,
-  "request_access_enabled": true,
-  "full_name": "test-1",
-  "full_path": "test-1",
-  "created_at": "2025-03-25T12:05:24.813Z",
-  "parent_id": null,
-  "organization_id": 1,
-  "shared_runners_setting": "enabled",
-  "max_artifacts_size": null,
-  "ldap_cn": null,
-  "ldap_access": null,
-  "wiki_access_level": "enabled",
-  "shared_with_groups": [],
-  "prevent_sharing_groups_outside_hierarchy": false,
-  "shared_runners_minutes_limit": null,
-  "extra_shared_runners_minutes_limit": null,
-  "prevent_forking_outside_group": null,
-  "membership_lock": false
+ },
+ "avatar_url": null,
+ "request_access_enabled": true,
+ "full_name": "test-1",
+ "full_path": "test-1",
+ "created_at": "2025-03-25T12:05:24.813Z",
+ "parent_id": null,
+ "organization_id": 1,
+ "shared_runners_setting": "enabled",
+ "max_artifacts_size": null,
+ "ldap_cn": null,
+ "ldap_access": null,
+ "wiki_access_level": "enabled",
+ "shared_with_groups": [],
+ "prevent_sharing_groups_outside_hierarchy": false,
+ "shared_runners_minutes_limit": null,
+ "extra_shared_runners_minutes_limit": null,
+ "prevent_forking_outside_group": null,
+ "membership_lock": false
 }
 ```
 
@@ -1618,28 +1600,28 @@ Example response:
 
 ```json
 {
-  "id": 96,
-  "web_url": "https://gitlab.example.com/groups/test-1",
-  "name": "test-1",
-  "path": "test-1",
-  "description": "",
-  "visibility": "public",
-  "share_with_group_lock": false,
-  "require_two_factor_authentication": false,
-  "two_factor_grace_period": 48,
-  "project_creation_level": "developer",
-  "auto_devops_enabled": null,
-  "subgroup_creation_level": "maintainer",
-  "emails_disabled": false,
-  "emails_enabled": true,
-  "mentions_disabled": null,
-  "lfs_enabled": true,
-  "archived": false,
-  "math_rendering_limits_enabled": true,
-  "lock_math_rendering_limits_enabled": false,
-  "default_branch": null,
-  "default_branch_protection": 2,
-  "default_branch_protection_defaults": {
+ "id": 96,
+ "web_url": "https://gitlab.example.com/groups/test-1",
+ "name": "test-1",
+ "path": "test-1",
+ "description": "",
+ "visibility": "public",
+ "share_with_group_lock": false,
+ "require_two_factor_authentication": false,
+ "two_factor_grace_period": 48,
+ "project_creation_level": "developer",
+ "auto_devops_enabled": null,
+ "subgroup_creation_level": "maintainer",
+ "emails_disabled": false,
+ "emails_enabled": true,
+ "mentions_disabled": null,
+ "lfs_enabled": true,
+ "archived": false,
+ "math_rendering_limits_enabled": true,
+ "lock_math_rendering_limits_enabled": false,
+ "default_branch": null,
+ "default_branch_protection": 2,
+ "default_branch_protection_defaults": {
     "allowed_to_push": [
       {
         "access_level": 40
@@ -1652,25 +1634,25 @@ Example response:
       }
     ],
     "developer_can_initial_push": false
-  },
-  "avatar_url": null,
-  "request_access_enabled": true,
-  "full_name": "test-1",
-  "full_path": "test-1",
-  "created_at": "2025-03-25T12:05:24.813Z",
-  "parent_id": null,
-  "organization_id": 1,
-  "shared_runners_setting": "enabled",
-  "max_artifacts_size": null,
-  "ldap_cn": null,
-  "ldap_access": null,
-  "wiki_access_level": "enabled",
-  "shared_with_groups": [],
-  "prevent_sharing_groups_outside_hierarchy": false,
-  "shared_runners_minutes_limit": null,
-  "extra_shared_runners_minutes_limit": null,
-  "prevent_forking_outside_group": null,
-  "membership_lock": false
+ },
+ "avatar_url": null,
+ "request_access_enabled": true,
+ "full_name": "test-1",
+ "full_path": "test-1",
+ "created_at": "2025-03-25T12:05:24.813Z",
+ "parent_id": null,
+ "organization_id": 1,
+ "shared_runners_setting": "enabled",
+ "max_artifacts_size": null,
+ "ldap_cn": null,
+ "ldap_access": null,
+ "wiki_access_level": "enabled",
+ "shared_with_groups": [],
+ "prevent_sharing_groups_outside_hierarchy": false,
+ "shared_runners_minutes_limit": null,
+ "extra_shared_runners_minutes_limit": null,
+ "prevent_forking_outside_group": null,
+ "membership_lock": false
 }
 ```
 
@@ -1690,7 +1672,7 @@ POST /groups/:id/transfer
 
 Parameters:
 
-| Attribute  | Type    | Required | Description |
+| Attribute | Type    | Required | Description |
 |------------|---------|----------|-------------|
 | `id`       | integer | yes      | ID of the group to transfer. |
 | `id`       | integer | yes      | ID of the group to transfer. |
@@ -1712,7 +1694,7 @@ GET /groups/:id/transfer_locations
 | Attribute | Type              | Required | Description |
 |-----------|-------------------|----------|-------------|
 | `id`      | integer or string | Yes      | The ID or [URL-encoded path of the group to transfer](rest/_index.md#namespaced-paths). |
-| `search`  | string            | No       | The name of a specific group to search for. |
+| `search` | string            | No       | The name of a specific group to search for. |
 
 Example request:
 
@@ -1724,22 +1706,22 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 27,
     "web_url": "https://gitlab.example.com/groups/gitlab",
     "name": "GitLab",
     "avatar_url": null,
     "full_name": "GitLab",
     "full_path": "GitLab"
-  },
-  {
+ },
+ {
     "id": 31,
     "web_url": "https://gitlab.example.com/groups/foobar",
     "name": "FooBar",
     "avatar_url": null,
     "full_name": "FooBar",
     "full_path": "FooBar"
-  }
+ }
 ]
 ```
 
@@ -1809,7 +1791,7 @@ Deletes a group invitation and removes access to the target group from the speci
 DELETE /groups/:id/share/:group_id
 ```
 
-| Attribute  | Type           | Required | Description |
+| Attribute | Type           | Required | Description |
 |------------|----------------|----------|-------------|
 | `id`       | integer or string | yes      | The ID or [URL-encoded path of the target group](rest/_index.md#namespaced-paths). |
 | `group_id` | integer        | yes      | The ID of the group to disinvite. |
@@ -1876,8 +1858,8 @@ PUT /groups/:id
 | `prevent_forking_outside_group`                      | boolean           | no       | When enabled, users can not fork projects from this group to external namespaces. Premium and Ultimate only. |
 | `shared_runners_minutes_limit`                       | integer           | no       | Can be set by administrators only. Maximum number of monthly compute minutes for this group. Can be `nil` (default; inherit system default), `0` (unlimited), or `> 0`. GitLab Self-Managed, Premium and Ultimate only. |
 | `unique_project_download_limit`                      | integer           | no       | Maximum number of unique projects a user can download in the specified time period before they are banned. Available only on top-level groups. Default: 0, Maximum: 10,000. Ultimate only. |
-| `unique_project_download_limit_interval_in_seconds`  | integer           | no       | Time period during which a user can download a maximum amount of projects before they are banned. Available only on top-level groups. Default: 0, Maximum: 864,000 seconds (10 days). Ultimate only. |
-| `unique_project_download_limit_allowlist`            | array of strings  | no       | List of usernames excluded from the unique project download limit. Available only on top-level groups. Default: `[]`, Maximum: 100 usernames. Ultimate only. |
+| `unique_project_download_limit_interval_in_seconds` | integer           | no       | Time period during which a user can download a maximum amount of projects before they are banned. Available only on top-level groups. Default: 0, Maximum: 864,000 seconds (10 days). Ultimate only. |
+| `unique_project_download_limit_allowlist`            | array of strings | no       | List of usernames excluded from the unique project download limit. Available only on top-level groups. Default: `[]`, Maximum: 100 usernames. Ultimate only. |
 | `unique_project_download_limit_alertlist`            | array of integers | no       | List of user IDs that are emailed when the unique project download limit is exceeded. Available only on top-level groups. Default: `[]`, Maximum: 100 user IDs. Ultimate only. |
 | `auto_ban_user_on_excessive_projects_download`       | boolean           | no       | When enabled, users are automatically banned from the group when they download more than the maximum number of unique projects specified by `unique_project_download_limit` and `unique_project_download_limit_interval_in_seconds`. Ultimate only. |
 | `ip_restriction_ranges`                              | string      | no       | Comma-separated list of IP addresses or subnet masks to restrict group access. Premium and Ultimate only. |
@@ -1893,7 +1875,7 @@ PUT /groups/:id
 | `web_based_commit_signing_enabled`                  | boolean           | No       | Enables web-based commit signing for commits created from the GitLab UI. Available only for top-level groups on GitLab SaaS. When enabled for a group, applies to all projects in the group. |
 | `only_allow_merge_if_pipeline_succeeds`             | boolean           | no       | Only allow merging merge requests if the pipeline succeeds. When enabled for a group, applies to all projects in the group. Premium and Ultimate only. |
 | `allow_merge_on_skipped_pipeline`                   | boolean           | no       | Allow merging merge requests when the pipeline is skipped. Only applies when `only_allow_merge_if_pipeline_succeeds` is `true`. Premium and Ultimate only. |
-| `only_allow_merge_if_all_discussions_are_resolved`  | boolean           | no       | Only allow merging merge requests when all discussions are resolved. When enabled for a group, applies to all projects in the group. Premium and Ultimate only. |
+| `only_allow_merge_if_all_discussions_are_resolved` | boolean           | no       | Only allow merging merge requests when all discussions are resolved. When enabled for a group, applies to all projects in the group. Premium and Ultimate only. |
 | `allow_personal_snippets`                           | boolean           | no       | Allow enterprise users in this group to create personal snippets. When disabled, enterprise users are restricted from creating snippets in their personal namespace. |
 
 {{< alert type="note" >}}
@@ -1908,34 +1890,33 @@ curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" \
      "https://gitlab.example.com/api/v4/groups/5?name=Experimental"
 ```
 
-This endpoint returns a maximum of 100 projects and shared projects. To get the details of all projects in a group, use the
-[list a group's projects endpoint](#list-projects) instead.
+This endpoint returns a maximum of 100 projects and shared projects. To get the details of all projects in a group, use the [list a group's projects endpoint](#list-projects) instead.
 
 Example response:
 
 ```json
 {
-  "id": 5,
-  "name": "Experimental",
-  "path": "h5bp",
-  "description": "foo",
-  "visibility": "internal",
-  "avatar_url": null,
-  "web_url": "http://gitlab.example.com/groups/h5bp",
-  "request_access_enabled": false,
-  "repository_storage": "default",
-  "full_name": "Foobar Group",
-  "full_path": "h5bp",
-  "file_template_project_id": 1,
-  "parent_id": null,
-  "enabled_git_access_protocol": "all",
-  "created_at": "2020-01-15T12:36:29.590Z",
-  "prevent_sharing_groups_outside_hierarchy": false,
-  "only_allow_merge_if_pipeline_succeeds": false,
-  "allow_merge_on_skipped_pipeline": false,
-  "only_allow_merge_if_all_discussions_are_resolved": false,
-  "allow_personal_snippets": true,
-  "projects": [ // Deprecated and will be removed in API v5
+ "id": 5,
+ "name": "Experimental",
+ "path": "h5bp",
+ "description": "foo",
+ "visibility": "internal",
+ "avatar_url": null,
+ "web_url": "http://gitlab.example.com/groups/h5bp",
+ "request_access_enabled": false,
+ "repository_storage": "default",
+ "full_name": "Foobar Group",
+ "full_path": "h5bp",
+ "file_template_project_id": 1,
+ "parent_id": null,
+ "enabled_git_access_protocol": "all",
+ "created_at": "2020-01-15T12:36:29.590Z",
+ "prevent_sharing_groups_outside_hierarchy": false,
+ "only_allow_merge_if_pipeline_succeeds": false,
+ "allow_merge_on_skipped_pipeline": false,
+ "only_allow_merge_if_all_discussions_are_resolved": false,
+ "allow_personal_snippets": true,
+ "projects": [ // Deprecated and will be removed in API v5
     {
       "id": 9,
       "description": "foo",
@@ -1975,19 +1956,16 @@ Example response:
       "shared_with_groups": [],
       "request_access_enabled": false
     }
-  ],
-  "ip_restriction_ranges": null,
-  "math_rendering_limits_enabled": true,
-  "lock_math_rendering_limits_enabled": false
+ ],
+ "ip_restriction_ranges": null,
+ "math_rendering_limits_enabled": true,
+ "lock_math_rendering_limits_enabled": false
 }
 ```
 
 The `prevent_sharing_groups_outside_hierarchy` attribute is present in the response only for top-level groups.
 
-Users of [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) also see the `wiki_access_level`,
-`duo_features_enabled`,
-`lock_duo_features_enabled`,
-`duo_availability`, and `experiment_features_enabled` attributes.
+Users of [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) also see the `wiki_access_level`, `duo_features_enabled`, `lock_duo_features_enabled`, `duo_availability`, and `experiment_features_enabled` attributes.
 
 ### Options for `shared_runners_setting`
 
@@ -2006,8 +1984,7 @@ Update group avatars.
 
 ### Download a group avatar
 
-Get a group avatar. This endpoint can be accessed without authentication if the
-group is publicly accessible.
+Get a group avatar. This endpoint can be accessed without authentication if the group is publicly accessible.
 
 ```plaintext
 GET /groups/:id/avatar
@@ -2021,17 +1998,14 @@ Example:
 
 ```shell
 curl --header "PRIVATE-TOKEN: $GITLAB_LOCAL_TOKEN" \
-  --remote-header-name \
-  --remote-name \
-  "https://gitlab.example.com/api/v4/groups/4/avatar"
+ --remote-header-name \
+ --remote-name \
+ "https://gitlab.example.com/api/v4/groups/4/avatar"
 ```
 
 ### Upload a group avatar
 
-To upload an avatar file from your file system, use the `--form` argument. This causes
-curl to post data using the header `Content-Type: multipart/form-data`. The
-`file=` parameter must point to a file on your file system and be preceded by
-`@`. For example:
+To upload an avatar file from your file system, use the `--form` argument. This causes curl to post data using the header `Content-Type: multipart/form-data`. The `file=` parameter must point to a file on your file system and be preceded by `@`. For example:
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" "https://gitlab.example.com/api/v4/groups/22" \
@@ -2065,20 +2039,18 @@ For more information, see the history.
 
 {{< /alert >}}
 
-Revoke a token, if it has access to the group or any of its subgroups
-and projects. If the token is revoked, or was already revoked, its
-details are returned in the response.
+Revoke a token, if it has access to the group or any of its subgroups and projects. If the token is revoked, or was already revoked, its details are returned in the response.
 
 The following criteria must be met:
 
 - The group must be a top-level group.
 - You must have the Owner role for the group.
 - The token type is one of:
-  - Personal access token
-  - Group access token
-  - Project access token
-  - Group deploy token
-  - User feed tokens
+ - Personal access token
+ - Group access token
+ - Project access token
+ - Group deploy token
+ - User feed tokens
 
 Additional token types may be supported at a later date.
 
@@ -2091,18 +2063,16 @@ POST /groups/:id/tokens/revoke
 | `id`      | integer or string | Yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group. |
 | `token`   | string            | Yes      | The plaintext token. |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and
-a JSON representation of the token. The attributes returned will vary by
-token type.
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and a JSON representation of the token. The attributes returned will vary by token type.
 
 Example request
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --data '{"token":"glpat-EXAMPLE"}' \
-  --url "https://gitlab.example.com/api/v4/groups/63/tokens/revoke"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --data '{"token":"glpat-EXAMPLE"}' \
+ --url "https://gitlab.example.com/api/v4/groups/63/tokens/revoke"
 ```
 
 Example response:
@@ -2182,7 +2152,7 @@ GET /groups/:id/manage/personal_access_tokens
 | `id`               | integer or string   | Yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of a group. |
 | `created_after`    | datetime (ISO 8601) | No       | If defined, returns tokens created after the specified time. |
 | `created_before`   | datetime (ISO 8601) | No       | If defined, returns tokens created before the specified time. |
-| `last_used_after`  | datetime (ISO 8601) | No       | If defined, returns tokens last used after the specified time. |
+| `last_used_after` | datetime (ISO 8601) | No       | If defined, returns tokens last used after the specified time. |
 | `last_used_before` | datetime (ISO 8601) | No       | If defined, returns tokens last used before the specified time. |
 | `revoked`          | boolean             | No       | If `true`, only returns revoked tokens. |
 | `search`           | string              | No       | If defined, returns tokens that include the specified value in the name. |
@@ -2199,7 +2169,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "Test Token",
     "revoked": false,
@@ -2212,7 +2182,7 @@ Example response:
     "last_used_at": "2021-10-06T17:58:37.550Z",
     "active": true,
     "expires_at": "2025-11-08"
-  }
+ }
 ]
 ```
 
@@ -2229,7 +2199,7 @@ GET /groups/:id/manage/resource_access_tokens
 | `id`               | integer or string   | Yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of a group. |
 | `created_after`    | datetime (ISO 8601) | No       | If defined, returns tokens created after the specified time. |
 | `created_before`   | datetime (ISO 8601) | No       | If defined, returns tokens created before the specified time. |
-| `last_used_after`  | datetime (ISO 8601) | No       | If defined, returns tokens last used after the specified time. |
+| `last_used_after` | datetime (ISO 8601) | No       | If defined, returns tokens last used after the specified time. |
 | `last_used_before` | datetime (ISO 8601) | No       | If defined, returns tokens last used before the specified time. |
 | `revoked`          | boolean             | No       | If `true`, only returns revoked tokens. |
 | `search`           | string              | No       | If defined, returns tokens that include the specified value in the name. |
@@ -2246,7 +2216,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 12767703,
     "name": "Test Group Token",
     "revoked": false,
@@ -2262,7 +2232,7 @@ Example response:
     "access_level": 10,
     "resource_type": "group",
     "resource_id": 77449520
-  }
+ }
 ]
 ```
 
@@ -2277,10 +2247,10 @@ GET /groups/:id/manage/ssh_keys
 | Attribute        | Type                | Required | Description |
 | ---------------- | ------------------- | -------- | ----------- |
 | `id`             | integer or string   | Yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of a group. |
-| `created_after`  | datetime (ISO 8601) | No       | If defined, returns SSH keys created after the specified time. |
+| `created_after` | datetime (ISO 8601) | No       | If defined, returns SSH keys created after the specified time. |
 | `created_before` | datetime (ISO 8601) | No       | If defined, returns SSH keys created before the specified time. |
 | `expires_before` | datetime (ISO 8601) | No       | If defined, returns SSH keys that expire before the specified time. |
-| `expires_after`  | datetime (ISO 8601) | No       | If defined, returns SSH keys that expire after the specified time. |
+| `expires_after` | datetime (ISO 8601) | No       | If defined, returns SSH keys that expire after the specified time. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <group_owner_token>" "https://gitlab.example.com/api/v4/groups/1/manage/ssh_keys"
@@ -2290,7 +2260,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id":3,
     "title":"Sample key 3",
     "created_at":"2024-12-23T05:40:11.891Z",
@@ -2298,7 +2268,7 @@ Example response:
     "last_used_at":"2024-12-23T05:40:11.891Z",
     "usage_type":"auth_and_signing",
     "user_id":3
-  }
+ }
 ]
 ```
 
@@ -2316,8 +2286,8 @@ DELETE groups/:id/manage/personal_access_tokens/:id
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/manage/personal_access_tokens/<personal_access_token_id>"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/manage/personal_access_tokens/<personal_access_token_id>"
 ```
 
 If successful, returns `204: No Content`.
@@ -2342,8 +2312,8 @@ DELETE groups/:id/manage/resource_access_tokens/:id
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/manage/resource_access_tokens/<personal_access_token_id>"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/manage/resource_access_tokens/<personal_access_token_id>"
 ```
 
 If successful, returns `204: No Content`.
@@ -2366,7 +2336,7 @@ Supported attributes:
 
 | Attribute | Type    | Required | Description |
 |:----------|:--------|:---------|:------------|
-| `key_id`  | integer | Yes      | ID of existing key.  |
+| `key_id` | integer | Yes      | ID of existing key. |
 
 If successful, returns `204: No Content`.
 
@@ -2378,8 +2348,7 @@ Other possible responses:
 
 ### Rotate a personal access token for an enterprise user
 
-Rotates a specified personal access token for an enterprise user associated with the top-level group. This revokes the previous token and creates a new token
-that expires after one week.
+Rotates a specified personal access token for an enterprise user associated with the top-level group. This revokes the previous token and creates a new token that expires after one week.
 
 ```plaintext
 POST groups/:id/manage/personal_access_tokens/:id/rotate
@@ -2392,8 +2361,8 @@ POST groups/:id/manage/personal_access_tokens/:id/rotate
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/manage/personal_access_tokens/<personal_access_token_id>/rotate"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/:id/manage/personal_access_tokens/<personal_access_token_id>/rotate"
 ```
 
 Example response:
@@ -2420,18 +2389,17 @@ Other possible responses:
 
 - `400: Bad Request` if not rotated successfully.
 - `401: Unauthorized` if any of the following conditions are true:
-  - The token does not exist.
-  - The token has expired.
-  - The token was revoked.
-  - You do not have access to the specified token.
+ - The token does not exist.
+ - The token has expired.
+ - The token was revoked.
+ - You do not have access to the specified token.
 - `403: Forbidden` if the token is not allowed to rotate itself.
 - `404: Not Found` if the user has the Owner role, but the token does not exist.
 - `405: Method Not Allowed` if the token is not a personal access token.
 
 ### Rotate a group or project access token for an enterprise user
 
-Rotates a specified group or project access token for an enterprise user associated with the top-level group. This revokes the previous token and creates a new token
-that expires after one week.
+Rotates a specified group or project access token for an enterprise user associated with the top-level group. This revokes the previous token and creates a new token that expires after one week.
 
 ```plaintext
 POST groups/:id/manage/resource_access_tokens/:id/rotate
@@ -2444,8 +2412,8 @@ POST groups/:id/manage/resource_access_tokens/:id/rotate
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/manage/resource_access_tokens/<resource_access_token_id>/rotate"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/:id/manage/resource_access_tokens/<resource_access_token_id>/rotate"
 ```
 
 Example response:
@@ -2472,9 +2440,9 @@ Other possible responses:
 
 - `400: Bad Request` if not rotated successfully.
 - `401: Unauthorized` if any of the following conditions are true:
-  - The token does not exist.
-  - The token has expired.
-  - The token was revoked.
-  - You do not have access to the specified token.
+ - The token does not exist.
+ - The token has expired.
+ - The token was revoked.
+ - You do not have access to the specified token.
 - `403: Forbidden` if the token is not allowed to rotate itself or token is not a bot user token.
 - `404: Not Found` if the user has the Owner role, but the token does not exist.

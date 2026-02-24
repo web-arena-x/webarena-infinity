@@ -47,52 +47,52 @@ List of supported search languages and whether each language supports typo toler
 
 | Language | Typo tolerance | Search stemming | Trigram |
 | --- | --- | --- | --- |
-| English | ✔ | ✔ |  |
-| French | ✔ |  |  |
-| Spanish | ✔ |  |  |
-| Portuguese (Brazil) | ✔ |  |  |
-| German | ✔ |  |  |
-| Dutch | ✔ |  |  |
-| Italian | ✔ |  |  |
-| Japanese |  | ✔ | ✔ Can support [Katakana, hiragana, and kanji.](search-behavior.md#trigram) |
-| Danish | ✔ |  |  |
-| Swedish | ✔ |  |  |
-| Portuguese (Portugal) | ✔ |  |  |
-| Finnish | ✔ |  |  |
-| Norwegian (Bokmål) | ✔ |  |  |
-| Turkish | ✔ |  |  |
-| Romanian | ✔ |  |  |
-| Hungarian | ✔ |  |  |
-| Russian | ✔ |  |  |
-| Polish | ✔ |  |  |
-| Czech | ✔ |  |  |
-| Greek | ✔ |  |  |
-| Icelandic | ✔ |  |  |
-| Lithuanian | ✔ |  |  |
-| Slovenian | ✔ |  |  |
-| Slovak | ✔ |  |  |
-| Bulgarian | ✔ |  |  |
-| Vietnamese | ✔ |  |  |
-| Croatian | ✔ |  |  |
-| Indonesian | ✔ |  |  |
-| Latvian | ✔ |  |  |
-| Estonian | ✔ |  |  |
-| Serbian | ✔ |  |  |
-| Ukrainian | ✔ |  |  |
-| Catalan | ✔ |  |  |
-| Norwegian (Nynorsk) | ✔ |  |  |
-| Faroese | ✔ |  |  |
-| Portuguese | ✔ |  |  |
-| Albanian | ✔ |  |  |
-| Bosnian | ✔ |  |  |
-| Afrikaans | ✔ |  |  |
-| Macedonian | ✔ |  |  |
-| Armenian | ✔ |  |  |
-| Serbo-Croatian | ✔ |  |  |
-| Latin | ✔ |  |  |
-| Welsh | ✔ |  |  |
-| Gaelic | ✔ |  |  |
-| Moldovan | ✔ |  |  |
+| English | ✔ | ✔ | |
+| French | ✔ | | |
+| Spanish | ✔ | | |
+| Portuguese (Brazil) | ✔ | | |
+| German | ✔ | | |
+| Dutch | ✔ | | |
+| Italian | ✔ | | |
+| Japanese | | ✔ | ✔ Can support [Katakana, hiragana, and kanji.](search-behavior.md#trigram) |
+| Danish | ✔ | | |
+| Swedish | ✔ | | |
+| Portuguese (Portugal) | ✔ | | |
+| Finnish | ✔ | | |
+| Norwegian (Bokmål) | ✔ | | |
+| Turkish | ✔ | | |
+| Romanian | ✔ | | |
+| Hungarian | ✔ | | |
+| Russian | ✔ | | |
+| Polish | ✔ | | |
+| Czech | ✔ | | |
+| Greek | ✔ | | |
+| Icelandic | ✔ | | |
+| Lithuanian | ✔ | | |
+| Slovenian | ✔ | | |
+| Slovak | ✔ | | |
+| Bulgarian | ✔ | | |
+| Vietnamese | ✔ | | |
+| Croatian | ✔ | | |
+| Indonesian | ✔ | | |
+| Latvian | ✔ | | |
+| Estonian | ✔ | | |
+| Serbian | ✔ | | |
+| Ukrainian | ✔ | | |
+| Catalan | ✔ | | |
+| Norwegian (Nynorsk) | ✔ | | |
+| Faroese | ✔ | | |
+| Portuguese | ✔ | | |
+| Albanian | ✔ | | |
+| Bosnian | ✔ | | |
+| Afrikaans | ✔ | | |
+| Macedonian | ✔ | | |
+| Armenian | ✔ | | |
+| Serbo-Croatian | ✔ | | |
+| Latin | ✔ | | |
+| Welsh | ✔ | | |
+| Gaelic | ✔ | | |
+| Moldovan | ✔ | | |
 
 ### Unlisted product status
 
@@ -150,16 +150,13 @@ Search syntax determines how search terms are treated when Shopify searches for 
 
 **AND**
 
-Searching for results with the `AND` operator between search terms returns results when all search
-terms are in the result.
+Searching for results with the `AND` operator between search terms returns results when all search terms are in the result.
 
-By default, all search terms are treated as having `AND` between them. Searching for `artichoke hearts` or
-`artichoke AND hearts` both yield results containing both "artichoke" and "hearts". Joining operators aren't necessary.
+By default, all search terms are treated as having `AND` between them. Searching for `artichoke hearts` or `artichoke AND hearts` both yield results containing both "artichoke" and "hearts". Joining operators aren't necessary.
 
 **OR**
 
-Searching for results with the `OR` operator between search terms returns results when any search
-term is a result.
+Searching for results with the `OR` operator between search terms returns results when any search term is a result.
 
 Searching for `artichoke OR hearts` yields results containing at least one of "artichoke" or "hearts".
 

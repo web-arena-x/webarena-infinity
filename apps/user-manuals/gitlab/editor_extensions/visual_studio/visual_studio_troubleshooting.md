@@ -6,13 +6,11 @@ description: Connect and use GitLab Duo in Neovim.
 title: Visual Studio troubleshooting
 ---
 
-If the steps on this page don't solve your problem, check the
-[list of open issues](https://gitlab.com/gitlab-org/editor-extensions/gitlab-visual-studio-extension/-/issues/?sort=created_date&state=opened&first_page_size=100)
+If the steps on this page don't solve your problem, check the [list of open issues](https://gitlab.com/gitlab-org/editor-extensions/gitlab-visual-studio-extension/-/issues/?sort=created_date&state=opened&first_page_size=100)
 in the Visual Studio plugin's project. If an issue matches your problem, update the issue.
 If no issues match your problem, [create a new issue](https://gitlab.com/gitlab-org/editor-extensions/gitlab-visual-studio-extension/-/issues/new).
 
-For troubleshooting the extension for GitLab Duo Code Suggestions,
-see [Troubleshooting Code Suggestions](../../user/project/repository/code_suggestions/troubleshooting.md#microsoft-visual-studio-troubleshooting)..
+For troubleshooting the extension for GitLab Duo Code Suggestions, see [Troubleshooting Code Suggestions](../../user/project/repository/code_suggestions/troubleshooting.md#microsoft-visual-studio-troubleshooting)..
 
 ## View more logs
 
@@ -65,6 +63,4 @@ Gather this information from affected users, and provide it in your bug report:
 1. Describe how other GitLab Duo features are affected:
    - Is Code Suggestions working?
    - Does GitLab Duo Chat in the Web IDE return responses?
-1. Perform extension isolation testing. Try disabling (or uninstalling) all other extensions to determine
-   if another extension is causing the issue. This helps determine if the problem is with our extension,
-   or from an external source.
+1. Perform extension isolation testing. Try disabling (or uninstalling) all other extensions to determine if another extension is causing the issue. This helps determine if the problem is with our extension, or from an external source.

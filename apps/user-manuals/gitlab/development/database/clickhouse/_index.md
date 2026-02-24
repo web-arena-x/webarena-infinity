@@ -122,7 +122,7 @@ Files: `config.xml`
 | Topic | Security Requirement | Reason |
 | ----- | -------------------- | ------ |
 | `logger` | `Log` and `errorlog` **must** be defined and writable by `clickhouse`. | Make sure logs are stored. |
-| SIEM  | If hosted on GitLab.com, the ClickHouse instance or cluster **must** report [logs to our SIEM](https://internal.gitlab.com/handbook/security/security_operations/security_logging/tooling/devo/) (internal link). | [GitLab logs critical information system activity](https://handbook.gitlab.com/handbook/security/audit-logging-policy/). |
+| SIEM | If hosted on GitLab.com, the ClickHouse instance or cluster **must** report [logs to our SIEM](https://internal.gitlab.com/handbook/security/security_operations/security_logging/tooling/devo/) (internal link). | [GitLab logs critical information system activity](https://handbook.gitlab.com/handbook/security/audit-logging-policy/). |
 | Log sensitive data | Query masking rules **must** be used if sensitive data can be logged. See [example masking rules](#example-masking-rules). | [Column level encryption](https://clickhouse.com/docs/en/sql-reference/functions/encryption-functions) can be used and leak sensitive data (keys) in logs. |
 
 #### Example masking rules

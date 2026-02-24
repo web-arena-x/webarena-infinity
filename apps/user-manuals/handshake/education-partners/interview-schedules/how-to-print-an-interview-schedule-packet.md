@@ -13,5 +13,5 @@ Would you like to print an interview packet for your upcoming interview on campu
 5. **Select**the student information you would like in your packet and who you would like it to be sent to
 6. **Click*****Build***
 
-The interview packet will then be emailed to the selected recipients. An example of the interview packet is below.   
+The interview packet will then be emailed to the selected recipients. An example of the interview packet is below.  
  ![](https://support.joinhandshake.com/hc/article_attachments/25991264100375)

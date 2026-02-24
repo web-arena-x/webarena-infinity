@@ -18,23 +18,21 @@ The measuring module is a tool that allows to measure a service's execution, and
 - RSS memory usage
 - Server worker ID
 
-The measuring module logs these measurements into a structured log called [`service_measurement.log`](../administration/logs/_index.md#service_measurementlog),
-as a single entry for each service execution.
+The measuring module logs these measurements into a structured log called [`service_measurement.log`](../administration/logs/_index.md#service_measurementlog), as a single entry for each service execution.
 
 For GitLab.com, `service_measurement.log` is ingested in Elasticsearch and Kibana as part of our monitoring solution.
 
 ## How to use it
 
-The measuring module allows you to easily measure and log execution of any service,
-by just prepending `Measurable` in any Service class, on the last line of the file that the class resides in.
+The measuring module allows you to easily measure and log execution of any service, by just prepending `Measurable` in any Service class, on the last line of the file that the class resides in.
 
 For example, to prepend a module into the `DummyService` class, you would use the following approach:
 
 ```ruby
 class DummyService
-  def execute
-  # ...
-  end
+ def execute
+ # ...
+ end
 end
 
 DummyService.prepend(Measurable)
@@ -46,9 +44,9 @@ This way, `Measurable` is at the bottom of the ancestor chain, to measure execut
 
 ```ruby
 class DummyService
-  def execute
-  # ...
-  end
+ def execute
+ # ...
+ end
 end
 
 DummyService.prepend_mod_with('DummyService')
@@ -61,10 +59,10 @@ In case you need to log some additional attributes, it is possible to define `ex
 
 ```ruby
 def extra_attributes_for_measurement
-  {
+ {
     project_path: @project.full_path,
     user: current_user.name
-  }
+ }
 end
 ```
 
@@ -73,9 +71,7 @@ To actually use it, you need to enable measuring for the desired service by enab
 
 ### Enabling measurement using feature flags
 
-In the following example, the `:gitlab_service_measuring_projects_import_service`
-[feature flag](feature_flags/_index.md#controlling-feature-flags-locally) is used to enable the measuring feature
-for `Projects::ImportService`.
+In the following example, the `:gitlab_service_measuring_projects_import_service` [feature flag](feature_flags/_index.md#controlling-feature-flags-locally) is used to enable the measuring feature for `Projects::ImportService`.
 
 From ChatOps:
 

@@ -8,10 +8,7 @@ description: Schedule when jobs should run.
 
 Cron syntax is used to schedule when jobs should run.
 
-You may need to use a cron syntax string to
-create a [pipeline schedule](../../ci/pipelines/schedules.md),
-or to prevent unintentional releases by setting a
-[deploy freeze](../../user/project/releases/_index.md#prevent-unintentional-releases-by-setting-a-deploy-freeze).
+You may need to use a cron syntax string to create a [pipeline schedule](../../ci/pipelines/schedules.md), or to prevent unintentional releases by setting a [deploy freeze](../../user/project/releases/_index.md#prevent-unintentional-releases-by-setting-a-deploy-freeze).
 
 ## Cron syntax
 
@@ -31,8 +28,7 @@ Cron scheduling uses a series of five numbers, separated by spaces:
 
 (Source: [Wikipedia](https://en.wikipedia.org/wiki/Cron))
 
-In cron syntax, the asterisk (`*`) means 'every,' so the following cron strings
-are valid:
+In cron syntax, the asterisk (`*`) means 'every,' so the following cron strings are valid:
 
 - Run once an hour at the beginning of the hour: `0 * * * *`
 - Run once a day at midnight: `0 0 * * *`
@@ -42,13 +38,10 @@ are valid:
 - Run once a year at midnight of 1 January: `0 0 1 1 *`
 - Run twice a month at 3 AM, on the 1st and 15th of the month: `0 3 1,15 * *`
 
-For complete cron documentation, refer to the
-[crontab(5) Linux manual page](https://man7.org/linux/man-pages/man5/crontab.5.html).
-This documentation is accessible offline by entering `man 5 crontab` in a Linux or MacOS
-terminal.
+For complete cron documentation, refer to the [crontab(5) Linux manual page](https://man7.org/linux/man-pages/man5/crontab.5.html).
+This documentation is accessible offline by entering `man 5 crontab` in a Linux or MacOS terminal.
 
-Additionally, GitLab uses [`fugit`](#how-gitlab-parses-cron-syntax-strings), which
-accepts `#` and `%` syntax. This syntax might not work in all cron testers:
+Additionally, GitLab uses [`fugit`](#how-gitlab-parses-cron-syntax-strings), which accepts `#` and `%` syntax. This syntax might not work in all cron testers:
 
 - Run once a month on the 2nd Monday: `0 0 * * 1#2`. This syntax is from the [`fugit` hash extension](https://github.com/floraison/fugit#the-hash-extension).
 - Run every other Sunday at 0900 hours: `0 9 * * sun%2`. This syntax is from the [`fugit` modulo extension](https://github.com/floraison/fugit#the-modulo-extension).
@@ -66,13 +59,9 @@ accepts `#` and `%` syntax. This syntax might not work in all cron testers:
 30 6 * * 5
 ```
 
-More examples of how to write a cron schedule can be found at
-[crontab.guru](https://crontab.guru/examples.html).
+More examples of how to write a cron schedule can be found at [crontab.guru](https://crontab.guru/examples.html).
 
 ## How GitLab parses cron syntax strings
 
-GitLab uses [`fugit`](https://github.com/floraison/fugit) to parse cron syntax
-strings on the server and [cron-validator](https://github.com/TheCloudConnectors/cron-validator)
-to validate cron syntax in the browser. GitLab uses
-[`cRonstrue`](https://github.com/bradymholt/cRonstrue) to convert cron to human-readable strings
-in the browser.
+GitLab uses [`fugit`](https://github.com/floraison/fugit) to parse cron syntax strings on the server and [cron-validator](https://github.com/TheCloudConnectors/cron-validator)
+to validate cron syntax in the browser. GitLab uses [`cRonstrue`](https://github.com/bradymholt/cRonstrue) to convert cron to human-readable strings in the browser.

@@ -9,18 +9,13 @@ This content is about infrastructure we integrate with GitLab QA test scenarios,
 
 ## What infrastructure do we have in place?
 
-We currently use GCP and AWS platforms to test a few end-to-end scenarios. These are separated from other
-sandbox projects to prevent accidental deletion of resources that run beyond automated test runs. If you do not have
-access to these accounts already, you can create an access request. In GCP, we use `group-qa-tests-566cc6`
-and in AWS, the cloud account `eng-quality-ops-ci-cd-shared-infra-498dbd5a`.
+We currently use GCP and AWS platforms to test a few end-to-end scenarios. These are separated from other sandbox projects to prevent accidental deletion of resources that run beyond automated test runs. If you do not have access to these accounts already, you can create an access request. In GCP, we use `group-qa-tests-566cc6` and in AWS, the cloud account `eng-quality-ops-ci-cd-shared-infra-498dbd5a`.
 
-If you have test scenarios that require these platforms, we encourage you to use the existing infrastructure and
-accounts so we can efficiently consolidate and maintain our end-to-end test suite.
+If you have test scenarios that require these platforms, we encourage you to use the existing infrastructure and accounts so we can efficiently consolidate and maintain our end-to-end test suite.
 
 ## Why do we have this infrastructure?
 
-GitLab has several features that integrate well with known Cloud Providers. To fully test this integration,
-we have infrastructure in place that connects GitLab QA with these providers.
+GitLab has several features that integrate well with known Cloud Providers. To fully test this integration, we have infrastructure in place that connects GitLab QA with these providers.
 
 We currently use GCP for its Cloud Storage resources to test Object Storage (GCS) and to create Kubernetes clusters. We also use AWS to test Object Storage (S3).
 

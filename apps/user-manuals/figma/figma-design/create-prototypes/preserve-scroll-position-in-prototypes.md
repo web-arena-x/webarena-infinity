@@ -79,7 +79,7 @@ To override the default behavior of [state memorization](https://help.figma.com/
 To reset the scroll position:
 
 1. Click on a prototype connection to open the **Interaction** panel.
-2. In the **State** section of the panel, click the **Reset scroll position** checkbox.  
+2. In the **State** section of the panel, click the **Reset scroll position** checkbox. 
    ![Interaction panel in Figma showing navigation settings between two frames with "Reset scroll position" checked.](https://help.figma.com/hc/article_attachments/24432555933975)
 
 ## Update old state management: Preserve scroll position
@@ -90,10 +90,10 @@ To preserve scrolling between top-level frames, **the top-level frame names have
 
 ![An abstract graphic. The old state management option shows a Preserve scroll position toggle, while the new state management option shows the frame names have matching prefixes.](https://help.figma.com/hc/article_attachments/15692876155031)
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
-|  | **Turn off preserve scroll position** | **Turn on preserve scroll position** |
-| **New state management** | Use non-matching layer names or check reset scroll position | Use matching layer names  (Top-level frame names can be identical or have a matching prefix) |
+| | **Turn off preserve scroll position** | **Turn on preserve scroll position** |
+| **New state management** | Use non-matching layer names or check reset scroll position | Use matching layer names (Top-level frame names can be identical or have a matching prefix) |
 | **Old state management** | Toggle off the preserve scroll position setting | Toggle on the preserve scroll position setting |
 
 Any new interaction automatically follows new state management rules. To update an old interaction to the new state management controls, click the **Update** button on the **Interaction details** modal.

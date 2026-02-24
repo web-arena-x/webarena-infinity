@@ -5,20 +5,12 @@ info: For assistance with this Style Guide page, see https://handbook.gitlab.com
 title: Folder structure for documentation
 ---
 
-The documentation is separated by top-level audience folders [`user`](https://gitlab.com/gitlab-org/gitlab-foss/tree/master/doc/user),
-[`administration`](https://gitlab.com/gitlab-org/gitlab-foss/tree/master/doc/administration),
-and [`development`](https://gitlab.com/gitlab-org/gitlab-foss/tree/master/doc/development)
+The documentation is separated by top-level audience folders [`user`](https://gitlab.com/gitlab-org/gitlab-foss/tree/master/doc/user), [`administration`](https://gitlab.com/gitlab-org/gitlab-foss/tree/master/doc/administration), and [`development`](https://gitlab.com/gitlab-org/gitlab-foss/tree/master/doc/development)
 (contributing) folders.
 
-Beyond that, we primarily follow the structure of the GitLab user interface or
-API.
+Beyond that, we primarily follow the structure of the GitLab user interface or API.
 
-Our goal is to have a clear hierarchical structure with meaningful URLs like
-`docs.gitlab.com/user/project/merge_requests/`. With this pattern, you can
-immediately tell that you are navigating to user-related documentation about
-project features; specifically about merge requests. Our site's paths match
-those of our repository, so the clear structure also makes documentation easier
-to update.
+Our goal is to have a clear hierarchical structure with meaningful URLs like `docs.gitlab.com/user/project/merge_requests/`. With this pattern, you can immediately tell that you are navigating to user-related documentation about project features; specifically about merge requests. Our site's paths match those of our repository, so the clear structure also makes documentation easier to update.
 
 Put files for a specific product area into the related folder:
 
@@ -46,38 +38,25 @@ When working with directories and files:
 
 1. When you create a new directory, always start with an `_index.md` file.
    Don't use another filename and do not create `README.md` files.
-1. Do not use special characters and spaces, or capital letters in file
-   names, directory names, branch names, and anything that generates a path.
-1. When creating or renaming a file or directory and it has more than one word
-   in its name, use underscores (`_`) instead of spaces or dashes. For example,
-   proper naming would be `import_project/import_from_github.md`. This applies
-   to both [image files](../styleguide/_index.md#illustrations) and Markdown files.
+1. Do not use special characters and spaces, or capital letters in file names, directory names, branch names, and anything that generates a path.
+1. When creating or renaming a file or directory and it has more than one word in its name, use underscores (`_`) instead of spaces or dashes. For example, proper naming would be `import_project/import_from_github.md`. This applies to both [image files](../styleguide/_index.md#illustrations) and Markdown files.
 1. Do not upload video files to the product repositories.
    [Link or embed videos](../styleguide/_index.md#videos) instead.
 1. In the `doc/user/` directory:
    - `doc/user/project/` should contain all project related documentation.
    - `doc/user/group/` should contain all group related documentation.
    - `doc/user/profile/` should contain all profile related documentation.
-     Every page you would navigate under `/profile` should have its own document,
-     for example, `account.md`, `applications.md`, or `emails.md`.
-1. In the `doc/administration/` directory: all administrator-related
-   documentation for administrators, including admin tasks done in both
-   the UI and on the backend servers.
+     Every page you would navigate under `/profile` should have its own document, for example, `account.md`, `applications.md`, or `emails.md`.
+1. In the `doc/administration/` directory: all administrator-related documentation for administrators, including admin tasks done in both the UI and on the backend servers.
 
-If you're unsure where to place a document or a content addition, this shouldn't
-stop you from authoring and contributing. Use your best judgment, and then ask
-the reviewer of your MR to confirm your decision. You can also ask a technical writer at
-any stage in the process. The technical writing team reviews all
-documentation changes, regardless, and can move content if there is a better
-place for it.
+If you're unsure where to place a document or a content addition, this shouldn't stop you from authoring and contributing. Use your best judgment, and then ask the reviewer of your MR to confirm your decision. You can also ask a technical writer at any stage in the process. The technical writing team reviews all documentation changes, regardless, and can move content if there is a better place for it.
 
 ## Avoid duplication when possible
 
 When possible, do not include the same information in multiple places.
 Link to a single source of truth instead.
 
-For example, if you have code in a repository other than the [primary repositories](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/doc/architecture.md),
-and documentation in the same repository, you can keep the documentation in that repository.
+For example, if you have code in a repository other than the [primary repositories](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/doc/architecture.md), and documentation in the same repository, you can keep the documentation in that repository.
 
 Then you can either:
 
@@ -86,12 +65,7 @@ Then you can either:
 
 ## References across documents
 
-- Give each folder an `_index.md` page that introduces the topic, and both introduces
-  and links to the child pages, including to the index pages of
-  any next-level sub-paths.
-- To ensure discoverability, ensure each new or renamed doc is linked from its
-  higher-level index page and other related pages.
-- When making reference to other GitLab products and features, link to their
-  respective documentation, at least on first mention.
-- When making reference to third-party products or technologies, link out to
-  their external sites, documentation, and resources.
+- Give each folder an `_index.md` page that introduces the topic, and both introduces and links to the child pages, including to the index pages of any next-level sub-paths.
+- To ensure discoverability, ensure each new or renamed doc is linked from its higher-level index page and other related pages.
+- When making reference to other GitLab products and features, link to their respective documentation, at least on first mention.
+- When making reference to third-party products or technologies, link out to their external sites, documentation, and resources.

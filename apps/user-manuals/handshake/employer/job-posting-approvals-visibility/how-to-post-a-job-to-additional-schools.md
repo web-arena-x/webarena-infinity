@@ -10,7 +10,7 @@ Your ability to post a job to more schools depends on your employer account type
 
 - **Basic employers**: **Owners** and **Recruiters** can post to additional schools only for jobs they have personally created. Jobs created by teammates are **view-only** and cannot be modified.
 
-  - To post jobs to additional schools for postings you did not create, you must upgrade to an eligible paid plan.
+ - To post jobs to additional schools for postings you did not create, you must upgrade to an eligible paid plan.
 - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**, can post jobs to additional schools, whether created by themselves or a teammate, provided they have the appropriate permissions.
 
 *If the posting is saved but not yet posted, refer to* [*How do I post a 'not posted' job to a school?*](https://support.joinhandshake.com/hc/en-us/articles/115012741208-How-do-I-post-a-not-posted-job-to-a-school-)*.*
@@ -20,8 +20,8 @@ Features marked with an asterisk (\*) are available only to Premium partners. *F
 The ability to add more schools depends on the job posting details and your approval status with the desired schools. Jobs **cannot** be posted to additional schools if:
 
 - The job’s **opening date is within the past year**, but the **closing date is more than a year after** the opening date.
-  - To post the job to more schools, update the closing date to fall within **365 days** of the opening date.
-  - *Learn more about* [Updating Job Posting Dates](https://support.joinhandshake.com/hc/en-us/articles/230379768).
+ - To post the job to more schools, update the closing date to fall within **365 days** of the opening date.
+ - *Learn more about* [Updating Job Posting Dates](https://support.joinhandshake.com/hc/en-us/articles/230379768).
 - The job’s **opening date is over a year ago**, and the **closing date is more than a year after** the opening date.
 - Your company has been **declined by the school(s)**.
 
@@ -82,15 +82,15 @@ Depending on your account type, different options are displayed:
 
 - **Basic employers**:
 
-  - Option to **Post to all available schools**, which includes all schools you are approved to connect with.
+ - Option to **Post to all available schools**, which includes all schools you are approved to connect with.
 - **Plus employers**:
 
-  - Option to **Post to all available schools**.
+ - Option to **Post to all available schools**.
 
     - **Note**: The option **Post to full network** is available only for jobs that have been upgraded.
 - **\*Premium partners**:
 
-  - The option **Post to full network** is available for all jobs.
+ - The option **Post to full network** is available for all jobs.
 
     - **Note**: The full network includes every school in Handshake, including the Open Network.
 
@@ -134,16 +134,14 @@ Depending on your account type, different options are displayed:
 
 If you type the full name of a school and it does not appear in the search results, review the following:
 
-**Confirm you are using the correct Handshake instance:**  
-The UK and US platforms operate separately. Schools available in one environment will not appear in the other.
+**Confirm you are using the correct Handshake instance:** The UK and US platforms operate separately. Schools available in one environment will not appear in the other.
 
 - UK site: <https://app.joinhandshake.co.uk/>
 - US site: <https://app.joinhandshake.com/>
 
 If your account was created in the UK environment, US schools will not appear, and vice versa.
 
-**If you are in the correct instance:**  
-A school may still not appear for one of these reasons:
+**If you are in the correct instance:** A school may still not appear for one of these reasons:
 
 - The school is not partnered with Handshake.
 - Your company has been declined by the school.

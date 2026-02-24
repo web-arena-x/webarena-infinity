@@ -66,8 +66,7 @@ company/ (top-level group)
     └── ui-components/       # Shared UI components
 ```
 
-In this structure, all the teams in a company publish code and packages to their own projects,
-while inheriting the configurations of the top-level `company/` group.
+In this structure, all the teams in a company publish code and packages to their own projects, while inheriting the configurations of the top-level `company/` group.
 
 ## Set up a top-level group
 
@@ -82,8 +81,7 @@ If you don't have a group, create one:
 1. Optional. Fill in information to personalize your experience.
 1. Select **Create group**.
 
-This group will store the other groups and projects in your organization. If you have other projects and groups, you can
-[transfer them to the new top-level group](../../group/manage.md#transfer-a-group) for management.
+This group will store the other groups and projects in your organization. If you have other projects and groups, you can [transfer them to the new top-level group](../../group/manage.md#transfer-a-group) for management.
 
 Before you move on, make sure you have at least:
 
@@ -103,15 +101,15 @@ To publish Maven packages:
 
 - Configure your `pom.xml` file to publish to the project's package registry:
 
-  ```xml
-  <!-- checkout/pom.xml -->
-  <distributionManagement>
+ ```xml
+ <!-- checkout/pom.xml -->
+ <distributionManagement>
       <repository>
           <id>gitlab-maven</id>
           <url>${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/maven</url>
       </repository>
-  </distributionManagement>
-  ```
+ </distributionManagement>
+ ```
 
 {{< /tab >}}
 
@@ -121,15 +119,15 @@ To publish npm packages:
 
 - Configure your `package.json` file:
 
-  ```json
-  // ui-components/package.json
-  {
+ ```json
+ // ui-components/package.json
+ {
     "name": "@company/ui-components",
     "publishConfig": {
       "registry": "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
     }
-  }
-  ```
+ }
+ ```
 
 {{< /tab >}}
 
@@ -137,8 +135,7 @@ To publish npm packages:
 
 ## Consume packages
 
-Because your projects are organized under a single top-level group, your packages are still accessible to
-the organization. Let's configure a single API endpoint for your teams to consume packages from.
+Because your projects are organized under a single top-level group, your packages are still accessible to the organization. Let's configure a single API endpoint for your teams to consume packages from.
 
 {{< tabs >}}
 
@@ -146,15 +143,15 @@ the organization. Let's configure a single API endpoint for your teams to consum
 
 - Configure your `pom.xml` to access packages from the top-level group:
 
-  ```xml
-  <!-- Any project's pom.xml -->
-  <repositories>
+ ```xml
+ <!-- Any project's pom.xml -->
+ <repositories>
       <repository>
           <id>gitlab-maven</id>
           <url>https://gitlab.example.com/api/v4/groups/company/-/packages/maven</url>
       </repository>
-  </repositories>
-  ```
+ </repositories>
+ ```
 
 {{< /tab >}}
 
@@ -162,10 +159,10 @@ the organization. Let's configure a single API endpoint for your teams to consum
 
 - Configure your `.npmrc` file:
 
-  ```shell
-  # Any project's .npmrc
-  @company:registry=https://gitlab.example.com/api/v4/groups/company/-/packages/npm/
-  ```
+ ```shell
+ # Any project's .npmrc
+ @company:registry=https://gitlab.example.com/api/v4/groups/company/-/packages/npm/
+ ```
 
 {{< /tab >}}
 
@@ -175,8 +172,7 @@ This configuration automatically provides access to all packages across your org
 
 ## Add deploy tokens
 
-Next, add a read-only deploy token. This token provides access to the packages stored in the subgroups and projects of the organization,
-so your teams can use them for development.
+Next, add a read-only deploy token. This token provides access to the packages stored in the subgroups and projects of the organization, so your teams can use them for development.
 
 1. In your top-level group, on the left sidebar, select **Settings** > **Repository**.
 1. Expand **Deploy tokens**.
@@ -189,16 +185,15 @@ Remember to rotate your tokens periodically. If you suspect a token has been exp
 
 ## Use packages with CI/CD
 
-When CI/CD jobs need to access the package registry, they authenticate with the predefined CI/CD variable
-`CI_JOB_TOKEN`. This authentication happens automatically, so you don't need to do any extra configuration:
+When CI/CD jobs need to access the package registry, they authenticate with the predefined CI/CD variable `CI_JOB_TOKEN`. This authentication happens automatically, so you don't need to do any extra configuration:
 
 ```yaml
 publish:
-  script:
-    - mvn deploy  # For Maven packages
+ script:
+    - mvn deploy # For Maven packages
     # or
     - npm publish # For npm packages
-  # CI_JOB_TOKEN provides automatic authentication
+ # CI_JOB_TOKEN provides automatic authentication
 ```
 
 ## Summary and next steps
@@ -206,19 +201,18 @@ publish:
 Organizing your GitLab projects under one top-level group confers several benefits:
 
 - Simplified configuration:
-  - One URL for all package access
-  - Consistent setup across teams
-  - Easy token rotation
+ - One URL for all package access
+ - Consistent setup across teams
+ - Easy token rotation
 - Clear ownership:
-  - Packages stay with their source code
-  - Teams maintain control over publishing
-  - Version history is tied to project activity
+ - Packages stay with their source code
+ - Teams maintain control over publishing
+ - Version history is tied to project activity
 - Natural organization:
-  - Your groups match your company structure
-  - Teams can collaborate while remaining autonomous
+ - Your groups match your company structure
+ - Teams can collaborate while remaining autonomous
 
-The GitLab package registry model offers a powerful solution for enterprise package management. By combining project-based publishing with top-level group consumption,
-you get the best of both worlds: clear ownership and simplified access.
+The GitLab package registry model offers a powerful solution for enterprise package management. By combining project-based publishing with top-level group consumption, you get the best of both worlds: clear ownership and simplified access.
 
 This approach scales naturally with your organization while maintaining security and ease of use.
 Start by implementing this model with a single team or division, and expand as you see the benefits of this integrated approach.

@@ -45,8 +45,8 @@ If an appointment type can be virtual OR in person, consider calling it out in t
 
 - Be explicit in the pre appointment message for each appointment type what the student should refer to for either an in person or virtual appointment.
 - For example: 
-  - For virtual appointments: "Please be sure to use the link in this email."
-  - For in person appointments: "Please plan to meet at the address noted in this email." (Tip: include any additional steps students should take, such as wearing a face covering!)![pre_appointment_messaging.png](https://support.joinhandshake.com/hc/article_attachments/26001362540311)
+ - For virtual appointments: "Please be sure to use the link in this email."
+ - For in person appointments: "Please plan to meet at the address noted in this email." (Tip: include any additional steps students should take, such as wearing a face covering!)![pre_appointment_messaging.png](https://support.joinhandshake.com/hc/article_attachments/26001362540311)
 
 For further information on appointment type configuration, check out [Configure Appointment Categories and Types](https://support.joinhandshake.com/hc/en-us/articles/218693018-Configure-School-Appointment-Categories-and-Types).
 
@@ -54,7 +54,7 @@ Once these configurations are set, each career coach should set up the following
 
 1. User settings → Appointment blocks → Edit each appointment block to include both the “zoom” medium and physical location medium
 
-In this example, appointment blocks list both a physical address medium and the Virtual link medium:   
+In this example, appointment blocks list both a physical address medium and the Virtual link medium:  
 ![selected_appointment_mediums.png](https://support.joinhandshake.com/hc/article_attachments/26001385314455)
 
 2. User settings → Personal information → Select their link as the office medium

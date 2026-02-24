@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408842973338-Setting-up-b
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Enterprise |
 
@@ -30,19 +30,19 @@ For this purpose, you have a number of options. Triggers aren’t tied directly 
 
 Here are four scenarios:
 
-- To exclude one brand from a trigger, you can use a [brand] [is not] condition in the "Meet all of the following" section:  
+- To exclude one brand from a trigger, you can use a [brand] [is not] condition in the "Meet all of the following" section: 
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/exclude1.png)  
-  The trigger will affect tickets in all brands except Omniwear Kids
-- To exclude several brands, you can use multiple [brand] [is not] conditions in the "Meet all of the following" section:  
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/exclude1.png) 
+ The trigger will affect tickets in all brands except Omniwear Kids
+- To exclude several brands, you can use multiple [brand] [is not] conditions in the "Meet all of the following" section: 
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/excludemany.png)  
-  The trigger will affect tickets in all brands except Omniwear Kids and Omniwear Sports
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/excludemany.png) 
+ The trigger will affect tickets in all brands except Omniwear Kids and Omniwear Sports
 
-- To restrict a trigger to a specific brand, you can use a [brand] [is] condition in the "Meet all of the following" section:  
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/restric1.png)  
-  The trigger will only affect tickets with the Omniwear Sports brand
+- To restrict a trigger to a specific brand, you can use a [brand] [is] condition in the "Meet all of the following" section: 
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/restric1.png) 
+ The trigger will only affect tickets with the Omniwear Sports brand
 
-- To restrict to a specific set of brands, you can use multiple [brand] [is] conditions in the "Meet any of the following" section:  
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/restrictmany.png)  
-  The trigger will only affect tickets with the Omniwear Formal or Omniwear Kids brands
+- To restrict to a specific set of brands, you can use multiple [brand] [is] conditions in the "Meet any of the following" section: 
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/restrictmany.png) 
+ The trigger will only affect tickets with the Omniwear Formal or Omniwear Kids brands

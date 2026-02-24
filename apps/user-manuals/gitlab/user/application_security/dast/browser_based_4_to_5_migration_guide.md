@@ -18,8 +18,7 @@ title: Migrating from the DAST version 4 browser-based analyzer to DAST version 
 
 {{< /history >}}
 
-[DAST version 5](browser/_index.md) replaces DAST version 4. This document serves as a guide to
-migrate from the DAST version 4 browser-based analyzer to DAST version 5.
+[DAST version 5](browser/_index.md) replaces DAST version 4. This document serves as a guide to migrate from the DAST version 4 browser-based analyzer to DAST version 5.
 
 Follow this migration guide if all the following conditions apply:
 
@@ -75,11 +74,7 @@ Changes to make:
 Browser-based DAST version 4 uses proxy-based analyzer checks for active checks not included in the browser-based analyzer.
 Browser-based DAST version 5 does not include the proxy-based analyzer, so there is a gap in check coverage when migrating to version 5.
 
-There is one proxy-based active check that the browser-based analyzer does not cover. Migration of
-the remaining active check is proposed in
-[epic 13411](https://gitlab.com/groups/gitlab-org/-/epics/13411). If you prefer to remain on DAST
-version 4 until the last check is migrated, see
-[Continuing to use version 4](#continuing-to-use-version-4).
+There is one proxy-based active check that the browser-based analyzer does not cover. Migration of the remaining active check is proposed in [epic 13411](https://gitlab.com/groups/gitlab-org/-/epics/13411). If you prefer to remain on DAST version 4 until the last check is migrated, see [Continuing to use version 4](#continuing-to-use-version-4).
 
 Remaining check:
 

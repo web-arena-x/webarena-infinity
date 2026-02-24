@@ -39,8 +39,8 @@ Protected tags cannot be deleted by [cleanup policies](reduce_container_registry
 Before you can use protected container tags:
 
 - You must use the new container registry version:
-  - GitLab.com: Enabled by default
-  - GitLab Self-Managed: [Enable the metadata database](../../../administration/packages/container_registry_metadata_database.md)
+ - GitLab.com: Enabled by default
+ - GitLab Self-Managed: [Enable the metadata database](../../../administration/packages/container_registry_metadata_database.md)
 
 ## Create a protection rule
 

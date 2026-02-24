@@ -39,11 +39,11 @@ The way you upgrade to Pro depends on your employer account type:
 
 - Monthly or yearly subscription cost
 - Features included with Pro, such as:
-  - Increased messaging
-  - Screening questions
-  - AI-powered recommendations
-  - Collaboration tools and advanced permissions
-  - Customizable brand page
+ - Increased messaging
+ - Screening questions
+ - AI-powered recommendations
+ - Collaboration tools and advanced permissions
+ - Customizable brand page
 
 2. Select either **Monthly** or **Yearly** billing.
 

@@ -10,11 +10,11 @@ To save time on repeated searches, employers can create and access saved searche
 
 - [Access saved searches](#h_01HT0TGKH65BB1PKJCXC4SWZR7)
 - [Create a saved search](#h_01HT0TH18C8SXKC8TYPE986MME)
-  - [Talent page](#h_01HT0TX2RKEHWAJGDGDV0GZ0FT)
-  - [Fairs and Interviews page](#h_01HT0V0NDG10XCCP6B26MA4GAG)
+ - [Talent page](#h_01HT0TX2RKEHWAJGDGDV0GZ0FT)
+ - [Fairs and Interviews page](#h_01HT0V0NDG10XCCP6B26MA4GAG)
 - [Access saved searches](#h_01HT0VM3YWA3WJG1CZJX6GD8NC)
-  - [Talent page](#h_01HT2QX3KNZRZDWWBK334YMWXG)
-  - [Fairs and Interview page](#h_01HT2R0PFN6K61P1T2PRRSQNHW)
+ - [Talent page](#h_01HT2QX3KNZRZDWWBK334YMWXG)
+ - [Fairs and Interview page](#h_01HT2R0PFN6K61P1T2PRRSQNHW)
 
 ### Access saved searches
 

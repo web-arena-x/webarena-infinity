@@ -11,9 +11,9 @@ How to move drawing disciplines in your Drawings log.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' on the projects' Drawings tool.
+ - 'Admin' on the projects' Drawings tool.
 - **Additional Information:**
-  - When you move drawing disciplines in the Drawings tool, the new order will be displayed for all users who can access the Drawings tool.
+ - When you move drawing disciplines in the Drawings tool, the new order will be displayed for all users who can access the Drawings tool.
 
 ## Steps
 

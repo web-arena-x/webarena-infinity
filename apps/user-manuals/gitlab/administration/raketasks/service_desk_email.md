@@ -40,8 +40,7 @@ sudo gitlab-rake gitlab:service_desk_email:secret:show
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-Use a Kubernetes secret to store the Service Desk email password. For more information,
-read about [Helm IMAP secrets](https://docs.gitlab.com/charts/installation/secrets.html#imap-password-for-service-desk-emails).
+Use a Kubernetes secret to store the Service Desk email password. For more information, read about [Helm IMAP secrets](https://docs.gitlab.com/charts/installation/secrets.html#imap-password-for-service-desk-emails).
 
 {{< /tab >}}
 
@@ -86,8 +85,7 @@ sudo gitlab-rake gitlab:service_desk_email:secret:edit EDITOR=vim
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-Use a Kubernetes secret to store the Service Desk email password. For more information,
-read about [Helm IMAP secrets](https://docs.gitlab.com/charts/installation/secrets.html#imap-password-for-service-desk-emails).
+Use a Kubernetes secret to store the Service Desk email password. For more information, read about [Helm IMAP secrets](https://docs.gitlab.com/charts/installation/secrets.html#imap-password-for-service-desk-emails).
 
 {{< /tab >}}
 
@@ -125,8 +123,7 @@ echo -e "password: 'examplepassword'" | sudo gitlab-rake gitlab:service_desk_ema
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-Use a Kubernetes secret to store the Service Desk email password. For more information,
-read about [Helm IMAP secrets](https://docs.gitlab.com/charts/installation/secrets.html#imap-password-for-service-desk-emails).
+Use a Kubernetes secret to store the Service Desk email password. For more information, read about [Helm IMAP secrets](https://docs.gitlab.com/charts/installation/secrets.html#imap-password-for-service-desk-emails).
 
 {{< /tab >}}
 

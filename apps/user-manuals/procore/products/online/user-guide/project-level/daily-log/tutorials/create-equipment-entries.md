@@ -9,16 +9,16 @@ Source: https://support.procore.com/products/online/user-guide/project-level/dai
 - [Required User Permissions](../../daily-log.md#chapt6 "Daily Log")
 - **To sync Equipment Timesheets with Daily Log entries**, the following must be true:
 
-  - The configurable fieldset for [Daily Log Equipment Entries](https://support.procore.com/faq/which-fields-in-the-daily-log-tool-can-be-configured-as-required-optional-or-hidden "Which fields in the Daily Log tool can be configured as required, optional, or hidden?") must match the Equipment fieldset for [Timesheets](https://support.procore.com/faq/which-fields-in-the-timesheets-tool-can-be-configured-as-required-optional-or-hidden "Which fields in the Timesheets tool can be configured as required, optional, or hidden?").
-  - The Daily Log must be open and not marked as 'Complete'.
-  - Users must have permissions to create a timecard entry.
-  - Users must have permissions to create an Equipment Daily Log Entry.
+ - The configurable fieldset for [Daily Log Equipment Entries](https://support.procore.com/faq/which-fields-in-the-daily-log-tool-can-be-configured-as-required-optional-or-hidden "Which fields in the Daily Log tool can be configured as required, optional, or hidden?") must match the Equipment fieldset for [Timesheets](https://support.procore.com/faq/which-fields-in-the-timesheets-tool-can-be-configured-as-required-optional-or-hidden "Which fields in the Timesheets tool can be configured as required, optional, or hidden?").
+ - The Daily Log must be open and not marked as 'Complete'.
+ - Users must have permissions to create a timecard entry.
+ - Users must have permissions to create an Equipment Daily Log Entry.
 
 ## Steps
 
 ##### Note
 
-[Add](https://support.procore.com/products/online/user-guide/project-level/equipment/tutorials/add-equipment-to-projects-in-the-project-equipment-tool "Add Equipment to Projects in the Project level Equipment Tool")or [create equipment records](https://support.procore.com/products/online/user-guide/project-level/equipment/tutorials/create-an-equipment-record-in-the-project-equipment-tool "Create an Equipment Record in the Project Equipment Tool") in the Project's Equipment tool.  
+[Add](https://support.procore.com/products/online/user-guide/project-level/equipment/tutorials/add-equipment-to-projects-in-the-project-equipment-tool "Add Equipment to Projects in the Project level Equipment Tool")or [create equipment records](https://support.procore.com/products/online/user-guide/project-level/equipment/tutorials/create-an-equipment-record-in-the-project-equipment-tool "Create an Equipment Record in the Project Equipment Tool") in the Project's Equipment tool. 
 *Note:* Previously equipment was added and managed added in the Equipment page of the Admin tool.
 
 1. Navigate to the project's **Daily Log** tool.

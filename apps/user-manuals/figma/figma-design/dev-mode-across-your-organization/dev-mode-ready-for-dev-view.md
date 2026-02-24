@@ -39,15 +39,15 @@ The ready for dev view opens, displaying a list of all designs marked with a dev
 
 - **Filter designs:** Use the options to filter by the following categories:
 
-  - All
-  - Ready
-  - Completed
+ - All
+ - Ready
+ - Completed
 
-  You can also sort the display by:
+ You can also sort the display by:
 
-  - Recent activity
-  - Pages
-  - Name (A-Z)
+ - Recent activity
+ - Pages
+ - Name (A-Z)
 - **Focus on a design**: In the ready for dev view, click on a design to enter a [focused view](#h_01J04GGPFQD59QEKW58G29SJT0).
 
 ## Statuses

@@ -14,7 +14,7 @@ Available on [any plan](https://help.figma.com/hc/en-us/articles/360040328273-Pl
 
 Anyone with can edit access can create prototypes.
 
-New to Prototyping? Check out our  [Getting Started with Prototyping](guide-to-prototyping-in-figma.md) guide.
+New to Prototyping? Check out our [Getting Started with Prototyping](guide-to-prototyping-in-figma.md) guide.
 
 Prototypes have many moving parts. Add easing and spring animation presets, or customize the easing of transitions, to communicate movement, emotion, and make your prototype more like the real thing.
 

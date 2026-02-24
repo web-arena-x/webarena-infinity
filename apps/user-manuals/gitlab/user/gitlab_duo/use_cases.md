@@ -20,8 +20,7 @@ Learn how to:
 
 ### Start with a C# application
 
-In these examples, open your C# IDE, ensure that [GitLab Duo is enabled](turn_on_off.md),
-and explore how to use GitLab Duo AI-native features for more efficiency.
+In these examples, open your C# IDE, ensure that [GitLab Duo is enabled](turn_on_off.md), and explore how to use GitLab Duo AI-native features for more efficiency.
 
 #### CLI tool for querying the GitLab REST API
 
@@ -33,78 +32,69 @@ The challenge is to create a CLI tool for querying the GitLab REST API.
 
 - Ask GitLab Duo Chat how to start a new C# project and learn how to use the dotNET CLI:
 
-  ```markdown
-  How can I get started creating an empty C# console application in VS Code?
-  ```
+ ```markdown
+ How can I get started creating an empty C# console application in VS Code?
+ ```
 
 - Use Code Suggestions to generate a REST API client with a new code comment:
 
-  ```csharp
-  // Connect to a REST API and print the response
-  ```
+ ```csharp
+ // Connect to a REST API and print the response
+ ```
 
-- The generated source code might need an explanation: Use the code task `/explain`
-  to get an insight how the REST API calls work.
+- The generated source code might need an explanation: Use the code task `/explain` to get an insight how the REST API calls work.
 
-After the source code is generated from a Code Suggestions comment,
-you need to configure CI/CD.
+After the source code is generated from a Code Suggestions comment, you need to configure CI/CD.
 
 - Chat can help with best practices for a `.gitignore` file for C#:
 
-  ```markdown
-  Show a .gitignore and .gitlab-ci.yml configuration for a C# project.
-  ```
+ ```markdown
+ Show a .gitignore and .gitlab-ci.yml configuration for a C# project.
+ ```
 
 - If your CI/CD job fails, use Root Cause Analysis to [troubleshoot failed CI/CD jobs](../gitlab_duo_chat/examples.md#troubleshoot-failed-cicd-jobs-with-root-cause-analysis).
-  Alternatively, you can copy the error message into
-  GitLab Duo Chat, and ask for help:
+ Alternatively, you can copy the error message into GitLab Duo Chat, and ask for help:
 
-  ```markdown
-  Explain the CI/CD error: The current .NET SDK does not support targeting
-  .NET 8.0
-  ```
+ ```markdown
+ Explain the CI/CD error: The current .NET SDK does not support targeting
+ .NET 8.0
+ ```
 
-- To create tests later, ask GitLab Duo to use the code task `/refactor` to refactor
-  the selected code into a function.
+- To create tests later, ask GitLab Duo to use the code task `/refactor` to refactor the selected code into a function.
 
-- Chat can also explain programming language specific keywords and functions, or C#
-  compiler errors.
+- Chat can also explain programming language specific keywords and functions, or C# compiler errors.
 
-  ```markdown
-  Can you explain async and await in C# with practical examples?
+ ```markdown
+ Can you explain async and await in C# with practical examples?
 
-  explain error CS0122: 'Program' is inaccessible due to its protection level
-  ```
+ explain error CS0122: 'Program' is inaccessible due to its protection level
+ ```
 
 - Generate tests by using the `/tests` code task.
 
 The next question is where to put the generated tests in C# solutions.
-As a beginner, you might not know that the application and test projects must exist on the same
-solutions level to avoid import problems.
+As a beginner, you might not know that the application and test projects must exist on the same solutions level to avoid import problems.
 
 - GitLab Duo Chat can help by asking and refining the prompt questions:
 
-  ```markdown
-  In C# and VS Code, how can I add a reference to a project from a test project?
+ ```markdown
+ In C# and VS Code, how can I add a reference to a project from a test project?
 
-  Provide the XML configuration which I can add to a C# .csproj file to add a
-  reference to another project in the existing solution?
-  ```
+ Provide the XML configuration which I can add to a C# .csproj file to add a
+ reference to another project in the existing solution?
+ ```
 
-- Sometimes, you must refine the prompt to get better results. The prompt
-  `/refactor into the public class` creates a proposal for code that can be accessed
-  from the test project later.
+- Sometimes, you must refine the prompt to get better results. The prompt `/refactor into the public class` creates a proposal for code that can be accessed from the test project later.
 
-  ```markdown
-  /refactor into the public class
-  ```
+ ```markdown
+ /refactor into the public class
+ ```
 
-- You can also use the `/refactor` code task to ask Chat how to execute tests in the
-  `.gitlab-ci.yml` file.
+- You can also use the `/refactor` code task to ask Chat how to execute tests in the `.gitlab-ci.yml` file.
 
-  ```markdown
-  /refactor add a job to run tests (the test project)
-  ```
+ ```markdown
+ /refactor add a job to run tests (the test project)
+ ```
 
 Resources:
 
@@ -134,8 +124,7 @@ To refactor the source code into reusable and testable functions:
 1. Split the refactoring strategy into functional blocks.
    For example, iterate on all insert, update, and delete operations in the database.
 
-1. To generate tests for the newly created functions, select the source code again and
-   use the code task `/tests`. Include a specific prompt of instructions for the test framework:
+1. To generate tests for the newly created functions, select the source code again and use the code task `/tests`. Include a specific prompt of instructions for the test framework:
 
    ```markdown
    /tests using the CTest test framework
@@ -164,95 +153,95 @@ Watch the walkthrough of these steps in [GitLab Duo Coffee Chat: Refactor C++ fu
 
 - Ask GitLab Duo Chat how to implement an object-oriented pattern for a base database class and inherit it in a SQLite class:
 
-  ```markdown
-  Explain a generic database implementation using a base class, and SQLite specific class using C++. Provide source examples and steps to follow.
-  ```
+ ```markdown
+ Explain a generic database implementation using a base class, and SQLite specific class using C++. Provide source examples and steps to follow.
+ ```
 
 - The learning curve includes asking GitLab Duo Chat about pure virtual functions and virtual function overrides in the implementation class.
 
-  ```markdown
-  What is a pure virtual function, and what is required for the developer inheriting from that class?
-  ```
+ ```markdown
+ What is a pure virtual function, and what is required for the developer inheriting from that class?
+ ```
 
 - Code tasks can help refactoring the code. Select the functions in the C++ header file, and use a refined prompt:
 
-  ```markdown
-  /refactor into class with public functions, and private path/db attributes. Inherit from the base class DB
+ ```markdown
+ /refactor into class with public functions, and private path/db attributes. Inherit from the base class DB
 
-  /refactor into a base class with pure virtual functions called DB. Remote the SQLite specific parts.
-  ```
+ /refactor into a base class with pure virtual functions called DB. Remote the SQLite specific parts.
+ ```
 
 - GitLab Duo Chat also guides with constructor overloading, object initialization, and optimized memory management with shared pointers.
 
-  ```markdown
-  How to add a function implementation to a class in a cpp file?
+ ```markdown
+ How to add a function implementation to a class in a cpp file?
 
-  How to pass values to class attributes through the class constructor call?
-  ```
+ How to pass values to class attributes through the class constructor call?
+ ```
 
 ##### Find better answers
 
 - The following question did not provide enough context.
 
-  ```markdown
-  Should I use virtual override instead of just override?
-  ```
+ ```markdown
+ Should I use virtual override instead of just override?
+ ```
 
 - Instead, try to add more context to get better answers.
 
-  ```markdown
-  When implementing a pure virtual function in an inherited class, should I use virtual function override, or just function override? Context is C++.
-  ```
+ ```markdown
+ When implementing a pure virtual function in an inherited class, should I use virtual function override, or just function override? Context is C++.
+ ```
 
 - A relatively complex question involves how to instantiate an object from the newly created class, and call specific functions.
 
-  ```markdown
-  How to instantiate an object from a class in C++, call the constructor with the SQLite DB path and call the functions. Prefer pointers.
-  ```
+ ```markdown
+ How to instantiate an object from a class in C++, call the constructor with the SQLite DB path and call the functions. Prefer pointers.
+ ```
 
 - The result can be helpful, but needed refinements for shared pointers and required source code headers.
 
-  ```markdown
-  How to instantiate an object from a class in C++, call the constructor with the SQLite DB path and call the functions. Prefer shared pointers. Explain which header includes are necessary.
-  ```
+ ```markdown
+ How to instantiate an object from a class in C++, call the constructor with the SQLite DB path and call the functions. Prefer shared pointers. Explain which header includes are necessary.
+ ```
 
 - Code Suggestions helps generate the correct syntax for `std::shared_ptr` pointer arithmetic and help improve the code quality.
 
-  ```cpp
-  // Define the SQLite path in a variable, default value database.db
+ ```cpp
+ // Define the SQLite path in a variable, default value database.db
 
-  // Create a shared pointer for the SQLite class
+ // Create a shared pointer for the SQLite class
 
-  // Open a database connection using OpenConnection
-  ```
+ // Open a database connection using OpenConnection
+ ```
 
 ##### Refactor your code
 
 - After refactoring the source code, compiler errors may occur. Ask Chat to explain them.
 
-  ```markdown
-  Explain the error: `db` is a private member of `SQLiteDB`
-  ```
+ ```markdown
+ Explain the error: `db` is a private member of `SQLiteDB`
+ ```
 
 - A specific SQL query string should be refactored into a multi-line string for more efficient editing.
 
-  ```cpp
-  std::string sql = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, email TEXT NOT NULL)";
-  ```
+ ```cpp
+ std::string sql = "CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, email TEXT NOT NULL)";
+ ```
 
 - Select the source code, and use the `/refactor` code task:
 
-  ```markdown
-  /refactor into a stringstream with multiple lines
-  ```
+ ```markdown
+ /refactor into a stringstream with multiple lines
+ ```
 
 - You can also refactor utility functions into a class with static functions in C++ and then ask Chat how to call them.
 
-  ```markdown
-  /refactor into a class providing static functions
+ ```markdown
+ /refactor into a class providing static functions
 
-  How to call the static functions in the class?
-  ```
+ How to call the static functions in the class?
+ ```
 
 After refactoring the source code, the foundation for more database types is built, and overall code quality improved.
 
@@ -469,8 +458,7 @@ fun main() {
    # Collect the files in a directory and print their size
    ```
 
-1. Wait for Code Suggestions to complete the prompt, and then add the following prompts to
-   experiment with different output formats:
+1. Wait for Code Suggestions to complete the prompt, and then add the following prompts to experiment with different output formats:
 
    ```powershell
    # Collect the files in a directory and print their size
@@ -485,8 +473,7 @@ fun main() {
    # Repeat the code above but store the results in a CSV file
    ```
 
-1. Repeat the steps with prompts for different export formats,
-   or use Code Suggestions auto-complete. For example:
+1. Repeat the steps with prompts for different export formats, or use Code Suggestions auto-complete. For example:
 
    ```powershell
    # Collect the files in a directory and print their size
@@ -596,25 +583,25 @@ Watch the walkthrough of these steps in [GitLab Duo Coffee Chat: Solve problems 
 
 - You can use GitLab Duo Chat to explain CI/CD errors.
 
-  ```markdown
-  Explain this CI/CD error: build.sh: line 14: go command not found
-  ```
+ ```markdown
+ Explain this CI/CD error: build.sh: line 14: go command not found
+ ```
 
 - What happens when you are impatient, and input just one or two words?
 
-  ```markdown
-  labels
+ ```markdown
+ labels
 
-  issue labels
-  ```
+ issue labels
+ ```
 
-  GitLab Duo Chat asks for more context.
+ GitLab Duo Chat asks for more context.
 
 - Refine your question into a full sentence, describing the problem and asking for a solution.
 
-  ```markdown
-  Explain labels in GitLab. Provide an example for efficient usage.
-  ```
+ ```markdown
+ Explain labels in GitLab. Provide an example for efficient usage.
+ ```
 
 Resources:
 
@@ -622,32 +609,20 @@ Resources:
 
 ## Root Cause Analysis use cases
 
-Use Root Cause Analysis to determine the root cause of a CI/CD
-job failure. The following examples illustrate common errors, and
-encourage you to fork and practice finding and fixing the root cause.
+Use Root Cause Analysis to determine the root cause of a CI/CD job failure. The following examples illustrate common errors, and encourage you to fork and practice finding and fixing the root cause.
 
 For more information, see the blog post [Developing GitLab Duo: Blending AI and Root Cause Analysis to fix CI/CD pipelines](https://about.gitlab.com/blog/2024/06/06/developing-gitlab-duo-blending-ai-and-root-cause-analysis-to-fix-ci-cd/).
 
 ### Analyze missing Go runtime
 
-CI/CD jobs can be executed in containers, spawned from the contributed `image`
-attribute. If the container does not provide a programming language runtime,
-the executed `script` sections that reference the `go` binary fail. For example,
-the error message `/bin/sh: eval: line 149: go: not found` must be understood
-and fixed. If the `go` command is not found in the container's runtime context,
-it might be due to multiple reasons:
+CI/CD jobs can be executed in containers, spawned from the contributed `image` attribute. If the container does not provide a programming language runtime, the executed `script` sections that reference the `go` binary fail. For example, the error message `/bin/sh: eval: line 149: go: not found` must be understood and fixed. If the `go` command is not found in the container's runtime context, it might be due to multiple reasons:
 
-- The job uses a minimal container image like `alpine`, and the Go language
-  runtime was not installed.
-- The job uses the wrong default container image specified in
-  the CI/CD configuration, or uses the `default` keyword.
-- The job uses the shell executor instead of the container image. The host operating
-  system is broken, doesn't have the Go language runtime installed, or is not configured.
+- The job uses a minimal container image like `alpine`, and the Go language runtime was not installed.
+- The job uses the wrong default container image specified in the CI/CD configuration, or uses the `default` keyword.
+- The job uses the shell executor instead of the container image. The host operating system is broken, doesn't have the Go language runtime installed, or is not configured.
 
 The project [Challenge: Root Cause Analysis - Go GitLab Release Fetcher](https://gitlab.com/gitlab-da/use-cases/ai/ai-workflows/gitlab-duo-challenges/root-cause-analysis/challenge-root-cause-analysis-go-gitlab-release-fetcher)
-provides an exercise to analyze and fix CI/CD problems with a Go Tanuki app. In this exercise,
-the `build` and `docker-build` jobs are failing. When you have fixed
-the problem, the CI/CD pipeline succeeds and the `build` job prints an output.
+provides an exercise to analyze and fix CI/CD problems with a Go Tanuki app. In this exercise, the `build` and `docker-build` jobs are failing. When you have fixed the problem, the CI/CD pipeline succeeds and the `build` job prints an output.
 The `solution/` directory provides two possible solutions.
 
 ## Use GitLab Duo to contribute to GitLab
@@ -693,13 +668,11 @@ The following examples provide [code generation](../project/repository/code_sugg
 prompts for the [supported languages](../project/repository/code_suggestions/supported_extensions.md) in GitLab Duo.
 You can use multi-line comments to refine code generation prompts.
 
-The examples are stored in the [GitLab Duo Prompts project](https://gitlab.com/gitlab-da/use-cases/ai/ai-workflows/gitlab-duo-prompts),
-maintained by the Developer Relations team. These examples are tested working. You should review and adapt them for your environment.
+The examples are stored in the [GitLab Duo Prompts project](https://gitlab.com/gitlab-da/use-cases/ai/ai-workflows/gitlab-duo-prompts), maintained by the Developer Relations team. These examples are tested working. You should review and adapt them for your environment.
 
 ### C code generation prompts
 
-Create a Linux statistics tool that collects I/O, performance, disk usage, and TCP latency
-and prints their output. For a full example, see the blog post [Top tips for efficient AI-powered Code Suggestions with GitLab Duo blog post](https://about.gitlab.com/blog/2024/06/11/top-tips-for-efficient-ai-powered-code-suggestions-with-gitlab-duo/#code-suggestions-flow-with-comments).
+Create a Linux statistics tool that collects I/O, performance, disk usage, and TCP latency and prints their output. For a full example, see the blog post [Top tips for efficient AI-powered Code Suggestions with GitLab Duo blog post](https://about.gitlab.com/blog/2024/06/11/top-tips-for-efficient-ai-powered-code-suggestions-with-gitlab-duo/#code-suggestions-flow-with-comments).
 
 ```c
 // Create a Linux statistic tool
@@ -750,16 +723,16 @@ Create a CLI application that acts as HTTP client.
 #include <string>
 
 int main(int argc, char** argv) {
-  std::string url;
-  std::string endpoint;
-  std::string username;
-  std::string password;
+ std::string url;
+ std::string endpoint;
+ std::string username;
+ std::string password;
 
-  // Parse command line options
-  // ...
+ // Parse command line options
+ // ...
 
-  CURL* curl = curl_easy_init();
-  if(curl) {
+ CURL* curl = curl_easy_init();
+ if(curl) {
     curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 
     // Set up basic auth
@@ -773,9 +746,9 @@ int main(int argc, char** argv) {
     }
 
     curl_easy_cleanup(curl);
-  }
+ }
 
-  return 0;
+ return 0;
 }
 ```
 
@@ -955,63 +928,63 @@ Create an observability application for Kubernetes which reads and prints the st
 package main
 
 import (
-  "context"
-  "fmt"
-  "os"
+ "context"
+ "fmt"
+ "os"
 
-  "k8s.io/client-go/kubernetes"
-  "k8s.io/client-go/tools/clientcmd"
+ "k8s.io/client-go/kubernetes"
+ "k8s.io/client-go/tools/clientcmd"
 
-  metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+ metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
 func main() {
 
-  clientset := getClientset()
-  namespace := "default"
+ clientset := getClientset()
+ namespace := "default"
 
-  printPods(clientset, namespace)
-  printServices(clientset, namespace)
-  printContainers(clientset, namespace)
+ printPods(clientset, namespace)
+ printServices(clientset, namespace)
+ printContainers(clientset, namespace)
 
 }
 
 func getClientset() *kubernetes.Clientset {
 
-  kubeconfig := os.Getenv("KUBECONFIG")
+ kubeconfig := os.Getenv("KUBECONFIG")
 
-  config, err := clientcmd.BuildConfigFromFlags("", kubeconfig)
-  if err != nil {
+ config, err := clientcmd.BuildConfigFromFlags("", kubeconfig)
+ if err != nil {
     panic(err)
-  }
+ }
 
-  clientset, err := kubernetes.NewForConfig(config)
-  if err != nil {
+ clientset, err := kubernetes.NewForConfig(config)
+ if err != nil {
     panic(err)
-  }
+ }
 
-  return clientset
+ return clientset
 }
 
 func printPods(clientset *kubernetes.Clientset, namespace string) {
 
-  pods, err := clientset.CoreV1().Pods(namespace).List(context.TODO(), metav1.ListOptions{})
-  if err != nil {
+ pods, err := clientset.CoreV1().Pods(namespace).List(context.TODO(), metav1.ListOptions{})
+ if err != nil {
     panic(err)
-  }
+ }
 
-  fmt.Printf("There are %d pods in the %s namespace\n", len(pods.Items), namespace)
+ fmt.Printf("There are %d pods in the %s namespace\n", len(pods.Items), namespace)
 
 }
 
 func printServices(clientset *kubernetes.Clientset, namespace string) {
 
-  services, err := clientset.CoreV1().Services(namespace).List(context.TODO(), metav1.ListOptions{})
-  if err != nil {
+ services, err := clientset.CoreV1().Services(namespace).List(context.TODO(), metav1.ListOptions{})
+ if err != nil {
     panic(err)
-  }
+ }
 
-  fmt.Printf("There are %d services in the %s namespace\n", len(services.Items), namespace)
+ fmt.Printf("There are %d services in the %s namespace\n", len(services.Items), namespace)
 
 }
 
@@ -1039,8 +1012,7 @@ func printContainers(clientset *kubernetes.Clientset, namespace string) {
 Watch the recording here: [GitLab Duo Coffee Chat: Code Generation Challenge with Go and Kubernetes Observability](https://www.youtube.com/watch?v=ORpRqp-A9hQ)
 <!-- Video published on 2024-03-27. Maintainer: Developer Relations. -->
 
-Create an in-memory key value store, similar to Redis. For a complete walkthrough, see the
-blog post, [Top tips for efficient AI-powered Code Suggestions with GitLab Duo](https://about.gitlab.com/blog/2024/06/11/top-tips-for-efficient-ai-powered-code-suggestions-with-gitlab-duo/#iterate-faster-with-code-generation)
+Create an in-memory key value store, similar to Redis. For a complete walkthrough, see the blog post, [Top tips for efficient AI-powered Code Suggestions with GitLab Duo](https://about.gitlab.com/blog/2024/06/11/top-tips-for-efficient-ai-powered-code-suggestions-with-gitlab-duo/#iterate-faster-with-code-generation)
 blog post.
 
 ```go
@@ -1091,16 +1063,16 @@ Add a table with one Dev, one Ops, one Sec example.
 -->
 
 <table>
-  <tr>
+ <tr>
     <th>Dev</th>
     <th>Ops</th>
     <th>Sec</th>
-  </tr>
-  <tr>
+ </tr>
+ <tr>
     <td>Automated testing and continuous integration</td>
     <td>Infrastructure as code and automated provisioning</td>
     <td>Static code analysis and vulnerability scanning</td>
-  </tr>
+ </tr>
 </table>
 ```
 
@@ -1255,36 +1227,36 @@ conn.execute('''CREATE TABLE IF NOT EXISTS users
 
 @app.route('/users', methods=['POST'])
 def create_user():
-  # Get user data from request
-  name = request.form['name']
-  email = request.form['email']
+ # Get user data from request
+ name = request.form['name']
+ email = request.form['email']
 
-  # Insert user into database
-  conn.execute('INSERT INTO users (name, email) VALUES (?, ?)', (name, email))
+ # Insert user into database
+ conn.execute('INSERT INTO users (name, email) VALUES (?, ?)', (name, email))
 
-  return 'User created successfully'
+ return 'User created successfully'
 
 @app.route('/users/<int:id>', methods=['PUT'])
 def update_user(id):
-  # Get user data from request
-  name = request.form['name']
-  email = request.form['email']
+ # Get user data from request
+ name = request.form['name']
+ email = request.form['email']
 
-  # Update user in database
-  conn.execute('UPDATE users SET name = ?, email = ? WHERE id = ?', (name, email, id))
+ # Update user in database
+ conn.execute('UPDATE users SET name = ?, email = ? WHERE id = ?', (name, email, id))
 
-  return 'User updated successfully'
+ return 'User updated successfully'
 
 @app.route('/users/<int:id>', methods=['DELETE'])
 def delete_user(id):
-  # Delete user from database
-  conn.execute('DELETE FROM users WHERE id = ?', (id,))
+ # Delete user from database
+ conn.execute('DELETE FROM users WHERE id = ?', (id,))
 
-  return 'User deleted successfully'
+ return 'User deleted successfully'
 
 if __name__ == '__main__':
-  # Required packages - flask, sqlite3
-  app.run(host='0.0.0.0', port=8080, ssl_context='adhoc')
+ # Required packages - flask, sqlite3
+ app.run(host='0.0.0.0', port=8080, ssl_context='adhoc')
 
 ```
 
@@ -1304,42 +1276,41 @@ require 'logger'
 require 'elasticsearch'
 
 class LogParser
-  attr_reader :logger
+ attr_reader :logger
 
-  def initialize
+ def initialize
     @logger = Logger.new(STDOUT)
     @elasticsearch = Elasticsearch::Client.new
-  end
+ end
 
-  def parse_and_store(logs)
+ def parse_and_store(logs)
     sanitized_logs = sanitize_logs(logs)
     formatted_logs = format_logs(sanitized_logs)
     store_in_elasticsearch(formatted_logs)
-  end
+ end
 
-  private
+ private
 
-  def sanitize_logs(logs)
+ def sanitize_logs(logs)
     logs.map { |line| sanitize_line(line) }
-  end
+ end
 
-  def sanitize_line(line)
+ def sanitize_line(line)
     # replace sensitive data
     line.gsub(/\d{16}/, '[REDACTED]')
-  end
+ end
 
-  def format_logs(logs)
+ def format_logs(logs)
     logs.map { |line| "#{Time.now}: #{line}" }
-  end
+ end
 
-  def store_in_elasticsearch(logs)
+ def store_in_elasticsearch(logs)
     logs.each { |log| @elasticsearch.index(index: 'app-logs', document: log) }
-  end
+ end
 end
 ```
 
-Create a log client utility class that supports the syslog format with
-severity levels, application name and message string.
+Create a log client utility class that supports the syslog format with severity levels, application name and message string.
 
 ```ruby
 # Create Logging utility class
@@ -1349,12 +1320,12 @@ severity levels, application name and message string.
 
 # Potential AI-generated code below
 class Logging
-  attr_accessor :log_level
+ attr_accessor :log_level
 
-  def log(level, app, message)
+ def log(level, app, message)
     time = Time.now.strftime("%b %d %H:%M:%S")
     puts "#{time} #{app}[#{Process.pid}]: #{level} - #{message}"
-  end
+ end
 end
 
 # Instantiate class and test the log method
@@ -1417,7 +1388,7 @@ The AI-generated source code examples are available in the [`rust` directory in 
 // Add a function that implements Newtons method for solving equations
 // Add a driver function which tests the implemented function
 object NewtonsMethod {
-  def solveEquation(f: Double => Double, df: Double => Double, x0: Double, tolerance: Double): Double = {
+ def solveEquation(f: Double => Double, df: Double => Double, x0: Double, tolerance: Double): Double = {
     var x = x0
     var error = Double.PositiveInfinity
     while (math.abs(error) > tolerance) {
@@ -1425,16 +1396,16 @@ object NewtonsMethod {
       x -= error
     }
     x
-  }
+ }
 
-  def main(args: Array[String]): Unit = {
+ def main(args: Array[String]): Unit = {
     val f: Double => Double = x => x * x - 4
     val df: Double => Double = x => 2 * x
     val x0 = 3.0
     val tolerance = 1e-6
     val root = solveEquation(f, df, x0, tolerance)
     println(s"The root is: $root")
-  }
+ }
 }
 ```
 

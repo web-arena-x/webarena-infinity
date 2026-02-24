@@ -21,8 +21,8 @@ Using a text editor, or right-clicking the file and "open with" notepad or a com
 
 - Right click column> Format Cells > Custom Format > Add the number of characters in 0's
 
-- E.g. if all card ID's are 16-digits, add 16 0's:  
-  ![](https://support.joinhandshake.com/hc/article_attachments/25997597219351)
+- E.g. if all card ID's are 16-digits, add 16 0's: 
+ ![](https://support.joinhandshake.com/hc/article_attachments/25997597219351)
 - This will prefix any ID number that does not meet the 16-digit specification
 
 - If a card id reads: 123456789

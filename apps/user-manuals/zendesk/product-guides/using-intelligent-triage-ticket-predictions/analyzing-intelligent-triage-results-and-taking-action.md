@@ -8,7 +8,7 @@ Intelligent triage is an AI-powered feature that automatically detects what a ti
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Copilot |
 
@@ -16,15 +16,9 @@ Verified AI summary ◀▼
 
 Intelligent triage uses AI to detect ticket intent, language, and sentiment, helping you streamline workflows. Start by understanding how it works, enabling it, and building reports to analyze trends. Identify prevalent intents and languages, group similar ones, and address negative sentiments. Focus on key metrics like CSAT and first response time, and iteratively refine workflows based on agent feedback.
 
-Intelligent triage is an AI-powered feature that automatically detects what a ticket is
-about (its intent), what language it's written in, and whether the customer's message is
-positive or negative (its sentiment). You can use this information to route tickets to
-the right groups automatically, create views to group similar types of requests, and
-report on trends in the types of tickets your customers are submitting.
+Intelligent triage is an AI-powered feature that automatically detects what a ticket is about (its intent), what language it's written in, and whether the customer's message is positive or negative (its sentiment). You can use this information to route tickets to the right groups automatically, create views to group similar types of requests, and report on trends in the types of tickets your customers are submitting.
 
-Because intelligent triage can affect different areas of your ticket workflows, you might
-not know exactly where to start at first. This article discusses some best practices for
-gathering, analyzing, and acting on intelligent triage information.
+Because intelligent triage can affect different areas of your ticket workflows, you might not know exactly where to start at first. This article discusses some best practices for gathering, analyzing, and acting on intelligent triage information.
 
 For more information about intelligent triage, see [Intelligent triage resources](https://support.zendesk.com/hc/en-us/articles/4471123173402).
 
@@ -35,52 +29,30 @@ This article contains the following topics:
 
 Related articles:
 
-- [Using intelligent triage to identify and act on
-  ticket escalations](https://support.zendesk.com/hc/en-us/articles/6353620565530)
+- [Using intelligent triage to identify and act on ticket escalations](https://support.zendesk.com/hc/en-us/articles/6353620565530)
 
-Note: When creating reports in Explore, intelligent triage
-prediction values are available only in English. However, intelligent triage is
-capable of evaluating content in the languages listed [here](https://support.zendesk.com/hc/en-us/articles/4408821324826#h_01GYJ1PBVKD26QN3E8JNS3X3TX).
+Note: When creating reports in Explore, intelligent triage prediction values are available only in English. However, intelligent triage is capable of evaluating content in the languages listed [here](https://support.zendesk.com/hc/en-us/articles/4408821324826#h_01GYJ1PBVKD26QN3E8JNS3X3TX).
 
 ## Gathering intelligent triage data
 
-Intelligent triage can have a powerful effect on your agents' workflows, saving them
-anywhere from 30 to 60 seconds per ticket by automatically identifying and routing a
-ticket based on its intent, language, or sentiment.
+Intelligent triage can have a powerful effect on your agents' workflows, saving them anywhere from 30 to 60 seconds per ticket by automatically identifying and routing a ticket based on its intent, language, or sentiment.
 
-However, before you make any changes to your triage or routing workflows, it's
-helpful to understand exactly how intelligent triage categorizes the tickets in your
-account. Getting to know the specific intent values and trends in your account will
-help you decide which workflow changes will best improve the agent and customer
-experience.
+However, before you make any changes to your triage or routing workflows, it's helpful to understand exactly how intelligent triage categorizes the tickets in your account. Getting to know the specific intent values and trends in your account will help you decide which workflow changes will best improve the agent and customer experience.
 
 In general, we recommend getting started with these four steps:
 
-1. **[Understand how intelligent triage
-   works](https://support.zendesk.com/hc/en-us/articles/4964463770650#topic_nkh_cst_x5b)** from ticket submission to resolution. You should also
-   understand how the system [populates intent, language, and sentiment
-   values on tickets](https://support.zendesk.com/hc/en-us/articles/4550640560538#topic_ebn_l4g_htb).
-2. **[Enable intelligent triage](https://support.zendesk.com/hc/en-us/articles/4550640560538#topic_gpp_p4g_htb)** to
-   start allowing tickets in your account to be categorized with an intent,
-   language, sentiment, or all three.
-3. **[Build reports to analyze intelligent
-   triage results](https://support.zendesk.com/hc/en-us/articles/4550620559258)** to see trends in your tickets. As you get
-   started, consider building separate reports for intent, language, and sentiment
-   to allow you to focus on one prediction type at a time.
-4. **Wait for approximately two weeks** to allow for a sufficient sample size of
-   tickets to be enriched by intelligent triage.
+1. **[Understand how intelligent triage works](https://support.zendesk.com/hc/en-us/articles/4964463770650#topic_nkh_cst_x5b)** from ticket submission to resolution. You should also understand how the system [populates intent, language, and sentiment values on tickets](https://support.zendesk.com/hc/en-us/articles/4550640560538#topic_ebn_l4g_htb).
+2. **[Enable intelligent triage](https://support.zendesk.com/hc/en-us/articles/4550640560538#topic_gpp_p4g_htb)** to start allowing tickets in your account to be categorized with an intent, language, sentiment, or all three.
+3. **[Build reports to analyze intelligent triage results](https://support.zendesk.com/hc/en-us/articles/4550620559258)** to see trends in your tickets. As you get started, consider building separate reports for intent, language, and sentiment to allow you to focus on one prediction type at a time.
+4. **Wait for approximately two weeks** to allow for a sufficient sample size of tickets to be enriched by intelligent triage.
 
 ## Analyzing and fine-tuning the results
 
-After a couple of weeks, intelligent triage should have enriched enough tickets for
-you to be able to decide which actions to take. The following sections present some
-additional points to consider as you perform this analysis.
+After a couple of weeks, intelligent triage should have enriched enough tickets for you to be able to decide which actions to take. The following sections present some additional points to consider as you perform this analysis.
 
 ### Identify trends in the predicted intents, languages, and sentiments
 
-First, take a look at the reports you built above and review the High and Medium
-confidence tickets. Look for trends, and decide whether you want to take action
-to improve them.
+First, take a look at the reports you built above and review the High and Medium confidence tickets. Look for trends, and decide whether you want to take action to improve them.
 
 | Trend | Actions to consider |
 | --- | --- |
@@ -91,13 +63,9 @@ to improve them.
 
 ### Decide which metrics you want to improve
 
-Next, decide which metrics matter the most to your team. Do you want to raise
-CSAT ratings, meet SLAs more consistently, improve first response time, reduce
-group assignments, or something else?
+Next, decide which metrics matter the most to your team. Do you want to raise CSAT ratings, meet SLAs more consistently, improve first response time, reduce group assignments, or something else?
 
-Start by targeting one or two metrics, or perhaps a subset of intents, and
-consider how workflow changes can improve the overall experience. Target those
-areas first to get the maximum impact from intelligent triage.
+Start by targeting one or two metrics, or perhaps a subset of intents, and consider how workflow changes can improve the overall experience. Target those areas first to get the maximum impact from intelligent triage.
 
 | Trend | Action to consider |
 | --- | --- |
@@ -107,30 +75,17 @@ areas first to get the maximum impact from intelligent triage.
 
 ### Design, implement, and report in an iterative process
 
-Regardless of the changes you decide to make, remember that this is an iterative
-process. You will identify trends, make changes accordingly, track the success
-of those changes, and repeat.
+Regardless of the changes you decide to make, remember that this is an iterative process. You will identify trends, make changes accordingly, track the success of those changes, and repeat.
 
-Here are some questions to consider as you design, implement, and report on your
-workflow changes:
+Here are some questions to consider as you design, implement, and report on your workflow changes:
 
-- What is the highest level of confidence needed for the workflow to be
-  effective? For example, is it acceptable to send *all* tickets with a
-  certain intent to a designated group and ask that they manually reroute if
-  the intent was wrong, or should only tickets with a High confidence level be
-  routed to that group?
-- Should the workflow apply a tag or update some other ticket attribute to
-  allow for easier reporting in the future?
+- What is the highest level of confidence needed for the workflow to be effective? For example, is it acceptable to send *all* tickets with a certain intent to a designated group and ask that they manually reroute if the intent was wrong, or should only tickets with a High confidence level be routed to that group?
+- Should the workflow apply a tag or update some other ticket attribute to allow for easier reporting in the future?
 
 ### Establish two-way communication with your agents
 
-Inform your agents of any changes you make so that they’re equipped to provide
-feedback on them, both good and bad.
+Inform your agents of any changes you make so that they’re equipped to provide feedback on them, both good and bad.
 
-For example, consider [setting up a macro](https://support.zendesk.com/hc/en-us/articles/4408844187034) to tag tickets
-where the agent has feedback, and include an internal note where they can record
-their feedback about the workflow.
+For example, consider [setting up a macro](https://support.zendesk.com/hc/en-us/articles/4408844187034) to tag tickets where the agent has feedback, and include an internal note where they can record their feedback about the workflow.
 
-Ask your agents about particular pain points they have with tickets. If there is
-a particular group of intents where they see complications, brainstorm ways to
-adapt your workflows to improve the agent and customer experience.
+Ask your agents about particular pain points they have with tickets. If there is a particular group of intents where they see complications, brainstorm ways to adapt your workflows to improve the agent and customer experience.

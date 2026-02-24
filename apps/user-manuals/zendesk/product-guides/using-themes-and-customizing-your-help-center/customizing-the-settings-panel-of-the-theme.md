@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408846524954-Customizing-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Guide Professional or Enterprise |
 
@@ -44,7 +44,7 @@ You can modify existing settings in the panel or create new ones. In the followi
 
 ```
 "settings": [
-  {
+ {
     "label": "Colors",
     "variables": [
       {
@@ -56,8 +56,8 @@ You can modify existing settings in the panel or create new ones. In the followi
       },
       ...
     ]
-  },
-  ...
+ },
+ ...
 ]
 ```
 
@@ -77,7 +77,7 @@ You can insert a variable in the theme's **style.css** file using the `$identifi
 
 ```
 input:focus {
-  border: 1px solid $color_brand_text;
+ border: 1px solid $color_brand_text;
 }
 ```
 
@@ -121,13 +121,13 @@ The manifest's document root object has the following properties:
 
 ```
 {
-  "name": "My second theme",
-  "author": "Jane Doe",
-  "version": "1.0.1",
-  "api_version": 3,
-  "settings": [
+ "name": "My second theme",
+ "author": "Jane Doe",
+ "version": "1.0.1",
+ "api_version": 3,
+ "settings": [
     ...
-  ]
+ ]
 }
 ```
 
@@ -142,28 +142,28 @@ Each setting object has the following properties:
 | Name | Type | Comment |
 | --- | --- | --- |
 | label | string | A translation property name. See [Translations](#translations). Displays a title for a group of settings. |
-| variables | array | List of settings in the group. Also called variables. See [Variable object](#variable-object). The manifest file can have a maximum quantity of 200 variable objects.  See [Guide product limits for your help center](https://www.google.com/url?q=https://support.zendesk.com/hc/en-us/articles/4408831783962-Guide-product-limits-for-your-help-center%23topic_cnb_vnd_dcb&sa=D&source=docs&ust=1686667397108455&usg=AOvVaw2sZuLqHt-h3BnM2FgIGRWb) (Total number of settings in manifest.json). |
+| variables | array | List of settings in the group. Also called variables. See [Variable object](#variable-object). The manifest file can have a maximum quantity of 200 variable objects. See [Guide product limits for your help center](https://www.google.com/url?q=https://support.zendesk.com/hc/en-us/articles/4408831783962-Guide-product-limits-for-your-help-center%23topic_cnb_vnd_dcb&sa=D&source=docs&ust=1686667397108455&usg=AOvVaw2sZuLqHt-h3BnM2FgIGRWb) (Total number of settings in manifest.json). |
 
 #### Example
 
 ```
 "settings": [
-  {
+ {
     "label": "colors_group_label",
     "variables": [{...}, ...]
-  },
-  {
+ },
+ {
     "label": "fonts_group_label",
     "variables": [{...}, ...]
-  },
-  {
+ },
+ {
     "label": "brand_group_label",
     "variables": [{...}, ...]
-  },
-  {
+ },
+ {
     "label": "banners_group_label",
     "variables": [{...}, ...]
-  }
+ }
 ]
 ```
 
@@ -185,8 +185,8 @@ Each variable has the following properties:
 | --- | --- | --- |
 | identifier | string | Variable name that you can use in CSS or Curlybars expressions. Must be 30 characters or less and contain only alphanumeric characters and \_ (underscore) |
 | type | string | UI control in the Settings panel in Guide to get the value from the user. One of `text`, `list`, `checkbox`, `color`, `file`, or `range`. See [Type property](#type-property) |
-| label | string | The name of the setting that gets displayed next to the UI control in the Settings panel. Must be 40 characters or less.  To translate this value, use a translation property name. See [Translations](https://support.zendesk.com/hc/en-us/articles/5865881240858#translations). Translations do not have a limit of characters. |
-| description | string | A brief description of the setting that gets displayed next to the UI control in the Settings panel. Must be 80 characters or less.  To translate this value, use a translation property name. See [Translations](https://support.zendesk.com/hc/en-us/articles/5865881240858#translations). Translations do not have a limit of characters. |
+| label | string | The name of the setting that gets displayed next to the UI control in the Settings panel. Must be 40 characters or less. To translate this value, use a translation property name. See [Translations](https://support.zendesk.com/hc/en-us/articles/5865881240858#translations). Translations do not have a limit of characters. |
+| description | string | A brief description of the setting that gets displayed next to the UI control in the Settings panel. Must be 80 characters or less. To translate this value, use a translation property name. See [Translations](https://support.zendesk.com/hc/en-us/articles/5865881240858#translations). Translations do not have a limit of characters. |
 | value | string | The setting's default value |
 | options | array | For the `list` type only. An array of list items. See [Option object](#option-object) |
 | min | integer | For the `range` type only. The minimum value of the range |
@@ -196,14 +196,14 @@ Each variable has the following properties:
 
 ```
 "variables": [
-  {
+ {
     "identifier": "color_brand",
     "type": "color",
     "label": "color_brand_label",
     "description": "color_brand_description",
     "value": "#0072EF"
-  },
-  ...
+ },
+ ...
 ]
 ```
 
@@ -222,18 +222,18 @@ You must specify the following two variables in the manifest file or the file wi
 
 ```
 "variables": [
-  {
+ {
     "identifier": "logo",
     "type": "file",
     "description": "logo_description",
     "label": "logo_label"
-  },
-  {
+ },
+ {
     "identifier": "favicon",
     "type": "file",
     "description": "favicon_description",
     "label": "favicon_label"
-  }
+ }
 ]
 ```
 
@@ -252,9 +252,9 @@ Each [variable object](#variable-object) has a `type` property that specifies a 
 
 ```
 {
-  "identifier": "color_headings",
-  "type": "color",
-  ...
+ "identifier": "color_headings",
+ "type": "color",
+ ...
 }
 ```
 
@@ -264,7 +264,7 @@ If the [type](#types) of a variable object is "list", then the object includes a
 
 | Name | Type | Comment |
 | --- | --- | --- |
-| label | string | Friendly text displayed for the list item. Must be 40 characters or less.  To translate this value, use a translation property name. See [Translations](https://support.zendesk.com/hc/en-us/articles/5865881240858#translations). Translations do not have a limit of characters. |
+| label | string | Friendly text displayed for the list item. Must be 40 characters or less. To translate this value, use a translation property name. See [Translations](https://support.zendesk.com/hc/en-us/articles/5865881240858#translations). Translations do not have a limit of characters. |
 | value | string | Underlying value of the list item |
 
 You must specify more than one option in the array or importing the theme will fail. The number of options should not exceed 20. See [Guide product limits for your help center](https://support.zendesk.com/hc/en-us/articles/4408831783962-Guide-product-limits-for-your-help-center#topic_cnb_vnd_dcb) (Total number of options in a list type setting).
@@ -273,12 +273,12 @@ You must specify more than one option in the array or importing the theme will f
 
 ```
 {
-  "identifier": "font_headings",
-  "type": "list",
-  "label": "Heading",
-  "description": "Font for headings",
-  "value": "Arial, 'Helvetica Neue', Helvetica, sans-serif",
-  "options": [
+ "identifier": "font_headings",
+ "type": "list",
+ "label": "Heading",
+ "description": "Font for headings",
+ "value": "Arial, 'Helvetica Neue', Helvetica, sans-serif",
+ "options": [
     {
       "label": "Arial",
       "value": "Arial, 'Helvetica Neue', Helvetica, sans-serif"
@@ -291,7 +291,7 @@ You must specify more than one option in the array or importing the theme will f
       "label": "Baskerville",
       "value": "Baskerville, 'Times New Roman', Times, serif"
     }
-  ]
+ ]
 }
 ```
 
@@ -307,11 +307,11 @@ If the [type](#types) of a variable object is "checkbox", use the object's **val
 
 ```
 {
-  "identifier": "scoped_hc_search",
-  "type": "checkbox",
-  "description": "scoped_help_center_search_description",
-  "label": "scoped_help_center_search_label",
-  "value": true
+ "identifier": "scoped_hc_search",
+ "type": "checkbox",
+ "description": "scoped_help_center_search_description",
+ "label": "scoped_help_center_search_label",
+ "value": true
 }
 ```
 
@@ -321,10 +321,10 @@ A variable object with a [type](#types) of "file" adds a file uploader control i
 
 ```
 {
-  "identifier": "community_image",
-  "type": "file",
-  "description": "community_image_description",
-  "label": "community_image_label"
+ "identifier": "community_image",
+ "type": "file",
+ "description": "community_image_description",
+ "label": "community_image_label"
 }
 ```
 
@@ -362,13 +362,13 @@ A range variable includes a **min** and a **max** property to specify the range 
 
 ```
 {
-  "identifier": "font_size",
-  "type": "range",
-  "description": "font_size_description",
-  "label": "font_size_label",
-  "min": 70,
-  "max": 150,
-  "value": 100
+ "identifier": "font_size",
+ "type": "range",
+ "description": "font_size_description",
+ "label": "font_size_label",
+ "min": 70,
+ "max": 150,
+ "value": 100
 }
 ```
 
@@ -396,9 +396,9 @@ Each file consists of a JSON object with a list of translations:
 
 ```
 {
-  "brand_color_description": "Brand color for major navigational elements",
-  "brand_color_label": "Brand color",
-  ...
+ "brand_color_description": "Brand color for major navigational elements",
+ "brand_color_label": "Brand color",
+ ...
 }
 ```
 

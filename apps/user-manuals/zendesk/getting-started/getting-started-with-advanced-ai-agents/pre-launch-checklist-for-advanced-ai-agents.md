@@ -6,13 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357758811930-Pre-launch-c
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
-This article guides you through the process of validating that an advanced AI agent is ready
-for launch. Resource links for each item point you to information that can help you check or
-troubleshoot. Some resources are specific to AI agents based on [expressions](https://support.zendesk.com/hc/en-us/articles/8357751704474), [zero-training](https://support.zendesk.com/hc/en-us/articles/8357749447194), or [agentic AI](https://support.zendesk.com/hc/en-us/articles/8966284087066).
+This article guides you through the process of validating that an advanced AI agent is ready for launch. Resource links for each item point you to information that can help you check or troubleshoot. Some resources are specific to AI agents based on [expressions](https://support.zendesk.com/hc/en-us/articles/8357751704474), [zero-training](https://support.zendesk.com/hc/en-us/articles/8357749447194), or [agentic AI](https://support.zendesk.com/hc/en-us/articles/8966284087066).
 
 ## Checklist
 

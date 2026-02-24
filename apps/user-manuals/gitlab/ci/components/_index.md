@@ -23,21 +23,17 @@ description: Reusable, versioned CI/CD components for pipelines.
 
 {{< /history >}}
 
-A CI/CD component is a reusable single pipeline configuration unit. Use components
-to create a small part of a larger pipeline, or even to compose a complete pipeline configuration.
+A CI/CD component is a reusable single pipeline configuration unit. Use components to create a small part of a larger pipeline, or even to compose a complete pipeline configuration.
 
-A component can be configured with [input parameters](../inputs/_index.md) for more
-dynamic behavior.
+A component can be configured with [input parameters](../inputs/_index.md) for more dynamic behavior.
 
-CI/CD components are similar to the other kinds of [configuration added with the `include` keyword](../yaml/includes.md),
-but have several advantages:
+CI/CD components are similar to the other kinds of [configuration added with the `include` keyword](../yaml/includes.md), but have several advantages:
 
 - Components can be listed in the [CI/CD Catalog](#cicd-catalog).
 - Components can be released and used with a specific version.
 - Multiple components can be defined in the same project and versioned together.
 
-Instead of creating your own components, you can also search for published components
-that have the functionality you need in the [CI/CD Catalog](#cicd-catalog).
+Instead of creating your own components, you can also search for published components that have the functionality you need in the [CI/CD Catalog](#cicd-catalog).
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
 For an introduction and hands-on examples, see [Efficient DevSecOps workflows with reusable CI/CD components](https://www.youtube.com/watch?v=-yvfSFKAgbA).
@@ -58,8 +54,7 @@ blog post.
 A component project is a GitLab project with a repository that hosts one or more components.
 All components in the project are versioned together, with a maximum of 30 components per project.
 
-If a component requires different versioning from other components, the component should be moved
-to a dedicated component project.
+If a component requires different versioning from other components, the component should be moved to a dedicated component project.
 
 ### Create a component project
 
@@ -85,8 +80,7 @@ To create a component project, you must:
      stage: $[[ inputs.stage ]]
    ```
 
-You can [use the component](#use-a-component) immediately, but you might want to consider
-publishing the component to the [CI/CD catalog](#cicd-catalog).
+You can [use the component](#use-a-component) immediately, but you might want to consider publishing the component to the [CI/CD catalog](#cicd-catalog).
 
 ### Directory structure
 
@@ -94,12 +88,9 @@ The repository must contain:
 
 - A `README.md` Markdown file documenting the details of all the components in the repository.
 - A top level `templates/` directory that contains all the component configurations.
-  In this directory, you can:
-  - Use single files ending in `.yml` for each component, like `templates/secret-detection.yml`.
-  - Create subdirectories with a `template.yml` for each component,
-    like `templates/secret-detection/template.yml`. Only the `template.yml` file is used by other projects
-    using the component. Other files in these directories are not released with the component,
-    but can be used for things like tests or building container images.
+ In this directory, you can:
+ - Use single files ending in `.yml` for each component, like `templates/secret-detection.yml`.
+ - Create subdirectories with a `template.yml` for each component, like `templates/secret-detection/template.yml`. Only the `template.yml` file is used by other projects using the component. Other files in these directories are not released with the component, but can be used for things like tests or building container images.
 
 > [!note]
 > Optionally, each component can also have its own `README.md` file that provides more detailed information, and can be linked from the top-level `README.md` file. This helps to provide a better overview of your component project and how to use it.
@@ -107,41 +98,41 @@ The repository must contain:
 You should also:
 
 - Configure the project's `.gitlab-ci.yml` to [test the components](#test-the-component)
-  and [release new versions](#publish-a-new-release).
+ and [release new versions](#publish-a-new-release).
 - Add a `LICENSE.md` file with a license of your choice that covers the usage of your component.
-  For example the [MIT](https://opensource.org/license/mit) or [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0#apply)
-  open source licenses.
+ For example the [MIT](https://opensource.org/license/mit) or [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0#apply)
+ open source licenses.
 
 For example:
 
 - If the project contains a single component, the directory structure should be similar to:
 
-  ```plaintext
-  ├── templates/
-  │   └── my-component.yml
-  ├── LICENSE.md
-  ├── README.md
-  └── .gitlab-ci.yml
-  ```
+ ```plaintext
+ ├── templates/
+ │   └── my-component.yml
+ ├── LICENSE.md
+ ├── README.md
+ └── .gitlab-ci.yml
+ ```
 
 - If the project contains multiple components, then the directory structure should be similar to:
 
-  ```plaintext
-  ├── templates/
-  │   ├── my-component.yml
-  │   └── my-other-component/
-  │       ├── template.yml
-  │       ├── Dockerfile
-  │       └── test.sh
-  ├── LICENSE.md
-  ├── README.md
-  └── .gitlab-ci.yml
-  ```
+ ```plaintext
+ ├── templates/
+ │   ├── my-component.yml
+ │   └── my-other-component/
+ │       ├── template.yml
+ │       ├── Dockerfile
+ │       └── test.sh
+ ├── LICENSE.md
+ ├── README.md
+ └── .gitlab-ci.yml
+ ```
 
-  In this example:
+ In this example:
 
-  - The `my-component` component's configuration is defined in a single file.
-  - The `my-other-component` component's configuration contains multiple files in a directory.
+ - The `my-component` component's configuration is defined in a single file.
+ - The `my-other-component` component's configuration contains multiple files in a directory.
     Only the `template.yml` file can be used by other projects using the component.
 
 ## Use a component
@@ -153,12 +144,11 @@ If you are a member of a parent group that contains the current group or project
 - You must have the minimum role set by the visibility level of the project's parent group. For example, you must have at least the Reporter role if a parent project is set to **Private**.
 
 To add a component to a project's CI/CD configuration, use the [`include: component`](../yaml/_index.md#includecomponent)
-keyword. The component reference is formatted as `<fully-qualified-domain-name>/<project-path>/<component-name>@<specific-version>`,
-for example:
+keyword. The component reference is formatted as `<fully-qualified-domain-name>/<project-path>/<component-name>@<specific-version>`, for example:
 
 ```yaml
 include:
-  - component: $CI_SERVER_FQDN/my-org/security-components/secret-detection@1.0.0
+ - component: $CI_SERVER_FQDN/my-org/security-components/secret-detection@1.0.0
     inputs:
       stage: build
 ```
@@ -166,33 +156,25 @@ include:
 In this example:
 
 - `$CI_SERVER_FQDN` is a [predefined variable](../variables/predefined_variables.md)
-  for the fully qualified domain name (FQDN) matching the GitLab host.
-  You can only reference components in the same GitLab instance as your project.
+ for the fully qualified domain name (FQDN) matching the GitLab host.
+ You can only reference components in the same GitLab instance as your project.
 - `my-org/security-components` is the full path of the project containing the component.
-- `secret-detection` is the component name that is defined as either a single file `templates/secret-detection.yml`
-  or as a directory `templates/secret-detection/` containing a `template.yml`.
+- `secret-detection` is the component name that is defined as either a single file `templates/secret-detection.yml` or as a directory `templates/secret-detection/` containing a `template.yml`.
 - `1.0.0` is the [version](#component-versions) of the component.
 
 Pipeline configuration and component configuration are not processed independently.
 When a pipeline starts, any included component configuration [merges](../yaml/includes.md#merge-method-for-include)
-into the pipeline's configuration. If your pipeline and the component both contain configuration with the same name,
-they can interact in unexpected ways.
+into the pipeline's configuration. If your pipeline and the component both contain configuration with the same name, they can interact in unexpected ways.
 
 For example, two jobs with the same name would merge together into a single job.
-Similarly, a component using `extends` for configuration with the same name as a job in your pipeline
-could extend the wrong configuration. Make sure your pipeline and the component do not share
-any configuration with the same name, unless you intend to [override](../yaml/includes.md#override-included-configuration-values)
+Similarly, a component using `extends` for configuration with the same name as a job in your pipeline could extend the wrong configuration. Make sure your pipeline and the component do not share any configuration with the same name, unless you intend to [override](../yaml/includes.md#override-included-configuration-values)
 the component's configuration.
 
-To use GitLab.com components on a GitLab Self-Managed instance, you must
-[mirror the component project](#use-a-gitlabcom-component-on-gitlab-self-managed).
+To use GitLab.com components on a GitLab Self-Managed instance, you must [mirror the component project](#use-a-gitlabcom-component-on-gitlab-self-managed).
 
 {{< alert type="warning" >}}
 
-If a component requires the use of tokens, passwords, or other sensitive data to function,
-be sure to audit the component's source code to verify that the data is only used to
-perform actions that you expect and authorize. You should also use tokens and secrets
-with the minimum permissions, access, or scope required to complete the action.
+If a component requires the use of tokens, passwords, or other sensitive data to function, be sure to audit the component's source code to verify that the data is only used to perform actions that you expect and authorize. You should also use tokens and secrets with the minimum permissions, access, or scope required to complete the action.
 
 {{< /alert >}}
 
@@ -201,20 +183,11 @@ with the minimum permissions, access, or scope required to complete the action.
 In order of highest priority first, the component version can be:
 
 - A commit SHA, for example `e3262fdd0914fa823210cdb79a8c421e2cef79d8`.
-- A tag, for example: `1.0.0`. If a tag and commit SHA exist with the same name,
-  the commit SHA takes precedence over the tag. Components released to the CI/CD Catalog
-  must be tagged with a [semantic version](#semantic-versioning).
-- A branch name, for example `main`. If a branch and tag exist with the same name,
-  the tag takes precedence over the branch.
-- `~latest` or a partial semantic version, which selects the latest version within the specified pattern
-  published in the CI/CD Catalog. Use `~latest` only if you want to use the absolute
-  latest version at all times, which could include breaking changes. `~latest`
-  does not include pre-releases, for example `1.0.1-rc`, which are not considered
-  production-ready.
+- A tag, for example: `1.0.0`. If a tag and commit SHA exist with the same name, the commit SHA takes precedence over the tag. Components released to the CI/CD Catalog must be tagged with a [semantic version](#semantic-versioning).
+- A branch name, for example `main`. If a branch and tag exist with the same name, the tag takes precedence over the branch.
+- `~latest` or a partial semantic version, which selects the latest version within the specified pattern published in the CI/CD Catalog. Use `~latest` only if you want to use the absolute latest version at all times, which could include breaking changes. `~latest` does not include pre-releases, for example `1.0.1-rc`, which are not considered production-ready.
 
-You can use any version supported by the component, but using a version published
-to the CI/CD catalog is recommended. The version referenced with a commit SHA or branch name
-might not be published in the CI/CD catalog, but could be used for testing.
+You can use any version supported by the component, but using a version published to the CI/CD catalog is recommended. The version referenced with a commit SHA or branch name might not be published in the CI/CD catalog, but could be used for testing.
 
 #### Partial semantic versions
 
@@ -224,22 +197,15 @@ might not be published in the CI/CD catalog, but could be used for testing.
 
 {{< /history >}}
 
-You can use partial semantic version numbers and the keyword `~latest` when referencing
-a CI/CD catalog component to select the latest published version that matches your specification.
+You can use partial semantic version numbers and the keyword `~latest` when referencing a CI/CD catalog component to select the latest published version that matches your specification.
 
 These formats only work with published CI/CD catalog components, not with regular project components.
 This ensures that when you use formats like `1.2` or `~latest`, you only pull components that have been validated and published to the catalog, rather than potentially untested code from any repository.
 
 This approach offers significant benefits for both consumers and authors of components:
 
-- For users, using partial versions is an excellent way to automatically receive
-  minor or patch updates without risking breaking changes from major releases. This ensures
-  your pipelines stay up-to-date with the latest bug fixes and security patches
-  while maintaining stability.
-- For component authors, partial version support allows major version releases
-  without risk of immediately breaking existing pipelines. Users who have
-  specified partial versions continue to use the latest compatible minor or patch version,
-  giving them time to update their pipelines at their own pace.
+- For users, using partial versions is an excellent way to automatically receive minor or patch updates without risking breaking changes from major releases. This ensures your pipelines stay up-to-date with the latest bug fixes and security patches while maintaining stability.
+- For component authors, partial version support allows major version releases without risk of immediately breaking existing pipelines. Users who have specified partial versions continue to use the latest compatible minor or patch version, giving them time to update their pipelines at their own pace.
 
 Use:
 
@@ -255,8 +221,7 @@ When referencing the component:
 - `1.1` selects `1.1.1`
 - `~latest` selects `2.1.0`
 
-Pre-release versions are never fetched when using partial version selection. To fetch
-a pre-release version, specify the full version, for example `1.0.1-rc`.
+Pre-release versions are never fetched when using partial version selection. To fetch a pre-release version, specify the full version, for example `1.0.1-rc`.
 
 ### Use component context in components
 
@@ -268,8 +233,7 @@ a pre-release version, specify the full version, for example `1.0.1-rc`.
 {{< /history >}}
 
 Components can access metadata about themselves with a component context [CI/CD expression](../yaml/expressions.md).
-Use this expression in component templates to reference the version, commit SHA, and other
-metadata dynamically.
+Use this expression in component templates to reference the version, commit SHA, and other metadata dynamically.
 
 To use component context in a component, you must:
 
@@ -281,15 +245,15 @@ For example, a component that references a Docker image built with the same vers
 
 ```yaml
 spec:
-  component: [name, version, reference]
-  inputs:
+ component: [name, version, reference]
+ inputs:
     image_tag:
       default: latest
 ---
 
 build-image:
-  image: registry.example.com/$[[ component.name ]]:$[[ component.version ]]
-  script:
+ image: registry.example.com/$[[ component.name ]]:$[[ component.version ]]
+ script:
     - echo "Building with component version $[[ component.version ]]"
     - echo "Component reference: $[[ component.reference ]]"
 ```
@@ -305,37 +269,29 @@ This section describes some best practices for creating high quality component p
 While it's possible for a component to use other components in turn, make sure to carefully select the dependencies. To manage dependencies, you should:
 
 - Keep dependencies to a minimum. A small amount of duplication is usually better than having dependencies.
-- Rely on local dependencies whenever possible. For example, using [`include:local`](../yaml/_index.md#includelocal) is a good way
-  to ensure the same Git SHA is used across multiple files.
-- When depending on components from other projects, pin their version to a release from the catalog rather than using moving target
-  versions such as `~latest` or a Git reference. Using a release or Git SHA guarantees that you are fetching the same revision
-  all the time and that consumers of your component get consistent behavior.
-- Update your dependencies regularly by pinning them to newer releases. Then publish a new release of your components with updated
-  dependencies.
+- Rely on local dependencies whenever possible. For example, using [`include:local`](../yaml/_index.md#includelocal) is a good way to ensure the same Git SHA is used across multiple files.
+- When depending on components from other projects, pin their version to a release from the catalog rather than using moving target versions such as `~latest` or a Git reference. Using a release or Git SHA guarantees that you are fetching the same revision all the time and that consumers of your component get consistent behavior.
+- Update your dependencies regularly by pinning them to newer releases. Then publish a new release of your components with updated dependencies.
 - Evaluate the permissions of dependencies, and use dependencies that require the least amount of permissions.
-  For example, if you need to build an image, consider using [Buildah](https://buildah.io/) instead of Docker, so that you don't
-  require a Runner with a privileged Docker daemon.
+ For example, if you need to build an image, consider using [Buildah](https://buildah.io/) instead of Docker, so that you don't require a Runner with a privileged Docker daemon.
 
 ### Write a clear `README.md`
 
-Each component project should have clear and comprehensive documentation. To
-write a good `README.md` file:
+Each component project should have clear and comprehensive documentation. To write a good `README.md` file:
 
 - Start with a summary of the capabilities that the components provide.
 - If the project contains multiple components, use a [table of contents](../../user/markdown.md#table-of-contents)
-  to help users quickly jump to a specific component's details.
+ to help users quickly jump to a specific component's details.
 - Add a `## Components` section with sub-sections like `### Component A` for each component.
 - In each component section:
-  - Describe what the component does.
-  - Add at least one YAML example showing how to use it.
-  - Use [`spec:inputs:description`](../yaml/_index.md#specinputsdescription) to
-    document any variables or secrets the component uses.
-  - Do not duplicate input documentation in the `README`. Inputs appear automatically on the component page.
+ - Describe what the component does.
+ - Add at least one YAML example showing how to use it.
+ - Use [`spec:inputs:description`](../yaml/_index.md#specinputsdescription) to document any variables or secrets the component uses.
+ - Do not duplicate input documentation in the `README`. Inputs appear automatically on the component page.
     Instead, link to the published component.
 - Add a `## Contribute` section if contributions are welcome.
 
-If a component needs more instructions, add additional documentation in a Markdown file
-in the component directory and link to it from the main `README.md` file. For example:
+If a component needs more instructions, add additional documentation in a Markdown file in the component directory and link to it from the main `README.md` file. For example:
 
 ```plaintext
 README.md    # with links to the specific docs.md
@@ -352,19 +308,16 @@ For an example, see the [AWS components README](https://gitlab.com/components/aw
 
 ### Test the component
 
-Testing CI/CD components as part of the development workflow is strongly recommended
-and helps ensure consistent behavior.
+Testing CI/CD components as part of the development workflow is strongly recommended and helps ensure consistent behavior.
 
-Test changes in a CI/CD pipeline (like any other project) by creating a `.gitlab-ci.yml`
-in the root directory. Make sure to test both the behavior and potential side-effects
-of the component. You can use the [GitLab API](../../api/rest/_index.md) if needed.
+Test changes in a CI/CD pipeline (like any other project) by creating a `.gitlab-ci.yml` in the root directory. Make sure to test both the behavior and potential side-effects of the component. You can use the [GitLab API](../../api/rest/_index.md) if needed.
 
 For example:
 
 ```yaml
 include:
-  # include the component located in the current project from the current SHA
-  - component: $CI_SERVER_FQDN/$CI_PROJECT_PATH/my-component@$CI_COMMIT_SHA
+ # include the component located in the current project from the current SHA
+ - component: $CI_SERVER_FQDN/$CI_PROJECT_PATH/my-component@$CI_COMMIT_SHA
     inputs:
       stage: build
 
@@ -374,10 +327,10 @@ stages: [build, test, release]
 # This example job could also test that the included component works as expected.
 # You can inspect data generated by the component, use GitLab API endpoints, or third-party tools.
 ensure-job-added:
-  stage: test
-  image: badouralix/curl-jq
-  # Replace "component job of my-component" with the job name in your component.
-  script:
+ stage: test
+ image: badouralix/curl-jq
+ # Replace "component job of my-component" with the job name in your component.
+ script:
     - |
       route="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/pipelines/${CI_PIPELINE_ID}/jobs"
       count=`curl --silent --header "JOB-TOKEN: ${CI_JOB_TOKEN}" "$route" | jq 'map(select(.name | contains("component job of my-component"))) | length'`
@@ -389,170 +342,148 @@ ensure-job-added:
 # If the pipeline is for a new tag with a semantic version, and all previous jobs succeed,
 # create the release.
 create-release:
-  stage: release
-  image: registry.gitlab.com/gitlab-org/cli:latest
-  script: echo "Creating release $CI_COMMIT_TAG"
-  rules:
+ stage: release
+ image: registry.gitlab.com/gitlab-org/cli:latest
+ script: echo "Creating release $CI_COMMIT_TAG"
+ rules:
     - if: $CI_COMMIT_TAG
-  release:
+ release:
     tag_name: $CI_COMMIT_TAG
     description: "Release $CI_COMMIT_TAG of components repository $CI_PROJECT_PATH"
 ```
 
-After committing and pushing changes, the pipeline tests the component, then creates
-a release if the earlier jobs pass.
+After committing and pushing changes, the pipeline tests the component, then creates a release if the earlier jobs pass.
 
 > [!note]
 > Authentication is necessary if the project is private.
 
 #### Test a component against sample files
 
-In some cases, components require source files to interact with. For example, a component
-that builds Go source code likely needs some samples of Go to test against. Alternatively,
-a component that builds Docker images likely needs some sample Dockerfiles to test against.
+In some cases, components require source files to interact with. For example, a component that builds Go source code likely needs some samples of Go to test against. Alternatively, a component that builds Docker images likely needs some sample Dockerfiles to test against.
 
-You can include sample files like these directly in the component project, to be used
-during component testing.
+You can include sample files like these directly in the component project, to be used during component testing.
 
 You can learn more in [examples for testing a component](examples.md#test-a-component).
 
 ### Avoid hard-coding instance or project-specific values
 
-When [using another component](#use-a-component) in your component, use `$CI_SERVER_FQDN`
-instead of your instance's Fully Qualified Domain Name (like `gitlab.com`).
+When [using another component](#use-a-component) in your component, use `$CI_SERVER_FQDN` instead of your instance's Fully Qualified Domain Name (like `gitlab.com`).
 
-When accessing the GitLab API in your component, use the `$CI_API_V4_URL` instead of the
-full URL and path for your instance (like `https://gitlab.com/api/v4`).
+When accessing the GitLab API in your component, use the `$CI_API_V4_URL` instead of the full URL and path for your instance (like `https://gitlab.com/api/v4`).
 
 These [predefined variables](../variables/predefined_variables.md)
-ensure that your component also works when used on another instance, for example when using
-[a GitLab.com component on a GitLab Self-Managed instance](#use-a-gitlabcom-component-on-gitlab-self-managed).
+ensure that your component also works when used on another instance, for example when using [a GitLab.com component on a GitLab Self-Managed instance](#use-a-gitlabcom-component-on-gitlab-self-managed).
 
 ### Do not assume API resources are always public
 
 Ensure that the component and its testing pipeline work also [on GitLab Self-Managed](#use-a-gitlabcom-component-on-gitlab-self-managed).
-While some API resources of public projects on GitLab.com could be accessed via unauthenticated requests
-on a GitLab Self-Managed instance a component project could be mirrored as private or internal project.
+While some API resources of public projects on GitLab.com could be accessed via unauthenticated requests on a GitLab Self-Managed instance a component project could be mirrored as private or internal project.
 
-It's important that an access token can optionally be provided via inputs or variables to
-authenticate requests on GitLab Self-Managed instances.
+It's important that an access token can optionally be provided via inputs or variables to authenticate requests on GitLab Self-Managed instances.
 
 ### Avoid using global keywords
 
 Avoid using [global keywords](../yaml/_index.md#global-keywords) in a component.
-Using these keywords in a component affects all jobs in a pipeline, including jobs
-directly defined in the main `.gitlab-ci.yml` or in other included components.
+Using these keywords in a component affects all jobs in a pipeline, including jobs directly defined in the main `.gitlab-ci.yml` or in other included components.
 
 As an alternative to global keywords:
 
-- Add the configuration directly to each job, even if it creates some duplication
-  in the component configuration.
-- Use the [`extends`](../yaml/_index.md#extends) keyword in the component, but use
-  unique names that reduce the risk of naming conflicts when the component is merged
-  into the configuration.
+- Add the configuration directly to each job, even if it creates some duplication in the component configuration.
+- Use the [`extends`](../yaml/_index.md#extends) keyword in the component, but use unique names that reduce the risk of naming conflicts when the component is merged into the configuration.
 
 For example, avoid using the `default` global keyword:
 
 ```yaml
 # Not recommended
 default:
-  image: ruby:3.0
+ image: ruby:3.0
 
 rspec-1:
-  script: bundle exec rspec dir1/
+ script: bundle exec rspec dir1/
 
 rspec-2:
-  script: bundle exec rspec dir2/
+ script: bundle exec rspec dir2/
 ```
 
 Instead, you can:
 
 - Add the configuration to each job explicitly:
 
-  ```yaml
-  rspec-1:
+ ```yaml
+ rspec-1:
     image: ruby:3.0
     script: bundle exec rspec dir1/
 
-  rspec-2:
+ rspec-2:
     image: ruby:3.0
     script: bundle exec rspec dir2/
-  ```
+ ```
 
 - Use `extends` to reuse configuration:
 
-  ```yaml
-  .rspec-image:
+ ```yaml
+ .rspec-image:
     image: ruby:3.0
 
-  rspec-1:
+ rspec-1:
     extends:
       - .rspec-image
     script: bundle exec rspec dir1/
 
-  rspec-2:
+ rspec-2:
     extends:
       - .rspec-image
     script: bundle exec rspec dir2/
-  ```
+ ```
 
 ### Replace hardcoded values with inputs
 
-Avoid using hardcoded values in CI/CD components. Hardcoded values might force
-component users to need to review the component's internal details and adapt their pipeline
-to work with the component.
+Avoid using hardcoded values in CI/CD components. Hardcoded values might force component users to need to review the component's internal details and adapt their pipeline to work with the component.
 
-A common keyword with problematic hard-coded values is `stage`. If a component job's
-stage is hardcoded, all pipelines using the component **must** either define
-the exact same stage, or [override](../yaml/includes.md#override-included-configuration-values)
+A common keyword with problematic hard-coded values is `stage`. If a component job's stage is hardcoded, all pipelines using the component **must** either define the exact same stage, or [override](../yaml/includes.md#override-included-configuration-values)
 the configuration.
 
-The preferred method is to use the [`input` keyword](../inputs/_index.md) for dynamic
-component configuration. The component user can specify the exact value they need.
+The preferred method is to use the [`input` keyword](../inputs/_index.md) for dynamic component configuration. The component user can specify the exact value they need.
 
 For example, to create a component with `stage` configuration that can be defined by users:
 
 - In the component configuration:
 
-  ```yaml
-  spec:
+ ```yaml
+ spec:
     inputs:
       stage:
         default: test
-  ---
-  unit-test:
+ ---
+ unit-test:
     stage: $[[ inputs.stage ]]
     script: echo unit tests
 
-  integration-test:
+ integration-test:
     stage: $[[ inputs.stage ]]
     script: echo integration tests
-  ```
+ ```
 
 - In a project using the component:
 
-  ```yaml
-  stages: [verify, release]
+ ```yaml
+ stages: [verify, release]
 
-  include:
+ include:
     - component: $CI_SERVER_FQDN/myorg/ruby/test@1.0.0
       inputs:
         stage: verify
-  ```
+ ```
 
 #### Define job names with inputs
 
-Similar to the values for the `stage` keyword, you should avoid hard-coding job names
-in CI/CD components. When your component's users can customize job names, they can prevent conflicts
-with the existing names in their pipelines. Users could also include a component
-multiple times with different input options by using different names.
+Similar to the values for the `stage` keyword, you should avoid hard-coding job names in CI/CD components. When your component's users can customize job names, they can prevent conflicts with the existing names in their pipelines. Users could also include a component multiple times with different input options by using different names.
 
-Use `inputs` to allow your component's users to define a specific job name, or a prefix for the
-job name. For example:
+Use `inputs` to allow your component's users to define a specific job name, or a prefix for the job name. For example:
 
 ```yaml
 spec:
-  inputs:
+ inputs:
     job-prefix:
       description: "Define a prefix for the job name"
     job-name:
@@ -562,21 +493,19 @@ spec:
 ---
 
 "$[[ inputs.job-prefix ]]-scan-website":
-  stage: $[[ inputs.job-stage ]]
-  script:
+ stage: $[[ inputs.job-stage ]]
+ script:
     - scan-website-1
 
 "$[[ inputs.job-name ]]":
-  stage: $[[ inputs.job-stage ]]
-  script:
+ stage: $[[ inputs.job-stage ]]
+ script:
     - scan-website-2
 ```
 
 ### Replace custom CI/CD variables with inputs
 
-When using CI/CD variables in a component, evaluate if the `inputs` keyword
-should be used instead. Avoid asking users to define custom variables to configure
-components when `inputs` is a better solution.
+When using CI/CD variables in a component, evaluate if the `inputs` keyword should be used instead. Avoid asking users to define custom variables to configure components when `inputs` is a better solution.
 
 Inputs are explicitly defined in the component's `spec` section, and have better validation than variables.
 For example, if a required input is not passed to the component, GitLab returns a pipeline error.
@@ -586,29 +515,28 @@ For example, use `inputs` instead of variables to configure a scanner's output f
 
 - In the component configuration:
 
-  ```yaml
-  spec:
+ ```yaml
+ spec:
     inputs:
       scanner-output:
         default: json
-  ---
-  my-scanner:
+ ---
+ my-scanner:
     script: my-scan --output $[[ inputs.scanner-output ]]
-  ```
+ ```
 
 - In the project using the component:
 
-  ```yaml
-  include:
+ ```yaml
+ include:
     - component: $CI_SERVER_FQDN/path/to/project/my-scanner@1.0.0
       inputs:
         scanner-output: yaml
-  ```
+ ```
 
 In other cases, CI/CD variables might still be preferred. For example:
 
-- Use [predefined variables](../variables/predefined_variables.md) to automatically configure
-  a component to match a user's project.
+- Use [predefined variables](../variables/predefined_variables.md) to automatically configure a component to match a user's project.
 - Ask users to store sensitive values as [masked or protected CI/CD variables in project settings](../variables/_index.md#define-a-cicd-variable-in-the-ui).
 
 ## CI/CD Catalog
@@ -628,11 +556,9 @@ In other cases, CI/CD variables might still be preferred. For example:
 
 {{< /history >}}
 
-The [CI/CD Catalog](https://gitlab.com/explore/catalog) is a list of projects with published CI/CD components you can use
-to extend your CI/CD workflow.
+The [CI/CD Catalog](https://gitlab.com/explore/catalog) is a list of projects with published CI/CD components you can use to extend your CI/CD workflow.
 
-Anyone can [create a component project](#create-a-component-project) and add it to
-the CI/CD Catalog, or contribute to an existing project to improve the available components.
+Anyone can [create a component project](#create-a-component-project) and add it to the CI/CD Catalog, or contribute to an existing project to improve the available components.
 
 For a click-through demo, see [the CI/CD Catalog beta Product Tour](https://gitlab.navattic.com/cicd-catalog).
 <!-- Demo published on 2024-01-24 -->
@@ -648,8 +574,7 @@ To access the CI/CD Catalog and view the published components that are available
 Alternatively, if you are already in the [pipeline editor](../pipeline_editor/_index.md)
 in your project, you can select **CI/CD Catalog**.
 
-Visibility of components in the CI/CD catalog follows the component source project's
-[visibility setting](../../user/public_access.md). Components with source projects set to:
+Visibility of components in the CI/CD catalog follows the component source project's [visibility setting](../../user/public_access.md). Components with source projects set to:
 
 - Private are visible only to users assigned at least the Guest role for the source component project. To use a component, you must have at least the Reporter role.
 - Internal are visible only to users logged into the GitLab instance.
@@ -664,8 +589,7 @@ To publish a component project in the CI/CD catalog, you must:
 
 #### Set a component project as a catalog project
 
-To make published versions of a component project visible in the CI/CD catalog,
-you must set the project as a catalog project.
+To make published versions of a component project visible in the CI/CD catalog, you must set the project as a catalog project.
 
 Prerequisites:
 
@@ -693,20 +617,17 @@ Prerequisites:
 
 - You must have at least the Maintainer role for the project.
 - The project must:
-  - Be set as a [catalog project](#set-a-component-project-as-a-catalog-project).
-  - Have a [project description](../../user/project/working_with_projects.md#edit-a-project) defined.
-  - Have a `README.md` file in the root directory for the commit SHA of the tag being released.
-  - Have at least one [CI/CD component in the `templates/` directory](#directory-structure)
+ - Be set as a [catalog project](#set-a-component-project-as-a-catalog-project).
+ - Have a [project description](../../user/project/working_with_projects.md#edit-a-project) defined.
+ - Have a `README.md` file in the root directory for the commit SHA of the tag being released.
+ - Have at least one [CI/CD component in the `templates/` directory](#directory-structure)
     for the commit SHA of the tag being released.
-- You must use the [`release` keyword](../yaml/_index.md#release) in a CI/CD job to create the release,
-  not the [Releases API](../../api/releases/_index.md#create-a-release).
+- You must use the [`release` keyword](../yaml/_index.md#release) in a CI/CD job to create the release, not the [Releases API](../../api/releases/_index.md#create-a-release).
 
 To publish a new version of the component to the catalog:
 
-1. Add a job to the project's `.gitlab-ci.yml` file that uses the `release`
-   keyword to create the new release when a tag is created.
-   You should configure the tag pipeline to [test the components](#test-the-component) before
-   running the release job. For example:
+1. Add a job to the project's `.gitlab-ci.yml` file that uses the `release` keyword to create the new release when a tag is created.
+   You should configure the tag pipeline to [test the components](#test-the-component) before running the release job. For example:
 
    ```yaml
    create-release:
@@ -720,12 +641,10 @@ To publish a new version of the component to the catalog:
        description: "Release $CI_COMMIT_TAG of components in $CI_PROJECT_PATH"
    ```
 
-1. Create a [new tag](../../user/project/repository/tags/_index.md#create-a-tag) for the release,
-   which should trigger a tag pipeline that contains the job responsible for creating the release.
+1. Create a [new tag](../../user/project/repository/tags/_index.md#create-a-tag) for the release, which should trigger a tag pipeline that contains the job responsible for creating the release.
    The tag must use [semantic versioning](#semantic-versioning).
 
-After the release job completes successfully, the release is created and the new version
-is published to the CI/CD catalog.
+After the release job completes successfully, the release is created and the new version is published to the CI/CD catalog.
 
 #### Semantic versioning
 
@@ -735,9 +654,7 @@ is published to the CI/CD catalog.
 
 {{< /history >}}
 
-When tagging and [releasing new versions](#publish-a-new-release) of components to the Catalog,
-you must use [semantic versioning](https://semver.org). Semantic versioning is the standard
-for communicating that a change is a major, minor, patch, or other kind of change.
+When tagging and [releasing new versions](#publish-a-new-release) of components to the Catalog, you must use [semantic versioning](https://semver.org). Semantic versioning is the standard for communicating that a change is a major, minor, patch, or other kind of change.
 
 For example, `1.0.0`, `2.3.4`, and `1.0.0-alpha` are all valid semantic versions.
 
@@ -748,8 +665,7 @@ toggle in the project settings.
 
 {{< alert type="warning" >}}
 
-This action destroys the metadata about the component project and its versions published
-in the catalog. The project and its repository still exist, but are not visible in the catalog.
+This action destroys the metadata about the component project and its versions published in the catalog. The project and its repository still exist, but are not visible in the catalog.
 
 {{< /alert >}}
 
@@ -764,31 +680,22 @@ To publish the component project in the catalog again, you need to [publish a ne
 
 {{< /history >}}
 
-Some CI/CD components are badged with an icon to show that the component was created
-and is maintained by users verified by GitLab or the instance administrator:
+Some CI/CD components are badged with an icon to show that the component was created and is maintained by users verified by GitLab or the instance administrator:
 
 - GitLab-maintained ({{< icon name="tanuki-verified" >}}): GitLab.com components that are created and maintained by GitLab.
-- GitLab Partner ({{< icon name="partner-verified" >}}): GitLab.com components that are independently created
-  and maintained by a GitLab-verified partner.
+- GitLab Partner ({{< icon name="partner-verified" >}}): GitLab.com components that are independently created and maintained by a GitLab-verified partner.
 
-  GitLab partners can contact a member of the GitLab Partner Alliance to have their
-  namespace on GitLab.com flagged as GitLab-verified. Then any CI/CD components located in the
-  namespace are badged as GitLab Partner components. The Partner Alliance member
-  creates an [internal request issue (GitLab team members only)](https://gitlab.com/gitlab-com/support/internal-requests/-/issues/new?issuable_template=CI%20Catalog%20Badge%20Request)
-  on behalf of the verified partner.
+ GitLab partners can contact a member of the GitLab Partner Alliance to have their namespace on GitLab.com flagged as GitLab-verified. Then any CI/CD components located in the namespace are badged as GitLab Partner components. The Partner Alliance member creates an [internal request issue (GitLab team members only)](https://gitlab.com/gitlab-com/support/internal-requests/-/issues/new?issuable_template=CI%20Catalog%20Badge%20Request)
+ on behalf of the verified partner.
 
-  {{< alert type="warning" >}}
+ {{< alert type="warning" >}}
 
-  GitLab Partner-created components are provided **as-is**, without warranty of any kind.
-  An end user's use of a GitLab Partner-created component is at their own risk and
-  GitLab shall have no indemnification obligations nor any liability of any type
-  with respect to the end user's use of the component. The end user's use of such content
-  and any liability related thereto shall be between the publisher of the content and the end user.
+ GitLab Partner-created components are provided **as-is**, without warranty of any kind.
+ An end user's use of a GitLab Partner-created component is at their own risk and GitLab shall have no indemnification obligations nor any liability of any type with respect to the end user's use of the component. The end user's use of such content and any liability related thereto shall be between the publisher of the content and the end user.
 
-  {{< /alert >}}
+ {{< /alert >}}
 
-- Verified creator ({{< icon name="check-sm" >}}): Components created and maintained by
-  a user verified by an administrator.
+- Verified creator ({{< icon name="check-sm" >}}): Components created and maintained by a user verified by an administrator.
 
 #### Set a component as maintained by a verified creator
 
@@ -827,11 +734,9 @@ To remove the badge from a component, repeat the query with `UNVERIFIED` for `ve
 
 ## Convert a CI/CD template to a component
 
-Any existing CI/CD template that you use in projects by using the `include:` syntax
-can be converted to a CI/CD component:
+Any existing CI/CD template that you use in projects by using the `include:` syntax can be converted to a CI/CD component:
 
-1. Decide if you want the component to be grouped with other components as part of
-   an existing [component project](#component-project), or [create a new component project](#create-a-component-project).
+1. Decide if you want the component to be grouped with other components as part of an existing [component project](#component-project), or [create a new component project](#create-a-component-project).
 1. Create a YAML file in the component project according to the [directory structure](#directory-structure).
 1. Copy the content of the original template YAML file into the new component YAML file.
 1. Refactor the new component's configuration to:
@@ -866,8 +771,7 @@ To mirror a GitLab.com component in your GitLab Self-Managed instance:
 1. Write a [project description](../../user/project/working_with_projects.md#edit-a-project)
    for the component project mirror because mirroring repositories does not copy the description.
 1. [Set the self-hosted component project as a catalog resource](#set-a-component-project-as-a-catalog-project).
-1. Publish [a new release](../../user/project/releases/_index.md) in the self-hosted component project by
-   [running a pipeline](../pipelines/_index.md#run-a-pipeline-manually) for a tag (usually the latest tag).
+1. Publish [a new release](../../user/project/releases/_index.md) in the self-hosted component project by [running a pipeline](../pipelines/_index.md#run-a-pipeline-manually) for a tag (usually the latest tag).
 
 ## CI/CD component security best practices
 
@@ -880,61 +784,48 @@ When using third-party CI/CD components, consider the following security best pr
 
 - **Audit and review component source code**: Carefully examine the code to ensure it's free of malicious content.
 - **Minimize access to credentials and tokens**:
-  - Audit the component's source code to verify that any credentials or tokens are only used
-    to perform actions that you expect and authorize.
-  - Use minimally scoped access tokens.
-  - Avoid using long-lived access tokens or credentials.
-  - Audit use of credentials and tokens used by CI/CD components.
+ - Audit the component's source code to verify that any credentials or tokens are only used to perform actions that you expect and authorize.
+ - Use minimally scoped access tokens.
+ - Avoid using long-lived access tokens or credentials.
+ - Audit use of credentials and tokens used by CI/CD components.
 - **Use pinned versions**: Pin CI/CD components to a specific commit SHA (preferred)
-  or release version tag to ensure the integrity of the component used in a pipeline.
-  Only use release tags if you trust the component maintainer. Avoid using `latest`.
+ or release version tag to ensure the integrity of the component used in a pipeline.
+ Only use release tags if you trust the component maintainer. Avoid using `latest`.
 - **Store secrets securely**: Do not store secrets in CI/CD configuration files.
-  Avoid storing secrets and credentials in project settings if you can use an external secret management
-  solution instead.
-- **Use ephemeral, isolated runner environments**: Run component jobs in temporary,
-  isolated environments when possible. Be aware of [security risks](https://docs.gitlab.com/runner/security)
-  with self-managed runners.
-- **Securely handle cache and artifacts**: Do not pass cache or artifacts from other jobs
-  in your pipeline to CI/CD component jobs unless absolutely necessary.
+ Avoid storing secrets and credentials in project settings if you can use an external secret management solution instead.
+- **Use ephemeral, isolated runner environments**: Run component jobs in temporary, isolated environments when possible. Be aware of [security risks](https://docs.gitlab.com/runner/security)
+ with self-managed runners.
+- **Securely handle cache and artifacts**: Do not pass cache or artifacts from other jobs in your pipeline to CI/CD component jobs unless absolutely necessary.
 - **Limit CI_JOB_TOKEN access**: Restrict [CI/CD job token (`CI_JOB_TOKEN`) project access and permissions](../jobs/ci_job_token.md#control-job-token-access-to-your-project)
-  for projects using CI/CD components.
-- **Review CI/CD component changes**: Carefully review all changes to the CI/CD component configuration
-  before changing to use an updated commit SHA or release tag for the component.
-- **Audit custom container images**: Carefully review any custom container images used by the CI/CD component
-  to ensure they are free of malicious content.
+ for projects using CI/CD components.
+- **Review CI/CD component changes**: Carefully review all changes to the CI/CD component configuration before changing to use an updated commit SHA or release tag for the component.
+- **Audit custom container images**: Carefully review any custom container images used by the CI/CD component to ensure they are free of malicious content.
 
 ### For component maintainers
 
-To maintain secure and trustworthy CI/CD components and ensure the integrity of the pipeline configuration
-you deliver to users, follow these best practices:
+To maintain secure and trustworthy CI/CD components and ensure the integrity of the pipeline configuration you deliver to users, follow these best practices:
 
-- **Use two-factor authentication (2FA)**: Ensure all CI/CD component project maintainers
-  and owners have [2FA enabled](../../user/profile/account/two_factor_authentication.md#enable-two-factor-authentication),
-  or enforce [2FA for all users in the group](../../security/two_factor_authentication.md#enforce-2fa-for-all-users-in-a-group).
+- **Use two-factor authentication (2FA)**: Ensure all CI/CD component project maintainers and owners have [2FA enabled](../../user/profile/account/two_factor_authentication.md#enable-two-factor-authentication), or enforce [2FA for all users in the group](../../security/two_factor_authentication.md#enforce-2fa-for-all-users-in-a-group).
 - **Use protected branches**:
-  - Use [protected branches](../../user/project/repository/branches/protected.md)
+ - Use [protected branches](../../user/project/repository/branches/protected.md)
     for component project releases.
-  - Protect the default branch, and protect all release branches [using wildcard rules](../../user/project/repository/branches/protected.md#use-wildcard-rules).
-  - Require everyone submit merge requests for changes to protected branches. Set the
-    **Allowed to push and merge** option to `No one` for protected branches.
-  - Block force pushes to protected branches.
+ - Protect the default branch, and protect all release branches [using wildcard rules](../../user/project/repository/branches/protected.md#use-wildcard-rules).
+ - Require everyone submit merge requests for changes to protected branches. Set the **Allowed to push and merge** option to `No one` for protected branches.
+ - Block force pushes to protected branches.
 - **Sign all commits**: [Sign all commits](../../user/project/repository/signed_commits/_index.md) to the component project.
 - **Discourage using `latest`**: Avoid including examples in your `README.md` that use `@latest`.
-- **Limit dependency on caches and artifacts from other jobs**: Only use cache and artifacts
-  from other jobs in CI/CD components if absolutely necessary
+- **Limit dependency on caches and artifacts from other jobs**: Only use cache and artifacts from other jobs in CI/CD components if absolutely necessary
 - **Update CI/CD component dependencies**: Check for and apply updates to dependencies regularly.
 - **Review changes carefully**:
-  - Carefully review all changes to the CI/CD component pipeline configuration before
-    merging into default or release branches.
-  - Use [merge request approvals](../../user/project/merge_requests/approvals/_index.md)
+ - Carefully review all changes to the CI/CD component pipeline configuration before merging into default or release branches.
+ - Use [merge request approvals](../../user/project/merge_requests/approvals/_index.md)
     for all user-facing changes to CI/CD component catalog projects.
 
 ## Troubleshooting
 
 ### `content not found` message
 
-You might receive an error message similar to the following when using the `~latest` or a partial semantic
-version qualifier to reference a component hosted by a [catalog project](#set-a-component-project-as-a-catalog-project):
+You might receive an error message similar to the following when using the `~latest` or a partial semantic version qualifier to reference a component hosted by a [catalog project](#set-a-component-project-as-a-catalog-project):
 
 ```plaintext
 This GitLab CI configuration is invalid: Component 'gitlab.com/my-namespace/my-project/my-component@~latest' - content not found
@@ -945,16 +836,14 @@ in GitLab 16.10. It now refers to the latest semantic version of the catalog res
 
 ### Error: `Build component error: Spec must be a valid json schema`
 
-If a component has invalid formatting, you might not be able to create a release
-and could receive an error like `Build component error: Spec must be a valid json schema`.
+If a component has invalid formatting, you might not be able to create a release and could receive an error like `Build component error: Spec must be a valid json schema`.
 
-This error can be caused by an empty `spec:inputs` section. If your configuration
-does not use any inputs, you can make the `spec` section empty instead. For example:
+This error can be caused by an empty `spec:inputs` section. If your configuration does not use any inputs, you can make the `spec` section empty instead. For example:
 
 ```yaml
 spec:
 ---
 
 my-component:
-  script: echo
+ script: echo
 ```

@@ -15,9 +15,9 @@ The Inspections section tracks inspections made by third-party inspectors that 
 ## Things to Consider
 
 - **Required User Permissions:**
-  - ****To create entries:****
+ - ****To create entries:****
     - 'Standard' or 'Admin' level permissions on the project's Daily Log tool.
-  - ********To create pending entries as a collaborator********:
+ - ********To create pending entries as a collaborator********:
     - 'Read Only' or 'Standard' permissions to the Daily Log tool with the ['Collaborator Entry Only' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#Daily_Log "Grant Granular Permissions in a Permission Template") enabled on your permissions template. See [Create Daily Log Entries as a Collaborator](https://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/create-daily-log-entries-as-a-collaborator "Create Daily Log Entries as a Collaborator").
 
 ## Steps
@@ -32,7 +32,7 @@ The Inspections section tracks inspections made by third-party inspectors that 
    - **Inspection Type**: Enter the type of inspection that was performed.
    - **Inspecting Entity**: Enter the type of inspector that performed the inspection.
    - **Inspector Name**: Enter the name of the person who performed the inspection.
-   - **Location**: Select a location from the Location drop-down menu.  
+   - **Location**: Select a location from the Location drop-down menu. 
      *Note*: If the project allows for locations to be created from other tools, you can also create a new location to select. See [How do I add a multi-tiered location to an item?](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-a-multi-tiered-location-to-an-item "How do I add a multi-tiered location to an item?")
    - **Area**: (Optional) Enter the area within the specified location that was inspected.
    - **Comments**: Enter any comments that may be needed to further describe the entry.

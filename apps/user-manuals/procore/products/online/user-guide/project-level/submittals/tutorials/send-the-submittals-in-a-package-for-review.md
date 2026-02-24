@@ -11,20 +11,20 @@ To send the submittals in a submittal package to approvers for review.
 ## Things to Consider
 
 - **Required User Permissions**:
-  - 'Admin' level permissions on the project's Submittals tool.
+ - 'Admin' level permissions on the project's Submittals tool.
 - **Addtional Information**:
-  - When users send or resend submittals in submittal packages for review, the system sends emails with the following subject lines:
+ - When users send or resend submittals in submittal packages for review, the system sends emails with the following subject lines:
     - 'Action Required For Submittals in Package'. This email is sent to members of the submittal workflow to alert the Ball in Court person that a response is required.
     - 'Submittals Sent For Review in Package'. This email is sent to each submittal's manager and distribution list members.
 - **Prerequisites**:
-  - [Create a Submittal Package](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/create-a-submittal-package "Create a Submittal Package")
+ - [Create a Submittal Package](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/create-a-submittal-package "Create a Submittal Package")
 
 ## Steps
 
 1. Navigate to the **Submittals** tool.
 2. Click the **Packages** tab.
-3. Click **View** next to the package with the submittals you want to send.  
-   A yellow banner indicates the number of submittals in the package that can be sent for review.  
+3. Click **View** next to the package with the submittals you want to send. 
+   A yellow banner indicates the number of submittals in the package that can be sent for review. 
    *Notes*:
    - The number includes any unsent submittals that are ready to send for review.
    - The number includes any previously sent submittals where responses are still 'Pending' for all approvers.  To locate previously sent submittals, look for the 'Sent Date' on the submittal items in the package.

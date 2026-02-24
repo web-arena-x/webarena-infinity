@@ -39,7 +39,7 @@ Scheduled pipeline execution policies are available as an experimental feature. 
 
 ```yaml
 experiments:
-  pipeline_execution_schedule_policy:
+ pipeline_execution_schedule_policy:
     enabled: true
 ```
 
@@ -53,14 +53,14 @@ To configure a scheduled pipeline execution policy, add additional configuration
 ```yaml
 pipeline_execution_schedule_policy:
 - name: Scheduled Pipeline Execution Policy
-  description: ''
-  enabled: true
-  content:
+ description: ''
+ enabled: true
+ content:
     include:
     - project: your-group/your-project
       file: security-scan.yml
-  schedules:
-  - type: daily
+ schedules:
+ - type: daily
     start_time: '10:00'
     time_window:
       value: 600
@@ -98,10 +98,10 @@ Use daily, weekly, or monthly schedules.
 
 ```yaml
 schedules:
-  - type: daily
+ - type: daily
     start_time: "01:00"
     time_window:
-      value: 3600  # 1 hour window
+      value: 3600 # 1 hour window
       distribution: random
     timezone: "America/New_York"
     branches:
@@ -114,14 +114,14 @@ schedules:
 
 ```yaml
 schedules:
-  - type: weekly
+ - type: weekly
     days:
       - Monday
       - Wednesday
       - Friday
     start_time: "04:30"
     time_window:
-      value: 7200  # 2 hour window
+      value: 7200 # 2 hour window
       distribution: random
     timezone: "Europe/Berlin"
 ```
@@ -130,13 +130,13 @@ schedules:
 
 ```yaml
 schedules:
-  - type: monthly
+ - type: monthly
     days_of_month:
       - 1
       - 15
     start_time: "02:15"
     time_window:
-      value: 14400  # 4 hour window
+      value: 14400 # 4 hour window
       distribution: random
     timezone: "Asia/Tokyo"
 ```
@@ -172,14 +172,14 @@ To snooze a scheduled pipeline execution policy, add a `snooze` section to the s
 ```yaml
 pipeline_execution_schedule_policy:
 - name: Weekly Security Scan
-  description: 'Run security scans every week'
-  enabled: true
-  content:
+ description: 'Run security scans every week'
+ enabled: true
+ content:
     include:
     - project: your-group/your-project
       file: security-scan.yml
-  schedules:
-  - type: weekly
+ schedules:
+ - type: weekly
     start_time: '02:00'
     time_window:
       value: 3600
@@ -188,7 +188,7 @@ pipeline_execution_schedule_policy:
     days:
       - Monday
     snooze:
-      until: "2025-06-26T16:27:00+00:00"  # ISO8601 format
+      until: "2025-06-26T16:27:00+00:00" # ISO8601 format
       reason: "Critical production deployment"
 ```
 
@@ -221,14 +221,14 @@ When you configure the `branches` property in your schedule:
 ```yaml
 pipeline_execution_schedule_policy:
 - name: Scan Multiple Branches
-  description: 'Run security scans on main, staging and develop branches'
-  enabled: true
-  content:
+ description: 'Run security scans on main, staging and develop branches'
+ enabled: true
+ content:
     include:
     - project: your-group/your-project
       file: security-scan.yml
-  schedules:
-  - type: weekly
+ schedules:
+ - type: weekly
     days:
       - Monday
     start_time: '02:00'

@@ -28,15 +28,9 @@ title: Auto-merge
 
 {{< /history >}}
 
-If the content of a merge request is ready to merge,
-you can select **Set to auto-merge**. The merge request auto-merges when all required checks complete
-successfully, and you don't need to remember to manually merge the merge request.
+If the content of a merge request is ready to merge, you can select **Set to auto-merge**. The merge request auto-merges when all required checks complete successfully, and you don't need to remember to manually merge the merge request.
 
-Merge checks enable you to focus on reviewing a merge request's contents, and use project settings to determine
-their mergeability. When you review a merge request, if you approve of the merge request's changes, set it to
-auto-merge. GitLab enforces your project settings, and until the merge request satisfies all merge checks
-(like required Code Owner and approval rules), it cannot merge. After satisfying all required merge checks,
-the merge request merges, with no action required from you.
+Merge checks enable you to focus on reviewing a merge request's contents, and use project settings to determine their mergeability. When you review a merge request, if you approve of the merge request's changes, set it to auto-merge. GitLab enforces your project settings, and until the merge request satisfies all merge checks (like required Code Owner and approval rules), it cannot merge. After satisfying all required merge checks, the merge request merges, with no action required from you.
 
 Merge checks include a passing CI/CD pipeline, and much more:
 
@@ -49,13 +43,10 @@ Merge checks include a passing CI/CD pipeline, and much more:
 - All external status checks have passed.
 - The merge request must be open.
 - No denied policies exist.
-- If your project
-  [requires merge requests to reference a Jira issue](../../../integration/jira/issues.md#require-associated-jira-issue-for-merge-requests-to-be-merged),
-  the merge request title or description contains a Jira issue link.
+- If your project [requires merge requests to reference a Jira issue](../../../integration/jira/issues.md#require-associated-jira-issue-for-merge-requests-to-be-merged), the merge request title or description contains a Jira issue link.
 - If the merge request has a **Merge after** date set, the current time must be after the configured date.
 
-For a full list of checks and their API equivalents, see
-[Merge status](../../../api/merge_requests.md#merge-status).
+For a full list of checks and their API equivalents, see [Merge status](../../../api/merge_requests.md#merge-status).
 
 ![Auto-merge is ready](img/auto_merge_ready_v16_0.png)
 
@@ -67,12 +58,10 @@ when the merge request merges.
 Prerequisites:
 
 - You must have at least the Developer role for the project.
-- If your project configuration requires it, all threads in the
-  merge request must be resolved.
+- If your project configuration requires it, all threads in the merge request must be resolved.
 - The merge request must have received all required approvals.
 
-To do this when pushing from the command line, use the `merge_request.merge_when_pipeline_succeeds`
-[push option](../../../topics/git/commit.md#push-options).
+To do this when pushing from the command line, use the `merge_request.merge_when_pipeline_succeeds` [push option](../../../topics/git/commit.md#push-options).
 
 To do this from the GitLab user interface:
 
@@ -80,18 +69,14 @@ To do this from the GitLab user interface:
 1. Select **Code** > **Merge requests**.
 1. Select the merge request to edit.
 1. Scroll to the merge request reports section.
-1. Optional. Select your desired merge options, such as **Delete source branch**,
-   **Squash commits**, or **Edit commit message**.
-1. Review the contents of the merge request reports section. If it contains an
-   [issue closing pattern](../issues/managing_issues.md#closing-issues-automatically),
-   confirm that the issue should close when the merge request merges:
+1. Optional. Select your desired merge options, such as **Delete source branch**, **Squash commits**, or **Edit commit message**.
+1. Review the contents of the merge request reports section. If it contains an [issue closing pattern](../issues/managing_issues.md#closing-issues-automatically), confirm that the issue should close when the merge request merges:
 
    ![This merge request closes issue #2754.](img/closing_pattern_v18_5.png)
 
 1. Select **Set to auto-merge**.
 
-If you comment on the merge request after setting it to auto-merge,
-but before the pipeline completes, the merge is blocked until you resolve all existing threads.
+If you comment on the merge request after setting it to auto-merge, but before the pipeline completes, the merge is blocked until you resolve all existing threads.
 
 ## Cancel an auto-merge
 
@@ -99,8 +84,7 @@ You can cancel auto-merge on a merge request.
 
 Prerequisites:
 
-- You must either be the author of the merge request, or a project member with
-  at least the Developer role.
+- You must either be the author of the merge request, or a project member with at least the Developer role.
 - The merge request's pipeline must still be in progress.
 
 To do this:
@@ -115,29 +99,23 @@ To do this:
 
 ## Pipeline success for auto-merge
 
-If the pipeline succeeds, the merge request merges. If the pipeline fails, the author
-can either retry any failed jobs, or push new commits to fix the failure:
+If the pipeline succeeds, the merge request merges. If the pipeline fails, the author can either retry any failed jobs, or push new commits to fix the failure:
 
 - If a retried job succeeds on the second try, the merge request merges.
-- If you add new commits to the merge request, GitLab cancels the request
-  to ensure the new changes receive a review before merge.
-- If you add new commits to the target branch of the merge request, and your project
-  allows only fast-forward merge requests, GitLab cancels the request to prevent merge conflicts.
+- If you add new commits to the merge request, GitLab cancels the request to ensure the new changes receive a review before merge.
+- If you add new commits to the target branch of the merge request, and your project allows only fast-forward merge requests, GitLab cancels the request to prevent merge conflicts.
 
-For stricter control on pipeline status, you can also
-[require a successful pipeline](#require-a-successful-pipeline-for-merge) before merge.
+For stricter control on pipeline status, you can also [require a successful pipeline](#require-a-successful-pipeline-for-merge) before merge.
 
 ### Require a successful pipeline for merge
 
-You can configure your project to require a complete and successful pipeline before
-merge. This configuration works for both:
+You can configure your project to require a complete and successful pipeline before merge. This configuration works for both:
 
 - GitLab CI/CD pipelines.
 - Pipelines run from an [external CI integration](../integrations/_index.md#available-integrations).
 
 As a result, [disabling GitLab CI/CD pipelines](../../../ci/pipelines/settings.md#disable-gitlab-cicd-pipelines)
-does not disable this feature, but you can use pipelines from external
-CI providers with it.
+does not disable this feature, but you can use pipelines from external CI providers with it.
 
 Prerequisites:
 
@@ -149,20 +127,14 @@ To enable this setting:
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Settings** > **Merge requests**.
 1. Scroll to **Merge checks**, and select **Pipelines must succeed**.
-   This setting also prevents merge requests from merging if there is no pipeline,
-   which can [conflict with some rules](#merge-request-cant-merge-despite-no-failed-pipeline).
+   This setting also prevents merge requests from merging if there is no pipeline, which can [conflict with some rules](#merge-request-cant-merge-despite-no-failed-pipeline).
 1. Select **Save**.
 
-If [multiple pipeline types run for the same merge request](#merge-request-can-still-be-merged-despite-a-failed-pipeline),
-merge request pipelines take precedence over other pipeline types. For example,
-an older but successful merge request pipeline allows a merge request to merge,
-despite a newer but failed branch pipeline.
+If [multiple pipeline types run for the same merge request](#merge-request-can-still-be-merged-despite-a-failed-pipeline), merge request pipelines take precedence over other pipeline types. For example, an older but successful merge request pipeline allows a merge request to merge, despite a newer but failed branch pipeline.
 
 ### Allow merge after skipped pipelines
 
-When you set **Pipelines must succeed** for a project,
-[skipped pipelines](../../../ci/pipelines/_index.md#skip-a-pipeline) prevent
-merge requests from merging.
+When you set **Pipelines must succeed** for a project, [skipped pipelines](../../../ci/pipelines/_index.md#skip-a-pipeline) prevent merge requests from merging.
 
 Prerequisites:
 
@@ -186,8 +158,7 @@ To change this behavior:
 {{< /history >}}
 
 If your merge request should not merge before a specific date and time, set a **Merge can start** date.
-This value sets when the merge (or merge train) can start. The exact time of merge can vary,
-however, depending on the satisfaction of other merge checks or the length of your merge train.
+This value sets when the merge (or merge train) can start. The exact time of merge can vary, however, depending on the satisfaction of other merge checks or the length of your merge train.
 
 Prerequisites:
 
@@ -206,29 +177,22 @@ To do this:
 
 ### Merge request can't merge despite no failed pipeline
 
-In some cases, you can [require a successful pipeline for merge](#require-a-successful-pipeline-for-merge),
-but be unable to merge a merge request with no failed pipelines. The setting requires
-the existence of a successful pipeline, not the absence of failed pipelines. A merge request
-with no pipelines at all is not considered to have a successful pipeline, and cannot merge.
+In some cases, you can [require a successful pipeline for merge](#require-a-successful-pipeline-for-merge), but be unable to merge a merge request with no failed pipelines. The setting requires the existence of a successful pipeline, not the absence of failed pipelines. A merge request with no pipelines at all is not considered to have a successful pipeline, and cannot merge.
 
 When you enable this setting, use [`rules`](../../../ci/yaml/_index.md#rules)
-or [`workflow:rules`](../../../ci/yaml/_index.md#workflowrules) to ensure pipelines
-run for every merge request.
+or [`workflow:rules`](../../../ci/yaml/_index.md#workflowrules) to ensure pipelines run for every merge request.
 
 ### Merge request can still be merged despite a failed pipeline
 
-In some cases, you can [require a successful pipeline for merge](#require-a-successful-pipeline-for-merge),
-but still merge a merge request with a failed pipeline.
+In some cases, you can [require a successful pipeline for merge](#require-a-successful-pipeline-for-merge), but still merge a merge request with a failed pipeline.
 
 Merge request pipelines have the highest priority for the **Pipelines must succeed** setting.
-If multiple pipeline types run for the same merge request, GitLab checks only the
-merge request pipelines for success.
+If multiple pipeline types run for the same merge request, GitLab checks only the merge request pipelines for success.
 
 Merge requests can have multiple pipelines if:
 
 - A [`rules`](../../../ci/yaml/_index.md#rules) configuration that causes [duplicate pipelines](../../../ci/jobs/job_rules.md#avoid-duplicate-pipelines):
-  one merge request pipeline and one branch pipeline. In this case, the status of the
-  latest merge request pipeline determines if a merge request can merge, not the branch pipeline.
+ one merge request pipeline and one branch pipeline. In this case, the status of the latest merge request pipeline determines if a merge request can merge, not the branch pipeline.
 - Pipelines triggered by external tools that target the same branch as the merge request.
 
 In all cases, update your CI/CD configuration to prevent multiple pipeline types for the same merge request.

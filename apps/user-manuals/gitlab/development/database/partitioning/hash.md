@@ -10,10 +10,9 @@ Hash partitioning is a method of dividing a large table into smaller, more manag
 Key points:
 
 - Data distribution: Rows are assigned to partitions based on the hash value of their ID and a modulus-remainder calculation.
-  For example, if partitioning by `HASH(ID)` with `MODULUS 64` and `REMAINDER 1`, rows with `hash(ID) % 64 == 1` would go into the corresponding partition.
+ For example, if partitioning by `HASH(ID)` with `MODULUS 64` and `REMAINDER 1`, rows with `hash(ID) % 64 == 1` would go into the corresponding partition.
 
-- Query requirements: Hash partitioning works best when most queries include a `WHERE hashed_column = ?` condition,
-  as this allows PostgreSQL to quickly identify the relevant partition.
+- Query requirements: Hash partitioning works best when most queries include a `WHERE hashed_column = ?` condition, as this allows PostgreSQL to quickly identify the relevant partition.
 
 - ID uniqueness: It's the only partitioning method (aside from complex list partitioning) that can guarantee ID uniqueness across multiple partitions at the database level.
 

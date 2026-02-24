@@ -20,13 +20,9 @@ title: Foundational agents
 
 {{< /history >}}
 
-Foundational agents are specialized AI assistants that extend the capabilities of GitLab Duo Chat
-with domain-specific expertise and context awareness.
+Foundational agents are specialized AI assistants that extend the capabilities of GitLab Duo Chat with domain-specific expertise and context awareness.
 
-Unlike the general-purpose GitLab Duo agent, foundational agents understand the unique workflows,
-frameworks, and best practices of their specialized domains. Each agent combines deep knowledge of
-GitLab features with role-specific reasoning to provide targeted help that aligns with how
-practitioners actually work.
+Unlike the general-purpose GitLab Duo agent, foundational agents understand the unique workflows, frameworks, and best practices of their specialized domains. Each agent combines deep knowledge of GitLab features with role-specific reasoning to provide targeted help that aligns with how practitioners actually work.
 
 Foundational agents are built and maintained by GitLab and display a GitLab-maintained badge ({{< icon name="tanuki-verified" >}}).
 
@@ -34,12 +30,9 @@ Foundational agents are built and maintained by GitLab and display a GitLab-main
 
 The following foundational agents are available:
 
-- [Planner](planner.md), for product management and
-  planning workflows.
-- [Security Analyst](security_analyst_agent.md), for
-  security analysis and vulnerability management.
-- [Data Analyst](data_analyst.md), for analysis
-  and visualization of platform data.
+- [Planner](planner.md), for product management and planning workflows.
+- [Security Analyst](security_analyst_agent.md), for security analysis and vulnerability management.
+- [Data Analyst](data_analyst.md), for analysis and visualization of platform data.
 
 ## Duplicate an agent
 

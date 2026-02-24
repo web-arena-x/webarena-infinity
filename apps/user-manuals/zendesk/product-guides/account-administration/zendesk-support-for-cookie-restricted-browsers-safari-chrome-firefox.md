@@ -12,17 +12,17 @@ To prevent any issues caused by signing into Zendesk from a cookie-restricted br
 
 **To sign in** 
 
-1. For agents and end users, click the **Sign in** link in your help center.  
+1. For agents and end users, click the **Sign in** link in your help center. 
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/hc_sign_in.png)
 
-   A sign-in page appears.  
+   A sign-in page appears. 
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zendesk_no_cookies.png)
-2. Enter your sign-in credentials.  
+2. Enter your sign-in credentials. 
    For end users, sign in with a username and password, or use a social or business account to sign in. For agents, click **I am an Agent** to sign in.
-3. After signing in, agents and end users are automatically directed to the appropriate page in their account.   
+3. After signing in, agents and end users are automatically directed to the appropriate page in their account.  
    Agents will see their agent dashboard where they are signed in and can work on tickets. ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/agent_signed_in.png)   
      
-   End users will return to their help center as a signed-in user.   
+   End users will return to their help center as a signed-in user.  
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/hc_signed_in.png)

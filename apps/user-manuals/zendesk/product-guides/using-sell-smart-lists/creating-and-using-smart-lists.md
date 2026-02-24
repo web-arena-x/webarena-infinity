@@ -129,20 +129,20 @@ You can make it easier to view your lists by using filters and adding only the f
 
 - **To switch to Table view**
 
-  1. On the sidebar, click **Contacts**, **Leads**, or **Deals**.
-  2. In the top right corner, click on the **Table view** (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_table_view.png)) icon.
+ 1. On the sidebar, click **Contacts**, **Leads**, or **Deals**.
+ 2. In the top right corner, click on the **Table view** (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_table_view.png)) icon.
 - **To add fields**
 
-  1. In the top right corner of your **Contacts**, **Leads**, or **Deals** list, click **+ Field**.
-  2. Search for the field that you want to add.
+ 1. In the top right corner of your **Contacts**, **Leads**, or **Deals** list, click **+ Field**.
+ 2. Search for the field that you want to add.
 - **To sort by type**
 
-  - Click the dropdown menu arrow next to the column title.
+ - Click the dropdown menu arrow next to the column title.
 - **To apply filters**
 
-  1. Hover over the name of the column you want to filter.
-  2. Select the check box/es that apply or choose a filter from the drop down list.
+ 1. Hover over the name of the column you want to filter.
+ 2. Select the check box/es that apply or choose a filter from the drop down list.
 
      Your choices vary depending on the column that you're applying a filter to.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_table_view_add_field_filter.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_table_view_add_field_filter.png)

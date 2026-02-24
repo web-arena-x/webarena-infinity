@@ -12,9 +12,7 @@ title: Use GitLab as a microservice
 
 {{< /details >}}
 
-Many applications need to access JSON APIs, so application tests might need access
-to APIs too. The following example shows how to use GitLab as a microservice to give
-tests access to the GitLab API.
+Many applications need to access JSON APIs, so application tests might need access to APIs too. The following example shows how to use GitLab as a microservice to give tests access to the GitLab API.
 
 1. Configure a [runner](../runners/_index.md) with the Docker or Kubernetes executor.
 1. In your `.gitlab-ci.yml` add:
@@ -26,7 +24,7 @@ tests access to the GitLab API.
 
    variables:
      GITLAB_HTTPS: "false"             # ensure that plain http works
-     GITLAB_ROOT_PASSWORD: "password"  # to access the api with user root:password
+     GITLAB_ROOT_PASSWORD: "password" # to access the api with user root:password
    ```
 
 {{< alert type="note" >}}
@@ -38,10 +36,8 @@ For more information, see [GitLab CI/CD variables](../variables/_index.md).
 
 Then, commands in `script` sections in your `.gitlab-ci.yml` file can access the API at `http://gitlab/api/v4`.
 
-For more information about why `gitlab` is used for the `Host`, see
-[How services are linked to the job](../docker/using_docker_images.md#extended-docker-configuration-options).
+For more information about why `gitlab` is used for the `Host`, see [How services are linked to the job](../docker/using_docker_images.md#extended-docker-configuration-options).
 
 You can also use any other Docker image available on [Docker Hub](https://hub.docker.com/u/gitlab).
 
-The `gitlab` image can accept environment variables. For more details,
-see the [Linux package documentation](../../install/_index.md).
+The `gitlab` image can accept environment variables. For more details, see the [Linux package documentation](../../install/_index.md).

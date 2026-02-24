@@ -83,20 +83,20 @@ If you have multiple accounts in the Gmail app, you can view all your emails in 
 When you add an account manually, you might get one of these security warnings.
 
 - **"Email security not guaranteed"**
-  - This warning appears if your other email service doesn’t use the highest level of security.
-  - Your connection to your email service isn't secure. Someone could potentially find your username, password, or message information.
-  - To proceed, you can add your account with an unsecured connection:
+ - This warning appears if your other email service doesn’t use the highest level of security.
+ - Your connection to your email service isn't secure. Someone could potentially find your username, password, or message information.
+ - To proceed, you can add your account with an unsecured connection:
     1. Tap the "Security type" dropdown.
     2. Select **None**.
 
 - **"Certificate not trusted"**
-  - This error means your other email service doesn't use a secure, valid certificate.
-  - Other error messages you can get:
+ - This error means your other email service doesn't use a secure, valid certificate.
+ - Other error messages you can get:
     - "Certificate expired or not yet valid"
     - "Certificate has been changed"
     - "Certificate subject and hostname mismatch"
     - "Certificate not found"
-  - To fix the error, you can report it to your other email service.
+ - To fix the error, you can report it to your other email service.
     1. In the error message, tap **More info**.
     2. At the top right, tap More ![More](//lh3.googleusercontent.com/oLoRPrHJd7m46sWijX6zBWnEnfslP62AxJSwt5Nj0bNbpaYHz2pyscExleiofsH2kQ=h36) ![and then](//lh3.googleusercontent.com/3_l97rr0GvhSP2XV5OoCkV2ZDTIisAOczrSdzNCBxhIKWrjXjHucxNwocghoUa39gw=h36) **Share**.
 

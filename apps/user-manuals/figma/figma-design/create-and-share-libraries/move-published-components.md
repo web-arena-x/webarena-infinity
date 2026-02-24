@@ -117,11 +117,11 @@ To move a component or component set:
 
 ## 3. Publish library changes
 
-When you move published components between files, Figma will prompt you to publish your changes to any affected libraries. When changes have been made to a library, the  **Libraries** icon in the left sidebar will display a blue badge.
+When you move published components between files, Figma will prompt you to publish your changes to any affected libraries. When changes have been made to a library, the **Libraries** icon in the left sidebar will display a blue badge.
 
 You need to publish these changes to complete the move process. Figma will push updates to all subscribed files when you publish your changes.
 
-1. Click the  **Review unpublished changes** icon to open the **Libraries** modal.  The icon’s tooltip may read **Review library updates** if there are updates to libraries you are using in the file.
+1. Click the **Review unpublished changes** icon to open the **Libraries** modal.  The icon’s tooltip may read **Review library updates** if there are updates to libraries you are using in the file.
 2. Select the **This file** tab then click **Publish** next to the library.
 3. Figma lists any changes to the library, including every component you've moved to this file. For each component, choose to **Move to this file** or **Publish as a copy**.
 
@@ -134,7 +134,7 @@ You need to publish these changes to complete the move process. Figma will push 
 
 ## 4. Accept updates from library
 
-Figma will push updates to any file that uses those styles and components. When updates are available for a style, component, or variable on the current page, the  **Libraries** icon in the left sidebar will display a blue badge.
+Figma will push updates to any file that uses those styles and components. When updates are available for a style, component, or variable on the current page, the **Libraries** icon in the left sidebar will display a blue badge.
 
 ![Sidebar showing Figma pages: Metadata and instructions, Images, Playground, Archive.](https://help.figma.com/hc/article_attachments/26974914323991)
 

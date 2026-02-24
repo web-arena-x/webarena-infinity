@@ -42,22 +42,22 @@ To access this report, click **Analytics** from the left navigation bar. The **H
 Use the filters on the top of the page to narrow and customize your search results:
 
 - **All jobs**
-  - Type to search, or select a job from the dropdown.
+ - Type to search, or select a job from the dropdown.
 - **Sources**
-  - External job campaigns
+ - External job campaigns
     - Clicked "Apply" on a job that was promoted with a campaign but not listed on Handshake.
-  - Handshake
+ - Handshake
     - Clicked "Apply" on a job listed on Handshake.
-  - ATS *(only visible to employers who have integrated their ATS with Handshake)*
+ - ATS *(only visible to employers who have integrated their ATS with Handshake)*
     - 'ATS' applicants completed an application to a job you posted in Handshake outside of the Handshake platform, but have engaged with you in Handshake in the last 24 months.
 - **Application Date Range**
-  - Select a start and end date in the calendar modal.
+ - Select a start and end date in the calendar modal.
 - **Applicant Status**
-  - - **Note**: to filter on status, exclude applicants from External Job Campaigns.
-  - Pending Reviews
-  - Reviewed
-  - Rejected
-  - Hired
+ - - **Note**: to filter on status, exclude applicants from External Job Campaigns.
+ - Pending Reviews
+ - Reviewed
+ - Rejected
+ - Hired
 
 ![Filters available .png](https://support.joinhandshake.com/hc/article_attachments/25997611414423)
 
@@ -84,9 +84,9 @@ Click the white button **Download** **report as CSV** to the right of the page t
 - Attended Career Fair
 - Attended Event
 - *Percentage breakdown of applicants per date range selected (100% of applicants)* 
-  - Majors
-  - Schools
-  - Applicant representation   
+ - Majors
+ - Schools
+ - Applicant representation   
     - The count and percent of applicants within the underrepresented group are displayed when there are more than 50 applicants.
 
 ### 

@@ -18,7 +18,7 @@ Staff members will receive key communications from our team, which may include m
 **Note**: assigning the Handshake Point of Contact permission doesn't mean the staff member will be shown on your institution's profile.
 
 - Staff member profile visibility is managed via Other Settings > Public Profile permission. 
-  - If a staff member is granted the Public Profile permission, their tile in the Staff Management page will include blue text "Point of Contact". ![public profile .png](https://support.joinhandshake.com/hc/article_attachments/26001342275223)
+ - If a staff member is granted the Public Profile permission, their tile in the Staff Management page will include blue text "Point of Contact". ![public profile .png](https://support.joinhandshake.com/hc/article_attachments/26001342275223)
 - For more details, refer to [School Settings: Career Services Staff Roles and Permissions](https://support.joinhandshake.com/hc/en-us/articles/219132767#:~:text=Other%20Settings,your%20Institutions%20page).
 
 *For information on the* Manage Feature Releases *permission instead, refer to ["Manage Feature Releases" Permission for Career Services](https://support.joinhandshake.com/hc/en-us/articles/8248048628887).*

@@ -34,8 +34,8 @@ The following illustration shows you an example of a file that has been marked u
 
 ##### Procore Attachment Viewer: Example of Historical Issue
 
-After uploading the file to Procore's attachment viewer (e.g., this the **Attach File(s)** area of a submittal), you will notice that the highlighted markup detail are NOT displaying as expected.   
-  
+After uploading the file to Procore's attachment viewer (e.g., this the **Attach File(s)** area of a submittal), you will notice that the highlighted markup detail are NOT displaying as expected.  
+ 
 ![procore-missing-markup.png](https://support.procore.com/@api/deki/files/42319/procore-missing-markup.png?revision=1&size=bestfit&width=531&height=637)
 
 ##### Historical Workaround

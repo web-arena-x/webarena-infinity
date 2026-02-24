@@ -12,16 +12,14 @@ title: Install an offline GitLab Self-Managed instance
 
 {{< /details >}}
 
-This is a step-by-step guide that helps you install, configure, and use a GitLab Self-Managed
-instance entirely offline.
+This is a step-by-step guide that helps you install, configure, and use a GitLab Self-Managed instance entirely offline.
 
 ## Installation
 
 {{< alert type="note" >}}
 
 This guide assumes the server is Ubuntu 20.04 using the [Linux package installation method](https://docs.gitlab.com/omnibus/) and is running GitLab [Enterprise Edition](https://about.gitlab.com/install/ce-or-ee/). Instructions for other servers may vary.
-This guide also assumes the server host resolves as `my-host.internal`, which you should replace with your
-server's FQDN, and that you have access to a different server with Internet access to download the required package files.
+This guide also assumes the server host resolves as `my-host.internal`, which you should replace with your server's FQDN, and that you have access to a different server with Internet access to download the required package files.
 
 {{< /alert >}}
 
@@ -63,13 +61,10 @@ sudo cd /path/to/mount
 sudo dpkg -i <package_name>.deb
 ```
 
-[Use the relevant commands for your operating system to install the package](../../update/package/_index.md#upgrade-with-a-downloaded-package) but make sure to specify an `http`
-URL for the `EXTERNAL_URL` installation step. Once installed, you can manually
-configure the SSL yourself.
+[Use the relevant commands for your operating system to install the package](../../update/package/_index.md#upgrade-with-a-downloaded-package) but make sure to specify an `http` URL for the `EXTERNAL_URL` installation step. Once installed, you can manually configure the SSL yourself.
 
 You should set up a domain for IP resolution rather than bind to the server's IP address.
-A domain provides a stable target for the certificate's Common Name (CN) and simplifies the long-term
-resolution.
+A domain provides a stable target for the certificate's Common Name (CN) and simplifies the long-term resolution.
 
 The following example for Ubuntu specifies the `EXTERNAL_URL` using HTTP and installs the GitLab package:
 
@@ -79,8 +74,7 @@ sudo EXTERNAL_URL="http://my-host.internal" dpkg -i <gitlab_package_name>.deb
 
 ## Enabling SSL
 
-Follow these steps to enable SSL for your fresh instance. These steps reflect those for
-[manually configuring SSL in the NGINX configuration](https://docs.gitlab.com/omnibus/settings/ssl/#configure-https-manually):
+Follow these steps to enable SSL for your fresh instance. These steps reflect those for [manually configuring SSL in the NGINX configuration](https://docs.gitlab.com/omnibus/settings/ssl/#configure-https-manually):
 
 1. Make the following changes to `/etc/gitlab/gitlab.rb`:
 
@@ -92,8 +86,7 @@ Follow these steps to enable SSL for your fresh instance. These steps reflect th
    letsencrypt['enable'] = false
    ```
 
-1. Create the following directories with the appropriate permissions for generating self-signed
-   certificates:
+1. Create the following directories with the appropriate permissions for generating self-signed certificates:
 
    ```shell
    sudo mkdir -p /etc/gitlab/ssl
@@ -109,8 +102,7 @@ Follow these steps to enable SSL for your fresh instance. These steps reflect th
 
 ## Enabling the GitLab container registry
 
-Follow these steps to enable the container registry. These steps reflect those for
-[configuring the container registry under an existing domain](../../administration/packages/container_registry.md#configure-container-registry-under-an-existing-gitlab-domain):
+Follow these steps to enable the container registry. These steps reflect those for [configuring the container registry under an existing domain](../../administration/packages/container_registry.md#configure-container-registry-under-an-existing-gitlab-domain):
 
 1. Make the following changes to `/etc/gitlab/gitlab.rb`:
 
@@ -128,8 +120,7 @@ Follow these steps to enable the container registry. These steps reflect those f
 
 ## Allow the Docker daemon to trust the registry and GitLab Runner
 
-Provide your Docker daemon with your certs by
-[following the steps for using trusted certificates with your registry](../../administration/packages/container_registry_troubleshooting.md#using-self-signed-certificates-with-container-registry):
+Provide your Docker daemon with your certs by [following the steps for using trusted certificates with your registry](../../administration/packages/container_registry_troubleshooting.md#using-self-signed-certificates-with-container-registry):
 
 ```shell
 sudo mkdir -p /etc/docker/certs.d/my-host.internal:5000
@@ -137,8 +128,7 @@ sudo mkdir -p /etc/docker/certs.d/my-host.internal:5000
 sudo cp /etc/gitlab/ssl/my-host.internal.crt /etc/docker/certs.d/my-host.internal:5000/ca.crt
 ```
 
-Provide your GitLab Runner (to be installed next) with your certs by
-[following the steps for using trusted certificates with your runner](https://docs.gitlab.com/runner/install/docker.html#installing-trusted-ssl-server-certificates):
+Provide your GitLab Runner (to be installed next) with your certs by [following the steps for using trusted certificates with your runner](https://docs.gitlab.com/runner/install/docker.html#installing-trusted-ssl-server-certificates):
 
 ```shell
 sudo mkdir -p /etc/gitlab-runner/certs
@@ -189,8 +179,7 @@ sudo docker run -d --restart always --name gitlab-runner -v /etc/gitlab-runner:/
 
 ### Authenticating the registry against the host OS
 
-As noted in [Docker registry authentication documentation](https://distribution.github.io/distribution/about/insecure/#docker-still-complains-about-the-certificate-when-using-authentication),
-certain versions of Docker require trusting the certificate chain at the OS level.
+As noted in [Docker registry authentication documentation](https://distribution.github.io/distribution/about/insecure/#docker-still-complains-about-the-certificate-when-using-authentication), certain versions of Docker require trusting the certificate chain at the OS level.
 
 In the case of Ubuntu, this involves using `update-ca-certificates`:
 
@@ -210,32 +199,26 @@ done.
 
 ### Disable Version Check and Service Ping
 
-Version Check and Service Ping improve the GitLab user experience and ensure that
-users are on the most up-to-date instances of GitLab. These two services can be turned off for offline
-environments so that they do not attempt and fail to reach out to GitLab services.
+Version Check and Service Ping improve the GitLab user experience and ensure that users are on the most up-to-date instances of GitLab. These two services can be turned off for offline environments so that they do not attempt and fail to reach out to GitLab services.
 
 For more information, see [Enable or disable service ping](../../administration/settings/usage_statistics.md#enable-or-disable-service-ping).
 
 ### Disable runner version management
 
-Runner version management retrieves the latest runner versions from GitLab to
-[determine which runners in your environment are out of date](../../ci/runners/runners_scope.md#determine-which-runners-need-to-be-upgraded).
+Runner version management retrieves the latest runner versions from GitLab to [determine which runners in your environment are out of date](../../ci/runners/runners_scope.md#determine-which-runners-need-to-be-upgraded).
 You must [disable runner version management](../../administration/settings/continuous_integration.md#control-runner-version-management)
 for offline environments.
 
 ### Configure NTP
 
-Gitaly Cluster (Praefect) assumes `pool.ntp.org` is accessible. If `pool.ntp.org` is not accessible, [customize the time server setting](../../administration/gitaly/praefect/configure.md#customize-time-server-setting) on the Gitaly
-and Praefect servers so they can use an accessible NTP server.
+Gitaly Cluster (Praefect) assumes `pool.ntp.org` is accessible. If `pool.ntp.org` is not accessible, [customize the time server setting](../../administration/gitaly/praefect/configure.md#customize-time-server-setting) on the Gitaly and Praefect servers so they can use an accessible NTP server.
 
 On offline instances, the [GitLab Geo check Rake task](../../administration/geo/replication/troubleshooting/common.md#can-geo-detect-the-current-site-correctly)
-always fails because it uses `pool.ntp.org`. This error can be ignored but you can
-[read more about how to work around it](../../administration/geo/replication/troubleshooting/common.md#message-machine-clock-is-synchronized--exception).
+always fails because it uses `pool.ntp.org`. This error can be ignored but you can [read more about how to work around it](../../administration/geo/replication/troubleshooting/common.md#message-machine-clock-is-synchronized--exception).
 
 ## Enabling the Package Metadata Database
 
-Enabling the Package Metadata Database is required to enable
-[continuous vulnerability scanning](../../user/application_security/continuous_vulnerability_scanning/_index.md)
+Enabling the Package Metadata Database is required to enable [continuous vulnerability scanning](../../user/application_security/continuous_vulnerability_scanning/_index.md)
 and [license scanning of CycloneDX files](../../user/compliance/license_scanning_of_cyclonedx_files/_index.md).
 This process requires the use of License and/or Advisory Data under what is collectively called the Package Metadata Database, which is licensed under the [EE License](https://storage.googleapis.com/prod-export-license-bucket-1a6c642fc4de57d4/LICENSE).
 Note the following in relation to use of the Package Metadata Database:
@@ -297,12 +280,12 @@ DATA_TYPE=$1
 GITLAB_RAILS_ROOT_DIR="$(gitlab-rails runner 'puts Rails.root.to_s')"
 
 if [ "$DATA_TYPE" == "license" ]; then
-  PKG_METADATA_DIR="$GITLAB_RAILS_ROOT_DIR/vendor/package_metadata/licenses"
+ PKG_METADATA_DIR="$GITLAB_RAILS_ROOT_DIR/vendor/package_metadata/licenses"
 elif [ "$DATA_TYPE" == "advisory" ]; then
-  PKG_METADATA_DIR="$GITLAB_RAILS_ROOT_DIR/vendor/package_metadata/advisories"
+ PKG_METADATA_DIR="$GITLAB_RAILS_ROOT_DIR/vendor/package_metadata/advisories"
 else
-  echo "Usage: import_script.sh [license|advisory]"
-  exit 1
+ echo "Usage: import_script.sh [license|advisory]"
+ exit 1
 fi
 
 PKG_METADATA_BUCKET="prod-export-$DATA_TYPE-bucket-1a6c642fc4de57d4"
@@ -319,11 +302,11 @@ NEXT_PAGE_TOKEN="$(jq -r '.nextPageToken' $TEMP_FILE)"
 jq -r '.items[] | [.name, .mediaLink] | @tsv' "$TEMP_FILE" >"$PKG_METADATA_DOWNLOADS_OUTPUT_FILE"
 
 while [ "$NEXT_PAGE_TOKEN" != "null" ]; do
-  curl --silent --show-error --request GET "https://storage.googleapis.com/storage/v1/b/$PKG_METADATA_BUCKET/o?maxResults=$MAX_RESULTS&pageToken=$NEXT_PAGE_TOKEN" >"$TEMP_FILE"
-  NEXT_PAGE_TOKEN="$(jq -r '.nextPageToken' $TEMP_FILE)"
-  jq -r '.items[] | [.name, .mediaLink] | @tsv' "$TEMP_FILE" >>"$PKG_METADATA_DOWNLOADS_OUTPUT_FILE"
-  #use for API rate-limiting
-  sleep 1
+ curl --silent --show-error --request GET "https://storage.googleapis.com/storage/v1/b/$PKG_METADATA_BUCKET/o?maxResults=$MAX_RESULTS&pageToken=$NEXT_PAGE_TOKEN" >"$TEMP_FILE"
+ NEXT_PAGE_TOKEN="$(jq -r '.nextPageToken' $TEMP_FILE)"
+ jq -r '.items[] | [.name, .mediaLink] | @tsv' "$TEMP_FILE" >>"$PKG_METADATA_DOWNLOADS_OUTPUT_FILE"
+ #use for API rate-limiting
+ sleep 1
 done
 
 trap 'rm -f "$TEMP_FILE"' EXIT
@@ -340,21 +323,21 @@ TOTAL_OBJECT_COUNT="$(wc -l "$PKG_METADATA_DOWNLOADS_OUTPUT_FILE" | awk '{print 
 
 # Download the objects
 while IFS= read -r line; do
-  FILE="$(echo -n "$line" | awk '{print $1}')"
-  URL="$(echo -n "$line" | awk '{print $2}')"
-  OUTPUT_PATH="$PKG_METADATA_DIR/$FILE"
+ FILE="$(echo -n "$line" | awk '{print $1}')"
+ URL="$(echo -n "$line" | awk '{print $2}')"
+ OUTPUT_PATH="$PKG_METADATA_DIR/$FILE"
 
-  echo "Downloading $FILE"
+ echo "Downloading $FILE"
 
-  if [ ! -f "$OUTPUT_PATH" ]; then
+ if [ ! -f "$OUTPUT_PATH" ]; then
     curl --progress-bar --create-dirs --output "$OUTPUT_PATH" --request "GET" "$URL"
-  else
+ else
     echo "Existing file found"
-  fi
+ fi
 
-  echo -e "$INDEX of $TOTAL_OBJECT_COUNT objects downloaded\n"
+ echo -e "$INDEX of $TOTAL_OBJECT_COUNT objects downloaded\n"
 
-  INDEX=$((INDEX + 1))
+ INDEX=$((INDEX + 1))
 done <"$PKG_METADATA_DOWNLOADS_OUTPUT_FILE"
 
 echo "All objects saved to $PKG_METADATA_DIR"
@@ -433,8 +416,7 @@ Additionally, checkpoint data should exist for the particular package registry b
 
 ##### Logs
 
-The [`application_json.log`](../../administration/logs/_index.md#application_jsonlog) file will help verify the
-sync job has run and is without error. Events associated with the sync will have a `DEBUG` severity and the class is `PackageMetadata::SyncService`.
+The [`application_json.log`](../../administration/logs/_index.md#application_jsonlog) file will help verify the sync job has run and is without error. Events associated with the sync will have a `DEBUG` severity and the class is `PackageMetadata::SyncService`.
 Example: 
 `{"severity":"DEBUG","time":"2026-01-07T02:15:49.618Z","meta.caller_id":"PackageMetadata::AdvisoriesSyncWorker","correlation_id":"43008e30dd708eadbe1ab16ad7fa953f","meta.root_caller_id":"Cronjob","meta.feature_category":"software_composition_analysis","meta.client_id":"ip/","class":"PackageMetadata::SyncService","message":"Evaluating data for advisories:offline//opt/gitlab/embedded/service/gitlab-rails/vendor/package_metadata/advisories/v2/maven/1761761049/0.ndjson"}`
 

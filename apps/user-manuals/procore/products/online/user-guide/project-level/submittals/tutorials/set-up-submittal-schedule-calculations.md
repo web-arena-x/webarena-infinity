@@ -33,16 +33,16 @@ This helps the submittal creator ensure that submittal packages and items subm
 ## Things to Consider
 
 - **Required User Permissions**:
-  - *To create a submittal that uses these calculations,* 'Standard' level permissions to the Submittals tool.
-  - *To define the calculations used on the project*, 'Admin' level permissions to the Submittals tool.
+ - *To create a submittal that uses these calculations,* 'Standard' level permissions to the Submittals tool.
+ - *To define the calculations used on the project*, 'Admin' level permissions to the Submittals tool.
 - **Prerequisite**:
-  - ***IMPORTANT! This feature must enabled in the Configure Settings page***. See [Enable Submittal Schedule Calculations](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/enable-submittal-schedule-calculations "Enable Submittal Schedule Calculations").
+ - ***IMPORTANT! This feature must enabled in the Configure Settings page***. See [Enable Submittal Schedule Calculations](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/enable-submittal-schedule-calculations "Enable Submittal Schedule Calculations").
 - **Additional Information**:
-  - Schedule calculations do NOT automatically populate due dates in the submittal workflow.
+ - Schedule calculations do NOT automatically populate due dates in the submittal workflow.
 
 ## Steps
 
-1. Follow the steps in [Create a Submittal](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/create-a-submittal "Create a Submittal").   
+1. Follow the steps in [Create a Submittal](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/create-a-submittal "Create a Submittal").  
    This reveals the New Submittal page.
 2. Scroll down to the **Submittal Schedule Information** area.
 3. Set the following information:
@@ -56,8 +56,8 @@ This helps the submittal creator ensure that submittal packages and items subm
    4. **Required On-Site Date**. The date by which materials related to the work detailed on the submittal must be delivered and available at the construction site.
    5. **Internal Review Time.**The number of calendar days that your project's design team requires to ensure the submittal is properly reviewed.
 
-      *Note*: If you enter 5, the system subtracts '5' calendar days from the **Planned Internal Review Completed Date** to automatically populate the date entry for the **Planned Submit by Date**.  
-      This illustration shows you an example of these entries and calculations.  
+      *Note*: If you enter 5, the system subtracts '5' calendar days from the **Planned Internal Review Completed Date** to automatically populate the date entry for the **Planned Submit by Date**. 
+      This illustration shows you an example of these entries and calculations. 
         
       ![create-submittal-schedule-info.png](https://support.procore.com/@api/deki/files/338157/create-submittal-schedule-info.png?revision=1&size=bestfit&width=729&height=444)
 

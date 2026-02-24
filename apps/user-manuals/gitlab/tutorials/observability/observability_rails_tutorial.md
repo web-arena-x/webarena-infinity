@@ -107,8 +107,7 @@ To create an application:
 
 ## View traces
 
-Now that you have an application configured to use Observability tracing,
-you can view exported traces on GitLab.com.
+Now that you have an application configured to use Observability tracing, you can view exported traces on GitLab.com.
 
 To view exported traces:
 

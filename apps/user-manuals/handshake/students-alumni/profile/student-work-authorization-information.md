@@ -30,10 +30,10 @@ You can update your work authorization info anytime:
 Handshake work authorization information consists of 2 questions—you must either answer both questions or opt out of sharing. After you've answered the questions once, you will not be prompted to answer again.
 
 - Select **Yes/No** for both questions:
-  - **Are you legally authorized to work in the United States?**
-  - **Will you now or in the future require visa sponsorship?**
+ - **Are you legally authorized to work in the United States?**
+ - **Will you now or in the future require visa sponsorship?**
 - Select the checkbox for**Prefer not to answer these questions.**
-  - There is a tooltip to the right of this option with a "i" icon—click the icon to display the following tooltip:
+ - There is a tooltip to the right of this option with a "i" icon—click the icon to display the following tooltip:
     - If you check this box, you may be sent or recommended irrelevant jobs, because employers won’t know if you meet work authorization requirements.
 
       Employers will see your work authorization status listed as “unknown.”

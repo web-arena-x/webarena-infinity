@@ -32,18 +32,18 @@ GET /projects/:id/error_tracking/settings
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/error_tracking/settings"
+ --url "https://gitlab.example.com/api/v4/projects/1/error_tracking/settings"
 ```
 
 Example response:
 
 ```json
 {
-  "active": true,
-  "project_name": "sample sentry project",
-  "sentry_external_url": "https://sentry.io/myawesomeproject/project",
-  "api_url": "https://sentry.io/api/0/projects/myawesomeproject/project",
-  "integrated": false
+ "active": true,
+ "project_name": "sample sentry project",
+ "sentry_external_url": "https://sentry.io/myawesomeproject/project",
+ "api_url": "https://sentry.io/api/0/projects/myawesomeproject/project",
+ "integrated": false
 }
 ```
 
@@ -76,18 +76,18 @@ Example request:
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/error_tracking/settings?active=true&integrated=true"
+ --url "https://gitlab.example.com/api/v4/projects/1/error_tracking/settings?active=true&integrated=true"
 ```
 
 Example response:
 
 ```json
 {
-  "active": true,
-  "project_name": null,
-  "sentry_external_url": null,
-  "api_url": null,
-  "integrated": true
+ "active": true,
+ "project_name": null,
+ "sentry_external_url": null,
+ "api_url": null,
+ "integrated": true
 }
 ```
 
@@ -107,18 +107,18 @@ PATCH /projects/:id/error_tracking/settings
 
 ```shell
 curl --request PATCH --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/error_tracking/settings?active=true"
+ --url "https://gitlab.example.com/api/v4/projects/1/error_tracking/settings?active=true"
 ```
 
 Example response:
 
 ```json
 {
-  "active": true,
-  "project_name": "sample sentry project",
-  "sentry_external_url": "https://sentry.io/myawesomeproject/project",
-  "api_url": "https://sentry.io/api/0/projects/myawesomeproject/project",
-  "integrated": false
+ "active": true,
+ "project_name": "sample sentry project",
+ "sentry_external_url": "https://sentry.io/myawesomeproject/project",
+ "api_url": "https://sentry.io/api/0/projects/myawesomeproject/project",
+ "integrated": false
 }
 ```
 
@@ -136,25 +136,25 @@ GET /projects/:id/error_tracking/client_keys
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/error_tracking/client_keys"
+ --url "https://gitlab.example.com/api/v4/projects/5/error_tracking/client_keys"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "active": true,
     "public_key": "glet_aa77551d849c083f76d0bc545ed053a3",
     "sentry_dsn": "https://glet_aa77551d849c083f76d0bc545ed053a3@example.com/errortracking/api/v1/projects/5"
-  },
-  {
+ },
+ {
     "id": 3,
     "active": true,
     "public_key": "glet_0ff98b1d849c083f76d0bc545ed053a3",
     "sentry_dsn": "https://glet_aa77551d849c083f76d0bc545ed053a3@example.com/errortracking/api/v1/projects/5"
-  }
+ }
 ]
 ```
 
@@ -166,25 +166,25 @@ Creates an [integrated error tracking](../operations/integrated_error_tracking.m
 POST /projects/:id/error_tracking/client_keys
 ```
 
-| Attribute  | Type | Required | Description |
-| ---------  | ---- | -------- | ----------- |
+| Attribute | Type | Required | Description |
+| --------- | ---- | -------- | ----------- |
 | `id`       | integer or string | yes | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --url "https://gitlab.example.com/api/v4/projects/5/error_tracking/client_keys"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --url "https://gitlab.example.com/api/v4/projects/5/error_tracking/client_keys"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 3,
-  "active": true,
-  "public_key": "glet_0ff98b1d849c083f76d0bc545ed053a3",
-  "sentry_dsn": "https://glet_aa77551d849c083f76d0bc545ed053a3@example.com/errortracking/api/v1/projects/5"
+ "id": 3,
+ "active": true,
+ "public_key": "glet_0ff98b1d849c083f76d0bc545ed053a3",
+ "sentry_dsn": "https://glet_aa77551d849c083f76d0bc545ed053a3@example.com/errortracking/api/v1/projects/5"
 }
 ```
 
@@ -199,9 +199,9 @@ DELETE /projects/:id/error_tracking/client_keys/:key_id
 | Attribute | Type | Required | Description |
 | --------- | ---- | -------- | ----------- |
 | `id`      | integer or string | yes | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
-| `key_id`  | integer | yes | The ID of the client key. |
+| `key_id` | integer | yes | The ID of the client key. |
 
 ```shell
 curl --request DELETE --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/error_tracking/client_keys/13"
+ --url "https://gitlab.example.com/api/v4/projects/5/error_tracking/client_keys/13"
 ```

@@ -6,8 +6,7 @@ description: Project visibility, search, badges, layout.
 title: Organize work with projects
 ---
 
-In GitLab, a project is a broad container for all aspects of your development work. Projects
-contain a code repository, collaborative tools, project management features, and CI/CD capabilities.
+In GitLab, a project is a broad container for all aspects of your development work. Projects contain a code repository, collaborative tools, project management features, and CI/CD capabilities.
 Use your project to organize all the data for your development project:
 
 - Track issues

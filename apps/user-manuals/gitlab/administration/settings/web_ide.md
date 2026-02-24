@@ -13,24 +13,17 @@ title: Web IDE extension host domain
 
 {{< /details >}}
 
-The extension host domain is a wildcard domain name used by the Web IDE to isolate third-party code installed
-using [Extension Marketplace](../../user/project/web_ide/_index.md#manage-extensions). The Web IDE
-relies on the web browser's [same origin](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
+The extension host domain is a wildcard domain name used by the Web IDE to isolate third-party code installed using [Extension Marketplace](../../user/project/web_ide/_index.md#manage-extensions). The Web IDE relies on the web browser's [same origin](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)
 policy to run extensions in a sandbox environment.
 
-GitLab provides a default extension host domain `cdn.web-ide.gitlab-static.net` that is available to all
-GitLab offerings by default. This domain name points to an external HTTP server that hosts VS Code static assets.
-In offline environments, a user's web browser can't connect to this external HTTP server which,
-in turn, limits the Web IDE's capabilities.
+GitLab provides a default extension host domain `cdn.web-ide.gitlab-static.net` that is available to all GitLab offerings by default. This domain name points to an external HTTP server that hosts VS Code static assets.
+In offline environments, a user's web browser can't connect to this external HTTP server which, in turn, limits the Web IDE's capabilities.
 
-To circumvent this limitation, GitLab instance administrators can set up a custom extension host domain. The
-custom extension host domain points to the GitLab instance itself which can also serve the VS Code static
-assets just like the default solution.
+To circumvent this limitation, GitLab instance administrators can set up a custom extension host domain. The custom extension host domain points to the GitLab instance itself which can also serve the VS Code static assets just like the default solution.
 
 {{< alert type="warning" >}}
 
-There are severe security risks associated with configuring overly broad wildcard domains in the Web IDE extension
-host domain. Misconfiguration can lead to compromise of your GitLab instance and all associated data.
+There are severe security risks associated with configuring overly broad wildcard domains in the Web IDE extension host domain. Misconfiguration can lead to compromise of your GitLab instance and all associated data.
 
 {{< /alert >}}
 
@@ -40,9 +33,7 @@ Prerequisites:
 
 - You must be an administrator.
 
-These instructions are for a [Linux package installation](../../install/package/_index.md) that uses
-the default NGINX installation. GitLab administrators and DevOps engineers
-should adapt this guide to other installation methods.
+These instructions are for a [Linux package installation](../../install/package/_index.md) that uses the default NGINX installation. GitLab administrators and DevOps engineers should adapt this guide to other installation methods.
 
 1. Follow the guide to [insert custom settings into the NGINX configuration](https://docs.gitlab.com/omnibus/settings/nginx/#insert-custom-settings-into-the-nginx-configuration) to add a `server` block. This block configures NGINX to handle requests for the extension host domain. The following code snippet provides a reference configuration. Replace `<extension-host-domain-placeholder>` with the wildcard domain name for your Web IDE extension host domain:
 
@@ -55,7 +46,7 @@ should adapt this guide to other installation methods.
      ssl_certificate_key /etc/gitlab/ssl/<extension-host-domain-placeholder>-key.pem;
 
      ## Individual nginx logs for this GitLab vhost
-     access_log  /var/log/gitlab/nginx/gitlab_access.log gitlab_access;
+     access_log /var/log/gitlab/nginx/gitlab_access.log gitlab_access;
      error_log   /var/log/gitlab/nginx/gitlab_error.log;
 
      location /assets/ {
@@ -85,5 +76,4 @@ should adapt this guide to other installation methods.
 1. In the **Extension host domain** text box, enter the custom extension host domain.
 1. Select **Save changes**.
 
-After saving the changes, you can open a project in the Web IDE to verify that the custom
-extension host is used by the editor.
+After saving the changes, you can open a project in the Web IDE to verify that the custom extension host is used by the editor.

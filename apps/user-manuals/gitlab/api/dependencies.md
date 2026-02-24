@@ -14,13 +14,11 @@ title: Dependencies API
 {{< /details >}}
 
 Every call to this endpoint requires authentication. To perform this call, user should be authorized to read repository.
-To see vulnerabilities in response, user should be authorized to read
-[Project Security Dashboard](../user/application_security/security_dashboard/_index.md).
+To see vulnerabilities in response, user should be authorized to read [Project Security Dashboard](../user/application_security/security_dashboard/_index.md).
 
 ## List project dependencies
 
-Get a list of project dependencies. This API partially mirroring
-[dependency list](../user/application_security/dependency_list/_index.md) feature.
+Get a list of project dependencies. This API partially mirroring [dependency list](../user/application_security/dependency_list/_index.md) feature.
 This list can be generated only for [languages and package managers](../user/application_security/dependency_scanning/_index.md#supported-languages-and-package-managers)
 supported by Gemnasium.
 
@@ -39,14 +37,14 @@ GET /projects/:id/dependencies?package_manager=yarn,bundler
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/4/dependencies"
+ --url "https://gitlab.example.com/api/v4/projects/4/dependencies"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "name": "rails",
     "version": "5.0.1",
     "package_manager": "bundler",
@@ -65,8 +63,8 @@ Example response:
         "url": "https://opensource.org/licenses/MIT"
       }
     ]
-  },
-  {
+ },
+ {
     "name": "hanami",
     "version": "1.3.1",
     "package_manager": "bundler",
@@ -78,6 +76,6 @@ Example response:
         "url": "https://opensource.org/licenses/MIT"
       }
     ]
-  }
+ }
 ]
 ```

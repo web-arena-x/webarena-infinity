@@ -29,8 +29,7 @@ For more information, see [Getting the correlation ID from your logs](../logs/tr
 ## Debug GitLab Pages
 
 The following sequence diagram illustrates how GitLab Pages requests are served.
-For more information on how a GitLab Pages site is deployed and serves static content from Object Storage,
-see the GitLab Pages Architecture documentation.
+For more information on how a GitLab Pages site is deployed and serves static content from Object Storage, see the GitLab Pages Architecture documentation.
 
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
@@ -113,11 +112,9 @@ To start tailing the logs:
 
 ## Authorization code flow
 
-The following sequence chart illustrates the OAuth authentication flow between the user, GitLab Pages,
-and GitLab Rails for accessing protected Pages sites.
+The following sequence chart illustrates the OAuth authentication flow between the user, GitLab Pages, and GitLab Rails for accessing protected Pages sites.
 
-For more information, see
-[GitLab OAuth authorization code flow](../../api/oauth2.md#authorization-code-flow).
+For more information, see [GitLab OAuth authorization code flow](../../api/oauth2.md#authorization-code-flow).
 
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
@@ -201,17 +198,13 @@ To fix it:
 
 ## 502 error when connecting to GitLab Pages proxy when server does not listen over IPv6
 
-In some cases, NGINX might default to using IPv6 to connect to the GitLab Pages
-service even when the server does not listen over IPv6. You can identify when
-this is happening if you see something similar to the log entry below in the
-`gitlab_pages_error.log`:
+In some cases, NGINX might default to using IPv6 to connect to the GitLab Pages service even when the server does not listen over IPv6. You can identify when this is happening if you see something similar to the log entry below in the `gitlab_pages_error.log`:
 
 ```plaintext
 2020/02/24 16:32:05 [error] 112654#0: *4982804 connect() failed (111: Connection refused) while connecting to upstream, client: 123.123.123.123, server: ~^(?<group>.*)\.pages\.example\.com$, request: "GET /-/group/project/-/jobs/1234/artifacts/artifact.txt HTTP/1.1", upstream: "http://[::1]:8090//-/group/project/-/jobs/1234/artifacts/artifact.txt", host: "group.example.com"
 ```
 
-To resolve this, set an explicit IP and port for the GitLab Pages `listen_proxy` setting
-to define the explicit address that the GitLab Pages daemon should listen on:
+To resolve this, set an explicit IP and port for the GitLab Pages `listen_proxy` setting to define the explicit address that the GitLab Pages daemon should listen on:
 
 ```ruby
 gitlab_pages['listen_proxy'] = '127.0.0.1:8090'
@@ -219,9 +212,7 @@ gitlab_pages['listen_proxy'] = '127.0.0.1:8090'
 
 ## Intermittent 502 errors or after a few days
 
-If you run Pages on a system that uses `systemd` and
-[`tmpfiles.d`](https://www.freedesktop.org/software/systemd/man/tmpfiles.d.html),
-you may encounter intermittent 502 errors trying to serve Pages with an error similar to:
+If you run Pages on a system that uses `systemd` and [`tmpfiles.d`](https://www.freedesktop.org/software/systemd/man/tmpfiles.d.html), you may encounter intermittent 502 errors trying to serve Pages with an error similar to:
 
 ```plaintext
 dial tcp: lookup gitlab.example.com on [::1]:53: dial udp [::1]:53: connect: no route to host"
@@ -229,8 +220,7 @@ dial tcp: lookup gitlab.example.com on [::1]:53: dial udp [::1]:53: connect: no 
 
 GitLab Pages creates a [bind mount](https://man7.org/linux/man-pages/man8/mount.8.html)
 inside `/tmp/gitlab-pages-*` that includes files like `/etc/hosts`.
-However, `systemd` may clean the `/tmp/` directory on a regular basis so the DNS
-configuration may be lost.
+However, `systemd` may clean the `/tmp/` directory on a regular basis so the DNS configuration may be lost.
 
 To stop `systemd` from cleaning the Pages related content:
 
@@ -272,15 +262,13 @@ and in your Pages log shows this error:
 If you see the following error:
 
 ```plaintext
-ERRO[0010] Failed to connect to the internal GitLab API after 0.50s  error="failed to connect to internal Pages API: HTTP status: 401"
+ERRO[0010] Failed to connect to the internal GitLab API after 0.50s error="failed to connect to internal Pages API: HTTP status: 401"
 ```
 
 If you are [Running GitLab Pages on a separate server](_index.md#running-gitlab-pages-on-a-separate-server)
-you must copy the `/etc/gitlab/gitlab-secrets.json` file
-from the **GitLab server** to the **Pages server**.
+you must copy the `/etc/gitlab/gitlab-secrets.json` file from the **GitLab server** to the **Pages server**.
 
-Other reasons may include network connectivity issues between your
-**GitLab server** and your **Pages server** such as firewall configurations or closed ports.
+Other reasons may include network connectivity issues between your **GitLab server** and your **Pages server** such as firewall configurations or closed ports.
 For example, if there is a connection timeout:
 
 ```plaintext
@@ -289,31 +277,24 @@ error="failed to connect to internal Pages API: Get \"https://gitlab.example.com
 
 ## Pages cannot communicate with an instance of the GitLab API
 
-If you use the default value for `domain_config_source=auto` and run multiple instances of GitLab
-Pages, you may see intermittent 502 error responses while serving Pages content. You may also see
-the following warning in the Pages logs:
+If you use the default value for `domain_config_source=auto` and run multiple instances of GitLab Pages, you may see intermittent 502 error responses while serving Pages content. You may also see the following warning in the Pages logs:
 
 ```plaintext
 WARN[0010] Pages cannot communicate with an instance of the GitLab API. Please sync your gitlab-secrets.json file https://gitlab.com/gitlab-org/gitlab-pages/-/issues/535#workaround. error="pages endpoint unauthorized"
 ```
 
-This can happen if your `gitlab-secrets.json` file is out of date between GitLab Rails and GitLab
-Pages. Follow steps 8-10 of [Running GitLab Pages on a separate server](_index.md#running-gitlab-pages-on-a-separate-server),
-in all of your GitLab Pages instances.
+This can happen if your `gitlab-secrets.json` file is out of date between GitLab Rails and GitLab Pages. Follow steps 8-10 of [Running GitLab Pages on a separate server](_index.md#running-gitlab-pages-on-a-separate-server), in all of your GitLab Pages instances.
 
 ## Intermittent 502 errors when using an AWS Network Load Balancer and GitLab Pages
 
 Connections time out when using a Network Load Balancer with client IP preservation enabled and [the request is looped back to the source server](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-troubleshooting.html#loopback-timeout).
-This can happen to GitLab instances with multiple servers
-running both the core GitLab application and GitLab Pages. This can also happen when a single
-container is running both the core GitLab application and GitLab Pages.
+This can happen to GitLab instances with multiple servers running both the core GitLab application and GitLab Pages. This can also happen when a single container is running both the core GitLab application and GitLab Pages.
 
 AWS [recommends using an IP target type](https://repost.aws/knowledge-center/target-connection-fails-load-balancer)
 to resolve this issue.
 
 Turning off [client IP preservation](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation)
-may resolve this issue when the core GitLab application and GitLab Pages run on the same host or
-container.
+may resolve this issue when the core GitLab application and GitLab Pages run on the same host or container.
 
 ## 500 error with `securecookie: failed to generate random iv` and `Failed to save the session`
 
@@ -332,8 +313,7 @@ This problem comes from the permissions of the GitLab Pages OAuth application. T
 1. Under **Scopes**, ensure that the `api` scope is selected.
 1. Save your changes.
 
-When running a [separate Pages server](_index.md#running-gitlab-pages-on-a-separate-server),
-this setting needs to be configured on the main GitLab server.
+When running a [separate Pages server](_index.md#running-gitlab-pages-on-a-separate-server), this setting needs to be configured on the main GitLab server.
 
 ## Workaround in case no wildcard DNS entry can be set
 
@@ -353,15 +333,13 @@ If `/tmp` is mounted with `noexec`, the Pages daemon fails to start with an erro
 {"error":"fork/exec /gitlab-pages: permission denied","level":"fatal","msg":"could not create pages daemon","time":"2021-02-02T21:54:34Z"}
 ```
 
-In this case, change `TMPDIR` to a location that is not mounted with `noexec`. Add the following to
-`/etc/gitlab/gitlab.rb`:
+In this case, change `TMPDIR` to a location that is not mounted with `noexec`. Add the following to `/etc/gitlab/gitlab.rb`:
 
 ```ruby
 gitlab_pages['env'] = {'TMPDIR' => '<new_tmp_path>'}
 ```
 
-Once added, reconfigure with `sudo gitlab-ctl reconfigure` and restart GitLab with
-`sudo gitlab-ctl restart`.
+Once added, reconfigure with `sudo gitlab-ctl reconfigure` and restart GitLab with `sudo gitlab-ctl restart`.
 
 ## `The redirect URI included is not valid.` when using Pages Access Control
 
@@ -371,8 +349,7 @@ You may see this error if `pages_external_url` was updated at some point of time
 
    1. In the upper-right corner, select **Admin**.
    1. Select **Applications** and then **Add new application**.
-   1. Ensure the **Callback URL/Redirect URI** is using the protocol (HTTP or HTTPS) that
-      `pages_external_url` is configured to use.
+   1. Ensure the **Callback URL/Redirect URI** is using the protocol (HTTP or HTTPS) that `pages_external_url` is configured to use.
 1. The domain and path components of `Redirect URI` are valid: they should look like `projects.<pages_external_url>/auth`.
 
 ## 500 error `cannot serve from disk`
@@ -383,8 +360,7 @@ If you get a 500 response from Pages and encounter an error similar to:
 ERRO[0145] cannot serve from disk                        error="gitlab: disk access is disabled via enable-disk=false" project_id=27 source_path="file:///shared/pages/@hashed/67/06/670671cd97404156226e507973f2ab8330d3022ca96e0c93bdbdb320c41adcaf/pages_deployments/14/artifacts.zip" source_type=zip
 ```
 
-It means that GitLab Rails is telling GitLab Pages to serve content from a location on disk,
-however, GitLab Pages was configured to disable disk access.
+It means that GitLab Rails is telling GitLab Pages to serve content from a location on disk, however, GitLab Pages was configured to disable disk access.
 
 To enable disk access:
 
@@ -404,15 +380,11 @@ If you see an error similar to:
 {"error":"httprange: new resource 403: \"403 Forbidden\"","host":"root.pages.example.com","level":"error","msg":"vfs.Root","path":"/pages1/","time":"2021-06-10T08:45:19Z"}
 ```
 
-And you run pages on the separate server syncing files via NFS, it may mean that
-the shared pages directory is mounted on a different path on the main GitLab server and the
-GitLab Pages server.
+And you run pages on the separate server syncing files via NFS, it may mean that the shared pages directory is mounted on a different path on the main GitLab server and the GitLab Pages server.
 
-In that case, it's highly recommended you to configure
-[object storage and migrate any existing pages data to it](_index.md#object-storage-settings).
+In that case, it's highly recommended you to configure [object storage and migrate any existing pages data to it](_index.md#object-storage-settings).
 
-Alternatively, you can mount the GitLab Pages shared directory to the same path on
-both servers.
+Alternatively, you can mount the GitLab Pages shared directory to the same path on both servers.
 
 ## GitLab Pages deploy job fails with error `is not a recognized provider`
 
@@ -440,19 +412,16 @@ If you get a `404 Page Not Found` response from GitLab Pages:
 
 Without the `pages:deploy` job, the updates to your GitLab Pages site are never published.
 
-If you're using a separate Pages server with `namespace_in_path` enabled, see
-[404 error when UI shows incorrect URL](#404-error-page-not-found-when-pages-ui-shows-incorrect-url).
+If you're using a separate Pages server with `namespace_in_path` enabled, see [404 error when UI shows incorrect URL](#404-error-page-not-found-when-pages-ui-shows-incorrect-url).
 
 ## 404 error: Page not found when Pages UI shows incorrect URL
 
 If you configured and enabled `namespace_in_path` on a [separate GitLab Pages server](_index.md#running-gitlab-pages-on-a-separate-server)
 you might get a `404 Page not found` error.
 
-This error occurs when the `namespace_in_path` setting is misconfigured or missing on the GitLab Pages
-server or main GitLab server.
+This error occurs when the `namespace_in_path` setting is misconfigured or missing on the GitLab Pages server or main GitLab server.
 
-The [global setting](_index.md#global-settings) `namespace_in_path` determines the URL structure for
-GitLab Pages sites. Both the GitLab server and the GitLab Pages server must have identical values for this setting.
+The [global setting](_index.md#global-settings) `namespace_in_path` determines the URL structure for GitLab Pages sites. Both the GitLab server and the GitLab Pages server must have identical values for this setting.
 
 To resolve this error:
 
@@ -471,8 +440,7 @@ To resolve this error:
       ```
 
 1. Save the file.
-1. [Reconfigure GitLab](../restart_gitlab.md) on both servers for the
-   changes to take effect.
+1. [Reconfigure GitLab](../restart_gitlab.md) on both servers for the changes to take effect.
 
 ## 503 error `Client authentication failed due to unknown client`
 

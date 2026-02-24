@@ -13,8 +13,7 @@ description: Generate test reports, code quality analysis, and security scans th
 
 {{< /details >}}
 
-Use GitLab CI/CD to test changes in feature branches. You can display test reports and
-link to important information directly in [merge requests](../../user/project/merge_requests/_index.md).
+Use GitLab CI/CD to test changes in feature branches. You can display test reports and link to important information directly in [merge requests](../../user/project/merge_requests/_index.md).
 
 ## Testing and quality reports
 
@@ -48,4 +47,4 @@ You can generate [security reports](../../user/application_security/_index.md) b
 | [Container scanning](../../user/application_security/container_scanning/_index.md)            | Scan Docker images for vulnerabilities. |
 | [Dynamic application security testing (DAST)](../../user/application_security/dast/_index.md) | Scan running web applications for vulnerabilities. |
 | [Dependency scanning](../../user/application_security/dependency_scanning/_index.md)          | Scan dependencies for vulnerabilities. |
-| [Static application security testing (SAST)](../../user/application_security/sast/_index.md)  | Scan source code for vulnerabilities. |
+| [Static application security testing (SAST)](../../user/application_security/sast/_index.md) | Scan source code for vulnerabilities. |

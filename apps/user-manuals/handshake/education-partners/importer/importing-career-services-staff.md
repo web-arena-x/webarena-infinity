@@ -25,14 +25,14 @@ The fields listed below should be formatted as shown and saved as a CSV. Column 
 | email\_address **\*Required** | The user's email address for Handshake authentication. The email \*must\* be unique within Handshake - it cannot be duplicated. **\*Can't be blank** |
 | username **\*Required** | This is the account identifier, or account 'anchor'. This should be unique identifier across your institution, that never changes. We recommend using a staff member's ID number, or any other identifier that will not be updated with a name or email change. **\*Can't be blank** |
 | user\_type **\*Required** | This will always be "Career Services". Please note that this value must be capitalized and plural as listed below:   ``` Career Services ``` |
-| first\_name **\*Required** | The staff member’s first name. This field is required for new Career Services profiles. 50 character limit.  You cannot include numerical characters (0-9) in this field. If a student has a number in their name (i.e. John the 3rd), you can change the numbers to roman numerals (i.e. John III). |
+| first\_name **\*Required** | The staff member’s first name. This field is required for new Career Services profiles. 50 character limit. You cannot include numerical characters (0-9) in this field. If a student has a number in their name (i.e. John the 3rd), you can change the numbers to roman numerals (i.e. John III). |
 | auth\_identifier | The staff member's auth identifier, which is necessary for SSO login.  This is the attribute that is set up in your school's SSO settings. |
-| last\_name | The staff member’s last name. 50 character limit.  You cannot include numerical characters (0-9) in this field. If a student has a number in their name (i.e. John the 3rd), you can change the numbers to roman numerals (i.e. John III). |
-| preferred\_name | The staff member’s preferred name. Do NOT include last name - this field is for preferred first name only. 50 character limit.  You cannot include numerical characters (0-9) in this field. If a student has a number in their name (i.e. John the 3rd), you can change the numbers to roman numerals (i.e. John III). |
+| last\_name | The staff member’s last name. 50 character limit. You cannot include numerical characters (0-9) in this field. If a student has a number in their name (i.e. John the 3rd), you can change the numbers to roman numerals (i.e. John III). |
+| preferred\_name | The staff member’s preferred name. Do NOT include last name - this field is for preferred first name only. 50 character limit. You cannot include numerical characters (0-9) in this field. If a student has a number in their name (i.e. John the 3rd), you can change the numbers to roman numerals (i.e. John III). |
 | middle\_name | The staff member’s middle name. |
 | bio | The staff member’s biography. |
 | mobile\_number | The staff member’s phone number. |
-| disabled | This field can be used if you would like to archive staff member accounts. This can be used to update staff member accounts in bulk who are no longer working at your institution and who should no longer have staff access on the platform.  Must use boolean values (case sensitive):   ``` TRUE FALSE ``` |
+| disabled | This field can be used if you would like to archive staff member accounts. This can be used to update staff member accounts in bulk who are no longer working at your institution and who should no longer have staff access on the platform. Must use boolean values (case sensitive):   ``` TRUE FALSE ``` |
 | role\_names | The different roles (or permissions) you’d like to give to the Career Services user. The list of accepted role values is listed below. You can include as many of these roles as needed for each staff member, but if you are including multiple roles, they will need to be formatted as a *semi-colon separated list*. Learn more about how roles function in Handshake in [School Settings: Career Services Staff Roles and Permissions](https://support.joinhandshake.com/hc/en-us/articles/219132767). |
 
 **Note**: *Roles can be added to staff member accounts in Handshake via the Importer, but they cannot be removed. Role removal must be done manually, under each staff member's user account settings.*
@@ -101,7 +101,7 @@ The fields listed below should be formatted as shown and saved as a CSV. Column 
 
 1. Once your file is prepared, click File > Save As > UTF-8 encoded CSV.
 2. Login to the [Importer tool](https://importer.joinhandshake.com/) to upload.
-3. Click "Upload New CSV" and choose Job Type "Career Services Staff":  
+3. Click "Upload New CSV" and choose Job Type "Career Services Staff": 
      
    ![](https://support.joinhandshake.com/hc/article_attachments/25287191247511)
 

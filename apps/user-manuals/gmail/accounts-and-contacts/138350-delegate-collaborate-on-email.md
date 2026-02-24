@@ -19,8 +19,8 @@ A delegate can’t chat with anyone or change your password.
 ## Learn about delegated accounts
 
 - Depending on your account, you can:
-  - **Personal @gmail.com account**: Add up to 10 delegates.
-  - **Work or school account**: Add up to 1,000 delegates.
+ - **Personal @gmail.com account**: Add up to 10 delegates.
+ - **Work or school account**: Add up to 1,000 delegates.
     - With typical use, 40 delegates can access a Gmail account at the same time. Above-average use by one or more delegates might reduce this number.
     - Automated processes that frequently access Gmail might also reduce the number of delegates who can access an account at the same time. These processes include APIs or browser extensions.
 - After you add a delegate, they get an invitation email. The invitation expires after a week.
@@ -72,8 +72,8 @@ After an account owner grants you access, you can access a delegated account.
 
 - Close the new browser tab for the delegated account.
 - You can also:
-  1. At the top right, click your Profile picture ![](//lh3.googleusercontent.com/f_iKBU47Hx0XUoHD1jeAo5UMfARaivyU9y6x67HZmQQpl6dXjA6-QA_VNkSnE5gnMc0=h36).
-  2. In the menu, select your email address.
+ 1. At the top right, click your Profile picture ![](//lh3.googleusercontent.com/f_iKBU47Hx0XUoHD1jeAo5UMfARaivyU9y6x67HZmQQpl6dXjA6-QA_VNkSnE5gnMc0=h36).
+ 2. In the menu, select your email address.
 
 **Tips:**
 
@@ -102,8 +102,8 @@ If you have multiple people at your organization signing in to the same Gmail ac
 
 The bookmark to access your delegated account is no longer valid
 
-To access a delegated account, you can use the account switcher to switch between your account and other delegated accounts that you have access to.  
-  
+To access a delegated account, you can use the account switcher to switch between your account and other delegated accounts that you have access to. 
+ 
 For best results, delete any saved bookmarks.
 
 A delegate I added can't access my account

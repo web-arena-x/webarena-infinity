@@ -169,11 +169,9 @@ bundle exec bin/qa Test::Instance::All http://localhost:3000
 
 ### Feature flags
 
-Tests can be run with a feature flag enabled or disabled by using the command-line
-option `--enable-feature FEATURE_FLAG` or `--disable-feature FEATURE_FLAG`.
+Tests can be run with a feature flag enabled or disabled by using the command-line option `--enable-feature FEATURE_FLAG` or `--disable-feature FEATURE_FLAG`.
 
-For example, to enable the feature flag that enforces Gitaly request limits,
-you would use the command:
+For example, to enable the feature flag that enforces Gitaly request limits, you would use the command:
 
 ```shell
 bundle exec bin/qa Test::Instance::All http://localhost:3000 --enable-feature gitaly_enforce_requests_limits

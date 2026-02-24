@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408829470618-Fine-Tuning-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
@@ -67,12 +67,12 @@ Here are some possible research techniques:
 
 Dive right in and get comfortable creating your community.
 
-- Start checking out the community features.   
-  If your help center is live and you’d prefer to play in a safe space, you can spin up a 30 day trial to test the functionality.
+- Start checking out the community features.  
+ If your help center is live and you’d prefer to play in a safe space, you can spin up a 30 day trial to test the functionality.
 - [Get started](https://support.zendesk.com/hc/en-us/articles/4408882689306) planning and activating your community.
 - Check out our documentation in:
-  - [Managing community discussion topics](https://support.zendesk.com/hc/en-us/articles/4408833845786)
-  - [Managing community posts](https://support.zendesk.com/hc/en-us/articles/4408823846170)
+ - [Managing community discussion topics](https://support.zendesk.com/hc/en-us/articles/4408833845786)
+ - [Managing community posts](https://support.zendesk.com/hc/en-us/articles/4408823846170)
 - Demo to internal stakeholders and collect feedback
 
 **Staff your team:**
@@ -89,8 +89,8 @@ When you understand your Community, you can build a foundation that supports an 
 If you have limited time to launch, copy, paste, and quickly modify the basic needs for your Community.
 
 - Create guidelines for using your Community.
-- Set up a couple of topics with descriptions, and include an example post.   
-  If you’ve started fresh with Community, you’ll see a few placeholder topics, sections, and posts you can use or modify.
+- Set up a couple of topics with descriptions, and include an example post.  
+ If you’ve started fresh with Community, you’ll see a few placeholder topics, sections, and posts you can use or modify.
 - Establish 1-2 "sticky" points for your Community.
 - Create team-specific topics where your Customer Success, Product, and Support can prompt discussions or ideas.
 

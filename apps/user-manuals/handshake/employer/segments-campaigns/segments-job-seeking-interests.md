@@ -17,7 +17,7 @@ In Segments, the filter allows you to select either Full-Time, Part-Time, or bot
 ![Candidate job seeking interests.png](https://support.joinhandshake.com/hc/article_attachments/24939152041623)
 
 - When using segment filters, the candidates included are determined by reviewing all of the education details that candidates have made available on their Handshake profiles.
-  - For example, if you're seeking BA candidates who majored in Business, the results may display candidates who have completed a B.A degree in that specific degree, and are in pursuit of a higher degree, e.g., Masters.
+ - For example, if you're seeking BA candidates who majored in Business, the results may display candidates who have completed a B.A degree in that specific degree, and are in pursuit of a higher degree, e.g., Masters.
 
 As filters are added, a dynamic query will update with the number of candidates that meet the filters selected.
 

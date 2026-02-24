@@ -16,25 +16,21 @@ docker: Cannot connect to the Docker daemon at tcp://docker:2375. Is the docker 
 
 This error occurs because Docker starts on TLS automatically.
 
-- If this is your first time setting it up, see
-  [use the Docker executor with the Docker image](using_docker_build.md#use-docker-in-docker).
-- If you are upgrading from v18.09 or earlier, see the
-  [upgrade guide](https://about.gitlab.com/blog/2019/07/31/docker-in-docker-with-docker-19-dot-03/).
+- If this is your first time setting it up, see [use the Docker executor with the Docker image](using_docker_build.md#use-docker-in-docker).
+- If you are upgrading from v18.09 or earlier, see the [upgrade guide](https://about.gitlab.com/blog/2019/07/31/docker-in-docker-with-docker-19-dot-03/).
 
 This error can also occur with the [Kubernetes executor](https://docs.gitlab.com/runner/executors/kubernetes/#using-dockerdind) when attempts are made to access the Docker-in-Docker service before it has fully started up. For a more detailed explanation, see [issue 27215](https://gitlab.com/gitlab-org/gitlab-runner/-/issues/27215).
 
 ## Docker `no such host` error
 
-You might get an error that says
-`docker: error during connect: Post https://docker:2376/v1.40/containers/create: dial tcp: lookup docker on x.x.x.x:53: no such host`.
+You might get an error that says `docker: error during connect: Post https://docker:2376/v1.40/containers/create: dial tcp: lookup docker on x.x.x.x:53: no such host`.
 
-This issue can occur when the service's image name
-[includes a registry hostname](../services/_index.md#available-settings-for-services). For example:
+This issue can occur when the service's image name [includes a registry hostname](../services/_index.md#available-settings-for-services). For example:
 
 ```yaml
 default:
-  image: docker:24.0.5-cli
-  services:
+ image: docker:24.0.5-cli
+ services:
     - registry.hub.docker.com/library/docker:24.0.5-dind
 ```
 
@@ -44,16 +40,15 @@ To allow service resolution and access, add an explicit alias for the service na
 
 ```yaml
 default:
-  image: docker:24.0.5-cli
-  services:
+ image: docker:24.0.5-cli
+ services:
     - name: registry.hub.docker.com/library/docker:24.0.5-dind
       alias: docker
 ```
 
 ## Error: `Cannot connect to the Docker daemon at unix:///var/run/docker.sock`
 
-You might get the following error when trying to run a `docker` command
-to access a `dind` service:
+You might get the following error when trying to run a `docker` command to access a `dind` service:
 
 ```shell
 $ docker ps
@@ -66,14 +61,9 @@ Make sure your job has defined these environment variables:
 - `DOCKER_TLS_CERTDIR` (optional)
 - `DOCKER_TLS_VERIFY` (optional)
 
-You may also want to update the image that provides the Docker
-client. For example, the [`docker/compose` images are obsolete](https://hub.docker.com/r/docker/compose) and should be
-replaced with [`docker`](https://hub.docker.com/_/docker).
+You may also want to update the image that provides the Docker client. For example, the [`docker/compose` images are obsolete](https://hub.docker.com/r/docker/compose) and should be replaced with [`docker`](https://hub.docker.com/_/docker).
 
-As described in [runner issue 30944](https://gitlab.com/gitlab-org/gitlab-runner/-/issues/30944#note_1514250909),
-this error can happen if your job previously relied on environment variables derived from the deprecated
-[Docker `--link` parameter](https://docs.docker.com/network/links/#environment-variables),
-such as `DOCKER_PORT_2375_TCP`. Your job fails with this error if:
+As described in [runner issue 30944](https://gitlab.com/gitlab-org/gitlab-runner/-/issues/30944#note_1514250909), this error can happen if your job previously relied on environment variables derived from the deprecated [Docker `--link` parameter](https://docs.docker.com/network/links/#environment-variables), such as `DOCKER_PORT_2375_TCP`. Your job fails with this error if:
 
 - Your CI/CD image relies on a legacy variable, such as `DOCKER_PORT_2375_TCP`.
 - The [runner feature flag `FF_NETWORK_PER_BUILD`](https://docs.gitlab.com/runner/configuration/feature-flags.html) is set to `true`.
@@ -100,8 +90,7 @@ This error appears when the `dind` service has failed to start:
 error during connect: Post "https://docker:2376/v1.24/auth": dial tcp: lookup docker on 127.0.0.11:53: no such host
 ```
 
-Check the job log to see if `mount: permission denied (are you root?)`
-appears. For example:
+Check the job log to see if `mount: permission denied (are you root?)` appears. For example:
 
 ```plaintext
 Service container logs:
@@ -119,19 +108,16 @@ Service container logs:
 2023-08-01T16:04:10.665952353Z mount: permission denied (are you root?)
 ```
 
-This indicates the GitLab Runner does not have permission to start the
-`dind` service:
+This indicates the GitLab Runner does not have permission to start the `dind` service:
 
 1. Check that `privileged = true` is set in the `config.toml`.
-1. Make sure the CI job has the right Runner tags to use these
-   privileged runners.
+1. Make sure the CI job has the right Runner tags to use these privileged runners.
 
 ## Error: `cgroups: cgroup mountpoint does not exist: unknown`
 
 There is a known incompatibility introduced by Docker Engine 20.10.
 
-When the host uses Docker Engine 20.10 or later, then the `docker:dind` service in a version older than 20.10 does
-not work as expected.
+When the host uses Docker Engine 20.10 or later, then the `docker:dind` service in a version older than 20.10 does not work as expected.
 
 While the service itself will start without problems, trying to build the container image results in the error:
 
@@ -139,32 +125,25 @@ While the service itself will start without problems, trying to build the contai
 cgroups: cgroup mountpoint does not exist: unknown
 ```
 
-To resolve this issue, update the `docker:dind` container to version at least 20.10.x,
-for example `docker:24.0.5-dind`.
+To resolve this issue, update the `docker:dind` container to version at least 20.10.x, for example `docker:24.0.5-dind`.
 
-The opposite configuration (`docker:24.0.5-dind` service and Docker Engine on the host in version
-19.06.x or older) works without problems. For the best strategy, you should to frequently test and update
-job environment versions to the newest. This brings new features, improved security and - for this specific
-case - makes the upgrade on the underlying Docker Engine on the runner's host transparent for the job.
+The opposite configuration (`docker:24.0.5-dind` service and Docker Engine on the host in version 19.06.x or older) works without problems. For the best strategy, you should to frequently test and update job environment versions to the newest. This brings new features, improved security and - for this specific case - makes the upgrade on the underlying Docker Engine on the runner's host transparent for the job.
 
 ## Error: `failed to verify certificate: x509: certificate signed by unknown authority`
 
-This error can appear when Docker commands like `docker build` or `docker pull` are executed in a Docker-in-Docker
-environment where custom or private certificates are used (for example, Zscaler certificates):
+This error can appear when Docker commands like `docker build` or `docker pull` are executed in a Docker-in-Docker environment where custom or private certificates are used (for example, Zscaler certificates):
 
 ```plaintext
 error pulling image configuration: download failed after attempts=6: tls: failed to verify certificate: x509: certificate signed by unknown authority
 ```
 
-This error occurs because Docker commands in a Docker-in-Docker environment
-use two separate containers:
+This error occurs because Docker commands in a Docker-in-Docker environment use two separate containers:
 
 - The **build container** runs the Docker client (`/usr/bin/docker`) and executes your job's script commands.
 - The **service container** (often named `svc`) runs the Docker daemon that processes most Docker commands.
 
 When your organization uses custom certificates, both containers need these certificates.
-Without proper certificate configuration in both containers, Docker operations that connect to external
-registries or services will fail with certificate errors.
+Without proper certificate configuration in both containers, Docker operations that connect to external registries or services will fail with certificate errors.
 
 To resolve this issue:
 

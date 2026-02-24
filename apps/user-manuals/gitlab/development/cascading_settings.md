@@ -9,20 +9,15 @@ Have you ever wanted to add a setting on a GitLab project and/or group that had 
 
 If so: we have the framework you have been seeking!
 
-The cascading settings framework allows groups and projects to inherit settings
-values from ancestors (parent group on up the group hierarchy) and from
-instance-level application settings. The framework also allows settings values
-to be "locked" (enforced) on groups lower in the hierarchy.
+The cascading settings framework allows groups and projects to inherit settings values from ancestors (parent group on up the group hierarchy) and from instance-level application settings. The framework also allows settings values to be "locked" (enforced) on groups lower in the hierarchy.
 
-Cascading settings historically have only been defined on `ApplicationSetting`, `NamespaceSetting` and `ProjectSetting`, though
-the framework may be extended to other objects in the future.
+Cascading settings historically have only been defined on `ApplicationSetting`, `NamespaceSetting` and `ProjectSetting`, though the framework may be extended to other objects in the future.
 
 ## Add a new cascading setting to groups only
 
 Settings are not cascading by default. To define a cascading setting, take the following steps:
 
-1. In the `NamespaceSetting` model, define the new attribute using the `cascading_attr`
-   helper method. You can use an array to define multiple attributes on a single line.
+1. In the `NamespaceSetting` model, define the new attribute using the `cascading_attr` helper method. You can use an array to define multiple attributes on a single line.
 
    ```ruby
    class NamespaceSetting
@@ -35,8 +30,7 @@ Settings are not cascading by default. To define a cascading setting, take the f
 1. Create the database columns.
 
    You can use the following database migration helper for a completely new setting.
-   The helper creates four columns, two each in `namespace_settings` and
-   `application_settings`.
+   The helper creates four columns, two each in `namespace_settings` and `application_settings`.
 
    ```ruby
    class AddDelayedProjectRemovalCascadingSetting < Gitlab::Database::Migration[2.1]
@@ -52,9 +46,7 @@ Settings are not cascading by default. To define a cascading setting, take the f
    end
    ```
 
-   Existing settings being converted to a cascading setting will require individual
-   migrations to add columns and change existing columns. Use the specifications
-   below to create migrations as required:
+   Existing settings being converted to a cascading setting will require individual migrations to add columns and change existing columns. Use the specifications below to create migrations as required:
 
    1. Columns in `namespace_settings` table:
       - `delayed_project_removal`: No default value. Null values allowed. Use any column type.
@@ -66,8 +58,7 @@ Settings are not cascading by default. To define a cascading setting, take the f
 
 ## Convenience methods
 
-By defining an attribute using the `cascading_attr` method, a number of convenience
-methods are automatically defined.
+By defining an attribute using the `cascading_attr` method, a number of convenience methods are automatically defined.
 
 **Definition**:
 
@@ -87,11 +78,9 @@ cascading_attr :delayed_project_removal
 
 ### Attribute reader method (`delayed_project_removal`)
 
-The attribute reader method (`delayed_project_removal`) returns the correct
-cascaded value using the following criteria:
+The attribute reader method (`delayed_project_removal`) returns the correct cascaded value using the following criteria:
 
-1. Returns the dirty value, if the attribute has changed. This allows standard
-   Rails validators to be used on the attribute, though `nil` values must be allowed.
+1. Returns the dirty value, if the attribute has changed. This allows standard Rails validators to be used on the attribute, though `nil` values must be allowed.
 1. Return locked ancestor value.
 1. Return locked instance-level application settings value.
 1. Return this namespace's attribute, if not nil.
@@ -100,8 +89,7 @@ cascaded value using the following criteria:
 
 ### `_locked?` method
 
-By default, the `_locked?` method (`delayed_project_removal_locked?`) returns
-`true` if an ancestor of the group or application setting locks the attribute.
+By default, the `_locked?` method (`delayed_project_removal_locked?`) returns `true` if an ancestor of the group or application setting locks the attribute.
 It returns `false` when called from the group that locked the attribute.
 
 When `include_self: true` is specified, it returns `true` when called from the group that locked the attribute.
@@ -270,7 +258,7 @@ This function should be imported and called in the [page-specific JavaScript](fe
 - merge_method_locked = cascading_namespace_setting_locked?(:merge_method, @group)
 
 = form_for @group do |f|
-  .form-group{ data: { testid: 'delayed-project-removal-form-group' } }
+ .form-group{ data: { testid: 'delayed-project-removal-form-group' } }
     = render 'shared/namespaces/cascading_settings/setting_checkbox', attribute: :delayed_project_removal,
         group: @group,
         form: f,
@@ -284,7 +272,7 @@ This function should be imported and called in the [page-specific JavaScript](fe
         form: f,
         setting_locked: delayed_project_removal_locked
 
-  %fieldset.form-group
+ %fieldset.form-group
     = render 'shared/namespaces/cascading_settings/setting_label_fieldset', attribute: :merge_method,
         group: @group,
         setting_locked: merge_method_locked,
@@ -331,12 +319,12 @@ initCascadingSettingsLockTooltips();
  1. In the your Ruby helper, you will need to call the following to send do your Vue component. Be sure to switch out `:replace_attribute_here` with your cascading attribute.
 
  ```ruby
- # Example call from your Ruby helper  method for groups
+ # Example call from your Ruby helper method for groups
  cascading_settings_data = cascading_namespace_settings_tooltip_data(:replace_attribute_here, @group, method(:edit_group_path))[:tooltip_data]
  ```
 
  ```ruby
- # Example call from your Ruby helper  method for projects
+ # Example call from your Ruby helper method for projects
 cascading_settings_data = project_cascading_namespace_settings_tooltip_data(:duo_features_enabled, project, method(:edit_group_path)).to_json
  ```
 
@@ -345,11 +333,11 @@ cascading_settings_data = project_cascading_namespace_settings_tooltip_data(:duo
 ```javascript
 let cascadingSettingsDataParsed;
 try {
-  cascadingSettingsDataParsed = convertObjectPropsToCamelCase(JSON.parse(cascadingSettingsData), {
+ cascadingSettingsDataParsed = convertObjectPropsToCamelCase(JSON.parse(cascadingSettingsData), {
     deep: true,
-  });
+ });
 } catch {
-  cascadingSettingsDataParsed = null;
+ cascadingSettingsDataParsed = null;
 }
 ```
 
@@ -360,25 +348,25 @@ try {
 
 <script>
 export default {
-  computed: {
+ computed: {
     showCascadingIcon() {
       return (
         this.cascadingSettingsData &&
         Object.keys(this.cascadingSettingsData).length
       );
     },
-  },
+ },
 }
 </script>
 
 <template>
-  <cascading-lock-icon
+ <cascading-lock-icon
     v-if="showCascadingIcon"
     :is-locked-by-group-ancestor="cascadingSettingsData.lockedByAncestor"
     :is-locked-by-application-settings="cascadingSettingsData.lockedByApplicationSetting"
     :ancestor-namespace="cascadingSettingsData.ancestorNamespace"
     class="gl-ml-1"
-  />
+ />
 </template>
 ```
 

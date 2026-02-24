@@ -28,7 +28,7 @@ The Pen tool allows you to create vector networks with great prevision by placin
 
 To use the Pen tool:
 
-1. Select the  **Pen** tool in the toolbar or press `P`.
+1. Select the **Pen** tool in the toolbar or press `P`.
 2. Position the Pen tool where where you want the vector network to begin and click to add the first point.
 3. Continue repositioning the Pen tool and clicking to add additional points and paths. To add curves to the path, click and drag your cursor to determine the length and slope of the curve. You can also use the [Bend](https://help.figma.com/hc/en-us/articles/360039957634-Edit-a-vector-object) tool to create curved paths with bézier handles.
 4. Complete the path by doing one of the following:

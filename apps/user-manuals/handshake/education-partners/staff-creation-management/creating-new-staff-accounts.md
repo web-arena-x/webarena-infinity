@@ -23,7 +23,7 @@ In the first section, enter the following Account Information: 
 - **Username** (required)
 - **Auth Identifier** (optional)
 - **Email Address** (required)
-  - **Note**: if the new staff member has a student account with your school, you can use their existing student account email address to link the two accounts. Using a different email address can result in some complications if they try to sign in with SSO or existing info.
+ - **Note**: if the new staff member has a student account with your school, you can use their existing student account email address to link the two accounts. Using a different email address can result in some complications if they try to sign in with SSO or existing info.
     - For example, if your school uses two different email domains, such as "sol.edu" and "schooloflife.edu", these register two separate accounts. They will not be able use the "Switch Users" functionality. If SSO is setup, it will only link to one of the two accounts.
 - **Message to Include with New Account Details** (optional)
 
@@ -36,24 +36,24 @@ In the second section, enter the following personal information: 
 - **First Name** (required)
 - **Last Name** (optional)
 - **Organizational Role** (required) - Select one of the following from the drop-down menu: 
-  - Administrative Assistant
-  - Adviser
-  - Assistant Dean
-  - Assistant Director
-  - Associate Dean
-  - Associate Director
-  - Associate Vice Provost
-  - Career Counselor / Coach
-  - Coordinator / Manager
-  - Dean
-  - Director
-  - Executive Director
-  - Faculty
-  - IT
-  - Other
-  - Senior Director
-  - Staff
-  - Student Assistant
+ - Administrative Assistant
+ - Adviser
+ - Assistant Dean
+ - Assistant Director
+ - Associate Dean
+ - Associate Director
+ - Associate Vice Provost
+ - Career Counselor / Coach
+ - Coordinator / Manager
+ - Dean
+ - Director
+ - Executive Director
+ - Faculty
+ - IT
+ - Other
+ - Senior Director
+ - Staff
+ - Student Assistant
 - **Title** (optional)
 - **Mobile Phone Number** (optional)
 - **Office Phone Number** (optional)
@@ -79,8 +79,8 @@ The 8 Permission Groups are: 
 - **IT Specialist**
 - **System Administrator**
 - **Custom** **Permissions**
-  - This option allows you to set up the permissions you prefer for the staff member being added.
-  - If you select any of the other 7 options, then uncheck/check a permission for that group, the selection will change to Custom Permissions.
+ - This option allows you to set up the permissions you prefer for the staff member being added.
+ - If you select any of the other 7 options, then uncheck/check a permission for that group, the selection will change to Custom Permissions.
 
 Once you’ve selected the desired permissions, click on **Create Account** to finish setup and send the invitation email to the staff member.  ![tab_3_-_roles.png](https://support.joinhandshake.com/hc/article_attachments/25997636778391)
 

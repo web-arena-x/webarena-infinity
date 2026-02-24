@@ -18,14 +18,14 @@ You can create a new registration in one of two ways:
 
 - **From an invitation email**: If a school invited you to register, log in to your Handshake account and click the **Register** link in the email to go directly to the form.
 - **From Handshake**:
-  1. Click **Fairs** from the left navigation bar.
-  2. Find the fair you want to attend.
+ 1. Click **Fairs** from the left navigation bar.
+ 2. Find the fair you want to attend.
      - *Need help finding fairs? Learn more in* [*How to Search for a Career Fair*](https://support.joinhandshake.com/hc/en-us/articles/219133187).
-  3. Click the name of the fair to open the fair’s page.
-  4. Click the black **Register** button in the upper-right corner.
+ 3. Click the name of the fair to open the fair’s page.
+ 4. Click the black **Register** button in the upper-right corner.
 
      - *If you do not see the option to register or encounter any issues, refer to* [*Resolving issues Registering for a Career Fair*](https://support.joinhandshake.com/hc/en-us/articles/4442261326871).
-  5. You will be directed to the **New Registration** page to complete your registration form.
+ 5. You will be directed to the **New Registration** page to complete your registration form.
 
 ![Register button .png](https://support.joinhandshake.com/hc/article_attachments/33624774257431)
 
@@ -122,9 +122,9 @@ If the division you need isn’t listed, click the **here** link in the form to 
 Select one option. The fields that appear below will change based on your selection.
 
 - **Yes**
-  - A **Jobs on Handshake** dropdown appears. Use it to select the open jobs you want to promote at the fair. If no jobs are available to select, make sure the role is active and posted on Handshake.
+ - A **Jobs on Handshake** dropdown appears. Use it to select the open jobs you want to promote at the fair. If no jobs are available to select, make sure the role is active and posted on Handshake.
 - **No**
-  - A **Job Titles** field appears. Enter the titles of the roles you’re hiring for.
+ - A **Job Titles** field appears. Enter the titles of the roles you’re hiring for.
 - **I’m not hiring for a specific role right now**
 
 Jobs are only visible to students if they are posted at the school hosting the fair.
@@ -253,7 +253,7 @@ Employers may receive notifications related to their fair participation, includi
 
 To receive these notifications, your notification preferences must be enabled in your account settings. *For instructions, refer to* [*Default Notification Preferences (Employers)*.](https://support.joinhandshake.com/hc/en-us/articles/360042349393)
 
-> **Interested in getting notified when a particular career fair registration opens at a certain school?**  
+> **Interested in getting notified when a particular career fair registration opens at a certain school?** 
 > Employers will receive notifications about upcoming career fairs from schools already connected with their company on Handshake.
 >
 > If your company is not connected with a school, you will not receive notifications from Handshake. In this case, you can contact the school’s career center and request to be added to their contact list to receive updates directly.

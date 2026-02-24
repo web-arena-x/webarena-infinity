@@ -15,11 +15,10 @@ To filter and group the bid list to a more specific view.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool  
-    OR
-  - 'Standard' level permissions on the project's Bidding tool and you must be added to the bid package's distribution list.
+ - 'Admin' level permissions on the project's Bidding tool OR
+ - 'Standard' level permissions on the project's Bidding tool and you must be added to the bid package's distribution list.
 - **Additional Information:**
-  - You can filter and group the bid list at the same time.
+ - You can filter and group the bid list at the same time.
 
 ## Prerequisites
 
@@ -34,7 +33,7 @@ To filter and group the bid list to a more specific view.
 
 ### Filter the Bidders List
 
-1. In the Bidders tab, click **Add Filter**.  
+1. In the Bidders tab, click **Add Filter**. 
    ![filter-bid-list.png](https://support.procore.com/@api/deki/files/86008/filter-bid-list.png?revision=2)
 2. In the drop-down menu select one of the following filters:
    - Company Name
@@ -50,7 +49,7 @@ To filter and group the bid list to a more specific view.
 
 ### Group the Bidders List
 
-1. In the Bidders tab, click **Group By**.  
+1. In the Bidders tab, click **Group By**. 
    ![group-bid-list.png](https://support.procore.com/@api/deki/files/86007/group-bid-list.png?revision=2)
 2. In the drop-down menu select one of the following items to group your Bid list by:
    - Intent to Bid

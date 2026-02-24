@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408833907354-Web-Widget-C
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > Channels > Classic > Web Widget
+Location: Admin Center > Channels > Classic > Web Widget
 
 Note: This article applies to accounts using Web Widget (Classic). If you're using the messaging Web Widget, see [Enabling a Web Widget to offer messaging on your website or help center](https://support.zendesk.com/hc/en-us/articles/4409103246874).
 

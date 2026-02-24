@@ -19,17 +19,14 @@ You must configure your Vault server before you can use Vault secrets in a CI/CD
 The [Authenticating and reading secrets with HashiCorp Vault](hashicorp_vault_tutorial.md)
 tutorial has more details about configuring Vault and authenticating with ID tokens.
 
-In the following examples, replace `vault.example.com` with the URL of your Vault server,
-and `gitlab.example.com` with the URL of your GitLab instance.
+In the following examples, replace `vault.example.com` with the URL of your Vault server, and `gitlab.example.com` with the URL of your GitLab instance.
 
 ## Configure your Vault server
 
 To configure your Vault server:
 
-1. Enable the authentication method by running these commands. They provide your Vault
-   server the [OIDC Discovery URL](https://openid.net/specs/openid-connect-discovery-1_0.html)
-   for your GitLab instance, so Vault can fetch the public signing key and verify
-   the JSON Web Token (JWT) when authenticating:
+1. Enable the authentication method by running these commands. They provide your Vault server the [OIDC Discovery URL](https://openid.net/specs/openid-connect-discovery-1_0.html)
+   for your GitLab instance, so Vault can fetch the public signing key and verify the JSON Web Token (JWT) when authenticating:
 
    ```shell
    $ vault auth enable jwt
@@ -39,9 +36,7 @@ To configure your Vault server:
      bound_issuer="gitlab.example.com"
    ```
 
-1. Configure policies on your Vault server to grant or forbid access to certain
-   paths and operations. This example grants read access to the set of secrets
-   required by your production environment:
+1. Configure policies on your Vault server to grant or forbid access to certain paths and operations. This example grants read access to the set of secrets required by your production environment:
 
    ```shell
    vault policy write myproject-production - <<EOF
@@ -65,61 +60,46 @@ To configure your Vault server:
      to use for reading secrets and authentication. With:
      - Vault, the `root` ("`/`") namespace is used when no namespace is specified.
      - Vault Open source, the setting is ignored.
-     - [HashiCorp Cloud Platform (HCP)](https://www.hashicorp.com/cloud) Vault, a namespace
-       is required. HCP Vault uses the `admin` namespace as the root namespace by default.
+     - [HashiCorp Cloud Platform (HCP)](https://www.hashicorp.com/cloud) Vault, a namespace is required. HCP Vault uses the `admin` namespace as the root namespace by default.
        For example, `VAULT_NAMESPACE=admin`.
 
 ### Configure server roles
 
-When a CI/CD job attempts to authenticate, it specifies a role. You can use roles to group
-different policies together. If authentication is successful, these policies are
-attached to the resulting Vault token.
+When a CI/CD job attempts to authenticate, it specifies a role. You can use roles to group different policies together. If authentication is successful, these policies are attached to the resulting Vault token.
 
-[Bound claims](https://developer.hashicorp.com/vault/docs/auth/jwt#bound-claims) are predefined
-values that are matched to the JWT claims. With bounded claims, you can restrict access
-to specific GitLab users, specific projects, or even jobs running for specific Git
-references. You can have as many bounded claims you need, but they must all match
-for authentication to be successful.
+[Bound claims](https://developer.hashicorp.com/vault/docs/auth/jwt#bound-claims) are predefined values that are matched to the JWT claims. With bounded claims, you can restrict access to specific GitLab users, specific projects, or even jobs running for specific Git references. You can have as many bounded claims you need, but they must all match for authentication to be successful.
 
 Combining bounded claims with GitLab features like [user roles](../../user/permissions.md)
-and [protected branches](../../user/project/repository/branches/protected.md), you can tailor
-these rules to fit your specific use case. In this example, authentication is allowed
-only for jobs running for protected tags with names matching the pattern used for
-production releases:
+and [protected branches](../../user/project/repository/branches/protected.md), you can tailor these rules to fit your specific use case. In this example, authentication is allowed only for jobs running for protected tags with names matching the pattern used for production releases:
 
 ```json
 $ vault write auth/jwt/role/myproject-production - <<EOF
 {
-  "role_type": "jwt",
-  "policies": ["myproject-production"],
-  "token_explicit_max_ttl": 60,
-  "user_claim": "user_email",
-  "bound_audiences": "https://vault.example.com",
-  "bound_claims_type": "glob",
-  "bound_claims": {
+ "role_type": "jwt",
+ "policies": ["myproject-production"],
+ "token_explicit_max_ttl": 60,
+ "user_claim": "user_email",
+ "bound_audiences": "https://vault.example.com",
+ "bound_claims_type": "glob",
+ "bound_claims": {
     "project_id": "42",
     "ref_protected": "true",
     "ref_type": "tag",
     "ref": "auto-deploy-*"
-  }
+ }
 }
 EOF
 ```
 
 {{< alert type="warning" >}}
 
-Always restrict your roles to a project or namespace by using one of the provided
-claims like `project_id` or `namespace_id`. Without these restrictions, any JWT
-generated by this GitLab instance may be allowed to authenticate using this role.
+Always restrict your roles to a project or namespace by using one of the provided claims like `project_id` or `namespace_id`. Without these restrictions, any JWT generated by this GitLab instance may be allowed to authenticate using this role.
 
 {{< /alert >}}
 
-For a full list of ID token JWT claims, review the
-[Use HashiCorp Vault secrets in GitLab CI/CD](hashicorp_vault_tutorial.md) tutorial.
+For a full list of ID token JWT claims, review the [Use HashiCorp Vault secrets in GitLab CI/CD](hashicorp_vault_tutorial.md) tutorial.
 
-You can also specify some attributes for the resulting Vault tokens, such as time-to-live,
-IP address range, and number of uses. The full list of options is available in
-[Vault's documentation on creating roles](https://developer.hashicorp.com/vault/api-docs/auth/jwt#create-role)
+You can also specify some attributes for the resulting Vault tokens, such as time-to-live, IP address range, and number of uses. The full list of options is available in [Vault's documentation on creating roles](https://developer.hashicorp.com/vault/api-docs/auth/jwt#create-role)
 for the JSON web token method.
 
 ## Use Vault secrets in a CI/CD job
@@ -132,10 +112,10 @@ keyword to use the secrets stored in Vault:
 
 ```yaml
 job_using_vault:
-  id_tokens:
+ id_tokens:
     VAULT_ID_TOKEN:
       aud: https://vault.example.com
-  secrets:
+ secrets:
     DATABASE_PASSWORD:
       vault: production/db/password@ops
       token: $VAULT_ID_TOKEN
@@ -150,24 +130,22 @@ In this example:
 - Authentication is with `$VAULT_ID_TOKEN`.
 
 After GitLab fetches the secret from Vault, the value is saved in a temporary file.
-The path to this file is stored in a CI/CD variable named `DATABASE_PASSWORD`,
-similar to [variables of type `file`](../variables/_index.md#use-file-type-cicd-variables).
+The path to this file is stored in a CI/CD variable named `DATABASE_PASSWORD`, similar to [variables of type `file`](../variables/_index.md#use-file-type-cicd-variables).
 
 To overwrite the default behavior, set the `file` option explicitly:
 
 ```yaml
 secrets:
-  id_tokens:
+ id_tokens:
     VAULT_ID_TOKEN:
       aud: https://vault.example.com
-  DATABASE_PASSWORD:
+ DATABASE_PASSWORD:
     vault: production/db/password@ops
     file: false
     token: $VAULT_ID_TOKEN
 ```
 
-In this example, the secret value is put directly in the `DATABASE_PASSWORD` variable
-instead of pointing to a file that holds it.
+In this example, the secret value is put directly in the `DATABASE_PASSWORD` variable instead of pointing to a file that holds it.
 
 ## Secrets engines
 
@@ -188,17 +166,16 @@ GitLab Runner supports different secrets engines with the [`secrets:engine:name`
 
 ### Use a different secrets engine
 
-The `kv-v2` secrets engine is used by default. To use a different engine, add an `engine` section
-under `vault` in the configuration.
+The `kv-v2` secrets engine is used by default. To use a different engine, add an `engine` section under `vault` in the configuration.
 
 For example, to set the secret engine and path for Artifactory:
 
 ```yaml
 job_using_vault:
-  id_tokens:
+ id_tokens:
     VAULT_ID_TOKEN:
       aud: https://vault.example.com
-  secrets:
+ secrets:
     JFROG_TOKEN:
       vault:
         engine:
@@ -224,14 +201,12 @@ ERROR: Job failed (system failure): resolving secrets: initializing Vault servic
 You have two options to solve this error:
 
 - Add the self-signed certificate to the GitLab Runner server's CA store.
-  If you deployed GitLab Runner using the [Helm chart](https://docs.gitlab.com/runner/install/kubernetes.html), you have to create your own GitLab Runner image.
+ If you deployed GitLab Runner using the [Helm chart](https://docs.gitlab.com/runner/install/kubernetes.html), you have to create your own GitLab Runner image.
 - Use the `VAULT_CACERT` environment variable to configure GitLab Runner to trust the certificate:
-  - If you are using systemd to manage GitLab Runner, see [how to add an environment variable for GitLab Runner](https://docs.gitlab.com/runner/configuration/init.html#setting-custom-environment-variables).
-  - If you deployed GitLab Runner using the [Helm chart](https://docs.gitlab.com/runner/install/kubernetes.html):
-    1. [Provide a custom certificate for accessing GitLab](https://docs.gitlab.com/runner/install/kubernetes_helm_chart_configuration.html#access-gitlab-with-a-custom-certificate),
-       and make sure to add the certificate for the Vault server instead of the certificate for GitLab.
-       If your GitLab instance is also using a self-signed certificate, you should be able to
-       add both in the same `Secret`.
+ - If you are using systemd to manage GitLab Runner, see [how to add an environment variable for GitLab Runner](https://docs.gitlab.com/runner/configuration/init.html#setting-custom-environment-variables).
+ - If you deployed GitLab Runner using the [Helm chart](https://docs.gitlab.com/runner/install/kubernetes.html):
+    1. [Provide a custom certificate for accessing GitLab](https://docs.gitlab.com/runner/install/kubernetes_helm_chart_configuration.html#access-gitlab-with-a-custom-certificate), and make sure to add the certificate for the Vault server instead of the certificate for GitLab.
+       If your GitLab instance is also using a self-signed certificate, you should be able to add both in the same `Secret`.
     1. Add the following lines in your `values.yaml` file:
 
        ```yaml
@@ -245,8 +220,7 @@ You have two options to solve this error:
            value: "/home/gitlab-runner/.gitlab-runner/certs/<VAULT_CERTIFICATE>"
        ```
 
-If you are running vault server in development mode locally with [GitLab Development Kit (GDK)](https://gitlab.com/gitlab-org/gitlab-development-kit),
-you might also get this error. You can manually ask the system to trust the self signed certificate of Vault server.
+If you are running vault server in development mode locally with [GitLab Development Kit (GDK)](https://gitlab.com/gitlab-org/gitlab-development-kit), you might also get this error. You can manually ask the system to trust the self signed certificate of Vault server.
 This [sample tutorial](https://iboysoft.com/tips/how-to-trust-a-certificate-on-mac.html)
 explains how to do this on macOS.
 
@@ -261,8 +235,7 @@ ERROR: Job failed (system failure): resolving secrets: secret not found: MY_SECR
 Check that the `vault` value is [correctly configured in the CI/CD job](#use-vault-secrets-in-a-cicd-job).
 
 You can use the [`kv` command with the Vault CLI](https://developer.hashicorp.com/vault/docs/commands/kv)
-to check if the secret is retrievable to help determine the syntax for the `vault`
-value in your CI/CD configuration. For example, to retrieve the secret:
+to check if the secret is retrievable to help determine the syntax for the `vault` value in your CI/CD configuration. For example, to retrieve the secret:
 
 ```shell
 $ vault kv get -field=password -namespace=admin -mount=ops "production/db"

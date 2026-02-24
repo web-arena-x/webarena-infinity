@@ -54,7 +54,7 @@ When creating a new linear issue, you can choose a team in which to create the i
 
 Search for a specific issue ID or words in the related title to link a relevant Linear issue to a Front conversation. This will add a Front link attachment to the Linear issue and gives you the option to add any image content as a comment on the issue. Front's issue search works the same way as our in-app Search.
 
-### ,  
+### , 
 ,Link Front conversations in Linear issues
 
 #### Mouse

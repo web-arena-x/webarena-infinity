@@ -15,11 +15,11 @@ We recommend discussing this with your Handshake Customer Success Manager to dis
 Using an XML job feed to connect your ATS (Applicant Tracking System) with Handshake offers several key advantages:
 
 - **Save time and reduce manual work**
-  - Automatically import job listings from your ATS into Handshake, eliminating the need for manual posting and reducing operational overhead.
+ - Automatically import job listings from your ATS into Handshake, eliminating the need for manual posting and reducing operational overhead.
 - **Automatically close expired jobs**
-  - When a job is marked as closed in your ATS, the XML feed reflects this change and automatically archives the job in Handshake, ensuring that outdated job listings are removed.
+ - When a job is marked as closed in your ATS, the XML feed reflects this change and automatically archives the job in Handshake, ensuring that outdated job listings are removed.
 - **Enhance the candidate experience**
-  - Provide job seekers with up-to-date ‌job opportunities to avoid confusion and poor brand perception.
+ - Provide job seekers with up-to-date ‌job opportunities to avoid confusion and poor brand perception.
 
 ### 
 

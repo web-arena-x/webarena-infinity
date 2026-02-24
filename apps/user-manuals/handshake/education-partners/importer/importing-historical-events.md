@@ -27,9 +27,9 @@ The fields listed below should be formatted as shown and saved as a CSV. Column 
 | name **\*Required** | The name of the event (free text is accepted in this field). |
 | start\_date **\*Required** | When the event starts. The required formatting for all dates is yyyy-mm-dd**T**hh:mm:ss (example: *2016-11-01T12:00:00).* |
 | end\_date **\*Required** | When the event ends. The required formatting for all dates is yyyy-mm-dd**T**hh:mm:ss (example: *2016-11-01T12:00:00).* |
-| event\_type\_name **\*Required** | The type of event. Must be one of the following (case-sensitive):   ``` Classroom Presentation Employer On-site Group Appointment Info Session Mock Interview Networking Speaker/Panel Virtual Session Workshop Other ```  **Important**: if the event was a Virtual Session, you must also include virtual\_link |
+| event\_type\_name **\*Required** | The type of event. Must be one of the following (case-sensitive):   ``` Classroom Presentation Employer On-site Group Appointment Info Session Mock Interview Networking Speaker/Panel Virtual Session Workshop Other ``` **Important**: if the event was a Virtual Session, you must also include virtual\_link |
 | virtual\_link **\*Required if event\_type = Virtual Session** | If the event\_type = Virtual Session. The value for virtual link must be only a single URL.   - If more than one link or any additional text are included in this field, the Importer job will display “Analyzed Failed”. - If the event type is Virtual Session and no virtual\_link is included, Importer will display an error: {"success":false,"errors":{"virtual\_link":["cannot be blank for a Virtual Event"]}} |
-| import\_identifier **\*Required** | The unique identifier for each event. This identifier will be used if you import notes or labels attached to this event in the future. The **import\_identifier** can be anything and must be totally unique. We recommend an identifier such as:  *schoolhistoricalevent100* *schoolhistoricalevent101 schoolhistoricalevent102 schoolhistoricalevent103* |
+| import\_identifier **\*Required** | The unique identifier for each event. This identifier will be used if you import notes or labels attached to this event in the future. The **import\_identifier** can be anything and must be totally unique. We recommend an identifier such as: *schoolhistoricalevent100* *schoolhistoricalevent101 schoolhistoricalevent102 schoolhistoricalevent103* |
 | career\_center\_id | The Handshake ID of the Career Center hosting the event. The ID can be found in your School settings > Career Centers. |
 | status | The status of the event.Must be one of the following (case-sensitive):   ``` pending in_progress approved declined ``` |
 | description | A description of the event (free text is accepted in this field). |
@@ -43,7 +43,7 @@ The fields listed below should be formatted as shown and saved as a CSV. Column 
 ### How to Upload the Events File
 
 1. Once your file is prepared, select *File > Save As > UTF-8 encoded CSV* from Excel (or your preferred CSV file management tool).
-2. Use the [Importer tool](https://support.joinhandshake.com/hc/en-us/articles/Every%20staff%20file%20you%20upload%20must%20have%20these%20four%20fields.%20Let's%20talk%20about%20each%20of%20them.) to upload/edit your institution's historical events.  
+2. Use the [Importer tool](https://support.joinhandshake.com/hc/en-us/articles/Every%20staff%20file%20you%20upload%20must%20have%20these%20four%20fields.%20Let's%20talk%20about%20each%20of%20them.) to upload/edit your institution's historical events. 
      
    **Note:** You'll need to set Job Type = **Events**
 

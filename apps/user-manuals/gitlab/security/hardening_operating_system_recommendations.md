@@ -7,18 +7,13 @@ title: Hardening - Operating System Recommendations
 
 General hardening guidelines are outlined in the [main hardening documentation](hardening.md).
 
-You can configure the underlying operating system to increase overall security. In a
-controlled environment such as GitLab Self-Managed it requires additional
-steps, and in fact is often required for certain deployments. FedRAMP is an example of
-such a deployment.
+You can configure the underlying operating system to increase overall security. In a controlled environment such as GitLab Self-Managed it requires additional steps, and in fact is often required for certain deployments. FedRAMP is an example of such a deployment.
 
 ## SSH Configuration
 
 ### SSH Client Configuration
 
-For client access (either to the GitLab instance or to the underlying operating
-system), here are a couple of recommendations for SSH key generation. The first one
-is a typical SSH key:
+For client access (either to the GitLab instance or to the underlying operating system), here are a couple of recommendations for SSH key generation. The first one is a typical SSH key:
 
 ```shell
 ssh-keygen -a 64 -t ed25519 -f ~/.ssh/id_ed25519 -C "ED25519 Key"
@@ -32,10 +27,7 @@ ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -C "RSA FIPS-compliant Key"
 
 ### SSH Server Configuration
 
-At the operating system level, if you are allowing SSH access (typically through
-OpenSSH), here is an example of configuration options for the `sshd_config` file
-(the exact location may vary depending on the operating system but it is usually
-`/etc/ssh/sshd_config`):
+At the operating system level, if you are allowing SSH access (typically through OpenSSH), here is an example of configuration options for the `sshd_config` file (the exact location may vary depending on the operating system but it is usually `/etc/ssh/sshd_config`):
 
 ```shell
 #
@@ -73,41 +65,21 @@ Macs hmac-sha2-256,hmac-sha2-512
 
 ## Firewall Rules
 
-For firewall rules, only TCP ports `80` and `443` need to be open for basic usage. By
-default, `5050` is open for remote access to the container registry, however in a
-hardened environment this would most likely exist on a different host, and in some
-environments not open at all. Hence, the recommendation is for ports `80` and `443`
-only, and port `80` should only be used to redirect to `443`.
+For firewall rules, only TCP ports `80` and `443` need to be open for basic usage. By default, `5050` is open for remote access to the container registry, however in a hardened environment this would most likely exist on a different host, and in some environments not open at all. Hence, the recommendation is for ports `80` and `443` only, and port `80` should only be used to redirect to `443`.
 
-For a truly hardened or isolated environment such as FedRAMP, you should adjust the firewall rules to restrict all ports except to those networks
-accessing it. For example, if the IP address is `192.168.1.2` and all of the authorized
-clients are also on `192.168.1.0/24`, restrict access to ports `80` and `443` to just
-`192.168.1.0/24` only (as a safety restriction), even if access is restricted
-elsewhere with another firewall.
+For a truly hardened or isolated environment such as FedRAMP, you should adjust the firewall rules to restrict all ports except to those networks accessing it. For example, if the IP address is `192.168.1.2` and all of the authorized clients are also on `192.168.1.0/24`, restrict access to ports `80` and `443` to just `192.168.1.0/24` only (as a safety restriction), even if access is restricted elsewhere with another firewall.
 
-Ideally, if you're installing a GitLab Self-Managed instance, you should implement the firewall rules before the installation begins with access restricted to the admins and installers, and only add additional ranges of IP addresses for
-users after the instance is installed and properly hardened.
+Ideally, if you're installing a GitLab Self-Managed instance, you should implement the firewall rules before the installation begins with access restricted to the admins and installers, and only add additional ranges of IP addresses for users after the instance is installed and properly hardened.
 
-Usage of `iptables` or `ufw` is acceptable to implement and enforce port `80` and `443`
-access on a per-host basis, otherwise usage of cloud-based firewall rules through GCP
-Google Compute or AWS Security Groups should enforce this. All other ports should
-be blocked, or at least restricted to specific ranges. For more information on ports, see
-[Package Defaults](../administration/package_information/defaults.md).
+Usage of `iptables` or `ufw` is acceptable to implement and enforce port `80` and `443` access on a per-host basis, otherwise usage of cloud-based firewall rules through GCP Google Compute or AWS Security Groups should enforce this. All other ports should be blocked, or at least restricted to specific ranges. For more information on ports, see [Package Defaults](../administration/package_information/defaults.md).
 
 ### Firewall Additions
 
-It is possible that various services may be enabled that require external access
-(for example Sidekiq) and need network access to be opened up. Restrict these types
-of services to specific IP addresses, or a specific Class C. As a layered and added
-precaution, where possible restrict these extra services to specific nodes or
-sub-networks in GitLab.
+It is possible that various services may be enabled that require external access (for example Sidekiq) and need network access to be opened up. Restrict these types of services to specific IP addresses, or a specific Class C. As a layered and added precaution, where possible restrict these extra services to specific nodes or sub-networks in GitLab.
 
 ## Kernel Adjustments
 
-Kernel adjustments can be made by editing `/etc/sysctl.conf`, or one of the files in
-`/etc/sysctl.d/`. Kernel adjustments do not completely eliminate the threat of an
-attack, but add an extra layer of security. The following notes explain
-some of the advantages for these adjustments.
+Kernel adjustments can be made by editing `/etc/sysctl.conf`, or one of the files in `/etc/sysctl.d/`. Kernel adjustments do not completely eliminate the threat of an attack, but add an extra layer of security. The following notes explain some of the advantages for these adjustments.
 
 ```shell
 ## Kernel tweaks for sysctl.conf ##

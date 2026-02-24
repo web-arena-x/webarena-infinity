@@ -21,15 +21,15 @@ These may be useful when asking for help or reporting issues. In a multi-node en
 
 - Linux package installations:
 
-  ```shell
-  sudo gitlab-rake gitlab:env:info
-  ```
+ ```shell
+ sudo gitlab-rake gitlab:env:info
+ ```
 
 - Self-compiled installations:
 
-  ```shell
-  bundle exec rake gitlab:env:info RAILS_ENV=production
-  ```
+ ```shell
+ bundle exec rake gitlab:env:info RAILS_ENV=production
+ ```
 
 Example output:
 
@@ -43,7 +43,7 @@ Ruby Version:   2.7.6p219
 Gem Version:    3.1.6
 Bundler Version:2.3.15
 Rake Version:   13.0.6
-Redis Version:  6.2.7
+Redis Version: 6.2.7
 Sidekiq Version:6.4.2
 Go Version:     unknown
 
@@ -55,8 +55,8 @@ DB Adapter:     PostgreSQL
 DB Version:     13.8
 URL:            https://app.gitaly.gcp.gitlabsandbox.net
 HTTP Clone URL: https://app.gitaly.gcp.gitlabsandbox.net/some-group/some-project.git
-SSH Clone URL:  git@app.gitaly.gcp.gitlabsandbox.net:some-group/some-project.git
-Elasticsearch:  no
+SSH Clone URL: git@app.gitaly.gcp.gitlabsandbox.net:some-group/some-project.git
+Elasticsearch: no
 Geo:            no
 Using LDAP:     no
 Using Omniauth: yes
@@ -73,7 +73,7 @@ GitLab Shell path:              /opt/gitlab/embedded/service/gitlab-shell
 Gitaly
 - default Address:      unix:/var/opt/gitlab/gitaly/gitaly.socket
 - default Version:      15.5.5
-- default Git Version:  2.37.1.gl1
+- default Git Version: 2.37.1.gl1
 - gitaly Address:       tcp://10.128.20.6:2305
 - gitaly Version:       15.5.5
 - gitaly Git Version:   2.37.1.gl1
@@ -88,24 +88,21 @@ Gitaly
 
 {{< /details >}}
 
-This command shows information about your [GitLab license](../license.md) and
-how many seats are used. It is only available on GitLab Enterprise
-installations: a license cannot be installed into GitLab Community Edition.
+This command shows information about your [GitLab license](../license.md) and how many seats are used. It is only available on GitLab Enterprise installations: a license cannot be installed into GitLab Community Edition.
 
-These may be useful when raising tickets with Support, or for programmatically
-checking your license parameters.
+These may be useful when raising tickets with Support, or for programmatically checking your license parameters.
 
 - Linux package installations:
 
-  ```shell
-  sudo gitlab-rake gitlab:license:info
-  ```
+ ```shell
+ sudo gitlab-rake gitlab:license:info
+ ```
 
 - Self-compiled installations:
 
-  ```shell
-  bundle exec rake gitlab:license:info RAILS_ENV=production
-  ```
+ ```shell
+ bundle exec rake gitlab:license:info RAILS_ENV=production
+ ```
 
 Example output:
 
@@ -130,9 +127,7 @@ The `gitlab:check` Rake task runs the following Rake tasks:
 - `gitlab:app:check`
 - `gitlab:geo:check` (only if you're running [Geo](../geo/replication/troubleshooting/common.md#health-check-rake-task))
 
-It checks that each component was set up according to the installation guide and suggest fixes
-for issues found. This command must be run from your application server and doesn't work correctly on
-component servers like [Gitaly](../gitaly/configure_gitaly.md#run-gitaly-on-its-own-server).
+It checks that each component was set up according to the installation guide and suggest fixes for issues found. This command must be run from your application server and doesn't work correctly on component servers like [Gitaly](../gitaly/configure_gitaly.md#run-gitaly-on-its-own-server).
 
 You may also have a look at our troubleshooting guides for:
 
@@ -145,27 +140,25 @@ To run `gitlab:check`, run:
 
 - Linux package installations:
 
-  ```shell
-  sudo gitlab-rake gitlab:check
-  ```
+ ```shell
+ sudo gitlab-rake gitlab:check
+ ```
 
 - Self-compiled installations:
 
-  ```shell
-  bundle exec rake gitlab:check RAILS_ENV=production
-  ```
+ ```shell
+ bundle exec rake gitlab:check RAILS_ENV=production
+ ```
 
 - Kubernetes installations:
 
-  ```shell
-  kubectl exec -it <toolbox-pod-name> -- sudo gitlab-rake gitlab:check
-  ```
+ ```shell
+ kubectl exec -it <toolbox-pod-name> -- sudo gitlab-rake gitlab:check
+ ```
 
-  {{< alert type="note" >}}
-  Due to the specific architecture of Helm-based GitLab installations, the output may contain
-  false negatives for connectivity verification to `gitlab-shell`, Sidekiq, and `systemd`-related files.
-  These reported failures are expected and do not indicate actual issues, disregard them when reviewing diagnostic results.
-  {{< /alert >}}
+ {{< alert type="note" >}} Due to the specific architecture of Helm-based GitLab installations, the output may contain false negatives for connectivity verification to `gitlab-shell`, Sidekiq, and `systemd`-related files.
+ These reported failures are expected and do not indicate actual issues, disregard them when reviewing diagnostic results.
+ {{< /alert >}}
 
 Use `SANITIZE=true` for `gitlab:check` if you want to omit project names from the output.
 
@@ -218,23 +211,22 @@ Checking GitLab ... Finished
 
 ## Rebuild `authorized_keys` file
 
-In some cases it is necessary to rebuild the `authorized_keys` file,
-for example, if after an upgrade you receive `Permission denied (publickey)` when pushing [via SSH](../../user/ssh.md)
+In some cases it is necessary to rebuild the `authorized_keys` file, for example, if after an upgrade you receive `Permission denied (publickey)` when pushing [via SSH](../../user/ssh.md)
 and find `404 Key Not Found` errors in [the `gitlab-shell.log` file](../logs/_index.md#gitlab-shelllog).
 To rebuild `authorized_keys`, run:
 
 - Linux package installations:
 
-  ```shell
-  sudo gitlab-rake gitlab:shell:setup
-  ```
+ ```shell
+ sudo gitlab-rake gitlab:shell:setup
+ ```
 
 - Self-compiled installations:
 
-  ```shell
-  cd /home/git/gitlab
-  sudo -u git -H bundle exec rake gitlab:shell:setup RAILS_ENV=production
-  ```
+ ```shell
+ cd /home/git/gitlab
+ sudo -u git -H bundle exec rake gitlab:shell:setup RAILS_ENV=production
+ ```
 
 Example output:
 
@@ -246,75 +238,62 @@ Do you want to continue (yes/no)? yes
 
 ## Clear Redis cache
 
-If for some reason the dashboard displays the wrong information, you might want to
-clear Redis' cache. To do this, run:
+If for some reason the dashboard displays the wrong information, you might want to clear Redis' cache. To do this, run:
 
 - Linux package installations:
 
-  ```shell
-  sudo gitlab-rake cache:clear
-  ```
+ ```shell
+ sudo gitlab-rake cache:clear
+ ```
 
 - Self-compiled installations:
 
-  ```shell
-  cd /home/git/gitlab
-  sudo -u git -H bundle exec rake cache:clear RAILS_ENV=production
-  ```
+ ```shell
+ cd /home/git/gitlab
+ sudo -u git -H bundle exec rake cache:clear RAILS_ENV=production
+ ```
 
 ## Precompile the assets
 
-Sometimes during version upgrades you might end up with some wrong CSS or
-missing some icons. In that case, try to precompile the assets again.
+Sometimes during version upgrades you might end up with some wrong CSS or missing some icons. In that case, try to precompile the assets again.
 
 This Rake task only applies to self-compiled installations. [Read more](../../update/package/package_troubleshooting.md#missing-asset-files)
 about troubleshooting this problem when running the Linux package.
-The guidance for Linux package might be applicable for Kubernetes and Docker
-deployments of GitLab, though in general, container-based installations
-don't have issues with missing assets.
+The guidance for Linux package might be applicable for Kubernetes and Docker deployments of GitLab, though in general, container-based installations don't have issues with missing assets.
 
 - Self-compiled installations:
 
-  ```shell
-  cd /home/git/gitlab
-  sudo -u git -H bundle exec rake gitlab:assets:compile RAILS_ENV=production
-  ```
+ ```shell
+ cd /home/git/gitlab
+ sudo -u git -H bundle exec rake gitlab:assets:compile RAILS_ENV=production
+ ```
 
-For Linux package installations, the unoptimized assets (JavaScript, CSS) are frozen at
-the release of upstream GitLab. The Linux package installation includes optimized versions
-of those assets. Unless you are modifying the JavaScript / CSS code on your
-production machine after installing the package, there should be no reason to redo
-`rake gitlab:assets:compile` on the production machine. If you suspect that assets
-have been corrupted, you should reinstall the Linux package.
+For Linux package installations, the unoptimized assets (JavaScript, CSS) are frozen at the release of upstream GitLab. The Linux package installation includes optimized versions of those assets. Unless you are modifying the JavaScript / CSS code on your production machine after installing the package, there should be no reason to redo `rake gitlab:assets:compile` on the production machine. If you suspect that assets have been corrupted, you should reinstall the Linux package.
 
 ## Check TCP connectivity to a remote site
 
-Sometimes you need to know if your GitLab installation can connect to a TCP
-service on another machine (for example a PostgreSQL or web server)
+Sometimes you need to know if your GitLab installation can connect to a TCP service on another machine (for example a PostgreSQL or web server)
 to troubleshoot proxy issues.
 A Rake task is included to help you with this.
 
 - Linux package installations:
 
-  ```shell
-  sudo gitlab-rake gitlab:tcp_check[example.com,80]
-  ```
+ ```shell
+ sudo gitlab-rake gitlab:tcp_check[example.com,80]
+ ```
 
 - Self-compiled installations:
 
-  ```shell
-  cd /home/git/gitlab
-  sudo -u git -H bundle exec rake gitlab:tcp_check[example.com,80] RAILS_ENV=production
-  ```
+ ```shell
+ cd /home/git/gitlab
+ sudo -u git -H bundle exec rake gitlab:tcp_check[example.com,80] RAILS_ENV=production
+ ```
 
 ## Clear exclusive lease (DANGER)
 
-GitLab uses a shared lock mechanism: `ExclusiveLease` to prevent simultaneous operations
-in a shared resource. An example is running periodic garbage collection on repositories.
+GitLab uses a shared lock mechanism: `ExclusiveLease` to prevent simultaneous operations in a shared resource. An example is running periodic garbage collection on repositories.
 
-In very specific situations, an operation locked by an Exclusive Lease can fail without
-releasing the lock. If you can't wait for it to expire, you can run this task to manually
-clear it.
+In very specific situations, an operation locked by an Exclusive Lease can fail without releasing the lock. If you can't wait for it to expire, you can run this task to manually clear it.
 
 To clear all exclusive leases:
 
@@ -352,29 +331,26 @@ To check the [tracking database on a Geo secondary site](../geo/setup/external_d
 sudo gitlab-rake db:migrate:status:geo
 ```
 
-This outputs a table with a `Status` of `up` or `down` for
-each migration. Example:
+This outputs a table with a `Status` of `up` or `down` for each migration. Example:
 
 ```shell
 database: gitlabhq_production
 
  Status   Migration ID    Type     Milestone    Name
 --------------------------------------------------
-   up     20240701074848  regular  17.2         AddGroupIdToPackagesDebianGroupComponents
-   up     20240701153843  regular  17.2         AddWorkItemsDatesSourcesSyncToIssuesTrigger
-   up     20240702072515  regular  17.2         AddGroupIdToPackagesDebianGroupArchitectures
-   up     20240702133021  regular  17.2         AddWorkspaceTerminationTimeoutsToRemoteDevelopmentAgentConfigs
-   up     20240604064938  post     17.2         FinalizeBackfillPartitionIdCiPipelineMessage
-   up     20240604111157  post     17.2         AddApprovalPolicyRulesFkOnApprovalGroupRules
+   up     20240701074848 regular 17.2         AddGroupIdToPackagesDebianGroupComponents
+   up     20240701153843 regular 17.2         AddWorkItemsDatesSourcesSyncToIssuesTrigger
+   up     20240702072515 regular 17.2         AddGroupIdToPackagesDebianGroupArchitectures
+   up     20240702133021 regular 17.2         AddWorkspaceTerminationTimeoutsToRemoteDevelopmentAgentConfigs
+   up     20240604064938 post     17.2         FinalizeBackfillPartitionIdCiPipelineMessage
+   up     20240604111157 post     17.2         AddApprovalPolicyRulesFkOnApprovalGroupRules
 ```
 
-Starting with GitLab 17.1, migrations are executed in an
-order that conforms to the GitLab release cadence.
+Starting with GitLab 17.1, migrations are executed in an order that conforms to the GitLab release cadence.
 
 ## Run incomplete database migrations
 
-Database migrations can be stuck in an incomplete state, with a `down`
-status in the output of the `sudo gitlab-rake db:migrate:status` command.
+Database migrations can be stuck in an incomplete state, with a `down` status in the output of the `sudo gitlab-rake db:migrate:status` command.
 
 1. To complete these migrations, use the following Rake task:
 
@@ -391,8 +367,7 @@ status in the output of the `sudo gitlab-rake db:migrate:status` command.
    sudo gitlab-ctl restart sidekiq
    ```
 
-Starting with GitLab 17.1, migrations are executed in an
-order that conforms to the GitLab release cadence.
+Starting with GitLab 17.1, migrations are executed in an order that conforms to the GitLab release cadence.
 
 ## Rebuild database indexes
 
@@ -407,11 +382,8 @@ order that conforms to the GitLab release cadence.
 > [!warning]
 > Use with caution when running in a production environment, and run during off-peak times.
 
-Database indexes can be rebuilt regularly to reclaim space and maintain healthy
-levels of index bloat over time. Reindexing can also be run as a
-[regular cron job](https://docs.gitlab.com/omnibus/settings/database.html#automatic-database-reindexing).
-A "healthy" level of bloat is highly dependent on the specific index, but generally
-should be below 30%.
+Database indexes can be rebuilt regularly to reclaim space and maintain healthy levels of index bloat over time. Reindexing can also be run as a [regular cron job](https://docs.gitlab.com/omnibus/settings/database.html#automatic-database-reindexing).
+A "healthy" level of bloat is highly dependent on the specific index, but generally should be below 30%.
 
 Prerequisites:
 
@@ -490,22 +462,15 @@ For Kubernetes deployments, you can create a similar schedule using the CronJob 
 
 ### Notes
 
-- Rebuilding database indexes is a disk-intensive task, so you should perform the
-  task during off-peak hours. Running the task during peak hours can lead to
-  increased bloat, and can also cause certain queries to perform slowly.
-- The task requires free disk space for the index being restored. The created
-  indexes are appended with `_ccnew`. If the reindexing task fails, re-running the
-  task cleans up the temporary indexes.
-- The time it takes for database index rebuilding to complete depends on the size
-  of the target database. It can take between several hours and several days.
+- Rebuilding database indexes is a disk-intensive task, so you should perform the task during off-peak hours. Running the task during peak hours can lead to increased bloat, and can also cause certain queries to perform slowly.
+- The task requires free disk space for the index being restored. The created indexes are appended with `_ccnew`. If the reindexing task fails, re-running the task cleans up the temporary indexes.
+- The time it takes for database index rebuilding to complete depends on the size of the target database. It can take between several hours and several days.
 - The task uses Redis locks, it's safe to schedule it to run frequently.
-  It's a no-op if another reindexing task is already running.
+ It's a no-op if another reindexing task is already running.
 
 ## Dump the database schema
 
-In rare circumstances, the database schema can differ from what the application code expects
-even if all database migrations are complete. If this does occur, it can lead to odd errors
-in GitLab.
+In rare circumstances, the database schema can differ from what the application code expects even if all database migrations are complete. If this does occur, it can lead to odd errors in GitLab.
 
 To dump the database schema:
 
@@ -545,9 +510,7 @@ gitlab-rake gitlab:db:schema_checker:run
 
 {{< /history >}}
 
-The `gitlab:db:sos` command gathers configuration, performance, and diagnostic data about your GitLab
-database to help you troubleshoot issues. Where you run this command depends on your configuration. Make sure
-to run this command relative to where GitLab is installed `(/gitlab)`.
+The `gitlab:db:sos` command gathers configuration, performance, and diagnostic data about your GitLab database to help you troubleshoot issues. Where you run this command depends on your configuration. Make sure to run this command relative to where GitLab is installed `(/gitlab)`.
 
 - **Scaled GitLab**: on your Puma or Sidekiq server.
 - **Cloud native install**: on the toolbox pod.
@@ -557,19 +520,16 @@ Modify the command as needed:
 
 - **Default path** - To run the command with the default file path (`/var/opt/gitlab/gitlab-rails/tmp/sos.zip`), run `gitlab-rake gitlab:db:sos`.
 - **Custom path** - To change the file path, run `gitlab-rake gitlab:db:sos["/absolute/custom/path/to/file.zip"]`.
-- **Zsh users** - If you have not modified your Zsh configuration, you must add quotation marks
-  around the entire command, like this: `gitlab-rake "gitlab:db:sos[/absolute/custom/path/to/file.zip]"`
+- **Zsh users** - If you have not modified your Zsh configuration, you must add quotation marks around the entire command, like this: `gitlab-rake "gitlab:db:sos[/absolute/custom/path/to/file.zip]"`
 
 The Rake task runs for five minutes. It creates a compressed folder in the path you specify.
 The compressed folder contains a large number of files.
 
 ### Enable optional query statistics data
 
-The `gitlab:db:sos` Rake task can also gather data for troubleshooting slow queries using the
-[`pg_stat_statements` extension](https://www.postgresql.org/docs/16/pgstatstatements.html).
+The `gitlab:db:sos` Rake task can also gather data for troubleshooting slow queries using the [`pg_stat_statements` extension](https://www.postgresql.org/docs/16/pgstatstatements.html).
 
-Enabling this extension is optional, and requires restarting PostgreSQL and GitLab. This data is
-likely required for troubleshooting GitLab performance issues caused by slow database queries.
+Enabling this extension is optional, and requires restarting PostgreSQL and GitLab. This data is likely required for troubleshooting GitLab performance issues caused by slow database queries.
 
 Prerequisites:
 
@@ -665,8 +625,7 @@ Prerequisites:
 
 This Rake task checks the `ci` database for duplicate tags in the `tags` table.
 This issue might affect instances that have undergone multiple major upgrades over an extended period.
-Run the following command to search duplicate tags, then rewrite any tag assignments that
-reference duplicate tags to use the original tag instead.
+Run the following command to search duplicate tags, then rewrite any tag assignments that reference duplicate tags to use the original tag instead.
 
 ```shell
 sudo gitlab-rake gitlab:db:deduplicate_tags
@@ -686,8 +645,7 @@ To run this command in dry-run mode, set the environment variable `DRY_RUN=true`
 
 The PostgreSQL collation checker:
 
-- Detects collation version mismatches between the database and operating system that can cause index corruption. PostgreSQL uses the operating system's `glibc` library for
-  string collation (sorting and comparison rules).
+- Detects collation version mismatches between the database and operating system that can cause index corruption. PostgreSQL uses the operating system's `glibc` library for string collation (sorting and comparison rules).
 - Performs corruption spot checks (duplicate detection) on a predefined set of indexes. These indexes are known to be prone to corruption issues because of collation mismatch.
 
 Run this task after operating system upgrades that change the underlying `glibc` library.
@@ -749,12 +707,12 @@ Example output with mismatches:
 Checking for PostgreSQL collation mismatches on main database...
 ⚠️ COLLATION MISMATCHES DETECTED on main database!
 2 collation(s) have version mismatches:
-  - en_US.utf8: stored=428.1, actual=513.1
-  - es_ES.utf8: stored=428.1, actual=513.1
+ - en_US.utf8: stored=428.1, actual=513.1
+ - es_ES.utf8: stored=428.1, actual=513.1
 
 Found 8 indexes to corruption spot check.
 Affected indexes that need to be rebuilt:
-  - index_projects_on_name (btree) on table projects
+ - index_projects_on_name (btree) on table projects
     • Issues detected: duplicates
     • Affected columns: name
     • Type: UNIQUE
@@ -795,8 +753,7 @@ For more information about PostgreSQL collation issues and how they affect datab
 {{< /history >}}
 
 The index repair tool fixes corrupted or missing database indexes that can cause data integrity issues.
-The tool addresses specific problematic indexes that are affected by
-collation mismatches or other corruption issues. The tool:
+The tool addresses specific problematic indexes that are affected by collation mismatches or other corruption issues. The tool:
 
 - Deduplicates data when unique indexes are corrupted.
 - Updates references to maintain data integrity.
@@ -895,5 +852,4 @@ Supported environment variables:
 - `GITLAB_BACKUP_PGPORT`
 - `GITLAB_BACKUP_PGPASSWORD`
 
-For more information on bypassing PgBouncer and a full list of supported environment variables, see the
-[procedure for bypassing PgBouncer](../postgresql/pgbouncer.md#procedure-for-bypassing-pgbouncer).
+For more information on bypassing PgBouncer and a full list of supported environment variables, see the [procedure for bypassing PgBouncer](../postgresql/pgbouncer.md#procedure-for-bypassing-pgbouncer).

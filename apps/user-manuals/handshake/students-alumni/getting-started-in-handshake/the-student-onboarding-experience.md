@@ -47,7 +47,7 @@ Choose from the following:
 
 #### **Which jobs sound interesting?**
 
-Select from the available options or use the search bar to add your own.  
+Select from the available options or use the search bar to add your own. 
 ![which jobs sound interesting?.png](https://support.joinhandshake.com/hc/article_attachments/34781925734551)
 
 #### 

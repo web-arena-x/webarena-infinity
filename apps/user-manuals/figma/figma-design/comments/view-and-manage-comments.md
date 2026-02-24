@@ -8,11 +8,9 @@ Before you Start
 
 Who can use this feature
 
-Supported on
-[any team or plan](https://help.figma.com/hc/en-us/articles/360040328273-Plans-and-teams-in-Figma).
+Supported on [any team or plan](https://help.figma.com/hc/en-us/articles/360040328273-Plans-and-teams-in-Figma).
 
-Anyone with at least can view access to a file
-can add and view comments
+Anyone with at least can view access to a file can add and view comments
 
 Comments takes collaboration to the next level. You can use comments to respond to feedback, tweak your designs and iterate faster—all from the original design file.
 
@@ -33,9 +31,9 @@ Comments in a file are pinned to the point or region of the canvas selected by t
 
 Click on the comment to open the comment modal. From here, you can:
 
-1. Hover over the comment body to activate the  to use a reaction.
-2. Click  to **Mark as unread**, **Copy link** to the comment, or **Delete** the thread if you added the comment. Click  to **Resolve** the comment, and  to close the comment modal.
-3. Type a **Reply** to the comment, then click  to **Submit**.\
+1. Hover over the comment body to activate the to use a reaction.
+2. Click to **Mark as unread**, **Copy link** to the comment, or **Delete** the thread if you added the comment. Click to **Resolve** the comment, and to close the comment modal.
+3. Type a **Reply** to the comment, then click to **Submit**.\
 
 Tip: To keep a comment visible while you make edits to your designs, drag it to a new part of the canvas.
 
@@ -45,7 +43,7 @@ Tip: To keep a comment visible while you make edits to your designs, drag it to 
 
 ### From the right sidebar
 
-You can also access and manage all comments in a file by clicking  in the main toolbar or pressing `C` to enter comment mode. From here, you can view, search, sort, and filter comments. Click on a comment in the right sidebar to open it in the canvas.
+You can also access and manage all comments in a file by clicking in the main toolbar or pressing `C` to enter comment mode. From here, you can view, search, sort, and filter comments. Click on a comment in the right sidebar to open it in the canvas.
 
 When you're viewing comments in the right sidebar, each comment will include the page it's located in. When you click a comment to open it, you'll be navigated to that page and the location of the comment.
 
@@ -57,11 +55,11 @@ Note: When you're in comment mode, you won't be able to make any changes to obje
 
 Comments are always visible on the canvas by default, whether or not you're in comment mode. If you rather hide comments from your canvas and only see them when in comment mode, you can do so at any time.
 
-To hide comments, use the keyboard shortcut `⇧ Shift` `C` to toggle them on or off. Press  to [show and hide comments in the Figma mobile app](https://help.figma.com/hc/en-us/articles/1500007537281).
+To hide comments, use the keyboard shortcut `⇧ Shift` `C` to toggle them on or off. Press to [show and hide comments in the Figma mobile app](https://help.figma.com/hc/en-us/articles/1500007537281).
 
 ## Sort and filter comments
 
-All the comments in the file will be listed in the right sidebar when you're in comment mode. Click  at the top of the right sidebar to sort and filter which comments you'd like to view.
+All the comments in the file will be listed in the right sidebar when you're in comment mode. Click at the top of the right sidebar to sort and filter which comments you'd like to view.
 
 Comments in the right sidebar can be sorted by:
 
@@ -70,7 +68,7 @@ Comments in the right sidebar can be sorted by:
 
 ![The right sidebar has a dropdown filter menu. The menu contains the Sort by date, sort by unread, show resolved comments, only your threads, and only current page options.](https://help.figma.com/hc/article_attachments/31565786655639)
 
-1. Click  at the top of the right sidebar.
+1. Click at the top of the right sidebar.
 2. By default, comments are sorted by **Date**. Click **Sort by unread** to prioritize unread comments.
 3. By default, the sidebar will display all comments in a file. Check **Only your threads** to view the comments that are relevant to you. This includes:
    - Comments you have been @mentioned in.
@@ -87,8 +85,8 @@ Comments in the right sidebar can be sorted by:
 Anyone can add, view, and reply to comments, including [viewers](https://help.figma.com/hc/en-us/articles/360039970673).
 
 1. Select the comment in the canvas, or from the right sidebar.
-2. The comment box will appear with a **Reply** field attached. Click **Reply** and start typing in your message, or hover over the body and click  to react to the comment. You can also add any [emoji](https://help.figma.com/hc/en-us/articles/360041068574) or [@mentions](https://help.figma/hc/en-us/articles/360041068574) as needed.
-3. Click  or press `Return` / `Enter` to add your comment to the thread.
+2. The comment box will appear with a **Reply** field attached. Click **Reply** and start typing in your message, or hover over the body and click to react to the comment. You can also add any [emoji](https://help.figma.com/hc/en-us/articles/360041068574) or [@mentions](https://help.figma/hc/en-us/articles/360041068574) as needed.
+3. Click or press `Return` / `Enter` to add your comment to the thread.
 4. Add further replies to the thread as needed.
 
 Tip: You can also reply to comment notifications from our [Slack](https://help.figma.com/hc/en-us/articles/360039829154) or [Microsoft teams](https://help.figma.com/hc/en-us/articles/7405452518423-Figma-and-Microsoft-Teams) integrations.
@@ -100,12 +98,12 @@ Once the feedback has been addressed, or a resolution reached, you can **Resolve
 This will hide the comment from both the right sidebar and the canvas.
 
 1. Select the comment in the canvas, or from the right sidebar.
-2. Click  in the top-right corner to mark it as **Resolved.**
+2. Click in the top-right corner to mark it as **Resolved.**
 3. We will hide the comment from both the right sidebar and the canvas.
 
 ### Unresolve comments
 
-If a comment is resolved by mistake, you can undo this action by unchecking the  in the comment. Click  in the right sidebar when in comment mode and toggle the **Show resolved comments** filter on.
+If a comment is resolved by mistake, you can undo this action by unchecking the in the comment. Click in the right sidebar when in comment mode and toggle the **Show resolved comments** filter on.
 
 [Learn how to sort and filter comments ↑](#h_01FMNBQJYY3QCGG0S6VQZW6R8J)
 
@@ -118,7 +116,7 @@ You can also delete any comment you post. If you delete a comment with replies, 
 ## Delete a single comment
 
 1. Select the comment in the canvas, or from the right sidebar.
-2. Click  next to the comment.
+2. Click next to the comment.
 3. Choose **Delete comment** from the options.
 
 ## Delete an entire thread
@@ -126,6 +124,6 @@ You can also delete any comment you post. If you delete a comment with replies, 
 You can also choose to delete an entire thread. This will delete both the initial comment and any replies.
 
 1. Select the comment in the canvas, or from the right sidebar.
-2. Click  next to the comment's title.
+2. Click next to the comment's title.
 3. Select **Delete thread** from the options.
 4. Click **Delete** to confirm.

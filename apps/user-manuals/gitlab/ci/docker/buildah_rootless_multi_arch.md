@@ -12,9 +12,7 @@ title: Use Buildah to build multi-platform images
 
 {{< /details >}}
 
-Use Buildah to build images for multiple CPU architectures. Multi-platform builds
-create images that work across different hardware platforms, and Docker automatically
-selects the appropriate image for each deployment target.
+Use Buildah to build images for multiple CPU architectures. Multi-platform builds create images that work across different hardware platforms, and Docker automatically selects the appropriate image for each deployment target.
 
 ## Prerequisites
 
@@ -39,48 +37,47 @@ The following example uses two [GitLab-hosted runners on Linux](../../ci/runners
 
 ```yaml
 stages:
-  - build
+ - build
 
 variables:
-  STORAGE_DRIVER: vfs
-  BUILDAH_FORMAT: docker
-  FQ_IMAGE_NAME: "$CI_REGISTRY_IMAGE:latest"
+ STORAGE_DRIVER: vfs
+ BUILDAH_FORMAT: docker
+ FQ_IMAGE_NAME: "$CI_REGISTRY_IMAGE:latest"
 
 default:
-  image: quay.io/buildah/stable
-  before_script:
+ image: quay.io/buildah/stable
+ before_script:
     - echo "$CI_REGISTRY_PASSWORD" | buildah login -u "$CI_REGISTRY_USER" --password-stdin $CI_REGISTRY
 
 build-amd64:
-  stage: build
-  tags:
+ stage: build
+ tags:
     - saas-linux-small-amd64
-  script:
+ script:
     - buildah build --platform=linux/amd64 -t $CI_REGISTRY_IMAGE:amd64 .
     - buildah push $CI_REGISTRY_IMAGE:amd64
 
 build-arm64:
-  stage: build
-  tags:
+ stage: build
+ tags:
     - saas-linux-small-arm64
-  script:
+ script:
     - buildah build --platform=linux/arm64/v8 -t $CI_REGISTRY_IMAGE:arm64 .
     - buildah push $CI_REGISTRY_IMAGE:arm64
 
 create_manifest:
-  stage: build
-  needs: ["build-arm64", "build-amd64"]
-  tags:
+ stage: build
+ needs: ["build-arm64", "build-amd64"]
+ tags:
     - saas-linux-small-amd64
-  script:
+ script:
     - buildah manifest create $FQ_IMAGE_NAME
     - buildah manifest add $FQ_IMAGE_NAME docker://$CI_REGISTRY_IMAGE:amd64
     - buildah manifest add $FQ_IMAGE_NAME docker://$CI_REGISTRY_IMAGE:arm64
     - buildah manifest push --all $FQ_IMAGE_NAME
 ```
 
-This pipeline creates architecture-specific images tagged with `amd64` and `arm64`,
-then combines them into a single manifest available under the `latest` tag.
+This pipeline creates architecture-specific images tagged with `amd64` and `arm64`, then combines them into a single manifest available under the `latest` tag.
 
 ## Troubleshooting
 
@@ -90,8 +87,7 @@ If you encounter registry authentication failures:
 
 - Verify that `CI_REGISTRY_USER` and `CI_REGISTRY_PASSWORD` variables are available.
 - Check that you have push permissions to the target registry.
-- For external registries, ensure authentication credentials are correctly configured
-  in your project's CI/CD variables.
+- For external registries, ensure authentication credentials are correctly configured in your project's CI/CD variables.
 
 ### Multi-platform builds fail
 
@@ -103,8 +99,7 @@ For multi-platform build issues:
 
 ### Error: `Error during unshare(CLONE_NEWUSER): Operation not permitted`
 
-When you use Buildah or [Docker BuildKit](using_buildkit.md) in rootless mode to build Docker images in CI/CD jobs,
-you might encounter an `Error during unshare(CLONE_NEWUSER): Operation not permitted`.
+When you use Buildah or [Docker BuildKit](using_buildkit.md) in rootless mode to build Docker images in CI/CD jobs, you might encounter an `Error during unshare(CLONE_NEWUSER): Operation not permitted`.
 
 This error occurs when the required security options are not set for rootless container builds.
 
@@ -112,7 +107,7 @@ To resolve this issue, configure the `[runners.docker]` section in the runner's 
 
 ```toml
 [runners.docker]
-  security_opt = ["seccomp:unconfined", "apparmor:unconfined"]
+ security_opt = ["seccomp:unconfined", "apparmor:unconfined"]
 ```
 
 For more information, see [BuildKit rootless Docker builds and security requirements](https://github.com/moby/buildkit/blob/master/docs/rootless.md#docker).

@@ -21,20 +21,19 @@ title: Use custom emoji with GraphQL
 
 {{< /history >}}
 
-To use [custom emoji](../../user/emoji_reactions.md) in comments and descriptions,
-you can add them to a top-level group by using the GraphQL API.
+To use [custom emoji](../../user/emoji_reactions.md) in comments and descriptions, you can add them to a top-level group by using the GraphQL API.
 
 ## Create a custom emoji
 
 ```graphql
 mutation CreateCustomEmoji($groupPath: ID!) {
-  createCustomEmoji(input: {groupPath: $groupPath, name: "party-parrot", url: "https://cultofthepartyparrot.com/parrots/hd/parrot.gif"}) {
+ createCustomEmoji(input: {groupPath: $groupPath, name: "party-parrot", url: "https://cultofthepartyparrot.com/parrots/hd/parrot.gif"}) {
     clientMutationId
     customEmoji {
       name
     }
     errors
-  }
+ }
 }
 ```
 

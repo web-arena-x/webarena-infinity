@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8560203369242-Reformatting
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -31,17 +31,17 @@ You can reformat a request parameter’s value using JSONata.
 2. In the main menu on the left, click **API integrations**.
 3. Select or create an integration.
 4. On the **Request parameters** page, select or create the request parameter you want to reformat the value for.
-5. In the **Test value** field, select the **Reformat value** icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ultimate_reformat_value_icon.png)).  
+5. In the **Test value** field, select the **Reformat value** icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ultimate_reformat_value_icon.png)). 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ultimate_reformatting_values_1.png)
-6. In the **Reformat value** dialog, in the **Reformatting JSONata** field, use JSONata to transform or reformat the value associated with the selected request parameter key.  
-   In your JSONata query, use **'$'** to represent the key whose value you’re reformatting.  
-   The **Test value preview** field gives you a way to check the results of your query in real time.  
+6. In the **Reformat value** dialog, in the **Reformatting JSONata** field, use JSONata to transform or reformat the value associated with the selected request parameter key. 
+   In your JSONata query, use **'$'** to represent the key whose value you’re reformatting. 
+   The **Test value preview** field gives you a way to check the results of your query in real time. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ultimate_reformatting_values_2.png)
 7. Click **Done**.
 8. (Optional) If you’re adding the request parameter to the body of an API request:
    1. Under the **Environment header** on the left, select the appropriate environment.
    2. Select the **Body** tab.
-   3. Add your JSON object, using the request parameter as a value in double curly brackets.  
+   3. Add your JSON object, using the request parameter as a value in double curly brackets. 
       ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ultimate_reformatting_values_3.png)
 
 ## Common use cases for reformatting values
@@ -79,10 +79,10 @@ In this scenario, you want to convert URLs into clickable links by searching for
 Here’s the JSONata query you would use in this scenario:
 
 ```
-(  
-$text := "Chat transcript unavailable. Here is a link:https://www.zendesk.com. Here is another link: https://www.w3schools.com.";  
-  
-$replace($text, /(https?:\/\/[^\s]+)/, '<a href="$1">$1</a>'  
+( 
+$text := "Chat transcript unavailable. Here is a link:https://www.zendesk.com. Here is another link: https://www.w3schools.com."; 
+ 
+$replace($text, /(https?:\/\/[^\s]+)/, '<a href="$1">$1</a>' 
 )
 ```
 
@@ -98,10 +98,9 @@ You want to transform it into a more user-friendly format by breaking each messa
 
 The reformatted conversation would then look like this:
 
-- Chat Transcript - 2024-10-12  
-  (13:04:10) AI agent: Welcome to the Integration Builder AI agent!  
-  (13:04:10) AI agent: Choose which integration to test:  
-  (13:04:10) Visitor: test c.id: d501304d-da09-4485-a4c7-1c708ec0005d All times in UTC
+- Chat Transcript - 2024-10-12 (13:04:10) AI agent: Welcome to the Integration Builder AI agent!
+ (13:04:10) AI agent: Choose which integration to test: 
+ (13:04:10) Visitor: test c.id: d501304d-da09-4485-a4c7-1c708ec0005d All times in UTC
 
 Here’s the JSONata query you would use in this scenario:
 
@@ -114,7 +113,7 @@ $replace($, “(“, “\n(“)
 Additionally, you’d need to add this parameter to the the body section in your environment so that it’s sent with the request:
 
 ```
-{  
-"chatTranscript": "{{chatTranscript}}"  
+{ 
+"chatTranscript": "{{chatTranscript}}" 
 }
 ```

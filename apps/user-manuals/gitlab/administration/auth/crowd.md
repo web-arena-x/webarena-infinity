@@ -12,8 +12,7 @@ title: Use Atlassian Crowd as an authentication provider
 
 {{< /details >}}
 
-Authenticate to GitLab using the Atlassian Crowd OmniAuth provider. Enabling
-this provider also allows Crowd authentication for Git-over-https requests.
+Authenticate to GitLab using the Atlassian Crowd OmniAuth provider. Enabling this provider also allows Crowd authentication for Git-over-https requests.
 
 ## Configure a new Crowd application
 
@@ -40,8 +39,7 @@ this provider also allows Crowd authentication for Git-over-https requests.
      ```
 
 1. Configure the [common settings](../../integration/omniauth.md#configure-common-settings)
-   to add `crowd` as a single sign-on provider. This enables Just-In-Time
-   account provisioning for users who do not have an existing GitLab account.
+   to add `crowd` as a single sign-on provider. This enables Just-In-Time account provisioning for users who do not have an existing GitLab account.
 
 1. Add the provider configuration:
 
@@ -74,8 +72,7 @@ this provider also allows Crowd authentication for Git-over-https requests.
 1. Change `YOUR_APP_NAME` to the application name from Crowd applications page.
 1. Change `YOUR_APP_PASSWORD` to the application password you've set.
 1. Save the configuration file.
-1. [Reconfigure](../restart_gitlab.md#reconfigure-a-linux-package-installation) (Linux package installations) or
-   [restart](../restart_gitlab.md#self-compiled-installations) (self-compiled installations) for the changes to take effect.
+1. [Reconfigure](../restart_gitlab.md#reconfigure-a-linux-package-installation) (Linux package installations) or [restart](../restart_gitlab.md#self-compiled-installations) (self-compiled installations) for the changes to take effect.
 
 On the sign in page there should now be a Crowd tab in the sign in form.
 
@@ -83,12 +80,9 @@ On the sign in page there should now be a Crowd tab in the sign in form.
 
 ### Error: `could not authorize you from Crowd because invalid credentials`
 
-This error sometimes occurs when a user attempts to authenticate with Crowd. The
-Crowd administrator should consult the Crowd log file to know the exact cause of
-this error message.
+This error sometimes occurs when a user attempts to authenticate with Crowd. The Crowd administrator should consult the Crowd log file to know the exact cause of this error message.
 
-Ensure the Crowd users who must sign in to GitLab are authorized to the
-[application](#configure-a-new-crowd-application) in the **Authorization** step.
+Ensure the Crowd users who must sign in to GitLab are authorized to the [application](#configure-a-new-crowd-application) in the **Authorization** step.
 This could be verified by trying "Authentication test" for Crowd (as of 2.11).
 
 ![Authorization stage settings in Crowd](img/crowd_application_authorisation_v10_4.png)

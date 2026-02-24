@@ -12,10 +12,8 @@ title: 'Tutorial: Set up a scan execution policy'
 
 {{< /details >}}
 
-This tutorial shows you how to create and apply a
-[scan execution policy](../../user/application_security/policies/scan_execution_policies.md).
-These policies enforce application security tools as part of the CI/CD pipeline. In this tutorial,
-you create a policy to enforce secret detection in the CI/CD pipeline of two projects.
+This tutorial shows you how to create and apply a [scan execution policy](../../user/application_security/policies/scan_execution_policies.md).
+These policies enforce application security tools as part of the CI/CD pipeline. In this tutorial, you create a policy to enforce secret detection in the CI/CD pipeline of two projects.
 
 In this tutorial, you:
 
@@ -32,8 +30,7 @@ In this tutorial, you:
 
 ## Create project A
 
-In a standard workflow, you might already have an existing project. In this
-tutorial, you're starting with nothing, so the first step is to create a project.
+In a standard workflow, you might already have an existing project. In this tutorial, you're starting with nothing, so the first step is to create a project.
 
 To create project A:
 
@@ -56,10 +53,7 @@ To create project A:
 
 1. Select **Commit changes**.
 
-The next step is to create a scan execution policy. When the first security policy is created, a
-policy project is created. The policy project stores the security policies created in any projects
-that are linked to it. Keeping policies separate from the projects they protect makes your security
-configuration reusable and easier to maintain.
+The next step is to create a scan execution policy. When the first security policy is created, a policy project is created. The policy project stores the security policies created in any projects that are linked to it. Keeping policies separate from the projects they protect makes your security configuration reusable and easier to maintain.
 
 ## Create the scan execution policy
 
@@ -104,8 +98,7 @@ To test the scan execution policy:
 1. Select **Commit changes**.
 1. When the merge request page opens, select **Create merge request**.
 
-   Let's check if the scan execution policy worked. Remember that we specified that secret detection
-   is to run every time a pipeline runs, for any branch.
+   Let's check if the scan execution policy worked. Remember that we specified that secret detection is to run every time a pipeline runs, for any branch.
 
 1. In the merge request just created, go the **Pipelines** tab and select the created pipeline.
 
@@ -155,13 +148,10 @@ To link project B to the security policy project:
 1. On the top bar, select **Search or go to** and find the `go-example-b` project.
 1. Go to **Secure** > **Policies**.
 1. Select **Edit policy project**.
-1. Select the dropdown list, then search for the security policy project created at the start of
-   this tutorial.
+1. Select the dropdown list, then search for the security policy project created at the start of this tutorial.
 1. Select **Save**.
 
-Linking project B to the same policy project resulted in the same policy being applied. A scan
-execution policy runs a secret detection scan on every MR, for any branch. Let's test the
-policy by creating an MR in project B.
+Linking project B to the same policy project resulted in the same policy being applied. A scan execution policy runs a secret detection scan on every MR, for any branch. Let's test the policy by creating an MR in project B.
 
 ## Test the scan execution policy with project B
 
@@ -181,8 +171,7 @@ To test the scan execution policy:
 1. Select **Commit changes**.
 1. When the merge request page opens, select **Create merge request**.
 
-   Let's check if the scan execution policy worked. Remember that we specified that secret detection
-   is to run every time a pipeline runs, for any branch.
+   Let's check if the scan execution policy worked. Remember that we specified that secret detection is to run every time a pipeline runs, for any branch.
 
 1. In the merge request just created, go the **Pipelines** tab and select the created pipeline.
 

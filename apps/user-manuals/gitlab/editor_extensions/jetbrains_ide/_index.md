@@ -6,17 +6,14 @@ description: Connect and use GitLab Duo in JetBrains IDEs.
 title: GitLab Duo plugin for JetBrains IDEs
 ---
 
-The [GitLab Duo plugin](https://plugins.jetbrains.com/plugin/22325-gitlab-duo) integrates GitLab Duo
-with JetBrains IDEs like IntelliJ, PyCharm, GoLand, Webstorm, and Rubymine.
+The [GitLab Duo plugin](https://plugins.jetbrains.com/plugin/22325-gitlab-duo) integrates GitLab Duo with JetBrains IDEs like IntelliJ, PyCharm, GoLand, Webstorm, and Rubymine.
 
 After you [install and configure](setup.md) the extension, you can access the following features:
 
 - [GitLab Duo Chat (Agentic)](../../user/gitlab_duo_chat/agentic_chat.md): On the right tool window bar, select<br>**GitLab Duo Agent Platform** ({{< icon name="duo-agentic-chat" >}}).
-- [GitLab Duo Chat (Classic)](../../user/gitlab_duo_chat/_index.md): On the right tool window bar, select **GitLab Duo Chat**
-  ({{< icon name="duo-chat" >}}). Or select some code and then, in the floating toolbar, select
-  **GitLab Duo Quick Chat** ({{< icon name="tanuki-ai" >}}).
+- [GitLab Duo Chat (Classic)](../../user/gitlab_duo_chat/_index.md): On the right tool window bar, select **GitLab Duo Chat** ({{< icon name="duo-chat" >}}). Or select some code and then, in the floating toolbar, select **GitLab Duo Quick Chat** ({{< icon name="tanuki-ai" >}}).
 - [GitLab Duo Code Suggestions](../../user/project/repository/code_suggestions/_index.md): In the status bar, select **Duo** ({{< icon name="tanuki-ai" >}}).
-  The icon will change based on the feature status.
+ The icon will change based on the feature status.
 
 ## Use with remote development
 
@@ -48,8 +45,7 @@ To update your extension to the latest version:
 
 ## Enable telemetry
 
-The GitLab Duo plugin uses the telemetry settings in your JetBrains IDE to send usage and error
-information to GitLab. To enable telemetry in your JetBrains IDE:
+The GitLab Duo plugin uses the telemetry settings in your JetBrains IDE to send usage and error information to GitLab. To enable telemetry in your JetBrains IDE:
 
 1. Go to your IDE's top menu bar and select **Settings**. For example, in PyCharm, select **PyCharm** > **Settings**.
 1. On the left sidebar, expand **Tools**, then select **GitLab Duo**.
@@ -71,8 +67,7 @@ information to GitLab. To enable telemetry in your JetBrains IDE:
 
 {{< /history >}}
 
-You can configure the plugin to use 1Password secret references for authentication instead of
-hard-coding personal access tokens.
+You can configure the plugin to use 1Password secret references for authentication instead of hard-coding personal access tokens.
 
 Prerequisites:
 
@@ -82,8 +77,7 @@ Prerequisites:
 To integrate GitLab for JetBrains with the 1Password CLI:
 
 1. Authenticate with GitLab. Either:
-   - [Install the `glab`](https://docs.gitlab.com/cli/#install-the-cli) CLI and
-     configure the [1Password shell plugin](https://developer.1password.com/docs/cli/shell-plugins/gitlab/).
+   - [Install the `glab`](https://docs.gitlab.com/cli/#install-the-cli) CLI and configure the [1Password shell plugin](https://developer.1password.com/docs/cli/shell-plugins/gitlab/).
    - Follow the GitLab for JetBrains [set up steps](setup.md).
 1. Open the 1Password item.
 1. [Copy the secret reference](https://developer.1password.com/docs/cli/secret-references/#step-1-copy-secret-references).
@@ -102,12 +96,10 @@ From the IDE:
 
 ## Report issues with the plugin
 
-You can report any issues, bugs, or feature requests in the
-[`gitlab-jetbrains-plugin` issue tracker](https://gitlab.com/gitlab-org/editor-extensions/gitlab-jetbrains-plugin/-/issues).
+You can report any issues, bugs, or feature requests in the [`gitlab-jetbrains-plugin` issue tracker](https://gitlab.com/gitlab-org/editor-extensions/gitlab-jetbrains-plugin/-/issues).
 Use the `Bug` or `Feature Proposal` template.
 
-If you encounter an error while using GitLab Duo, you can also report it with your IDE's
-built-in error reporting tool:
+If you encounter an error while using GitLab Duo, you can also report it with your IDE's built-in error reporting tool:
 
 1. To access the tool, either:
    - When an error occurs, in the error message, select **See details and submit report**.
@@ -115,8 +107,7 @@ built-in error reporting tool:
 1. In the **IDE Internal Errors** dialog, describe the error.
 1. Select **Report and clear all**.
 1. Your browser opens a GitLab issue form, pre-populated with debug information.
-1. Follow the prompts in the issue template to fill out the description, providing
-   as much context as you can.
+1. Follow the prompts in the issue template to fill out the description, providing as much context as you can.
 1. Select **Create issue** to file the bug report.
 
 ## Related topics

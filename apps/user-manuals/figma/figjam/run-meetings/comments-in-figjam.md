@@ -14,7 +14,7 @@ Comments are a great addition to collaboration in FigJam. You can use comments t
 
 Add comments to a jam file in commenting mode. You can @mention collaborators or [user groups](https://help.figma.com/hc/en-us/articles/38020006913943), as well as add emoji to your messages.
 
-Click  in the toolbar or press `C` to enter commenting mode.
+Click in the toolbar or press `C` to enter commenting mode.
 
 When you and your team add comments to a file, they're displayed on the canvas in the regions or locations they were added to. You can view and reply to them right from the canvas. You can also view and manage comments from the right sidebar when you enter comment mode.
 
@@ -30,12 +30,12 @@ Note: You can attach comments to FigJam tables, but not to specific cells within
 
 ![Cursor selects a location on FigJam canvas to pin a comment, demonstrating comment attachment to shapes.](https://help.figma.com/hc/article_attachments/4413391623191)
 
-1. Click the  in the toolbar, or press `C` to enter comment mode. Your cursor will turn into a .
+1. Click the in the toolbar, or press `C` to enter comment mode. Your cursor will turn into a .
 2. Select a location to comment on:
    1. Click the location on the canvas where you'd like the comment to be pinned.
    2. Or, click and drag your cursor to select a region to comment on.
 3. Type your message in the field. Click the emoji icon to add [emoji](https://help.figma.com/hc/en-us/articles/360041068574.html#emoji) or press `@` to [mention](https://help.figma.com/hc/en-us/articles/360041068574.html#mention) a colleague or collaborator.
-4. Click  to send your message.
+4. Click to send your message.
 
 [**Learn how to comment using FigJam for iPad →**](https://help.figma.com/hc/en-us/articles/4502073572247)
 
@@ -83,9 +83,9 @@ You can attach up to 5 images or GIFs when adding or replying to comments. Comme
 
 To add media to a comment, either drag and-drop the file into the comment field, copy and paste the file from your clipboard, or do the following:
 
-1. In the comment field, begin typing your message then click the  image icon.
+1. In the comment field, begin typing your message then click the image icon.
 2. Select an image or GIF from your computer.
-3. After the media has been uploaded, click  to add your comment to the board.
+3. After the media has been uploaded, click to add your comment to the board.
 
 To remove attached media, click the **X** in the upper-right corner of the attachment.
 
@@ -93,11 +93,11 @@ To remove attached media, click the **X** in the upper-right corner of the attac
 
 Add emoji when adding to or replying to comments. FigJam uses the Apple emoji collection.
 
-1. In the comment field, click the  smiley face icon.
+1. In the comment field, click the smiley face icon.
 2. Choose from your **Frequently used** emoji or browse through the catalogue of emoji.
 3. Or, use the **Search** bar to find the exact emoji you're after.
 4. Click on the emoji to add it to your message. This will appear in short-hand, not as the emoji. **Don't worry, your emoji will appear when you click !**
-5. Click  to add your comment to the file.
+5. Click to add your comment to the file.
 
 Comment rate limits
 
@@ -105,26 +105,26 @@ You can add up to 100 comments per hour. This includes new comments and replies 
 
 # Add text styling to comments
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Styling** | **Keyboard shortcut** | **Markdown syntax** |
-| Bold | Mac: `Command` `B`  Windows: `Control` `B` | \*\*bold\*\* |
-| Italics | Mac: `Command` `I`  Windows: `Control` `I` | \*italicized\* |
-| Strikethrough | Mac:`Command` `Shift` `X`  Windows: `Control` `Shift` `X` | ~strikethrough~ |
-| Add URL | Mac: `Command` `K`  Windows: `Control` `K` |  |
-| Numbered list | Mac: `Command` `Shift` `7`  Windows: `Control` `Shift` `7` | 1. First item 2. Second item 3. Third item  Hit `Shift` + `Enter` to add multiple items to a numbered list. |
-| Bulleted list | Mac: `Command` `Shift` `8`  Windows: `Control` `Shift` `8` | - First item - Second item - Third item  Hit `Shift` + `Enter` to add multiple items to a numbered list. |
+| Bold | Mac: `Command` `B` Windows: `Control` `B` | \*\*bold\*\* |
+| Italics | Mac: `Command` `I` Windows: `Control` `I` | \*italicized\* |
+| Strikethrough | Mac:`Command` `Shift` `X` Windows: `Control` `Shift` `X` | ~strikethrough~ |
+| Add URL | Mac: `Command` `K` Windows: `Control` `K` | |
+| Numbered list | Mac: `Command` `Shift` `7` Windows: `Control` `Shift` `7` | 1. First item 2. Second item 3. Third item Hit `Shift` + `Enter` to add multiple items to a numbered list. |
+| Bulleted list | Mac: `Command` `Shift` `8` Windows: `Control` `Shift` `8` | - First item - Second item - Third item Hit `Shift` + `Enter` to add multiple items to a numbered list. |
 
 # Sort and filter comments
 
-All the comments in the file will be listed in the right sidebar when you're in comment mode. Click  at the top of the right sidebar to sort and filter which comments you'd like to view.
+All the comments in the file will be listed in the right sidebar when you're in comment mode. Click at the top of the right sidebar to sort and filter which comments you'd like to view.
 
 Comments in the right sidebar can be sorted by:
 
 - **Date**: displayed in order from the first comment in a thread
 - **Unread**: displayed by date, prioritizing comments that haven't been read
 
-1. Click  at the top of the right sidebar.
+1. Click at the top of the right sidebar.
 2. By default, comments are sorted by **Date**. Click **Sort by unread** to prioritize unread comments.
 3. By default, the sidebar will display all comments in a file. Check **Only your threads** to view the comments that are relevant to you. This includes:
    - Comments you have been @mentioned in.
@@ -148,7 +148,7 @@ To resolve a comment, you can either click on the comment in the right sidebar, 
 
 ## Delete a comment
 
-To delete a comment, you can either click on the comment in the right sidebar while in comment mode, or directly on the location icon on the board. Once the modal pops up, click  and choose **Delete comment** from the dropdown.
+To delete a comment, you can either click on the comment in the right sidebar while in comment mode, or directly on the location icon on the board. Once the modal pops up, click and choose **Delete comment** from the dropdown.
 
 Note
 

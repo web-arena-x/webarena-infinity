@@ -26,9 +26,7 @@ Prerequisites:
 
 ## Mark a migration as successful
 
-Mark pending migrations as successfully executed to prevent them from being
-executed by the `db:migrate` tasks. Use this API to skip failing
-migrations after they are determined to be safe to skip.
+Mark pending migrations as successfully executed to prevent them from being executed by the `db:migrate` tasks. Use this API to skip failing migrations after they are determined to be safe to skip.
 
 ```plaintext
 POST /api/v4/admin/migrations/:version/mark

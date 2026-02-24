@@ -9,9 +9,7 @@ See below for the relevant style guides, guidelines, linting, and other informat
 
 ## JavaScript style guide
 
-We use `eslint` to enforce our [JavaScript style guides](javascript.md). Our guide is based on
-the excellent [Airbnb](https://github.com/airbnb/javascript) style guide with a few small
-changes.
+We use `eslint` to enforce our [JavaScript style guides](javascript.md). Our guide is based on the excellent [Airbnb](https://github.com/airbnb/javascript) style guide with a few small changes.
 
 ## SCSS style guide
 

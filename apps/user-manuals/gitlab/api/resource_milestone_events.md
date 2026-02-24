@@ -39,7 +39,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 142,
     "user": {
       "id": 1,
@@ -66,8 +66,8 @@ Example response:
       "web_url": "http://gitlab.example.com:3000/group/project/-/milestones/9"
     },
     "action": "add"
-  },
-  {
+ },
+ {
     "id": 143,
     "user": {
       "id": 1,
@@ -94,7 +94,7 @@ Example response:
       "web_url": "http://gitlab.example.com:3000/group/project/-/milestones/9"
     },
     "action": "remove"
-  }
+ }
 ]
 ```
 
@@ -145,7 +145,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 142,
     "user": {
       "id": 1,
@@ -172,8 +172,8 @@ Example response:
       "web_url": "http://gitlab.example.com:3000/group/project/-/milestones/9"
     },
     "action": "add"
-  },
-  {
+ },
+ {
     "id": 143,
     "user": {
       "id": 1,
@@ -200,7 +200,7 @@ Example response:
       "web_url": "http://gitlab.example.com:3000/group/project/-/milestones/9"
     },
     "action": "remove"
-  }
+ }
 ]
 ```
 
@@ -224,6 +224,6 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/merge_requests/11/resource_milestone_events/120"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/merge_requests/11/resource_milestone_events/120"
 ```

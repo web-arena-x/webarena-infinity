@@ -40,43 +40,37 @@ The Gitea importer imports a subset of items from Gitea.
 
 ## Importer workflow
 
-The Gitea importer supports post-migration mapping of user contributions for GitLab.com and GitLab Self-Managed. The
-importer also supports an [alternative method](#alternative-method-of-mapping) of mapping.
+The Gitea importer supports post-migration mapping of user contributions for GitLab.com and GitLab Self-Managed. The importer also supports an [alternative method](#alternative-method-of-mapping) of mapping.
 
 When importing:
 
 - Repository public access is retained. If a repository is private in Gitea, it's created as private in GitLab as well.
 - Imported issues, merge requests, and comments have an **Imported** badge in GitLab.
-- Because Gitea is not an OAuth provider, the author or assignee cannot be mapped to users on
-  your GitLab instance. The project creator (usually the user who started the import process)
-  is then set as the author. For issues, you can still see the original Gitea author.
+- Because Gitea is not an OAuth provider, the author or assignee cannot be mapped to users on your GitLab instance. The project creator (usually the user who started the import process)
+ is then set as the author. For issues, you can still see the original Gitea author.
 
 ## Prerequisites
 
 - Gitea version 1.0.0 or later.
 - You must enable the [Gitea import source](../../administration/settings/import_and_export_settings.md#configure-allowed-import-sources)
-  or ask your GitLab administrator to enable it. Enabled by default on GitLab.com.
+ or ask your GitLab administrator to enable it. Enabled by default on GitLab.com.
 - At least the Maintainer role on the destination group to import to.
 
 ## Import your Gitea repositories
 
-During the import, you create a personal access token and perform a one-off authorization with Gitea
-to grant GitLab access your repositories.
+During the import, you create a personal access token and perform a one-off authorization with Gitea to grant GitLab access your repositories.
 
 To import your Gitea repositories:
 
 1. In the upper-right corner, select **Create new** ({{< icon name="plus" >}}) and **New project/repository**.
 1. To start the import authorization process, select **Gitea**.
-1. Go to `https://your-gitea-instance/user/settings/applications`. Replace `your-gitea-instance` with the host of your
-   Gitea instance.
+1. Go to `https://your-gitea-instance/user/settings/applications`. Replace `your-gitea-instance` with the host of your Gitea instance.
 1. Select **Generate New Token**.
 1. Enter a token description.
 1. Select **Generate Token**.
 1. Copy the token hash.
 1. Go back to GitLab and provide the token to the Gitea importer.
-1. Select **List your Gitea repositories** and wait while GitLab reads your repositories' information. When complete,
-   GitLab displays the importer page to select the repositories to import. From there, you can view the import statuses
-   of your Gitea repositories:
+1. Select **List your Gitea repositories** and wait while GitLab reads your repositories' information. When complete, GitLab displays the importer page to select the repositories to import. From there, you can view the import statuses of your Gitea repositories:
 
    - Those that are being imported show a started status.
    - Those already successfully imported are green with a done status.
@@ -86,32 +80,27 @@ To import your Gitea repositories:
 1. To finish importing Gitea repositories, you can:
 
    - Import all of your Gitea projects at once. In the upper-left corner, select **Import all projects**.
-   - Import only selected projects by filtering projects by name. If you apply a filter, **Import all projects** imports
-     only selected projects.
+   - Import only selected projects by filtering projects by name. If you apply a filter, **Import all projects** imports only selected projects.
    - Choose a different name for the project and a different namespace if you have the privileges to do so.
 
 ## Alternative method of mapping
 
-In GitLab 18.5 and earlier, you can disable the `gitea_user_mapping` feature flag to use the alternative user
-contribution mapping method for imports.
+In GitLab 18.5 and earlier, you can disable the `gitea_user_mapping` feature flag to use the alternative user contribution mapping method for imports.
 
 {{< alert type="flag" >}}
 
-The availability of this feature is controlled by a feature flag. This feature is not recommended and is unavailable
-for:
+The availability of this feature is controlled by a feature flag. This feature is not recommended and is unavailable for:
 
 - Migrations to GitLab.com.
 - Migrations to GitLab Self-Managed and GitLab Dedicated 18.6 and later.
 
-Problems that are found in this mapping method are unlikely to be fixed. Use the
-[post-migration method](mapping.md) instead that doesn't have these limitations.
+Problems that are found in this mapping method are unlikely to be fixed. Use the [post-migration method](mapping.md) instead that doesn't have these limitations.
 
 For more information, see [issue 512211](https://gitlab.com/gitlab-org/gitlab/-/work_items/512211).
 
 {{< /alert >}}
 
-Using this method, user contributions are assigned to the project creator (usually the user who started the import
-process) by default.
+Using this method, user contributions are assigned to the project creator (usually the user who started the import process) by default.
 
 ## Related topics
 

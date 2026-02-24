@@ -35,10 +35,10 @@ Some Gmail features aren't supported on your watch:
 - If you have one account on your watch, Gmail signs in automatically to that Google Account.
 - If you have more than one account on your watch, Gmail asks you to select the account you want active.
 - To switch the active Gmail account:
-  1. On your watch, open the Gmail app ![](//lh3.googleusercontent.com/XWPSM1tbQ79TOSTXPa5Tq1CJ4kT0UrULRSOOeFWFcOlPWm665yaA0I9042fDp-dlqQs=w36-h36).
-  2. Tap Menu ![](//storage.googleapis.com/support-kms-prod/B0F1843EFE208B63B91D9AFB2267BBCEF274).
-  3. Tap your email address.
-  4. Select the email address you want to switch to ![and then](//lh3.googleusercontent.com/3_l97rr0GvhSP2XV5OoCkV2ZDTIisAOczrSdzNCBxhIKWrjXjHucxNwocghoUa39gw=h36) **Switch**.
+ 1. On your watch, open the Gmail app ![](//lh3.googleusercontent.com/XWPSM1tbQ79TOSTXPa5Tq1CJ4kT0UrULRSOOeFWFcOlPWm665yaA0I9042fDp-dlqQs=w36-h36).
+ 2. Tap Menu ![](//storage.googleapis.com/support-kms-prod/B0F1843EFE208B63B91D9AFB2267BBCEF274).
+ 3. Tap your email address.
+ 4. Select the email address you want to switch to ![and then](//lh3.googleusercontent.com/3_l97rr0GvhSP2XV5OoCkV2ZDTIisAOczrSdzNCBxhIKWrjXjHucxNwocghoUa39gw=h36) **Switch**.
 
 **Tip:** Tiles and complications use the account that's active in the Gmail app.
 

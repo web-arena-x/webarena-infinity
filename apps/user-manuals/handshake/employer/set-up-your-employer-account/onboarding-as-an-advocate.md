@@ -16,13 +16,11 @@ Completing the form thoroughly maximizes the quality of the interactions and con
 
 There are two types of invitations you may receive:
 
-- **Unique invitation link**  
-  Open the email titled *Confirm your email address on Handshake*, then follow steps **1–6** in [Create an Employer User Account, Join a Company, and Connect with Schools](https://support.joinhandshake.com/hc/en-us/articles/219133047). When finished, [complete onboarding](#01H87DJKZ4TW9ZV2RPHEVEGJRJ).
+- **Unique invitation link** Open the email titled *Confirm your email address on Handshake*, then follow steps **1–6** in [Create an Employer User Account, Join a Company, and Connect with Schools](https://support.joinhandshake.com/hc/en-us/articles/219133047). When finished, [complete onboarding](#01H87DJKZ4TW9ZV2RPHEVEGJRJ).
 
 ![Confirm your email.png](https://support.joinhandshake.com/hc/article_attachments/36602900011671)
 
-- **Staff member invitation email**  
-  Open the email titled **You have been added as a staff member** and continue to **Step 2.**
+- **Staff member invitation email** Open the email titled **You have been added as a staff member** and continue to **Step 2.**
 
 ![You have been added as a staff member invite email.png](https://support.joinhandshake.com/hc/article_attachments/26001343144599)
 
@@ -40,9 +38,9 @@ There are two types of invitations you may receive:
 - At least eight characters
 - Must include characters from two of these three groups:
 
-  - Alphabetic (A–Z, a–z)
-  - Numeric (0–9)
-  - Symbols or punctuation
+ - Alphabetic (A–Z, a–z)
+ - Numeric (0–9)
+ - Symbols or punctuation
 
 **Note**: Passwords are not encrypted.
 

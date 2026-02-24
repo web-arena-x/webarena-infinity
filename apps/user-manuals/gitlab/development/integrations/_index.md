@@ -6,13 +6,11 @@ description: Development guidelines for Integrations
 title: Integration development guidelines
 ---
 
-This page provides development guidelines for implementing [GitLab integrations](../../user/project/integrations/_index.md),
-which are part of our [main Rails project](https://gitlab.com/gitlab-org/gitlab).
+This page provides development guidelines for implementing [GitLab integrations](../../user/project/integrations/_index.md), which are part of our [main Rails project](https://gitlab.com/gitlab-org/gitlab).
 
 Also see our [direction page](https://about.gitlab.com/direction/manage/import_and_integrate/integrations/) for an overview of our strategy around integrations.
 
-This guide is a work in progress. You're welcome to ping `@gitlab-org/foundations/import-and-integrate`
-if you need clarification or spot any outdated information.
+This guide is a work in progress. You're welcome to ping `@gitlab-org/foundations/import-and-integrate` if you need clarification or spot any outdated information.
 
 ## Add a new integration
 
@@ -27,10 +25,8 @@ if you need clarification or spot any outdated information.
      - `Integrations::Base::Monitoring`
      - `Integrations::Base::SlashCommands`
      - `Integrations::Base::ThirdPartyWiki`
-   - For integrations that primarily trigger HTTP calls to external services, you can
-     also use the `Integrations::HasWebHook` concern. This reuses the [webhook functionality](../../user/project/integrations/webhooks.md)
-     in GitLab through an associated `ServiceHook` model, and automatically records request logs
-     which can be viewed in the integration settings.
+   - For integrations that primarily trigger HTTP calls to external services, you can also use the `Integrations::HasWebHook` concern. This reuses the [webhook functionality](../../user/project/integrations/webhooks.md)
+     in GitLab through an associated `ServiceHook` model, and automatically records request logs which can be viewed in the integration settings.
 1. Add the integration's underscored name (`'foo_bar'`) to `Integration::INTEGRATION_NAMES`.
 1. Add the integration as an association on `Project`:
 
@@ -47,10 +43,10 @@ For example:
 
 ```ruby
 module Integrations
-  class FooBar < Integration
+ class FooBar < Integration
     field :url
     field :tags
-  end
+ end
 end
 ```
 
@@ -59,11 +55,9 @@ Here we would have `#url`, `#url=`, and `#url_changed?` to manage the `url` fiel
 These accessors should access the fields stored in `Integration#properties` directly on the model, just like other `ActiveRecord` attributes.
 
 You should always access the fields through their `getters` and not interact with the `properties` hash directly.
-You **must not** write to the `properties` hash, you **must** use the generated setter method instead. Direct writes to this
-hash are not persisted.
+You **must not** write to the `properties` hash, you **must** use the generated setter method instead. Direct writes to this hash are not persisted.
 
-To see how these fields are exposed in the frontend form for the integration,
-see [Customize the frontend form](#customize-the-frontend-form).
+To see how these fields are exposed in the frontend form for the integration, see [Customize the frontend form](#customize-the-frontend-form).
 
 Other approaches include using `Integration.prop_accessor` or `Integration.data_field`, which you might see in earlier versions of integrations.
 You should not use these approaches for new integrations.
@@ -74,14 +68,13 @@ You should define Rails validations for all of your fields.
 
 Validations should only apply when the integration is enabled, by testing the `#activated?` method.
 
-Any field with the [`required:` property](#customize-the-frontend-form) should have a
-corresponding validation for `presence`, as the `required:` field property is only for the frontend.
+Any field with the [`required:` property](#customize-the-frontend-form) should have a corresponding validation for `presence`, as the `required:` field property is only for the frontend.
 
 For example:
 
 ```ruby
 module Integrations
-  class FooBar < Integration
+ class FooBar < Integration
     with_options if: :activated? do
       validates :key, presence: true, format: { with: KEY_REGEX }
       validates :bar, inclusion: [true, false]
@@ -89,18 +82,15 @@ module Integrations
 
     field :key, required: true
     field :bar, type: :checkbox
-  end
+ end
 end
 ```
 
 ### Define trigger events
 
-Integrations are triggered by calling their `#execute` method in response to events in GitLab,
-which gets passed a payload hash with details about the event.
+Integrations are triggered by calling their `#execute` method in response to events in GitLab, which gets passed a payload hash with details about the event.
 
-The supported events have some overlap with [webhook events](../../user/project/integrations/webhook_events.md),
-and receive the same payload. You can specify the events you're interested in by overriding
-the class method `Integration.supported_events` in your model.
+The supported events have some overlap with [webhook events](../../user/project/integrations/webhook_events.md), and receive the same payload. You can specify the events you're interested in by overriding the class method `Integration.supported_events` in your model.
 
 The following events are supported for integrations:
 
@@ -112,9 +102,9 @@ The following events are supported for integrations:
 | [Work item event](../../user/project/integrations/webhook_events.md#work-item-events)          | ✓       | `issue`              | An issue is created, updated, or closed. |
 | [Confidential issue event](../../user/project/integrations/webhook_events.md#work-item-events) | ✓       | `confidential_issue` | A confidential issue is created, updated, or closed. |
 | [Job event](../../user/project/integrations/webhook_events.md#job-events)                      |         | `job`                |         |
-| [Merge request event](../../user/project/integrations/webhook_events.md#merge-request-events)  | ✓       | `merge_request`      | A merge request is created, updated, or merged. |
+| [Merge request event](../../user/project/integrations/webhook_events.md#merge-request-events) | ✓       | `merge_request`      | A merge request is created, updated, or merged. |
 | [Comment event](../../user/project/integrations/webhook_events.md#comment-events)              |         | `comment`            | A new comment is added. |
-| [Confidential comment event](../../user/project/integrations/webhook_events.md#comment-events) |         | `confidential_note`  | A new comment on a confidential issue is added. |
+| [Confidential comment event](../../user/project/integrations/webhook_events.md#comment-events) |         | `confidential_note` | A new comment on a confidential issue is added. |
 | [Pipeline event](../../user/project/integrations/webhook_events.md#pipeline-events)            |         | `pipeline`           | A pipeline status changes. |
 | [Push event](../../user/project/integrations/webhook_events.md#push-events)                    | ✓       | `push`               | A push is made to the repository. |
 | [Tag push event](../../user/project/integrations/webhook_events.md#tag-events)                 | ✓       | `tag_push`           | New tags are pushed to the repository. |
@@ -127,11 +117,11 @@ This example defines an integration that responds to `commit` and `merge_request
 
 ```ruby
 module Integrations
-  class FooBar < Integration
+ class FooBar < Integration
     def self.supported_events
       %w[commit merge_request]
     end
-  end
+ end
 end
 ```
 
@@ -139,27 +129,25 @@ An integration can also not respond to events, and implement custom functionalit
 
 ```ruby
 module Integrations
-  class FooBar < Integration
+ class FooBar < Integration
     def self.supported_events
       []
     end
-  end
+ end
 end
 ```
 
 ### Define event attribute defaults
 
-Integrations have a problem, tracked in [issue #382999](https://gitlab.com/gitlab-org/gitlab/-/issues/382999),
-where due to the default for most
-[event attributes](https://gitlab.com/gitlab-org/gitlab/-/blob/cd5edf7d6fe31db22d0f3a024ee1c704d817535b/app/models/concerns/integrations/base/integration.rb#L490-504)
+Integrations have a problem, tracked in [issue #382999](https://gitlab.com/gitlab-org/gitlab/-/issues/382999), where due to the default for most [event attributes](https://gitlab.com/gitlab-org/gitlab/-/blob/cd5edf7d6fe31db22d0f3a024ee1c704d817535b/app/models/concerns/integrations/base/integration.rb#L490-504)
 being `true`, we load integrations more frequently than necessary.
 Until we address that issue integrations must define all event `attribute` properties in the following way:
 
 - For notification integrations (ones that include `Integrations::Base::ChatNotification`), set all event attributes to `false`.
-  This presents a form with checkboxes per event trigger that are unchecked by default.
+ This presents a form with checkboxes per event trigger that are unchecked by default.
 - For other integrations:
-  - Set event attributes that match the integration's [trigger events](#define-trigger-events) to `true`.
-  - Set all other event `attributes` to `false`.
+ - Set event attributes that match the integration's [trigger events](#define-trigger-events) to `true`.
+ - Set all other event `attributes` to `false`.
 
 For example, an integration that responds to only commit and merge request [trigger events](#define-trigger-events) should set its event attributes as below:
 
@@ -182,8 +170,7 @@ attribute :wiki_page_events, default: false
 
 #### Changing event attribute defaults
 
-If an event attribute for an existing integration changes to `true`,
-this requires a data migration to back-fill the attribute value for old records.
+If an event attribute for an existing integration changes to `true`, this requires a data migration to back-fill the attribute value for old records.
 
 ### Define metrics
 
@@ -204,8 +191,7 @@ To create metric definitions:
 1. Replace `milestone` with the current milestone and `introduced_by_url` with the merge request link.
 1. Verify all other attributes have correct values by checking the [metrics guide](../internal_analytics/metrics/metrics_dictionary.md#metrics-definition-and-validation).
 
-For example, to create metric definitions for the Slack integration, you copy these metrics, and
-then replace `Slack` with the name of the new integration:
+For example, to create metric definitions for the Slack integration, you copy these metrics, and then replace `Slack` with the name of the new integration:
 
 - [`20210216180122_projects_slack_active.yml`](https://gitlab.com/gitlab-org/gitlab/blob/master/config/metrics/counts_all/20210216180122_projects_slack_active.yml)
 - [`20210216180124_groups_slack_active.yml`](https://gitlab.com/gitlab-org/gitlab/blob/master/config/metrics/counts_all/20210216180124_groups_slack_active.yml)
@@ -226,16 +212,14 @@ Integrations must always make HTTP calls using `Integrations::Clients::HTTP`, wh
 
 #### Masking channel values
 
-Integrations that [include from `Integrations::Base::ChatNotification`](#define-the-integration) can hide the
-values of their channel input fields. Integrations should hide these values whenever the
-fields contain sensitive information such as auth tokens.
+Integrations that [include from `Integrations::Base::ChatNotification`](#define-the-integration) can hide the values of their channel input fields. Integrations should hide these values whenever the fields contain sensitive information such as auth tokens.
 
 By default, `#mask_configurable_channels?` returns `false`. To mask the channel values, override the `#mask_configurable_channels?` method in the integration to return `true`:
 
 ```ruby
 override :mask_configurable_channels?
 def mask_configurable_channels?
-  true
+ true
 end
 ```
 
@@ -246,13 +230,10 @@ Other gems that add small abstractions should also not be added.
 
 Certain utility-like gems from official sources, like `atlassian-jwt` gem can be used if required.
 
-Gems that wrap interactions with third-party services may look convenient at first glance,
-but they offer minimal benefit compared to the costs involved:
+Gems that wrap interactions with third-party services may look convenient at first glance, but they offer minimal benefit compared to the costs involved:
 
 - They increase the potential surface area of security problems and the effort required to fix them.
-- Often these gems make HTTP calls on your behalf. As integrations can make HTTP calls to remote
-  servers configured by users, it is critical that we
-  [fully control the network calls](#all-http-calls-must-use-integrationsclientshttp).
+- Often these gems make HTTP calls on your behalf. As integrations can make HTTP calls to remote servers configured by users, it is critical that we [fully control the network calls](#all-http-calls-must-use-integrationsclientshttp).
 - There is a maintenance cost of managing gem upgrades.
 - They can block us from using newer features.
 
@@ -279,13 +260,13 @@ For example:
 
 ```ruby
 module Integrations
-  class FooBar < Integration
+ class FooBar < Integration
     def test(data)
       success = test_api_key(data)
 
       { success: success, result: 'API key is invalid' }
     end
-  end
+ end
 end
 ```
 
@@ -298,8 +279,7 @@ By default, the integration form provides:
 - A checkbox to enable or disable the integration.
 - Checkboxes for each of the trigger events returned from `Integration#configurable_events`.
 
-You can also add help text at the top of the form by either overriding `Integration#help`,
-or providing a template in `app/views/shared/integrations/$INTEGRATION_NAME/_help.html.haml`.
+You can also add help text at the top of the form by either overriding `Integration#help`, or providing a template in `app/views/shared/integrations/$INTEGRATION_NAME/_help.html.haml`.
 
 To add your custom properties to the form, you can define the metadata for them in `Integration#fields`.
 
@@ -315,7 +295,7 @@ This method should return an array of hashes for each field, where the keys can 
 | `placeholder:` | string            | false    |                              | A placeholder for the form field. |
 | `help:`        | string            | false    |                              | A help text that displays below the form field. |
 | `api_only:`    | boolean           | false    | `false`                      | Specify if the field should only be available through the API, and excluded from the frontend form. |
-| `description`  | string            | false    |                              | Description of the API field. |
+| `description` | string            | false    |                              | Description of the API field. |
 | `if:`          | boolean or lambda | false    | `true`                       | Specify if the field should be available. The value can be a boolean or a lambda. |
 
 ### Additional keys for `type: :checkbox`
@@ -326,7 +306,7 @@ This method should return an array of hashes for each field, where the keys can 
 
 ### Additional keys for `type: :select`
 
-| Key        | Type  | Required | Default | Description |
+| Key        | Type | Required | Default | Description |
 |:-----------|:------|:---------|:--------|:------------|
 | `choices:` | array | true     |         | A nested array of `[label, value]` tuples. |
 
@@ -335,12 +315,11 @@ This method should return an array of hashes for each field, where the keys can 
 | Key                         | Type   | Required | Default           | Description |
 |:----------------------------|:-------|:---------|:------------------|:------------|
 | `non_empty_password_title:` | string | false    | Value of `title:` | An alternative label that displays when a value is already stored. |
-| `non_empty_password_help:`  | string | false    | Value of `help:`  | An alternative help text that displays when a value is already stored. |
+| `non_empty_password_help:` | string | false    | Value of `help:` | An alternative help text that displays when a value is already stored. |
 
 ### Define sections
 
-All integrations should define `Integration#sections` which split the form into smaller sections,
-making it easier for users to set up the integration.
+All integrations should define `Integration#sections` which split the form into smaller sections, making it easier for users to set up the integration.
 
 The most commonly used sections are pre-defined and already include some UI:
 
@@ -354,7 +333,7 @@ For example:
 
 ```ruby
 module Integrations
-  class FooBar < Integration
+ class FooBar < Integration
     def sections
       [
         {
@@ -369,7 +348,7 @@ module Integrations
         }
       ]
     end
-  end
+ end
 end
 ```
 
@@ -409,7 +388,7 @@ This example defines a required `url` field, and optional `username` and `passwo
 
 ```ruby
 module Integrations
-  class FooBar < Integration
+ class FooBar < Integration
     field :url,
       section: SECTION_TYPE_CONNECTION,
       type: :text,
@@ -437,7 +416,7 @@ module Integrations
         }
       ]
     end
-  end
+ end
 end
 ```
 
@@ -467,10 +446,8 @@ Sensitive fields are not exposed over the API. Sensitive fields are those fields
 
 ## Availability of integrations
 
-By default, integrations can apply to a specific project or group, or
-to an entire instance.
-Most integrations only act in a project context, but can be still configured
-for the group and instance.
+By default, integrations can apply to a specific project or group, or to an entire instance.
+Most integrations only act in a project context, but can be still configured for the group and instance.
 
 For some integrations it can make sense to only make it available on certain levels (project, group, or instance).
 To do that, the integration must be removed from `Integration::INTEGRATION_NAMES` and instead added to:
@@ -479,8 +456,7 @@ To do that, the integration must be removed from `Integration::INTEGRATION_NAMES
 - `Integration::INSTANCE_LEVEL_ONLY_INTEGRATION_NAMES` to only allow enabling on the instance level.
 - `Integration::PROJECT_AND_GROUP_LEVEL_ONLY_INTEGRATION_NAMES` to prevent enabling on the instance level.
 
-When developing a new integration, we also recommend you gate the availability behind a
-[feature flag](../feature_flags/_index.md) in `Integration.available_integration_names`.
+When developing a new integration, we also recommend you gate the availability behind a [feature flag](../feature_flags/_index.md) in `Integration.available_integration_names`.
 
 ## Documentation
 
@@ -489,26 +465,21 @@ Add documentation for the integration:
 - Add a page in `doc/user/project/integrations`.
 - Link it from the [Integrations overview](../../user/project/integrations/_index.md).
 - After the documentation has merged, [add an entry](../documentation/site_architecture/global_nav.md#add-a-navigation-entry)
-  to the documentation navigation under [Integrations](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/data/en-us/navigation.yaml?ref_type=heads#L2936).
+ to the documentation navigation under [Integrations](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/data/en-us/navigation.yaml?ref_type=heads#L2936).
 
 You can also refer to our general [documentation guidelines](../documentation/_index.md).
 
-You can provide help text in the integration form, including links to off-site documentation,
-as described above in [Customize the frontend form](#customize-the-frontend-form). Refer to
-our [usability guidelines](https://design.gitlab.com/patterns/contextual-help) for help text.
+You can provide help text in the integration form, including links to off-site documentation, as described above in [Customize the frontend form](#customize-the-frontend-form). Refer to our [usability guidelines](https://design.gitlab.com/patterns/contextual-help) for help text.
 
 ## Testing
 
 Testing should not be confused with [defining configuration tests](#define-configuration-test).
 
-It is often sufficient to add tests for the integration model in `spec/models/integrations`,
-and a factory with example settings in `spec/factories/integrations.rb`.
+It is often sufficient to add tests for the integration model in `spec/models/integrations`, and a factory with example settings in `spec/factories/integrations.rb`.
 
-Each integration is also tested as part of generalized tests. For example, there are feature specs
-that verify that the settings form is rendering correctly for all integrations.
+Each integration is also tested as part of generalized tests. For example, there are feature specs that verify that the settings form is rendering correctly for all integrations.
 
-If your integration implements any custom behavior, especially in the frontend, this should be
-covered by additional tests.
+If your integration implements any custom behavior, especially in the frontend, this should be covered by additional tests.
 
 You can also refer to our general [testing guidelines](../testing_guide/_index.md).
 
@@ -520,8 +491,7 @@ The strings should use the integration name as [namespace](../i18n/externalizati
 
 ## Deprecate and remove an integration
 
-To remove an integration, you must first deprecate the integration. For more information,
-see the [feature deprecation guidelines](../deprecation_guidelines/_index.md).
+To remove an integration, you must first deprecate the integration. For more information, see the [feature deprecation guidelines](../deprecation_guidelines/_index.md).
 
 ### Deprecate an integration
 
@@ -530,8 +500,7 @@ To deprecate an integration:
 
 - [Add a deprecation entry](../deprecation_guidelines/_index.md#update-the-deprecations-and-removals-documentation).
 - [Mark the integration documentation as deprecated](../documentation/styleguide/deprecations_and_removals.md).
-- Optional. To prevent any new project-level records from
-  being created, add the integration to `Project#disabled_integrations` (see [example merge request](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/114835)).
+- Optional. To prevent any new project-level records from being created, add the integration to `Project#disabled_integrations` (see [example merge request](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/114835)).
 
 ### Remove an integration
 
@@ -553,8 +522,7 @@ In the next minor release (M.1):
 
 ## Ongoing migrations and refactorings
 
-Developers should be aware that the Integrations team is in the process of
-[unifying the way integration properties are defined](https://gitlab.com/groups/gitlab-org/-/epics/3955).
+Developers should be aware that the Integrations team is in the process of [unifying the way integration properties are defined](https://gitlab.com/groups/gitlab-org/-/epics/3955).
 
 ## Integration examples
 

@@ -32,27 +32,27 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/user/keys"
+ --url "https://gitlab.example.com/api/v4/user/keys"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "title": "Public key",
     "key": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAIEAiPWx6WM4lhHNedGfBpPJNPpZ7yKu+dnn1SJejgt4596k6YjzGGphH2TUxwKzxcKDKKezwkpfnxPkSMkuEspGRt/aZZ9wa++Oi7Qkr8prgHc4soW6NUlfDzpvZK2H5E7eQaSeP3SAwGmQKUFHCddNaP0L+hM7zhFNzjFvpaMgJw0=",
     "created_at": "2014-08-01T14:47:39.080Z",
     "usage_type": "auth"
-  },
-  {
+ },
+ {
     "id": 3,
     "title": "Another Public key",
     "key": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAIEAiPWx6WM4lhHNedGfBpPJNPpZ7yKu+dnn1SJejgt4596k6YjzGGphH2TUxwKzxcKDKKezwkpfnxPkSMkuEspGRt/aZZ9wa++Oi7Qkr8prgHc4soW6NUlfDzpvZK2H5E7eQaSeP3SAwGmQKUFHCddNaP0L+hM7zhFNzjFvpaMgJw0=",
     "created_at": "2014-08-01T14:47:39.080Z",
     "usage_type": "signing"
-  }
+ }
 ]
 ```
 
@@ -74,7 +74,7 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/1/keys"
+ --url "https://gitlab.example.com/api/v4/users/1/keys"
 ```
 
 ## Get an SSH key
@@ -93,24 +93,24 @@ Supported attributes:
 
 | Attribute | Type   | Required | Description |
 |:----------|:-------|:---------|:------------|
-| `key_id`  | string | yes      | ID of existing key |
+| `key_id` | string | yes      | ID of existing key |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/user/keys/1"
+ --url "https://gitlab.example.com/api/v4/user/keys/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "title": "Public key",
-  "key": "<SSH_KEY>",
-  "created_at": "2014-08-01T14:47:39.080Z",
-  "usage_type": "auth"
+ "id": 1,
+ "title": "Public key",
+ "key": "<SSH_KEY>",
+ "created_at": "2014-08-01T14:47:39.080Z",
+ "usage_type": "auth"
 }
 ```
 
@@ -127,24 +127,24 @@ Supported attributes:
 | Attribute | Type    | Required | Description |
 |:----------|:--------|:---------|:------------|
 | `id`      | integer | yes      | ID or username of user account |
-| `key_id`  | integer | yes      | ID of existing key  |
+| `key_id` | integer | yes      | ID of existing key |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/users/1/keys/1"
+ --url "https://gitlab.example.com/users/1/keys/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "title": "Public key",
-  "key": "<SSH_KEY>",
-  "created_at": "2014-08-01T14:47:39.080Z",
-  "usage_type": "auth"
+ "id": 1,
+ "title": "Public key",
+ "key": "<SSH_KEY>",
+ "created_at": "2014-08-01T14:47:39.080Z",
+ "usage_type": "auth"
 }
 ```
 
@@ -180,8 +180,8 @@ Returns either:
 - The created key with status `201 Created` on success.
 - A `400 Bad Request` error with a message explaining the error:
 
-  ```json
-  {
+ ```json
+ {
     "message": {
       "fingerprint": [
         "has already been taken"
@@ -190,17 +190,17 @@ Returns either:
         "has already been taken"
       ]
     }
-  }
-  ```
+ }
+ ```
 
 Example response:
 
 ```json
 {
-  "title": "ABC",
-  "key": "<SSH_KEY>",
-  "expires_at": "2016-01-21T00:00:00.000Z",
-  "usage_type": "auth"
+ "title": "ABC",
+ "key": "<SSH_KEY>",
+ "expires_at": "2016-01-21T00:00:00.000Z",
+ "usage_type": "auth"
 }
 ```
 
@@ -230,18 +230,18 @@ Supported attributes:
 | Attribute    | Type    | Required | Description |
 |:-------------|:--------|:---------|:------------|
 | `id`         | integer | yes      | ID of user account |
-| `title`      | string  | yes      | Title for key |
-| `key`        | string  | yes      | Public key value  |
-| `expires_at` | string  | no       | Expiration date of the access token in ISO format (`YYYY-MM-DD`). |
-| `usage_type` | string  | no       | Usage scope for the key. Possible values: `auth`, `signing` or `auth_and_signing`. Default value: `auth_and_signing` |
+| `title`      | string | yes      | Title for key |
+| `key`        | string | yes      | Public key value |
+| `expires_at` | string | no       | Expiration date of the access token in ISO format (`YYYY-MM-DD`). |
+| `usage_type` | string | no       | Usage scope for the key. Possible values: `auth`, `signing` or `auth_and_signing`. Default value: `auth_and_signing` |
 
 Returns either:
 
 - The created key with status `201 Created` on success.
 - A `400 Bad Request` error with a message explaining the error:
 
-  ```json
-  {
+ ```json
+ {
     "message": {
       "fingerprint": [
         "has already been taken"
@@ -250,17 +250,17 @@ Returns either:
         "has already been taken"
       ]
     }
-  }
-  ```
+ }
+ ```
 
 Example response:
 
 ```json
 {
-  "title": "ABC",
-  "key": "<SSH_KEY>",
-  "expires_at": "2016-01-21T00:00:00.000Z",
-  "usage_type": "auth"
+ "title": "ABC",
+ "key": "<SSH_KEY>",
+ "expires_at": "2016-01-21T00:00:00.000Z",
+ "usage_type": "auth"
 }
 ```
 
@@ -280,7 +280,7 @@ Supported attributes:
 
 | Attribute | Type    | Required | Description |
 |:----------|:--------|:---------|:------------|
-| `key_id`  | integer | yes      | ID of existing key  |
+| `key_id` | integer | yes      | ID of existing key |
 
 Returns either:
 
@@ -304,7 +304,7 @@ Supported attributes:
 | Attribute | Type    | Required | Description |
 |:----------|:--------|:---------|:------------|
 | `id`      | integer | yes      | ID of user account |
-| `key_id`  | integer | yes      | ID of existing key  |
+| `key_id` | integer | yes      | ID of existing key |
 
 ## List all GPG keys
 
@@ -322,18 +322,18 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/user/gpg_keys"
+ --url "https://gitlab.example.com/api/v4/user/gpg_keys"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "key": "<PGP_PUBLIC_KEY_BLOCK>",
     "created_at": "2017-09-05T09:17:46.264Z"
-  }
+ }
 ]
 ```
 
@@ -355,18 +355,18 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/2/gpg_keys"
+ --url "https://gitlab.example.com/api/v4/users/2/gpg_keys"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "key": "<PGP_PUBLIC_KEY_BLOCK>",
     "created_at": "2017-09-05T09:17:46.264Z"
-  }
+ }
 ]
 ```
 
@@ -386,22 +386,22 @@ Supported attributes:
 
 | Attribute | Type    | Required | Description |
 |:----------|:--------|:---------|:------------|
-| `key_id`  | integer | yes      | ID of existing key |
+| `key_id` | integer | yes      | ID of existing key |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/user/gpg_keys/1"
+ --url "https://gitlab.example.com/api/v4/user/gpg_keys/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "key": "<PGP_PUBLIC_KEY_BLOCK>",
-  "created_at": "2017-09-05T09:17:46.264Z"
+ "id": 1,
+ "key": "<PGP_PUBLIC_KEY_BLOCK>",
+ "created_at": "2017-09-05T09:17:46.264Z"
 }
 ```
 
@@ -418,22 +418,22 @@ Supported attributes:
 | Attribute | Type    | Required | Description |
 |:----------|:--------|:---------|:------------|
 | `id`      | integer | yes      | ID of user account |
-| `key_id`  | integer | yes      | ID of existing key |
+| `key_id` | integer | yes      | ID of existing key |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/2/gpg_keys/1"
+ --url "https://gitlab.example.com/api/v4/users/2/gpg_keys/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "key": "<PGP_PUBLIC_KEY_BLOCK>",
-  "created_at": "2017-09-05T09:17:46.264Z"
+ "id": 1,
+ "key": "<PGP_PUBLIC_KEY_BLOCK>",
+ "created_at": "2017-09-05T09:17:46.264Z"
 }
 ```
 
@@ -468,11 +468,11 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "key": "<PGP_PUBLIC_KEY_BLOCK>",
     "created_at": "2017-09-05T09:17:46.264Z"
-  }
+ }
 ]
 ```
 
@@ -506,11 +506,11 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "key": "<PGP_PUBLIC_KEY_BLOCK>",
     "created_at": "2017-09-05T09:17:46.264Z"
-  }
+ }
 ]
 ```
 
@@ -530,7 +530,7 @@ Supported attributes:
 
 | Attribute | Type    | Required | Description |
 |:----------|:--------|:---------|:------------|
-| `key_id`  | integer | yes      | ID of existing key |
+| `key_id` | integer | yes      | ID of existing key |
 
 Returns either:
 
@@ -554,4 +554,4 @@ Supported attributes:
 | Attribute | Type    | Required | Description |
 |:----------|:--------|:---------|:------------|
 | `id`      | integer | yes      | ID of user account |
-| `key_id`  | integer | yes      | ID of existing key |
+| `key_id` | integer | yes      | ID of existing key |

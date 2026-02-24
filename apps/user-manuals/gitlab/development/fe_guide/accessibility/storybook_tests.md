@@ -58,8 +58,8 @@ The test runner will output:
 
 - **Passing tests**: Components that meet accessibility standards and have no runtime errors.
 - **Failing tests**:
-  - Components with runtime errors.
-  - Components with accessibility violations, including:
+ - Components with runtime errors.
+ - Components with accessibility violations, including:
     - Specific accessibility rules that failed
     - Elements that caused violations
     - Severity levels (critical, serious, moderate, minor)
@@ -100,4 +100,4 @@ If tests fail to run:
 - For accessibility best practices, see our [accessibility best practices guide](best_practices.md)
 - For component-specific accessibility guidance, check [Pajamas components documentation](https://design.gitlab.com/components/overview)
 - If you discover accessibility issues that require global changes, create a follow-up issue with the labels: `accessibility` and accessibility severity label, for example `accessibility:critical`.
-  Test output will specify the severity for you.
+ Test output will specify the severity for you.

@@ -35,20 +35,19 @@ POST /code_suggestions/completions
 
 Use the AI abstraction layer to generate code completions.
 
-Requests to this endpoint are proxied to the
-[AI gateway](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/-/blob/main/docs/api.md).
+Requests to this endpoint are proxied to the [AI gateway](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/-/blob/main/docs/api.md).
 
 Parameters:
 
 | Attribute          | Type    | Required | Description |
 |--------------------|---------|----------|-------------|
 | `current_file`     | hash    | yes      | Attributes of file that suggestions are being generated for. See [File attributes](#file-attributes) for a list of strings this attribute accepts. |
-| `intent`           | string  | no       | The intent of the completion request. This can be either `completion` or `generation`. |
+| `intent`           | string | no       | The intent of the completion request. This can be either `completion` or `generation`. |
 | `stream`           | boolean | no       | Whether to stream the response as smaller chunks as they are ready (if applicable). Default: `false`. |
-| `project_path`     | string  | no       | The path of the project. |
-| `generation_type`  | string  | no       | The type of event for generation requests. This can be `comment`, `empty_function`, or `small_file`. |
+| `project_path`     | string | no       | The path of the project. |
+| `generation_type` | string | no       | The type of event for generation requests. This can be `comment`, `empty_function`, or `small_file`. |
 | `context`          | array   | no       | Additional context to be used for Code Suggestions. See [Context attributes](#context-attributes) for a list of parameters this attribute accepts. |
-| `user_instruction` | string  | no       | A user's instructions for Code Suggestions. |
+| `user_instruction` | string | no       | A user's instructions for Code Suggestions. |
 
 ### File attributes
 
@@ -70,8 +69,8 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "Authorization: Bearer <YOUR_ACCESS_TOKEN>" \
-  --data '{
+ --header "Authorization: Bearer <YOUR_ACCESS_TOKEN>" \
+ --data '{
       "current_file": {
         "file_name": "car.py",
         "content_above_cursor": "class Car:\n    def __init__(self):\n        self.is_running = False\n        self.speed = 0\n    def increase_speed(self, increment):",
@@ -79,27 +78,27 @@ curl --request POST \
       },
       "intent": "completion"
     }' \
-  --url "https://gitlab.example.com/api/v4/code_suggestions/completions"
+ --url "https://gitlab.example.com/api/v4/code_suggestions/completions"
 ```
 
 Example response:
 
 ```json
 {
-  "id": "id",
-  "model": {
+ "id": "id",
+ "model": {
     "engine": "vertex-ai",
     "name": "code-gecko"
-  },
-  "object": "text_completion",
-  "created": 1688557841,
-  "choices": [
+ },
+ "object": "text_completion",
+ "created": 1688557841,
+ "choices": [
     {
       "text": "\n        if self.is_running:\n            self.speed += increment\n            print(\"The car's speed is now",
       "index": 0,
       "finish_reason": "length"
     }
-  ]
+ ]
 }
 ```
 
@@ -124,7 +123,7 @@ Supported attributes:
 
 | Attribute         | Type    | Required | Description |
 | ----------------- | ------- | -------- | ----------- |
-| `project_path`    | string  | yes      | The path of the project to be validated. |
+| `project_path`    | string | yes      | The path of the project to be validated. |
 
 If successful, returns:
 
@@ -137,10 +136,10 @@ Example request:
 
 ```shell
 curl --request POST \
-  --url "https://gitlab.example.com/api/v4/code_suggestions/enabled" \
-  --header "PRIVATE-TOKEN: <YOUR_ACCESS_TOKEN>" \
-  --header "Content-Type: application/json" \
-  --data '{
+ --url "https://gitlab.example.com/api/v4/code_suggestions/enabled" \
+ --header "PRIVATE-TOKEN: <YOUR_ACCESS_TOKEN>" \
+ --header "Content-Type: application/json" \
+ --data '{
       "project_path": "group/project_name"
     }'
 ```
@@ -161,30 +160,29 @@ POST /code_suggestions/direct_access
 > [!note]
 > This endpoint rate-limits each user to 10 requests per 5-minute window.
 
-Returns user-specific connection details which can be used by IDEs/clients to send `completion` requests directly to
-AI gateway, including headers that must be proxied to the AI gateway as well as the required authentication token.
+Returns user-specific connection details which can be used by IDEs/clients to send `completion` requests directly to AI gateway, including headers that must be proxied to the AI gateway as well as the required authentication token.
 
 Example request:
 
 ```shell
 curl --request POST \
-  --header "Authorization: Bearer <YOUR_ACCESS_TOKEN>" \
-  --url "https://gitlab.example.com/api/v4/code_suggestions/direct_access"
+ --header "Authorization: Bearer <YOUR_ACCESS_TOKEN>" \
+ --url "https://gitlab.example.com/api/v4/code_suggestions/direct_access"
 ```
 
 Example response:
 
 ```json
 {
-  "base_url": "http://0.0.0.0:5052",
-  "token": "a valid token",
-  "expires_at": 1713343569,
-  "headers": {
+ "base_url": "http://0.0.0.0:5052",
+ "token": "a valid token",
+ "expires_at": 1713343569,
+ "headers": {
     "X-Gitlab-Instance-Id": "292c3c7c-c5d5-48ec-b4bf-f00b724ce560",
     "X-Gitlab-Realm": "saas",
     "X-Gitlab-Global-User-Id": "Df0Jhs9xlbetQR8YoZCKDZJflhxO0ZBI8uoRzmpnd1w=",
     "X-Gitlab-Host-Name": "gitlab.example.com"
-  }
+ }
 }
 ```
 
@@ -203,27 +201,26 @@ POST /code_suggestions/connection_details
 > [!note]
 > This endpoint rate-limits each user to 10 requests per 1-minute window.
 
-Returns user-specific connection details which can be used by IDEs/clients for telemetry, including metadata about
-the GitLab instance the user is connected to.
+Returns user-specific connection details which can be used by IDEs/clients for telemetry, including metadata about the GitLab instance the user is connected to.
 
 Example request:
 
 ```shell
 curl --request POST \
-  --header "Authorization: Bearer <YOUR_ACCESS_TOKEN>" \
-  --url "https://gitlab.example.com/api/v4/code_suggestions/connection_details"
+ --header "Authorization: Bearer <YOUR_ACCESS_TOKEN>" \
+ --url "https://gitlab.example.com/api/v4/code_suggestions/connection_details"
 ```
 
 Example response:
 
 ```json
 {
-  "instance_id": "292c3c7c-c5d5-48ec-b4bf-f00b724ce560",
-  "instance_version": "18.2",
-  "realm": "saas",
-  "global_user_id": "Df0Jhs9xlbetQR8YoZCKDZJflhxO0ZBI8uoRzmpnd1w=",
-  "host_name": "gitlab.example.com",
-  "feature_enablement_type": "duo_pro",
-  "saas_duo_pro_namespace_ids": "1000000"
+ "instance_id": "292c3c7c-c5d5-48ec-b4bf-f00b724ce560",
+ "instance_version": "18.2",
+ "realm": "saas",
+ "global_user_id": "Df0Jhs9xlbetQR8YoZCKDZJflhxO0ZBI8uoRzmpnd1w=",
+ "host_name": "gitlab.example.com",
+ "feature_enablement_type": "duo_pro",
+ "saas_duo_pro_namespace_ids": "1000000"
 }
 ```

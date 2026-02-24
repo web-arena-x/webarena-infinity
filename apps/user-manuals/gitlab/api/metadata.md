@@ -44,28 +44,28 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/metadata"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/metadata"
 ```
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/version"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/version"
 ```
 
 Example response:
 
 ```json
 {
-  "version": "18.1.1-ee",
-  "revision": "ceb07b24cb0",
-  "kas": {
+ "version": "18.1.1-ee",
+ "revision": "ceb07b24cb0",
+ "kas": {
     "enabled": true,
     "externalUrl": "grpc://gitlab.example.com:8150",
     "externalK8sProxyUrl": "https://gitlab.example.com:8150/k8s-proxy",
     "version": "18.1.1"
-  },
-  "enterprise": true
+ },
+ "enterprise": true
 }
 ```

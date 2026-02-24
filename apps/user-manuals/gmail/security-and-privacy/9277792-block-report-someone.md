@@ -31,7 +31,7 @@ In Google Chat or Gmail, you can choose to:
 
 1. On your computer, open [Google Chat](https://chat.google.com) or [Gmail](https://mail.google.com).
    - **In Gmail:** On the left, click **Chat**.
-2. In your conversation list, next to someone’s name, click More options  ![](//storage.googleapis.com/support-kms-prod/iwMAMe1lEk5FwSU7G8VhBiTE8PuXATWhvq8t) ![and then](//storage.googleapis.com/support-kms-prod/Th2Tx0uwPMOhsMPn7nRXMUo3vs6J0pto2DTn)  **Block & Report**.
+2. In your conversation list, next to someone’s name, click More options ![](//storage.googleapis.com/support-kms-prod/iwMAMe1lEk5FwSU7G8VhBiTE8PuXATWhvq8t) ![and then](//storage.googleapis.com/support-kms-prod/Th2Tx0uwPMOhsMPn7nRXMUo3vs6J0pto2DTn) **Block & Report**.
    - If you have a work or school account and the person is in your organization, this option is **Block**.
 3. Optional: To report someone for abuse, check the box next to "Report to Google."
    - If you have a work or school account, you can only report people outside your organization.
@@ -68,7 +68,7 @@ You can choose to block a 1:1 direct message or a group direct message rather th
 2. In Chat, open a conversation.
 3. At the top, click the direct message or space name ![and then](//lh3.googleusercontent.com/3_l97rr0GvhSP2XV5OoCkV2ZDTIisAOczrSdzNCBxhIKWrjXjHucxNwocghoUa39gw=h36) **View members**.
    - In spaces, click the space name ![and then](//lh3.googleusercontent.com/3_l97rr0GvhSP2XV5OoCkV2ZDTIisAOczrSdzNCBxhIKWrjXjHucxNwocghoUa39gw=h36) **Manage members**.
-4. Next to the person's name, click More options   ![](//storage.googleapis.com/support-kms-prod/iwMAMe1lEk5FwSU7G8VhBiTE8PuXATWhvq8t)  ![and then](//lh3.googleusercontent.com/3_l97rr0GvhSP2XV5OoCkV2ZDTIisAOczrSdzNCBxhIKWrjXjHucxNwocghoUa39gw=h36) **Block** or **Unblock**.
+4. Next to the person's name, click More options   ![](//storage.googleapis.com/support-kms-prod/iwMAMe1lEk5FwSU7G8VhBiTE8PuXATWhvq8t) ![and then](//lh3.googleusercontent.com/3_l97rr0GvhSP2XV5OoCkV2ZDTIisAOczrSdzNCBxhIKWrjXjHucxNwocghoUa39gw=h36) **Block** or **Unblock**.
 
 **Tip**: To hide someone's messages after you block them in a space, you may need to refresh your browser.
 

@@ -8,12 +8,11 @@ title: Renaming features
 Sometimes the business asks to change the name of a feature. Broadly speaking, there are 2 approaches to that task. They basically trade between immediate effort and future complexity/bug risk:
 
 - Complete, rename everything in the repository.
-  - Pros: does not increase code complexity.
-  - Cons: more work to execute, and higher risk of immediate bugs.
-- Façade, rename as little as possible; only the user-facing content like interfaces,
-  documentation, error messages, and so on.
-  - Pros: less work to execute.
-  - Cons: increases code complexity, creating higher risk of future bugs.
+ - Pros: does not increase code complexity.
+ - Cons: more work to execute, and higher risk of immediate bugs.
+- Façade, rename as little as possible; only the user-facing content like interfaces, documentation, error messages, and so on.
+ - Pros: less work to execute.
+ - Cons: increases code complexity, creating higher risk of future bugs.
 
 ## When to choose the façade approach
 

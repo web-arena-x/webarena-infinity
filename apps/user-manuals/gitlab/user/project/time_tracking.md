@@ -65,8 +65,7 @@ Prerequisites:
 
 To enter an estimate, use the [`/estimate` quick action](quick_actions.md#estimate), followed by the time.
 
-For example, if you need to enter an estimate of 1 month, 2 weeks, 3 days, 4 hours, and 5 minutes,
-type `/estimate 1mo 2w 3d 4h 5m`.
+For example, if you need to enter an estimate of 1 month, 2 weeks, 3 days, 4 hours, and 5 minutes, type `/estimate 1mo 2w 3d 4h 5m`.
 Check the [time units you can use](#available-time-units).
 
 An item can have only one estimate.
@@ -86,8 +85,7 @@ To remove an estimate entirely, use the [`/remove_estimate` quick action](quick_
 
 As you work, you can log the time you've spent.
 
-Every new time spent entry is added to the current total time spent for the
-issue, task, or the merge request.
+Every new time spent entry is added to the current total time spent for the issue, task, or the merge request.
 
 The total amount of time spent on an issue, task, or merge request cannot exceed a year.
 
@@ -123,12 +121,10 @@ The **Spent** total in the sidebar is updated and you can view all entries in a 
 
 To enter time spent, use the [`/spend` quick action](quick_actions.md#spend), followed by the time.
 
-For example, if you need
-to log 1 month, 2 weeks, 3 days, 4 hours, and 5 minutes, type `/spend 1mo 2w 3d 4h 5m`.
+For example, if you need to log 1 month, 2 weeks, 3 days, 4 hours, and 5 minutes, type `/spend 1mo 2w 3d 4h 5m`.
 Check the [time units you can use](#available-time-units).
 
-To add a [time tracking report](#view-an-items-time-tracking-report) entry with a note, create a comment
-with a description and the quick action.
+To add a [time tracking report](#view-an-items-time-tracking-report) entry with a note, create a comment with a description and the quick action.
 It then shows in the time tracking report **Summary/Notes** column. For example:
 
 ```plaintext
@@ -139,8 +135,7 @@ Draft MR and respond to initial comments
 
 To log when time was spent, enter a date after the time, using the `YYYY-MM-DD` format.
 
-For example, to log 1 hour of time spent on 31 January 2021,
-enter `/spend 1h 2021-01-31`.
+For example, to log 1 hour of time spent on 31 January 2021, enter `/spend 1h 2021-01-31`.
 
 If you type a future date, no time is logged.
 
@@ -225,9 +220,7 @@ Prerequisites:
 
 - You must have at least the Planner role for the project.
 
-To subtract time, enter a negative value. For example, `/spend -3d` removes three
-days from the total time spent. You can't go below 0 minutes of time spent,
-so if you remove more time than already entered, GitLab ignores the subtraction.
+To subtract time, enter a negative value. For example, `/spend -3d` removes three days from the total time spent. You can't go below 0 minutes of time spent, so if you remove more time than already entered, GitLab ignores the subtraction.
 
 ### Delete time spent
 
@@ -311,7 +304,7 @@ The following time units are available:
 
 | Time unit | What to type                | Conversion rate |
 | --------- | --------------------------- | --------------- |
-| Month     | `mo`, `month`, or `months`  | 4 w (160 h)     |
+| Month     | `mo`, `month`, or `months` | 4 w (160 h)     |
 | Week      | `w`, `week`, or `weeks`     | 5 d (40 h)      |
 | Day       | `d`, `day`, or `days`       | 8 h             |
 | Hour      | `h`, `hour`, or `hours`     | 60 m            |
@@ -340,10 +333,10 @@ With this option enabled, `75h` is displayed instead of `1w 4d 3h`.
 ## Related topics
 
 - Time tracking GraphQL references:
-  - [Connection](../../api/graphql/reference/_index.md#timelogconnection)
-  - [Edge](../../api/graphql/reference/_index.md#timelogedge)
-  - [Fields](../../api/graphql/reference/_index.md#timelog)
-  - [Timelogs](../../api/graphql/reference/_index.md#querytimelogs)
-  - [Group timelogs](../../api/graphql/reference/_index.md#grouptimelogs)
-  - [Project Timelogs](../../api/graphql/reference/_index.md#projecttimelogs)
-  - [User Timelogs](../../api/graphql/reference/_index.md#usertimelogs)
+ - [Connection](../../api/graphql/reference/_index.md#timelogconnection)
+ - [Edge](../../api/graphql/reference/_index.md#timelogedge)
+ - [Fields](../../api/graphql/reference/_index.md#timelog)
+ - [Timelogs](../../api/graphql/reference/_index.md#querytimelogs)
+ - [Group timelogs](../../api/graphql/reference/_index.md#grouptimelogs)
+ - [Project Timelogs](../../api/graphql/reference/_index.md#projecttimelogs)
+ - [User Timelogs](../../api/graphql/reference/_index.md#usertimelogs)

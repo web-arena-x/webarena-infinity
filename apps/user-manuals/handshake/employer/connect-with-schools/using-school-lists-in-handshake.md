@@ -15,8 +15,8 @@ This helps you efficiently manage engagement and strengthen relationships within
 **Topics**:
 
 - [Post a job to a school list](https://support.joinhandshake.com/hc/en-us/articles/35439035594007#h_01K6X2NN3EGCT6AA4DKBCP0VWY)
-  - [New job](https://support.joinhandshake.com/hc/en-us/articles/35439035594007#h_01K6X2YHN59M1WDG5SDYF7D6Q3)
-  - [Existing job](https://support.joinhandshake.com/hc/en-us/articles/35439035594007#h_01K6X2YQ9D6QN42Y7FQ0GGCA99)
+ - [New job](https://support.joinhandshake.com/hc/en-us/articles/35439035594007#h_01K6X2YHN59M1WDG5SDYF7D6Q3)
+ - [Existing job](https://support.joinhandshake.com/hc/en-us/articles/35439035594007#h_01K6X2YQ9D6QN42Y7FQ0GGCA99)
 - [Promote an event to a school list](https://support.joinhandshake.com/hc/en-us/articles/35439035594007#h_01K6X2NCYS89A69K8DZ7KN27BX)
 - [Add a school list to a segment](https://support.joinhandshake.com/hc/en-us/articles/35439035594007#h_01K6X2RHGN4Y8NNY8V3EG8DVBA)
 

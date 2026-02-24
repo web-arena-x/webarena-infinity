@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408821403930-Installing-a
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -26,7 +26,7 @@ This article includes the following topics:
 
 ## Installing the app
 
-1. Visit the Zendesk Marketplace at **Admin Center > Apps and integrations > Zendesk Support apps > Marketplace** and search for  **Notification App**.
+1. Visit the Zendesk Marketplace at **Admin Center > Apps and integrations > Zendesk Support apps > Marketplace** and search for **Notification App**.
 2. Click **Install**.
 3. In the Installation section, you can enter a name for the Agent Notifications app, and enable group and role restrictions if needed.
 4. Click **Install**.
@@ -38,7 +38,7 @@ This article includes the following topics:
 1. Open the Agent Notification app by clicking on the bell icon ![notification_app_icon.png](https://support.zendesk.com/hc/article_attachments/5993581824794) in the top bar.
 2. Click **New message**.
 3. Write the message you want to broadcast.
-4. Select the group you want to message (leaving this value blank will send a message to all logged-in agents).  
+4. Select the group you want to message (leaving this value blank will send a message to all logged-in agents). 
    ![](https://support.zendesk.com/hc/article_attachments/5993581824922)
 5. Click **Broadcast**.
 

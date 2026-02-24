@@ -12,8 +12,8 @@ Topics:
 
 - [Step 1: Before you get started](#h_01HV9F7KG6HTTX8M7PDK4ZX5Q0)
 - [Step 2: Pick an OCE model](#h_01HV9F7KG652N903C71ZZMFT77)
-  - [Option 1: Company Model to Manage On-Campus Employment](#h_01HV9F7KG652N903C71ZZMFT77)
-  - [Option 2: Division Model to Manage On-Campus Employment](#h_01HV9F7KG6MVSDHSPJFM1D8SV1)
+ - [Option 1: Company Model to Manage On-Campus Employment](#h_01HV9F7KG652N903C71ZZMFT77)
+ - [Option 2: Division Model to Manage On-Campus Employment](#h_01HV9F7KG6MVSDHSPJFM1D8SV1)
 - [Step 3: On-campus Employment Designation](#h_01J35VCC40MCBBAK3072MEA2K6)
 - [Best Practices and Tips](#h_01HV9F7KG75G540VNKMACAG3KP)
 
@@ -22,8 +22,8 @@ Topics:
 Ask yourself and your team a few key questions! This will ensure you have the right stakeholders involved in the decision making process. Ultimately, you know your institution best. **Whiteboard your critical workflows and prioritize!**
 
 - Who currently manages on-campus employment?
-  - Singular coordinator posting on behalf of departments?
-  - Individual departments autonomously posting positions?
+ - Singular coordinator posting on behalf of departments?
+ - Individual departments autonomously posting positions?
 - Which institutional policies and processes am I working with?
 - Who are my key stakeholders?
 - Will we be using Handshake to manage a federal work study program?
@@ -60,8 +60,8 @@ Key functionality:
 - Each department/office will be **created as a division in a single shared company account**
 - A designated account owner must approve all staff access
 - Divisions are not associated with contacts or users - instead connected to:
-  - Jobs
-  - Fair registrations
+ - Jobs
+ - Fair registrations
 - Each staff member is able to see and edit jobs across the entire company profile
 - Users can use divisions to filter and build saved search views
 - Usually best for campuses where 1 or 2 coordinators have to post positions on behalf of several or all divisions

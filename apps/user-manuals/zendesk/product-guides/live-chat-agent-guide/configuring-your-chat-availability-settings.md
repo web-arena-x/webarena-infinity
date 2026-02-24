@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408828519706-Configuring-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Team, Professional, or Enterprise |
 
@@ -41,7 +41,7 @@ You can change your status from the Chat dashboard.
 
 - To change your status once you're already signed in, click the drop-down menu in the upper-left corner of the dashboard.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zopim_online_status_GL.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zopim_online_status_GL.png)
 
 ## Setting your idle timeout preferences
 

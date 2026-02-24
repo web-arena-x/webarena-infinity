@@ -29,10 +29,10 @@ On the editing page, you can change the following:
 - Document file (Choose file to upload a new document)
 - Document name
 - Document type
-  - Resume
-  - Cover Letter
-  - Transcript
-  - Other Document
+ - Resume
+ - Cover Letter
+ - Transcript
+ - Other Document
 - Make the document public (for employers)
 - Description
 

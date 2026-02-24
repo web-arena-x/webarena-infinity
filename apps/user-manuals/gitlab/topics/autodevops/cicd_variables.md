@@ -5,8 +5,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: CI/CD variables
 ---
 
-Use CI/CD variables to set up the Auto DevOps domain, provide a custom
-Helm chart, or scale your application.
+Use CI/CD variables to set up the Auto DevOps domain, provide a custom Helm chart, or scale your application.
 
 ## Build and deployment variables
 
@@ -98,19 +97,19 @@ Use these variables to integrate CI/CD with PostgreSQL databases.
 | `code_quality`                         | `CODE_QUALITY_DISABLED`         |                       | The job isn't created if the value is `"true"`. |
 | `container_scanning`                   | `CONTAINER_SCANNING_DISABLED`   |                       | The job isn't created if the value is `"true"`. |
 | `dast`                                 | `DAST_DISABLED`                 |                       | The job isn't created if the value is `"true"`. |
-| `dast_environment_deploy`              | `DAST_DISABLED_FOR_DEFAULT_BRANCH` or `DAST_DISABLED`  |                        | The job isn't created if the value is `"true"`. |
-| `dependency_scanning`                  | `DEPENDENCY_SCANNING_DISABLED`  |                       | The job isn't created if the value is `"true"`. |
+| `dast_environment_deploy`              | `DAST_DISABLED_FOR_DEFAULT_BRANCH` or `DAST_DISABLED` |                        | The job isn't created if the value is `"true"`. |
+| `dependency_scanning`                  | `DEPENDENCY_SCANNING_DISABLED` |                       | The job isn't created if the value is `"true"`. |
 | `flawfinder-sast`                      | `SAST_DISABLED`                 |                       | The job isn't created if the value is `"true"`. |
-| `gemnasium-dependency_scanning`        | `DEPENDENCY_SCANNING_DISABLED`  |                       | The job isn't created if the value is `"true"`. |
-| `gemnasium-maven-dependency_scanning`  | `DEPENDENCY_SCANNING_DISABLED`  |                       | The job isn't created if the value is `"true"`. |
-| `gemnasium-python-dependency_scanning` | `DEPENDENCY_SCANNING_DISABLED`  |                       | The job isn't created if the value is `"true"`. |
+| `gemnasium-dependency_scanning`        | `DEPENDENCY_SCANNING_DISABLED` |                       | The job isn't created if the value is `"true"`. |
+| `gemnasium-maven-dependency_scanning` | `DEPENDENCY_SCANNING_DISABLED` |                       | The job isn't created if the value is `"true"`. |
+| `gemnasium-python-dependency_scanning` | `DEPENDENCY_SCANNING_DISABLED` |                       | The job isn't created if the value is `"true"`. |
 | `kubesec-sast`                         | `SAST_DISABLED`                 |                       | The job isn't created if the value is `"true"`. |
 | `license_management`                   | `LICENSE_MANAGEMENT_DISABLED`   | GitLab 12.7 and earlier | If the variable is present, the job isn't created. Job deprecated [from GitLab 12.8](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/22773) |
 | `license_scanning`                     | `LICENSE_MANAGEMENT_DISABLED`   |                       | The job isn't created if the value is `"true"`. Job deprecated [from GitLab 15.9](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/111071) |
 | `load_performance`                     | `LOAD_PERFORMANCE_DISABLED`     |                       | If the variable is present, the job isn't created. |
 | `nodejs-scan-sast`                     | `SAST_DISABLED`                 |                       | The job isn't created if the value is `"true"`. |
 | `performance`                          | `PERFORMANCE_DISABLED`          | GitLab 13.12 and earlier | Browser performance. If the variable is present, the job isn't created. Replaced by `browser_performance`. |
-| `browser_performance`                  | `BROWSER_PERFORMANCE_DISABLED`  |                       | Browser performance. If the variable is present, the job isn't created. Replaces `performance`. |
+| `browser_performance`                  | `BROWSER_PERFORMANCE_DISABLED` |                       | Browser performance. If the variable is present, the job isn't created. Replaces `performance`. |
 | `phpcs-security-audit-sast`            | `SAST_DISABLED`                 |                       | The job isn't created if the value is `"true"`. |
 | `pmd-apex-sast`                        | `SAST_DISABLED`                 |                       | The job isn't created if the value is `"true"`. |
 | `review`                               | `REVIEW_DISABLED`               |                       | If the variable is present, the job isn't created. |
@@ -128,9 +127,7 @@ Use these variables to integrate CI/CD with PostgreSQL databases.
 ## Configure application secret variables
 
 Some deployed applications require access to secret variables.
-Auto DevOps detects CI/CD variables starting with `K8S_SECRET_`,
-and makes them available to the deployed application as
-environment variables.
+Auto DevOps detects CI/CD variables starting with `K8S_SECRET_`, and makes them available to the deployed application as environment variables.
 
 Prerequisites:
 
@@ -141,52 +138,42 @@ To configure secret variables:
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Settings** > **CI/CD**.
 1. Expand **Variables**.
-1. Create a CI/CD variable with the prefix `K8S_SECRET_`. For example, you
-   can create a variable called `K8S_SECRET_RAILS_MASTER_KEY`.
-1. Run an Auto DevOps pipeline, either by manually creating a new
-   pipeline or by pushing a code change to GitLab.
+1. Create a CI/CD variable with the prefix `K8S_SECRET_`. For example, you can create a variable called `K8S_SECRET_RAILS_MASTER_KEY`.
+1. Run an Auto DevOps pipeline, either by manually creating a new pipeline or by pushing a code change to GitLab.
 
 ### Kubernetes secrets
 
-Auto DevOps pipelines use your application secret variables to
-populate a Kubernetes secret. This secret is unique per environment.
-When deploying your application, the secret is loaded as environment
-variables in the container running the application. For example, if
-you create a secret called `K8S_SECRET_RAILS_MASTER_KEY`, your
-Kubernetes secret might look like:
+Auto DevOps pipelines use your application secret variables to populate a Kubernetes secret. This secret is unique per environment.
+When deploying your application, the secret is loaded as environment variables in the container running the application. For example, if you create a secret called `K8S_SECRET_RAILS_MASTER_KEY`, your Kubernetes secret might look like:
 
 ```shell
 $ kubectl get secret production-secret -n minimal-ruby-app-54 -o yaml
 
 apiVersion: v1
 data:
-  RAILS_MASTER_KEY: MTIzNC10ZXN0
+ RAILS_MASTER_KEY: MTIzNC10ZXN0
 kind: Secret
 metadata:
-  creationTimestamp: 2018-12-20T01:48:26Z
-  name: production-secret
-  namespace: minimal-ruby-app-54
-  resourceVersion: "429422"
-  selfLink: /api/v1/namespaces/minimal-ruby-app-54/secrets/production-secret
-  uid: 57ac2bfd-03f9-11e9-b812-42010a9400e4
+ creationTimestamp: 2018-12-20T01:48:26Z
+ name: production-secret
+ namespace: minimal-ruby-app-54
+ resourceVersion: "429422"
+ selfLink: /api/v1/namespaces/minimal-ruby-app-54/secrets/production-secret
+ uid: 57ac2bfd-03f9-11e9-b812-42010a9400e4
 type: Opaque
 ```
 
 ## Update application secrets
 
 Environment variables are generally immutable in a Kubernetes pod.
-If you update an application secret and then manually
-create a new pipeline, running applications do not receive the
-updated secret.
+If you update an application secret and then manually create a new pipeline, running applications do not receive the updated secret.
 
 To update application secrets, either:
 
 - Push a code update to GitLab to force the Kubernetes deployment to recreate pods.
-- Manually delete running pods to cause Kubernetes to create new pods with updated
-  secrets.
+- Manually delete running pods to cause Kubernetes to create new pods with updated secrets.
 
-Variables with multi-line values are not supported due to
-limitations with the Auto DevOps scripting environment.
+Variables with multi-line values are not supported due to limitations with the Auto DevOps scripting environment.
 
 ## Configure replica variables
 
@@ -197,8 +184,7 @@ Add replica variables when you want to scale your deployments:
 
    {{< alert type="warning" >}}
 
-   Do not scale your application using Kubernetes directly. Helm might not detect the change,
-   and subsequent deployments with Auto DevOps can undo your changes.
+   Do not scale your application using Kubernetes directly. Helm might not detect the change, and subsequent deployments with Auto DevOps can undo your changes.
 
    {{< /alert >}}
 
@@ -206,21 +192,18 @@ Add replica variables when you want to scale your deployments:
 
 You can create custom replica variables with the format `<TRACK>_<ENV>_REPLICAS`:
 
-- `<TRACK>` is the all-caps value of the `track`
-  [Kubernetes label](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)
-  set in the Helm Chart app definition. If `track` is not set, omit `<TRACK>` from the custom variable.
-- `<ENV>` is the all-caps environment name of the deploy job set in
-  `.gitlab-ci.yml`.
+- `<TRACK>` is the all-caps value of the `track` [Kubernetes label](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/)
+ set in the Helm Chart app definition. If `track` is not set, omit `<TRACK>` from the custom variable.
+- `<ENV>` is the all-caps environment name of the deploy job set in `.gitlab-ci.yml`.
 
-For example, if the environment is `qa` and the track is
-`foo`, create an environment variable called `FOO_QA_REPLICAS`:
+For example, if the environment is `qa` and the track is `foo`, create an environment variable called `FOO_QA_REPLICAS`:
 
 ```yaml
 QA testing:
-  stage: deploy
-  environment:
+ stage: deploy
+ environment:
     name: qa
-  script:
+ script:
     - deploy foo
 ```
 
@@ -230,33 +213,28 @@ For example:
 ```yaml
 replicaCount: 1
 image:
-  repository: gitlab.example.com/group/project
-  tag: stable
-  pullPolicy: Always
-  secrets:
+ repository: gitlab.example.com/group/project
+ tag: stable
+ pullPolicy: Always
+ secrets:
     - name: gitlab-registry
 application:
-  track: foo
-  tier: web
+ track: foo
+ tier: web
 service:
-  enabled: true
-  name: web
-  type: ClusterIP
-  url: http://my.host.com/
-  externalPort: 5000
-  internalPort: 5000
+ enabled: true
+ name: web
+ type: ClusterIP
+ url: http://my.host.com/
+ externalPort: 5000
+ internalPort: 5000
 ```
 
 ## Deploy policy for staging and production environments
 
-Auto DevOps typically uses continuous deployment, and pushes
-automatically to the `production` environment whenever a new pipeline
-runs on the default branch. To deploy to production manually, you can
-use the `STAGING_ENABLED` CI/CD variable.
+Auto DevOps typically uses continuous deployment, and pushes automatically to the `production` environment whenever a new pipeline runs on the default branch. To deploy to production manually, you can use the `STAGING_ENABLED` CI/CD variable.
 
-If you set `STAGING_ENABLED`, GitLab automatically deploys the
-application to a `staging` environment. When you're ready to deploy to
-production, GitLab creates a `production_manual` job.
+If you set `STAGING_ENABLED`, GitLab automatically deploys the application to a `staging` environment. When you're ready to deploy to production, GitLab creates a `production_manual` job.
 
 You can also enable manual deployment in your [project settings](requirements.md#auto-devops-deployment-strategy).
 
@@ -269,8 +247,7 @@ You can also enable manual deployment in your [project settings](requirements.md
 
 {{< /details >}}
 
-You can use a [canary environment](../../user/project/canary_deployments.md) before
-deploying any changes to production.
+You can use a [canary environment](../../user/project/canary_deployments.md) before deploying any changes to production.
 
 If you set `CANARY_ENABLED`, GitLab creates two [manual jobs](../../ci/pipelines/_index.md#add-manual-interaction-to-your-pipeline):
 
@@ -286,30 +263,22 @@ If you set `CANARY_ENABLED`, GitLab creates two [manual jobs](../../ci/pipelines
 
 {{< /details >}}
 
-Use an incremental rollout to continuously deploy your application,
-starting with only a few pods. You can increase the number of pods
-manually.
+Use an incremental rollout to continuously deploy your application, starting with only a few pods. You can increase the number of pods manually.
 
-You can enable manual deployment in your [project settings](requirements.md#auto-devops-deployment-strategy),
-or by setting `INCREMENTAL_ROLLOUT_MODE` to `manual`.
+You can enable manual deployment in your [project settings](requirements.md#auto-devops-deployment-strategy), or by setting `INCREMENTAL_ROLLOUT_MODE` to `manual`.
 
-If you set `INCREMENTAL_ROLLOUT_MODE` to `manual`, GitLab creates four
-manual jobs:
+If you set `INCREMENTAL_ROLLOUT_MODE` to `manual`, GitLab creates four manual jobs:
 
 1. `rollout 10%`
 1. `rollout 25%`
 1. `rollout 50%`
 1. `rollout 100%`
 
-The percentage is based on the `REPLICAS` CI/CD variable, and defines the number of
-pods used for deployment. For example, if the value is `10` and you run the
-`10%` rollout job, your application is deployed to only one pod.
+The percentage is based on the `REPLICAS` CI/CD variable, and defines the number of pods used for deployment. For example, if the value is `10` and you run the `10%` rollout job, your application is deployed to only one pod.
 
-You can run the rollout jobs in any order. To scale down, rerun a
-lower percentage job.
+You can run the rollout jobs in any order. To scale down, rerun a lower percentage job.
 
-After you run the `rollout 100%` job, you cannot scale down, and must
-[roll back your deployment](../../ci/environments/deployments.md#retry-or-roll-back-a-deployment).
+After you run the `rollout 100%` job, you cannot scale down, and must [roll back your deployment](../../ci/environments/deployments.md#retry-or-roll-back-a-deployment).
 
 ### Example incremental rollout configurations
 
@@ -338,11 +307,9 @@ With `INCREMENTAL_ROLLOUT_MODE` set to `manual` and with `STAGING_ENABLED`:
 
 {{< /details >}}
 
-Use a timed incremental rollout to continuously deploy your application, starting with
-only a few pods.
+Use a timed incremental rollout to continuously deploy your application, starting with only a few pods.
 
-You can enable timed incremental deployment in your [project settings](requirements.md#auto-devops-deployment-strategy),
-or by setting the `INCREMENTAL_ROLLOUT_MODE` CI/CD variable to `timed`.
+You can enable timed incremental deployment in your [project settings](requirements.md#auto-devops-deployment-strategy), or by setting the `INCREMENTAL_ROLLOUT_MODE` CI/CD variable to `timed`.
 
 If you set `INCREMENTAL_ROLLOUT_MODE` to `timed`, GitLab creates four jobs:
 

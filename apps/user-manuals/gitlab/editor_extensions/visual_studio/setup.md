@@ -10,17 +10,15 @@ To get the extension, use any of these methods:
 
 - Inside Visual Studio, select **Extensions** from the activity bar, and search for `GitLab`.
 - From the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=GitLab.GitLabExtensionForVisualStudio).
-- From GitLab, either from the
-  [list of releases](https://gitlab.com/gitlab-org/editor-extensions/gitlab-visual-studio-extension/-/releases), or by
-  [downloading the latest version](https://gitlab.com/gitlab-org/editor-extensions/gitlab-visual-studio-extension/-/releases/permalink/latest/downloads/GitLab.Extension.vsix)
-  directly.
+- From GitLab, either from the [list of releases](https://gitlab.com/gitlab-org/editor-extensions/gitlab-visual-studio-extension/-/releases), or by [downloading the latest version](https://gitlab.com/gitlab-org/editor-extensions/gitlab-visual-studio-extension/-/releases/permalink/latest/downloads/GitLab.Extension.vsix)
+ directly.
 
 The extension requires:
 
 - Visual Studio 2022 version 17.6 or later (AMD64 or Arm64).
 - The [IntelliCode](https://visualstudio.microsoft.com/services/intellicode/) component for Visual Studio.
 - GitLab version 16.1 or later.
-  - GitLab Duo Code Suggestions requires GitLab version 16.8 or later.
+ - GitLab Duo Code Suggestions requires GitLab version 16.8 or later.
 - You are not using Visual Studio for Mac, as it is unsupported.
 
 No new additional data is collected to enable this feature. Private non-public GitLab customer data is not used as training data.
@@ -52,8 +50,7 @@ To authenticate with GitLab:
 
 ## Enable telemetry
 
-The GitLab extension uses the telemetry settings in Visual Studio to send usage and error
-information to GitLab. To enable telemetry in GitLab for Visual Studio:
+The GitLab extension uses the telemetry settings in Visual Studio to send usage and error information to GitLab. To enable telemetry in GitLab for Visual Studio:
 
 1. In Visual Studio, on the top bar, go to **Tools** > **Options**.
 1. In the left sidebar, expand **GitLab** and select **General**.
@@ -62,8 +59,7 @@ information to GitLab. To enable telemetry in GitLab for Visual Studio:
 
 ## Configure the extension
 
-This extension provides custom commands that you can use with GitLab. Most commands don't have
-default keyboard shortcuts to avoid conflicts with your existing Visual Studio configuration.
+This extension provides custom commands that you can use with GitLab. Most commands don't have default keyboard shortcuts to avoid conflicts with your existing Visual Studio configuration.
 
 | Command name                          | Default keyboard shortcut                   | Description |
 |---------------------------------------|---------------------------------------------|-------------|

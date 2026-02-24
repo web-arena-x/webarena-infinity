@@ -36,11 +36,11 @@ This survey starts by asking students, “What did you do this past summer?” a
 
 Here's an example of what this email may entail:
 
-|  |  |
+| | |
 | --- | --- |
 | **Subject line** | {{First Name}}, a chance to win $100 for sharing your summer experience |
 | **Header** | Share your experience for a chance to win. |
-| **Body copy** | Hi {{First Name}},  We want to hear about your summer internship experience. Take a 5 minute survey today and have a chance to **win a $100 Amazon gift card.**  Your review will help other students on Handshake find the right internship. And when you complete your review by November 5th, you'll be entered to win!  Simply respond by clicking the button below.  [Share My Experience]  Thank you, The Handshake team |
+| **Body copy** | Hi {{First Name}}, We want to hear about your summer internship experience. Take a 5 minute survey today and have a chance to **win a $100 Amazon gift card.** Your review will help other students on Handshake find the right internship. And when you complete your review by November 5th, you'll be entered to win! Simply respond by clicking the button below. [Share My Experience] Thank you, The Handshake team |
 
 2. **Directly from their Handshake account**
 
@@ -83,14 +83,14 @@ All reviews submitted in Handshake undergo a two-step moderation. To learn more
 There are 4 statuses in which a review can be in Handshake:
 
 - **Pending**
-  - Reviews that have been submitted, but have yet to be moderated by Handshake. This is the default status for all Reviews (that are not marked as private or not connected to a Handshake employer) until they have been through our moderation process. 
+ - Reviews that have been submitted, but have yet to be moderated by Handshake. This is the default status for all Reviews (that are not marked as private or not connected to a Handshake employer) until they have been through our moderation process. 
     - **Note**: only Handshake moderators have the ability to change the status of a review, and it may take around 3 - 4 days for the review to be changed to “approved” or “declined.”
 - **Unpublished**
-  - Reviews that have been marked as private, or isn't connected to a Handshake company.
+ - Reviews that have been marked as private, or isn't connected to a Handshake company.
 - **Approved**
-  - Reviews that have passed the moderation process.
+ - Reviews that have passed the moderation process.
 - **Declined**
-  - Reviews that did not pass the moderation process.
+ - Reviews that did not pass the moderation process.
 
 To access reviews by their status, use the **Status** filter on the upper-middle section of the Reviews page.
 
@@ -125,8 +125,8 @@ Star ratings are not shown to students, and only viewable to career services use
 **What are some useful reports from the Analytics tool on Reviews?**
 
 - - Majors of students submitting the most Reviews [report here](https://handshake.cmail19.com/t/d-l-ndkyddt-jrurljahj-i/)
-  - Distribution of privacy submission status (students submitting public or private Reviews) [report here](https://handshake.cmail19.com/t/d-l-ndkyddt-jrurljahj-k/)
-  - Full list of employers that your students submitted Reviews for [report here](https://handshake.cmail19.com/t/d-l-ndkyddt-jrurljahj-u/)
+ - Distribution of privacy submission status (students submitting public or private Reviews) [report here](https://handshake.cmail19.com/t/d-l-ndkyddt-jrurljahj-k/)
+ - Full list of employers that your students submitted Reviews for [report here](https://handshake.cmail19.com/t/d-l-ndkyddt-jrurljahj-u/)
 
 ### 
 
@@ -139,17 +139,17 @@ Star ratings are not shown to students, and only viewable to career services use
 **Will all contacts at an employer be notified when they get a new review, or just one point of contact?**
 
 - - By default, all recruiters for a given employer will receive in-app (not email) notifications every time a new review is published.
-  - They will have the option to opt-in to email notifications on an individual basis if they so choose. We will make this clear to them in our communications to employers and Help Center resources.
+ - They will have the option to opt-in to email notifications on an individual basis if they so choose. We will make this clear to them in our communications to employers and Help Center resources.
 
 **What if reviews are left for employers not currently on Handshake?**
 
 - - If reviews are left for employers without a Handshake account, we currently have no way of displaying that review in product.
-  - However, with 650k+ employers currently on Handshake, the majority of reviews are attached to Handshake employers.
+ - However, with 650k+ employers currently on Handshake, the majority of reviews are attached to Handshake employers.
 
 **What if reviews upset an employer?**
 
 - - We’ve found most submitted reviews to be thoughtful, constructive and high-quality. None of the employers we’ve spoken to have raised issues with example approved reviews we’ve shown them. On the contrary, they’re excited about the ability to engage with students in new ways.
-  - If an employer believes a review does not meet our Content Guidelines, they are able to flag that review for secondary moderation. Employers also have the ability to reply to reviews, a great opportunity to proactively address feedback and show students they are engaged and listening.
+ - If an employer believes a review does not meet our Content Guidelines, they are able to flag that review for secondary moderation. Employers also have the ability to reply to reviews, a great opportunity to proactively address feedback and show students they are engaged and listening.
 
 ### 
 
@@ -164,7 +164,7 @@ Star ratings are not shown to students, and only viewable to career services use
 - - Yes, students are able to select how they would like their review to be shown in Handshake:
     - **Fully visible:** Display full name, photo, school, school year and major
     - **Semi-anonymous:** Hide full name + photo, but display school, school year and major
-    - **Anonymous**: keep it private to only their career center  
+    - **Anonymous**: keep it private to only their career center 
       - After talking to students, the overwhelming feedback was that totally anonymous reviews were significantly less valuable. This is because some context around the reviewer is important for understanding if a review is relevant to a student. For example, an English major at a small liberal arts college may find a review from an engineering student at a large state school interesting, but less relevant to them personally.
 
 **Can students make their reviews visible only to other students and not employers**

@@ -19,6 +19,6 @@ Then search for the label you'd like to filter on by clicking on the box below *
 ## FAQs
 
 - I filtered on the Employer Label name and opened the contact, but I'm not seeing the Employer Label appear.
-  - This is expected; the only label names that will appear on the contact entry are the labels your school has applied to that particular contact. You'll need to open the employers company profile to manage applied Employer Labels.
+ - This is expected; the only label names that will appear on the contact entry are the labels your school has applied to that particular contact. You'll need to open the employers company profile to manage applied Employer Labels.
 - Can I apply a label to the employer's company profile from the contacts page?
-  - No, you will only be able to filter on labels that are already applied to the company profile.
+ - No, you will only be able to filter on labels that are already applied to the company profile.

@@ -20,10 +20,10 @@ The following is an example of an Overview page:
 
 The upper-right corner of the Overview page displays status and settings information about your AI agent.
 
-|  |  |
+| | |
 | --- | --- |
 | Name | Description |
-| AI agent status | This is set by your CSM at the moment. In the future, this will switch based on whether the automation trigger is live. Understanding the different statuses:  New - This is the default state before any actions have taken place in AI agents - Advanced.  Building - This is when you have started to create Intents.  Live - This is based on whether or not the automation toggle is turned on and is set by your CSM. |
+| AI agent status | This is set by your CSM at the moment. In the future, this will switch based on whether the automation trigger is live. Understanding the different statuses: New - This is the default state before any actions have taken place in AI agents - Advanced. Building - This is when you have started to create Intents. Live - This is based on whether or not the automation toggle is turned on and is set by your CSM. |
 | Channel | Which type of AI agent is this, based on what was determined in the set-up and within the **Settings** |
 | CRM | Which CRM is connected as determined in the CRM Integrations area |
 | Language | Which languages have been added, which is set within the **AI agent settings > Languages** area |

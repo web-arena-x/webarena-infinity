@@ -19,9 +19,7 @@ General development guidelines and tips for the [Import/Export feature](../user/
 
 ## Security
 
-The Import/Export feature is constantly updated (adding new things to export). However,
-the code hasn't been refactored in a long time. We should perform a code audit
-to make sure its dynamic nature does not increase the number of security concerns.
+The Import/Export feature is constantly updated (adding new things to export). However, the code hasn't been refactored in a long time. We should perform a code audit to make sure its dynamic nature does not increase the number of security concerns.
 GitLab team members can view more information in this confidential issue:
 `https://gitlab.com/gitlab-org/gitlab/-/issues/20720`.
 
@@ -52,15 +50,15 @@ The `AttributeConfigurationSpec` checks and confirms the addition of new columns
 ```ruby
 # AttributeConfigurationSpec
 <<-MSG
-  It looks like #{relation_class}, which is exported using the project Import/Export, has new attributes:
+ It looks like #{relation_class}, which is exported using the project Import/Export, has new attributes:
 
-  Please add the attribute(s) to SAFE_MODEL_ATTRIBUTES if they can be exported.
+ Please add the attribute(s) to SAFE_MODEL_ATTRIBUTES if they can be exported.
 
-  Please denylist the attribute(s) in IMPORT_EXPORT_CONFIG by adding it to its corresponding
-  model in the +excluded_attributes+ section.
+ Please denylist the attribute(s) in IMPORT_EXPORT_CONFIG by adding it to its corresponding
+ model in the +excluded_attributes+ section.
 
-  SAFE_MODEL_ATTRIBUTES: #{File.expand_path(safe_attributes_file)}
-  IMPORT_EXPORT_CONFIG: #{Gitlab::ImportExport.config_file}
+ SAFE_MODEL_ATTRIBUTES: #{File.expand_path(safe_attributes_file)}
+ IMPORT_EXPORT_CONFIG: #{Gitlab::ImportExport.config_file}
 MSG
 ```
 
@@ -69,13 +67,13 @@ The `ModelConfigurationSpec` checks and confirms the addition of new models:
 ```ruby
 # ModelConfigurationSpec
 <<-MSG
-  New model(s) <#{new_models.join(',')}> have been added, related to #{parent_model_name}, which is exported by
-  the Import/Export feature.
+ New model(s) <#{new_models.join(',')}> have been added, related to #{parent_model_name}, which is exported by
+ the Import/Export feature.
 
-  If you think this model should be included in the export, please add it to `#{Gitlab::ImportExport.config_file}`.
+ If you think this model should be included in the export, please add it to `#{Gitlab::ImportExport.config_file}`.
 
-  Definitely add it to `#{File.expand_path(ce_models_yml)}`
-  to signal that you've handled this error and to prevent it from showing up in the future.
+ Definitely add it to `#{File.expand_path(ce_models_yml)}`
+ to signal that you've handled this error and to prevent it from showing up in the future.
 MSG
 ```
 
@@ -84,30 +82,29 @@ The `ExportFileSpec` detects encrypted or sensitive columns:
 ```ruby
 # ExportFileSpec
 <<-MSG
-  Found a new sensitive word <#{key_found}>, which is part of the hash #{parent.inspect}
-  If you think this information shouldn't get exported, please exclude the model or attribute in
-  IMPORT_EXPORT_CONFIG.
+ Found a new sensitive word <#{key_found}>, which is part of the hash #{parent.inspect}
+ If you think this information shouldn't get exported, please exclude the model or attribute in
+ IMPORT_EXPORT_CONFIG.
 
-  Otherwise, please add the exception to +safe_list+ in CURRENT_SPEC using #{sensitive_word} as the
-  key and the correspondent hash or model as the value.
+ Otherwise, please add the exception to +safe_list+ in CURRENT_SPEC using #{sensitive_word} as the
+ key and the correspondent hash or model as the value.
 
-  Also, if the attribute is a generated unique token, please add it to RelationFactory::TOKEN_RESET_MODELS
-  if it needs to be reset (to prevent duplicate column problems while importing to the same instance).
+ Also, if the attribute is a generated unique token, please add it to RelationFactory::TOKEN_RESET_MODELS
+ if it needs to be reset (to prevent duplicate column problems while importing to the same instance).
 
-  IMPORT_EXPORT_CONFIG: #{Gitlab::ImportExport.config_file}
-  CURRENT_SPEC: #{__FILE__}
+ IMPORT_EXPORT_CONFIG: #{Gitlab::ImportExport.config_file}
+ CURRENT_SPEC: #{__FILE__}
 MSG
 ```
 
 ## Versioning
 
-Import/Export does not use strict SemVer, since it has frequent constant changes
-during a single GitLab release. It does require an update when there is a breaking change.
+Import/Export does not use strict SemVer, since it has frequent constant changes during a single GitLab release. It does require an update when there is a breaking change.
 
 ```ruby
 # ImportExport
 module Gitlab
-  module ImportExport
+ module ImportExport
     extend self
 
     # For every version update, the history in import_export.md has to be kept up to date.
@@ -120,8 +117,7 @@ Check for [compatibility](../user/project/settings/import_export.md#compatibilit
 
 ### When to bump the version up
 
-If we rename model/columns or perform any format, we need to bump the version
-modifications in the JSON structure or the file structure of the archive file.
+If we rename model/columns or perform any format, we need to bump the version modifications in the JSON structure or the file structure of the archive file.
 
 We do not need to bump the version up in any of the following cases:
 
@@ -145,12 +141,12 @@ Model relationships to be included in the project import/export:
 
 ```yaml
 project_tree:
-  - labels:
+ - labels:
     - :priorities
-  - milestones:
+ - milestones:
     - events:
       - :push_event_payload
-  - issues:
+ - issues:
     - events:
     # ...
 ```
@@ -159,17 +155,17 @@ Only include the following attributes for the models specified:
 
 ```yaml
 included_attributes:
-  user:
+ user:
     - :id
     - :public_email
-  # ...
+ # ...
 ```
 
 Do not include the following attributes for the models specified:
 
 ```yaml
 excluded_attributes:
-  project:
+ project:
     - :name
     - :path
     - ...
@@ -180,9 +176,9 @@ Extra methods to be called by the export:
 ```yaml
 # Methods
 methods:
-  labels:
+ labels:
     - :type
-  label:
+ label:
     - :type
 ```
 
@@ -200,7 +196,7 @@ Customize the export order of the model relationships:
 #                  to :nulls_last
 
 export_reorders:
-  project:
+ project:
     issues:
       column: :relative_position
       direction: :asc
@@ -209,18 +205,13 @@ export_reorders:
 
 ### Conditional export
 
-When associated resources are from outside the project, you might need to
-validate that a user who is exporting the project or group can access these
-associations. `include_if_exportable` accepts an array of associations for a
-resource. During export, the `exportable_association?` method on the resource
-is called with the association's name and user to validate if associated
-resource can be included in the export.
+When associated resources are from outside the project, you might need to validate that a user who is exporting the project or group can access these associations. `include_if_exportable` accepts an array of associations for a resource. During export, the `exportable_association?` method on the resource is called with the association's name and user to validate if associated resource can be included in the export.
 
 For example:
 
 ```yaml
 include_if_exportable:
-  project:
+ project:
     issues:
       - epic_issue
 ```
@@ -241,7 +232,7 @@ While the status is `started` the `Importer` code processes each step required f
 ```ruby
 # ImportExport::Importer
 module Gitlab
-  module ImportExport
+ module ImportExport
     class Importer
       def execute
         if import_file && check_version! && restorers.all?(&:restore) && overwrite_project
@@ -268,7 +259,7 @@ The export service, is similar to the `Importer`, restoring data instead of savi
 ```ruby
 # ImportExport::ExportService
 module Projects
-  module ImportExport
+ module ImportExport
     class ExportService < BaseService
 
       def save_all!

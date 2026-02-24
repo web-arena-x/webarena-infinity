@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357750787098-Customizing-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 

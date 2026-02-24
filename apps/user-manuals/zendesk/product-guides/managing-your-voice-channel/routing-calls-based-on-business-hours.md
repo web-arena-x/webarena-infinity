@@ -6,20 +6,17 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408845919002-Routing-call
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Talk Professional or Enterprise |
 
-You can configure when calls are routed to available agents based on your scheduled
-business hours. Before you can assign a schedule to a number, you’ll need to set up the
-schedule. The following Zendesk plans support creating schedules:
+You can configure when calls are routed to available agents based on your scheduled business hours. Before you can assign a schedule to a number, you’ll need to set up the schedule. The following Zendesk plans support creating schedules:
 
-- Suite Growth and Professional plans (or Support Professional plans) supports one
-  schedule
+- Suite Growth and Professional plans (or Support Professional plans) supports one schedule
 - Suite and Support Enterprise plans supports multiple schedules
 
 For help creating schedules, see see [Setting your business hours and holidays](https://support.zendesk.com/hc/en-us/articles/4408842938522-Setting-your-business-hours-and-holidays-Plus-and-Enterprise-).
@@ -32,12 +29,8 @@ For help creating schedules, see see [Setting your business hours and holidays](
 3. Click the number you want to set a schedule for.
 4. Click the **Routing** tab.
 5. Next to the **Schedule** field, select a schedule from the drop-down field:
-   - **Business hours:** Route calls to this number only within your scheduled
-     business hours.
-   - **Always route calls:** Always route calls to this number, regardless of your
-     scheduled business hours.
+   - **Business hours:** Route calls to this number only within your scheduled business hours.
+   - **Always route calls:** Always route calls to this number, regardless of your scheduled business hours.
 
-   Note: When calls are in the queue at the end of business hours and no agents are
-   online, calls remain in the queue for the maximum wait time you've
-   configured.
+   Note: When calls are in the queue at the end of business hours and no agents are online, calls remain in the queue for the maximum wait time you've configured.
 6. When you are finished, click **Save changes**.

@@ -7,9 +7,7 @@ title: Testing experiments
 
 ## Testing experiments with RSpec
 
-In the course of working with experiments, you might want to use the RSpec
-tooling that's built in. This happens automatically for files in `spec/experiments`, but
-for other files and specs you want to include it in, you can specify the `:experiment` type:
+In the course of working with experiments, you might want to use the RSpec tooling that's built in. This happens automatically for files in `spec/experiments`, but for other files and specs you want to include it in, you can specify the `:experiment` type:
 
 ```ruby
 it "tests experiments nicely", :experiment do
@@ -27,28 +25,27 @@ Pass it a hash using experiment names as the keys, and the variants you want eac
 stub_experiments(example: :my_variant, example2: :control)
 
 experiment(:example) do |e|
-  e.enabled? # => true
-  e.assigned.name # => 'my_variant'
+ e.enabled? # => true
+ e.assigned.name # => 'my_variant'
 end
 
 experiment(:example2) do |e|
-  e.enabled? # => true
-  e.assigned.name # => 'control'
+ e.enabled? # => true
+ e.assigned.name # => 'control'
 end
 ```
 
 ### Exclusion, segmentation, and behavior matchers
 
-You can also test things like the registered behaviors, the exclusions, and
-segmentations using the matchers.
+You can also test things like the registered behaviors, the exclusions, and segmentations using the matchers.
 
 ```ruby
 class ExampleExperiment < ApplicationExperiment
-  control { }
-  candidate { '_candidate_' }
+ control { }
+ candidate { '_candidate_' }
 
-  exclude { context.actor.first_name == 'Richard' }
-  segment(variant: :candidate) { context.actor.username == 'jejacks0n' }
+ exclude { context.actor.first_name == 'Richard' }
+ segment(variant: :candidate) { context.actor.username == 'jejacks0n' }
 end
 
 excluded = double(username: 'rdiggitty', first_name: 'Richard')
@@ -69,8 +66,7 @@ expect(experiment(:example)).not_to segment(actor: excluded)
 
 ### Tracking matcher
 
-Tracking events is a major aspect of experimentation. We try
-to provide a flexible way to ensure your tracking calls are covered.
+Tracking events is a major aspect of experimentation. We try to provide a flexible way to ensure your tracking calls are covered.
 
 You can do this on the instance level or at an "any instance" level:
 
@@ -82,9 +78,7 @@ expect(subject).to track(:my_event)
 subject.track(:my_event)
 ```
 
-You can use the `on_next_instance` chain method to specify that it happens
-on the next instance of the experiment. This helps you if you're calling
-`experiment(:example).track` downstream:
+You can use the `on_next_instance` chain method to specify that it happens on the next instance of the experiment. This helps you if you're calling `experiment(:example).track` downstream:
 
 ```ruby
 expect(experiment(:example)).to track(:my_event).on_next_instance
@@ -96,9 +90,9 @@ A full example of the methods you can chain onto the `track` matcher:
 
 ```ruby
 expect(experiment(:example)).to track(:my_event, value: 1, property: '_property_')
-  .on_next_instance
-  .with_context(foo: :bar)
-  .for(:variant_name)
+ .on_next_instance
+ .with_context(foo: :bar)
+ .for(:variant_name)
 
 experiment(:example, :variant_name, foo: :bar).track(:my_event, value: 1, property: '_property_')
 ```
@@ -114,13 +108,13 @@ import { stubExperiments } from 'helpers/experimentation_helper';
 import { getExperimentData } from '~/experimentation/utils';
 
 describe('when my_experiment is enabled', () => {
-  beforeEach(() => {
+ beforeEach(() => {
     stubExperiments({ my_experiment: 'candidate' });
-  });
+ });
 
-  it('sets the correct data', () => {
+ it('sets the correct data', () => {
     expect(getExperimentData('my_experiment')).toEqual({ experiment: 'my_experiment', variant: 'candidate' });
-  });
+ });
 });
 ```
 
@@ -132,20 +126,20 @@ This method of stubbing in Jest specs does not automatically un-stub itself at t
 
 ```javascript
 describe('tests that care about global state', () => {
-  const originalObjects = [];
+ const originalObjects = [];
 
-  beforeEach(() => {
+ beforeEach(() => {
     // For backwards compatibility for now, we're using both window.gon & window.gl
     originalObjects.push(window.gon, window.gl);
-  });
+ });
 
-  afterEach(() => {
+ afterEach(() => {
     [window.gon, window.gl] = originalObjects;
-  });
+ });
 
-  it('stubs experiment in fresh global state', () => {
+ it('stubs experiment in fresh global state', () => {
     stubExperiment({ my_experiment: 'candidate' });
     // ...
-  });
+ });
 })
 ```

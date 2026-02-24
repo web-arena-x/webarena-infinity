@@ -26,7 +26,7 @@ There are two ways to create a section on your board.
 
 ![Section being added to a FigJam board with template picker exposed.](https://help.figma.com/hc/article_attachments/34795802421143)
 
-1. Click  in the bottom toolbar or use the keyboard shortcut `⇧ Shift` `S`.
+1. Click in the bottom toolbar or use the keyboard shortcut `⇧ Shift` `S`.
 2. Click the location of the board where you’d like the section to go to create a square section, or click and drag to create a custom sized section.
 
 You can also click and drag a section over the objects you want to add to it.
@@ -46,7 +46,7 @@ Speed up your workflow and save time setting up a FigJam board with section temp
 To use section templates:
 
 1. Create a section.
-2. Click  **Templates** next to the section title.
+2. Click **Templates** next to the section title.
 3. Select a template from the list.
 
 ![Section template list.](https://help.figma.com/hc/article_attachments/29051698001303)
@@ -70,7 +70,7 @@ Press `⇧ Shift` then click and drag to select multiple objects in a section.
 Lock sections to prevent them and their contents from being moved or edited.
 
 1. Create or select a section.
-2. Click  in the section's menu.
+2. Click in the section's menu.
 3. Select whether you want to:
    - **Lock all** to prevent the section and its contents from being moved or edited
    - **Lock background only** to prevent the section from being moved or deleted while its content is still editable
@@ -80,7 +80,7 @@ Lock sections to prevent them and their contents from being moved or edited.
 To edit a section title:
 
 1. Create or select a section on the board.
-2. Click  from the section’s toolbar.
+2. Click from the section’s toolbar.
 3. Enter a new name and press `Return` / `Enter`.
 
 You can also double-click the section’s name to edit.
@@ -91,13 +91,13 @@ Remove title
 2. Delete text.
 3. Press Return / Enter.
 
-To add a title back, press  in the section's toolbar.
+To add a title back, press in the section's toolbar.
 
 ## Hide section
 
 Hiding sections comes in handy when you want to hide content without deleting it, or to expose content when needed during a presentation or group exercise.
 
-Press  to hide a section and  to show it again.
+Press to hide a section and to show it again.
 
 ## Delete a section
 

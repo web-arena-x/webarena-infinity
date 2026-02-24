@@ -81,8 +81,8 @@ Gitaly functions as the primary Git Repository Storage in GitLab. However, it's 
 - Gitaly nodes should be selected with network bottleneck avoidance as a primary consideration.
 - Gitaly nodes should be monitored for network saturation.
 - Not all networking issues can be solved through optimizing the node level networking:
-  - Gitaly Cluster (Praefect) node replication depends on all networking between nodes.
-  - Gitaly networking performance to pull and push endpoints depends on all networking in between.
+ - Gitaly Cluster (Praefect) node replication depends on all networking between nodes.
+ - Gitaly networking performance to pull and push endpoints depends on all networking in between.
 
 ### AWS Gitaly backup
 

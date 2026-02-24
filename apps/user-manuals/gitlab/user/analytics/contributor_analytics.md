@@ -16,8 +16,7 @@ Contributor analytics give you an overview of the commits made by projects membe
 
 ## View contributor analytics
 
-The contributor analytics page displays a line chart with the number of commits to the selected project branch over time,
-and line charts with the number of commits by each project member.
+The contributor analytics page displays a line chart with the number of commits to the selected project branch over time, and line charts with the number of commits by each project member.
 
 To view contributor analytics for a project:
 

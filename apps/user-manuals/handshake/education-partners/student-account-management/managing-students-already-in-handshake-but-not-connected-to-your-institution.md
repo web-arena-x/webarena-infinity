@@ -21,7 +21,7 @@ If a student creates an account and requests to connect, and they are declined, 
 There are two possible indications a student already has an account in Handshake: 
 
 - when you import the student's information through the importer and they appear on the failed rows download with the error **{"success":false,"errors":{"email\_address":["has already been taken"]}**
-  - for more information on this, refer to [Importer Error: Email Address Has Already Been Taken](https://support.joinhandshake.com/hc/en-us/articles/4421092998295).
+ - for more information on this, refer to [Importer Error: Email Address Has Already Been Taken](https://support.joinhandshake.com/hc/en-us/articles/4421092998295).
 - when you manually create a student account in Handshake and receive a message that the email address is already in use
 
 If the student is *not* already connected to another institution, there are two ways to resolve this and connect them:
@@ -44,11 +44,11 @@ If you need to connect several students to your institution, we recommend re-upl
 ## Student is connected to a different institution
 
 - If their email address is the **email domain for your institution**:
-  - Confirm that they want to switch to your institution and then contact Handshake Support with the email address, name, and institution this student wants to be switched to.
+ - Confirm that they want to switch to your institution and then contact Handshake Support with the email address, name, and institution this student wants to be switched to.
 
 - If their email address is the **email domain for a different institution**:
-  - You will need to create a new student account for them with their current email address for your institution. The student will then have two email addresses and logins into Handshake, one for each institution they are connected to. Follow the steps outlined in [Create a Student Account Associated with Your Career Services Account](https://support.joinhandshake.com/hc/en-us/articles/219132677), using the student's information.
+ - You will need to create a new student account for them with their current email address for your institution. The student will then have two email addresses and logins into Handshake, one for each institution they are connected to. Follow the steps outlined in [Create a Student Account Associated with Your Career Services Account](https://support.joinhandshake.com/hc/en-us/articles/219132677), using the student's information.
 
 - If their email address **is a generic (gmail, yahoo, etc.) address**:
-  - Confirm that they want to switch to your institution and then contact Handshake Support with the email address, name, and institution this student wants to be switched to.
-  - Once they are connected to your institution, if they would like to update their email address, you can update their email address to their .edu address for your school. For information on this, refer to [Career Services User Settings: Email Change Request Process](https://support.joinhandshake.com/hc/en-us/articles/235760768-Email-Change-Request-Process).
+ - Confirm that they want to switch to your institution and then contact Handshake Support with the email address, name, and institution this student wants to be switched to.
+ - Once they are connected to your institution, if they would like to update their email address, you can update their email address to their .edu address for your school. For information on this, refer to [Career Services User Settings: Email Change Request Process](https://support.joinhandshake.com/hc/en-us/articles/235760768-Email-Change-Request-Process).

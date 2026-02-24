@@ -8,8 +8,7 @@ title: Data Seeder
 
 The Data Seeder is a test data seeding harness, that can seed test data into a user or group namespace.
 
-The Data Seeder uses FactoryBot in the backend which makes maintenance straightforward and future-proof. When a Model changes,
-FactoryBot already reflects the change.
+The Data Seeder uses FactoryBot in the backend which makes maintenance straightforward and future-proof. When a Model changes, FactoryBot already reflects the change.
 
 ## Docker Setup
 
@@ -173,8 +172,7 @@ The Data Seeder uses FactoryBot definitions from `spec/factories` which ...
 > strategies (saved instances, unsaved instances, attribute hashes, and stubbed objects), and support for multiple factories for the same class, including factory
 > inheritance
 
-Factories reside in `spec/factories/*` and are fixtures for Rails models found in `app/models/*`. For example, For a model named `app/models/issue.rb`, the factory will
-be named `spec/factories/issues.rb`. For a model named `app/models/project.rb`, the factory will be named `app/models/projects.rb`.
+Factories reside in `spec/factories/*` and are fixtures for Rails models found in `app/models/*`. For example, For a model named `app/models/issue.rb`, the factory will be named `spec/factories/issues.rb`. For a model named `app/models/project.rb`, the factory will be named `app/models/projects.rb`.
 
 Three parsers currently exist that the GitLab Data Seeder supports. Ruby, YAML, and JSON.
 
@@ -194,12 +192,12 @@ The `DataSeeder` class contains the following instance variables defined upon se
 # frozen_string_literal: true
 
 class DataSeeder
-  def seed
+ def seed
     my_group = create(:group, name: 'My Group', path: 'my-group-path', parent: @group)
     @logger.info "Created #{my_group.name}" #=> Created My Group
 
     my_project = create(:project, :public, name: 'My Project', namespace: my_group, creator: @owner)
-  end
+ end
 end
 ```
 
@@ -210,12 +208,12 @@ The YAML Parser is a DSL that supports Factory definitions and allows you to see
 ```yaml
 name: My Seeder
 groups:
-  - _id: my_group
+ - _id: my_group
     name: My Group
     path: my-group-path
 
 projects:
-  - _id: my_project
+ - _id: my_project
     name: My Project
     namespace_id: <%= groups.my_group.id %>
     creator_id: <%= @owner.id %>
@@ -229,11 +227,11 @@ The JSON Parser allows you to house seed files in JSON format.
 
 ```json
 {
-  "name": "My Seeder",
-  "groups": [
+ "name": "My Seeder",
+ "groups": [
     { "_id": "my_group", "name": "My Group", "path": "my-group-path" }
-  ],
-  "projects": [
+ ],
+ "projects": [
     {
       "_id": "my_project",
       "name": "My Project",
@@ -241,7 +239,7 @@ The JSON Parser allows you to house seed files in JSON format.
       "creator_id": "<%= @owner.id %>",
       "traits": ["public"]
     }
-  ]
+ ]
 }
 ```
 
@@ -312,10 +310,10 @@ my_iteration = create(:iteration, :with_title, :current, title: 'My Iteration', 
 
 ```ruby
 create(:project, name: 'My project', namespace: @group, creator: @owner) do |project|
-  issue_1 = create(:issue, project:, title: 'Issue 1', description: 'This is issue 1')
-  issue_2 = create(:issue, project:, title: 'Issue 2', description: 'This is issue 2')
+ issue_1 = create(:issue, project:, title: 'Issue 1', description: 'This is issue 1')
+ issue_2 = create(:issue, project:, title: 'Issue 2', description: 'This is issue 2')
 
-  create(:issue_link, source: issue_1, target: issue_2)
+ create(:issue_link, source: issue_1, target: issue_2)
 end
 ```
 
@@ -328,8 +326,7 @@ If you see either of these errors:
 - `ActiveRecord::RecordInvalid: Validation failed: Email has already been taken`
 - `ActiveRecord::RecordInvalid: Validation failed: Username has already been taken`
 
-This is because, by default, our factories are written to backfill any data that is missing. For instance, when a project
-is created, the project must have somebody that created it. If the owner is not specified, the factory attempts to create it.
+This is because, by default, our factories are written to backfill any data that is missing. For instance, when a project is created, the project must have somebody that created it. If the owner is not specified, the factory attempts to create it.
 
 **How to fix**
 
@@ -373,8 +370,8 @@ See the issue for [allowing parsing of raw Ruby objects](https://gitlab.com/gitl
 
 ```yaml
 group_labels:
-  # Group Label with Name and a Color
-  - name: Group Label 1
+ # Group Label with Name and a Color
+ - name: Group Label 1
     group_id: <%= @group.id %>
     color: "#FF0000"
 ```
@@ -385,22 +382,22 @@ group_labels:
 
 ```yaml
 group_milestones:
-  # Past Milestone
-  - name: Past Milestone
+ # Past Milestone
+ - name: Past Milestone
     group_id: <%= @group.id %>
     group:
     start_date: <%= 1.month.ago %>
     due_date: <%= 1.day.ago %>
 
-  # Ongoing Milestone
-  - name: Ongoing Milestone
+ # Ongoing Milestone
+ - name: Ongoing Milestone
     group_id: <%= @group.id %>
     group:
     start_date: <%= 1.day.ago %>
     due_date: <%= 1.month.from_now %>
 
-  # Future Milestone
-  - name: Ongoing Milestone
+ # Future Milestone
+ - name: Ongoing Milestone
     group_id: <%= @group.id %>
     group:
     start_date: <%= 1.month.from_now %>
@@ -417,13 +414,13 @@ group_milestones:
 
 ```yaml
 epics:
-  # Simple Epic
-  - title: Simple Epic
+ # Simple Epic
+ - title: Simple Epic
     group_id: <%= @group.id %>
     author_id: <%= @owner.id %>
 
-  # Epic with detailed Markdown description
-  - title: Detailed Epic
+ # Epic with detailed Markdown description
+ - title: Detailed Epic
     group_id: <%= @group.id %>
     author_id: <%= @owner.id %>
     description: |
@@ -431,8 +428,8 @@ epics:
 
       **Description**
 
-  # Epic with dates
-  - title: Epic with dates
+ # Epic with dates
+ - title: Epic with dates
     group_id: <%= @group.id %>
     author_id: <%= @owner.id %>
     start_date: <%= 1.day.ago %>
@@ -454,10 +451,10 @@ Variables are under the factory definitions that they reside in.
 ```yaml
 ---
 group_labels:
-  - _id: my_label #=> group_labels.my_label
+ - _id: my_label #=> group_labels.my_label
 
 projects:
-  - _id: my_project #=> projects.my_project
+ - _id: my_project #=> projects.my_project
 ```
 
 Variables:
@@ -475,16 +472,15 @@ Given a YAML seed file:
 ```yaml
 ---
 group_labels:
-  - _id: my_group_label #=> group_labels.my_group_label
+ - _id: my_group_label #=> group_labels.my_group_label
     name: My Group Label
     color: "#FF0000"
-  - _id: my_other_group_label #=> group_labels.my_other_group_label
+ - _id: my_other_group_label #=> group_labels.my_other_group_label
     color: <%= group_labels.my_group_label.color %>
 
 projects:
-  - _id: my_project #=> projects.my_project
+ - _id: my_project #=> projects.my_project
     name: My Project
 ```
 
-When referring to a variable, the variable refers to the _already seeded_ models. In other words, the model's `id` attribute will
-be populated.
+When referring to a variable, the variable refers to the _already seeded_ models. In other words, the model's `id` attribute will be populated.

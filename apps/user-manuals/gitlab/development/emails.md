@@ -8,18 +8,14 @@ title: Working with email in development
 ## Ensuring compatibility with mailer Sidekiq jobs
 
 A Sidekiq job is enqueued whenever `deliver_later` is called on an `ActionMailer`.
-If a mailer argument needs to be added or removed, it is important to ensure
-both backward and forward compatibility. Adhere to the Sidekiq steps for
-[changing the arguments for a worker](sidekiq/compatibility_across_updates.md#changing-the-arguments-for-a-worker).
+If a mailer argument needs to be added or removed, it is important to ensure both backward and forward compatibility. Adhere to the Sidekiq steps for [changing the arguments for a worker](sidekiq/compatibility_across_updates.md#changing-the-arguments-for-a-worker).
 
-The same applies to a new mailer method, or a new mailer. If you introduce either,
-follow the steps for [adding new workers](sidekiq/compatibility_across_updates.md#adding-new-workers).
+The same applies to a new mailer method, or a new mailer. If you introduce either, follow the steps for [adding new workers](sidekiq/compatibility_across_updates.md#adding-new-workers).
 This includes wrapping the new method with a [feature flag](feature_flags/_index.md)
 so the new mailer can be disabled if a problem arises after deployment.
 
 In the following example from [`NotificationService`](https://gitlab.com/gitlab-org/gitlab/-/blob/33ccb22e4fc271dbaac94b003a7a1a2915a13441/app/services/notification_service.rb#L74)
-adding or removing an argument in this mailer's definition may cause problems
-during deployment before all Rails and Sidekiq nodes have the updated code.
+adding or removing an argument in this mailer's definition may cause problems during deployment before all Rails and Sidekiq nodes have the updated code.
 
 ```ruby
 mailer.unknown_sign_in_email(user, ip, time).deliver_later
@@ -27,20 +23,15 @@ mailer.unknown_sign_in_email(user, ip, time).deliver_later
 
 ## Sent emails
 
-To view rendered emails "sent" in your development instance, visit
-[`/rails/letter_opener`](http://localhost:3000/rails/letter_opener).
+To view rendered emails "sent" in your development instance, visit [`/rails/letter_opener`](http://localhost:3000/rails/letter_opener).
 
-[S/MIME signed](../administration/smime_signing_email.md) emails
-[cannot be currently previewed](https://github.com/fgrehm/letter_opener_web/issues/96) with
-`letter_opener`.
+[S/MIME signed](../administration/smime_signing_email.md) emails [cannot be currently previewed](https://github.com/fgrehm/letter_opener_web/issues/96) with `letter_opener`.
 
 ## Mailer previews
 
-Rails provides a way to preview our mailer templates in HTML and plaintext using
-sample data.
+Rails provides a way to preview our mailer templates in HTML and plaintext using sample data.
 
-The previews live in [`app/mailers/previews`](https://gitlab.com/gitlab-org/gitlab-foss/tree/master/app/mailers/previews) and can be viewed at
-[`/rails/mailers`](http://localhost:3000/rails/mailers).
+The previews live in [`app/mailers/previews`](https://gitlab.com/gitlab-org/gitlab-foss/tree/master/app/mailers/previews) and can be viewed at [`/rails/mailers`](http://localhost:3000/rails/mailers).
 
 See the [Rails guides](https://guides.rubyonrails.org/action_mailer_basics.html#previewing-emails) for more information.
 
@@ -48,9 +39,7 @@ See the [Rails guides](https://guides.rubyonrails.org/action_mailer_basics.html#
 
 1. Go to the GitLab installation directory.
 
-1. Find the `incoming_email` section in `config/gitlab.yml`, enable the
-   feature and fill in the details for your specific IMAP server and email
-   account:
+1. Find the `incoming_email` section in `config/gitlab.yml`, enable the feature and fill in the details for your specific IMAP server and email account:
 
    Configuration for Gmail / Google Apps, assumes mailbox `gitlab-incoming@gmail.com`:
 
@@ -111,17 +100,13 @@ See the [Rails guides](https://guides.rubyonrails.org/action_mailer_basics.html#
 
 ## Email namespace
 
-GitLab supports the new format for email handler addresses. This was done to
-support catch-all mailboxes.
+GitLab supports the new format for email handler addresses. This was done to support catch-all mailboxes.
 
-If you need to implement a feature which requires a new email handler, follow these rules
-for the format of the email key:
+If you need to implement a feature which requires a new email handler, follow these rules for the format of the email key:
 
 - Actions are always at the end, separated by `-`. For example `-issue` or `-merge-request`
-- If your feature is related to a project, the key begins with the project identifiers (project path slug
-  and project ID), separated by `-`. For example, `gitlab-org-gitlab-foss-20`
-- Additional information, such as an author's token, can be added between the project identifiers and
-  the action, separated by `-`. For example, `gitlab-org-gitlab-foss-20-Author_Token12345678-issue`
+- If your feature is related to a project, the key begins with the project identifiers (project path slug and project ID), separated by `-`. For example, `gitlab-org-gitlab-foss-20`
+- Additional information, such as an author's token, can be added between the project identifiers and the action, separated by `-`. For example, `gitlab-org-gitlab-foss-20-Author_Token12345678-issue`
 - You register your handlers in `lib/gitlab/email/handler.rb`
 
 Examples of valid email keys:
@@ -147,10 +132,7 @@ In GitLab, the handler for the Service Desk feature is `path/to/project`.
 
 ### MailRoom Gem updates
 
-We use [`gitlab-mail_room`](https://gitlab.com/gitlab-org/ruby/gems/gitlab-mail_room), a
-fork of [`MailRoom`](https://github.com/tpitale/mail_room/), to ensure
-that we can make updates quickly to the gem if necessary. We try to upstream
-changes as soon as possible and keep the two projects in sync.
+We use [`gitlab-mail_room`](https://gitlab.com/gitlab-org/ruby/gems/gitlab-mail_room), a fork of [`MailRoom`](https://github.com/tpitale/mail_room/), to ensure that we can make updates quickly to the gem if necessary. We try to upstream changes as soon as possible and keep the two projects in sync.
 
 To update MailRoom:
 

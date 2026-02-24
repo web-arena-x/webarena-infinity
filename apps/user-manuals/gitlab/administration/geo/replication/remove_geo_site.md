@@ -19,8 +19,7 @@ title: Removing secondary Geo sites
 1. For the **secondary** site you want to remove, select **Remove**.
 1. Confirm by selecting **Remove** when the prompt appears.
 
-After the **secondary** site is removed from the Geo administration page, you must
-stop and uninstall this site. For each node on your secondary Geo site:
+After the **secondary** site is removed from the Geo administration page, you must stop and uninstall this site. For each node on your secondary Geo site:
 
 1. Stop GitLab:
 

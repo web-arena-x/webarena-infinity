@@ -15,13 +15,13 @@ When you delete an RFI, the system moves it to the Recycle Bin tab. By design, 
 ## Things to Consider
 
 - **Required User Permissions**:
-  - 'Admin' level permissions on the Project level RFIs tool.
+ - 'Admin' level permissions on the Project level RFIs tool.
 - **Prerequisite**:
-  - [Create an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/create-an-rfi "Create an RFI")
+ - [Create an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/create-an-rfi "Create an RFI")
 - **Additional Information**:
-  - You can delete RFIs in the 'Draft', 'Open', or 'Closed' status, whether or not anyone has replied to the RFI or marked a reply as the official response.
-  - When you delete an RFI, it is moved to the Recycle Bin in the RFIs tool.
-  - To give project teams the ability to restore any deleted item, the Recycle Bin **cannot** be emptied. See [Retrieve an RFI from the Recycle Bin](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/retrieve-an-rfi-from-the-recycle-bin "Retrieve an RFI from the Recycle Bin").
+ - You can delete RFIs in the 'Draft', 'Open', or 'Closed' status, whether or not anyone has replied to the RFI or marked a reply as the official response.
+ - When you delete an RFI, it is moved to the Recycle Bin in the RFIs tool.
+ - To give project teams the ability to restore any deleted item, the Recycle Bin **cannot** be emptied. See [Retrieve an RFI from the Recycle Bin](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/retrieve-an-rfi-from-the-recycle-bin "Retrieve an RFI from the Recycle Bin").
 
 ## Steps
 

@@ -39,9 +39,7 @@ The following sections describe the available fields for each component.
 
 ## Fields inside query
 
-In an embedded view, the `query` parameter can be used to include one or more expressions of the
-format `<field> <operator> <value>`. Multiple expressions are joined with `and`,
-for example, `group = "gitlab-org" and author = currentUser()`.
+In an embedded view, the `query` parameter can be used to include one or more expressions of the format `<field> <operator> <value>`. Multiple expressions are joined with `and`, for example, `group = "gitlab-org" and author = currentUser()`.
 
 Prerequisites:
 
@@ -107,15 +105,15 @@ The table below provides an overview of all available query fields and their spe
 
 - List all merge requests approved by current user and `@johndoe`
 
-  ```plaintext
-  type = MergeRequest and approver = (currentUser(), @johndoe)
-  ```
+ ```plaintext
+ type = MergeRequest and approver = (currentUser(), @johndoe)
+ ```
 
 - List all merge requests that are not yet approved
 
-  ```plaintext
-  type = MergeRequest and approver = none
-  ```
+ ```plaintext
+ type = MergeRequest and approver = none
+ ```
 
 ### Assignees
 
@@ -143,33 +141,33 @@ The table below provides an overview of all available query fields and their spe
 
 - List all issues where assignee is `@johndoe`:
 
-  ```plaintext
-  assignee = @johndoe
-  ```
+ ```plaintext
+ assignee = @johndoe
+ ```
 
 - List all issues where assignees are both `@johndoe` and `@janedoe`:
 
-  ```plaintext
-  assignee = (@johndoe, @janedoe)
-  ```
+ ```plaintext
+ assignee = (@johndoe, @janedoe)
+ ```
 
 - List all issues where assignees are either of `@johndoe` or `@janedoe`:
 
-  ```plaintext
-  assignee in (@johndoe, @janedoe)
-  ```
+ ```plaintext
+ assignee in (@johndoe, @janedoe)
+ ```
 
 - List all issues where assignee is neither of `@johndoe` or `@janedoe`:
 
-  ```plaintext
-  assignee != (@johndoe, @janedoe)
-  ```
+ ```plaintext
+ assignee != (@johndoe, @janedoe)
+ ```
 
 - List all merge requests where assignee is `@johndoe`:
 
-  ```plaintext
-  type = MergeRequest and assignee = @johndoe
-  ```
+ ```plaintext
+ type = MergeRequest and assignee = @johndoe
+ ```
 
 ### Author
 
@@ -196,21 +194,21 @@ The table below provides an overview of all available query fields and their spe
 
 - List all issues where author is `@johndoe`:
 
-  ```plaintext
-  author = @johndoe
-  ```
+ ```plaintext
+ author = @johndoe
+ ```
 
 - List all epics where author is either `@johndoe` or `@janedoe`:
 
-  ```plaintext
-  type = Epic and author in (@johndoe, @janedoe)
-  ```
+ ```plaintext
+ type = Epic and author in (@johndoe, @janedoe)
+ ```
 
 - List all merge requests where author is `@johndoe`:
 
-  ```plaintext
-  type = MergeRequest and author = @johndoe
-  ```
+ ```plaintext
+ type = MergeRequest and author = @johndoe
+ ```
 
 ### Cadence
 
@@ -236,15 +234,15 @@ The table below provides an overview of all available query fields and their spe
 
 - List all issues with iteration that are a part of cadence ID `123456`:
 
-  ```plaintext
-  cadence = 123456
-  ```
+ ```plaintext
+ cadence = 123456
+ ```
 
 - List all issues with iterations that are a part of any cadences `123` or `456`:
 
-  ```plaintext
-  cadence in (123, 456)
-  ```
+ ```plaintext
+ cadence in (123, 456)
+ ```
 
 ### Closed at
 
@@ -261,8 +259,7 @@ The table below provides an overview of all available query fields and their spe
 **Allowed value types**:
 
 - `AbsoluteDate` (in the format `YYYY-MM-DD`)
-- `RelativeDate` (in the format `<sign><digit><unit>`, where sign is `+`, `-`, or omitted,
-  digit is an integer, and `unit` is one of `d` (days), `w` (weeks), `m` (months) or `y` (years))
+- `RelativeDate` (in the format `<sign><digit><unit>`, where sign is `+`, `-`, or omitted, digit is an integer, and `unit` is one of `d` (days), `w` (weeks), `m` (months) or `y` (years))
 
 **Additional details**:
 
@@ -273,21 +270,21 @@ The table below provides an overview of all available query fields and their spe
 
 - List all issues closed since yesterday:
 
-  ```plaintext
-  closed > -1d
-  ```
+ ```plaintext
+ closed > -1d
+ ```
 
 - List all issues closed today:
 
-  ```plaintext
-  closed = today()
-  ```
+ ```plaintext
+ closed = today()
+ ```
 
 - List all issues closed in the month of February 2023:
 
-  ```plaintext
-  closed > 2023-02-01 and closed < 2023-02-28
-  ```
+ ```plaintext
+ closed > 2023-02-01 and closed < 2023-02-28
+ ```
 
 ### Confidential
 
@@ -311,15 +308,15 @@ The table below provides an overview of all available query fields and their spe
 
 - List all confidential issues:
 
-  ```plaintext
-  confidential = true
-  ```
+ ```plaintext
+ confidential = true
+ ```
 
 - List all issues that are not confidential:
 
-  ```plaintext
-  confidential = false
-  ```
+ ```plaintext
+ confidential = false
+ ```
 
 ### Created at
 
@@ -336,8 +333,7 @@ The table below provides an overview of all available query fields and their spe
 **Allowed value types**:
 
 - `AbsoluteDate` (in the format `YYYY-MM-DD`)
-- `RelativeDate` (in the format `<sign><digit><unit>`, where sign is `+`, `-`, or omitted,
-  digit is an integer, and `unit` is one of `d` (days), `w` (weeks), `m` (months) or `y` (years))
+- `RelativeDate` (in the format `<sign><digit><unit>`, where sign is `+`, `-`, or omitted, digit is an integer, and `unit` is one of `d` (days), `w` (weeks), `m` (months) or `y` (years))
 
 **Additional details**:
 
@@ -348,21 +344,21 @@ The table below provides an overview of all available query fields and their spe
 
 - List all issues that were created in the last week:
 
-  ```plaintext
-  created > -1w
-  ```
+ ```plaintext
+ created > -1w
+ ```
 
 - List all issues created today:
 
-  ```plaintext
-  created = today()
-  ```
+ ```plaintext
+ created = today()
+ ```
 
 - List all issues created in the month of January 2025 that are still open:
 
-  ```plaintext
-  created > 2025-01-01 and created < 2025-01-31 and state = opened
-  ```
+ ```plaintext
+ created > 2025-01-01 and created < 2025-01-31 and state = opened
+ ```
 
 ### Custom field
 
@@ -393,28 +389,27 @@ The table below provides an overview of all available query fields and their spe
 
 - List all issues where the single-select "Subscription" custom field is set to "Free":
 
-  ```plaintext
-  customField("Subscription") = "Free"
-  ```
+ ```plaintext
+ customField("Subscription") = "Free"
+ ```
 
-- List all issues where the single-select "Subscription" and "Team" custom fields are set to
-  "Free" and "Engineering":
+- List all issues where the single-select "Subscription" and "Team" custom fields are set to "Free" and "Engineering":
 
-  ```plaintext
-  customField("Subscription") = "Free" and customField("Team") = "Engineering"
-  ```
+ ```plaintext
+ customField("Subscription") = "Free" and customField("Team") = "Engineering"
+ ```
 
 - List all issues where the multi-select "Category" custom field is set to "Markdown" and "Text Editors":
 
-  ```plaintext
-  customField("Category") = ("Markdown", "Text Editors")
-  ```
+ ```plaintext
+ customField("Category") = ("Markdown", "Text Editors")
+ ```
 
-  Alternatively:
+ Alternatively:
 
-  ```plaintext
-  customField("Category") = "Markdown" and customField("Category") = "Text Editors"
-  ```
+ ```plaintext
+ customField("Category") = "Markdown" and customField("Category") = "Text Editors"
+ ```
 
 ### Draft
 
@@ -434,15 +429,15 @@ The table below provides an overview of all available query fields and their spe
 
 - List all draft merge requests:
 
-  ```plaintext
-  type = MergeRequest and draft = true
-  ```
+ ```plaintext
+ type = MergeRequest and draft = true
+ ```
 
 - List all merge requests that are not in draft state:
 
-  ```plaintext
-  type = MergeRequest and draft = false
-  ```
+ ```plaintext
+ type = MergeRequest and draft = false
+ ```
 
 ### Due date
 
@@ -459,8 +454,7 @@ The table below provides an overview of all available query fields and their spe
 **Allowed value types**:
 
 - `AbsoluteDate` (in the format `YYYY-MM-DD`)
-- `RelativeDate` (in the format `<sign><digit><unit>`, where sign is `+`, `-`, or omitted,
-  digit is an integer, and `unit` is one of `d` (days), `w` (weeks), `m` (months) or `y` (years))
+- `RelativeDate` (in the format `<sign><digit><unit>`, where sign is `+`, `-`, or omitted, digit is an integer, and `unit` is one of `d` (days), `w` (weeks), `m` (months) or `y` (years))
 
 **Additional details**:
 
@@ -471,27 +465,27 @@ The table below provides an overview of all available query fields and their spe
 
 - List all issues due in a week:
 
-  ```plaintext
-  due < 1w
-  ```
+ ```plaintext
+ due < 1w
+ ```
 
 - List all issues that were overdue as of January 1, 2025:
 
-  ```plaintext
-  due < 2025-01-01
-  ```
+ ```plaintext
+ due < 2025-01-01
+ ```
 
 - List all issues that are due today (but not due yesterday or tomorrow):
 
-  ```plaintext
-  due = today()
-  ```
+ ```plaintext
+ due = today()
+ ```
 
 - List all issues that have been overdue in the last 1 month:
 
-  ```plaintext
-  due > -1m and due < today()
-  ```
+ ```plaintext
+ due > -1m and due < today()
+ ```
 
 ### Environment
 
@@ -509,9 +503,9 @@ The table below provides an overview of all available query fields and their spe
 
 - List all merge requests that have been deployed to environment `production`:
 
-  ```plaintext
-  environment = "production"
-  ```
+ ```plaintext
+ environment = "production"
+ ```
 
 ### Epic
 
@@ -539,15 +533,15 @@ The table below provides an overview of all available query fields and their spe
 
 - List all issues that have epic `&123` as their parent in project `gitlab-org/gitlab`:
 
-  ```plaintext
-  project = "gitlab-org/gitlab" and epic = &123
-  ```
+ ```plaintext
+ project = "gitlab-org/gitlab" and epic = &123
+ ```
 
 - List all issues that have epic `gitlab-com&123` as their parent in project `gitlab-org/gitlab`:
 
-  ```plaintext
-  project = "gitlab-org/gitlab" and epic = gitlab-com&123
-  ```
+ ```plaintext
+ project = "gitlab-org/gitlab" and epic = gitlab-com&123
+ ```
 
 ### Group
 
@@ -559,25 +553,24 @@ The table below provides an overview of all available query fields and their spe
 
 - Only one group can be queried at a time.
 - The `group` cannot be used together with the `project` field.
-- If omitted when using inside an embedded view in a group object (like an epic), `group` is assumed to
-  be the current group.
+- If omitted when using inside an embedded view in a group object (like an epic), `group` is assumed to be the current group.
 - Using the `group` field queries all objects in that group, all its subgroups, and child projects.
 - By default, issues or merge requests are searched in all descendant projects across all subgroups.
-  To query only the direct child projects of the group, set the [`includeSubgroups` field](#include-subgroups) to `false`.
+ To query only the direct child projects of the group, set the [`includeSubgroups` field](#include-subgroups) to `false`.
 
 **Examples**:
 
 - List all issues in the `gitlab-org` group and any of its subgroups:
 
-  ```plaintext
-  group = "gitlab-org"
-  ```
+ ```plaintext
+ group = "gitlab-org"
+ ```
 
 - List all Tasks in the `gitlab-org` group and any of its subgroups:
 
-  ```plaintext
-  group = "gitlab-org" and type = Task
-  ```
+ ```plaintext
+ group = "gitlab-org" and type = Task
+ ```
 
 ### Health status
 
@@ -605,15 +598,15 @@ The table below provides an overview of all available query fields and their spe
 
 - List all issues that don't have a health status set:
 
-  ```plaintext
-  health = any
-  ```
+ ```plaintext
+ health = any
+ ```
 
 - List all issues where the health status is "needs attention":
 
-  ```plaintext
-  health = "needs attention"
-  ```
+ ```plaintext
+ health = "needs attention"
+ ```
 
 ### ID
 
@@ -635,21 +628,21 @@ The table below provides an overview of all available query fields and their spe
 
 - List issue with ID `123`:
 
-  ```plaintext
-  id = 123
-  ```
+ ```plaintext
+ id = 123
+ ```
 
 - List issues with IDs `1`, `2`, or `3`:
 
-  ```plaintext
-  id in (1, 2, 3)
-  ```
+ ```plaintext
+ id in (1, 2, 3)
+ ```
 
 - List all merge requests with IDs `1`, `2`, or `3`:
 
-  ```plaintext
-  type = MergeRequest and id in (1, 2, 3)
-  ```
+ ```plaintext
+ type = MergeRequest and id in (1, 2, 3)
+ ```
 
 ### Include subgroups
 
@@ -675,15 +668,15 @@ The table below provides an overview of all available query fields and their spe
 
 - List issues in any project that is a direct child of the `gitlab-org` group:
 
-  ```plaintext
-  group = "gitlab-org" and includeSubgroups = false
-  ```
+ ```plaintext
+ group = "gitlab-org" and includeSubgroups = false
+ ```
 
 - List issues in any project in the entire hierarchy of the `gitlab-org` group:
 
-  ```plaintext
-  group = "gitlab-org" and includeSubgroups = true
-  ```
+ ```plaintext
+ group = "gitlab-org" and includeSubgroups = true
+ ```
 
 ### Iteration
 
@@ -719,33 +712,33 @@ The table below provides an overview of all available query fields and their spe
 
 - List all issues with iteration ID `123456` (using a number in the query):
 
-  ```plaintext
-  iteration = 123456
-  ```
+ ```plaintext
+ iteration = 123456
+ ```
 
 - List all issues that are a part of iterations `123` or `456` (using numbers):
 
-  ```plaintext
-  iteration in (123, 456)
-  ```
+ ```plaintext
+ iteration in (123, 456)
+ ```
 
 - List all issues with iteration ID `123456` (using iteration syntax):
 
-  ```plaintext
-  iteration = *iteration:123456
-  ```
+ ```plaintext
+ iteration = *iteration:123456
+ ```
 
 - List all issues that are a part of iterations `123` or `456` (using iteration syntax):
 
-  ```plaintext
-  iteration in (*iteration:123, *iteration:456)
-  ```
+ ```plaintext
+ iteration in (*iteration:123, *iteration:456)
+ ```
 
 - List all issues in the current iteration
 
-  ```plaintext
-  iteration = current
-  ```
+ ```plaintext
+ iteration = current
+ ```
 
 ### Labels
 
@@ -775,45 +768,45 @@ The table below provides an overview of all available query fields and their spe
 
 - List all issues with label `~bug`:
 
-  ```plaintext
-  label = ~bug
-  ```
+ ```plaintext
+ label = ~bug
+ ```
 
 - List all issues not having label `~"workflow::in progress"`:
 
-  ```plaintext
-  label != ~"workflow::in progress"
-  ```
+ ```plaintext
+ label != ~"workflow::in progress"
+ ```
 
 - List all issues with labels `~bug` and `~"team::planning"`:
 
-  ```plaintext
-  label = (~bug, ~"team::planning")
-  ```
+ ```plaintext
+ label = (~bug, ~"team::planning")
+ ```
 
 - List all issues with labels `~bug` or `~feature`:
 
-  ```plaintext
-  label in (~bug, ~feature)
-  ```
+ ```plaintext
+ label in (~bug, ~feature)
+ ```
 
 - List all issues where the labels include neither of `~bug` or `~feature`:
 
-  ```plaintext
-  label != (~bug, ~feature)
-  ```
+ ```plaintext
+ label != (~bug, ~feature)
+ ```
 
 - List all issues where none of the scoped labels apply, with scope `workflow::`:
 
-  ```plaintext
-  label != ~"workflow::*"
-  ```
+ ```plaintext
+ label != ~"workflow::*"
+ ```
 
 - List all merge requests with labels `~bug` and `~"team::planning"`
 
-  ```plaintext
-  type = MergeRequest and label = (~bug, ~"team::planning")
-  ```
+ ```plaintext
+ type = MergeRequest and label = (~bug, ~"team::planning")
+ ```
 
 ### Merged at
 
@@ -830,8 +823,7 @@ The table below provides an overview of all available query fields and their spe
 **Allowed value types**:
 
 - `AbsoluteDate` (in the format `YYYY-MM-DD`)
-- `RelativeDate` (in the format `<sign><digit><unit>`, where sign is `+`, `-`, or omitted,
-  digit is an integer, and `unit` is one of `d` (days), `w` (weeks), `m` (months) or `y` (years))
+- `RelativeDate` (in the format `<sign><digit><unit>`, where sign is `+`, `-`, or omitted, digit is an integer, and `unit` is one of `d` (days), `w` (weeks), `m` (months) or `y` (years))
 
 **Additional details**:
 
@@ -842,15 +834,15 @@ The table below provides an overview of all available query fields and their spe
 
 - List all merge requests that have been merged in the last 6 months:
 
-  ```plaintext
-  type = MergeRequest and merged > -6m
-  ```
+ ```plaintext
+ type = MergeRequest and merged > -6m
+ ```
 
 - List all merge requests that have been merged in the month of January 2025:
 
-  ```plaintext
-  type = MergeRequest and merged > 2025-01-01 and merged < 2025-01-31
-  ```
+ ```plaintext
+ type = MergeRequest and merged > 2025-01-01 and merged < 2025-01-31
+ ```
 
 ### Merged by user
 
@@ -872,9 +864,9 @@ The table below provides an overview of all available query fields and their spe
 
 - List all merge requests merged by the current user:
 
-  ```plaintext
-  type = MergeRequest and merger = currentUser()
-  ```
+ ```plaintext
+ type = MergeRequest and merger = currentUser()
+ ```
 
 ### Milestone
 
@@ -905,33 +897,33 @@ The table below provides an overview of all available query fields and their spe
 
 - List all issues with milestone `%Backlog`:
 
-  ```plaintext
-  milestone = %Backlog
-  ```
+ ```plaintext
+ milestone = %Backlog
+ ```
 
 - List all issues with milestones `%17.7` or `%17.8`:
 
-  ```plaintext
-  milestone in (%17.7, %17.8)
-  ```
+ ```plaintext
+ milestone in (%17.7, %17.8)
+ ```
 
 - List all issues in an upcoming milestone:
 
-  ```plaintext
-  milestone = upcoming
-  ```
+ ```plaintext
+ milestone = upcoming
+ ```
 
 - List all issues in a current milestone:
 
-  ```plaintext
-  milestone = started
-  ```
+ ```plaintext
+ milestone = started
+ ```
 
 - List all issues where the milestone is neither of `%17.7` or `%17.8`:
 
-  ```plaintext
-  milestone != (%17.7, %17.8)
-  ```
+ ```plaintext
+ milestone != (%17.7, %17.8)
+ ```
 
 ### My reaction emoji
 
@@ -949,15 +941,15 @@ The table below provides an overview of all available query fields and their spe
 
 - List all issues where the current user reacted with the thumbs-up emoji:
 
-  ```plaintext
-  myReaction = "thumbsup"
-  ```
+ ```plaintext
+ myReaction = "thumbsup"
+ ```
 
 - List all merge requests where the current user did not react with the thumbs-down emoji:
 
-  ```plaintext
-  type = MergeRequest and myReaction != "thumbsdown"
-  ```
+ ```plaintext
+ type = MergeRequest and myReaction != "thumbsdown"
+ ```
 
 ### Project
 
@@ -975,9 +967,9 @@ The table below provides an overview of all available query fields and their spe
 
 - List all issues and work items in the `gitlab-org/gitlab` project:
 
-  ```plaintext
-  project = "gitlab-org/gitlab"
-  ```
+ ```plaintext
+ project = "gitlab-org/gitlab"
+ ```
 
 ### Reviewers
 
@@ -999,9 +991,9 @@ The table below provides an overview of all available query fields and their spe
 
 - List all merge requests reviewed by current user:
 
-  ```plaintext
-  type = MergeRequest and reviewer = currentUser()
-  ```
+ ```plaintext
+ type = MergeRequest and reviewer = currentUser()
+ ```
 
 ### Source branch
 
@@ -1023,21 +1015,21 @@ The table below provides an overview of all available query fields and their spe
 
 - List all merge requests from a specific branch:
 
-  ```plaintext
-  type = MergeRequest and sourceBranch = "feature/new-feature"
-  ```
+ ```plaintext
+ type = MergeRequest and sourceBranch = "feature/new-feature"
+ ```
 
 - List all merge requests from multiple branches:
 
-  ```plaintext
-  type = MergeRequest and sourceBranch in ("main", "develop")
-  ```
+ ```plaintext
+ type = MergeRequest and sourceBranch in ("main", "develop")
+ ```
 
 - List all merge requests that are not from a specific branch:
 
-  ```plaintext
-  type = MergeRequest and sourceBranch != "main"
-  ```
+ ```plaintext
+ type = MergeRequest and sourceBranch != "main"
+ ```
 
 ### State
 
@@ -1053,8 +1045,8 @@ The table below provides an overview of all available query fields and their spe
 **Allowed value types**:
 
 - `Enum`
-  - For issue and work item types, one of `opened`, `closed`, or `all`
-  - For `MergeRequest` types, one of `opened`, `closed`, `merged`, or `all`
+ - For issue and work item types, one of `opened`, `closed`, or `all`
+ - For `MergeRequest` types, one of `opened`, `closed`, `merged`, or `all`
 
 **Additional details**:
 
@@ -1064,27 +1056,27 @@ The table below provides an overview of all available query fields and their spe
 
 - List all closed issues:
 
-  ```plaintext
-  state = closed
-  ```
+ ```plaintext
+ state = closed
+ ```
 
 - List all open issues:
 
-  ```plaintext
-  state = opened
-  ```
+ ```plaintext
+ state = opened
+ ```
 
 - List all issues regardless of their state (also the default):
 
-  ```plaintext
-  state = all
-  ```
+ ```plaintext
+ state = all
+ ```
 
 - List all merged merge requests:
 
-  ```plaintext
-  type = MergeRequest and state = merged
-  ```
+ ```plaintext
+ type = MergeRequest and state = merged
+ ```
 
 ### Status
 
@@ -1108,9 +1100,9 @@ The table below provides an overview of all available query fields and their spe
 
 - List all issues with status "To do":
 
-  ```plaintext
-  status = "To do"
-  ```
+ ```plaintext
+ status = "To do"
+ ```
 
 ### Subscribed
 
@@ -1120,8 +1112,7 @@ The table below provides an overview of all available query fields and their spe
 
 {{< /history >}}
 
-**Description**: Query issues, epics, or merge requests by whether the current user has
-[set notifications](../profile/notifications.md)
+**Description**: Query issues, epics, or merge requests by whether the current user has [set notifications](../profile/notifications.md)
 on or off.
 
 **Allowed value types**: `Boolean`
@@ -1130,15 +1121,15 @@ on or off.
 
 - List all open issues where the current user has set notifications on:
 
-  ```plaintext
-  state = opened and subscribed = true
-  ```
+ ```plaintext
+ state = opened and subscribed = true
+ ```
 
 - List all merge requests where the current user has set notifications off:
 
-  ```plaintext
-  type = MergeRequest and subscribed = false
-  ```
+ ```plaintext
+ type = MergeRequest and subscribed = false
+ ```
 
 ### Target branch
 
@@ -1160,21 +1151,21 @@ on or off.
 
 - List all merge requests targeting a specific branch:
 
-  ```plaintext
-  type = MergeRequest and targetBranch = "feature/new-feature"
-  ```
+ ```plaintext
+ type = MergeRequest and targetBranch = "feature/new-feature"
+ ```
 
 - List all merge requests targeting multiple branches:
 
-  ```plaintext
-  type = MergeRequest and targetBranch in ("main", "develop")
-  ```
+ ```plaintext
+ type = MergeRequest and targetBranch in ("main", "develop")
+ ```
 
 - List all merge requests that are not targeting a specific branch:
 
-  ```plaintext
-  type = MergeRequest and targetBranch != "main"
-  ```
+ ```plaintext
+ type = MergeRequest and targetBranch != "main"
+ ```
 
 ### Type
 
@@ -1190,50 +1181,49 @@ on or off.
 **Allowed value types**:
 
 - `Enum`, one of:
-  - `Issue`
-  - `Incident`
-  - `Epic`
-  - `TestCase`
-  - `Requirement`
-  - `Task`
-  - `Ticket`
-  - `Objective`
-  - `KeyResult`
-  - `MergeRequest`
+ - `Issue`
+ - `Incident`
+ - `Epic`
+ - `TestCase`
+ - `Requirement`
+ - `Task`
+ - `Ticket`
+ - `Objective`
+ - `KeyResult`
+ - `MergeRequest`
 - `List` (containing one or more `enum` values)
 
 **Additional details**:
 
 - If omitted when used inside an embedded view, the default `type` is `Issue`.
 - `type = Epic` queries can only be used together with the [group](#group) field.
-- The `in` operator cannot be used to combine `Epic` and `MergeRequest` types with other types
-  in the same query.
+- The `in` operator cannot be used to combine `Epic` and `MergeRequest` types with other types in the same query.
 
 **Examples**:
 
 - List incidents:
 
-  ```plaintext
-  type = incident
-  ```
+ ```plaintext
+ type = incident
+ ```
 
 - List issues and tasks:
 
-  ```plaintext
-  type in (Issue, Task)
-  ```
+ ```plaintext
+ type in (Issue, Task)
+ ```
 
 - List all merge requests assigned to the current user:
 
-  ```plaintext
-  type = MergeRequest and assignee = currentUser()
-  ```
+ ```plaintext
+ type = MergeRequest and assignee = currentUser()
+ ```
 
 - List all epics authored by the current user in the group `gitlab-org`
 
-  ```plaintext
-  group = "gitlab-org" and type = Epic and author = currentUser()
-  ```
+ ```plaintext
+ group = "gitlab-org" and type = Epic and author = currentUser()
+ ```
 
 ### Updated at
 
@@ -1250,8 +1240,7 @@ on or off.
 **Allowed value types**:
 
 - `AbsoluteDate` (in the format `YYYY-MM-DD`)
-- `RelativeDate` (in the format `<sign><digit><unit>`, where sign is `+`, `-`, or omitted,
-  digit is an integer, and `unit` is one of `d` (days), `w` (weeks), `m` (months) or `y` (years))
+- `RelativeDate` (in the format `<sign><digit><unit>`, where sign is `+`, `-`, or omitted, digit is an integer, and `unit` is one of `d` (days), `w` (weeks), `m` (months) or `y` (years))
 
 **Additional details**:
 
@@ -1262,21 +1251,21 @@ on or off.
 
 - List all issues that haven't been edited in the last 1 month:
 
-  ```plaintext
-  updated < -1m
-  ```
+ ```plaintext
+ updated < -1m
+ ```
 
 - List all issues that were edited today:
 
-  ```plaintext
-  updated = today()
-  ```
+ ```plaintext
+ updated = today()
+ ```
 
 - List all open MRs that haven't been edited in the last 1 week:
 
-  ```plaintext
-  type = MergeRequest and state = opened and updated < -1w
-  ```
+ ```plaintext
+ type = MergeRequest and state = opened and updated < -1w
+ ```
 
 ### Weight
 
@@ -1301,15 +1290,15 @@ on or off.
 
 - List all issues with weight 5:
 
-  ```plaintext
-  weight = 5
-  ```
+ ```plaintext
+ weight = 5
+ ```
 
 - List all issues with weight not 5:
 
-  ```plaintext
-  weight != 5
-  ```
+ ```plaintext
+ weight != 5
+ ```
 
 ## Fields in embedded views
 
@@ -1325,9 +1314,7 @@ on or off.
 
 {{< /history >}}
 
-In embedded views, the `fields` view parameter is a comma-separated list of fields, or field functions that
-can be used to indicate what fields to include in the rendered embedded view,
-for example, `fields: title, state, health, epic, milestone, weight, updated`.
+In embedded views, the `fields` view parameter is a comma-separated list of fields, or field functions that can be used to indicate what fields to include in the rendered embedded view, for example, `fields: title, state, health, epic, milestone, weight, updated`.
 
 | Field            | Name or alias                         | Objects supported             | Description |
 | ---------------- | ------------------------------------- | ----------------------------- | ----------- |
@@ -1371,9 +1358,7 @@ for example, `fields: title, state, health, epic, milestone, weight, updated`.
 
 {{< /history >}}
 
-In embedded views, the `sort` view parameter is a field name followed by
-a sort order (`asc` or `desc`) that sorts the results by the specified
-field and order.
+In embedded views, the `sort` view parameter is a field name followed by a sort order (`asc` or `desc`) that sorts the results by the specified field and order.
 
 | Field         | Name (and alias)         | Supported for                 | Description                                     |
 |---------------|--------------------------|-------------------------------|-------------------------------------------------|
@@ -1391,67 +1376,41 @@ field and order.
 
 **Examples**:
 
-- List all issues in the `gitlab-org/gitlab` project sorted by title. Display columns
-  `state`, `title`, and `updated`.
+- List all issues in the `gitlab-org/gitlab` project sorted by title. Display columns `state`, `title`, and `updated`.
 
-  ````yaml
-  ```glql
-  display: table
-  fields: state, title, updated
-  sort: title asc
-  query: project = "gitlab-org/gitlab" and type = Issue
-  ```
-  ````
+ ````yaml
+ ```glql display: table fields: state, title, updated sort: title asc query: project = "gitlab-org/gitlab" and type = Issue
+ ```
+ ````
 
-- List all merge requests in the `gitlab-org` group assigned to the
-  authenticated user sorted by the merge date (latest first). Display columns
-  `title`, `reviewer`, and `merged`.
+- List all merge requests in the `gitlab-org` group assigned to the authenticated user sorted by the merge date (latest first). Display columns `title`, `reviewer`, and `merged`.
 
-  ````yaml
-  ```glql
-  display: table
-  fields: title, reviewer, merged
-  sort: merged desc
-  query: group = "gitlab-org" and type = MergeRequest and state = merged and author = currentUser()
-  limit: 10
-  ```
-  ````
+ ````yaml
+ ```glql display: table fields: title, reviewer, merged sort: merged desc query: group = "gitlab-org" and type = MergeRequest and state = merged and author = currentUser()
+ limit: 10
+ ```
+ ````
 
-- List all epics in the `gitlab-org` group sorted by the start date (oldest
-  first). Display columns `title`, `state`, and `startDate`.
+- List all epics in the `gitlab-org` group sorted by the start date (oldest first). Display columns `title`, `state`, and `startDate`.
 
-  ````yaml
-  ```glql
-  display: table
-  fields: title, state, startDate
-  sort: startDate asc
-  query: group = "gitlab-org" and type = Epic
-  ```
-  ````
+ ````yaml
+ ```glql display: table fields: title, state, startDate sort: startDate asc query: group = "gitlab-org" and type = Epic
+ ```
+ ````
 
-- List all issues in the `gitlab-org` group with an assigned weight sorted by
-  the weight (highest first). Display columns `title`, `weight`, and `health`.
+- List all issues in the `gitlab-org` group with an assigned weight sorted by the weight (highest first). Display columns `title`, `weight`, and `health`.
 
-  ````yaml
-  ```glql
-  display: table
-  fields: title, weight, health
-  sort: weight desc
-  query: group = "gitlab-org" and weight = any
-  ```
-  ````
+ ````yaml
+ ```glql display: table fields: title, weight, health sort: weight desc query: group = "gitlab-org" and weight = any
+ ```
+ ````
 
-- List all issues in the `gitlab-org` group due up to a week from today sorted by the due
-  date (earliest first). Display columns `title`, `duedate`, and `assignee`.
+- List all issues in the `gitlab-org` group due up to a week from today sorted by the due date (earliest first). Display columns `title`, `duedate`, and `assignee`.
 
-  ````yaml
-  ```glql
-  display: table
-  fields: title, dueDate, assignee
-  sort: dueDate asc
-  query: group = "gitlab-org" and due >= today() and due <= 1w
-  ```
-  ````
+ ````yaml
+ ```glql display: table fields: title, dueDate, assignee sort: dueDate asc query: group = "gitlab-org" and due >= today() and due <= 1w
+ ```
+ ````
 
 ## Troubleshooting
 
@@ -1473,48 +1432,37 @@ Large result sets and broad searches can cause timeouts.
 To resolve this issue, add filters to limit your search scope:
 
 - Add time range filters to limit results to a specific period, by using date fields like `created`, `updated`, or `closed`.
-  For example:
+ For example:
 
-  ````yaml
-  ```glql
-  display: table
-  fields: title, labels, created
-  query: group = "gitlab-org" and label = "group::knowledge" and created > "2025-01-01" and created < "2025-03-01"
-  ```
-  ````
+ ````yaml
+ ```glql display: table fields: title, labels, created query: group = "gitlab-org" and label = "group::knowledge" and created > "2025-01-01" and created < "2025-03-01"
+ ```
+ ````
 
 - Filter by recent updates to focus on active items:
 
-  ````yaml
-  ```glql
-  display: table
-  fields: title, labels, updated
-  query: group = "gitlab-org" and label = "group::knowledge" and updated > -3m
-  ```
-  ````
+ ````yaml
+ ```glql display: table fields: title, labels, updated query: group = "gitlab-org" and label = "group::knowledge" and updated > -3m
+ ```
+ ````
 
 - Use project-specific queries instead of group-wide searches when possible:
 
-  ````yaml
-  ```glql
-  display: table
-  fields: title, state, assignee
-  query: project = "gitlab-org/gitlab" and state = opened and updated > -1m
-  ```
-  ````
+ ````yaml
+ ```glql display: table fields: title, state, assignee query: project = "gitlab-org/gitlab" and state = opened and updated > -1m
+ ```
+ ````
 
 ### Error: `Invalid username reference`
 
-You might get an error that states `Invalid username reference` when using the `@` symbol
-with a username that starts with a number in GLQL queries. For example:
+You might get an error that states `Invalid username reference` when using the `@` symbol with a username that starts with a number in GLQL queries. For example:
 
 ```plaintext
 An error occurred when trying to display this embedded view:
 * Error: Invalid username reference @123username
 ```
 
-This issue occurs because the GLQL embedded view renderer does not support `@` mentions
-for usernames that start with a number, even though these are valid in GitLab.
+This issue occurs because the GLQL embedded view renderer does not support `@` mentions for usernames that start with a number, even though these are valid in GitLab.
 
 The workaround is to remove the `@` symbol and wrap the username in quotes.
 For example, use `assignee = "123username"` instead of `assignee = @123username`.

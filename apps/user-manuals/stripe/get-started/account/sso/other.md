@@ -173,18 +173,18 @@ Within this application, set the following values.
 
 ```
 <saml2:AttributeStatement>
-  <saml2:Attribute Name="Stripe-Role-" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+ <saml2:Attribute Name="Stripe-Role-" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
     <saml2:AttributeValue>role_id_1; role_id_2</saml2:AttributeValue>
-  </saml2:Attribute>
+ </saml2:Attribute>
 </saml2:AttributeStatement>
 ```
 
 ```
 <saml2:AttributeStatement>
-  <saml2:Attribute Name="Stripe-Role-" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+ <saml2:Attribute Name="Stripe-Role-" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
     <saml2:AttributeValue>role_id_1</saml2:AttributeValue>
     <saml2:AttributeValue>role_id_2</saml2:AttributeValue>
-  </saml2:Attribute>
+ </saml2:Attribute>
 </saml2:AttributeStatement>
 ```
 
@@ -229,14 +229,14 @@ To support multiple Stripe accounts, add a `saml2:Attribute` element per account
 
 ```
 <saml2:attributestatement>
-  <saml2:attribute name="Stripe-role-account-token-1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+ <saml2:attribute name="Stripe-role-account-token-1" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
     <saml2:attributevalue>view_only
     </saml2:attributevalue>
-  </saml2:attribute>
-  <saml2:attribute name="Stripe-role-account-token-2" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
+ </saml2:attribute>
+ <saml2:attribute name="Stripe-role-account-token-2" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
     <saml2:attributevalue>view_only
     </saml2:attributevalue>
-  </saml2:attribute>
+ </saml2:attribute>
 </saml2:attributestatement>
 ```
 
@@ -308,8 +308,8 @@ Send Stripe an assertion from your identity provider to grant a team member acce
 
 ```
 <saml2:attribute name="Stripe-Role-STRIPE-ACCOUNT-ID" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
-  <saml2:attributevalue>none
-  </saml2:attributevalue>
+ <saml2:attributevalue>none
+ </saml2:attributevalue>
 </saml2:attribute>
 ```
 

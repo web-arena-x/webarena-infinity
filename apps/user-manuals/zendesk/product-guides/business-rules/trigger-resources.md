@@ -13,8 +13,7 @@ To learn more about creating and using a specific type of Zendesk trigger, expan
 
 ## Ticket trigger resources
 
-For an example of creating a trigger, you can watch this
-video. Then refer to the following articles to learn more.
+For an example of creating a trigger, you can watch this video. Then refer to the following articles to learn more.
 
 Video: Automatic notifications with triggers [2:02]
 
@@ -72,8 +71,7 @@ Video: Automatic notifications with triggers [2:02]
 
 ## Chat trigger resources
 
-To learn more about how to use and manage chat triggers in
-the Chat dashboard, refer to the following articles:
+To learn more about how to use and manage chat triggers in the Chat dashboard, refer to the following articles:
 
 **Using and managing chat triggers**
 
@@ -99,12 +97,7 @@ the Chat dashboard, refer to the following articles:
 
 ## Messaging trigger resources
 
-Management of messaging triggers is currently migrating from
-the Chat dashboard to Admin Center. If you already have access
-to the Messaging triggers page in Admin Center, use the following
-articles to learn about creating and managing your messaging
-triggers. Otherwise, refer to the
-[Chat trigger resources](#h_01HQXETZW5XJRNHVK12A25FBB8).
+Management of messaging triggers is currently migrating from the Chat dashboard to Admin Center. If you already have access to the Messaging triggers page in Admin Center, use the following articles to learn about creating and managing your messaging triggers. Otherwise, refer to the [Chat trigger resources](#h_01HQXETZW5XJRNHVK12A25FBB8).
 
 - [About messaging triggers](https://support.zendesk.com/hc/en-us/articles/5973077601562)
 - [Working with messaging triggers](https://support.zendesk.com/hc/en-us/articles/6058753945242)
@@ -112,9 +105,7 @@ triggers. Otherwise, refer to the
 
 ## Object trigger resources
 
-To learn about object triggers and how you can use them with
-[custom objects](https://support.zendesk.com/hc/en-us/articles/5914453843994),
-refer to these articles:
+To learn about object triggers and how you can use them with [custom objects](https://support.zendesk.com/hc/en-us/articles/5914453843994), refer to these articles:
 
 - [Understanding object triggers](https://support.zendesk.com/hc/en-us/articles/6294230624410)
 - [Creating object triggers to update records and send notifications](https://support.zendesk.com/hc/en-us/articles/7313293890970)
@@ -122,6 +113,4 @@ refer to these articles:
 - [Managing object triggers](https://support.zendesk.com/hc/en-us/articles/7313294079130)
 - [Understanding how to format email notifications](https://support.zendesk.com/hc/en-us/articles/8407456809754)
 
-Additionally, you can reference custom objects in ticket
-triggers. For more information, see
-[Using custom objects in ticket triggers](https://support.zendesk.com/hc/en-us/articles/5928347565082).
+Additionally, you can reference custom objects in ticket triggers. For more information, see [Using custom objects in ticket triggers](https://support.zendesk.com/hc/en-us/articles/5928347565082).

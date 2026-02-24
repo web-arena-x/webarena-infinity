@@ -44,9 +44,9 @@ Search Tutorial Titles
 
 There are no items that match your search query.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
-| Company Administration  - **Getting Started**   - [Create Your Company's Default Work Breakdown Structure](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/create-your-companys-default-work-breakdown-structure "Create Your Company's Default Work Breakdown Structure") - **Manage Custom Segments**   - [Add Custom Segments](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-custom-segments "Add Custom Segments")   - [Edit Custom Segment Settings](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/edit-custom-segment-settings "Edit Custom Segment Settings")   - [Delete Custom Segments](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/delete-custom-segments "Delete Custom Segments")   - [Export Segments to CSV](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/export-segments-to-csv "Export Segments to CSV") - **Manage Segment Items**   - [Add Segment Items](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-segment-items "Add Segment Items")   - [Edit Segment Items](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/edit-segment-items "Edit Segment Items")   - [Deactivate Segment Items](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/deactivate-segment-items "Deactivate Segment Items")   - [Reactivate Segment Items](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/reactivate-segment-items "Reactivate Segment Items") - **Manage Default Segments**   - **Cost Codes**     - [Add Company Cost Codes](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-company-cost-codes "Add Company Cost Codes")     - [View the Company Cost Code Segment Settings](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/view-the-company-cost-code-segment-settings "View the Company Cost Code Segment Settings")   - **Cost Types**     - [Add Company Cost Types](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-company-cost-types "Add Company Cost Types")     - [View the Company Cost Types Segment Settings](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/view-the-company-cost-type-segment-settings "View the Company Cost Type Segment Settings")   - **Sub Jobs (can only be added at the Project Level)**     - [Enable Sub Jobs for WBS](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/enable-sub-jobs-on-projects-for-wbs "Enable Sub Jobs for WBS") - **Set the Company Budget Code Structure**   - [Arrange the Company Budget Code Structure](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/arrange-the-company-budget-code-structure "Arrange the Company Budget Code Structure") - **Manage the Project Level Budget Code Structure**   - [Enable Project Level Budget Code Structure Edits](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/enable-project-level-budget-code-structure-edits "Enable Project Level Budget Code Structure Edits") | Project Administration  - **Getting Started**   - [Create Your Project's Work Breakdown Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/create-your-projects-work-breakdown-structure "Create Your Project's Work Breakdown Structure") - **Manage Custom Segment Items**   - [Add Segment Items to a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-segment-items-to-a-project "Add Segment Items to a Project")   - [Edit Segment Items on a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/edit-segment-items-on-a-project "Edit Segment Items on a Project")   - [Delete Unused Segment Items from a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/delete-unused-segment-items-from-a-project "Delete Unused Segment Items from a Project") - **Manage Default Segments (Cost Types are always managed at the Company Level)**   - **Cost Codes**     - [Assign Cost Codes to Sub Jobs](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/assign-project-cost-codes-to-sub-jobs "Assign Project Cost Codes to Sub Jobs")     - [Copy Company Cost Codes to a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/copy-company-cost-codes-to-a-project "Copy Company Cost Codes to a Project")   - **Sub Jobs**     - [Add Sub Jobs to a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-sub-job-segment-items-to-a-procore-project "Add Sub Jobs to a Project")     - [Assign Project Cost Codes to Sub Jobs](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/assign-project-cost-codes-to-sub-jobs "Assign Project Cost Codes to Sub Jobs")     - [Delete Sub Jobs from a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/delete-sub-jobs-from-a-project "Delete Sub Jobs from a Project")     - [Edit Sub Jobs on a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/edit-sub-jobs-on-a-project "Edit Sub Jobs on a Project") - **Set the Project Budget Code Structure**   - [Add Custom Segments to the Project Budget Code Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-custom-segments-to-the-project-budget-code-structure "Add Custom Segments to the Project Budget Code Structure")   - [Arrange the Project Budget Code Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/arrange-the-project-budget-code-structure "Arrange the Project Budget Code Structure")   - Copy Company Segments to a Project   - [Remove Segments from the Project Budget Code Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/remove-segments-from-the-project-budget-code-structure "Remove Segments from the Project Budget Code Structure") - **Other Tasks**   - [Export Segments to CSV](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/export-segments-to-csv "Export Segments to CSV") | Project Tools  - **Budget Codes**   - **[Create Budget Codes for WBS in Procore's Project Financials Tools](https://support.procore.com/products/online/work-breakdown-structure/tutorials/create-budget-codes-in-procores-project-financials-tools "Create Budget Codes for WBS in Procore's Project Financials Tools")**  Procore Imports  - [Prepare Segment Items for Import into the Procore Imports App](https://support.procore.com/products/procore-imports/tutorials/prepare-segment-items-for-import-to-the-procore-imports-app "Prepare Segment Items for Import to the Procore Imports App") - [Import Segment Items into Your Company Level Admin Tool](https://support.procore.com/products/procore-imports/company-admin/tutorials/import-segment-items-into-your-company-level-admin-tool-procore-imports "Import Segment Items into your Company Level Admin Tool (Procore Imports)") - [Import Segment Items into Your Project Level Admin Tool](https://support.procore.com/products/procore-imports/project-admin/tutorials/import-segment-items-into-your-project-level-admin-tool-with-procore-imports "Import Segment Items into your Project Level Admin Tool (Procore Imports)") |
+| Company Administration - **Getting Started**   - [Create Your Company's Default Work Breakdown Structure](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/create-your-companys-default-work-breakdown-structure "Create Your Company's Default Work Breakdown Structure") - **Manage Custom Segments**   - [Add Custom Segments](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-custom-segments "Add Custom Segments")   - [Edit Custom Segment Settings](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/edit-custom-segment-settings "Edit Custom Segment Settings")   - [Delete Custom Segments](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/delete-custom-segments "Delete Custom Segments")   - [Export Segments to CSV](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/export-segments-to-csv "Export Segments to CSV") - **Manage Segment Items**   - [Add Segment Items](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-segment-items "Add Segment Items")   - [Edit Segment Items](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/edit-segment-items "Edit Segment Items")   - [Deactivate Segment Items](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/deactivate-segment-items "Deactivate Segment Items")   - [Reactivate Segment Items](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/reactivate-segment-items "Reactivate Segment Items") - **Manage Default Segments**   - **Cost Codes**     - [Add Company Cost Codes](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-company-cost-codes "Add Company Cost Codes")     - [View the Company Cost Code Segment Settings](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/view-the-company-cost-code-segment-settings "View the Company Cost Code Segment Settings")   - **Cost Types**     - [Add Company Cost Types](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-company-cost-types "Add Company Cost Types")     - [View the Company Cost Types Segment Settings](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/view-the-company-cost-type-segment-settings "View the Company Cost Type Segment Settings")   - **Sub Jobs (can only be added at the Project Level)**     - [Enable Sub Jobs for WBS](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/enable-sub-jobs-on-projects-for-wbs "Enable Sub Jobs for WBS") - **Set the Company Budget Code Structure**   - [Arrange the Company Budget Code Structure](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/arrange-the-company-budget-code-structure "Arrange the Company Budget Code Structure") - **Manage the Project Level Budget Code Structure**   - [Enable Project Level Budget Code Structure Edits](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/enable-project-level-budget-code-structure-edits "Enable Project Level Budget Code Structure Edits") | Project Administration - **Getting Started**   - [Create Your Project's Work Breakdown Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/create-your-projects-work-breakdown-structure "Create Your Project's Work Breakdown Structure") - **Manage Custom Segment Items**   - [Add Segment Items to a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-segment-items-to-a-project "Add Segment Items to a Project")   - [Edit Segment Items on a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/edit-segment-items-on-a-project "Edit Segment Items on a Project")   - [Delete Unused Segment Items from a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/delete-unused-segment-items-from-a-project "Delete Unused Segment Items from a Project") - **Manage Default Segments (Cost Types are always managed at the Company Level)**   - **Cost Codes**     - [Assign Cost Codes to Sub Jobs](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/assign-project-cost-codes-to-sub-jobs "Assign Project Cost Codes to Sub Jobs")     - [Copy Company Cost Codes to a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/copy-company-cost-codes-to-a-project "Copy Company Cost Codes to a Project")   - **Sub Jobs**     - [Add Sub Jobs to a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-sub-job-segment-items-to-a-procore-project "Add Sub Jobs to a Project")     - [Assign Project Cost Codes to Sub Jobs](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/assign-project-cost-codes-to-sub-jobs "Assign Project Cost Codes to Sub Jobs")     - [Delete Sub Jobs from a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/delete-sub-jobs-from-a-project "Delete Sub Jobs from a Project")     - [Edit Sub Jobs on a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/edit-sub-jobs-on-a-project "Edit Sub Jobs on a Project") - **Set the Project Budget Code Structure**   - [Add Custom Segments to the Project Budget Code Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-custom-segments-to-the-project-budget-code-structure "Add Custom Segments to the Project Budget Code Structure")   - [Arrange the Project Budget Code Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/arrange-the-project-budget-code-structure "Arrange the Project Budget Code Structure")   - Copy Company Segments to a Project   - [Remove Segments from the Project Budget Code Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/remove-segments-from-the-project-budget-code-structure "Remove Segments from the Project Budget Code Structure") - **Other Tasks**   - [Export Segments to CSV](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/export-segments-to-csv "Export Segments to CSV") | Project Tools - **Budget Codes**   - **[Create Budget Codes for WBS in Procore's Project Financials Tools](https://support.procore.com/products/online/work-breakdown-structure/tutorials/create-budget-codes-in-procores-project-financials-tools "Create Budget Codes for WBS in Procore's Project Financials Tools")** Procore Imports - [Prepare Segment Items for Import into the Procore Imports App](https://support.procore.com/products/procore-imports/tutorials/prepare-segment-items-for-import-to-the-procore-imports-app "Prepare Segment Items for Import to the Procore Imports App") - [Import Segment Items into Your Company Level Admin Tool](https://support.procore.com/products/procore-imports/company-admin/tutorials/import-segment-items-into-your-company-level-admin-tool-procore-imports "Import Segment Items into your Company Level Admin Tool (Procore Imports)") - [Import Segment Items into Your Project Level Admin Tool](https://support.procore.com/products/procore-imports/project-admin/tutorials/import-segment-items-into-your-project-level-admin-tool-with-procore-imports "Import Segment Items into your Project Level Admin Tool (Procore Imports)") |
 
 ##### Tip
 
@@ -60,7 +60,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Import Segment Items into the Company Level Admin Tool
 
-|  |
+| |
 
 ### OUTDATED VIDEOS - Removed from Support Site and Certifications
 
@@ -76,7 +76,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 [Admin Company Level - EN-AU](#s175946)
 
-|  |
+| |
 
 |
 
@@ -86,7 +86,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 [Admin Company Level - EN-CA](#s191691)
 
-|  |
+| |
 
 |
 
@@ -96,7 +96,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 [Admin Company Level - EN-GB](#s175945)
 
-|  |
+| |
 
 |
 
@@ -106,7 +106,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 [Admin Company Level - DE-DE](#s176224)
 
-|  |
+| |
 
 |
 
@@ -116,7 +116,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 [Admin Company Level - ES-LA](#s175943)
 
-|  |
+| |
 
 |
 
@@ -126,7 +126,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 [Admin Company Level - FR-CA](#s175944)
 
-|  |
+| |
 
 |
 
@@ -136,7 +136,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 [Admin Company Level - FR-FR](#s176223)
 
-|  |
+| |
 
 |
 
@@ -146,7 +146,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 [Admin Company Level - ZH-SG](#s191502)
 
-|  |
+| |
 
 |
 
@@ -156,7 +156,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Import Segment Items into the Company Level Admin Tool
 
-|  |
+| |
 
 ### OUTDATED VIDEOS - Removed from Support Site and Certifications
 
@@ -248,22 +248,22 @@ The following table highlights which user permissions are required to perform th
 
 | Task | None | Read Only | Standard | Admin |
 | --- | --- | --- | --- | --- |
-| [Add Company Cost Codes](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-company-cost-codes "Add Company Cost Codes") |  |  |  | icon-mindtouch-table-check.png |
-| [Add Company Cost Types](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-company-cost-types "Add Company Cost Types") |  |  |  | icon-mindtouch-table-check.png |
-| [Add Segment Items](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-segment-items "Add Segment Items") |  |  |  | icon-mindtouch-table-check.png |
-| [Add Custom Segments](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-custom-segments "Add Segments") |  |  |  | icon-mindtouch-table-check.png |
-| [Arrange the Company Budget Code Structure](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/arrange-the-company-budget-code-structure "Arrange Segments to Form the Company's Budget Code Structure") |  |  |  | icon-mindtouch-table-check.png |
-| [Create Your Company's Default Work Breakdown Structure](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/create-your-companys-default-work-breakdown-structure "Create Your Company's Default Work Breakdown Structure") |  |  |  | icon-mindtouch-table-check.png |
-| [Deactivate Segment Items](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/deactivate-segment-items "Deactivate Segment Items") |  |  |  | icon-mindtouch-table-check.png |
-| [Delete Custom Segments](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/delete-custom-segments "Delete Custom Segments") |  |  |  | icon-mindtouch-table-check.png |
-| [Edit Custom Segment Settings](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/edit-custom-segment-settings "Edit Custom Segment Settings") |  |  |  | icon-mindtouch-table-check.png |
-| [Enable Project Level Budget Code Structure Edits](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/enable-project-level-budget-code-structure-edits "Enable Project Level Budget Code Structure Edits") |  |  |  | icon-mindtouch-table-check.png |
-| [Export Segments to CSV](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/export-segments-to-csv "Export Segments to CSV") |  |  |  | icon-mindtouch-table-check.png |
-| [Import Segment Items into Your Company Level Admin Tool (Procore Imports)](https://support.procore.com/products/procore-imports/company-admin/tutorials/import-segment-items-into-your-company-level-admin-tool-procore-imports "Import Segment Items into your Company Level Admin Tool (Procore Imports)") 1 |  |  |  | icon-mindtouch-table-check.png |
-| [Prepare Segment Items for Import to the Procore Imports App](https://support.procore.com/products/procore-imports/tutorials/prepare-segment-items-for-import-to-the-procore-imports-app "Prepare Segment Items for Import to the Procore Imports App") 1 |  |  |  | icon-mindtouch-table-check.png |
-| [Reactivate Segment Items](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/reactivate-segment-items "Reactivate Segment Items") |  |  |  | icon-mindtouch-table-check.png |
-| [View the Company Cost Code Segment Settings](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/view-the-company-cost-code-segment-settings "View the Company Cost Code Segment Settings") |  |  |  | icon-mindtouch-table-check.png |
-| [View the Company Cost Types Segment Settings](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/view-the-company-cost-type-segment-settings "View the Company Cost Type Segment Settings") |  |  |  | icon-mindtouch-table-check.png |
+| [Add Company Cost Codes](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-company-cost-codes "Add Company Cost Codes") | | | | icon-mindtouch-table-check.png |
+| [Add Company Cost Types](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-company-cost-types "Add Company Cost Types") | | | | icon-mindtouch-table-check.png |
+| [Add Segment Items](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-segment-items "Add Segment Items") | | | | icon-mindtouch-table-check.png |
+| [Add Custom Segments](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/add-custom-segments "Add Segments") | | | | icon-mindtouch-table-check.png |
+| [Arrange the Company Budget Code Structure](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/arrange-the-company-budget-code-structure "Arrange Segments to Form the Company's Budget Code Structure") | | | | icon-mindtouch-table-check.png |
+| [Create Your Company's Default Work Breakdown Structure](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/create-your-companys-default-work-breakdown-structure "Create Your Company's Default Work Breakdown Structure") | | | | icon-mindtouch-table-check.png |
+| [Deactivate Segment Items](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/deactivate-segment-items "Deactivate Segment Items") | | | | icon-mindtouch-table-check.png |
+| [Delete Custom Segments](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/delete-custom-segments "Delete Custom Segments") | | | | icon-mindtouch-table-check.png |
+| [Edit Custom Segment Settings](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/edit-custom-segment-settings "Edit Custom Segment Settings") | | | | icon-mindtouch-table-check.png |
+| [Enable Project Level Budget Code Structure Edits](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/enable-project-level-budget-code-structure-edits "Enable Project Level Budget Code Structure Edits") | | | | icon-mindtouch-table-check.png |
+| [Export Segments to CSV](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/export-segments-to-csv "Export Segments to CSV") | | | | icon-mindtouch-table-check.png |
+| [Import Segment Items into Your Company Level Admin Tool (Procore Imports)](https://support.procore.com/products/procore-imports/company-admin/tutorials/import-segment-items-into-your-company-level-admin-tool-procore-imports "Import Segment Items into your Company Level Admin Tool (Procore Imports)") 1 | | | | icon-mindtouch-table-check.png |
+| [Prepare Segment Items for Import to the Procore Imports App](https://support.procore.com/products/procore-imports/tutorials/prepare-segment-items-for-import-to-the-procore-imports-app "Prepare Segment Items for Import to the Procore Imports App") 1 | | | | icon-mindtouch-table-check.png |
+| [Reactivate Segment Items](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/reactivate-segment-items "Reactivate Segment Items") | | | | icon-mindtouch-table-check.png |
+| [View the Company Cost Code Segment Settings](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/view-the-company-cost-code-segment-settings "View the Company Cost Code Segment Settings") | | | | icon-mindtouch-table-check.png |
+| [View the Company Cost Types Segment Settings](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/view-the-company-cost-type-segment-settings "View the Company Cost Type Segment Settings") | | | | icon-mindtouch-table-check.png |
 
 1 *This task requires you to import segment items with the [Procore Imports](https://support.procore.com/products/procore-imports "Procore Imports") app.*
 
@@ -273,22 +273,22 @@ The following table highlights which user permissions are required to perform th
 
 | Task | None | Read Only | Standard | Admin |
 | --- | --- | --- | --- | --- |
-| [Add Segment Items to a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-segment-items-to-a-project "Add Segment Items to a Project") |  |  |  | icon-mindtouch-table-check.png |
-| [Add Segments to the Project Budget Code Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-custom-segments-to-the-project-budget-code-structure "Add Segments to the Project Budget Code Structure") |  |  |  | icon-mindtouch-table-check.png |
-| [Add Sub Jobs to a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-sub-job-segment-items-to-a-procore-project "Add Sub Jobs to a Project") |  |  |  | icon-mindtouch-table-check.png |
-| [Arrange the Project Budget Code Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/arrange-the-project-budget-code-structure "Arrange the Project Budget Code Structure") |  |  |  | icon-mindtouch-table-check.png |
-| [Assign Project Cost Codes to Sub Jobs](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/assign-project-cost-codes-to-sub-jobs "Assign Project Cost Codes to Sub Jobs") |  |  |  | icon-mindtouch-table-check.png |
-| [Copy Company Cost Codes to a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/copy-company-cost-codes-to-a-project "Copy Company Cost Codes to a Project") |  |  |  | icon-mindtouch-table-check.png |
-| Copy Company Segments to a Project |  |  |  | icon-mindtouch-table-check.png |
-| [Create Your Project's Work Breakdown Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/create-your-projects-work-breakdown-structure "Create Your Project's Work Breakdown Structure") |  |  |  | icon-mindtouch-table-check.png |
-| [Delete Sub Jobs from a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/delete-sub-jobs-from-a-project "Delete Sub Jobs from a Project") |  |  |  | icon-mindtouch-table-check.png |
-| [Delete Unused Segment Items from a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/delete-unused-segment-items-from-a-project "Delete Unused Segment Items from a Project") |  |  |  | icon-mindtouch-table-check.png |
-| [Edit Segment Items on a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/edit-segment-items-on-a-project "Edit Segment Items on a Project") |  |  |  | icon-mindtouch-table-check.png |
-| [Edit Sub Jobs on a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/edit-sub-jobs-on-a-project "Edit Sub Jobs on a Project") |  |  |  | icon-mindtouch-table-check.png |
-| [Enable Sub Jobs on Projects for WBS](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/enable-sub-jobs-on-projects-for-wbs "Enable Sub Jobs on Projects for WBS") |  |  |  | icon-mindtouch-table-check.png |
-| [Export Segments to CSV](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/export-segments-to-csv "Export Segments to CSV") |  |  |  | icon-mindtouch-table-check.png |
-| [Import Segment Items into Your Project Level Admin Tool (Procore Imports)](https://support.procore.com/products/procore-imports/project-admin/tutorials/import-segment-items-into-your-project-level-admin-tool-with-procore-imports "Import Segment Items into your Project Level Admin Tool (Procore Imports)") 1 |  |  |  | icon-mindtouch-table-check.png |
-| [Remove Segments from a Project's Budget Code Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/remove-segments-from-the-project-budget-code-structure "Remove Segments from a Project's Budget Code Structure") |  |  |  | icon-mindtouch-table-check.png |
+| [Add Segment Items to a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-segment-items-to-a-project "Add Segment Items to a Project") | | | | icon-mindtouch-table-check.png |
+| [Add Segments to the Project Budget Code Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-custom-segments-to-the-project-budget-code-structure "Add Segments to the Project Budget Code Structure") | | | | icon-mindtouch-table-check.png |
+| [Add Sub Jobs to a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/add-sub-job-segment-items-to-a-procore-project "Add Sub Jobs to a Project") | | | | icon-mindtouch-table-check.png |
+| [Arrange the Project Budget Code Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/arrange-the-project-budget-code-structure "Arrange the Project Budget Code Structure") | | | | icon-mindtouch-table-check.png |
+| [Assign Project Cost Codes to Sub Jobs](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/assign-project-cost-codes-to-sub-jobs "Assign Project Cost Codes to Sub Jobs") | | | | icon-mindtouch-table-check.png |
+| [Copy Company Cost Codes to a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/copy-company-cost-codes-to-a-project "Copy Company Cost Codes to a Project") | | | | icon-mindtouch-table-check.png |
+| Copy Company Segments to a Project | | | | icon-mindtouch-table-check.png |
+| [Create Your Project's Work Breakdown Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/create-your-projects-work-breakdown-structure "Create Your Project's Work Breakdown Structure") | | | | icon-mindtouch-table-check.png |
+| [Delete Sub Jobs from a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/delete-sub-jobs-from-a-project "Delete Sub Jobs from a Project") | | | | icon-mindtouch-table-check.png |
+| [Delete Unused Segment Items from a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/delete-unused-segment-items-from-a-project "Delete Unused Segment Items from a Project") | | | | icon-mindtouch-table-check.png |
+| [Edit Segment Items on a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/edit-segment-items-on-a-project "Edit Segment Items on a Project") | | | | icon-mindtouch-table-check.png |
+| [Edit Sub Jobs on a Project](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/edit-sub-jobs-on-a-project "Edit Sub Jobs on a Project") | | | | icon-mindtouch-table-check.png |
+| [Enable Sub Jobs on Projects for WBS](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/enable-sub-jobs-on-projects-for-wbs "Enable Sub Jobs on Projects for WBS") | | | | icon-mindtouch-table-check.png |
+| [Export Segments to CSV](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/export-segments-to-csv "Export Segments to CSV") | | | | icon-mindtouch-table-check.png |
+| [Import Segment Items into Your Project Level Admin Tool (Procore Imports)](https://support.procore.com/products/procore-imports/project-admin/tutorials/import-segment-items-into-your-project-level-admin-tool-with-procore-imports "Import Segment Items into your Project Level Admin Tool (Procore Imports)") 1 | | | | icon-mindtouch-table-check.png |
+| [Remove Segments from a Project's Budget Code Structure](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/remove-segments-from-the-project-budget-code-structure "Remove Segments from a Project's Budget Code Structure") | | | | icon-mindtouch-table-check.png |
 
 1 *This task requires you to import segment items with the [Procore Imports](https://support.procore.com/products/procore-imports "Procore Imports") app.*
 

@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408820849434-Installing-a
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -38,7 +38,7 @@ The Linked Ticket app is installed from the [Zendesk Marketplace](https://www.ze
 3. Click **Install** in the upper-right of the page.
 4. Select the subdomain of the account you want to install the app.
 5. Configure any app settings as needed.
-6. Click **Install** to complete the setup  
+6. Click **Install** to complete the setup 
      
    The app is installed in your Zendesk.
 
@@ -95,10 +95,10 @@ The error **This ticket form is missing the linked data field** means that the *
 **To solve this issue**
 
 1. In [Admin Center](../account-administration/using-zendesk-admin-center.md#topic_hfg_dyz_1hb), click ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ac_objects_rules_icon.png) **Objects and rules** in the sidebar, then select **Tickets > Fields**.
-2. Click the ticket form you want to edit.  
+2. Click the ticket form you want to edit. 
      
    The ticket form opens in edit mode.
-3. Drag and drop the **Linked Data** field into the ticket form and click **Save**.   
+3. Drag and drop the **Linked Data** field into the ticket form and click **Save**.  
    ![Drag and drop Linked Data](https://support.zendesk.com/hc/article_attachments/4859464866842)
 
 If you have [ticket forms](../ticket-customization/managing-your-ticket-forms.md) enabled on your account, go to [Admin Center](../account-administration/using-zendesk-admin-center.md#topic_hfg_dyz_1hb) > **Objects and rules** (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ac_objects_rules_icon.png)) > **Tickets > Forms**. [Add](https://support.zendesk.com/hc/en-us/articles/4408883152794-Adding-custom-fields-to-your-tickets-and-support-request-form) the automatically created **Linked Data**field to each active ticket form.
@@ -111,7 +111,7 @@ The **Reference Field** in the settings of the Linked Ticket app is the ID of th
 
 ![](https://support.zendesk.com/hc/article_attachments/4408851933082)
 
-When installing:  
+When installing: 
 ![](https://support.zendesk.com/hc/article_attachments/4408851932698)
 
 Warning: Deleting the **Reference field** will erase all links between tickets and they can't be recovered. Zendesk recommends that you leave the field in your account if it exists.

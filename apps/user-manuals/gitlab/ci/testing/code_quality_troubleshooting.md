@@ -17,15 +17,11 @@ When working with Code Quality, you might encounter the following issues.
 ## The code cannot be found and the pipeline runs always with default configuration
 
 You are probably using a private runner with the Docker-in-Docker socket-binding configuration.
-You should configure Code Quality checks to run on your worker as documented in
-[Use private runners](code_quality_codeclimate_scanning.md#use-private-runners).
+You should configure Code Quality checks to run on your worker as documented in [Use private runners](code_quality_codeclimate_scanning.md#use-private-runners).
 
 ## Changing the default configuration has no effect
 
-A common issue is that the terms `Code Quality` (GitLab specific) and `Code Climate`
-(Engine used by GitLab) are very similar. You must add a **`.codeclimate.yml`** file
-to change the default configuration, **not** a `.codequality.yml` file. If you use
-the wrong filename, the [default `.codeclimate.yml`](https://gitlab.com/gitlab-org/ci-cd/codequality/-/blob/master/codeclimate_defaults/.codeclimate.yml.template)
+A common issue is that the terms `Code Quality` (GitLab specific) and `Code Climate` (Engine used by GitLab) are very similar. You must add a **`.codeclimate.yml`** file to change the default configuration, **not** a `.codequality.yml` file. If you use the wrong filename, the [default `.codeclimate.yml`](https://gitlab.com/gitlab-org/ci-cd/codequality/-/blob/master/codeclimate_defaults/.codeclimate.yml.template)
 is still used.
 
 ## No Code Quality report is displayed in a merge request
@@ -61,8 +57,7 @@ In GitLab 15.6 and earlier, Code Quality used only the artifact from the latest 
 ## RuboCop errors
 
 When using Code Quality jobs on a Ruby project, you can encounter problems running RuboCop.
-For example, the following error can appear when using either a very recent or very old version
-of Ruby:
+For example, the following error can appear when using either a very recent or very old version of Ruby:
 
 ```plaintext
 /usr/local/bundle/gems/rubocop-0.52.1/lib/rubocop/config.rb:510:in `check_target_ruby':
@@ -70,12 +65,9 @@ Unknown Ruby version 2.7 found in `.ruby-version`. (RuboCop::ValidationError)
 Supported versions: 2.1, 2.2, 2.3, 2.4, 2.5
 ```
 
-This is caused by the default version of RuboCop used by the check engine not covering
-support for the Ruby version in use.
+This is caused by the default version of RuboCop used by the check engine not covering support for the Ruby version in use.
 
-To use a custom version of RuboCop that
-[supports the version of Ruby used by the project](https://docs.rubocop.org/rubocop/compatibility.html#support-matrix),
-you can [override the configuration through a `.codeclimate.yml` file](https://docs.codeclimate.com/docs/rubocop#using-rubocops-newer-versions)
+To use a custom version of RuboCop that [supports the version of Ruby used by the project](https://docs.rubocop.org/rubocop/compatibility.html#support-matrix), you can [override the configuration through a `.codeclimate.yml` file](https://docs.codeclimate.com/docs/rubocop#using-rubocops-newer-versions)
 created in the project repository.
 
 For example, to specify using RuboCop release **0.67**:
@@ -83,15 +75,14 @@ For example, to specify using RuboCop release **0.67**:
 ```yaml
 version: "2"
 plugins:
-  rubocop:
+ rubocop:
     enabled: true
     channel: rubocop-0-67
 ```
 
 ## No Code Quality appears on merge requests when using custom tool
 
-If your merge requests do not show any Code Quality changes when using a custom tool, ensure that
-*all* line properties in the JSON are `integer`.
+If your merge requests do not show any Code Quality changes when using a custom tool, ensure that *all* line properties in the JSON are `integer`.
 
 ## Error: `Could not analyze code quality`
 
@@ -102,8 +93,7 @@ error: (CC::CLI::Analyze::EngineFailure) engine pmd ran for 900 seconds and was 
 Could not analyze code quality for the repository at /code
 ```
 
-If you enabled any of the Code Climate plugins, and the Code Quality CI/CD job fails with this
-error message, it's likely the job takes longer than the default timeout of 900 seconds:
+If you enabled any of the Code Climate plugins, and the Code Quality CI/CD job fails with this error message, it's likely the job takes longer than the default timeout of 900 seconds:
 
 To work around this problem, set `TIMEOUT_SECONDS` to a higher value in your `.gitlab-ci.yml` file.
 
@@ -111,7 +101,7 @@ For example:
 
 ```yaml
 code_quality:
-  variables:
+ variables:
     TIMEOUT_SECONDS: 3600
 ```
 
@@ -122,8 +112,7 @@ You may need to [Configure Kubernetes or OpenShift runners for CodeClimate-based
 
 ## Error: `x509: certificate signed by unknown authority`
 
-If you set the `CODE_QUALITY_IMAGE` to an image that is hosted in a Docker registry which uses a TLS
-certificate that is not trusted, such as a self-signed certificate, you might see the following error:
+If you set the `CODE_QUALITY_IMAGE` to an image that is hosted in a Docker registry which uses a TLS certificate that is not trusted, such as a self-signed certificate, you might see the following error:
 
 ```shell
 $ docker pull --quiet "$CODE_QUALITY_IMAGE"
@@ -133,15 +122,12 @@ Error response from daemon: Get https://gitlab.example.com/v2/: x509: certificat
 To fix this, configure the Docker daemon to [trust certificates](https://distribution.github.io/distribution/about/insecure/#use-self-signed-certificates)
 by putting the certificate inside of the `/etc/docker/certs.d` directory.
 
-This Docker daemon is exposed to the subsequent Code Quality Docker container in the
-[GitLab Code Quality template](https://gitlab.com/gitlab-org/gitlab/-/blob/v13.8.3-ee/lib/gitlab/ci/templates/Jobs/Code-Quality.gitlab-ci.yml#L41)
-and should be to exposed any other containers in which you want to have your certificate
-configuration apply.
+This Docker daemon is exposed to the subsequent Code Quality Docker container in the [GitLab Code Quality template](https://gitlab.com/gitlab-org/gitlab/-/blob/v13.8.3-ee/lib/gitlab/ci/templates/Jobs/Code-Quality.gitlab-ci.yml#L41)
+and should be to exposed any other containers in which you want to have your certificate configuration apply.
 
 ### Docker
 
-If you have access to GitLab Runner configuration, add the directory as a
-[volume mount](https://docs.gitlab.com/runner/configuration/advanced-configuration.html#volumes-in-the-runnersdocker-section).
+If you have access to GitLab Runner configuration, add the directory as a [volume mount](https://docs.gitlab.com/runner/configuration/advanced-configuration.html#volumes-in-the-runnersdocker-section).
 
 Replace `gitlab.example.com` with the actual domain of the registry.
 
@@ -149,9 +135,9 @@ Example:
 
 ```toml
 [[runners]]
-  ...
-  executor = "docker"
-  [runners.docker]
+ ...
+ executor = "docker"
+ [runners.docker]
     ...
     privileged = true
     volumes = ["/cache", "/etc/gitlab-runner/certs/gitlab.example.com.crt:/etc/docker/certs.d/gitlab.example.com/ca.crt:ro"]
@@ -159,8 +145,7 @@ Example:
 
 ### Kubernetes
 
-If you have access to GitLab Runner configuration and the Kubernetes cluster,
-you can [mount a ConfigMap](https://docs.gitlab.com/runner/executors/kubernetes/#configmap-volume).
+If you have access to GitLab Runner configuration and the Kubernetes cluster, you can [mount a ConfigMap](https://docs.gitlab.com/runner/executors/kubernetes/#configmap-volume).
 
 Replace `gitlab.example.com` with the actual domain of the registry.
 

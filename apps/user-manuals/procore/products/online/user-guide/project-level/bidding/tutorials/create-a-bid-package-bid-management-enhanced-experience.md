@@ -15,10 +15,10 @@ The Enhanced Bid Management experience for creating a bid package is designed to
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.
+ - 'Admin' level permissions on the project's Bidding tool.
 - **Additional Information:**
-  - The project does not have to be in a Bidding stage to create a bid package.
-  - 'Admin' level permissions are required in order to be assigned as a Primary Bidding Contact.
+ - The project does not have to be in a Bidding stage to create a bid package.
+ - 'Admin' level permissions are required in order to be assigned as a Primary Bidding Contact.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ The Enhanced Bid Management experience for creating a bid package is designed to
      - **Bid Submission Notifications**: Add members to this list who will be notified when bids are submitted.
        - Users with 'Read Only' or 'Standard' permissions will receive bid package access when added to the **Bid Submission Notifications** field.
    - **Dates**:
-     - **Bid Due Date**\*: Set the date and time when this bid will be due. If the bid is extended, immediately change the date so bidders can enter amounts.   
+     - **Bid Due Date**\*: Set the date and time when this bid will be due. If the bid is extended, immediately change the date so bidders can enter amounts.  
        *Note:* You can check the 'To be determined' checkbox if the bid due date is undetermined.
      - **RFI Deadline**: Set an RFI deadline date.
      - **Anticipated Award Date**: Set an anticipated award date.
@@ -60,9 +60,9 @@ The Enhanced Bid Management experience for creating a bid package is designed to
      - **Bid Reminder Emails:**Enter the number of days before the bid due date to start sending reminder emails.
        - Bid Reminder Emails are sent at 11:30AM UTC (3:30AM PST) daily.
        - You can also enable bid reminder emails for all project bid packages. See [Configure Advanced Settings: Bidding](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/configure-advanced-settings-bidding "Configure Advanced Settings: Bidding") for more information.
-     - **Offline Bids:**Select the box to *only* allow offline bid submissions.  
+     - **Offline Bids:**Select the box to *only* allow offline bid submissions. 
        *Note:* Bidders will not be able to submit bids in Procore when this setting is enabled.
-     - **Bid Submission Confirmation Message:**Enter a message that will be sent to bidders once they submit their bid.  
+     - **Bid Submission Confirmation Message:**Enter a message that will be sent to bidders once they submit their bid. 
        **Note:** Set a default for this field in Company Admin tool to auto-populate each time you create a bid package. See [Set the Default Company Bidding Configuration](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/set-the-default-company-bidding-configuration "Set the Default Company Bidding Configuration").
    - **Privacy and Visibility Settings:**
      - **Blind Bidding:**Select the box to enable Blind Bidding. Blind bidding hides all bids until the Bid Due Date passes. See [What is blind bidding?](https://support.procore.com/faq/what-is-blind-bidding "What is blind bidding?")

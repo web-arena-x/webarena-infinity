@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408843029658-About-open-v
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -41,10 +41,10 @@ To see how these states might be useful, let's take a look at how you could set 
 **To create a view of tickets less-than-solved**
 
 1. Create [a new view](https://support.zendesk.com/hc/en-us/articles/4408888828570).
-2. Add the condition **Ticket: Status less than solved**.  
-   We'll keep this simple and just collect all our tickets that are not solved, or in this case, less than solved.  
+2. Add the condition **Ticket: Status less than solved**. 
+   We'll keep this simple and just collect all our tickets that are not solved, or in this case, less than solved. 
    ![](https://support.zendesk.com/hc/article_attachments/7856561844250)
-3. Next, we'll set the **Format Options**  to display by  **Table**  , and then choose to  **Group**  the tickets by  **Status***:  
+3. Next, we'll set the **Format Options** to display by **Table** , and then choose to **Group** the tickets by **Status***: 
    *![](https://support.zendesk.com/hc/article_attachments/7856556412954)**
 4. Click **Save**.
 

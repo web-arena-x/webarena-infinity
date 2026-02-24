@@ -39,13 +39,13 @@ If you do not want these to remain active, update them before disconnecting:
 
 - **Close any job postings you created**.
 
-  - Learn how to [Close a Job Posting](https://support.joinhandshake.com/hc/en-us/articles/115011841627).
+ - Learn how to [Close a Job Posting](https://support.joinhandshake.com/hc/en-us/articles/115011841627).
 - **Cancel or delete events you have scheduled**.
 
-  - Read more about [Canceling or Deleting an Event](https://support.joinhandshake.com/hc/en-us/articles/33508908085655).
+ - Read more about [Canceling or Deleting an Event](https://support.joinhandshake.com/hc/en-us/articles/33508908085655).
 - **Cancel any career fair registrations you submitted**.
 
-  - Refer to [Canceling a Career Fair Registration](https://support.joinhandshake.com/hc/en-us/articles/34456306441623).
+ - Refer to [Canceling a Career Fair Registration](https://support.joinhandshake.com/hc/en-us/articles/34456306441623).
 
 **Note****:** After disconnecting, you will no longer be able to manage these items. Make any necessary updates before leaving. If you were the only user connected to the profile and did not update these items before disconnecting, contact Support.
 

@@ -19,7 +19,7 @@ Add prebuilt elements from the **Insert** menu to start building your site faste
 
 ![Cursor clicks the "Insert" icon in Figma Sites, opening a menu with options like blocks, libraries, and embeds for web design.](https://help.figma.com/hc/article_attachments/31880156111127)
 
-To access the **Insert** menu, click the  icon in the left navigation bar of a site file.
+To access the **Insert** menu, click the icon in the left navigation bar of a site file.
 
 **Tip**: You can also work from a template if you prefer. To use a template:
 

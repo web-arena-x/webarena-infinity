@@ -22,7 +22,7 @@ The reviewer's responsibility is to verify ClickHouse-specific changes and ensur
 
 - [ClickHouse within GitLab](clickhouse_within_gitlab.md): overview of ClickHouse usage in GitLab.
 - [GitLab Database Reviewer Guidelines](../database_reviewer_guidelines.md): general principles that also apply to ClickHouse, especially regarding database migrations.
-  ClickHouse follows the same **pre-deployment** and **post-deployment** migration strategy as our relational databases.
+ ClickHouse follows the same **pre-deployment** and **post-deployment** migration strategy as our relational databases.
 
 ## General Guidelines
 
@@ -53,15 +53,15 @@ When reviewing raw SQL queries, pay close attention to variable interpolation:
 
 - Prefer: Variables must use ClickHouse's placeholder syntax to prevent sensitive data from being logged:
 
-  ```ruby
-  sql = 'SELECT * FROM events WHERE id > {min_id:UInt64}'
-  ```
+ ```ruby
+ sql = 'SELECT * FROM events WHERE id > {min_id:UInt64}'
+ ```
 
 - Fixed string interpolation (e.g., when the string is assigned to a Ruby constant) should always use proper quoting to prevent SQL injection or malformed queries:
 
-  ```ruby
-  SQL = "SELECT * FROM events WHERE type = #{ClickHouse::Client::Quoting.quote('Issue')}"
-  ```
+ ```ruby
+ SQL = "SELECT * FROM events WHERE type = #{ClickHouse::Client::Quoting.quote('Issue')}"
+ ```
 
 ## Database Query Performance Review
 
@@ -79,12 +79,12 @@ When reviewing a query:
 ```sql
 SELECT count(DISTINCT contributions.author_id) AS contributor_count
 FROM (
-  SELECT argMax(author_id, contributions.updated_at) AS author_id
-  FROM contributions
-  WHERE
+ SELECT argMax(author_id, contributions.updated_at) AS author_id
+ FROM contributions
+ WHERE
     startsWith(contributions.path, {namespace_path:String})
     AND contributions.created_at BETWEEN {from:Date} AND {to:Date}
-  GROUP BY id
+ GROUP BY id
 ) contributions
 ```
 
@@ -92,13 +92,13 @@ This query performs well if its filter columns (`path`, `created_at`) are includ
 
 ```sql
 CREATE TABLE contributions (
-  id UInt64,
-  path String,
-  author_id UInt64,
-  target_type LowCardinality(String),
-  action UInt8,
-  created_at Date,
-  updated_at DateTime64(6, 'UTC')
+ id UInt64,
+ path String,
+ author_id UInt64,
+ target_type LowCardinality(String),
+ action UInt8,
+ created_at Date,
+ updated_at DateTime64(6, 'UTC')
 ) ENGINE = ReplacingMergeTree
 PARTITION BY toYear(created_at)
 ORDER BY (path, created_at, author_id, id);
@@ -109,10 +109,10 @@ ORDER BY (path, created_at, author_id, id);
 - Test with representative parameters (e.g., `namespace_path='9970/'`, date range for one month).
 - Run the query and note elapsed time and rows read:
 
-  ```plaintext
-  Elapsed: 0.062s
-  Read: 1,111,111 rows (15.55 MB)
-  ```
+ ```plaintext
+ Elapsed: 0.062s
+ Read: 1,111,111 rows (15.55 MB)
+ ```
 
 - Compare scanned rows to total table rows (`SELECT COUNT(*) FROM contributions`). A well-constrained query should read only a fraction of total rows.
 
@@ -130,13 +130,13 @@ Excerpt from the plan:
 
 ```plaintext
 PrimaryKey
-  Keys:
+ Keys:
     path
     created_at
-  Condition: and((created_at in (-Inf, 20361]), and((created_at in [20332, +Inf)), (path in ['9970/', '99700'))))
-  Parts: 11/11
-  Granules: 185/72937
-  Search Algorithm: generic exclusion search
+ Condition: and((created_at in (-Inf, 20361]), and((created_at in [20332, +Inf)), (path in ['9970/', '99700'))))
+ Parts: 11/11
+ Granules: 185/72937
+ Search Algorithm: generic exclusion search
 ```
 
 In the output, look for the `PrimaryKey` section and check the **Granules** ratio.
@@ -166,10 +166,10 @@ With the **MergeTree** family, the *primary key* (i.e., `ORDER BY`) defines the 
 ```sql
 CREATE TABLE events
 (
-  event_id  UInt64,
-  timestamp DateTime,
-  user_id   UInt64,
-  payload   String
+ event_id UInt64,
+ timestamp DateTime,
+ user_id   UInt64,
+ payload   String
 )
 ENGINE = MergeTree
 PARTITION BY toYYYYMM(timestamp)
@@ -194,11 +194,11 @@ If you omit the version parameter, the deduplicated row after a merge is arbitra
 ```sql
 CREATE TABLE items
 (
-  id         UInt64,
-  name       String,
-  status     LowCardinality(String),
-  updated_at DateTime64(6), -- acts as the version
-  deleted    Bool DEFAULT 0 -- deleted flag for marking a record deleted
+ id         UInt64,
+ name       String,
+ status     LowCardinality(String),
+ updated_at DateTime64(6), -- acts as the version
+ deleted    Bool DEFAULT 0 -- deleted flag for marking a record deleted
 )
 ENGINE = ReplacingMergeTree(updated_at, deleted)
 ORDER BY id
@@ -209,13 +209,13 @@ To deduplicate the rows, use `argMax` by the version column and `GROUP BY` the p
 ```sql
 SELECT *
 FROM (
-  SELECT
+ SELECT
     id,
     argMax(name,       updated_at) AS name,
     argMax(status,     updated_at) AS status,
     argMax(deleted,    updated_at) AS deleted
-  FROM items
-  GROUP BY id
+ FROM items
+ GROUP BY id
 ) AS items
 WHERE deleted = false
 ```

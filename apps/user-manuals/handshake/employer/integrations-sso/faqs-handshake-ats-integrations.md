@@ -16,15 +16,7 @@ This article addresses frequently asked questions about integrating your Applica
 
 **Which ATS does Handshake integrate with?**
 
-**Greenhouse**  
-**Workday**  
-**Lever**  
-**SmartRecruiters**  
-**Jobvite**  
-**UKG Pro**  
-**SAP SuccessFactors**  
-**Taleo**  
-**Infinite BrassRing** (*formerly known as IBM Kenexa BrassRing*)
+**Greenhouse** **Workday** **Lever** **SmartRecruiters** **Jobvite** **UKG Pro** **SAP SuccessFactors** **Taleo** **Infinite BrassRing** (*formerly known as IBM Kenexa BrassRing*)
 
 **Note**: If your ATS is not currently supported, you can still enable direct ATS applications. *Learn how to set this up in* [*How to Use Direct ATS*](https://support.joinhandshake.com/hc/en-us/articles/360004317153).
 
@@ -110,16 +102,16 @@ If you use Greenhouse, you can import screening questions from your Greenhouse a
 Yes, you have two configuration options:
 
 - **Option #1: Candidates apply externally in your ATS** (i.e. Disable ‘Apply on Handshake’, checked)
-  - **Benefits:** Maintains your existing applicant workflow, allowing you to include custom questions at the time of application.
-  - **Suggestions:** Candidates apply directly through your ATS, enabling a more detailed application process, including screening questions.
-  - **Considerations**:
+ - **Benefits:** Maintains your existing applicant workflow, allowing you to include custom questions at the time of application.
+ - **Suggestions:** Candidates apply directly through your ATS, enabling a more detailed application process, including screening questions.
+ - **Considerations**:
     - Tracking candidate sources requires a separate setup. *To automate this process, refer to* [*Setting Up Automated Source Codes for Handshake*](https://support.joinhandshake.com/hc/en-us/articles/27540400245271).
     - For Taleo users, ensure the “Allow users to change default ‘External Apply’ URLs” setting is checked.
       - For other ATS systems, we also recommend enabling this for added flexibility
     - Requiring candidates to leave Handshake to apply in your ATS may result in a non-negligible drop-off.
 - **Option #2: Candidates apply in Handshake** (i.e. Disable ‘Apply on Handshake’, unchecked)
-  - **Benefits:** Minimizes candidate drop-off.
-  - **Considerations:** Applications will contain only basic information—name, email, resume, and sometimes a cover letter. If you need additional information, Option #1 may be better suited.
+ - **Benefits:** Minimizes candidate drop-off.
+ - **Considerations:** Applications will contain only basic information—name, email, resume, and sometimes a cover letter. If you need additional information, Option #1 may be better suited.
 
 ### 
 

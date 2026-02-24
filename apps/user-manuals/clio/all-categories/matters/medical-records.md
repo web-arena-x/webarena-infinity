@@ -44,7 +44,7 @@ This section of the medical provider's card is relevant to your client's treatme
 This section of the medical provider's card is relevant to the request that you submitted for medical records from this provider. If you do not have all of the information for the medical record request, you can make updates later by editing the medical provider's card.
 
 1. Under **Medical record request date,** select the date that you requested your client's medical records from this medical provider.
-2. Under **Add follow up date**, you can select a date to follow up on the request if you have not received the medical record and create a follow-up task.  
+2. Under **Add follow up date**, you can select a date to follow up on the request if you have not received the medical record and create a follow-up task. 
    - If you check the box for **Create a task to follow up on medical records,** you can select the firm user responsible for the task and the task's priority. You can view the task in the matter's **Tasks** subtab and in the **Tasks** calendar of your main **Calendar** tab as an all-day event. In both spots, you can edit, delete, and mark the task complete.
 3. Under **Medical record status**, select the status of the medical record request. You can choose from the following:
    - **Not yet requested:** Select this option if you have not requested the medical record yet.
@@ -58,7 +58,7 @@ This section of the medical provider's card is relevant to the request that you 
 This section of the medical provider's card is relevant to the request that you submitted for medical bills associated with your client's treatment from this provider. If you do not have all of the information for the medical bill request, you can make updates later by editing the medical provider's card.
 
 1. Under **Medical bill request date,** select the date that you requested your client's medical bill from this medical provider.
-2. Under **Add follow up date**, you can select a date to follow up on the request if you have not received the medical bill and create a follow-up task.  
+2. Under **Add follow up date**, you can select a date to follow up on the request if you have not received the medical bill and create a follow-up task. 
    - If you check the box for **Create a task to follow up on medical records,** you can select the firm user responsible for the task and the task's priority. You can view the task in the matter's **Tasks** subtab and in the **Tasks** calendar of your main **Calendar** tab as an all-day event. In both spots, you can edit, delete, and mark the task complete.
 3. Under **Medical bill status**, select the status of the medical bill request. You can choose from the following:
    - **Not yet requested:** Select this option if you have not requested the medical bill yet.
@@ -115,7 +115,7 @@ Once you have added medical providers to your client's matter and sent out medic
 1. Go to the matter and select the **Medical Records** subtab.
 2. In the right corner of the medical provider's card, click the pencil icon that represents **Edit details**.
 3. Scroll down to the **Bill request dates** section.
-4. Under the **Bill request dates** section, you can select the **Medical bill request date**, **Add follow up date**, **Medical bill status**, and check the box to **Create a task to follow up on medical records**.  
+4. Under the **Bill request dates** section, you can select the **Medical bill request date**, **Add follow up date**, **Medical bill status**, and check the box to **Create a task to follow up on medical records**. 
    - The medical provider's card will show the **Request date** and **Follow up date**. If you do not enter a date for either of these fields, the medical provider's card will show a blank value under the fields.
    - The medical provider's card will default to the request status as **Not yet requested**. If you change this field, the medical provider's card will show the selected status.
    - If you choose to set a task for a follow-up date, the task will appear in your matter's **Tasks** subtab, your main **Tasks** tab, and in the main **Calendar** tab. You can edit, delete, and mark the task complete from any of those places.

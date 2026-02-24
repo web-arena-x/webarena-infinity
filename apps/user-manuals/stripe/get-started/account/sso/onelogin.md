@@ -171,7 +171,7 @@ There isn’t an official Stripe SAML connector in OneLogin yet. The only availa
 To authenticate a team member to Stripe and assign them roles, configure OneLogin to send the roles in the SAML assertions.
 
 1. Go to the **Parameters** section, and create a new **Field**
-   - Set the **Field name** to  `Stripe-Role-` . This identifies which account you sign in to.
+   - Set the **Field name** to `Stripe-Role-` . This identifies which account you sign in to.
    - Select **Include in SAML assertion**.
 2. In the next form, select the [Dashboard role](/get-started/account/teams/roles) you want your users to have by default. Select **Macro**, and input the desired default role in the field below
 
@@ -300,8 +300,8 @@ Send Stripe an assertion from your identity provider to grant a team member acce
 
 ```
 <saml2:attribute name="Stripe-Role-STRIPE-ACCOUNT-ID" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
-  <saml2:attributevalue>none
-  </saml2:attributevalue>
+ <saml2:attributevalue>none
+ </saml2:attributevalue>
 </saml2:attribute>
 ```
 

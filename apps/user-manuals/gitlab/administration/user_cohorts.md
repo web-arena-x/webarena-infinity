@@ -15,18 +15,13 @@ title: User Cohorts
 
 You can analyze your users' GitLab activities over time.
 
-How do you interpret the user cohorts table? Let's review an example with the
-following user cohorts:
+How do you interpret the user cohorts table? Let's review an example with the following user cohorts:
 
 ![User cohort table showing retention and inactivity metrics, highlighting March and April 2020.](img/cohorts_v13_9.png)
 
-For the cohort of March 2020, three users were added to this server and have
-been active since this month. One month later (April 2020), two users are still
-active. Five months later (August 2020), one user from this cohort is still
-active, or 33% of the original cohort of three that joined in March.
+For the cohort of March 2020, three users were added to this server and have been active since this month. One month later (April 2020), two users are still active. Five months later (August 2020), one user from this cohort is still active, or 33% of the original cohort of three that joined in March.
 
-The **Inactive users** column shows the number of users who were added during
-the month, but who never had any activity in the instance.
+The **Inactive users** column shows the number of users who were added during the month, but who never had any activity in the instance.
 
 How do we measure the activity of users? GitLab considers a user active if:
 

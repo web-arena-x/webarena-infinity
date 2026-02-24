@@ -31,8 +31,7 @@ To access your profile:
 1. Select your name or username.
 
 You can also access a users' profile page by using the ID instead of the username at `https://gitlab.example.com/-/u/<id>`.
-For example, if your username is `gitlab-user` has an ID `12345`, you can access the profile page either at
-`https://gitlab.example.com/gitlab-user` or `https://gitlab.example.com/-/u/12345`.
+For example, if your username is `gitlab-user` has an ID `12345`, you can access the profile page either at `https://gitlab.example.com/gitlab-user` or `https://gitlab.example.com/-/u/12345`.
 
 ## Find the user ID
 
@@ -65,8 +64,7 @@ To generate a new Support PIN:
 
 ## Access your Support PIN
 
-If you've created a Support PIN previously,
-the PIN is accessible in your profile and expires seven days after creation.
+If you've created a Support PIN previously, the PIN is accessible in your profile and expires seven days after creation.
 
 To access your Support PIN:
 
@@ -76,24 +74,21 @@ To access your Support PIN:
 
 ## Change your username
 
-Your username has a unique [namespace](../namespace/_index.md),
-which is updated when you change your username. Before you change your username, read about
-[how redirects behave](../project/repository/_index.md#repository-path-changes).
+Your username has a unique [namespace](../namespace/_index.md), which is updated when you change your username. Before you change your username, read about [how redirects behave](../project/repository/_index.md#repository-path-changes).
 If you do not want to update the namespace, you can create a new user or group and transfer projects to it instead.
 
 Prerequisites:
 
 - Your namespace must not:
-  - Contain a project with [Container Registry](../packages/container_registry/_index.md) tags.
-  - Have a project that hosts [GitLab Pages](../project/pages/_index.md).
+ - Contain a project with [Container Registry](../packages/container_registry/_index.md) tags.
+ - Have a project that hosts [GitLab Pages](../project/pages/_index.md).
 - Your username:
-  - Must be between 2 and 255 characters in length.
-  - Must only include non-accented letters, digits, `_`, `-`, and `.`.
-  - Must not:
+ - Must be between 2 and 255 characters in length.
+ - Must only include non-accented letters, digits, `_`, `-`, and `.`.
+ - Must not:
     - Start with `_`, `-`, or `.`.
     - Contain emoji.
-    - End with `.` or `.<reserved file extension>`, for example `jon.png`, `jon.git` or `jon.atom`. However,
-      `jonpng` is valid.
+    - End with `.` or `.<reserved file extension>`, for example `jon.png`, `jon.git` or `jon.atom`. However, `jonpng` is valid.
 
 To change your username:
 
@@ -121,8 +116,7 @@ You can update your [primary email address](#change-your-primary-email).
 
 {{< alert type="note" >}}
 
-[Making your email non-public](#set-your-public-email) does not prevent it from being used for commit matching and
-[group and project imports](../import/_index.md).
+[Making your email non-public](#set-your-public-email) does not prevent it from being used for commit matching and [group and project imports](../import/_index.md).
 
 {{< /alert >}}
 
@@ -134,18 +128,15 @@ You can update your [primary email address](#change-your-primary-email).
 
 {{< /history >}}
 
-You can delete a secondary email address from your account. You cannot delete your
-primary email address.
+You can delete a secondary email address from your account. You cannot delete your primary email address.
 
-If the deleted email address is used for any user emails, those user emails are
-sent to the primary email address instead.
+If the deleted email address is used for any user emails, those user emails are sent to the primary email address instead.
 
 Unverified secondary email addresses are automatically deleted after three days.
 
 {{< alert type="note" >}}
 
-Because of [issue 438600](https://gitlab.com/gitlab-org/gitlab/-/issues/438600), group notifications are still sent to
-the deleted email address.
+Because of [issue 438600](https://gitlab.com/gitlab-org/gitlab/-/issues/438600), group notifications are still sent to the deleted email address.
 
 {{< /alert >}}
 
@@ -183,26 +174,21 @@ The following is hidden from your user profile page (`https://gitlab.example.com
 
 {{< alert type="note" >}}
 
-Making your user profile page private does not hide all your public resources from
-the REST or GraphQL APIs. For example, the email address associated with your commit
-signature is accessible unless you [use an automatically-generated private commit email](#use-an-automatically-generated-private-commit-email).
+Making your user profile page private does not hide all your public resources from the REST or GraphQL APIs. For example, the email address associated with your commit signature is accessible unless you [use an automatically-generated private commit email](#use-an-automatically-generated-private-commit-email).
 
 {{< /alert >}}
 
 ### User visibility
 
-The public page of a user, located at `/username`, is always visible whether you are signed-in or
-not.
+The public page of a user, located at `/username`, is always visible whether you are signed-in or not.
 
 When visiting the public page of a user, you can only see the projects which you have privileges to.
 
-If the [public level is restricted](../../administration/settings/visibility_and_access_controls.md#restrict-visibility-levels),
-user profiles are only visible to authenticated users.
+If the [public level is restricted](../../administration/settings/visibility_and_access_controls.md#restrict-visibility-levels), user profiles are only visible to authenticated users.
 
 ## Add details to your profile with a README
 
-You can add more information to your profile page with a README file. When you populate
-the README file with information, it's included on your profile page.
+You can add more information to your profile page with a README file. When you populate the README file with information, it's included on your profile page.
 
 ### From a new project
 
@@ -226,9 +212,7 @@ GitLab displays the contents of your README below your contribution graph.
 
 ### From an existing project
 
-To add the README from an existing project to your profile,
-[update the path](../project/working_with_projects.md#rename-a-repository) of the project
-to match your username.
+To add the README from an existing project to your profile, [update the path](../project/working_with_projects.md#rename-a-repository) of the project to match your username.
 
 ## Add external accounts to your user profile page
 
@@ -272,8 +256,7 @@ To show private contributions:
 
 ## Add your gender pronouns
 
-You can add your gender pronouns to your GitLab account to be displayed next to
-your name in your profile.
+You can add your gender pronouns to your GitLab account to be displayed next to your name in your profile.
 
 To specify your pronouns:
 
@@ -284,8 +267,7 @@ To specify your pronouns:
 
 ## Add your name pronunciation
 
-You can add your name pronunciation to your GitLab account. This is displayed in your profile, below
-your name.
+You can add your name pronunciation to your GitLab account. This is displayed in your profile, below your name.
 
 To add your name pronunciation:
 
@@ -345,8 +327,7 @@ To change your commit email:
 ## Change your primary email
 
 Your primary email is the default email address for your login, commit email, and notification email.
-If your primary email changes, your original primary email is added as a secondary email. This feature
-allows commits made with your original primary email to remain associated with your account.
+If your primary email changes, your original primary email is added as a secondary email. This feature allows commits made with your original primary email to remain associated with your account.
 
 To change your primary email:
 
@@ -367,8 +348,7 @@ You can select one of your [configured email addresses](#add-emails-to-your-user
 
 ### Use an automatically-generated private commit email
 
-GitLab provides an automatically-generated private commit email address,
-so you can keep your email information private.
+GitLab provides an automatically-generated private commit email address, so you can keep your email information private.
 
 To use a private commit email:
 
@@ -379,8 +359,7 @@ To use a private commit email:
 
 Every Git-related action uses the private commit email.
 
-To stay fully anonymous, you can also copy the private commit email
-and configure it on your local machine by using the following command:
+To stay fully anonymous, you can also copy the private commit email and configure it on your local machine by using the following command:
 
 ```shell
 git config --global user.email <your email address>
@@ -392,13 +371,11 @@ You can follow or unfollow users from either:
 
 - Their [user profiles](#access-your-user-profile).
 - The small popover that appears when you hover over a user's name ([introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/76050)
-  in GitLab 15.0).
+ in GitLab 15.0).
 
-In [GitLab 15.5 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/360755),
-the maximum number of users you can follow is 300.
+In [GitLab 15.5 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/360755), the maximum number of users you can follow is 300.
 
-In [GitLab 16.10 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/441774),
-blocked users don't appear in the followers list on user profiles.
+In [GitLab 16.10 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/441774), blocked users don't appear in the followers list on user profiles.
 
 ### Disable following and being followed by other users
 
@@ -463,8 +440,7 @@ To connect a sign-in service to use for signing in to GitLab:
 1. Select **Edit profile**.
 1. Select **Account**.
 1. Locate the **Service sign-in** section.
-1. Under the **Connected Accounts** section, select the button that corresponds with the service you want to sign in
-   with.
+1. Under the **Connected Accounts** section, select the button that corresponds with the service you want to sign in with.
 1. Follow the instructions for the selected service to start signing in with it.
 
 ### Disconnect a sign-in service
@@ -475,18 +451,15 @@ To disconnect a sign-in service used for signing in to GitLab:
 1. Select **Edit profile**.
 1. Select **Account**.
 1. Locate the **Service sign-in** section.
-1. Under the **Connected Accounts** section, select **Disconnect** next to the button that corresponds with the service
-   you no longer want to sign in with.
+1. Under the **Connected Accounts** section, select **Disconnect** next to the button that corresponds with the service you no longer want to sign in with.
 
 ## Session duration
 
 ### Stay signed in for one week
 
-By default, you are signed out of GitLab after seven days (10080 minutes) of inactivity or until you close your browser
-window, whichever comes first.
+By default, you are signed out of GitLab after seven days (10080 minutes) of inactivity or until you close your browser window, whichever comes first.
 
-GitLab administrators can
-[change this default](../../administration/settings/account_and_limit_settings.md#customize-the-default-session-duration).
+GitLab administrators can [change this default](../../administration/settings/account_and_limit_settings.md#customize-the-default-session-duration).
 
 ### Stay signed in indefinitely
 
@@ -498,20 +471,18 @@ GitLab administrators can
 
 To remain signed in indefinitely, select the **Remember me** checkbox on the GitLab sign-in page.
 
-You remain signed in because, although the server sets a session time of one week, your browser stores a secure token
-that enables automatic reauthentication.
+You remain signed in because, although the server sets a session time of one week, your browser stores a secure token that enables automatic reauthentication.
 
-GitLab administrators can [turn off the **Remember me** setting](../../administration/settings/account_and_limit_settings.md#session-duration) for environments
-that require sessions to expire periodically for security or compliance purposes.
+GitLab administrators can [turn off the **Remember me** setting](../../administration/settings/account_and_limit_settings.md#session-duration) for environments that require sessions to expire periodically for security or compliance purposes.
 
 ### Cookies used for sign-in
 
 When you sign in, three cookies are set:
 
 - A session cookie called `_gitlab_session`.
-  This cookie has no set expiration date. However, it expires based on its `session_expire_delay`.
+ This cookie has no set expiration date. However, it expires based on its `session_expire_delay`.
 - A session cookie called `gitlab_user`.
-  This cookie is used by the [marketing site](https://about.gitlab.com/) to determine if a user has an active GitLab session. No user information is passed to the cookie and it expires two weeks from login.
+ This cookie is used by the [marketing site](https://about.gitlab.com/) to determine if a user has an active GitLab session. No user information is passed to the cookie and it expires two weeks from login.
 - A persistent cookie called `remember_user_token`, which is set only if you selected **Remember me** on the sign-in page.
 
 When you close your browser, the `_gitlab_session` and `gitlab_user` cookies are usually cleared client-side.
@@ -524,10 +495,8 @@ When both the `remember_user_token` and `_gitlab_session` cookies are gone or ex
 
 {{< alert type="note" >}}
 
-When any session is signed out, or when a session is revoked
-from the [active sessions list](active_sessions.md), all **Remember me** tokens are revoked.
-While other sessions remain active, the **Remember me** feature doesn't restore
-a session if the browser is closed or the existing session expires.
+When any session is signed out, or when a session is revoked from the [active sessions list](active_sessions.md), all **Remember me** tokens are revoked.
+While other sessions remain active, the **Remember me** feature doesn't restore a session if the browser is closed or the existing session expires.
 
 {{< /alert >}}
 
@@ -538,8 +507,8 @@ a session if the browser is closed or the existing session expires.
 - [Locked user accounts](../../security/unlock_user.md)
 - [Change your password](user_passwords.md)
 - Receive emails for:
-  - [Sign-ins from unknown IP addresses or devices](notifications.md#notifications-for-unknown-sign-ins)
-  - [Attempted sign-ins using incorrect verification codes](notifications.md#notifications-for-attempted-sign-ins-using-incorrect-verification-codes)
+ - [Sign-ins from unknown IP addresses or devices](notifications.md#notifications-for-unknown-sign-ins)
+ - [Attempted sign-ins using incorrect verification codes](notifications.md#notifications-for-attempted-sign-ins-using-incorrect-verification-codes)
 - Manage applications that can [use GitLab as an OAuth provider](../../integration/oauth_provider.md)
 - Manage [personal access tokens](personal_access_tokens.md) to access your account through the API and authorized applications
 - Manage [SSH keys](../ssh.md) to access your account by using SSH

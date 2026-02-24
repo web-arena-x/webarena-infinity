@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/8096478451098-Migrating-le
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Explore Professional or Enterprise |
 
@@ -40,9 +40,9 @@ Explore helps you see which of your dashboards can be used immediately in the ne
 
 - In Explore, click the **Dashboards library** icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Explore_dashboard_icon.png)) on the left sidebar.
 
-  In the list of dashboards, you can see the migration status of each dashboard in the **Migration** column.
+ In the list of dashboards, you can see the migration status of each dashboard in the **Migration** column.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Explore_migrat_1.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Explore_migrat_1.png)
 
 For each dashboard, one of the following migration statuses is displayed:
 

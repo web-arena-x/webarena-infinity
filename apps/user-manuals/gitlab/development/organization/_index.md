@@ -6,18 +6,13 @@ description: 'Development Guidelines: learn about organization when developing G
 title: Organization
 ---
 
-The [Organization initiative](../../user/organization/_index.md) focuses on reaching feature parity between
-GitLab.com and GitLab Self-Managed.
+The [Organization initiative](../../user/organization/_index.md) focuses on reaching feature parity between GitLab.com and GitLab Self-Managed.
 
 ## Consolidate groups and projects
 
 - [Architecture design document](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/consolidating_groups_and_projects/)
 
-One facet of the Organization initiative is to consolidate groups and projects,
-addressing the feature disparity between them. Some features, such as epics, are
-only available at the group level. Some features, such as issues, are only available
-at the project level. Other features, such as milestones, are available to both groups
-and projects.
+One facet of the Organization initiative is to consolidate groups and projects, addressing the feature disparity between them. Some features, such as epics, are only available at the group level. Some features, such as issues, are only available at the project level. Other features, such as milestones, are available to both groups and projects.
 
 We receive many requests to add features either to the group or project level.
 Moving features around to different levels is problematic on multiple levels:
@@ -26,22 +21,13 @@ Moving features around to different levels is problematic on multiple levels:
 - It requires UX overhead to maintain mental models of feature availability.
 - It creates redundant code.
 
-When features are copied from one level (project, group, or instance) to another,
-the copies often have small, nuanced differences between them. These nuances cause
-extra engineering time when fixes are needed, because the fix must be copied to
-several locations. These nuances also create different user experiences when the
-feature is used in different places.
+When features are copied from one level (project, group, or instance) to another, the copies often have small, nuanced differences between them. These nuances cause extra engineering time when fixes are needed, because the fix must be copied to several locations. These nuances also create different user experiences when the feature is used in different places.
 
-A solution for this problem is to consolidate groups and projects into a single
-entity, `namespace`. The work on this solution is split into several phases and
-is tracked in [epic 6473](https://gitlab.com/groups/gitlab-org/-/epics/6473).
+A solution for this problem is to consolidate groups and projects into a single entity, `namespace`. The work on this solution is split into several phases and is tracked in [epic 6473](https://gitlab.com/groups/gitlab-org/-/epics/6473).
 
 ## How to plan features that interact with Group and ProjectNamespace
 
-As of now, every Project in the system has a record in the `namespaces` table. This makes it possible to
-use common interface to create features that are shared between Groups and Projects. Shared behavior can be added using
-a concerns mechanism. Because the `Namespace` model is responsible for `UserNamespace` methods as well, it is discouraged
-to use the `Namespace` model for shared behavior for Projects and Groups.
+As of now, every Project in the system has a record in the `namespaces` table. This makes it possible to use common interface to create features that are shared between Groups and Projects. Shared behavior can be added using a concerns mechanism. Because the `Namespace` model is responsible for `UserNamespace` methods as well, it is discouraged to use the `Namespace` model for shared behavior for Projects and Groups.
 
 ### Resource-based features
 
@@ -50,15 +36,15 @@ To migrate resource-based features, existing functionality will need to be suppo
 **Phase 1 - Setup**
 
 - Link into the namespaces table
-  - Add a column to the table
-  - For example, in issues a `project id` points to the projects table. We need to establish a link to the `namespaces` table.
-  - Modify code so that any new record already has the correct data in it
-  - Backfill
+ - Add a column to the table
+ - For example, in issues a `project id` points to the projects table. We need to establish a link to the `namespaces` table.
+ - Modify code so that any new record already has the correct data in it
+ - Backfill
 
 **Phase 2 - Prerequisite work**
 
 - Investigate the permission model as well as any performance concerns related to that.
-  - Permissions need to be checked and kept in place.
+ - Permissions need to be checked and kept in place.
 - Investigate what other models need to support namespaces for functionality dependent on features you migrate in Phase 1.
 - Adjust CRUD services and APIs (REST and GraphQL) to point to the new column you added in Phase 1.
 - Consider performance when fetching resources.
@@ -67,8 +53,7 @@ Introducing new functionality is very much dependent on every single team and fe
 
 ### Settings-related features
 
-Right now, cascading settings are available for `NamespaceSettings`. By creating `ProjectNamespace`,
-we can use this framework to make sure that some settings are applicable on the project level as well.
+Right now, cascading settings are available for `NamespaceSettings`. By creating `ProjectNamespace`, we can use this framework to make sure that some settings are applicable on the project level as well.
 
 When working on settings, we need to make sure that:
 
@@ -86,11 +71,11 @@ In `config/routes.rb`, all routes are defined within a scope block:
 
 ```ruby
 scope(
-  path: '/o/:organization_path',
-  constraints: { organization_path: Gitlab::PathRegex.organization_route_regex },
-  as: :organization
+ path: '/o/:organization_path',
+ constraints: { organization_path: Gitlab::PathRegex.organization_route_regex },
+ as: :organization
 ) do
-  draw_all_routes
+ draw_all_routes
 end
 ```
 
@@ -140,7 +125,7 @@ Use explicit organization helpers only when you need to generate a URL for a spe
 ```ruby
 # Explicit organization helpers
 organization_projects_path(organization_path: 'my-org')           # /o/my-org/projects
-organization_project_issues_path(@project, organization_path: 'my-org')  # /o/my-org/namespace/project/-/issues
+organization_project_issues_path(@project, organization_path: 'my-org') # /o/my-org/namespace/project/-/issues
 ```
 
 ## Organizations & cells
@@ -156,31 +141,20 @@ All tables with the following [`gitlab_schema`](../cells/_index.md#available-cel
 - `gitlab_sec`
 - `gitlab_main_user`
 
-All newly created organization-level tables are required to have a `sharding_key`
-defined in the corresponding `db/docs/` file for that table.
+All newly created organization-level tables are required to have a `sharding_key` defined in the corresponding `db/docs/` file for that table.
 
-The purpose of the sharding key is documented in the
-[Organization isolation blueprint](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/organization/isolation/),
-but in short this column is used to provide a standard way of determining which
-Organization owns a particular row in the database. The column will be used in
-the future to enforce constraints on data not cross Organization boundaries. It
-will also be used in the future to provide a uniform way to migrate data
-between Cells.
+The purpose of the sharding key is documented in the [Organization isolation blueprint](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/organization/isolation/), but in short this column is used to provide a standard way of determining which Organization owns a particular row in the database. The column will be used in the future to enforce constraints on data not cross Organization boundaries. It will also be used in the future to provide a uniform way to migrate data between Cells.
 
-The actual name of the foreign key can be anything but it must reference a row
-in `projects` or `groups`. The chosen `sharding_key` column must be non-nullable.
+The actual name of the foreign key can be anything but it must reference a row in `projects` or `groups`. The chosen `sharding_key` column must be non-nullable.
 
-Setting multiple `sharding_key`, with nullable columns are also allowed, provided that
-the table has a check constraint that correctly ensures exactly one of the keys must be non-nullable for a row in the table.
+Setting multiple `sharding_key`, with nullable columns are also allowed, provided that the table has a check constraint that correctly ensures exactly one of the keys must be non-nullable for a row in the table.
 See [`NOT NULL` constraints for multiple columns](../database/not_null_constraints.md#not-null-constraints-for-multiple-columns)
 for instructions on creating these constraints. The reasoning for adding sharding keys, and which keys to add to a table/row, goes like this:
 
 - In order to move organizations across cells, we want `organization_id` on all rows of all tables
-- But `organization_id` on rows that are actually owned by a top-level group (or its subgroups or projects) makes top-level group
-  transfer inefficient (due to `organization_id` rewrites) to the point of being impractical
+- But `organization_id` on rows that are actually owned by a top-level group (or its subgroups or projects) makes top-level group transfer inefficient (due to `organization_id` rewrites) to the point of being impractical
 - Compromise: Add `organization_id` or `namespace_id` to all rows of all tables
-- But `namespace_id` on rows of tables that are actually owned by projects makes project transfer (and certain subgroup transfers) inefficient
-  (due to `namespace_id` rewrites) to the point of being impractical
+- But `namespace_id` on rows of tables that are actually owned by projects makes project transfer (and certain subgroup transfers) inefficient (due to `namespace_id` rewrites) to the point of being impractical
 - Compromise: Add `organization_id` or `namespace_id` or `project_id` to all rows of all tables, which ever is the most specific
 
 #### Conclusions
@@ -199,88 +173,68 @@ The following are examples of valid sharding keys:
 
 - The table entries belong to a project only:
 
-  ```yaml
-  sharding_key:
+ ```yaml
+ sharding_key:
     project_id: projects
-  ```
+ ```
 
 - The table entries belong to a project and the foreign key is `target_project_id`:
 
-  ```yaml
-  sharding_key:
+ ```yaml
+ sharding_key:
     target_project_id: projects
-  ```
+ ```
 
 - The table entries belong to a namespace/group only:
 
-  ```yaml
-  sharding_key:
+ ```yaml
+ sharding_key:
     namespace_id: namespaces
-  ```
+ ```
 
 - The table entries belong to a namespace/group only and the foreign key is `group_id`:
 
-  ```yaml
-  sharding_key:
+ ```yaml
+ sharding_key:
     group_id: namespaces
-  ```
+ ```
 
 - The table entries belong to a namespace or a project:
 
-  ```yaml
-  sharding_key:
+ ```yaml
+ sharding_key:
     project_id: projects
     namespace_id: namespaces
-  ```
+ ```
 
 - (Only for `gitlab_main_user`) The table entries belong to a user only:
 
-  ```yaml
-  sharding_key:
+ ```yaml
+ sharding_key:
     user_id: users
-  ```
+ ```
 
 #### The sharding key must be immutable
 
-The choice of a `sharding_key` should always be immutable. This is because the
-sharding key column will be used as an index for the planned
-[Org Mover](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/cells/migration/),
-and also the
-[enforcement of isolation](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/organization/isolation/)
+The choice of a `sharding_key` should always be immutable. This is because the sharding key column will be used as an index for the planned [Org Mover](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/cells/migration/), and also the [enforcement of isolation](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/organization/isolation/)
 of Organization data.
 Any mutation of the `sharding_key` could result in in-consistent data being read.
 
-Therefore, if your feature requires a user experience which allows data to be
-moved between projects or groups/namespaces, then you may need to redesign the
-move feature to create new rows.
-An example of this can be seen in the
-[move an issue feature](../../user/project/issues/managing_issues.md#move-an-issue).
-This feature does not actually change the `project_id` column for an existing
-`issues` row but instead creates a new `issues` row and creates a link in the
-database from the original `issues` row.
-If there is a particularly challenging
-existing feature that needs to allow moving data you will need to reach out to
-the Tenant Scale team early on to discuss options for how to manage the
-sharding key.
+Therefore, if your feature requires a user experience which allows data to be moved between projects or groups/namespaces, then you may need to redesign the move feature to create new rows.
+An example of this can be seen in the [move an issue feature](../../user/project/issues/managing_issues.md#move-an-issue).
+This feature does not actually change the `project_id` column for an existing `issues` row but instead creates a new `issues` row and creates a link in the database from the original `issues` row.
+If there is a particularly challenging existing feature that needs to allow moving data you will need to reach out to the Tenant Scale team early on to discuss options for how to manage the sharding key.
 
 #### Using `namespace_id` as sharding key
 
-The `namespaces` table has rows that can refer to a `Group`, a `ProjectNamespace`,
-or a `UserNamespace`. The `UserNamespace` type is also known as a personal namespace.
+The `namespaces` table has rows that can refer to a `Group`, a `ProjectNamespace`, or a `UserNamespace`. The `UserNamespace` type is also known as a personal namespace.
 
-Using a `namespace_id` as a sharding key is a good option, except when `namespace_id`
-refers to a `UserNamespace`. Because a user does not necessarily have a related
-`namespace` record, this sharding key can be `NULL`. A sharding key should not
-have `NULL` values.
+Using a `namespace_id` as a sharding key is a good option, except when `namespace_id` refers to a `UserNamespace`. Because a user does not necessarily have a related `namespace` record, this sharding key can be `NULL`. A sharding key should not have `NULL` values.
 
 #### Using the same sharding key for projects and namespaces
 
-Developers may also choose to use `namespace_id` only for tables that can
-belong to a project where the feature used by the table is being developed
-following the
-[Consolidating Groups and Projects blueprint](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/consolidating_groups_and_projects/).
-In that case the `namespace_id` would need to be the ID of the
-`ProjectNamespace` and not the group that the namespace belongs to.
+Developers may also choose to use `namespace_id` only for tables that can belong to a project where the feature used by the table is being developed following the [Consolidating Groups and Projects blueprint](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/consolidating_groups_and_projects/).
+In that case the `namespace_id` would need to be the ID of the `ProjectNamespace` and not the group that the namespace belongs to.
 
 #### Using `organization_id` as sharding key
 
@@ -292,7 +246,7 @@ In such cases, `organization_id` is an option for the sharding key, provided the
 - The `sharding_key` column still needs to be [immutable](#the-sharding-key-must-be-immutable).
 - Only add `organization_id` for root level models (for example, `namespaces`), and not leaf-level models (for example, `issues`).
 - Ensure such tables do not contain data related to groups, or projects (or records that belong to groups / projects).
-  Instead, use `project_id`, or `namespace_id`.
+ Instead, use `project_id`, or `namespace_id`.
 - Tables with lots of rows are not good candidates because we would need to re-write every row if we move the entity to a different organization which can be expensive.
 - When there are other tables referencing this table, the application should continue to work if the referencing table records are moved to a different organization.
 
@@ -312,14 +266,9 @@ See the following [guidance](sharding/_index.md).
 We need to backfill a `sharding_key` to hundreds of tables that do not have one.
 This process will involve creating a merge request like
 <https://gitlab.com/gitlab-org/gitlab/-/merge_requests/136800> to add the new
-column, backfill the data from a related table in the database, and then create
-subsequent merge requests to add indexes, foreign keys and not-null
-constraints.
+column, backfill the data from a related table in the database, and then create subsequent merge requests to add indexes, foreign keys and not-null constraints.
 
-In order to minimize the amount of repetitive effort for developers we've
-introduced a concise declarative way to describe how to backfill the
-`sharding_key` for this specific table. With the help of [`gitlab-housekeeper`](https://gitlab.com/gitlab-org/gitlab/-/tree/master/gems/gitlab-housekeeper) you can
-create the MRs with the desired changes rather than manually doing it.
+In order to minimize the amount of repetitive effort for developers we've introduced a concise declarative way to describe how to backfill the `sharding_key` for this specific table. With the help of [`gitlab-housekeeper`](https://gitlab.com/gitlab-org/gitlab/-/tree/master/gems/gitlab-housekeeper) you can create the MRs with the desired changes rather than manually doing it.
 
 An example of the `desired_sharding_key` was added in
 <https://gitlab.com/gitlab-org/gitlab/-/merge_requests/139336> and it looks like:
@@ -333,7 +282,7 @@ classes:
 # ...
 
 desired_sharding_key:
-  project_id:
+ project_id:
     references: projects
     backfill_via:
       parent:
@@ -344,24 +293,18 @@ desired_sharding_key:
         belongs_to: scanner
 ```
 
-To understand best how this YAML data will be used you can map it onto
-the merge request we created manually in GraphQL
+To understand best how this YAML data will be used you can map it onto the merge request we created manually in GraphQL
 <https://gitlab.com/gitlab-org/gitlab/-/merge_requests/136800>. The content of the YAML specifies
-the parent table and its `sharding_key` to backfill from in the batched
-background migration. It also specifies a `belongs_to` relation which
-will be added to the model to populate the `sharding_key` in
-the `before_save`.
+the parent table and its `sharding_key` to backfill from in the batched background migration. It also specifies a `belongs_to` relation which will be added to the model to populate the `sharding_key` in the `before_save`.
 
 ##### Define a `desired_sharding_key` when the parent table also has one
 
-By default, a `desired_sharding_key` configuration will validate that the chosen `sharding_key`
-exists on the parent table. However, if the parent table also has a `desired_sharding_key` configuration
-and is itself waiting to be backfilled, you need to include the `awaiting_backfill_on_parent` field.
+By default, a `desired_sharding_key` configuration will validate that the chosen `sharding_key` exists on the parent table. However, if the parent table also has a `desired_sharding_key` configuration and is itself waiting to be backfilled, you need to include the `awaiting_backfill_on_parent` field.
 For example:
 
 ```yaml
 desired_sharding_key:
-  project_id:
+ project_id:
     references: projects
     backfill_via:
       parent:
@@ -373,17 +316,12 @@ desired_sharding_key:
     awaiting_backfill_on_parent: true
 ```
 
-There are likely edge cases where this `desired_sharding_key` structure is not
-suitable for backfilling a `sharding_key`. In such cases the team owning the
-table will need to create the necessary merge requests to add the
-`sharding_key` manually.
+There are likely edge cases where this `desired_sharding_key` structure is not suitable for backfilling a `sharding_key`. In such cases the team owning the table will need to create the necessary merge requests to add the `sharding_key` manually.
 
 ### Ensure sharding key presence on application level
 
 When you define your sharding key you must make sure it's filled on application level.
-Every `ApplicationRecord` model includes a helper `populate_sharding_key`, which
-provides a convenient way of defining sharding key logic,
-and also a corresponding matcher to test your sharding key logic. For example:
+Every `ApplicationRecord` model includes a helper `populate_sharding_key`, which provides a convenient way of defining sharding key logic, and also a corresponding matcher to test your sharding key logic. For example:
 
 ```ruby
 # in model.rb
@@ -424,13 +362,13 @@ This restriction is enforced by a RuboCop rule. For these cases, derive the orga
 
 ```ruby
 module API
-  class SomeAPIEndpoint < ::API::Base
+ class SomeAPIEndpoint < ::API::Base
     before do
       set_current_organization # This will set Current.organization
     end
 
     # ... api logic ...
-  end
+ end
 end
 ```
 
@@ -462,6 +400,6 @@ To populate the `organization_id` column, use these methods in order of preferen
 ## Related topics
 
 - [Consolidating groups and projects](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/consolidating_groups_and_projects/)
-  architecture documentation
+ architecture documentation
 - [Organization user documentation](../../user/organization/_index.md)
 - [Writing tests with Organizations](../../development/testing_guide/testing_with_organizations.md)

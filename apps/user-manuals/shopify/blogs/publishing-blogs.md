@@ -45,7 +45,7 @@ Desktop
 6. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -73,10 +73,9 @@ Desktop
 5. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Content** menu, tap the  icon, and then tap **Blog posts**.
-3. Tap  or  > **Manage blogs**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Content** menu, tap the icon, and then tap **Blog posts**.
+3. Tap or > **Manage blogs**.
 4. Tap the blog that you want to edit.
 5. In the **Online store** section, tap the **Theme template** menu, and then select the template that you want to use.
 6. Tap **Save** or **✓**.
@@ -103,7 +102,7 @@ Desktop
 6. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -130,9 +129,8 @@ Desktop
 4. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Content** menu, tap the  icon, and then tap **Blog posts**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Content** menu, tap the icon, and then tap **Blog posts**.
 3. Tap the blog post that you want to edit.
 4. In the **Online store** section, tap the **Theme template** menu, and then select the template that you want to use.
 5. Tap **Save** or **✓**.
@@ -178,9 +176,8 @@ Desktop
 4. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Content** menu, tap the  icon, and then tap **Blog posts**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Content** menu, tap the icon, and then tap **Blog posts**.
 3. Tap the blog post where you want to add the feed name for the blog, or [create a new blog post](writing-blogs/working-with-blog-posts.md#add-a-post-to-your-blog).
 4. In the **Content** field, enter some text with the feed name, for example `Subscribe to this blog's RSS feed using https://store.myshopify.com/blogs/blogname.atom`.
 5. Tap **Save** or **✓**.

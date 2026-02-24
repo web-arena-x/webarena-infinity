@@ -32,12 +32,12 @@ When you have a component selected, access the Instance menu in the right sideba
 
 Figma orders components in the Instance menu based on the component's **Name** and **Location**.
 
-- Related components are components that share the same hierarchy. This includes components in the same file, page, and frame.  
+- Related components are components that share the same hierarchy. This includes components in the same file, page, and frame. 
     
-  For example: you can have a **file** containing your app's UI design system, a **page** for each operating system, and **frames** within each page where your components are grouped by type.
-- Figma also groups related components organized using the slash naming structure.  
+ For example: you can have a **file** containing your app's UI design system, a **page** for each operating system, and **frames** within each page where your components are grouped by type.
+- Figma also groups related components organized using the slash naming structure. 
     
-  For example: Figma considers `UI/Button/Active`, `UI/Button/Hover`, and `UI/Button/Inactive` as related components.
+ For example: Figma considers `UI/Button/Active`, `UI/Button/Hover`, and `UI/Button/Inactive` as related components.
 
 ![Three panels showing Figma's Instance menu navigation, organized by slash-naming hierarchy: simple design system, inputs, checkbox.](https://help.figma.com/hc/article_attachments/24302858951959)
 
@@ -49,10 +49,10 @@ To swap an instance using the **Instance** menu:
 2. Click the name of the component to open the Instance menu.
 3. Use the menu to navigate through components:
    1. Select from the group of related components for your selection.
-   2. Use the  field to search a component by name.
-   3. Click  to switch between [libraries added to the file](https://help.figma.com/hc/en-us/articles/360039234953-Enable-Libraries-in-the-Assets-Panel-for-a-Team).
-   4. Click  to navigate to a different group of components.
-   5. Use the  and  to switch between grid and list view.
+   2. Use the field to search a component by name.
+   3. Click to switch between [libraries added to the file](https://help.figma.com/hc/en-us/articles/360039234953-Enable-Libraries-in-the-Assets-Panel-for-a-Team).
+   4. Click to navigate to a different group of components.
+   5. Use the and to switch between grid and list view.
 4. Select an instance to replace the current selection.
 
 ![](https://help.figma.com/hc/article_attachments/24303196234903)
@@ -82,7 +82,7 @@ Swap instances of components from your keyboard using quick insert. Quick insert
 2. Use the shortcut `Shift` `I` to open quick insert.
 3. To locate a component, do one of the following:
    - Use the search field to find a specific component. Use your mouse or arrow keys to navigate to the relevant component.
-   - Use the  and  icons to switch between grid and list view.
+   - Use the and icons to switch between grid and list view.
    - Select from a library that's been added to the file. If a library is not displaying, you may need to add it first. [Manage libraries in design files →](https://help.figma.com/hc/en-us/articles/1500008731201)
 4. Hold down `⌥ Option` (Mac) or `Ctrl` (Windows).
 

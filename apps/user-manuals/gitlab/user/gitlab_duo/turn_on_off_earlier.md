@@ -37,8 +37,7 @@ When GitLab Duo is turned off for a group, project, or instance:
 
 {{< tab title="In 17.8 to 18.1" >}}
 
-In GitLab 17.8 to 18.1, follow these instructions to turn GitLab Duo on or off
-for a group, including its subgroups and projects.
+In GitLab 17.8 to 18.1, follow these instructions to turn GitLab Duo on or off for a group, including its subgroups and projects.
 
 Prerequisites:
 
@@ -58,8 +57,7 @@ To turn GitLab Duo on or off for a group or subgroup:
 
 {{< tab title="In 17.7" >}}
 
-In GitLab 17.7, follow these instructions to turn GitLab Duo on or off
-for a group, including its subgroups and projects.
+In GitLab 17.7, follow these instructions to turn GitLab Duo on or off for a group, including its subgroups and projects.
 
 {{< alert type="note" >}}
 
@@ -87,8 +85,7 @@ To turn GitLab Duo on or off for a top-level group:
 
 {{< tab title="In 17.4 to 17.6" >}}
 
-In GitLab 17.4 to 17.6, follow these instructions to turn GitLab Duo on or off
-for a group and its subgroups and projects.
+In GitLab 17.4 to 17.6, follow these instructions to turn GitLab Duo on or off for a group and its subgroups and projects.
 
 {{< alert type="note" >}}
 
@@ -116,8 +113,7 @@ To turn GitLab Duo on or off for a top-level group:
 
 {{< tab title="In 17.3 and earlier" >}}
 
-In GitLab 17.3 and earlier, follow these instructions to turn GitLab Duo on or off for a group
-and its subgroups and projects.
+In GitLab 17.3 and earlier, follow these instructions to turn GitLab Duo on or off for a group and its subgroups and projects.
 
 Prerequisites:
 
@@ -129,8 +125,7 @@ To turn GitLab Duo on or off for a group or subgroup:
 1. Select **Settings** > **General**.
 1. Expand **Permissions and group features**.
 1. Select or clear the **Use GitLab Duo features** checkbox.
-1. Optional. Select the **Enforce for all subgroups** checkbox to cascade the setting to
-   all subgroups.
+1. Optional. Select the **Enforce for all subgroups** checkbox to cascade the setting to all subgroups.
 
    ![Cascading setting](img/disable_duo_features_v17_1.png)
 
@@ -164,11 +159,9 @@ To turn GitLab Duo on or off for a project:
 
 In GitLab 17.3 and earlier, follow these instructions to turn GitLab Duo on or off for a project.
 
-1. Use the GitLab GraphQL API
-   [`projectSettingsUpdate`](../../api/graphql/reference/_index.md#mutationprojectsettingsupdate)
+1. Use the GitLab GraphQL API [`projectSettingsUpdate`](../../api/graphql/reference/_index.md#mutationprojectsettingsupdate)
    mutation.
-1. Set the
-   [`duo_features_enabled`](../../api/graphql/getting_started.md#update-project-settings)
+1. Set the [`duo_features_enabled`](../../api/graphql/getting_started.md#update-project-settings)
    setting to `true` or `false`.
 
 {{< /tab >}}
@@ -235,8 +228,7 @@ To turn GitLab Duo on or off for an instance:
 1. Select **Settings** > **General**.
 1. Expand **AI-powered features**.
 1. Select or clear the **Use Duo features** checkbox.
-1. Optional. Select the **Enforce for all subgroups** checkbox to cascade
-   the setting to all groups in the instance.
+1. Optional. Select the **Enforce for all subgroups** checkbox to cascade the setting to all groups in the instance.
 
 {{< /tab >}}
 

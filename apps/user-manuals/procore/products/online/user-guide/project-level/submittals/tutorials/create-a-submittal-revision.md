@@ -11,24 +11,24 @@ To create a revision of an existing submittal using the Project level Submitta
 ## Things to Consider
 
 - **Required User Permissions:**
-  - *To create a revision for a submittal that you created:*
-    - 'Read Only' or 'Standard' level permissions on the project's Submittals tool with the ['Create Submittal' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#Submittals "Grant Granular Permissions in a Project Permissions Template") enabled on your permissions template.   
+ - *To create a revision for a submittal that you created:*
+    - 'Read Only' or 'Standard' level permissions on the project's Submittals tool with the ['Create Submittal' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#Submittals "Grant Granular Permissions in a Project Permissions Template") enabled on your permissions template.  
       OR
     - 'Standard' level permissions on the project's Submittals tool without a permissions template assigned to you.
-  - *To create a revision for a submittal that you did not create:*
+ - *To create a revision for a submittal that you did not create:*
     - 'Standard' level permissions on the project's Submittals tool and be designated as the [Submittal Manager](../../../../../../references/construction-management/glossary-of-terms.md#Submittal_Manager "Glossary of Terms").
-  - *To create a revision for any submittal:*
+ - *To create a revision for any submittal:*
     - 'Admin' level permissions on the project's Submittals tool.
 - **Additional Information:**
-  - You can only create a revision for the most current revision of submittal. For example, if a submittal at Revision 0, you can only create Revision 1. To learn more, see [What is a submittal revision?](https://support.procore.com/faq/what-is-a-submittal-revision "What is a submittal revision?")
+ - You can only create a revision for the most current revision of submittal. For example, if a submittal at Revision 0, you can only create Revision 1. To learn more, see [What is a submittal revision?](https://support.procore.com/faq/what-is-a-submittal-revision "What is a submittal revision?")
 
 ## Steps
 
-1. Navigate to the project's **Submittals** tool.  
+1. Navigate to the project's **Submittals** tool. 
    This reveals the Submittals page.
-2. In the Submittals log, locate the desired submittal. Then click **View**.   
+2. In the Submittals log, locate the desired submittal. Then click **View**.  
    This opens the submittal in view mode.
-3. Click the vertical ellipsis![icon-ellipsis-vertical.png](https://support.procore.com/@api/deki/files/158014/icon-ellipsis-vertical.png?revision=2&size=bestfit&width=17&height=17), then click **Create Revision**. This opens the 'Create Revision' page.   
+3. Click the vertical ellipsis![icon-ellipsis-vertical.png](https://support.procore.com/@api/deki/files/158014/icon-ellipsis-vertical.png?revision=2&size=bestfit&width=17&height=17), then click **Create Revision**. This opens the 'Create Revision' page.  
    *Note*: This button is only visible and available when you are viewing the most current revision of a submittal. You can only create a new revision from the most recent one.
 4. Scroll to the 'General Information' area and note that all of the general information from the previous revision is inherited. In addition, the revision number is automatically incremented by one (n +1). In the example below, the previous revision number was 1, so Procore automatically increments the new revision number to 2.
 5. Revise the following submittal information as needed:
@@ -44,7 +44,7 @@ To create a revision of an existing submittal using the Project level Submitta
    - **Description**. Informative details, notes, and/or actions that describe the submittal.
    - **Attachments**. Attach any relevant files. You have these options:
 
-     - Click **Attach File(s)**and then choose the appropriate option from the shortcut menu that appears.  
+     - Click **Attach File(s)**and then choose the appropriate option from the shortcut menu that appears. 
        OR
      - Use a drag-and-drop operation to move files from your computer into the grey **Drag and Drop File(s)** box.
 

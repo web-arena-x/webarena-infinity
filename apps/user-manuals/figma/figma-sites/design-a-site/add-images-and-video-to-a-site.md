@@ -21,7 +21,7 @@ You can enhance your site with photos, graphics, videos, and GIFs . Figma Sites 
 
 Drag and drop files from your computer onto the canvas, or use the media picker to select the files you want to add. You can import multiple files at once.
 
-1. Click  **Image/video** in the toolbar or use the keyboard shortcut:
+1. Click **Image/video** in the toolbar or use the keyboard shortcut:
    - **Mac:** `Shift` `Command` `K`
    - **Windows:** `Shift` `Ctrl` `K`
 2. Select one or more files to upload.
@@ -35,7 +35,7 @@ Drag and drop files from your computer onto the canvas, or use the media picker 
 
 ### Adjust video properties
 
-Video layers show a  icon in the **Layers** panel of the left sidebar.
+Video layers show a icon in the **Layers** panel of the left sidebar.
 
 Since images and videos are treated as fills, you can adjust the design properties of the parent object as you would any other element.
 
@@ -50,7 +50,7 @@ There are also video-specific properties available at the top of the right sideb
 
 You can also embed videos from hosting platforms like YouTube or Vimeo on your site. Video embeds are a special type of element in Figma Sites, and can’t be used as an object fill.
 
-1. Click  **Insert** in the left navigation bar.
+1. Click **Insert** in the left navigation bar.
 2. On the **Blocks** tab, click **Embeds.**
 3. Click and drag the relevant embed block into a webpage or onto the canvas. Use the **URL or HTML** embed if your video platform isn’t listed.
 
@@ -60,7 +60,7 @@ You can also embed videos from hosting platforms like YouTube or Vimeo on your s
 
 There are a few things to consider when choosing where to host your video:
 
-|  | Video upload | Embed |
+| | Video upload | Embed |
 | --- | --- | --- |
 | **File size** | Less than 10MB | More than 10MB |
 | **Accessibility** | Decorative only | Supports captions |

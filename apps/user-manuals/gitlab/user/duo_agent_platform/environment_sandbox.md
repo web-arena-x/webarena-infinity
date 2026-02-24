@@ -2,7 +2,7 @@
 stage: AI-powered
 group: Agent Foundations
 info: To determine the technical writer assigned to the Stage/Group associated with this page, see
-  https://handbook.gitlab.com/handbook/product/ux/technical-writing/#assignments
+ https://handbook.gitlab.com/handbook/product/ux/technical-writing/#assignments
 title: Remote execution environment sandbox
 ---
 
@@ -23,17 +23,11 @@ title: Remote execution environment sandbox
 
 {{< /history >}}
 
-The execution environment sandbox provides application-level network and filesystem isolation
-that helps protect GitLab Duo Agent Platform remote flows from unauthorized network access
-and data exfiltration. It is designed to help prevent data exfiltration attempts,
-loading of malicious code from external sources, and unauthorized data gathering
-while maintaining necessary connectivity for legitimate flow operations.
+The execution environment sandbox provides application-level network and filesystem isolation that helps protect GitLab Duo Agent Platform remote flows from unauthorized network access and data exfiltration. It is designed to help prevent data exfiltration attempts, loading of malicious code from external sources, and unauthorized data gathering while maintaining necessary connectivity for legitimate flow operations.
 
 ## When the sandbox is applied
 
-The execution environment sandbox is automatically applied only when
-using the default GitLab Docker image
-(release [v0.0.6](https://gitlab.com/gitlab-org/duo-workflow/default-docker-image/-/tags/v0.0.6) and later)
+The execution environment sandbox is automatically applied only when using the default GitLab Docker image (release [v0.0.6](https://gitlab.com/gitlab-org/duo-workflow/default-docker-image/-/tags/v0.0.6) and later)
 for the GitLab Duo Agent Platform.
 
 The sandbox is enabled when:
@@ -41,8 +35,7 @@ The sandbox is enabled when:
 - No custom Docker image is specified in `agent-config.yml` file.
 - GitLab Duo Agent Platform sessions are being executed on a runner (local environments are not being sandboxed).
 
-If you specify a [custom Docker image](flows/execution.md#change-the-default-docker-image),
-the sandbox is not applied, and your flow can access any domain reachable from your runner.
+If you specify a [custom Docker image](flows/execution.md#change-the-default-docker-image), the sandbox is not applied, and your flow can access any domain reachable from your runner.
 
 ## Prerequisites
 
@@ -56,12 +49,9 @@ To use the execution environment sandbox, you need:
 
 The execution environment sandbox uses [Anthropic Sandbox Runtime (SRT)](https://github.com/anthropic-experimental/sandbox-runtime) to wrap flow execution with the following protections:
 
-- Network isolation: Intercepts all network requests before they leave
-  the execution environment and validates them against allowlisted domains.
-- Filesystem restrictions: Limits read and write access to specific directories
-  and blocks access to sensitive files.
-- Graceful fallback: If SRT is unavailable or required operating system privileges
-  are missing, the flow runs directly with a warning message.
+- Network isolation: Intercepts all network requests before they leave the execution environment and validates them against allowlisted domains.
+- Filesystem restrictions: Limits read and write access to specific directories and blocks access to sensitive files.
+- Graceful fallback: If SRT is unavailable or required operating system privileges are missing, the flow runs directly with a warning message.
 
 ## Network and filesystem restrictions
 

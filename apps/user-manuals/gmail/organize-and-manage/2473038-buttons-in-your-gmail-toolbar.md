@@ -58,4 +58,4 @@ With hover actions, when you hover to the right of a message, you can archive, d
 2. Click Settings ![](//storage.googleapis.com/support-kms-prod/xb92jAbfMVMbdzm0kHB758Z06LHTohv8Ncjg) ![and then](//lh3.googleusercontent.com/3_l97rr0GvhSP2XV5OoCkV2ZDTIisAOczrSdzNCBxhIKWrjXjHucxNwocghoUa39gw=h36) **See all settings**.
 3. Scroll down to the "Hover actions" section.
 4. Select **Disable hover actions**.
-5. At the bottom of the page, click  **Save changes**.
+5. At the bottom of the page, click **Save changes**.

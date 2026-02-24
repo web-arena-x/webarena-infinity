@@ -18,9 +18,9 @@ Topics:
 ## School Settings
 
 - [Handshake’s School Settings](https://support.joinhandshake.com/hc/en-us/sections/204176117-Handshake-s-School-Settings): Use the articles on this page to set up various aspects of your institution’s settings. Notable articles include:
-  - [School Settings: Major Groups](https://support.joinhandshake.com/hc/en-us/articles/218692828)
-  - [Labels: Archiving Normal or Public Labels](https://support.joinhandshake.com/hc/en-us/articles/360022298874)
-  - [School Settings: Appointment Preferences](https://support.joinhandshake.com/hc/en-us/articles/219132837)
+ - [School Settings: Major Groups](https://support.joinhandshake.com/hc/en-us/articles/218692828)
+ - [Labels: Archiving Normal or Public Labels](https://support.joinhandshake.com/hc/en-us/articles/360022298874)
+ - [School Settings: Appointment Preferences](https://support.joinhandshake.com/hc/en-us/articles/219132837)
 
 ## Collections
 

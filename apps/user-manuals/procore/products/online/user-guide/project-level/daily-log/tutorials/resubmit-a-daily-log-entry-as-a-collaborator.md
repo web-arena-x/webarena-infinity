@@ -15,9 +15,9 @@ If you are designated as an external collaborator for a project's Daily Log to
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Read Only' or 'Standard' on the project's Daily Log tool with the ['Collaborator Entry Only' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#Daily_Log "Grant Granular Permissions in a Permission Template") enabled on your permissions template.
+ - 'Read Only' or 'Standard' on the project's Daily Log tool with the ['Collaborator Entry Only' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#Daily_Log "Grant Granular Permissions in a Permission Template") enabled on your permissions template.
 - **Additional Information:**
-  - If you are a collaborator for the project, the following conditions apply:
+ - If you are a collaborator for the project, the following conditions apply:
     - You can only see the logs that the project has enabled Collaborator Entry for. This could include the Manpower, Daily Construction Report, Notes, and Deliveries logs.
     - You can only select your own company or users from your company in the drop-down menus.
     - You can only see the entries that you have submitted.
@@ -26,7 +26,7 @@ If you are designated as an external collaborator for a project's Daily Log to
 ## Steps
 
 1. Navigate to the **Daily Log** tool.
-2. Locate the entry that you need to resubmit.  
+2. Locate the entry that you need to resubmit. 
    *Note:* Rejected entries are marked in red.
 3. Edit the information on your entry as appropriate.
 4. Click **Resubmit**.

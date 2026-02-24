@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408829098266-Managing-age
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Enterprise or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Enterprise |
 
-Location:  Admin Center > Account > Usage > Flexible agents
+Location: Admin Center > Account > Usage > Flexible agents
 
 The usage report for flexible agent seats is available as a beta release in English only for selected customers. You must have an Enterprise plan with a subscription that includes Agent Months to view this report.
 

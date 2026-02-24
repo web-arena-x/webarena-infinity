@@ -21,10 +21,8 @@ You can configure GitLab Duo on GitLab Self-Managed.
 For GitLab Self-Managed, you can configure GitLab Duo to use:
 
 - Cloud-based AI Gateway (default): GitLab-hosted AI Gateway with vendor language models.
-- Self-hosted models: Your own AI Gateway and language models
-  for full control over your data and security.
-- Hybrid configuration: Self-hosted models for some features
-  and cloud-based models for others.
+- Self-hosted models: Your own AI Gateway and language models for full control over your data and security.
+- Hybrid configuration: Self-hosted models for some features and cloud-based models for others.
 
 For more information, see [configure GitLab Duo on GitLab Self-Managed](gitlab_self_managed.md).
 

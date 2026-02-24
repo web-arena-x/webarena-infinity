@@ -22,9 +22,9 @@ On the **Key Dates** tab, fill in the following fields, then click **Next** i
 
 - **Report Year**: The year that you will be reporting on
 - **Survey Name**: Make sure your first destination survey has a descriptive name that you can refer back to when analyzing. 
-  - **Note**: you'll be able to set a different name for students to view on the next tab.
+ - **Note**: you'll be able to set a different name for students to view on the next tab.
 - **Graduation Groups**: These are the different sets of graduating students that you will be sending the survey to. Refer to [First Destination Graduation Groups](first-destination-graduation-groups.md) for additional information.
-  - Example: send two different invitation and reminder emails to spring undergraduates and graduate students.
+ - Example: send two different invitation and reminder emails to spring undergraduates and graduate students.
 
 #### Survey Details
 
@@ -32,10 +32,10 @@ The **Survey Details** tab is next to complete. Fill in the following fields:
 
 - **Survey Name**: How this survey appears to students in emails and questionnaires. This is helpful if they are added to multiple first destination surveys.
 - **Survey Type**: Choose from one of the four dropdown selections (click the link below to see standard questions for each type):
-  - [Standard (NACE)](first-destination-survey-fds-standard-questions.md)
-  - [MBA CSEA - Full Time](first-destination-survey-fds-mba-csea-questions-full-time.md)
-  - [MBA CSEA - Part Time](first-destination-survey-fds-mba-csea-questions-part-time.md)
-  - [MBA CSEA - Specialty Masters](first-destination-survey-fds-mba-csea-questions-specialty-masters.md)
+ - [Standard (NACE)](first-destination-survey-fds-standard-questions.md)
+ - [MBA CSEA - Full Time](first-destination-survey-fds-mba-csea-questions-full-time.md)
+ - [MBA CSEA - Part Time](first-destination-survey-fds-mba-csea-questions-part-time.md)
+ - [MBA CSEA - Specialty Masters](first-destination-survey-fds-mba-csea-questions-specialty-masters.md)
 - **Is this survey mandatory?** (Check the box if mandatory) This is only used for reporting purposes and will not be reflected in the student experience. This field will help track how making a survey mandatory impacts response rates.
 - **Salary Information Required** (Check the box if required) Leave the box unchecked to allow students to submit responses without salary and pay schedule information.
 - **Disable Handshake Email Content?** (Check the box to disable Handshake's content and enable fully-custom email content, with no Handshake default content besides a 'Take Survey Now' button.)
@@ -43,7 +43,7 @@ The **Survey Details** tab is next to complete. Fill in the following fields:
 - **Minimum Graph data points**: Students will see data compared to their classmates for their type of work and salary information, this will be the minimum responses necessary for students to see the information.
 - **Sender Info**: Invitations and reminder emails will appear to be sent from this person. Sender info can be further customized for each email.
 - **Custom Questions**: If you would like to ask additional questions on your first destination survey you can do so in a survey that you can attach here. You can also create a survey from this page if you have not yet added your additional questions in the surveys section.
-  - Set Skip Logic based on outcome by clicking on "**Use Skip Logic**". Refer to [Use Skip Logic in Your Additional Questions for FDS](use-skip-logic-in-your-additional-questions-for-fds.md) for additional information.
+ - Set Skip Logic based on outcome by clicking on "**Use Skip Logic**". Refer to [Use Skip Logic in Your Additional Questions for FDS](use-skip-logic-in-your-additional-questions-for-fds.md) for additional information.
     - **Note**: to avoid lengthy load times for students, it is recommended that your custom survey does not exceed 125 questions.
 - **Advanced Options - Customize emails for each graduation group**: If you are interested in setting custom invitation and reminder messages for each graduation group that you have setup please review the instructions in [Send Custom Invitation and Reminder Emails to Each Graduation Group](https://support.joinhandshake.com/hc/en-us/articles/360000696428).
 

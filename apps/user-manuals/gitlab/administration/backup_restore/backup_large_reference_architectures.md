@@ -12,8 +12,7 @@ title: Back up and restore large reference architectures
 
 {{< /details >}}
 
-GitLab backups preserve data consistency and enable disaster recovery for
-large-scale GitLab deployments. This process:
+GitLab backups preserve data consistency and enable disaster recovery for large-scale GitLab deployments. This process:
 
 - Coordinates data backups across distributed storage components
 - Preserves PostgreSQL databases up to multiple terabytes in size
@@ -22,9 +21,7 @@ large-scale GitLab deployments. This process:
 - Creates recoverable copies of configuration and secret files
 - Enables restoration of system data with minimal downtime
 
-Follow these procedures for GitLab environments running reference architectures
-that support 3,000+ users, with special considerations for cloud-based
-databases and object storage.
+Follow these procedures for GitLab environments running reference architectures that support 3,000+ users, with special considerations for cloud-based databases and object storage.
 
 {{< alert type="note" >}}
 
@@ -133,12 +130,9 @@ Set up cronjobs to perform Gitaly server-side backups:
 
 1. Configure Gitaly server-side backup destination on all Gitaly nodes by following [Configure server-side backups](../gitaly/configure_gitaly.md#configure-server-side-backups).
    This bucket is used exclusively by Gitaly to store repository data.
-1. While Gitaly backs up all Git repository data in its designated object storage bucket configured previously,
-   the backup utility tool (`gitlab-backup`) uploads additional backup data to a separate bucket. This data includes a `tar` file containing essential metadata for restores.
-   Ensure this backup data is properly uploaded to remote (cloud) storage by following
-   [Upload backups to a remote (cloud) storage](backup_gitlab.md#upload-backups-to-a-remote-cloud-storage) to set up the upload bucket.
-1. (Optional) To solidify the durability of this backup data, back up both buckets configured previously with their respective object store provider by adding them to
-   [backups of object storage data](#configure-backup-of-object-storage-data).
+1. While Gitaly backs up all Git repository data in its designated object storage bucket configured previously, the backup utility tool (`gitlab-backup`) uploads additional backup data to a separate bucket. This data includes a `tar` file containing essential metadata for restores.
+   Ensure this backup data is properly uploaded to remote (cloud) storage by following [Upload backups to a remote (cloud) storage](backup_gitlab.md#upload-backups-to-a-remote-cloud-storage) to set up the upload bucket.
+1. (Optional) To solidify the durability of this backup data, back up both buckets configured previously with their respective object store provider by adding them to [backups of object storage data](#configure-backup-of-object-storage-data).
 1. SSH into a GitLab Rails node, which is a node that runs Puma or Sidekiq.
 1. Take a full backup of your Git data. Use the `REPOSITORIES_SERVER_SIDE` variable, and skip PostgreSQL data:
 
@@ -148,8 +142,7 @@ Set up cronjobs to perform Gitaly server-side backups:
 
    This causes Gitaly nodes to upload the Git data and some metadata to remote storage. Blobs such as uploads, artifacts, and LFS do not need to be explicitly skipped, because the `gitlab-backup` command does not back up object storage by default.
 
-1. Note the [backup ID](backup_archive_process.md#backup-id) of the backup, which is needed for the next step. For example, if the backup command outputs
-   `2024-02-22 02:17:47 UTC -- Backup 1708568263_2024_02_22_16.9.0-ce is done.`, then the backup ID is `1708568263_2024_02_22_16.9.0-ce`.
+1. Note the [backup ID](backup_archive_process.md#backup-id) of the backup, which is needed for the next step. For example, if the backup command outputs `2024-02-22 02:17:47 UTC -- Backup 1708568263_2024_02_22_16.9.0-ce is done.`, then the backup ID is `1708568263_2024_02_22_16.9.0-ce`.
 1. Check that the full backup created data in both the Gitaly backup bucket as well as the regular backup bucket.
 1. Run the [backup command](backup_gitlab.md#backup-command) again, this time specifying [incremental backup of Git repositories](backup_gitlab.md#incremental-repository-backups), and a backup ID. Using the example ID from the previous step, the command is:
 
@@ -178,16 +171,11 @@ Set up cronjobs to perform Gitaly server-side backups:
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-1. Configure Gitaly server-side backup destination on all Gitaly nodes by following
-   [Configure server-side backups](../gitaly/configure_gitaly.md#configure-server-side-backups). This bucket is used exclusively by Gitaly to store repository data.
-1. While Gitaly backs up all Git repository data in its designated object storage bucket configured previously,
-   the backup utility tool (`gitlab-backup`) uploads additional backup data to a separate bucket. This data includes a `tar` file containing essential metadata for restores.
-   Ensure this backup data is properly uploaded to remote (cloud) storage by following
-   [Upload backups to a remote (cloud) storage](backup_gitlab.md#upload-backups-to-a-remote-cloud-storage) to set up the upload bucket.
-1. (Optional) To solidify the durability of this backup data, both buckets configured previously can be backed up by their respective object store provider by adding them
-   to [backups of object storage data](#configure-backup-of-object-storage-data).
-1. Ensure backup of both buckets by following [Configure backup of object storage data](#configure-backup-of-object-storage-data). Both storage buckets configured previously
-   should also be backed up by their respective object storage provider.
+1. Configure Gitaly server-side backup destination on all Gitaly nodes by following [Configure server-side backups](../gitaly/configure_gitaly.md#configure-server-side-backups). This bucket is used exclusively by Gitaly to store repository data.
+1. While Gitaly backs up all Git repository data in its designated object storage bucket configured previously, the backup utility tool (`gitlab-backup`) uploads additional backup data to a separate bucket. This data includes a `tar` file containing essential metadata for restores.
+   Ensure this backup data is properly uploaded to remote (cloud) storage by following [Upload backups to a remote (cloud) storage](backup_gitlab.md#upload-backups-to-a-remote-cloud-storage) to set up the upload bucket.
+1. (Optional) To solidify the durability of this backup data, both buckets configured previously can be backed up by their respective object store provider by adding them to [backups of object storage data](#configure-backup-of-object-storage-data).
+1. Ensure backup of both buckets by following [Configure backup of object storage data](#configure-backup-of-object-storage-data). Both storage buckets configured previously should also be backed up by their respective object storage provider.
 1. SSH into a GitLab Rails node, which is a node that runs Puma or Sidekiq.
 1. Take a full backup of your Git data. Use the `REPOSITORIES_SERVER_SIDE` variable and skip all other data:
 
@@ -301,8 +289,7 @@ Before restoring a backup:
 
 {{< tab title="AWS" >}}
 
-Each bucket exists as a separate backup within AWS and each backup can be restored to an existing or
-new bucket.
+Each bucket exists as a separate backup within AWS and each backup can be restored to an existing or new bucket.
 
 1. To restore buckets, an IAM role with the correct permissions is required:
 
@@ -311,19 +298,16 @@ new bucket.
    - `AWSBackupServiceRolePolicyForS3Restore`
    - `AWSBackupServiceRolePolicyForS3Backup`
 
-1. If existing buckets are being used, they must have
-   [Access Control Lists enabled](https://docs.aws.amazon.com/AmazonS3/latest/userguide/managing-acls.html).
+1. If existing buckets are being used, they must have [Access Control Lists enabled](https://docs.aws.amazon.com/AmazonS3/latest/userguide/managing-acls.html).
 1. [Restore the S3 buckets using built-in tooling](https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-s3.html).
-1. You can move on to [Restore PostgreSQL data](#restore-postgresql-data) while the restore job is
-   running.
+1. You can move on to [Restore PostgreSQL data](#restore-postgresql-data) while the restore job is running.
 
 {{< /tab >}}
 
 {{< tab title="Google" >}}
 
 1. [Create Storage Transfer Service jobs](https://cloud.google.com/storage-transfer/docs/create-transfers) to transfer backed up data to the GitLab buckets.
-1. You can move on to [Restore PostgreSQL data](#restore-postgresql-data) while the transfer jobs are
-   running.
+1. You can move on to [Restore PostgreSQL data](#restore-postgresql-data) while the transfer jobs are running.
 
 {{< /tab >}}
 
@@ -335,16 +319,12 @@ new bucket.
 
 {{< tab title="AWS" >}}
 
-1. [Restore the AWS RDS database using built-in tooling](https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-rds.html),
-   which creates a new RDS instance.
-1. Because the new RDS instance has a different endpoint, you must reconfigure the destination GitLab instance
-   to point to the new database:
+1. [Restore the AWS RDS database using built-in tooling](https://docs.aws.amazon.com/aws-backup/latest/devguide/restoring-rds.html), which creates a new RDS instance.
+1. Because the new RDS instance has a different endpoint, you must reconfigure the destination GitLab instance to point to the new database:
 
-   - For Linux package installations, follow
-     [Using a non-packaged PostgreSQL database management server](https://docs.gitlab.com/omnibus/settings/database.html#using-a-non-packaged-postgresql-database-management-server).
+   - For Linux package installations, follow [Using a non-packaged PostgreSQL database management server](https://docs.gitlab.com/omnibus/settings/database.html#using-a-non-packaged-postgresql-database-management-server).
 
-   - For Helm chart (Kubernetes) installations, follow
-     [Configure the GitLab chart with an external database](https://docs.gitlab.com/charts/advanced/external-db/).
+   - For Helm chart (Kubernetes) installations, follow [Configure the GitLab chart with an external database](https://docs.gitlab.com/charts/advanced/external-db/).
 
 1. Before moving on, wait until the new RDS instance is created and ready to use.
 
@@ -355,11 +335,9 @@ new bucket.
 1. [Restore the Google Cloud SQL database using built-in tooling](https://cloud.google.com/sql/docs/postgres/backup-recovery/restoring).
 1. If you restore to a new database instance, then reconfigure GitLab to point to the new database:
 
-   - For Linux package installations, follow
-     [Using a non-packaged PostgreSQL database management server](https://docs.gitlab.com/omnibus/settings/database.html#using-a-non-packaged-postgresql-database-management-server).
+   - For Linux package installations, follow [Using a non-packaged PostgreSQL database management server](https://docs.gitlab.com/omnibus/settings/database.html#using-a-non-packaged-postgresql-database-management-server).
 
-   - For Helm chart (Kubernetes) installations, follow
-     [Configure the GitLab chart with an external database](https://docs.gitlab.com/charts/advanced/external-db/).
+   - For Helm chart (Kubernetes) installations, follow [Configure the GitLab chart with an external database](https://docs.gitlab.com/charts/advanced/external-db/).
 
 1. Before moving on, wait until the Cloud SQL instance is ready to use.
 
@@ -388,8 +366,7 @@ First, as part of [Restore object storage data](#restore-object-storage-data), y
    sudo gitlab-backup restore BACKUP=11493107454_2018_04_25_10.6.4-ce SKIP=db
    ```
 
-   If there's a GitLab version mismatch between your backup tar file and the installed version of
-   GitLab, the restore command aborts with an error message.
+   If there's a GitLab version mismatch between your backup tar file and the installed version of GitLab, the restore command aborts with an error message.
    Install the [correct GitLab version](https://packages.gitlab.com/gitlab/), and then try again.
 
 1. Reconfigure, start, and [check](../raketasks/maintenance.md#check-gitlab-configuration) GitLab:
@@ -412,10 +389,8 @@ First, as part of [Restore object storage data](#restore-object-storage-data), y
       sudo gitlab-rake gitlab:check SANITIZE=true
       ```
 
-1. Check that
-   [database values can be decrypted](../raketasks/check.md#verify-database-values-can-be-decrypted-using-the-current-secrets)
-   especially if `/etc/gitlab/gitlab-secrets.json` was restored, or if a different server is the
-   target for the restore:
+1. Check that [database values can be decrypted](../raketasks/check.md#verify-database-values-can-be-decrypted-using-the-current-secrets)
+   especially if `/etc/gitlab/gitlab-secrets.json` was restored, or if a different server is the target for the restore:
 
    In a Puma or Sidekiq node, run:
 
@@ -423,8 +398,7 @@ First, as part of [Restore object storage data](#restore-object-storage-data), y
    sudo gitlab-rake gitlab:doctor:secrets
    ```
 
-1. For added assurance, you can perform
-   [an integrity check on the uploaded files](../raketasks/check.md#uploaded-files-integrity):
+1. For added assurance, you can perform [an integrity check on the uploaded files](../raketasks/check.md#uploaded-files-integrity):
 
    In a Puma or Sidekiq node, run:
 
@@ -436,8 +410,7 @@ First, as part of [Restore object storage data](#restore-object-storage-data), y
 
    If missing or corrupted files are found, it does not always mean the backup and restore process failed.
    For example, the files might be missing or corrupted on the source GitLab instance. You might need to cross-reference prior backups.
-   If you are migrating GitLab to a new environment, you can run the same checks on the source GitLab instance to determine whether
-   the integrity check result is preexisting or related to the backup and restore process.
+   If you are migrating GitLab to a new environment, you can run the same checks on the source GitLab instance to determine whether the integrity check result is preexisting or related to the backup and restore process.
 
 {{< /tab >}}
 
@@ -453,8 +426,7 @@ First, as part of [Restore object storage data](#restore-object-storage-data), y
    kubectl exec <Toolbox pod name> -it -- backup-utility --restore -t 11493107454_2018_04_25_10.6.4-ce --skip db,builds,pages,registry,uploads,artifacts,lfs,packages,external_diffs,terraform_state,pages,ci_secure_files
    ```
 
-   If there's a GitLab version mismatch between your backup tar file and the installed version of
-   GitLab, the restore command aborts with an error message.
+   If there's a GitLab version mismatch between your backup tar file and the installed version of GitLab, the restore command aborts with an error message.
    Install the [correct GitLab version](https://packages.gitlab.com/gitlab/), and then try again.
 
 1. Restart and [check](../raketasks/maintenance.md#check-gitlab-configuration) GitLab:
@@ -473,10 +445,8 @@ First, as part of [Restore object storage data](#restore-object-storage-data), y
       sudo gitlab-rake gitlab:check SANITIZE=true
       ```
 
-1. Check that
-   [database values can be decrypted](../raketasks/check.md#verify-database-values-can-be-decrypted-using-the-current-secrets)
-   especially if `/etc/gitlab/gitlab-secrets.json` was restored, or if a different server is the
-   target for the restore:
+1. Check that [database values can be decrypted](../raketasks/check.md#verify-database-values-can-be-decrypted-using-the-current-secrets)
+   especially if `/etc/gitlab/gitlab-secrets.json` was restored, or if a different server is the target for the restore:
 
    In the Toolbox pod, run:
 
@@ -484,11 +454,9 @@ First, as part of [Restore object storage data](#restore-object-storage-data), y
    sudo gitlab-rake gitlab:doctor:secrets
    ```
 
-1. For added assurance, you can perform
-   [an integrity check on the uploaded files](../raketasks/check.md#uploaded-files-integrity):
+1. For added assurance, you can perform [an integrity check on the uploaded files](../raketasks/check.md#uploaded-files-integrity):
 
-   These commands can take a long time because they iterate over all rows. So, run the following commands in the GitLab Rails node,
-   rather than a Toolbox pod:
+   These commands can take a long time because they iterate over all rows. So, run the following commands in the GitLab Rails node, rather than a Toolbox pod:
 
    ```shell
    sudo gitlab-rake gitlab:artifacts:check
@@ -498,8 +466,7 @@ First, as part of [Restore object storage data](#restore-object-storage-data), y
 
    If missing or corrupted files are found, it does not always mean the backup and restore process failed.
    For example, the files might be missing or corrupted on the source GitLab instance. You might need to cross-reference prior backups.
-   If you are migrating GitLab to a new environment, you can run the same checks on the source GitLab instance to determine whether
-   the integrity check result is preexisting or related to the backup and restore process.
+   If you are migrating GitLab to a new environment, you can run the same checks on the source GitLab instance to determine whether the integrity check result is preexisting or related to the backup and restore process.
 
 {{< /tab >}}
 

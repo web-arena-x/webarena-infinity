@@ -8,16 +8,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4491025590554-Sales-smart-
 
 ![Available on all Sell plans](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/plan_available_sell_all.png)
 
-In Sell, you can [create and use smart lists](https://support.zendesk.com/hc/en-us/articles/4408827735066) in many different
-constructions to best suit your workflow and reporting requirements. Smart lists are
-helpful for staying on top of your communication, organizing your workload, and for
-gaining insight into different aspects of your workflow. For managers, smart lists are also helpful for gaining a
-total overview of the work and workflow of their team.
+In Sell, you can [create and use smart lists](https://support.zendesk.com/hc/en-us/articles/4408827735066) in many different constructions to best suit your workflow and reporting requirements. Smart lists are helpful for staying on top of your communication, organizing your workload, and for gaining insight into different aspects of your workflow. For managers, smart lists are also helpful for gaining a total overview of the work and workflow of their team.
 
 This article covers the following topic:
 
-- [Smart list
-  fields](#topic_a2v_g4k_zsb)
+- [Smart list fields](#topic_a2v_g4k_zsb)
 
 Related articles:
 
@@ -25,23 +20,13 @@ Related articles:
 
 ## Smart list fields
 
-Use this reference table to better understand the choice of fields you can add to
-your smart lists, and how to combine certain fields for specific outcomes (such as
-reporting, cleaning up sales pipelines, or taking bulk actions).
+Use this reference table to better understand the choice of fields you can add to your smart lists, and how to combine certain fields for specific outcomes (such as reporting, cleaning up sales pipelines, or taking bulk actions).
 
-Admins can add and [customize fields](https://support.zendesk.com/hc/en-us/articles/4408838289562) so they are more relevant for the
-workflow of the sales reps and the information requirements of the company. For
-example adding a customized field for Deal Score under (Deal property) would allow
-sales reps to enter the numerical value assigned to a deal to reflect [the potential for closing the deal](https://support.zendesk.com/hc/en-us/articles/4408824510490) and to give insight
-sales predictions for the team. Other examples for customizing different types of
-fields might include: Deal Type, Opted Out (of email sequence), Products, Source,
-YouTube, Bandcamp, Instagram, Mobile Type (Android/iPhone), Email Effectiveness.
+Admins can add and [customize fields](https://support.zendesk.com/hc/en-us/articles/4408838289562) so they are more relevant for the workflow of the sales reps and the information requirements of the company. For example adding a customized field for Deal Score under (Deal property) would allow sales reps to enter the numerical value assigned to a deal to reflect [the potential for closing the deal](https://support.zendesk.com/hc/en-us/articles/4408824510490) and to give insight sales predictions for the team. Other examples for customizing different types of fields might include: Deal Type, Opted Out (of email sequence), Products, Source, YouTube, Bandcamp, Instagram, Mobile Type (Android/iPhone), Email Effectiveness.
 
-The smart fields reference table in this article lists and explains all of the fields
-that you can include when creating a smart list for contacts, leads, and deals -
-including the property type of the field (in parentheses).
+The smart fields reference table in this article lists and explains all of the fields that you can include when creating a smart list for contacts, leads, and deals - including the property type of the field (in parentheses).
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Name of field** | **Applies to** | **Description** |
 | Actionable | Leads, Contacts, Deals | (Lead, Contact, or Deal property) The number of overdue tasks or unread emails associated with that lead, contact, or deal. |
@@ -84,7 +69,7 @@ including the property type of the field (in parentheses).
 | Hot | Deals | (Deal property) A deal marked as Hot is an important deal. |
 | Import ID | Leads, Contacts, Deals | (Lead, Contact, or Deal property) Used with the import feature when importing leads, contacts, and deals (each import has its own ID). |
 | Industry | Leads, Contacts | (Lead or Contact property) The industry that the person contact is working in or the company contact is associated with (for example, transport, IT, environmental research, green energy). |
-| Last Activity Date | Leads, Contacts, Deals | (Lead, Contact, or Deal property) The last date that any of these actions occurred:  - A task was completed - A note was added - A call was logged - An email was sent - A text message was sent - A visit was logged - A note, call, or email was added to an employee (of an   organization)   Note: This field doesn't update when you create tasks or create, edit, or tag objects. |
+| Last Activity Date | Leads, Contacts, Deals | (Lead, Contact, or Deal property) The last date that any of these actions occurred: - A task was completed - A note was added - A call was logged - An email was sent - A text message was sent - A visit was logged - A note, call, or email was added to an employee (of an   organization)   Note: This field doesn't update when you create tasks or create, edit, or tag objects. |
 | Last Stage Change Date | Deals | (Deal property) The date that the deal was moved to its current stage in the pipeline. |
 | Last Visit Date | Leads, Contacts, Deals | (Lead, Contact, or Deal property) The date the lead, prospect, or contact was last visited by a sales rep. |
 | Last Visit Owner | Leads, Contacts, Deals | (Lead, Contact, or Deal property) The sales rep that logged the last visit to a contact, prospect, or lead. |

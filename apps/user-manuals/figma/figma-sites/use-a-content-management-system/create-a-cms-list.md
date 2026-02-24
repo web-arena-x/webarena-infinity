@@ -34,7 +34,7 @@ A **CMS page** shows all the details for a specific item: the ingredients, steps
 A CMS list has two parts:
 
 - A **main component** that controls styling of the repeating list elements.
-- A  **CMS list** layer that contains repeating instances of the component. The child layers of these instances are connected to fields in your CMS collection.
+- A **CMS list** layer that contains repeating instances of the component. The child layers of these instances are connected to fields in your CMS collection.
 
 ![CMS list component with no connected content on the left; a connected CMS list layer displaying case studies with images and titles on the right.](https://help.figma.com/hc/article_attachments/36434853447959)
 
@@ -49,7 +49,7 @@ There are two main ways to create a CMS list:
 
 If you don’t have a design yet, you can drop in a pre-built CMS list block. This block includes a main component and a CMS list layer with instances of the component inside. The layers are already connected to fields in the collection.
 
-1. Click  **Insert** from the left navigation bar.
+1. Click **Insert** from the left navigation bar.
 2. From the **Blocks** tab, click **CMS**.
 3. Drag a **CMS list** onto the canvas for the relevant collection.
 
@@ -59,7 +59,7 @@ When you edit the main component, all instances within the CMS list layer update
 
 The easiest way to convert a design into a CMS list is from **Connect** view.
 
-1. Click  **CMS** in the left navigation bar.
+1. Click **CMS** in the left navigation bar.
 2. Select the **Connect** tab.
 3. Hover over a collection, click **Connect**, then choose **Part of a page**.
 4. Select the parent frame on the canvas.
@@ -71,7 +71,7 @@ There are a few additional ways ways to convert a design, depending on its struc
 **A parent frame with repeating child layers**
 
 1. Select the parent frame.
-2. In the right sidebar, click  **Connect to CMS** and select a collection.
+2. In the right sidebar, click **Connect to CMS** and select a collection.
 
 What happens:
 
@@ -84,8 +84,8 @@ What happens:
 **A frame containing a design you want to repeat**
 
 1. Select the parent frame.
-2. In the right sidebar, click  **More.**
-3. Select  **Connect to CMS**, then select a collection.
+2. In the right sidebar, click **More.**
+3. Select **Connect to CMS**, then select a collection.
 
 What happens:
 
@@ -97,7 +97,7 @@ What happens:
 **Two identical layers**
 
 1. Select any two identical layers.
-2. In the right sidebar, click  **Connect to CMS** and select a collection.
+2. In the right sidebar, click **Connect to CMS** and select a collection.
 
 What happens:
 
@@ -124,14 +124,14 @@ You can quickly connect layers from the right sidebar while working on the CMS l
 **Connect to a text layer**
 
 1. Select a text layer in the CMS list. For text layers, make sure you select the actual text layer and not any parent layers, like a frame.
-2. At the top of the right sidebar, click  **Apply variable or CMS field,** then select a field.
+2. At the top of the right sidebar, click **Apply variable or CMS field,** then select a field.
 
 **Connect to an image fill**
 
 You can connect an image field to any layer with a fill, like shapes and frames.
 
 1. Select a layer with a fill within the CMS list.
-2. In the **Fill** section of the right sidebar, click  **Add fill**.
+2. In the **Fill** section of the right sidebar, click **Add fill**.
 3. Select the **CMS** tab, then select an image field in the collection to connect it.
 
 **Connect a link**
@@ -139,8 +139,8 @@ You can connect an image field to any layer with a fill, like shapes and frames.
 You can connect a link field to any linkable element, like text, frames, or shapes.
 
 1. Select a layer within the CMS list.
-2. In the right sidebar, click  **Add link**.
-3. Enter a link, or click the  dropdown menu to select an existing webpage from your site.
+2. In the right sidebar, click **Add link**.
+3. Enter a link, or click the dropdown menu to select an existing webpage from your site.
 
 **Tip**: This is how you [link a CMS list to a CMS page](#h_01KAD5VTQP1MTX39Y2Y2RMTQHW).
 
@@ -152,7 +152,7 @@ The **Connect** view lets you quickly wire up an existing layout or review what�
 
 **Note:** Certain field types only connect to compatible layer types. For example, you can’t connect a text field to a shape or frame.
 
-1. Click  **CMS** in the left navigation bar.
+1. Click **CMS** in the left navigation bar.
 2. Select the **Connect** tab.
 3. Click a field in the collection, then click a target layer in the CMS list to connect it. All items in the list will automatically update.
 4. Repeat for additional fields and layers.
@@ -167,7 +167,7 @@ The **Connect** view lets you quickly wire up an existing layout or review what�
 
 By default, Figma includes all items in a collection in a CMS list—but you can limit the number if needed.
 
-1. Select the  **CMS list layer** in the **Layers** section of the left sidebar.
+1. Select the **CMS list layer** in the **Layers** section of the left sidebar.
 2. Select a value from the **Limit** property at the top of the right sidebar.
 
 **Note**: Filtering or sorting a CMS list isn’t currently supported.
@@ -176,28 +176,28 @@ By default, Figma includes all items in a collection in a CMS list—but you can
 
 Reordering items in the table view of your collection updates their order across all CMS lists.
 
-1. Click  **CMS** in the left navigation bar.
+1. Click **CMS** in the left navigation bar.
 2. Hover over the item whose position you want to change.
-3. Click and drag the  icon at the very left of the row and move the item to a new position.
+3. Click and drag the icon at the very left of the row and move the item to a new position.
 
 ## Link a CMS list to a CMS page
 
 It’s common to link items in a CMS list to their corresponding CMS page. For example, you might create a list of blog posts on the **Home** page that link to each post. To add a link to a CMS list:
 
 1. Select the element in the list you want to turn into a link.
-2. From the right sidebar, click  **Add link.**
-3. Open the  **dropdown menu** and select the CMS page template you’d like to use. It will be listed under the name of the collection and have a URL path that ends with `/slug` .
+2. From the right sidebar, click **Add link.**
+3. Open the **dropdown menu** and select the CMS page template you’d like to use. It will be listed under the name of the collection and have a URL path that ends with `/slug` .
 
 ## Remove a connection from the CMS list
 
 To disconnect a layer in a CMS list:
 
-1. From the left navigation bar, click  **CMS** and switch to the **Connect** tab.
-2. Click a connected layer’s annotation, then click  **Remove connection**.
+1. From the left navigation bar, click **CMS** and switch to the **Connect** tab.
+2. Click a connected layer’s annotation, then click **Remove connection**.
 
 When you remove a connection, the disconnected layers will keep their content from the last known-connected state.
 
-**Tip**: You can also disconnect a layer from the properties panel. Select it on the canvas, then click  **Remove connection** in the right sidebar.
+**Tip**: You can also disconnect a layer from the properties panel. Select it on the canvas, then click **Remove connection** in the right sidebar.
 
 ## Frequently asked questions
 

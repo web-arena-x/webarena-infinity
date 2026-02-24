@@ -16,8 +16,8 @@ While signed into Handshake, click this text ([Importer Training](https://academ
 
 ![Handshake_Academy_under_the_Help_menu.png](https://support.joinhandshake.com/hc/article_attachments/26001302660375)
 
-2. Scroll to the bottom of the page to select *All Courses*.  
-  
+2. Scroll to the bottom of the page to select *All Courses*. 
+ 
 ![All_Courses_in_Handshake_Academy.png](https://support.joinhandshake.com/hc/article_attachments/9709976028951)
 
 3. On the next page, you can either filter on *Importer*, or you can scroll down to **Operations & Platform Management**, and select *Importer Training*.

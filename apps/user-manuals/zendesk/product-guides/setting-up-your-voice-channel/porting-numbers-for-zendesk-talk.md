@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408834776858-Porting-numb
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Talk Team, Professional, or Enterprise |
 
@@ -40,9 +40,9 @@ To understand if porting is possible in your country, see [Zendesk Talk and Zend
 
 ## Information to submit when porting a number
 
-Note:  You should not initiate the port until your go-live date to prevent porting early. In some circumstances, Zendesk might be able to request specific porting dates. When Zendesk is unable to schedule a specific date, porting will be scheduled as soon as possible.
+Note: You should not initiate the port until your go-live date to prevent porting early. In some circumstances, Zendesk might be able to request specific porting dates. When Zendesk is unable to schedule a specific date, porting will be scheduled as soon as possible.
 
-When you are ready to port your number, [contact Zendesk Customer Support](https://support.zendesk.com/hc/en-us/articles/4408843597850-Contacting-Zendesk-Customer-Support)  with the following information:
+When you are ready to port your number, [contact Zendesk Customer Support](https://support.zendesk.com/hc/en-us/articles/4408843597850-Contacting-Zendesk-Customer-Support) with the following information:
 
 - The phone numbers you would like to port.
 - The current carriers for the number(s) being ported.
@@ -62,11 +62,11 @@ We will keep you up-to-date throughout the porting process. We might reach out t
 
 ## Porting a number out of Talk
 
-There are a few steps to port a number away from Talk. The porting process involves different carriers and parties. Here you have a breakdown of how this process works:  
-   
-1. You submit the port request to your gaining/new carrier.  
-2. The gaining carrier submits the request to an underlying carrier, who then submits the request to our voice partner, Twilio.  
-3. If everything looks good on our partner's end, Twilio will notify us to approve or reject the port.  
+There are a few steps to port a number away from Talk. The porting process involves different carriers and parties. Here you have a breakdown of how this process works: 
+  
+1. You submit the port request to your gaining/new carrier. 
+2. The gaining carrier submits the request to an underlying carrier, who then submits the request to our voice partner, Twilio. 
+3. If everything looks good on our partner's end, Twilio will notify us to approve or reject the port. 
 4. We will review the request and, if your account is in good financial standing, approve the port.
 
 Zendesk is not in control of the timeline of port-out requests; the gaining provider controls this. The only role Zendesk plays in a port-out request is to approve it, which we do within 24 hours of receiving the request.

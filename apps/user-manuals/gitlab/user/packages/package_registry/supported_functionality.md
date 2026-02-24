@@ -5,8 +5,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: Supported package managers and functionality
 ---
 
-The GitLab package registry supports different functionalities for each package type. This support includes publishing
-and pulling packages, request forwarding, managing duplicates, and authentication.
+The GitLab package registry supports different functionalities for each package type. This support includes publishing and pulling packages, request forwarding, managing duplicates, and authentication.
 
 ## Supported package managers
 
@@ -122,8 +121,8 @@ To reduce the associated security risks:
 - Verify the package is not being actively used.
 - Implement a version control tool, like Git, to track changes to packages.
 - Turn off request forwarding:
-  - Instance administrators can disable forwarding in the **Admin** area. For more information, see [Control package forwarding](../../../administration/settings/continuous_integration.md#control-package-forwarding).
-  - Group owners can turn off package forwarding in the group settings.
+ - Instance administrators can disable forwarding in the **Admin** area. For more information, see [Control package forwarding](../../../administration/settings/continuous_integration.md#control-package-forwarding).
+ - Group owners can turn off package forwarding in the group settings.
 
 To turn off request forwarding for a group:
 
@@ -154,13 +153,10 @@ To turn off request forwarding for a group:
 
 ## Deleting packages
 
-When package requests are forwarded to a public registry, package deletion can
-cause a [dependency confusion vulnerability](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610).
+When package requests are forwarded to a public registry, package deletion can cause a [dependency confusion vulnerability](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610).
 
 If a system tries to pull a deleted package, the request forwards to the public registry.
-If a package with the same name and version is in the public registry, that package is
-pulled instead. The package pulled from the registry might not be what you expect, and
-could be malicious.
+If a package with the same name and version is in the public registry, that package is pulled instead. The package pulled from the registry might not be what you expect, and could be malicious.
 
 To reduce the associated security risks, before you delete a package:
 
@@ -241,8 +237,7 @@ For most package types, the following authentication tokens are valid:
 - [Group deploy token](../../project/deploy_tokens/_index.md)
 - [CI/CD job token](../../../ci/jobs/ci_job_token.md)
 
-The following table lists which authentication tokens are supported
-for a given package manager:
+The following table lists which authentication tokens are supported for a given package manager:
 
 | Package type                                           | Supported tokens                                                       |
 |--------------------------------------------------------|------------------------------------------------------------------------|

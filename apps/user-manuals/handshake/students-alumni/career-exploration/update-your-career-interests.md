@@ -21,10 +21,10 @@ Click on your name in the upper-right corner of the screen, then click **My prof
 From your profile, click the **pencil** icon, located to the right of **Looking for**— then fill in the desired information within the pop-up.
 
 - **What are you looking for right now**? (Select one)
-  - Full-time job
-  - Part-time job
-  - Internship
-  - Campus job
+ - Full-time job
+ - Part-time job
+ - Internship
+ - Campus job
 - **Roles** (*click in the search bar and begin typing to produce results in the dropdown*)
 - **Industries** (*click in the search bar and begin typing to produce results in the dropdown*)
 - **Locations** (*click in the search bar and begin typing to produce results in the dropdown*)
@@ -46,25 +46,25 @@ Once everything is added and updated, click the button **Save** to save!
 2. Select (or deselect) the checkboxes as desired in each section:
 
 - **What type of job are you looking for?**
-  - Full-Time Job
-  - Internship
-  - Part-Time
-  - On-Campus Job
+ - Full-Time Job
+ - Internship
+ - Part-Time
+ - On-Campus Job
 - **How can Handshake help you?**
-  - I want a job
-  - I want an internship
-  - I'm interested in grad school
-  - I want to find out about career center events (faits, info sessions, appointments)
-  - I want to build my network
-  - I'm not sure / just checking it out
+ - I want a job
+ - I want an internship
+ - I'm interested in grad school
+ - I want to find out about career center events (faits, info sessions, appointments)
+ - I want to build my network
+ - I'm not sure / just checking it out
 - **What options are you considering after graduation?**
-  - Working
-  - Graduate School
-  - Gap Year
-  - Military Service
-  - Volunteering
-  - Fellowship
-  - Not Sure
+ - Working
+ - Graduate School
+ - Gap Year
+ - Military Service
+ - Volunteering
+ - Fellowship
+ - Not Sure
 - **What job roles are you interested in?** (Type in the box to add one or multiple roles)
 - **Where are you interested in living?** (Type in the box to add one or multiple cities)
 - **Join the career community you are most interested in**. To learn more, click here: [LINK TO YOUR SCHOOL INTEREST PAGE IF AVAILABLE]

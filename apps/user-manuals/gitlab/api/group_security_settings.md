@@ -50,7 +50,7 @@ Example response:
 
 ```json
 {
-  "secret_push_protection_enabled": true,
-  "errors": []
+ "secret_push_protection_enabled": true,
+ "errors": []
 }
 ```

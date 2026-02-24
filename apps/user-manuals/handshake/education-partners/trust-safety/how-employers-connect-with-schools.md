@@ -4,8 +4,8 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/115007120087-How-Emp
 
 ---
 
-To connect with students and alumni at your institution, employers *must* first be approved by your institution on Handshake.  
-  
+To connect with students and alumni at your institution, employers *must* first be approved by your institution on Handshake. 
+ 
 To become an approved employer, they may take the following approaches:
 
 - Post a job to your institution

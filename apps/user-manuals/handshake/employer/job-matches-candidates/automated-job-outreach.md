@@ -13,8 +13,8 @@ You can enable automated outreach for new or existing jobs, customize your candi
 **Topics**:
 
 - [Automate outreach](#h_01H291HAMATE29YNN56CS8FHZQ)
-  - [New job](#h_01J6WN44QJV72K0KGX0TTR16D2)
-  - [Existing job](#h_01J6WTDWSTB3VV690GH21Y7HCC)
+ - [New job](#h_01J6WN44QJV72K0KGX0TTR16D2)
+ - [Existing job](#h_01J6WTDWSTB3VV690GH21Y7HCC)
 - [Customize and send outreach](#h_01K844JJ5ZF9X3T40SXHTCZR8T)
 - [Manage outreach settings](#h_01K845YJ9ESK8YYVHCQRH7B28E)
 - [Campaign status](#h_01HZSGG1NB83P2GZD8H8D9F0FD)
@@ -77,11 +77,11 @@ Click **Review automation** to set up automated outreach for your newly created 
 
 - **Automatically invite qualified candidates to apply**
 
-  - Get your job in front of more great candidates. Handshake will reach out to qualified matches and invite them to apply.
-  - **Note**: If you disable this feature, Handshake will no longer reach out to qualified candidates to apply, and you will not be able to allow candidates to skip the application and book an interview.
+ - Get your job in front of more great candidates. Handshake will reach out to qualified matches and invite them to apply.
+ - **Note**: If you disable this feature, Handshake will no longer reach out to qualified candidates to apply, and you will not be able to allow candidates to skip the application and book an interview.
 - **Automatically book interviews with top candidates**
 
-  - Allow candidates to skip the application and book an interview right away. *Learn more about how to* [*Automate Candidate Interviews*](https://support.joinhandshake.com/hc/en-us/articles/19753984394135).
+ - Allow candidates to skip the application and book an interview right away. *Learn more about how to* [*Automate Candidate Interviews*](https://support.joinhandshake.com/hc/en-us/articles/19753984394135).
 
 3. Toggle the button to automate or disable an activity:
 

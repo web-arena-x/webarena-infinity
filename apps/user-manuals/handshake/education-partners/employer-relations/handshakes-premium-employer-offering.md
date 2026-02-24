@@ -33,7 +33,7 @@ Similar to the trends we’re seeing in higher education, recruiting organizatio
 Premium Employers can drive groups of students to their jobs and events with messaging at scale using ***Handshake’s Smart Campaigns***. Capabilities include…
 
 - Using advanced filters - querying public profile information like skills, organizations, previous work experiences, and location preferences - to define targeted groups of students to reach out to. Employers are not able to see the list of individual students included in these groups. 
-  - **Note**: The ability to search on Labels is only for labels that the employers apply to students, not labels that career services apply to their own students.
+ - **Note**: The ability to search on Labels is only for labels that the employers apply to students, not labels that career services apply to their own students.
 - Leveraging specific templates and personalization to ensure each student in a Campaign feels like the message is crafted just for them.
 - Planning ahead and scheduling outreach ahead of campus visits.
 - Scheduling up to 5000 messages per campaign.

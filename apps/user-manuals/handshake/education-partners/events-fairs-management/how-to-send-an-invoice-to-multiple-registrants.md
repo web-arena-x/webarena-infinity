@@ -25,14 +25,14 @@ To send an invoice to multiple registrants:
 5. On the popup that loads, select the following:
 
 - who you'd like send the invoice to:
-  - **Send to Yourself**: Will send to the email address associated with your career services account
-  - **Send to Registration Creator**: Will send to the email address associated with the registration creator
-  - **Send to Registrant**: Will send to the email address associated with the registrant listed on the career fair registration
-  - **Send to All Contacts**: Will send to the email address associated to all employer representatives listed on the career fair registration
+ - **Send to Yourself**: Will send to the email address associated with your career services account
+ - **Send to Registration Creator**: Will send to the email address associated with the registration creator
+ - **Send to Registrant**: Will send to the email address associated with the registrant listed on the career fair registration
+ - **Send to All Contacts**: Will send to the email address associated to all employer representatives listed on the career fair registration
     - **Note**: for virtual fairs, this is the Registrant and Schedule Owner (if the Schedule Owner is someone other than the Registrant)
 - **Subject** (set by default, but can be customized)
 - **Custom Message** (sent in addition to the default invoice message configured on your fair)
-  - **Note**: If you've configured a Default invoice message, this will be included in the text box.
+ - **Note**: If you've configured a Default invoice message, this will be included in the text box.
 
 ![Bulk_Invoice_Registrations_pop_up.png](https://support.joinhandshake.com/hc/article_attachments/25998584690711)
 

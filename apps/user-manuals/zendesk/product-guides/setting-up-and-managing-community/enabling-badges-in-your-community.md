@@ -6,12 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408821759386-Enabling-bad
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-The default setting is that community badges are enabled. Ensure badges are enabled
-before you start creating them.
+The default setting is that community badges are enabled. Ensure badges are enabled before you start creating them.
 
 You need Knowledge admin rights to enable badges.
 
@@ -24,8 +23,6 @@ You need Knowledge admin rights to enable badges.
    ![](https://zen-marketing-documentation.s3.us-west-1.amazonaws.com/docs/en/gather-enable-user-badge-ui.png)
 4. Click **Save**.
 
-   You are now ready to start creating badges, see [Creating Gather
-   badges](https://support.zendesk.com/hc/en-us/articles/4408889227162).
+   You are now ready to start creating badges, see [Creating Gather badges](https://support.zendesk.com/hc/en-us/articles/4408889227162).
 
-You can disable badges by deselecting the **Enable user badges** check box. If you
-disable badges, all badges you've awarded will be hidden from the community.
+You can disable badges by deselecting the **Enable user badges** check box. If you disable badges, all badges you've awarded will be hidden from the community.

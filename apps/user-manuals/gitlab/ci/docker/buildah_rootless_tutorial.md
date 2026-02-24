@@ -12,8 +12,7 @@ title: 'Tutorial: Use Buildah in a rootless container with GitLab Runner Operato
 
 {{< /details >}}
 
-This tutorial teaches you how to successfully build images using the `buildah` tool,
-with GitLab Runner deployed using [GitLab Runner Operator](https://gitlab.com/gitlab-org/gl-openshift/gitlab-runner-operator)
+This tutorial teaches you how to successfully build images using the `buildah` tool, with GitLab Runner deployed using [GitLab Runner Operator](https://gitlab.com/gitlab-org/gl-openshift/gitlab-runner-operator)
 on an OpenShift cluster.
 
 This guide is an adaptation of [using Buildah to build images in a rootless OpenShift container](https://github.com/containers/buildah/blob/main/docs/tutorials/05-openshift-rootless-build.md)
@@ -59,8 +58,7 @@ Start by preparing a custom image based on the `quay.io/buildah/stable:v1.23.1` 
    EOF
    ```
 
-1. Build and push the Buildah image to a container registry. Let's push to the
-   [GitLab container registry](../../user/packages/container_registry/_index.md):
+1. Build and push the Buildah image to a container registry. Let's push to the [GitLab container registry](../../user/packages/container_registry/_index.md):
 
    ```shell
    docker build -f Containerfile-buildah -t registry.example.com/group/project/buildah:1.23.1 .
@@ -119,23 +117,22 @@ For these steps, you need to run the commands in a terminal connected to the Ope
 
 ## Configure the job
 
-The final step is to set up a GitLab CI/CD configuration file in your project to use
-the new Buildah image and the configured service account:
+The final step is to set up a GitLab CI/CD configuration file in your project to use the new Buildah image and the configured service account:
 
 ```yaml
 build:
-  stage: build
-  image: registry.example.com/group/project/buildah:1.23.1
-  variables:
+ stage: build
+ image: registry.example.com/group/project/buildah:1.23.1
+ variables:
     STORAGE_DRIVER: vfs
     BUILDAH_FORMAT: docker
     BUILDAH_ISOLATION: chroot
     FQ_IMAGE_NAME: "$CI_REGISTRY_IMAGE/test"
     KUBERNETES_SERVICE_ACCOUNT_OVERWRITE: "buildah-sa"
-  before_script:
+ before_script:
     # Log in to the GitLab container registry
     - buildah login -u "$CI_REGISTRY_USER" --password $CI_REGISTRY_PASSWORD $CI_REGISTRY
-  script:
+ script:
     - buildah images
     - buildah build -t $FQ_IMAGE_NAME
     - buildah images
@@ -144,8 +141,7 @@ build:
 
 The job should use the image that you built as the value of the `image` keyword.
 
-The `KUBERNETES_SERVICE_ACCOUNT_OVERWRITE` variable should have the value of the
-service account name that you created.
+The `KUBERNETES_SERVICE_ACCOUNT_OVERWRITE` variable should have the value of the service account name that you created.
 
 Congratulations, you've successfully built an image with Buildah in a rootless container!
 

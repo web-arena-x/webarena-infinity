@@ -21,7 +21,7 @@ Handshake notifies all career services staff of employer requests for an OCI via
 For career services staff with the role "Interview Schedules Access", additional alerts are provided via:
 
 - A number badge to the right of “Interviews” on the left navigation bar. Click on **Interviews** to load the Interviews page and process the employer's request. ![number_badge.png](https://support.joinhandshake.com/hc/article_attachments/26001239403543)
-  - **Note**: if a number badge appears on the left navigation bar, but there are a different number of pending OCIs displayed on the Interviews page, this means the date has passed without the request being approved or declined. Use the date range filter to display past schedules, then decline accordingly.
+ - **Note**: if a number badge appears on the left navigation bar, but there are a different number of pending OCIs displayed on the Interviews page, this means the date has passed without the request being approved or declined. Use the date range filter to display past schedules, then decline accordingly.
 - The OCI populating within the **Requests** tab of the Interviews page, and a number in parentheses next to the Requests filter ![requests_on_interviews_page.png](https://support.joinhandshake.com/hc/article_attachments/26001216213911)
 
 From the list of interview schedules displayed, click anywhere in a specific row (other than linked text or Approve/Decline buttons) to open the Interview Details page.
@@ -34,9 +34,9 @@ Within the Interview Details tab, the following information is provided on the l
 - **Name**: title of the interview in Handshake
 - **Rooms**: number the employer requested vs. the assigned number
 - **Interview Schedule Type**: the timeline and related type chosen by the employer
-  - *Review information on [Interview Schedule Types](https://support.joinhandshake.com/hc/en-us/articles/218693248).*
+ - *Review information on [Interview Schedule Types](https://support.joinhandshake.com/hc/en-us/articles/218693248).*
 - **Interview Schedule Template**: the slot template selected by the employer
-  - *Review information on [School Settings: Interview Schedule Templates](https://support.joinhandshake.com/hc/en-us/articles/218692958).*
+ - *Review information on [School Settings: Interview Schedule Templates](https://support.joinhandshake.com/hc/en-us/articles/218692958).*
 - **Tracking Resumes in Handshake?**: Yes/No if the employer is collecting resumes
 - **Contacts**: employer contact connected to the interview
 

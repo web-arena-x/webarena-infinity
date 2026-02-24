@@ -4,8 +4,8 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/26138922909335-Follo
 
 ---
 
-Following users on Handshake is more than just a social feature—it’s a way to actively shape your educational and professional journey. By choosing to follow users, you stay up-to-date with their most recent content posted to the feed and so much more!  
-  
+Following users on Handshake is more than just a social feature—it’s a way to actively shape your educational and professional journey. By choosing to follow users, you stay up-to-date with their most recent content posted to the feed and so much more! 
+ 
 Topics:
 
 - [Benefits of following users on Handshake](https://support.joinhandshake.com/hc/en-us/articles/26103773643159#h_01J6WCBY8768TW5PCSK8029NY5)
@@ -49,7 +49,7 @@ Access users profiles from the feed or the **People** section in Handshake.
 ![Name on feed.png](https://support.joinhandshake.com/hc/article_attachments/26138947293463)
 
 - From the People section: click **People** on the left navigation menu, then use the filters on the left of the page to find students and alumni on Handshake. Click on their name to be directed to their profile.
-  - *To learn more about campus profiles and exploring the People community page, check out* [Campus Profiles in Handshake](campus-profiles-in-handshake.md).
+ - *To learn more about campus profiles and exploring the People community page, check out* [Campus Profiles in Handshake](campus-profiles-in-handshake.md).
 
 ![find people.png](https://support.joinhandshake.com/hc/article_attachments/26138922894231)
 

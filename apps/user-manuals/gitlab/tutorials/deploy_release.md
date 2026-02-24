@@ -15,7 +15,7 @@ Learn how to use package and container registries to manage your artifacts.
 | [GitLab Package and Release Functions](https://university.gitlab.com/courses/gitlab-package-and-release-functions) | Learn the basics of registries and release features in this self-paced course. | {{< icon name="star" >}} |
 | [Automatically build and publish packages with CI/CD](../user/packages/pypi_repository/auto_publish_tutorial.md) | Learn how to automatically build, test, and publish a PyPI package to the package registry. | {{< icon name="star" >}} |
 | [Structure the package registry for enterprise scale](../user/packages/package_registry/enterprise_structure_tutorial.md) | Set up your organization to upload, manage, and consume packages at scale. | |
-| [Build and sign Python packages with GitLab CI/CD](../user/packages/package_registry/pypi_cosign_tutorial.md)  | Learn how to build a secure pipeline for Python packages using GitLab CI/CD and Sigstore Cosign. | |
+| [Build and sign Python packages with GitLab CI/CD](../user/packages/package_registry/pypi_cosign_tutorial.md) | Learn how to build a secure pipeline for Python packages using GitLab CI/CD and Sigstore Cosign. | |
 | [Annotate container images with build provenance data](../user/packages/container_registry/cosign_tutorial.md) | Learn how to automate the process of building, signing, and annotating container images using Cosign. | |
 | [Migrate container images from Amazon ECR to GitLab](../user/packages/container_registry/migrate_containers_ecr_tutorial.md) | Automate the bulk migration of container images from Amazon Elastic Container Registry (ECR) to the GitLab container registry. | |
 

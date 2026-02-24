@@ -46,7 +46,7 @@ During a voting session, multiplayer cursors in the file are hidden so votes are
 
 When a voting session starts, collaborators in the file are invited to join and given the option to **Ignore** the invite. Anyone who ignored the invite can click the **Timer, voting, and music** icon to join an active voting session and cast their vote.
 
-During a voting session, the  **Stamp** tool is activated by default. You can:
+During a voting session, the **Stamp** tool is activated by default. You can:
 
 - Use any stamp to cast your vote
 - Vote on stickies, shapes, text, images, code blocks, and components from a Figma Design file
@@ -73,4 +73,4 @@ To view results from past voting sessions:
 2. Select the **Results** tab.
 3. Select a session from the list.
 
-Click  to delete results for a voting session.
+Click to delete results for a voting session.

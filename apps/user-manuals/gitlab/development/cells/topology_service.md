@@ -8,8 +8,7 @@ title: Topology Service
 ## Updating the Topology Service Gem
 
 The Topology Service is developed in its [own repository](https://gitlab.com/gitlab-org/cells/topology-service)
-We generate the Ruby Gem there, and manually copy the Gem to GitLab vendors folder, in
-`vendor/gems/gitlab-topology-service-client`.
+We generate the Ruby Gem there, and manually copy the Gem to GitLab vendors folder, in `vendor/gems/gitlab-topology-service-client`.
 
 To make it easy, you can just run this bash script:
 

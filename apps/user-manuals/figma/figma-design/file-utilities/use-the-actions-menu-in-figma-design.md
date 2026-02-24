@@ -12,7 +12,7 @@ Requires `can edit` access
 
 ![Figma Actions menu open, displaying options like "Make designs," "Rename layers," and "Remove background" using AI tools.](https://help.figma.com/hc/article_attachments/24344168905111)
 
-In Figma Design, **Actions** helps you go from imagination to reality, faster. Click the  icon in the Figma Design toolbar to:
+In Figma Design, **Actions** helps you go from imagination to reality, faster. Click the icon in the Figma Design toolbar to:
 
 - [Access Figma AI tools](#h_01J0XWBCYBTWTJE2X5J46ZZHM5)
 - [Use common productivity actions](#h_01J0XWBCYBAPNE2615C6JGM75Q)
@@ -25,7 +25,7 @@ In Figma Design, **Actions** helps you go from imagination to reality, faster. C
 
 **Note**: Figma AI is launching in [limited beta](https://help.figma.com/hc/en-us/articles/4406787442711), so you might not have access to it in your account just yet. These features are currently free while in beta, but usage limits may apply. When made generally available, we’ll update you on pricing.
 
-Figma AI helps you get started faster, find what you're looking for, and stay in the flow. When you open  **Actions**, Figma shows you a collection of AI-powered design, writing, and image tools.
+Figma AI helps you get started faster, find what you're looking for, and stay in the flow. When you open **Actions**, Figma shows you a collection of AI-powered design, writing, and image tools.
 
 - [Make designs](https://help.figma.com/hc/en-us/articles/23955143044247): Transform ideas into editable designs in a couple of minutes.
 - [Make prototypes](https://help.figma.com/hc/en-us/articles/24004778051479-Make-a-prototype-with-AI): Quickly turn your designs into an interactive prototype.
@@ -93,7 +93,7 @@ The **Assets** view uses Figma AI to help you track down designs from across you
 
 #### **Search results in Figma showing matching "Trivet" designs on the assets panel after a screenshot search.** **Find similar designs**
 
-Select an object on the canvas, like an image or part of a design. Then, open **Actions** and click  **Find more like** to search for matching objects from across your team or organization.
+Select an object on the canvas, like an image or part of a design. Then, open **Actions** and click **Find more like** to search for matching objects from across your team or organization.
 
 If you’ve selected a screenshot, Figma will match the screenshot to the original editable designs.
 
@@ -101,7 +101,7 @@ If you’ve selected a screenshot, Figma will match the screenshot to the origin
 
 Click the **Assets** tab and enter a description to search for a component or other design.
 
-For example, searching ‘icon that looks like a teardrop’ in Figma’s own organization surfaces the  **blend modes** icon.
+For example, searching ‘icon that looks like a teardrop’ in Figma’s own organization surfaces the **blend modes** icon.
 
 ## Access plugins and widgets
 

@@ -25,19 +25,19 @@ Employers can be flagged via two ways on Handshake.
 In the popup that appears, choose all the reasons that apply:
 
 - **Fake or fraudulent employer**
-  - Ex: this employer or job is fake or misrepresenting itself
+ - Ex: this employer or job is fake or misrepresenting itself
 - **Scam, phishing, or malware**
-  - Ex: this employer or job is a scam, asking for private personal information or posting suspicious links
+ - Ex: this employer or job is a scam, asking for private personal information or posting suspicious links
 - **Advertising or promotional content**
-  - Ex: this employer or job is for something other than hiring
+ - Ex: this employer or job is for something other than hiring
 - **Discriminatory practices**
-  - Ex: this employer is discriminating against me
+ - Ex: this employer is discriminating against me
 - **Offensive, abusive, or harmful conduct**
-  - Ex: this employer offers a negative hiring experience, abusive work environment or is harassing students
+ - Ex: this employer offers a negative hiring experience, abusive work environment or is harassing students
 - **Exploitative, unethical, or illegal practices**
-  - Ex: this employer is operating in an illegal or unethical manner
+ - Ex: this employer is operating in an illegal or unethical manner
 - **Adult content**
-  - Ex: this employer or job post promotes nudity, sexual scenes and/or adult language
+ - Ex: this employer or job post promotes nudity, sexual scenes and/or adult language
 
 ![Why flagging?.png](https://support.joinhandshake.com/hc/article_attachments/26001456752791)
 

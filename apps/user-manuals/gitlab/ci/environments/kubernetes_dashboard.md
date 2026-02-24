@@ -23,8 +23,7 @@ title: Dashboard for Kubernetes
 {{< /history >}}
 
 Use the dashboard for Kubernetes to understand the status of your clusters with an intuitive visual interface.
-The dashboard works with every connected Kubernetes cluster, whether you deployed them
-with CI/CD or GitOps.
+The dashboard works with every connected Kubernetes cluster, whether you deployed them with CI/CD or GitOps.
 
 ![Dashboard showing the status of Kubernetes pods and services.](img/kubernetes_summary_ui_v17_2.png)
 
@@ -40,8 +39,7 @@ with CI/CD or GitOps.
 {{< /history >}}
 
 Configure a dashboard to use it for a given environment.
-You can configure dashboard for an environment that already exists, or
-add one when you create an environment.
+You can configure dashboard for an environment that already exists, or add one when you create an environment.
 
 Prerequisites:
 
@@ -87,16 +85,15 @@ Prerequisites:
 
 To configure a dashboard for a dynamic environment:
 
-- Specify the agent in your `.gitlab-ci.yml` file. You must specify the full path to the agent configuration project,
-  followed by a colon and the name of the agent.
+- Specify the agent in your `.gitlab-ci.yml` file. You must specify the full path to the agent configuration project, followed by a colon and the name of the agent.
 
 For example:
 
 ```yaml
 deploy_review_app:
-  stage: deploy
-  script: make deploy
-  environment:
+ stage: deploy
+ script: make deploy
+ environment:
     name: review/$CI_COMMIT_REF_SLUG
     kubernetes:
       agent: path/to/agent/project:agent-name
@@ -137,8 +134,7 @@ A list of pods is displayed. Select a pod to view its details.
 {{< /history >}}
 
 You can review the sync status of your Flux deployments from a dashboard.
-To display the deployment status, your dashboard must be able to retrieve the `Kustomization` and `HelmRelease` resources,
-which requires a namespace to be configured for the environment.
+To display the deployment status, your dashboard must be able to retrieve the `Kustomization` and `HelmRelease` resources, which requires a namespace to be configured for the environment.
 
 GitLab searches the `Kustomization` and `HelmRelease` resources specified by the **Flux resource** dropdown list in the environment settings.
 
@@ -245,8 +241,7 @@ The detailed dashboard provides information about the following Kubernetes resou
 - CronJobs
 
 Each dashboard displays a list of resources with their statuses, namespaces, and age.
-You can select a resource to open a drawer with more information, including labels
-and YAML-formatted status, annotations, and spec.
+You can select a resource to open a drawer with more information, including labels and YAML-formatted status, annotations, and spec.
 
 ![Dashboard with detailed information about the connected cluster.](img/kubernetes_dashboard_deployments_v16_9.png)
 

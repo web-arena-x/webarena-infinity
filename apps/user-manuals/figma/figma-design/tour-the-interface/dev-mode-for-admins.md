@@ -15,7 +15,7 @@ Developers use Dev Mode to:
 - Explore design system components in a playground
 - Connect designs with links to tickets, documentation, and components in code
 
-  ![A full page view of Figma's Dev Mode, showing advanced inspection with CSS code, styles, and layout details. Annotations can be seen across the designs within the canvas.](https://help.figma.com/hc/article_attachments/28287152244119)
+ ![A full page view of Figma's Dev Mode, showing advanced inspection with CSS code, styles, and layout details. Annotations can be seen across the designs within the canvas.](https://help.figma.com/hc/article_attachments/28287152244119)
 
 [Learn more in our Guide to Dev Mode →](guide-to-dev-mode.md)
 
@@ -23,7 +23,7 @@ Developers use Dev Mode to:
 
 Anyone with a Full or Dev seat can access Dev Mode.
 
-|  |  |
+| | |
 | --- | --- |
 | **Seat** | **What's included** |
 | Full | - Full access to all Figma products, including Figma Design, Figma Make, Dev Mode, Figma Slides, and FigJam. |

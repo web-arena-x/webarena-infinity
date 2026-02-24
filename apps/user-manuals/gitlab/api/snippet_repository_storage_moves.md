@@ -13,11 +13,9 @@ title: Snippet repository storage moves API
 {{< /details >}}
 
 Use this API to manage [snippet repository storage moves](../administration/operations/moving_repositories.md).
-This API can help you, for example,
-[migrate to Gitaly Cluster (Praefect)](../administration/gitaly/praefect/_index.md#migrate-to-gitaly-cluster-praefect).
+This API can help you, for example, [migrate to Gitaly Cluster (Praefect)](../administration/gitaly/praefect/_index.md#migrate-to-gitaly-cluster-praefect).
 
-As snippet repository storage moves are processed, they transition through different states. Values
-of `state` are:
+As snippet repository storage moves are processed, they transition through different states. Values of `state` are:
 
 - `initial`: The record has been created but the background job has not yet been scheduled.
 - `scheduled`: The background job has been scheduled.
@@ -27,9 +25,7 @@ of `state` are:
 - `finished`: The snippet has been moved and the repository on the source storage has been deleted.
 - `cleanup failed`: The snippet has been moved but the repository on the source storage could not be deleted.
 
-To ensure data integrity, snippets are put in a temporary read-only state for the
-duration of the move. During this time, users receive a `The repository is temporarily read-only. Please try again later.`
-message if they try to push new commits.
+To ensure data integrity, snippets are put in a temporary read-only state for the duration of the move. During this time, users receive a `The repository is temporarily read-only. Please try again later.` message if they try to push new commits.
 
 This API requires you to [authenticate yourself](rest/authentication.md) as an administrator.
 
@@ -44,21 +40,20 @@ For other repository types see:
 GET /snippet_repository_storage_moves
 ```
 
-By default, `GET` requests return 20 results at a time because the API results
-are [paginated](rest/_index.md#pagination).
+By default, `GET` requests return 20 results at a time because the API results are [paginated](rest/_index.md#pagination).
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/snippet_repository_storage_moves"
+ --url "https://gitlab.example.com/api/v4/snippet_repository_storage_moves"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "created_at": "2020-05-07T04:27:17.234Z",
     "state": "scheduled",
@@ -77,7 +72,7 @@ Example response:
       "ssh_url_to_repo": "ssh://user@gitlab.example.com/snippets/65.git",
       "http_url_to_repo": "https://gitlab.example.com/snippets/65.git"
     }
-  }
+ }
 ]
 ```
 
@@ -87,8 +82,7 @@ Example response:
 GET /snippets/:snippet_id/repository_storage_moves
 ```
 
-By default, `GET` requests return 20 results at a time because the API results
-are [paginated](rest/_index.md#pagination).
+By default, `GET` requests return 20 results at a time because the API results are [paginated](rest/_index.md#pagination).
 
 Supported attributes:
 
@@ -100,14 +94,14 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/snippets/1/repository_storage_moves"
+ --url "https://gitlab.example.com/api/v4/snippets/1/repository_storage_moves"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "created_at": "2020-05-07T04:27:17.234Z",
     "state": "scheduled",
@@ -126,7 +120,7 @@ Example response:
       "ssh_url_to_repo": "ssh://user@gitlab.example.com/snippets/65.git",
       "http_url_to_repo": "https://gitlab.example.com/snippets/65.git"
     }
-  }
+ }
 ]
 ```
 
@@ -146,19 +140,19 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/snippet_repository_storage_moves/1"
+ --url "https://gitlab.example.com/api/v4/snippet_repository_storage_moves/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "created_at": "2020-05-07T04:27:17.234Z",
-  "state": "scheduled",
-  "source_storage_name": "default",
-  "destination_storage_name": "storage2",
-  "snippet": {
+ "id": 1,
+ "created_at": "2020-05-07T04:27:17.234Z",
+ "state": "scheduled",
+ "source_storage_name": "default",
+ "destination_storage_name": "storage2",
+ "snippet": {
     "id": 65,
     "title": "Test Snippet",
     "description": null,
@@ -170,7 +164,7 @@ Example response:
     "raw_url": "https://gitlab.example.com/-/snippets/65/raw",
     "ssh_url_to_repo": "ssh://user@gitlab.example.com/snippets/65.git",
     "http_url_to_repo": "https://gitlab.example.com/snippets/65.git"
-  }
+ }
 }
 ```
 
@@ -191,19 +185,19 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/snippets/1/repository_storage_moves/1"
+ --url "https://gitlab.example.com/api/v4/snippets/1/repository_storage_moves/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "created_at": "2020-05-07T04:27:17.234Z",
-  "state": "scheduled",
-  "source_storage_name": "default",
-  "destination_storage_name": "storage2",
-  "snippet": {
+ "id": 1,
+ "created_at": "2020-05-07T04:27:17.234Z",
+ "state": "scheduled",
+ "source_storage_name": "default",
+ "destination_storage_name": "storage2",
+ "snippet": {
     "id": 65,
     "title": "Test Snippet",
     "description": null,
@@ -215,7 +209,7 @@ Example response:
     "raw_url": "https://gitlab.example.com/-/snippets/65/raw",
     "ssh_url_to_repo": "ssh://user@gitlab.example.com/snippets/65.git",
     "http_url_to_repo": "https://gitlab.example.com/snippets/65.git"
-  }
+ }
 }
 ```
 
@@ -245,12 +239,12 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "created_at": "2020-05-07T04:27:17.234Z",
-  "state": "scheduled",
-  "source_storage_name": "default",
-  "destination_storage_name": "storage2",
-  "snippet": {
+ "id": 1,
+ "created_at": "2020-05-07T04:27:17.234Z",
+ "state": "scheduled",
+ "source_storage_name": "default",
+ "destination_storage_name": "storage2",
+ "snippet": {
     "id": 65,
     "title": "Test Snippet",
     "description": null,
@@ -262,7 +256,7 @@ Example response:
     "raw_url": "https://gitlab.example.com/-/snippets/65/raw",
     "ssh_url_to_repo": "ssh://user@gitlab.example.com/snippets/65.git",
     "http_url_to_repo": "https://gitlab.example.com/snippets/65.git"
-  }
+ }
 }
 ```
 
@@ -295,7 +289,7 @@ Example response:
 
 ```json
 {
-  "message": "202 Accepted"
+ "message": "202 Accepted"
 }
 ```
 

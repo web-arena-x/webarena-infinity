@@ -15,7 +15,7 @@ For example, the SQL view `postgres_sequences` is an abstraction layer over `pg_
 
 ```ruby
 module Gitlab
-  module Database
+ module Database
     # Backed by the postgres_sequences view
     class PostgresSequence < SharedModel
       self.primary_key = :seq_name
@@ -23,7 +23,7 @@ module Gitlab
       scope :by_table_name, ->(table_name) { where(table_name: table_name) }
       scope :by_col_name, ->(col_name) { where(col_name: col_name) }
     end
-  end
+ end
 end
 ```
 
@@ -32,12 +32,12 @@ This allows us to manage database maintenance tasks through Ruby code:
 ```ruby
 Gitlab::Database::PostgresSequence.by_table_name('web_hook_logs')
 => #<Gitlab::Database::PostgresSequence:0x0000000301a1d7a0
-  seq_name: "web_hook_logs_id_seq",
-  table_name: "web_hook_logs",
-  col_name: "id",
-  seq_max: 9223372036854775807,
-  seq_min: 1,
-  seq_start: 1>
+ seq_name: "web_hook_logs_id_seq",
+ table_name: "web_hook_logs",
+ col_name: "id",
+ seq_max: 9223372036854775807,
+ seq_min: 1,
+ seq_start: 1>
 ```
 
 ## Benefits
@@ -68,11 +68,11 @@ This way you can use factories to create records similar to ones returned by the
 
 ```ruby
 RSpec.describe Gitlab::Database::PostgresSequence do
-  include Database::DatabaseHelpers
+ include Database::DatabaseHelpers
 
-  before do
+ before do
     swapout_view_for_table(:postgres_sequences, connection: ApplicationRecord.connection)
-  end
+ end
 end
 ```
 

@@ -53,11 +53,10 @@ To get started with pipeline secret detection, select a pilot project and enable
 
 Prerequisites:
 
-- You have a Linux-based runner with the [`docker`](https://docs.gitlab.com/runner/executors/docker.html) or
-  [`kubernetes`](https://docs.gitlab.com/runner/install/kubernetes.html) executor.
-  If you use hosted runners for GitLab.com, this is enabled by default.
-  - Windows Runners are not supported.
-  - CPU architectures other than amd64 are not supported.
+- You have a Linux-based runner with the [`docker`](https://docs.gitlab.com/runner/executors/docker.html) or [`kubernetes`](https://docs.gitlab.com/runner/install/kubernetes.html) executor.
+ If you use hosted runners for GitLab.com, this is enabled by default.
+ - Windows Runners are not supported.
+ - CPU architectures other than amd64 are not supported.
 - You have a `.gitlab-ci.yml` file that includes the `test` stage.
 
 Enable the secret detection analyzer by using one of the following:
@@ -112,22 +111,18 @@ Pipelines now include a pipeline secret detection job.
 
 Pipeline secret detection is optimized to balance coverage and run time.
 Only the current state of the repository and future commits are scanned for secrets.
-To identify secrets already present in the repository's history, run a historic scan once
-after enabling pipeline secret detection. Scan results are available only after the pipeline is completed.
+To identify secrets already present in the repository's history, run a historic scan once after enabling pipeline secret detection. Scan results are available only after the pipeline is completed.
 
-Exactly what is scanned for secrets depends on the type of pipeline,
-and whether any additional configuration is set.
+Exactly what is scanned for secrets depends on the type of pipeline, and whether any additional configuration is set.
 
 By default, when you run a pipeline:
 
 - On a branch:
-  - On the **default branch**, the Git working tree is scanned.
+ - On the **default branch**, the Git working tree is scanned.
     This means the current repository state is scanned as though it were a typical directory.
-  - On a **new, non-default branch**, the content of all commits from the most recent commit on the parent branch to the latest commit is scanned.
-  - On an **existing, non-default branch**, the content of all commits from the last pushed commit to the latest commit is scanned.
-- On a **merge request**, the content of all commits on the branch is scanned. If the analyzer can't access every commit,
-  the content of all commits from the parent to the latest commit is scanned. To scan all commits, you must enable
-  [merge request pipelines](../../detect/security_configuration.md#use-security-scanning-tools-with-merge-request-pipelines).
+ - On a **new, non-default branch**, the content of all commits from the most recent commit on the parent branch to the latest commit is scanned.
+ - On an **existing, non-default branch**, the content of all commits from the last pushed commit to the latest commit is scanned.
+- On a **merge request**, the content of all commits on the branch is scanned. If the analyzer can't access every commit, the content of all commits from the parent to the latest commit is scanned. To scan all commits, you must enable [merge request pipelines](../../detect/security_configuration.md#use-security-scanning-tools-with-merge-request-pipelines).
 
 To override the default behavior, use the [available CI/CD variables](configure.md#available-cicd-variables).
 
@@ -156,17 +151,11 @@ If you experience persistent issues with missing commits in restricted network e
 
 ### Run a historic scan
 
-By default, pipeline secret detection scans only the current state of the Git repository. Any secrets
-contained in the repository's history are not detected. Run a historic scan to check for secrets from
-all commits and branches in the Git repository.
+By default, pipeline secret detection scans only the current state of the Git repository. Any secrets contained in the repository's history are not detected. Run a historic scan to check for secrets from all commits and branches in the Git repository.
 
-You should run a historic scan only once, after enabling pipeline secret detection. Historic scans
-can take a long time, especially for larger repositories with lengthy Git histories. After
-completing an initial historic scan, use only standard pipeline secret detection as part of your
-pipeline.
+You should run a historic scan only once, after enabling pipeline secret detection. Historic scans can take a long time, especially for larger repositories with lengthy Git histories. After completing an initial historic scan, use only standard pipeline secret detection as part of your pipeline.
 
-If you enable pipeline secret detection with a [scan execution policy](../../policies/scan_execution_policies.md#scanner-behavior),
-by default the first scheduled scan is a historic scan.
+If you enable pipeline secret detection with a [scan execution policy](../../policies/scan_execution_policies.md#scanner-behavior), by default the first scheduled scan is a historic scan.
 
 To run a historic scan:
 
@@ -194,9 +183,7 @@ To run a historic scan:
 
 {{< /history >}}
 
-Secret detection uses an advanced vulnerability tracking algorithm to prevent
-duplicate findings and vulnerabilities from being created when a file is
-refactored or moved.
+Secret detection uses an advanced vulnerability tracking algorithm to prevent duplicate findings and vulnerabilities from being created when a file is refactored or moved.
 
 A new finding is not created when:
 
@@ -216,29 +203,20 @@ Duplicate vulnerability tracking doesn't support workflows where:
 - The existing finding lacks a tracking signature and doesn't share the same location as the new finding.
 - Certain secrets are detected by searching for their prefixes instead of the entire secret value. For these secret types, all the detections of the same type and in the same file are reported as a single finding.
 
-  For example, an SSH private key is detected by its prefix `-----BEGIN OPENSSH PRIVATE KEY-----`. If there are multiple SSH private keys in the same file,
-  pipeline secret detection creates only one finding.
+ For example, an SSH private key is detected by its prefix `-----BEGIN OPENSSH PRIVATE KEY-----`. If there are multiple SSH private keys in the same file, pipeline secret detection creates only one finding.
 - When running a historic scan or enabling pipeline secret detection on existing commits, if a secret is introduced in one commit and then modified in a later commit during the same scan, only the most recent secret value appears in the vulnerability report.
 
 ### Detected secrets
 
-Pipeline secret detection scans the repository's content for specific patterns. Each pattern matches
-a specific type of secret and is specified in a rule by using a TOML syntax. GitLab maintains the default set of rules.
+Pipeline secret detection scans the repository's content for specific patterns. Each pattern matches a specific type of secret and is specified in a rule by using a TOML syntax. GitLab maintains the default set of rules.
 
 With GitLab Ultimate you can extend these rules to suit your needs. For example, while personal access tokens that use a custom prefix are not detected by default, you can customize the rules to identify these tokens.
 For details, see [Customize analyzer rulesets](configure.md#customize-analyzer-rulesets).
 
-To confirm
-which secrets are detected by pipeline secret detection, see
-[Detected secrets](../detected_secrets.md). To provide reliable, high-confidence results, pipeline
-secret detection only looks for passwords or other unstructured secrets in specific contexts like
-URLs.
+To confirm which secrets are detected by pipeline secret detection, see [Detected secrets](../detected_secrets.md). To provide reliable, high-confidence results, pipeline secret detection only looks for passwords or other unstructured secrets in specific contexts like URLs.
 
-When a secret is detected a vulnerability is created for it. The vulnerability remains as "Still
-detected" even if the secret is removed from the scanned file and pipeline secret detection has been
-run again. This is because the leaked secret continues to be a security risk until it has been revoked.
-Removed secrets also persist in the Git history. To remove a secret from the Git repository's history, see
-[Redact text from repository](../../../project/repository/repository_size.md#redact-text-from-repository).
+When a secret is detected a vulnerability is created for it. The vulnerability remains as "Still detected" even if the secret is removed from the scanned file and pipeline secret detection has been run again. This is because the leaked secret continues to be a security risk until it has been revoked.
+Removed secrets also persist in the Git history. To remove a secret from the Git repository's history, see [Redact text from repository](../../../project/repository/repository_size.md#redact-text-from-repository).
 
 ### Excluded items
 
@@ -308,26 +286,23 @@ When reviewing results:
 Detections by pipeline secret detection often fall into one of three categories:
 
 - **True positives**: Legitimate secrets that should be rotated and removed. For example:
-  - Active API keys, database passwords, authentication tokens
-  - Private keys and certificates
-  - Service account credentials
+ - Active API keys, database passwords, authentication tokens
+ - Private keys and certificates
+ - Service account credentials
 - **False positives**: Detected patterns that aren't actual secrets. For example:
-  - Example values in documentation
-  - Test data or mock credentials
-  - Configuration templates with placeholder values
+ - Example values in documentation
+ - Test data or mock credentials
+ - Configuration templates with placeholder values
 - **Historical findings**: Secrets that were previously committed but might not be active. These detections:
-  - Require investigation to determine current status
-  - Should still be rotated as a precaution
+ - Require investigation to determine current status
+ - Should still be rotated as a precaution
 
 ## Remediate a leaked secret
 
-When a secret is detected, you should rotate it immediately. GitLab attempts to
-[automatically revoke](../automatic_response.md) some types of leaked secrets. For those that are not
-automatically revoked, you must do so manually.
+When a secret is detected, you should rotate it immediately. GitLab attempts to [automatically revoke](../automatic_response.md) some types of leaked secrets. For those that are not automatically revoked, you must do so manually.
 
 [Purging a secret from the repository's history](../../../project/repository/repository_size.md#purge-files-from-repository-history)
-does not fully address the leak. The original secret remains in any existing forks or
-clones of the repository.
+does not fully address the leak. The original secret remains in any existing forks or clones of the repository.
 
 For instructions on how to respond to a leaked secret, select the vulnerability in the vulnerability report.
 
@@ -344,12 +319,12 @@ False positives can create alert fatigue and reduce trust in the tool. Consider 
 To optimize performance in large repositories or organizations with many projects, review your:
 
 - Scan scope management:
-  - Turn off historical scanning after you run a historical scan in a project.
-  - Schedule historic scans during low-usage periods.
+ - Turn off historical scanning after you run a historical scan in a project.
+ - Schedule historic scans during low-usage periods.
 - Resource allocation:
-  - Allocate sufficient runner resources for larger repositories.
-  - Consider dedicated runners for security scanning workloads.
-  - Monitor scan duration and optimize based on repository size.
+ - Allocate sufficient runner resources for larger repositories.
+ - Consider dedicated runners for security scanning workloads.
+ - Monitor scan duration and optimize based on repository size.
 
 ### Testing optimization changes
 
@@ -385,8 +360,7 @@ Follow these guidelines when you roll out pipeline secret detection:
 
 {{< /history >}}
 
-The default scanner images are built off a base Alpine image for size and maintainability. GitLab
-offers [Red Hat UBI](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image)
+The default scanner images are built off a base Alpine image for size and maintainability. GitLab offers [Red Hat UBI](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image)
 versions of the images that are FIPS-enabled.
 
 To use the FIPS-enabled images, either:
@@ -398,18 +372,17 @@ For example:
 
 ```yaml
 variables:
-  SECRET_DETECTION_IMAGE_SUFFIX: '-fips'
+ SECRET_DETECTION_IMAGE_SUFFIX: '-fips'
 
 include:
-  - template: Jobs/Secret-Detection.gitlab-ci.yml
+ - template: Jobs/Secret-Detection.gitlab-ci.yml
 ```
 
 ## Troubleshooting
 
 ### Debug-level logging
 
-Debug-level logging can help when troubleshooting. For details, see
-[debug-level logging](../../troubleshooting_application_security.md#debug-level-logging).
+Debug-level logging can help when troubleshooting. For details, see [debug-level logging](../../troubleshooting_application_security.md#debug-level-logging).
 
 #### Warning: `gl-secret-detection-report.json: no matching files`
 
@@ -432,29 +405,26 @@ To resolve this issue:
 - For most cases, no action is required. Let the analyzer handle fetching automatically.
 - For restricted networks, increase the initial clone depth:
 
-  ```yaml
-  secret_detection:
+ ```yaml
+ secret_detection:
     variables:
-      GIT_DEPTH: 100  # or 0 to clone everything
-  ```
+      GIT_DEPTH: 100 # or 0 to clone everything
+ ```
 
 - For large repositories, limit the scan scope:
 
-  ```yaml
-  secret_detection:
+ ```yaml
+ secret_detection:
     variables:
       SECRET_DETECTION_LOG_OPTIONS: "--max-count=50"
-  ```
+ ```
 
 #### Error: `ERR fatal: ambiguous argument`
 
-Pipeline secret detection can fail with the message `ERR fatal: ambiguous argument` error if your
-repository's default branch is unrelated to the branch the job was triggered for. See issue
-[!352014](https://gitlab.com/gitlab-org/gitlab/-/issues/352014) for more details.
+Pipeline secret detection can fail with the message `ERR fatal: ambiguous argument` error if your repository's default branch is unrelated to the branch the job was triggered for. See issue [!352014](https://gitlab.com/gitlab-org/gitlab/-/issues/352014) for more details.
 
 To resolve the issue, make sure to correctly [set your default branch](../../../project/repository/branches/default.md#change-the-default-branch-name-for-a-project)
-on your repository. You should set it to a branch that has related history with the branch you run
-the `secret-detection` job on.
+on your repository. You should set it to a branch that has related history with the branch you run the `secret-detection` job on.
 
 #### `exec /bin/sh: exec format error` message in job log
 
@@ -501,7 +471,7 @@ For example, to scan only 30 commits:
 
 ```yaml
 secret_detection:
-  variables:
+ variables:
     # Scan the last 30 commits
     SECRET_DETECTION_LOG_OPTIONS: "--max-count=30"
 ```
@@ -510,7 +480,7 @@ To scan only commits from the last two weeks:
 
 ```yaml
 secret_detection:
-  variables:
+ variables:
     # Scan commits made in the last two weeks
     SECRET_DETECTION_LOG_OPTIONS: "--since=2.weeks"
 ```
@@ -519,7 +489,7 @@ To scan only commits from `HEAD~10` to `HEAD`:
 
 ```yaml
 secret_detection:
-  variables:
+ variables:
     # Scan commits from HEAD~10 to HEAD
     SECRET_DETECTION_LOG_OPTIONS: "HEAD~10..HEAD"
 ```

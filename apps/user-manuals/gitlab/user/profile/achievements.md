@@ -21,14 +21,12 @@ title: Achievements
 
 {{< alert type="flag" >}}
 
-On GitLab Self-Managed, by default this feature is not available. To make it available,
-an administrator can [enable the feature flag](../../administration/feature_flags/_index.md) named `achievements`.
+On GitLab Self-Managed, by default this feature is not available. To make it available, an administrator can [enable the feature flag](../../administration/feature_flags/_index.md) named `achievements`.
 
 {{< /alert >}}
 
 Achievements are a way to reward users for their activity on GitLab.
-As a namespace maintainer or owner, you can create custom achievements for specific contributions. You can award these
-achievements to users or revoke them based on defined criteria.
+As a namespace maintainer or owner, you can create custom achievements for specific contributions. You can award these achievements to users or revoke them based on defined criteria.
 
 As a user, you can collect achievements to highlight your contributions to different projects or groups on your profile.
 An achievement consists of a name, a description, and an avatar.
@@ -83,7 +81,7 @@ To retrieve a list of a user's achievements, query the [`user` GraphQL type](../
 
 ```graphql
 query {
-  user(username: "<username>") {
+ user(username: "<username>") {
     userAchievements {
       nodes {
         achievement {
@@ -97,7 +95,7 @@ query {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -112,15 +110,15 @@ Prerequisites:
 To create an achievement:
 
 - In the UI:
-  1. On the [Achievements page](#view-group-achievements), select **New achievement**.
-  1. Enter a name for the achievement.
-  1. Optional. Enter a description and upload an avatar for the achievement.
-  1. Select **Save changes**.
+ 1. On the [Achievements page](#view-group-achievements), select **New achievement**.
+ 1. Enter a name for the achievement.
+ 1. Optional. Enter a description and upload an avatar for the achievement.
+ 1. Select **Save changes**.
 
 - With the GraphQL API, call the [`achievementsCreate` GraphQL mutation](../../api/graphql/reference/_index.md#mutationachievementscreate):
 
-  ```graphql
-  mutation achievementsCreate($file: Upload!) {
+ ```graphql
+ mutation achievementsCreate($file: Upload!) {
     achievementsCreate(
       input: {
         namespaceId: "gid://gitlab/Namespace/<namespace id>",
@@ -136,25 +134,25 @@ To create an achievement:
         avatarUrl
       }
     }
-  }
-  ```
+ }
+ ```
 
-  To supply the avatar file, call the mutation using `curl`:
+ To supply the avatar file, call the mutation using `curl`:
 
-  ```shell
-  curl "https://gitlab.com/api/graphql" \
+ ```shell
+ curl "https://gitlab.com/api/graphql" \
     -H "Authorization: Bearer <your-pat-token>" \
     -H "Content-Type: multipart/form-data" \
     -F operations='{ "query": "mutation ($file: Upload!) { achievementsCreate(input: { namespaceId: \"gid://gitlab/Namespace/<namespace-id>\", name: \"<name>\", description: \"<description>\", avatar: $file }) { achievement { id name description avatarUrl } } }", "variables": { "file": null } }' \
     -F map='{ "0": ["variables.file"] }' \
     -F 0='@/path/to/your/file.jpg'
-  ```
+ ```
 
-  When successful, the response returns the achievement ID:
+ When successful, the response returns the achievement ID:
 
-  ```shell
-  {"data":{"achievementsCreate":{"achievement":{"id":"gid://gitlab/Achievements::Achievement/1","name":"<name>","description":"<description>","avatarUrl":"https://gitlab.com/uploads/-/system/achievements/achievement/avatar/1/file.jpg"}}}}
-  ```
+ ```shell
+ {"data":{"achievementsCreate":{"achievement":{"id":"gid://gitlab/Achievements::Achievement/1","name":"<name>","description":"<description>","avatarUrl":"https://gitlab.com/uploads/-/system/achievements/achievement/avatar/1/file.jpg"}}}}
+ ```
 
 ## Update an achievement
 
@@ -168,13 +166,13 @@ To update an achievement, call the [`achievementsUpdate` GraphQL mutation](../..
 
 ```graphql
 mutation achievementsUpdate($file: Upload!) {
-  achievementsUpdate(
+ achievementsUpdate(
     input: {
       achievementId: "gid://gitlab/Achievements::Achievement/<achievement id>",
       name: "<new name>",
       description: "<new description>",
       avatar: $file}
-  ) {
+ ) {
     errors
     achievement {
       id
@@ -182,7 +180,7 @@ mutation achievementsUpdate($file: Upload!) {
       description
       avatarUrl
     }
-  }
+ }
 }
 ```
 
@@ -199,7 +197,7 @@ To award an achievement to a user, call the [`achievementsAward` GraphQL mutatio
 
 ```graphql
 mutation {
-  achievementsAward(input: {
+ achievementsAward(input: {
     achievementId: "gid://gitlab/Achievements::Achievement/<achievement id>",
     userId: "gid://gitlab/User/<user id>" }) {
     userAchievement {
@@ -214,7 +212,7 @@ mutation {
       }
     }
     errors
-  }
+ }
 }
 ```
 
@@ -230,7 +228,7 @@ To revoke an achievement, call the [`achievementsRevoke` GraphQL mutation](../..
 
 ```graphql
 mutation {
-  achievementsRevoke(input: {
+ achievementsRevoke(input: {
     userAchievementId: "gid://gitlab/Achievements::UserAchievement/<user achievement id>" }) {
     userAchievement {
       id
@@ -245,7 +243,7 @@ mutation {
       revokedAt
     }
     errors
-  }
+ }
 }
 ```
 
@@ -261,7 +259,7 @@ To delete an awarded achievement, call the [`userAchievementsDelete` GraphQL mut
 
 ```graphql
 mutation {
-  userAchievementsDelete(input: {
+ userAchievementsDelete(input: {
     userAchievementId: "gid://gitlab/Achievements::UserAchievement/<user achievement id>" }) {
     userAchievement {
       id
@@ -275,7 +273,7 @@ mutation {
       }
     }
     errors
-  }
+ }
 }
 ```
 
@@ -292,14 +290,14 @@ To delete an achievement, call the [`achievementsDelete` GraphQL mutation](../..
 
 ```graphql
 mutation {
-  achievementsDelete(input: {
+ achievementsDelete(input: {
     achievementId: "gid://gitlab/Achievements::Achievement/<achievement id>" }) {
     achievement {
       id
       name
     }
     errors
-  }
+ }
 }
 ```
 
@@ -326,16 +324,16 @@ To hide one of your achievements, call the [`userAchievementsUpdate` GraphQL mut
 
 ```graphql
 mutation {
-  userAchievementsUpdate(input: {
+ userAchievementsUpdate(input: {
     userAchievementId: "gid://gitlab/Achievements::UserAchievement/<user achievement id>"
     showOnProfile: false
-  }) {
+ }) {
     userAchievement {
       id
       showOnProfile
     }
     errors
-  }
+ }
 }
 ```
 
@@ -350,7 +348,7 @@ with an ordered list of all prioritized achievements.
 
 ```graphql
 mutation {
-  userAchievementPrioritiesUpdate(input: {
+ userAchievementPrioritiesUpdate(input: {
     userAchievementIds: ["gid://gitlab/Achievements::UserAchievement/<first user achievement id>", "gid://gitlab/Achievements::UserAchievement/<second user achievement id>"],
     }) {
     userAchievements {
@@ -358,6 +356,6 @@ mutation {
       priority
     }
     errors
-  }
+ }
 }
 ```

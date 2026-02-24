@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408822477722-Using-emoji-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -23,10 +23,10 @@ There are two ways you can add an emoji to a ticket comment:
 
 **To select an emoji to insert in a ticket comment**
 
-- For mac, in the ticket comment, press the keys control + command + space.  
+- For mac, in the ticket comment, press the keys control + command + space. 
    The emoji window appears for you to select an emoji.
 - For Windows, in the ticket comment, press the Windows key and the period key.   
-  The emoji window appears for you to select an emoji.
+ The emoji window appears for you to select an emoji.
 
 This keyboard shortcut also works for inserting an emoji in a Help Center article.
 

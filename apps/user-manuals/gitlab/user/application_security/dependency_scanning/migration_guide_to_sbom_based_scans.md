@@ -26,44 +26,27 @@ Follow this migration guide if you use GitLab dependency scanning and any of the
 
 - The dependency scanning CI/CD jobs are configured by including a dependency scanning CI/CD templates.
 
-  ```yaml
+ ```yaml
     include:
       - template: Jobs/Dependency-Scanning.gitlab-ci.yml
       - template: Jobs/Dependency-Scanning.latest.gitlab-ci.yml
-  ```
+ ```
 
 - The dependency scanning CI/CD jobs are configured by using [Scan Execution Policies](../policies/scan_execution_policies.md).
 - The dependency scanning CI/CD jobs are configured by using [Pipeline Execution Policies](../policies/pipeline_execution_policies.md).
 
 ## Understand the changes
 
-Before you migrate your project to dependency scanning using SBOM, you should
-understand the fundamental changes being introduced. The transition represents a
-technical evolution, a new approach to how dependency scanning works in GitLab,
-and various improvements to the user experience, some of which include, but are
-not limited to, the following:
+Before you migrate your project to dependency scanning using SBOM, you should understand the fundamental changes being introduced. The transition represents a technical evolution, a new approach to how dependency scanning works in GitLab, and various improvements to the user experience, some of which include, but are not limited to, the following:
 
 - Increased language support.
-  The deprecated Gemnasium analyzers are constrained to a small subset of Python
-  and Java versions. The new analyzer gives organizations the necessary
-  flexibility to use older versions of these toolchains with older projects,
-  and the option to try newer versions without waiting on a major update to the
-  analyzer's image. Additionally, the new analyzer benefits from increased
-  [file coverage](https://gitlab.com/gitlab-org/security-products/analyzers/dependency-scanning#supported-files).
+ The deprecated Gemnasium analyzers are constrained to a small subset of Python and Java versions. The new analyzer gives organizations the necessary flexibility to use older versions of these toolchains with older projects, and the option to try newer versions without waiting on a major update to the analyzer's image. Additionally, the new analyzer benefits from increased [file coverage](https://gitlab.com/gitlab-org/security-products/analyzers/dependency-scanning#supported-files).
 - Increased performance.
-  Depending on the application, builds invoked by the
-  Gemnasium analyzers can last for almost an hour, and be a duplicate effort. The
-  new analyzer no longer invokes build systems directly. Instead, it re-uses previously
-  defined build jobs to improve overall scan performance.
+ Depending on the application, builds invoked by the Gemnasium analyzers can last for almost an hour, and be a duplicate effort. The new analyzer no longer invokes build systems directly. Instead, it re-uses previously defined build jobs to improve overall scan performance.
 - Smaller attack surface.
-  To support its build capabilities, the Gemnasium analyzers are preloaded with
-  a variety of dependencies. The new analyzer removes a large amount of these
-  dependencies which results in a smaller attack surface.
+ To support its build capabilities, the Gemnasium analyzers are preloaded with a variety of dependencies. The new analyzer removes a large amount of these dependencies which results in a smaller attack surface.
 - Simpler configuration.
-  The deprecated Gemnasium analyzers frequently require the configuration of
-  proxies, Certificate Authority (CA) certificate bundles, and various other utilities
-  to function correctly. The new solution removes many of these requirements, resulting
-  in a robust tool that is simpler to configure.
+ The deprecated Gemnasium analyzers frequently require the configuration of proxies, Certificate Authority (CA) certificate bundles, and various other utilities to function correctly. The new solution removes many of these requirements, resulting in a robust tool that is simpler to configure.
 
 ### A new approach to security scanning
 
@@ -96,17 +79,16 @@ Users can view dependency scanning results as a job artifact (`gl-dependency-sca
 #### Beta behavior
 
 The dependency scanning report artifact is included in the Generally Available release.
-The Beta behavior is documented below for historical reference, but is no longer
-officially supported and might be removed from the product.
+The Beta behavior is documented below for historical reference, but is no longer officially supported and might be removed from the product.
 
 <details>
-  <summary>Expand this section for details of changes to how you access vulnerability scanning results.</summary>
+ <summary>Expand this section for details of changes to how you access vulnerability scanning results.</summary>
 
-  When you migrate to dependency scanning using SBOM, you'll notice a fundamental change in how security scan results are handled. The new approach moves the security analysis out of the CI/CD pipeline and into the GitLab platform, which changes how you access and work with the results.
-  With the legacy dependency scanning feature, CI/CD jobs using the Gemnasium analyzer generate a [dependency scanning report artifact](../../../ci/yaml/artifacts_reports.md#artifactsreportsdependency_scanning) containing the scan results, and upload it to the platform. You can access these results by all possible ways offered to job artifacts. This means you can process or modify the results within your CI/CD pipeline before they reach the GitLab platform.
-  The dependency scanning using SBOM approach works differently. The security analysis now happens within the GitLab platform using the built-in GitLab SBOM Vulnerability Scanner, so you won't find the scan results in your job artifacts anymore. Instead, GitLab analyzes the [CycloneDX SBOM report artifact](../../../ci/yaml/artifacts_reports.md#artifactsreportscyclonedx) that your CI/CD pipeline generates, creating security findings directly in the GitLab platform.
-  To help you transition smoothly, GitLab maintains some backward compatibility. While using the Gemnasium analyzer, you'll still get a standard artifact (using `artifacts:paths`) that contains the scan results. This means if you have succeeding CI/CD jobs that need these results, they can still access them. However, keep in mind that as the GitLab SBOM Vulnerability Scanner evolves and improves, these artifact-based results won't reflect the latest enhancements.
-  When you're ready to fully migrate to the new dependency scanning analyzer, you'll need to adjust how you programmatically access scan results. Instead of reading job artifacts, you'll use GitLab GraphQL API, specifically the ([`Pipeline.securityReportFindings` resource](../../../api/graphql/reference/_index.md#pipelinesecurityreportfindings)).
+ When you migrate to dependency scanning using SBOM, you'll notice a fundamental change in how security scan results are handled. The new approach moves the security analysis out of the CI/CD pipeline and into the GitLab platform, which changes how you access and work with the results.
+ With the legacy dependency scanning feature, CI/CD jobs using the Gemnasium analyzer generate a [dependency scanning report artifact](../../../ci/yaml/artifacts_reports.md#artifactsreportsdependency_scanning) containing the scan results, and upload it to the platform. You can access these results by all possible ways offered to job artifacts. This means you can process or modify the results within your CI/CD pipeline before they reach the GitLab platform.
+ The dependency scanning using SBOM approach works differently. The security analysis now happens within the GitLab platform using the built-in GitLab SBOM Vulnerability Scanner, so you won't find the scan results in your job artifacts anymore. Instead, GitLab analyzes the [CycloneDX SBOM report artifact](../../../ci/yaml/artifacts_reports.md#artifactsreportscyclonedx) that your CI/CD pipeline generates, creating security findings directly in the GitLab platform.
+ To help you transition smoothly, GitLab maintains some backward compatibility. While using the Gemnasium analyzer, you'll still get a standard artifact (using `artifacts:paths`) that contains the scan results. This means if you have succeeding CI/CD jobs that need these results, they can still access them. However, keep in mind that as the GitLab SBOM Vulnerability Scanner evolves and improves, these artifact-based results won't reflect the latest enhancements.
+ When you're ready to fully migrate to the new dependency scanning analyzer, you'll need to adjust how you programmatically access scan results. Instead of reading job artifacts, you'll use GitLab GraphQL API, specifically the ([`Pipeline.securityReportFindings` resource](../../../api/graphql/reference/_index.md#pipelinesecurityreportfindings)).
 </details>
 
 ### Compliance framework considerations
@@ -153,8 +135,7 @@ For multi-language projects, complete all relevant language-specific migration s
 
 ## Language-specific instructions
 
-As you migrate to the new dependency scanning analyzer, you'll need to make specific adjustments based on your project's programming languages and package managers. These instructions apply whenever you use the new dependency scanning analyzer,
-regardless of how you've configured it to run - whether through CI/CD templates, Scan Execution Policies, or the dependency scanning CI/CD component.
+As you migrate to the new dependency scanning analyzer, you'll need to make specific adjustments based on your project's programming languages and package managers. These instructions apply whenever you use the new dependency scanning analyzer, regardless of how you've configured it to run - whether through CI/CD templates, Scan Execution Policies, or the dependency scanning CI/CD component.
 In the following sections, you'll find detailed instructions for each supported language and package manager. Each instruction has explanations for:
 
 - How dependency detection is changing
@@ -264,8 +245,8 @@ Prerequisites:
 To migrate a Gradle project:
 
 - Ensure that your project provides a `dependencies.lock` file. Configure the [Gradle Dependency Lock Plugin](https://github.com/nebula-plugins/gradle-dependency-lock-plugin) in your project and either:
-  - Permanently integrate the plugin into your development workflow. This means committing the `dependencies.lock` file into your repository and updating it as you're making changes to your project dependencies.
-  - Use the command in a preceding CI/CD job (for example: `build`) to dynamically generate the `dependencies.lock` file and export it as an [artifact](../../../ci/jobs/job_artifacts.md) prior to running the dependency scanning job.
+ - Permanently integrate the plugin into your development workflow. This means committing the `dependencies.lock` file into your repository and updating it as you're making changes to your project dependencies.
+ - Use the command in a preceding CI/CD job (for example: `build`) to dynamically generate the `dependencies.lock` file and export it as an [artifact](../../../ci/jobs/job_artifacts.md) prior to running the dependency scanning job.
 
 See the [enablement instructions for Gradle](dependency_scanning_sbom/_index.md#gradle) for more details and examples.
 
@@ -342,8 +323,8 @@ Prerequisites:
 To migrate a pip project:
 
 - Ensure that your project provides a `requirements.txt` lockfile. Configure the [pip-compile command line tool](https://pip-tools.readthedocs.io/en/latest/cli/pip-compile/) in your project and either:
-  - Permanently integrate the command line tool into your development workflow. This means committing the `requirements.txt` file into your repository and updating it as you're making changes to your project dependencies.
-  - Use the command line tool in a preceding CI/CD job (for example: `build`) to dynamically generate the `requirements.txt` file and export it as an [artifact](../../../ci/jobs/job_artifacts.md) prior to running the dependency scanning job.
+ - Permanently integrate the command line tool into your development workflow. This means committing the `requirements.txt` file into your repository and updating it as you're making changes to your project dependencies.
+ - Use the command line tool in a preceding CI/CD job (for example: `build`) to dynamically generate the `requirements.txt` file and export it as an [artifact](../../../ci/jobs/job_artifacts.md) prior to running the dependency scanning job.
 
 OR
 
@@ -368,8 +349,8 @@ Prerequisites:
 To migrate a Pipenv project:
 
 - Ensure that your project provides a `Pipfile.lock` file. Configure the [`pipenv lock` command](https://pipenv.pypa.io/en/latest/cli.html#graph) in your project and either:
-  - Permanently integrate the command into your development workflow. This means committing the `Pipfile.lock` file into your repository and updating it as you're making changes to your project dependencies.
-  - Use the command in a preceding CI/CD job (for example: `build`) to dynamically generate the `Pipfile.lock` file and export it as an [artifact](../../../ci/jobs/job_artifacts.md) prior to running the dependency scanning job.
+ - Permanently integrate the command into your development workflow. This means committing the `Pipfile.lock` file into your repository and updating it as you're making changes to your project dependencies.
+ - Use the command in a preceding CI/CD job (for example: `build`) to dynamically generate the `Pipfile.lock` file and export it as an [artifact](../../../ci/jobs/job_artifacts.md) prior to running the dependency scanning job.
 
 OR
 
@@ -448,8 +429,8 @@ Prerequisites:
 To migrate a setuptools project:
 
 - Ensure that your project provides a `requirements.txt` lockfile. Configure the [pip-compile command line tool](https://pip-tools.readthedocs.io/en/latest/cli/pip-compile/) in your project and either:
-  - Permanently integrate the command line tool into your development workflow. This means committing the `requirements.txt` file into your repository and updating it as you're making changes to your project dependencies.
-  - Use the command line tool in a `build` CI/CD job to dynamically generate the `requirements.txt` file and export it as an [artifact](../../../ci/jobs/job_artifacts.md) prior to running the dependency scanning job.
+ - Permanently integrate the command line tool into your development workflow. This means committing the `requirements.txt` file into your repository and updating it as you're making changes to your project dependencies.
+ - Use the command line tool in a `build` CI/CD job to dynamically generate the `requirements.txt` file and export it as an [artifact](../../../ci/jobs/job_artifacts.md) prior to running the dependency scanning job.
 
 See the [enablement instructions for pip](dependency_scanning_sbom/_index.md#pip) for more details and examples.
 

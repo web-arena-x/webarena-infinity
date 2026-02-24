@@ -75,9 +75,7 @@ To proceed with the downgrade, click the button **Downgrade to Basic**.
 
 Once confirmed, the downgrade will be applied, and you will continue to receive Plus benefits for this job until your next renewal date.
 
-- **Have multiple upgraded jobs?**  
-  Downgrading one job will not cancel your subscription—you’ll still have access to Plus features on any remaining upgraded jobs.
-- **Only have one upgraded job?**  
-  Downgrading it will open the slot so you can upgrade another job or cancel.
+- **Have multiple upgraded jobs?** Downgrading one job will not cancel your subscription—you’ll still have access to Plus features on any remaining upgraded jobs.
+- **Only have one upgraded job?** Downgrading it will open the slot so you can upgrade another job or cancel.
 
 ![](https://support.joinhandshake.com/hc/article_attachments/35283660775575)

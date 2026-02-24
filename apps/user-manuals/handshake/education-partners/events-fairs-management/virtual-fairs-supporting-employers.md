@@ -11,20 +11,20 @@ This article will provide you with best practices and knowledge for supporting e
 ### Topics
 
 - [Registrations](#h_01EED94TXQK6APAS66P2Q7H265)
-  - [Trouble locating a fair](#h_01EED95B6HYCZSKC56HWT4Y1NN)
-  - [Divisions](#h_01EED95HRBQYS4JCZ2M58SH2XW)
-  - [Changing a Schedule Owner](#h_01EED95R1E5F4RXV1G80D5F8PY)
+ - [Trouble locating a fair](#h_01EED95B6HYCZSKC56HWT4Y1NN)
+ - [Divisions](#h_01EED95HRBQYS4JCZ2M58SH2XW)
+ - [Changing a Schedule Owner](#h_01EED95R1E5F4RXV1G80D5F8PY)
 - [Set and manage a schedule](#h_01EED953RV2FFMCQ50TTBRY18K)
-  - [Setting a schedule](#h_01EED9604ZTFKV0E1DBM66ENTC)
-  - [Permission error when trying to Add Sessions](#h_01EKB16KM2H592ESPXVMJ2CCVH)
-  - [Claiming a schedule](#h_01EED9675TQYYB46W8HR0TNGFZ)
-  - [Managing a schedule](#h_01EED96DVZFD72J7FSFKZHZ1YA)
+ - [Setting a schedule](#h_01EED9604ZTFKV0E1DBM66ENTC)
+ - [Permission error when trying to Add Sessions](#h_01EKB16KM2H592ESPXVMJ2CCVH)
+ - [Claiming a schedule](#h_01EED9675TQYYB46W8HR0TNGFZ)
+ - [Managing a schedule](#h_01EED96DVZFD72J7FSFKZHZ1YA)
 - [Invite students to engage](#h_01EED96MMXRFQR7DE44M8Q9M9M)
-  - [Resume Downloads](#h_01EKB3RYJCTAQ0FNSS3ZGZEA6M)
+ - [Resume Downloads](#h_01EKB3RYJCTAQ0FNSS3ZGZEA6M)
 - [Day-of the fair](#h_01EED96VFC50ERKGKF8Q4B4BSA)
-  - [Supported Devices](#h_01EKB2K0V5FR0RYDCET5SAJ08A)
-  - [Employer can launch a session, but cannot access audio/video](#h_01EKB16W0PMZJ67RE3CH4TQNE1)
-  - [Employer needs to test audio, video, or screensharing](#h_01EKB1GQNBCP47YWFKJ0WS3HWM)
+ - [Supported Devices](#h_01EKB2K0V5FR0RYDCET5SAJ08A)
+ - [Employer can launch a session, but cannot access audio/video](#h_01EKB16W0PMZJ67RE3CH4TQNE1)
+ - [Employer needs to test audio, video, or screensharing](#h_01EKB1GQNBCP47YWFKJ0WS3HWM)
 - [After the fair](#h_01EED97BYHP58S17K3S0126K2T)
 - [Email Registrants / Schedule representatives / Representatives](#h_01EED97BYHP58S17K3S0126K2T)
 
@@ -122,14 +122,14 @@ Employers are able to download resumes of students that have signed up for sessi
 
 - The student has a resume uploaded to their profile and it is marked as Featured on Profile.
 - If your school uses the legacy Document Review, make sure the document has been marked as Approved.
-  - If your school uses the Document Feedback feature, no further action is needed, as no documents are blocked regardless of status.
+ - If your school uses the Document Feedback feature, no further action is needed, as no documents are blocked regardless of status.
 
 ## Day-of the fair
 
 Employers are able to login up to 60 minutes early to test their audio and video setup.
 
 - For more detailed information, please see [Handshake Video Requirements & Troubleshooting (Employers)](https://support.joinhandshake.com/hc/en-us/articles/360051802973-Handshake-Video-Requirements-Troubleshooting-Employers-).
-  - This is a great resource for employers to share with their IT department if advanced steps are required.
+ - This is a great resource for employers to share with their IT department if advanced steps are required.
 - Another helpful resource is [Virtual Fairs: Day-of the Fair](https://support.joinhandshake.com/hc/en-us/articles/360049974994).
 
 ### 
@@ -139,9 +139,9 @@ Employers are able to login up to 60 minutes early to test their audio and video
 We support employers hosting virtual fair sessions via desktop web access only, and the recommended browsers are Chrome, Firefox, and Edge (only the most recent version of Edge). 
 
 - Employers may be able to launch sessions via mobile web successfully, however, this not officially supported by Handshake and does have several limitations: 
-  - On any mobile web access, employers are unable to share their screen.
-  - On iOS devices, employers will only be able to use Safari, as Apple does not allow third party browsers access to the device camera or microphone.
-  - On Android devices, the camera and microphone should be able to be accessed by any browser.
+ - On any mobile web access, employers are unable to share their screen.
+ - On iOS devices, employers will only be able to use Safari, as Apple does not allow third party browsers access to the device camera or microphone.
+ - On Android devices, the camera and microphone should be able to be accessed by any browser.
 
 Please note that additional steps may be required for security with the employer’s domain/firewall. You can have the employer use the Daily network test to test internet, audio, visual, etc: <https://network-test.daily.co/index.html> In the event that the test fails, the employer will need to follow-up with their IT department. 
 

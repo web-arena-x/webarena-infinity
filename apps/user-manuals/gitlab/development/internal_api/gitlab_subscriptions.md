@@ -5,19 +5,14 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: GitLab Subscriptions Internal API
 ---
 
-The GitLab Subscriptions internal API is used by the CustomersDot application,
-it cannot be used by other consumers. This documentation is intended for people
-working on the GitLab and CustomersDot codebases.
+The GitLab Subscriptions internal API is used by the CustomersDot application, it cannot be used by other consumers. This documentation is intended for people working on the GitLab and CustomersDot codebases.
 
 ## Add new endpoints
 
 API endpoints should be externally accessible by default, with proper authentication and authorization.
-Before adding a new internal endpoint, consider if the API would benefit the wider GitLab community and
-can be made externally accessible.
+Before adding a new internal endpoint, consider if the API would benefit the wider GitLab community and can be made externally accessible.
 
-For the GitLab Subscription portal, we might chose to use an internal API when we need to make updates
-to GitLab without the context of a user. This means we don't have access to a user's access token, and
-instead make updates as the CustomersDot application in general.
+For the GitLab Subscription portal, we might chose to use an internal API when we need to make updates to GitLab without the context of a user. This means we don't have access to a user's access token, and instead make updates as the CustomersDot application in general.
 
 ## Authentication
 
@@ -33,11 +28,9 @@ To authenticate using the JWT, clients:
 
 ### Admin personal access token (PAT)
 
-This authentication method is deprecated as it is not supported in the Cells architecture. It will be
-[removed in a future milestone](https://gitlab.com/gitlab-org/gitlab/-/issues/473625). Use JWT authentication instead.
+This authentication method is deprecated as it is not supported in the Cells architecture. It will be [removed in a future milestone](https://gitlab.com/gitlab-org/gitlab/-/issues/473625). Use JWT authentication instead.
 
-To authenticate as an administrator, generate a personal access token for an administrator with the
-`api` and `admin_mode` scopes. This token can then be supplied in the `PRIVATE-TOKEN` header.
+To authenticate as an administrator, generate a personal access token for an administrator with the `api` and `admin_mode` scopes. This token can then be supplied in the `PRIVATE-TOKEN` header.
 
 ## Internal Endpoints
 
@@ -45,8 +38,7 @@ To authenticate as an administrator, generate a personal access token for an adm
 
 #### Fetch group owners
 
-Use a GET command to get direct owners of the namespace. CustomersDot uses this endpoint to find users to notify about
-billing events.
+Use a GET command to get direct owners of the namespace. CustomersDot uses this endpoint to find users to notify about billing events.
 
 ```plaintext
 GET /internal/gitlab_subscriptions/namespaces/:id/owners
@@ -62,7 +54,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "user": {
       "id": 1,
       "username": "john_smith",
@@ -70,7 +62,7 @@ Example response:
     },
     "access_level": 50,
     "notification_email": "name@example.com"
-  }
+ }
 ]
 ```
 
@@ -98,24 +90,24 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "name": "group1",
-  "path": "group1",
-  "kind": "group",
-  "full_path": "group1",
-  "parent_id": null,
-  "avatar_url": null,
-  "web_url": "https://gitlab.example.com/groups/group1",
-  "members_count_with_descendants": 2,
-  "billable_members_count": 2,
-  "max_seats_used": 0,
-  "seats_in_use": 0,
-  "plan": "default",
-  "end_date": null,
-  "trial_ends_on": null,
-  "trial": false,
-  "root_repository_size": 100,
-  "projects_count": 3
+ "id": 1,
+ "name": "group1",
+ "path": "group1",
+ "kind": "group",
+ "full_path": "group1",
+ "parent_id": null,
+ "avatar_url": null,
+ "web_url": "https://gitlab.example.com/groups/group1",
+ "members_count_with_descendants": 2,
+ "billable_members_count": 2,
+ "max_seats_used": 0,
+ "seats_in_use": 0,
+ "plan": "default",
+ "end_date": null,
+ "trial_ends_on": null,
+ "trial": false,
+ "root_repository_size": 100,
+ "projects_count": 3
 }
 ```
 
@@ -133,10 +125,10 @@ Parameters:
 | --------- | -------------- | -------- | ----------- |
 | `id`      | integer/string | yes      | ID or [URL-encoded path of the namespace](../../api/rest/_index.md#namespaced-paths) |
 | `shared_runners_minutes_limit` | integer | no | Compute minutes quota |
-| `extra_shared_runners_minutes_limit` |  integer | no | Extra compute minutes |
-| `additional_purchased_storage_size` |  integer | no | Additional storage size |
-| `additional_purchased_storage_ends_on` |  date | no | Additional purchased storage Ends on |
-| `gitlab_subscription_attributes` |  hash | no |  Hash object containing GitLab Subscription attributes. Accepts `seats`,`max_seats_used`,`plan_code`,`end_date`,`auto_renew`,`trial`,`trial_ends_on`,`trial_starts_on`,`trial_extension_type` |
+| `extra_shared_runners_minutes_limit` | integer | no | Extra compute minutes |
+| `additional_purchased_storage_size` | integer | no | Additional storage size |
+| `additional_purchased_storage_ends_on` | date | no | Additional purchased storage Ends on |
+| `gitlab_subscription_attributes` | hash | no | Hash object containing GitLab Subscription attributes. Accepts `seats`,`max_seats_used`,`plan_code`,`end_date`,`auto_renew`,`trial`,`trial_ends_on`,`trial_starts_on`,`trial_extension_type` |
 
 Example request:
 
@@ -148,24 +140,24 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "name": "group1",
-  "path": "group1",
-  "kind": "group",
-  "full_path": "group1",
-  "parent_id": null,
-  "avatar_url": null,
-  "web_url": "https://gitlab.example.com/groups/group1",
-  "members_count_with_descendants": 2,
-  "billable_members_count": 2,
-  "max_seats_used": 0,
-  "seats_in_use": 0,
-  "plan": "default",
-  "end_date": null,
-  "trial_ends_on": null,
-  "trial": false,
-  "root_repository_size": 100,
-  "projects_count": 3
+ "id": 1,
+ "name": "group1",
+ "path": "group1",
+ "kind": "group",
+ "full_path": "group1",
+ "parent_id": null,
+ "avatar_url": null,
+ "web_url": "https://gitlab.example.com/groups/group1",
+ "members_count_with_descendants": 2,
+ "billable_members_count": 2,
+ "max_seats_used": 0,
+ "seats_in_use": 0,
+ "plan": "default",
+ "end_date": null,
+ "trial_ends_on": null,
+ "trial": false,
+ "root_repository_size": 100,
+ "projects_count": 3
 }
 ```
 
@@ -192,7 +184,7 @@ The endpoint supports parameters for each resource nested under the `provision` 
 | :------------      | :-------- | :--------- | :------------                                         |
 | `base_product`     | hash      | no         | Hash object containing GitLab Subscription attributes |
 | `storage`          | hash      | no         | Hash object containing Storage attributes             |
-| `compute_minutes`  | hash      | no         | Hash object containing Compute Minutes attributes     |
+| `compute_minutes` | hash      | no         | Hash object containing Compute Minutes attributes     |
 | `add_on_purchases` | hash      | no         | Hash object containing Add-on Purchases attributes    |
 
 Base product supported attributes:
@@ -203,7 +195,7 @@ Base product supported attributes:
 | `start_date`      | date      | no         | Start date of subscription                                        |
 | `end_date`        | date      | no         | End date of subscription                                          |
 | `seats`           | integer   | no         | Number of seats in subscription                                   |
-| `max_seats_used`  | integer   | no         | Highest number of billable users in the current subscription term |
+| `max_seats_used` | integer   | no         | Highest number of billable users in the current subscription term |
 | `auto_renew`      | boolean   | no         | Whether subscription auto-renews on end date                      |
 | `trial`           | boolean   | no         | Whether subscription is a trial                                   |
 | `trial_starts_on` | date      | no         | Start date of trial. Required if trial is true                    |
@@ -226,7 +218,7 @@ Compute Minutes supported attributes:
 Add-on Purchases Supported attributes:
 
 | Attribute      | Type      | Required   | Description                                                                                                                        |
-| :------------  | :-------- | :--------- | :------------                                                                                                                      |
+| :------------ | :-------- | :--------- | :------------                                                                                                                      |
 | `quantity`     | integer   | No         | Amount of units in the subscription add-on purchase. Must be a non-negative integer. (Example: Number of seats for GitLab Duo Pro add-on) |
 | `started_on`   | date      | Yes        | Date the subscription add-on purchase became available                                                                             |
 | `expires_on`   | date      | Yes        | Expiration date of the subscription add-on purchase                                                                                |
@@ -238,7 +230,7 @@ Example request:
 ```shell
 curl --request POST --header "X-CUSTOMERS-DOT-INTERNAL-TOKEN: <json-web-token>" "https://gitlab.com/api/v4/internal/gitlab_subscriptions/namespaces/1/provision" \
 --data '{
-  "provision": {
+ "provision": {
     "base_product": {
       "plan_code": "ultimate",
       "seats": 30,
@@ -267,7 +259,7 @@ curl --request POST --header "X-CUSTOMERS-DOT-INTERNAL-TOKEN: <json-web-token>" 
         "trial": false
       }]
     }
-  }
+ }
 }'
 ```
 
@@ -281,10 +273,7 @@ Response Status Codes:
 
 ### Subscriptions
 
-The subscription endpoints are used by
-[CustomersDot](https://gitlab.com/gitlab-org/customers-gitlab-com) (`customers.gitlab.com`) to
-apply subscriptions (including trials, and add-on purchases) to personal namespaces, or top-level
-groups on GitLab.com.
+The subscription endpoints are used by [CustomersDot](https://gitlab.com/gitlab-org/customers-gitlab-com) (`customers.gitlab.com`) to apply subscriptions (including trials, and add-on purchases) to personal namespaces, or top-level groups on GitLab.com.
 
 #### Fetch a subscription
 
@@ -304,25 +293,25 @@ Example response:
 
 ```json
 {
-  "plan": {
+ "plan": {
     "code": "premium",
     "name": "premium",
     "trial": false,
     "auto_renew": null,
     "upgradable": false,
     "exclude_guests": false
-  },
-  "usage": {
+ },
+ "usage": {
     "seats_in_subscription": 80,
     "seats_in_use": 82,
     "max_seats_used": 82,
     "seats_owed": 2
-  },
-  "billing": {
+ },
+ "billing": {
     "subscription_start_date": "2020-07-15",
     "subscription_end_date": "2021-07-15",
     "trial_ends_on": null
-  }
+ }
 }
 ```
 
@@ -337,10 +326,10 @@ POST /internal/gitlab_subscriptions/namespaces/:id/gitlab_subscription
 | Attribute   | Type    | Required | Description |
 |:------------|:--------|:---------|:------------|
 | `start_date` | date   | yes      | Start date of subscription |
-| `end_date`  | date    | no       | End date of subscription |
-| `plan_code` | string  | no       | Subscription tier code |
+| `end_date` | date    | no       | End date of subscription |
+| `plan_code` | string | no       | Subscription tier code |
 | `seats`     | integer | no       | Number of seats in subscription |
-| `max_seats_used` | integer | no  | Highest number of billable users in the current subscription term |
+| `max_seats_used` | integer | no | Highest number of billable users in the current subscription term |
 | `auto_renew` | boolean | no      | Whether subscription auto-renews on end date |
 | `trial`     | boolean | no       | Whether subscription is a trial |
 | `trial_starts_on` | date | no    | Start date of trial |
@@ -356,24 +345,24 @@ Example response:
 
 ```json
 {
-  "plan": {
+ "plan": {
     "code":"premium",
     "name":"premium",
     "trial":false,
     "auto_renew":null,
     "upgradable":false
-  },
-  "usage": {
+ },
+ "usage": {
     "seats_in_subscription":10,
     "seats_in_use":1,
     "max_seats_used":0,
     "seats_owed":0
-  },
-  "billing": {
+ },
+ "billing": {
     "subscription_start_date":"2020-07-15",
     "subscription_end_date":null,
     "trial_ends_on":null
-  }
+ }
 }
 ```
 
@@ -388,10 +377,10 @@ PUT /internal/gitlab_subscriptions/namespaces/:id/gitlab_subscription
 | Attribute   | Type    | Required | Description |
 |:------------|:--------|:---------|:------------|
 | `start_date` | date   | no       | Start date of subscription |
-| `end_date`  | date    | no       | End date of subscription |
-| `plan_code` | string  | no       | Subscription tier code |
+| `end_date` | date    | no       | End date of subscription |
+| `plan_code` | string | no       | Subscription tier code |
 | `seats`     | integer | no       | Number of seats in subscription |
-| `max_seats_used` | integer | no  | Highest number of billable users in the current subscription term |
+| `max_seats_used` | integer | no | Highest number of billable users in the current subscription term |
 | `auto_renew` | boolean | no      | Whether subscription auto-renews on end date |
 | `trial`     | boolean | no       | Whether subscription is a trial |
 | `trial_starts_on` | date | no    | Start date of trial. Required if trial is true. |
@@ -407,24 +396,24 @@ Example response:
 
 ```json
 {
-  "plan": {
+ "plan": {
     "code":"premium",
     "name":"premium",
     "trial":false,
     "auto_renew":null,
     "upgradable":false
-  },
-  "usage": {
+ },
+ "usage": {
     "seats_in_subscription":80,
     "seats_in_use":82,
     "max_seats_used":0,
     "seats_owed":2
-  },
-  "billing": {
+ },
+ "billing": {
     "subscription_start_date":"2020-07-15",
     "subscription_end_date":"2021-07-15",
     "trial_ends_on":null
-  }
+ }
 }
 ```
 
@@ -471,8 +460,8 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --url "http://localhost:3000/api/v4/internal/gitlab_subscriptions/namespaces/22/upcoming_reconciliations" \
-  --header "X-CUSTOMERS-DOT-INTERNAL-TOKEN: <json-web-token>"
+ --url "http://localhost:3000/api/v4/internal/gitlab_subscriptions/namespaces/22/upcoming_reconciliations" \
+ --header "X-CUSTOMERS-DOT-INTERNAL-TOKEN: <json-web-token>"
 ```
 
 Example response:
@@ -501,10 +490,10 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "username": "john_smith",
-  "name": "John Smith",
-  "web_url": "http://localhost:3000/john_smith"
+ "id": 1,
+ "username": "john_smith",
+ "name": "John Smith",
+ "web_url": "http://localhost:3000/john_smith"
 }
 ```
 
@@ -526,7 +515,7 @@ Example response:
 
 ```json
 {
-  "edit_billing": true
+ "edit_billing": true
 }
 ```
 
@@ -550,14 +539,13 @@ Example response:
 
 ```json
 {
-  "success": {}
+ "success": {}
 }
 ```
 
 ### Add-On Purchases
 
-This API is used by CustomersDot to manage add-on purchases, excluding Compute Minutes
-and Storage packs.
+This API is used by CustomersDot to manage add-on purchases, excluding Compute Minutes and Storage packs.
 
 #### Create multiple subscription add-on purchases (Internal)
 
@@ -571,7 +559,7 @@ Supported attributes:
 
 | Attribute   | Type    | Required | Description |
 |:------------|:--------|:---------|:------------|
-| `quantity` | integer | No | Amount of units in the subscription add-on purchase. Must be a non-negative integer. (Example: Number of seats for GitLab Duo Pro add-on)  |
+| `quantity` | integer | No | Amount of units in the subscription add-on purchase. Must be a non-negative integer. (Example: Number of seats for GitLab Duo Pro add-on) |
 | `started_on` | date | Yes | Date the subscription add-on purchase became available |
 | `expires_on` | date | Yes | Expiration date of the subscription add-on purchase |
 | `purchase_xid` | string | No | Identifier for the subscription add-on purchase (Example: Subscription name for a Code Suggestions add-on) |
@@ -581,13 +569,13 @@ If successful, returns [`201`](../../api/rest/troubleshooting.md#status-codes) a
 
 | Attribute       | Type    | Description |
 |:----------------|:--------|:------------|
-| `namespace_id`  | integer | Unique identifier for the namespace associated with the purchase |
-| `namespace_name`| string  | Name of the namespace linked to the purchase |
-| `add_on`        | integer | Type of add-on related to the purchase. Possible add-on types are `Code Suggestions` alias GitLab Duo Pro, `Duo Enterprise` and `Product Analytics`  |
+| `namespace_id` | integer | Unique identifier for the namespace associated with the purchase |
+| `namespace_name`| string | Name of the namespace linked to the purchase |
+| `add_on`        | integer | Type of add-on related to the purchase. Possible add-on types are `Code Suggestions` alias GitLab Duo Pro, `Duo Enterprise` and `Product Analytics` |
 | `quantity`      | integer | Number of units purchased for the subscription add-on |
 | `started_on`    | date    | Date the subscription add-on became active |
 | `expires_on`    | date    | Date the subscription add-on will expire |
-| `purchase_xid`  | string  | Unique identifier for the subscription add-on purchase |
+| `purchase_xid` | string | Unique identifier for the subscription add-on purchase |
 | `trial`         | boolean | Indicates whether the add-on is part of a trial |
 
 Example request for create/update:
@@ -616,7 +604,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "namespace_id": 1234,
     "namespace_name": "namespace-name",
     "add_on": "Code Suggestions",
@@ -625,7 +613,7 @@ Example response:
     "expires_on": "2024-12-31",
     "purchase_xid": "C-00123456",
     "trial": false
-  }
+ }
 ]
 ```
 
@@ -647,14 +635,14 @@ Example response:
 
 ```json
 {
-  "namespace_id":1234,
-  "namespace_name":"A Namespace Name",
-  "add_on":"Code Suggestions",
-  "quantity":15,
-  "started_on":"2024-06-15",
-  "expires_on":"2024-07-15",
-  "purchase_xid":"C-00123456",
-  "trial":true
+ "namespace_id":1234,
+ "namespace_name":"A Namespace Name",
+ "add_on":"Code Suggestions",
+ "quantity":15,
+ "started_on":"2024-06-15",
+ "expires_on":"2024-07-15",
+ "purchase_xid":"C-00123456",
+ "trial":true
 }
 ```
 
@@ -675,17 +663,17 @@ POST /internal/gitlab_subscriptions/namespaces/:id/minutes
 |:------------|:--------|:---------|:------------|
 | `packs`     | array   | yes      | An array of purchased compute packs |
 | `packs[expires_at]` | date   | yes      | Expiry date of the purchased pack|
-| `packs[number_of_minutes]`  | integer    | yes       | Number of additional compute minutes |
-| `packs[purchase_xid]` | string  | yes       | The unique ID of the purchase |
+| `packs[number_of_minutes]` | integer    | yes       | Number of additional compute minutes |
+| `packs[purchase_xid]` | string | yes       | The unique ID of the purchase |
 
 Example request:
 
 ```shell
 curl --request POST \
-  --url "http://localhost:3000/api/v4/internal/gitlab_subscriptions/namespaces/123/minutes" \
-  --header 'Content-Type: application/json' \
-  --header 'X-CUSTOMERS-DOT-INTERNAL-TOKEN: <json-web-token>' \
-  --data '{
+ --url "http://localhost:3000/api/v4/internal/gitlab_subscriptions/namespaces/123/minutes" \
+ --header 'Content-Type: application/json' \
+ --header 'X-CUSTOMERS-DOT-INTERNAL-TOKEN: <json-web-token>' \
+ --data '{
     "packs": [
       {
         "number_of_minutes": 10000,
@@ -693,19 +681,19 @@ curl --request POST \
         "purchase_xid": "C-00123456"
       }
     ]
-  }'
+ }'
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "namespace_id": 123,
     "expires_at": "2022-01-01",
     "number_of_minutes": 10000,
     "purchase_xid": "C-00123456"
-  }
+ }
 ]
 ```
 
@@ -720,33 +708,31 @@ PATCH /internal/gitlab_subscriptions/namespaces/:id/minutes/move/:target_id
 | Attribute   | Type    | Required | Description |
 |:------------|:--------|:---------|:------------|
 | `id` | string | yes | The ID of the namespace to transfer packs from |
-| `target_id`  | string | yes | The ID of the target namespace to transfer the packs to |
+| `target_id` | string | yes | The ID of the target namespace to transfer the packs to |
 
 Example request:
 
 ```shell
 curl --request PATCH \
-  --url "http://localhost:3000/api/v4/internal/gitlab_subscriptions/namespaces/123/minutes/move/321" \
-  --header "X-CUSTOMERS-DOT-INTERNAL-TOKEN: <json-web-token>"
+ --url "http://localhost:3000/api/v4/internal/gitlab_subscriptions/namespaces/123/minutes/move/321" \
+ --header "X-CUSTOMERS-DOT-INTERNAL-TOKEN: <json-web-token>"
 ```
 
 Example response:
 
 ```json
 {
-  "message": "202 Accepted"
+ "message": "202 Accepted"
 }
 ```
 
 ## Deprecated Endpoints
 
-These endpoints have been [migrated to internal endpoints](https://gitlab.com/gitlab-org/gitlab/-/issues/463741). Now, they are
-deprecated and will be [removed in a future milestone](https://gitlab.com/gitlab-org/gitlab/-/issues/473625).
+These endpoints have been [migrated to internal endpoints](https://gitlab.com/gitlab-org/gitlab/-/issues/463741). Now, they are deprecated and will be [removed in a future milestone](https://gitlab.com/gitlab-org/gitlab/-/issues/473625).
 
 ### Add-On Purchases (deprecated)
 
-This API is used by CustomersDot to manage add-on purchases, excluding Compute Minutes
-and Storage packs.
+This API is used by CustomersDot to manage add-on purchases, excluding Compute Minutes and Storage packs.
 
 #### Create a subscription add-on purchase (deprecated)
 
@@ -774,14 +760,14 @@ Example response:
 
 ```json
 {
-  "namespace_id":1234,
-  "namespace_name":"A Namespace Name",
-  "add_on":"Code Suggestions",
-  "quantity":10,
-  "started_on":"2024-06-15",
-  "expires_on":"2024-07-15",
-  "purchase_xid":"C-00123456",
-  "trial":true
+ "namespace_id":1234,
+ "namespace_name":"A Namespace Name",
+ "add_on":"Code Suggestions",
+ "quantity":10,
+ "started_on":"2024-06-15",
+ "expires_on":"2024-07-15",
+ "purchase_xid":"C-00123456",
+ "trial":true
 }
 ```
 
@@ -811,14 +797,14 @@ Example response:
 
 ```json
 {
-  "namespace_id":1234,
-  "namespace_name":"A Namespace Name",
-  "add_on":"Code Suggestions",
-  "quantity":15,
-  "started_on":"2024-06-15",
-  "expires_on":"2024-07-15",
-  "purchase_xid":"C-00123456",
-  "trial":true
+ "namespace_id":1234,
+ "namespace_name":"A Namespace Name",
+ "add_on":"Code Suggestions",
+ "quantity":15,
+ "started_on":"2024-06-15",
+ "expires_on":"2024-07-15",
+ "purchase_xid":"C-00123456",
+ "trial":true
 }
 ```
 
@@ -840,14 +826,14 @@ Example response:
 
 ```json
 {
-  "namespace_id":1234,
-  "namespace_name":"A Namespace Name",
-  "add_on":"Code Suggestions",
-  "quantity":15,
-  "started_on":"2024-06-15",
-  "expires_on":"2024-07-15",
-  "purchase_xid":"C-00123456",
-  "trial":true
+ "namespace_id":1234,
+ "namespace_name":"A Namespace Name",
+ "add_on":"Code Suggestions",
+ "quantity":15,
+ "started_on":"2024-06-15",
+ "expires_on":"2024-07-15",
+ "purchase_xid":"C-00123456",
+ "trial":true
 }
 ```
 
@@ -874,17 +860,17 @@ POST /namespaces/:id/minutes
 |:------------|:--------|:---------|:------------|
 | `packs`     | array   | yes      | An array of purchased compute packs |
 | `packs[expires_at]` | date   | yes      | Expiry date of the purchased pack|
-| `packs[number_of_minutes]`  | integer    | yes       | Number of additional compute minutes |
-| `packs[purchase_xid]` | string  | yes       | The unique ID of the purchase |
+| `packs[number_of_minutes]` | integer    | yes       | Number of additional compute minutes |
+| `packs[purchase_xid]` | string | yes       | The unique ID of the purchase |
 
 Example request:
 
 ```shell
 curl --request POST \
-  --url "http://localhost:3000/api/v4/namespaces/123/minutes" \
-  --header 'Content-Type: application/json' \
-  --header 'X-CUSTOMERS-DOT-INTERNAL-TOKEN: <json-web-token>' \
-  --data '{
+ --url "http://localhost:3000/api/v4/namespaces/123/minutes" \
+ --header 'Content-Type: application/json' \
+ --header 'X-CUSTOMERS-DOT-INTERNAL-TOKEN: <json-web-token>' \
+ --data '{
     "packs": [
       {
         "number_of_minutes": 10000,
@@ -892,19 +878,19 @@ curl --request POST \
         "purchase_xid": "C-00123456"
       }
     ]
-  }'
+ }'
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "namespace_id": 123,
     "expires_at": "2022-01-01",
     "number_of_minutes": 10000,
     "purchase_xid": "C-00123456"
-  }
+ }
 ]
 ```
 
@@ -919,29 +905,27 @@ PATCH /namespaces/:id/minutes/move/:target_id
 | Attribute   | Type    | Required | Description |
 |:------------|:--------|:---------|:------------|
 | `id` | string | yes | The ID of the namespace to transfer packs from |
-| `target_id`  | string | yes | The ID of the target namespace to transfer the packs to |
+| `target_id` | string | yes | The ID of the target namespace to transfer the packs to |
 
 Example request:
 
 ```shell
 curl --request PATCH \
-  --url "http://localhost:3000/api/v4/namespaces/123/minutes/move/321" \
-  --header "X-CUSTOMERS-DOT-INTERNAL-TOKEN: <json-web-token>"
+ --url "http://localhost:3000/api/v4/namespaces/123/minutes/move/321" \
+ --header "X-CUSTOMERS-DOT-INTERNAL-TOKEN: <json-web-token>"
 ```
 
 Example response:
 
 ```json
 {
-  "message": "202 Accepted"
+ "message": "202 Accepted"
 }
 ```
 
 ### Subscriptions (deprecated)
 
-The subscription endpoints are used by
-[CustomersDot](https://gitlab.com/gitlab-org/customers-gitlab-com) (`customers.gitlab.com`) to
-apply subscriptions (including trials) to personal namespaces, or top-level groups on GitLab.com.
+The subscription endpoints are used by [CustomersDot](https://gitlab.com/gitlab-org/customers-gitlab-com) (`customers.gitlab.com`) to apply subscriptions (including trials) to personal namespaces, or top-level groups on GitLab.com.
 
 #### Create a subscription (deprecated)
 
@@ -954,10 +938,10 @@ POST /namespaces/:id/gitlab_subscription
 | Attribute   | Type    | Required | Description |
 |:------------|:--------|:---------|:------------|
 | `start_date` | date   | yes      | Start date of subscription |
-| `end_date`  | date    | no       | End date of subscription |
-| `plan_code` | string  | no       | Subscription tier code |
+| `end_date` | date    | no       | End date of subscription |
+| `plan_code` | string | no       | Subscription tier code |
 | `seats`     | integer | no       | Number of seats in subscription |
-| `max_seats_used` | integer | no  | Highest number of active users in the last month |
+| `max_seats_used` | integer | no | Highest number of active users in the last month |
 | `auto_renew` | boolean | no      | Whether subscription auto-renews on end date |
 | `trial`     | boolean | no       | Whether subscription is a trial |
 | `trial_starts_on` | date | no    | Start date of trial |
@@ -973,24 +957,24 @@ Example response:
 
 ```json
 {
-  "plan": {
+ "plan": {
     "code":"premium",
     "name":"premium",
     "trial":false,
     "auto_renew":null,
     "upgradable":false
-  },
-  "usage": {
+ },
+ "usage": {
     "seats_in_subscription":10,
     "seats_in_use":1,
     "max_seats_used":0,
     "seats_owed":0
-  },
-  "billing": {
+ },
+ "billing": {
     "subscription_start_date":"2020-07-15",
     "subscription_end_date":null,
     "trial_ends_on":null
-  }
+ }
 }
 ```
 
@@ -1005,10 +989,10 @@ PUT /namespaces/:id/gitlab_subscription
 | Attribute   | Type    | Required | Description |
 |:------------|:--------|:---------|:------------|
 | `start_date` | date   | no       | Start date of subscription |
-| `end_date`  | date    | no       | End date of subscription |
-| `plan_code` | string  | no       | Subscription tier code |
+| `end_date` | date    | no       | End date of subscription |
+| `plan_code` | string | no       | Subscription tier code |
 | `seats`     | integer | no       | Number of seats in subscription |
-| `max_seats_used` | integer | no  | Highest number of active users in the last month |
+| `max_seats_used` | integer | no | Highest number of active users in the last month |
 | `auto_renew` | boolean | no      | Whether subscription auto-renews on end date |
 | `trial`     | boolean | no       | Whether subscription is a trial |
 | `trial_starts_on` | date | no    | Start date of trial. Required if trial is true. |
@@ -1024,24 +1008,24 @@ Example response:
 
 ```json
 {
-  "plan": {
+ "plan": {
     "code":"premium",
     "name":"premium",
     "trial":false,
     "auto_renew":null,
     "upgradable":false
-  },
-  "usage": {
+ },
+ "usage": {
     "seats_in_subscription":80,
     "seats_in_use":82,
     "max_seats_used":0,
     "seats_owed":2
-  },
-  "billing": {
+ },
+ "billing": {
     "subscription_start_date":"2020-07-15",
     "subscription_end_date":"2021-07-15",
     "trial_ends_on":null
-  }
+ }
 }
 ```
 
@@ -1063,24 +1047,24 @@ Example response:
 
 ```json
 {
-  "plan": {
+ "plan": {
     "code":"premium",
     "name":"premium",
     "trial":false,
     "auto_renew":null,
     "upgradable":false,
     "exclude_guests":false
-  },
-  "usage": {
+ },
+ "usage": {
     "seats_in_subscription":80,
     "seats_in_use":82,
     "max_seats_used":82,
     "seats_owed":2
-  },
-  "billing": {
+ },
+ "billing": {
     "subscription_start_date":"2020-07-15",
     "subscription_end_date":"2021-07-15",
     "trial_ends_on":null
-  }
+ }
 }
 ```

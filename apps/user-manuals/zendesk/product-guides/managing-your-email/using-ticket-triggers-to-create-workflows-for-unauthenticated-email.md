@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/8156703046298-Using-ticket
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > Channels > Talk and email > Email
+Location: Admin Center > Channels > Talk and email > Email
 
 Note: This article applies to accounts using the Authenticated SMTP Connector for [two-way authenticated email relay](https://support.zendesk.com/hc/en-us/articles/7189260823194).
 

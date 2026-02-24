@@ -54,9 +54,7 @@ Navigate to the sub-team's settings and click **Remove from parent...** under th
 
 Certain settings from a parent team are enforced throughout all sub-teams. 
 
-Feature | Inheritance by sub-teams
---- | ---
-Membership | Members in a sub-team must also be members of the parent team. Guests are the exception to this and may belong to a sub-team but not its parent.
+Feature | Inheritance by sub-teams --- | --- Membership | Members in a sub-team must also be members of the parent team. Guests are the exception to this and may belong to a sub-team but not its parent.
 Status | Optionally, sub-teams can elect to inherit statuses from their parent team.
 Cycles | If a parent team has a cycles schedule defined, all sub-teams will inherit the same schedule. If the parent has no schedule then sub-teams may define their own. When merging a sub-team cycle schedule with a parent's, past cycles remain untouched. The current cycle on the subteam will close, and upcoming cycles of the sub-team update to the closest parent cycles.
 Estimates | Optionally, sub-teams can elect to inherit estimation settings from their parent team.
@@ -65,9 +63,7 @@ Estimates | Optionally, sub-teams can elect to inherit estimation settings from 
 
 Sub-teams benefit from other features used in the parent team, and retain the flexibility to create similar entities scoped to the sub-team.
 
-Feature | Use in sub-team
---- | ---
-Labels	 | Issues in a sub-team can use labels scoped to the sub-team, its parent team, or the workspace.
+Feature | Use in sub-team --- | --- Labels	 | Issues in a sub-team can use labels scoped to the sub-team, its parent team, or the workspace.
 Templates	 | Issues in a sub-team can use a template scoped to the sub-team, its parent team, or the workspace.
 Views	 | Sub-teams can have dedicated views. Issues in sub-teams are accessible in the views stored in their parent teams.
 
@@ -81,9 +77,9 @@ Other features in sub-teams have no relation to the parent team and should be cu
 
 ### Notification settings for sub-teams
 
-* **Public sub-teams inherit Slack notifications from their parent team by default.**  
+* **Public sub-teams inherit Slack notifications from their parent team by default.** 
 If the parent team has Slack notifications enabled, newly created issues in its public sub-teams will also post to the same Slack channel.
-* **Sub-teams can have their own Slack notifications.**  
+* **Sub-teams can have their own Slack notifications.** 
 You can configure notifications on a per–sub-team basis, including sending updates to a different Slack channel. These notifications can run alongside the parent team’s notifications.
-* **Private sub-teams do not inherit notifications.**  
+* **Private sub-teams do not inherit notifications.** 
 Private sub-teams must have their own Slack notification settings enabled in order to send notifications to Slack.

@@ -6,8 +6,7 @@ description: Learn how documentation review apps work.
 title: Documentation review apps
 ---
 
-GitLab team members can deploy a [review app](../../ci/review_apps/_index.md) for merge requests with documentation
-changes. The review app lets you preview how your changes appear on the [GitLab Docs site](https://docs.gitlab.com) before merging.
+GitLab team members can deploy a [review app](../../ci/review_apps/_index.md) for merge requests with documentation changes. The review app lets you preview how your changes appear on the [GitLab Docs site](https://docs.gitlab.com) before merging.
 
 Review app deployments are available for these projects:
 
@@ -23,15 +22,13 @@ Review app deployments are available for these projects:
 
 You can deploy a review app by manually triggering the `review-docs-deploy` job in your merge request.
 
-This job creates a preview of your documentation changes using the Hugo static site generation from
-the [`docs-gitlab-com`](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com) project.
+This job creates a preview of your documentation changes using the Hugo static site generation from the [`docs-gitlab-com`](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com) project.
 
 Prerequisites:
 
 - You must have the Developer role for the project.
 
-External contributors cannot run this job. If you're an external contributor,
-ask a GitLab team member to run it for you.
+External contributors cannot run this job. If you're an external contributor, ask a GitLab team member to run it for you.
 
 To deploy a review app:
 
@@ -40,21 +37,16 @@ To deploy a review app:
    that builds and deploys the documentation site with your changes.
 1. When the pipeline finishes, select **View app** to open the review app in your browser.
 
-The `review-docs-cleanup` job is triggered automatically on merge. This job deletes
-the review app.
+The `review-docs-cleanup` job is triggered automatically on merge. This job deletes the review app.
 
 ## How documentation review apps work
 
 Documentation review apps follow this process:
 
 1. You manually run the `review-docs-deploy` job in a merge request.
-1. The job downloads (if outside of `gitlab` project) and runs the
-   [`scripts/trigger-build.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/scripts/trigger-build.rb) script with
-   the `docs deploy` flag, which triggers a pipeline in the `gitlab-org/technical-writing/docs-gitlab-com`
-   project.
+1. The job downloads (if outside of `gitlab` project) and runs the [`scripts/trigger-build.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/scripts/trigger-build.rb) script with the `docs deploy` flag, which triggers a pipeline in the `gitlab-org/technical-writing/docs-gitlab-com` project.
 
-   The `DOCS_BRANCH` environment variable determines which branch of the
-   `gitlab-org/technical-writing/docs-gitlab-com` project to use. If not set, the `main` branch is used.
+   The `DOCS_BRANCH` environment variable determines which branch of the `gitlab-org/technical-writing/docs-gitlab-com` project to use. If not set, the `main` branch is used.
 1. After the documentation preview site is built, it is [deployed in parallel to other review apps](../../user/project/pages/_index.md#parallel-deployments).
 
 ## Troubleshooting
@@ -74,9 +66,7 @@ This issue occurs when the `DOCS_HUGO_PROJECT_API_TOKEN` has either:
 - Expired or been revoked and must be regenerated.
 - Been recreated, but the CI/CD variable in the projects that use it wasn't updated.
 
-These conditions result in the deployment job for the documentation review app being unable to query the downstream project for
-the status of the downstream pipeline.
+These conditions result in the deployment job for the documentation review app being unable to query the downstream project for the status of the downstream pipeline.
 
 To resolve this issue, contact the [Technical Writing team](https://handbook.gitlab.com/handbook/product/ux/technical-writing/#contact-us).
-For more information on documentation review app tokens,
-see [GitLab docs site maintenance](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/doc/maintenance.md).
+For more information on documentation review app tokens, see [GitLab docs site maintenance](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/doc/maintenance.md).

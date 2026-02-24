@@ -14,7 +14,7 @@ To access Handshake, a user account is required.
 
 - If you have received an invitation from a school or colleague, you can create an account by clicking the link provided in the invitation email.
 - If you haven't received an invitation, you can register at <https://app.joinhandshake.com/employer_registrations/new>.
-  - *Learn how to* [*Create an Employer User Account, Join a Company, and Connect with Schools*](https://support.joinhandshake.com/hc/en-us/articles/219133047)*.*
+ - *Learn how to* [*Create an Employer User Account, Join a Company, and Connect with Schools*](https://support.joinhandshake.com/hc/en-us/articles/219133047)*.*
 
 [![Hire for your role fast.](https://support.joinhandshake.com/hc/article_attachments/37157104129687)](https://app.joinhandshake.com/employer_registrations/new?utm_source=support&utm_content=115011431228)
 
@@ -57,9 +57,9 @@ While there are default notification settings enabled, you may customize how and
 To connect with schools and begin recruiting activities, you can:
 
 - **Post a job** to the schools you'd like to recruit from.
-  - *Learn* [*How to Post a Job*](https://support.joinhandshake.com/hc/en-us/articles/218693198).
+ - *Learn* [*How to Post a Job*](https://support.joinhandshake.com/hc/en-us/articles/218693198).
 - **Request to join their network** if you don't have a job to post yet.
-  - *Read more about* [*How to Request Approval from Schools*](https://support.joinhandshake.com/hc/en-us/articles/36980302470423).
+ - *Read more about* [*How to Request Approval from Schools*](https://support.joinhandshake.com/hc/en-us/articles/36980302470423).
 
 **Build your recruiting skills**
 

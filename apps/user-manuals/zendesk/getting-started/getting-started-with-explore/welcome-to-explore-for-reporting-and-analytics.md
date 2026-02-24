@@ -16,14 +16,14 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408827100314-Welcome-to-E
 
 ### Get started
 
-With our selection of getting started material, you'll be up and running in no time. You'll learn how to get Explore set up and how to view the wide range of included reports.  
+With our selection of getting started material, you'll be up and running in no time. You'll learn how to get Explore set up and how to view the wide range of included reports. 
 [Get started](https://support.zendesk.com/hc/en-us/articles/4408831710618)
 
 ---
 
 ### Make your own reports
 
-Sometimes, you'll need more than the reports included with Explore. That's where custom queries come in. Choose from hundreds of metrics, add formulas, and get the results looking just how you want.  
+Sometimes, you'll need more than the reports included with Explore. That's where custom queries come in. Choose from hundreds of metrics, add formulas, and get the results looking just how you want. 
  [Make some reports](https://support.zendesk.com/hc/en-us/articles/4408839341082)
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Explore_welcome_1.png)
@@ -34,14 +34,14 @@ Sometimes, you'll need more than the reports included with Explore. That's where
 
 ### Share your reports
 
-We've all heard our boss saying, "I want that report on my desk by 9 AM!' Explore can help you do just that with its sharing and scheduling features.  
+We've all heard our boss saying, "I want that report on my desk by 9 AM!' Explore can help you do just that with its sharing and scheduling features. 
  [Share your reports](https://support.zendesk.com/hc/en-us/articles/4408827282714)
 
 ---
 
 ### Cook up some recipes
 
-Creating your own reports can be daunting at first. That's why we've created a whole bunch of step-by-step recipes to help you whip up reports for many common business scenarios.  
+Creating your own reports can be daunting at first. That's why we've created a whole bunch of step-by-step recipes to help you whip up reports for many common business scenarios. 
 [Whip up some recipes](https://support.zendesk.com/hc/en-us/articles/4409149172890)
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/mceclip1.png)

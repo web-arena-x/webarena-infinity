@@ -82,8 +82,8 @@ Custom color palettes can only be used in files that are in a team or project, n
 To create a custom color palette in FigJam:
 
 1. Select the **Marker**, **Sticky**, or **Shape** tool.
-2. Click  next to the current color palette.
-3. Click  to create a new palette.
+2. Click next to the current color palette.
+3. Click to create a new palette.
 4. Enter a name for the new palette.
 5. Select a color tile, then use the eyedropper tool or hex code field to select a new color. You can create up to nine colors per palette.
 
@@ -97,8 +97,8 @@ FigJam may lighten palette colors on stickies and highlights for better legibili
 
 Once you create a custom palette, you can set it as the default color palette for your team from the team settings page.
 
-1. If you're on the Starter or Professional plan, click  **All projects**. If you're on the Organization or Enterprise plan, navigate to the team where you'd like to set a custom palette as default.
-2. Click the  **down arrow** icon next to the team name and select **View settings.**
+1. If you're on the Starter or Professional plan, click **All projects**. If you're on the Organization or Enterprise plan, navigate to the team where you'd like to set a custom palette as default.
+2. Click the **down arrow** icon next to the team name and select **View settings.**
 3. Under the **Shared** section, click **View team’s FigJam palettes**.
 4. Click **Set as default** next to the palette you want to use.
 
@@ -111,7 +111,7 @@ The palette will be used as the default for new files in the team. For existing 
 When you’re in a FigJam file, you can swap between palettes at any time.
 
 1. Select the **Marker**, **Sticky**, or **Shape** tool.
-2. Click  next to the current color palette.
+2. Click next to the current color palette.
 3. Click the custom palette you want to use from the picker.
 
 When you select a new palette, any existing objects on the board will retain their original colors. You can edit their color at any time.
@@ -120,19 +120,19 @@ When you select a new palette, any existing objects on the board will retain the
 
 To edit a custom palette:
 
-1. Click  from the **Marker**, **Sticky**, or **Shape** tool.
-2. Click  in the custom palette picker.
-3. Click  next to the palette you want to edit.
-4. Select the color you want to edit or hover over the color and click  to remove it from your palette.
+1. Click from the **Marker**, **Sticky**, or **Shape** tool.
+2. Click in the custom palette picker.
+3. Click next to the palette you want to edit.
+4. Select the color you want to edit or hover over the color and click to remove it from your palette.
 
 ### Delete custom palette
 
 To delete a custom palette:
 
 1. Select the **Marker**, **Sticky**, or **Shape** tool.
-2. Click  next to the current color palette.
-3. Click  in the custom palette picker.
-4. Click  next to the palette you want to delete.
+2. Click next to the current color palette.
+3. Click in the custom palette picker.
+4. Click next to the palette you want to delete.
 
 ## Apply colors to objects
 
@@ -166,7 +166,7 @@ Once the shape is on the board, select it to open the toolbar. From the color pi
 
 - Set the shape fill to **Fill**, **No Fill**, or **Transparent**
 - Select the **Custom** option to set a custom color and opacity level
-- Select or remove the  line style and color for the shape's border
+- Select or remove the line style and color for the shape's border
 
 ![Circle selected in FigJam with a purple border, color palette options visible in the toolbar.](https://help.figma.com/hc/article_attachments/29728272797847)
 
@@ -214,7 +214,7 @@ The eyedropper tool allows you to select and sample colors from any object or im
 
 1. Select the object you'd like to edit.
 2. Click the color picker and select the gradient option.
-3. Select the  eyedropper tool.
+3. Select the eyedropper tool.
 4. Hover over the color in the canvas you'd like to sample. The magnifier window will show you both the color and hex code of the sampled pixel.
 5. Click to apply the sampled color to the selected object:
 

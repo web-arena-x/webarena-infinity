@@ -20,18 +20,18 @@ There are two ways to connect your code repositories to Figma: **Code Connect UI
 
 - **Code Connect UI** runs entirely inside Figma. It’s quick to set up, language-agnostic, and ideal for teams who want a simple, visual way to link design components to code. You can connect directly to a GitHub repository, or manually provide component paths and names if you use another version control system.
 
-  - Best for design and engineering teams who want an accessible, collaborative setup.
-  - Connects to your repository through Figma or via manual links.
-  - When connected, it provides component paths, component names, and enhanced AI-generated code examples for richer context.
+ - Best for design and engineering teams who want an accessible, collaborative setup.
+ - Connects to your repository through Figma or via manual links.
+ - When connected, it provides component paths, component names, and enhanced AI-generated code examples for richer context.
 
-  [See the Code Connect UI developer documentation →](https://developers.figma.com/docs/code-connect/code-connect-ui-setup/)
+ [See the Code Connect UI developer documentation →](https://developers.figma.com/docs/code-connect/code-connect-ui-setup/)
 - **Code Connect CLI** runs locally in your repository and provides developers with more precision and flexibility. It supports property mappings and dynamic code examples, allowing for deeper integration and accuracy.
 
-  - Best for developers who want precision and flexibility in how design and code are connected.
-  - Runs from the terminal within your local codebase and publishes connections to Figma.
-  - Provides property mappings and dynamic code examples that reflect your actual production components.
+ - Best for developers who want precision and flexibility in how design and code are connected.
+ - Runs from the terminal within your local codebase and publishes connections to Figma.
+ - Provides property mappings and dynamic code examples that reflect your actual production components.
 
-  [See the Code Connect CLI developer documentation →](https://developers.figma.com/docs/code-connect/quickstart-guide/)
+ [See the Code Connect CLI developer documentation →](https://developers.figma.com/docs/code-connect/quickstart-guide/)
 
 **Note:** You can only use one connection type per component, but both the UI and CLI can coexist within the same design system. Many teams use a mix of both approaches depending on their workflow and technical setup.
 

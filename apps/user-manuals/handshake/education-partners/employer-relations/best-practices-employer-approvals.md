@@ -55,7 +55,7 @@ Use ALL of these factors to determine if the company is a good fit:
 ### Confirming employer information
 
 - When vetting employers, know that employers who have a residential address or an industry size of 1-10 are likely just getting started, so this is not usually a cause for concern.
-  - **Tip**: instead of simply Googling an address, try searching the company name and the address together, and this can help you validate if the address is registered to the company!
+ - **Tip**: instead of simply Googling an address, try searching the company name and the address together, and this can help you validate if the address is registered to the company!
 - Please account for human error! If you see an error that may just be an oversight, such as a website that ends in ".ocm" instead of ".com", chances are, this is not a reason to be suspicious, and probably just a typo.
 - Communicate directly with the employer about your concern/observation by adding a comment on the company profile, in the Employer Approval box, or on the job posting. The employer will receive a notification about your comment and have a chance to make the needed changes or otherwise address your concern directly.
 
@@ -71,7 +71,7 @@ Another tipoff that a company may not be legitimate is the company details:
 
 - Are you able to locate more information on the company via a web search? Are there reviews of the company on peer review sites?
 - Does the website actually work?
-  - Sometimes sites can be set up to redirect to another site–if the website loads successfully, does the address in the web address bar match what's in Handshake?
+ - Sometimes sites can be set up to redirect to another site–if the website loads successfully, does the address in the web address bar match what's in Handshake?
 
 Using this information can help you make an informed choice when approving or declining an employer.
 

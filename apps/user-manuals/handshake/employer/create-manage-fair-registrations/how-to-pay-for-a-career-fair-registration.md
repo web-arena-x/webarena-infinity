@@ -13,8 +13,8 @@ To submit a payment for a career fair registration, the following must be true:
 - The registration payment status must be **Invoiced**.
 - You must have a role other than **Representative**.
 
-  - If you do not have access, contact your company’s Owner or Admin to request a role or permission update.
-  - Not sure who the owner is? Refer to [Who Is the Owner or Admin of My Company Profile?](https://support.joinhandshake.com/hc/en-us/articles/360019711833).
+ - If you do not have access, contact your company’s Owner or Admin to request a role or permission update.
+ - Not sure who the owner is? Refer to [Who Is the Owner or Admin of My Company Profile?](https://support.joinhandshake.com/hc/en-us/articles/360019711833).
 
 ### Ways to access the career fair registration
 

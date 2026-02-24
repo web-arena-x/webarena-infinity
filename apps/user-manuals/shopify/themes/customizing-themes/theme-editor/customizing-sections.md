@@ -8,7 +8,7 @@ Source: https://help.shopify.com/en/manual/online-store/themes/customizing-theme
 
 In the list of sections and blocks, all of the blocks for the sections on a page are displayed by default.
 
-Sections that make up the header or footer are collapsed by default. You can click the  button next to a section name to display its content.
+Sections that make up the header or footer are collapsed by default. You can click the button next to a section name to display its content.
 
 Learn more about [managing sections and blocks for your theme](../../theme-structure/sections-and-blocks.md).
 
@@ -34,11 +34,11 @@ Learn more about [customizing sections and blocks in your theme](../../theme-str
 
 ## Expand and collapse sections and blocks
 
-Expand a section node using the  button to view its blocks, or collapse it using the  icon to hide the blocks. You can click any section or block to view its settings.
+Expand a section node using the button to view its blocks, or collapse it using the icon to hide the blocks. You can click any section or block to view its settings.
 
 ## Moving sections and blocks
 
-You can move a section or a block from one area of the page to another area using the  icon to click and drag the section or block and then drop it to another available location.
+You can move a section or a block from one area of the page to another area using the icon to click and drag the section or block and then drop it to another available location.
 
 If you try to move a section or block where it isn't allowed, then the section or block will drop back into its original location.
 
@@ -46,7 +46,7 @@ If you try to move a section or block where it isn't allowed, then the section o
 
 You can remove a section or block from a template in either of the following two ways:
 
-* Move your cursor next to the section name, and then click the  button:
+* Move your cursor next to the section name, and then click the button:
 * Click the section name, and then click **Remove section** in the section setting details:
 
 #### Steps:
@@ -59,4 +59,4 @@ You can remove a section or block from a template in either of the following two
 
 ## Hiding sections and blocks
 
-You can hide any section or block using the  button:
+You can hide any section or block using the button:

@@ -13,8 +13,7 @@ description: Upgrade a single-node Linux package-based instance.
 
 {{< /details >}}
 
-The instructions for upgrading a Linux package instance depend on whether you have a single-node or multi-node
-GitLab instance. To upgrade a multi-node Linux package GitLab instance, see:
+The instructions for upgrading a Linux package instance depend on whether you have a single-node or multi-node GitLab instance. To upgrade a multi-node Linux package GitLab instance, see:
 
 - [Upgrade a multi-node instance with downtime](../with_downtime.md).
 - [Upgrade a multi-node instance with zero downtime](../zero_downtime.md).
@@ -23,8 +22,7 @@ To upgrade a single-node Linux package GitLab instance, follow the information o
 
 {{< alert type="note" >}}
 
-If you host the product documentation, you can also
-[upgrade it to a later version](../../administration/docs_self_host.md#upgrade-the-product-documentation-to-a-later-version).
+If you host the product documentation, you can also [upgrade it to a later version](../../administration/docs_self_host.md#upgrade-the-product-documentation-to-a-later-version).
 
 {{< /alert >}}
 
@@ -34,12 +32,10 @@ Before you upgrade a single-node Linux package GitLab instance:
 
 - You must [read required information and perform required steps](../plan_your_upgrade.md).
 - If required, upgrade to a [supported operating system](../../install/package/_index.md).
-- When upgrading the operating system, if your `glibc` version changes, you must follow
-  [upgrading operating systems for PostgreSQL](../../administration/postgresql/upgrading_os.md) to avoid corrupted indexes.
+- When upgrading the operating system, if your `glibc` version changes, you must follow [upgrading operating systems for PostgreSQL](../../administration/postgresql/upgrading_os.md) to avoid corrupted indexes.
 - Ensure PostgreSQL, Redis, and Gitaly are running.
 
-The GitLab database is backed up before installing a newer GitLab version. You can skip this automatic database backup
-by creating an empty file at `/etc/gitlab/skip-auto-backup`:
+The GitLab database is backed up before installing a newer GitLab version. You can skip this automatic database backup by creating an empty file at `/etc/gitlab/skip-auto-backup`:
 
 ```shell
 sudo touch /etc/gitlab/skip-auto-backup
@@ -64,8 +60,7 @@ After you upgrade:
 
 ## Upgrade with the Linux package
 
-To upgrade GitLab running on a single node, or upgrade a node that is part of a multi-node GitLab instance, upgrade by
-either:
+To upgrade GitLab running on a single node, or upgrade a node that is part of a multi-node GitLab instance, upgrade by either:
 
 - [Using the official repositories](#upgrade-with-the-official-repositories-recommended).
 - [Using a downloaded package](#upgrade-with-a-downloaded-package).
@@ -82,9 +77,7 @@ All GitLab packages are posted to the GitLab [package server](https://packages.g
 | [`gitlab/nightly-fips-builds`](https://packages.gitlab.com/gitlab/nightly-fips-builds) | Nightly FIPS-compliant builds. |
 | [`gitlab/gitlab-fips`](https://packages.gitlab.com/gitlab/gitlab-fips)                 | FIPS-compliant builds. |
 
-By default, Linux distribution package managers install the latest available version of a package. You can't upgrade directly to the
-latest major version of GitLab if your [upgrade path](../upgrade_paths.md) requires multiple stops. If your upgrade
-path includes multiple versions, you must specify the specific GitLab package version with each upgrade.
+By default, Linux distribution package managers install the latest available version of a package. You can't upgrade directly to the latest major version of GitLab if your [upgrade path](../upgrade_paths.md) requires multiple stops. If your upgrade path includes multiple versions, you must specify the specific GitLab package version with each upgrade.
 
 If your upgrade path has no interim steps, you can upgrade directly to the latest version.
 
@@ -208,21 +201,15 @@ sudo zypper install gitlab-ce
 
 ### Upgrade with a downloaded package
 
-If you don't want to use the official repositories, you can
-download the package and install it manually. This method can be used to either
-install GitLab for the first time or upgrade it.
+If you don't want to use the official repositories, you can download the package and install it manually. This method can be used to either install GitLab for the first time or upgrade it.
 
 To download and install or upgrade GitLab:
 
 1. Go to the [official repository](#upgrade-with-the-official-repositories-recommended) of your package.
-1. Filter the list by searching for the version you want to install. For example, `18.4.1`. Multiple packages might
-   exist for a single version, one for each supported distribution and architecture. Because some files are
-   relevant to more than one distribution, there is a label next to the filename that indicates the distribution.
+1. Filter the list by searching for the version you want to install. For example, `18.4.1`. Multiple packages might exist for a single version, one for each supported distribution and architecture. Because some files are relevant to more than one distribution, there is a label next to the filename that indicates the distribution.
 1. Find the package version you wish to install, and select the filename from the list.
 1. In the upper-right corner, select **Download**.
-1. After the package is downloaded, install it by using one of the
-   following commands and replacing `<package_name>` with the package name
-   you downloaded:
+1. After the package is downloaded, install it by using one of the following commands and replacing `<package_name>` with the package name you downloaded:
 
    {{< tabs >}}
 

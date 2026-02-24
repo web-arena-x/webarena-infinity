@@ -15,8 +15,8 @@ A **Daily Log canned report** in Procore is a **pre-built, standardized report**
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Read Only' or above permissions on the project's Daily Log tool.
-  - 'Read Only' or above permissions on the project's Reports tool.
+ - 'Read Only' or above permissions on the project's Daily Log tool.
+ - 'Read Only' or above permissions on the project's Reports tool.
 
 ## Steps
 

@@ -19,29 +19,20 @@ title: Custom HTML header tags
 
 {{< /history >}}
 
-If you self-manage a GitLab instance in the EU, or any jurisdiction that
-requires a cookie consent banner, additional HTML header tags are needed to
-add scripts and stylesheets.
+If you self-manage a GitLab instance in the EU, or any jurisdiction that requires a cookie consent banner, additional HTML header tags are needed to add scripts and stylesheets.
 
 ## Security implications
 
 Before enabling this feature, you should understand the security implications this might have.
 
-A previously legit external resource could end up being compromised and then used to extract
-pretty much any data from any user in the GitLab instance. For that reason,
-you should never add resources from untrusted external sources. If possible, you should always
-use integrity checks like [Subresource Integrity](https://www.w3.org/TR/SRI/) with third-party
-resources to confirm the authenticity of the resources that are loaded.
+A previously legit external resource could end up being compromised and then used to extract pretty much any data from any user in the GitLab instance. For that reason, you should never add resources from untrusted external sources. If possible, you should always use integrity checks like [Subresource Integrity](https://www.w3.org/TR/SRI/) with third-party resources to confirm the authenticity of the resources that are loaded.
 
 Limit the functionality you are adding by using HTML header tags to the minimum.
-Otherwise, it could cause also stability or functionality issues if you, for example,
-interact with other application code from GitLab.
+Otherwise, it could cause also stability or functionality issues if you, for example, interact with other application code from GitLab.
 
 ## Add a custom HTML header tag
 
-You must add the externals sources to the Content Security Policy which is
-available in the `content_security_policy` option. For the following example, you
-must extend the `script_src` and `style_src`.
+You must add the externals sources to the Content Security Policy which is available in the `content_security_policy` option. For the following example, you must extend the `script_src` and `style_src`.
 
 To add a custom HTML header tag:
 

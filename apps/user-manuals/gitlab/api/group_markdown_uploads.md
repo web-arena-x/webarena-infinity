@@ -12,8 +12,7 @@ title: Group Markdown uploads API
 
 {{< /details >}}
 
-Use this API to manage [Markdown uploads](../security/user_file_uploads.md) that can be referenced
-in Markdown text in epics or wiki pages.
+Use this API to manage [Markdown uploads](../security/user_file_uploads.md) that can be referenced in Markdown text in epics or wiki pages.
 
 ## List uploads
 
@@ -39,14 +38,14 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/uploads"
+ --url "https://gitlab.example.com/api/v4/groups/5/uploads"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "size": 1024,
     "filename": "image.png",
@@ -56,14 +55,14 @@ Example response:
       "name" : "Alexandra Bashirian",
       "username" : "eileen.lowe"
     }
-  },
-  {
+ },
+ {
     "id": 2,
     "size": 512,
     "filename": "other-image.png",
     "created_at":"2024-06-19T15:53:03.067Z",
     "uploaded_by": null
-  }
+ }
 ]
 ```
 
@@ -92,7 +91,7 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/uploads/1"
+ --url "https://gitlab.example.com/api/v4/groups/5/uploads/1"
 ```
 
 If successful, returns [`200`](rest/troubleshooting.md#status-codes) and the uploaded file in the response body.
@@ -117,13 +116,13 @@ Supported attributes:
 |-------------|-------------------|----------|-------------|
 | `id`        | integer or string | Yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group. |
 | `secret`    | string            | Yes      | The 32-character secret of the upload. |
-| `filename`  | string            | Yes      | The filename of the upload. |
+| `filename` | string            | Yes      | The filename of the upload. |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/uploads/648d97c6eef5fc5df8d1004565b3ee5a/sample.jpg"
+ --url "https://gitlab.example.com/api/v4/groups/5/uploads/648d97c6eef5fc5df8d1004565b3ee5a/sample.jpg"
 ```
 
 If successful, returns [`200`](rest/troubleshooting.md#status-codes) and the uploaded file in the response body.
@@ -153,8 +152,8 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/uploads/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/5/uploads/1"
 ```
 
 If successful, returns [`204`](rest/troubleshooting.md#status-codes) status code without any response body.
@@ -179,14 +178,14 @@ Supported attributes:
 |-------------|-------------------|----------|-------------|
 | `id`        | integer or string | Yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group. |
 | `secret`    | string            | Yes      | The 32-character secret of the upload. |
-| `filename`  | string            | Yes      | The filename of the upload. |
+| `filename` | string            | Yes      | The filename of the upload. |
 
 Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/uploads/648d97c6eef5fc5df8d1004565b3ee5a/sample.jpg"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/5/uploads/648d97c6eef5fc5df8d1004565b3ee5a/sample.jpg"
 ```
 
 If successful, returns [`204`](rest/troubleshooting.md#status-codes) status code without any response body.

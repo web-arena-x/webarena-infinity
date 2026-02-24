@@ -14,8 +14,7 @@ title: Webhook administration Rake tasks
 
 GitLab provides Rake tasks for webhooks management.
 
-Requests to the [local network by webhooks](../../security/webhooks.md) can be allowed or blocked by an
-administrator.
+Requests to the [local network by webhooks](../../security/webhooks.md) can be allowed or blocked by an administrator.
 
 ## Add a webhook to all projects
 

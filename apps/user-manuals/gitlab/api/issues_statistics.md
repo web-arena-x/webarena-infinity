@@ -16,14 +16,11 @@ title: Issues statistics API
 Use this API to retrieve statistics about [issues](../user/project/issues/_index.md).
 Every call to this API requires authentication.
 
-If a user is not a member of a project and the project is private, a `GET`
-request on that project results in a `404` status code.
+If a user is not a member of a project and the project is private, a `GET` request on that project results in a `404` status code.
 
 ## Get issues statistics
 
-Gets issues count statistics on all issues the authenticated user has access to. By default it
-returns only issues created by the current user. To get all issues,
-use parameter `scope=all`.
+Gets issues count statistics on all issues the authenticated user has access to. By default it returns only issues created by the current user. To get all issues, use parameter `scope=all`.
 
 ```plaintext
 GET /issues_statistics
@@ -62,21 +59,21 @@ GET /issues_statistics?confidential=true
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/issues_statistics"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/issues_statistics"
 ```
 
 Example response:
 
 ```json
 {
-  "statistics": {
+ "statistics": {
     "counts": {
       "all": 20,
       "closed": 5,
       "opened": 15
     }
-  }
+ }
 }
 ```
 
@@ -120,21 +117,21 @@ GET /groups/:id/issues_statistics?confidential=true
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/4/issues_statistics"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/4/issues_statistics"
 ```
 
 Example response:
 
 ```json
 {
-  "statistics": {
+ "statistics": {
     "counts": {
       "all": 20,
       "closed": 5,
       "opened": 15
     }
-  }
+ }
 }
 ```
 
@@ -178,20 +175,20 @@ GET /projects/:id/issues_statistics?confidential=true
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/4/issues_statistics"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/4/issues_statistics"
 ```
 
 Example response:
 
 ```json
 {
-  "statistics": {
+ "statistics": {
     "counts": {
       "all": 20,
       "closed": 5,
       "opened": 15
     }
-  }
+ }
 }
 ```

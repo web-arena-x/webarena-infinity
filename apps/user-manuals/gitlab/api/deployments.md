@@ -34,16 +34,16 @@ GET /projects/:id/deployments
 | `order_by`        | string         | no       | Return deployments ordered by either one of `id`, `iid`, `created_at`, `updated_at`, `finished_at` or `ref` fields. Default is `id`.    |
 | `sort`            | string         | no       | Return deployments sorted in `asc` or `desc` order. Default is `asc`.                                            |
 | `updated_after`   | datetime       | no       | Return deployments updated after the specified date. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
-| `updated_before`  | datetime       | no       | Return deployments updated before the specified date. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
-| `finished_after`  | datetime       | no       | Return deployments finished after the specified date. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
+| `updated_before` | datetime       | no       | Return deployments updated before the specified date. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
+| `finished_after` | datetime       | no       | Return deployments finished after the specified date. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
 | `finished_before` | datetime       | no       | Return deployments finished before the specified date. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
 | `environment`     | string         | no       | The [name of the environment](../ci/environments/_index.md) to filter deployments by.       |
 | `status`          | string         | no       | The status to filter deployments by. One of `created`, `running`, `success`, `failed`, `canceled`, or `blocked`. |
 
 ```shell
 curl --request "GET" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/deployments"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/deployments"
 ```
 
 > [!note]
@@ -53,7 +53,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "created_at": "2016-08-11T07:36:40.222Z",
     "updated_at": "2016-08-11T07:38:12.414Z",
     "status": "created",
@@ -124,8 +124,8 @@ Example response:
       "username": "root",
       "web_url": "http://localhost:3000/root"
     }
-  },
-  {
+ },
+ {
     "created_at": "2016-08-11T11:32:35.444Z",
     "updated_at": "2016-08-11T11:34:01.123Z",
     "status": "created",
@@ -196,7 +196,7 @@ Example response:
       "username": "root",
       "web_url": "http://localhost:3000/root"
     }
-  }
+ }
 ]
 ```
 
@@ -213,35 +213,35 @@ GET /projects/:id/deployments/:deployment_id
 
 ```shell
 curl --request "GET" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/deployments/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/deployments/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 42,
-  "iid": 2,
-  "ref": "main",
-  "sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
-  "created_at": "2016-08-11T11:32:35.444Z",
-  "updated_at": "2016-08-11T11:34:01.123Z",
-  "status": "success",
-  "user": {
+ "id": 42,
+ "iid": 2,
+ "ref": "main",
+ "sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
+ "created_at": "2016-08-11T11:32:35.444Z",
+ "updated_at": "2016-08-11T11:34:01.123Z",
+ "status": "success",
+ "user": {
     "name": "Administrator",
     "username": "root",
     "id": 1,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "web_url": "http://localhost:3000/root"
-  },
-  "environment": {
+ },
+ "environment": {
     "id": 9,
     "name": "production",
     "external_url": "https://about.gitlab.com"
-  },
-  "deployable": {
+ },
+ "deployable": {
     "id": 664,
     "status": "success",
     "stage": "deploy",
@@ -289,7 +289,7 @@ Example response:
       "web_url": "http://gitlab.dev/root/project/pipelines/5"
     },
     "runner": null
-  }
+ }
 }
 ```
 
@@ -297,7 +297,7 @@ When [multiple approval rules](../ci/environments/deployment_approvals.md#add-mu
 
 ```json
 {
-  "approval_summary": {
+ "approval_summary": {
     "rules": [
       {
         "user_id": null,
@@ -330,8 +330,8 @@ When [multiple approval rules](../ci/environments/deployment_approvals.md#add-mu
         ]
       }
     ]
-  }
-  ...
+ }
+ ...
 }
 ```
 
@@ -352,35 +352,35 @@ POST /projects/:id/deployments
 
 ```shell
 curl --request "POST" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --data "environment=production&sha=a91957a858320c0e17f3a0eca7cfacbff50ea29a&ref=main&tag=false&status=success" \
-  --url "https://gitlab.example.com/api/v4/projects/1/deployments"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --data "environment=production&sha=a91957a858320c0e17f3a0eca7cfacbff50ea29a&ref=main&tag=false&status=success" \
+ --url "https://gitlab.example.com/api/v4/projects/1/deployments"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 42,
-  "iid": 2,
-  "ref": "main",
-  "sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
-  "created_at": "2016-08-11T11:32:35.444Z",
-  "status": "success",
-  "user": {
+ "id": 42,
+ "iid": 2,
+ "ref": "main",
+ "sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
+ "created_at": "2016-08-11T11:32:35.444Z",
+ "status": "success",
+ "user": {
     "name": "Administrator",
     "username": "root",
     "id": 1,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "web_url": "http://localhost:3000/root"
-  },
-  "environment": {
+ },
+ "environment": {
     "id": 9,
     "name": "production",
     "external_url": "https://about.gitlab.com"
-  },
-  "deployable": null
+ },
+ "deployable": null
 }
 ```
 
@@ -388,10 +388,10 @@ Deployments created by users on GitLab Premium or Ultimate include the `approval
 
 ```json
 {
-  "status": "created",
-  "pending_approval_count": 0,
-  "approvals": [],
-  ...
+ "status": "created",
+ "pending_approval_count": 0,
+ "approvals": [],
+ ...
 }
 ```
 
@@ -404,40 +404,40 @@ PUT /projects/:id/deployments/:deployment_id
 | Attribute        | Type           | Required | Description         |
 |------------------|----------------|----------|---------------------|
 | `id`             | integer or string | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
-| `deployment_id`  | integer        | yes      | The ID of the deployment to update. |
+| `deployment_id` | integer        | yes      | The ID of the deployment to update. |
 | `status`         | string         | yes      | The new status of the deployment. One of `running`, `success`, `failed`, or `canceled`.                         |
 
 ```shell
 curl --request "PUT" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --data "status=success" \
-  --url "https://gitlab.example.com/api/v4/projects/1/deployments/42"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --data "status=success" \
+ --url "https://gitlab.example.com/api/v4/projects/1/deployments/42"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 42,
-  "iid": 2,
-  "ref": "main",
-  "sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
-  "created_at": "2016-08-11T11:32:35.444Z",
-  "status": "success",
-  "user": {
+ "id": 42,
+ "iid": 2,
+ "ref": "main",
+ "sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
+ "created_at": "2016-08-11T11:32:35.444Z",
+ "status": "success",
+ "user": {
     "name": "Administrator",
     "username": "root",
     "id": 1,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "web_url": "http://localhost:3000/root"
-  },
-  "environment": {
+ },
+ "environment": {
     "id": 9,
     "name": "production",
     "external_url": "https://about.gitlab.com"
-  },
-  "deployable": null
+ },
+ "deployable": null
 }
 ```
 
@@ -445,9 +445,9 @@ Deployments created by users on GitLab Premium or Ultimate include the `approval
 
 ```json
 {
-  "status": "created",
-  "pending_approval_count": 0,
-  "approvals": [
+ "status": "created",
+ "pending_approval_count": 0,
+ "approvals": [
     {
       "user": {
         "id": 49,
@@ -461,8 +461,8 @@ Deployments created by users on GitLab Premium or Ultimate include the `approval
       "created_at": "2022-02-24T20:22:30.097Z",
       "comment": "Looks good to me"
     }
-  ],
-  ...
+ ],
+ ...
 }
 ```
 
@@ -481,8 +481,8 @@ DELETE /projects/:id/deployments/:deployment_id
 
 ```shell
 curl --request "DELETE" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/deployments/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/deployments/1"
 ```
 
 Example responses:
@@ -507,8 +507,7 @@ Example responses:
 
 {{< alert type="note" >}}
 
-Not all deployments can be associated with merge requests. See
-[Track what merge requests were deployed to an environment](../ci/environments/deployments.md#track-newly-included-merge-requests-per-deployment)
+Not all deployments can be associated with merge requests. See [Track what merge requests were deployed to an environment](../ci/environments/deployments.md#track-newly-included-merge-requests-per-deployment)
 for more information.
 
 {{< /alert >}}
@@ -523,8 +522,8 @@ It supports the same parameters as the [Merge requests API](merge_requests.md#li
 
 ```shell
 curl --request "GET" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/deployments/42/merge_requests"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/deployments/42/merge_requests"
 ```
 
 ## Approve or reject a blocked deployment
@@ -559,25 +558,25 @@ POST /projects/:id/deployments/:deployment_id/approval
 
 ```shell
 curl --request "POST" \
-  --data "status=approved&comment=Looks good to me&represented_as=security" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/deployments/1/approval"
+ --data "status=approved&comment=Looks good to me&represented_as=security" \
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/deployments/1/approval"
 ```
 
 Example response:
 
 ```json
 {
-  "user": {
+ "user": {
     "id": 100,
     "username": "security-user-1",
     "name": "security user-1",
     "state": "active",
     "avatar_url": "https://www.gravatar.com/avatar/e130fcd3a1681f41a3de69d10841afa9?s=80&d=identicon",
     "web_url": "http://localhost:3000/security-user-1"
-  },
-  "status": "approved",
-  "created_at": "2022-02-24T20:22:30.097Z",
-  "comment":"Looks good to me"
+ },
+ "status": "approved",
+ "created_at": "2022-02-24T20:22:30.097Z",
+ "comment":"Looks good to me"
 }
 ```

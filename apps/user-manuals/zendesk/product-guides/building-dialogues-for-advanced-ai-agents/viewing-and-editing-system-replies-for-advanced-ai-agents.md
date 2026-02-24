@@ -6,14 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357749481882-Viewing-and-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
-In an advanced AI agent, system replies are designed to deliver specific types of messages at
-different points in a conversation with a customer. For example, there’s a system reply for
-the AI agent’s first message to the customer, a system reply for collecting feedback at the
-end of the conversation, and more.
+In an advanced AI agent, system replies are designed to deliver specific types of messages at different points in a conversation with a customer. For example, there’s a system reply for the AI agent’s first message to the customer, a system reply for collecting feedback at the end of the conversation, and more.
 
 This article contains the following topics:
 
@@ -27,8 +24,7 @@ Related article:
 
 ## About system replies
 
-System replies are automatically created for any advanced AI agent you create. Like [other replies you create](https://support.zendesk.com/hc/en-us/articles/9624068102682), each system reply is associated with
-a:
+System replies are automatically created for any advanced AI agent you create. Like [other replies you create](https://support.zendesk.com/hc/en-us/articles/9624068102682), each system reply is associated with a:
 
 - Use case that detects what a customer is asking about.
 - Dialogue that determines the conversation flow between the AI agent and the customer.
@@ -53,28 +49,23 @@ You can view a list of all system replies.
 
 **To view all system replies**
 
-1. In AI agents - Advanced, [select the advanced AI agent](https://support.zendesk.com/hc/en-us/articles/8357756913178#topic_t25_qvj_tdc) you want to
-   work with.
+1. In AI agents - Advanced, [select the advanced AI agent](https://support.zendesk.com/hc/en-us/articles/8357756913178#topic_t25_qvj_tdc) you want to work with.
 2. Click **Content** in the sidebar, then select **Use cases**.
-3. Click the **Categories** filter, select **System replies**, and click
-   **Apply**.
+3. Click the **Categories** filter, select **System replies**, and click **Apply**.
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_system_reply_filtering.png)
 
-   The list is filtered to show only system
-   replies.
+   The list is filtered to show only system replies.
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_system_replies.png)
 
 ## Editing a system reply
 
-Even though the system replies are created for you, you still need to review and edit their
-associated dialogues to ensure these default messages say what you want them to say.
+Even though the system replies are created for you, you still need to review and edit their associated dialogues to ensure these default messages say what you want them to say.
 
 **To edit a system reply**
 
-1. [In the list of system replies](#topic_fjr_d4p_xfc),
-   click the system reply you want to edit.
+1. [In the list of system replies](#topic_fjr_d4p_xfc), click the system reply you want to edit.
 2. Select the **Replies** tab.
 3. Select the reply for the language you want to edit.
 4. Click **Edit dialogue**.
@@ -82,5 +73,4 @@ associated dialogues to ensure these default messages say what you want them to 
    The dialogue builder opens.
 5. Update the system reply's dialogue as needed.
 
-   For help, see [Using the dialogue builder to create conversation flows for
-   advanced AI agents](https://support.zendesk.com/hc/en-us/articles/8357749494810).
+   For help, see [Using the dialogue builder to create conversation flows for advanced AI agents](https://support.zendesk.com/hc/en-us/articles/8357749494810).

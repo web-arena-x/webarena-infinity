@@ -9,18 +9,15 @@ title: HAML
 
 ## HAML and our Pajamas Design System
 
-[GitLab UI](https://gitlab-org.gitlab.io/gitlab-ui/) is a Vue component library that conforms
-to the [Pajamas design system](https://design.gitlab.com/). Many of these components
-rely on JavaScript and therefore can only be used in Vue.
+[GitLab UI](https://gitlab-org.gitlab.io/gitlab-ui/) is a Vue component library that conforms to the [Pajamas design system](https://design.gitlab.com/). Many of these components rely on JavaScript and therefore can only be used in Vue.
 
-However, some of the simpler components (such as buttons, checkboxes, or form inputs) can be
-used in HAML:
+However, some of the simpler components (such as buttons, checkboxes, or form inputs) can be used in HAML:
 
 - Some of the Pajamas components are available as a [ViewComponent](view_component.md#pajamas-components). Use these when possible.
 - If no ViewComponent exists, why not go ahead and create it? Talk to the [Design System](https://handbook.gitlab.com/handbook/engineering/development/dev/foundations/design-system/) team if you need help.
 - As a fallback, this can be done by applying the correct CSS classes to the elements.
 - A custom [Ruby on Rails form builder](https://gitlab.com/gitlab-org/gitlab/-/blob/7c108df101e86d8a27d69df2b5b1ff1fc24133c5/lib/gitlab/form_builders/gitlab_ui_form_builder.rb)
-  exists to help use GitLab UI components in HAML forms.
+ exists to help use GitLab UI components in HAML forms.
 
 ### Use the GitLab UI form builder
 
@@ -34,8 +31,8 @@ For example:
 
 - Before:
 
-  ```haml
-  = form_for @group do |f|
+ ```haml
+ = form_for @group do |f|
     .form-group.gl-mb-3
       .gl-form-checkbox.custom-control.custom-checkbox
         = f.check_box :prevent_sharing_groups_outside_hierarchy, disabled: !can_change_prevent_sharing_groups_outside_hierarchy?(@group), class: 'custom-control-input'
@@ -52,12 +49,12 @@ For example:
             = _('Allow projects within this group to use Git LFS')
             = link_to sprite_icon('question-o'), help_page_path('topics/git/lfs/_index.md')
           %p.help-text= _('This setting can be overridden in each project.')
-  ```
+ ```
 
 - After:
 
-  ```haml
-  = gitlab_ui_form_for @group do |f|
+ ```haml
+ = gitlab_ui_form_for @group do |f|
     .form-group.gl-mb-3
       = f.gitlab_ui_checkbox_component :prevent_sharing_groups_outside_hierarchy,
           safe_format(s_('GroupSettings|Prevent members from sending invitations to groups outside of %{group} and its subgroups.'), group: link_to_group(@group)),
@@ -71,7 +68,7 @@ For example:
           = link_to sprite_icon('question-o'), help_page_path('topics/git/lfs/_index.md')
         - c.with_help_text do
           = _('This setting can be overridden in each project.')
-  ```
+ ```
 
 ### Available components
 
@@ -96,7 +93,7 @@ Currently only the listed components are available but more components are plann
 | `help_text`        | `String` | `false` (`nil`)          | Help text displayed below the checkbox. `help_text` slot can be used instead of this argument if HTML is needed. |
 | `checkbox_options` | `Hash`   | `false` (`{}`)           | Options that are passed to [Rails `check_box` method](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-check_box). |
 | `checked_value`    | `String` | `false` (`'1'`)          | Value when checkbox is checked. |
-| `unchecked_value`  | `String` | `false` (`'0'`)          | Value when checkbox is unchecked. |
+| `unchecked_value` | `String` | `false` (`'0'`)          | Value when checkbox is unchecked. |
 | `label_options`    | `Hash`   | `false` (`{}`)           | Options that are passed to [Rails `label` method](https://api.rubyonrails.org/classes/ActionView/Helpers/FormBuilder.html#method-i-label). |
 
 ##### Slots

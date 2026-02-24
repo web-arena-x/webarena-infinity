@@ -51,7 +51,7 @@ These approvers are going to auto populate based on the configurations from the 
 - Beginning the experience approval process will set the status of this experience to **"Being approved"** and update the deadlines of the approvals based on their deadline offsets.
 - Handshake will send an email to the first contact listed in the Approvers tab.
 - As soon as the first person approves the experience we will send an email to the next contact listed, and will repeat this process until the experience has been fully approved.
-  - **Note:** If any of the contacts decline the experience or a deadline is missed emails will no longer be automatically sent and we will also set the status to **"Needs Review"** and you will be notified. Once that "Needs Review" status is set, you will need to manually adjust (or re-send a link) in some part of the approval process.
+ - **Note:** If any of the contacts decline the experience or a deadline is missed emails will no longer be automatically sent and we will also set the status to **"Needs Review"** and you will be notified. Once that "Needs Review" status is set, you will need to manually adjust (or re-send a link) in some part of the approval process.
 - You can stop emails from being sent by editing this experience and changing the status to something other than "Being Approved".
 - You will be notified once the experience has been fully approved.
 

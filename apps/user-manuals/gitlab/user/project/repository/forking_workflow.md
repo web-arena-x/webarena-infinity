@@ -14,25 +14,21 @@ title: Forks
 {{< /details >}}
 
 A fork is a personal copy of another Git repository, placed in the namespace of your choice.
-Your copy contains the upstream repository's content, including all branches, tags,
-and CI/CD job configurations.
+Your copy contains the upstream repository's content, including all branches, tags, and CI/CD job configurations.
 You can create merge requests from your fork to target the upstream repository.
-Individual commits can also be [cherry-picked](../merge_requests/cherry_pick_changes.md) from
-your fork into the upstream repository.
+Individual commits can also be [cherry-picked](../merge_requests/cherry_pick_changes.md) from your fork into the upstream repository.
 
 If you have write access to the original repository, you don't need a fork.
 Instead, use branches to manage your work.
 If you don't have write access to a repository you want to contribute to, fork it.
 Make your changes in your fork, then submit them through a merge request to the upstream repository.
 
-To create a [confidential merge request](../merge_requests/confidential.md),
-use a personal fork of a public repository.
+To create a [confidential merge request](../merge_requests/confidential.md), use a personal fork of a public repository.
 
 {{< alert type="note" >}}
 
 If the upstream project is archived, the fork relationship is automatically removed.
-Merge requests that were closed due to a broken fork relationship are not reopened
-if the fork relationship is later restored.
+Merge requests that were closed due to a broken fork relationship are not reopened if the fork relationship is later restored.
 
 For more information, see [Archive a project](../working_with_projects.md#archive-a-project).
 
@@ -57,33 +53,25 @@ To fork an existing project in GitLab:
 1. Optional. Add a **Project description**.
 1. Select one of the **Branches to include** options:
    - **All branches** (default).
-   - **Only the default branch**. Uses the `--single-branch` and `--no-tags`
-     [Git options](https://git-scm.com/docs/git-clone).
-1. Select the **Visibility level** for your fork. For more information about
-   visibility levels, read [Project and group visibility](../../public_access.md).
+   - **Only the default branch**. Uses the `--single-branch` and `--no-tags` [Git options](https://git-scm.com/docs/git-clone).
+1. Select the **Visibility level** for your fork. For more information about visibility levels, read [Project and group visibility](../../public_access.md).
 1. Select **Fork project**.
 
-GitLab creates your fork, redirects you to the new fork's page, and logs the fork's
-creation in the [audit log](../../compliance/audit_event_types.md).
+GitLab creates your fork, redirects you to the new fork's page, and logs the fork's creation in the [audit log](../../compliance/audit_event_types.md).
 
-If you intend to contribute changes upstream frequently, consider setting a
-[default target](../merge_requests/creating_merge_requests.md#set-the-default-target-project) for your fork.
+If you intend to contribute changes upstream frequently, consider setting a [default target](../merge_requests/creating_merge_requests.md#set-the-default-target-project) for your fork.
 
 ## Update your fork
 
 A fork can fall out of sync with its upstream repository, and require an update:
 
 - **Ahead**: Your fork contains new commits not present in the upstream repository.
-  To sync your fork, create a merge request to push your changes to the upstream repository.
+ To sync your fork, create a merge request to push your changes to the upstream repository.
 - **Behind**: The upstream repository contains new commits not present in your fork.
-  To sync your fork, pull the new commits into your fork.
-- **Ahead and behind**: Both the upstream repository and your fork contain new commits
-  not present in the other. To fully sync your fork, create a merge request to push
-  your changes up, and pull the upstream repository's new changes into your fork.
+ To sync your fork, pull the new commits into your fork.
+- **Ahead and behind**: Both the upstream repository and your fork contain new commits not present in the other. To fully sync your fork, create a merge request to push your changes up, and pull the upstream repository's new changes into your fork.
 
-To sync your fork with its upstream repository, update it from the GitLab UI
-or the command line. GitLab Premium and Ultimate tiers can also automate updates by
-[configuring forks as pull mirrors](#with-repository-mirroring) of the upstream repository.
+To sync your fork with its upstream repository, update it from the GitLab UI or the command line. GitLab Premium and Ultimate tiers can also automate updates by [configuring forks as pull mirrors](#with-repository-mirroring) of the upstream repository.
 
 ### From the UI
 
@@ -93,15 +81,12 @@ or the command line. GitLab Premium and Ultimate tiers can also automate updates
 
 {{< /history >}}
 
-When you update a fork from the UI, the following repository protection settings on the fork are
-bypassed:
+When you update a fork from the UI, the following repository protection settings on the fork are bypassed:
 
 - Push rules configured on the fork.
 - File locking applied to files in the fork.
 
-This behavior prevents synchronization failures when the upstream project and fork have different
-protection configurations. The synchronization process pulls changes from the upstream project and
-applies them directly to the fork.
+This behavior prevents synchronization failures when the upstream project and fork have different protection configurations. The synchronization process pulls changes from the upstream project and applies them directly to the fork.
 
 Prerequisites:
 
@@ -113,21 +98,14 @@ To update your fork from the GitLab UI:
 1. Select **View all my projects**.
 1. Select the fork you want to update.
 1. Below the dropdown list for branch name, find the **Forked from** ({{< icon name="fork" >}})
-   information box to determine if your fork is ahead, behind, or both. In this example,
-   the fork is behind the upstream repository:
+   information box to determine if your fork is ahead, behind, or both. In this example, the fork is behind the upstream repository:
 
    ![Information box for a fork some commits behind the upstream repository](img/update-fork_v16_6.png)
 
-1. If your fork is **ahead** of the upstream repository, select
-   **Create merge request** to propose adding your fork's changes to the upstream repository.
-1. If your fork is **behind** the upstream repository, select **Update fork**
-   to pull changes from the upstream repository.
-1. If your fork is **ahead and behind** the upstream repository, you can update from the UI
-   only if GitLab detects no merge conflicts:
-   - If your fork contains no merge conflicts, you can select **Create merge request**
-     to propose pushing your changes to the upstream repository, **Update fork**
-     to pull changes down to your fork, or both. The type of changes in your fork
-     determine which actions are appropriate.
+1. If your fork is **ahead** of the upstream repository, select **Create merge request** to propose adding your fork's changes to the upstream repository.
+1. If your fork is **behind** the upstream repository, select **Update fork** to pull changes from the upstream repository.
+1. If your fork is **ahead and behind** the upstream repository, you can update from the UI only if GitLab detects no merge conflicts:
+   - If your fork contains no merge conflicts, you can select **Create merge request** to propose pushing your changes to the upstream repository, **Update fork** to pull changes down to your fork, or both. The type of changes in your fork determine which actions are appropriate.
    - If your fork contains merge conflicts, GitLab shows a step-by-step guide to update your fork from the command line.
 
 ### From the command line
@@ -139,8 +117,7 @@ Prerequisites:
 - You must [download and install the Git client](../../../topics/git/how_to_install_git/_index.md) on your local machine.
 - You must [create a fork](#create-a-fork) of the repository you want to update.
 
-To update your fork from the command line, follow the instruction in
-[use Git to update a fork](../../../topics/git/forks.md).
+To update your fork from the command line, follow the instruction in [use Git to update a fork](../../../topics/git/forks.md).
 
 ### With repository mirroring
 
@@ -155,8 +132,7 @@ A fork can be configured as a mirror of the upstream if all these conditions are
 
 1. Your subscription is GitLab Premium or GitLab Ultimate.
 1. You create all changes in branches (not `main`).
-1. You do not work on [merge requests for confidential issues](../merge_requests/confidential.md),
-   which requires changes to `main`.
+1. You do not work on [merge requests for confidential issues](../merge_requests/confidential.md), which requires changes to `main`.
 
 [Repository mirroring](mirror/_index.md) keeps your fork synced with the original repository.
 This method updates your fork once per hour, with no manual `git pull` required.
@@ -170,14 +146,10 @@ With mirroring, before approving a merge request, you are asked to sync. You sho
 
 ## Merge changes back upstream
 
-When you are ready to send your code back to the upstream repository, create a new merge request as
-described in [When you work in a fork](../merge_requests/creating_merge_requests.md#when-you-work-in-a-fork).
+When you are ready to send your code back to the upstream repository, create a new merge request as described in [When you work in a fork](../merge_requests/creating_merge_requests.md#when-you-work-in-a-fork).
 When successfully merged, your changes are added to the repository and branch you're merging into.
 
-After your merge request is merged upstream, the branch in your fork is not automatically considered
-**Merged** for bulk deletion purposes. The branch is only considered merged if your fork's default
-branch contains those changes. To mark these branches as merged in your fork,
-[update your fork](#update-your-fork) to sync with the upstream repository.
+After your merge request is merged upstream, the branch in your fork is not automatically considered **Merged** for bulk deletion purposes. The branch is only considered merged if your fork's default branch contains those changes. To mark these branches as merged in your fork, [update your fork](#update-your-fork) to sync with the upstream repository.
 
 ## Unlink a fork
 
@@ -214,8 +186,7 @@ to share objects with another repository:
 
 ## Check a fork's storage usage
 
-Your fork uses a deduplication strategy
-to reduce the storage space it needs. Your fork can access the object pool connected to the source repository.
+Your fork uses a deduplication strategy to reduce the storage space it needs. Your fork can access the object pool connected to the source repository.
 
 For more information and to check the storage use, see [View project fork storage usage](../../storage_usage_quotas.md#view-project-fork-storage-usage).
 
@@ -229,15 +200,12 @@ For more information and to check the storage use, see [View project fork storag
 
 ### Error: `An error occurred while forking the project. Please try again`
 
-This error can be due to a mismatch in instance runner settings between the forked project
-and the new namespace. See [Forks](../../../ci/runners/configure_runners.md#using-instance-runners-in-forked-projects)
+This error can be due to a mismatch in instance runner settings between the forked project and the new namespace. See [Forks](../../../ci/runners/configure_runners.md#using-instance-runners-in-forked-projects)
 in the Runner documentation for more information.
 
 ### Removing fork relationship fails
 
-If removing the fork through the UI or API is not working, you can attempt the
-fork relationship removal in a
-[Rails console session](../../../administration/operations/rails_console.md#starting-a-rails-console-session):
+If removing the fork through the UI or API is not working, you can attempt the fork relationship removal in a [Rails console session](../../../administration/operations/rails_console.md#starting-a-rails-console-session):
 
 ```ruby
 p = Project.find_by_full_path('<project_path>')

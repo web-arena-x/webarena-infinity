@@ -24,7 +24,7 @@ With each new feature release, Handshake works to achieve full compliance with a
 - **Keyboard-Only Support**: Users can navigate our platform using a keyboard alone, making it accessible for individuals who may not use a mouse.
 - **Screen Reader Support**: Our platform is compatible with screen readers, supporting users who rely on this technology to access digital content.
 - **Live Captioning for Video**: Handshake supports the addition of a transcriber to virtual sessions to offer live captioning services.
-  - *For more information on how to request a transcriber, refer to*[Requesting an ASL Interpreter or Transcriber for Virtual Interactions](https://support.joinhandshake.com/hc/en-us/articles/360053331294).
+ - *For more information on how to request a transcriber, refer to*[Requesting an ASL Interpreter or Transcriber for Virtual Interactions](https://support.joinhandshake.com/hc/en-us/articles/360053331294).
 - **Pinning a Video**: Students can pin the video of an ASL interpreter that has joined the meeting. Pinning a video will not pin the video for other participants.
 
 **Note**: for virtual interactions via Integrated video on Handshake, all modern web browsers are supported. Students can use their computers or mobile devices with the same functionality.

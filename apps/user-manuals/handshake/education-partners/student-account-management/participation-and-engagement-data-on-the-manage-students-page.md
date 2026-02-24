@@ -20,11 +20,11 @@ This section of data is split between two subsections:
 If you select the Participation filter, the following options appear:
 
 - *Activation*
-  - **Has activated**
-  - **Has not activated**
+ - **Has activated**
+ - **Has not activated**
 - *Profile*
-  - **Completed profile**
-  - **Not completed**
+ - **Completed profile**
+ - **Not completed**
 
 ![Participation filters.png](https://support.joinhandshake.com/hc/article_attachments/34559453781911)
 
@@ -42,17 +42,17 @@ This section of data is a little more straight forward, it is split into four su
 If you select the Engagement filter, the following options appear:
 
 - *Applications*
-  - **Has submitted**
-  - **Has not submitted**
+ - **Has submitted**
+ - **Has not submitted**
 - *Appointments*
-  - **Attended**
-  - **Not attended**
+ - **Attended**
+ - **Not attended**
 - *Fairs*
-  - **Attended**
-  - **Not attended**
+ - **Attended**
+ - **Not attended**
 - *Events*
-  - **Attended**
-  - **Not attended**
+ - **Attended**
+ - **Not attended**
 - **Within the last \_\_\_ months:** You can modify this when you select one of the above engagement filters
 
 ![Engagement filters.png](https://support.joinhandshake.com/hc/article_attachments/34559455205271)

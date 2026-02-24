@@ -18,8 +18,8 @@ In Procore, an *RFI Manager* is the person responsible for overseeing an RFI th
 
 Once the RFI manager reviews all the Draft RFIs that have been created and assigned in the RFIs tool, they can either:
 
-- Respond to and close the RFI. See [How do I submit a response to a 'Draft' RFI when I am the RFI Manager?](https://support.procore.com/faq/how-do-i-submit-a-response-to-a-draft-rfi-when-i-am-the-rfi-manager "How do I submit a response to a 'Draft' RFI when I am the RFI Manager?")  
-  OR
+- Respond to and close the RFI. See [How do I submit a response to a 'Draft' RFI when I am the RFI Manager?](https://support.procore.com/faq/how-do-i-submit-a-response-to-a-draft-rfi-when-i-am-the-rfi-manager "How do I submit a response to a 'Draft' RFI when I am the RFI Manager?") 
+ OR
 - Reassign it to one or more people to collect their responses.
 
 When all of the responses are received, the RFI manager then chooses the 'Official Response'. At that point, the RFI can be closed (or, if a change event is needed, see [Create a Change Event](https://support.procore.com/products/online/user-guide/project-level/change-events/tutorials/create-a-change-event "Create a Change Event")). The responsible party can also be notified. Below shows you the typical workflow for an RFI manager.
@@ -48,24 +48,24 @@ The table below lists the tasks 'Read Only' or 'Standard' level users with this 
 | Task | With 'Act as RFI Manager' Granular Permission | | Granular Permission N/A |
 | --- | --- | --- | --- |
 | Read Only | Standard | Admin |
-| [Add a Related Item to an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/add-a-related-item-to-an-rfi "Add a Related Item to an RFI") |  |  | icon-mindtouch-table-check.png |
+| [Add a Related Item to an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/add-a-related-item-to-an-rfi "Add a Related Item to an RFI") | | | icon-mindtouch-table-check.png |
 | Add a Response to an RFI (Not as an Assignee) | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
 | Add Assignees to an RFI (Not as an Assignee) | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
 | Be Designated as a Project's Default RFI Manager | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
 | [Choose an "Official Response" for an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/choose-an-official-response-for-an-rfi "Choose an \"Official Response\" for an RFI") | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
 | [Close an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/close-an-rfi "Close an RFI")  icon-mindtouch-table-mobile.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png1 | icon-mindtouch-table-check.png |
-| [Configure Settings: RFIs](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/configure-advanced-settings-rfis "Configure Advanced Settings: RFIs") |  |  | icon-mindtouch-table-check.png |
-| Create an Open RFI |  | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| [Delete a Response to an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/delete-a-response-to-an-rfi "https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/delete-a-response-to-an-rfi") |  |  | icon-mindtouch-table-check.png |
-| [Delete an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/delete-an-rfi "Delete an RFI") |  |  | icon-mindtouch-table-check.png |
-| [Designate the Default RFI Manager for a Project's RFIs](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/designate-the-default-rfi-manager-for-a-projects-rfis "Designate the Default RFI Manager for a Project's RFIs") |  |  | icon-mindtouch-table-check.png |
+| [Configure Settings: RFIs](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/configure-advanced-settings-rfis "Configure Advanced Settings: RFIs") | | | icon-mindtouch-table-check.png |
+| Create an Open RFI | | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
+| [Delete a Response to an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/delete-a-response-to-an-rfi "https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/delete-a-response-to-an-rfi") | | | icon-mindtouch-table-check.png |
+| [Delete an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/delete-an-rfi "Delete an RFI") | | | icon-mindtouch-table-check.png |
+| [Designate the Default RFI Manager for a Project's RFIs](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/designate-the-default-rfi-manager-for-a-projects-rfis "Designate the Default RFI Manager for a Project's RFIs") | | | icon-mindtouch-table-check.png |
 | [Edit an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/edit-an-rfi "Edit an RFI")  icon-mindtouch-table-mobile.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
 | Export All Responses on an RFI | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| **[Perform Bulk Actions on RFIs](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/perform-bulk-actions-on-rfis "Perform Bulk Actions on RFIs")** |  |  | icon-mindtouch-table-check.png |
+| **[Perform Bulk Actions on RFIs](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/perform-bulk-actions-on-rfis "Perform Bulk Actions on RFIs")** | | | icon-mindtouch-table-check.png |
 | [Reopen an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/reopen-an-rfi "Reopen an RFI")  icon-mindtouch-table-mobile.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
 | [Respond to an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/respond-to-an-rfi "Reply to an RFI")   icon-mindtouch-table-mobile.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| [Retrieve an RFI from the Recycle Bin](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/retrieve-an-rfi-from-the-recycle-bin "Retrieve an RFI from the Recycle Bin") |  |  | icon-mindtouch-table-check.png |
-| Select Any Available RFI Manager when Creating an RFI |  | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
+| [Retrieve an RFI from the Recycle Bin](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/retrieve-an-rfi-from-the-recycle-bin "Retrieve an RFI from the Recycle Bin") | | | icon-mindtouch-table-check.png |
+| Select Any Available RFI Manager when Creating an RFI | | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
 | **[Shift the Ball in Court on a RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/shift-the-ball-in-court-on-an-rfi "Shift the Ball In Court on an RFI")** | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
 | View All Responses on an RFI | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
 | View Private RFIs | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |

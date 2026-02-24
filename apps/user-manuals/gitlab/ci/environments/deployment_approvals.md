@@ -13,18 +13,13 @@ title: Deployment approvals
 
 {{< /details >}}
 
-You can require additional approvals for deployments to protected
-environments. Deployments are blocked until all required approvals are
-given.
+You can require additional approvals for deployments to protected environments. Deployments are blocked until all required approvals are given.
 
-Use deployment approvals to accommodate testing,
-security, or compliance processes. For example, you might want to
-require approvals for deployments to production environments.
+Use deployment approvals to accommodate testing, security, or compliance processes. For example, you might want to require approvals for deployments to production environments.
 
 ## Configure deployment approvals
 
-You can require approvals for deployments to protected environments in
-a project.
+You can require approvals for deployments to protected environments in a project.
 
 Prerequisites:
 
@@ -70,8 +65,7 @@ You can [also use the API](../../api/group_protected_environments.md#protect-a-s
 All jobs deploying to the environment are blocked and wait for approvals before running.
 Make sure the number of required approvals is less than the number of users allowed to deploy.
 
-A user can give only one approval per deployment,
-even if the user is a member of multiple approver groups. [Issue 457541](https://gitlab.com/gitlab-org/gitlab/-/issues/457541) proposes to change this behavior so that the same user can give multiple approvals per deployment from different approver groups.
+A user can give only one approval per deployment, even if the user is a member of multiple approver groups. [Issue 457541](https://gitlab.com/gitlab-org/gitlab/-/issues/457541) proposes to change this behavior so that the same user can give multiple approvals per deployment from different approver groups.
 
 After a deployment job is approved, you must [run the job manually](../jobs/job_control.md#run-a-manual-job).
 
@@ -117,10 +111,8 @@ To approve or reject a deployment:
 
 You can also [use the API](../../api/deployments.md#approve-or-reject-a-blocked-deployment).
 
-You can give only one approval per deployment, even if you are a member of multiple
-approver groups. [Issue 457541](https://gitlab.com/gitlab-org/gitlab/-/issues/457541)
-proposes to change this behavior so that the same user can give multiple
-approvals per deployment from different approver groups.
+You can give only one approval per deployment, even if you are a member of multiple approver groups. [Issue 457541](https://gitlab.com/gitlab-org/gitlab/-/issues/457541)
+proposes to change this behavior so that the same user can give multiple approvals per deployment from different approver groups.
 
 Deployment approval doesn't automatically trigger the corresponding deployment job. You must [manually run the job](../jobs/job_control.md#run-a-manual-job).
 
@@ -130,8 +122,7 @@ Prerequisites:
 
 - You have permission to deploy to the protected environment.
 
-A deployment to a protected environment can proceed only after all required approvals have been
-granted.
+A deployment to a protected environment can proceed only after all required approvals have been granted.
 
 To view the approval details of a deployment:
 

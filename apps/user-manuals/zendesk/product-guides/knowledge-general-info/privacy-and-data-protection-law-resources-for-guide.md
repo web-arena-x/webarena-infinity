@@ -6,16 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408834241306-Privacy-and-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Guide Professional or Enterprise |
 
-The following articles in the cross-product help center describe how features in Guide and other
-Zendesk products can help you comply with privacy and data protection law:
+The following articles in the cross-product help center describe how features in Guide and other Zendesk products can help you comply with privacy and data protection law:
 
 - [Complying with Privacy and Data Protection Law in Zendesk products](https://support.zendesk.com/hc/en-us/articles/4408834005530)
 - [Complying with Privacy and Data Protection Law in Zendesk Guide](https://support.zendesk.com/hc/en-us/articles/4408821644186)

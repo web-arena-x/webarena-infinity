@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/7043724806810-Exporting-da
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Quality Assurance (QA) or Workforce Engagement Management (WEM) |
 
@@ -37,8 +37,8 @@ An example request with `curl` would look like this:
 
 ```
 curl 'https://yoursubdomain.zendesk.com/qa/api/export/workspace/reviews?fromDate=2020-01-01T00%3A00%3A00%2B00%3A00&toDate=2020-03-31T00%3A00%3A00' \
-  -H 'accept: application/json' \
-  -H 'Authorization: Bearer YOUR_API_TOKEN'
+ -H 'accept: application/json' \
+ -H 'Authorization: Bearer YOUR_API_TOKEN'
 ```
 
 - For an account-wide export, you can use our `/qa/api/export/reviews` endpoint.
@@ -50,7 +50,7 @@ curl 'https://yoursubdomain.zendesk.com/qa/api/export/workspace/reviews?fromDate
 
 ```
 {
-  "conversations": [
+ "conversations": [
     {
       "externalId": "string",
       "url": "string",
@@ -155,12 +155,12 @@ curl 'https://yoursubdomain.zendesk.com/qa/api/export/workspace/reviews?fromDate
       ],
       "workspaceId": "string"
     }
-  ],
-  "pagination": {
+ ],
+ "pagination": {
     "page": 0,
     "pageSize": 0,
     "total": 0
-  }
+ }
 }
 ```
 

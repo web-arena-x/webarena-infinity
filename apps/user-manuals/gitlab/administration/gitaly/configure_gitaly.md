@@ -18,9 +18,7 @@ Configure Gitaly in one of two ways:
 
 {{< tab title="Linux package (Omnibus)" >}}
 
-1. Edit `/etc/gitlab/gitlab.rb` and add or change the Gitaly settings. Refer to the
-   [example Gitaly configuration file](https://gitlab.com/gitlab-org/gitaly/-/blob/master/config.toml.example). The
-   settings in the example file must be converted into Ruby.
+1. Edit `/etc/gitlab/gitlab.rb` and add or change the Gitaly settings. Refer to the [example Gitaly configuration file](https://gitlab.com/gitlab-org/gitaly/-/blob/master/config.toml.example). The settings in the example file must be converted into Ruby.
 1. Save the file and [reconfigure GitLab](../restart_gitlab.md#reconfigure-a-linux-package-installation).
 
 {{< /tab >}}
@@ -34,8 +32,7 @@ Configure Gitaly in one of two ways:
 
 {{< tab title="Self-compiled (source)" >}}
 
-1. Edit `/home/git/gitaly/config.toml` and add or change the Gitaly settings. Refer to the
-   [example Gitaly configuration file](https://gitlab.com/gitlab-org/gitaly/-/blob/master/config.toml.example).
+1. Edit `/home/git/gitaly/config.toml` and add or change the Gitaly settings. Refer to the [example Gitaly configuration file](https://gitlab.com/gitlab-org/gitaly/-/blob/master/config.toml.example).
 1. Save the file and [restart GitLab](../restart_gitlab.md#self-compiled-installations).
 
 {{< /tab >}}
@@ -50,26 +47,20 @@ The following configuration options are also available:
 
 ## About the Gitaly token
 
-The token referred to throughout the Gitaly documentation is just an arbitrary password selected by
-the administrator. It is unrelated to tokens created for the GitLab API or other similar web API
-tokens.
+The token referred to throughout the Gitaly documentation is just an arbitrary password selected by the administrator. It is unrelated to tokens created for the GitLab API or other similar web API tokens.
 
 ## Run Gitaly on its own server
 
-By default, Gitaly is run on the same server as Gitaly clients and is
-configured as described previously. Single-server installations are best served by
-this default configuration used by:
+By default, Gitaly is run on the same server as Gitaly clients and is configured as described previously. Single-server installations are best served by this default configuration used by:
 
 - [Linux package installations](https://docs.gitlab.com/omnibus/).
 - [Self-compiled installations](../../install/self_compiled/_index.md).
 
-However, Gitaly can be deployed to its own server, which can benefit GitLab installations that span
-multiple machines.
+However, Gitaly can be deployed to its own server, which can benefit GitLab installations that span multiple machines.
 
 {{< alert type="note" >}}
 
-When configured to run on their own servers, Gitaly servers must be
-[upgraded](../../update/package/_index.md) before Gitaly clients in your cluster.
+When configured to run on their own servers, Gitaly servers must be [upgraded](../../update/package/_index.md) before Gitaly clients in your cluster.
 
 {{< /alert >}}
 
@@ -92,40 +83,33 @@ The following list depicts the network architecture of Gitaly:
 
 - GitLab Rails shards repositories into [repository storages](../repository_storage_paths.md).
 - `/config/gitlab.yml` contains a map from storage names to `(Gitaly address, Gitaly token)` pairs.
-- The `storage name` -\> `(Gitaly address, Gitaly token)` map in `/config/gitlab.yml` is the single
-  source of truth for the Gitaly network topology.
+- The `storage name` -\> `(Gitaly address, Gitaly token)` map in `/config/gitlab.yml` is the single source of truth for the Gitaly network topology.
 - A `(Gitaly address, Gitaly token)` corresponds to a Gitaly server.
 - A Gitaly server hosts one or more storages.
 - A Gitaly client can use one or more Gitaly servers.
-- Gitaly addresses must be specified in such a way that they resolve correctly for all Gitaly
-  clients.
+- Gitaly addresses must be specified in such a way that they resolve correctly for all Gitaly clients.
 - Gitaly clients are:
-  - Puma.
-  - Sidekiq.
-  - GitLab Workhorse.
-  - GitLab Shell.
-  - Elasticsearch indexer.
-  - Gitaly itself.
-- A Gitaly server must be able to make RPC calls to itself by using its own
-  `(Gitaly address, Gitaly token)` pair as specified in `/config/gitlab.yml`.
-- Authentication is done through a static token which is shared among the Gitaly and GitLab Rails
-  nodes.
+ - Puma.
+ - Sidekiq.
+ - GitLab Workhorse.
+ - GitLab Shell.
+ - Elasticsearch indexer.
+ - Gitaly itself.
+- A Gitaly server must be able to make RPC calls to itself by using its own `(Gitaly address, Gitaly token)` pair as specified in `/config/gitlab.yml`.
+- Authentication is done through a static token which is shared among the Gitaly and GitLab Rails nodes.
 
-The following diagram illustrates communication between Gitaly servers and GitLab Rails showing
-the default ports for HTTP and HTTPs communication.
+The following diagram illustrates communication between Gitaly servers and GitLab Rails showing the default ports for HTTP and HTTPs communication.
 
 ![Two Gitaly servers and a GitLab Rails exchanging information.](img/gitaly_network_v13_9.png)
 
 {{< alert type="warning" >}}
 
-Gitaly servers must not be exposed to the public internet as Gitaly network traffic is unencrypted
-by default. The use of firewall is highly recommended to restrict access to the Gitaly server.
+Gitaly servers must not be exposed to the public internet as Gitaly network traffic is unencrypted by default. The use of firewall is highly recommended to restrict access to the Gitaly server.
 Another option is to [use TLS](tls_support.md).
 
 {{< /alert >}}
 
-In the following sections, we describe how to configure two Gitaly servers with secret token
-`abc123secret`:
+In the following sections, we describe how to configure two Gitaly servers with secret token `abc123secret`:
 
 - `gitaly1.internal`.
 - `gitaly2.internal`.
@@ -142,8 +126,7 @@ You can use as few as one server with one repository storage if desired.
 
 Install Gitaly on each Gitaly server using either:
 
-- A Linux package installation. [Download and install](https://about.gitlab.com/install/) the Linux package you want
-  but do not provide the `EXTERNAL_URL=` value.
+- A Linux package installation. [Download and install](https://about.gitlab.com/install/) the Linux package you want but do not provide the `EXTERNAL_URL=` value.
 - A self-compiled installation. Follow the steps at [Install Gitaly](../../install/self_compiled/_index.md#install-gitaly).
 
 ### Configure Gitaly servers
@@ -156,8 +139,7 @@ To configure Gitaly servers, you must:
 
 The `git` user must be able to read, write, and set permissions on the configured storage path.
 
-To avoid downtime while rotating the Gitaly token, you can temporarily disable authentication using the `gitaly['auth_transitioning']` setting. For more information, see
-[enable auth transitioning mode](#enable-auth-transitioning-mode).
+To avoid downtime while rotating the Gitaly token, you can temporarily disable authentication using the `gitaly['auth_transitioning']` setting. For more information, see [enable auth transitioning mode](#enable-auth-transitioning-mode).
 
 #### Configure authentication
 
@@ -184,8 +166,7 @@ Gitaly and GitLab use two shared secrets for authentication:
 
 1. Configure the _GitLab Shell token_ in one of two ways:
 
-   - Method 1 (recommended): copy `/etc/gitlab/gitlab-secrets.json` from the Gitaly client to the same path on the Gitaly
-     servers and any other Gitaly clients.
+   - Method 1 (recommended): copy `/etc/gitlab/gitlab-secrets.json` from the Gitaly client to the same path on the Gitaly servers and any other Gitaly clients.
 
    - Method 2:
 
@@ -229,8 +210,7 @@ Gitaly and GitLab use two shared secrets for authentication:
 
 {{< tab title="Self-compiled (source)" >}}
 
-1. Copy `/home/git/gitlab/.gitlab_shell_secret` from the Gitaly client to the same path on the
-   Gitaly servers (and any other Gitaly clients).
+1. Copy `/home/git/gitlab/.gitlab_shell_secret` from the Gitaly client to the same path on the Gitaly servers (and any other Gitaly clients).
 1. On the Gitaly clients, edit `/home/git/gitlab/config/gitlab.yml`:
 
    ```yaml
@@ -267,12 +247,10 @@ Configure Gitaly server.
 
 Gitaly has some RPCs in which it makes a network call to itself using the address provided by the client (such as Rails or Sidekiq).
 
-If Gitaly can't reach itself this way because of your network configuration (for example, Gitaly is behind a load balancer that doesn't support hairpinning
-connections):
+If Gitaly can't reach itself this way because of your network configuration (for example, Gitaly is behind a load balancer that doesn't support hairpinning connections):
 
 1. Edit the `/etc/hosts` file of the Gitaly server.
-1. Add an entry for redirecting the Gitaly address used by clients to the Gitaly server's own IP address. For example, `127.0.0.1 gitaly.example.com`
-   or `<local-ip> gitaly.example.com`.
+1. Add an entry for redirecting the Gitaly address used by clients to the Gitaly server's own IP address. For example, `127.0.0.1 gitaly.example.com` or `<local-ip> gitaly.example.com`.
 
 {{< tabs >}}
 
@@ -431,17 +409,14 @@ connections):
 
 {{< alert type="warning" >}}
 
-If directly copying repository data from a GitLab server to Gitaly, ensure that the metadata file,
-default path `/var/opt/gitlab/git-data/repositories/.gitaly-metadata`, is not included in the transfer.
-Copying this file causes GitLab to use the direct disk access to repositories hosted on the Gitaly server,
-leading to `Error creating pipeline` and `Commit not found` errors, or stale data.
+If directly copying repository data from a GitLab server to Gitaly, ensure that the metadata file, default path `/var/opt/gitlab/git-data/repositories/.gitaly-metadata`, is not included in the transfer.
+Copying this file causes GitLab to use the direct disk access to repositories hosted on the Gitaly server, leading to `Error creating pipeline` and `Commit not found` errors, or stale data.
 
 {{< /alert >}}
 
 ### Configure Gitaly clients
 
-As the final step, you must update Gitaly clients to switch from using local Gitaly service to use
-the Gitaly servers you just configured.
+As the final step, you must update Gitaly clients to switch from using local Gitaly service to use the Gitaly servers you just configured.
 
 {{< alert type="note" >}}
 
@@ -450,23 +425,15 @@ GitLab requires a `default` repository storage to be configured.
 
 {{< /alert >}}
 
-This can be risky because anything that prevents your Gitaly clients from reaching the Gitaly
-servers causes all Gitaly requests to fail. For example, any sort of network, firewall, or name
-resolution problems.
+This can be risky because anything that prevents your Gitaly clients from reaching the Gitaly servers causes all Gitaly requests to fail. For example, any sort of network, firewall, or name resolution problems.
 
 Gitaly makes the following assumptions:
 
-- Your `gitaly1.internal` Gitaly server can be reached at `gitaly1.internal:8075` from your Gitaly
-  clients, and that Gitaly server can read, write, and set permissions on `/var/opt/gitlab/git-data` and
-  `/mnt/gitlab/git-data`.
-- Your `gitaly2.internal` Gitaly server can be reached at `gitaly2.internal:8075` from your Gitaly
-  clients, and that Gitaly server can read, write, and set permissions on `/srv/gitlab/git-data`.
+- Your `gitaly1.internal` Gitaly server can be reached at `gitaly1.internal:8075` from your Gitaly clients, and that Gitaly server can read, write, and set permissions on `/var/opt/gitlab/git-data` and `/mnt/gitlab/git-data`.
+- Your `gitaly2.internal` Gitaly server can be reached at `gitaly2.internal:8075` from your Gitaly clients, and that Gitaly server can read, write, and set permissions on `/srv/gitlab/git-data`.
 - Your `gitaly1.internal` and `gitaly2.internal` Gitaly servers can reach each other.
 
-You can't define Gitaly servers with some as a local Gitaly server
-(without `gitaly_address`) and some as remote
-server (with `gitaly_address`) unless you use
-[mixed configuration](#mixed-configuration).
+You can't define Gitaly servers with some as a local Gitaly server (without `gitaly_address`) and some as remote server (with `gitaly_address`) unless you use [mixed configuration](#mixed-configuration).
 
 Configure Gitaly clients in one of two ways. These instructions are for unencrypted connections but you can also enable [TLS support](tls_support.md):
 
@@ -481,7 +448,7 @@ Configure Gitaly clients in one of two ways. These instructions are for unencryp
    gitlab_rails['gitaly_token'] = '<AUTH_TOKEN>'
 
    gitlab_rails['repositories_storages'] = {
-     'default'  => { 'gitaly_address' => 'tcp://gitaly1.internal:8075' },
+     'default' => { 'gitaly_address' => 'tcp://gitaly1.internal:8075' },
      'storage1' => { 'gitaly_address' => 'tcp://gitaly1.internal:8075' },
      'storage2' => { 'gitaly_address' => 'tcp://gitaly2.internal:8075' },
    }
@@ -491,15 +458,14 @@ Configure Gitaly clients in one of two ways. These instructions are for unencryp
 
    ```ruby
    gitlab_rails['repositories_storages'] = {
-     'default'  => { 'gitaly_address' => 'tcp://gitaly1.internal:8075', 'gitaly_token' => '<AUTH_TOKEN_1>' },
+     'default' => { 'gitaly_address' => 'tcp://gitaly1.internal:8075', 'gitaly_token' => '<AUTH_TOKEN_1>' },
      'storage1' => { 'gitaly_address' => 'tcp://gitaly1.internal:8075', 'gitaly_token' => '<AUTH_TOKEN_1>' },
      'storage2' => { 'gitaly_address' => 'tcp://gitaly2.internal:8075', 'gitaly_token' => '<AUTH_TOKEN_2>' },
    }
    ```
 
 1. Save the file and [reconfigure GitLab](../restart_gitlab.md#reconfigure-a-linux-package-installation).
-1. Run `sudo gitlab-rake gitlab:gitaly:check` on the Gitaly client (for example, the
-   Rails application) to confirm it can connect to Gitaly servers.
+1. Run `sudo gitlab-rake gitlab:gitaly:check` on the Gitaly client (for example, the Rails application) to confirm it can connect to Gitaly servers.
 1. Tail the logs to see the requests:
 
    ```shell
@@ -528,8 +494,7 @@ Configure Gitaly clients in one of two ways. These instructions are for unencryp
    ```
 
 1. Save the file and [restart GitLab](../restart_gitlab.md#self-compiled-installations).
-1. Run `sudo -u git -H bundle exec rake gitlab:gitaly:check RAILS_ENV=production` to confirm the
-   Gitaly client can connect to Gitaly servers.
+1. Run `sudo -u git -H bundle exec rake gitlab:gitaly:check RAILS_ENV=production` to confirm the Gitaly client can connect to Gitaly servers.
 1. Tail the logs to see the requests:
 
    ```shell
@@ -540,62 +505,56 @@ Configure Gitaly clients in one of two ways. These instructions are for unencryp
 
 {{< /tabs >}}
 
-When you tail the Gitaly logs on your Gitaly server, you should see requests coming in. One sure way
-to trigger a Gitaly request is to clone a repository from GitLab over HTTP or HTTPS.
+When you tail the Gitaly logs on your Gitaly server, you should see requests coming in. One sure way to trigger a Gitaly request is to clone a repository from GitLab over HTTP or HTTPS.
 
 {{< alert type="warning" >}}
 
-If you have [server hooks](../server_hooks.md) configured, either per repository or globally, you
-must move these to the Gitaly servers. If you have multiple Gitaly servers, copy your server hooks
-to all Gitaly servers.
+If you have [server hooks](../server_hooks.md) configured, either per repository or globally, you must move these to the Gitaly servers. If you have multiple Gitaly servers, copy your server hooks to all Gitaly servers.
 
 {{< /alert >}}
 
 #### Mixed configuration
 
-GitLab can reside on the same server as one of many Gitaly servers, but doesn't support
-configuration that mixes local and remote configuration. The following setup is incorrect, because:
+GitLab can reside on the same server as one of many Gitaly servers, but doesn't support configuration that mixes local and remote configuration. The following setup is incorrect, because:
 
 - All addresses must be reachable from the other Gitaly servers.
-- `storage1` is assigned a Unix socket for `gitaly_address` which is
-  invalid for some of the Gitaly servers.
+- `storage1` is assigned a Unix socket for `gitaly_address` which is invalid for some of the Gitaly servers.
 
 ```ruby
 gitlab_rails['repositories_storages'] = {
-  'default' => { 'gitaly_address' => 'tcp://gitaly1.internal:8075' },
-  'storage1' => { 'gitaly_address' => 'unix:/var/opt/gitlab/gitaly/gitaly.socket' },
-  'storage2' => { 'gitaly_address' => 'tcp://gitaly2.internal:8075' },
+ 'default' => { 'gitaly_address' => 'tcp://gitaly1.internal:8075' },
+ 'storage1' => { 'gitaly_address' => 'unix:/var/opt/gitlab/gitaly/gitaly.socket' },
+ 'storage2' => { 'gitaly_address' => 'tcp://gitaly2.internal:8075' },
 }
 ```
 
-To combine local and remote Gitaly servers, use an external address for the local Gitaly server. For
-example:
+To combine local and remote Gitaly servers, use an external address for the local Gitaly server. For example:
 
 ```ruby
 gitlab_rails['repositories_storages'] = {
-  'default' => { 'gitaly_address' => 'tcp://gitaly1.internal:8075' },
-  # Address of the GitLab server that also has Gitaly running on it
-  'storage1' => { 'gitaly_address' => 'tcp://gitlab.internal:8075' },
-  'storage2' => { 'gitaly_address' => 'tcp://gitaly2.internal:8075' },
+ 'default' => { 'gitaly_address' => 'tcp://gitaly1.internal:8075' },
+ # Address of the GitLab server that also has Gitaly running on it
+ 'storage1' => { 'gitaly_address' => 'tcp://gitlab.internal:8075' },
+ 'storage2' => { 'gitaly_address' => 'tcp://gitaly2.internal:8075' },
 }
 
 gitaly['configuration'] = {
-  # ...
-  #
-  # Make Gitaly accept connections on all network interfaces
-  listen_addr: '0.0.0.0:8075',
-  # Or for TLS
-  tls_listen_addr: '0.0.0.0:9999',
-  tls: {
-    certificate_path:  '/etc/gitlab/ssl/cert.pem',
+ # ...
+ #
+ # Make Gitaly accept connections on all network interfaces
+ listen_addr: '0.0.0.0:8075',
+ # Or for TLS
+ tls_listen_addr: '0.0.0.0:9999',
+ tls: {
+    certificate_path: '/etc/gitlab/ssl/cert.pem',
     key_path: '/etc/gitlab/ssl/key.pem',
-  },
-  storage: [
+ },
+ storage: [
     {
       name: 'storage1',
       path: '/mnt/gitlab/git-data/repositories',
     },
-  ],
+ ],
 }
 ```
 
@@ -604,26 +563,19 @@ If it's excluded, default Git storage directory is used for that storage shard.
 
 ### GitLab requires a default repository storage
 
-When adding Gitaly servers to an environment, you might want to replace the original `default` Gitaly service. However, you can't
-reconfigure the GitLab application servers to remove the `default` storage because GitLab requires a storage called `default`.
+When adding Gitaly servers to an environment, you might want to replace the original `default` Gitaly service. However, you can't reconfigure the GitLab application servers to remove the `default` storage because GitLab requires a storage called `default`.
 [Read more](https://gitlab.com/gitlab-org/gitlab/-/issues/36175) about this limitation.
 
 To work around the limitation:
 
-1. Define an additional storage location on the new Gitaly service and configure the additional storage to be `default`. The storage location must have a
-   Gitaly service running and available to avoid issues with database migrations that expect working storages.
-1. In the [**Admin** area](../repository_storage_paths.md#configure-where-new-repositories-are-stored), set `default` to a weight of zero
-   to prevent repositories being stored there.
+1. Define an additional storage location on the new Gitaly service and configure the additional storage to be `default`. The storage location must have a Gitaly service running and available to avoid issues with database migrations that expect working storages.
+1. In the [**Admin** area](../repository_storage_paths.md#configure-where-new-repositories-are-stored), set `default` to a weight of zero to prevent repositories being stored there.
 
 ### Disable Gitaly where not required (optional)
 
-If you run Gitaly [as a remote service](#run-gitaly-on-its-own-server), consider
-disabling the local Gitaly service that runs on your GitLab server by default, and run it
-only where required.
+If you run Gitaly [as a remote service](#run-gitaly-on-its-own-server), consider disabling the local Gitaly service that runs on your GitLab server by default, and run it only where required.
 
-Disabling Gitaly on the GitLab instance makes sense only when you run GitLab in a custom cluster configuration, where
-Gitaly runs on a separate machine from the GitLab instance. Disabling Gitaly on all machines in the cluster is not
-a valid configuration (some machines much act as Gitaly servers).
+Disabling Gitaly on the GitLab instance makes sense only when you run GitLab in a custom cluster configuration, where Gitaly runs on a separate machine from the GitLab instance. Disabling Gitaly on all machines in the cluster is not a valid configuration (some machines much act as Gitaly servers).
 
 Disable Gitaly on a GitLab server in one of two ways:
 
@@ -657,8 +609,7 @@ Disable Gitaly on a GitLab server in one of two ways:
 
 ## Change the Gitaly listening interface
 
-You can change the interface that Gitaly listens on. You might change the listening interface when you have an external service that must communicate with Gitaly. For example,
-[exact code search](../../integration/zoekt/_index.md) that uses Zoekt when exact code search is enabled but the actual service is running on another server.
+You can change the interface that Gitaly listens on. You might change the listening interface when you have an external service that must communicate with Gitaly. For example, [exact code search](../../integration/zoekt/_index.md) that uses Zoekt when exact code search is enabled but the actual service is running on another server.
 
 The `gitaly_token` must be a secret string because `gitaly_token` is used for authentication with the Gitaly service.
 This secret can be generated with `openssl rand -base64 24` to generate a random 32 character string.
@@ -674,21 +625,21 @@ gitlab_rails['gitaly_token'] = 'your_secure_token_here'
 # Gitaly configuration
 gitaly['gitlab_secret'] = 'your_secure_token_here'
 gitaly['configuration'] = {
-  listen_addr: '0.0.0.0:8075',
-  auth: {
+ listen_addr: '0.0.0.0:8075',
+ auth: {
     token: 'your_secure_token_here',
-  },
-  storage: [
+ },
+ storage: [
     {
       name: 'default',
       path: '/var/opt/gitlab/git-data/repositories',
     },
-  ]
+ ]
 }
 
 # Tell Rails where to find Gitaly
 gitlab_rails['repositories_storages'] = {
-  'default' => { 'gitaly_address' => 'tcp://ip_address_here:8075' },
+ 'default' => { 'gitaly_address' => 'tcp://ip_address_here:8075' },
 }
 
 # Internal API URL (important for multi-server setups)
@@ -701,8 +652,7 @@ For information on control groups, see [Cgroups](cgroups.md).
 
 ## Background repository optimization
 
-The way data is stored in the object database of a Git repository can become inefficient over time, which slows down Git operations. You can schedule Gitaly to run a
-daily background task with a maximum duration to clean up these items and improve performance.
+The way data is stored in the object database of a Git repository can become inefficient over time, which slows down Git operations. You can schedule Gitaly to run a daily background task with a maximum duration to clean up these items and improve performance.
 
 {{< alert type="warning" >}}
 
@@ -721,14 +671,14 @@ Edit `/etc/gitlab/gitlab.rb` and add:
 
 ```ruby
 gitaly['configuration'] = {
-  # ...
-  daily_maintenance: {
+ # ...
+ daily_maintenance: {
     # ...
     start_hour: 4,
     start_minute: 30,
     duration: '30m',
     storages: ['default'],
-  },
+ },
 }
 ```
 
@@ -754,8 +704,7 @@ storages = ["default"]
 
 Rotating credentials in a production environment often requires downtime, causes outages, or both.
 
-However, you can rotate Gitaly credentials without a service interruption. Rotating a Gitaly
-authentication token involves:
+However, you can rotate Gitaly credentials without a service interruption. Rotating a Gitaly authentication token involves:
 
 - [Verifying authentication monitoring](#verify-authentication-monitoring).
 - [Enabling auth transitioning mode](#enable-auth-transitioning-mode).
@@ -764,30 +713,26 @@ authentication token involves:
 - [Disabling auth transitioning mode](#disable-auth-transitioning-mode).
 - [Verifying authentication is enforced](#verify-authentication-is-enforced).
 
-This procedure also works if you are running GitLab on a single server. In that case, the Gitaly
-server and the Gitaly client refer to the same machine.
+This procedure also works if you are running GitLab on a single server. In that case, the Gitaly server and the Gitaly client refer to the same machine.
 
 ### Verify authentication monitoring
 
-Before rotating a Gitaly authentication token, verify that you can
-[monitor the authentication behavior](monitoring.md#queries) of your GitLab installation using
-Prometheus.
+Before rotating a Gitaly authentication token, verify that you can [monitor the authentication behavior](monitoring.md#queries) of your GitLab installation using Prometheus.
 
 You can then continue the rest of the procedure.
 
 ### Enable auth transitioning mode
 
-Temporarily disable Gitaly authentication on the Gitaly servers by putting them into auth
-transitioning mode as follows:
+Temporarily disable Gitaly authentication on the Gitaly servers by putting them into auth transitioning mode as follows:
 
 ```ruby
 # in /etc/gitlab/gitlab.rb
 gitaly['configuration'] = {
-  # ...
-  auth: {
+ # ...
+ auth: {
     # ...
     transitioning: true,
-  },
+ },
 }
 ```
 
@@ -795,7 +740,7 @@ After you have made this change, your [Prometheus query](#verify-authentication-
 should return something like:
 
 ```promql
-{enforced="false",status="would be ok"}  4424.985419441742
+{enforced="false",status="would be ok"} 4424.985419441742
 ```
 
 Because `enforced="false"`, it is safe to start rolling out the new token.
@@ -823,33 +768,29 @@ To update to a new Gitaly authentication token, on each Gitaly client and Gitaly
    gitlab-ctl restart gitaly
    ```
 
-If you run your [Prometheus query](#verify-authentication-monitoring) while this change is
-being rolled out, you see non-zero values for the `enforced="false",status="denied"` counter.
+If you run your [Prometheus query](#verify-authentication-monitoring) while this change is being rolled out, you see non-zero values for the `enforced="false",status="denied"` counter.
 
 ### Ensure there are no authentication failures
 
-After the new token is set, and all services involved have been restarted, you will
-[temporarily see](#verify-authentication-monitoring) a mix of:
+After the new token is set, and all services involved have been restarted, you will [temporarily see](#verify-authentication-monitoring) a mix of:
 
 - `status="would be ok"`.
 - `status="denied"`.
 
-After the new token is picked up by all Gitaly clients and Gitaly servers, the
-only non-zero rate should be `enforced="false",status="would be ok"`.
+After the new token is picked up by all Gitaly clients and Gitaly servers, the only non-zero rate should be `enforced="false",status="would be ok"`.
 
 ### Disable auth transitioning mode
 
-To re-enable Gitaly authentication, disable auth transitioning mode. Update the configuration on
-your Gitaly servers as follows:
+To re-enable Gitaly authentication, disable auth transitioning mode. Update the configuration on your Gitaly servers as follows:
 
 ```ruby
 # in /etc/gitlab/gitlab.rb
 gitaly['configuration'] = {
-  # ...
-  auth: {
+ # ...
+ auth: {
     # ...
     transitioning: false,
-  },
+ },
 }
 ```
 
@@ -858,11 +799,10 @@ gitaly['configuration'] = {
 
 ### Verify authentication is enforced
 
-Refresh your [Prometheus query](#verify-authentication-monitoring). You should now see a similar
-result as you did at the start. For example:
+Refresh your [Prometheus query](#verify-authentication-monitoring). You should now see a similar result as you did at the start. For example:
 
 ```promql
-{enforced="true",status="ok"}  4424.985419441742
+{enforced="true",status="ok"} 4424.985419441742
 ```
 
 `enforced="true"` means that authentication is being enforced.
@@ -876,49 +816,33 @@ result as you did at the start. For example:
 
 {{< /details >}}
 
-[Gitaly](_index.md), the service that provides storage for Git
-repositories, can be configured to cache a short rolling window of Git
-fetch responses. This can reduce server load when your server receives
-lots of CI fetch traffic.
+[Gitaly](_index.md), the service that provides storage for Git repositories, can be configured to cache a short rolling window of Git fetch responses. This can reduce server load when your server receives lots of CI fetch traffic.
 
-The pack-objects cache wraps `git pack-objects`, an internal part of
-Git that gets invoked indirectly by using the PostUploadPack and
-SSHUploadPack Gitaly RPCs. Gitaly runs PostUploadPack when a
-user does a Git fetch by using HTTP, or SSHUploadPack when a
-user does a Git fetch by using SSH.
-When the cache is enabled, anything that uses PostUploadPack or SSHUploadPack can
-benefit from it. It is independent of and unaffected by:
+The pack-objects cache wraps `git pack-objects`, an internal part of Git that gets invoked indirectly by using the PostUploadPack and SSHUploadPack Gitaly RPCs. Gitaly runs PostUploadPack when a user does a Git fetch by using HTTP, or SSHUploadPack when a user does a Git fetch by using SSH.
+When the cache is enabled, anything that uses PostUploadPack or SSHUploadPack can benefit from it. It is independent of and unaffected by:
 
 - The transport (HTTP or SSH).
 - Git protocol version (v0 or v2).
-- The type of fetch, such as full clones, incremental fetches, shallow clones,
-  or partial clones.
+- The type of fetch, such as full clones, incremental fetches, shallow clones, or partial clones.
 
-The strength of this cache is its ability to deduplicate concurrent
-identical fetches. It:
+The strength of this cache is its ability to deduplicate concurrent identical fetches. It:
 
 - Can benefit GitLab instances where your users run CI/CD pipelines with many concurrent jobs.
-  There should be a noticeable reduction in server CPU utilization.
-- Does not benefit unique fetches at all. For example, if you run a spot check by cloning a
-  repository to your local computer, you are unlikely to see a benefit from this cache because
-  your fetch is probably unique.
+ There should be a noticeable reduction in server CPU utilization.
+- Does not benefit unique fetches at all. For example, if you run a spot check by cloning a repository to your local computer, you are unlikely to see a benefit from this cache because your fetch is probably unique.
 
 The pack-objects cache is a local cache. It:
 
 - Stores its metadata in the memory of the Gitaly process it is enabled in.
 - Stores the actual Git data it is caching in files on local storage.
 
-Using local files has the benefit that the operating system may
-automatically keep parts of the pack-objects cache files in RAM,
-making it faster.
+Using local files has the benefit that the operating system may automatically keep parts of the pack-objects cache files in RAM, making it faster.
 
-Because the pack-objects cache can lead to a significant increase in
-disk write IO, it is off by default.
+Because the pack-objects cache can lead to a significant increase in disk write IO, it is off by default.
 
 ### Configure the cache
 
-These configuration settings are available for the pack-objects cache. Each setting is discussed in greater detail
-below.
+These configuration settings are available for the pack-objects cache. Each setting is discussed in greater detail below.
 
 | Setting   | Default                                            | Description                                                                                        |
 |:----------|:---------------------------------------------------|:---------------------------------------------------------------------------------------------------|
@@ -931,32 +855,26 @@ In `/etc/gitlab/gitlab.rb`, set:
 
 ```ruby
 gitaly['configuration'] = {
-  # ...
-  pack_objects_cache: {
+ # ...
+ pack_objects_cache: {
     enabled: true,
     # The default settings for "dir", "max_age" and "min_occurences" should be fine.
     # If you want to customize these, see details below.
-  },
+ },
 }
 ```
 
 #### `enabled` defaults to `false`
 
-The cache is disabled by default because in some cases, it can create an
-[extreme increase](https://gitlab.com/gitlab-com/gl-infra/production/-/issues/4010#note_534564684)
-in the number of bytes written to disk. On GitLab.com, we have verified
-that our repository storage disks can handle this extra workload, but
-we felt we cannot assume this is true everywhere.
+The cache is disabled by default because in some cases, it can create an [extreme increase](https://gitlab.com/gitlab-com/gl-infra/production/-/issues/4010#note_534564684)
+in the number of bytes written to disk. On GitLab.com, we have verified that our repository storage disks can handle this extra workload, but we felt we cannot assume this is true everywhere.
 
 #### Cache storage directory `dir`
 
-The cache needs a directory to store its files in. This directory
-should be:
+The cache needs a directory to store its files in. This directory should be:
 
-- In a file system with enough space. If the cache file system runs out of space, all
-  fetches start failing.
-- On a disk with enough IO bandwidth. If the cache disk runs out of IO bandwidth, all
-  fetches, and probably the entire server, slows down.
+- In a file system with enough space. If the cache file system runs out of space, all fetches start failing.
+- On a disk with enough IO bandwidth. If the cache disk runs out of IO bandwidth, all fetches, and probably the entire server, slows down.
 
 {{< alert type="warning" >}}
 
@@ -965,63 +883,46 @@ Take care not to use a directory with existing data.
 
 {{< /alert >}}
 
-By default, the cache storage directory is set to a subdirectory of the first Gitaly storage
-defined in the configuration file.
+By default, the cache storage directory is set to a subdirectory of the first Gitaly storage defined in the configuration file.
 
-Multiple Gitaly processes can use the same directory for cache storage. Each Gitaly process
-uses a unique random string as part of the cache filenames it creates. This means:
+Multiple Gitaly processes can use the same directory for cache storage. Each Gitaly process uses a unique random string as part of the cache filenames it creates. This means:
 
 - They do not collide.
 - They do not reuse another process's files.
 
-While the default directory puts the cache files in the same
-file system as your repository data, this is not requirement. You can
-put the cache files on a different file system if that works better for
-your infrastructure.
+While the default directory puts the cache files in the same file system as your repository data, this is not requirement. You can put the cache files on a different file system if that works better for your infrastructure.
 
 The amount of IO bandwidth required from the disk depends on:
 
 - The size and shape of the repositories on your Gitaly server.
 - The kind of traffic your users generate.
 
-You can use the `gitaly_pack_objects_generated_bytes_total` metric as a pessimistic estimate,
-pretending your cache hit ratio is 0%.
+You can use the `gitaly_pack_objects_generated_bytes_total` metric as a pessimistic estimate, pretending your cache hit ratio is 0%.
 
 The amount of space required depends on:
 
 - The bytes per second that your users pull from the cache.
 - The size of the `max_age` cache eviction window.
 
-If your users pull 100 MB/s and you use a 5 minute window, then on average you have
-`5*60*100 MB = 30 GB` of data in your cache directory. This average is an expected average, not
-a guarantee. Peak size may exceed this average.
+If your users pull 100 MB/s and you use a 5 minute window, then on average you have `5*60*100 MB = 30 GB` of data in your cache directory. This average is an expected average, not a guarantee. Peak size may exceed this average.
 
 #### Cache eviction window `max_age`
 
-The `max_age` configuration setting lets you control the chance of a
-cache hit and the average amount of storage used by cache files.
+The `max_age` configuration setting lets you control the chance of a cache hit and the average amount of storage used by cache files.
 Entries older than `max_age` get deleted from the disk.
 
-Eviction does not interfere with ongoing requests. It is OK for `max_age` to be less than the time it takes to do a
-fetch over a slow connection because Unix filesystems do not truly delete a file until all processes that are reading
-the deleted file have closed it.
+Eviction does not interfere with ongoing requests. It is OK for `max_age` to be less than the time it takes to do a fetch over a slow connection because Unix filesystems do not truly delete a file until all processes that are reading the deleted file have closed it.
 
 #### Minimum key occurrences `min_occurrences`
 
-The `min_occurrences` setting controls how often an identical request
-must occur before we create a new cache entry. The default value is `1`,
-meaning that unique requests do not get written into the cache.
+The `min_occurrences` setting controls how often an identical request must occur before we create a new cache entry. The default value is `1`, meaning that unique requests do not get written into the cache.
 
 If you:
 
-- Increase this number, your cache hit rate goes down and the
-  cache uses less disk space.
-- Decrease this number, your cache hit
-  rate goes up and the cache uses more disk space.
+- Increase this number, your cache hit rate goes down and the cache uses less disk space.
+- Decrease this number, your cache hit rate goes up and the cache uses more disk space.
 
-You should set `min_occurrences` to `1`. On GitLab.com,
-going from 0 to 1 saved us 50% cache disk space while barely affecting
-the cache hit rate.
+You should set `min_occurrences` to `1`. On GitLab.com, going from 0 to 1 saved us 50% cache disk space while barely affecting the cache hit rate.
 
 ### Observe the cache
 
@@ -1089,67 +990,55 @@ These logs are part of the gRPC logs and can be discovered when a call is execut
 
 In the case of a:
 
-- Cache miss, Gitaly logs both a `pack_objects_cache.generated_bytes` and `pack_objects_cache.served_bytes` message. Gitaly also logs some more detailed statistics of
-  pack-object generation.
+- Cache miss, Gitaly logs both a `pack_objects_cache.generated_bytes` and `pack_objects_cache.served_bytes` message. Gitaly also logs some more detailed statistics of pack-object generation.
 - Cache hit, Gitaly logs only a `pack_objects_cache.served_bytes` message.
 
 Example:
 
 ```json
 {
-  "bytes":26186490,
-  "correlation_id":"01F1MY8JXC3FZN14JBG1H42G9F",
-  "grpc.meta.deadline_type":"none",
-  "grpc.method":"PackObjectsHook",
-  "grpc.request.fullMethod":"/gitaly.HookService/PackObjectsHook",
-  "grpc.request.glProjectPath":"root/gitlab-workhorse",
-  "grpc.request.glRepository":"project-2",
-  "grpc.request.repoPath":"@hashed/d4/73/d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35.git",
-  "grpc.request.repoStorage":"default",
-  "grpc.request.topLevelGroup":"@hashed",
-  "grpc.service":"gitaly.HookService",
-  "grpc.start_time":"2021-03-25T14:57:52.747Z",
-  "level":"info",
-  "msg":"finished unary call with code OK",
-  "peer.address":"@",
-  "pid":20961,
-  "span.kind":"server",
-  "system":"grpc",
-  "time":"2021-03-25T14:57:53.543Z",
-  "pack_objects.compression_statistics": "Total 145991 (delta 68), reused 6 (delta 2), pack-reused 145911",
-  "pack_objects.enumerate_objects_ms": 170,
-  "pack_objects.prepare_pack_ms": 7,
-  "pack_objects.write_pack_file_ms": 786,
-  "pack_objects.written_object_count": 145991,
-  "pack_objects_cache.generated_bytes": 49533030,
-  "pack_objects_cache.hit": "false",
-  "pack_objects_cache.key": "123456789",
-  "pack_objects_cache.served_bytes": 49533030,
-  "peer.address": "127.0.0.1",
-  "pid": 8813,
+ "bytes":26186490,
+ "correlation_id":"01F1MY8JXC3FZN14JBG1H42G9F",
+ "grpc.meta.deadline_type":"none",
+ "grpc.method":"PackObjectsHook",
+ "grpc.request.fullMethod":"/gitaly.HookService/PackObjectsHook",
+ "grpc.request.glProjectPath":"root/gitlab-workhorse",
+ "grpc.request.glRepository":"project-2",
+ "grpc.request.repoPath":"@hashed/d4/73/d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35.git",
+ "grpc.request.repoStorage":"default",
+ "grpc.request.topLevelGroup":"@hashed",
+ "grpc.service":"gitaly.HookService",
+ "grpc.start_time":"2021-03-25T14:57:52.747Z",
+ "level":"info",
+ "msg":"finished unary call with code OK",
+ "peer.address":"@",
+ "pid":20961,
+ "span.kind":"server",
+ "system":"grpc",
+ "time":"2021-03-25T14:57:53.543Z",
+ "pack_objects.compression_statistics": "Total 145991 (delta 68), reused 6 (delta 2), pack-reused 145911",
+ "pack_objects.enumerate_objects_ms": 170,
+ "pack_objects.prepare_pack_ms": 7,
+ "pack_objects.write_pack_file_ms": 786,
+ "pack_objects.written_object_count": 145991,
+ "pack_objects_cache.generated_bytes": 49533030,
+ "pack_objects_cache.hit": "false",
+ "pack_objects_cache.key": "123456789",
+ "pack_objects_cache.served_bytes": 49533030,
+ "peer.address": "127.0.0.1",
+ "pid": 8813,
 }
 ```
 
 ## `cat-file` cache
 
 A lot of Gitaly RPCs need to look up Git objects from repositories.
-Most of the time we use `git cat-file --batch` processes for that. For
-better performance, Gitaly can re-use these `git cat-file` processes
-across RPC calls. Previously used processes are kept around in a
-[`git cat-file` cache](https://about.gitlab.com/blog/2019/07/08/git-performance-on-nfs/#enter-cat-file-cache).
-To control how much system resources this uses, we have a maximum number of
-cat-file processes that can go into the cache.
+Most of the time we use `git cat-file --batch` processes for that. For better performance, Gitaly can re-use these `git cat-file` processes across RPC calls. Previously used processes are kept around in a [`git cat-file` cache](https://about.gitlab.com/blog/2019/07/08/git-performance-on-nfs/#enter-cat-file-cache).
+To control how much system resources this uses, we have a maximum number of cat-file processes that can go into the cache.
 
-The default limit is 100 `cat-file`s, which constitute a pair of
-`git cat-file --batch` and `git cat-file --batch-check` processes. If
-you see errors about "too many open files", or an
-inability to create new processes, you may want to lower this limit.
+The default limit is 100 `cat-file`s, which constitute a pair of `git cat-file --batch` and `git cat-file --batch-check` processes. If you see errors about "too many open files", or an inability to create new processes, you may want to lower this limit.
 
-Ideally, the number should be large enough to handle standard
-traffic. If you raise the limit, you should measure the cache hit ratio
-before and after. If the hit ratio does not improve, the higher limit is
-probably not making a meaningful difference. Here is an example
-Prometheus query to see the hit rate:
+Ideally, the number should be large enough to handle standard traffic. If you raise the limit, you should measure the cache hit ratio before and after. If the hit ratio does not improve, the higher limit is probably not making a meaningful difference. Here is an example Prometheus query to see the hit rate:
 
 ```plaintext
 sum(rate(gitaly_catfile_cache_total{type="hit"}[5m])) / sum(rate(gitaly_catfile_cache_total{type=~"(hit)|(miss)"}[5m]))
@@ -1169,8 +1058,7 @@ Configure the `cat-file` cache in the Gitaly configuration file.
 
 {{< alert type="flag" >}}
 
-On GitLab Self-Managed, by default this feature is available. To hide the feature,
-an administrator can [disable the feature flag](../feature_flags/_index.md) named `gitaly_gpg_signing`.
+On GitLab Self-Managed, by default this feature is available. To hide the feature, an administrator can [disable the feature flag](../feature_flags/_index.md) named `gitaly_gpg_signing`.
 On GitLab.com, this feature is not available. On GitLab Dedicated, this feature is available.
 
 {{< /alert >}}
@@ -1187,8 +1075,7 @@ When you enable commit signing in Gitaly:
 - The signature verifies the committer's identity, not the author's identity.
 - You can configure Gitaly to reflect that a commit has been committed by your instance by setting `committer_email` and `committer_name`. For example, on GitLab.com these configuration options are set to `noreply@gitlab.com` and `GitLab`.
 
-`rotated_signing_keys` is a list of keys to use for verification only. Gitaly tries to verify a web commit using the configured `signing_key`, and then uses
-the rotated keys one by one until it succeeds. Set the `rotated_signing_keys` option when either:
+`rotated_signing_keys` is a list of keys to use for verification only. Gitaly tries to verify a web commit using the configured `signing_key`, and then uses the rotated keys one by one until it succeeds. Set the `rotated_signing_keys` option when either:
 
 - The signing key is rotated.
 - You want to specify multiple keys to migrate projects from other instances and want to display their web commits as **Verified**.
@@ -1277,11 +1164,9 @@ You can generate parts of the Gitaly configuration using an external command. Yo
 - To configure using auto-discovery of the node's settings. For example, using DNS entries.
 - To configure secrets at startup of the node, so that don't need to be visible in plain text.
 
-To generate configuration using an external command, you must provide a script that dumps the
-desired configuration of the Gitaly node in JSON format to its standard output.
+To generate configuration using an external command, you must provide a script that dumps the desired configuration of the Gitaly node in JSON format to its standard output.
 
-For example, the following command configures the HTTP password used to connect to the
-GitLab internal API using an AWS secret:
+For example, the following command configures the HTTP password used to connect to the GitLab internal API using an AWS secret:
 
 ```ruby
 #!/usr/bin/env ruby
@@ -1317,9 +1202,7 @@ config_command = "/path/to/config_command"
 
 {{< /tabs >}}
 
-After configuration, Gitaly executes the command on startup and parses its
-standard output as JSON. The resulting configuration is then merged back into
-the other Gitaly configuration.
+After configuration, Gitaly executes the command on startup and parses its standard output as JSON. The resulting configuration is then merged back into the other Gitaly configuration.
 
 Gitaly fails to start up if either:
 
@@ -1337,20 +1220,15 @@ Gitaly fails to start up if either:
 
 {{< /history >}}
 
-Repository backups can be configured so that the Gitaly node that hosts each
-repository is responsible for creating the backup and streaming it to
-object storage. This helps reduce the network resources required to create and
-restore a backup.
+Repository backups can be configured so that the Gitaly node that hosts each repository is responsible for creating the backup and streaming it to object storage. This helps reduce the network resources required to create and restore a backup.
 
 Each Gitaly node must be configured to connect to object storage for backups.
 
-After configuring server-side backups, you can
-[create a server-side repository backup](../backup_restore/backup_gitlab.md#create-server-side-repository-backups).
+After configuring server-side backups, you can [create a server-side repository backup](../backup_restore/backup_gitlab.md#create-server-side-repository-backups).
 
 ### Configure Azure Blob storage
 
-How you configure Azure Blob storage for backups depends on the type of installation you have. For self-compiled installations, you must set
-the `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_KEY` environment variables outside of GitLab.
+How you configure Azure Blob storage for backups depends on the type of installation you have. For self-compiled installations, you must set the `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_KEY` environment variables outside of GitLab.
 
 {{< tabs >}}
 
@@ -1374,8 +1252,7 @@ gitaly['configuration'] = {
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-For Helm-based deployments, see the
-[server-side backup documentation for Gitaly chart](https://docs.gitlab.com/charts/charts/gitlab/gitaly/#server-side-backups).
+For Helm-based deployments, see the [server-side backup documentation for Gitaly chart](https://docs.gitlab.com/charts/charts/gitlab/gitaly/#server-side-backups).
 
 {{< /tab >}}
 
@@ -1397,8 +1274,7 @@ go_cloud_url = "azblob://<bucket>"
 Google Cloud storage (GCP) authenticates using Application Default Credentials. Set up Application Default Credentials on each Gitaly server using either:
 
 - The [`gcloud auth application-default login`](https://cloud.google.com/sdk/gcloud/reference/auth/application-default/login) command.
-- The `GOOGLE_APPLICATION_CREDENTIALS` environment variable. For self-compiled installations, set the environment
-  variable outside of GitLab.
+- The `GOOGLE_APPLICATION_CREDENTIALS` environment variable. For self-compiled installations, set the environment variable outside of GitLab.
 
 For more information, see [Application Default Credentials](https://cloud.google.com/docs/authentication/provide-credentials-adc).
 
@@ -1425,8 +1301,7 @@ gitaly['configuration'] = {
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-For Helm-based deployments, see the
-[server-side backup documentation for Gitaly chart](https://docs.gitlab.com/charts/charts/gitlab/gitaly/#server-side-backups).
+For Helm-based deployments, see the [server-side backup documentation for Gitaly chart](https://docs.gitlab.com/charts/charts/gitlab/gitaly/#server-side-backups).
 
 {{< /tab >}}
 
@@ -1448,8 +1323,7 @@ go_cloud_url = "gs://<bucket>"
 To configure S3 storage authentication:
 
 - If you authenticate with the AWS CLI, you can use the default AWS session.
-- Otherwise, you can use the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables. For self-compiled installations, set the environment
-  variables outside of GitLab.
+- Otherwise, you can use the `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables. For self-compiled installations, set the environment variables outside of GitLab.
 
 For more information, see [AWS Session documentation](https://docs.aws.amazon.com/sdk-for-go/api/aws/session/).
 
@@ -1477,8 +1351,7 @@ gitaly['configuration'] = {
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-For Helm-based deployments, see the
-[server-side backup documentation for Gitaly chart](https://docs.gitlab.com/charts/charts/gitlab/gitaly/#server-side-backups).
+For Helm-based deployments, see the [server-side backup documentation for Gitaly chart](https://docs.gitlab.com/charts/charts/gitlab/gitaly/#server-side-backups).
 
 {{< /tab >}}
 
@@ -1510,8 +1383,7 @@ The following parameters are supported:
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-For Helm-based deployments, see the
-[server-side backup documentation for Gitaly chart](https://docs.gitlab.com/charts/charts/gitlab/gitaly/#server-side-backups).
+For Helm-based deployments, see the [server-side backup documentation for Gitaly chart](https://docs.gitlab.com/charts/charts/gitlab/gitaly/#server-side-backups).
 
 {{< /tab >}}
 

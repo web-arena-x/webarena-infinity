@@ -9,12 +9,9 @@ When you back up GitLab, you might encounter the following issues.
 
 ## When the secrets file is lost
 
-If you didn't [back up the secrets file](backup_gitlab.md#storing-configuration-files), you
-must complete several steps to get GitLab working properly again.
+If you didn't [back up the secrets file](backup_gitlab.md#storing-configuration-files), you must complete several steps to get GitLab working properly again.
 
-The secrets file is responsible for storing the encryption key for the columns
-that contain required, sensitive information. If the key is lost, GitLab can't
-decrypt those columns, preventing access to the following items:
+The secrets file is responsible for storing the encryption key for the columns that contain required, sensitive information. If the key is lost, GitLab can't decrypt those columns, preventing access to the following items:
 
 - [CI/CD variables](../../ci/variables/_index.md)
 - [Kubernetes / GCP integration](../../user/infrastructure/clusters/_index.md)
@@ -26,16 +23,12 @@ decrypt those columns, preventing access to the following items:
 - [Web hooks](../../user/project/integrations/webhooks.md)
 - [Deploy tokens](../../user/project/deploy_tokens/_index.md)
 
-In cases like CI/CD variables and runner authentication, you can experience
-unexpected behaviors, such as:
+In cases like CI/CD variables and runner authentication, you can experience unexpected behaviors, such as:
 
 - Stuck jobs.
 - 500 errors.
 
-In this case, you must reset all the tokens for CI/CD variables and
-runner authentication, which is described in more detail in the following
-sections. After resetting the tokens, you should be able to visit your project
-and the jobs begin running again.
+In this case, you must reset all the tokens for CI/CD variables and runner authentication, which is described in more detail in the following sections. After resetting the tokens, you should be able to visit your project and the jobs begin running again.
 
 {{< alert type="warning" >}}
 
@@ -46,8 +39,7 @@ Consider opening a [Support Request](https://support.gitlab.com/hc/en-us/request
 
 ### Verify that all values can be decrypted
 
-You can determine if your database contains values that can't be decrypted by using a
-[Rake task](../raketasks/check.md#verify-database-values-can-be-decrypted-using-the-current-secrets).
+You can determine if your database contains values that can't be decrypted by using a [Rake task](../raketasks/check.md#verify-database-values-can-be-decrypted-using-the-current-secrets).
 
 ### Take a backup
 
@@ -58,9 +50,7 @@ You must directly modify GitLab data to work around your lost secrets file.
 
 ### Disable user two-factor authentication (2FA)
 
-Users with 2FA enabled can't sign in to GitLab. In that case, you must
-[disable 2FA for everyone](../../security/two_factor_authentication.md#for-all-users),
-after which users must reactivate 2FA.
+Users with 2FA enabled can't sign in to GitLab. In that case, you must [disable 2FA for everyone](../../security/two_factor_authentication.md#for-all-users), after which users must reactivate 2FA.
 
 ### Reset CI/CD variables
 
@@ -123,8 +113,7 @@ You may need to reconfigure or restart GitLab for the changes to take effect.
 
    {{< alert type="warning" >}}
 
-   The final `UPDATE` operation stops the runners from being able to pick
-   up new jobs. You must register new runners.
+   The final `UPDATE` operation stops the runners from being able to pick up new jobs. You must register new runners.
 
    {{< /alert >}}
 
@@ -175,9 +164,7 @@ You may need to reconfigure or restart GitLab for the changes to take effect.
    UPDATE ci_builds SET token_encrypted = null;
    ```
 
-A similar strategy can be employed for the remaining features. By removing the
-data that can't be decrypted, GitLab can be returned to operation, and the
-lost data can be manually replaced.
+A similar strategy can be employed for the remaining features. By removing the data that can't be decrypted, GitLab can be returned to operation, and the lost data can be manually replaced.
 
 ### Fix integrations and webhooks
 
@@ -214,13 +201,11 @@ You should verify that the secrets are the root cause before deleting any data.
 If you restore a backup from an environment that uses the [container registry](../../user/packages/container_registry/_index.md)
 to a newly installed environment where the container registry is not enabled, the container registry is not restored.
 
-To also restore the container registry, you need to [enable it](../packages/container_registry.md#enable-the-container-registry) in the new
-environment before you restore the backup.
+To also restore the container registry, you need to [enable it](../packages/container_registry.md#enable-the-container-registry) in the new environment before you restore the backup.
 
 ## Container registry push failures after restoring from a backup
 
-If you use the [container registry](../../user/packages/container_registry/_index.md),
-pushes to the registry may fail after restoring your backup on a Linux package (Omnibus)
+If you use the [container registry](../../user/packages/container_registry/_index.md), pushes to the registry may fail after restoring your backup on a Linux package (Omnibus)
 instance after restoring the registry data.
 
 These failures mention permission issues in the registry logs, similar to:
@@ -233,9 +218,7 @@ err.detail="filesystem: mkdir /var/opt/gitlab/gitlab-rails/shared/registry/docke
 err.message="unknown error"
 ```
 
-This issue is caused by the restore running as the unprivileged user `git`,
-which is unable to assign the correct ownership to the registry files during
-the restore process ([issue #62759](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/62759 "Incorrect permissions on registry filesystem after restore")).
+This issue is caused by the restore running as the unprivileged user `git`, which is unable to assign the correct ownership to the registry files during the restore process ([issue #62759](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/62759 "Incorrect permissions on registry filesystem after restore")).
 
 To get your registry working again:
 
@@ -243,8 +226,7 @@ To get your registry working again:
 sudo chown -R registry:registry /var/opt/gitlab/gitlab-rails/shared/registry/docker
 ```
 
-If you changed the default file system location for the registry, run `chown`
-against your custom location, instead of `/var/opt/gitlab/gitlab-rails/shared/registry/docker`.
+If you changed the default file system location for the registry, run `chown` against your custom location, instead of `/var/opt/gitlab/gitlab-rails/shared/registry/docker`.
 
 ## Backup fails to complete with Gzip error
 
@@ -262,11 +244,8 @@ Backup failed
 
 If this happens, examine the following:
 
-- Confirm there is sufficient disk space for the Gzip operation. It's not uncommon for backups that
-  use the [default strategy](backup_gitlab.md#backup-strategy-option) to require half the instance size
-  in free disk space during backup creation.
-- If NFS is being used, check if the mount option `timeout` is set. The
-  default is `600`, and changing this to smaller values results in this error.
+- Confirm there is sufficient disk space for the Gzip operation. It's not uncommon for backups that use the [default strategy](backup_gitlab.md#backup-strategy-option) to require half the instance size in free disk space during backup creation.
+- If NFS is being used, check if the mount option `timeout` is set. The default is `600`, and changing this to smaller values results in this error.
 
 ## Backup fails with `File name too long` error
 
@@ -418,7 +397,7 @@ Truncate the filenames in the `uploads` table:
          uploads_with_long_filenames AS updatable_uploads
       WHERE
          uploads.id = updatable_uploads.id
-      AND updatable_uploads.row_id > 0 AND updatable_uploads.row_id  <= 10000
+      AND updatable_uploads.row_id > 0 AND updatable_uploads.row_id <= 10000
       RETURNING uploads.*
    )
    SELECT id, path FROM updated_uploads;
@@ -457,7 +436,7 @@ Truncate the filenames in the `uploads` table:
    uploads_with_long_filenames AS updatable_uploads
    WHERE
    uploads.id = updatable_uploads.id
-   AND updatable_uploads.row_id > 0 AND updatable_uploads.row_id  <= 10000;
+   AND updatable_uploads.row_id > 0 AND updatable_uploads.row_id <= 10000;
    ```
 
    After you finish the batch update, you must change the batch size (`updatable_uploads.row_id`) using the following sequence of numbers (10000 to 20000). Repeat this process until you reach the last record in the `uploads` table.
@@ -488,8 +467,7 @@ After following all the previous steps, re-run the backup task.
 
 ## Restoring database backup fails when `pg_stat_statements` was previously enabled
 
-The GitLab backup of the PostgreSQL database includes all SQL statements required to enable extensions that were
-previously enabled in the database.
+The GitLab backup of the PostgreSQL database includes all SQL statements required to enable extensions that were previously enabled in the database.
 
 The `pg_stat_statements` extension can only be enabled or disabled by a PostgreSQL user with `superuser` role.
 As the restore process uses a database user with limited permissions, it can't execute the following SQL statements:
@@ -499,8 +477,7 @@ DROP EXTENSION IF EXISTS pg_stat_statements;
 CREATE EXTENSION IF NOT EXISTS pg_stat_statements WITH SCHEMA public;
 ```
 
-When trying to restore the backup in a PostgreSQL instance that doesn't have the `pg_stats_statements` extension,
-the following error message is displayed:
+When trying to restore the backup in a PostgreSQL instance that doesn't have the `pg_stats_statements` extension, the following error message is displayed:
 
 ```plaintext
 ERROR: permission denied to create extension "pg_stat_statements"
@@ -508,8 +485,7 @@ HINT: Must be superuser to create this extension.
 ERROR: extension "pg_stat_statements" does not exist
 ```
 
-When trying to restore in an instance that has the `pg_stats_statements` extension enabled, the cleaning up step
-fails with an error message similar to the following:
+When trying to restore in an instance that has the `pg_stats_statements` extension enabled, the cleaning up step fails with an error message similar to the following:
 
 ```plaintext
 rake aborted!
@@ -534,8 +510,7 @@ Tasks: TOP => gitlab:db:drop_tables
 
 ### Prevent the dump file to include `pg_stat_statements`
 
-To prevent the inclusion of the extension in the PostgreSQL dump file that is part of the backup bundle,
-enable the extension in any schema except the `public` schema:
+To prevent the inclusion of the extension in the PostgreSQL dump file that is part of the backup bundle, enable the extension in any schema except the `public` schema:
 
 ```sql
 CREATE SCHEMA adm;
@@ -555,8 +530,7 @@ To query the `pg_stat_statements` data after changing the schema, prefix the vie
 SELECT * FROM adm.pg_stat_statements limit 0;
 ```
 
-To make it compatible with third-party monitoring solutions that expect it to be enabled in the `public` schema,
-you need to include it in the `search_path`:
+To make it compatible with third-party monitoring solutions that expect it to be enabled in the `public` schema, you need to include it in the `search_path`:
 
 ```sql
 set search_path to public,adm;

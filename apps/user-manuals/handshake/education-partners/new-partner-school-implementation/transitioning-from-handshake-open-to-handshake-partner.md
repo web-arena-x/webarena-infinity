@@ -30,8 +30,8 @@ Nothing. Your Relationship Manager will ensure this transition happens when you 
 
 ## What if I want to work on my transition but leave my students in the open network?
 
-We can set your instance so that students can access the platform **without seeing any of the career services features**. We can enable this setting at any time, so if you'd like to do this, reach out to us <https://support.joinhandshake.com/hc/en-us> and cc your Relationship Manager on the request.  
-  
+We can set your instance so that students can access the platform **without seeing any of the career services features**. We can enable this setting at any time, so if you'd like to do this, reach out to us <https://support.joinhandshake.com/hc/en-us> and cc your Relationship Manager on the request. 
+ 
 **What this means for your students:**
 
 - With this setting, students with an email address ending in your school domain will automatically be approved when they request an account. You will not need to approve any requests.

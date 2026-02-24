@@ -141,7 +141,7 @@ Creating an Organization (1:01)
 
 If you'd like to try creating an organization, follow these steps:
 
-1. Open a new support ticket as you did before. Ensure that the ticket has a requester name that you haven't already added to an organization. You could create a new user for testing purposes.  
+1. Open a new support ticket as you did before. Ensure that the ticket has a requester name that you haven't already added to an organization. You could create a new user for testing purposes. 
 
    You'll see that there are three tabs within the ticket. The first is the **Organization** tab, the second is the **User** tab, and the third is the **Ticket** tab.
 
@@ -192,7 +192,7 @@ Adding an Agent (1:15)
 4. Click the **Role** drop-down list and select **Agent**. Then, click **Add**.
 
    This new user's profile is displayed. Here you can add your new agent to other groups, define their access to tickets and other parts of your Zendesk account, and add any other user profile information you want.
-5. Click the **Groups** field.  
+5. Click the **Groups** field. 
    You're prompted to add the agent to another group. Select the *Advanced support* group you created earlier.
 6. Now set the agent's access permissions. Click the **Access** field and select **Tickets in agent's org**.
 7. To complete the agent's access restriction, click the **Org.** field and select *Customers*.

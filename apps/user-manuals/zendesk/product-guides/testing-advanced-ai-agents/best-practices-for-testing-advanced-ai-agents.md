@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357751802138-Best-practic
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -58,13 +58,9 @@ They have a unique attribute that can make this task especially good for them, w
 
 It is important to brief your testers on the intents the AI agent understands and what exactly you are asking them to review. Especially if you ask them to focus on the experience and tone of voice, you may wish to share with them the persona you built earlier in the onboarding to ensure they match. Testing can be as robust and detailed as you like with a team as large or small as you like, but we do have some tried and tested rules we would recommend you ask your testers to follow.
 
-**Golden Rules**  
-❌ Don’t troll the AI agent.   
-E.g. “How to take the best selfie with my trainers”   
-✅ DO simplify your questions and ask one at a time  
-✅ DO ask the same question in different ways   
-✅ DO try to get through entire dialog flows and test their different stages and options (i.e. when the AI agent fails to recognize your issue right at the beginning, record this, but then do another run trying to get past that point and deeper into the dialog flow).  
-✅ DO take screenshots to accompany your recommendations and feedback.  
+**Golden Rules** ❌ Don’t troll the AI agent.
+E.g. “How to take the best selfie with my trainers” ✅ DO simplify your questions and ask one at a time ✅ DO ask the same question in different ways ✅ DO try to get through entire dialog flows and test their different stages and options (i.e. when the AI agent fails to recognize your issue right at the beginning, record this, but then do another run trying to get past that point and deeper into the dialog flow).
+✅ DO take screenshots to accompany your recommendations and feedback. 
 ✅ DO take screenshots of any and all scenarios in which the AI agents fail to understand your query and/or simply deliver a bad user experience.
 
 ## Collecting and Iterating on Feedback

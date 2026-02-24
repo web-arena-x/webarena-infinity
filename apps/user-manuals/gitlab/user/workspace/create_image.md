@@ -22,15 +22,13 @@ To create a custom workspace image that supports arbitrary user IDs:
 
 You need the following:
 
-- A GitLab account with permission to create and push container images to the GitLab container
-  registry.
+- A GitLab account with permission to create and push container images to the GitLab container registry.
 - Docker installed on your local machine.
 
 ## Create a Dockerfile
 
 Create a Dockerfile that uses the [workspace base image](_index.md#workspace-base-image)
-(`registry.gitlab.com/gitlab-org/gitlab-build-images:workspaces-base`) from the GitLab Container
-Registry as the starting point:
+(`registry.gitlab.com/gitlab-org/gitlab-build-images:workspaces-base`) from the GitLab Container Registry as the starting point:
 
 ```Dockerfile
 FROM registry.gitlab.com/gitlab-org/gitlab-build-images:workspaces-base
@@ -75,8 +73,7 @@ With your Dockerfile complete, you're ready to build your custom workspace image
    docker run -ti my-gitlab-workspace sh
    ```
 
-You should now have permission to run commands as the `gitlab-workspaces` user. Perfect! Your image
-is working locally. Next, you will make it available in GitLab.
+You should now have permission to run commands as the `gitlab-workspaces` user. Perfect! Your image is working locally. Next, you will make it available in GitLab.
 
 ## Push the custom workspace image to the GitLab container registry
 
@@ -104,8 +101,7 @@ Push your custom workspace image to the GitLab container registry for use in you
 
    This upload might take a while depending on your internet connection speed.
 
-Well done! Your custom workspace image is now safely stored in the GitLab container registry
-and ready to use.
+Well done! Your custom workspace image is now safely stored in the GitLab container registry and ready to use.
 
 ## Use the custom workspace image in GitLab
 
@@ -125,9 +121,7 @@ For the final step, you will configure your project to use your custom workspace
 
    Remember to replace `your-namespace` with your actual GitLab namespace.
 
-Congratulations! You've successfully created and configured a custom workspace image that supports
-arbitrary user IDs. You can now use this custom image with any [workspace](_index.md) you create
-in GitLab.
+Congratulations! You've successfully created and configured a custom workspace image that supports arbitrary user IDs. You can now use this custom image with any [workspace](_index.md) you create in GitLab.
 
 ## Related topics
 

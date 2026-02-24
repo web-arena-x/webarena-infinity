@@ -83,10 +83,8 @@ To automatically trigger the GitLab alert endpoint when a Jira incident is creat
 1. Next, select **IF: Add a condition**. Here you can specify what conditions to check for, in order to determine if the issue created relates to an incident. For this guide, we'll select **Issue fields condition**. Under **Field**, we'll select **Summary**, the **Condition** will be set to **contains**, and the value will be `incident`. Click **Save**.
 1. With our trigger and condition set, select **THEN: Add an action**. Search for and select **Send web request**.
 1. Set the **Web request URL** to your GitLab **Webhook URL** from the previous section.
-1. Check the GitLab documentation for
-   [endpoint authentication options](../../operations/incident_management/integrations.md#authorization).
-   For this guide, we'll use the
-   [Bearer authorization header](../../operations/incident_management/integrations.md#bearer-authorization-header)
+1. Check the GitLab documentation for [endpoint authentication options](../../operations/incident_management/integrations.md#authorization).
+   For this guide, we'll use the [Bearer authorization header](../../operations/incident_management/integrations.md#bearer-authorization-header)
    method. In your Jira automation configuration, add the following headers:
 
    | Name | Value |
@@ -136,10 +134,10 @@ At this point, incidents you resolve in Jira will also be resolved in GitLab. Th
 ## Resources
 
 - [DORA metrics](../../user/analytics/dora_metrics.md)
-  - [Measure DORA metrics with Jira](../../user/analytics/dora_metrics.md#with-jira)
+ - [Measure DORA metrics with Jira](../../user/analytics/dora_metrics.md#with-jira)
 - [GitLab incident management](../../operations/incident_management/manage_incidents.md)
 - [GitLab HTTP endpoints](../../operations/incident_management/integrations.md#alerting-endpoints)
-  - [GitLab HTTP endpoint authorization](../../operations/incident_management/integrations.md#authorization)
-  - [GitLab alert parameters](../../operations/incident_management/integrations.md#customize-the-alert-payload-outside-of-gitlab)
-  - [GitLab recovery alerts](../../operations/incident_management/integrations.md#recovery-alerts)
+ - [GitLab HTTP endpoint authorization](../../operations/incident_management/integrations.md#authorization)
+ - [GitLab alert parameters](../../operations/incident_management/integrations.md#customize-the-alert-payload-outside-of-gitlab)
+ - [GitLab recovery alerts](../../operations/incident_management/integrations.md#recovery-alerts)
 - [Jira automation with web requests](https://community.atlassian.com/t5/Jira-articles/Automation-for-Jira-Send-web-request-using-Jira-REST-API/ba-p/1443828)

@@ -31,7 +31,7 @@ Upload a certificate
 1. In Gmail, click Settings ![Settings](//lh3.googleusercontent.com/p3J-ZSPOLtuBBR_ofWTFDfdgAYQgi8mR5c76ie8XQ2wjegk7-yyU5zdRVHKybQgUlQ=h36) ![and then](//lh3.googleusercontent.com/QbWcYKta5vh_4-OgUeFmK-JOB0YgLLoGh69P478nE6mKdfpWQniiBabjF7FVoCVXI0g=h36) **See all settings**.
 2. At the top, click the **Accounts and Import** or **Accounts** tab.
 3. In the **Send mail as** section, click **edit info** next to your work account.
-4. Click **Upload a personal certificate**. A window opens showing the files available on your system.  
+4. Click **Upload a personal certificate**. A window opens showing the files available on your system. 
      
    You might not have this option if your organization doesn’t allow it.
 5. Select the certificate file.
@@ -93,7 +93,7 @@ Certificates for Internet Explorer 11 on Windows 10
 5. On the **Content** tab, select **Certificates**.
 6. Click on a certificate to select it.
 7. Click **Export** to open the export wizard and then click **Next**.
-8. Select **Yes, export the private key**.  
+8. Select **Yes, export the private key**. 
      
    **Note**: If this option doesn’t appear, verify that you selected the correct certificate in the previous steps.
 9. Click **Next**.

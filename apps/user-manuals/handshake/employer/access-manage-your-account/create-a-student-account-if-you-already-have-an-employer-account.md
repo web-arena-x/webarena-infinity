@@ -8,13 +8,10 @@ Employers who already have an employer account are welcome to sign up for a stud
 
 Before signing up for a student account, there are certain things that should be considered:
 
-- **Use your .edu email address if possible.**  
-  If you still have access to your .edu email, we recommend using it when signing up. This can make it easier to connect with your school.
-- **No access to your .edu email?**  
-  Contact your school's career services office to confirm if you have an alumni account. If not, ask if they prefer you to use a personal email address instead of a corporate one.  
-  **Note**: The school may create an account for you using either your .edu or personal email address.
-- **Switching between accounts:**  
-  You can only switch between employer and student accounts if both are registered with the same email address. Learn more about [Switching Users: Employer and Student Accounts](https://support.joinhandshake.com/hc/en-us/articles/31491510809495).
+- **Use your .edu email address if possible.** If you still have access to your .edu email, we recommend using it when signing up. This can make it easier to connect with your school.
+- **No access to your .edu email?** Contact your school's career services office to confirm if you have an alumni account. If not, ask if they prefer you to use a personal email address instead of a corporate one.
+ **Note**: The school may create an account for you using either your .edu or personal email address.
+- **Switching between accounts:** You can only switch between employer and student accounts if both are registered with the same email address. Learn more about [Switching Users: Employer and Student Accounts](https://support.joinhandshake.com/hc/en-us/articles/31491510809495).
 
 #### 
 
@@ -37,17 +34,15 @@ Subject: "You have been invited to Handshake"
 
 Body:
 
-"You have been added as a student  
-Hello [NAME]
+"You have been added as a student Hello [NAME]
 
 You have been added as a student at [SCHOOL NAME]. An initial account has been set up for you. Your username is [varies]
 
 Please confirm your account by clicking this link: Confirm My Account
 
-Thank you,  
-The Handshake Team
+Thank you, The Handshake Team
 
-What is Handshake?  
+What is Handshake? 
 Handshake is a revolutionary way for students to connect and interact with recruiting employers and build their career community. Get started today building a profile designed to highlight your academic achievements, extracurricular interests, and professional skills."
 
 2. Click the hyperlinked text **Confirm My Account** to proceed.
@@ -71,7 +66,7 @@ Handshake is a revolutionary way for students to connect and interact with recru
 1. Navigate to <https://app.joinhandshake.com/login>.
 
 - If you're currently logged in to an employer account, log out before continuing.
-  - To sign out, select your name in the upper-right corner of the page and choose **Sign out** from the dropdown menu.
+ - To sign out, select your name in the upper-right corner of the page and choose **Sign out** from the dropdown menu.
 
 **Note:** After signing out, your browser will likely remember your employer email address, and the page will display the message "Welcome back, [NAME]. 
 
@@ -96,8 +91,8 @@ Handshake is a revolutionary way for students to connect and interact with recru
 6. Enter your new password in both fields, check the box to agree to the Terms of Service and confirm you’ve read the Privacy Policy, then click the button **Create account**.
 
 - Passwords on Handshake must:
-  - Contain eight characters, *or more*
-  - Contain characters from **two** of the following **three** character classes:
+ - Contain eight characters, *or more*
+ - Contain characters from **two** of the following **three** character classes:
     - Alphabetic (e.g., a-z, A-Z)
     - Numeric (i.e. 0–9)
     - Punctuation and other characters (e.g.,!@#$%^&\*()\_+|~-=\`{}[]:";'<>?,./)

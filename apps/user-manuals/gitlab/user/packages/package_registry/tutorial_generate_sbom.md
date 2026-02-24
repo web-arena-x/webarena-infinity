@@ -24,8 +24,8 @@ If you're familiar with the GitLab package registry, you might wonder what the d
 | Differences   | Dependency list                                               | SBOM |
 |---------------|---------------------------------------------------------------|------|
 | Scope     | Shows dependencies for individual projects or groups.         | Creates an inventory of all packages published across your group. |
-| Direction | Tracks what your projects depend on (incoming dependencies).  | Tracks what your group publishes (outgoing packages). |
-| Coverage  | Based on package manifests, like `package.json` or `pom.xml`. | Covers actual published artifacts in your package registry. |
+| Direction | Tracks what your projects depend on (incoming dependencies). | Tracks what your group publishes (outgoing packages). |
+| Coverage | Based on package manifests, like `package.json` or `pom.xml`. | Covers actual published artifacts in your package registry. |
 
 ## What is CycloneDX?
 
@@ -74,11 +74,9 @@ Before implementing this solution, be aware that:
 
 ### Add the base pipeline configuration
 
-First, set up the base image that defines
-the variables and stages used throughout the pipeline.
+First, set up the base image that defines the variables and stages used throughout the pipeline.
 
-In the following sections, you'll build out
-the pipeline by adding the configuration for each stage.
+In the following sections, you'll build out the pipeline by adding the configuration for each stage.
 
 In your project:
 
@@ -123,14 +121,14 @@ In your `.gitlab-ci.yml` file, add the following configuration:
 ```yaml
 # Set up Python virtual environment and install required packages
 prepare_environment:
-  stage: prepare
-  script: |
+ stage: prepare
+ script: |
     mkdir -p ${SBOM_OUTPUT_DIR}
     apk add --no-cache python3 py3-pip py3-virtualenv
     python3 -m venv venv
     source venv/bin/activate
     pip3 install cyclonedx-bom
-  artifacts:
+ artifacts:
     paths:
       - ${SBOM_OUTPUT_DIR}/
       - venv/
@@ -154,8 +152,8 @@ In your `.gitlab-ci.yml` file, add the following configuration:
 ```yaml
 # Collect package information and versions from GitLab registry
 collect_group_packages:
-  stage: collect
-  script: |
+ stage: collect
+ script: |
     echo "[]" > "${SBOM_OUTPUT_DIR}/packages.json"
 
     GROUP_PATH_ENCODED=$(echo "${GROUP_PATH}" | sed 's|/|%2F|g')
@@ -198,11 +196,11 @@ collect_group_packages:
 
       page=$((page + 1))
     done
-  artifacts:
+ artifacts:
     paths:
       - ${SBOM_OUTPUT_DIR}/
     expire_in: 1 week
-  dependencies:
+ dependencies:
     - prepare_environment
 ```
 
@@ -223,13 +221,13 @@ In your `.gitlab-ci.yml` file, add the following configuration:
 ```yaml
 # Generate SBOM by aggregating package data
 aggregate_sboms:
-  stage: aggregate
-  before_script:
+ stage: aggregate
+ before_script:
     - apk add --no-cache python3 py3-pip py3-virtualenv
     - python3 -m venv venv
     - source venv/bin/activate
     - pip3 install --no-cache-dir cyclonedx-bom
-  script: |
+ script: |
     cat > process_sbom.py << 'EOL'
     import json
     import os
@@ -238,7 +236,7 @@ aggregate_sboms:
     def analyze_version_history(packages_file):
         """Process version information by aggregating packages with same name and type"""
         version_history = {}
-        package_versions = {}  # Dict to group packages by name and type
+        package_versions = {} # Dict to group packages by name and type
 
         try:
             with open(packages_file, 'r') as f:
@@ -351,11 +349,11 @@ aggregate_sboms:
     EOL
 
     python3 process_sbom.py
-  artifacts:
+ artifacts:
     paths:
       - ${SBOM_OUTPUT_DIR}/
     expire_in: 1 week
-  dependencies:
+ dependencies:
     - collect_group_packages
 ```
 
@@ -365,9 +363,9 @@ This stage:
 - Groups packages by name and type to identify different versions of the same package
 - Creates a CycloneDX-compliant SBOM in JSON format
 - Calculates package statistics, including:
-  - Total number of packages by type
-  - Version history for each package
-  - First-published and last-updated dates
+ - Total number of packages by type
+ - Version history for each package
+ - First-published and last-updated dates
 - Generates Package URLs (`purl`) for each component
 - Handles missing or invalid data gracefully with proper exception handling
 - Creates both the SBOM and a separate statistics file
@@ -381,8 +379,8 @@ In your `.gitlab-ci.yml` file, add the following configuration:
 ```yaml
 # Publish SBOM files to GitLab package registry
 publish_sbom:
-  stage: publish
-  script: |
+ stage: publish
+ script: |
     STATS=$(cat "${SBOM_OUTPUT_DIR}/package_stats.json")
 
     # Upload generated files
@@ -404,7 +402,7 @@ publish_sbom:
       "description": "Group Package Registry SBOM generated on $(date -u)\nStats: ${STATS}"
     }
     EOF
-  dependencies:
+ dependencies:
     - aggregate_sboms
 ```
 
@@ -461,9 +459,7 @@ To track package registry activity, you can:
 - Identify the most-frequently-updated packages.
 - Track package registry growth over time.
 
-You can use a CLI tool like `jq` with the statistics file
-to generate analytics or activity information in a readable
-JSON format.
+You can use a CLI tool like `jq` with the statistics file to generate analytics or activity information in a readable JSON format.
 
 The following code block lists several examples of `jq` commands you can run against the statistics file for general analysis or reporting purposes:
 

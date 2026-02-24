@@ -32,21 +32,17 @@ Provide feedback in [issue 420920](https://gitlab.com/gitlab-org/gitlab/-/issues
 
 {{< /alert >}}
 
-With exact code search, you can use exact match and regular expression modes
-to search for code in all GitLab or in a specific project.
+With exact code search, you can use exact match and regular expression modes to search for code in all GitLab or in a specific project.
 
-Exact code search is powered by Zoekt and is used by default
-in groups where the feature is enabled.
+Exact code search is powered by Zoekt and is used by default in groups where the feature is enabled.
 
 ## Use exact code search
 
 Prerequisites:
 
 - Exact code search must be enabled:
-  - For GitLab.com, exact code search is enabled by default in paid subscriptions.
-  - For GitLab Self-Managed, an administrator must
-    [install Zoekt](../../integration/zoekt/_index.md#install-zoekt) and
-    [enable exact code search](../../integration/zoekt/_index.md#enable-exact-code-search).
+ - For GitLab.com, exact code search is enabled by default in paid subscriptions.
+ - For GitLab Self-Managed, an administrator must [install Zoekt](../../integration/zoekt/_index.md#install-zoekt) and [enable exact code search](../../integration/zoekt/_index.md#enable-exact-code-search).
 
 To use exact code search:
 
@@ -63,13 +59,12 @@ The following scopes are available for exact code search:
 
 | Scope | Global <sup>1</sup> <sup>2</sup> |    Group    | Project     |
 |-------|:--------------------------------:|:-----------:|:-----------:|
-| Code  |           {{< no >}}             | {{< yes >}} | {{< yes >}} |
+| Code |           {{< no >}}             | {{< yes >}} | {{< yes >}} |
 
 **Footnotes**:
 
 1. An administrator can [disable global search scopes](_index.md#disable-global-search-scopes).
-   In GitLab 18.6 and earlier, to enable global search on GitLab Self-Managed,
-   an administrator must also enable the `zoekt_cross_namespace_search` feature flag.
+   In GitLab 18.6 and earlier, to enable global search on GitLab Self-Managed, an administrator must also enable the `zoekt_cross_namespace_search` feature flag.
 1. On GitLab.com, global search is not enabled.
 
 ## Zoekt search API
@@ -99,8 +94,7 @@ GitLab has two search modes:
 - **Regular expression mode**: supports regular and boolean expressions.
 
 The exact match mode is used by default.
-To switch to the regular expression mode, to the right of the search box,
-select **Use regular expression** ({{< icon name="regular-expression" >}}).
+To switch to the regular expression mode, to the right of the search box, select **Use regular expression** ({{< icon name="regular-expression" >}}).
 
 ### Syntax
 
@@ -128,9 +122,8 @@ This table shows some example queries for exact match and regular expression mod
 ## Known issues
 
 - You can search only files smaller than 1 MB with less than `20_000` trigrams.
-  For more information, see [issue 455073](https://gitlab.com/gitlab-org/gitlab/-/issues/455073).
+ For more information, see [issue 455073](https://gitlab.com/gitlab-org/gitlab/-/issues/455073).
 - You can use exact code search only on the default branch of a project.
-  For more information, see [issue 403307](https://gitlab.com/gitlab-org/gitlab/-/issues/403307).
+ For more information, see [issue 403307](https://gitlab.com/gitlab-org/gitlab/-/issues/403307).
 - Multiple matches on a single line are counted as one result.
-- If you encounter results where newlines are not displayed correctly,
-  update `gitlab-zoekt` to version 1.5.0 or later.
+- If you encounter results where newlines are not displayed correctly, update `gitlab-zoekt` to version 1.5.0 or later.

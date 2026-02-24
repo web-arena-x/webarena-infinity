@@ -26,10 +26,8 @@ To interact with links as a release asset, see [release links API](links.md).
 
 For authentication, the Releases API accepts either:
 
-- A [personal access token](../../user/profile/personal_access_tokens.md) using the
-  `PRIVATE-TOKEN` header.
-- The [GitLab CI/CD job token](../../ci/jobs/ci_job_token.md) `$CI_JOB_TOKEN` using
-  the `JOB-TOKEN` header.
+- A [personal access token](../../user/profile/personal_access_tokens.md) using the `PRIVATE-TOKEN` header.
+- The [GitLab CI/CD job token](../../ci/jobs/ci_job_token.md) `$CI_JOB_TOKEN` using the `JOB-TOKEN` header.
 
 ## List Releases
 
@@ -46,8 +44,7 @@ GET /projects/:id/releases
 | `sort`        | string         | no       | The direction of the order. Either `desc` (default) for descending order or `asc` for ascending order. |
 | `include_html_description` | boolean        | no       | If `true`, a response includes HTML rendered Markdown of the release description.   |
 
-If successful, returns [`200 OK`](../rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200 OK`](../rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute                             | Type   | Description                                      |
 |:--------------------------------------|:-------|:-------------------------------------------------|
@@ -267,12 +264,11 @@ GET /projects/:id/releases/:tag_name
 
 | Attribute                  | Type           | Required | Description                                                                         |
 |----------------------------| -------------- | -------- | ----------------------------------------------------------------------------------- |
-| `id`                       | integer or string | yes      | The ID or [URL-encoded path of the project](../rest/_index.md#namespaced-paths).  |
+| `id`                       | integer or string | yes      | The ID or [URL-encoded path of the project](../rest/_index.md#namespaced-paths). |
 | `tag_name`                 | string         | yes      | The Git tag the release is associated with.                                         |
 | `include_html_description` | boolean        | no       | If `true`, a response includes HTML rendered Markdown of the release description.   |
 
-If successful, returns [`200 OK`](../rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200 OK`](../rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute                             | Type   | Description                                      |
 |:--------------------------------------|:-------|:-------------------------------------------------|
@@ -406,7 +402,7 @@ Example response:
       "opened_merge_requests_url": "https://gitlab.example.com/root/awesome-app/-/merge_requests?release_tag=v0.1&scope=all&state=opened",
       "self": "https://gitlab.example.com/root/awesome-app/-/releases/v0.1"
     }
-  ]
+ ]
 }
 ```
 
@@ -426,7 +422,7 @@ GET /projects/:id/releases/:tag_name/downloads/:direct_asset_path
 
 | Attribute                  | Type           | Required | Description                                                                         |
 |----------------------------| -------------- | -------- | ----------------------------------------------------------------------------------- |
-| `id`                       | integer or string | yes      | The ID or [URL-encoded path of the project](../rest/_index.md#namespaced-paths).  |
+| `id`                       | integer or string | yes      | The ID or [URL-encoded path of the project](../rest/_index.md#namespaced-paths). |
 | `tag_name`                 | string         | yes      | The Git tag the release is associated with.                                         |
 | `direct_asset_path`        | string         | yes      | Path to the release asset file as specified when [creating](links.md#create-a-release-link) or [updating](links.md#update-a-release-link) its link. |
 
@@ -468,8 +464,7 @@ GET /projects/:id/releases/permalink/latest/downloads/bin/asset.exe
 
 #### Sorting preferences
 
-By default, GitLab fetches the release using `released_at` time. The use of the query parameter
-`?order_by=released_at` is optional, and support for `?order_by=semver` is tracked [in issue 352945](https://gitlab.com/gitlab-org/gitlab/-/issues/352945).
+By default, GitLab fetches the release using `released_at` time. The use of the query parameter `?order_by=released_at` is optional, and support for `?order_by=semver` is tracked [in issue 352945](https://gitlab.com/gitlab-org/gitlab/-/issues/352945).
 
 ## Create a release
 
@@ -481,7 +476,7 @@ POST /projects/:id/releases
 
 | Attribute          | Type            | Required                    | Description                                                                                                                      |
 | -------------------| --------------- | --------                    | -------------------------------------------------------------------------------------------------------------------------------- |
-| `id`               | integer or string  | yes                         | The ID or [URL-encoded path of the project](../rest/_index.md#namespaced-paths).                                              |
+| `id`               | integer or string | yes                         | The ID or [URL-encoded path of the project](../rest/_index.md#namespaced-paths).                                              |
 | `name`             | string          | no                          | The release name.                                                                                                                |
 | `tag_name`         | string          | yes                         | The tag where the release is created from.                                                                                  |
 | `tag_message`      | string          | no                          | Message to use if creating a new annotated tag.                                                                                  |
@@ -493,7 +488,7 @@ POST /projects/:id/releases
 | `assets:links:url` | string          | required by: `assets:links` | The URL of the link. Link URLs must be unique within the release.                                                                |
 | `assets:links:direct_asset_path` | string     | no | Optional path for a [direct asset link](../../user/project/releases/release_fields.md#permanent-links-to-release-assets). |
 | `assets:links:link_type` | string     | no | The type of the link: `other`, `runbook`, `image`, `package`. Defaults to `other`. |
-| `released_at`      | datetime        | no                          | Date and time for the release. Defaults to the current time. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). Only provide this field if creating an [upcoming](../../user/project/releases/_index.md#upcoming-releases) or [historical](../../user/project/releases/_index.md#historical-releases) release.  |
+| `released_at`      | datetime        | no                          | Date and time for the release. Defaults to the current time. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). Only provide this field if creating an [upcoming](../../user/project/releases/_index.md#upcoming-releases) or [historical](../../user/project/releases/_index.md#historical-releases) release. |
 
 Example request:
 
@@ -617,10 +612,8 @@ Example response:
 
 {{< /details >}}
 
-Group milestones associated with the project may be specified in the `milestones`
-array for [Create a release](#create-a-release) and [Update a release](#update-a-release)
-API calls. Only milestones associated with the project's group may be specified, and
-adding milestones for ancestor groups raises an error.
+Group milestones associated with the project may be specified in the `milestones` array for [Create a release](#create-a-release) and [Update a release](#update-a-release)
+API calls. Only milestones associated with the project's group may be specified, and adding milestones for ancestor groups raises an error.
 
 ## Collect release evidence
 
@@ -670,11 +663,11 @@ PUT /projects/:id/releases/:tag_name
 
 | Attribute     | Type            | Required | Description                                                                                                 |
 | ------------- | --------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
-| `id`          | integer or string  | yes      | The ID or [URL-encoded path of the project](../rest/_index.md#namespaced-paths).                         |
+| `id`          | integer or string | yes      | The ID or [URL-encoded path of the project](../rest/_index.md#namespaced-paths).                         |
 | `tag_name`    | string          | yes      | The Git tag the release is associated with.                                                                 |
 | `name`        | string          | no       | The release name.                                                                                           |
 | `description` | string          | no       | The description of the release. You can use [Markdown](../../user/markdown.md).                             |
-| `milestones`  | array of string | no       | The title of each milestone to associate with the release. [GitLab Premium](https://about.gitlab.com/pricing/) customers can specify group milestones. To remove all milestones from the release, specify `[]`. |
+| `milestones` | array of string | no       | The title of each milestone to associate with the release. [GitLab Premium](https://about.gitlab.com/pricing/) customers can specify group milestones. To remove all milestones from the release, specify `[]`. |
 | `released_at` | datetime        | no       | The date when the release is/was ready. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`).          |
 
 Example request:
@@ -852,8 +845,7 @@ Example response:
 
 ## Upcoming Releases
 
-A release with a `released_at` attribute set to a future date is labeled
-as an **Upcoming Release** [in the UI](../../user/project/releases/_index.md#upcoming-releases).
+A release with a `released_at` attribute set to a future date is labeled as an **Upcoming Release** [in the UI](../../user/project/releases/_index.md#upcoming-releases).
 
 Additionally, if a [release is requested from the API](#list-releases), for each release with a `release_at` attribute set to a future date, an additional attribute `upcoming_release` (set to true) is returned as part of the response.
 
@@ -865,9 +857,6 @@ Additionally, if a [release is requested from the API](#list-releases), for each
 
 {{< /history >}}
 
-A release with a `released_at` attribute set to a past date is labeled
-as an **Historical release** [in the UI](../../user/project/releases/_index.md#historical-releases).
+A release with a `released_at` attribute set to a past date is labeled as an **Historical release** [in the UI](../../user/project/releases/_index.md#historical-releases).
 
-Additionally, if a [release is requested from the API](#list-releases), for each
-release with a `release_at` attribute set to a past date, an additional
-attribute `historical_release` (set to true) is returned as part of the response.
+Additionally, if a [release is requested from the API](#list-releases), for each release with a `release_at` attribute set to a past date, an additional attribute `historical_release` (set to true) is returned as part of the response.

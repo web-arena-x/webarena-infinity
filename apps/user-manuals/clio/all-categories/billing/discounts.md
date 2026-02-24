@@ -17,7 +17,7 @@ Discounts are applied before any taxes are calculated and after any credit notes
 1. Go to the main **Billing** tab or the **Bills** subtab in a matter or contact
 2. Select the **Draft** or **Pending approval** quick filters.
 3. Click **Edit.** You can also click **Edit** when viewing the bill.
-4. To apply a discount to the entire bill, add the **Discount amount** and percentage or dollar amount and add a **Discount note**. To apply discount to individual line items, click the value under the **Discount** column to change it.  
+4. To apply a discount to the entire bill, add the **Discount amount** and percentage or dollar amount and add a **Discount note**. To apply discount to individual line items, click the value under the **Discount** column to change it. 
 
    **Note:** The **Discount note** is limited to 255 characters and will appear on the bill invoice.
 5. Click **Save invoice.**

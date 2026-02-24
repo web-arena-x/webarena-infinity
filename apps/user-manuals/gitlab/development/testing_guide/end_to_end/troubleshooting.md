@@ -7,13 +7,9 @@ title: Troubleshooting end-to-end tests
 
 ## See what the browser is doing
 
-If end-to-end tests fail, it can be very helpful to see what is happening in your
-browser when it fails. For example, if tests don't run at all, the test framework
-might be trying to open a URL that isn't valid on your machine. This problem becomes
-clearer if you see the page fail in the browser.
+If end-to-end tests fail, it can be very helpful to see what is happening in your browser when it fails. For example, if tests don't run at all, the test framework might be trying to open a URL that isn't valid on your machine. This problem becomes clearer if you see the page fail in the browser.
 
-To make the test framework show the browser as it runs the tests,
-set `WEBDRIVER_HEADLESS=false`. For example:
+To make the test framework show the browser as it runs the tests, set `WEBDRIVER_HEADLESS=false`. For example:
 
 ```shell
 cd gitlab/qa
@@ -22,9 +18,7 @@ WEBDRIVER_HEADLESS=false bundle exec bin/qa Test::Instance::All http://localhost
 
 ## Enable logging
 
-Sometimes a test might fail and the failure stack trace doesn't provide enough
-information to determine what went wrong. You can get more information by enabling
-debug logs by setting `QA_LOG_LEVEL=debug`, to see what the test framework is attempting.
+Sometimes a test might fail and the failure stack trace doesn't provide enough information to determine what went wrong. You can get more information by enabling debug logs by setting `QA_LOG_LEVEL=debug`, to see what the test framework is attempting.
 For example:
 
 ```shell
@@ -32,11 +26,10 @@ cd gitlab/qa
 QA_LOG_LEVEL=debug bundle exec bin/qa Test::Instance::All http://localhost:3000
 ```
 
-The test framework then outputs many logs showing the actions taken during
-the tests:
+The test framework then outputs many logs showing the actions taken during the tests:
 
 ```plaintext
-[date=2022-03-31 23:19:47 from=QA Tests] INFO  -- Starting test: Create Merge request creation from fork can merge feature branch fork to mainline
+[date=2022-03-31 23:19:47 from=QA Tests] INFO -- Starting test: Create Merge request creation from fork can merge feature branch fork to mainline
 [date=2022-03-31 23:19:49 from=QA Tests] DEBUG -- has_element? :login_page (wait: 0) returned: true
 [date=2022-03-31 23:19:52 from=QA Tests] DEBUG -- filling :login_field with "root"
 [date=2022-03-31 23:19:52 from=QA Tests] DEBUG -- filling :password_field with "*****"
@@ -45,9 +38,7 @@ the tests:
 
 ## Tests don't run at all
 
-This section assumes you're running the tests locally (such as the GDK) and you're doing
-so from the `gitlab/qa/` folder, not from `gitlab-qa`. For example, if you receive a
-`Net::ReadTimeout` error, the browser might be unable to load the specified URL:
+This section assumes you're running the tests locally (such as the GDK) and you're doing so from the `gitlab/qa/` folder, not from `gitlab-qa`. For example, if you receive a `Net::ReadTimeout` error, the browser might be unable to load the specified URL:
 
 ```shell
 cd gitlab/qa
@@ -57,10 +48,7 @@ bundler: failed to load command: bin/qa (bin/qa)
 Net::ReadTimeout: Net::ReadTimeout with #<TCPSocket:(closed)>
 ```
 
-This error can happen if GitLab runs on an address that does not resolve from
-`localhost`. For example, if you set the GDK `hostname`
-[to a specific local IP address](https://gitlab.com/gitlab-org/gitlab-qa/-/blob/master/docs/run_qa_against_gdk.md#run-qa-tests-against-your-gdk-setup),
-you must use that IP address instead of `localhost` in the command.
+This error can happen if GitLab runs on an address that does not resolve from `localhost`. For example, if you set the GDK `hostname` [to a specific local IP address](https://gitlab.com/gitlab-org/gitlab-qa/-/blob/master/docs/run_qa_against_gdk.md#run-qa-tests-against-your-gdk-setup), you must use that IP address instead of `localhost` in the command.
 For example, if your IP is `192.168.0.12`:
 
 ```shell
@@ -69,11 +57,7 @@ bundle exec bin/qa Test::Instance::All http://192.168.0.12:3000
 
 ## Tests sign out when visiting a page
 
-If the tests sign in successfully as a test user, but then unexpectedly sign out, you might be using an
-incorrect URL to execute the test. By default, tests use the URL `http://127.0.0.1:3000`, but if a hostname
-has been configured for the instance, you must explicitly pass that hostname to the tests. The tests use
-the `web_url` returned by the API to go to different pages. They go to the configured hostname, rather than
-`http://127.0.0.1:3000`, so the test user appears signed out.
+If the tests sign in successfully as a test user, but then unexpectedly sign out, you might be using an incorrect URL to execute the test. By default, tests use the URL `http://127.0.0.1:3000`, but if a hostname has been configured for the instance, you must explicitly pass that hostname to the tests. The tests use the `web_url` returned by the API to go to different pages. They go to the configured hostname, rather than `http://127.0.0.1:3000`, so the test user appears signed out.
 
 This example runs the tests against `http://127.0.0.1:3000`, and signs out if a hostname has been configured:
 

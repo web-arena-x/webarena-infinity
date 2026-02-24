@@ -29,12 +29,11 @@ Matrix expressions have some limitations compared to [inputs expressions](expres
 
 ## Syntax
 
-Matrix expressions use the `$[[ matrix.IDENTIFIER ]]` syntax to reference a
-`parallel:matrix` identifier in job dependencies. For example:
+Matrix expressions use the `$[[ matrix.IDENTIFIER ]]` syntax to reference a `parallel:matrix` identifier in job dependencies. For example:
 
 ```yaml
 needs:
-  - job: build
+ - job: build
     parallel:
       matrix:
         - OS: ['$[[ matrix.OS ]]']
@@ -43,28 +42,27 @@ needs:
 
 ### Matrix expressions in `needs:parallel:matrix`
 
-You can use matrix expressions to dynamically reference matrix identifiers in job dependencies,
-enabling 1:1 mappings between matrix jobs without manually specifying all combinations.
+You can use matrix expressions to dynamically reference matrix identifiers in job dependencies, enabling 1:1 mappings between matrix jobs without manually specifying all combinations.
 
 For example:
 
 ```yaml
 linux:build:
-  stage: build
-  script: echo "Building linux..."
-  parallel:
+ stage: build
+ script: echo "Building linux..."
+ parallel:
     matrix:
       - PROVIDER: [aws, gcp]
         STACK: [monitoring, app1, app2]
 
 linux:test:
-  stage: test
-  script: echo "Testing linux..."
-  parallel:
+ stage: test
+ script: echo "Testing linux..."
+ parallel:
     matrix:
       - PROVIDER: [aws, gcp]
         STACK: [monitoring, app1, app2]
-  needs:
+ needs:
     - job: linux:build
       parallel:
         matrix:
@@ -84,36 +82,35 @@ Matrix expressions reference identifiers from the current job's matrix configura
 
 ### Use YAML anchors to reuse `parallel:matrix` configuration
 
-You can use [YAML anchors](yaml_optimization.md#anchors) to reuse the `parallel:matrix`
-configuration across multiple jobs with complex `parallel:matrix` configuration and dependencies.
+You can use [YAML anchors](yaml_optimization.md#anchors) to reuse the `parallel:matrix` configuration across multiple jobs with complex `parallel:matrix` configuration and dependencies.
 
 For example:
 
 ```yaml
 stages:
-  - compile
-  - test
-  - deploy
+ - compile
+ - test
+ - deploy
 
 .build_matrix: &build_matrix
-  parallel:
+ parallel:
     matrix:
       - OS: ["ubuntu", "alpine"]
         ARCH: ["amd64", "arm64"]
         VARIANT: ["slim", "full"]
 
 compile_binary:
-  stage: compile
-  script:
+ stage: compile
+ script:
     - echo "Compiling for $OS-$ARCH-$VARIANT"
-  <<: *build_matrix
+ <<: *build_matrix
 
 integration_test:
-  stage: test
-  script:
+ stage: test
+ script:
     - echo "Testing $OS-$ARCH-$VARIANT"
-  <<: *build_matrix
-  needs:
+ <<: *build_matrix
+ needs:
     - job: compile_binary
       parallel:
         matrix:
@@ -122,11 +119,11 @@ integration_test:
             VARIANT: ['$[[ matrix.VARIANT ]]']
 
 deploy_artifact:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - echo "Deploying $OS-$ARCH-$VARIANT"
-  <<: *build_matrix
-  needs:
+ <<: *build_matrix
+ needs:
     - job: integration_test
       parallel:
         matrix:
@@ -135,8 +132,7 @@ deploy_artifact:
             VARIANT: ['$[[ matrix.VARIANT ]]']
 ```
 
-This configuration creates 24 jobs: 8 jobs in each stage (2 `OS` × 2 `ARCH` × 2 `VARIANT` combinations),
-with 1:1 dependencies between stages.
+This configuration creates 24 jobs: 8 jobs in each stage (2 `OS` × 2 `ARCH` × 2 `VARIANT` combinations), with 1:1 dependencies between stages.
 
 ### Use a subset of values
 
@@ -144,38 +140,38 @@ You can combine matrix expressions with specific values to create selective subs
 
 ```yaml
 stages:
-  - prepare
-  - build
-  - test
+ - prepare
+ - build
+ - test
 
 .full_matrix: &full_matrix
-  parallel:
+ parallel:
     matrix:
       - PLATFORM: ["linux", "windows", "macos"]
         VERSION: ["16", "18", "20"]
 
 .platform_only: &platform_only
-  parallel:
+ parallel:
     matrix:
       - PLATFORM: ["linux", "windows", "macos"]
 
 prepare_env:
-  stage: prepare
-  script:
+ stage: prepare
+ script:
     - echo "Preparing $PLATFORM with Node.js $VERSION"
-  <<: *full_matrix
+ <<: *full_matrix
 
 build_project:
-  stage: build
-  script:
+ stage: build
+ script:
     - echo "Building on $PLATFORM"
-  needs:
+ needs:
     - job: prepare_env
       parallel:
         matrix:
           - PLATFORM: ['$[[ matrix.PLATFORM ]]']
-            VERSION: ["18"]  # Only depend on Node.js 18 preparations
-  <<: *platform_only
+            VERSION: ["18"] # Only depend on Node.js 18 preparations
+ <<: *platform_only
 ```
 
 In this example:

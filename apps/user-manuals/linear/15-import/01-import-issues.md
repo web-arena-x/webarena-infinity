@@ -32,9 +32,7 @@ Use the CLI importer when importing from a service that we don't have a dedicate
 
 You'll first need to have an Admin role in Linear in order to access our import tools. You may also need high permissions in the tool you're importing from in order to access the data. In general, the import assistants follow this path:
 
-Step | Detail
---- | ---
-Setup  | Provide an access token, or sign in to your source tool from Linear. Choose an existing team to import to, or create a new team. Please note that you cannot import to a sub-team directly -- instead, import to a top-level team and convert it to a sub-team afterwards.
+Step | Detail --- | --- Setup | Provide an access token, or sign in to your source tool from Linear. Choose an existing team to import to, or create a new team. Please note that you cannot import to a sub-team directly -- instead, import to a top-level team and convert it to a sub-team afterwards.
 Review | We'll display the issues, projects, labels, users and other data fetched from the information provided. 
 Choose what to import | Choose whether to import only open issues, or also to import closed and stale issues to the archive. The archive can be accessed through the overflow menu on each team in your sidebar.
 Map users | For each user fetched, choose not to import them, to create a new user from an email address, or to map them to an existing user in your Linear workspace.
@@ -68,18 +66,10 @@ An issue cannot belong to multiple projects in Linear, so one project will be ch
 
 We'll map fields in Asana to these fields in Linear: 
 
-Asana | Linear
---- | ---
-Priority | Priority
-Notes | Issue description (converted to Markdown)
-Attached files | Added to description, all files except images and videos are converted to links
-Tags | Labels (team-level)
-Assignee | Assignee
-Projects | Projects
-Comments | Comments (markdown respected)
-Status | Imported status will be Backlog or Done only
-Sub-issue | Sub-issue
-Blocked/blocking | Blocked/blocking
+Asana | Linear --- | --- Priority | Priority Notes | Issue description (converted to Markdown)
+Attached files | Added to description, all files except images and videos are converted to links Tags | Labels (team-level)
+Assignee | Assignee Projects | Projects Comments | Comments (markdown respected)
+Status | Imported status will be Backlog or Done only Sub-issue | Sub-issue Blocked/blocking | Blocked/blocking
 
 ### Shortcut
 
@@ -92,21 +82,9 @@ Blocked/blocking | Blocked/blocking
 
 We'll map fields in Shortcut Issues to these fields in Linear:
 
-Shortcut | Linear
---- | ---
-Name | Title
-Description | Issue description
-Tasks | Appended to the description
-External tickets | Appended to the description
-State | Mapped to the most similar Linear status
-Story type | Added as label (team-level)
+Shortcut | Linear --- | --- Name | Title Description | Issue description Tasks | Appended to the description External tickets | Appended to the description State | Mapped to the most similar Linear status Story type | Added as label (team-level)
 Tags | Added as label (team-level)
-Owners | First owner added as assignee when possible
-Epic | Created as projects
-Comments | Comments
-Estimate | Estimate
-Due date | Due date
-Priority | Priority
+Owners | First owner added as assignee when possible Epic | Created as projects Comments | Comments Estimate | Estimate Due date | Due date Priority | Priority
 
 ### Trello, Pivotal Tracker, GitLab Issues
 
@@ -145,20 +123,7 @@ To import data from one Linear workspace to another, first ensure that you have 
 > * Roles (current admins will be imported as members, you will initially be the only admin. Guests will carry over with the same permissions.
 
 Linear (old) | Linear (new)
---- | ---
-Title | Title
-Description | Description
-Estimate | Estimate
-Labels | Labels
-Due date | Due date
-Comments | Comments
-Workflow state | Workflow state
-Sub-issues | Sub-issues
-Relationships | Relationships
-Projects | Projects
-Initiatives | Initiatives
-Team templates | Team templates
-Dashboards | Dashboards
+--- | --- Title | Title Description | Description Estimate | Estimate Labels | Labels Due date | Due date Comments | Comments Workflow state | Workflow state Sub-issues | Sub-issues Relationships | Relationships Projects | Projects Initiatives | Initiatives Team templates | Team templates Dashboards | Dashboards
 
 ### Other
 
@@ -186,6 +151,6 @@ For those unfamiliar with the command line, [this](https://drive.google.com/file
 
 If something did not import as you expected, please check the section for your specific service to confirm whether we support importing that property. If the property is supported but didn't import as documented, please let us know at [support@linear.app](mailto:support@linear.app).
 
-If you need to delete an import in order to re-import once more, you can do so through Import/Export settings, on the overflow menu on a specific import.  If no overflow menu appears, please contact [Linear support](mailto:support@linear.app) for assistance deleting it. 
+If you need to delete an import in order to re-import once more, you can do so through Import/Export settings, on the overflow menu on a specific import. If no overflow menu appears, please contact [Linear support](mailto:support@linear.app) for assistance deleting it. 
 
 Reimporting from the same external source to the same Linear team without deleting the initial import first will skip any already-imported issues.

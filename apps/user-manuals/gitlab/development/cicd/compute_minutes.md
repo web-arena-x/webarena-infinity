@@ -38,10 +38,10 @@ This diagram shows how the [Compute minute quota](../../ci/pipelines/compute_min
 Watch a walkthrough of this feature in detail in the video below.
 
 <div class="video-fallback">
-  See the video: <a href="https://www.youtube.com/watch?v=NmdWRGT8kZg">CI/CD minutes - architectural overview</a>.
+ See the video: <a href="https://www.youtube.com/watch?v=NmdWRGT8kZg">CI/CD minutes - architectural overview</a>.
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/NmdWRGT8kZg" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/NmdWRGT8kZg" frameborder="0" allowfullscreen> </iframe>
 </figure>
 
 ## Technical Architecture for Usage Tracking
@@ -111,15 +111,13 @@ Once the job is `running`, the runner periodically updates two GitLab endpoints:
 
 **3. Quota Enforcement During Job Execution**
 
-Real-time quota enforcement serves as an anti-abuse measure to prevent long-running jobs from bypassing
-quota restrictions. For example, a crypto-miner on a free plan namespace has 10 minutes remaining in
-their monthly allocated quota and starts several jobs that run for 120 minutes.
+Real-time quota enforcement serves as an anti-abuse measure to prevent long-running jobs from bypassing quota restrictions. For example, a crypto-miner on a free plan namespace has 10 minutes remaining in their monthly allocated quota and starts several jobs that run for 120 minutes.
 
 Each time the runner contacts GitLab via the above endpoints, the system checks quota limits:
 
 - `Ci::Minutes::TrackLiveConsumptionService` runs and combines:
-  - Redis-backed usage from currently running builds
-  - Database-backed usage from finished builds
+ - Redis-backed usage from currently running builds
+ - Database-backed usage from finished builds
 - The remaining quota is calculated via `Gitlab::Ci::Minutes::CachedQuota`
 - If the namespace is over quota plus a grace period threshold, the build is dropped by sending a failure status to the runner in the `PUT/PATCH` response via the `Job-Status` header
 
@@ -130,8 +128,8 @@ When a build finishes:
 - The runner sends the final job status (`success`, `failure`, or `canceled`)
 - Rails sets the `finished_at` timestamp
 - Usage aggregation is triggered by `::Ci::Minutes::UpdateBuildMinutesService`, which records:
-  - Duration in seconds (calculated from `started_at` and `finished_at` timestamps)
-  - CI compute minute usage (with cost factor applied: `Job duration / 60 * Cost factor`)
+ - Duration in seconds (calculated from `started_at` and `finished_at` timestamps)
+ - CI compute minute usage (with cost factor applied: `Job duration / 60 * Cost factor`)
 - The `Gitlab::Ci::Minutes::Consumption` class retrieves the appropriate cost factor based on the build's runner and any project-based discounts
 
 ### Database Storage

@@ -18,7 +18,7 @@ OpenType can refer to a format or a set of features or functions available in a 
 
 [Figma supports OpenType features](https://www.figma.com/blog/opentype-font-features/) across all fonts, but not all fonts will support the same OpenType features. Typeface creators have full control over which OpenType features they support. They could be popular features - like kerning, case, or numerical figures. Or, custom features like alternative characters or glyphs, and stylistic alternatives.
 
-You can explore OpenType features of your selected font from the **Typography** section of the properties panel. Click  to open the Type menu and select the **Details** tab.
+You can explore OpenType features of your selected font from the **Typography** section of the properties panel. Click to open the Type menu and select the **Details** tab.
 
 ![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5d75ca7504286364bc8edd7f/file-5DNWLWkKa3.png)
 

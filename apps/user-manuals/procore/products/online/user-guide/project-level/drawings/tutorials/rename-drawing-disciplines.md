@@ -11,12 +11,12 @@ How to rename drawing disciplines in your Drawings log.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' on the project's Drawings tool.
+ - 'Admin' on the project's Drawings tool.
 
 ## Steps
 
 1. Navigate to your project's **Drawings** tool.
-2. Click the **vertical ellipsis**  ![icon-ellipsis-options-menu.png](https://support.procore.com/@api/deki/files/90868/icon-ellipsis-options-menu.png?revision=1&size=bestfit&width=4&height=16)  icon next to the discipline you want to rename.  
+2. Click the **vertical ellipsis**  ![icon-ellipsis-options-menu.png](https://support.procore.com/@api/deki/files/90868/icon-ellipsis-options-menu.png?revision=1&size=bestfit&width=4&height=16)  icon next to the discipline you want to rename. 
      
    ![drawing-set-options-menu.png](https://support.procore.com/@api/deki/files/87347/drawing-set-options-menu.png?revision=2)
 3. Click **Rename**.

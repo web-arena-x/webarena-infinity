@@ -20,8 +20,8 @@ Note: When toggling between the Leads and Deals views, the numbers may not neces
 
 The Leads view of the report shows you the progression through lead status (such as new, working, attempting contact) and then through the sales pipeline as leads are converted and deals are created.
 
-![Sell funnel report Leads](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_report_funnel_leads.png)  
-  
+![Sell funnel report Leads](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_report_funnel_leads.png) 
+ 
 The report doesn't show leads that are in an Unqualified state. It also doesn't show leads with an Unqualified state that have been converted to a contact (without deal). In these cases, the report will include a note to show you the number of leads that aren't included.
 
 Note: When looking at the conversion rates for deals that started as leads, the timeframe is based on the lead's creation date, not on the deal's creation date.

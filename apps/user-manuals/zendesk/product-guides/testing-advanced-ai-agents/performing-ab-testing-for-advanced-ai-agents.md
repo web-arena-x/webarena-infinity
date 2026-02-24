@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357758896410-Performing-A
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -44,13 +44,10 @@ This is run using an integration, which we are faking so no actual data is trans
 
 This fake integration uses a parameter called **split**.
 
-The parameter **[split]** will dynamically distribute your user to the amount and share of control groups of your choosing - you don’t need to add the share up to 100 yourself, just ensure they are proportional. Below you can find some examples of split proportions.  
-  
-1 = 1 control group of 100%  
-1,1 = 2 control groups with an equal share of 50% each  
-1,1,1 = 3 control groups with an equal share of 33.333333333333% each  
-1,2,1 = 3 control groups, one of 50% share, the other 2 of 25% each - the control group and 1 variant will have the 25% split.  
-  
+The parameter **[split]** will dynamically distribute your user to the amount and share of control groups of your choosing - you don’t need to add the share up to 100 yourself, just ensure they are proportional. Below you can find some examples of split proportions. 
+ 
+1 = 1 control group of 100% 1,1 = 2 control groups with an equal share of 50% each 1,1,1 = 3 control groups with an equal share of 33.333333333333% each 1,2,1 = 3 control groups, one of 50% share, the other 2 of 25% each - the control group and 1 variant will have the 25% split.
+ 
 You can also set them up as percentages (i.e. 50,50), important is the relation to each other.
 
 The groups will always be named in this fashion: First group is [control], second [variant\_1], third [variant\_2] ad infinitum.
@@ -63,8 +60,8 @@ You can set this parameter latest upon the fake integration call; to ensure your
 
 1. Set the split parameter as a string on the conversation data and a label to identify the conversations that make it to the splitting of visitors.
 2. Add an API Integration block and select trafficSplit as the integration source
-3. **Collect parameter split**: If you have not set this parameter already, latest you would select it in the Collect Parameters branch. Unless you need it, you can hide this branch by deleting the AI agent message and collapsing the collection.  
-   **Scenario results**: Use however you please. This scenario does only one thing - assign your conversation to a control group.  
+3. **Collect parameter split**: If you have not set this parameter already, latest you would select it in the Collect Parameters branch. Unless you need it, you can hide this branch by deleting the AI agent message and collapsing the collection. 
+   **Scenario results**: Use however you please. This scenario does only one thing - assign your conversation to a control group. 
    **Scenario apiError**: This is super unlikely to trigger as it’s not a real API, however, just make sure to add a fallback so that the customer experience is seamless and the AI agent can continue to function even if the fake integration is inhibited. You can give out a Welcome Reply as any other, just make sure you set all required params that might be required to advance in dialogues later on.
 4. Save your parameter to the conversation data by adding a label for value {{variant}}.
 
@@ -78,6 +75,6 @@ Technically you can branch off immediately after your fake integration results h
 
 ![Screenshot_2023-01-31_at_10.18.13.png](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/bots_9854462209554.png)
 
-In this trafficSplit, we give out three different solutions to the customer - two different self-service links, and one in-AI agent API. All users will be assigned to a conditional block based on their randomly assigned {{variant}} outcome. The Fallback is here to support an ApiError edge case - build it out in a way that is seamless to the customers, and tag it in conversation logs to easily locate and troubleshoot down the road.  
-  
+In this trafficSplit, we give out three different solutions to the customer - two different self-service links, and one in-AI agent API. All users will be assigned to a conditional block based on their randomly assigned {{variant}} outcome. The Fallback is here to support an ApiError edge case - build it out in a way that is seamless to the customers, and tag it in conversation logs to easily locate and troubleshoot down the road. 
+ 
 Now you will only have to define a success metric, i.e. CSAT or AI agent-Handled, and run your [variant] results against it using a label set on the variant paths. Alternatively, via Tableau.

@@ -21,11 +21,9 @@ title: Access token Rake tasks
 ## Analyze token expiration dates
 
 In GitLab 16.0, a [background migration](https://gitlab.com/gitlab-org/gitlab/-/issues/369123)
-gave all non-expiring personal, project, and group access tokens an expiration date set at one
-year after those tokens were created.
+gave all non-expiring personal, project, and group access tokens an expiration date set at one year after those tokens were created.
 
-To identify which tokens might have been affected by this migration, you can run a
-Rake task that analyses all access tokens and displays the top ten most common expiration dates:
+To identify which tokens might have been affected by this migration, you can run a Rake task that analyses all access tokens and displays the top ten most common expiration dates:
 
    {{< tabs >}}
 
@@ -67,19 +65,18 @@ Rake task that analyses all access tokens and displays the top ten most common e
    {{< /tabs >}}
 
 This task analyzes all the access tokens and groups them by expiration date.
-The left column shows the expiration date, and the right column shows how many tokens
-have that expiration date. Example output:
+The left column shows the expiration date, and the right column shows how many tokens have that expiration date. Example output:
 
 ```plaintext
 ======= Personal/Project/Group Access Token Expiration Migration =======
 Started at: 2023-06-15 10:20:35 +0000
-Finished  : 2023-06-15 10:23:01 +0000
+Finished : 2023-06-15 10:23:01 +0000
 ===== Top 10 Personal/Project/Group Access Token Expiration Dates =====
 | Expiration Date | Count |
 |-----------------|-------|
 | 2024-06-15      | 1565353 |
-| 2017-12-31      | 2508  |
-| 2018-01-01      | 1008  |
+| 2017-12-31      | 2508 |
+| 2018-01-01      | 1008 |
 | 2016-12-31      | 833   |
 | 2017-08-31      | 705   |
 | 2017-06-30      | 596   |
@@ -90,11 +87,7 @@ Finished  : 2023-06-15 10:23:01 +0000
 ========================================================================
 ```
 
-In this example, you can see that over 1.5 million access tokens have an
-expiration date of 2024-06-15, one year after the migration was run
-on 2023-06-15. This suggests that most of these tokens were assigned by
-the migration. However, there is no way to know for sure whether other
-tokens were created manually with the same date.
+In this example, you can see that over 1.5 million access tokens have an expiration date of 2024-06-15, one year after the migration was run on 2023-06-15. This suggests that most of these tokens were assigned by the migration. However, there is no way to know for sure whether other tokens were created manually with the same date.
 
 ## Update expiration dates in bulk
 
@@ -154,13 +147,13 @@ Run the following Rake task to extend or remove expiration dates from tokens in 
    ```plaintext
    ======= Personal/Project/Group Access Token Expiration Migration =======
    Started at: 2023-06-15 10:20:35 +0000
-   Finished  : 2023-06-15 10:23:01 +0000
+   Finished : 2023-06-15 10:23:01 +0000
    ===== Top 10 Personal/Project/Group Access Token Expiration Dates =====
    | Expiration Date | Count |
    |-----------------|-------|
    | 2024-05-14      | 1565353 |
-   | 2017-12-31      | 2508  |
-   | 2018-01-01      | 1008  |
+   | 2017-12-31      | 2508 |
+   | 2018-01-01      | 1008 |
    | 2016-12-31      | 833   |
    | 2017-08-31      | 705   |
    | 2017-06-30      | 596   |
@@ -200,9 +193,7 @@ To extend expiration dates on all tokens matching a given expiration date:
      2017-06-30
    ```
 
-   Use the arrow keys on your keyboard to select a date. To abort,
-   scroll all the way down and select `--> Abort`. Press <kbd>Enter</kbd> to confirm
-   your selection:
+   Use the arrow keys on your keyboard to select a date. To abort, scroll all the way down and select `--> Abort`. Press <kbd>Enter</kbd> to confirm your selection:
 
    ```plaintext
    Select an expiration date
@@ -231,16 +222,13 @@ To extend expiration dates on all tokens matching a given expiration date:
    WARNING: This will now update 1565353 token(s). Are you sure? (y/N)
    ```
 
-   If you enter `y`, the tool extends the expiration date
-   for all the tokens with the selected expiration date.
+   If you enter `y`, the tool extends the expiration date for all the tokens with the selected expiration date.
 
-   If you enter `N`, the tool aborts the update task and return to the
-   original analyze output.
+   If you enter `N`, the tool aborts the update task and return to the original analyze output.
 
 ### Remove expiration dates
 
-To remove expiration dates on all tokens matching
-a given expiration date:
+To remove expiration dates on all tokens matching a given expiration date:
 
 1. Select option 2, `Remove expiration date`:
 
@@ -263,9 +251,7 @@ a given expiration date:
      2017-06-30
    ```
 
-   Use the arrow keys on your keyboard to select a date. To abort,
-   scroll all the way down and select `--> Abort`. Press <kbd>Enter</kbd> to confirm
-   your selection:
+   Use the arrow keys on your keyboard to select a date. To abort, scroll all the way down and select `--> Abort`. Press <kbd>Enter</kbd> to confirm your selection:
 
    ```plaintext
    Select an expiration date
@@ -284,15 +270,13 @@ a given expiration date:
    This will affect 1565353 tokens. Are you sure? (y/N)
    ```
 
-   If you enter `y`, the tool removes the expiration date for all the
-   tokens with the selected expiration date.
+   If you enter `y`, the tool removes the expiration date for all the tokens with the selected expiration date.
 
    If you enter `N`, the tool aborts the update task and returns to the first menu.
 
 ## Validate custom issuer URL configuration for CI/CD ID Tokens
 
-If you configure a non-public GitLab instance with [OpenID Connect in AWS to retrieve temporary credentials](../../../ci/cloud_services/aws/_index.md#configure-a-non-public-gitlab-instance),
-use the `ci:validate_id_token_configuration` Rake task to validate the token configuration:
+If you configure a non-public GitLab instance with [OpenID Connect in AWS to retrieve temporary credentials](../../../ci/cloud_services/aws/_index.md#configure-a-non-public-gitlab-instance), use the `ci:validate_id_token_configuration` Rake task to validate the token configuration:
 
 ```shell
 bundle exec rake ci:validate_id_token_configuration

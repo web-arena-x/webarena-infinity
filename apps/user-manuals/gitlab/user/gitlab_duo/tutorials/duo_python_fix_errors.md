@@ -8,11 +8,9 @@ title: 'Tutorial: Use GitLab Duo to fix errors in a Python shop application'
 
 <!-- vale gitlab_base.FutureTense = NO -->
 
-This tutorial is part two in a series. In the first tutorial, you
-[used GitLab Duo to create a shop application in Python](fix_code_python_shop.md).
+This tutorial is part two in a series. In the first tutorial, you [used GitLab Duo to create a shop application in Python](fix_code_python_shop.md).
 
-If you followed the first tutorial and your code is working perfectly, introduce some common errors
-by removing error handling from your routes. For example, remove `try` and `catch` blocks and input validation.
+If you followed the first tutorial and your code is working perfectly, introduce some common errors by removing error handling from your routes. For example, remove `try` and `catch` blocks and input validation.
 Then follow this tutorial to add them back with the help of GitLab Duo.
 
 In this tutorial, you will:
@@ -26,14 +24,12 @@ In this tutorial, you will:
 
 ## Write test cases
 
-To start with, you will use Chat to generate comprehensive test cases for our
-web application.
+To start with, you will use Chat to generate comprehensive test cases for our web application.
 
 Well-written, comprehensive test cases:
 
 - Systematically identify where code is not working.
-- Help users to think through exactly how each part of the code should behave in both
-  standard and error conditions.
+- Help users to think through exactly how each part of the code should behave in both standard and error conditions.
 - Create a prioritized list of issues that need fixing.
 - Allow users to immediately validate if a fix is working
 
@@ -61,8 +57,7 @@ To write the test cases:
    I want to test both successful operations and error handling.
    ```
 
-1. Review the response from Chat. You should receive a comprehensive
-   test plan including setup code, fixture definitions, and test functions for each route.
+1. Review the response from Chat. You should receive a comprehensive test plan including setup code, fixture definitions, and test functions for each route.
 
 1. After reviewing Chat's response, consider asking follow-up questions:
 
@@ -94,8 +89,7 @@ To write the test cases:
      Are there any optimizations you'd suggest for the test setup?
      ```
 
-1. Amend the test plan as needed. After you are happy with the plan, ask Chat for
-   a complete implementation of the test file:
+1. Amend the test plan as needed. After you are happy with the plan, ask Chat for a complete implementation of the test file:
 
    ```plaintext
    Based on the test plan, provide a complete implementation of the test_shop.py file that includes:
@@ -104,8 +98,7 @@ To write the test cases:
    3. Proper cleanup after tests
    ```
 
-1. Copy the suggested implementation into your `tests/test_shop.py` file. Depending
-   on how you amended the test plan, the implementation should look similar to the following:
+1. Copy the suggested implementation into your `tests/test_shop.py` file. Depending on how you amended the test plan, the implementation should look similar to the following:
 
    ```python
    import pytest
@@ -212,9 +205,9 @@ To write the test cases:
        assert response.status_code == 200
 
        data = json.loads(response.data)
-       assert data['name'] == 'Test Book 1'  # Name unchanged
-       assert data['price'] == 12.99  # Price updated
-       assert data['quantity'] == 8  # Quantity updated
+       assert data['name'] == 'Test Book 1' # Name unchanged
+       assert data['price'] == 12.99 # Price updated
+       assert data['quantity'] == 8 # Quantity updated
 
        # Test update for non-existent book
        response = client.put('/books/999',
@@ -256,8 +249,7 @@ The failing test results will be similar to the following.
 
 ### `test_delete_book` - failure
 
-This test attempts to delete a book, then tries to delete a non-existent book (with
-ID `999`). The test expects the following behavior:
+This test attempts to delete a book, then tries to delete a non-existent book (with ID `999`). The test expects the following behavior:
 
 - Successful deletion returns a `200` status code
 - Trying to delete a non-existent book returns a `404` status code
@@ -267,9 +259,8 @@ This test fails because:
 - The `delete_article` function in `app/database.py` does not return any status.
 - The `delete_book` route does not:
 
-  - Check if the book exists before deletion.
-  - Handle the case of a non-existent book, so it would return a `200` status code
-    even for non-existent books.
+ - Check if the book exists before deletion.
+ - Handle the case of a non-existent book, so it would return a `200` status code even for non-existent books.
 
 ### `test_update_book` - partial failure
 
@@ -282,8 +273,7 @@ The non-existent book part might pass, but there are issues:
 
 ### `test_add_book` - potential failure
 
-This test adds a new book and checks if the response has status code 201. This
-test might fail because:
+This test adds a new book and checks if the response has status code 201. This test might fail because:
 
 - No input validation in the `add_book` route.
 - No error handling if data is missing or invalid.
@@ -311,8 +301,7 @@ You must address these issues to make the application robust and testable.
 
 ### Next steps after identifying failing tests
 
-After seeing which tests fail, you'll use Chat and Code Suggestions to systematically
-address these issues by:
+After seeing which tests fail, you'll use Chat and Code Suggestions to systematically address these issues by:
 
 - Improving database error handling and connection management.
 - Implementing data validation in the Article class.
@@ -322,13 +311,11 @@ address these issues by:
 
 ## Improve database error handling and connection management
 
-Now, you will use Code Suggestions (specifically code generation) to improve the
-database error handling and connection management:
+Now, you will use Code Suggestions (specifically code generation) to improve the database error handling and connection management:
 
 1. Open the `app/database.py` file in your IDE.
 
-1. First, fix the hard coded database path. Position your cursor at the line
-   where `DATABASE_PATH` is defined, and enter the following:
+1. First, fix the hard coded database path. Position your cursor at the line where `DATABASE_PATH` is defined, and enter the following:
 
    ```python
    # Replace the hard coded database path with an environment variable for database path with a fallback
@@ -347,15 +334,13 @@ database error handling and connection management:
    DATABASE_PATH = os.getenv('DATABASE_PATH', 'bookstore.db')
    ```
 
-1. Next, improve the `get_db_connection()` function with error handling. Position
-   your cursor at the end of the function and enter the following:
+1. Next, improve the `get_db_connection()` function with error handling. Position your cursor at the end of the function and enter the following:
 
    ```plaintext
    # Add in missing error handling and connection management.
    ```
 
-1. Review the generated code and adjust as needed. It should be similar to the
-   following:
+1. Review the generated code and adjust as needed. It should be similar to the following:
 
    ```python
    def get_db_connection():
@@ -378,16 +363,14 @@ database error handling and connection management:
         raise
    ```
 
-1. Improve the `delete_article` function to check if a record was actually
-   deleted and return a status:
+1. Improve the `delete_article` function to check if a record was actually deleted and return a status:
 
    ```plaintext
    # Modify the `delete_article` to return a boolean indicating success if article
    # was deleted, or failure if article was not found
    ```
 
-1. Review the generated code and adjust as needed. It should be similar to the
-   following:
+1. Review the generated code and adjust as needed. It should be similar to the following:
 
    ```python
    def delete_article(article_id):
@@ -422,8 +405,7 @@ database error handling and connection management:
    # was deleted, or failure if article was not found
    ```
 
-1. Review the generated code and adjust as needed. It should be similar to the
-   following:
+1. Review the generated code and adjust as needed. It should be similar to the following:
 
    ```python
    def update_article(article):
@@ -454,9 +436,7 @@ database error handling and connection management:
         return False
    ```
 
-Well done, you've used Code Suggestions to improve database error handling and
-connection management. Next, you'll use Chat to implement data validation for the
-`Article` class.
+Well done, you've used Code Suggestions to improve database error handling and connection management. Next, you'll use Chat to implement data validation for the `Article` class.
 
 ## Implement data validation
 
@@ -588,8 +568,7 @@ Now, you will use Chat to help implement validation rules for the `Article` clas
         )
    ```
 
-1. Optional. For more specialized validation, ask Chat about additional Python
-   data validation techniques beyond basic type checking.
+1. Optional. For more specialized validation, ask Chat about additional Python data validation techniques beyond basic type checking.
 
    If needed, use the `/explain` Slash command to understand any additional techniques.
 
@@ -603,15 +582,13 @@ Now, you'll use Code Suggestions to improve error handling in the routes:
 
 1. Open the `app/routes/shop.py` file in your IDE.
 
-1. First, let's add better error handling to the GET routes. Position your cursor
-   at the beginning of the `get_all_books` function, and enter the following:
+1. First, let's add better error handling to the GET routes. Position your cursor at the beginning of the `get_all_books` function, and enter the following:
 
    ```plaintext
    # Implement error handling in the get_all_books function
    ```
 
-1. Review the generated code and adjust as necessary. It should look similar to
-   the following:
+1. Review the generated code and adjust as necessary. It should look similar to the following:
 
    ```python
    @shop_bp.route('', methods=['GET'])
@@ -626,9 +603,7 @@ Now, you'll use Code Suggestions to improve error handling in the routes:
         return jsonify({"error": "Failed to retrieve books", "details": str(e)}), 500
    ```
 
-1. Next, use Code Suggestions to update the `add_book` function with proper
-   validation and error handling. At the start of the `add_book` function, enter
-   the following:
+1. Next, use Code Suggestions to update the `add_book` function with proper validation and error handling. At the start of the `add_book` function, enter the following:
 
    ```plaintext
    # Add validation for input data in the `add_book` route, implement proper
@@ -636,8 +611,7 @@ Now, you'll use Code Suggestions to improve error handling in the routes:
    # price, and quantity
    ```
 
-1. Review the generated code and adjust as necessary. It should look similar to
-   the following:
+1. Review the generated code and adjust as necessary. It should look similar to the following:
 
    ```python
    @shop_bp.route('', methods=['POST'])
@@ -680,16 +654,14 @@ Now, you'll use Code Suggestions to improve error handling in the routes:
         return jsonify({"error": "Internal server error", "details": str(e)}), 500
    ```
 
-1. Update the `delete_book` function to check if the book exists and handle errors
-   properly. At the start of the `delete_book` function, enter the following:
+1. Update the `delete_book` function to check if the book exists and handle errors properly. At the start of the `delete_book` function, enter the following:
 
    ```plaintext
    # Update the `delete_book` route to check if the book exists before deletion,
    # and return a 404 status code if the book does not exist
    ```
 
-1. Check the generated code as adjust as necessary. It should look similar to
-   the following:
+1. Check the generated code as adjust as necessary. It should look similar to the following:
 
    ```python
    @shop_bp.route('/<int:book_id>', methods=['DELETE'])
@@ -714,8 +686,7 @@ Now, you'll use Code Suggestions to improve error handling in the routes:
         return jsonify({"error": "Internal server error", "details": str(e)}), 500
    ```
 
-1. Finally, use Code Suggestions to improve the error handling for the `update_book`
-   function. At the start of the `update_book` function, enter the following:
+1. Finally, use Code Suggestions to improve the error handling for the `update_book` function. At the start of the `update_book` function, enter the following:
 
    ```plaintext
    # Update the `update_book` route to check if the book exists before updating,
@@ -723,8 +694,7 @@ Now, you'll use Code Suggestions to improve error handling in the routes:
    # and return a 500 status code if the book does not exist
    ```
 
-1. Check the generated code and adjust as necessary. It should look similar to
-   the following:
+1. Check the generated code and adjust as necessary. It should look similar to the following:
 
    ```python
    @shop_bp.route('/<int:book_id>', methods=['PUT'])
@@ -779,8 +749,7 @@ Next, you will use Chat to improve the Flask application configuration.
 
 ## Improve Flask application configuration
 
-The final improvement you're going to make is to use Chat to improve the Flask
-application configuration.
+The final improvement you're going to make is to use Chat to improve the Flask application configuration.
 
 1. Open the `app/__init__.py` file in your IDE.
 
@@ -816,8 +785,7 @@ application configuration.
      What other Flask configurationsettings should I be aware of for a secure deployment?
      ```
 
-1. Based on the response, improve the `create_app` function. Depending on the follow-up
-   questions you asked, the function should look similar to the following:
+1. Based on the response, improve the `create_app` function. Depending on the follow-up questions you asked, the function should look similar to the following:
 
    ```python
    from flask import Flask
@@ -837,7 +805,7 @@ application configuration.
 
     # Set default configuration
     app.config.from_mapping(
-        SECRET_KEY='dev',  # Hard coded secret key
+        SECRET_KEY='dev', # Hard coded secret key
     )
 
     # Missing configuration from environment variables
@@ -861,24 +829,21 @@ application configuration.
     return app
    ```
 
-1. Next, you'll update `create_app` to properly handle test configuration by using
-   environment variables for the database path instead of hardcoding it. Enter the
-   following into Chat.
+1. Next, you'll update `create_app` to properly handle test configuration by using environment variables for the database path instead of hardcoding it. Enter the following into Chat.
 
    ```plaintext
    How can I update create_app to properly handle test configuration and use
    environment variables
    ```
 
-1. Review the generated code and adjust as necessary. It should look similar to
-   the following:
+1. Review the generated code and adjust as necessary. It should look similar to the following:
 
    ```python
    import os
    from flask import Flask
    from dotenv import load_dotenv
 
-   load_dotenv()  # Load environment variables from .env file
+   load_dotenv() # Load environment variables from .env file
 
    def create_app(test_config=None):
     """
@@ -951,8 +916,7 @@ application configuration.
    DATABASE_PATH=bookstore.db
    ```
 
-1. Optional. Ask Chat for security best practices regarding environment variables
-   to further improve the configuration handling:
+1. Optional. Ask Chat for security best practices regarding environment variables to further improve the configuration handling:
 
    ```plaintext
    /security What are the best practices for handling environment variables and
@@ -963,8 +927,7 @@ application configuration.
 
 ## Run tests again and verify the application works
 
-Now that you've fixed the issues and implemented improvements, let's verify that
-everything works correctly:
+Now that you've fixed the issues and implemented improvements, let's verify that everything works correctly:
 
 1. Run the tests again to make sure all tests pass:
 
@@ -978,9 +941,7 @@ everything works correctly:
    flask run
    ```
 
-1. Test the API endpoints with both valid and invalid inputs. To do this,
-   use an API development tool like [Postman](https://www.postman.com/) or
-   [curl](https://curl.se/) on the following endpoints.
+1. Test the API endpoints with both valid and invalid inputs. To do this, use an API development tool like [Postman](https://www.postman.com/) or [curl](https://curl.se/) on the following endpoints.
 
    - `GET /books` with a valid request.
    - `GET /books/1` with a valid ID.
@@ -1014,12 +975,12 @@ These improvements have made the application more reliable, secure, and maintain
 - Blog post: [Streamline DevSecOps engineering workflows with GitLab Duo](https://about.gitlab.com/blog/2024/12/05/streamline-devsecops-engineering-workflows-with-gitlab-duo/)
 <!-- markdownlint-disable -->
 - <i class="fa-youtube-play" aria-hidden="true"></i>
-  [GitLab Duo Chat (Agentic)](https://youtu.be/uG9-QLAJrrg?si=c25SR7DoRAep7jvQ)
-  <!-- Video published on 2025-06-02 -->
+ [GitLab Duo Chat (Agentic)](https://youtu.be/uG9-QLAJrrg?si=c25SR7DoRAep7jvQ)
+ <!-- Video published on 2025-06-02 -->
 - <i class="fa-youtube-play" aria-hidden="true"></i>
-  [GitLab Duo Chat (Classic)](https://youtu.be/ZQBAuf-CTAY?si=0o9-xJ_ATTsL1oew)
-  <!-- Video published on 2024-04-18 -->
+ [GitLab Duo Chat (Classic)](https://youtu.be/ZQBAuf-CTAY?si=0o9-xJ_ATTsL1oew)
+ <!-- Video published on 2024-04-18 -->
 - <i class="fa-youtube-play" aria-hidden="true"></i>
-  [GitLab Duo Code Suggestions](https://youtu.be/ds7SG1wgcVM?si=MfbzPIDpikGhoPh7)
+ [GitLab Duo Code Suggestions](https://youtu.be/ds7SG1wgcVM?si=MfbzPIDpikGhoPh7)
 <!-- Video published on 2024-01-24 -->
 <!-- markdownlint-enable -->

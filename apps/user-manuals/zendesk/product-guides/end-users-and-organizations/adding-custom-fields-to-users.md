@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408822051866-Adding-custo
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -66,8 +66,8 @@ Administrators and [agents in custom roles with permission](https://support.zend
    - **Related object** and **Set a filter** (lookup relationship fields only)
 
      Select the type of object to relate, and optionally define filters that restrict possible values for the field. See [Adding lookup relationship fields](https://support.zendesk.com/hc/en-us/articles/4591924111770#topic_kmz_wl3_ttb).
-8. (Enterprise plans only) Select an option for **Select how field permissions are assigned to role**:   
-   Select **All roles can view this field** to make the field visible to agents in all custom roles.  
+8. (Enterprise plans only) Select an option for **Select how field permissions are assigned to role**:  
+   Select **All roles can view this field** to make the field visible to agents in all custom roles. 
    Select **Manually assign permissions for existing roles** to make the field visible to agents in select custom roles. Then, select the **View** check box for each role to give agents in that role view permissions.
 9. Click **Save** or, to create another custom field, click the drop-down icon and select **Save and add another**.
 

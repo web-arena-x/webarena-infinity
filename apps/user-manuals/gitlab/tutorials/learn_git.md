@@ -6,8 +6,7 @@ description: Git basics.
 title: 'Tutorials: Learn Git'
 ---
 
-GitLab is a Git-based platform, so understanding Git is important to get
-the most out of GitLab.
+GitLab is a Git-based platform, so understanding Git is important to get the most out of GitLab.
 
 | Topic | Description | Good for beginners |
 |-------|-------------|--------------------|

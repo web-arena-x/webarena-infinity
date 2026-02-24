@@ -49,11 +49,11 @@ Only OAuth tokens are supported.
 ```ruby
 # Rails console
 app = Authn::OauthApplication.new(
-  name: "Composite Identity App",
-  redirect_uri: Gitlab::Routing.url_helpers.root_url, # unused but cannot be nil
-  scopes: ::Gitlab::Auth::AI_WORKFLOW_SCOPES + [::Gitlab::Auth::DYNAMIC_USER],
-  trusted: false,
-  confidential: false # public client (no secret required)
+ name: "Composite Identity App",
+ redirect_uri: Gitlab::Routing.url_helpers.root_url, # unused but cannot be nil
+ scopes: ::Gitlab::Auth::AI_WORKFLOW_SCOPES + [::Gitlab::Auth::DYNAMIC_USER],
+ trusted: false,
+ confidential: false # public client (no secret required)
 )
 app.save!
 ```
@@ -66,8 +66,8 @@ org = Organizations::Organization.default_organization
 user = User.first
 
 oauth_token_service = Ai::DuoWorkflows::CreateCompositeOauthAccessTokenService.new(
-  current_user: user,
-  organization: org,
+ current_user: user,
+ organization: org,
 ).execute
 oauth_token_service.payload[:oauth_access_token].plaintext_token
 ```
@@ -106,7 +106,7 @@ Reference: MR [!204010](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/20
 ```shell
 # Expect 200 only if BOTH the human and service account can read the project
 curl --silent --show-error --fail --header "Authorization: Bearer <COMPOSITE_TOKEN>" \
-  "https://gitlab.example.com/api/v4/projects/<NAMESPACE>%2F<PROJECT>"
+ "https://gitlab.example.com/api/v4/projects/<NAMESPACE>%2F<PROJECT>"
 ```
 
 Common outcomes:

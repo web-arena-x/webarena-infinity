@@ -20,7 +20,7 @@ cursor = params[:cursor] # this is nil when the first page is requested
 paginator = Project.order(:created_at).keyset_paginate(cursor: cursor, per_page: 20)
 
 paginator.each do |project|
-  puts project.name # prints maximum 20 projects
+ puts project.name # prints maximum 20 projects
 end
 ```
 
@@ -35,8 +35,7 @@ Keyset pagination works without any configuration for simple ActiveRecord querie
 - Order by one column.
 - Order by two columns, where the last column is the primary key.
 
-The library detects nullable and non-distinct columns and based on these, adds extra ordering
-using the primary key. This is necessary because keyset pagination expects distinct order by values:
+The library detects nullable and non-distinct columns and based on these, adds extra ordering using the primary key. This is necessary because keyset pagination expects distinct order by values:
 
 ```ruby
 Project.order(:created_at).keyset_paginate.records # ORDER BY created_at, id
@@ -45,7 +44,7 @@ Project.order(:name).keyset_paginate.records # ORDER BY name, id
 
 Project.order(:created_at, id: :desc).keyset_paginate.records # ORDER BY created_at, id
 
-Project.order(created_at: :asc, id: :desc).keyset_paginate.records # ORDER BY created_at, id  DESC
+Project.order(created_at: :asc, id: :desc).keyset_paginate.records # ORDER BY created_at, id DESC
 ```
 
 The `keyset_paginate` method returns [a special paginator object](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/pagination/keyset/paginator.rb) which contains the loaded records and additional information for requesting various pages.
@@ -91,7 +90,7 @@ Because keyset pagination does not support page numbers, we are restricted to go
 For the REST API, the `paginate_with_strategies` helper can be used on a relation in order to use either keyset pagination or offset pagination.
 
 ```ruby
-  desc 'Get the things related to a project' do
+ desc 'Get the things related to a project' do
     detail 'This feature was introduced in GitLab 16.1'
     success code: 200, model: ::API::Entities::Thing
     failure [
@@ -99,17 +98,17 @@ For the REST API, the `paginate_with_strategies` helper can be used on a relatio
       { code: 403, message: 'Forbidden' },
       { code: 404, message: 'Not Found' }
     ]
-  end
-  params do
+ end
+ params do
     use :pagination
     requires :project_id, type: Integer, desc: 'The ID of the project'
     optional :cursor, type: String, desc: 'Cursor for obtaining the next set of records'
     optional :order_by, type: String, values: %w[id name], default: 'id',
       desc: 'Attribute to sort by'
     optional :sort, type: String, values: %w[asc desc], default: 'desc', desc: 'Order of sorting'
-  end
-  route_setting :authentication
-  get ':project_id/things' do
+ end
+ route_setting :authentication
+ get ':project_id/things' do
     project = Project.find_by_id(params[:project_id])
 
     not_found! if project.blank?
@@ -117,15 +116,13 @@ For the REST API, the `paginate_with_strategies` helper can be used on a relatio
     things = project.things
 
     present paginate_with_strategies(things), with: ::API::Entities::Thing
-  end
+ end
 ```
 
 In order for keyset pagination to be used, the following conditions must be met:
 
 1. `params[:pagination]` must return `'keyset'`
-1. `params[:order_by]` and `params[:sort]` must both appear in the object returned by the
-   `supported_keyset_orderings` class method on the model. In the following example, `Thing`
-   supports keyset pagination when ordering by ID in either ascending or descending order.
+1. `params[:order_by]` and `params[:sort]` must both appear in the object returned by the `supported_keyset_orderings` class method on the model. In the following example, `Thing` supports keyset pagination when ordering by ID in either ascending or descending order.
 
    ```ruby
    class Thing < ApplicationRecord
@@ -141,7 +138,7 @@ Consider the following controller action, where we list the projects ordered by 
 
 ```ruby
 def index
-  @projects = Project.order(:name).keyset_paginate(cursor: params[:cursor])
+ @projects = Project.order(:name).keyset_paginate(cursor: params[:cursor])
 end
 ```
 
@@ -149,19 +146,18 @@ In the HAML file, we can render the records:
 
 ```ruby
 - if @projects.any?
-  - @projects.each do |project|
+ - @projects.each do |project|
     .project-container
       = project.name
 
-  = keyset_paginate @projects
+ = keyset_paginate @projects
 ```
 
 ## Performance
 
 The performance of the keyset pagination depends on the database index configuration and the number of columns we use in the `ORDER BY` clause.
 
-In case we order by the primary key (`id`), then the generated queries are efficient because
-the primary key is covered by a database index.
+In case we order by the primary key (`id`), then the generated queries are efficient because the primary key is covered by a database index.
 
 When two or more columns are used in the `ORDER BY` clause, it's advised to check the generated database query and make sure that the correct index configuration is used. More information can be found on the [pagination guideline page](pagination_guidelines.md#index-coverage).
 
@@ -202,9 +198,7 @@ puts paginator2.records.to_a # UNION query
 
 ## Complex order configuration
 
-Common `ORDER BY` configurations are handled by the `keyset_paginate` method automatically
-so no manual configuration is needed. There are a few edge cases where order object
-configuration is necessary:
+Common `ORDER BY` configurations are handled by the `keyset_paginate` method automatically so no manual configuration is needed. There are a few edge cases where order object configuration is necessary:
 
 - `NULLS LAST` ordering.
 - Function-based ordering.
@@ -225,8 +219,7 @@ scope.keyset_paginate # raises: Gitlab::Pagination::Keyset::UnsupportedScopeOrde
 
 The `keyset_paginate` method raises an error because the order value on the query is a custom SQL string and not an [`Arel`](https://www.rubydoc.info/gems/arel) AST node. The keyset library cannot automatically infer configuration values from these kinds of queries.
 
-To make keyset pagination work, we must configure custom order objects, to do so, we must
-collect information about the order columns:
+To make keyset pagination work, we must configure custom order objects, to do so, we must collect information about the order columns:
 
 - `relative_position` can have duplicated values because no unique index is present.
 - `relative_position` can have null values because we don't have a not null constraint on the column. For this, we must determine where we see `NULL` values, at the beginning of the result set, or the end (`NULLS LAST`).
@@ -237,20 +230,20 @@ Example:
 
 ```ruby
 order = Gitlab::Pagination::Keyset::Order.build([
-  # The attributes are documented in the `lib/gitlab/pagination/keyset/column_order_definition.rb` file
-  Gitlab::Pagination::Keyset::ColumnOrderDefinition.new(
+ # The attributes are documented in the `lib/gitlab/pagination/keyset/column_order_definition.rb` file
+ Gitlab::Pagination::Keyset::ColumnOrderDefinition.new(
     attribute_name: 'relative_position',
     column_expression: Issue.arel_table[:relative_position],
     order_expression: Issue.arel_table[:relative_position].desc.nulls_last,
     reversed_order_expression: Issue.arel_table[:relative_position].asc.nulls_first,
     nullable: :nulls_last,
     order_direction: :desc
-  ),
-  Gitlab::Pagination::Keyset::ColumnOrderDefinition.new(
+ ),
+ Gitlab::Pagination::Keyset::ColumnOrderDefinition.new(
     attribute_name: 'id',
     order_expression: Issue.arel_table[:id].asc,
     nullable: :not_nullable
-  )
+ )
 ])
 
 scope = Issue.where(project_id: 10).order(order) # or reorder()
@@ -260,18 +253,17 @@ scope.keyset_paginate.records # works
 
 ### Function-based ordering
 
-In the following example, we multiply the `id` by 10 and order by that value. Because the `id`
-column is unique, we define only one column:
+In the following example, we multiply the `id` by 10 and order by that value. Because the `id` column is unique, we define only one column:
 
 ```ruby
 order = Gitlab::Pagination::Keyset::Order.build([
-  Gitlab::Pagination::Keyset::ColumnOrderDefinition.new(
+ Gitlab::Pagination::Keyset::ColumnOrderDefinition.new(
     attribute_name: 'id_times_ten',
     order_expression: Arel.sql('id * 10').asc,
     nullable: :not_nullable,
     order_direction: :asc,
     add_to_projections: true
-  )
+ )
 ])
 
 paginator = Issue.where(project_id: 10).order(order).keyset_paginate(per_page: 5)
@@ -292,11 +284,11 @@ Ordering by one column is enough to make the pagination work if the `project_id`
 
 ```ruby
 order = Gitlab::Pagination::Keyset::Order.build([
-  Gitlab::Pagination::Keyset::ColumnOrderDefinition.new(
+ Gitlab::Pagination::Keyset::ColumnOrderDefinition.new(
     attribute_name: 'iid',
     order_expression: Issue.arel_table[:iid].asc,
     nullable: :not_nullable
-  )
+ )
 ])
 
 scope = Issue.where(project_id: 10).order(order)

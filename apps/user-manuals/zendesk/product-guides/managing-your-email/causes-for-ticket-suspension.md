@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408828416282-Causes-for-t
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -18,9 +18,7 @@ Verified AI summary ◀▼
 
 Learn about the causes for ticket suspension and how to address them. Common reasons include email loops, spam detection, and authentication failures. Solutions involve adjusting email settings, verifying users, and managing blocklists. Understanding these causes helps you maintain smooth ticket processing and ensures customer inquiries are handled promptly. For further assistance, contact customer support.
 
-The [Suspended Tickets view](https://support.zendesk.com/hc/en-us/articles/4408893392922) displays messages describing the cause of
-suspension for each suspended email. The following table lists the possible descriptions in
-the view and what each one means.
+The [Suspended Tickets view](https://support.zendesk.com/hc/en-us/articles/4408893392922) displays messages describing the cause of suspension for each suspended email. The following table lists the possible descriptions in the view and what each one means.
 
 | Cause of suspension | Description | Solution |
 | --- | --- | --- |

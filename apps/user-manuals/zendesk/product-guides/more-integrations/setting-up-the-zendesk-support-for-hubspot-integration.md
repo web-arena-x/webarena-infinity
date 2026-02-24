@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408884090650-Setting-up-t
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -54,7 +54,7 @@ The following ticket information that can be displayed include:
 6. Go to your HubSpot account and click **Contacts**.
 7. Click any contact, then select the **Activities** tab.
 8. Click **Filter activity**.
-9. Select the Integrations > Zendesk checkbox.  
+9. Select the Integrations > Zendesk checkbox. 
 
    ![Screenshot_1_-_Example_of_filtering_for_Zendesk_activities.jpg](https://support.zendesk.com/hc/article_attachments/7856558174106)
 

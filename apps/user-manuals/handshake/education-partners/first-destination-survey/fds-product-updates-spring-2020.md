@@ -66,17 +66,17 @@ The fields to be filled out are: 
 - Degree Type
 - Students personal (non-.edu) email
 - Activity after graduation
-  - Working
-  - Volunteering
-  - Continuing Education
-  - Military
-  - Still Looking
-  - Not Seeking
+ - Working
+ - Volunteering
+ - Continuing Education
+ - Military
+ - Still Looking
+ - Not Seeking
 - Knowledge Source
 - Response Answer or Knowledge Answer
 - Status 
-  - In-Progress
-  - Submitted
+ - In-Progress
+ - Submitted
 
 ![knowledge_response.png](https://support.joinhandshake.com/hc/article_attachments/26001283305623)
 

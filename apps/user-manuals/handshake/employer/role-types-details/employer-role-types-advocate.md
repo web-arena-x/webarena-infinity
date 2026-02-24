@@ -27,70 +27,70 @@ Advocate access consists of default, configurable, and non-configurable permissi
 The following permissions are enabled by default when an Advocate seat is assigned. All permissions can be adjusted by the company Owner or Admin:
 
 - **Jobs**
-  - View jobs (Limited)
+ - View jobs (Limited)
     - *Advocates are only able to view job details for postings that have been shared with them*.
 - **Events**
-  - Attend events
-  - Manage event attendees
+ - Attend events
+ - Manage event attendees
 - **Career fairs**
-  - Attend fairs
-  - Manage fair attendees
+ - Attend fairs
+ - Manage fair attendees
 - **1:1 Schedules (Limited)**
-  - Attend 1:1 schedules (Limited)
-  - Manage 1:1 schedule attendees (Limited)
+ - Attend 1:1 schedules (Limited)
+ - Manage 1:1 schedule attendees (Limited)
 - **Schools & Contacts**
-  - View schools
+ - View schools
 - **Candidate sourcing (1:1, Limited)**
-  - Talent list (basic)
+ - Talent list (basic)
 
 **Advanced permissions enabled by default**
 
 - **Candidate sourcing (Advanced)**
-  - View candidate engagement
-  - Talent list (Advanced)
-  - Tagged in message intros or campaigns
+ - View candidate engagement
+ - Talent list (Advanced)
+ - Tagged in message intros or campaigns
 - **Schools & Contacts**
-  - Manage your school lists
+ - Manage your school lists
 
 **Configurable permissions**
 
 The following permissions are optional and can be enabled or disabled by the company Owner or Admin:
 
 - **Jobs**
-  - View jobs
-  - Manage jobs
-  - Manage job applicants
+ - View jobs
+ - Manage jobs
+ - Manage job applicants
 - **On-campus interviews**
-  - View on-campus interviews
-  - Manage on-campus interviews
-  - View on-campus interview applicants
+ - View on-campus interviews
+ - Manage on-campus interviews
+ - View on-campus interview applicants
 - **Events**
-  - Manage events
+ - Manage events
 - **Career Fairs**
-  - Manage fairs
+ - Manage fairs
 - **1:1 schedules (Limited)**
-  - Manage 1:1 schedules (Limited)
+ - Manage 1:1 schedules (Limited)
 - **Schools & Contacts**
-  - Manage schools
-  - Manage contact list
+ - Manage schools
+ - Manage contact list
 - **Reporting & Analytics**
-  - Analytics (Standard)
-  - Insights (Standard)
+ - Analytics (Standard)
+ - Insights (Standard)
 
 **Non configurable permissions**
 
 These permissions are not available to Advocates and cannot be changed:
 
 - **Administration**
-  - Manage team
-  - Manage employer settings
-  - Edit employer brand page
+ - Manage team
+ - Manage employer settings
+ - Edit employer brand page
 - **Candidate sourcing (Advanced)**
-  - Candidate sourcing bulk messaging
-  - Message introductions
-  - Manage campaigns
+ - Candidate sourcing bulk messaging
+ - Message introductions
+ - Manage campaigns
 - **Schools & Contacts**
-  - Manage teammates' school lists
+ - Manage teammates' school lists
 
 **Permissions with Event Manager**
 
@@ -102,29 +102,29 @@ All permissions can be adjusted by the company Owner or Admin:
 
 - **Event Manager**
 
-  - Launch check in kiosks
-  - Attend 1:1 schedules (advanced)
-  - Use the Mobile Events app
+ - Launch check in kiosks
+ - Attend 1:1 schedules (advanced)
+ - Use the Mobile Events app
 
 **Configurable permissions**
 
 - **Event Manager**
 
-  - Manage 1:1 schedules (advanced)
+ - Manage 1:1 schedules (advanced)
 
 **Permissions with School Explorer**
 
 The following permission is enabled by default when School Explorer is added and can be adjusted by the company Owner or Admin:
 
 - **School Explorer**
-  - School explorer
+ - School explorer
 
 **Permissions with Insights**
 
 The following permission is enabled by default when Insights is added and can be adjusted by the company Owner or Admin.
 
 - **Reporting & Analytics**
-  - Insights (Advanced)
+ - Insights (Advanced)
 
 ### 
 

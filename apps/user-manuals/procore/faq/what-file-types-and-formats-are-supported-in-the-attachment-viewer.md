@@ -31,13 +31,13 @@ Procore's Unified Attachment Viewer is supported by the following tools:
 - DOCX
 - PDF
 
-  ##### Important
+ ##### Important
 
-  We recommend the following best practices for PDFs uploaded to Procore:
+ We recommend the following best practices for PDFs uploaded to Procore:
 
-  - Markups added outside of Procore should flattened before they are uploaded to Procore. Flattening a PDF helps to ensure full visibility of the markups when the attachment is viewed in Procore.
-  - PDF files containing digital signatures may not display signatures properly in Procore. It is recommended that PDFs containing digital signatures be flattened before uploading to Procore.
-  - Text in PDFs should be added with universally supported fonts (such as Arial, Helvetica, or Verdana). Fonts that are custom or unique to other software applications can lead to display or viewing issues in Procore.
+ - Markups added outside of Procore should flattened before they are uploaded to Procore. Flattening a PDF helps to ensure full visibility of the markups when the attachment is viewed in Procore.
+ - PDF files containing digital signatures may not display signatures properly in Procore. It is recommended that PDFs containing digital signatures be flattened before uploading to Procore.
+ - Text in PDFs should be added with universally supported fonts (such as Arial, Helvetica, or Verdana). Fonts that are custom or unique to other software applications can lead to display or viewing issues in Procore.
     - When looking at the 'Font' tab on a document's Properties, we recommend these settings:
       - Type should be TrueType.
       - Fonts should be embedded.
@@ -56,14 +56,14 @@ Depending on what web browser you are using, some images types may not be viewab
 | --- | --- | --- | --- | --- | --- |
 | Format | Extensions | Google Chrome | Mozilla Firefox | Safari | Internet Explorer 11 |
 | Bitmap | .bmp | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| GIF | .gif | icon-mindtouch-table-check.png  (including animation) | icon-mindtouch-table-check.png  (including animation) | icon-mindtouch-table-check.png  (including animation) | icon-mindtouch-table-check.png  (including animation) |
+| GIF | .gif | icon-mindtouch-table-check.png (including animation) | icon-mindtouch-table-check.png (including animation) | icon-mindtouch-table-check.png (including animation) | icon-mindtouch-table-check.png (including animation) |
 | ICO | .ico | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-delete-x.png |
 | JPEG | .jpe, .jpeg, .jpg | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
 | JPEG FIF | .jfif | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-delete-x.png |
 | PNG | .png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| SVG | .svg | icon-mindtouch-table-check.png  (including animation) | icon-mindtouch-table-check.png  (including animation) | icon-mindtouch-table-check.png  (including animation) | icon-mindtouch-table-check.png  (no animation; single still frame) |
+| SVG | .svg | icon-mindtouch-table-check.png (including animation) | icon-mindtouch-table-check.png (including animation) | icon-mindtouch-table-check.png (including animation) | icon-mindtouch-table-check.png (no animation; single still frame) |
 | TIFF | .tif, .tiff | icon-delete-x.png | icon-delete-x.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| WebP | .webp | icon-mindtouch-table-check.png  (including animation) | icon-mindtouch-table-check.png  (including animation) | icon-mindtouch-table-check.png  (including animation) | icon-delete-x.png |
+| WebP | .webp | icon-mindtouch-table-check.png (including animation) | icon-mindtouch-table-check.png (including animation) | icon-mindtouch-table-check.png (including animation) | icon-delete-x.png |
 
 ### Video Files
 

@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408842911898-Using-help-c
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Guide Professional or Enterprise |
 
@@ -83,7 +83,7 @@ Themes come in three license types: trial, standard, and developer. Regardless o
 - **Standard license:** Provides a pre-built theme that you can enable directly in your help center. Standard licenses don't provide access to the source code and only allow preconfigured settings.
 - **Developer license:** Provides a pre-built theme with access to the theme code, meaning you can customize the theme to your needs. Once you customize a theme it becomes a custom theme and you can no longer download updates to it. However, if you make changes to a copy of the theme, the original version can still receive updates. You can upgrade a standard license to a developer license on the theme settings page.
 
-  Tip: If you buy a developer theme and then downgrade to Suite Team you'll no longer be able to modify the theme's code.
+ Tip: If you buy a developer theme and then downgrade to Suite Team you'll no longer be able to modify the theme's code.
 
 ## Buying a trial theme
 

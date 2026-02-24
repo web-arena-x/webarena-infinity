@@ -6,16 +6,10 @@ title: Dependency scanning compared to container scanning
 description: Dependency scanning compared to container scanning.
 ---
 
-GitLab offers both [dependency scanning](dependency_scanning/_index.md) and
-[container scanning](container_scanning/_index.md) to ensure coverage for all of these
-dependency types. To cover as much of your risk area as possible, you should use all available
-security scanning tools:
+GitLab offers both [dependency scanning](dependency_scanning/_index.md) and [container scanning](container_scanning/_index.md) to ensure coverage for all of these dependency types. To cover as much of your risk area as possible, you should use all available security scanning tools:
 
-- Dependency scanning analyzes your project and tells you which software dependencies,
-  including upstream dependencies, have been included in your project, and what known
-  risks the dependencies contain.
-- Container scanning analyzes your containers and tells you about known risks in the operating
-  system's (OS) packages.
+- Dependency scanning analyzes your project and tells you which software dependencies, including upstream dependencies, have been included in your project, and what known risks the dependencies contain.
+- Container scanning analyzes your containers and tells you about known risks in the operating system's (OS) packages.
 
 The following table summarizes which types of dependencies each scanning tool can detect:
 

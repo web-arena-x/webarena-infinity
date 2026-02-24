@@ -19,14 +19,14 @@ Topics: 
 ### Check-in Kiosk prerequisites
 
 - **Account**: a Career Services user account in Handshake with the following roles/permissions:
-  - *Data Restrictions*: *Show Check-in Kiosk Launch* — this must be checked in order to have the option to launch a kiosk in any location. All Career Services users have *Access* to Events and Fairs, so with this additional permission, they will be able to launch a general kiosk via Events, as well as an in-person event or fair-specific kiosk.
-  - *Appointments: Access (minimum) —* to access Kiosks from the Appointments tab.
+ - *Data Restrictions*: *Show Check-in Kiosk Launch* — this must be checked in order to have the option to launch a kiosk in any location. All Career Services users have *Access* to Events and Fairs, so with this additional permission, they will be able to launch a general kiosk via Events, as well as an in-person event or fair-specific kiosk.
+ - *Appointments: Access (minimum) —* to access Kiosks from the Appointments tab.
     - **Note**: this launches the same general kiosk as the option from Events, so there is no need to grant Appointments-based roles unless they use Appointments.
 - **Hardware**: for more information regarding the hardware needed, refer to [Check-in Kiosk Hardware Recommendations](https://support.joinhandshake.com/hc/en-us/articles/115015790188-Check-In-Kiosk-Hardware-Recommendations).
-  - **Note**: there are different requirements to use name tag printing via the Kiosk. For more information on the requirements, refer to [Name Tag Printing System Requirements](name-tag-printing-system-requirements.md).
+ - **Note**: there are different requirements to use name tag printing via the Kiosk. For more information on the requirements, refer to [Name Tag Printing System Requirements](name-tag-printing-system-requirements.md).
 - **Software**: there is no additional software necessary — only access to Handshake via a web browser. For more details, check out [Handshake Supported Browsers (for Career Services)](https://support.joinhandshake.com/hc/en-us/articles/360048839513).
 - **Internet:** this is required to set up and launch the Kiosk but *is not* required to collect check-ins during the event.
-  - **Note**: if the check-in kiosk detects an unstable internet connection, it will automatically switch to offline mode and show a message at the top of the screen. During this mode, any check-ins made during the event or fair will be saved and uploaded once a stable internet connection is available again.
+ - **Note**: if the check-in kiosk detects an unstable internet connection, it will automatically switch to offline mode and show a message at the top of the screen. During this mode, any check-ins made during the event or fair will be saved and uploaded once a stable internet connection is available again.
 
 ### Launching the Check-in Kiosk
 

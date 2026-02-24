@@ -14,13 +14,11 @@ GraphQL (Vue Apollo) constitutes the core of work items widgets' stack.
 
 ### Retrieve widget information for work items
 
-To display a work item page, the frontend must know which widgets are available
-on the work item it is attempting to display. To do so, it needs to fetch the
-list of widgets, using a query like this:
+To display a work item page, the frontend must know which widgets are available on the work item it is attempting to display. To do so, it needs to fetch the list of widgets, using a query like this:
 
 ```plaintext
 query workItem($workItemId: WorkItemID!) {
-  workItem(id: $workItemId) {
+ workItem(id: $workItemId) {
     id
     widgets {
       ... on WorkItemWidgetAssignees {
@@ -32,23 +30,21 @@ query workItem($workItemId: WorkItemID!) {
         }
       }
     }
-  }
+ }
 }
 ```
 
 ### GraphQL queries and mutations
 
-GraphQL queries and mutations are work item agnostic. Work item queries and mutations
-should happen at the widget level, so widgets are standalone reusable components.
+GraphQL queries and mutations are work item agnostic. Work item queries and mutations should happen at the widget level, so widgets are standalone reusable components.
 The work item query and mutation should support any work item type and be dynamic.
 They should allow you to query and mutate any work item attribute by specifying a widget identifier.
 
-In this query example, the description widget uses the query and mutation to
-display and update the description of any work item:
+In this query example, the description widget uses the query and mutation to display and update the description of any work item:
 
 ```plaintext
 query workItem($fullPath: ID!, $iid: String!) {
-  workspace: namespace(fullPath: $fullPath) {
+ workspace: namespace(fullPath: $fullPath) {
     id
     workItem(iid: $iid) {
       id
@@ -60,7 +56,7 @@ query workItem($fullPath: ID!, $iid: String!) {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -68,33 +64,29 @@ Mutation example:
 
 ```plaintext
 mutation {
-  workItemUpdate(input: {
+ workItemUpdate(input: {
     id: "gid://gitlab/AnyWorkItem/499"
     descriptionWidget: {
       description: "New description"
     }
-  }) {
+ }) {
     errors
     workItem {
       description
     }
-  }
+ }
 }
 ```
 
 ### Widget responsibility and structure
 
-A widget is responsible for displaying and updating a single attribute, such as
-title, description, or labels. Widgets must support any type of work item.
-To maximize component reusability, widgets should be field wrappers owning the
-work item query and mutation of the attribute it's responsible for.
+A widget is responsible for displaying and updating a single attribute, such as title, description, or labels. Widgets must support any type of work item.
+To maximize component reusability, widgets should be field wrappers owning the work item query and mutation of the attribute it's responsible for.
 
-A field component is a generic and simple component. It has no knowledge of the
-attribute or work item details, such as input field, date selector, or dropdown list.
+A field component is a generic and simple component. It has no knowledge of the attribute or work item details, such as input field, date selector, or dropdown list.
 
 Widgets must be configurable to support various use cases, depending on work items.
-When building widgets, use slots to provide extra context while minimizing
-the use of props and injected attributes.
+When building widgets, use slots to provide extra context while minimizing the use of props and injected attributes.
 
 ### Examples
 
@@ -135,8 +127,7 @@ Refer to [merge request #159720](https://gitlab.com/gitlab-org/gitlab/-/merge_re
    1. Define a local input type `app/assets/javascripts/work_items/graphql/typedefs.graphql`.
    1. Stub the new work item state GraphQL data for the widget in `app/assets/javascripts/work_items/graphql/cache_utils.js`.
    1. Define how GraphQL updates the GraphQL data in `app/assets/javascripts/work_items/graphql/resolvers.js`.
-      - A special `CLEAR_VALUE` constant is required for single value widgets, because we cannot differentiate when a value is `null` because we cleared it, or `null` because we did not
-        set it.
+      - A special `CLEAR_VALUE` constant is required for single value widgets, because we cannot differentiate when a value is `null` because we cleared it, or `null` because we did not set it.
         For example `ee/app/assets/javascripts/work_items/components/work_item_health_status.vue`.
         This is not required for most widgets which support multiple values, where we can differentiate between `[]` and `null`.
       - Read more about how [Apollo cache is being used to store values in create view](#apollo-cache-being-used-to-store-values-in-create-view).
@@ -187,7 +178,7 @@ We have a [local mutation](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ap
 
 ```javascript
 if (this.workItemId === newWorkItemId(this.workItemType)) {
-  this.$apollo.mutate({
+ this.$apollo.mutate({
     mutation: updateNewWorkItemMutation,
     variables: {
       input: {
@@ -207,19 +198,19 @@ Example if you want add `parent` which has the name and ID of the parent of the 
 
 ```javascript
 input LocalParentWidgetInput {
-  id: String
-  name: String
+ id: String
+ name: String
 }
 
 input LocalUpdateNewWorkItemInput {
-  fullPath: String!
-  workItemType: String!
-  healthStatus: String
-  color: String
-  title: String
-  description: String
-  confidential: Boolean
-  parent: [LocalParentWidgetInput]
+ fullPath: String!
+ workItemType: String!
+ healthStatus: String
+ color: String
+ title: String
+ description: String
+ confidential: Boolean
+ parent: [LocalParentWidgetInput]
 }
 ```
 
@@ -244,9 +235,9 @@ this.$apollo.mutate({
 1. Support the update in the [graphql resolver](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/assets/javascripts/work_items/graphql/resolvers.js) and add the logic to update the new work item cache
 
 ```javascript
-  const { parent } = input;
+ const { parent } = input;
 
-  if (parent) {
+ if (parent) {
       const parentWidget = findWidget(WIDGET_TYPE_PARENT, draftData?.workspace?.workItem);
       parentWidget.parent = parent;
 
@@ -254,7 +245,7 @@ this.$apollo.mutate({
         (widget) => widget.type === WIDGET_TYPE_PARENT,
       );
       draftData.workspace.workItem.widgets[parentWidgetIndex] = parentWidget;
-  }
+ }
 
 ```
 
@@ -269,8 +260,8 @@ if (this.isWidgetSupported(WIDGET_TYPE_PARENT)) {
 }
 
 await this.$apollo.mutate({
-  mutation: createWorkItemMutation,
-  variables: {
+ mutation: createWorkItemMutation,
+ variables: {
     input: {
       ...workItemCreateInput,
     },
@@ -296,53 +287,38 @@ Each record in the table defines mapping of a widget to a work item type. Curren
 
 | ID | `namespace_id` | `work_item_type_id` | `widget_type`      | `widget_options`                         | Name         | Disabled |
 |:---|:---------------|:--------------------|:-------------------|:-----------------------------------------|:-------------|:---------|
-| 1  |                | 0                   | 1                  | {'editable' => true, 'rollup' => false } | Weight       | false    |
-| 2  |                | 1                   | 1                  | {'editable' => false, 'rollup' => true } | Weight       | false    |
-| 3  | 1              | 0                   | 1                  | {'editable' => true, 'rollup' => false } | MyWeight     | false    |
-| 4  | 1              | 1                   | 1                  | {'editable' => false, 'rollup' => true } | MyWeight     | false    |
-| 5  | 2              | 0                   | 1                  | {'editable' => true, 'rollup' => false } | Other Weight | false    |
-| 6  | 3              | 0                   | 1                  | {'editable' => true, 'rollup' => false } | Weight       | true     |
+| 1 |                | 0                   | 1                  | {'editable' => true, 'rollup' => false } | Weight       | false    |
+| 2 |                | 1                   | 1                  | {'editable' => false, 'rollup' => true } | Weight       | false    |
+| 3 | 1              | 0                   | 1                  | {'editable' => true, 'rollup' => false } | MyWeight     | false    |
+| 4 | 1              | 1                   | 1                  | {'editable' => false, 'rollup' => true } | MyWeight     | false    |
+| 5 | 2              | 0                   | 1                  | {'editable' => true, 'rollup' => false } | Other Weight | false    |
+| 6 | 3              | 0                   | 1                  | {'editable' => true, 'rollup' => false } | Weight       | true     |
 
 ## Backend architecture
 
-You can update widgets using custom fine-grained mutations (for example, `WorkItemCreateFromTask`) or as part of the
-`workItemCreate` or `workItemUpdate` mutations.
+You can update widgets using custom fine-grained mutations (for example, `WorkItemCreateFromTask`) or as part of the `workItemCreate` or `workItemUpdate` mutations.
 
 ### Widget callbacks
 
-When updating the widget together with the work item's mutation, backend code should be implemented using
-callback classes that inherit from `WorkItems::Callbacks::Base`. These classes have callback methods
-that are named similar to ActiveRecord callbacks and behave similarly.
+When updating the widget together with the work item's mutation, backend code should be implemented using callback classes that inherit from `WorkItems::Callbacks::Base`. These classes have callback methods that are named similar to ActiveRecord callbacks and behave similarly.
 
-Callback classes with the same name as the widget are automatically used. For example, `WorkItems::Callbacks::AwardEmoji`
-is called when the work item has the `AwardEmoji` widget. To use a different class, you can override the `callback_class`
-class method.
+Callback classes with the same name as the widget are automatically used. For example, `WorkItems::Callbacks::AwardEmoji` is called when the work item has the `AwardEmoji` widget. To use a different class, you can override the `callback_class` class method.
 
-When a callback class is also used for other issuables like merge requests or epics, define the class under `Issuable::Callbacks`
-and add the class to the list in `IssuableBaseService#available_callbacks`. These are executed for both work item updates and
-legacy issue, merge request, or epic updates.
+When a callback class is also used for other issuables like merge requests or epics, define the class under `Issuable::Callbacks` and add the class to the list in `IssuableBaseService#available_callbacks`. These are executed for both work item updates and legacy issue, merge request, or epic updates.
 
 Use `excluded_in_new_type?` to check if the work item type is being changed and a widget is no longer available.
 This is typically a trigger to remove associated records which are no longer relevant.
 
 #### Available callbacks
 
-- `after_initialize` is called after the work item is initialized by the `BuildService` and before
-  the work item is saved by the `CreateService` and `UpdateService`. This callback runs outside the
-  creation or update database transaction.
-- `before_create` is called before the work item is saved by the `CreateService`. This callback runs
-  within the create database transaction.
-- `before_update` is called before the work item is saved by the `UpdateService`. This callback runs
-  within the update database transaction.
-- `after_create` is called after the work item is saved by the `CreateService`. This callback runs
-  within the create database transaction.
-- `after_update` is called after the work item is saved by the `UpdateService`. This callback runs
-  within the update database transaction.
-- `after_save` is called before the creation or DB update transaction is committed by the
-  `CreateService` or `UpdateService`.
+- `after_initialize` is called after the work item is initialized by the `BuildService` and before the work item is saved by the `CreateService` and `UpdateService`. This callback runs outside the creation or update database transaction.
+- `before_create` is called before the work item is saved by the `CreateService`. This callback runs within the create database transaction.
+- `before_update` is called before the work item is saved by the `UpdateService`. This callback runs within the update database transaction.
+- `after_create` is called after the work item is saved by the `CreateService`. This callback runs within the create database transaction.
+- `after_update` is called after the work item is saved by the `UpdateService`. This callback runs within the update database transaction.
+- `after_save` is called before the creation or DB update transaction is committed by the `CreateService` or `UpdateService`.
 - `after_update_commit` is called after the DB update transaction is committed by the `UpdateService`.
-- `after_save_commit` is called after the creation or DB update transaction is committed by the
-  `CreateService` or `UpdateService`.
+- `after_save_commit` is called after the creation or DB update transaction is committed by the `CreateService` or `UpdateService`.
 
 ## Creating a new backend widget
 

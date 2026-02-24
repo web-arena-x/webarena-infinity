@@ -43,10 +43,10 @@ If you find an email in the wrong category, you can move it. Over time, this hel
 **Tips:** You can also:
 
 - **Create a filter:** For specific senders, you can set up a filter that:
-  - Marks their emails as important
-  - Directs their email to a specific category
+ - Marks their emails as important
+ - Directs their email to a specific category
 
-  [Learn how to create rules to filter your emails](/mail/answer/6579).
+ [Learn how to create rules to filter your emails](/mail/answer/6579).
 
 - **Star an email:** After you star an email, it appears in the “Primary” category and the category it’s already in. [Learn how to star emails in Gmail](/mail/answer/5904).
 
@@ -54,12 +54,12 @@ If you find an email in the wrong category, you can move it. Over time, this hel
 
 - To turn off categories, change your inbox type. [Learn how to change your Gmail inbox layout](/mail/answer/18522).
 - To search for emails in a specific category:
-  1. At the top, in the search bar, enter `category:`
-  2. Enter the category name before your search term. For example, `category:social party`
+ 1. At the top, in the search bar, enter `category:`
+ 2. Enter the category name before your search term. For example, `category:social party`
 
 - To search for flight confirmations, hotel bookings, or restaurant reservations, enter: `category:reservations`. However, you can’t add "Reservations" as an inbox category.
 - Archived emails don’t appear in categories.
-  - To find archived emails, go to Gmail and select **All mail** label.
+ - To find archived emails, go to Gmail and select **All mail** label.
 - While you can't create custom categories, you can use labels to organize your emails. [Learn how to create labels to organize Gmail](/mail/answer/118708).
 
 ## Related resources

@@ -48,8 +48,7 @@ Is it ok that some nodes have the new Rails version, but some nodes have the old
 
 ## A walkthrough of an update
 
-Backward compatibility problems during updates are often very subtle. This is why it is worth
-familiarizing yourself with:
+Backward compatibility problems during updates are often very subtle. This is why it is worth familiarizing yourself with:
 
 - [Upgrade instructions](../update/_index.md)
 - [Reference architectures](../administration/reference_architectures/_index.md)
@@ -76,8 +75,7 @@ This example is not exhaustive. GitLab can be deployed in many different ways. E
 
 ## GitLab Next
 
-GitLab.com runs a [canary stage](https://handbook.gitlab.com/handbook/engineering/infrastructure/environments/canary-stage) that runs the next version that is going to be deployed to production. This means that we
-run multiple versions of GitLab for an extended period of time.
+GitLab.com runs a [canary stage](https://handbook.gitlab.com/handbook/engineering/infrastructure/environments/canary-stage) that runs the next version that is going to be deployed to production. This means that we run multiple versions of GitLab for an extended period of time.
 
 We route a small percentage of traffic to canary to test out the next version. Users can also opt-in to GitLab next by [setting a cookie](https://next.gitlab.com/). We also route paths starting with `gitlab-org` or `gitlab-com` to canary and this often exposes a lot of multi-version compatibility issues that last until the version in canary is deployed to production which can take several hours.
 
@@ -145,22 +143,14 @@ For major or minor version updates of Rails or Puma:
 
 [Feature flags](feature_flags/_index.md) are a tool, not a strategy, for handling backward compatibility problems.
 
-For example, it is safe to add a new feature with frontend and API changes, if both
-frontend and API changes are disabled by default. This can be done with multiple
-merge requests, merged in any order. After all the changes are deployed to
-GitLab.com, the feature can be enabled in ChatOps and validated on GitLab.com.
+For example, it is safe to add a new feature with frontend and API changes, if both frontend and API changes are disabled by default. This can be done with multiple merge requests, merged in any order. After all the changes are deployed to GitLab.com, the feature can be enabled in ChatOps and validated on GitLab.com.
 
-**However, it is not necessarily safe to enable the feature by default.** If the
-feature flag is removed, or the default is flipped to enabled, in the same release
-where the code was merged, then customers performing [zero-downtime updates](../update/zero_downtime.md)
+**However, it is not necessarily safe to enable the feature by default.** If the feature flag is removed, or the default is flipped to enabled, in the same release where the code was merged, then customers performing [zero-downtime updates](../update/zero_downtime.md)
 will end up running the new frontend code against the previous release's API.
 
-If you're not sure whether it's safe to enable all the changes at once, then one
-option is to enable the API in the **current** release and enable the frontend
-change in the **next** release. This is an example of the [Expand and contract pattern](#expand-and-contract-pattern).
+If you're not sure whether it's safe to enable all the changes at once, then one option is to enable the API in the **current** release and enable the frontend change in the **next** release. This is an example of the [Expand and contract pattern](#expand-and-contract-pattern).
 
-Or you may be able to avoid delaying by a release by modifying the frontend to
-[degrade gracefully](#graceful-degradation) against the previous release's API.
+Or you may be able to avoid delaying by a release by modifying the frontend to [degrade gracefully](#graceful-degradation) against the previous release's API.
 
 ### Graceful degradation
 
@@ -168,8 +158,7 @@ As an example, when adding a new feature with frontend and API changes, it may b
 
 ### Expand and contract pattern
 
-One way to guarantee zero-downtime updates for on-premise instances is following the
-[expand and contract pattern](https://martinfowler.com/bliki/ParallelChange.html).
+One way to guarantee zero-downtime updates for on-premise instances is following the [expand and contract pattern](https://martinfowler.com/bliki/ParallelChange.html).
 
 This means that every breaking change is broken down in three phases: expand, migrate, and contract.
 
@@ -190,9 +179,7 @@ Let's see how we can handle them safely.
 
 When changing routing we should pay attention to make sure a route generated from the new version can be served by the old one and vice versa.
 [As you can see](#some-links-to-issues-and-mrs-were-broken), not doing it can lead to an outage.
-This type of change may look like an immediate switch between the two implementations. However,
-especially with the canary stage, there is an extended period of time where both version of the code
-coexists in production.
+This type of change may look like an immediate switch between the two implementations. However, especially with the canary stage, there is an extended period of time where both version of the code coexists in production.
 
 1. **expand**: a new route is added, pointing to the same controller as the old one. But nothing in the application generates links for the new routes.
 1. **migrate**: now that every machine in the fleet can understand the new route, we can generate links with the new routing.
@@ -219,27 +206,27 @@ There's a special consideration here. Using our post-deployment migrations frame
 
 ```mermaid
 gantt
-  title Deployment
-  dateFormat  HH:mm
+ title Deployment
+ dateFormat HH:mm
 
-  section Deploy box
-  Run migrations           :done, migr, after schemaA, 2m
-  Run post-deployment migrations     :postmigr, after mcvn  , 2m
+ section Deploy box
+ Run migrations           :done, migr, after schemaA, 2m
+ Run post-deployment migrations     :postmigr, after mcvn , 2m
 
-  section Database
-    Schema A      :done, schemaA, 00:00  , 1h
+ section Database
+    Schema A      :done, schemaA, 00:00 , 1h
     Schema B      :crit, schemaB, after migr, 58m
     Schema C.     : schemaC, after postmigr, 1h
 
-  section Machine A
+ section Machine A
     Version N      :done, mavn, 00:00 , 75m
     Version N+1      : after mavn, 105m
 
-  section Machine B
+ section Machine B
     Version N      :done, mbvn, 00:00 , 105m
     Version N+1      : mbdone, after mbvn, 75m
 
-  section Machine C
+ section Machine C
     Version N      :done, mcvn, 00:00 , 2h
     Version N+1      : mbcdone, after mcvn, 1h
 ```
@@ -262,40 +249,31 @@ With all those details in mind, let's imagine we need to replace a query, and th
 1. **migrate**: this is the `Version N` to `Version N+1` application deployment. The new code is deployed, at this point in time only the new query runs.
 1. **contract**: from `Schema B` to `Schema C` (post-deployment migration). Nothing uses the old index anymore, we can safely remove it.
 
-This is only an example. More complex migrations, especially when background migrations are needed may
-require more than one milestone. For details refer to our [migration style guide](migration_style_guide.md).
+This is only an example. More complex migrations, especially when background migrations are needed may require more than one milestone. For details refer to our [migration style guide](migration_style_guide.md).
 
 ## Examples of previous incidents
 
 ### Some links to issues and MRs were broken
 
-When we moved MR routes, users on the new servers were redirected to the new URLs. When these users shared these new URLs in
-Markdown (or anywhere else), they were broken links for users on the old servers.
+When we moved MR routes, users on the new servers were redirected to the new URLs. When these users shared these new URLs in Markdown (or anywhere else), they were broken links for users on the old servers.
 
 For more information, see [the relevant issue](https://gitlab.com/gitlab-org/gitlab/-/issues/118840).
 
 ### Stale cache in issue or merge request descriptions and comments
 
-We bumped the Markdown cache version and found a bug when a user edited a description or comment which was generated from a different Markdown
-cache version. The cached HTML wasn't generated properly after saving. In most cases, this wouldn't have happened because users would have
-viewed the Markdown before selecting **Edit** and that would mean the Markdown cache is refreshed. But because we run mixed versions, this is
-more likely to happen. Another user on a different version could view the same page and refresh the cache to the other version behind the scenes.
+We bumped the Markdown cache version and found a bug when a user edited a description or comment which was generated from a different Markdown cache version. The cached HTML wasn't generated properly after saving. In most cases, this wouldn't have happened because users would have viewed the Markdown before selecting **Edit** and that would mean the Markdown cache is refreshed. But because we run mixed versions, this is more likely to happen. Another user on a different version could view the same page and refresh the cache to the other version behind the scenes.
 
 For more information, see [the relevant issue](https://gitlab.com/gitlab-org/gitlab/-/issues/208255).
 
 ### Project service templates incorrectly copied
 
-We changed the column which indicates whether a service is a template. When we create services, we copy attributes from the template
-and set this column to `false`. The old servers were still updating the old column, but that was fine because we had a DB trigger
-that updated the new column from the old one. For the new servers though, they were only updating the new column and that same trigger
-was now working against us and setting it back to the wrong value.
+We changed the column which indicates whether a service is a template. When we create services, we copy attributes from the template and set this column to `false`. The old servers were still updating the old column, but that was fine because we had a DB trigger that updated the new column from the old one. For the new servers though, they were only updating the new column and that same trigger was now working against us and setting it back to the wrong value.
 
 For more information, see [the relevant issue](https://gitlab.com/gitlab-com/gl-infra/production-engineering/-/issues/9176).
 
 ### Sidebar wasn't loading for some users
 
-We changed the data type of one GraphQL field. When a user opened an issue page from the new servers and the GraphQL AJAX request went
-to the old servers, a type mismatch happened, which resulted in a JavaScript error that prevented the sidebar from loading.
+We changed the data type of one GraphQL field. When a user opened an issue page from the new servers and the GraphQL AJAX request went to the old servers, a type mismatch happened, which resulted in a JavaScript error that prevented the sidebar from loading.
 
 For more information, see [the relevant issue](https://gitlab.com/gitlab-com/gl-infra/production/-/issues/1772).
 
@@ -308,35 +286,24 @@ For more information, see [the relevant issue](https://gitlab.com/gitlab-com/gl-
 
 ### Downtime on release features between canary and production deployment
 
-To address the issue, we added a new column to an existing table with a `NOT NULL` constraint without
-specifying a default value. In other words, this requires the application to set a value to the column.
+To address the issue, we added a new column to an existing table with a `NOT NULL` constraint without specifying a default value. In other words, this requires the application to set a value to the column.
 
-The older version of the application didn't set the `NOT NULL` constraint since the entity/concept didn't
-exist before.
+The older version of the application didn't set the `NOT NULL` constraint since the entity/concept didn't exist before.
 
-The problem starts right after the canary deployment is complete. At that moment,
-the database migration (to add the column) has successfully run and canary instance starts using
-the new application code, hence QA was successful. Unfortunately, the production
-instance still uses the older code, so it started failing to insert a new release entry.
+The problem starts right after the canary deployment is complete. At that moment, the database migration (to add the column) has successfully run and canary instance starts using the new application code, hence QA was successful. Unfortunately, the production instance still uses the older code, so it started failing to insert a new release entry.
 
 For more information, see [this issue related to the Releases API](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/64151).
 
 ### Builds failing due to varying deployment times across node types
 
-In [one production issue](https://gitlab.com/gitlab-com/gl-infra/production/-/issues/2442),
-CI builds that used the `parallel` keyword and depending on the
-variable `CI_NODE_TOTAL` being an integer failed. This was caused because after a user pushed a commit:
+In [one production issue](https://gitlab.com/gitlab-com/gl-infra/production/-/issues/2442), CI builds that used the `parallel` keyword and depending on the variable `CI_NODE_TOTAL` being an integer failed. This was caused because after a user pushed a commit:
 
 1. New code: Sidekiq created a new pipeline and new build. `build.options[:parallel]` is a `Hash`.
 1. Old code: Runners requested a job from an API node that is running the previous version.
 1. As a result, the [new code](https://gitlab.com/gitlab-org/gitlab/-/blob/42b82a9a3ac5a96f9152aad6cbc583c42b9fb082/app/models/concerns/ci/contextable.rb#L104)
-   was not run on the API server. The runner's request failed because the
-   older API server tried return the `CI_NODE_TOTAL` CI/CD variable, but
-   instead of sending an integer value (for example, 9), it sent a serialized
-   `Hash` value (`{:number=>9, :total=>9}`).
+   was not run on the API server. The runner's request failed because the older API server tried return the `CI_NODE_TOTAL` CI/CD variable, but instead of sending an integer value (for example, 9), it sent a serialized `Hash` value (`{:number=>9, :total=>9}`).
 
-If you look at the [deployment pipeline](https://ops.gitlab.net/gitlab-com/gl-infra/deployer),
-you see all nodes were updated in parallel:
+If you look at the [deployment pipeline](https://ops.gitlab.net/gitlab-com/gl-infra/deployer), you see all nodes were updated in parallel:
 
 ![GitLab.com deployment pipeline](img/deployment_pipeline_v13_3.png)
 
@@ -348,9 +315,4 @@ However, even though the updated started around the same time, the completion ti
 | Sidekiq   | 21             |
 | K8S       | 8              |
 
-Builds that used the `parallel` keyword and depended on `CI_NODE_TOTAL`
-and `CI_NODE_INDEX` would fail during the time after Sidekiq was
-updated. Since Kubernetes (K8S) also runs Sidekiq pods, the window could
-have been as long as 46 minutes or as short as 33 minutes. Either way,
-having a feature flag to turn on after the deployment finished would
-prevent this from happening.
+Builds that used the `parallel` keyword and depended on `CI_NODE_TOTAL` and `CI_NODE_INDEX` would fail during the time after Sidekiq was updated. Since Kubernetes (K8S) also runs Sidekiq pods, the window could have been as long as 46 minutes or as short as 33 minutes. Either way, having a feature flag to turn on after the deployment finished would prevent this from happening.

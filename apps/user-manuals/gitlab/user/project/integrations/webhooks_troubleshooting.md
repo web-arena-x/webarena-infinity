@@ -49,17 +49,14 @@ Public webhook inspection tools include:
 
 ### Use the GitLab Development Kit (GDK)
 
-For a safer development environment, use the
-[GitLab Development Kit (GDK)](https://gitlab.com/gitlab-org/gitlab-development-kit) to work with
-GitLab webhooks locally.
+For a safer development environment, use the [GitLab Development Kit (GDK)](https://gitlab.com/gitlab-org/gitlab-development-kit) to work with GitLab webhooks locally.
 Use the GDK to send webhooks from your local GitLab instance to a webhook receiver on your machine.
 
 To use this approach, install and configure the GDK.
 
 ### Create a private webhook receiver
 
-Create your own private webhook receiver if you cannot send webhook payloads
-to a [public receiver](#use-public-webhook-inspection-tools).
+Create your own private webhook receiver if you cannot send webhook payloads to a [public receiver](#use-public-webhook-inspection-tools).
 
 Prerequisites:
 
@@ -89,8 +86,7 @@ To create a private webhook receiver:
    ruby print_http_body.rb 8000
    ```
 
-1. In GitLab, [configure the webhook](webhooks.md#configure-webhooks) with your
-   receiver's URL (for example, `http://receiver.example.com:8000/`).
+1. In GitLab, [configure the webhook](webhooks.md#configure-webhooks) with your receiver's URL (for example, `http://receiver.example.com:8000/`).
 1. Select **Test**. You should see output similar to:
 
    ```plaintext
@@ -113,8 +109,7 @@ When SSL verification is enabled, GitLab might fail to verify the SSL certificat
 unable to get local issuer certificate
 ```
 
-This error typically occurs when the root certificate is not issued by a trusted certificate
-authority as determined by [CAcert.org](http://www.cacert.org/).
+This error typically occurs when the root certificate is not issued by a trusted certificate authority as determined by [CAcert.org](http://www.cacert.org/).
 
 To resolve this issue:
 
@@ -133,8 +128,7 @@ If a webhook is not triggered, verify that:
 
 - The webhook is not [disabled automatically](webhooks.md#auto-disabled-webhooks).
 - The GitLab instance is not in [Silent Mode](../../../administration/silent_mode/_index.md).
-- The **Push event activities limit** and **Push event hooks limit** settings in the
-  [**Admin** area](../../../administration/settings/push_event_activities_limit.md) are set to a value greater than `0`.
+- The **Push event activities limit** and **Push event hooks limit** settings in the [**Admin** area](../../../administration/settings/push_event_activities_limit.md) are set to a value greater than `0`.
 
 ## Error: `Webhook rate limit exceeded`
 
@@ -145,5 +139,4 @@ on the number of times a webhook can be called in a minute.
 To confirm if rate limiting is the issue:
 
 1. Check your GitLab logs for the message `Webhook rate limit exceeded`.
-1. Reduce the number of events that trigger webhooks or
-   contact GitLab Support to discuss your rate limit requirements.
+1. Reduce the number of events that trigger webhooks or contact GitLab Support to discuss your rate limit requirements.

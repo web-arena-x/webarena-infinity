@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/6514632760730-Getting-star
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Workforce Management (WFM) or Workforce Engagement Management (WEM) |
 
@@ -150,11 +150,11 @@ In Zendesk WFM, you’ll set up and manage agent roles and permissions in three 
 
 - At installation, you can allow or restrict access in a way that reflects your organization's structure and access management system.
 
-  [Restrict access](https://support.zendesk.com/hc/en-us/articles/4409155972378#topic_xyf_wmw_qfb) to Zendesk WFM so that only agents in the groups or roles you list have access. For example, you can allow only a subset of agents, such as admins or a specific Zendesk group, to use the app. It's recommended to give all agents access though.
+ [Restrict access](https://support.zendesk.com/hc/en-us/articles/4409155972378#topic_xyf_wmw_qfb) to Zendesk WFM so that only agents in the groups or roles you list have access. For example, you can allow only a subset of agents, such as admins or a specific Zendesk group, to use the app. It's recommended to give all agents access though.
 - From the [Agent Permissions page](https://support.zendesk.com/hc/en-us/articles/4408843830938-), click an individual agent’s profile to review their permissions. You can also change the agent's role here.
 - On the Roles and permissions page, [create custom WFM roles](https://support.zendesk.com/hc/en-us/articles/6443314455834) to give agents modified permissions.
 
-  Note: Zendesk light agents can use Zendesk WFM if you assign them a Zendesk WFM role but it will consume a full Zendesk WFM license.
+ Note: Zendesk light agents can use Zendesk WFM if you assign them a Zendesk WFM role but it will consume a full Zendesk WFM license.
 
 ### Roles
 

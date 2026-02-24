@@ -36,15 +36,15 @@ LLM models are constantly evolving, and GitLab needs to regularly update our AI 
 Model migrations typically follow these general timelines:
 
 - **Simple Model Updates (Same Provider)**: 1-2 weeks
-  - Example: Upgrading from Claude Sonnet 3.5 to 3.7
-  - Involves model validation, testing, and staged rollout
-  - Primary focus on maintaining stability and performance
+ - Example: Upgrading from Claude Sonnet 3.5 to 3.7
+ - Involves model validation, testing, and staged rollout
+ - Primary focus on maintaining stability and performance
 
 - **Complex Migrations**: 1-2 months (full milestone or longer)
-  - Example: Adding support for a new provider like AWS Bedrock
-  - Example: Major version upgrades with breaking changes (for example, Claude 2 to 3)
-  - Requires significant API integration work
-  - May need infrastructure changes
+ - Example: Adding support for a new provider like AWS Bedrock
+ - Example: Major version upgrades with breaking changes (for example, Claude 2 to 3)
+ - Requires significant API integration work
+ - May need infrastructure changes
 
 ### Timeline Factors
 
@@ -438,11 +438,11 @@ See an example in our [Claude 3.7 Model Upgrade](https://gitlab.com/gitlab-org/g
 ## References
 
 - **Model Documentation**
-  - [Anthropic Model Documentation](https://docs.anthropic.com/claude/reference/versions)
-  - [Google Vertex AI Documentation](https://cloud.google.com/vertex-ai/docs/reference)
+ - [Anthropic Model Documentation](https://docs.anthropic.com/claude/reference/versions)
+ - [Google Vertex AI Documentation](https://cloud.google.com/vertex-ai/docs/reference)
 
 - **GitLab Resources**
-  - [GitLab AI Features - Default GitLab AI Vendor Models](https://duo-feature-list-754252.gitlab.io/)
-  - [AI Gateway Repository](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist)
-  - [Centralized Evaluation Framework](https://gitlab.com/gitlab-org/modelops/ai-model-validation-and-research/ai-evaluation/prompt-library)
-  - [AI Model Version Migration Initiative](https://gitlab.com/groups/gitlab-org/-/epics/15650)
+ - [GitLab AI Features - Default GitLab AI Vendor Models](https://duo-feature-list-754252.gitlab.io/)
+ - [AI Gateway Repository](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist)
+ - [Centralized Evaluation Framework](https://gitlab.com/gitlab-org/modelops/ai-model-validation-and-research/ai-evaluation/prompt-library)
+ - [AI Model Version Migration Initiative](https://gitlab.com/groups/gitlab-org/-/epics/15650)

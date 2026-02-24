@@ -75,10 +75,8 @@ accDescr: How a post-processing hook revokes a secret in the GitLab application.
 
 1. A pipeline with a secret detection job completes, producing a scan report (**1**).
 1. The report is processed (**2**) by a service class, which schedules an asynchronous worker if token revocation is possible.
-1. The asynchronous worker (**3**) communicates with an externally deployed HTTP service
-   (**4** and **5**) to determine which kinds of secrets can be automatically revoked.
-1. The worker sends (**6** and **7**) the list of detected secrets which the GitLab Token Revocation API is able to
-   revoke.
+1. The asynchronous worker (**3**) communicates with an externally deployed HTTP service (**4** and **5**) to determine which kinds of secrets can be automatically revoked.
+1. The worker sends (**6** and **7**) the list of detected secrets which the GitLab Token Revocation API is able to revoke.
 1. The GitLab token revocation API sends (**8** and **9**) each revocable token to their respective vendor's [partner API](#implement-a-partner-api).
 
 ## Partner program for leaked-credential notifications
@@ -89,12 +87,9 @@ Partners must [implement a partner API](#implement-a-partner-api), which is call
 
 ### Implement a partner API
 
-A partner API integrates with the GitLab token revocation API to receive and respond to leaked token revocation
-requests. The service should be a publicly accessible HTTP API that is idempotent and rate-limited.
+A partner API integrates with the GitLab token revocation API to receive and respond to leaked token revocation requests. The service should be a publicly accessible HTTP API that is idempotent and rate-limited.
 
-Requests to your service can include one or more leaked tokens, and a header with the signature of the request
-body. We strongly recommend that you verify incoming requests using this signature, to prove it's a genuine
-request from GitLab. The diagram below details the necessary steps to receive, verify, and revoke leaked tokens:
+Requests to your service can include one or more leaked tokens, and a header with the signature of the request body. We strongly recommend that you verify incoming requests using this signature, to prove it's a genuine request from GitLab. The diagram below details the necessary steps to receive, verify, and revoke leaked tokens:
 
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
@@ -111,8 +106,7 @@ accDescr: How a partner API should receive and respond to leaked token revocatio
     Partner API-->>+GitLab token revocation API: HTTP status
 ```
 
-1. The GitLab token revocation API sends (**1**) a [revocation request](#revocation-request) to the partner API. The request
-   includes headers containing a public key identifier and signature of the request body.
+1. The GitLab token revocation API sends (**1**) a [revocation request](#revocation-request) to the partner API. The request includes headers containing a public key identifier and signature of the request body.
 1. The partner API requests (**2**) a list of [public keys](#public-keys-endpoint) from GitLab. The response (**3**)
    may include multiple public keys in the event of key rotation and should be filtered with the identifier in the request header.
 1. The partner API [verifies the signature](#verifying-the-request) against the actual request body, using the public key (**4**).
@@ -164,9 +158,7 @@ Example:
 [{"type": "my_api_token", "token": "XXXXXXXXXXXXXXXX", "url": "https://example.com/some-repo/-/raw/abcdefghijklmnop/compromisedfile1.java"}]
 ```
 
-In this example, secret detection has determined that an instance of `my_api_token` has been leaked. The
-value of the token is provided to you, in addition to a publicly accessible URL to the raw content of the
-file containing the leaked token.
+In this example, secret detection has determined that an instance of `my_api_token` has been leaked. The value of the token is provided to you, in addition to a publicly accessible URL to the raw content of the file containing the leaked token.
 
 The request includes two special headers:
 
@@ -179,8 +171,7 @@ You can use these headers along with the GitLab Public Keys endpoint to verify t
 
 #### Public keys endpoint
 
-GitLab maintains a publicly-accessible endpoint for retrieving public keys used to verify revocation
-requests. The endpoint can be provided on request.
+GitLab maintains a publicly-accessible endpoint for retrieving public keys used to verify revocation requests. The endpoint can be provided on request.
 
 This JSON schema document describes the response body of the public keys endpoint:
 
@@ -229,13 +220,9 @@ Example:
 
 #### Verifying the request
 
-You can check whether a revocation request is genuine by verifying the `Gitlab-Public-Key-Signature` header
-against the request body, using the corresponding public key taken from the API response above. We use
-[ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) with SHA256 hashing to
-produce the signature, which is then base64-encoded into the header value.
+You can check whether a revocation request is genuine by verifying the `Gitlab-Public-Key-Signature` header against the request body, using the corresponding public key taken from the API response above. We use [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm) with SHA256 hashing to produce the signature, which is then base64-encoded into the header value.
 
-The Python script below demonstrates how the signature can be verified. It uses the popular
-[pyca/cryptography](https://cryptography.io/en/latest/) module for cryptographic operations:
+The Python script below demonstrates how the signature can be verified. It uses the popular [pyca/cryptography](https://cryptography.io/en/latest/) module for cryptographic operations:
 
 ```python
 import hashlib
@@ -251,7 +238,7 @@ request_body = str.encode(r'')   # obtained from the revocation request body
 pk = load_pem_public_key(public_key)
 decoded_signature = base64.b64decode(signature_header)
 
-pk.verify(decoded_signature, request_body, ec.ECDSA(hashes.SHA256()))  # throws if unsuccessful
+pk.verify(decoded_signature, request_body, ec.ECDSA(hashes.SHA256())) # throws if unsuccessful
 
 print("Signature verified!")
 ```

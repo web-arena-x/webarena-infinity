@@ -14,10 +14,10 @@ Topics:
 - [Landing page](https://support.joinhandshake.com/hc/en-us/articles/360050891873#h_01HTQAY1W4F6KDJHJHHS0AXM6Z)
 - [Finding an article](https://support.joinhandshake.com/hc/en-us/articles/360050891873#h_01HTQAY1W5Y04P0H7GGZWNP4EJ)
 - [Best Practices: Finding information within an article](https://support.joinhandshake.com/hc/en-us/articles/360050891873#h_01HTQAY1W5RE3JJ7EXDK92GWAS)
-  - [Topics or Table of Contents](https://support.joinhandshake.com/hc/en-us/articles/360050891873#h_01HTQAY1W5W6S3R25WMBZB97KE)
-  - [Expandable Headers](https://support.joinhandshake.com/hc/en-us/articles/360050891873#h_01HTQAY1W5EHCZA35G8GKTXKT4)
-  - [Colored Notes](https://support.joinhandshake.com/hc/en-us/articles/360050891873#h_01HTQAY1W56C0M233V7PAADGHG)
-  - [Follow Content](https://support.joinhandshake.com/hc/en-us/articles/360050891873#01FYW74G7V6ACHEYFR9DHPPEHM)
+ - [Topics or Table of Contents](https://support.joinhandshake.com/hc/en-us/articles/360050891873#h_01HTQAY1W5W6S3R25WMBZB97KE)
+ - [Expandable Headers](https://support.joinhandshake.com/hc/en-us/articles/360050891873#h_01HTQAY1W5EHCZA35G8GKTXKT4)
+ - [Colored Notes](https://support.joinhandshake.com/hc/en-us/articles/360050891873#h_01HTQAY1W56C0M233V7PAADGHG)
+ - [Follow Content](https://support.joinhandshake.com/hc/en-us/articles/360050891873#01FYW74G7V6ACHEYFR9DHPPEHM)
 - [Contacting Support](https://support.joinhandshake.com/hc/en-us/articles/360050891873#h_01HTQAY1W583HYXQ9AKQ6SYNJJ)
 
 ## Background
@@ -133,8 +133,8 @@ Click on the chat option in the lower-right corner of any page in the help cente
 - Students / Alumni
 - Employers
 - Career Services or IT (for our EDU partners)
-  - please select this user type even if you are helping an employer or student!
-  - Our chatbot is designed to surface information from across all of the help center through this option, while prioritizing workflows unique to our EDU partners.
+ - please select this user type even if you are helping an employer or student!
+ - Our chatbot is designed to surface information from across all of the help center through this option, while prioritizing workflows unique to our EDU partners.
 
 Upon selection, type out your question similarly to how you'd describe it in a new ticket.
 

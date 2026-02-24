@@ -162,17 +162,17 @@ Now, let’s bind the `volumeLevel` variable to the width value of the rectangle
 
 1. Click on the smaller rectangle to select it.
 2. From the **Design** tab of the right sidebar, find the width value.
-3. Hover over the width value field, then select  **Apply variable**.
+3. Hover over the width value field, then select **Apply variable**.
 4. From the variable selectional panel, select the `volumeLevel` variable. ![With the smaller rectangle selected, navigate to the Width property and click Apply variable.](https://help.figma.com/hc/article_attachments/17147402766871)
 
 Now that our frame and variables are set up, let’s create our prototyping interactions.
 
 1. Click the plus sign object on the frame.
-2. From the **Prototype** tab on the right sidebar, click  the plus icon to add a new interaction.
+2. From the **Prototype** tab on the right sidebar, click the plus icon to add a new interaction.
 3. Set the trigger to **On tap/On click**, and set the action to **Set variable**. Select the `volumeLevel` variable.
-4. Set the new value using an expression. We want the width of the volume level to increase by 5 each time a user presses the plus icon, so we’ll use the following expression:  
+4. Set the new value using an expression. We want the width of the volume level to increase by 5 each time a user presses the plus icon, so we’ll use the following expression: 
    `volumeLevel + 5`
-5. Repeat steps 1-4 for the minus icon, this time setting the new variable value with the following expression:  
+5. Repeat steps 1-4 for the minus icon, this time setting the new variable value with the following expression: 
    `volumeLevel - 5`![The plus sign is selected, and has the following interaction: Set volumeLevel to volumeLevel + 5](https://help.figma.com/hc/article_attachments/17147402774295)
 
 [Play your prototype](https://help.figma.com/hc/en-us/articles/360040318013-Present-designs-and-prototypes) to test the interactions.

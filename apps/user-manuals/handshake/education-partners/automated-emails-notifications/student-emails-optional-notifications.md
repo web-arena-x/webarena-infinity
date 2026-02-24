@@ -239,5 +239,5 @@ Notification: "Upcoming appointments"
 
 ![Upcoming_appointment.png](https://support.joinhandshake.com/hc/article_attachments/25997611391127)
 
-Notification: "An appointment I requested is declined"  
+Notification: "An appointment I requested is declined" 
 ![An_appointment_I_requested_is_declined.png](https://support.joinhandshake.com/hc/article_attachments/25997597748503)

@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/9791009434906-Task-templat
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Zendesk for Contact Center |
 
@@ -14,17 +14,15 @@ Verified AI summary ◀▼
 
 Task template fields help you collect valid data by offering various input types, such as text, dropdowns, and dates. Each field type supports specific validation options, ensuring accurate data entry. Use these fields to streamline your data collection process and improve user experience by setting parameters like minimum and maximum lengths, validation patterns, and read-only options.
 
-Learn how to effectively utilize format and validation options to enhance your
-user experience.
+Learn how to effectively utilize format and validation options to enhance your user experience.
 
 Task templates have a range of field types that can be utilised.
 
-The purpose of these field types is to ensure that valid data is collected by
-agents when using the relevant task in Zendesk for Contact Centre.
+The purpose of these field types is to ensure that valid data is collected by agents when using the relevant task in Zendesk for Contact Centre.
 
 The following table lists the available fields and their validation types:
 
-|  |  |  |  |  |  |  |  |  |  |  |  |
+| | | | | | | | | | | | |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **Name** | **Description** | **Minimum length** | **Maximum length** | **Validation pattern** | **Validation display message** | **Read only** | **Minimum date** | **Step intervals** | **Minimum time** | **Maximum time** | **Maximum date** |
 | Single text input field | Simple text area | ✅Yes | ✅Yes | ✅Yes | ✅Yes | ✅Yes | ❌No | ❌No | ❌No | ❌No | ❌No |

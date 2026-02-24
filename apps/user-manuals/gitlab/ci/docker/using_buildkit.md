@@ -12,8 +12,7 @@ title: Build Docker images with BuildKit
 
 {{< /details >}}
 
-[BuildKit](https://docs.docker.com/build/buildkit/) is the build engine used by Docker
-and provides multi-platform builds and build caching.
+[BuildKit](https://docs.docker.com/build/buildkit/) is the build engine used by Docker and provides multi-platform builds and build caching.
 
 ## BuildKit methods
 
@@ -46,9 +45,7 @@ Key differences from other methods:
 
 ### Authenticate with container registries
 
-GitLab CI/CD provides automatic authentication for the GitLab container registry through
-predefined variables. For BuildKit rootless, you must manually create the Docker
-configuration file.
+GitLab CI/CD provides automatic authentication for the GitLab container registry through predefined variables. For BuildKit rootless, you must manually create the Docker configuration file.
 
 #### Authenticate with the GitLab container registry
 
@@ -58,24 +55,22 @@ GitLab automatically provides these predefined variables:
 - `CI_REGISTRY_USER`: Registry username
 - `CI_REGISTRY_PASSWORD`: Registry password
 
-To configure authentication for rootless builds, add a `before_script` configuration
-to your jobs. For example:
+To configure authentication for rootless builds, add a `before_script` configuration to your jobs. For example:
 
 ```yaml
 before_script:
-  - mkdir -p ~/.docker
-  - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > ~/.docker/config.json
+ - mkdir -p ~/.docker
+ - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > ~/.docker/config.json
 ```
 
 #### Authenticate with multiple registries
 
-To authenticate with additional container registries, combine authentication entries
-in your `before_script` section. For example:
+To authenticate with additional container registries, combine authentication entries in your `before_script` section. For example:
 
 ```yaml
 before_script:
-  - mkdir -p ~/.docker
-  - |
+ - mkdir -p ~/.docker
+ - |
     echo "{
       \"auths\": {
         \"${CI_REGISTRY}\": {
@@ -90,13 +85,12 @@ before_script:
 
 #### Authenticate with the dependency proxy
 
-To pull images through the GitLab dependency proxy, configure the authentication
-in your `before_script` section. For example:
+To pull images through the GitLab dependency proxy, configure the authentication in your `before_script` section. For example:
 
 ```yaml
 before_script:
-  - mkdir -p ~/.docker
-  - |
+ - mkdir -p ~/.docker
+ - |
     echo "{
       \"auths\": {
         \"${CI_REGISTRY}\": {
@@ -117,16 +111,16 @@ To build images without Docker daemon dependency, add a job similar to this exam
 
 ```yaml
 build-rootless:
-  image:
+ image:
     name: moby/buildkit:rootless
     entrypoint: [""]
-  stage: build
-  variables:
+ stage: build
+ variables:
     BUILDKITD_FLAGS: --oci-worker-no-process-sandbox
-  before_script:
+ before_script:
     - mkdir -p ~/.docker
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > ~/.docker/config.json
-  script:
+ script:
     - |
       buildctl-daemonless.sh build \
         --frontend dockerfile.v0 \
@@ -137,21 +131,20 @@ build-rootless:
 
 ### Build multi-platform images in rootless mode
 
-To build images for multiple architectures in rootless mode, configure your job
-to specify the target platforms. For example:
+To build images for multiple architectures in rootless mode, configure your job to specify the target platforms. For example:
 
 ```yaml
 build-multiarch-rootless:
-  image:
+ image:
     name: moby/buildkit:rootless
     entrypoint: [""]
-  stage: build
-  variables:
+ stage: build
+ variables:
     BUILDKITD_FLAGS: --oci-worker-no-process-sandbox
-  before_script:
+ before_script:
     - mkdir -p ~/.docker
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > ~/.docker/config.json
-  script:
+ script:
     - |
       buildctl-daemonless.sh build \
         --frontend dockerfile.v0 \
@@ -163,22 +156,21 @@ build-multiarch-rootless:
 
 ### Use caching in rootless mode
 
-To enable registry-based caching for faster subsequent builds, configure cache
-import and export in your build job. For example:
+To enable registry-based caching for faster subsequent builds, configure cache import and export in your build job. For example:
 
 ```yaml
 build-cached-rootless:
-  image:
+ image:
     name: moby/buildkit:rootless
     entrypoint: [""]
-  stage: build
-  variables:
+ stage: build
+ variables:
     BUILDKITD_FLAGS: --oci-worker-no-process-sandbox
     CACHE_IMAGE: $CI_REGISTRY_IMAGE:cache
-  before_script:
+ before_script:
     - mkdir -p ~/.docker
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > ~/.docker/config.json
-  script:
+ script:
     - |
       buildctl-daemonless.sh build \
         --frontend dockerfile.v0 \
@@ -197,20 +189,20 @@ To configure registry mirrors, create a `buildkit.toml` file that specifies the 
 
 ```yaml
 build-mirror-rootless:
-  image:
+ image:
     name: moby/buildkit:rootless
     entrypoint: [""]
-  stage: build
-  variables:
+ stage: build
+ variables:
     BUILDKITD_FLAGS: --oci-worker-no-process-sandbox --config /tmp/buildkit.toml
-  before_script:
+ before_script:
     - mkdir -p ~/.docker
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > ~/.docker/config.json
     - cat <<'EOF' > /tmp/buildkit.toml
       [registry."docker.io"]
         mirrors = ["mirror.example.com"]
       EOF
-  script:
+ script:
     - |
       buildctl-daemonless.sh build \
         --frontend dockerfile.v0 \
@@ -223,24 +215,23 @@ In this example, replace `mirror.example.com` with your registry mirror URL.
 
 ### Configure proxy settings
 
-If your GitLab Runner operates behind an HTTP(S) proxy, configure proxy settings
-as variables in your job. For example:
+If your GitLab Runner operates behind an HTTP(S) proxy, configure proxy settings as variables in your job. For example:
 
 ```yaml
 build-behind-proxy:
-  image:
+ image:
     name: moby/buildkit:rootless
     entrypoint: [""]
-  stage: build
-  variables:
+ stage: build
+ variables:
     BUILDKITD_FLAGS: --oci-worker-no-process-sandbox
     http_proxy: <your-proxy>
     https_proxy: <your-proxy>
     no_proxy: <your-no-proxy>
-  before_script:
+ before_script:
     - mkdir -p ~/.docker
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > ~/.docker/config.json
-  script:
+ script:
     - |
       buildctl-daemonless.sh build \
         --frontend dockerfile.v0 \
@@ -256,24 +247,23 @@ In this example, replace `<your-proxy>` and `<your-no-proxy>` with your proxy co
 
 ### Add custom certificates
 
-To push to a registry using custom CA certificates, add the certificate to the
-container's certificate store before building. For example:
+To push to a registry using custom CA certificates, add the certificate to the container's certificate store before building. For example:
 
 ```yaml
 build-with-custom-certs:
-  image:
+ image:
     name: moby/buildkit:rootless
     entrypoint: [""]
-  stage: build
-  variables:
+ stage: build
+ variables:
     BUILDKITD_FLAGS: --oci-worker-no-process-sandbox
-  before_script:
+ before_script:
     - export SSL_CERT_FILE="$HOME/ca_chain.pem"
     - cat /etc/ssl/certs/ca-certificates.crt > "$SSL_CERT_FILE"
     - echo "$MY_CA_CERT" >> "$SSL_CERT_FILE"
     - mkdir -p ~/.docker
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > ~/.docker/config.json
-  script:
+ script:
     - |
       buildctl-daemonless.sh build \
         --frontend dockerfile.v0 \
@@ -287,8 +277,7 @@ In this example, populate the `MY_CA_CERT` variable with the full contents of yo
 ## Migrate from Kaniko to BuildKit
 
 BuildKit rootless is a secure alternative for Kaniko.
-It offers improved performance, better caching, and enhanced security features while
-maintaining rootless operation.
+It offers improved performance, better caching, and enhanced security features while maintaining rootless operation.
 
 ### Update your configuration
 
@@ -298,10 +287,10 @@ Before, with Kaniko:
 
 ```yaml
 build:
-  image:
+ image:
     name: gcr.io/kaniko-project/executor:debug
     entrypoint: [""]
-  script:
+ script:
     - /kaniko/executor
       --context $CI_PROJECT_DIR
       --dockerfile $CI_PROJECT_DIR/Dockerfile
@@ -312,15 +301,15 @@ After, with BuildKit rootless:
 
 ```yaml
 build:
-  image:
+ image:
     name: moby/buildkit:rootless
     entrypoint: [""]
-  variables:
+ variables:
     BUILDKITD_FLAGS: --oci-worker-no-process-sandbox
-  before_script:
+ before_script:
     - mkdir -p ~/.docker
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > ~/.docker/config.json
-  script:
+ script:
     - |
       buildctl-daemonless.sh build \
         --frontend dockerfile.v0 \
@@ -331,66 +320,61 @@ build:
 
 ## Alternative BuildKit methods
 
-If you don't need rootless builds, BuildKit offers additional methods that require
-the `docker:dind` service but provide familiar workflows or advanced features.
+If you don't need rootless builds, BuildKit offers additional methods that require the `docker:dind` service but provide familiar workflows or advanced features.
 
 ### Docker Buildx
 
-Docker Buildx extends Docker build capabilities with BuildKit features while maintaining
-familiar command syntax. This method requires the `docker:dind` service.
+Docker Buildx extends Docker build capabilities with BuildKit features while maintaining familiar command syntax. This method requires the `docker:dind` service.
 
 #### Build basic images
 
-To build Docker images with Buildx, configure your job with the `docker:dind` service
-and create a `buildx` builder. For example:
+To build Docker images with Buildx, configure your job with the `docker:dind` service and create a `buildx` builder. For example:
 
 ```yaml
 variables:
-  DOCKER_TLS_CERTDIR: "/certs"
+ DOCKER_TLS_CERTDIR: "/certs"
 
 build-image:
-  image: docker:cli
-  services:
+ image: docker:cli
+ services:
     - docker:dind
-  stage: build
-  before_script:
+ stage: build
+ before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker buildx create --use --driver docker-container --name builder
     - docker buildx inspect --bootstrap
-  script:
+ script:
     - docker buildx build --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA --push .
-  after_script:
+ after_script:
     - docker buildx rm builder
 ```
 
 #### Build multi-platform images
 
 Multi-platform builds create images for different architectures in a single build command.
-The resulting manifest supports multiple architectures,
-and Docker automatically selects the appropriate image for each deployment target.
+The resulting manifest supports multiple architectures, and Docker automatically selects the appropriate image for each deployment target.
 
-To build images for multiple architectures, add the `--platform` flag to specify
-target architectures. For example:
+To build images for multiple architectures, add the `--platform` flag to specify target architectures. For example:
 
 ```yaml
 variables:
-  DOCKER_TLS_CERTDIR: "/certs"
+ DOCKER_TLS_CERTDIR: "/certs"
 
 build-multiplatform:
-  image: docker:cli
-  services:
+ image: docker:cli
+ services:
     - docker:dind
-  stage: build
-  before_script:
+ stage: build
+ before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker buildx create --use --driver docker-container --name multibuilder
     - docker buildx inspect --bootstrap
-  script:
+ script:
     - docker buildx build
         --platform linux/amd64,linux/arm64
         --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
         --push .
-  after_script:
+ after_script:
     - docker buildx rm multibuilder
 ```
 
@@ -398,32 +382,31 @@ build-multiplatform:
 
 Registry-based caching stores build layers in a container registry for reuse across builds.
 
-The `mode=max` option exports all layers to the cache
-and provides maximum reuse potential for subsequent builds.
+The `mode=max` option exports all layers to the cache and provides maximum reuse potential for subsequent builds.
 
 To use build caching, add cache options to your build command. For example:
 
 ```yaml
 variables:
-  DOCKER_TLS_CERTDIR: "/certs"
-  CACHE_IMAGE: $CI_REGISTRY_IMAGE:cache
+ DOCKER_TLS_CERTDIR: "/certs"
+ CACHE_IMAGE: $CI_REGISTRY_IMAGE:cache
 
 build-with-cache:
-  image: docker:cli
-  services:
+ image: docker:cli
+ services:
     - docker:dind
-  stage: build
-  before_script:
+ stage: build
+ before_script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker buildx create --use --driver docker-container --name cached-builder
     - docker buildx inspect --bootstrap
-  script:
+ script:
     - docker buildx build
         --cache-from type=registry,ref=$CACHE_IMAGE
         --cache-to type=registry,ref=$CACHE_IMAGE,mode=max
         --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
         --push .
-  after_script:
+ after_script:
     - docker buildx rm cached-builder
 ```
 
@@ -436,17 +419,17 @@ To use BuildKit directly, configure your job with the BuildKit image and `docker
 
 ```yaml
 variables:
-  DOCKER_TLS_CERTDIR: "/certs"
+ DOCKER_TLS_CERTDIR: "/certs"
 
 build-with-buildkit:
-  image: moby/buildkit:latest
-  services:
+ image: moby/buildkit:latest
+ services:
     - docker:dind
-  stage: build
-  before_script:
+ stage: build
+ before_script:
     - mkdir -p ~/.docker
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > ~/.docker/config.json
-  script:
+ script:
     - |
       buildctl build \
         --frontend dockerfile.v0 \
@@ -463,8 +446,7 @@ If you encounter registry authentication failures:
 
 - Verify that `CI_REGISTRY_USER` and `CI_REGISTRY_PASSWORD` variables are available.
 - Check that you have push permissions to the target registry.
-- For external registries, ensure authentication credentials are correctly configured
-  in your project's CI/CD variables.
+- For external registries, ensure authentication credentials are correctly configured in your project's CI/CD variables.
 
 ### Rootless build fails with permission errors
 
@@ -474,23 +456,20 @@ For permission-related issues in rootless mode:
 - Verify that the GitLab Runner has sufficient resources allocated.
 - Check that no privileged operations are attempted in your `Dockerfile`.
 
-If you receive `[rootlesskit:child ] error: failed to share mount point: /: permission denied`
-on a Kubernetes runner, AppArmor is blocking the mount syscall required for BuildKit.
+If you receive `[rootlesskit:child ] error: failed to share mount point: /: permission denied` on a Kubernetes runner, AppArmor is blocking the mount syscall required for BuildKit.
 
 To resolve this issue, add the following to your runner configuration:
 
 ```toml
 [runners.kubernetes.pod_annotations]
-  "container.apparmor.security.beta.kubernetes.io/build" = "unconfined"
+ "container.apparmor.security.beta.kubernetes.io/build" = "unconfined"
 ```
 
 ### Error: `invalid local: stat path/to/image/Dockerfile: not a directory`
 
 You might get an error that states `invalid local: stat path/to/image/Dockerfile: not a directory`.
 
-This issue occurs when you specify a file path instead of a directory path for the
-`--local dockerfile=` parameter. BuildKit expects a directory path that contains
-a file named `Dockerfile`.
+This issue occurs when you specify a file path instead of a directory path for the `--local dockerfile=` parameter. BuildKit expects a directory path that contains a file named `Dockerfile`.
 
 To resolve this issue, use the directory path instead of the full file path. For example:
 

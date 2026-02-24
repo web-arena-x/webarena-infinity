@@ -27,9 +27,9 @@ Typically, the student's username is something other than their full email addre
 To resolve the failed rows, you will need to re-upload the new student file with both settings below:
 
 - the *This job changes identifier data* option enabled
-  - When a student's **username** and/or **auth\_identifier** needs to be updated on their account, this must be selected for the change to be processed.
+ - When a student's **username** and/or **auth\_identifier** needs to be updated on their account, this must be selected for the change to be processed.
 - the **Identifier Column** set to *email\_address*
-  - With this set to *email\_address*, you are directing Importer to locate the accounts in Handshake by the email address.
+ - With this set to *email\_address*, you are directing Importer to locate the accounts in Handshake by the email address.
 
 ![Sensitive_Data_Enabled_Image.png](https://support.joinhandshake.com/hc/article_attachments/25992976373911)
 

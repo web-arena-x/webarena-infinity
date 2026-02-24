@@ -1,11 +1,11 @@
-# Career Center  Collections at your School
+# Career Center Collections at your School
 
 Source: https://support.joinhandshake.com/hc/en-us/articles/9067686853015-Career-Center-Collections-at-your-School
 
 ---
 
-Your school's career services department may choose to spotlight specific jobs, employers, events, and career fairs using curated categories known as **Career Center Collections** on Handshake.  
-  
+Your school's career services department may choose to spotlight specific jobs, employers, events, and career fairs using curated categories known as **Career Center Collections** on Handshake. 
+ 
 These collections are thoughtfully designed to help you explore opportunities that align with your unique career goals and interests.
 
 *Use the expandable sections below to learn how to explore, search, and identify Career Center Collections at your school.*
@@ -24,7 +24,7 @@ You can either:
 
 - Click on a specific collection that interests you to view relevant opportunities.
 - Click the link **View all collections** to browse all curated categories.
-  - On the **Career Center Collections** page, you’ll find category tiles. Use the filters at the top of the page to narrow your search and click on any tile to explore that collection in detail.
+ - On the **Career Center Collections** page, you’ll find category tiles. Use the filters at the top of the page to narrow your search and click on any tile to explore that collection in detail.
 
 ![School Collections on Career Center.png](https://support.joinhandshake.com/hc/article_attachments/25995104373911)
 
@@ -108,8 +108,8 @@ After following, a job alert is automatically set for you as a proactive way to 
 
 **Search Events and Fairs via Career Center Collections**
 
-Click **Events** on the left navigation menu, then click the **[SCHOOL NAME] Collections** filter located below the search bar. From the dropdown, select the categories you're interested.   
-  
+Click **Events** on the left navigation menu, then click the **[SCHOOL NAME] Collections** filter located below the search bar. From the dropdown, select the categories you're interested.  
+ 
 **Note**: if there's zero search results, the view results button will appear grayed out. 
 
 Once you've selected your categories, click the blue button **View results** to explore the curated events and fairs.

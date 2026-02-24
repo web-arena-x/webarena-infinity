@@ -174,7 +174,7 @@ What can I migrate? How do I migrate my data?
    - Choose the columns in the **Removed Columns** list on the left side.
    - Select **Add** to move them to the **Attached Columns** list on the right side.
    - Select **Save**.
-8. Add the **Export Columns**. There is a maximum of 100 columns per report. These are the columns that will be exported for the contact:  
+8. Add the **Export Columns**. There is a maximum of 100 columns per report. These are the columns that will be exported for the contact: 
    - Select **Attach/Remove Columns** above the **Output Columns** box.
    - Choose **Client** from the **Find In** dropdown.
    - Choose the columns in the **Removed Columns** list on the left side. Include **Client ID** in order to link the contact to the matter.
@@ -193,7 +193,7 @@ What can I migrate? How do I migrate my data?
 4. Select **Adhoc Reports** from the list of reports. If you do not see **Adhoc Reports** in the list, you may need to contact INSZoom to request access to the Adhoc reporting functionality.
 5. Select **Add Template**.
 6. Enter a name for the template (e.g. Clio Matter Export) and save.
-7. Add the **Input Columns**. There is a maximum of 100 columns per report. These are the columns you will use as filters:  
+7. Add the **Input Columns**. There is a maximum of 100 columns per report. These are the columns you will use as filters: 
    - Select **Attach/Remove Columns** above the **Input Columns** box
    - Choose **Case** from the **Find In** dropdown.
    - Choose the columns in the **Removed Columns** list on the left side.

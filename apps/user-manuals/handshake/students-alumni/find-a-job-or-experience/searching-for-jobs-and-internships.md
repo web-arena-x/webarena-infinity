@@ -19,13 +19,13 @@ To browse opportunities, click **Jobs** in the left navigation menu—this will 
 Scroll through the list of jobs on the left side of the page to find jobs of interest, or use the following methods to identify the most relevant jobs and narrow down your search:
 
 - **Search bar**: search for jobs based on keywords, job titles, job ids, or by employer.
-  - Our job search type-ahead feature is designed to make your search more efficient and effective! The tool provides suggestions as you type in the search bar. Suggestions are based on various categories such as job role, industry, and employer, and are ranked based on the number of job postings at your school.
-  - *Looking for remote opportunities? Use the keyword search! Learn more in* [Tips for Locating Remote Jobs in Handshake](https://support.joinhandshake.com/hc/en-us/articles/360045420234-Tips-for-Locating-Remote-Jobs-in-Handshake).
+ - Our job search type-ahead feature is designed to make your search more efficient and effective! The tool provides suggestions as you type in the search bar. Suggestions are based on various categories such as job role, industry, and employer, and are ranked based on the number of job postings at your school.
+ - *Looking for remote opportunities? Use the keyword search! Learn more in* [Tips for Locating Remote Jobs in Handshake](https://support.joinhandshake.com/hc/en-us/articles/360045420234-Tips-for-Locating-Remote-Jobs-in-Handshake).
 - **Career Center Collections**: find jobs curated into categories specifically for your school by your career services department.
-  - (check the box for a category you want to view jobs for or click the link **View all** to be directed to the Career Center Collections page)
-  - **Note:** not all available categories are listed on the Jobs page. *To learn more about school collections, check out* [Career Center Collections At Your School](https://support.joinhandshake.com/hc/en-us/articles/9067686853015-Curated-Employers-At-Your-School).
+ - (check the box for a category you want to view jobs for or click the link **View all** to be directed to the Career Center Collections page)
+ - **Note:** not all available categories are listed on the Jobs page. *To learn more about school collections, check out* [Career Center Collections At Your School](https://support.joinhandshake.com/hc/en-us/articles/9067686853015-Curated-Employers-At-Your-School).
 - **Location**: find jobs in a particular city, state, zip code, or country.
-  - **Note**: the location filter defaults to a 50-mile radius. Use the slider to move the dot across the line to change the radius, left to decrease, and right to increase the mileage.
+ - **Note**: the location filter defaults to a 50-mile radius. Use the slider to move the dot across the line to change the radius, left to decrease, and right to increase the mileage.
 - **On-site/remote**: filter on jobs that are in-person, work from home, or hybrid (both in-person and from home).
 - **Full-time job**: browse available full-time positions.
 - **Internship**: browse internships.
@@ -38,7 +38,7 @@ Scroll through the list of jobs on the left side of the page to find jobs of int
 ![Job search list.png](https://support.joinhandshake.com/hc/article_attachments/26001282796183)
 
 - **All Filters:** access even more search filters to narrow your search!
-  - - **Employment Type**
+ - - **Employment Type**
       - Full-time
       - Part-time
     - **Job Type**
@@ -103,7 +103,7 @@ Click on any job of interest to learn more about the position!
 Another great way to continue your search for jobs and internships is to create a saved search and set job alerts. You can learn how to use saved job search and alerts by checking out the following resources:
 
 - - [Saved Job Searches and Alerts](https://support.joinhandshake.com/hc/en-us/articles/218693388)
-  - [Jobs Digests and Recommendations](jobs-digests-and-recommendations.md)
+ - [Jobs Digests and Recommendations](jobs-digests-and-recommendations.md)
 
 **Saved Jobs**
 

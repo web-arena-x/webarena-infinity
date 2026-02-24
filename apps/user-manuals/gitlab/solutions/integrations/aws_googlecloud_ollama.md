@@ -14,14 +14,13 @@ title: 'GitLab Duo Self-Hosted: Complete AWS/Google Cloud Deployment Guide with 
 
 {{< /details >}}
 
-The document describes the installation and integration of GitLab and GitLab Duo with a self-hosted Large Language Model (LLM) running a Mistral model on Ollama. The guide describes the setup using 3 different
-virtual machines and can be easily followed along on AWS or GCP. Of course, the process is applicable to different deployment platforms, too.
+The document describes the installation and integration of GitLab and GitLab Duo with a self-hosted Large Language Model (LLM) running a Mistral model on Ollama. The guide describes the setup using 3 different virtual machines and can be easily followed along on AWS or GCP. Of course, the process is applicable to different deployment platforms, too.
 
 This guide is a comprehensive, end-to-end set of instructions for getting the desired setup working. It calls out references to the many areas of GitLab documentation that were used to support the creation of the final configuration. The referenced docs are important when more background is needed to adjust the implementation to a specific scenario.
 <!-- TOC -->
 
 - GitLab Duo Self-Hosted: Complete AWS/Google Cloud Deployment Guide with Ollama Integration
-  - [Prerequisites](#prerequisites)
+ - [Prerequisites](#prerequisites)
     - [Virtual Machines](#virtual-machines)
       - [Resources & Operating System](#resources--operating-system)
       - [Networking](#networking)
@@ -29,15 +28,15 @@ This guide is a comprehensive, end-to-end set of instructions for getting the de
       - [Licensing](#licensing)
       - [SSL/TLS](#ssltls)
 - [Introduction](#introduction)
-  - [Installation](#installation)
+ - [Installation](#installation)
     - [AI Gateway](#ai-gateway)
     - [Ollama](#ollama)
       - [Installation](#installation)
       - [Model Deployment](#model-deployment)
-  - [Integration](#integration)
+ - [Integration](#integration)
     - [Enable GitLab Duo for Root User](#enable-gitlab-duo-for-root-user)
     - [Configure Self-Hosted Model in GitLab](#configure-gitlab-duo-self-hosted-in-gitlab)
-  - [Verification](#verification)
+ - [Verification](#verification)
 
 <!-- /TOC -->
 
@@ -112,9 +111,9 @@ GitLab provides a convenient automated SSL setup process:
 
 - During the GitLab installation, simply specify your URL with "https://" prefix
 - GitLab will automatically:
-  - Obtain a Let's Encrypt SSL certificate
-  - Install the certificate
-  - Configure HTTPS
+ - Obtain a Let's Encrypt SSL certificate
+ - Install the certificate
+ - Configure HTTPS
 - No manual SSL certificate management is required
 
 During the installation of GitLab, the procedure looks something like this:
@@ -164,8 +163,7 @@ Designed for simplicity and performance, Ollama empowers users to harness the po
 
 ### AI Gateway
 
-While the official installation guide is available in [Install the GitLab AI gateway](../../install/install_ai_gateway.md), here's a streamlined approach for setting up the AI Gateway. As of January
-2025, the image `gitlab/model-gateway:self-hosted-v17.6.0-ee` has been verified to work with GitLab 17.7.
+While the official installation guide is available in [Install the GitLab AI gateway](../../install/install_ai_gateway.md), here's a streamlined approach for setting up the AI Gateway. As of January 2025, the image `gitlab/model-gateway:self-hosted-v17.6.0-ee` has been verified to work with GitLab 17.7.
 
 1. Ensure that ...
 

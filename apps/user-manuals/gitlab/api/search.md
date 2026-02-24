@@ -16,13 +16,9 @@ Use this API to [search across GitLab](../user/search/_index.md).
 Every call to this API requires authentication.
 
 Some scopes are available for [basic search](../user/search/_index.md#available-scopes).
-When [advanced search](../user/search/advanced_search.md#available-scopes) or
-[exact code search](../user/search/exact_code_search.md#available-scopes) is enabled,
-additional scopes are available for [global search](#global-search),
-[group search](#group-search), and [project search](#project-search) APIs.
+When [advanced search](../user/search/advanced_search.md#available-scopes) or [exact code search](../user/search/exact_code_search.md#available-scopes) is enabled, additional scopes are available for [global search](#global-search), [group search](#group-search), and [project search](#project-search) APIs.
 
-If you want to use basic search instead, see
-[specify a search type](../user/search/_index.md#specify-a-search-type).
+If you want to use basic search instead, see [specify a search type](../user/search/_index.md#specify-a-search-type).
 
 The search API supports [offset-based pagination](rest/_index.md#offset-based-pagination).
 
@@ -52,15 +48,15 @@ GET /search
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/search?scope=projects&search=flight"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/search?scope=projects&search=flight"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 6,
     "description": "Nobis sed ipsam vero quod cupiditate veritatis hic.",
     "name": "Flight",
@@ -79,7 +75,7 @@ Example response:
     "star_count": 0,
     "forks_count": 0,
     "last_activity_at": "2018-01-31T09:56:30.902Z"
-  }
+ }
 ]
 ```
 
@@ -87,15 +83,15 @@ Example response:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/search?scope=issues&search=file"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/search?scope=issues&search=file"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 83,
     "iid": 1,
     "project_id": 12,
@@ -144,7 +140,7 @@ Example response:
       "human_time_estimate": null,
       "human_total_time_spent": null
     }
-  }
+ }
 ]
 ```
 
@@ -155,15 +151,15 @@ Example response:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/search?scope=merge_requests&search=file"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/search?scope=merge_requests&search=file"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 56,
     "iid": 8,
     "project_id": 6,
@@ -228,7 +224,7 @@ Example response:
       "human_time_estimate": null,
       "human_total_time_spent": null
     }
-  }
+ }
 ]
 ```
 
@@ -236,15 +232,15 @@ Example response:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/search?scope=milestones&search=release"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/search?scope=milestones&search=release"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 44,
     "iid": 1,
     "project_id": 12,
@@ -255,7 +251,7 @@ Example response:
     "updated_at": "2018-02-06T12:44:01.298Z",
     "due_date": "2018-04-18",
     "start_date": "2018-02-04"
-  }
+ }
 ]
 ```
 
@@ -263,15 +259,15 @@ Example response:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/search?scope=snippet_titles&search=sample"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/search?scope=snippet_titles&search=sample"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 50,
     "title": "Sample file",
     "file_name": "file.rb",
@@ -288,7 +284,7 @@ Example response:
     "created_at": "2017-11-28T08:20:18.071Z",
     "project_id": 9,
     "web_url": "http://localhost:3000/root/jira-test/snippets/50"
-  }
+ }
 ]
 ```
 
@@ -296,22 +292,22 @@ Example response:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/search?scope=users&search=doe"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/search?scope=users&search=doe"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "John Doe1",
     "username": "user1",
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/c922747a93b40d1ea88262bf1aebee62?s=80&d=identicon",
     "web_url": "http://localhost/user1"
-  }
+ }
 ]
 ```
 
@@ -339,8 +335,8 @@ You can use wildcards (`*`) for glob matching.
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/search?scope=wiki_blobs&search=bye"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/search?scope=wiki_blobs&search=bye"
 ```
 
 Example response:
@@ -348,7 +344,7 @@ Example response:
 ```json
 
 [
-  {
+ {
     "basename": "home",
     "data": "hello\n\nand bye\n\nend",
     "path": "home.md",
@@ -358,7 +354,7 @@ Example response:
     "startline": 5,
     "project_id": 6,
     "group_id": null
-  }
+ }
 ]
 ```
 
@@ -377,8 +373,8 @@ This scope is available only when [advanced search is enabled](../user/search/ad
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/search?scope=commits&search=bye"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/search?scope=commits&search=bye"
 ```
 
 Example response:
@@ -386,23 +382,23 @@ Example response:
 ```json
 
 [
-  {
-  "id": "4109c2d872d5fdb1ed057400d103766aaea97f98",
-  "short_id": "4109c2d8",
-  "title": "goodbye $.browser",
-  "created_at": "2013-02-18T22:02:54.000Z",
-  "parent_ids": [
+ {
+ "id": "4109c2d872d5fdb1ed057400d103766aaea97f98",
+ "short_id": "4109c2d8",
+ "title": "goodbye $.browser",
+ "created_at": "2013-02-18T22:02:54.000Z",
+ "parent_ids": [
     "59d05353ab575bcc2aa958fe1782e93297de64c9"
-  ],
-  "message": "goodbye $.browser\n",
-  "author_name": "angus croll",
-  "author_email": "anguscroll@gmail.com",
-  "authored_date": "2013-02-18T22:02:54.000Z",
-  "committer_name": "angus croll",
-  "committer_email": "anguscroll@gmail.com",
-  "committed_date": "2013-02-18T22:02:54.000Z",
-  "project_id": 6
-  }
+ ],
+ "message": "goodbye $.browser\n",
+ "author_name": "angus croll",
+ "author_email": "anguscroll@gmail.com",
+ "authored_date": "2013-02-18T22:02:54.000Z",
+ "committer_name": "angus croll",
+ "committer_email": "anguscroll@gmail.com",
+ "committed_date": "2013-02-18T22:02:54.000Z",
+ "project_id": 6
+ }
 ]
 ```
 
@@ -431,8 +427,8 @@ You can use wildcards (`*`) for glob matching.
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/search?scope=blobs&search=installation"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/search?scope=blobs&search=installation"
 ```
 
 Example response:
@@ -440,7 +436,7 @@ Example response:
 ```json
 
 [
-  {
+ {
     "basename": "README",
     "data": "```\n\n## Installation\n\nQuick start using the [pre-built",
     "path": "README.md",
@@ -449,7 +445,7 @@ Example response:
     "ref": "main",
     "startline": 46,
     "project_id": 6
-  }
+ }
 ]
 ```
 
@@ -468,15 +464,15 @@ This scope is available only when [advanced search is enabled](../user/search/ad
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/search?scope=notes&search=maxime"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/search?scope=notes&search=maxime"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 191,
     "body": "Harum maxime consequuntur et et deleniti assumenda facilis.",
     "attachment": null,
@@ -495,7 +491,7 @@ Example response:
     "noteable_type": "Issue",
     "project_id": 6,
     "noteable_iid": 2
-  }
+ }
 ]
 ```
 
@@ -517,7 +513,7 @@ GET /groups/:id/search
 | `search_type`      | string            | No       | The search type to use. Values include `basic`, `advanced`, and `zoekt`.                                                                                                             |
 | `confidential`     | boolean           | No       | Filter by confidentiality. Supports `issues` scope; other scopes are ignored.                                                                                                        |
 | `exclude_forks`    | boolean           | No       | Excludes forked projects from the search. Available for exact code search. Default is `true`. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/work_items/493281) in GitLab 18.7.                                                                                           |
-| `fields`           | array of strings  | No       | Array of fields you wish to search, allowed values are `title` only. Supports `issues` and `merge_requests` scopes; other scopes are ignored. Premium and Ultimate only.             |
+| `fields`           | array of strings | No       | Array of fields you wish to search, allowed values are `title` only. Supports `issues` and `merge_requests` scopes; other scopes are ignored. Premium and Ultimate only.             |
 | `include_archived` | boolean           | No       | Includes archived projects in the search. Default is `false`. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/work_items/493281) in GitLab 18.7.                                                                                                                          |
 | `state`            | string         | No       | Filter by state. Supports `issues` and `merge_requests` scopes; other scopes are ignored.                                                                                            |
 | `order_by`         | string            | No       | Allowed values are `created_at` only. If not set, results are sorted by `created_at` in descending order for basic search, or by the most relevant documents for advanced search.    |
@@ -529,15 +525,15 @@ The response depends on the requested scope.
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/3/search?scope=projects&search=flight"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/3/search?scope=projects&search=flight"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 6,
     "description": "Nobis sed ipsam vero quod cupiditate veritatis hic.",
     "name": "Flight",
@@ -556,7 +552,7 @@ Example response:
     "star_count": 0,
     "forks_count": 0,
     "last_activity_at": "2018-01-31T09:56:30.902Z"
-  }
+ }
 ]
 ```
 
@@ -564,15 +560,15 @@ Example response:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/3/search?scope=issues&search=file"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/3/search?scope=issues&search=file"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 83,
     "iid": 1,
     "project_id": 12,
@@ -621,7 +617,7 @@ Example response:
       "human_time_estimate": null,
       "human_total_time_spent": null
     }
-  }
+ }
 ]
 ```
 
@@ -632,15 +628,15 @@ Example response:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/3/search?scope=merge_requests&search=file"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/3/search?scope=merge_requests&search=file"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 56,
     "iid": 8,
     "project_id": 6,
@@ -705,7 +701,7 @@ Example response:
       "human_time_estimate": null,
       "human_total_time_spent": null
     }
-  }
+ }
 ]
 ```
 
@@ -713,15 +709,15 @@ Example response:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/3/search?scope=milestones&search=release"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/3/search?scope=milestones&search=release"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 44,
     "iid": 1,
     "project_id": 12,
@@ -732,7 +728,7 @@ Example response:
     "updated_at": "2018-02-06T12:44:01.298Z",
     "due_date": "2018-04-18",
     "start_date": "2018-02-04"
-  }
+ }
 ]
 ```
 
@@ -740,22 +736,22 @@ Example response:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/3/search?scope=users&search=doe"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/3/search?scope=users&search=doe"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "John Doe1",
     "username": "user1",
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/c922747a93b40d1ea88262bf1aebee62?s=80&d=identicon",
     "web_url": "http://localhost/user1"
-  }
+ }
 ]
 ```
 
@@ -783,8 +779,8 @@ You can use wildcards (`*`) for glob matching.
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/6/search?scope=wiki_blobs&search=bye"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/6/search?scope=wiki_blobs&search=bye"
 ```
 
 Example response:
@@ -792,7 +788,7 @@ Example response:
 ```json
 
 [
-  {
+ {
     "basename": "home",
     "data": "hello\n\nand bye\n\nend",
     "path": "home.md",
@@ -802,7 +798,7 @@ Example response:
     "startline": 5,
     "project_id": 6,
     "group_id": 1
-  }
+ }
 ]
 ```
 
@@ -821,8 +817,8 @@ This scope is available only when [advanced search is enabled](../user/search/ad
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/6/search?scope=commits&search=bye"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/6/search?scope=commits&search=bye"
 ```
 
 Example response:
@@ -830,23 +826,23 @@ Example response:
 ```json
 
 [
-  {
-  "id": "4109c2d872d5fdb1ed057400d103766aaea97f98",
-  "short_id": "4109c2d8",
-  "title": "goodbye $.browser",
-  "created_at": "2013-02-18T22:02:54.000Z",
-  "parent_ids": [
+ {
+ "id": "4109c2d872d5fdb1ed057400d103766aaea97f98",
+ "short_id": "4109c2d8",
+ "title": "goodbye $.browser",
+ "created_at": "2013-02-18T22:02:54.000Z",
+ "parent_ids": [
     "59d05353ab575bcc2aa958fe1782e93297de64c9"
-  ],
-  "message": "goodbye $.browser\n",
-  "author_name": "angus croll",
-  "author_email": "anguscroll@gmail.com",
-  "authored_date": "2013-02-18T22:02:54.000Z",
-  "committer_name": "angus croll",
-  "committer_email": "anguscroll@gmail.com",
-  "committed_date": "2013-02-18T22:02:54.000Z",
-  "project_id": 6
-  }
+ ],
+ "message": "goodbye $.browser\n",
+ "author_name": "angus croll",
+ "author_email": "anguscroll@gmail.com",
+ "authored_date": "2013-02-18T22:02:54.000Z",
+ "committer_name": "angus croll",
+ "committer_email": "anguscroll@gmail.com",
+ "committed_date": "2013-02-18T22:02:54.000Z",
+ "project_id": 6
+ }
 ]
 ```
 
@@ -875,8 +871,8 @@ You can use wildcards (`*`) for glob matching.
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/6/search?scope=blobs&search=installation"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/6/search?scope=blobs&search=installation"
 ```
 
 Example response:
@@ -884,7 +880,7 @@ Example response:
 ```json
 
 [
-  {
+ {
     "basename": "README",
     "data": "```\n\n## Installation\n\nQuick start using the [pre-built",
     "path": "README.md",
@@ -893,7 +889,7 @@ Example response:
     "ref": "main",
     "startline": 46,
     "project_id": 6
-  }
+ }
 ]
 ```
 
@@ -912,15 +908,15 @@ This scope is available only when [advanced search is enabled](../user/search/ad
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/6/search?scope=notes&search=maxime"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/6/search?scope=notes&search=maxime"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 191,
     "body": "Harum maxime consequuntur et et deleniti assumenda facilis.",
     "attachment": null,
@@ -939,7 +935,7 @@ Example response:
     "noteable_type": "Issue",
     "project_id": 6,
     "noteable_iid": 2
-  }
+ }
 ]
 ```
 
@@ -958,9 +954,9 @@ GET /projects/:id/search
 | `id`           | integer or string | Yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).                                                                                                        |
 | `scope`        | string            | Yes      | The scope to search in. Values include `issues`, `merge_requests`, `milestones`, and `users`. Additional scopes are `wiki_blobs`, `commits`, `blobs`, and `notes`.                   |
 | `search`       | string            | Yes      | The search term.                                                                                                                                                                     |
-| `search_type`  | string            | No       | The search type to use. Values include `basic`, `advanced`, and `zoekt`.                                                                                                             |
+| `search_type` | string            | No       | The search type to use. Values include `basic`, `advanced`, and `zoekt`.                                                                                                             |
 | `confidential` | boolean           | No       | Filter by confidentiality. Supports `issues` scope; other scopes are ignored.                                                                                                        |
-| `fields`       | array of strings  | No       | Array of fields you wish to search, allowed values are `title` only. Supports `issues` and `merge_requests` scopes; other scopes are ignored. Premium and Ultimate only.             |
+| `fields`       | array of strings | No       | Array of fields you wish to search, allowed values are `title` only. Supports `issues` and `merge_requests` scopes; other scopes are ignored. Premium and Ultimate only.             |
 | `ref`          | string            | No       | The name of a repository branch or tag to search on. The project's default branch is used by default. Applicable only for scopes `blobs`, `commits`, and `wiki_blobs`.               |
 | `state`        | string            | No       | Filter by state. Supports `issues` and `merge_requests` scopes; other scopes are ignored.                                                                                            |
 | `order_by`     | string            | No       | Allowed values are `created_at` only. If not set, results are sorted by `created_at` in descending order for basic search, or by the most relevant documents for advanced search.    |
@@ -972,15 +968,15 @@ The response depends on the requested scope.
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/12/search?scope=issues&search=file"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/12/search?scope=issues&search=file"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 83,
     "iid": 1,
     "project_id": 12,
@@ -1029,7 +1025,7 @@ Example response:
       "human_time_estimate": null,
       "human_total_time_spent": null
     }
-  }
+ }
 ]
 ```
 
@@ -1040,15 +1036,15 @@ Example response:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/6/search?scope=merge_requests&search=file"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/6/search?scope=merge_requests&search=file"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 56,
     "iid": 8,
     "project_id": 6,
@@ -1113,7 +1109,7 @@ Example response:
       "human_time_estimate": null,
       "human_total_time_spent": null
     }
-  }
+ }
 ]
 ```
 
@@ -1121,15 +1117,15 @@ Example response:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/12/search?scope=milestones&search=release"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/12/search?scope=milestones&search=release"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 44,
     "iid": 1,
     "project_id": 12,
@@ -1140,7 +1136,7 @@ Example response:
     "updated_at": "2018-02-06T12:44:01.298Z",
     "due_date": "2018-04-18",
     "start_date": "2018-02-04"
-  }
+ }
 ]
 ```
 
@@ -1148,22 +1144,22 @@ Example response:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/6/search?scope=users&search=doe"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/6/search?scope=users&search=doe"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "John Doe1",
     "username": "user1",
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/c922747a93b40d1ea88262bf1aebee62?s=80&d=identicon",
     "web_url": "http://localhost/user1"
-  }
+ }
 ]
 ```
 
@@ -1181,18 +1177,15 @@ To use a filter, include it in your query (for example, `a query filename:some_n
 
 You can use wildcards (`*`) for glob matching.
 
-Wiki blobs searches are performed on both filenames and contents. Search
-results:
+Wiki blobs searches are performed on both filenames and contents. Search results:
 
 - Found in filenames are displayed before results found in contents.
-- May contain multiple matches for the same blob because the search string
-  might be found in both the filename and content, or might appear multiple
-  times in the content.
+- May contain multiple matches for the same blob because the search string might be found in both the filename and content, or might appear multiple times in the content.
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/6/search?scope=wiki_blobs&search=bye"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/6/search?scope=wiki_blobs&search=bye"
 ```
 
 Example response:
@@ -1200,7 +1193,7 @@ Example response:
 ```json
 
 [
-  {
+ {
     "basename": "home",
     "data": "hello\n\nand bye\n\nend",
     "path": "home.md",
@@ -1210,7 +1203,7 @@ Example response:
     "startline": 5,
     "project_id": 6,
     "group_id": 1
-  }
+ }
 ]
 ```
 
@@ -1221,8 +1214,8 @@ Example response:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/6/search?scope=commits&search=bye"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/6/search?scope=commits&search=bye"
 ```
 
 Example response:
@@ -1230,23 +1223,23 @@ Example response:
 ```json
 
 [
-  {
-  "id": "4109c2d872d5fdb1ed057400d103766aaea97f98",
-  "short_id": "4109c2d8",
-  "title": "goodbye $.browser",
-  "created_at": "2013-02-18T22:02:54.000Z",
-  "parent_ids": [
+ {
+ "id": "4109c2d872d5fdb1ed057400d103766aaea97f98",
+ "short_id": "4109c2d8",
+ "title": "goodbye $.browser",
+ "created_at": "2013-02-18T22:02:54.000Z",
+ "parent_ids": [
     "59d05353ab575bcc2aa958fe1782e93297de64c9"
-  ],
-  "message": "goodbye $.browser\n",
-  "author_name": "angus croll",
-  "author_email": "anguscroll@gmail.com",
-  "authored_date": "2013-02-18T22:02:54.000Z",
-  "committer_name": "angus croll",
-  "committer_email": "anguscroll@gmail.com",
-  "committed_date": "2013-02-18T22:02:54.000Z",
-  "project_id": 6
-  }
+ ],
+ "message": "goodbye $.browser\n",
+ "author_name": "angus croll",
+ "author_email": "anguscroll@gmail.com",
+ "authored_date": "2013-02-18T22:02:54.000Z",
+ "committer_name": "angus croll",
+ "committer_email": "anguscroll@gmail.com",
+ "committed_date": "2013-02-18T22:02:54.000Z",
+ "project_id": 6
+ }
 ]
 ```
 
@@ -1267,14 +1260,12 @@ You can use wildcards (`*`) for glob matching.
 Blobs searches are performed on both filenames and contents. Search results:
 
 - Found in filenames are displayed before results found in contents.
-- May contain multiple matches for the same blob because the search string
-  might be found in both the filename and content, or might appear multiple
-  times in the content.
+- May contain multiple matches for the same blob because the search string might be found in both the filename and content, or might appear multiple times in the content.
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/6/search?scope=blobs&search=keyword%20filename:*.py"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/6/search?scope=blobs&search=keyword%20filename:*.py"
 ```
 
 Example response:
@@ -1282,7 +1273,7 @@ Example response:
 ```json
 
 [
-  {
+ {
     "basename": "README",
     "data": "```\n\n## Installation\n\nQuick start using the [pre-built",
     "path": "README.md",
@@ -1291,7 +1282,7 @@ Example response:
     "ref": "main",
     "startline": 46,
     "project_id": 6
-  }
+ }
 ]
 ```
 
@@ -1302,15 +1293,15 @@ Example response:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/6/search?scope=notes&search=maxime"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/6/search?scope=notes&search=maxime"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 191,
     "body": "Harum maxime consequuntur et et deleniti assumenda facilis.",
     "attachment": null,
@@ -1329,6 +1320,6 @@ Example response:
     "noteable_type": "Issue",
     "project_id": 6,
     "noteable_iid": 2
-  }
+ }
 ]
 ```

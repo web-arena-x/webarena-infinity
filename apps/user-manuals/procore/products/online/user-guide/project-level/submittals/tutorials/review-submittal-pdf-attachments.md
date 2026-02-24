@@ -15,21 +15,21 @@ While reviewing a submittal’s PDF attachments in Procore, users who have the c
 ## Things to Consider
 
 - **Required User Permissions:**
-  - *To add markup* *and stamps to a submittal PDF attachment in Procore:*
+ - *To add markup* *and stamps to a submittal PDF attachment in Procore:*
     - 'Standard' level permissions or higher on the Submittals tool with the current Ball In Court responsibility.
-  - *To add a blank page or a cover page to a submittal PDF attachment in Procore:*
+ - *To add a blank page or a cover page to a submittal PDF attachment in Procore:*
     - 'Admin' level permissions on the project's Submittals tool with the current Ball in Court responsibility.
 - **Additional Information:**
-  - The submittal's status must be 'Open'.
-  - If you want to use a personal stamp when adding markups to a submittal PDF attachment in Procore, see [Manage Personal Submittal Markup Stamps](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/manage-personal-submittal-markup-stamps "Manage Personal Submittal Markup Stamps").
-  - Adding markups or stamps to a submittal PDF attachment in Procore automatically adds the attachment to your response in the Submittal Workflow.
-  - Any user who has permission to view a submittal also has permission to view its attachments and any markups or stamps added in Procore.
-  - If two or more users are viewing a submittal PDF attachment at the same time:
+ - The submittal's status must be 'Open'.
+ - If you want to use a personal stamp when adding markups to a submittal PDF attachment in Procore, see [Manage Personal Submittal Markup Stamps](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/manage-personal-submittal-markup-stamps "Manage Personal Submittal Markup Stamps").
+ - Adding markups or stamps to a submittal PDF attachment in Procore automatically adds the attachment to your response in the Submittal Workflow.
+ - Any user who has permission to view a submittal also has permission to view its attachments and any markups or stamps added in Procore.
+ - If two or more users are viewing a submittal PDF attachment at the same time:
     - The other users' initials display at the top of the attachment viewer.
     - Markups added by all users are saved automatically, but the markups do not automatically appear in the attachment viewer in real-time for other users viewing the attachment. To see another user's markups, refresh the page.
     - The 'Current' version of the attachment shifts to the step in the workflow with the user who added the most recent markups or stamps to the attachment.
-  - Deleting a blank page or a cover page will reset the undo/redo queue, meaning that any markup actions completed in your current review session before the page was deleted cannot be undone or redone using the 'Undo' and 'Redo' buttons or keyboard shortcuts.
-  - Ball In Court responsibility on a submittal shifts to the Submittal Manager after all steps in the Submittal Workflow are complete.
+ - Deleting a blank page or a cover page will reset the undo/redo queue, meaning that any markup actions completed in your current review session before the page was deleted cannot be undone or redone using the 'Undo' and 'Redo' buttons or keyboard shortcuts.
+ - Ball In Court responsibility on a submittal shifts to the Submittal Manager after all steps in the Submittal Workflow are complete.
 
 ## Steps
 
@@ -46,18 +46,18 @@ While reviewing a submittal’s PDF attachments in Procore, users who have the c
    ##### Tip
 
    Current attachments are indicated by a 'Current' label in the 'Version' column. See [When is a submittal attachment labeled as 'Current' in the 'Submittal Workflow' table?](https://support.procore.com/faq/when-is-a-submittal-attachment-labeled-as-current-in-the-submittal-worfklow-table "When is a submittal attachment labeled as 'Current' in the 'Submittal Workflow' table?")
-5. Use the markup tools to add markups or one of your submittal stamps to the file.  
-   *Note:*If you change an applicable markup tool's attributes (stroke width, color, or opacity) before using that markup tool, the system will apply the same attributes by default each time you use that markup tool. Editing the attributes for an existing markup does not affect the markup tool's default attributes.  
+5. Use the markup tools to add markups or one of your submittal stamps to the file. 
+   *Note:*If you change an applicable markup tool's attributes (stroke width, color, or opacity) before using that markup tool, the system will apply the same attributes by default each time you use that markup tool. Editing the attributes for an existing markup does not affect the markup tool's default attributes. 
      
-   This table lists the features and available keyboard shortcuts to use when viewing and adding markups to submittal PDF attachments.  
+   This table lists the features and available keyboard shortcuts to use when viewing and adding markups to submittal PDF attachments. 
 
    | Button | Label | Action | Windows Keyboard Shortcut | Mac Keyboard Shortcut |
    | --- | --- | --- | --- | --- |
    | icon-markup-left.png | Hide/Show Page Navigator | Hide or show the Page Navigator menu. | ALT + T | OPTION + T |
-   |  | Select | Click to select or move a markup on the page. To select multiple markups, hold SHIFT on your keyboard and click on each markup you want to select as part of a group. | Press V | Press V |
+   | | Select | Click to select or move a markup on the page. To select multiple markups, hold SHIFT on your keyboard and click on each markup you want to select as part of a group. | Press V | Press V |
    | N/A | Scroll Mode | Use your mouse or the arrow keys on your keyboard to scroll on the page and scroll between pages. | Press V | Press V |
-   | icon-markup-pan.png | Pan | Click and drag your cursor to move across the page.  For temporary panning, hold the SPACEBAR. | SHIFT + V | SHIFT + V |
-   | N/A | Pan Mode | Click and drag your cursor to move across the page.  For temporary panning, hold the SPACEBAR. | SHIFT + V | SHIFT + V |
+   | icon-markup-pan.png | Pan | Click and drag your cursor to move across the page. For temporary panning, hold the SPACEBAR. | SHIFT + V | SHIFT + V |
+   | N/A | Pan Mode | Click and drag your cursor to move across the page. For temporary panning, hold the SPACEBAR. | SHIFT + V | SHIFT + V |
    | icon-markup-draw.png | Pen | Draw a freehand line or shape. | Press P to select this tool. | Press P to select this tool. |
    | btn-stroke-75x75.png | Line | Draw a line. | Press L to select this tool. | Press L to select this tool. |
    | btn-arrow-75x75.png | Arrow | Draw an arrow. | Press A to select this tool. | Press A to select this tool. |
@@ -67,20 +67,20 @@ While reviewing a submittal’s PDF attachments in Procore, users who have the c
    | btn-highlighter-75x75.png | Freehand Highlight | Highlight with a freehand highlighter. | Press F to select this tool. | Press F to select this tool. |
    | btn-highlight-text.png | Highlight | Highlight text on a page. | Press H to select this tool. | Press H to select this tool. |
    | btn-text-75x75.png | Text | Add a text box. The text box must be filled to be selectable. The font size can be adjusted by selecting a filled text box and moving the slider above the text box. | Press T to select this tool. | Press T to select this tool. |
-   |  | Stamp | Open the stamp menu and click the stamp you want to add. See [Manage Personal Submittal Markup Stamps](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/manage-personal-submittal-markup-stamps "Manage Personal Submittal Markup Stamps"). | Press S to open the stamp menu. | Press S to open the stamp menu. |
+   | | Stamp | Open the stamp menu and click the stamp you want to add. See [Manage Personal Submittal Markup Stamps](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/manage-personal-submittal-markup-stamps "Manage Personal Submittal Markup Stamps"). | Press S to open the stamp menu. | Press S to open the stamp menu. |
    | icon-undo.png | Undo | Undo the most recent markup action in your current review session. This excludes adding or removing blank or cover pages. | CTRL + Z | CMD + Z |
    | icon-redo.png | Redo | Redo the most recently undone markup action in your current review session. | CTRL + Y | CMD + Y |
    | btn-stroke-75x75.png | Stroke | Choose the desired stroke width for a selected markup. Adjusting the stroke width for a text box adds or modifies a border around the text box. | N/A | N/A |
    | btn-color-75x75.png | Color | Choose the color for a selected markup. | N/A | N/A |
-   | btn-opacity-75x75.png | Opacity | Choose the opacity percentage for the fill color on a selected markup.  *Note*: The opacity cannot be adjusted for Line, Arrow, Cloud, or Stamp markups. | N/A | N/A |
+   | btn-opacity-75x75.png | Opacity | Choose the opacity percentage for the fill color on a selected markup. *Note*: The opacity cannot be adjusted for Line, Arrow, Cloud, or Stamp markups. | N/A | N/A |
    | N/A | Duplicate | Duplicate a selected markup. | CTRL + D | CMD + D |
-   | N/A | Delete | Delete a selected markup. | DELETE | DELETE  *Mozilla Firefox Only:  SHIFT + DELETE* |
+   | N/A | Delete | Delete a selected markup. | DELETE | DELETE *Mozilla Firefox Only: SHIFT + DELETE* |
    | N/A | Copy | Copy a selected markup. | CTRL + C | CMD + C |
    | N/A | Paste | Paste a copied markup. | CTRL + V | CMD + V |
    | icon-markup-zoom-in.png | Zoom In | Zoom in on the page. | CTRL + Plus Sign (+) | CMD + Plus Sign (+) |
    | icon-markup-zoom-out.png | Zoom Out | Zoom out on the page. | CTRL + Minus Sign (-) | CMD + Minus Sign (-) |
-   | N/A | Zoom to Fit | Fit the full page in the attachment viewer. | CTRL + 9 | CMD + 9  *Safari: CTRL + 9* |
-   | N/A | Zoom to Width | Fill the attachment viewer with the full width of the page. | CTRL + 0 | CMD + 0  or  CTRL + 0 |
+   | N/A | Zoom to Fit | Fit the full page in the attachment viewer. | CTRL + 9 | CMD + 9 *Safari: CTRL + 9* |
+   | N/A | Zoom to Width | Fill the attachment viewer with the full width of the page. | CTRL + 0 | CMD + 0 or CTRL + 0 |
    | icon-markup-page-next.png | Previous Page | Move to the previous page. | SHIFT + Up Arrow (↑) | SHIFT + Up Arrow (↑) |
    | icon-markup-page-previous.png | Next Page | Move to the next page. | SHIFT + Down Arrow (↓) | SHIFT + Down Arrow (↓) |
    | N/A | Scroll Up | Scroll up the page. 1 | Up Arrow (↑) | Up Arrow (↑) |
@@ -91,11 +91,11 @@ While reviewing a submittal’s PDF attachments in Procore, users who have the c
    1 The attachment viewer must be in 'Scroll Mode'.
 
    2 Scrolling left and right are only available when the page view in the attachment viewer is narrower than the actual page width.
-6. When you are finished adding your markups and stamps, click **Close** to close the attachment viewer and to return to the submittal.  
+6. When you are finished adding your markups and stamps, click **Close** to close the attachment viewer and to return to the submittal. 
      
-   ![submittals-pdf-close.png](https://support.procore.com/@api/deki/files/234666/submittals-pdf-close.png?revision=1)  
+   ![submittals-pdf-close.png](https://support.procore.com/@api/deki/files/234666/submittals-pdf-close.png?revision=1) 
      
-   The submittal PDF attachment you added markups to will have a markup pencil ![icon-markup-current-file.png](https://support.procore.com/@api/deki/files/153419/icon-markup-current-file.png?revision=2&size=bestfit&width=20&height=20) icon next to it and 'Current' will display in the 'Version' column to indicate which version of the attachment is the most up-to-date.  
+   The submittal PDF attachment you added markups to will have a markup pencil ![icon-markup-current-file.png](https://support.procore.com/@api/deki/files/153419/icon-markup-current-file.png?revision=2&size=bestfit&width=20&height=20) icon next to it and 'Current' will display in the 'Version' column to indicate which version of the attachment is the most up-to-date. 
      
    ![submittals-submittal-workflow-markup-added.png](https://support.procore.com/@api/deki/files/142065/submittals-submittal-workflow-markup-added.png?revision=3)
 
@@ -110,16 +110,16 @@ This task can only be performed by Submittal Managers and users with 'Admin' lev
 
    ##### Tip
 
-   Current attachments are indicated by a 'Current' label in the 'Version' column. See [When is a submittal attachment labeled as 'Current' in the 'Submittal Workflow' table?](https://support.procore.com/faq/when-is-a-submittal-attachment-labeled-as-current-in-the-submittal-worfklow-table "When is a submittal attachment labeled as 'Current' in the 'Submittal Workflow' table?")  
+   Current attachments are indicated by a 'Current' label in the 'Version' column. See [When is a submittal attachment labeled as 'Current' in the 'Submittal Workflow' table?](https://support.procore.com/faq/when-is-a-submittal-attachment-labeled-as-current-in-the-submittal-worfklow-table "When is a submittal attachment labeled as 'Current' in the 'Submittal Workflow' table?") 
      
    Adding a cover sheet or blank sheet to an attachment does *not* give it the label of "Current" in the Version column of the 'Submittal Workflow' table.
-5. Open the page navigation menu by pressing ALT + T (or OPTION + T) on your keyboard or by clicking the angle bracket tab.  
+5. Open the page navigation menu by pressing ALT + T (or OPTION + T) on your keyboard or by clicking the angle bracket tab. 
      
    ![submittals-pdf-page-navigation-menu.png](https://support.procore.com/@api/deki/files/153833/submittals-pdf-page-navigation-menu.png?revision=2)
-6. Click **Add****Page**.  
+6. Click **Add****Page**. 
      
    ![submittals-pdf-add-page.png](https://support.procore.com/@api/deki/files/153921/submittals-pdf-add-page.png?revision=2)
-7. Select**Blank Page** or **Cover Page** in the 'Add Page' window.  
+7. Select**Blank Page** or **Cover Page** in the 'Add Page' window. 
      
    ![submittals-pdf-add-page-window.png](https://support.procore.com/@api/deki/files/153922/submittals-pdf-add-page-window.png?revision=1)
 8. To remove a blank page or a Procore-generated cover page, open the page navigation menu and click the ![icon-delete-trash.png](https://support.procore.com/@api/deki/files/90896/icon-delete-trash.png?revision=1&size=bestfit&width=15&height=15) icon next to the page number.
@@ -130,11 +130,11 @@ This task can only be performed by Submittal Managers and users with 'Admin' lev
    - Deleting a blank page or a cover page will reset the undo/redo queue, meaning that any markup actions completed in your current review session before the page was deleted cannot be undone or redone using the 'Undo' and 'Redo' buttons or keyboard shortcuts.
 
    ![submittals-pdf-delete-page.png](https://support.procore.com/@api/deki/files/153923/submittals-pdf-delete-page.png?revision=2)
-9. Click **Close** to close the attachment viewer and to return to the submittal.  
+9. Click **Close** to close the attachment viewer and to return to the submittal. 
      
-   ![submittals-pdf-close.png](https://support.procore.com/@api/deki/files/234666/submittals-pdf-close.png?revision=1)  
+   ![submittals-pdf-close.png](https://support.procore.com/@api/deki/files/234666/submittals-pdf-close.png?revision=1) 
      
-   The markup pencil ![icon-markup-current-file.png](https://support.procore.com/@api/deki/files/153419/icon-markup-current-file.png?revision=2&size=bestfit&width=20&height=20) icon shows next to the submittal PDF attachment if a cover sheet was added but not if a blank sheet was added.    
+   The markup pencil ![icon-markup-current-file.png](https://support.procore.com/@api/deki/files/153419/icon-markup-current-file.png?revision=2&size=bestfit&width=20&height=20) icon shows next to the submittal PDF attachment if a cover sheet was added but not if a blank sheet was added.   
      
    ![submittals-submittal-workflow-markup-added.png](https://support.procore.com/@api/deki/files/142065/submittals-submittal-workflow-markup-added.png?revision=3)
 

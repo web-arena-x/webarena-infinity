@@ -44,8 +44,7 @@ This custom ruleset extends GitLab pre-build rules. The extension can detect and
 
 #### Custom Ruleset File
 
-The custom ruleset is defined in `.gitlab/secret-detection-ruleset.toml`
-The rules can be defined using `regex`
+The custom ruleset is defined in `.gitlab/secret-detection-ruleset.toml` The rules can be defined using `regex`
 
 #### PII Data Element Detection
 
@@ -94,8 +93,7 @@ This guide covers the steps to configure the policy to run secret detection for 
 
 ### Configure secret detection policy
 
-To run secret detection automatically in the pipeline as the enforced global policy,
-set up the policy at the highest level (in this case, for the top-level group).
+To run secret detection automatically in the pipeline as the enforced global policy, set up the policy at the highest level (in this case, for the top-level group).
 To create the new secret detection policy:
 
 1. Create the policy: In the same group `Secret Detection`, navigate to that group's **Secure** > **Policies** page.
@@ -128,21 +126,21 @@ Upon creating the policy, for reference, here is the complete policy configurati
 ---
 scan_execution_policy:
 - name: Scan execution for secret detection with custom rules
-  description: ''
-  enabled: true
-  policy_scope:
+ description: ''
+ enabled: true
+ policy_scope:
     projects:
       excluding: []
-  rules:
-  - type: pipeline
+ rules:
+ - type: pipeline
     branches:
     - "*"
-  actions:
-  - scan: secret_detection
+ actions:
+ - scan: secret_detection
     variables:
       SECRET_DETECTION_RULESET_GIT_REFERENCE: "@group_[group_id]_bot_[random_number]:$SECRET_DETECTION_GROUP_TOKEN@gitlab.com/example_group/secret-detection/secret-detection-custom-ruleset"
       SECRET_DETECTION_HISTORIC_SCAN: 'true'
-  skip_ci:
+ skip_ci:
     allowed: true
     allowlist:
       users: []

@@ -78,9 +78,9 @@ To duplicate a sticky:
 
 - Select an existing sticky, then use the keyboard shortcut:
 
-  **Mac**: `⌘ Command` `D`
+ **Mac**: `⌘ Command` `D`
 
-  **Windows**: `Control` `D`
+ **Windows**: `Control` `D`
 - Or, press `Alt` then click and drag from an existing sticky.
 
 In either case, the original sticky is duplicated along with any text inside it.
@@ -93,7 +93,7 @@ When you duplicate a sticky that's grown in size due to its text, then edit the 
 
 Add connectors between stickies to diagram flows or create paths for others to follow.
 
-1. Click  in the toolbar.
+1. Click in the toolbar.
 2. Select between an **bent**, **curved**, or **straight** connector. You can also use the keyboard shortcuts `X` to create a bent connector, and `L` for a straight connector.
 3. Click and drag your cursor between the objects you want to connect.
 
@@ -108,9 +108,9 @@ Your stickies automatically include your name at the bottom. This is great for g
 To add or remove your name to a sticky:
 
 1. Add a sticky to the board.
-2. Click  in the toolbar.
+2. Click in the toolbar.
 
-To remove your name, click  again.
+To remove your name, click again.
 
 Note
 

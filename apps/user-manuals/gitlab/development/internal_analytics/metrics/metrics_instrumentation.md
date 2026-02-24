@@ -13,14 +13,13 @@ For a video tutorial, see the [Adding Service Ping metric via instrumentation cl
 ## Nomenclature
 
 - **Instrumentation class**:
-  - Inherits one of the metric classes: `DatabaseMetric`, `NumbersMetric` or `GenericMetric`.
-  - Implements the logic that calculates the value for a Service Ping metric.
+ - Inherits one of the metric classes: `DatabaseMetric`, `NumbersMetric` or `GenericMetric`.
+ - Implements the logic that calculates the value for a Service Ping metric.
 
-- **Metric definition**
-  The Service Data metric YAML definition.
+- **Metric definition** The Service Data metric YAML definition.
 
 - **Hardening**:
-  Hardening a method is the process that ensures the method fails safe, returning a fallback value like -1.
+ Hardening a method is the process that ensures the method fails safe, returning a fallback value like -1.
 
 ## How metrics instrumentation works
 
@@ -59,12 +58,10 @@ You can use database metrics to track data kept in the database, for example, a 
 Any single query for a Service Ping metric must stay below the [1 second execution time](../../database/query_performance.md#timing-guidelines-for-queries) with cold caches.
 
 - Use specialized indexes. For examples, see these merge requests:
-  - [Example 1](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/26871)
-  - [Example 2](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/26445)
-- Use defined `start` and `finish`. These values can be memoized and reused, as in this
-  [example merge request](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/37155).
-- Avoid joins and unnecessary complexity in your queries. See this
-  [example merge request](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/36316) as an example.
+ - [Example 1](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/26871)
+ - [Example 2](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/26445)
+- Use defined `start` and `finish`. These values can be memoized and reused, as in this [example merge request](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/37155).
+- Avoid joins and unnecessary complexity in your queries. See this [example merge request](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/36316) as an example.
 - Set a custom `batch_size` for `distinct_count`, as in this [example merge request](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/38000).
 
 ### Database metric Examples
@@ -73,7 +70,7 @@ Any single query for a Service Ping metric must stay below the [1 second executi
 
 ```ruby
 module Gitlab
-  module Usage
+ module Usage
     module Metrics
       module Instrumentations
         class CountIssuesMetric < DatabaseMetric
@@ -83,7 +80,7 @@ module Gitlab
         end
       end
     end
-  end
+ end
 end
 ```
 
@@ -91,7 +88,7 @@ end
 
 ```ruby
 module Gitlab
-  module Usage
+ module Usage
     module Metrics
       module Instrumentations
         class CountIssuesMetric < DatabaseMetric
@@ -104,7 +101,7 @@ module Gitlab
         end
       end
     end
-  end
+ end
 end
 ```
 
@@ -114,7 +111,7 @@ end
 # frozen_string_literal: true
 
 module Gitlab
-  module Usage
+ module Usage
     module Metrics
       module Instrumentations
         class CountUsersAssociatingMilestonesToReleasesMetric < DatabaseMetric
@@ -127,7 +124,7 @@ module Gitlab
         end
       end
     end
-  end
+ end
 end
 ```
 
@@ -137,7 +134,7 @@ end
 # frozen_string_literal: true
 
 module Gitlab
-  module Usage
+ module Usage
     module Metrics
       module Instrumentations
         class JiraImportsTotalImportedIssuesCountMetric < DatabaseMetric
@@ -147,7 +144,7 @@ module Gitlab
         end
       end
     end
-  end
+ end
 end
 ```
 
@@ -157,7 +154,7 @@ end
 # frozen_string_literal: true
 
 module Gitlab
-  module Usage
+ module Usage
     module Metrics
       module Instrumentations
         class CountIssuesWeightAverageMetric < DatabaseMetric
@@ -167,27 +164,24 @@ module Gitlab
         end
       end
     end
-  end
+ end
 end
 ```
 
 #### Estimated batch counters
 
-Estimated batch counter functionality handles `ActiveRecord::StatementInvalid` errors
-when used through the provided `estimate_batch_distinct_count` method.
+Estimated batch counter functionality handles `ActiveRecord::StatementInvalid` errors when used through the provided `estimate_batch_distinct_count` method.
 Errors return a value of `-1`.
 
 {{< alert type="warning" >}}
 
-This functionality estimates a distinct count of a specific ActiveRecord_Relation in a given column,
-which uses the [HyperLogLog](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/40671.pdf) algorithm.
+This functionality estimates a distinct count of a specific ActiveRecord_Relation in a given column, which uses the [HyperLogLog](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/40671.pdf) algorithm.
 As the HyperLogLog algorithm is probabilistic, the **results always include error**.
 The highest encountered error rate is 4.9%.
 
 {{< /alert >}}
 
-When correctly used, the `estimate_batch_distinct_count` method enables efficient counting over
-columns that contain non-unique values, which cannot be assured by other counters.
+When correctly used, the `estimate_batch_distinct_count` method enables efficient counting over columns that contain non-unique values, which cannot be assured by other counters.
 
 ##### `estimate_batch_distinct_count` method
 
@@ -209,31 +203,23 @@ includes the following arguments:
 The method includes the following prerequisites:
 
 - The supplied `relation` must include the primary key defined as the numeric column.
-  For example: `id bigint NOT NULL`.
-- The `estimate_batch_distinct_count` can handle a joined relation. To use its ability to
-  count non-unique columns, the joined relation **must not** have a one-to-many relationship,
-  such as `has_many :boards`.
-- Both `start` and `finish` arguments should always represent primary key relationship values,
-  even if the estimated count refers to another column, for example:
+ For example: `id bigint NOT NULL`.
+- The `estimate_batch_distinct_count` can handle a joined relation. To use its ability to count non-unique columns, the joined relation **must not** have a one-to-many relationship, such as `has_many :boards`.
+- Both `start` and `finish` arguments should always represent primary key relationship values, even if the estimated count refers to another column, for example:
 
-  ```ruby
+ ```ruby
     estimate_batch_distinct_count(::Note, :author_id, start: ::Note.minimum(:id), finish: ::Note.maximum(:id))
-  ```
+ ```
 
 Examples:
 
-1. Simple execution of estimated batch counter, with only relation provided,
-   returned value represents estimated number of unique values in `id` column
-   (which is the primary key) of `Project` relation:
+1. Simple execution of estimated batch counter, with only relation provided, returned value represents estimated number of unique values in `id` column (which is the primary key) of `Project` relation:
 
    ```ruby
      estimate_batch_distinct_count(::Project)
    ```
 
-1. Execution of estimated batch counter, where provided relation has applied
-   additional filter (`.where(time_period)`), number of unique values estimated
-   in custom column (`:author_id`), and parameters: `start` and `finish` together
-   apply boundaries that defines range of provided relation to analyze:
+1. Execution of estimated batch counter, where provided relation has applied additional filter (`.where(time_period)`), number of unique values estimated in custom column (`:author_id`), and parameters: `start` and `finish` together apply boundaries that defines range of provided relation to analyze:
 
    ```ruby
      estimate_batch_distinct_count(::Note.with_suggestions.where(time_period), :author_id, start: ::Note.minimum(:id), finish: ::Note.maximum(:id))
@@ -249,7 +235,7 @@ Examples:
 # frozen_string_literal: true
 
 module Gitlab
-  module Usage
+ module Usage
     module Metrics
       module Instrumentations
           class IssuesBoardsCountMetric < NumbersMetric
@@ -265,7 +251,7 @@ module Gitlab
         end
       end
     end
-  end
+ end
 end
 ```
 
@@ -287,7 +273,7 @@ You can use generic metrics for other metrics, for example, an instance's databa
 
 ```ruby
 module Gitlab
-  module Usage
+ module Usage
     module Metrics
       module Instrumentations
         class UuidMetric < GenericMetric
@@ -297,7 +283,7 @@ module Gitlab
         end
       end
     end
-  end
+ end
 end
 ```
 
@@ -313,7 +299,7 @@ Any Prometheus error handling should be done in the block itself.
 
 ```ruby
 module Gitlab
-  module Usage
+ module Usage
     module Metrics
       module Instrumentations
         class GitalyApdexMetric < PrometheusMetric
@@ -327,7 +313,7 @@ module Gitlab
         end
       end
     end
-  end
+ end
 end
 ```
 
@@ -339,8 +325,8 @@ The generator takes the class name as an argument and the following options:
 
 - `--type=TYPE` Required. Indicates the metric type. It must be one of: `database`, `generic`, `redis`, `numbers`.
 - `--operation` Required for `database` & `numbers` type.
-  - For `database` it must be one of: `count`, `distinct_count`, `estimate_batch_distinct_count`, `sum`, `average`.
-  - For `numbers` it must be: `add`.
+ - For `database` it must be one of: `count`, `distinct_count`, `estimate_batch_distinct_count`, `sum`, `average`.
+ - For `numbers` it must be: `add`.
 - `--ee` Indicates if the metric is for EE.
 
 ```shell
@@ -383,8 +369,8 @@ Sometimes metrics fail for reasons that are not immediately clear. The failures 
 The following pairing session video gives you an example of an investigation in to a real-world failing metric.
 
 <div class="video-fallback">
-  See the video from: <a href="https://www.youtube.com/watch?v=y_6m2POx2ug">Product Intelligence Office Hours Oct 27th</a> to learn more about the metrics troubleshooting process.
+ See the video from: <a href="https://www.youtube.com/watch?v=y_6m2POx2ug">Product Intelligence Office Hours Oct 27th</a> to learn more about the metrics troubleshooting process.
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/y_6m2POx2ug" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/y_6m2POx2ug" frameborder="0" allowfullscreen> </iframe>
 </figure>

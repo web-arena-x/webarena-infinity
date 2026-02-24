@@ -10,22 +10,22 @@ title: Vertex AI Model Enablement Process
 ### 1. Request Initiation
 
 - Create an issue in the [GitLab project](https://gitlab.com/gitlab-org/gitlab/-/issues)
-  - Use the Model Enablement Request template - see below
-  - Specify the model(s) to be enabled (e.g., Codestral)
+ - Use the Model Enablement Request template - see below
+ - Specify the model(s) to be enabled (e.g., Codestral)
 - Share the issue link in the `#ai-infrastructure` channel for visibility
 
 ### 2. Request Processing
 
 - Request is handled by either:
-  - Infrastructure team (Infra)
-  - AI Framework team (AIF)
+ - Infrastructure team (Infra)
+ - AI Framework team (AIF)
 
 ### 3. Model Enablement
 
 - For Vertex AI managed models:
-  - Team enables the model via the Vertex AI console ("click on enable")
+ - Team enables the model via the Vertex AI console ("click on enable")
 - For custom configurations:
-  - AIF team opens a ticket with Google for customization needs
+ - AIF team opens a ticket with Google for customization needs
 
 ### 4. Quota Management
 
@@ -41,9 +41,9 @@ title: Vertex AI Model Enablement Process
 ### 1. Environment Selection
 
 - Options include:
-  - ai-framework-dev
-  - ai-framework-stage
-  - Dedicated load test environment (e.g., sandbox project)
+ - ai-framework-dev
+ - ai-framework-stage
+ - Dedicated load test environment (e.g., sandbox project)
 
 ### 2. Access Request
 
@@ -54,8 +54,8 @@ title: Vertex AI Model Enablement Process
 
 - Replicate the exact same model configuration from production
 - Ensure isolation from production to prevent:
-  - Load test interrupting production traffic
-  - External traffic skewing load test results
+ - Load test interrupting production traffic
+ - External traffic skewing load test results
 
 ### 4. Model Verification
 

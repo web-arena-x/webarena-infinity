@@ -15,17 +15,17 @@ To access these tabs, click **Emails** from the left navigation bar, then click 
 While viewing the email, performance details can be viewed via two tabs:
 
 - [Email](#h_01FC689TBF04ATAZ8M5H4TJAJ4)
-  - Delivered
-  - Open rate
-  - Click rate
-  - Unique URL clicks
+ - Delivered
+ - Open rate
+ - Click rate
+ - Unique URL clicks
     - A breakdown of each unique URL click (if applicable)
-  - Handshake Activation Rate
-  - All actions
+ - Handshake Activation Rate
+ - All actions
 - [Recipients](#h_01FC689Z3T0M8KA05MNG6CJ3DW)
-  - Search by name or keyword
-  - Filters
-  - Excluded recipients
+ - Search by name or keyword
+ - Filters
+ - Excluded recipients
 
 ## Email
 

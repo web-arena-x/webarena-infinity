@@ -36,7 +36,7 @@ The performance metric summary displays on the [**Themes**](https://admin.shopif
 #### Steps:
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
-2. Optional: Use the  date picker to display the data from the selected date range. You can select between **Today**, **Last 7 days**, and **Last 30 days**.
+2. Optional: Use the date picker to display the data from the selected date range. You can select between **Today**, **Last 7 days**, and **Last 30 days**.
 3. Optional: Use the performance metric summary to access a report:
 
    * Click **LCP P75 (ms)** to access the [**Largest Contentful Paint: Over Time** report](https://admin.shopify.com/analytics/reports/largest_contentful_paint_over_time).

@@ -57,7 +57,7 @@ The example below shows an Agent using a Task Utility:
 
 ![](https://support.zendesk.com/hc/article_attachments/9731464104346)
 
-To an Agent, all Utilities behave and appear in a similar fashion. They can all be configured to appear in either the Main or Side Panel within Engage, and can be made visible during a contact, in after call work, or both.  
+To an Agent, all Utilities behave and appear in a similar fashion. They can all be configured to appear in either the Main or Side Panel within Engage, and can be made visible during a contact, in after call work, or both. 
 Once an Agent opens a Utility, the functionality within the Utility will be dependant on what the Admins have configured
 
 ## Other things to consider.

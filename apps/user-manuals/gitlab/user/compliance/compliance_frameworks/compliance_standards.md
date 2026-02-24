@@ -18,11 +18,9 @@ title: Compliance standards
 
 {{< /history >}}
 
-You can use [GitLab compliance controls](_index.md#gitlab-compliance-controls) to help meet the requirements of many
-compliance standards.
+You can use [GitLab compliance controls](_index.md#gitlab-compliance-controls) to help meet the requirements of many compliance standards.
 
-The [Compliance Adherence Templates](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates) project
-contains a library of JSON templates. Use these templates to quickly adopt predefined compliance frameworks.
+The [Compliance Adherence Templates](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates) project contains a library of JSON templates. Use these templates to quickly adopt predefined compliance frameworks.
 
 <!-- Content for tables is sourced from https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates -->
 
@@ -31,8 +29,7 @@ contains a library of JSON templates. Use these templates to quickly adopt prede
 CIS CSC are the Center for Internet Security Critical Security Controls.
 
 The following table lists the requirements supported by GitLab for CIS CSC v8.1 and the controls for the requirements.
-You can use the
-[`cis_csc_v8-1.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/cis_csc_v8-1.json?ref_type=heads)
+You can use the [`cis_csc_v8-1.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/cis_csc_v8-1.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | CIS CSC v8.1 requirement                                                          | Description                                                                                                                                                        | Supported controls |
@@ -47,8 +44,7 @@ to create a compliance framework for this standard.
 CSA CCM is the Cloud Security Alliance (CSA) Cloud Controls Matrix (CCM).
 
 The following table lists the requirements supported by GitLab for CSA CCM v4 and the controls for the requirements.
-You can use the
-[`csa_ccm_v4.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/csa_ccm_v4.json?ref_type=heads)
+You can use the [`csa_ccm_v4.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/csa_ccm_v4.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | CSA CCM v4 requirement                  | Description                                                                                                                                                                                                                      | Supported controls |
@@ -63,8 +59,7 @@ to create a compliance framework for this standard.
 ## Cyber Essentials compliance requirements
 
 The following table lists the requirements supported by GitLab for Cyber Essentials and the controls for the requirements.
-You can use the
-[`cyber_essentials.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/cyber_essentials.json?ref_type=heads)
+You can use the [`cyber_essentials.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/cyber_essentials.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | Cyber Essentials requirement | Description                                                                                                                                                                                                                                                                                                                                                        | Supported controls |
@@ -77,8 +72,7 @@ to create a compliance framework for this standard.
 DORA is DevOps Research and Assessment.
 
 The following table lists the requirements supported by GitLab for DORA and the controls for the requirements.
-You can use the
-[`dora.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/dora.json?ref_type=heads)
+You can use the [`dora.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/dora.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | DORA requirement                            | Description                                                                                                                                                                                                                                                                                                                                                                                                     | Supported controls |
@@ -92,14 +86,12 @@ to create a compliance framework for this standard.
 FedRAMP (Federal Risk and Authorization Management Program) categorizes cloud services into three impact levels:
 Low, Moderate, and High, based on the potential impact of a data breach on government operations, assets, or individuals.
 
-These levels correspond to different sets of security controls and requirements that cloud service providers (CSPs) must
-meet to achieve FedRAMP authorization. Controls are available for FedRAMP Low, FedRAMP Moderate, and FedRAMP High compliance.
+These levels correspond to different sets of security controls and requirements that cloud service providers (CSPs) must meet to achieve FedRAMP authorization. Controls are available for FedRAMP Low, FedRAMP Moderate, and FedRAMP High compliance.
 
 ### FedRAMP Low compliance requirements
 
 The following table lists the requirements supported by GitLab for FedRAMP Low and the controls for the requirements.
-You can use the
-[`fedramp_low_r5.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/fedramp_low_r5.json?ref_type=heads)
+You can use the [`fedramp_low_r5.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/fedramp_low_r5.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | FedRAMP Low requirement                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                       | Supported controls |
@@ -115,8 +107,7 @@ to create a compliance framework for this standard.
 ### FedRAMP Moderate compliance requirements
 
 The following table lists the requirements supported by GitLab for FedRAMP Moderate and the controls for the requirements.
-You can use the
-[`fedramp_moderate_r5.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/fedramp_moderate_r5.json?ref_type=heads)
+You can use the [`fedramp_moderate_r5.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/fedramp_moderate_r5.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | FedRAMP Moderate requirement                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                       | Supported controls |
@@ -137,8 +128,7 @@ to create a compliance framework for this standard.
 ### FedRAMP High compliance requirements
 
 The following table lists the requirements supported by GitLab for FedRAMP High and the controls for the requirements.
-You can use the
-[`fedramp_high_r5.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/fedramp_high_r5.json?ref_type=heads)
+You can use the [`fedramp_high_r5.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/fedramp_high_r5.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | FedRAMP High requirement                                                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                       | Supported controls |
@@ -159,14 +149,12 @@ to create a compliance framework for this standard.
 
 ## IRAP compliance requirements
 
-IRAP is the Infosec Registered Assessors Program. Controls are available for IRAP Official, IRAP Protected, IRAP Secret,
-and IRAP Top Secret.
+IRAP is the Infosec Registered Assessors Program. Controls are available for IRAP Official, IRAP Protected, IRAP Secret, and IRAP Top Secret.
 
 ### IRAP Official
 
 The following table lists the requirements supported by GitLab for IRAP Official and the controls for the requirements.
-You can use the
-[`irap_official.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/irap_official.json?ref_type=heads)
+You can use the [`irap_official.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/irap_official.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | IRAP Official requirement                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Supported controls |
@@ -185,8 +173,7 @@ to create a compliance framework for this standard.
 ### IRAP Protected
 
 The following table lists the requirements supported by GitLab for IRAP Protected and the controls for the requirements.
-You can use the
-[`irap_protected.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/irap_protected.json?ref_type=heads)
+You can use the [`irap_protected.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/irap_protected.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | IRAP Protected requirement                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Supported controls |
@@ -205,8 +192,7 @@ to create a compliance framework for this standard.
 ### IRAP Secret
 
 The following table lists the requirements supported by GitLab for IRAP Secret and the controls for the requirements.
-You can use the
-[`irap_secret.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/irap_secret.json?ref_type=heads)
+You can use the [`irap_secret.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/irap_secret.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | IRAP Secret requirement                                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Supported controls |
@@ -225,8 +211,7 @@ to create a compliance framework for this standard.
 ### IRAP Top Secret
 
 The following table lists the requirements supported by GitLab for IRAP Top Secret and the controls for the requirements.
-You can use the
-[`irap_top_secret.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/irap_top_secret.json?ref_type=heads)
+You can use the [`irap_top_secret.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/irap_top_secret.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | IRAP Top Secret requirement                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Supported controls |
@@ -244,13 +229,10 @@ to create a compliance framework for this standard.
 
 ## ISMAP compliance requirements
 
-The Information system Security Management and Assessment Program (ISMAP) aims to secure the security level of the government's cloud service procurement
-by evaluating and registering cloud services that meet the security requirements of the government in advance, thereby contributing to the smooth introduction
-of cloud services.
+The Information system Security Management and Assessment Program (ISMAP) aims to secure the security level of the government's cloud service procurement by evaluating and registering cloud services that meet the security requirements of the government in advance, thereby contributing to the smooth introduction of cloud services.
 
 The following table lists the requirements supported by GitLab for ISMAP and the controls for the requirements.
-You can use the
-[`ismap.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/ismap.json?ref_type=heads)
+You can use the [`ismap.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/ismap.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | ISMAP requirement                              | Description                                                                                                                                                                                                                                        | Supported controls |
@@ -266,19 +248,17 @@ to create a compliance framework for this standard.
 
 ## ISO 27001 compliance requirements
 
-ISO 27001 is an internationally recognized standard that provides a framework for implementing and managing an
-Information Security Management System (ISMS).
+ISO 27001 is an internationally recognized standard that provides a framework for implementing and managing an Information Security Management System (ISMS).
 
 The following table lists the requirements supported by GitLab for ISO 27001 and the controls for the requirements.
-You can use the
-[`iso_27001:2022.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/iso_27001:2022.json?ref_type=heads)
+You can use the [`iso_27001:2022.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/iso_27001:2022.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | ISO 27001 requirement                               | Description                                                                                                                                                                                                  | Supported controls |
 |:----------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|
 | 5.3 Segregation of duties                           | Conflicting duties and conflicting areas of responsibility shall be segregated.                                                                                                                              | <ul><li>At least two approvals</li><li>Author approved merge request is forbidden</li><li>Committers approved merge request is forbidden</li><li>Merge requests approval rules prevent editing</li></ul> |
 | 5.17 Authentication information                     | Allocation and management of authentication information should be controlled by a management process, including advising personnel on the appropriate handling of authentication information.                | <ul><li>Secret detection running</li></ul> |
-| 5.18 Access rights                                  | Access rights to information and other associated assets should be provisioned, reviewed, modified and removed in accordance with the organization's topic-specific policy on and rules for access control.  | <ul><li>At least two approvals</li><li>Author approved merge request is forbidden</li><li>Committers approved merge request is forbidden</li><li>Merge requests approval rules prevent editing</li></ul> |
+| 5.18 Access rights                                  | Access rights to information and other associated assets should be provisioned, reviewed, modified and removed in accordance with the organization's topic-specific policy on and rules for access control. | <ul><li>At least two approvals</li><li>Author approved merge request is forbidden</li><li>Committers approved merge request is forbidden</li><li>Merge requests approval rules prevent editing</li></ul> |
 | 5.32 Intellectual property rights                   | The organization should implement appropriate procedures to protect intellectual property rights.                                                                                                            | <ul><li>License compliance running</li></ul> |
 | 8.4 Access to source code                           | Read and write access to source code, development tools and software libraries shall be appropriately managed.                                                                                               | <ul><li>Default branch protected</li></ul> |
 | 8.8 Management of technical vulnerabilities         | Information about technical vulnerabilities of information systems in use shall be obtained, the organization's exposure to such vulnerabilities shall be evaluated and appropriate measures shall be taken. | <ul><li>Dependency scanning running</li><li>Container scanning running</li><li>SAST running</li><li>DAST running</li><li>API security running</li></ul> |
@@ -289,8 +269,7 @@ to create a compliance framework for this standard.
 ## NIS 2 compliance requirements
 
 The following table lists the requirements supported by GitLab for NIS 2 and the controls for the requirements.
-You can use the
-[`nis_2.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/nis_2.json?ref_type=heads)
+You can use the [`nis_2.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/nis_2.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | NIS 2 requirement                                                   | Description                                                                                                                                                                                                                                                                                                               | Supported controls |
@@ -300,8 +279,7 @@ to create a compliance framework for this standard.
 
 ## NIST compliance requirements
 
-The National Institute of Standards and Technology (NIST) Information Technology Laboratory (ITL) provides standards,
-measurements, and testing for information systems, focusing on interoperability, security, usability, and reliability.
+The National Institute of Standards and Technology (NIST) Information Technology Laboratory (ITL) provides standards, measurements, and testing for information systems, focusing on interoperability, security, usability, and reliability.
 These compliance standards involves implementing security and privacy controls across various areas, including:
 
 - Risk management
@@ -313,10 +291,8 @@ Controls are available for NIST 800-53, NIST 800-171, NIST SP 800-218, and NIST 
 
 ### NIST 800-53 compliance requirements
 
-The following table lists the requirements supported by GitLab for NIST 800-53 Revision 5 and the controls for the
-requirements.
-You can use the
-[`nist_800-53_r5` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/nist_800-53_r5.json?ref_type=heads)
+The following table lists the requirements supported by GitLab for NIST 800-53 Revision 5 and the controls for the requirements.
+You can use the [`nist_800-53_r5` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/nist_800-53_r5.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | NIST 800-53 requirement                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                       | Supported controls |
@@ -345,10 +321,8 @@ to create a compliance framework for this standard.
 
 ### NIST 800-171 compliance requirements
 
-The following table lists the requirements supported by GitLab for NIST 800-171 Revision 3 CMMC and the controls for
-the requirements.
-You can use the
-[`nist_800-171_r3_cmmc.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/nist_800-171_r3_cmmc.json?ref_type=heads)
+The following table lists the requirements supported by GitLab for NIST 800-171 Revision 3 CMMC and the controls for the requirements.
+You can use the [`nist_800-171_r3_cmmc.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/nist_800-171_r3_cmmc.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | NIST 800-171 requirement                       | Description                                                                                                                                                                                                                                                                                                                             | Supported controls |
@@ -363,8 +337,7 @@ to create a compliance framework for this standard.
 ### NIST CSF 2.0 compliance requirements
 
 The following table lists the requirements supported by GitLab for NIST CSF and the controls for the requirements.
-You can use the
-[`nist_csf_2.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/nist_csf_2.json?ref_type=heads)
+You can use the [`nist_csf_2.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/nist_csf_2.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | NIST CSF 2.0 requirement                                                                                                                                                                                                                            | Description                                                                                                                                                                                | Supported controls |
@@ -377,8 +350,7 @@ to create a compliance framework for this standard.
 ### NIST SP 800-218 compliance requirements
 
 The following table lists the requirements supported by GitLab for NIST SP 800-218 and the controls for the requirements.
-You can use the
-[`nist_800-218_v1-1.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/nist_800-218_v1-1.json?ref_type=heads)
+You can use the [`nist_800-218_v1-1.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/nist_800-218_v1-1.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | NIST SP 800-218 requirement                                                                                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                      | Supported controls |
@@ -395,8 +367,7 @@ to create a compliance framework for this standard.
 PCI DSS is the PCI Data Security Standard.
 
 The following table lists the requirements supported by GitLab for PCI DSS v4.0.1 and the controls for the requirements.
-You can use the
-[`pci_dss_v4-0-1.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/pci_dss_v4-0-1.json?ref_type=heads)
+You can use the [`pci_dss_v4-0-1.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/pci_dss_v4-0-1.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | PCI DSS v4.0.1 requirement                                                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Supported controls                                                                                                                                                                                                                                                                                                  |
@@ -415,8 +386,7 @@ to create a compliance framework for this standard.
 SOC is the System and Organization Controls.
 
 The following table lists the requirements supported by GitLab for SOC 2 and the controls for the requirements.
-You can use the
-[`soc2.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/soc2.json?ref_type=heads)
+You can use the [`soc2.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/soc2.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | SOC 2 requirement                                                                                                                                                                                                                                   | Description                                                                                                                                                                                                                                                                                                                                                                                 | Supported controls |
@@ -435,8 +405,7 @@ to create a compliance framework for this standard.
 TISAX is the Trusted Information Security Assessment Exchange.
 
 The following table lists the requirements supported by GitLab for TISAX and the controls for the requirements.
-You can use the
-[`tisax.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/tisax.json?ref_type=heads)
+You can use the [`tisax.json` template](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates/-/blob/main/tisax.json?ref_type=heads)
 to create a compliance framework for this standard.
 
 | TISAX requirement                                                                                                                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Supported controls |

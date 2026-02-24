@@ -53,12 +53,12 @@ In the pop-up window, you can edit the following settings:
 
 - Search Title: Enter a name for your job search query.
 - Get Notified: select how you want to be notified by clicking the dropdown and checking/unchecking the boxes:
-  - Email
-  - In app
-  - Push (mobile)
+ - Email
+ - In app
+ - Push (mobile)
 - Receive Alert: Choose how frequently you want to receive alter:
-  - Daily
-  - Weekly
+ - Daily
+ - Weekly
 
 ![job alerts saved job pop-up.png](https://support.joinhandshake.com/hc/article_attachments/31148867309591)
 
@@ -82,12 +82,12 @@ In the pop-up window, you can edit the following settings:
 
 - Search Title: Enter a name for your job search query.
 - Get Notified: select how you want to be notified by clicking the dropdown and checking/unchecking the boxes:
-  - Email
-  - In app
-  - Push (mobile)
+ - Email
+ - In app
+ - Push (mobile)
 - Receive Alert: Choose how frequently you want to receive alter:
-  - Daily
-  - Weekly
+ - Daily
+ - Weekly
 
 ![job alerts saved job pop-up.png](https://support.joinhandshake.com/hc/article_attachments/31148867309591)
 

@@ -38,14 +38,14 @@ POST /markdown
 
 | Attribute | Type    | Required      | Description                                |
 | --------- | ------- | ------------- | ------------------------------------------ |
-| `text`    | string  | yes           | The Markdown text to render                |
+| `text`    | string | yes           | The Markdown text to render                |
 | `gfm`     | boolean | no            | Render text using GitLab Flavored Markdown. Default is `false` |
-| `project` | string  | no            | Use `project` as a context when creating references using GitLab Flavored Markdown  |
+| `project` | string | no            | Use `project` as a context when creating references using GitLab Flavored Markdown |
 
 ```shell
 curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type:application/json" \
-  --data '{"text":"Hello world! :tada:", "gfm":true, "project":"group_example/project_example"}' "https://gitlab.example.com/api/v4/markdown"
+ --header "Content-Type:application/json" \
+ --data '{"text":"Hello world! :tada:", "gfm":true, "project":"group_example/project_example"}' "https://gitlab.example.com/api/v4/markdown"
 ```
 
 Response example:

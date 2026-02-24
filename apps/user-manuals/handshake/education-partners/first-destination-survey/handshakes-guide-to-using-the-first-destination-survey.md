@@ -11,14 +11,14 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360046286934-Handsha
 Before creating a new survey, consider which setup you'd like to proceed with that will help you accomplish your institution's goals.
 
 - You can use out-of-the-box preset industry-formatted survey questions (based on NACE/MBA CSEA).
-  - [First Destination Survey (FDS) Standard Questions](first-destination-survey-fds-standard-questions.md)
-  - [First Destination Survey (FDS) MBA CSEA Questions - Part Time](first-destination-survey-fds-mba-csea-questions-part-time.md)
-  - [First Destination Survey (FDS) MBA CSEA Questions - Full Time](first-destination-survey-fds-mba-csea-questions-full-time.md)
-  - [First Destination Survey (FDS) MBA CSEA Questions - Specialty Masters](first-destination-survey-fds-mba-csea-questions-specialty-masters.md)
+ - [First Destination Survey (FDS) Standard Questions](first-destination-survey-fds-standard-questions.md)
+ - [First Destination Survey (FDS) MBA CSEA Questions - Part Time](first-destination-survey-fds-mba-csea-questions-part-time.md)
+ - [First Destination Survey (FDS) MBA CSEA Questions - Full Time](first-destination-survey-fds-mba-csea-questions-full-time.md)
+ - [First Destination Survey (FDS) MBA CSEA Questions - Specialty Masters](first-destination-survey-fds-mba-csea-questions-specialty-masters.md)
 - You can customize the survey tool to fit the needs of your institution.
 - Add in additional custom questions to the preset industry standard questions.
 - You can build out skip logic to direct your students to specific subsets of questions that you want to collect information on.
-  - Skip based on outcome, major or college![add_skip_logic_FDS.png](https://support.joinhandshake.com/hc/article_attachments/25998877597975)
+ - Skip based on outcome, major or college![add_skip_logic_FDS.png](https://support.joinhandshake.com/hc/article_attachments/25998877597975)
 
 Ready to [Create a New First Destination Survey](create-a-new-first-destination-survey.md)?
 
@@ -31,12 +31,12 @@ Once you've set up a new FDS, check out our resource here: [First Destination Su
 Using Handshake for FDS allows you to capitalize on students’ built-in familiarity with the platform (for those who have been engaging with it over time).
 
 - Launch FDS kiosks at any on campus event to collect responses easily and on the spot.
-  - [Improve FDS Response Rates with the FDS Kiosk](improve-fds-response-rates-with-the-fds-kiosk.md)
-  - [Launch the FDS Kiosk](launch-the-fds-kiosk.md)
+ - [Improve FDS Response Rates with the FDS Kiosk](improve-fds-response-rates-with-the-fds-kiosk.md)
+ - [Launch the FDS Kiosk](launch-the-fds-kiosk.md)
 - Utilize on-campus events/kiosk/pre-graduation events.
-  - *Princeton requires their students to complete FDS to get their caps and gowns, resulting in a 98% response rate!*
+ - *Princeton requires their students to complete FDS to get their caps and gowns, resulting in a 98% response rate!*
 - Send reminder emails and off-cycle emails
-  - [Send Off-Cycle FDS Reminder Emails](https://support.joinhandshake.com/hc/en-us/articles/360000867768-Send-Off-Cycle-FDS-Reminder-Emails-)
+ - [Send Off-Cycle FDS Reminder Emails](https://support.joinhandshake.com/hc/en-us/articles/360000867768-Send-Off-Cycle-FDS-Reminder-Emails-)
 
 **Note:** We have discontinued the FDS incentive program that was built into Handshake in Spring 2024. Please utilize one of the above options instead to increase response rates!
 
@@ -72,7 +72,7 @@ The FDS tool offers a one-page form to submit responses on behalf of students (l
 
 ### Keep your data timely and up to date
 
-NACE suggests collecting data for 6 months after graduation; before closing the survey — you can stop at 5 months and use the 1 month to review/clean up data.  
+NACE suggests collecting data for 6 months after graduation; before closing the survey — you can stop at 5 months and use the 1 month to review/clean up data. 
 *Tip*: download*the non-industry formatted report - CSV file to review.*
 
 [Download Standard NACE Undergrad or MBA CSEA Report Data From Your FDS](download-standard-nace-undergrad-or-mba-csea-report-data-from-your-fds.md)

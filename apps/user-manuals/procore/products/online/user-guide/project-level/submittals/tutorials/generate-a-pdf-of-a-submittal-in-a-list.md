@@ -15,17 +15,17 @@ The lists in the different views on the Submittals tool lets you quickly generat
 ## Things to Consider
 
 - **Required User Permission**:
-  - Read-Only level permission or higher on the Project level Submittals tool.
+ - Read-Only level permission or higher on the Project level Submittals tool.
 
 ## Steps
 
-1. Navigate to the **Submittals** tool.   
+1. Navigate to the **Submittals** tool.  
    This reveals the Submittals page.
-2. Click the desired view: **Items**, **Packages***,***Spec Sections**, or **Ball In Court**.   
+2. Click the desired view: **Items**, **Packages***,***Spec Sections**, or **Ball In Court**.  
    *Note*: If you have 'Admin' level permission on the Submittals tool, you will also have access permission to the **Recycle Bin**.
 3. Locate the desired submittal.
-4. On the far-right side of the page, click the **PDF** icon that corresponds to the desired submittal.  
-   ![pdf-icon2.png](https://support.procore.com/@api/deki/files/73290/export-rfi-to-pdf.png?revision=2)  
+4. On the far-right side of the page, click the **PDF** icon that corresponds to the desired submittal. 
+   ![pdf-icon2.png](https://support.procore.com/@api/deki/files/73290/export-rfi-to-pdf.png?revision=2) 
    The system opens a PDF version of the selected submittal.
 
 ## See Also

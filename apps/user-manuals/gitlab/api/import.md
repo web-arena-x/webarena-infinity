@@ -62,21 +62,21 @@ POST /import/github
 
 | Attribute               | Type    | Required | Description |
 |-------------------------|---------|----------|-------------|
-| `personal_access_token` | string  | Yes      | GitHub personal access token. |
+| `personal_access_token` | string | Yes      | GitHub personal access token. |
 | `repo_id`               | integer | Yes      | GitHub repository ID. |
-| `target_namespace`      | string  | Yes      | Namespace to import repository into. Supports subgroups like `/namespace/subgroup`. Must not be blank. |
-| `github_hostname`       | string  | No       | Custom GitHub Enterprise hostname. Do not set for GitHub.com. From GitLab 16.5 to GitLab 17.1, you must include the path `/api/v3`. |
-| `new_name`              | string  | No       | Name of the new project. Also used as the new path so must not start or end with a special character and must not contain consecutive special characters. |
-| `optional_stages`       | object  | No       | [Additional items to import](../user/project/import/github.md#select-additional-items-to-import). |
+| `target_namespace`      | string | Yes      | Namespace to import repository into. Supports subgroups like `/namespace/subgroup`. Must not be blank. |
+| `github_hostname`       | string | No       | Custom GitHub Enterprise hostname. Do not set for GitHub.com. From GitLab 16.5 to GitLab 17.1, you must include the path `/api/v3`. |
+| `new_name`              | string | No       | Name of the new project. Also used as the new path so must not start or end with a special character and must not contain consecutive special characters. |
+| `optional_stages`       | object | No       | [Additional items to import](../user/project/import/github.md#select-additional-items-to-import). |
 | `pagination_limit`      | integer | No       | Number of items retrieved per API request to GitHub. The default value is 100 items per page. For project imports from large repositories, a lower number can reduce the risk of GitHub API endpoints returning `500` or `502` errors. However, a smaller page size increases migration times. |
-| `timeout_strategy`      | string  | No       | Strategy for handling import timeouts. Valid values are `optimistic` (continue to next stage of import) or `pessimistic` (fail immediately). Defaults to `pessimistic`. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/422979) in GitLab 16.5. |
+| `timeout_strategy`      | string | No       | Strategy for handling import timeouts. Valid values are `optimistic` (continue to next stage of import) or `pessimistic` (fail immediately). Defaults to `pessimistic`. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/422979) in GitLab 16.5. |
 
 ```shell
 curl --request POST \
-  --url "https://gitlab.example.com/api/v4/import/github" \
-  --header "content-type: application/json" \
-  --header "Authorization: Bearer <your_access_token>" \
-  --data '{
+ --url "https://gitlab.example.com/api/v4/import/github" \
+ --header "content-type: application/json" \
+ --header "Authorization: Bearer <your_access_token>" \
+ --data '{
     "personal_access_token": "aBc123abC12aBc123abC12abC123+_A/c123",
     "repo_id": "12345",
     "target_namespace": "group/subgroup",
@@ -119,11 +119,9 @@ Example response:
 
 ### Import a public project through the API using a group access token
 
-When you import a project from GitHub to GitLab through the API using a group access
-token:
+When you import a project from GitHub to GitLab through the API using a group access token:
 
-- The GitLab project inherits the original project's visibility settings. As a result, the project is
-  publicly accessible if the original project is public.
+- The GitLab project inherits the original project's visibility settings. As a result, the project is publicly accessible if the original project is public.
 - If the `path` or `target_namespace` does not exist, the project import fails.
 
 ### Cancel GitHub project import
@@ -140,10 +138,10 @@ POST /import/github/cancel
 
 ```shell
 curl --request POST \
-  --url "https://gitlab.example.com/api/v4/import/github/cancel" \
-  --header "content-type: application/json" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --data '{
+ --url "https://gitlab.example.com/api/v4/import/github/cancel" \
+ --header "content-type: application/json" \
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --data '{
     "project_id": 12345
 }'
 ```
@@ -186,10 +184,10 @@ POST /import/github/gists
 
 ```shell
 curl --request POST \
-  --url "https://gitlab.example.com/api/v4/import/github/gists" \
-  --header "content-type: application/json" \
-  --header "PRIVATE-TOKEN: <your_gitlab_access_token>" \
-  --data '{
+ --url "https://gitlab.example.com/api/v4/import/github/gists" \
+ --header "content-type: application/json" \
+ --header "PRIVATE-TOKEN: <your_gitlab_access_token>" \
+ --data '{
     "personal_access_token": "<your_github_personal_access_token>"
 }'
 ```
@@ -219,7 +217,7 @@ POST /import/bitbucket_server
 
 | Attribute                   | Type   | Required | Description |
 |-----------------------------|--------|----------|-------------|
-| `bitbucket_server_project`  | string | Yes      | Bitbucket project key. |
+| `bitbucket_server_project` | string | Yes      | Bitbucket project key. |
 | `bitbucket_server_repo`     | string | Yes      | Bitbucket repository name. |
 | `bitbucket_server_url`      | string | Yes      | Bitbucket Server URL. |
 | `bitbucket_server_username` | string | Yes      | Bitbucket Server username. |
@@ -230,10 +228,10 @@ POST /import/bitbucket_server
 
 ```shell
 curl --request POST \
-  --url "https://gitlab.example.com/api/v4/import/bitbucket_server" \
-  --header "content-type: application/json" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --data '{
+ --url "https://gitlab.example.com/api/v4/import/bitbucket_server" \
+ --header "content-type: application/json" \
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --data '{
     "bitbucket_server_url": "http://bitbucket.example.com",
     "bitbucket_server_username": "root",
     "personal_access_token": "Nzk4MDcxODY4MDAyOiP8y410zF3tGAyLnHRv/E0+3xYs",
@@ -272,10 +270,10 @@ POST /import/bitbucket
 
 ```shell
 curl --request POST \
-  --url "https://gitlab.example.com/api/v4/import/bitbucket" \
-  --header "content-type: application/json" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --data '{
+ --url "https://gitlab.example.com/api/v4/import/bitbucket" \
+ --header "content-type: application/json" \
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --data '{
     "bitbucket_username": "bitbucket_username",
     "bitbucket_app_password": "bitbucket_app_password",
     "repo_path": "username/my_project",

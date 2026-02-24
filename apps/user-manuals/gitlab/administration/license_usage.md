@@ -12,8 +12,7 @@ title: License usage
 
 {{< /details >}}
 
-You can view the usage associated with your GitLab license
-and export the license usage file with the following information:
+You can view the usage associated with your GitLab license and export the license usage file with the following information:
 
 - License key
 - Licensee email
@@ -22,8 +21,8 @@ and export the license usage file with the following information:
 - Company
 - Timestamp the file was generated at and exported (UTC)
 - Table of historical user counts for each day in the period:
-  - Timestamp the count was recorded (UTC)
-  - Billable user count
+ - Timestamp the count was recorded (UTC)
+ - Billable user count
 
 {{< alert type="note" >}}
 
@@ -39,10 +38,8 @@ Prerequisites:
 
 You can export your license usage into a CSV file.
 
-This file contains the information GitLab uses to manually process
-[quarterly reconciliations](../subscriptions/quarterly_reconciliation.md)
-and [renewals](../subscriptions/manage_subscription.md#renew-subscription). If your instance is firewalled or an
-offline environment, you must provide GitLab with this information.
+This file contains the information GitLab uses to manually process [quarterly reconciliations](../subscriptions/quarterly_reconciliation.md)
+and [renewals](../subscriptions/manage_subscription.md#renew-subscription). If your instance is firewalled or an offline environment, you must provide GitLab with this information.
 
 {{< alert type="warning" >}}
 

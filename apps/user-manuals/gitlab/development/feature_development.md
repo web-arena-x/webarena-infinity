@@ -9,8 +9,7 @@ Consult these topics for information on contributing to specific GitLab features
 
 ## UX and Frontend guides
 
-- [GitLab Design System](https://design.gitlab.com/), for building GitLab with
-  existing CSS styles and elements
+- [GitLab Design System](https://design.gitlab.com/), for building GitLab with existing CSS styles and elements
 - [Frontend guidelines](fe_guide/_index.md)
 - [Emoji guide](fe_guide/emojis.md)
 
@@ -34,8 +33,7 @@ Consult these topics for information on contributing to specific GitLab features
 ### Things to be aware of
 
 - [Gotchas](gotchas.md) to avoid
-- [Avoid modules with instance variables](module_with_instance_variables.md), if
-  possible
+- [Avoid modules with instance variables](module_with_instance_variables.md), if possible
 - [Guidelines for reusing abstractions](reusing_abstractions.md)
 - [Ruby 3 gotchas](ruby3_gotchas.md)
 - [Development Considerations and Caveats](rollbacks.md)
@@ -64,8 +62,7 @@ Consult these topics for information on contributing to specific GitLab features
 ### API
 
 - [API style guide](api_styleguide.md) for contributing to the API
-- [GraphQL API style guide](api_graphql_styleguide.md) for contributing to the
-  [GraphQL API](../api/graphql/_index.md)
+- [GraphQL API style guide](api_graphql_styleguide.md) for contributing to the [GraphQL API](../api/graphql/_index.md)
 
 ### GitLab components and features
 
@@ -76,7 +73,7 @@ Consult these topics for information on contributing to specific GitLab features
 - [How to dump production data to staging](database/db_dump.md)
 - [Geo development](geo.md)
 - [Redis guidelines](redis.md)
-  - [Adding a new Redis instance](redis/new_redis_instance.md)
+ - [Adding a new Redis instance](redis/new_redis_instance.md)
 - [Sidekiq guidelines](sidekiq/_index.md) for working with Sidekiq workers
 - [Working with Gitaly](gitaly.md)
 - [Advanced search integration docs](advanced_search.md)
@@ -126,15 +123,12 @@ The following integration guides are internal. Some integrations require access 
 
 ## Performance guides
 
-- [Performance guidelines](performance.md) for writing code, benchmarks, and
-  certain patterns to avoid.
+- [Performance guidelines](performance.md) for writing code, benchmarks, and certain patterns to avoid.
 - [Caching guidelines](caching.md) for using caching in Rails under a GitLab environment.
 - [Merge request performance guidelines](merge_request_concepts/performance.md)
-  for ensuring merge requests do not negatively impact GitLab performance
+ for ensuring merge requests do not negatively impact GitLab performance
 - [Profiling](profiling.md) a URL or tracking down N+1 queries using Bullet.
-- [Cached queries guidelines](cached_queries.md), for tracking down N+1 queries
-  masked by query caching, memory profiling and why should we avoid cached
-  queries.
+- [Cached queries guidelines](cached_queries.md), for tracking down N+1 queries masked by query caching, memory profiling and why should we avoid cached queries.
 - [JSON guidelines](json.md) for how to handle JSON in a performant manner.
 - [GraphQL API optimizations](api_graphql_styleguide.md#optimizations) for how to optimize GraphQL code.
 

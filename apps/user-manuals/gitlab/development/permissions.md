@@ -5,8 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Permission development guidelines
 ---
 
-There are multiple types of permissions across GitLab, and when implementing
-anything that deals with permissions, all of them should be considered. For more information, see:
+There are multiple types of permissions across GitLab, and when implementing anything that deals with permissions, all of them should be considered. For more information, see:
 
 - [Predefined roles system](permissions/predefined_roles.md): a general overview about predefined roles, user types, feature specific permissions, and permissions dependencies.
 - [`DeclarativePolicy` framework](policies.md): introduction into `DeclarativePolicy` framework we use for authorization.

@@ -39,7 +39,7 @@ Click the blue button **See** **My Questions** after the question is submitted,
 
 - **Pending** - the question is being reviewed.
 - **Approved** - the question met the guidelines, and was approved.
-  - **Note**: you'll receive an email when the question is approved and live on Handshake!
+ - **Note**: you'll receive an email when the question is approved and live on Handshake!
 
 **Responding to Question**
 
@@ -62,7 +62,7 @@ Click the blue button **See My Answers** after the question is submitted, or t
 
 - **Pending** - the response is being reviewed.
 - **Approved** - the response met the guidelines, and was approved.
-  - **Note**: you'll receive an email when the response is approved and live on Handshake!
+ - **Note**: you'll receive an email when the response is approved and live on Handshake!
 
 **Community Guidelines**
 

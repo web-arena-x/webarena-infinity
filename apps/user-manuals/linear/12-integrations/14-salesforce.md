@@ -50,11 +50,7 @@ Watch a video overview of how to set up the Salesforce integration.
 
 Three permission sets will become available in Salesforce:
 
-Role | Function
---- | ---
-Linear Admin | Has admin permissions in Linear and allows full access and configuration rights
-Linear Create Issues | Can create and/or link issues and/or projects
-Linear Link Only |  Can only link existing issues. This is useful for large support teams who want more control over issues being created in order to limit noise in Linear.
+Role | Function --- | --- Linear Admin | Has admin permissions in Linear and allows full access and configuration rights Linear Create Issues | Can create and/or link issues and/or projects Linear Link Only | Can only link existing issues. This is useful for large support teams who want more control over issues being created in order to limit noise in Linear.
 
 ---
 
@@ -88,13 +84,8 @@ Customers support attributes you can use to group, order, and filter for data in
 
 You can set mappings with any property you use on Salesforce accounts, as long as the data type is allowable:
 
-Customer attribute | Allowed data type
---- | ---
-Owner | String (email address)
-Tier | String
-Status | String
-Revenue | Number
-Size | Number
+Customer attribute | Allowed data type --- | --- Owner | String (email address)
+Tier | String Status | String Revenue | Number Size | Number
 
 If you're using lookup fields in Salesforce and wish to map to these in Linear, consider using formula fields as described in the FAQ.
 

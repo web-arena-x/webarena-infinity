@@ -17,12 +17,12 @@ Statuses can be rearranged within a category but categories cannot be moved arou
 ![Image showing 4 existing workflow statuses and a new custom one about to be added.](https://webassets.linear.app/images/ornj730p/production/1430c24b2218f7c515d2d9c067c66458abe5b0a4-1754x672.png?q=95&auto=format&dpr=2)
 
 > [!NOTE]
-> **How we work at Linear**  
+> **How we work at Linear** 
 > We have the following workflow set up for our product team:   
-> _Backlog_: Icebox, Backlog  
-> _Unstarted_: Todo  
-> _Started_: In Progress, In Review, Ready to Merge  
-> _Completed_: Done  
+> _Backlog_: Icebox, Backlog 
+> _Unstarted_: Todo 
+> _Started_: In Progress, In Review, Ready to Merge 
+> _Completed_: Done 
 > _Canceled_: Canceled, Could not reproduce, Won't Fix, Duplicate
 
 ### Default status

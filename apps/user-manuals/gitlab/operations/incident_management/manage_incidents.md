@@ -66,8 +66,7 @@ To create an incident from the **Issues** page:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Plan** > **Issues**, and select **New issue**.
-1. From the **Type** dropdown list, select **Incident**. Only fields relevant to
-   incidents are available on the page.
+1. From the **Type** dropdown list, select **Incident**. Only fields relevant to incidents are available on the page.
 1. Select **Create issue**.
 
 ### From an alert
@@ -88,8 +87,7 @@ To create an incident from an alert:
 
 After an incident is created, to view it from the alert, select **View incident**.
 
-When you [close an incident](#close-an-incident) linked to an alert, GitLab
-[changes the alert's status](alerts.md#change-an-alerts-status) to **Resolved**.
+When you [close an incident](#close-an-incident) linked to an alert, GitLab [changes the alert's status](alerts.md#change-an-alerts-status) to **Resolved**.
 You are then credited with the alert's status change.
 
 ### Automatically, when an alert is triggered
@@ -112,9 +110,7 @@ whenever an alert is triggered.
 
 {{< /history >}}
 
-You can set up a webhook with PagerDuty to automatically create a GitLab incident
-for each PagerDuty incident. This configuration requires you to make changes
-in both PagerDuty and GitLab.
+You can set up a webhook with PagerDuty to automatically create a GitLab incident for each PagerDuty incident. This configuration requires you to make changes in both PagerDuty and GitLab.
 
 Prerequisites:
 
@@ -131,8 +127,7 @@ To set up a webhook with PagerDuty:
 1. Copy the value of **Webhook URL** for use in a later step.
 1. To add the webhook URL to a PagerDuty webhook integration, follow the steps described in the [PagerDuty documentation](https://support.pagerduty.com/docs/webhooks#manage-v3-webhook-subscriptions).
 
-To confirm the integration is successful, trigger a test incident from PagerDuty to
-check if a GitLab incident is created from the incident.
+To confirm the integration is successful, trigger a test incident from PagerDuty to check if a GitLab incident is created from the incident.
 
 ## View a list of incidents
 
@@ -151,8 +146,7 @@ To view an incident's [details page](incidents.md#incident-details), select it f
 
 {{< /history >}}
 
-Whether you can view an incident depends on the [project visibility level](../../user/public_access.md) and
-the incident's confidentiality status:
+Whether you can view an incident depends on the [project visibility level](../../user/public_access.md) and the incident's confidentiality status:
 
 - Public project and a non-confidential incident: Anyone can view the incident.
 - Private project and non-confidential incident: You must have at least the Guest role for the project.
@@ -227,8 +221,7 @@ Changing the status has the following effects:
 - From **Resolved** to **Triggered**: restarts the incident escalating.
 
 In GitLab 15.1 and earlier, changing the status of an [incident created from an alert](#from-an-alert)
-also changes the alert status. In [GitLab 15.2 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/356057),
-the alert status is independent and does not change when the incident status changes.
+also changes the alert status. In [GitLab 15.2 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/356057), the alert status is independent and does not change when the incident status changes.
 
 ## Change escalation policy
 
@@ -250,12 +243,10 @@ To change the escalation policy of an incident:
 
 By default, new incidents do not have an escalation policy selected.
 
-Selecting an escalation policy [changes the incident status](#change-status) to **Triggered** and begins
-[escalating the incident to on-call responders](paging.md#escalating-an-incident).
+Selecting an escalation policy [changes the incident status](#change-status) to **Triggered** and begins [escalating the incident to on-call responders](paging.md#escalating-an-incident).
 
 In GitLab 15.1 and earlier, the escalation policy for [incidents created from alerts](#from-an-alert)
-reflects the alert's escalation policy and cannot be changed. In [GitLab 15.2 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/356057),
-the incident escalation policy is independent and can be changed.
+reflects the alert's escalation policy and cannot be changed. In [GitLab 15.2 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/356057), the incident escalation policy is independent and can be changed.
 
 ## Close an incident
 
@@ -265,14 +256,12 @@ Prerequisites:
 
 To close an incident, in the upper-right corner, select **Incident actions** ({{< icon name="ellipsis_v" >}}) and then **Close incident**.
 
-When you close an incident that is linked to an [alert](alerts.md),
-the linked alert's status changes to **Resolved**.
+When you close an incident that is linked to an [alert](alerts.md), the linked alert's status changes to **Resolved**.
 You are then credited with the alert's status change.
 
 ### Automatically close incidents via recovery alerts
 
-Turn on closing an incident automatically when GitLab receives a recovery alert
-from an HTTP or Prometheus webhook.
+Turn on closing an incident automatically when GitLab receives a recovery alert from an HTTP or Prometheus webhook.
 
 Prerequisites:
 
@@ -287,8 +276,7 @@ To configure the setting:
 1. Select **Save changes**.
 
 When GitLab receives a [recovery alert](integrations.md#recovery-alerts), it closes the associated incident.
-This action is recorded as a system note on the incident indicating that it
-was closed automatically by the GitLab Alert bot.
+This action is recorded as a system note on the incident indicating that it was closed automatically by the GitLab Alert bot.
 
 ## Delete an incident
 
@@ -308,8 +296,7 @@ Alternatively:
 
 ## Other actions
 
-Because incidents in GitLab are built on top of [issues](../../user/project/issues/_index.md),
-they have the following actions in common:
+Because incidents in GitLab are built on top of [issues](../../user/project/issues/_index.md), they have the following actions in common:
 
 - [Add a to-do item](../../user/todos.md#create-a-to-do-item)
 - [Add labels](../../user/project/labels.md#assign-and-unassign-labels)

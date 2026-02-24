@@ -18,11 +18,9 @@ title: Linked issues
 
 {{< /history >}}
 
-Linked issues are a bi-directional relationship between any two issues and appear in a block below
-the issue description. You can link issues in different projects.
+Linked issues are a bi-directional relationship between any two issues and appear in a block below the issue description. You can link issues in different projects.
 
-The relationship only shows up in the UI if the user can see both issues. When you try to close an
-issue that has open blockers, a warning is displayed.
+The relationship only shows up in the UI if the user can see both issues. When you try to close an issue that has open blockers, a warning is displayed.
 
 {{< alert type="note" >}}
 
@@ -38,8 +36,7 @@ Prerequisites:
 
 To link one issue to another:
 
-1. In the **Linked items** section of an issue,
-   select the add linked issue button ({{< icon name="plus" >}}).
+1. In the **Linked items** section of an issue, select the add linked issue button ({{< icon name="plus" >}}).
 1. Select the relationship between the two issues. Either:
    - **relates to**
    - **[blocks](#blocking-issues)**
@@ -49,8 +46,7 @@ To link one issue to another:
    ![Linking related issues with the current issue](img/related_issues_add_v15_3.png)
 
    Issues of the same project can be specified just by the reference number.
-   Issues from a different project require additional information like the
-   group and the project name. For example:
+   Issues from a different project require additional information like the group and the project name. For example:
 
    - The same project: `#44`
    - The same group: `project#44`
@@ -60,8 +56,7 @@ To link one issue to another:
 
 1. When you have added all the linked issues, select **Add**.
 
-When you have finished adding all linked issues, you can see
-them categorized so their relationships can be better understood visually.
+When you have finished adding all linked issues, you can see them categorized so their relationships can be better understood visually.
 
 ![Section to view or manage related issues](img/related_issue_block_v15_3.png)
 
@@ -70,8 +65,7 @@ For more information, see [Crosslinking issues](crosslinking_issues.md).
 
 ## Remove a linked issue
 
-In the **Linked items** section of an issue, select the remove button ({{< icon name="close" >}}) on the
-right-side of each issue token to remove.
+In the **Linked items** section of an issue, select the remove button ({{< icon name="close" >}}) on the right-side of each issue token to remove.
 
 Due to the bi-directional relationship, the relationship no longer appears in either issue.
 
@@ -88,12 +82,9 @@ Access our [permissions](../../permissions.md) page for more information.
 
 {{< /details >}}
 
-When you [add a linked issue](#add-a-linked-issue), you can show that it **blocks** or
-**is blocked by** another issue.
+When you [add a linked issue](#add-a-linked-issue), you can show that it **blocks** or **is blocked by** another issue.
 
-Issues blocked by other issues have an icon ({{< icon name="entity-blocked" >}}) next to their title, shown in the
-issue lists and [boards](../issue_board.md).
-The icon disappears when the blocking issue is closed or their relationship is changed or
-[removed](#remove-a-linked-issue).
+Issues blocked by other issues have an icon ({{< icon name="entity-blocked" >}}) next to their title, shown in the issue lists and [boards](../issue_board.md).
+The icon disappears when the blocking issue is closed or their relationship is changed or [removed](#remove-a-linked-issue).
 
 If you try to close a blocked issue using the "Close issue" button, a confirmation message appears.

@@ -11,17 +11,17 @@ To edit an existing submittal using the project's Submittals tool.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - *To edit an 'Draft' or 'Open' submittal that you created:*
-    - 'Read Only' or 'Standard' level permissions on the project's Submittals tool with the ['Create Submittal' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#Submittals "Grant Granular Permissions in a Project Permissions Template") enabled on your permissions template.  
+ - *To edit an 'Draft' or 'Open' submittal that you created:*
+    - 'Read Only' or 'Standard' level permissions on the project's Submittals tool with the ['Create Submittal' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#Submittals "Grant Granular Permissions in a Project Permissions Template") enabled on your permissions template. 
       OR
     - 'Standard' level permissions on the project's Submittals tool without a permissions template assigned to you.
-  - *To edit a submittal that you did not create:*
+ - *To edit a submittal that you did not create:*
     - 'Standard' level permissions on the project's Submittals tool and designated as the [Submittal Manager](../../../../../../references/construction-management/glossary-of-terms.md#Submittal_Manager "Glossary of Terms").
-  - *To edit any submittal:*
+ - *To edit any submittal:*
     - 'Admin' level permissions on the project's Submittals tool.
 - **Additional Information:**
-  - Users without 'Admin' level permissions on the project's Submittals tool cannot change the status of a submittal.
-  - If you want to make a single change on multiple submittals, see [Perform Bulk Actions on Submittals](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/perform-bulk-actions-on-submittals "Perform Bulk Actions on Submittals").
+ - Users without 'Admin' level permissions on the project's Submittals tool cannot change the status of a submittal.
+ - If you want to make a single change on multiple submittals, see [Perform Bulk Actions on Submittals](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/perform-bulk-actions-on-submittals "Perform Bulk Actions on Submittals").
 
 ## Steps
 
@@ -34,7 +34,7 @@ To edit an existing submittal using the project's Submittals tool.
    - **Delivery Information**. See [Update the Delivery Information](create-a-submittal.md#Update_the_Delivery_Information "Create a Submittal").
    - **Submittal Workflow**. See [Add Reviewers to the Submittal Workflow](create-a-submittal.md#Add_Reviewers_to_the_Submittal_Workflow "/products/online/user-guide/project-level/submittals/tutorials/create-a-submittal#Add_Reviewers_to_the_Submittal_Workflow").
 5. Do the following:
-   - Click **Update** to save changes without sending an email notification.   
+   - Click **Update** to save changes without sending an email notification.  
      OR
    - Click **Update & Send Emails** to save changes and send an email notification to members of the submittal workflow and distribution list.
 

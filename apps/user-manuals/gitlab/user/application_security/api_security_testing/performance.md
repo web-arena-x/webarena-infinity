@@ -10,8 +10,8 @@ Security tools that perform dynamic analysis testing, such as API security testi
 - How many requests per second can be sent to your application by GitLab tooling
 - How fast your application responds to requests
 - How many requests must be sent to test the application
-  - How many operations your API is comprised of
-  - How many fields are in each operation (think JSON bodies, headers, query string, cookies, etc.)
+ - How many operations your API is comprised of
+ - How many fields are in each operation (think JSON bodies, headers, query string, cookies, etc.)
 
 If the API security testing job still takes longer than expected reach after following the advice in this performance guide, reach out to support for further assistance.
 
@@ -27,23 +27,21 @@ The first step to resolving performance issues is to understand what is contribu
 
 ### The application contains a slow operation that impacts the overall test speed (> 1/2 second)
 
-The API security testing job output contains helpful information about testing speed, operation
-response times, and summary information. The following sample output shows how you can use a
-summary output in tracking down performance issues:
+The API security testing job output contains helpful information about testing speed, operation response times, and summary information. The following sample output shows how you can use a summary output in tracking down performance issues:
 
 ```shell
 API SECURITY: Loaded 10 operations from: assets/har-large-response/large_responses.har
 API SECURITY:
 API SECURITY: Testing operation [1/10]: 'GET http://target:7777/api/large_response_json'.
-API SECURITY:  - Parameters: (Headers: 4, Query: 0, Body: 0)
-API SECURITY:  - Request body size: 0 Bytes (0 bytes)
+API SECURITY: - Parameters: (Headers: 4, Query: 0, Body: 0)
+API SECURITY: - Request body size: 0 Bytes (0 bytes)
 API SECURITY:
 API SECURITY: Finished testing operation 'GET http://target:7777/api/large_response_json'.
-API SECURITY:  - Excluded Parameters: (Headers: 0, Query: 0, Body: 0)
-API SECURITY:  - Performed 767 requests
-API SECURITY:  - Average response body size: 130 MB
-API SECURITY:  - Average call time: 2 seconds and 82.69 milliseconds (2.082693 seconds)
-API SECURITY:  - Time to complete: 14 minutes, 8 seconds and 788.36 milliseconds (848.788358 seconds)
+API SECURITY: - Excluded Parameters: (Headers: 0, Query: 0, Body: 0)
+API SECURITY: - Performed 767 requests
+API SECURITY: - Average response body size: 130 MB
+API SECURITY: - Average call time: 2 seconds and 82.69 milliseconds (2.082693 seconds)
+API SECURITY: - Time to complete: 14 minutes, 8 seconds and 788.36 milliseconds (848.788358 seconds)
 ```
 
 The job console output snippet starts with how many operations were found (10). Next, it notifies that testing started on a specific operation and a summary of the operation has been completed. The summary shows that it took API security testing 767 requests to fully test this operation and its related fields. The summary also shows that the operation had an average response time of 2 seconds, and took 14 minutes to complete.
@@ -83,8 +81,8 @@ Here is an example job definition for API security testing that adds a `tags` se
 
 ```yaml
 api_security:
-  tags:
-  - saas-linux-medium-amd64
+ tags:
+ - saas-linux-medium-amd64
 ```
 
 In the `gl-api-security-scanner.log` file you can search for the string `Starting work item processor` to inspect the reported max DOP (degree of parallelism). The max DOP should be greater than or equal to the number of vCPUs assigned to the runner. If unable to identify the problem, open a ticket with support to assist.
@@ -103,7 +101,7 @@ To verify the operation is excluded, run the API security testing job and review
 
 ```yaml
 api_security:
-  variables:
+ variables:
     APISEC_EXCLUDE_PATHS: /api/large_response_json
 ```
 
@@ -119,46 +117,46 @@ The rules used in the `APISEC_v1` and `APISEC_v2` jobs are copied from the [API 
 ```yaml
 # Disable the main dast_api job
 api_security:
-  rules:
-  - if: $CI_COMMIT_BRANCH
+ rules:
+ - if: $CI_COMMIT_BRANCH
     when: never
 
 APISEC_v1:
-  extends: dast_api
-  variables:
+ extends: dast_api
+ variables:
     APISEC_EXCLUDE_PATHS: /api/v1/**
-  rules:
-  - if: $APISEC_DISABLED == 'true' || $APISEC_DISABLED == '1'
+ rules:
+ - if: $APISEC_DISABLED == 'true' || $APISEC_DISABLED == '1'
     when: never
-  - if: $APISEC_DISABLED_FOR_DEFAULT_BRANCH == 'true' &&
+ - if: $APISEC_DISABLED_FOR_DEFAULT_BRANCH == 'true' &&
         $CI_DEFAULT_BRANCH == $CI_COMMIT_REF_NAME
     when: never
-  - if: $APISEC_DISABLED_FOR_DEFAULT_BRANCH == '1' &&
+ - if: $APISEC_DISABLED_FOR_DEFAULT_BRANCH == '1' &&
         $CI_DEFAULT_BRANCH == $CI_COMMIT_REF_NAME
     when: never
-  - if: $CI_COMMIT_BRANCH &&
+ - if: $CI_COMMIT_BRANCH &&
         $CI_GITLAB_FIPS_MODE == "true"
     variables:
       APISEC_IMAGE_SUFFIX: "-fips"
-  - if: $CI_COMMIT_BRANCH
+ - if: $CI_COMMIT_BRANCH
 
 APISEC_v2:
-  variables:
+ variables:
     APISEC_EXCLUDE_PATHS: /api/v2/**
-  rules:
-  - if: $APISEC_DISABLED == 'true' || $APISEC_DISABLED == '1'
+ rules:
+ - if: $APISEC_DISABLED == 'true' || $APISEC_DISABLED == '1'
     when: never
-  - if: $APISEC_DISABLED_FOR_DEFAULT_BRANCH == 'true' &&
+ - if: $APISEC_DISABLED_FOR_DEFAULT_BRANCH == 'true' &&
         $CI_DEFAULT_BRANCH == $CI_COMMIT_REF_NAME
     when: never
-  - if: $APISEC_DISABLED_FOR_DEFAULT_BRANCH == '1' &&
+ - if: $APISEC_DISABLED_FOR_DEFAULT_BRANCH == '1' &&
         $CI_DEFAULT_BRANCH == $CI_COMMIT_REF_NAME
     when: never
-  - if: $CI_COMMIT_BRANCH &&
+ - if: $CI_COMMIT_BRANCH &&
         $CI_GITLAB_FIPS_MODE == "true"
     variables:
       APISEC_IMAGE_SUFFIX: "-fips"
-  - if: $CI_COMMIT_BRANCH
+ - if: $CI_COMMIT_BRANCH
 ```
 
 ### Excluding operations in feature branches, but not default branch
@@ -173,48 +171,48 @@ To verify the operation is excluded, run the API security testing job and review
 # Disable the main job so you can create two jobs with
 # different names
 api_security:
-  rules:
-  - if: $CI_COMMIT_BRANCH
+ rules:
+ - if: $CI_COMMIT_BRANCH
     when: never
 
 # API security testing for feature branch work, excludes /api/large_response_json
 APISEC_branch:
-  extends: dast_api
-  variables:
+ extends: dast_api
+ variables:
     APISEC_EXCLUDE_PATHS: /api/large_response_json
-  rules:
-  - if: $APISEC_DISABLED == 'true' || $APISEC_DISABLED == '1'
+ rules:
+ - if: $APISEC_DISABLED == 'true' || $APISEC_DISABLED == '1'
     when: never
-  - if: $APISEC_DISABLED_FOR_DEFAULT_BRANCH == 'true' &&
+ - if: $APISEC_DISABLED_FOR_DEFAULT_BRANCH == 'true' &&
         $CI_DEFAULT_BRANCH == $CI_COMMIT_REF_NAME
     when: never
-  - if: $APISEC_DISABLED_FOR_DEFAULT_BRANCH == '1' &&
+ - if: $APISEC_DISABLED_FOR_DEFAULT_BRANCH == '1' &&
         $CI_DEFAULT_BRANCH == $CI_COMMIT_REF_NAME
     when: never
-  - if: $CI_COMMIT_BRANCH &&
+ - if: $CI_COMMIT_BRANCH &&
         $CI_GITLAB_FIPS_MODE == "true"
     variables:
       APISEC_IMAGE_SUFFIX: "-fips"
-  - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+ - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
     when: never
-  - if: $CI_COMMIT_BRANCH
+ - if: $CI_COMMIT_BRANCH
 
 # API security testing for default branch (main in this case)
 # Includes the long running operations
 APISEC_main:
-  extends: dast_api
-  rules:
-  - if: $APISEC_DISABLED == 'true' || $APISEC_DISABLED == '1'
+ extends: dast_api
+ rules:
+ - if: $APISEC_DISABLED == 'true' || $APISEC_DISABLED == '1'
     when: never
-  - if: $APISEC_DISABLED_FOR_DEFAULT_BRANCH == 'true' &&
+ - if: $APISEC_DISABLED_FOR_DEFAULT_BRANCH == 'true' &&
         $CI_DEFAULT_BRANCH == $CI_COMMIT_REF_NAME
     when: never
-  - if: $APISEC_DISABLED_FOR_DEFAULT_BRANCH == '1' &&
+ - if: $APISEC_DISABLED_FOR_DEFAULT_BRANCH == '1' &&
         $CI_DEFAULT_BRANCH == $CI_COMMIT_REF_NAME
     when: never
-  - if: $CI_COMMIT_BRANCH &&
+ - if: $CI_COMMIT_BRANCH &&
         $CI_GITLAB_FIPS_MODE == "true"
     variables:
       APISEC_IMAGE_SUFFIX: "-fips"
-  - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+ - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 ```

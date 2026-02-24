@@ -38,10 +38,7 @@ Now you can open Airbyte in your browser at http://localhost:8000.
 * In the Airbyte dashboard, click "Settings" on the bottom left.
 * Click "Sources" on the left sidebar.
 * Click the "New connector" button > enter the following:   
-**- Connector display name:** `Linear`  
-**- Docker repository name:** `gcr.io/linear-public-registry/linear-airbyte-source`  
-**- Docker image tag:** `latest`  
-**- Connector Documentation URL:** `https://github.com/linear/linear-airbyte-source/blob/main/readme.md`  
+**- Connector display name:** `Linear` **- Docker repository name:** `gcr.io/linear-public-registry/linear-airbyte-source` **- Docker image tag:** `latest` **- Connector Documentation URL:** `https://github.com/linear/linear-airbyte-source/blob/main/readme.md`
 
 
 ![Settings page in Airbyte for adding a new connector](https://webassets.linear.app/images/ornj730p/production/411c6aec9ef601e16ae5a157da4dbbf1b133e114-804x719.png?q=95&auto=format&dpr=2)

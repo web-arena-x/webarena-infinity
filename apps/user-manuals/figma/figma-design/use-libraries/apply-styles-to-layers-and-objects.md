@@ -31,7 +31,7 @@ Tip: You can use the [eyedropper tool](https://help.figma.com/hc/articles/276432
    - Alphabetically by file name
    - Individual styles appear in the order they were created. Learn about [grouping and reordering styles](https://help.figma.com/hc/en-us/articles/360039820134-Manage-and-share-Styles#h_f5afac8e-03c9-4194-b84b-34a8a2ab1a8e).
 4. Use the All libraries dropdown to filter your styles and variables to those created in a specific library.
-5. Search and select the style you want to apply to the selected object(s). The style picker can be viewed as a   list or   grid.
+5. Search and select the style you want to apply to the selected object(s). The style picker can be viewed as a  list or  grid.
 
 ![](https://help.figma.com/hc/article_attachments/30896143963415)
 

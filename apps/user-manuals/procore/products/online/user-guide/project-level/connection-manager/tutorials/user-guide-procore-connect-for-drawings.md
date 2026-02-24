@@ -9,16 +9,16 @@ Table of Contents
 **Table of Contents**
 
 - Welcome 
-  - [Overview](https://support.procore.com/#)
-  - [Considerations](https://support.procore.com/#)
-  - [Permissions](https://support.procore.com/#)
+ - [Overview](https://support.procore.com/#)
+ - [Considerations](https://support.procore.com/#)
+ - [Permissions](https://support.procore.com/#)
 - Upstream Account 
-  - [Set Connection Approval Preference](https://support.procore.com/#)
-  - [Approve or Reject Connections (if review is required)](https://support.procore.com/#)
-  - [Publish Drawings to your Upstream Project](https://support.procore.com/#)
+ - [Set Connection Approval Preference](https://support.procore.com/#)
+ - [Approve or Reject Connections (if review is required)](https://support.procore.com/#)
+ - [Publish Drawings to your Upstream Project](https://support.procore.com/#)
 - Downstream Account 
-  - [Initiate a Project Connection](https://support.procore.com/#)
-  - [Publish Drawings to your Downstream Project](https://support.procore.com/#)
+ - [Initiate a Project Connection](https://support.procore.com/#)
+ - [Publish Drawings to your Downstream Project](https://support.procore.com/#)
 - [Frequently Asked Questions](https://support.procore.com/#)
 - [Conclusion](https://support.procore.com/#)
 
@@ -42,9 +42,9 @@ Downstream permissions requirements to connect projects are comparable to how u
 
 ### How does it work?
 
-|  |  |
+| | |
 | --- | --- |
-| clipboard_e2ea98eb2648ecdb6a85666d5cc5adfa7.png | Project connections are always initiated by the downstream project.  The connection depends on the upstream company's approval preference. If review is not required, the projects will be automatically connected. If review is required, a connection request will be sent to the upstream company to review and manually approve or reject.  As the upstream project uploads and publishes drawings, those drawings are copied to the downstream project. The drawings are copied in an unpublished state for the downstream project to review and publish in their project.  After the drawings are published in the downstream company's project, users with access to the downstream project's drawings tool can view the connected drawings that originated from the upstream company's project |
+| clipboard_e2ea98eb2648ecdb6a85666d5cc5adfa7.png | Project connections are always initiated by the downstream project. The connection depends on the upstream company's approval preference. If review is not required, the projects will be automatically connected. If review is required, a connection request will be sent to the upstream company to review and manually approve or reject. As the upstream project uploads and publishes drawings, those drawings are copied to the downstream project. The drawings are copied in an unpublished state for the downstream project to review and publish in their project. After the drawings are published in the downstream company's project, users with access to the downstream project's drawings tool can view the connected drawings that originated from the upstream company's project |
 
 ## Considerations
 
@@ -76,19 +76,18 @@ Some actions that impact this tool are done in other Procore tools. See the [Use
 
 | Action | None | Read Only | Standard | Admin | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Approve or Reject Project Connection Request  [Web](#s214828 "Approve or Reject Project Connection Request") |  |  |  | check-green2.png |  |
-| Configure Advanced Settings  [Web](https://support.procore.com/products/online/user-guide/project-level/connection-manager/tutorials/configure-advanced-settings-connection-manager "Configure Advanced Settings: Connection Manager") |  |  |  | check-green2.png |  |
-| Disconnect a Connected Project  [Web](https://support.procore.com/products/online/user-guide/project-level/connection-manager/tutorials/disconnect-a-connected-project "Disconnect a Connected Project") |  |  |  | check-green2.png |  |
-| Initiate a Request to Connect Projects  [Web](#s214831 "Initiate a Project Connection") |  |  |  | icon-mindtouch-table-check.png | Users must also have ‘Read only’ level permissions or higher to the Drawings tool in both the upstream and downstream projects. |
-| View Project Connections  [Web](https://support.procore.com/products/online/user-guide/project-level/connection-manager/tutorials/view-project-connections "View Project Connections") |  | check-green2.png | check-green2.png | check-green2.png |  |
+| Approve or Reject Project Connection Request [Web](#s214828 "Approve or Reject Project Connection Request") | | | | check-green2.png | |
+| Configure Advanced Settings [Web](https://support.procore.com/products/online/user-guide/project-level/connection-manager/tutorials/configure-advanced-settings-connection-manager "Configure Advanced Settings: Connection Manager") | | | | check-green2.png | |
+| Disconnect a Connected Project [Web](https://support.procore.com/products/online/user-guide/project-level/connection-manager/tutorials/disconnect-a-connected-project "Disconnect a Connected Project") | | | | check-green2.png | |
+| Initiate a Request to Connect Projects [Web](#s214831 "Initiate a Project Connection") | | | | icon-mindtouch-table-check.png | Users must also have ‘Read only’ level permissions or higher to the Drawings tool in both the upstream and downstream projects. |
+| View Project Connections [Web](https://support.procore.com/products/online/user-guide/project-level/connection-manager/tutorials/view-project-connections "View Project Connections") | | check-green2.png | check-green2.png | check-green2.png | |
 
 ## Set Connection Approval Preference
 
 1. Navigate to the Company level **Admin** tool.
 2. Under 'Tool Settings,' click **Connection Manager**.
-3. To automatically approve connections, mark the checkbox to 'Allow users with existing access to the Drawings tool to connect their project without Admin approval. (Recommended)'.  
-   OR  
-   Clear the checkmark to require a connection request be sent for review before manually accepting or rejecting a project's request to connect.
+3. To automatically approve connections, mark the checkbox to 'Allow users with existing access to the Drawings tool to connect their project without Admin approval. (Recommended)'. 
+   OR Clear the checkmark to require a connection request be sent for review before manually accepting or rejecting a project's request to connect.
 4. Click **Save**.
 
 ## Approve or Reject Connections (if review is required)
@@ -115,9 +114,8 @@ Upstream company accounts can choose to automatically approve connections, or r
 
 1. Navigate to the project's **Connection Manager** tool.
 2. Under 'Downstream Projects' click **Review Request**.
-3. Click **Approve** to approve the connection.  
-   OR  
-   Click **Reject** to decline the connection.
+3. Click **Approve** to approve the connection. 
+   OR Click **Reject** to decline the connection.
 
 ## See Also
 
@@ -135,7 +133,7 @@ When projects are connected, any published drawings in your upstream project are
 
 1. Navigate to the project's **Connection Manager** tool.
 2. Click **Connect**.
-3. Select the upstream company and project.  
+3. Select the upstream company and project. 
    *Note:* If you are connecting to a project within the *same* company, look for the 'Current Company' section in the 'Upstream Company' dropdown to select your company's name.
 4. Click **Next**.
 5. Select at least one feature for this connection, then click **Next**.
@@ -157,7 +155,7 @@ After the drawings are copied from the upstream project, they will have an "unpu
      2. Click one of the following options:
 
         - Click **Publish and Distribute** to publish the drawings and send a notification to drawings log subscribers. See [Who receives a notification for updates in the Drawing tool?](https://support.procore.com/faq/who-receives-a-notification-for-updates-in-the-drawings-tool "Who receives a notification for updates in the Drawings tool?")
-        - Click **Publish** to publish the drawings without sending a notification to drawings log subscribers.  
+        - Click **Publish** to publish the drawings without sending a notification to drawings log subscribers. 
             
           ![bulk-publish-connected.png](https://support.procore.com/@api/deki/files/477324/bulk-publish-connected.png?revision=1)
    - **Option 2.** To publish all drawings in a single drawing set:
@@ -166,7 +164,7 @@ After the drawings are copied from the upstream project, they will have an "unpu
      2. Click the **Publish** drop-down menu in the banner above the list and select one of the following options:
 
         - Click **Publish and Distribute** to publish the drawings and send a notification to drawings log subscribers. See [Who receives a notification for updates in the Drawing tool?](https://support.procore.com/faq/who-receives-a-notification-for-updates-in-the-drawings-tool "Who receives a notification for updates in the Drawings tool?")
-        - Click **Publish** to publish the drawings without sending a notification to drawings log subscribers.  
+        - Click **Publish** to publish the drawings without sending a notification to drawings log subscribers. 
             
           ![publish-drawings.png](https://support.procore.com/@api/deki/files/45166/publish-drawings.png?revision=2)
    - **Option 3.** To publish some drawings in a single drawing set:
@@ -176,7 +174,7 @@ After the drawings are copied from the upstream project, they will have an "unpu
      3. Click one of the following options:
 
         - Click **Publish and Distribute Selected** to publish the drawings and send a notification to drawings log subscribers. See [Who receives a notification for updates in the Drawing tool?](https://support.procore.com/faq/who-receives-a-notification-for-updates-in-the-drawings-tool "Who receives a notification for updates in the Drawings tool?")
-        - Click **Publish Selected** to publish the drawings without sending a notification to drawings log subscribers.  
+        - Click **Publish Selected** to publish the drawings without sending a notification to drawings log subscribers. 
             
           ![publish-selected-drawings.png](https://support.procore.com/@api/deki/files/477323/publish-selected-drawings.png?revision=1)
 

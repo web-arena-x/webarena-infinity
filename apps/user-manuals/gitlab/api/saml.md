@@ -36,8 +36,7 @@ Supported attributes:
 |:------------------|:--------|:---------|:----------------------|
 | `id`              | integer or string | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
 
-If successful, returns [`200`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute    | Type   | Description               |
 | ------------ | ------ | ------------------------- |
@@ -48,8 +47,8 @@ Example request:
 
 ```shell
 curl --location --request GET \
-  --header "PRIVATE-TOKEN: <PRIVATE-TOKEN>" \
-  --url "https://gitlab.com/api/v4/groups/33/saml/identities"
+ --header "PRIVATE-TOKEN: <PRIVATE-TOKEN>" \
+ --url "https://gitlab.com/api/v4/groups/33/saml/identities"
 ```
 
 Example response:
@@ -86,8 +85,8 @@ Example request:
 
 ```shell
 curl --location --request GET \
-  --header "PRIVATE-TOKEN: <PRIVATE TOKEN>" \
-  --url "https://gitlab.com/api/v4/groups/33/saml/yrnZW46BrtBFqM7xDzE7dddd"
+ --header "PRIVATE-TOKEN: <PRIVATE TOKEN>" \
+ --url "https://gitlab.com/api/v4/groups/33/saml/yrnZW46BrtBFqM7xDzE7dddd"
 ```
 
 Example response:
@@ -122,10 +121,10 @@ Example request:
 
 ```shell
 curl --request PATCH \
-  --location \
-  --header "PRIVATE-TOKEN: <PRIVATE TOKEN>" \
-  --url "https://gitlab.com/api/v4/groups/33/saml/yrnZW46BrtBFqM7xDzE7dddd" \
-  --form "extern_uid=be20d8dcc028677c931e04f387"
+ --location \
+ --header "PRIVATE-TOKEN: <PRIVATE TOKEN>" \
+ --url "https://gitlab.com/api/v4/groups/33/saml/yrnZW46BrtBFqM7xDzE7dddd" \
+ --form "extern_uid=be20d8dcc028677c931e04f387"
 ```
 
 ### Delete a single SAML identity
@@ -145,14 +144,14 @@ Supported attributes:
 | Attribute | Type    | Required | Description               |
 | --------- | ------- | -------- | ------------------------- |
 | `id`      | integer | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group. |
-| `uid`     | string  | yes      | External UID of the user. |
+| `uid`     | string | yes      | External UID of the user. |
 
 Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.com/api/v4/groups/33/saml/be20d8dcc028677c931e04f387"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.com/api/v4/groups/33/saml/be20d8dcc028677c931e04f387"
 ```
 
 Example response:
@@ -189,8 +188,7 @@ Use the Users API to [delete a single identity of a user](users.md#delete-authen
 
 {{< /history >}}
 
-List, get, add, and delete [SAML group links](../user/group/saml_sso/group_sync.md#configure-saml-group-links) by using
-the REST API.
+List, get, add, and delete [SAML group links](../user/group/saml_sso/group_sync.md#configure-saml-group-links) by using the REST API.
 
 ### List SAML group links
 
@@ -210,35 +208,35 @@ If successful, returns [`200`](rest/troubleshooting.md#status-codes) and the fol
 
 | Attribute           | Type    | Description |
 |:--------------------|:--------|:------------|
-| `[].name`           | string  | Name of the SAML group. |
+| `[].name`           | string | Name of the SAML group. |
 | `[].access_level`   | integer | The default access level for members of the SAML group. Possible values: `0` (No access), `5` (Minimal access), `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), or `50` (Owner). |
 | `[].member_role_id` | integer | [Member Role ID (`member_role_id`)](member_roles.md) for members of the SAML group. |
-| `[].provider`       | string  | Unique [provider name](../integration/saml.md#configure-saml-support-in-gitlab) that must match for this group link to be applied. |
+| `[].provider`       | string | Unique [provider name](../integration/saml.md#configure-saml-support-in-gitlab) that must match for this group link to be applied. |
 
 Example request:
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/saml_group_links"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/saml_group_links"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "name": "saml-group-1",
     "access_level": 10,
     "member_role_id": 12,
     "provider": null
-  },
-  {
+ },
+ {
     "name": "saml-group-2",
     "access_level": 40,
     "member_role_id": 99,
     "provider": "saml_provider_1"
-  }
+ }
 ]
 ```
 
@@ -262,10 +260,10 @@ If successful, returns [`200`](rest/troubleshooting.md#status-codes) and the fol
 
 | Attribute        | Type    | Description |
 |:-----------------|:--------|:------------|
-| `name`           | string  | Name of the SAML group. |
+| `name`           | string | Name of the SAML group. |
 | `access_level`   | integer | The default access level for members of the SAML group. Possible values: `0` (No access), `5` (Minimal access), `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), or `50` (Owner). |
 | `member_role_id` | integer | [Member Role ID (`member_role_id`)](member_roles.md) for members of the SAML group. |
-| `provider`       | string  | Unique [provider name](../integration/saml.md#configure-saml-support-in-gitlab) that must match for this group link to be applied. |
+| `provider`       | string | Unique [provider name](../integration/saml.md#configure-saml-support-in-gitlab) that must match for this group link to be applied. |
 
 If multiple SAML group links exist with the same name but different providers, and no `provider` parameter is specified, returns [`422`](rest/troubleshooting.md#status-codes) with an error message indicating that the `provider` parameter is required to disambiguate.
 
@@ -273,16 +271,16 @@ Example request:
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/saml_group_links/saml-group-1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/saml_group_links/saml-group-1"
 ```
 
 Example request with provider parameter:
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/saml_group_links/saml-group-1?provider=saml_provider_1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/saml_group_links/saml-group-1?provider=saml_provider_1"
 ```
 
 Example response:
@@ -311,22 +309,22 @@ Supported attributes:
 | `id`              | integer or string | yes      | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group. |
 | `saml_group_name` | string            | yes      | Name of the SAML group. |
 | `access_level`    | integer           | yes      | The default access level for members of the SAML group. Possible values: `0` (No access), `5` (Minimal access), `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), or `50` (Owner). |
-| `member_role_id`  | integer           | no       | [Member Role ID (`member_role_id`)](member_roles.md) for members of the SAML group. |
+| `member_role_id` | integer           | no       | [Member Role ID (`member_role_id`)](member_roles.md) for members of the SAML group. |
 | `provider`        | string            | no       | Unique [provider name](../integration/saml.md#configure-saml-support-in-gitlab) that must match for this group link to be applied. |
 
 If successful, returns [`201`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute        | Type    | Description |
 |:-----------------|:--------|:------------|
-| `name`           | string  | Name of the SAML group. |
+| `name`           | string | Name of the SAML group. |
 | `access_level`   | integer | The default access level for members of the SAML group. Possible values: `0` (No access), `5` (Minimal access), `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), or `50` (Owner). |
 | `member_role_id` | integer | [Member Role ID (`member_role_id`)](member_roles.md) for members of the SAML group. |
-| `provider`       | string  | Unique [provider name](../integration/saml.md#configure-saml-support-in-gitlab) that must match for this group link to be applied. |
+| `provider`       | string | Unique [provider name](../integration/saml.md#configure-saml-support-in-gitlab) that must match for this group link to be applied. |
 
 Example request:
 
 ```shell
-curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" --header "Content-Type: application/json" --data '{ "saml_group_name": "<your_saml_group_name`>", "access_level": <chosen_access_level>, "member_role_id": <chosen_member_role_id>, "provider": "<your_provider>" }' --url  "https://gitlab.example.com/api/v4/groups/1/saml_group_links"
+curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" --header "Content-Type: application/json" --data '{ "saml_group_name": "<your_saml_group_name`>", "access_level": <chosen_access_level>, "member_role_id": <chosen_member_role_id>, "provider": "<your_provider>" }' --url "https://gitlab.example.com/api/v4/groups/1/saml_group_links"
 ```
 
 Example response:
@@ -360,16 +358,16 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/saml_group_links/saml-group-1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/saml_group_links/saml-group-1"
 ```
 
 Example request with provider parameter:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/saml_group_links/saml-group-1?provider=saml_provider_1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/saml_group_links/saml-group-1?provider=saml_provider_1"
 ```
 
 If successful, returns [`204`](rest/troubleshooting.md#status-codes) status code without any response body.

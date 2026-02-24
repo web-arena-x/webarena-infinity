@@ -134,9 +134,7 @@ Note that unlike `Gitlab::Popen.popen`, `IO.popen` does not capture standard err
 
 ## Avoid user input at the start of path strings
 
-Various methods for opening and reading files in Ruby can be used to read the
-standard output of a process instead of a file. The following two commands do
-roughly the same:
+Various methods for opening and reading files in Ruby can be used to read the standard output of a process instead of a file. The following two commands do roughly the same:
 
 ```ruby
 `touch /tmp/pawned-by-backticks`
@@ -146,10 +144,7 @@ File.read('|touch /tmp/pawned-by-file-read')
 The key is to open a 'file' whose name starts with a `|`.
 Affected methods include Kernel#open, File::read, File::open, IO::open and IO::read.
 
-You can protect against this behavior of 'open' and 'read' by ensuring that an
-attacker cannot control the start of the filename string you are opening. For
-instance, the following is sufficient to protect against accidentally starting
-a shell command with `|`:
+You can protect against this behavior of 'open' and 'read' by ensuring that an attacker cannot control the start of the filename string you are opening. For instance, the following is sufficient to protect against accidentally starting a shell command with `|`:
 
 ```ruby
 # we assume repo_path is not controlled by the attacker (user)
@@ -160,14 +155,11 @@ File.read(path)
 
 If you have to use user input a relative path, prefix `./` to the path.
 
-Prefixing user-supplied paths also offers extra protection against paths
-starting with `-` (see the discussion about using `--` above).
+Prefixing user-supplied paths also offers extra protection against paths starting with `-` (see the discussion about using `--` above).
 
 ## Guard against path traversal
 
-Path traversal is a security where the program (GitLab) tries to restrict user
-access to a certain directory on disk, but the user manages to open a file
-outside that directory by taking advantage of the `../` path notation.
+Path traversal is a security where the program (GitLab) tries to restrict user access to a certain directory on disk, but the user manages to open a file outside that directory by taking advantage of the `../` path notation.
 
 ```ruby
 # Suppose the user gave us a path and they are trying to trick us
@@ -183,13 +175,12 @@ full_path = File.join(repo_path, user_input)
 File.open(full_path) do # Oops!
 ```
 
-A good way to protect against this is to compare the full path with its
-'absolute path' according to Ruby's `File.absolute_path`.
+A good way to protect against this is to compare the full path with its 'absolute path' according to Ruby's `File.absolute_path`.
 
 ```ruby
 full_path = File.join(repo_path, user_input)
 if full_path != File.absolute_path(full_path)
-  raise "Invalid path: #{full_path.inspect}"
+ raise "Invalid path: #{full_path.inspect}"
 end
 
 File.open(full_path) do # Etc.

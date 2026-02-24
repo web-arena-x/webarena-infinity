@@ -39,7 +39,7 @@ A couple of things to note:
 You can update the content of multiple text layers at the same time.
 
 1. Select more than one text layer. Learn how to [select multiple layers and objects →](https://help.figma.com/hc/en-us/articles/360040449873)
-2. Click  **Multi-edit text** at the top of the right sidebar or press `Enter` / `Return` to edit the contents. All selected text layers will update to match.
+2. Click **Multi-edit text** at the top of the right sidebar or press `Enter` / `Return` to edit the contents. All selected text layers will update to match.
 
 ## Multi-edit variants
 
@@ -51,7 +51,7 @@ To enable multi-edit:
    - **A component set**: Enabling multi-edit places a dotted rectangle around each variant within the set to indicate the objects you can edit
    - **A variant**: Enabling multi-edit selects other component variants in the set
    - **A nested layer**: Enabling multi-edit selects matching objects across other component variants in the set
-2. Click  **Multi-edit variants** at the top of the right sidebar, or press `Q`.
+2. Click **Multi-edit variants** at the top of the right sidebar, or press `Q`.
 3. To exit multi-edit, click , or press `Q`. You can also double-click anywhere on the canvas outside the component set.
 
 [Check out the entire multi-edit video playlist →](https://youtu.be/XfHSWfCrX58?feature=shared)

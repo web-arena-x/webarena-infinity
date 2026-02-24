@@ -27,10 +27,8 @@ State management could be used to work with both state and data.
 You should prefer using the standard Vue data flow in your application first:
 components define local state and pass it down through props and change it through events.
 
-However this might not be sufficient for complex cases where state is shared between multiple components
-that are not direct descendants of the component which defined this state.
-You might consider hoisting that state to the root of your application, but that eventually
-bloats the root component because it starts to do too many things at once.
+However this might not be sufficient for complex cases where state is shared between multiple components that are not direct descendants of the component which defined this state.
+You might consider hoisting that state to the root of your application, but that eventually bloats the root component because it starts to do too many things at once.
 
 To deal with that complexity you can use a state management solution.
 The sections below will help you with this choice.
@@ -43,8 +41,7 @@ If you're still uncertain, prefer using Apollo before Pinia.
 
 ### Strengths
 
-- Great for working with data from GraphQL requests,
-  provides [data normalization](https://www.apollographql.com/docs/react/caching/overview#data-normalization) out of the box.
+- Great for working with data from GraphQL requests, provides [data normalization](https://www.apollographql.com/docs/react/caching/overview#data-normalization) out of the box.
 - Can cache data from REST API when GraphQL is not available.
 - Queries are statically verified against the GraphQL schema.
 
@@ -57,11 +54,11 @@ If you're still uncertain, prefer using Apollo before Pinia.
 
 - You rely on the GraphQL API
 - You need specific Apollo features, for example:
-  - [Parametrized cache, cache invalidation](graphql.md#immutability-and-cache-updates)
-  - [Polling](graphql.md#polling-and-performance)
-  - [Stale While Revalidate](https://www.apollographql.com/docs/react/caching/advanced-topics#persisting-the-cache)
-  - [Real-time updates](graphql.md#subscriptions)
-  - [Other](https://www.apollographql.com/docs/react/)
+ - [Parametrized cache, cache invalidation](graphql.md#immutability-and-cache-updates)
+ - [Polling](graphql.md#polling-and-performance)
+ - [Stale While Revalidate](https://www.apollographql.com/docs/react/caching/advanced-topics#persisting-the-cache)
+ - [Real-time updates](graphql.md#subscriptions)
+ - [Other](https://www.apollographql.com/docs/react/)
 
 ## Pinia
 
@@ -113,14 +110,12 @@ You can have Apollo data management in your components alongside existing Pinia 
 - Need to work with data coming from GraphQL
 - Can't migrate from Pinia to Apollo because of high migration effort
 
-Don't try to manage client state (not to be confused with GraphQL or REST data) with Apollo and Pinia at the same time,
-consider migrating from Pinia to Apollo if you need this.
+Don't try to manage client state (not to be confused with GraphQL or REST data) with Apollo and Pinia at the same time, consider migrating from Pinia to Apollo if you need this.
 Don't use Apollo inside Pinia stores.
 
 ### Add Pinia to an existing app with Apollo
 
-Strongly consider [using Apollo for client-side state management](graphql.md#local-state-with-apollo) first. However, if all of the
-following are true, Apollo might not be the best tool for managing this client-side state:
+Strongly consider [using Apollo for client-side state management](graphql.md#local-state-with-apollo) first. However, if all of the following are true, Apollo might not be the best tool for managing this client-side state:
 
 - If the footprint of client-side state is significant enough that there's a high implementation cost due to Apollo's complexities.
 - If the client-side state can be nicely decoupled from the Apollo managed GraphQL API data.

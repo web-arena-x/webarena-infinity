@@ -15,9 +15,7 @@ They enable dynamic configuration based on different contexts.
 
 All configuration expressions share these characteristics:
 
-- **Compile-time evaluation**: Values are resolved when the pipeline configuration is created,
-  not during job execution. A large number of expressions can increase pipeline creation time,
-  but does not affect job execution time.
+- **Compile-time evaluation**: Values are resolved when the pipeline configuration is created, not during job execution. A large number of expressions can increase pipeline creation time, but does not affect job execution time.
 - **Static resolution**: Cannot perform dynamic logic or access runtime job state.
 
 Configuration expressions support different contexts for accessing values:
@@ -37,28 +35,27 @@ Configuration expressions support different contexts for accessing values:
 
 {{< /history >}}
 
-Use the `inputs.` context to reference [CI/CD inputs](../inputs/_index.md) in reusable configurations
-using `$[[ inputs.INPUT_NAME ]]` syntax.
+Use the `inputs.` context to reference [CI/CD inputs](../inputs/_index.md) in reusable configurations using `$[[ inputs.INPUT_NAME ]]` syntax.
 
 For example:
 
 ```yaml
 spec:
-  inputs:
+ inputs:
     environment:
       default: production
     job-stage:
       default: test
 ---
 scan-website:
-  stage: $[[ inputs.job-stage ]]
-  script: ./scan-website $[[ inputs.environment ]]
+ stage: $[[ inputs.job-stage ]]
+ script: ./scan-website $[[ inputs.environment ]]
 ```
 
 `input.` expressions have the following characteristics:
 
 - Type validation: Supports `string`, `number`, `boolean`, and `array` types with validation.
-  Input validation prevents pipeline creation with invalid values.
+ Input validation prevents pipeline creation with invalid values.
 - Function support: Predefined functions like `expand_vars` and `truncate` can manipulate values.
 - Scope: Available in the file where defined, or passed explicitly with `include:inputs`.
 
@@ -71,26 +68,25 @@ scan-website:
 {{< /history >}}
 
 Use the [`matrix.` context](matrix_expressions.md) to reference [`parallel:matrix`](_index.md#parallelmatrix)
-values by using a `$[[ matrix.IDENTIFIER ]]` syntax. Use it in job dependencies to enable
-dynamic 1:1 mappings between `parallel:matrix` jobs.
+values by using a `$[[ matrix.IDENTIFIER ]]` syntax. Use it in job dependencies to enable dynamic 1:1 mappings between `parallel:matrix` jobs.
 
 For example:
 
 ```yaml
 .os-arch-matrix:
-  parallel:
+ parallel:
     matrix:
       - OS: [ubuntu, alpine]
         ARCH: [amd64, arm64]
 
 build:
-  script: echo "Testing $OS on $ARCH"
-  parallel: !reference [.os-arch-matrix, parallel]
+ script: echo "Testing $OS on $ARCH"
+ parallel: !reference [.os-arch-matrix, parallel]
 
 test:
-  script: echo "Testing $OS on $ARCH"
-  parallel: !reference [.os-arch-matrix, parallel]
-  needs:
+ script: echo "Testing $OS on $ARCH"
+ parallel: !reference [.os-arch-matrix, parallel]
+ needs:
     - job: build
       parallel:
         matrix:
@@ -112,11 +108,9 @@ test:
 
 {{< /history >}}
 
-Use the `component.` context to reference [CI/CD component](../components/_index.md) metadata
-in component templates using `$[[ component.FIELD_NAME ]]` syntax.
+Use the `component.` context to reference [CI/CD component](../components/_index.md) metadata in component templates using `$[[ component.FIELD_NAME ]]` syntax.
 
-Component context provides metadata about the component itself, such as its name, version,
-and the commit SHA. This allows component templates to reference their own metadata dynamically.
+Component context provides metadata about the component itself, such as its name, version, and the commit SHA. This allows component templates to reference their own metadata dynamically.
 
 To use component context, declare which fields are needed in the [`spec:component`](_index.md#speccomponent)
 header, then reference them in the component template.
@@ -125,15 +119,15 @@ For example:
 
 ```yaml
 spec:
-  component: [name, version]
-  inputs:
+ component: [name, version]
+ inputs:
     image_tag:
       default: latest
 ---
 
 build-job:
-  image: registry.example.com/$[[ component.name ]]:$[[ component.version ]]
-  script:
+ image: registry.example.com/$[[ component.name ]]:$[[ component.version ]]
+ script:
     - echo "Building with component version $[[ component.version ]]"
 ```
 

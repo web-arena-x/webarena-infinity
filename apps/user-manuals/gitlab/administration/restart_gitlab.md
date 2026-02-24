@@ -12,8 +12,7 @@ title: How to restart GitLab
 
 {{< /details >}}
 
-Depending on how you installed GitLab, there are different methods to restart
-its services.
+Depending on how you installed GitLab, there are different methods to restart its services.
 
 {{< alert type="note" >}}
 
@@ -23,11 +22,9 @@ A short downtime is expected for all methods.
 
 ## Linux package installations
 
-If you have used the [Linux package](https://about.gitlab.com/install/) to install GitLab,
-you should already have `gitlab-ctl` in your `PATH`.
+If you have used the [Linux package](https://about.gitlab.com/install/) to install GitLab, you should already have `gitlab-ctl` in your `PATH`.
 
-`gitlab-ctl` interacts with the Linux package installation and can be used to restart the
-GitLab Rails application (Puma) as well as the other components, like:
+`gitlab-ctl` interacts with the Linux package installation and can be used to restart the GitLab Rails application (Puma) as well as the other components, like:
 
 - GitLab Workhorse
 - Sidekiq
@@ -39,8 +36,7 @@ GitLab Rails application (Puma) as well as the other components, like:
 
 ### Restart a Linux package installation
 
-There may be times in the documentation where you are asked to _restart_
-GitLab. To restart a Linux package installation, run:
+There may be times in the documentation where you are asked to _restart_ GitLab. To restart a Linux package installation, run:
 
 ```shell
 sudo gitlab-ctl restart
@@ -59,8 +55,7 @@ ok: run: sidekiq: (pid 11331) 1s
 ok: run: puma: (pid 11338) 0s
 ```
 
-To restart a component separately, you can append its service name to the
-`restart` command. For example, to restart **only** NGINX you would run:
+To restart a component separately, you can append its service name to the `restart` command. For example, to restart **only** NGINX you would run:
 
 ```shell
 sudo gitlab-ctl restart nginx
@@ -74,18 +69,14 @@ sudo gitlab-ctl status
 
 Notice that all services say `ok: run`.
 
-Sometimes, components time out (look for `timeout` in the logs) during the
-restart and sometimes they get stuck.
-In that case, you can use `gitlab-ctl kill <service>` to send the `SIGKILL`
-signal to the service, for example `sidekiq`. After that, a restart should
-perform fine.
+Sometimes, components time out (look for `timeout` in the logs) during the restart and sometimes they get stuck.
+In that case, you can use `gitlab-ctl kill <service>` to send the `SIGKILL` signal to the service, for example `sidekiq`. After that, a restart should perform fine.
 
 As a last resort, you can try to reconfigure GitLab instead.
 
 ### Reconfigure a Linux package installation
 
-There may be times in the documentation where you are asked to _reconfigure_
-GitLab. Remember that this method applies only for Linux package installations.
+There may be times in the documentation where you are asked to _reconfigure_ GitLab. Remember that this method applies only for Linux package installations.
 
 To reconfigure a Linux package installation, run:
 
@@ -93,23 +84,18 @@ To reconfigure a Linux package installation, run:
 sudo gitlab-ctl reconfigure
 ```
 
-Reconfiguring GitLab should occur in the event that something in its
-configuration (`/etc/gitlab/gitlab.rb`) has changed.
+Reconfiguring GitLab should occur in the event that something in its configuration (`/etc/gitlab/gitlab.rb`) has changed.
 
-When you run `gitlab-ctl reconfigure`, [Chef](https://www.chef.io/products/chef-infra),
-the underlying configuration management application that powers Linux package installations, runs some checks.
+When you run `gitlab-ctl reconfigure`, [Chef](https://www.chef.io/products/chef-infra), the underlying configuration management application that powers Linux package installations, runs some checks.
 Chef ensures directories, permissions, and services are in place and working.
 
 Chef also restarts GitLab components if any of their configuration files have changed.
 
-If you manually edit any files in `/var/opt/gitlab` that are managed by Chef,
-running `reconfigure` reverts the changes and restarts the services that
-depend on those files.
+If you manually edit any files in `/var/opt/gitlab` that are managed by Chef, running `reconfigure` reverts the changes and restarts the services that depend on those files.
 
 ## Self-compiled installations
 
-If you have followed the official installation guide to
-[self-compile your installation](../install/self_compiled/_index.md), run the following command to restart GitLab:
+If you have followed the official installation guide to [self-compile your installation](../install/self_compiled/_index.md), run the following command to restart GitLab:
 
 ```shell
 # For systems running systemd
@@ -124,10 +110,7 @@ This should restart Puma, Sidekiq, GitLab Workhorse, and [Mailroom](reply_by_ema
 
 ## Helm chart installations
 
-There is no single command to restart the entire GitLab application installed through
-the [cloud-native Helm chart](https://docs.gitlab.com/charts/). Usually, it should be
-enough to restart a specific component separately (for example, `gitaly`, `puma`,
-`workhorse`, or `gitlab-shell`) by deleting all the pods related to it:
+There is no single command to restart the entire GitLab application installed through the [cloud-native Helm chart](https://docs.gitlab.com/charts/). Usually, it should be enough to restart a specific component separately (for example, `gitaly`, `puma`, `workhorse`, or `gitlab-shell`) by deleting all the pods related to it:
 
 ```shell
 kubectl delete pods -l release=<helm release name>,app=<component name>

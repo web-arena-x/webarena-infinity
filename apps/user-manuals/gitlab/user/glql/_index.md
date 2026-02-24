@@ -52,27 +52,23 @@ For more information, see the history.
 
 {{< /alert >}}
 
-GLQL uses Advanced Search when available to speed up queries. Advanced Search
-provides faster response times for complex queries across large datasets.
+GLQL uses Advanced Search when available to speed up queries. Advanced Search provides faster response times for complex queries across large datasets.
 
 Advanced Search is:
 
 - Enabled by default for GitLab.com and GitLab Dedicated paid subscriptions.
-- Available for GitLab Self-Managed when an administrator
-  [enables Advanced Search](../../integration/advanced_search/elasticsearch.md#enable-advanced-search).
+- Available for GitLab Self-Managed when an administrator [enables Advanced Search](../../integration/advanced_search/elasticsearch.md#enable-advanced-search).
 
 If Advanced Search isn't available, GLQL uses PostgreSQL instead.
 
 ## Query syntax
 
-The query syntax consists primarily of logical expressions. These expressions follow the
-syntax of `<field> <operator> <value> and ...`.
+The query syntax consists primarily of logical expressions. These expressions follow the syntax of `<field> <operator> <value> and ...`.
 
 ### Fields
 
 Field names can have values like `assignee`, `author`, `label`, and `milestone`.
-A `type` field can be used to filter a query by the object type, like `Issue`, `MergeRequest`,
-or work item types like `Task` or `Objective`.
+A `type` field can be used to filter a query by the object type, like `Issue`, `MergeRequest`, or work item types like `Task` or `Objective`.
 
 For a full list of supported fields, supported operators, and value types, see [GLQL fields](fields.md).
 
@@ -110,8 +106,7 @@ Values can include:
 
 ## Embedded views
 
-An embedded view is the output of a GLQL source code block in Markdown. The source includes YAML
-attributes that describe how to display the GLQL query results, along with the query.
+An embedded view is the output of a GLQL source code block in Markdown. The source includes YAML attributes that describe how to display the GLQL query results, along with the query.
 
 ### Supported areas
 
@@ -125,10 +120,10 @@ Embedded views can be displayed in the following areas:
 
 - Group and project wikis
 - Descriptions and comments of:
-  - Epics
-  - Issues
-  - Merge requests
-  - Work items (tasks, OKRs, or epics)
+ - Epics
+ - Issues
+ - Merge requests
+ - Work items (tasks, OKRs, or epics)
 - Repository Markdown files
 
 ### Syntax
@@ -136,8 +131,7 @@ Embedded views can be displayed in the following areas:
 The syntax of an embedded view's source is a superset of YAML that consists of:
 
 - The `query` parameter: Expressions joined together with a logical operator, such as `and`.
-- Parameters related to the presentation layer, like `display`, `limit`, or `fields`, `title`, and `description`
-  represented as YAML.
+- Parameters related to the presentation layer, like `display`, `limit`, or `fields`, `title`, and `description` represented as YAML.
 
 A view is defined in Markdown as a code block, similar to other code blocks like Mermaid.
 
@@ -148,12 +142,7 @@ For example:
 
 ````yaml
 ```glql
-display: table
-title: GLQL table 🎉
-description: This view lists my open issues
-fields: title, state, health, epic, milestone, weight, updated
-limit: 5
-query: group = "gitlab-org" AND assignee = currentUser() AND state = opened
+display: table title: GLQL table 🎉 description: This view lists my open issues fields: title, state, health, epic, milestone, weight, updated limit: 5 query: group = "gitlab-org" AND assignee = currentUser() AND state = opened
 ```
 ````
 
@@ -172,8 +161,7 @@ This source should render a table like the one below:
 
 {{< /history >}}
 
-Aside from the `query` parameter, you can configure presentation details for your view using some
-more optional parameters.
+Aside from the `query` parameter, you can configure presentation details for your view using some more optional parameters.
 
 Supported parameters:
 
@@ -187,16 +175,11 @@ Supported parameters:
 | `sort`        | `updated desc`                                | The [field to sort the data by](fields.md#fields-to-sort-embedded-views-by) followed by a sort order (`asc` or `desc`). |
 | `title`       | `Embedded table view` or `Embedded list view` | A title displayed at the top of the embedded view. |
 
-For example, to display the first five issues assigned to the current user in the `gitlab-org/gitlab`
-project as a list, sorted by due date (earliest first) and displaying the `title`, `health`, and `due` fields:
+For example, to display the first five issues assigned to the current user in the `gitlab-org/gitlab` project as a list, sorted by due date (earliest first) and displaying the `title`, `health`, and `due` fields:
 
 ````yaml
 ```glql
-display: list
-fields: title, health, due
-limit: 5
-sort: due asc
-query: group = "gitlab-org" AND assignee = currentUser() AND state = opened
+display: list fields: title, health, due limit: 5 sort: due asc query: group = "gitlab-org" AND assignee = currentUser() AND state = opened
 ```
 ````
 
@@ -234,10 +217,7 @@ To rename a table view's column to a custom value, use the `AS` syntax keyword t
 
 ````yaml
 ```glql
-display: list
-fields: title, labels("workflow::*") AS "Workflow", labels("priority::*") AS "Priority"
-limit: 5
-query: project = "gitlab-org/gitlab" AND assignee = currentUser() AND state = opened
+display: list fields: title, labels("workflow::*") AS "Workflow", labels("priority::*") AS "Priority" limit: 5 query: project = "gitlab-org/gitlab" AND assignee = currentUser() AND state = opened
 ```
 ````
 

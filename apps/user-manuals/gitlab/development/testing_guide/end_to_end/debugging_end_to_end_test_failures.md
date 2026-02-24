@@ -20,8 +20,7 @@ This page outlines steps for investigating [end-to-end test](_index.md) failures
 
 Note when viewing a deployment failure from the `#announcements` Slack channel, you will have to click into the pipeline and look at the `Downstream` results to understand if the deployment failure arose from a failure in `Staging-Canary` or if the failure occurred in `Staging`.
 
-Visit the [announcement issue](https://gitlab.com/gitlab-com/gl-infra/delivery/-/issues/2280) for more context
-and to view an uncompressed version of the following image:
+Visit the [announcement issue](https://gitlab.com/gitlab-com/gl-infra/delivery/-/issues/2280) for more context and to view an uncompressed version of the following image:
 
 ![Pipeline Reorder](img/deployment_pipeline_and_e2e_tests_v18_0.png)
 
@@ -29,13 +28,11 @@ Note the diagram has been updated as part of increasing rollback availability by
 
 ### Staging Ref
 
-[Staging Ref](https://handbook.gitlab.com/handbook/engineering/infrastructure/environments/staging-ref/) is a Sandbox environment used for pre-production testing of the latest Staging Canary code. It is a shared
-environment with wide access permissions and as a result of engineers testing their code, the environment may become unstable and may need to be rebuilt.
+[Staging Ref](https://handbook.gitlab.com/handbook/engineering/infrastructure/environments/staging-ref/) is a Sandbox environment used for pre-production testing of the latest Staging Canary code. It is a shared environment with wide access permissions and as a result of engineers testing their code, the environment may become unstable and may need to be rebuilt.
 
 The full or smoke E2E test suite can be triggered on an as-needed basis from the `staging-ref` project's [pipeline schedules](https://ops.gitlab.net/gitlab-org/quality/staging-ref/-/pipeline_schedules).
 
-Staging Ref deployment runs parallel to Staging Canary deployment. These two environments share the same GitLab version, if a failure happens
-on Staging Ref but not on Staging Canary, it may indicate that the failure is environment specific. See [QA pipeline debugging guide](https://gitlab.com/gitlab-org/quality/gitlab-environment-toolkit-configs/staging-ref/-/blob/main/doc/qa_failure_debug.md) for more information on how to investigate E2E test failures.
+Staging Ref deployment runs parallel to Staging Canary deployment. These two environments share the same GitLab version, if a failure happens on Staging Ref but not on Staging Canary, it may indicate that the failure is environment specific. See [QA pipeline debugging guide](https://gitlab.com/gitlab-org/quality/gitlab-environment-toolkit-configs/staging-ref/-/blob/main/doc/qa_failure_debug.md) for more information on how to investigate E2E test failures.
 
 ### Preprod
 
@@ -69,15 +66,13 @@ If jobs in `test-on-omnibus` failed due to a GitLab Docker image issue, reach ou
 
 If failures occur only in `test-on-gdk` jobs, it's possible to stop those jobs from being added to new pipelines while the cause is being fixed. See the [runbook](https://gitlab.com/gitlab-org/quality/runbooks/-/tree/97483eafd3db198437faccc40a946fc260c0736a/test_on_gdk#disable-the-e2etest-on-gdk-pipeline) for details.
 
-Note that any failure in `master` QA pipeline will be deployed to Staging, so catching a failure earlier in the pipeline allows us to
-find what changes caused it and act on resolving the failure more quickly.
+Note that any failure in `master` QA pipeline will be deployed to Staging, so catching a failure earlier in the pipeline allows us to find what changes caused it and act on resolving the failure more quickly.
 
 ## Verifying current environment version
 
 ### Determine the version, revision, branch and package deployed in GitLab environments
 
-To find out the version, revision, branch and package deployed in GitLab.com, staging and canary environments,
-run this in the #chat-ops-test Slack channel:
+To find out the version, revision, branch and package deployed in GitLab.com, staging and canary environments, run this in the #chat-ops-test Slack channel:
 
 ```shell
 /chatops run auto_deploy status
@@ -91,20 +86,16 @@ Ask to be added to this project in the #development Slack channel.
 ### Determine if a change has been deployed to an environment using revision SHA
 
 If you have a revision SHA that is deployed on an environment, you can find out if a change has made it to that environment.
-For example, if the revision SHA deployed on an environment is `c46489109e4` and you want to find out if a change in
-`restrict_by_ip_address_spec.rb` has made it there, you can use:
+For example, if the revision SHA deployed on an environment is `c46489109e4` and you want to find out if a change in `restrict_by_ip_address_spec.rb` has made it there, you can use:
 
 ```shell
 git show c46489109e4:qa/qa/specs/features/ee/browser_ui/1_manage/group/restrict_by_ip_address_spec.rb
 ```
 
-You can determine the revision SHA deployed on a GitLab instance by either navigating to <https://www.example.com/help>,
-by calling the `https://www.example.com/api/v4/version` API or by running `/chatops run auto_deploy status` in a Slack
-channel such as #chat-ops-test.
+You can determine the revision SHA deployed on a GitLab instance by either navigating to <https://www.example.com/help>, by calling the `https://www.example.com/api/v4/version` API or by running `/chatops run auto_deploy status` in a Slack channel such as #chat-ops-test.
 
 You can also determine if your commit has been deployed on a GitLab environment using [ChatOps](../../../ci/chatops/_index.md).
-For example, if your commit ref is `347e530c5b3dec60c0ce2870bc79ca4c8273604d` you can run this command in a Slack
-channel such as #chat-ops-test:
+For example, if your commit ref is `347e530c5b3dec60c0ce2870bc79ca4c8273604d` you can run this command in a Slack channel such as #chat-ops-test:
 
 ```shell
 /chatops run auto_deploy status 347e530c5b3dec60c0ce2870bc79ca4c8273604d
@@ -125,18 +116,15 @@ docker run \
 gitlab/gitlab-ee:nightly
 ```
 
-The commit SHA can be determined by visiting the <http://localhost/help> page after sign-in
-or by calling the [`/api/v4/version` API](../../../api/version.md) where it is displayed as a value of the `revision` attribute.
+The commit SHA can be determined by visiting the <http://localhost/help> page after sign-in or by calling the [`/api/v4/version` API](../../../api/version.md) where it is displayed as a value of the `revision` attribute.
 
 #### By inspecting the pipeline that created the nightly image
 
 Nightly images are created by scheduled pipelines here: <https://dev.gitlab.org/gitlab/omnibus-gitlab/pipeline_schedules>
 
-You can look at the last pipeline by clicking the pipeline number for CE nightly or EE nightly under
-the "Last pipeline" column.
+You can look at the last pipeline by clicking the pipeline number for CE nightly or EE nightly under the "Last pipeline" column.
 
-In the pipeline view click a job under the `GitLab_com:package` column. The SHAs for GitLab Components
-are listed towards the end of the logs. The GitLab commit SHA is displayed as a value of `gitlab-rails`.
+In the pipeline view click a job under the `GitLab_com:package` column. The SHAs for GitLab Components are listed towards the end of the logs. The GitLab commit SHA is displayed as a value of `gitlab-rails`.
 
 ### Checking Docker images
 
@@ -185,7 +173,7 @@ The following can help with your investigation:
 | [Stack trace](../../../ci/quick_start/_index.md#view-the-status-of-your-pipeline-and-jobs)                                                                                                                                                                                                                                                     | Shown in the job's log; the starting point for investigating the test failure                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | [Screenshots and HTML captures](../../../ci/jobs/job_artifacts.md#browse-the-contents-of-the-artifacts-archive)                                                                                                                                                                                                                                | Available for download in the job's artifact for up to 1 week after the job run                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | [QA Logs](../../../ci/jobs/job_artifacts.md#browse-the-contents-of-the-artifacts-archive)                                                                                                                                                                                                                                                      | Included in the job's artifacts; valuable for determining the steps taken by the tests before failing                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| [System Logs](../../../administration/logs/_index.md) (GitLab-rails, Sidekiq, etc.)                                                                                                                                                                                                                                                            | Included in the job's artifacts for containerized test runs, such as master and nightly. These are useful for investigating errors originating from the GitLab application itself. <br/><br />  A summary of the system logs related to a test failure can also be found in the description of QA failure issues generated from master and nightly runs containing a correlation ID.                                                                                                                                                                                                                                                                                           |
+| [System Logs](../../../administration/logs/_index.md) (GitLab-rails, Sidekiq, etc.)                                                                                                                                                                                                                                                            | Included in the job's artifacts for containerized test runs, such as master and nightly. These are useful for investigating errors originating from the GitLab application itself. <br/><br /> A summary of the system logs related to a test failure can also be found in the description of QA failure issues generated from master and nightly runs containing a correlation ID.                                                                                                                                                                                                                                                                                           |
 | Sentry logs ([Staging](https://new-sentry.gitlab.net/organizations/gitlab/issues/?environment=gstg), [Staging Ref](https://new-sentry.gitlab.net/organizations/gitlab/projects/staging-ref), [Preprod](https://new-sentry.gitlab.net/organizations/gitlab/issues/?environment=pre), [Production](https://sentry.gitlab.net/gitlab/gitlabcom/)) | If staging, preprod or production tests fail due to a server error, there should be a record in [Sentry](https://handbook.gitlab.com/handbook/support/workflows/sentry/). For example, you can search for all unresolved staging errors linked to the `gitlab-qa` user with the query [`is:unresolved user:"username:gitlab-qa"`](https://new-sentry.gitlab.net/organizations/gitlab/issues/?environment=gstg&query=is%3Aunresolved+user%3Ausername%3Agitlab-qa). However, note that some actions aren't linked to the `gitlab-qa` user, so they might only appear in the [full unresolved list](https://new-sentry.gitlab.net/organizations/gitlab/issues/?environment=gstg). |
 | Kibana logs ([Staging and Preprod](https://nonprod-log.gitlab.net/app/kibana#/discover), [Production](https://log.gprd.gitlab.net/app/kibana#/discover))                                                                                                                                                                                       | Various system logs from live environments are sent to [Kibana](https://handbook.gitlab.com/handbook/support/workflows/kibana/), including Rails, Postgres, Sidekiq, and Gitaly logs. <br><br>**Note**: Staging and Preprod logs both use the same URL, but the search index pattern will be different. Staging indices contain `gstg` while Preprod contains `pre`. For example, to search within the Staging Rails index, you would change the index pattern dropdown value to `pubsub-rails-inf-gstg*`. More information on how to do this can be found [in the parameters section of the Using Kibana page](https://handbook.gitlab.com/handbook/support/workflows/kibana/#parameters).                                  |
 

@@ -13,8 +13,7 @@ title: reCAPTCHA
 {{< /details >}}
 
 GitLab leverages [reCAPTCHA](https://www.google.com/recaptcha/about/)
-to protect against spam and abuse. GitLab displays the CAPTCHA form on the sign-up page
-to confirm that a real user, not a bot, is attempting to create an account.
+to protect against spam and abuse. GitLab displays the CAPTCHA form on the sign-up page to confirm that a real user, not a bot, is attempting to create an account.
 
 ## Configuration
 
@@ -41,8 +40,7 @@ To use reCAPTCHA, first create a site and private key.
 
 You can enable reCAPTCHA for user logins via password [in the user interface](#configuration)
 or by setting the `X-GitLab-Show-Login-Captcha` HTTP header.
-For example, in NGINX, this can be done via the `proxy_set_header`
-configuration variable:
+For example, in NGINX, this can be done via the `proxy_set_header` configuration variable:
 
 ```nginx
 proxy_set_header X-GitLab-Show-Login-Captcha 1;

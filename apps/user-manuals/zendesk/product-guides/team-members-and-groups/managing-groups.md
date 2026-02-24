@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408821199258-Managing-gro
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > People > Team > Groups
+Location: Admin Center > People > Team > Groups
 
 [Groups](https://support.zendesk.com/hc/en-us/articles/4408886146842#topic_iny_3jg_sz) are collections of team members based on criteria those team members have in common.
 
@@ -74,9 +74,9 @@ Before you delete a group, be sure to take the following actions, if necessary:
 - **Reset the default group.** If the group is set as the default group for your account or as the default group for any team member, you need to change the default group for the account and team members (see [Changing the default group](https://support.zendesk.com/hc/en-us/articles/4408828237722)).
 - **Reassign tickets assigned to the group.** You should reassign any tickets that are currently assigned to the group or to agents in that group to a new group. You can do this in bulk by finding all the tickets in [advanced search](https://support.zendesk.com/hc/en-us/articles/4408835086106) with the following search string:
 
-  ```
-  status<closed group:"Group Name"
-  ```
+ ```
+ status<closed group:"Group Name"
+ ```
 
 When you delete a group, any business rules you set up using the deleted group will no longer function properly. If tickets are assigned to the group, the group is removed from those tickets along with any team members in the group and the ticket will return to unassigned. You can see these updates in the [ticket events](https://support.zendesk.com/hc/en-us/articles/4408829602970#topic_wgg_hwn_scb).
 

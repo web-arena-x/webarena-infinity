@@ -49,8 +49,7 @@ Handshake uses the education details provided by students on their profiles to m
 - **Current educational goals** (degree type, major, graduation year)
 - **Past education details** (completed degrees and majors)
 
-**Example:**  
-If your job requires candidates with a **BA in Business**, the results may include candidates who have completed a **B.A. in Business** and are currently pursuing a higher degree, such as a **Master’s**.
+**Example:** If your job requires candidates with a **BA in Business**, the results may include candidates who have completed a **B.A. in Business** and are currently pursuing a higher degree, such as a **Master’s**.
 
 ### More matches
 
@@ -78,7 +77,7 @@ Click a candidate’s name to view their full profile. *Learn more about* [*View
 Matches will update to display candidates that match the filters of the segment(s) applied.
 
 - To edit the segment, click **Segment**, then click the hyperlinked text **here**.
-  - The page to edit the segment will load in a new tab.
+ - The page to edit the segment will load in a new tab.
 - To remove the segment, click **Segment**, then click the white button **Clear**.
 
 ![Edit the segment, or clear it.png](https://support.joinhandshake.com/hc/article_attachments/31938629328023)
@@ -91,7 +90,7 @@ Search filters allow you to further refine matches:
 
 - **Keyword search**
 - **Recruiter activity** 
-  - Employer hasn't invited to apply to this job *(checked by default)* 
+ - Employer hasn't invited to apply to this job *(checked by default)* 
     - If selected, candidates who have already received any type of message related to this job will be excluded.
     - **Tip**: Use this filter to avoid messaging the same candidates multiple times.
 - **Labels**
@@ -100,12 +99,12 @@ Search filters allow you to further refine matches:
 **\*The following filters are also available to Premium partners**:
 
 - **Candidate Engagement**
-  - Followed you
-  - Applied to a job
-  - RSVP'd to an event
-  - Checked into an event
-  - RSVP'd to a fair
-  - Checked into a fair
+ - Followed you
+ - Applied to a job
+ - RSVP'd to an event
+ - Checked into an event
+ - RSVP'd to a fair
+ - Checked into a fair
     - **Select Exclusions**
       - Followed you
       - Applied to a job
@@ -114,16 +113,16 @@ Search filters allow you to further refine matches:
       - RSVP'd to a fair
       - Checked into a fair
 - **\*Location interests** -Identify candidates interested in working near your job locations
-  - Choose from a radius of 5, 15, 30, 50, 75, and 100 miles
-  - For postings with multiple locations, candidates with at least one of the locations chosen as an interest are counted as a match
+ - Choose from a radius of 5, 15, 30, 50, 75, and 100 miles
+ - For postings with multiple locations, candidates with at least one of the locations chosen as an interest are counted as a match
     - **Note**: Only available for on-site or hybrid jobs.
 - **\*Job role interests** - Filter candidates interested in roles matching your job posting. *Learn more* [*About Job Roles and Job Role Groups (Employers)*](https://support.joinhandshake.com/hc/en-us/articles/360033423494)*.*
 - **\*Industry interests** - Match candidates interested in your company’s industry.
-  - Confirm or update your company's industry in your company settings. *Learn* [*How to Edit Your Company Profile Settings*](https://support.joinhandshake.com/hc/en-us/articles/115011972127)*.*
+ - Confirm or update your company's industry in your company settings. *Learn* [*How to Edit Your Company Profile Settings*](https://support.joinhandshake.com/hc/en-us/articles/115011972127)*.*
 - **Recruiter activity**
-  - **\***You haven't messaged
+ - **\***You haven't messaged
     - Matches have not yet been messaged by you, the (individual user).
-  - **\***Employer hasn't messaged
+ - **\***Employer hasn't messaged
     - Matches have not been messaged by any user connected with your company profile.
 - **Labels**
 - **Exclude labels**

@@ -6,7 +6,7 @@ Set up personal notifications as well as updates that can be shared with the who
 
 ## Configure
 
-Click on the bell icon on any project page to subscribe to that project's notifications. You can also enable these notifications via  [account notifications settings](https://linear.app/settings/account/notifications).
+Click on the bell icon on any project page to subscribe to that project's notifications. You can also enable these notifications via [account notifications settings](https://linear.app/settings/account/notifications).
 
 ### Keyboard
 

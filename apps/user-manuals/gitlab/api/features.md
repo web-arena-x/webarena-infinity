@@ -16,8 +16,7 @@ This API is for managing Flipper-based feature flags used in development of GitL
 
 All methods require administrator authorization.
 
-Notice that the API only supports boolean and percentage-of-time gate
-values.
+Notice that the API only supports boolean and percentage-of-time gate values.
 
 ## List all features
 
@@ -29,15 +28,15 @@ GET /features
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/features"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/features"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "name": "experimental_feature",
     "state": "off",
     "gates": [
@@ -47,8 +46,8 @@ Example response:
       }
     ],
     "definition": null
-  },
-  {
+ },
+ {
     "name": "my_user_feature",
     "state": "on",
     "gates": [
@@ -65,8 +64,8 @@ Example response:
       "type": "development",
       "default_enabled": false
     }
-  },
-  {
+ },
+ {
     "name": "new_library",
     "state": "on",
     "gates": [
@@ -76,7 +75,7 @@ Example response:
       }
     ],
     "definition": null
-  }
+ }
 ]
 ```
 
@@ -90,15 +89,15 @@ GET /features/definitions
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/features/definitions"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/features/definitions"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "name": "geo_pages_deployment_replication",
     "introduced_by_url": "https://gitlab.com/gitlab-org/gitlab/-/merge_requests/68662",
     "rollout_issue_url": "https://gitlab.com/gitlab-org/gitlab/-/issues/337676",
@@ -107,15 +106,13 @@ Example response:
     "type": "development",
     "group": "group::geo",
     "default_enabled": true
-  }
+ }
 ]
 ```
 
 ## Set or create a feature
 
-Set a feature's gate value. If a feature with the given name doesn't exist yet,
-it's created. The value can be a boolean, or an integer to indicate
-percentage of time.
+Set a feature's gate value. If a feature with the given name doesn't exist yet, it's created. The value can be a boolean, or an integer to indicate percentage of time.
 
 > [!warning]
 > Before you enable a feature still in development, you should understand the [security and stability risks](../administration/feature_flags/_index.md#risks-when-enabling-features-still-in-development).
@@ -138,23 +135,22 @@ POST /features/:name
 | `runner`        | string         | no       | A runner ID, or comma-separated list of runner IDs                                                                                                                                               |
 | `force`         | boolean        | no       | Skip feature flag validation checks, such as a YAML definition                                                                                                                                   |
 
-You can enable or disable a feature for a `feature_group`, a `user`,
-a `group`, a `namespace`, a `project`, a `repository`, and a `runner` in a single API call.
+You can enable or disable a feature for a `feature_group`, a `user`, a `group`, a `namespace`, a `project`, a `repository`, and a `runner` in a single API call.
 
 ```shell
 curl --request POST \
-  --data "value=30" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/features/new_library"
+ --data "value=30" \
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/features/new_library"
 ```
 
 Example response:
 
 ```json
 {
-  "name": "new_library",
-  "state": "conditional",
-  "gates": [
+ "name": "new_library",
+ "state": "conditional",
+ "gates": [
     {
       "key": "boolean",
       "value": false
@@ -163,15 +159,15 @@ Example response:
       "key": "percentage_of_time",
       "value": 30
     }
-  ],
-  "definition": {
+ ],
+ "definition": {
     "name": "my_user_feature",
     "introduced_by_url": "https://gitlab.com/gitlab-org/gitlab/-/merge_requests/40880",
     "rollout_issue_url": "https://gitlab.com/gitlab-org/gitlab/-/issues/244905",
     "group": "group::ci",
     "type": "development",
     "default_enabled": false
-  }
+ }
 }
 ```
 
@@ -189,9 +185,9 @@ Example response:
 
 ```json
 {
-  "name": "my_user_feature",
-  "state": "conditional",
-  "gates": [
+ "name": "my_user_feature",
+ "state": "conditional",
+ "gates": [
     {
       "key": "boolean",
       "value": false
@@ -200,15 +196,15 @@ Example response:
       "key": "percentage_of_actors",
       "value": 42
     }
-  ],
-  "definition": {
+ ],
+ "definition": {
     "name": "my_user_feature",
     "introduced_by_url": "https://gitlab.com/gitlab-org/gitlab/-/merge_requests/40880",
     "rollout_issue_url": "https://gitlab.com/gitlab-org/gitlab/-/issues/244905",
     "group": "group::ci",
     "type": "development",
     "default_enabled": false
-  }
+ }
 }
 ```
 

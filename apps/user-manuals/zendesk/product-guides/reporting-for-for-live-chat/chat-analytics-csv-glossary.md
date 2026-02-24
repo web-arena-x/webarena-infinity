@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408893283098-Chat-Analyti
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Professional or Enterprise |
 
@@ -69,7 +69,7 @@ Number of chats that are assigned by system to an agent. This does not include a
 | Average Response Time (sec) | Each individual chat has its own average response time. This is calculated as the average time it takes for this agent to respond to the last visitor message in that chat. The “Average Response Time” refers to the average value of the average response time across all the agents chats. |
 | Maximum of Average Response Time (sec) | The highest Average Response Time across all the agent's chats. |
 | Minimum of Average Response Time (sec) | The highest Average Response Time across all the agent's chats. |
-| Acceptance | The percentage of Assigned chats that were served by agents out of all the chats routed to the agent.  Note: If [auto-accept](https://support.zendesk.com/hc/en-us/articles/6009407849754) is turned on, this report is not displayed. and activity monitor. |
+| Acceptance | The percentage of Assigned chats that were served by agents out of all the chats routed to the agent. Note: If [auto-accept](https://support.zendesk.com/hc/en-us/articles/6009407849754) is turned on, this report is not displayed. and activity monitor. |
 | Conversions (Agent Attributed) | Total number of goal conversions that are attributed to chats assigned or served by this specific agent. |
 
 ## 
@@ -145,7 +145,7 @@ Number of chats that are assigned by system to an agent. This does not include a
 
 ## Status Sessions
 
-|  |  |
+| | |
 | --- | --- |
 | Name | The agent's complete name |
 | Email | The agent's email address |

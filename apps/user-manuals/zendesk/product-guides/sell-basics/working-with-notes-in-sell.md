@@ -36,20 +36,20 @@ Notes are stored alongside a lead, contact, or deal.
 
    | Icon | Function |
    | --- | --- |
-   |  | Make the text bold. Hot key: Cmd+B |
-   |  | Make the text italicized. Hot key: Cmd+I |
-   |  | Create a main heading. |
-   |  | Create a sub-heading. |
-   |  | Make the text a quote. This indents the text, and grays it out. |
-   |  | Create a bulleted list. |
-   |  | Create a numbered list. |
-   |  | Add a link. Enter the text you want to display, and the URL, then click **Insert**. If you don't enter text, the URL is displayed. |
-   |  | Use @mention to include someone else in the note. The user you mention is notified of the inclusion (see [Using @mentions for collaborative selling](https://support.zendesk.com/hc/en-us/articles/4408842824218)). |
+   | | Make the text bold. Hot key: Cmd+B |
+   | | Make the text italicized. Hot key: Cmd+I |
+   | | Create a main heading. |
+   | | Create a sub-heading. |
+   | | Make the text a quote. This indents the text, and grays it out. |
+   | | Create a bulleted list. |
+   | | Create a numbered list. |
+   | | Add a link. Enter the text you want to display, and the URL, then click **Insert**. If you don't enter text, the URL is displayed. |
+   | | Use @mention to include someone else in the note. The user you mention is notified of the inclusion (see [Using @mentions for collaborative selling](https://support.zendesk.com/hc/en-us/articles/4408842824218)). |
    | Show on Primary Contact | If you are adding a note to a deal, click **Show on Primary Contact** to add the note for the primary contact associated with the deal. The note is then saved to both the deal and the contact. |
-   | Show on (Employees and) Current Deals | If you are adding a note to a contact, click **Show on Current Deals** to add the note to the contact associated with the deal. The note is then saved to both the contact and the deal.  If you are adding a note to a contact, and the contact is a company (with employees), click **Show on Employees and Current Deals** to add the note to the company contact associated with the deal. The note is then saved to both the contact and the deal. |
-   |  | Make your note a restricted note so only you, and users with a full access permission level, can view it. |
-   |  | Add a predefined tag to the note. When a note is tagged, the tag icon is filled (). |
-   |  | Star a note to make it easier to find and filter. When a note is starred, the star icon is filled (). |
+   | Show on (Employees and) Current Deals | If you are adding a note to a contact, click **Show on Current Deals** to add the note to the contact associated with the deal. The note is then saved to both the contact and the deal. If you are adding a note to a contact, and the contact is a company (with employees), click **Show on Employees and Current Deals** to add the note to the company contact associated with the deal. The note is then saved to both the contact and the deal. |
+   | | Make your note a restricted note so only you, and users with a full access permission level, can view it. |
+   | | Add a predefined tag to the note. When a note is tagged, the tag icon is filled (). |
+   | | Star a note to make it easier to find and filter. When a note is starred, the star icon is filled (). |
 
 ## Viewing, restricting, editing, and deleting a note
 

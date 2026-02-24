@@ -11,10 +11,10 @@ If you want to export the submittals on a project, you have different file forma
 | View | PDF | CSV | Excel |
 | --- | --- | --- | --- |
 | Items | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| Packages | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |  |
-| Spec Sections | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |  |
-| Ball In Court | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |  |
-| Recycle Bin | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |  |
+| Packages | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | |
+| Spec Sections | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | |
+| Ball In Court | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | |
+| Recycle Bin | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | |
 
 You can also export individual submittals to the Portable Document Format (PDF). For instruction, see [Export a Submittal](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/export-a-submittal "Export a Submittal").
 

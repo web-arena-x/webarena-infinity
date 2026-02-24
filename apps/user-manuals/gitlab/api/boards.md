@@ -15,8 +15,7 @@ title: Project issue boards API
 Use this API to manage [issue boards](../user/project/issue_board.md).
 Every call to this API requires authentication.
 
-If a user is not a member of a private project,
-a `GET` request on that project results in a `404` status code.
+If a user is not a member of a private project, a `GET` request on that project results in a `404` status code.
 
 ## List project issue boards
 
@@ -32,15 +31,15 @@ GET /projects/:id/boards
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/boards"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/boards"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id" : 1,
     "name": "board1",
     "hide_backlog_list": false,
@@ -81,7 +80,7 @@ Example response:
         "position" : 2,
         "max_issue_count": 0,
         "max_issue_weight": 0,
-        "limit_metric":  null
+        "limit_metric": null
       },
       {
         "id" : 3,
@@ -93,10 +92,10 @@ Example response:
         "position" : 3,
         "max_issue_count": 0,
         "max_issue_weight": 0,
-        "limit_metric":  null
+        "limit_metric": null
       }
     ]
-  }
+ }
 ]
 ```
 
@@ -121,14 +120,14 @@ GET /projects/:id/boards/:board_id
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/boards/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/boards/1"
 ```
 
 Example response:
 
 ```json
-  {
+ {
     "id": 1,
     "name": "project issue board",
     "hide_backlog_list": false,
@@ -157,7 +156,7 @@ Example response:
         "position" : 1,
         "max_issue_count": 0,
         "max_issue_weight": 0,
-        "limit_metric":  null
+        "limit_metric": null
       },
       {
         "id" : 2,
@@ -169,7 +168,7 @@ Example response:
         "position" : 2,
         "max_issue_count": 0,
         "max_issue_weight": 0,
-        "limit_metric":  null
+        "limit_metric": null
       },
       {
         "id" : 3,
@@ -181,10 +180,10 @@ Example response:
         "position" : 3,
         "max_issue_count": 0,
         "max_issue_weight": 0,
-        "limit_metric":  null
+        "limit_metric": null
       }
     ]
-  }
+ }
 ```
 
 ## Create an issue board
@@ -202,14 +201,14 @@ POST /projects/:id/boards
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/boards?name=newboard"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/boards?name=newboard"
 ```
 
 Example response:
 
 ```json
-  {
+ {
     "id": 1,
     "name": "newboard",
     "hide_backlog_list": false,
@@ -229,7 +228,7 @@ Example response:
     "assignee" : null,
     "labels" : [],
     "weight" : null
-  }
+ }
 ```
 
 ## Update an issue board
@@ -254,14 +253,14 @@ PUT /projects/:id/boards/:board_id
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/boards/1?name=new_name&milestone_id=43&assignee_id=1&labels=Doing&weight=4"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/boards/1?name=new_name&milestone_id=43&assignee_id=1&labels=Doing&weight=4"
 ```
 
 Example response:
 
 ```json
-  {
+ {
     "id": 1,
     "name": "new_name",
     "hide_backlog_list": false,
@@ -315,7 +314,7 @@ Example response:
       "description": null
     }],
     "weight": 4
-  }
+ }
 ```
 
 ## Delete an issue board
@@ -333,8 +332,8 @@ DELETE /projects/:id/boards/:board_id
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/boards/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/boards/1"
 ```
 
 ## List board lists in a project issue board
@@ -353,15 +352,15 @@ GET /projects/:id/boards/:board_id/lists
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/boards/1/lists"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/boards/1/lists"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id" : 1,
     "label" : {
       "name" : "Testing",
@@ -371,9 +370,9 @@ Example response:
     "position" : 1,
     "max_issue_count": 0,
     "max_issue_weight": 0,
-    "limit_metric":  null
-  },
-  {
+    "limit_metric": null
+ },
+ {
     "id" : 2,
     "label" : {
       "name" : "Ready",
@@ -383,9 +382,9 @@ Example response:
     "position" : 2,
     "max_issue_count": 0,
     "max_issue_weight": 0,
-    "limit_metric":  null
-  },
-  {
+    "limit_metric": null
+ },
+ {
     "id" : 3,
     "label" : {
       "name" : "Production",
@@ -395,8 +394,8 @@ Example response:
     "position" : 3,
     "max_issue_count": 0,
     "max_issue_weight": 0,
-    "limit_metric":  null
-  }
+    "limit_metric": null
+ }
 ]
 ```
 
@@ -416,24 +415,24 @@ GET /projects/:id/boards/:board_id/lists/:list_id
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/boards/1/lists/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/boards/1/lists/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id" : 1,
-  "label" : {
+ "id" : 1,
+ "label" : {
     "name" : "Testing",
     "color" : "#F0AD4E",
     "description" : null
-  },
-  "position" : 1,
-  "max_issue_count": 0,
-  "max_issue_weight": 0,
-  "limit_metric":  null
+ },
+ "position" : 1,
+ "max_issue_count": 0,
+ "max_issue_weight": 0,
+ "limit_metric": null
 }
 ```
 
@@ -456,8 +455,7 @@ POST /projects/:id/boards/:board_id/lists
 
 {{< alert type="note" >}}
 
-Label, assignee and milestone arguments are mutually exclusive,
-that is, only one of them are accepted in a request.
+Label, assignee and milestone arguments are mutually exclusive, that is, only one of them are accepted in a request.
 Check the [issue board documentation](../user/project/issue_board.md)
 for more information regarding the required license for each list type.
 
@@ -465,24 +463,24 @@ for more information regarding the required license for each list type.
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/boards/1/lists?label_id=5"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/boards/1/lists?label_id=5"
 ```
 
 Example response:
 
 ```json
 {
-  "id" : 1,
-  "label" : {
+ "id" : 1,
+ "label" : {
     "name" : "Testing",
     "color" : "#F0AD4E",
     "description" : null
-  },
-  "position" : 1,
-  "max_issue_count": 0,
-  "max_issue_weight": 0,
-  "limit_metric":  null
+ },
+ "position" : 1,
+ "max_issue_count": 0,
+ "max_issue_weight": 0,
+ "limit_metric": null
 }
 ```
 
@@ -503,24 +501,24 @@ PUT /projects/:id/boards/:board_id/lists/:list_id
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/boards/1/lists/1?position=2"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/boards/1/lists/1?position=2"
 ```
 
 Example response:
 
 ```json
 {
-  "id" : 1,
-  "label" : {
+ "id" : 1,
+ "label" : {
     "name" : "Testing",
     "color" : "#F0AD4E",
     "description" : null
-  },
-  "position" : 1,
-  "max_issue_count": 0,
-  "max_issue_weight": 0,
-  "limit_metric":  null
+ },
+ "position" : 1,
+ "max_issue_count": 0,
+ "max_issue_weight": 0,
+ "limit_metric": null
 }
 ```
 
@@ -540,6 +538,6 @@ DELETE /projects/:id/boards/:board_id/lists/:list_id
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/boards/1/lists/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/boards/1/lists/1"
 ```

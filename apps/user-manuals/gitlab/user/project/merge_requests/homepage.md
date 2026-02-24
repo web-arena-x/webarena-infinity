@@ -13,10 +13,7 @@ title: Merge request homepage
 
 {{< /details >}}
 
-If you are the author, assignee, or reviewer of a merge request, it appears on your merge request
-homepage. This page sorts your merge requests by **Workflow** or by **Role**. The **Workflow** view
-shows you which merge requests need your attention first, regardless of whether it's your work or
-the work of someone else. The workflow view groups merge requests by their stage in this review process:
+If you are the author, assignee, or reviewer of a merge request, it appears on your merge request homepage. This page sorts your merge requests by **Workflow** or by **Role**. The **Workflow** view shows you which merge requests need your attention first, regardless of whether it's your work or the work of someone else. The workflow view groups merge requests by their stage in this review process:
 
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
@@ -68,15 +65,13 @@ This user has:
 - 3 active merge requests ({{< icon name="merge-request-open" >}})
 - 6 to-do items ({{< icon name="todo-done" >}})
 
-Your merge request homepage shows more information about these merge requests. To see it,
-use any of these methods:
+Your merge request homepage shows more information about these merge requests. To see it, use any of these methods:
 
 - Use the <kbd>Shift</kbd>+<kbd>m</kbd> [keyboard shortcut](../../shortcuts.md).
 - On the left sidebar, select **Merge requests** ({{< icon name="merge-request-open" >}}).
 - On the top bar, select **Search or go to**, then, from the dropdown list, select **Merge requests**.
 
-To help you focus on what needs your attention right now, GitLab organizes your merge request homepage
-into three tabs:
+To help you focus on what needs your attention right now, GitLab organizes your merge request homepage into three tabs:
 
 ![The three homepage tabs shown at the top of the screen.](img/homepage_tabs_v18_1.png)
 
@@ -88,18 +83,18 @@ into three tabs:
 
 - **Status**: The current status of the merge request.
 - **Title**: Important metadata about the issue, including:
-  - The merge request title.
-  - The assignee's avatar.
-  - The number of files and lines added and removed (`+` / `-`).
-  - Milestone.
+ - The merge request title.
+ - The assignee's avatar.
+ - The number of files and lines added and removed (`+` / `-`).
+ - Milestone.
 - **Author**: The author's avatar.
 - **Reviewers**: The reviewers' avatars. Reviewers with a green check mark have approved the merge request.
 - **Checks**: A compact assessment of mergeability.
-  - A warning ({{< icon name="warning-solid" >}}) if merge conflicts exist.
-  - Number of unresolved threads, like `0 of 3`.
-  - Current required [approval status](approvals/_index.md#in-the-list-of-merge-requests).
-  - Most recent pipeline status.
-  - Date of last update.
+ - A warning ({{< icon name="warning-solid" >}}) if merge conflicts exist.
+ - Number of unresolved threads, like `0 of 3`.
+ - Current required [approval status](approvals/_index.md#in-the-list-of-merge-requests).
+ - Most recent pipeline status.
+ - Date of last update.
 
 ### Set your display preferences
 
@@ -113,52 +108,45 @@ In the upper right of your merge request homepage, select **Display preferences*
 
 - Toggle **Show labels** to show or hide labels for each merge request.
 - Sorting preferences: **Workflow** or **Role**.
-  - **Workflow** groups merge requests by their status. GitLab shows the merge requests
-    needing your attention first, regardless of whether you are the author or the reviewer.
-  - **Role** groups merge requests by whether you are the reviewer or the author.
+ - **Workflow** groups merge requests by their status. GitLab shows the merge requests needing your attention first, regardless of whether you are the author or the reviewer.
+ - **Role** groups merge requests by whether you are the reviewer or the author.
 - Toggle **Show your drafts** to show or hide draft merge requests from the **Your merge requests** list.
 
-Active merge requests count toward the total shown on the left sidebar. GitLab excludes **Inactive**
-merge requests from your review count.
+Active merge requests count toward the total shown on the left sidebar. GitLab excludes **Inactive** merge requests from your review count.
 
 ### Workflow view: active statuses
 
 These merge requests need your attention. They count toward the total shown on the left sidebar:
 
 - **Your merge requests**: You're the merge request author or assignee. Add reviewers to start the review process.
-  Statuses:
-  - **Draft**: The merge request is a draft.
-  - **Reviewers needed**: The merge request is not a draft, but has no reviewers.
-- **Review requested**: You're a reviewer. Review the merge request. Provide feedback. Optionally,
-  approve or request changes. Statuses:
-  - **Changes requested**: A reviewer has requested changes. The change request blocks the merge request,
-    but [can be bypassed](reviews/_index.md#bypass-a-request-for-changes).
-  - **Reviewer commented**: A reviewer has left comments but not requested changes.
-- **Returned to you**: Reviewers have provided feedback, or requested changes. Address reviewer comments,
-  and apply suggested changes. Statuses:
-  - **Changes requested**: A reviewer has requested changes.
-  - **Reviewer commented**: A reviewer has left comments but not requested changes.
+ Statuses:
+ - **Draft**: The merge request is a draft.
+ - **Reviewers needed**: The merge request is not a draft, but has no reviewers.
+- **Review requested**: You're a reviewer. Review the merge request. Provide feedback. Optionally, approve or request changes. Statuses:
+ - **Changes requested**: A reviewer has requested changes. The change request blocks the merge request, but [can be bypassed](reviews/_index.md#bypass-a-request-for-changes).
+ - **Reviewer commented**: A reviewer has left comments but not requested changes.
+- **Returned to you**: Reviewers have provided feedback, or requested changes. Address reviewer comments, and apply suggested changes. Statuses:
+ - **Changes requested**: A reviewer has requested changes.
+ - **Reviewer commented**: A reviewer has left comments but not requested changes.
 
 ### Workflow view: inactive statuses
 
 GitLab excludes these merge requests from the active count, because no action is required from you right now:
 
-- **Waiting for assignee**: If you're the author, the merge request is awaiting review. If you're
-  the reviewer, you've requested changes. Statuses:
-  - **You requested changes**: You've completed your review and requested changes.
-  - **You commented**: You've commented, but have not completed your review.
-- **Waiting for approvals**: Your assigned merge requests that are waiting for approvals, and reviews
-  you have requested changes for. Statuses:
-  - **Approvals required**: Number of required approvals remaining.
-  - **Approved**: Either you have approved, or all required approvals are satisfied.
-  - **Waiting for approvals**.
+- **Waiting for assignee**: If you're the author, the merge request is awaiting review. If you're the reviewer, you've requested changes. Statuses:
+ - **You requested changes**: You've completed your review and requested changes.
+ - **You commented**: You've commented, but have not completed your review.
+- **Waiting for approvals**: Your assigned merge requests that are waiting for approvals, and reviews you have requested changes for. Statuses:
+ - **Approvals required**: Number of required approvals remaining.
+ - **Approved**: Either you have approved, or all required approvals are satisfied.
+ - **Waiting for approvals**.
 - **Approved by you**: Merge requests you've reviewed and approved.
-  Statuses:
-  - **Approved**: You've approved, and required approvals are satisfied.
-  - **Approval required**: You've approved, but not all required approvals are satisfied.
+ Statuses:
+ - **Approved**: You've approved, and required approvals are satisfied.
+ - **Approval required**: You've approved, but not all required approvals are satisfied.
 - **Approved by others**: Merge requests that have received approvals from other team members.
-  Potentially ready to merge, if all requirements are met. Statuses:
-  - **Approved**: Your merge request has received the necessary approvals.
+ Potentially ready to merge, if all requirements are met. Statuses:
+ - **Approved**: Your merge request has received the necessary approvals.
 
 ### Role view
 

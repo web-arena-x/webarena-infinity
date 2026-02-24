@@ -17,8 +17,8 @@ The following diagram shows a simplified view of how the different components in
 skinparam componentStyle rectangle
 
 package Clients {
-  [IDEs, Code Editors, Language Server] as IDE
-  [GitLab Web Frontend] as GLWEB
+ [IDEs, Code Editors, Language Server] as IDE
+ [GitLab Web Frontend] as GLWEB
 }
 
 [GitLab.com] as GLCOM
@@ -27,8 +27,8 @@ package Clients {
 [AI gateway] as AIGW
 
 package Models {
-  [3rd party models (Anthropic,VertexAI)] as THIRD
-  [GitLab Native Models] as GLNM
+ [3rd party models (Anthropic,VertexAI)] as THIRD
+ [GitLab Native Models] as GLNM
 }
 
 Clients -down-> GLCOM : REST/Websockets
@@ -52,19 +52,19 @@ AIGW -down-> Models : prompts
 - [CustomersDot](https://gitlab.com/gitlab-org/customers-gitlab-com) - Allows customers to buy and upgrade subscriptions by adding more seats and add/edit payment records. It also manages self-managed licenses.
 - [AI gateway](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist) - System that provides unified interface for invoking models. Deployed in Google Cloud Run (using [Runway](https://gitlab.com/gitlab-com/gl-infra/platform/runway)).
 - Extensions
-  - [Language Server](https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp) (powers Code Suggestions in VS Code, Visual Studio 2022 for Windows, and Neovim)
-  - [VS Code](https://gitlab.com/gitlab-org/gitlab-vscode-extension)
-  - [JetBrains](https://gitlab.com/gitlab-org/editor-extensions/gitlab-jetbrains-plugin)
-  - [Visual Studio 2022 for Windows](https://gitlab.com/gitlab-org/editor-extensions/gitlab-visual-studio-extension)
-  - [Neovim](https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim)
+ - [Language Server](https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp) (powers Code Suggestions in VS Code, Visual Studio 2022 for Windows, and Neovim)
+ - [VS Code](https://gitlab.com/gitlab-org/gitlab-vscode-extension)
+ - [JetBrains](https://gitlab.com/gitlab-org/editor-extensions/gitlab-jetbrains-plugin)
+ - [Visual Studio 2022 for Windows](https://gitlab.com/gitlab-org/editor-extensions/gitlab-visual-studio-extension)
+ - [Neovim](https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim)
 
 ### Difference between how GitLab.com and Self-Managed/Dedicated access AI gateway
 
 - GitLab.com
-  - GitLab.com instances self-issue JWT Auth token signed with a private key.
+ - GitLab.com instances self-issue JWT Auth token signed with a private key.
 - Other types of instances
-  - Self-Managed and Dedicated regularly synchronise their licenses and AI Access tokens with CustomersDot.
-  - Self-Managed and Dedicated instances route traffic to appropriate AI gateway.
+ - Self-Managed and Dedicated regularly synchronise their licenses and AI Access tokens with CustomersDot.
+ - Self-Managed and Dedicated instances route traffic to appropriate AI gateway.
 
 ## SaaS-based AI abstraction layer
 
@@ -76,23 +76,14 @@ There are two primary reasons for this: the best AI models are cloud-based as th
 
 The AI gateway (formerly the [model gateway](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist)) is a standalone-service that will give access to AI features to all users of GitLab, no matter which instance they are using: self-managed, dedicated or GitLab.com. The SaaS-based AI abstraction layer will transition to connecting to this gateway, rather than accessing cloud-based providers directly.
 
-Calls to the AI-gateway from GitLab-rails can be made using the
-[Abstraction Layer](ai_features/_index.md#feature-development-abstraction-layer).
-By default, these actions are performed asynchronously via a Sidekiq
-job to prevent long-running requests in Puma. It should be used for
-non-latency sensitive actions due to the added latency by Sidekiq.
+Calls to the AI-gateway from GitLab-rails can be made using the [Abstraction Layer](ai_features/_index.md#feature-development-abstraction-layer).
+By default, these actions are performed asynchronously via a Sidekiq job to prevent long-running requests in Puma. It should be used for non-latency sensitive actions due to the added latency by Sidekiq.
 
 At the time of writing, the Abstraction Layer still directly calls the AI providers. [Epic 11484](https://gitlab.com/groups/gitlab-org/-/epics/11484) proposes to change this.
 
-When a certain action is latency sensitive, we can decide to call the
-AI-gateway directly. This avoids the latency added by Sidekiq.
+When a certain action is latency sensitive, we can decide to call the AI-gateway directly. This avoids the latency added by Sidekiq.
 [We already do this for `code_suggestions`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/api/code_suggestions.rb)
-which get handled by API endpoints nested in
-`/api/v4/code_suggestions`. For any new endpoints added, we should
-nest them within the `/api/v4/ai_assisted` namespace. Doing this will
-automatically route the requests on GitLab.com to the `ai-assisted`
-fleet for GitLab.com, isolating the workload from the regular API and
-making it easier to scale if needed.
+which get handled by API endpoints nested in `/api/v4/code_suggestions`. For any new endpoints added, we should nest them within the `/api/v4/ai_assisted` namespace. Doing this will automatically route the requests on GitLab.com to the `ai-assisted` fleet for GitLab.com, isolating the workload from the regular API and making it easier to scale if needed.
 
 ## Supported technologies
 

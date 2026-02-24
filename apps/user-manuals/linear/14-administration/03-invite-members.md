@@ -52,7 +52,7 @@ Users who are creating new accounts will see a prompt to join the workspace duri
 For members with existing accounts, click on your current workspace icon, hover over **Switch workspace**, select **Create or join a workspace**. The workspace with the allowed email domain should show up under available workspaces.
 
 > [!NOTE]
-> Please review this list regularly to ensure it is up to date.  
+> Please review this list regularly to ensure it is up to date. 
 >   
 > If you ever cancel your domain or transfer control of a domain to another organization, you'll need to remove this domain from your approved email domains in Linear to prevent unwanted access to the workspace.
 

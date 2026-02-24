@@ -12,8 +12,7 @@ title: Projects API
 
 {{< /details >}}
 
-Use this API to manage GitLab projects and their associated settings. A project is a central hub for
-collaboration where you store code, track issues, and organize team activities.
+Use this API to manage GitLab projects and their associated settings. A project is a central hub for collaboration where you store code, track issues, and organize team activities.
 For more information, see [create a project](../user/project/_index.md).
 
 The Projects API contains endpoints that:
@@ -60,8 +59,7 @@ Use the alternative attributes instead.
 
 ## Get a single project
 
-Get a specific project. This endpoint can be accessed without authentication if
-the project is publicly accessible.
+Get a specific project. This endpoint can be accessed without authentication if the project is publicly accessible.
 
 ```plaintext
 GET /projects/:id
@@ -84,44 +82,44 @@ Example response:
 
 ```json
 {
-  "id": 3,
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  "description_html": "<p data-sourcepos=\"1:1-1:56\" dir=\"auto\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
-  "default_branch": "main",
-  "visibility": "private",
-  "ssh_url_to_repo": "git@example.com:diaspora/diaspora-project-site.git",
-  "http_url_to_repo": "http://example.com/diaspora/diaspora-project-site.git",
-  "web_url": "http://example.com/diaspora/diaspora-project-site",
-  "readme_url": "http://example.com/diaspora/diaspora-project-site/blob/main/README.md",
-  "tag_list": [ //deprecated, use `topics` instead
+ "id": 3,
+ "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+ "description_html": "<p data-sourcepos=\"1:1-1:56\" dir=\"auto\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+ "default_branch": "main",
+ "visibility": "private",
+ "ssh_url_to_repo": "git@example.com:diaspora/diaspora-project-site.git",
+ "http_url_to_repo": "http://example.com/diaspora/diaspora-project-site.git",
+ "web_url": "http://example.com/diaspora/diaspora-project-site",
+ "readme_url": "http://example.com/diaspora/diaspora-project-site/blob/main/README.md",
+ "tag_list": [ //deprecated, use `topics` instead
     "example",
     "disapora project"
-  ],
-  "topics": [
+ ],
+ "topics": [
     "example",
     "disapora project"
-  ],
-  "owner": {
+ ],
+ "owner": {
     "id": 3,
     "name": "Diaspora",
     "created_at": "2013-09-30T13:46:02Z"
-  },
-  "name": "Diaspora Project Site",
-  "name_with_namespace": "Diaspora / Diaspora Project Site",
-  "path": "diaspora-project-site",
-  "path_with_namespace": "diaspora/diaspora-project-site",
-  "issues_enabled": true,
-  "open_issues_count": 1,
-  "merge_requests_enabled": true,
-  "jobs_enabled": true,
-  "wiki_enabled": true,
-  "snippets_enabled": false,
-  "can_create_merge_request_in": true,
-  "resolve_outdated_diff_discussions": false,
-  "container_registry_enabled": false, // deprecated, use container_registry_access_level instead
-  "container_registry_access_level": "disabled",
-  "security_and_compliance_access_level": "disabled",
-  "container_expiration_policy": {
+ },
+ "name": "Diaspora Project Site",
+ "name_with_namespace": "Diaspora / Diaspora Project Site",
+ "path": "diaspora-project-site",
+ "path_with_namespace": "diaspora/diaspora-project-site",
+ "issues_enabled": true,
+ "open_issues_count": 1,
+ "merge_requests_enabled": true,
+ "jobs_enabled": true,
+ "wiki_enabled": true,
+ "snippets_enabled": false,
+ "can_create_merge_request_in": true,
+ "resolve_outdated_diff_discussions": false,
+ "container_registry_enabled": false, // deprecated, use container_registry_access_level instead
+ "container_registry_access_level": "disabled",
+ "security_and_compliance_access_level": "disabled",
+ "container_expiration_policy": {
     "cadence": "7d",
     "enabled": false,
     "keep_n": null,
@@ -130,12 +128,12 @@ Example response:
     "name_regex_delete": null,
     "name_regex_keep": null,
     "next_run_at": "2020-01-07T21:42:58.658Z"
-  },
-  "created_at": "2013-09-30T13:46:02Z",
-  "updated_at": "2013-09-30T13:46:02Z",
-  "last_activity_at": "2013-09-30T13:46:02Z",
-  "creator_id": 3,
-  "namespace": {
+ },
+ "created_at": "2013-09-30T13:46:02Z",
+ "updated_at": "2013-09-30T13:46:02Z",
+ "last_activity_at": "2013-09-30T13:46:02Z",
+ "creator_id": 3,
+ "namespace": {
     "id": 3,
     "name": "Diaspora",
     "path": "diaspora",
@@ -143,12 +141,12 @@ Example response:
     "full_path": "diaspora",
     "avatar_url": "http://localhost:3000/uploads/group/avatar/3/foo.jpg",
     "web_url": "http://localhost:3000/groups/diaspora"
-  },
-  "import_url": null,
-  "import_type": null,
-  "import_status": "none",
-  "import_error": null,
-  "permissions": {
+ },
+ "import_url": null,
+ "import_type": null,
+ "import_status": "none",
+ "import_error": null,
+ "permissions": {
     "project_access": {
       "access_level": 10,
       "notification_level": 3
@@ -157,33 +155,33 @@ Example response:
       "access_level": 50,
       "notification_level": 3
     }
-  },
-  "archived": false,
-  "avatar_url": "http://example.com/uploads/project/avatar/3/uploads/avatar.png",
-  "license_url": "http://example.com/diaspora/diaspora-client/blob/main/LICENSE",
-  "license": {
+ },
+ "archived": false,
+ "avatar_url": "http://example.com/uploads/project/avatar/3/uploads/avatar.png",
+ "license_url": "http://example.com/diaspora/diaspora-client/blob/main/LICENSE",
+ "license": {
     "key": "lgpl-3.0",
     "name": "GNU Lesser General Public License v3.0",
     "nickname": "GNU LGPLv3",
     "html_url": "http://choosealicense.com/licenses/lgpl-3.0/",
     "source_url": "http://www.gnu.org/licenses/lgpl-3.0.txt"
-  },
-  "shared_runners_enabled": true,
-  "group_runners_enabled": true,
-  "forks_count": 0,
-  "star_count": 0,
-  "runners_token": "b8bc4a7a29eb76ea83cf79e4908c2b",
-  "ci_default_git_depth": 50,
-  "ci_forward_deployment_enabled": true,
-  "ci_forward_deployment_rollback_allowed": true,
-  "ci_allow_fork_pipelines_to_run_in_parent_project": true,
-  "ci_id_token_sub_claim_components": ["project_path", "ref_type", "ref"],
-  "ci_separated_caches": true,
-  "ci_restrict_pipeline_cancellation_role": "developer",
-  "ci_pipeline_variables_minimum_override_role": "maintainer",
-  "ci_push_repository_for_job_token_allowed": false,
-  "public_jobs": true,
-  "shared_with_groups": [
+ },
+ "shared_runners_enabled": true,
+ "group_runners_enabled": true,
+ "forks_count": 0,
+ "star_count": 0,
+ "runners_token": "b8bc4a7a29eb76ea83cf79e4908c2b",
+ "ci_default_git_depth": 50,
+ "ci_forward_deployment_enabled": true,
+ "ci_forward_deployment_rollback_allowed": true,
+ "ci_allow_fork_pipelines_to_run_in_parent_project": true,
+ "ci_id_token_sub_claim_components": ["project_path", "ref_type", "ref"],
+ "ci_separated_caches": true,
+ "ci_restrict_pipeline_cancellation_role": "developer",
+ "ci_pipeline_variables_minimum_override_role": "maintainer",
+ "ci_push_repository_for_job_token_allowed": false,
+ "public_jobs": true,
+ "shared_with_groups": [
     {
       "group_id": 4,
       "group_name": "Twitter",
@@ -196,42 +194,42 @@ Example response:
       "group_full_path": "gitlab-org",
       "group_access_level": 10
     }
-  ],
-  "repository_storage": "default",
-  "only_allow_merge_if_pipeline_succeeds": false,
-  "allow_merge_on_skipped_pipeline": false,
-  "allow_pipeline_trigger_approve_deployment": false,
-  "restrict_user_defined_variables": false,
-  "only_allow_merge_if_all_discussions_are_resolved": false,
-  "remove_source_branch_after_merge": false,
-  "printing_merge_requests_link_enabled": true,
-  "request_access_enabled": false,
-  "merge_method": "merge",
-  "squash_option": "default_on",
-  "auto_devops_enabled": true,
-  "auto_devops_deploy_strategy": "continuous",
-  "approvals_before_merge": 0, // Deprecated. Use merge request approvals API instead.
-  "mirror": false,
-  "mirror_user_id": 45,
-  "mirror_trigger_builds": false,
-  "only_mirror_protected_branches": false,
-  "mirror_overwrites_diverged_branches": false,
-  "external_authorization_classification_label": null,
-  "packages_enabled": true,
-  "service_desk_enabled": false,
-  "service_desk_address": null,
-  "autoclose_referenced_issues": true,
-  "suggestion_commit_message": null,
-  "enforce_auth_checks_on_uploads": true,
-  "merge_commit_template": null,
-  "squash_commit_template": null,
-  "issue_branch_template": "gitlab/%{id}-%{title}",
-  "marked_for_deletion_at": "2020-04-03", // Deprecated in favor of marked_for_deletion_on. Planned for removal in a future version of the REST API.
-  "marked_for_deletion_on": "2020-04-03",
-  "compliance_frameworks": [ "sox" ],
-  "warn_about_potentially_unwanted_characters": true,
-  "secret_push_protection_enabled": false,
-  "statistics": {
+ ],
+ "repository_storage": "default",
+ "only_allow_merge_if_pipeline_succeeds": false,
+ "allow_merge_on_skipped_pipeline": false,
+ "allow_pipeline_trigger_approve_deployment": false,
+ "restrict_user_defined_variables": false,
+ "only_allow_merge_if_all_discussions_are_resolved": false,
+ "remove_source_branch_after_merge": false,
+ "printing_merge_requests_link_enabled": true,
+ "request_access_enabled": false,
+ "merge_method": "merge",
+ "squash_option": "default_on",
+ "auto_devops_enabled": true,
+ "auto_devops_deploy_strategy": "continuous",
+ "approvals_before_merge": 0, // Deprecated. Use merge request approvals API instead.
+ "mirror": false,
+ "mirror_user_id": 45,
+ "mirror_trigger_builds": false,
+ "only_mirror_protected_branches": false,
+ "mirror_overwrites_diverged_branches": false,
+ "external_authorization_classification_label": null,
+ "packages_enabled": true,
+ "service_desk_enabled": false,
+ "service_desk_address": null,
+ "autoclose_referenced_issues": true,
+ "suggestion_commit_message": null,
+ "enforce_auth_checks_on_uploads": true,
+ "merge_commit_template": null,
+ "squash_commit_template": null,
+ "issue_branch_template": "gitlab/%{id}-%{title}",
+ "marked_for_deletion_at": "2020-04-03", // Deprecated in favor of marked_for_deletion_on. Planned for removal in a future version of the REST API.
+ "marked_for_deletion_on": "2020-04-03",
+ "compliance_frameworks": [ "sox" ],
+ "warn_about_potentially_unwanted_characters": true,
+ "secret_push_protection_enabled": false,
+ "statistics": {
     "commit_count": 37,
     "storage_size": 1038090,
     "repository_size": 1038090,
@@ -243,9 +241,9 @@ Example response:
     "snippets_size": 0,
     "uploads_size": 0,
     "container_registry_size": 0
-  },
-  "container_registry_image_prefix": "registry.example.com/diaspora/diaspora-client",
-  "_links": {
+ },
+ "container_registry_image_prefix": "registry.example.com/diaspora/diaspora-client",
+ "_links": {
     "self": "http://example.com/api/v4/projects",
     "issues": "http://example.com/api/v4/projects/1/issues",
     "merge_requests": "http://example.com/api/v4/projects/1/merge_requests",
@@ -254,28 +252,26 @@ Example response:
     "events": "http://example.com/api/v4/projects/1/events",
     "members": "http://example.com/api/v4/projects/1/members",
     "cluster_agents": "http://example.com/api/v4/projects/1/cluster_agents"
-  },
-  "spp_repository_pipeline_access": false // Only visible if the security_orchestration_policies feature is available
+ },
+ "spp_repository_pipeline_access": false // Only visible if the security_orchestration_policies feature is available
 }
 ```
 
 Users of [GitLab Ultimate](https://about.gitlab.com/pricing/)
-can also see the `only_allow_merge_if_all_status_checks_passed`
-parameters using GitLab 15.5 and later:
+can also see the `only_allow_merge_if_all_status_checks_passed` parameters using GitLab 15.5 and later:
 
 ```json
 {
-  "id": 1,
-  "project_id": 3,
-  "only_allow_merge_if_all_status_checks_passed": false,
-  ...
+ "id": 1,
+ "project_id": 3,
+ "only_allow_merge_if_all_status_checks_passed": false,
+ ...
 }
 ```
 
 If the project is a fork, the `forked_from_project` field appears in the response.
 For this field, if the upstream project is private, a valid token for authentication must be provided.
-The field `mr_default_target_self` appears as well. If this value is `false`, then all merge requests
-target the upstream project by default.
+The field `mr_default_target_self` appears as well. If this value is `false`, then all merge requests target the upstream project by default.
 
 ```json
 {
@@ -336,15 +332,14 @@ target the upstream project by default.
 {{< /details >}}
 
 Users of [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/)
-can also see the `issues_template` and `merge_requests_template` parameters for managing
-[issue and merge request description templates](../user/project/description_templates.md).
+can also see the `issues_template` and `merge_requests_template` parameters for managing [issue and merge request description templates](../user/project/description_templates.md).
 
 ```json
 {
-  "id": 3,
-  "issues_template": null,
-  "merge_requests_template": null,
-  ...
+ "id": 3,
+ "issues_template": null,
+ "merge_requests_template": null,
+ ...
 }
 ```
 
@@ -370,8 +365,7 @@ This feature is available for testing, but not ready for production use.
 {{< /alert >}}
 
 Get a list of all visible projects across GitLab for the authenticated user.
-When accessed without authentication, only public projects with simple fields
-are returned.
+When accessed without authentication, only public projects with simple fields are returned.
 
 ```plaintext
 GET /projects
@@ -381,38 +375,38 @@ Supported attributes:
 
 | Attribute                     | Type     | Required | Description |
 |:------------------------------|:---------|:---------|:------------|
-| `archived`                    | boolean  | No       | Limit by archived status. |
-| `id_after`                    | integer  | No       | Limit results to projects with IDs greater than the specified ID. |
-| `id_before`                   | integer  | No       | Limit results to projects with IDs less than the specified ID. |
-| `imported`                    | boolean  | No       | Limit results to projects which were imported from external systems by current user. |
-| `include_hidden`              | boolean  | No       | Include hidden projects. _(administrators only)_ Premium and Ultimate only. |
-| `include_pending_delete`      | boolean  | No       | Include projects pending deletion. _(administrators only)_ |
+| `archived`                    | boolean | No       | Limit by archived status. |
+| `id_after`                    | integer | No       | Limit results to projects with IDs greater than the specified ID. |
+| `id_before`                   | integer | No       | Limit results to projects with IDs less than the specified ID. |
+| `imported`                    | boolean | No       | Limit results to projects which were imported from external systems by current user. |
+| `include_hidden`              | boolean | No       | Include hidden projects. _(administrators only)_ Premium and Ultimate only. |
+| `include_pending_delete`      | boolean | No       | Include projects pending deletion. _(administrators only)_ |
 | `last_activity_after`         | datetime | No       | Limit results to projects with last activity after specified time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`) |
 | `last_activity_before`        | datetime | No       | Limit results to projects with last activity before specified time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`) |
-| `membership`                  | boolean  | No       | Limit by projects that the current user is a member of. |
-| `min_access_level`            | integer  | No       | Limit to projects where the current user has at least the specified access level. Possible values: `5` (Minimal access), `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), or `50` (Owner). |
+| `membership`                  | boolean | No       | Limit by projects that the current user is a member of. |
+| `min_access_level`            | integer | No       | Limit to projects where the current user has at least the specified access level. Possible values: `5` (Minimal access), `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), or `50` (Owner). |
 | `order_by`                    | string   | No       | Return projects ordered by `id`, `name`, `path`, `created_at`, `updated_at`, `star_count`, `last_activity_at`, or `similarity` fields. `repository_size`, `storage_size`, `packages_size` or `wiki_size` fields are only allowed for administrators. `similarity` is only available when searching and is limited to projects that the current user is a member of. Default is `created_at`. |
-| `owned`                       | boolean  | No       | Limit by projects explicitly owned by the current user. |
-| `repository_checksum_failed`  | boolean  | No       | Limit projects where the repository checksum calculation has failed. Premium and Ultimate only. |
+| `owned`                       | boolean | No       | Limit by projects explicitly owned by the current user. |
+| `repository_checksum_failed` | boolean | No       | Limit projects where the repository checksum calculation has failed. Premium and Ultimate only. |
 | `repository_storage`          | string   | No       | Limit results to projects stored on `repository_storage`. _(administrators only)_ |
-| `search_namespaces`           | boolean  | No       | Include ancestor namespaces when matching search criteria. Default is `false`. |
+| `search_namespaces`           | boolean | No       | Include ancestor namespaces when matching search criteria. Default is `false`. |
 | `search`                      | string   | No       | Return list of projects with a `path`, `name`, or `description` matching the search criteria (case-insensitive, substring match). Multiple terms can be provided, separated by an escaped space, either `+` or `%20`, and will be ANDed together. Example: `one+two` will match substrings `one` and `two` (in any order). |
-| `simple`                      | boolean  | No       | Return only limited fields for each project. This operation is a no-op without authentication where only simple fields are returned. |
+| `simple`                      | boolean | No       | Return only limited fields for each project. This operation is a no-op without authentication where only simple fields are returned. |
 | `sort`                        | string   | No       | Return projects sorted in `asc` or `desc` order. Default is `desc`. |
-| `starred`                     | boolean  | No       | Limit by projects starred by the current user. |
-| `statistics`                  | boolean  | No       | Include project statistics. Available only to users with at least the Reporter role. |
-| `topic_id`                    | integer  | No       | Limit results to projects with the assigned topic given by the topic ID. |
+| `starred`                     | boolean | No       | Limit by projects starred by the current user. |
+| `statistics`                  | boolean | No       | Include project statistics. Available only to users with at least the Reporter role. |
+| `topic_id`                    | integer | No       | Limit results to projects with the assigned topic given by the topic ID. |
 | `topic`                       | string   | No       | Comma-separated topic names. Limit results to projects that match all of given topics. See `topics` attribute. |
 | `updated_after`               | datetime | No       | Limit results to projects last updated after the specified time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`). [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/393979) in GitLab 15.10. For this filter to work, you must also provide `updated_at` as the `order_by` attribute. |
 | `updated_before`              | datetime | No       | Limit results to projects last updated before the specified time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`). [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/393979) in GitLab 15.10. For this filter to work, you must also provide `updated_at` as the `order_by` attribute. |
 | `visibility`                  | string   | No       | Limit by visibility `public`, `internal`, or `private`. |
-| `wiki_checksum_failed`        | boolean  | No       | Limit projects where the wiki checksum calculation has failed. Premium and Ultimate only. |
-| `with_custom_attributes`      | boolean  | No       | Include [custom attributes](custom_attributes.md) in response. _(administrator only)_ |
-| `with_issues_enabled`         | boolean  | No       | Limit by enabled issues feature. |
-| `with_merge_requests_enabled` | boolean  | No       | Limit by enabled merge requests feature. |
+| `wiki_checksum_failed`        | boolean | No       | Limit projects where the wiki checksum calculation has failed. Premium and Ultimate only. |
+| `with_custom_attributes`      | boolean | No       | Include [custom attributes](custom_attributes.md) in response. _(administrator only)_ |
+| `with_issues_enabled`         | boolean | No       | Limit by enabled issues feature. |
+| `with_merge_requests_enabled` | boolean | No       | Limit by enabled merge requests feature. |
 | `with_programming_language`   | string   | No       | Limit by projects which use the given programming language. |
 | `marked_for_deletion_on`      | date     | No       | Filter by date when project was marked for deletion. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/463939) in GitLab 17.1. Premium and Ultimate only. |
-| `active`                      | boolean  | No       | Limit by projects that are not archived and not marked for deletion. |
+| `active`                      | boolean | No       | Limit by projects that are not archived and not marked for deletion. |
 
 This endpoint supports [keyset pagination](rest/_index.md#keyset-based-pagination) for selected `order_by` options.
 
@@ -428,7 +422,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 4,
     "description": null,
     "name": "Diaspora Client",
@@ -462,17 +456,17 @@ Example response:
       "avatar_url": null,
       "web_url": "https://gitlab.example.com/diaspora"
     }
-  },
-  {
+ },
+ {
     ...
-  }
+ }
 ```
 
 When the user is authenticated and `simple` is not set, this endpoint returns something like:
 
 ```json
 [
-  {
+ {
     "id": 4,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "description_html": "<p data-sourcepos=\"1:1-1:56\" dir=\"auto\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
@@ -611,10 +605,10 @@ When the user is authenticated and `simple` is not set, this endpoint returns so
       "project_access": null,
       "group_access": null
     }
-  },
-  {
+ },
+ {
     ...
-  }
+ }
 ]
 ```
 
@@ -642,16 +636,14 @@ curl --globoff --request GET "https://gitlab.example.com/api/v4/projects?custom_
 
 #### Pagination limits
 
-You can use [offset-based pagination](rest/_index.md#offset-based-pagination) to access
-[up to 50,000 projects](https://gitlab.com/gitlab-org/gitlab/-/issues/34565).
+You can use [offset-based pagination](rest/_index.md#offset-based-pagination) to access [up to 50,000 projects](https://gitlab.com/gitlab-org/gitlab/-/issues/34565).
 
 Use [keyset pagination](rest/_index.md#keyset-based-pagination) to retrieve projects beyond this limit.
 Keyset pagination supports only `order_by=id`. Other sorting options aren't available.
 
 ### List a user's projects
 
-Get a list of visible projects owned by the given user. When accessed without
-authentication, only public projects are returned.
+Get a list of visible projects owned by the given user. When accessed without authentication, only public projects are returned.
 
 Prerequisites:
 
@@ -672,31 +664,31 @@ Supported attributes:
 | Attribute                     | Type     | Required | Description |
 |:------------------------------|:---------|:---------|:------------|
 | `user_id`                     | string   | Yes      | The ID or username of the user. |
-| `archived`                    | boolean  | No       | Limit by archived status. |
-| `id_after`                    | integer  | No       | Limit results to projects with IDs greater than the specified ID. |
-| `id_before`                   | integer  | No       | Limit results to projects with IDs less than the specified ID. |
-| `membership`                  | boolean  | No       | Limit by projects that the current user is a member of. |
-| `min_access_level`            | integer  | No       | Limit to projects where the current user has at least the specified access level. Possible values: `5` (Minimal access), `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), or `50` (Owner). |
+| `archived`                    | boolean | No       | Limit by archived status. |
+| `id_after`                    | integer | No       | Limit results to projects with IDs greater than the specified ID. |
+| `id_before`                   | integer | No       | Limit results to projects with IDs less than the specified ID. |
+| `membership`                  | boolean | No       | Limit by projects that the current user is a member of. |
+| `min_access_level`            | integer | No       | Limit to projects where the current user has at least the specified access level. Possible values: `5` (Minimal access), `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), or `50` (Owner). |
 | `order_by`                    | string   | No       | Return projects ordered by `id`, `name`, `path`, `created_at`, `updated_at`, `star_count`, or `last_activity_at` fields. Default is `created_at`. |
-| `owned`                       | boolean  | No       | Limit by projects explicitly owned by the current user. |
+| `owned`                       | boolean | No       | Limit by projects explicitly owned by the current user. |
 | `search`                      | string   | No       | Return list of projects matching the search criteria. |
-| `simple`                      | boolean  | No       | Return only limited fields for each project. Without authentication, this operation is a no-op; only simple fields are returned. |
+| `simple`                      | boolean | No       | Return only limited fields for each project. Without authentication, this operation is a no-op; only simple fields are returned. |
 | `sort`                        | string   | No       | Return projects sorted in `asc` or `desc` order. Default is `desc`. |
-| `starred`                     | boolean  | No       | Limit by projects starred by the current user. |
-| `statistics`                  | boolean  | No       | Include project statistics. Available only to users with at least the Reporter role. |
+| `starred`                     | boolean | No       | Limit by projects starred by the current user. |
+| `statistics`                  | boolean | No       | Include project statistics. Available only to users with at least the Reporter role. |
 | `updated_after`               | datetime | No       | Limit results to projects last updated after the specified time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`). [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/393979) in GitLab 15.10. |
 | `updated_before`              | datetime | No       | Limit results to projects last updated before the specified time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`). [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/393979) in GitLab 15.10. |
 | `visibility`                  | string   | No       | Limit by visibility `public`, `internal`, or `private`. |
-| `with_custom_attributes`      | boolean  | No       | Include [custom attributes](custom_attributes.md) in response. _(administrator only)_ |
-| `with_issues_enabled`         | boolean  | No       | Limit by enabled issues feature. |
-| `with_merge_requests_enabled` | boolean  | No       | Limit by enabled merge requests feature. |
+| `with_custom_attributes`      | boolean | No       | Include [custom attributes](custom_attributes.md) in response. _(administrator only)_ |
+| `with_issues_enabled`         | boolean | No       | Limit by enabled issues feature. |
+| `with_merge_requests_enabled` | boolean | No       | Limit by enabled merge requests feature. |
 | `with_programming_language`   | string   | No       | Limit by projects which use the given programming language. |
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 4,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "description_html": "<p data-sourcepos=\"1:1-1:56\" dir=\"auto\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
@@ -810,8 +802,8 @@ Example response:
       "members": "http://example.com/api/v4/projects/1/members",
       "cluster_agents": "http://example.com/api/v4/projects/1/cluster_agents"
     }
-  },
-  {
+ },
+ {
     "id": 6,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "description_html": "<p data-sourcepos=\"1:1-1:56\" dir=\"auto\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
@@ -948,7 +940,7 @@ Example response:
       "members": "http://example.com/api/v4/projects/1/members",
       "cluster_agents": "http://example.com/api/v4/projects/1/cluster_agents"
     }
-  }
+ }
 ]
 ```
 
@@ -962,25 +954,25 @@ GET /users/:user_id/contributed_projects
 
 Supported attributes:
 
-| Attribute  | Type    | Required | Description |
+| Attribute | Type    | Required | Description |
 |:-----------|:--------|:---------|:------------|
-| `user_id`  | string  | Yes      | The ID or username of the user. |
-| `order_by` | string  | No       | Return projects ordered by `id`, `name`, `path`, `created_at`, `updated_at`, `star_count`, or `last_activity_at` fields. Default is `created_at`. |
+| `user_id` | string | Yes      | The ID or username of the user. |
+| `order_by` | string | No       | Return projects ordered by `id`, `name`, `path`, `created_at`, `updated_at`, `star_count`, or `last_activity_at` fields. Default is `created_at`. |
 | `simple`   | boolean | No       | Return only limited fields for each project. Without authentication, this operation is a no-op; only simple fields are returned. |
-| `sort`     | string  | No       | Return projects sorted in `asc` or `desc` order. Default is `desc`. |
+| `sort`     | string | No       | Return projects sorted in `asc` or `desc` order. Default is `desc`. |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/5/contributed_projects"
+ --url "https://gitlab.example.com/api/v4/users/5/contributed_projects"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 4,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "description_html": "<p data-sourcepos=\"1:1-1:56\" dir=\"auto\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
@@ -1078,8 +1070,8 @@ Example response:
       "members": "http://example.com/api/v4/projects/1/members",
       "cluster_agents": "http://example.com/api/v4/projects/1/cluster_agents"
     }
-  },
-  {
+ },
+ {
     "id": 6,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "description_html": "<p data-sourcepos=\"1:1-1:56\" dir=\"auto\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
@@ -1202,14 +1194,13 @@ Example response:
       "members": "http://example.com/api/v4/projects/1/members",
       "cluster_agents": "http://example.com/api/v4/projects/1/cluster_agents"
     }
-  }
+ }
 ]
 ```
 
 ### Search for projects by name
 
-Search for projects by name that are accessible to the authenticated user. If this endpoint is accessed without
-authentication, it lists projects that are publicly accessible.
+Search for projects by name that are accessible to the authenticated user. If this endpoint is accessed without authentication, it lists projects that are publicly accessible.
 
 ```plaintext
 GET /projects
@@ -1217,7 +1208,7 @@ GET /projects
 
 Example attributes:
 
-| Attribute  | Type   | Required | Description |
+| Attribute | Type   | Required | Description |
 |:-----------|:-------|:---------|:------------|
 | `search`   | string | Yes      | A string contained in the project name. |
 | `order_by` | string | No       | Return requests ordered by `id`, `name`, `created_at`, `star_count`, or `last_activity_at` fields. |
@@ -1227,7 +1218,7 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects?search=test"
+ --url "https://gitlab.example.com/api/v4/projects?search=test"
 ```
 
 ## List attributes
@@ -1254,22 +1245,22 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "username": "john_smith",
     "name": "John Smith",
     "state": "active",
     "avatar_url": "http://localhost:3000/uploads/user/avatar/1/cd8.jpeg",
     "web_url": "http://localhost:3000/john_smith"
-  },
-  {
+ },
+ {
     "id": 2,
     "username": "jack_smith",
     "name": "Jack Smith",
     "state": "blocked",
     "avatar_url": "http://gravatar.com/../e32131cd8.jpeg",
     "web_url": "http://localhost:3000/jack_smith"
-  }
+ }
 ]
 ```
 
@@ -1296,22 +1287,22 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "Foobar Group",
     "avatar_url": "http://localhost:3000/uploads/group/avatar/1/foo.jpg",
     "web_url": "http://localhost:3000/groups/foo-bar",
     "full_name": "Foobar Group",
     "full_path": "foo-bar"
-  },
-  {
+ },
+ {
     "id": 2,
     "name": "Shared Group",
     "avatar_url": "http://gitlab.example.com/uploads/group/avatar/1/bar.jpg",
     "web_url": "http://gitlab.example.com/groups/foo/bar",
     "full_name": "Shared Group",
     "full_path": "foo/shared"
-  }
+ }
 ]
 ```
 
@@ -1328,28 +1319,28 @@ Supported attributes:
 | Attribute | Type              | Required | Description |
 |:----------|:------------------|:---------|:------------|
 | `id`      | integer or string | Yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
-| `search`  | string            | No       | Search for specific groups. |
+| `search` | string            | No       | Search for specific groups. |
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 22,
     "web_url": "http://127.0.0.1:3000/groups/gitlab-org",
     "name": "Gitlab Org",
     "avatar_url": null,
     "full_name": "Gitlab Org",
     "full_path": "gitlab-org"
-  },
-  {
+ },
+ {
     "id": 25,
     "web_url": "http://127.0.0.1:3000/groups/gnuwget",
     "name": "Gnuwget",
     "avatar_url": null,
     "full_name": "Gnuwget",
     "full_path": "gnuwget"
-  }
+ }
 ]
 ```
 
@@ -1381,14 +1372,14 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 35,
     "web_url": "https://gitlab.example.com/groups/twitter",
     "name": "Twitter",
     "avatar_url": null,
     "full_name": "Twitter",
     "full_path": "twitter"
-  }
+ }
 ]
 ```
 
@@ -1410,17 +1401,17 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/languages"
+ --url "https://gitlab.example.com/api/v4/projects/5/languages"
 ```
 
 Example response:
 
 ```json
 {
-  "Ruby": 66.69,
-  "JavaScript": 22.98,
-  "HTML": 7.91,
-  "CoffeeScript": 2.42
+ "Ruby": 66.69,
+ "JavaScript": 22.98,
+ "HTML": 7.91,
+ "CoffeeScript": 2.42
 }
 ```
 
@@ -1441,9 +1432,7 @@ Manage a project, including creation, deletion, and archival.
 
 Creates a new project owned by the authenticated user.
 
-If your HTTP repository isn't publicly accessible, add authentication information to the URL
-`https://username:password@gitlab.company.com/group/project.git`, where `password` is a public access key with the `api`
-scope enabled.
+If your HTTP repository isn't publicly accessible, add authentication information to the URL `https://username:password@gitlab.company.com/group/project.git`, where `password` is a public access key with the `api` scope enabled.
 
 ```plaintext
 POST /projects
@@ -1453,33 +1442,33 @@ Supported general project attributes:
 
 | Attribute                                          | Type    | Required                       | Description |
 |:---------------------------------------------------|:--------|:-------------------------------|:------------|
-| `name`                                             | string  | Yes (if `path` isn't provided) | The name of the new project. Equals path if not provided. |
-| `path`                                             | string  | Yes (if `name` isn't provided) | Repository name for new project. Generated based on name if not provided (generated as lowercase with dashes). The path must not start or end with a special character and must not contain consecutive special characters. |
+| `name`                                             | string | Yes (if `path` isn't provided) | The name of the new project. Equals path if not provided. |
+| `path`                                             | string | Yes (if `name` isn't provided) | Repository name for new project. Generated based on name if not provided (generated as lowercase with dashes). The path must not start or end with a special character and must not contain consecutive special characters. |
 | `allow_merge_on_skipped_pipeline`                  | boolean | No                             | Set whether or not merge requests can be merged with skipped jobs. |
 | `approvals_before_merge`                           | integer | No                             | How many approvers should approve merge requests by default. To configure approval rules, see [Merge request approvals API](merge_request_approvals.md). [Deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/353097) in GitLab 16.0. Premium and Ultimate only. |
-| `auto_cancel_pending_pipelines`                    | string  | No                             | Auto-cancel pending pipelines. This action toggles between an enabled state and a disabled state; it is not a boolean. |
-| `auto_devops_deploy_strategy`                      | string  | No                             | Auto Deploy strategy (`continuous`, `manual` or `timed_incremental`). |
+| `auto_cancel_pending_pipelines`                    | string | No                             | Auto-cancel pending pipelines. This action toggles between an enabled state and a disabled state; it is not a boolean. |
+| `auto_devops_deploy_strategy`                      | string | No                             | Auto Deploy strategy (`continuous`, `manual` or `timed_incremental`). |
 | `auto_devops_enabled`                              | boolean | No                             | Enable Auto DevOps for this project. |
 | `autoclose_referenced_issues`                      | boolean | No                             | Set whether auto-closing referenced issues on default branch. |
 | `avatar`                                           | mixed   | No                             | Image file for avatar of the project. |
-| `build_git_strategy`                               | string  | No                             | The Git strategy. Defaults to `fetch`. |
+| `build_git_strategy`                               | string | No                             | The Git strategy. Defaults to `fetch`. |
 | `build_timeout`                                    | integer | No                             | The maximum amount of time, in seconds, that a job can run. |
-| `ci_config_path`                                   | string  | No                             | The path to CI configuration file. |
+| `ci_config_path`                                   | string | No                             | The path to CI configuration file. |
 | `container_expiration_policy_attributes`           | hash    | No                             | Update the image cleanup policy for this project. Accepts: `cadence` (string), `keep_n` (integer), `older_than` (string), `name_regex` (string), `name_regex_delete` (string), `name_regex_keep` (string), `enabled` (boolean). See the [container registry](../user/packages/container_registry/reduce_container_registry_storage.md#use-the-cleanup-policy-api) documentation for more information on `cadence`, `keep_n` and `older_than` values. |
 | `container_registry_enabled`                       | boolean | No                             | _(Deprecated)_ Enable container registry for this project. Use `container_registry_access_level` instead. |
-| `default_branch`                                   | string  | No                             | The [default branch](../user/project/repository/branches/default.md) name. Requires `initialize_with_readme` to be `true`. |
-| `description`                                      | string  | No                             | Short project description. |
+| `default_branch`                                   | string | No                             | The [default branch](../user/project/repository/branches/default.md) name. Requires `initialize_with_readme` to be `true`. |
+| `description`                                      | string | No                             | Short project description. |
 | `emails_disabled`                                  | boolean | No                             | _(Deprecated)_ Disable email notifications. Use `emails_enabled` instead |
 | `emails_enabled`                                   | boolean | No                             | Enable email notifications. |
-| `external_authorization_classification_label`      | string  | No                             | The classification label for the project. Premium and Ultimate only. |
+| `external_authorization_classification_label`      | string | No                             | The classification label for the project. Premium and Ultimate only. |
 | `group_runners_enabled`                            | boolean | No                             | Enable group runners for this project. |
 | `group_with_project_templates_id`                  | integer | No                             | For group-level custom templates, specifies ID of group from which all the custom project templates are sourced. Leave empty for instance-level templates. Requires `use_custom_template` to be true. Premium and Ultimate only. |
-| `import_url`                                       | string  | No                             | URL to import repository from. When the URL value isn't empty, you must not set `initialize_with_readme` to `true`. Doing so might result in the [following error](https://gitlab.com/gitlab-org/gitlab/-/issues/360266): `not a git repository`. |
+| `import_url`                                       | string | No                             | URL to import repository from. When the URL value isn't empty, you must not set `initialize_with_readme` to `true`. Doing so might result in the [following error](https://gitlab.com/gitlab-org/gitlab/-/issues/360266): `not a git repository`. |
 | `initialize_with_readme`                           | boolean | No                             | Whether to create a Git repository with just a `README.md` file. Default is `false`. When this boolean is true, you must not pass `import_url` or other attributes of this endpoint which specify alternative contents for the repository. Doing so might result in the [following error](https://gitlab.com/gitlab-org/gitlab/-/issues/360266): `not a git repository`. |
 | `issues_enabled`                                   | boolean | No                             | _(Deprecated)_ Enable issues for this project. Use `issues_access_level` instead. |
 | `jobs_enabled`                                     | boolean | No                             | _(Deprecated)_ Enable jobs for this project. Use `builds_access_level` instead. |
 | `lfs_enabled`                                      | boolean | No                             | Enable LFS. |
-| `merge_method`                                     | string  | No                             | Set the project's [merge method](../user/project/merge_requests/methods/_index.md). Can be `merge` (merge commit), `rebase_merge` (merge commit with semi-linear history), or `ff` (fast-forward merge). |
+| `merge_method`                                     | string | No                             | Set the project's [merge method](../user/project/merge_requests/methods/_index.md). Can be `merge` (merge commit), `rebase_merge` (merge commit with semi-linear history), or `ff` (fast-forward merge). |
 | `merge_pipelines_enabled`                          | boolean | No                             | Enable or disable merged results pipelines. |
 | `merge_requests_enabled`                           | boolean | No                             | _(Deprecated)_ Enable merge requests for this project. Use `merge_requests_access_level` instead. |
 | `merge_trains_enabled`                             | boolean | No                             | Enable or disable merge trains. |
@@ -1491,25 +1480,25 @@ Supported general project attributes:
 | `only_allow_merge_if_all_status_checks_passed`     | boolean | No                             | Indicates that merges of merge requests should be blocked unless all status checks have passed. Defaults to false. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/369859) in GitLab 15.5 with feature flag `only_allow_merge_if_all_status_checks_passed` disabled by default. Ultimate only. |
 | `only_allow_merge_if_pipeline_succeeds`            | boolean | No                             | Set whether merge requests can only be merged with successful pipelines. This setting is named [**Pipelines must succeed**](../user/project/merge_requests/auto_merge.md#require-a-successful-pipeline-for-merge) in the project settings. |
 | `packages_enabled`                                 | boolean | No                             | [Deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/454759) in GitLab 17.10. Enable or disable packages repository feature. Use `package_registry_access_level` instead. |
-| `package_registry_access_level`                    | string  | No                             | Enable or disable packages repository feature. |
+| `package_registry_access_level`                    | string | No                             | Enable or disable packages repository feature. |
 | `printing_merge_request_link_enabled`              | boolean | No                             | Show link to create/view merge request when pushing from the command line. |
 | `public_builds`                                    | boolean | No                             | _(Deprecated)_ If `true`, jobs can be viewed by non-project members. Use `public_jobs` instead. |
 | `public_jobs`                                      | boolean | No                             | If `true`, jobs can be viewed by non-project members. |
-| `repository_object_format`                         | string  | No                             | Repository object format. Defaults to `sha1`. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/419887) in GitLab 16.9. |
+| `repository_object_format`                         | string | No                             | Repository object format. Defaults to `sha1`. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/419887) in GitLab 16.9. |
 | `remove_source_branch_after_merge`                 | boolean | No                             | Enable `Delete source branch` option by default for all new merge requests. |
-| `repository_storage`                               | string  | No                             | Which storage shard the repository is on. _(administrator only)_ |
+| `repository_storage`                               | string | No                             | Which storage shard the repository is on. _(administrator only)_ |
 | `request_access_enabled`                           | boolean | No                             | Allow users to request member access. |
 | `resolve_outdated_diff_discussions`                | boolean | No                             | Automatically resolve merge request diffs discussions on lines changed with a push. |
 | `shared_runners_enabled`                           | boolean | No                             | Enable instance runners for this project. |
 | `show_default_award_emojis`                        | boolean | No                             | Show default emoji reactions. |
 | `snippets_enabled`                                 | boolean | No                             | _(Deprecated)_ Enable snippets for this project. Use `snippets_access_level` instead. |
-| `squash_option`                                    | string  | No                             | One of `never`, `always`, `default_on`, or `default_off`. |
+| `squash_option`                                    | string | No                             | One of `never`, `always`, `default_on`, or `default_off`. |
 | `tag_list`                                         | array   | No                             | The list of tags for a project; put array of tags, that should be finally assigned to a project. [Deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/328226) in GitLab 14.0. Use `topics` instead. |
-| `template_name`                                    | string  | No                             | When used without `use_custom_template`, name of a [built-in project template](../user/project/_index.md#create-a-project-from-a-built-in-template). When used with `use_custom_template`, name of a custom project template. |
+| `template_name`                                    | string | No                             | When used without `use_custom_template`, name of a [built-in project template](../user/project/_index.md#create-a-project-from-a-built-in-template). When used with `use_custom_template`, name of a custom project template. |
 | `template_project_id`                              | integer | No                             | When used with `use_custom_template`, project ID of a custom project template. Using a project ID is preferable to using `template_name` because `template_name` can be ambiguous. Premium and Ultimate only. |
 | `topics`                                           | array   | No                             | The list of topics for a project; put array of topics, that should be finally assigned to a project. |
 | `use_custom_template`                              | boolean | No                             | Use either custom [instance](../administration/custom_project_templates.md) or [group](../user/group/custom_project_templates.md) (with `group_with_project_templates_id`) project template. Premium and Ultimate only. |
-| `visibility`                                       | string  | No                             | See [project visibility level](#project-visibility-level). |
+| `visibility`                                       | string | No                             | See [project visibility level](#project-visibility-level). |
 | `warn_about_potentially_unwanted_characters`       | boolean | No                             | Enable warnings about usage of potentially unwanted characters in this project. |
 | `wiki_enabled`                                     | boolean | No                             | _(Deprecated)_ Enable wiki for this project. Use `wiki_access_level` instead. |
 
@@ -1570,9 +1559,7 @@ Prerequisites:
 
 - You must be an administrator.
 
-If your HTTP repository isn't publicly accessible, add authentication information to the URL. For example,
-`https://username:password@gitlab.company.com/group/project.git` where `password` is a public access key with the `api`
-scope enabled.
+If your HTTP repository isn't publicly accessible, add authentication information to the URL. For example, `https://username:password@gitlab.company.com/group/project.git` where `password` is a public access key with the `api` scope enabled.
 
 ```plaintext
 POST /projects/user/:user_id
@@ -1582,35 +1569,35 @@ Supported general project attributes:
 
 | Attribute                                          | Type    | Required | Description |
 |:---------------------------------------------------|:--------|:---------|:------------|
-| `name`                                             | string  | Yes      | The name of the new project. |
+| `name`                                             | string | Yes      | The name of the new project. |
 | `user_id`                                          | integer | Yes      | The user ID of the project owner. |
 | `allow_merge_on_skipped_pipeline`                  | boolean | No       | Set whether or not merge requests can be merged with skipped jobs. |
 | `approvals_before_merge`                           | integer | No       | How many approvers should approve merge requests by default. [Deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/353097) in GitLab 16.0. To configure approval rules, see [Merge request approvals API](merge_request_approvals.md). Premium and Ultimate only. |
-| `auto_cancel_pending_pipelines`                    | string  | No       | Auto-cancel pending pipelines. This action toggles between an enabled state and a disabled state; it is not a boolean. |
-| `auto_devops_deploy_strategy`                      | string  | No       | Auto Deploy strategy (`continuous`, `manual` or `timed_incremental`). |
+| `auto_cancel_pending_pipelines`                    | string | No       | Auto-cancel pending pipelines. This action toggles between an enabled state and a disabled state; it is not a boolean. |
+| `auto_devops_deploy_strategy`                      | string | No       | Auto Deploy strategy (`continuous`, `manual` or `timed_incremental`). |
 | `auto_devops_enabled`                              | boolean | No       | Enable Auto DevOps for this project. |
 | `autoclose_referenced_issues`                      | boolean | No       | Set whether auto-closing referenced issues on default branch. |
 | `avatar`                                           | mixed   | No       | Image file for avatar of the project. |
-| `build_git_strategy`                               | string  | No       | The Git strategy. Defaults to `fetch`. |
+| `build_git_strategy`                               | string | No       | The Git strategy. Defaults to `fetch`. |
 | `build_timeout`                                    | integer | No       | The maximum amount of time, in seconds, that a job can run. |
-| `ci_config_path`                                   | string  | No       | The path to CI configuration file. |
+| `ci_config_path`                                   | string | No       | The path to CI configuration file. |
 | `container_registry_enabled`                       | boolean | No       | _(Deprecated)_ Enable container registry for this project. Use `container_registry_access_level` instead. |
-| `default_branch`                                   | string  | No       | The [default branch](../user/project/repository/branches/default.md) name. Requires `initialize_with_readme` to be `true`. |
-| `description`                                      | string  | No       | Short project description. |
+| `default_branch`                                   | string | No       | The [default branch](../user/project/repository/branches/default.md) name. Requires `initialize_with_readme` to be `true`. |
+| `description`                                      | string | No       | Short project description. |
 | `emails_disabled`                                  | boolean | No       | _(Deprecated)_ Disable email notifications. Use `emails_enabled` instead |
 | `emails_enabled`                                   | boolean | No       | Enable email notifications. |
 | `enforce_auth_checks_on_uploads`                   | boolean | No       | Enforce [auth checks](../security/user_file_uploads.md#enable-authorization-checks-for-all-media-files) on uploads. |
-| `external_authorization_classification_label`      | string  | No       | The classification label for the project. Premium and Ultimate only. |
+| `external_authorization_classification_label`      | string | No       | The classification label for the project. Premium and Ultimate only. |
 | `group_runners_enabled`                            | boolean | No       | Enable group runners for this project. |
 | `group_with_project_templates_id`                  | integer | No       | For group-level custom templates, specifies ID of group from which all the custom project templates are sourced. Leave empty for instance-level templates. Requires `use_custom_template` to be true. Premium and Ultimate only. |
-| `import_url`                                       | string  | No       | URL to import repository from. |
+| `import_url`                                       | string | No       | URL to import repository from. |
 | `initialize_with_readme`                           | boolean | No       | `false` by default. |
-| `issue_branch_template`                            | string  | No       | Template used to suggest names for [branches created from issues](../user/project/merge_requests/creating_merge_requests.md#from-an-issue). _([Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/21243) in GitLab 15.6.)_ |
+| `issue_branch_template`                            | string | No       | Template used to suggest names for [branches created from issues](../user/project/merge_requests/creating_merge_requests.md#from-an-issue). _([Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/21243) in GitLab 15.6.)_ |
 | `issues_enabled`                                   | boolean | No       | _(Deprecated)_ Enable issues for this project. Use `issues_access_level` instead. |
 | `jobs_enabled`                                     | boolean | No       | _(Deprecated)_ Enable jobs for this project. Use `builds_access_level` instead. |
 | `lfs_enabled`                                      | boolean | No       | Enable LFS. |
-| `merge_commit_template`                            | string  | No       | [Template](../user/project/merge_requests/commit_templates.md) used to create merge commit message in merge requests. |
-| `merge_method`                                     | string  | No       | Set the project's [merge method](../user/project/merge_requests/methods/_index.md). Can be `merge` (merge commit), `rebase_merge` (merge commit with semi-linear history), or `ff` (fast-forward merge). |
+| `merge_commit_template`                            | string | No       | [Template](../user/project/merge_requests/commit_templates.md) used to create merge commit message in merge requests. |
+| `merge_method`                                     | string | No       | Set the project's [merge method](../user/project/merge_requests/methods/_index.md). Can be `merge` (merge commit), `rebase_merge` (merge commit with semi-linear history), or `ff` (fast-forward merge). |
 | `merge_requests_enabled`                           | boolean | No       | _(Deprecated)_ Enable merge requests for this project. Use `merge_requests_access_level` instead. |
 | `mirror_trigger_builds`                            | boolean | No       | Pull mirroring triggers builds. Premium and Ultimate only. |
 | `mirror`                                           | boolean | No       | Enables pull mirroring in a project. Premium and Ultimate only. |
@@ -1619,27 +1606,27 @@ Supported general project attributes:
 | `only_allow_merge_if_all_status_checks_passed`     | boolean | No       | Indicates that merges of merge requests should be blocked unless all status checks have passed. Defaults to false. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/369859) in GitLab 15.5 with feature flag `only_allow_merge_if_all_status_checks_passed` disabled by default. Ultimate only. |
 | `only_allow_merge_if_pipeline_succeeds`            | boolean | No       | Set whether merge requests can only be merged with successful jobs. |
 | `packages_enabled`                                 | boolean | No       | [Deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/454759) in GitLab 17.10. Enable or disable packages repository feature. Use `package_registry_access_level` instead. |
-| `package_registry_access_level`                    | string  | No       | Enable or disable packages repository feature. |
-| `path`                                             | string  | No       | Custom repository name for new project. By default generated based on name. |
+| `package_registry_access_level`                    | string | No       | Enable or disable packages repository feature. |
+| `path`                                             | string | No       | Custom repository name for new project. By default generated based on name. |
 | `printing_merge_request_link_enabled`              | boolean | No       | Show link to create/view merge request when pushing from the command line. |
 | `public_builds`                                    | boolean | No       | _(Deprecated)_ If `true`, jobs can be viewed by non-project members. Use `public_jobs` instead. |
 | `public_jobs`                                      | boolean | No       | If `true`, jobs can be viewed by non-project members. |
-| `repository_object_format`                         | string  | No       | Repository object format. Defaults to `sha1`. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/419887) in GitLab 16.9. |
+| `repository_object_format`                         | string | No       | Repository object format. Defaults to `sha1`. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/419887) in GitLab 16.9. |
 | `remove_source_branch_after_merge`                 | boolean | No       | Enable `Delete source branch` option by default for all new merge requests. |
-| `repository_storage`                               | string  | No       | Which storage shard the repository is on. _(administrators only)_ |
+| `repository_storage`                               | string | No       | Which storage shard the repository is on. _(administrators only)_ |
 | `request_access_enabled`                           | boolean | No       | Allow users to request member access. |
 | `resolve_outdated_diff_discussions`                | boolean | No       | Automatically resolve merge request diffs discussions on lines changed with a push. |
 | `shared_runners_enabled`                           | boolean | No       | Enable instance runners for this project. |
 | `show_default_award_emojis`                        | boolean | No       | Show default emoji reactions. |
 | `snippets_enabled`                                 | boolean | No       | _(Deprecated)_ Enable snippets for this project. Use `snippets_access_level` instead. |
-| `squash_commit_template`                           | string  | No       | [Template](../user/project/merge_requests/commit_templates.md) used to create squash commit message in merge requests. |
-| `squash_option`                                    | string  | No       | One of `never`, `always`, `default_on`, or `default_off`. |
-| `suggestion_commit_message`                        | string  | No       | The commit message used to apply merge request [suggestions](../user/project/merge_requests/reviews/suggestions.md). |
+| `squash_commit_template`                           | string | No       | [Template](../user/project/merge_requests/commit_templates.md) used to create squash commit message in merge requests. |
+| `squash_option`                                    | string | No       | One of `never`, `always`, `default_on`, or `default_off`. |
+| `suggestion_commit_message`                        | string | No       | The commit message used to apply merge request [suggestions](../user/project/merge_requests/reviews/suggestions.md). |
 | `tag_list`                                         | array   | No       | _([Deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/328226) in GitLab 14.0)_ The list of tags for a project; put array of tags, that should be finally assigned to a project. Use `topics` instead. |
-| `template_name`                                    | string  | No       | When used without `use_custom_template`, name of a [built-in project template](../user/project/_index.md#create-a-project-from-a-built-in-template). When used with `use_custom_template`, name of a custom project template. |
+| `template_name`                                    | string | No       | When used without `use_custom_template`, name of a [built-in project template](../user/project/_index.md#create-a-project-from-a-built-in-template). When used with `use_custom_template`, name of a custom project template. |
 | `topics`                                           | array   | No       | The list of topics for the project. |
 | `use_custom_template`                              | boolean | No       | Use either custom [instance](../administration/custom_project_templates.md) or [group](../user/group/custom_project_templates.md) (with `group_with_project_templates_id`) project template. Premium and Ultimate only. |
-| `visibility`                                       | string  | No       | See [project visibility level](#project-visibility-level). |
+| `visibility`                                       | string | No       | See [project visibility level](#project-visibility-level). |
 | `warn_about_potentially_unwanted_characters`       | boolean | No       | Enable warnings about usage of potentially unwanted characters in this project. |
 | `wiki_enabled`                                     | boolean | No       | _(Deprecated)_ Enable wiki for this project. Use `wiki_access_level` instead. |
 
@@ -1686,9 +1673,7 @@ settings with access control options can be one of:
 
 Update an existing project.
 
-If your HTTP repository isn't publicly accessible, add authentication information
-to the URL `https://username:password@gitlab.company.com/group/project.git`,
-where `password` is a public access key with the `api` scope enabled.
+If your HTTP repository isn't publicly accessible, add authentication information to the URL `https://username:password@gitlab.company.com/group/project.git`, where `password` is a public access key with the `api` scope enabled.
 
 ```plaintext
 PUT /projects/:id
@@ -1755,7 +1740,7 @@ Supported general project attributes:
 | `only_allow_merge_if_pipeline_succeeds`            | boolean           | No       | Set whether merge requests can only be merged with successful jobs. |
 | `only_mirror_protected_branches`                   | boolean           | No       | Only mirror protected branches. Premium and Ultimate only. |
 | `packages_enabled`                                 | boolean           | No       | [Deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/454759) in GitLab 17.10. Enable or disable packages repository feature. Use `package_registry_access_level` instead. |
-| `package_registry_access_level`                    | string  | No                 | Enable or disable packages repository feature. |
+| `package_registry_access_level`                    | string | No                 | Enable or disable packages repository feature. |
 | `path`                                             | string            | No       | Custom repository name for the project. By default generated based on name. |
 | `prevent_merge_without_jira_issue`                 | boolean           | No       | Set whether merge requests require an associated issue from Jira. Ultimate only. |
 | `printing_merge_request_link_enabled`              | boolean           | No       | Show link to create/view merge request when pushing from the command line. |
@@ -1846,8 +1831,8 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/import_project_members/32"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/import_project_members/32"
 ```
 
 Returns:
@@ -1860,27 +1845,27 @@ Example responses:
 
 - When all emails were successfully sent (`200` HTTP status code):
 
-  ```json
-  {  "status":  "success"  }
-  ```
+ ```json
+ { "status": "success" }
+ ```
 
 - When there was any error importing 1 or more members (`200` HTTP status code):
 
-  ```json
-  {
+ ```json
+ {
     "status": "error",
     "message": {
                  "john_smith": "Some individual error message",
                  "jane_smith": "Some individual error message"
                },
     "total_members_count": 3
-  }
-  ```
+ }
+ ```
 
 - When there is a system error (`404` and `422` HTTP status codes):
 
 ```json
-{  "message":  "Import failed"  }
+{ "message": "Import failed" }
 ```
 
 ### Archive a project
@@ -1907,66 +1892,66 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/archive"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/archive"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 3,
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  "description_html": "<p data-sourcepos=\"1:1-1:56\" dir=\"auto\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
-  "default_branch": "main",
-  "visibility": "private",
-  "ssh_url_to_repo": "git@example.com:diaspora/diaspora-project-site.git",
-  "http_url_to_repo": "http://example.com/diaspora/diaspora-project-site.git",
-  "web_url": "http://example.com/diaspora/diaspora-project-site",
-  "readme_url": "http://example.com/diaspora/diaspora-project-site/blob/main/README.md",
-  "tag_list": [ //deprecated, use `topics` instead
+ "id": 3,
+ "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+ "description_html": "<p data-sourcepos=\"1:1-1:56\" dir=\"auto\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+ "default_branch": "main",
+ "visibility": "private",
+ "ssh_url_to_repo": "git@example.com:diaspora/diaspora-project-site.git",
+ "http_url_to_repo": "http://example.com/diaspora/diaspora-project-site.git",
+ "web_url": "http://example.com/diaspora/diaspora-project-site",
+ "readme_url": "http://example.com/diaspora/diaspora-project-site/blob/main/README.md",
+ "tag_list": [ //deprecated, use `topics` instead
     "example",
     "disapora project"
-  ],
-  "topics": [
+ ],
+ "topics": [
     "example",
     "disapora project"
-  ],
-  "owner": {
+ ],
+ "owner": {
     "id": 3,
     "name": "Diaspora",
     "created_at": "2013-09-30T13:46:02Z"
-  },
-  "name": "Diaspora Project Site",
-  "name_with_namespace": "Diaspora / Diaspora Project Site",
-  "path": "diaspora-project-site",
-  "path_with_namespace": "diaspora/diaspora-project-site",
-  "repository_object_format": "sha1",
-  "issues_enabled": true,
-  "open_issues_count": 1,
-  "merge_requests_enabled": true,
-  "jobs_enabled": true,
-  "wiki_enabled": true,
-  "snippets_enabled": false,
-  "can_create_merge_request_in": true,
-  "resolve_outdated_diff_discussions": false,
-  "container_registry_enabled": false, // deprecated, use container_registry_access_level instead
-  "container_registry_access_level": "disabled",
-  "security_and_compliance_access_level": "disabled",
-  "created_at": "2013-09-30T13:46:02Z",
-  "updated_at": "2013-09-30T13:46:02Z",
-  "last_activity_at": "2013-09-30T13:46:02Z",
-  "creator_id": 3,
-  "namespace": {
+ },
+ "name": "Diaspora Project Site",
+ "name_with_namespace": "Diaspora / Diaspora Project Site",
+ "path": "diaspora-project-site",
+ "path_with_namespace": "diaspora/diaspora-project-site",
+ "repository_object_format": "sha1",
+ "issues_enabled": true,
+ "open_issues_count": 1,
+ "merge_requests_enabled": true,
+ "jobs_enabled": true,
+ "wiki_enabled": true,
+ "snippets_enabled": false,
+ "can_create_merge_request_in": true,
+ "resolve_outdated_diff_discussions": false,
+ "container_registry_enabled": false, // deprecated, use container_registry_access_level instead
+ "container_registry_access_level": "disabled",
+ "security_and_compliance_access_level": "disabled",
+ "created_at": "2013-09-30T13:46:02Z",
+ "updated_at": "2013-09-30T13:46:02Z",
+ "last_activity_at": "2013-09-30T13:46:02Z",
+ "creator_id": 3,
+ "namespace": {
     "id": 3,
     "name": "Diaspora",
     "path": "diaspora",
     "kind": "group",
     "full_path": "diaspora"
-  },
-  "import_status": "none",
-  "import_error": null,
-  "permissions": {
+ },
+ "import_status": "none",
+ "import_error": null,
+ "permissions": {
     "project_access": {
       "access_level": 10,
       "notification_level": 3
@@ -1975,49 +1960,49 @@ Example response:
       "access_level": 50,
       "notification_level": 3
     }
-  },
-  "archived": true,
-  "avatar_url": "http://example.com/uploads/project/avatar/3/uploads/avatar.png",
-  "license_url": "http://example.com/diaspora/diaspora-client/blob/main/LICENSE",
-  "license": {
+ },
+ "archived": true,
+ "avatar_url": "http://example.com/uploads/project/avatar/3/uploads/avatar.png",
+ "license_url": "http://example.com/diaspora/diaspora-client/blob/main/LICENSE",
+ "license": {
     "key": "lgpl-3.0",
     "name": "GNU Lesser General Public License v3.0",
     "nickname": "GNU LGPLv3",
     "html_url": "http://choosealicense.com/licenses/lgpl-3.0/",
     "source_url": "http://www.gnu.org/licenses/lgpl-3.0.txt"
-  },
-  "shared_runners_enabled": true,
-  "group_runners_enabled": true,
-  "forks_count": 0,
-  "star_count": 0,
-  "runners_token": "b8bc4a7a29eb76ea83cf79e4908c2b",
-  "ci_default_git_depth": 50,
-  "ci_forward_deployment_enabled": true,
-  "ci_forward_deployment_rollback_allowed": true,
-  "ci_allow_fork_pipelines_to_run_in_parent_project": true,
-  "ci_id_token_sub_claim_components": ["project_path", "ref_type", "ref"],
-  "ci_separated_caches": true,
-  "ci_restrict_pipeline_cancellation_role": "developer",
-  "ci_pipeline_variables_minimum_override_role": "maintainer",
-  "ci_push_repository_for_job_token_allowed": false,
-  "public_jobs": true,
-  "shared_with_groups": [],
-  "only_allow_merge_if_pipeline_succeeds": false,
-  "allow_merge_on_skipped_pipeline": false,
-  "allow_pipeline_trigger_approve_deployment": false,
-  "restrict_user_defined_variables": false,
-  "only_allow_merge_if_all_discussions_are_resolved": false,
-  "remove_source_branch_after_merge": false,
-  "request_access_enabled": false,
-  "merge_method": "merge",
-  "squash_option": "default_on",
-  "autoclose_referenced_issues": true,
-  "enforce_auth_checks_on_uploads": true,
-  "suggestion_commit_message": null,
-  "merge_commit_template": null,
-  "secret_push_protection_enabled": false,
-  "container_registry_image_prefix": "registry.example.com/diaspora/diaspora-project-site",
-  "_links": {
+ },
+ "shared_runners_enabled": true,
+ "group_runners_enabled": true,
+ "forks_count": 0,
+ "star_count": 0,
+ "runners_token": "b8bc4a7a29eb76ea83cf79e4908c2b",
+ "ci_default_git_depth": 50,
+ "ci_forward_deployment_enabled": true,
+ "ci_forward_deployment_rollback_allowed": true,
+ "ci_allow_fork_pipelines_to_run_in_parent_project": true,
+ "ci_id_token_sub_claim_components": ["project_path", "ref_type", "ref"],
+ "ci_separated_caches": true,
+ "ci_restrict_pipeline_cancellation_role": "developer",
+ "ci_pipeline_variables_minimum_override_role": "maintainer",
+ "ci_push_repository_for_job_token_allowed": false,
+ "public_jobs": true,
+ "shared_with_groups": [],
+ "only_allow_merge_if_pipeline_succeeds": false,
+ "allow_merge_on_skipped_pipeline": false,
+ "allow_pipeline_trigger_approve_deployment": false,
+ "restrict_user_defined_variables": false,
+ "only_allow_merge_if_all_discussions_are_resolved": false,
+ "remove_source_branch_after_merge": false,
+ "request_access_enabled": false,
+ "merge_method": "merge",
+ "squash_option": "default_on",
+ "autoclose_referenced_issues": true,
+ "enforce_auth_checks_on_uploads": true,
+ "suggestion_commit_message": null,
+ "merge_commit_template": null,
+ "secret_push_protection_enabled": false,
+ "container_registry_image_prefix": "registry.example.com/diaspora/diaspora-project-site",
+ "_links": {
     "self": "http://example.com/api/v4/projects",
     "issues": "http://example.com/api/v4/projects/1/issues",
     "merge_requests": "http://example.com/api/v4/projects/1/merge_requests",
@@ -2026,7 +2011,7 @@ Example response:
     "events": "http://example.com/api/v4/projects/1/events",
     "members": "http://example.com/api/v4/projects/1/members",
     "cluster_agents": "http://example.com/api/v4/projects/1/cluster_agents"
-  }
+ }
 }
 ```
 
@@ -2054,66 +2039,66 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/unarchive"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/unarchive"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 3,
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  "description_html": "<p data-sourcepos=\"1:1-1:56\" dir=\"auto\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
-  "default_branch": "main",
-  "visibility": "private",
-  "ssh_url_to_repo": "git@example.com:diaspora/diaspora-project-site.git",
-  "http_url_to_repo": "http://example.com/diaspora/diaspora-project-site.git",
-  "web_url": "http://example.com/diaspora/diaspora-project-site",
-  "readme_url": "http://example.com/diaspora/diaspora-project-site/blob/main/README.md",
-  "tag_list": [ //deprecated, use `topics` instead
+ "id": 3,
+ "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+ "description_html": "<p data-sourcepos=\"1:1-1:56\" dir=\"auto\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+ "default_branch": "main",
+ "visibility": "private",
+ "ssh_url_to_repo": "git@example.com:diaspora/diaspora-project-site.git",
+ "http_url_to_repo": "http://example.com/diaspora/diaspora-project-site.git",
+ "web_url": "http://example.com/diaspora/diaspora-project-site",
+ "readme_url": "http://example.com/diaspora/diaspora-project-site/blob/main/README.md",
+ "tag_list": [ //deprecated, use `topics` instead
     "example",
     "disapora project"
-  ],
-  "topics": [
+ ],
+ "topics": [
     "example",
     "disapora project"
-  ],
-  "owner": {
+ ],
+ "owner": {
     "id": 3,
     "name": "Diaspora",
     "created_at": "2013-09-30T13:46:02Z"
-  },
-  "name": "Diaspora Project Site",
-  "name_with_namespace": "Diaspora / Diaspora Project Site",
-  "path": "diaspora-project-site",
-  "path_with_namespace": "diaspora/diaspora-project-site",
-  "repository_object_format": "sha1",
-  "issues_enabled": true,
-  "open_issues_count": 1,
-  "merge_requests_enabled": true,
-  "jobs_enabled": true,
-  "wiki_enabled": true,
-  "snippets_enabled": false,
-  "can_create_merge_request_in": true,
-  "resolve_outdated_diff_discussions": false,
-  "container_registry_enabled": false, // deprecated, use container_registry_access_level instead
-  "container_registry_access_level": "disabled",
-  "security_and_compliance_access_level": "disabled",
-  "created_at": "2013-09-30T13:46:02Z",
-  "updated_at": "2013-09-30T13:46:02Z",
-  "last_activity_at": "2013-09-30T13:46:02Z",
-  "creator_id": 3,
-  "namespace": {
+ },
+ "name": "Diaspora Project Site",
+ "name_with_namespace": "Diaspora / Diaspora Project Site",
+ "path": "diaspora-project-site",
+ "path_with_namespace": "diaspora/diaspora-project-site",
+ "repository_object_format": "sha1",
+ "issues_enabled": true,
+ "open_issues_count": 1,
+ "merge_requests_enabled": true,
+ "jobs_enabled": true,
+ "wiki_enabled": true,
+ "snippets_enabled": false,
+ "can_create_merge_request_in": true,
+ "resolve_outdated_diff_discussions": false,
+ "container_registry_enabled": false, // deprecated, use container_registry_access_level instead
+ "container_registry_access_level": "disabled",
+ "security_and_compliance_access_level": "disabled",
+ "created_at": "2013-09-30T13:46:02Z",
+ "updated_at": "2013-09-30T13:46:02Z",
+ "last_activity_at": "2013-09-30T13:46:02Z",
+ "creator_id": 3,
+ "namespace": {
     "id": 3,
     "name": "Diaspora",
     "path": "diaspora",
     "kind": "group",
     "full_path": "diaspora"
-  },
-  "import_status": "none",
-  "import_error": null,
-  "permissions": {
+ },
+ "import_status": "none",
+ "import_error": null,
+ "permissions": {
     "project_access": {
       "access_level": 10,
       "notification_level": 3
@@ -2122,49 +2107,49 @@ Example response:
       "access_level": 50,
       "notification_level": 3
     }
-  },
-  "archived": false,
-  "avatar_url": "http://example.com/uploads/project/avatar/3/uploads/avatar.png",
-  "license_url": "http://example.com/diaspora/diaspora-client/blob/main/LICENSE",
-  "license": {
+ },
+ "archived": false,
+ "avatar_url": "http://example.com/uploads/project/avatar/3/uploads/avatar.png",
+ "license_url": "http://example.com/diaspora/diaspora-client/blob/main/LICENSE",
+ "license": {
     "key": "lgpl-3.0",
     "name": "GNU Lesser General Public License v3.0",
     "nickname": "GNU LGPLv3",
     "html_url": "http://choosealicense.com/licenses/lgpl-3.0/",
     "source_url": "http://www.gnu.org/licenses/lgpl-3.0.txt"
-  },
-  "shared_runners_enabled": true,
-  "group_runners_enabled": true,
-  "forks_count": 0,
-  "star_count": 0,
-  "runners_token": "b8bc4a7a29eb76ea83cf79e4908c2b",
-  "ci_default_git_depth": 50,
-  "ci_forward_deployment_enabled": true,
-  "ci_forward_deployment_rollback_allowed": true,
-  "ci_allow_fork_pipelines_to_run_in_parent_project": true,
-  "ci_id_token_sub_claim_components": ["project_path", "ref_type", "ref"],
-  "ci_separated_caches": true,
-  "ci_restrict_pipeline_cancellation_role": "developer",
-  "ci_pipeline_variables_minimum_override_role": "maintainer",
-  "ci_push_repository_for_job_token_allowed": false,
-  "public_jobs": true,
-  "shared_with_groups": [],
-  "only_allow_merge_if_pipeline_succeeds": false,
-  "allow_merge_on_skipped_pipeline": false,
-  "allow_pipeline_trigger_approve_deployment": false,
-  "restrict_user_defined_variables": false,
-  "only_allow_merge_if_all_discussions_are_resolved": false,
-  "remove_source_branch_after_merge": false,
-  "request_access_enabled": false,
-  "merge_method": "merge",
-  "squash_option": "default_on",
-  "autoclose_referenced_issues": true,
-  "enforce_auth_checks_on_uploads": true,
-  "suggestion_commit_message": null,
-  "merge_commit_template": null,
-  "container_registry_image_prefix": "registry.example.com/diaspora/diaspora-project-site",
-  "secret_push_protection_enabled": false,
-  "_links": {
+ },
+ "shared_runners_enabled": true,
+ "group_runners_enabled": true,
+ "forks_count": 0,
+ "star_count": 0,
+ "runners_token": "b8bc4a7a29eb76ea83cf79e4908c2b",
+ "ci_default_git_depth": 50,
+ "ci_forward_deployment_enabled": true,
+ "ci_forward_deployment_rollback_allowed": true,
+ "ci_allow_fork_pipelines_to_run_in_parent_project": true,
+ "ci_id_token_sub_claim_components": ["project_path", "ref_type", "ref"],
+ "ci_separated_caches": true,
+ "ci_restrict_pipeline_cancellation_role": "developer",
+ "ci_pipeline_variables_minimum_override_role": "maintainer",
+ "ci_push_repository_for_job_token_allowed": false,
+ "public_jobs": true,
+ "shared_with_groups": [],
+ "only_allow_merge_if_pipeline_succeeds": false,
+ "allow_merge_on_skipped_pipeline": false,
+ "allow_pipeline_trigger_approve_deployment": false,
+ "restrict_user_defined_variables": false,
+ "only_allow_merge_if_all_discussions_are_resolved": false,
+ "remove_source_branch_after_merge": false,
+ "request_access_enabled": false,
+ "merge_method": "merge",
+ "squash_option": "default_on",
+ "autoclose_referenced_issues": true,
+ "enforce_auth_checks_on_uploads": true,
+ "suggestion_commit_message": null,
+ "merge_commit_template": null,
+ "container_registry_image_prefix": "registry.example.com/diaspora/diaspora-project-site",
+ "secret_push_protection_enabled": false,
+ "_links": {
     "self": "http://example.com/api/v4/projects",
     "issues": "http://example.com/api/v4/projects/1/issues",
     "merge_requests": "http://example.com/api/v4/projects/1/merge_requests",
@@ -2173,7 +2158,7 @@ Example response:
     "events": "http://example.com/api/v4/projects/1/events",
     "members": "http://example.com/api/v4/projects/1/members",
     "cluster_agents": "http://example.com/api/v4/projects/1/cluster_agents"
-  }
+ }
 }
 ```
 
@@ -2184,10 +2169,9 @@ Example response:
 - Immediately deleting projects was [enabled on GitLab.com and GitLab Self-Managed](https://gitlab.com/gitlab-org/gitlab/-/issues/396500) in GitLab 15.11.
 - [Marking project for deletion was moved](https://gitlab.com/groups/gitlab-org/-/epics/17208) from GitLab Premium to GitLab Free in 18.0.
 - Since GitLab 18.5, `permanently_remove` is [not permitted](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/205572)
-  when the immediate deletion
-  [instance setting](../administration/settings/visibility_and_access_controls.md#immediate-deletion)
-  is disabled (behind [a feature flag](../administration/feature_flags/_index.md) named `allow_immediate_namespaces_deletion`).
-  The setting is enabled by default on self-managed, but disabled on GitLab.com and Dedicated.
+ when the immediate deletion [instance setting](../administration/settings/visibility_and_access_controls.md#immediate-deletion)
+ is disabled (behind [a feature flag](../administration/feature_flags/_index.md) named `allow_immediate_namespaces_deletion`).
+ The setting is enabled by default on self-managed, but disabled on GitLab.com and Dedicated.
 
 {{< /history >}}
 
@@ -2198,8 +2182,7 @@ Prerequisites:
 Marks a project for deletion. Projects are deleted at the end of the retention period:
 
 - On GitLab.com, projects are retained for 30 days.
-- On GitLab Self-Managed, the retention period is controlled by the
-  [instance settings](../administration/settings/visibility_and_access_controls.md#deletion-protection).
+- On GitLab Self-Managed, the retention period is controlled by the [instance settings](../administration/settings/visibility_and_access_controls.md#deletion-protection).
 
 This endpoint can also immediately delete a project that was previously marked for deletion.
 
@@ -2240,8 +2223,7 @@ Supported attributes:
 
 Transfer a project to a new namespace.
 
-For information on prerequisites for transferring a project, see
-[Transfer a project to another namespace](../user/project/working_with_projects.md#transfer-a-project).
+For information on prerequisites for transferring a project, see [Transfer a project to another namespace](../user/project/working_with_projects.md#transfer-a-project).
 
 ```plaintext
 PUT /projects/:id/transfer
@@ -2258,35 +2240,35 @@ Example request:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/transfer?namespace=14"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/transfer?namespace=14"
 ```
 
 Example response:
 
 ```json
-  {
-  "id": 7,
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  "description_html": "<p data-sourcepos=\"1:1-1:56\" dir=\"auto\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
-  "name": "hello-world",
-  "name_with_namespace": "cute-cats / hello-world",
-  "path": "hello-world",
-  "path_with_namespace": "cute-cats/hello-world",
-  "created_at": "2020-10-15T16:25:22.415Z",
-  "updated_at": "2020-10-15T16:25:22.415Z",
-  "default_branch": "main",
-  "tag_list": [], //deprecated, use `topics` instead
-  "topics": [],
-  "ssh_url_to_repo": "git@gitlab.example.com:cute-cats/hello-world.git",
-  "http_url_to_repo": "https://gitlab.example.com/cute-cats/hello-world.git",
-  "web_url": "https://gitlab.example.com/cute-cats/hello-world",
-  "readme_url": "https://gitlab.example.com/cute-cats/hello-world/-/blob/main/README.md",
-  "avatar_url": null,
-  "forks_count": 0,
-  "star_count": 0,
-  "last_activity_at": "2020-10-15T16:25:22.415Z",
-  "namespace": {
+ {
+ "id": 7,
+ "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+ "description_html": "<p data-sourcepos=\"1:1-1:56\" dir=\"auto\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+ "name": "hello-world",
+ "name_with_namespace": "cute-cats / hello-world",
+ "path": "hello-world",
+ "path_with_namespace": "cute-cats/hello-world",
+ "created_at": "2020-10-15T16:25:22.415Z",
+ "updated_at": "2020-10-15T16:25:22.415Z",
+ "default_branch": "main",
+ "tag_list": [], //deprecated, use `topics` instead
+ "topics": [],
+ "ssh_url_to_repo": "git@gitlab.example.com:cute-cats/hello-world.git",
+ "http_url_to_repo": "https://gitlab.example.com/cute-cats/hello-world.git",
+ "web_url": "https://gitlab.example.com/cute-cats/hello-world",
+ "readme_url": "https://gitlab.example.com/cute-cats/hello-world/-/blob/main/README.md",
+ "avatar_url": null,
+ "forks_count": 0,
+ "star_count": 0,
+ "last_activity_at": "2020-10-15T16:25:22.415Z",
+ "namespace": {
     "id": 18,
     "name": "cute-cats",
     "path": "cute-cats",
@@ -2295,9 +2277,9 @@ Example response:
     "parent_id": null,
     "avatar_url": null,
     "web_url": "https://gitlab.example.com/groups/cute-cats"
-  },
-  "container_registry_image_prefix": "registry.example.com/cute-cats/hello-world",
-  "_links": {
+ },
+ "container_registry_image_prefix": "registry.example.com/cute-cats/hello-world",
+ "_links": {
     "self": "https://gitlab.example.com/api/v4/projects/7",
     "issues": "https://gitlab.example.com/api/v4/projects/7/issues",
     "merge_requests": "https://gitlab.example.com/api/v4/projects/7/merge_requests",
@@ -2305,16 +2287,16 @@ Example response:
     "labels": "https://gitlab.example.com/api/v4/projects/7/labels",
     "events": "https://gitlab.example.com/api/v4/projects/7/events",
     "members": "https://gitlab.example.com/api/v4/projects/7/members"
-  },
-  "packages_enabled": true, // deprecated, use package_registry_access_level instead
-  "package_registry_access_level": "enabled",
-  "empty_repo": false,
-  "archived": false,
-  "visibility": "private",
-  "resolve_outdated_diff_discussions": false,
-  "container_registry_enabled": true, // deprecated, use container_registry_access_level instead
-  "container_registry_access_level": "enabled",
-  "container_expiration_policy": {
+ },
+ "packages_enabled": true, // deprecated, use package_registry_access_level instead
+ "package_registry_access_level": "enabled",
+ "empty_repo": false,
+ "archived": false,
+ "visibility": "private",
+ "resolve_outdated_diff_discussions": false,
+ "container_registry_enabled": true, // deprecated, use container_registry_access_level instead
+ "container_registry_access_level": "enabled",
+ "container_expiration_policy": {
     "cadence": "7d",
     "enabled": false,
     "keep_n": null,
@@ -2322,59 +2304,59 @@ Example response:
     "name_regex": null,
     "name_regex_keep": null,
     "next_run_at": "2020-10-22T16:25:22.746Z"
-  },
-  "issues_enabled": true,
-  "merge_requests_enabled": true,
-  "wiki_enabled": true,
-  "jobs_enabled": true,
-  "snippets_enabled": true,
-  "service_desk_enabled": false,
-  "service_desk_address": null,
-  "can_create_merge_request_in": true,
-  "issues_access_level": "enabled",
-  "repository_access_level": "enabled",
-  "merge_requests_access_level": "enabled",
-  "forking_access_level": "enabled",
-  "analytics_access_level": "enabled",
-  "wiki_access_level": "enabled",
-  "builds_access_level": "enabled",
-  "snippets_access_level": "enabled",
-  "pages_access_level": "enabled",
-  "security_and_compliance_access_level": "enabled",
-  "emails_disabled": null,
-  "emails_enabled": null,
-  "shared_runners_enabled": true,
-  "group_runners_enabled": true,
-  "lfs_enabled": true,
-  "creator_id": 2,
-  "import_status": "none",
-  "open_issues_count": 0,
-  "ci_default_git_depth": 50,
-  "public_jobs": true,
-  "build_timeout": 3600,
-  "auto_cancel_pending_pipelines": "enabled",
-  "ci_config_path": null,
-  "shared_with_groups": [],
-  "only_allow_merge_if_pipeline_succeeds": false,
-  "allow_merge_on_skipped_pipeline": null,
-  "allow_pipeline_trigger_approve_deployment": false,
-  "restrict_user_defined_variables": false,
-  "request_access_enabled": true,
-  "only_allow_merge_if_all_discussions_are_resolved": false,
-  "remove_source_branch_after_merge": true,
-  "printing_merge_request_link_enabled": true,
-  "merge_method": "merge",
-  "squash_option": "default_on",
-  "suggestion_commit_message": null,
-  "merge_commit_template": null,
-  "auto_devops_enabled": true,
-  "auto_devops_deploy_strategy": "continuous",
-  "autoclose_referenced_issues": true,
-  "approvals_before_merge": 0, // Deprecated. Use merge request approvals API instead.
-  "mirror": false,
-  "compliance_frameworks": [],
-  "warn_about_potentially_unwanted_characters": true,
-  "secret_push_protection_enabled": false
+ },
+ "issues_enabled": true,
+ "merge_requests_enabled": true,
+ "wiki_enabled": true,
+ "jobs_enabled": true,
+ "snippets_enabled": true,
+ "service_desk_enabled": false,
+ "service_desk_address": null,
+ "can_create_merge_request_in": true,
+ "issues_access_level": "enabled",
+ "repository_access_level": "enabled",
+ "merge_requests_access_level": "enabled",
+ "forking_access_level": "enabled",
+ "analytics_access_level": "enabled",
+ "wiki_access_level": "enabled",
+ "builds_access_level": "enabled",
+ "snippets_access_level": "enabled",
+ "pages_access_level": "enabled",
+ "security_and_compliance_access_level": "enabled",
+ "emails_disabled": null,
+ "emails_enabled": null,
+ "shared_runners_enabled": true,
+ "group_runners_enabled": true,
+ "lfs_enabled": true,
+ "creator_id": 2,
+ "import_status": "none",
+ "open_issues_count": 0,
+ "ci_default_git_depth": 50,
+ "public_jobs": true,
+ "build_timeout": 3600,
+ "auto_cancel_pending_pipelines": "enabled",
+ "ci_config_path": null,
+ "shared_with_groups": [],
+ "only_allow_merge_if_pipeline_succeeds": false,
+ "allow_merge_on_skipped_pipeline": null,
+ "allow_pipeline_trigger_approve_deployment": false,
+ "restrict_user_defined_variables": false,
+ "request_access_enabled": true,
+ "only_allow_merge_if_all_discussions_are_resolved": false,
+ "remove_source_branch_after_merge": true,
+ "printing_merge_request_link_enabled": true,
+ "merge_method": "merge",
+ "squash_option": "default_on",
+ "suggestion_commit_message": null,
+ "merge_commit_template": null,
+ "auto_devops_enabled": true,
+ "auto_devops_deploy_strategy": "continuous",
+ "autoclose_referenced_issues": true,
+ "approvals_before_merge": 0, // Deprecated. Use merge request approvals API instead.
+ "mirror": false,
+ "compliance_frameworks": [],
+ "warn_about_potentially_unwanted_characters": true,
+ "secret_push_protection_enabled": false
 }
 ```
 
@@ -2397,7 +2379,7 @@ Supported attributes:
 | Attribute | Type              | Required | Description |
 |:----------|:------------------|:---------|:------------|
 | `id`      | integer or string | Yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
-| `search`  | string            | No       | The group names to search for. |
+| `search` | string            | No       | The group names to search for. |
 
 Example request:
 
@@ -2409,22 +2391,22 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 27,
     "web_url": "https://gitlab.example.com/groups/gitlab",
     "name": "GitLab",
     "avatar_url": null,
     "full_name": "GitLab",
     "full_path": "GitLab"
-  },
-  {
+ },
+ {
     "id": 31,
     "web_url": "https://gitlab.example.com/groups/foobar",
     "name": "FooBar",
     "avatar_url": null,
     "full_name": "FooBar",
     "full_path": "FooBar"
-  }
+ }
 ]
 ```
 
@@ -2441,39 +2423,36 @@ Prerequisites:
 - You must have at least the Maintainer role for the project.
 - Your file must be 200 KB or smaller. The ideal image size is 192 x 192 pixels.
 - The image must be one of the following file types:
-  - `.bmp`
-  - `.gif`
-  - `.ico`
-  - `.jpeg`
-  - `.png`
-  - `.tiff`
+ - `.bmp`
+ - `.gif`
+ - `.ico`
+ - `.jpeg`
+ - `.png`
+ - `.tiff`
 
 Supported attributes:
 
 | Attribute | Type              | Required | Description |
 |:----------|:------------------|:---------|:------------|
-| `avatar`  | string            | Yes      | The file to be uploaded. |
+| `avatar` | string            | Yes      | The file to be uploaded. |
 | `id`      | integer or string | Yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 
-To upload an avatar from your file system, use the `--form` argument. This causes
-cURL to post data using the header `Content-Type: multipart/form-data`. The
-`avatar=` parameter must point to an image file on your file system and be
-preceded by `@`.
+To upload an avatar from your file system, use the `--form` argument. This causes cURL to post data using the header `Content-Type: multipart/form-data`. The `avatar=` parameter must point to an image file on your file system and be preceded by `@`.
 
 Example request:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5" \
-  --form "avatar=@dk.png"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5" \
+ --form "avatar=@dk.png"
 ```
 
 Example response:
 
 ```json
 {
-  "avatar_url": "https://gitlab.example.com/uploads/-/system/project/avatar/2/dk.png"
+ "avatar_url": "https://gitlab.example.com/uploads/-/system/project/avatar/2/dk.png"
 }
 ```
 
@@ -2501,7 +2480,7 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/4/avatar"
+ --url "https://gitlab.example.com/api/v4/projects/4/avatar"
 ```
 
 ### Remove a project avatar
@@ -2554,7 +2533,7 @@ DELETE /projects/:id/share/:group_id
 
 Supported attributes:
 
-| Attribute  | Type              | Required | Description |
+| Attribute | Type              | Required | Description |
 |:-----------|:------------------|:---------|:------------|
 | `group_id` | integer           | Yes      | The ID of the group. |
 | `id`       | integer or string | Yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
@@ -2563,8 +2542,8 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/share/17"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/share/17"
 ```
 
 ## Start the housekeeping task for a project
@@ -2616,8 +2595,8 @@ Example request:
 curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
  --header "Content-Type: application/json" \
  --data '{
-  "file_path":"src/main.c",
-  "content":"#include<string.h>\nint main(int argc, char **argv) {\n  char buff[128];\n  strcpy(buff, argv[1]);\n  return 0;\n}\n"
+ "file_path":"src/main.c",
+ "content":"#include<string.h>\nint main(int argc, char **argv) {\n char buff[128];\n strcpy(buff, argv[1]);\n return 0;\n}\n"
  }' \
  --url "https://gitlab.example.com/api/v4/projects/:id/security_scans/sast/scan"
 ```
@@ -2626,7 +2605,7 @@ Example response:
 
 ```json
 {
-  "vulnerabilities": [
+ "vulnerabilities": [
     {
       "name": "Insecure string processing function (strcpy)",
       "description": "The `strcpy` family of functions do not provide the ability to limit or check buffer\nsizes before copying to a destination buffer. This can lead to buffer overflows. Consider\nusing more secure alternatives such as `strncpy` and provide the correct limit to the\ndestination buffer and ensure the string is null terminated.\n\nFor more information please see: https://linux.die.net/man/3/strncpy\n\nIf developing for C Runtime Library (CRT), more secure versions of these functions should be\nused, see:\nhttps://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/strncpy-s-strncpy-s-l-wcsncpy-s-wcsncpy-s-l-mbsncpy-s-mbsncpy-s-l?view=msvc-170\n",
@@ -2639,7 +2618,7 @@ Example response:
         "end_column": 23
       }
     }
-  ]
+ ]
 }
 ```
 
@@ -2647,12 +2626,10 @@ Example response:
 
 This endpoint may only be accessed by an administrative user.
 
-Download a snapshot of the project (or wiki, if requested) Git repository. This
-snapshot is always in uncompressed [tar](https://en.wikipedia.org/wiki/Tar_(computing))
+Download a snapshot of the project (or wiki, if requested) Git repository. This snapshot is always in uncompressed [tar](https://en.wikipedia.org/wiki/Tar_(computing))
 format.
 
-If a repository is corrupted to the point where `git clone` doesn't work, the
-snapshot may allow some of the data to be retrieved.
+If a repository is corrupted to the point where `git clone` doesn't work, the snapshot may allow some of the data to be retrieved.
 
 ```plaintext
 GET /projects/:id/snapshot
@@ -2683,12 +2660,12 @@ Supported attributes:
 
 ```json
 [
-  {
+ {
     "project_id": 1,
     "disk_path": "@hashed/6b/86/6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
     "created_at": "2012-10-12T17:04:47Z",
     "repository_storage": "default"
-  }
+ }
 ]
 ```
 
@@ -2727,10 +2704,10 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "project_id": 3,
-  "secret_push_protection_enabled": true,
-  ...
+ "id": 1,
+ "project_id": 3,
+ "secret_push_protection_enabled": true,
+ ...
 }
 ```
 
@@ -2738,15 +2715,9 @@ Example response:
 
 ### Unexpected `restrict_user_defined_variables` value in response
 
-If you set conflicting values for `restrict_user_defined_variables` and `ci_pipeline_variables_minimum_override_role`,
-the response values might differ from what you expect because the `pipeline_variables_minimum_override_role`
-setting has higher priority.
+If you set conflicting values for `restrict_user_defined_variables` and `ci_pipeline_variables_minimum_override_role`, the response values might differ from what you expect because the `pipeline_variables_minimum_override_role` setting has higher priority.
 
 For example, if you:
 
-- Set `restrict_user_defined_variables` to `true` and `ci_pipeline_variables_minimum_override_role` to `developer`,
-  the response returns `restrict_user_defined_variables: false`. Setting `ci_pipeline_variables_minimum_override_role`
-  to `developer` takes precedence and variables are not restricted.
-- Set `restrict_user_defined_variables` to `false` and `ci_pipeline_variables_minimum_override_role` to `maintainer`,
-  The response returns `restrict_user_defined_variables: true` because setting `ci_pipeline_variables_minimum_override_role`
-  to `maintainer` takes precedence and variables are restricted.
+- Set `restrict_user_defined_variables` to `true` and `ci_pipeline_variables_minimum_override_role` to `developer`, the response returns `restrict_user_defined_variables: false`. Setting `ci_pipeline_variables_minimum_override_role` to `developer` takes precedence and variables are not restricted.
+- Set `restrict_user_defined_variables` to `false` and `ci_pipeline_variables_minimum_override_role` to `maintainer`, The response returns `restrict_user_defined_variables: true` because setting `ci_pipeline_variables_minimum_override_role` to `maintainer` takes precedence and variables are restricted.

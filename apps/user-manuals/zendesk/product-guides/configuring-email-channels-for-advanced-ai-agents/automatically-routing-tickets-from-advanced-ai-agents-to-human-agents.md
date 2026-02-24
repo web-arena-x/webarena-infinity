@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357734509466-Automaticall
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -20,9 +20,9 @@ Second, go to the email AI agent in our dashboard by selecting it in the top rig
 - Select the intent that you would like to have the tickets be assigned to automatically
 - Click the pencil icon > **Go To Detail Page > Actions**
 - Click **+ New Action**, and set the three fields below as follow:
-  - Target: Zendesk Support
-  - Action: Update Ticket Info
-  - Assignee ID: Enter the assignee ID from Zendesk Support
+ - Target: Zendesk Support
+ - Action: Update Ticket Info
+ - Assignee ID: Enter the assignee ID from Zendesk Support
 
 These three are mandatory in this use case but feel free to update other fields by selecting the dropdown menu. In the example below I would also like to set the **Type** to be `task`, **Priority** to be `high`, and **Status** to be `new`.
 

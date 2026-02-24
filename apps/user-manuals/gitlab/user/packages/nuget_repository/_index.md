@@ -12,8 +12,7 @@ title: NuGet packages in the package registry
 
 {{< /details >}}
 
-Publish NuGet packages in your project's package registry. Then, install the
-packages whenever you need to use them as a dependency.
+Publish NuGet packages in your project's package registry. Then, install the packages whenever you need to use them as a dependency.
 
 The package registry works with:
 
@@ -27,13 +26,10 @@ Learn how to [install NuGet](../workflows/build_packages.md#nuget).
 
 ## Authenticate to the package registry
 
-You need an authentication token to access the GitLab package registry. Different tokens are available depending on what you're trying to
-achieve. For more information, review the [guidance on tokens](../package_registry/supported_functionality.md#authenticate-with-the-registry).
+You need an authentication token to access the GitLab package registry. Different tokens are available depending on what you're trying to achieve. For more information, review the [guidance on tokens](../package_registry/supported_functionality.md#authenticate-with-the-registry).
 
-- If your organization uses two-factor authentication (2FA), you must use a
-  [personal access token](../../profile/personal_access_tokens.md) with the scope set to `api`.
-- If you publish a package with CI/CD pipelines, you can use a [CI/CD job token](../../../ci/jobs/ci_job_token.md) with
-  private runners. You can also [register a variable](https://docs.gitlab.com/runner/register/#register-with-a-runner-authentication-token) for instance runners.
+- If your organization uses two-factor authentication (2FA), you must use a [personal access token](../../profile/personal_access_tokens.md) with the scope set to `api`.
+- If you publish a package with CI/CD pipelines, you can use a [CI/CD job token](../../../ci/jobs/ci_job_token.md) with private runners. You can also [register a variable](https://docs.gitlab.com/runner/register/#register-with-a-runner-authentication-token) for instance runners.
 
 ## Use the GitLab endpoint for NuGet packages
 
@@ -48,8 +44,7 @@ Because of how NuGet handles credentials, the package registry rejects anonymous
 
 ## Add the package registry as a source for NuGet packages
 
-To publish and install packages to the package registry, you must add the
-package registry as a source for your packages.
+To publish and install packages to the package registry, you must add the package registry as a source for your packages.
 
 Prerequisites:
 
@@ -146,9 +141,7 @@ To add the package registry as a source with Visual Studio:
 1. Complete the following fields:
 
    - **Name**: Name for the source.
-   - **Source**: `https://gitlab.example.com/api/v4/projects/<project_id>/packages/nuget/index.json`,
-     where `<project_id>` is your project ID, and `gitlab.example.com` is
-     your domain name.
+   - **Source**: `https://gitlab.example.com/api/v4/projects/<project_id>/packages/nuget/index.json`, where `<project_id>` is your project ID, and `gitlab.example.com` is your domain name.
 
 1. Select **Save**.
 1. When you access the package, you must enter your **Username** and **Password**:
@@ -158,8 +151,7 @@ To add the package registry as a source with Visual Studio:
 
 The source is displayed in your list.
 
-If you get a warning, ensure that the **Source**, **Username**, and
-**Password** are correct.
+If you get a warning, ensure that the **Source**, **Username**, and **Password** are correct.
 
 {{< /tab >}}
 
@@ -269,9 +261,7 @@ To add the package registry as a source with Visual Studio:
 1. Complete the following fields:
 
    - **Name**: Name for the source.
-   - **Source**: `https://gitlab.example.com/api/v4/groups/<group_id>/-/packages/nuget/index.json`,
-     where `<group_id>` is your group ID, and `gitlab.example.com` is
-     your domain name.
+   - **Source**: `https://gitlab.example.com/api/v4/groups/<group_id>/-/packages/nuget/index.json`, where `<group_id>` is your group ID, and `gitlab.example.com` is your domain name.
 
 1. Select **Save**.
 1. When you access the package, you must enter your **Username** and **Password**.
@@ -281,8 +271,7 @@ To add the package registry as a source with Visual Studio:
 
 The source is displayed in your list.
 
-If you get a warning, ensure that the **Source**, **Username**, and
-**Password** are correct.
+If you get a warning, ensure that the **Source**, **Username**, and **Password** are correct.
 
 {{< /tab >}}
 
@@ -333,13 +322,11 @@ Prerequisites:
 When publishing packages:
 
 - Review the maximum file size limits for your GitLab instance:
-  - The [package registry limits on GitLab.com instances](../../gitlab_com/_index.md#package-registry-limits) vary by file format, and are not configurable.
-  - The [package registry limits on GitLab Self-Managed instances](../../../administration/instance_limits.md#file-size-limits) vary by file format, and are configurable.
-- If duplicates are allowed, and you publish the same package with the same version multiple times, each
-  consecutive upload is saved as a separate file. When installing a package,
-  GitLab serves the most recent file.
+ - The [package registry limits on GitLab.com instances](../../gitlab_com/_index.md#package-registry-limits) vary by file format, and are not configurable.
+ - The [package registry limits on GitLab Self-Managed instances](../../../administration/instance_limits.md#file-size-limits) vary by file format, and are configurable.
+- If duplicates are allowed, and you publish the same package with the same version multiple times, each consecutive upload is saved as a separate file. When installing a package, GitLab serves the most recent file.
 - Most uploaded packages should be immediately visible in the **Package registry** page. A few packages might take up to 10 minutes before they are visible if they need to be processed in the background.
-  a package.
+ a package.
 
 ### With NuGet CLI
 
@@ -441,18 +428,13 @@ choco push MyPackage.1.0.0.nupkg --source "https://gitlab.example.com/api/v4/pro
 
 ### With a CI/CD pipeline
 
-If you're publishing NuGet packages with GitLab CI/CD, you can use a
-[`CI_JOB_TOKEN` predefined variable](../../../ci/jobs/ci_job_token.md) instead of
-a personal access token or deploy token. The job token inherits the permissions of the
-user or member that generates the pipeline.
+If you're publishing NuGet packages with GitLab CI/CD, you can use a [`CI_JOB_TOKEN` predefined variable](../../../ci/jobs/ci_job_token.md) instead of a personal access token or deploy token. The job token inherits the permissions of the user or member that generates the pipeline.
 
-The examples in the following sections address
-common NuGet publishing workflows when using a CI/CD pipeline.
+The examples in the following sections address common NuGet publishing workflows when using a CI/CD pipeline.
 
 #### Publish packages when the default branch is updated
 
-To publish new packages each time the `main` branch is
-updated:
+To publish new packages each time the `main` branch is updated:
 
 1. In the `.gitlab-ci.yml` file of your project, add the following `deploy` job:
 
@@ -474,7 +456,7 @@ updated:
        # Push the package to the project's package registry
        - dotnet nuget push "bin/Release/*.nupkg" --source gitlab
      rules:
-       - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH  # Only run on the main branch
+       - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH # Only run on the main branch
      environment: production
    ```
 
@@ -482,8 +464,7 @@ updated:
 
 #### Publish versioned packages with Git tags
 
-To publish versioned NuGet packages
-with [Git tags](../../project/repository/tags/_index.md):
+To publish versioned NuGet packages with [Git tags](../../project/repository/tags/_index.md):
 
 1. In the `.gitlab-ci.yml` file of your project, add the following `deploy` job:
 
@@ -498,7 +479,7 @@ with [Git tags](../../project/repository/tags/_index.md):
        # Push the package to the project's package registry
        - dotnet nuget push "bin/Release/*.nupkg" --source gitlab
      rules:
-       - if: $CI_COMMIT_TAG  # Only run when a tag is pushed
+       - if: $CI_COMMIT_TAG # Only run when a tag is pushed
    ```
 
 1. Commit the changes and push them to your GitLab repository.
@@ -506,11 +487,9 @@ with [Git tags](../../project/repository/tags/_index.md):
 
 #### Publish conditionally for different environments
 
-You can configure the CI/CD pipeline to conditionally
-publish NuGet packages to different environments depending on your use case.
+You can configure the CI/CD pipeline to conditionally publish NuGet packages to different environments depending on your use case.
 
-To conditionally publish NuGet packages
-for `development` and `production` environments:
+To conditionally publish NuGet packages for `development` and `production` environments:
 
 1. In the `.gitlab-ci.yml` file of your project, add the following `deploy` jobs:
 
@@ -570,23 +549,18 @@ To prevent group members and users from publishing duplicate NuGet packages, tur
 1. In the **NuGet** row of the **Duplicate packages** table, turn off the **Allow duplicates** toggle.
 1. Optional. In the **Exceptions** text box, enter a regular expression that matches the names and versions of packages to allow.
 
-You can also turn off duplicate NuGet packages with the
-`nuget_duplicates_allowed` setting in the [GraphQL API](../../../api/graphql/reference/_index.md#packagesettings).
+You can also turn off duplicate NuGet packages with the `nuget_duplicates_allowed` setting in the [GraphQL API](../../../api/graphql/reference/_index.md#packagesettings).
 
 {{< alert type="warning" >}}
 
-If the `.nuspec` file is not located in the root of the package
-or the beginning of the archive, the package might
-not be immediately recognized as a duplicate. When it is inevitably recognized as
-a duplicate, an error displays in the **Package manager** page.
+If the `.nuspec` file is not located in the root of the package or the beginning of the archive, the package might not be immediately recognized as a duplicate. When it is inevitably recognized as a duplicate, an error displays in the **Package manager** page.
 
 {{< /alert >}}
 
 ## Install a package
 
 The GitLab package registry can contain multiple packages with the same name and version.
-If you install a duplicate package,
-the latest published package is retrieved.
+If you install a duplicate package, the latest published package is retrieved.
 
 Prerequisites:
 
@@ -603,19 +577,16 @@ Install the latest version of a package by running this command:
 
 ```shell
 nuget install <package_id> -OutputDirectory <output_directory> \
-  -Version <package_version> \
-  -Source <source_name>
+ -Version <package_version> \
+ -Source <source_name>
 ```
 
 - `<package_id>`: The package ID.
 - `<output_directory>`: The output directory, where the package is installed.
 - `<package_version>`: Optional. The package version.
 - `<source_name>`: Optional. The source name.
-  - `nuget` checks `nuget.org` for the requested package first.
-If GitLab package registry has a NuGet package
-with the same name as a package at
-`nuget.org`, you must specify the source name
-to install the correct package.
+ - `nuget` checks `nuget.org` for the requested package first.
+If GitLab package registry has a NuGet package with the same name as a package at `nuget.org`, you must specify the source name to install the correct package.
 
 {{< /tab >}}
 
@@ -623,9 +594,7 @@ to install the correct package.
 
 {{< alert type="note" >}}
 
-If the GitLab package registry has a NuGet package with the same name as a package at
-a different source, verify the order in which `dotnet` checks sources during
-install. This behavior is defined in the `nuget.config` file.
+If the GitLab package registry has a NuGet package with the same name as a package at a different source, verify the order in which `dotnet` checks sources during install. This behavior is defined in the `nuget.config` file.
 
 {{< /alert >}}
 
@@ -727,12 +696,9 @@ nuget delete MyPackage 1.0.0 -Source gitlab -ApiKey <personal_access_token>
 ## Symbol packages
 
 GitLab can consume symbol files from the NuGet package registry.
-You can use the GitLab package registry as a symbol server
-to debug your NuGet packages.
+You can use the GitLab package registry as a symbol server to debug your NuGet packages.
 
-Whenever you publish a NuGet package file (`.nupkg`),
-symbol package files (`.snupkg`) are uploaded automatically
-to the NuGet package registry.
+Whenever you publish a NuGet package file (`.nupkg`), symbol package files (`.snupkg`) are uploaded automatically to the NuGet package registry.
 
 You can also push them manually:
 
@@ -748,27 +714,25 @@ nuget push My.Package.snupkg -Source <source_name>
 
 {{< /history >}}
 
-GitLab package registry provides a special `symbolfiles` endpoint that you can configure
-with your project or group endpoint:
+GitLab package registry provides a special `symbolfiles` endpoint that you can configure with your project or group endpoint:
 
 - Project endpoint:
 
-  ```plaintext
-  https://gitlab.example.com/api/v4/projects/<project_id>/packages/nuget/symbolfiles
-  ```
+ ```plaintext
+ https://gitlab.example.com/api/v4/projects/<project_id>/packages/nuget/symbolfiles
+ ```
 
-  - Replace `<project_id>` with the project ID.
+ - Replace `<project_id>` with the project ID.
 
 - Group endpoint:
 
-  ```plaintext
-  https://gitlab.example.com/api/v4/groups/<group_id>/-/packages/nuget/symbolfiles
-  ```
+ ```plaintext
+ https://gitlab.example.com/api/v4/groups/<group_id>/-/packages/nuget/symbolfiles
+ ```
 
-  - Replace `<group_id>` with the group ID.
+ - Replace `<group_id>` with the group ID.
 
-The `symbolfiles` endpoint is the source where a configured debugger
-can push symbol files.
+The `symbolfiles` endpoint is the source where a configured debugger can push symbol files.
 
 ### Use the package registry as a symbol server
 
@@ -786,14 +750,11 @@ For example, to configure Visual Studio as your debugger:
 1. Select **Add Source**.
 
 After you configure the debugger, you can debug your application as usual.
-The debugger automatically downloads the symbol PDB files from the package
-registry if they're available.
+The debugger automatically downloads the symbol PDB files from the package registry if they're available.
 
 #### Consume symbol packages
 
-When the debugger is configured to consume symbol packages,
-the debugger sends the following information
-in a request:
+When the debugger is configured to consume symbol packages, the debugger sends the following information in a request:
 
 - `Symbolchecksum` header: The SHA-256 checksum of the symbol file.
 - `file_name` request parameter: The name of the symbol file. For example, `mypackage.pdb`.
@@ -805,7 +766,7 @@ Keep in mind that:
 
 - Only portable PDB files are supported.
 - Because debuggers cannot provide authentication tokens, the symbol server endpoint does not support typical authentication methods.
-  The GitLab server requires the `signature` and `Symbolchecksum` to return the correct symbol file.
+ The GitLab server requires the `signature` and `Symbolchecksum` to return the correct symbol file.
 
 ## Supported CLI commands
 
@@ -815,8 +776,7 @@ Keep in mind that:
 
 {{< /history >}}
 
-The GitLab NuGet repository supports the following commands for the NuGet CLI (`nuget`) and the .NET
-CLI (`dotnet`):
+The GitLab NuGet repository supports the following commands for the NuGet CLI (`nuget`) and the .NET CLI (`dotnet`):
 
 | NuGet | .NET | Description |
 |-----------|----------|-------------|
@@ -830,8 +790,7 @@ When working with NuGet packages, you might encounter the following issues.
 
 ### Clear the NuGet cache
 
-To improve performance, NuGet caches package files. If you encounter storage issues, clear the
-cache with the following command:
+To improve performance, NuGet caches package files. If you encounter storage issues, clear the cache with the following command:
 
 ```shell
 nuget locals all -clear
@@ -839,14 +798,11 @@ nuget locals all -clear
 
 ### Errors when publishing NuGet packages in a Docker-based GitLab installation
 
-You might get the following error messages
-when publishing NuGet packages:
+You might get the following error messages when publishing NuGet packages:
 
 - `Error publishing`
 - `Invalid Package: Failed metadata extraction error`
 
-Webhook requests to local network addresses are blocked to prevent exploitation of
-internal web services.
+Webhook requests to local network addresses are blocked to prevent exploitation of internal web services.
 
-To resolve these errors, change your network settings to
-[allow webhook and integration requests to the local network](../../../security/webhooks.md#allow-requests-to-the-local-network-from-webhooks-and-integrations).
+To resolve these errors, change your network settings to [allow webhook and integration requests to the local network](../../../security/webhooks.md#allow-requests-to-the-local-network-from-webhooks-and-integrations).

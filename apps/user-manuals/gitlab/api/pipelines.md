@@ -35,8 +35,7 @@ are not included in the results. To return child pipelines, set `source` to `par
 GET /projects/:id/pipelines
 ```
 
-Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to
-control the pagination of results.
+Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to control the pagination of results.
 
 | Attribute        | Type           | Required | Description |
 |------------------|----------------|----------|-------------|
@@ -49,24 +48,24 @@ control the pagination of results.
 | `sort`           | string         | No       | Sort pipelines in `asc` or `desc` order (default: `desc`) |
 | `source`         | string         | No       | The [pipeline source](../ci/jobs/job_rules.md#ci_pipeline_source-predefined-variable). |
 | `status`         | string         | No       | The status of pipelines, one of: `created`, `waiting_for_resource`, `preparing`, `pending`, `running`, `success`, `failed`, `canceled`, `skipped`, `manual`, `scheduled` |
-| `updated_after`  | datetime       | No       | Return pipelines updated after the specified date. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
+| `updated_after` | datetime       | No       | Return pipelines updated after the specified date. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
 | `updated_before` | datetime       | No       | Return pipelines updated before the specified date. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
-| `created_after`  | datetime       | No       | Return pipelines created after the specified date. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
+| `created_after` | datetime       | No       | Return pipelines created after the specified date. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
 | `created_before` | datetime       | No       | Return pipelines created before the specified date. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). |
 | `username`       | string         | No       | The username of the user who triggered pipelines |
 | `yaml_errors`    | boolean        | No       | Returns pipelines with invalid configurations |
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/pipelines"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/pipelines"
 ```
 
 Example of response
 
 ```json
 [
-  {
+ {
     "id": 47,
     "iid": 12,
     "project_id": 1,
@@ -78,8 +77,8 @@ Example of response
     "web_url": "https://example.com/foo/bar/pipelines/47",
     "created_at": "2016-08-11T11:28:34.085Z",
     "updated_at": "2016-08-11T11:32:35.169Z"
-  },
-  {
+ },
+ {
     "id": 48,
     "iid": 13,
     "project_id": 1,
@@ -91,7 +90,7 @@ Example of response
     "web_url": "https://example.com/foo/bar/pipelines/48",
     "created_at": "2016-08-12T10:06:04.561Z",
     "updated_at": "2016-08-12T10:09:56.223Z"
-  }
+ }
 ]
 ```
 
@@ -112,8 +111,7 @@ You can also get a single [child pipeline](../ci/pipelines/downstream_pipelines.
 GET /projects/:id/pipelines/:pipeline_id
 ```
 
-Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to
-control the pagination of results.
+Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to control the pagination of results.
 
 | Attribute     | Type           | Required | Description |
 |---------------|----------------|----------|-------------|
@@ -122,43 +120,43 @@ control the pagination of results.
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/pipelines/46"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/pipelines/46"
 ```
 
 Example of response
 
 ```json
 {
-  "id": 287,
-  "iid": 144,
-  "project_id": 21,
-  "name": "Build pipeline",
-  "sha": "50f0acb76a40e34a4ff304f7347dcc6587da8a14",
-  "ref": "main",
-  "status": "success",
-  "source": "push",
-  "created_at": "2022-09-21T01:05:07.200Z",
-  "updated_at": "2022-09-21T01:05:50.185Z",
-  "web_url": "http://127.0.0.1:3000/test-group/test-project/-/pipelines/287",
-  "before_sha": "8a24fb3c5877a6d0b611ca41fc86edc174593e2b",
-  "tag": false,
-  "yaml_errors": null,
-  "user": {
+ "id": 287,
+ "iid": 144,
+ "project_id": 21,
+ "name": "Build pipeline",
+ "sha": "50f0acb76a40e34a4ff304f7347dcc6587da8a14",
+ "ref": "main",
+ "status": "success",
+ "source": "push",
+ "created_at": "2022-09-21T01:05:07.200Z",
+ "updated_at": "2022-09-21T01:05:50.185Z",
+ "web_url": "http://127.0.0.1:3000/test-group/test-project/-/pipelines/287",
+ "before_sha": "8a24fb3c5877a6d0b611ca41fc86edc174593e2b",
+ "tag": false,
+ "yaml_errors": null,
+ "user": {
     "id": 1,
     "username": "root",
     "name": "Administrator",
     "state": "active",
     "avatar_url": "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "web_url": "http://127.0.0.1:3000/root"
-  },
-  "started_at": "2022-09-21T01:05:14.197Z",
-  "finished_at": "2022-09-21T01:05:50.175Z",
-  "committed_at": null,
-  "duration": 34,
-  "queued_duration": 6,
-  "coverage": null,
-  "detailed_status": {
+ },
+ "started_at": "2022-09-21T01:05:14.197Z",
+ "finished_at": "2022-09-21T01:05:50.175Z",
+ "committed_at": null,
+ "duration": 34,
+ "queued_duration": 6,
+ "coverage": null,
+ "detailed_status": {
     "icon": "status_success",
     "text": "passed",
     "label": "passed",
@@ -168,8 +166,8 @@ Example of response
     "details_path": "/test-group/test-project/-/pipelines/287",
     "illustration": null,
     "favicon": "/assets/ci_favicons/favicon_status_success-8451333011eee8ce9f2ab25dc487fe24a8758c694827a582f17f42b0a90446a2.png"
-  },
-  "archived": false
+ },
+ "archived": false
 }
 ```
 
@@ -188,8 +186,7 @@ Get the latest pipeline for the most recent commit on a specific ref in a projec
 GET /projects/:id/pipelines/latest
 ```
 
-Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to
-control the pagination of results.
+Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to control the pagination of results.
 
 | Attribute | Type   | Required | Description |
 |-----------|--------|----------|-------------|
@@ -197,8 +194,8 @@ control the pagination of results.
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/pipelines/latest"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/pipelines/latest"
 ```
 
 Example of response
@@ -256,8 +253,7 @@ Get the [pipeline variables](../ci/variables/_index.md#use-pipeline-variables) o
 GET /projects/:id/pipelines/:pipeline_id/variables
 ```
 
-Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to
-control the pagination of results.
+Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to control the pagination of results.
 
 | Attribute     | Type           | Required | Description |
 |---------------|----------------|----------|-------------|
@@ -266,23 +262,23 @@ control the pagination of results.
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/pipelines/46/variables"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/pipelines/46/variables"
 ```
 
 Example of response
 
 ```json
 [
-  {
+ {
     "key": "RUN_NIGHTLY_BUILD",
     "variable_type": "env_var",
     "value": "true"
-  },
-  {
+ },
+ {
     "key": "foo",
     "value": "bar"
-  }
+ }
 ]
 ```
 
@@ -295,8 +291,7 @@ Example of response
 GET /projects/:id/pipelines/:pipeline_id/test_report
 ```
 
-Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to
-control the pagination of results.
+Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to control the pagination of results.
 
 | Attribute     | Type           | Required | Description |
 |---------------|----------------|----------|-------------|
@@ -307,21 +302,21 @@ Sample request:
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/pipelines/46/test_report"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/pipelines/46/test_report"
 ```
 
 Sample response:
 
 ```json
 {
-  "total_time": 5,
-  "total_count": 1,
-  "success_count": 1,
-  "failed_count": 0,
-  "skipped_count": 0,
-  "error_count": 0,
-  "test_suites": [
+ "total_time": 5,
+ "total_count": 1,
+ "success_count": 1,
+ "failed_count": 0,
+ "skipped_count": 0,
+ "error_count": 0,
+ "test_suites": [
     {
       "name": "Secure",
       "total_time": 5,
@@ -341,7 +336,7 @@ Sample response:
         }
       ]
     }
-  ]
+ ]
 }
 ```
 
@@ -354,8 +349,7 @@ Sample response:
 GET /projects/:id/pipelines/:pipeline_id/test_report_summary
 ```
 
-Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to
-control the pagination of results.
+Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to control the pagination of results.
 
 | Attribute     | Type           | Required | Description |
 |---------------|----------------|----------|-------------|
@@ -366,8 +360,8 @@ Sample request:
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/pipelines/46/test_report_summary"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/pipelines/46/test_report_summary"
 ```
 
 Sample response:
@@ -426,51 +420,51 @@ Basic example:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/pipeline?ref=main"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/pipeline?ref=main"
 ```
 
 Example request with [inputs](../ci/inputs/_index.md):
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --data '{"inputs": {"environment": "environment", "scan_security": false, "level": 3}}' \
-  --url "https://gitlab.example.com/api/v4/projects/1/pipeline?ref=main"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --data '{"inputs": {"environment": "environment", "scan_security": false, "level": 3}}' \
+ --url "https://gitlab.example.com/api/v4/projects/1/pipeline?ref=main"
 ```
 
 Example of response
 
 ```json
 {
-  "id": 61,
-  "iid": 21,
-  "project_id": 1,
-  "sha": "384c444e840a515b23f21915ee5766b87068a70d",
-  "ref": "main",
-  "status": "pending",
-  "before_sha": "0000000000000000000000000000000000000000",
-  "tag": false,
-  "yaml_errors": null,
-  "user": {
+ "id": 61,
+ "iid": 21,
+ "project_id": 1,
+ "sha": "384c444e840a515b23f21915ee5766b87068a70d",
+ "ref": "main",
+ "status": "pending",
+ "before_sha": "0000000000000000000000000000000000000000",
+ "tag": false,
+ "yaml_errors": null,
+ "user": {
     "name": "Administrator",
     "username": "root",
     "id": 1,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "web_url": "http://localhost:3000/root"
-  },
-  "created_at": "2016-11-04T09:36:13.747Z",
-  "updated_at": "2016-11-04T09:36:13.977Z",
-  "started_at": null,
-  "finished_at": null,
-  "committed_at": null,
-  "duration": null,
-  "queued_duration": 0.010,
-  "coverage": null,
-  "web_url": "https://example.com/foo/bar/pipelines/61",
-  "archived": false
+ },
+ "created_at": "2016-11-04T09:36:13.747Z",
+ "updated_at": "2016-11-04T09:36:13.977Z",
+ "started_at": null,
+ "finished_at": null,
+ "committed_at": null,
+ "duration": null,
+ "queued_duration": 0.010,
+ "coverage": null,
+ "web_url": "https://example.com/foo/bar/pipelines/61",
+ "archived": false
 }
 ```
 
@@ -495,41 +489,41 @@ POST /projects/:id/pipelines/:pipeline_id/retry
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/pipelines/46/retry"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/pipelines/46/retry"
 ```
 
 Response:
 
 ```json
 {
-  "id": 46,
-  "iid": 11,
-  "project_id": 1,
-  "status": "pending",
-  "ref": "main",
-  "sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
-  "before_sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
-  "tag": false,
-  "yaml_errors": null,
-  "user": {
+ "id": 46,
+ "iid": 11,
+ "project_id": 1,
+ "status": "pending",
+ "ref": "main",
+ "sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
+ "before_sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
+ "tag": false,
+ "yaml_errors": null,
+ "user": {
     "name": "Administrator",
     "username": "root",
     "id": 1,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "web_url": "http://localhost:3000/root"
-  },
-  "created_at": "2016-08-11T11:28:34.085Z",
-  "updated_at": "2016-08-11T11:32:35.169Z",
-  "started_at": null,
-  "finished_at": "2016-08-11T11:32:35.145Z",
-  "committed_at": null,
-  "duration": null,
-  "queued_duration": 0.010,
-  "coverage": null,
-  "web_url": "https://example.com/foo/bar/pipelines/46",
-  "archived": false
+ },
+ "created_at": "2016-08-11T11:28:34.085Z",
+ "updated_at": "2016-08-11T11:32:35.169Z",
+ "started_at": null,
+ "finished_at": "2016-08-11T11:32:35.145Z",
+ "committed_at": null,
+ "duration": null,
+ "queued_duration": 0.010,
+ "coverage": null,
+ "web_url": "https://example.com/foo/bar/pipelines/46",
+ "archived": false
 }
 ```
 
@@ -553,52 +547,50 @@ For more information, see [issue 414963](https://gitlab.com/gitlab-org/gitlab/-/
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/pipelines/46/cancel"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/pipelines/46/cancel"
 ```
 
 Response:
 
 ```json
 {
-  "id": 46,
-  "iid": 11,
-  "project_id": 1,
-  "status": "canceled",
-  "ref": "main",
-  "sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
-  "before_sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
-  "tag": false,
-  "yaml_errors": null,
-  "user": {
+ "id": 46,
+ "iid": 11,
+ "project_id": 1,
+ "status": "canceled",
+ "ref": "main",
+ "sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
+ "before_sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
+ "tag": false,
+ "yaml_errors": null,
+ "user": {
     "name": "Administrator",
     "username": "root",
     "id": 1,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "web_url": "http://localhost:3000/root"
-  },
-  "created_at": "2016-08-11T11:28:34.085Z",
-  "updated_at": "2016-08-11T11:32:35.169Z",
-  "started_at": null,
-  "finished_at": "2016-08-11T11:32:35.145Z",
-  "committed_at": null,
-  "duration": null,
-  "queued_duration": 0.010,
-  "coverage": null,
-  "web_url": "https://example.com/foo/bar/pipelines/46",
-  "archived": false
+ },
+ "created_at": "2016-08-11T11:28:34.085Z",
+ "updated_at": "2016-08-11T11:32:35.169Z",
+ "started_at": null,
+ "finished_at": "2016-08-11T11:32:35.145Z",
+ "committed_at": null,
+ "duration": null,
+ "queued_duration": 0.010,
+ "coverage": null,
+ "web_url": "https://example.com/foo/bar/pipelines/46",
+ "archived": false
 }
 ```
 
 ## Delete a pipeline
 
-Deleting a pipeline expires all pipeline caches, and deletes all immediately
-related objects, such as builds, logs, artifacts, and triggers.
+Deleting a pipeline expires all pipeline caches, and deletes all immediately related objects, such as builds, logs, artifacts, and triggers.
 **This action cannot be undone**.
 
-Deleting a pipeline does not automatically delete its
-[child pipelines](../ci/pipelines/downstream_pipelines.md#parent-child-pipelines).
+Deleting a pipeline does not automatically delete its [child pipelines](../ci/pipelines/downstream_pipelines.md#parent-child-pipelines).
 See the [related issue](https://gitlab.com/gitlab-org/gitlab/-/issues/39503)
 for details.
 
@@ -613,8 +605,8 @@ DELETE /projects/:id/pipelines/:pipeline_id
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/pipelines/46"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/pipelines/46"
 ```
 
 ## Update pipeline metadata
@@ -635,43 +627,43 @@ Sample request:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --data '{"name": "Some new pipeline name"}' \
-  --url "https://gitlab.example.com/api/v4/projects/1/pipelines/46/metadata"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --data '{"name": "Some new pipeline name"}' \
+ --url "https://gitlab.example.com/api/v4/projects/1/pipelines/46/metadata"
 ```
 
 Sample response:
 
 ```json
 {
-  "id": 46,
-  "iid": 11,
-  "project_id": 1,
-  "status": "running",
-  "ref": "main",
-  "sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
-  "before_sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
-  "tag": false,
-  "yaml_errors": null,
-  "user": {
+ "id": 46,
+ "iid": 11,
+ "project_id": 1,
+ "status": "running",
+ "ref": "main",
+ "sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
+ "before_sha": "a91957a858320c0e17f3a0eca7cfacbff50ea29a",
+ "tag": false,
+ "yaml_errors": null,
+ "user": {
     "name": "Administrator",
     "username": "root",
     "id": 1,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "web_url": "http://localhost:3000/root"
-  },
-  "created_at": "2016-08-11T11:28:34.085Z",
-  "updated_at": "2016-08-11T11:32:35.169Z",
-  "started_at": null,
-  "finished_at": "2016-08-11T11:32:35.145Z",
-  "committed_at": null,
-  "duration": null,
-  "queued_duration": 0.010,
-  "coverage": null,
-  "web_url": "https://example.com/foo/bar/pipelines/46",
-  "name": "Some new pipeline name",
-  "archived": false
+ },
+ "created_at": "2016-08-11T11:28:34.085Z",
+ "updated_at": "2016-08-11T11:32:35.169Z",
+ "started_at": null,
+ "finished_at": "2016-08-11T11:32:35.145Z",
+ "committed_at": null,
+ "duration": null,
+ "queued_duration": 0.010,
+ "coverage": null,
+ "web_url": "https://example.com/foo/bar/pipelines/46",
+ "name": "Some new pipeline name",
+ "archived": false
 }
 ```

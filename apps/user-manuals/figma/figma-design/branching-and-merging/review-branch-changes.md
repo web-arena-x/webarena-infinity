@@ -42,14 +42,14 @@ You can use the review process to suggest changes to the branch creator. They ca
 
 With a layer or component selected you can:
 
-1. View the layer, frame, or component name at the top of the modal. Click  in the top left to go back to the review summary.
+1. View the layer, frame, or component name at the top of the modal. Click in the top left to go back to the review summary.
 2. View changes **side by side** or as an **overlay**.
 3. Use the buttons to:
    - Zoom in
    - Zoom out
    - Zoom to **Fit**
 4. View details of the changes, including any layers or specific properties changed.
-5. If there are multiple changes, use the  and  arrows at the bottom to view other changes.
+5. If there are multiple changes, use the and arrows at the bottom to view other changes.
 
 ![Branch review window showing side-by-side comparison of design changes; includes updated layers, zoom controls, and change details.](https://help.figma.com/hc/article_attachments/6008252022295)
 
@@ -59,7 +59,7 @@ If you're happy with all of the changes you can approve the branch. If you have 
 
 To add your approval:
 
-1. Click **Add your review**  in the bottom-right corner of the window.
+1. Click **Add your review** in the bottom-right corner of the window.
 2. In the **Finish your review** dialog, select **Approve**.
 3. Add any comments you want to make (optional).
 4. Select **Submit** to approve the branch. You'll see an **Approved** badge next to the branch name in the toolbar.
@@ -72,7 +72,7 @@ If there are changes you'd like the branch creator to make before merging, you c
 
 If there are specific changes or suggestions you'd like to make, you can also [add comments](https://help.figma.com/hc/en-us/articles/360041068574) to the individual designs. Comments are specific to the branch and aren't included when you merge the changes into the main file.
 
-1. Click **Add your review**  in the bottom-right corner of the window.
+1. Click **Add your review** in the bottom-right corner of the window.
 2. In the **Finish your review** dialog, select **Suggest changes**.
 3. Add any general comments you want to make (optional). You can also close out the modal and add comments to designs or layers in the branch.
 4. Select **Submit** add your review. You'll see a **Changes suggested** badge next to the branch name in the toolbar.
@@ -83,9 +83,9 @@ If there are specific changes or suggestions you'd like to make, you can also [a
 
 Edit your review to make changes to your comment. If you've made a mistake or want to change your review, you can [review the branch again](#review-again).
 
-1. Click  next to the branch name in the toolbar.
+1. Click next to the branch name in the toolbar.
 2. Select **Review and merge changes**.
-3. Find your review in the left sidebar. Click  next to your name.
+3. Find your review in the left sidebar. Click next to your name.
 4. You'll see a blue border around the comment to show the field is now editable. Click inside the text and make any changes as needed. Click outside the text field to apply your changes.
 
 ![Branch review panel showing approved status with comment, alongside thumbnails of added design components for review.](https://help.figma.com/hc/article_attachments/6008611061655)
@@ -94,7 +94,7 @@ Edit your review to make changes to your comment. If you've made a mistake or wa
 
 If you've made a mistake or want to change your review, you can review the branch again. You can also use this process to review a branch after your suggested changes have been made by the branch creator.
 
-1. Click  next to the branch name in the toolbar.
+1. Click next to the branch name in the toolbar.
 2. Select **Review and merge changes**.
 3. Click **Review again** at the bottom of the modal.
 4. Select from **Approve** or **Suggest changes**.

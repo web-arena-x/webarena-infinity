@@ -14,42 +14,32 @@ description: Type signatures, symbol documentation, and go-to definition.
 
 {{< /details >}}
 
-Code intelligence adds code navigation features common to interactive
-development environments (IDE), including:
+Code intelligence adds code navigation features common to interactive development environments (IDE), including:
 
 - Type signatures and symbol documentation.
 - Go-to definition.
 
 Code intelligence is built into GitLab and powered by [LSIF](https://lsif.dev/)
-(Language Server Index Format), a file format for precomputed code
-intelligence data. GitLab processes one LSIF file per project, and
-Code intelligence does not support different LSIF files per branch.
+(Language Server Index Format), a file format for precomputed code intelligence data. GitLab processes one LSIF file per project, and Code intelligence does not support different LSIF files per branch.
 
-[SCIP](https://github.com/sourcegraph/scip/) is the next evolution of tooling
-for indexing source code. You can use it to power code navigation features,
-such as:
+[SCIP](https://github.com/sourcegraph/scip/) is the next evolution of tooling for indexing source code. You can use it to power code navigation features, such as:
 
 - Go to definition
 - Find references
 
-GitLab does not natively support SCIP for code intelligence. However, you can use the
-[SCIP CLI](https://github.com/sourcegraph/scip/blob/main/docs/CLI.md) to convert
-indexes generated with SCIP tooling into a LSIF-compatible file. For discussions on native
-SCIP support, see [issue 412981](https://gitlab.com/gitlab-org/gitlab/-/issues/412981).
+GitLab does not natively support SCIP for code intelligence. However, you can use the [SCIP CLI](https://github.com/sourcegraph/scip/blob/main/docs/CLI.md) to convert indexes generated with SCIP tooling into a LSIF-compatible file. For discussions on native SCIP support, see [issue 412981](https://gitlab.com/gitlab-org/gitlab/-/issues/412981).
 
-For progress on upcoming code intelligence enhancements, see
-[epic 4212](https://gitlab.com/groups/gitlab-org/-/epics/4212).
+For progress on upcoming code intelligence enhancements, see [epic 4212](https://gitlab.com/groups/gitlab-org/-/epics/4212).
 
 ## Configure code intelligence
 
 Prerequisites:
 
 - You've checked to ensure there is a compatible indexer for your project's languages:
-  - [LSIF indexers](https://lsif.dev/#implementations-server)
-  - [SCIP indexers](https://github.com/sourcegraph/scip/#tools-using-scip)
+ - [LSIF indexers](https://lsif.dev/#implementations-server)
+ - [SCIP indexers](https://github.com/sourcegraph/scip/#tools-using-scip)
 
-To see how your language is best supported, review the
-[indexers recommended by Sourcegraph](https://sourcegraph.com/docs/code-search/code-navigation/writing_an_indexer#sourcegraph-recommended-indexers).
+To see how your language is best supported, review the [indexers recommended by Sourcegraph](https://sourcegraph.com/docs/code-search/code-navigation/writing_an_indexer#sourcegraph-recommended-indexers).
 
 ### With the CI/CD component
 
@@ -60,8 +50,7 @@ To see how your language is best supported, review the
 
 {{< /history >}}
 
-GitLab provides a [CI/CD component](../../ci/components/_index.md) to configure code intelligence
-in your `.gitlab-ci.yml` file. The component supports these languages:
+GitLab provides a [CI/CD component](../../ci/components/_index.md) to configure code intelligence in your `.gitlab-ci.yml` file. The component supports these languages:
 
 - Go version 1.21 or later.
 - TypeScript or JavaScript.
@@ -69,11 +58,9 @@ in your `.gitlab-ci.yml` file. The component supports these languages:
 - Python
 - .Net/C#
 
-To contribute more languages to the component, open a merge request in the
-[Code intelligence component project](https://gitlab.com/components/code-intelligence).
+To contribute more languages to the component, open a merge request in the [Code intelligence component project](https://gitlab.com/components/code-intelligence).
 
-1. Add a GitLab CI/CD component to your project's `.gitlab-ci.yml`. For example, this job generates
-   the LSIF artifact for `golang`:
+1. Add a GitLab CI/CD component to your project's `.gitlab-ci.yml`. For example, this job generates the LSIF artifact for `golang`:
 
    ```yaml
    include:
@@ -82,8 +69,7 @@ To contribute more languages to the component, open a merge request in the
          golang_version: ${GO_VERSION}
    ```
 
-1. For configuration instructions for the [code intelligence component](https://gitlab.com/components/code-intelligence),
-   check the `README` for each supported language.
+1. For configuration instructions for the [code intelligence component](https://gitlab.com/components/code-intelligence), check the `README` for each supported language.
 1. For more configuration details, see [Use a component](../../ci/components/_index.md#use-a-component).
 
 ### Add CI/CD jobs for code intelligence
@@ -94,8 +80,7 @@ To enable code intelligence for a project, add GitLab CI/CD jobs to your project
 
 {{< tab title="With a SCIP indexer" >}}
 
-1. Add a job to your `.gitlab-ci.yml` configuration. This job generates the
-   SCIP index and converts it to LSIF for use in GitLab:
+1. Add a job to your `.gitlab-ci.yml` configuration. This job generates the SCIP index and converts it to LSIF for use in GitLab:
 
    ```yaml
    "code_navigation":
@@ -122,8 +107,7 @@ To enable code intelligence for a project, add GitLab CI/CD jobs to your project
             lsif: dump.lsif
    ```
 
-1. Depending on your CI/CD configuration, you might need to run the job manually,
-   or wait for it to run as part of an existing pipeline.
+1. Depending on your CI/CD configuration, you might need to run the job manually, or wait for it to run as part of an existing pipeline.
 
 {{< /tab >}}
 
@@ -144,8 +128,7 @@ To enable code intelligence for a project, add GitLab CI/CD jobs to your project
          lsif: dump.lsif
    ```
 
-1. Depending on your CI/CD configuration, you might need to run the job manually,
-   or wait for it to run as part of an existing pipeline.
+1. Depending on your CI/CD configuration, you might need to run the job manually, or wait for it to run as part of an existing pipeline.
 
 {{< /tab >}}
 
@@ -153,10 +136,8 @@ To enable code intelligence for a project, add GitLab CI/CD jobs to your project
 
 {{< alert type="note" >}}
 
-GitLab limits the artifact produced by the code generation jobs to 200 MB by the
-[(`ci_max_artifact_size_lsif`)](../../administration/instance_limits.md#maximum-file-size-per-type-of-artifact)
-artifact application limit. On GitLab Self-Managed instances, an instance administrator
-can change this value.
+GitLab limits the artifact produced by the code generation jobs to 200 MB by the [(`ci_max_artifact_size_lsif`)](../../administration/instance_limits.md#maximum-file-size-per-type-of-artifact)
+artifact application limit. On GitLab Self-Managed instances, an instance administrator can change this value.
 
 {{< /alert >}}
 

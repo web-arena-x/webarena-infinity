@@ -28,7 +28,7 @@ If you've registered for a career fair on Handshake, you can easily access and d
 
 2. On the **Registration** page, scroll to the **Current Invoice** section (*near the bottom*), then click the blue **Download** button to the far right of the invoice.
 
-**Note**: The invoice download link is active for **6 months**. For invoices older than 6 months, contact the Career Fair's Point of Contact.  
+**Note**: The invoice download link is active for **6 months**. For invoices older than 6 months, contact the Career Fair's Point of Contact. 
 ![Current_invoice_section_.png](https://support.joinhandshake.com/hc/article_attachments/25997636343831)
 
 3. The invoice will automatically download as a PDF file to your computer.

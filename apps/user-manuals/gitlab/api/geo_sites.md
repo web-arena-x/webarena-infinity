@@ -43,15 +43,15 @@ curl --header "PRIVATE-TOKEN: <your_access_token>" "https://primary.example.com/
 |---------------------------------------|---------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `primary`                             | boolean | no       | Specifying whether this site should be primary. Defaults to false.                                                                                     |
 | `enabled`                             | boolean | no       | Flag indicating if the Geo site is enabled. Defaults to true.                                                                                          |
-| `name`                                | string  | yes      | The unique identifier for the Geo site. Must match `geo_node_name` if it is set in `gitlab.rb`, otherwise it must match `external_url`                 |
-| `url`                                 | string  | yes      | The user-facing URL for the Geo site.                                                                                                                  |
-| `internal_url`                        | string  | no       | The URL defined on the primary site that secondary sites should use to contact it. Returns `url` if not set.                                           |
+| `name`                                | string | yes      | The unique identifier for the Geo site. Must match `geo_node_name` if it is set in `gitlab.rb`, otherwise it must match `external_url`                 |
+| `url`                                 | string | yes      | The user-facing URL for the Geo site.                                                                                                                  |
+| `internal_url`                        | string | no       | The URL defined on the primary site that secondary sites should use to contact it. Returns `url` if not set.                                           |
 | `files_max_capacity`                  | integer | no       | Control the maximum concurrency of LFS/attachment backfill for this secondary site. Defaults to 10.                                                    |
 | `repos_max_capacity`                  | integer | no       | Control the maximum concurrency of repository backfill for this secondary site. Defaults to 25.                                                        |
 | `verification_max_capacity`           | integer | no       | Control the maximum concurrency of repository verification for this site. Defaults to 100.                                                             |
 | `container_repositories_max_capacity` | integer | no       | Control the maximum concurrency of container repository sync for this site. Defaults to 10.                                                            |
 | `sync_object_storage`                 | boolean | no       | Flag indicating if the secondary Geo site should replicate blobs in Object Storage. Defaults to false.                                                 |
-| `selective_sync_type`                 | string  | no       | Limit syncing to only specific groups or shards. Valid values: `"namespaces"`, `"shards"`, or `null`.                                                  |
+| `selective_sync_type`                 | string | no       | Limit syncing to only specific groups or shards. Valid values: `"namespaces"`, `"shards"`, or `null`.                                                  |
 | `selective_sync_shards`               | array   | no       | The repository storage for the projects synced if `selective_sync_type` == `shards`.                                                                   |
 | `selective_sync_namespace_ids`        | array   | no       | The IDs of groups that should be synced, if `selective_sync_type` == `namespaces`.                                                                     |
 | `minimum_reverification_interval`     | integer | no       | The interval (in days) in which the repository verification is valid. Once expired, it is reverified. This has no effect when set on a secondary site. |
@@ -60,29 +60,29 @@ Example response:
 
 ```json
 {
-  "id": 3,
-  "name": "Test Site 1",
-  "url": "https://secondary.example.com/",
-  "internal_url": "https://secondary.example.com/",
-  "primary": false,
-  "enabled": true,
-  "current": false,
-  "files_max_capacity": 10,
-  "repos_max_capacity": 25,
-  "verification_max_capacity": 100,
-  "container_repositories_max_capacity": 10,
-  "selective_sync_type": "namespaces",
-  "selective_sync_shards": [],
-  "selective_sync_namespace_ids": [1, 25],
-  "minimum_reverification_interval": 7,
-  "sync_object_storage": false,
-  "web_edit_url": "https://primary.example.com/admin/geo/sites/3/edit",
-  "web_geo_replication_details_url": "https://secondary.example.com/admin/geo/sites/3/replication/lfs_objects",
-  "_links": {
+ "id": 3,
+ "name": "Test Site 1",
+ "url": "https://secondary.example.com/",
+ "internal_url": "https://secondary.example.com/",
+ "primary": false,
+ "enabled": true,
+ "current": false,
+ "files_max_capacity": 10,
+ "repos_max_capacity": 25,
+ "verification_max_capacity": 100,
+ "container_repositories_max_capacity": 10,
+ "selective_sync_type": "namespaces",
+ "selective_sync_shards": [],
+ "selective_sync_namespace_ids": [1, 25],
+ "minimum_reverification_interval": 7,
+ "sync_object_storage": false,
+ "web_edit_url": "https://primary.example.com/admin/geo/sites/3/edit",
+ "web_geo_replication_details_url": "https://secondary.example.com/admin/geo/sites/3/replication/lfs_objects",
+ "_links": {
      "self": "https://primary.example.com/api/v4/geo_sites/3",
      "status": "https://primary.example.com/api/v4/geo_sites/3/status",
      "repair": "https://primary.example.com/api/v4/geo_sites/3/repair"
-  }
+ }
 }
 ```
 
@@ -100,7 +100,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "us-site",
     "url": "https://primary.example.com/",
@@ -122,8 +122,8 @@ Example response:
       "status":"https://primary.example.com/api/v4/geo_sites/1/status",
       "repair":"https://primary.example.com/api/v4/geo_sites/1/repair"
     }
-  },
-  {
+ },
+ {
     "id": 2,
     "name": "cn-site",
     "url": "https://secondary.example.com/",
@@ -147,7 +147,7 @@ Example response:
       "status":"https://primary.example.com/api/v4/geo_sites/2/status",
       "repair":"https://primary.example.com/api/v4/geo_sites/2/repair"
     }
-  }
+ }
 ]
 ```
 
@@ -165,27 +165,27 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "name": "us-site",
-  "url": "https://primary.example.com/",
-  "internal_url": "https://primary.example.com/",
-  "primary": true,
-  "enabled": true,
-  "current": true,
-  "files_max_capacity": 10,
-  "repos_max_capacity": 25,
-  "verification_max_capacity": 100,
-  "container_repositories_max_capacity": 10,
-  "selective_sync_type": "namespaces",
-  "selective_sync_shards": [],
-  "selective_sync_namespace_ids": [1, 25],
-  "minimum_reverification_interval": 7,
-  "web_edit_url": "https://primary.example.com/admin/geo/sites/1/edit",
-  "_links": {
+ "id": 1,
+ "name": "us-site",
+ "url": "https://primary.example.com/",
+ "internal_url": "https://primary.example.com/",
+ "primary": true,
+ "enabled": true,
+ "current": true,
+ "files_max_capacity": 10,
+ "repos_max_capacity": 25,
+ "verification_max_capacity": 100,
+ "container_repositories_max_capacity": 10,
+ "selective_sync_type": "namespaces",
+ "selective_sync_shards": [],
+ "selective_sync_namespace_ids": [1, 25],
+ "minimum_reverification_interval": 7,
+ "web_edit_url": "https://primary.example.com/admin/geo/sites/1/edit",
+ "_links": {
     "self": "https://primary.example.com/api/v4/geo_sites/1",
     "status":"https://primary.example.com/api/v4/geo_sites/1/status",
     "repair":"https://primary.example.com/api/v4/geo_sites/1/repair"
-  }
+ }
 }
 ```
 
@@ -201,14 +201,14 @@ PUT /geo_sites/:id
 |---------------------------------------|---------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`                                  | integer | yes      | The ID of the Geo site.                                                                                                                                |
 | `enabled`                             | boolean | no       | Flag indicating if the Geo site is enabled.                                                                                                            |
-| `name`                                | string  | no       | The unique identifier for the Geo site. Must match `geo_node_name` if it is set in `gitlab.rb`, otherwise it must match `external_url`.                |
-| `url`                                 | string  | no       | The user-facing URL of the Geo site.                                                                                                                   |
-| `internal_url`                        | string  | no       | The URL defined on the primary site that secondary sites should use to contact it. Returns `url` if not set.                                           |
+| `name`                                | string | no       | The unique identifier for the Geo site. Must match `geo_node_name` if it is set in `gitlab.rb`, otherwise it must match `external_url`.                |
+| `url`                                 | string | no       | The user-facing URL of the Geo site.                                                                                                                   |
+| `internal_url`                        | string | no       | The URL defined on the primary site that secondary sites should use to contact it. Returns `url` if not set.                                           |
 | `files_max_capacity`                  | integer | no       | Control the maximum concurrency of LFS/attachment backfill for this secondary site.                                                                    |
 | `repos_max_capacity`                  | integer | no       | Control the maximum concurrency of repository backfill for this secondary site.                                                                        |
 | `verification_max_capacity`           | integer | no       | Control the maximum concurrency of verification for this site.                                                                                         |
 | `container_repositories_max_capacity` | integer | no       | Control the maximum concurrency of container repository sync for this site.                                                                            |
-| `selective_sync_type`                 | string  | no       | Limit syncing to only specific groups or shards. Valid values: `"namespaces"`, `"shards"`, or `null`.                                                  |
+| `selective_sync_type`                 | string | no       | Limit syncing to only specific groups or shards. Valid values: `"namespaces"`, `"shards"`, or `null`.                                                  |
 | `selective_sync_shards`               | array   | no       | The repository storage for the projects synced if `selective_sync_type` == `shards`.                                                                   |
 | `selective_sync_namespace_ids`        | array   | no       | The IDs of groups that should be synced, if `selective_sync_type` == `namespaces`.                                                                     |
 | `minimum_reverification_interval`     | integer | no       | The interval (in days) in which the repository verification is valid. Once expired, it is reverified. This has no effect when set on a secondary site. |
@@ -217,27 +217,27 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "name": "us-site",
-  "url": "https://primary.example.com/",
-  "internal_url": "https://internal.example.com/",
-  "primary": true,
-  "enabled": true,
-  "current": true,
-  "files_max_capacity": 10,
-  "repos_max_capacity": 25,
-  "verification_max_capacity": 100,
-  "container_repositories_max_capacity": 10,
-  "selective_sync_type": "namespaces",
-  "selective_sync_shards": [],
-  "selective_sync_namespace_ids": [1, 25],
-  "minimum_reverification_interval": 7,
-  "web_edit_url": "https://primary.example.com/admin/geo/sites/1/edit",
-  "_links": {
+ "id": 1,
+ "name": "us-site",
+ "url": "https://primary.example.com/",
+ "internal_url": "https://internal.example.com/",
+ "primary": true,
+ "enabled": true,
+ "current": true,
+ "files_max_capacity": 10,
+ "repos_max_capacity": 25,
+ "verification_max_capacity": 100,
+ "container_repositories_max_capacity": 10,
+ "selective_sync_type": "namespaces",
+ "selective_sync_shards": [],
+ "selective_sync_namespace_ids": [1, 25],
+ "minimum_reverification_interval": 7,
+ "web_edit_url": "https://primary.example.com/admin/geo/sites/1/edit",
+ "_links": {
     "self": "https://primary.example.com/api/v4/geo_sites/1",
     "status": "https://primary.example.com/api/v4/geo_sites/1/status",
     "repair": "https://primary.example.com/api/v4/geo_sites/1/repair"
-  }
+ }
 }
 
 ```
@@ -256,8 +256,7 @@ DELETE /geo_sites/:id
 
 ## Repair a Geo site
 
-Repairs the OAuth authentication of a Geo site in the event that there is an
-OAuth synchronization problem between the primary or secondary Geo sites.
+Repairs the OAuth authentication of a Geo site in the event that there is an OAuth synchronization problem between the primary or secondary Geo sites.
 In that case, this message may be displayed:
 
 ```plaintext
@@ -272,23 +271,23 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "name": "us-site",
-  "url": "https://primary.example.com/",
-  "internal_url": "https://primary.example.com/",
-  "primary": true,
-  "enabled": true,
-  "current": true,
-  "files_max_capacity": 10,
-  "repos_max_capacity": 25,
-  "verification_max_capacity": 100,
-  "container_repositories_max_capacity": 10,
-  "web_edit_url": "https://primary.example.com/admin/geo/sites/1/edit",
-  "_links": {
+ "id": 1,
+ "name": "us-site",
+ "url": "https://primary.example.com/",
+ "internal_url": "https://primary.example.com/",
+ "primary": true,
+ "enabled": true,
+ "current": true,
+ "files_max_capacity": 10,
+ "repos_max_capacity": 25,
+ "verification_max_capacity": 100,
+ "container_repositories_max_capacity": 10,
+ "web_edit_url": "https://primary.example.com/admin/geo/sites/1/edit",
+ "_links": {
     "self": "https://primary.example.com/api/v4/geo_sites/1",
     "status":"https://primary.example.com/api/v4/geo_sites/1/status",
     "repair":"https://primary.example.com/api/v4/geo_sites/1/repair"
-  }
+ }
 }
 ```
 
@@ -306,7 +305,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "geo_node_id": 1,
     "projects_count": null,
     "container_repositories_replication_enabled": null,
@@ -546,8 +545,8 @@ Example response:
         "self": "https://primary.example.com/api/v4/geo_sites/1/status",
         "site": "https://primary.example.com/api/v4/geo_sites/1"
     }
-  },
-  {
+ },
+ {
     "geo_node_id": 2,
     "projects_count": null,
     "container_repositories_replication_enabled": true,
@@ -787,7 +786,7 @@ Example response:
         "self": "https://primary.example.com/api/v4/geo_sites/2/status",
         "site": "https://primary.example.com/api/v4/geo_sites/2"
     }
-  }
+ }
 ]
 ```
 
@@ -804,7 +803,7 @@ curl --header "PRIVATE-TOKEN: <your_access_token>" "https://primary.example.com/
 Example response:
 
 ```json
-  {
+ {
     "geo_node_id": 2,
     "projects_count": null,
     "container_repositories_replication_enabled": true,
@@ -1044,7 +1043,7 @@ Example response:
         "self": "https://primary.example.com/api/v4/geo_sites/2/status",
         "site": "https://primary.example.com/api/v4/geo_sites/2"
     }
-  }
+ }
 ```
 
 > [!note]

@@ -25,9 +25,9 @@ As you type, Gmail automatically checks your text for mistakes and underlines wo
 
 - For common misspelled words, Gmail automatically corrects them.
 - To undo a change:
-  - **On Windows:** Press **Ctrl** + **Z**.
-  - **On Mac:** Press **Cmd** + **Z**.
-  - **On screen readers:**
+ - **On Windows:** Press **Ctrl** + **Z**.
+ - **On Mac:** Press **Cmd** + **Z**.
+ - **On screen readers:**
     1. To find underlined words, use your arrow keys.
     2. Tap **Tab** ![and then](//lh3.googleusercontent.com/3_l97rr0GvhSP2XV5OoCkV2ZDTIisAOczrSdzNCBxhIKWrjXjHucxNwocghoUa39gw=h36) **Enter**.
 

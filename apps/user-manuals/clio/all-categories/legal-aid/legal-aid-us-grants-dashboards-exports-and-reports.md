@@ -13,9 +13,9 @@ There are three different dashboards and an organization timeline to help you ke
 This dashboard shows a high-level overview of your agenda, how you are spending your time, and financial metrics. A comprehensive description of the dashboard is provided [here](https://help.clio.com/hc/en-us/articles/9290390462875-Navigate-Clio-Manage#h_01HRFFQ8Q5RB80839WCKSBNF0S). When grant information is tracked it also includes information about how you are spending your time in relation to grants and their associated matters.
 
 - **Time allocation:** This section shows your time entries in hours for the specified timeframe. If grants are associated with any time entries, they are listed in this section.
-  - You can use the **Filter** to display information about the proportion of time allocated to each grant in hours, as a percentage, or both.
-  - You can click **Review activities** for any listed grant to view a table of the transactions associated with that grant.
-  - You can select a date range and relevant filters to view specific information and export the data using **Export CSV**.
+ - You can use the **Filter** to display information about the proportion of time allocated to each grant in hours, as a percentage, or both.
+ - You can click **Review activities** for any listed grant to view a table of the transactions associated with that grant.
+ - You can select a date range and relevant filters to view specific information and export the data using **Export CSV**.
 
 **Organization Dashboard:**
 
@@ -24,9 +24,9 @@ This dashboard shows a high-level overview of your agenda, how you are spending 
 This dashboard shows a high-level overview of how firm members are spending their time and what their billing practices are. A comprehensive description of the dashboard is provided [here](https://help.clio.com/hc/en-us/articles/9290390462875-Navigate-Clio-Manage#h_01HRFFQ8Q5RB80839WCKSBNF0S). When grant information is tracked, it also includes information about how firm members are spending their time in relation to grants and on matters associated with grants.
 
 - **Time allocation:** This section shows time entries for the specified timeframe across firm users.
-  - You can use the **Filter** to display information about the proportion of time allocated to each grant in hours, as a percentage, or both.
-  - You can click **Review activities** for any listed grant to view a table of the transactions associated with that grant.
-  - You can select a date range and relevant filters to view specific information and export the data using **Export CSV**.
+ - You can use the **Filter** to display information about the proportion of time allocated to each grant in hours, as a percentage, or both.
+ - You can click **Review activities** for any listed grant to view a table of the transactions associated with that grant.
+ - You can select a date range and relevant filters to view specific information and export the data using **Export CSV**.
 
 **Organization Feed:**
 
@@ -82,7 +82,7 @@ You can export the transactions associated with a grant to get an understanding 
 
 1. Go to **Grants**.
 2. Select the name of a grant to view its transactions.
-3. *Optional:* You can add or remove columns to include or exclude in the export by clicking **Columns**, selecting and/or deselecting column fields, and clicking **Update columns**.  
+3. *Optional:* You can add or remove columns to include or exclude in the export by clicking **Columns**, selecting and/or deselecting column fields, and clicking **Update columns**. 
 
    **Note:** You can select a time period to filter the list of transactions in the table, but the export will include all transactions for a grant regardless of the time period you selected.
 4. Scroll to the bottom of the table and click **Export**.

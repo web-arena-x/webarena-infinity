@@ -13,8 +13,7 @@ description: Use SSH keys for secure authentication and communication with GitLa
 
 {{< /details >}}
 
-Use SSH keys to securely authenticate with GitLab without entering your username and password
-each time you push or pull code.
+Use SSH keys to securely authenticate with GitLab without entering your username and password each time you push or pull code.
 
 To use SSH keys with GitLab, you must:
 
@@ -35,8 +34,7 @@ SSH uses two keys, a public key and a private key.
 
 It is not possible to reveal confidential data by uploading your public key. When you need to copy or upload your SSH public key, make sure you do not accidentally copy or upload your private key instead.
 
-You can use your private key to [sign commits](project/repository/signed_commits/ssh.md),
-which makes your use of GitLab and your data even more secure.
+You can use your private key to [sign commits](project/repository/signed_commits/ssh.md), which makes your use of GitLab and your data even more secure.
 This signature then can be verified by anyone using your public key.
 
 For details, see [Asymmetric cryptography, also known as public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography).
@@ -74,19 +72,18 @@ To communicate with GitLab, you can use the following SSH key types:
 Before you create a key pair, see if a key pair already exists.
 
 1. Go to your home directory.
-1. Go to the `.ssh/` subdirectory. If the `.ssh/` subdirectory doesn't exist,
-   you are either not in the home directory, or you haven't used `ssh` before.
+1. Go to the `.ssh/` subdirectory. If the `.ssh/` subdirectory doesn't exist, you are either not in the home directory, or you haven't used `ssh` before.
    In the latter case, you need to [generate an SSH key pair](#generate-an-ssh-key-pair).
 1. See if a file with one of the following formats exists:
 
    | Algorithm             | Public key | Private key |
    |-----------------------|------------|-------------|
-   |  ED25519 (preferred)  | `id_ed25519.pub` | `id_ed25519` |
-   |  ED25519_SK           | `id_ed25519_sk.pub` | `id_ed25519_sk` |
-   |  ECDSA_SK             | `id_ecdsa_sk.pub` | `id_ecdsa_sk` |
-   |  RSA (at least 4096-bit key size) | `id_rsa.pub` | `id_rsa` |
-   |  DSA (deprecated)     | `id_dsa.pub` | `id_dsa` |
-   |  ECDSA                | `id_ecdsa.pub` | `id_ecdsa` |
+   | ED25519 (preferred) | `id_ed25519.pub` | `id_ed25519` |
+   | ED25519_SK           | `id_ed25519_sk.pub` | `id_ed25519_sk` |
+   | ECDSA_SK             | `id_ecdsa_sk.pub` | `id_ecdsa_sk` |
+   | RSA (at least 4096-bit key size) | `id_rsa.pub` | `id_rsa` |
+   | DSA (deprecated)     | `id_dsa.pub` | `id_dsa` |
+   | ECDSA                | `id_ecdsa.pub` | `id_ecdsa` |
 
 ## Generate an SSH key pair
 
@@ -142,12 +139,10 @@ and keep the private key secure.
 
 {{< /history >}}
 
-To use SSH with GitLab, copy your public key to your GitLab account. GitLab cannot
-access your private key.
+To use SSH with GitLab, copy your public key to your GitLab account. GitLab cannot access your private key.
 
 When you add an SSH key, GitLab checks it against a list of known compromised keys.
-You cannot add compromised keys because the associated private keys are publicly
-known and could be used to access accounts. This restriction cannot be configured.
+You cannot add compromised keys because the associated private keys are publicly known and could be used to access accounts. This restriction cannot be configured.
 
 If your key is blocked, [generate a new SSH key pair](#generate-an-ssh-key-pair).
 
@@ -191,14 +186,10 @@ To add an SSH key to your GitLab account:
 1. On the left sidebar, select **SSH Keys**.
 1. Select **Add new key**.
 1. In the **Key** box, paste the contents of your public key.
-   If you manually copied the key, make sure you copy the entire key,
-   which starts with `ssh-rsa`, `ssh-dss`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, `ecdsa-sha2-nistp521`,
-   `ssh-ed25519`, `sk-ecdsa-sha2-nistp256@openssh.com`, or `sk-ssh-ed25519@openssh.com`, and may end with a comment.
-1. In the **Title** box, type a description, like `Work Laptop` or
-   `Home Workstation`.
+   If you manually copied the key, make sure you copy the entire key, which starts with `ssh-rsa`, `ssh-dss`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, `ecdsa-sha2-nistp521`, `ssh-ed25519`, `sk-ecdsa-sha2-nistp256@openssh.com`, or `sk-ssh-ed25519@openssh.com`, and may end with a comment.
+1. In the **Title** box, type a description, like `Work Laptop` or `Home Workstation`.
 1. Optional. Select the **Usage type** of the key. It can be used either for `Authentication` or `Signing` or both. `Authentication & Signing` is the default value.
-1. Optional. Update **Expiration date** to modify the default expiration date. For more information, see
-   [SSH key expiration](#ssh-key-expiration).
+1. Optional. Update **Expiration date** to modify the default expiration date. For more information, see [SSH key expiration](#ssh-key-expiration).
 1. Select **Add key**.
 
 ## Verify your SSH connection
@@ -207,15 +198,12 @@ Verify that your SSH key was added correctly, and that you can connect to the Gi
 
 1. To ensure you connect to the correct server, identify the SSH host key fingerprint:
    - For GitLab.com, see the [SSH host keys fingerprints](gitlab_com/_index.md#ssh-host-keys-fingerprints) documentation.
-   - For GitLab Self-Managed or GitLab Dedicated, see `https://gitlab.example.com/help/instance_configuration#ssh-host-keys-fingerprints`
-     where `gitlab.example.com` is the GitLab instance URL.
+   - For GitLab Self-Managed or GitLab Dedicated, see `https://gitlab.example.com/help/instance_configuration#ssh-host-keys-fingerprints` where `gitlab.example.com` is the GitLab instance URL.
 1. Open a terminal and run this command:
    - For GitLab.com, use `ssh -T git@gitlab.com`.
-   - For GitLab Self-Managed or GitLab Dedicated, use `ssh -T git@gitlab.example.com`
-     where `gitlab.example.com` is the GitLab instance URL.
+   - For GitLab Self-Managed or GitLab Dedicated, use `ssh -T git@gitlab.example.com` where `gitlab.example.com` is the GitLab instance URL.
 
-By default, connections use the `git` username, but GitLab Self-Managed or GitLab Dedicated administrators
-can [change the username](https://docs.gitlab.com/omnibus/settings/configuration.html#change-the-name-of-the-git-user-or-group).
+By default, connections use the `git` username, but GitLab Self-Managed or GitLab Dedicated administrators can [change the username](https://docs.gitlab.com/omnibus/settings/configuration.html#change-the-name-of-the-git-user-or-group).
 
 1. On your first connection, you might need to verify the authenticity of the GitLab host.
    Follow the on-screen prompts if you see a message like:
@@ -232,8 +220,7 @@ can [change the username](https://docs.gitlab.com/omnibus/settings/configuration
    Welcome to GitLab, <username>!
    ```
 
-   If the message doesn't appear, you can
-   [troubleshoot your SSH connection](ssh_troubleshooting.md#general-ssh-troubleshooting).
+   If the message doesn't appear, you can [troubleshoot your SSH connection](ssh_troubleshooting.md#general-ssh-troubleshooting).
 
 ## View your SSH keys
 
@@ -292,15 +279,11 @@ To delete an SSH key:
 
 ## SSH key expiration
 
-You can set an expiration date when you add an SSH key to your account. This optional setting
-helps limit the risk of a security breach.
+You can set an expiration date when you add an SSH key to your account. This optional setting helps limit the risk of a security breach.
 
-After your SSH key expires, you can no longer use it to authenticate or sign commits. You must
-[generate a new SSH key](#generate-an-ssh-key-pair) and
-[add it to your account](#add-an-ssh-key-to-your-gitlab-account).
+After your SSH key expires, you can no longer use it to authenticate or sign commits. You must [generate a new SSH key](#generate-an-ssh-key-pair) and [add it to your account](#add-an-ssh-key-to-your-gitlab-account).
 
-On GitLab Self-Managed and GitLab Dedicated, administrators can view expiration dates and use them
-for guidance when [deleting keys](../administration/credentials_inventory.md#delete-ssh-keys).
+On GitLab Self-Managed and GitLab Dedicated, administrators can view expiration dates and use them for guidance when [deleting keys](../administration/credentials_inventory.md#delete-ssh-keys).
 
 GitLab checks daily for expiring SSH keys and sends notifications:
 

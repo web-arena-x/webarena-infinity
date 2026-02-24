@@ -38,7 +38,7 @@ The Handshake AI Fellowship connects selected candidates, known as Fellows, with
 - Hourly rates are $30–$125, based on education level, expertise, and project
 - All compensation is transparent before project acceptance
 - Fellows are contracted and paid directly by Handshake, not the partnering AI lab
-  - *More information available in* [*Handshake AI Fellowship Program Payment Policy*](https://support.joinhandshake.com/hc/en-us/articles/33614619791767-MOVE-Program-Payment-Policy)*.*
+ - *More information available in* [*Handshake AI Fellowship Program Payment Policy*](https://support.joinhandshake.com/hc/en-us/articles/33614619791767-MOVE-Program-Payment-Policy)*.*
 
 ### **Application & Selection Process**
 
@@ -46,7 +46,7 @@ Jobs are listed both on:
 
 - The [Handshake AI Fellowship website](http://joinhandshake.com/move-program)
 - Handshake, under the **Handshake AI** [employer profile](https://app.joinhandshake.com/edu/employers/999894)
-  - **Note**: The Handshake AI employer account follows the same rules for relevancy, messaging limits, and outreach that apply to all employers.
+ - **Note**: The Handshake AI employer account follows the same rules for relevancy, messaging limits, and outreach that apply to all employers.
 
 *We encourage you to promote these roles to students at your institution!*
 
@@ -88,9 +88,9 @@ Handshake plans to continue to add more courses to help candidates upskill as th
 #### **Are there ethical considerations?**
 
 - Fellows play a key role in:
-  - Identifying inaccuracies and bias in model outputs
-  - Validating information with trusted, academic sources
-  - Supporting the development of accurate, inclusive, and responsible AI
+ - Identifying inaccuracies and bias in model outputs
+ - Validating information with trusted, academic sources
+ - Supporting the development of accurate, inclusive, and responsible AI
 
 We believe ethical AI starts with ethical training and diverse academic voices.
 

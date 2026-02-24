@@ -48,9 +48,7 @@ Then you can leave a reviewer instructions on how to run the pinning test in you
 
 ### Try to keep pins green
 
-It's hard for a refactor to be 100% pure. This means that a pin which captures absolutely everything is bound to fail with
-some trivial and expected differences. Try to keep the pins green by cleaning the pin with the expected changes. This helps
-others quickly verify that a refactor was safe.
+It's hard for a refactor to be 100% pure. This means that a pin which captures absolutely everything is bound to fail with some trivial and expected differences. Try to keep the pins green by cleaning the pin with the expected changes. This helps others quickly verify that a refactor was safe.
 
 [Example](https://gitlab.com/gitlab-org/gitlab/-/commit/7b73da4078a60cf18f5c10c712c66c302174f506?merge_request_iid=29528#a061e6835fd577ccf6802c8a476f4e9d47466d16_0_23):
 
@@ -58,9 +56,9 @@ others quickly verify that a refactor was safe.
 // funky_foo_pin_spec.js
 
 const cleanForSnapshot = el => {
-  Array.from(rootEl.querySelectorAll('[data-deprecated-attribute]')).forEach(el => {
+ Array.from(rootEl.querySelectorAll('[data-deprecated-attribute]')).forEach(el => {
     el.removeAttribute('data-deprecated-attribute');
-  });
+ });
 };
 
 // ...

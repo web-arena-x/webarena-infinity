@@ -29,8 +29,8 @@ There's two way to access on-campus jobs at your school:
 
 #### Explore page
 
-The Explore page in Handshake provides access to your school's career center, and offers you the option to explore resources related to your interests.   
-  
+The Explore page in Handshake provides access to your school's career center, and offers you the option to explore resources related to your interests.  
+ 
 Click **Explore** on the left navigation menu, then scroll to find the section for **On-campus jobs**. Up to three jobs are displayed on the Explore page—Click the blue link **View more** to access all on-campus jobs at your school.
 
 ![On-campus jobs on explore page.png](https://support.joinhandshake.com/hc/article_attachments/29433423415575)

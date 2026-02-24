@@ -152,10 +152,10 @@ Who’s involved:
 - Roll out training & enablement (partner with L&D)
 - Conduct FigJam training for managers, end users, and/or IT (all optional)
 - Can also include facilitation workshops such as:
-  - Facilitating engaging meetings
-  - Design thinking
-  - Running retros & crits
-  - Interactive user research
+ - Facilitating engaging meetings
+ - Design thinking
+ - Running retros & crits
+ - Interactive user research
 
 Ready to make the move?
 

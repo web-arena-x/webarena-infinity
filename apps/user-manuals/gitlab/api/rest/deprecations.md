@@ -6,8 +6,7 @@ title: REST API deprecations
 description: "List of deprecated fields and planned breaking changes in the GitLab REST API."
 ---
 
-You should regularly review the following deprecations and make the recommended changes. These deprecations often signal improved API features and recommend using new fields
-or endpoints for features.
+You should regularly review the following deprecations and make the recommended changes. These deprecations often signal improved API features and recommend using new fields or endpoints for features.
 
 Though some deprecations mention a v5 REST API, no v5 REST API development is active.
 GitLab will not make these changes within REST API v4, and [follows semantic versioning for the REST API](_index.md#versioning-and-deprecations).
@@ -25,8 +24,7 @@ Nodes are renamed to sites across the application. The functionality of both end
 Breaking change. [Related issue](https://gitlab.com/gitlab-org/gitlab/-/issues/350534).
 
 The `merged_by` field in the [merge request API](../merge_requests.md#list-merge-requests)
-has been deprecated in favor of the `merge_user` field which more correctly identifies who merged a merge request when
-performing actions (set to auto-merge, add to merge train) other than a simple merge.
+has been deprecated in favor of the `merge_user` field which more correctly identifies who merged a merge request when performing actions (set to auto-merge, add to merge train) other than a simple merge.
 
 API users are encouraged to use the new `merge_user` field instead. The `merged_by` field will be removed in v5 of the GitLab REST API.
 
@@ -35,9 +33,7 @@ API users are encouraged to use the new `merge_user` field instead. The `merged_
 Breaking change. [Related issue](https://gitlab.com/gitlab-org/gitlab/-/issues/382032).
 
 The `merge_status` field in the [merge request API](../merge_requests.md#merge-status)
-has been deprecated in favor of the `detailed_merge_status` field which more correctly identifies
-all of the potential statuses that a merge request can be in. API users are encouraged to use the
-new `detailed_merge_status` field instead. The `merge_status` field will be removed in v5 of the GitLab REST API.
+has been deprecated in favor of the `detailed_merge_status` field which more correctly identifies all of the potential statuses that a merge request can be in. API users are encouraged to use the new `detailed_merge_status` field instead. The `merge_status` field will be removed in v5 of the GitLab REST API.
 
 ### Null value for `private_profile` attribute in User API
 
@@ -49,10 +45,8 @@ When creating and updating users through the API, `null` was a valid value for t
 
 Breaking change. [Related issue](https://gitlab.com/gitlab-org/gitlab/-/issues/322117).
 
-The endpoint to get
-[changes from a single merge request](../merge_requests.md#get-single-merge-request-changes)
-has been deprecated in favor the
-[list merge request diffs](../merge_requests.md#list-merge-request-diffs) endpoint.
+The endpoint to get [changes from a single merge request](../merge_requests.md#get-single-merge-request-changes)
+has been deprecated in favor the [list merge request diffs](../merge_requests.md#list-merge-request-diffs) endpoint.
 API users are encouraged to switch to the new diffs endpoint instead.
 
 The `changes from a single merge request` endpoint will be removed in v5 of the GitLab REST API.
@@ -61,8 +55,7 @@ The `changes from a single merge request` endpoint will be removed in v5 of the 
 
 Breaking change. [Related issue](https://gitlab.com/gitlab-org/gitlab/-/issues/397067).
 
-The endpoint to get all managed licenses for a given project has been deprecated in favor the
-[License Approval policy](../../user/compliance/license_approval_policies.md) feature.
+The endpoint to get all managed licenses for a given project has been deprecated in favor the [License Approval policy](../../user/compliance/license_approval_policies.md) feature.
 
 Users who wish to continue to enforce approvals based on detected licenses are encouraged to create a new [License Approval policy](../../user/compliance/license_approval_policies.md) instead.
 
@@ -72,10 +65,8 @@ The `managed licenses` endpoint will be removed in v5 of the GitLab REST API.
 
 Breaking change. [Related issue](https://gitlab.com/gitlab-org/gitlab/-/issues/353097).
 
-The endpoint to get the configuration of approvals for a project returns
-empty arrays for `approvers` and `approval_groups`.
-These fields were deprecated in favor of the endpoint to
-[list all approval rules](../merge_request_approvals.md#list-all-approval-rules-for-a-merge-request)
+The endpoint to get the configuration of approvals for a project returns empty arrays for `approvers` and `approval_groups`.
+These fields were deprecated in favor of the endpoint to [list all approval rules](../merge_request_approvals.md#list-all-approval-rules-for-a-merge-request)
 for a merge request. API users are encouraged to switch to this endpoint instead.
 
 These fields will be removed from the `get configuration` endpoint in v5 of the GitLab REST API.
@@ -84,17 +75,16 @@ These fields will be removed from the `get configuration` endpoint in v5 of the 
 
 Breaking change. [Related issue](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 
-Occurrences of the `active` identifier in the GitLab Runner GraphQL API endpoints will be
-renamed to `paused` in GitLab 16.0.
+Occurrences of the `active` identifier in the GitLab Runner GraphQL API endpoints will be renamed to `paused` in GitLab 16.0.
 
 - In v4 of the REST API, you can use the `paused` property in place of `active`
 - In v5 of the REST API, this change will affect endpoints taking or returning `active` property, such as:
-  - `GET /runners`
-  - `GET /runners/all`
-  - `GET /runners/:id` / `PUT /runners/:id`
-  - `PUT --form "active=false" /runners/:runner_id`
-  - `GET /projects/:id/runners` / `POST /projects/:id/runners`
-  - `GET /groups/:id/runners`
+ - `GET /runners`
+ - `GET /runners/all`
+ - `GET /runners/:id` / `PUT /runners/:id`
+ - `PUT --form "active=false" /runners/:runner_id`
+ - `GET /projects/:id/runners` / `POST /projects/:id/runners`
+ - `GET /groups/:id/runners`
 
 The 16.0 release of GitLab Runner will start using the `paused` property when registering runners.
 
@@ -107,8 +97,7 @@ In a future v5 of the REST API, the endpoints for GitLab Runner will not return 
 A runner's status will only relate to runner contact status, such as:
 `online`, `offline`, or `not_connected`. Status `paused` or `active` will no longer appear.
 
-When checking if a runner is `paused`, API users are advised to check the boolean attribute
-`paused` to be `true` instead. When checking if a runner is `active`, check if `paused` is `false`.
+When checking if a runner is `paused`, API users are advised to check the boolean attribute `paused` to be `true` instead. When checking if a runner is `active`, check if `paused` is `false`.
 
 ## Runner will not return `ip_address`
 
@@ -127,15 +116,13 @@ The `default_branch_protection` field is deprecated in GitLab 17.0 for the follo
 - [Update group API](../groups.md#update-group-attributes).
 - [Application Settings API](../settings.md#update-application-settings)
 
-You should use the `default_branch_protection_defaults` field instead, which provides more finer grained control
-over the default branch protections.
+You should use the `default_branch_protection_defaults` field instead, which provides more finer grained control over the default branch protections.
 
 The `default_branch_protection` field will be removed in v5 of the GitLab REST API.
 
 ## `require_password_to_approve` API field
 
-The `require_password_to_approve` was deprecated in GitLab 16.9. Use the `require_reauthentication_to_approve` field
-instead. If you supply values to both fields, the `require_reauthentication_to_approve` field takes precedence.
+The `require_password_to_approve` was deprecated in GitLab 16.9. Use the `require_reauthentication_to_approve` field instead. If you supply values to both fields, the `require_reauthentication_to_approve` field takes precedence.
 
 The `require_password_to_approve` field will be removed in v5 of the GitLab REST API.
 
@@ -159,9 +146,7 @@ To match the same behavior of `restrict_user_defined_variables: false` set `ci_p
 
 Breaking change. [Related issue](https://gitlab.com/gitlab-org/gitlab/-/issues/511053).
 
-In GitLab 18.7, the `namespace` parameter in the [project import and export API](../project_import_export.md) is deprecated
-in favor of the `namespace_id` and `namespace_path` parameters. The `namespace` parameter accepted both an ID or path,
-which caused ambiguity when namespace paths contained only digits.
+In GitLab 18.7, the `namespace` parameter in the [project import and export API](../project_import_export.md) is deprecated in favor of the `namespace_id` and `namespace_path` parameters. The `namespace` parameter accepted both an ID or path, which caused ambiguity when namespace paths contained only digits.
 
 Instead, you should use:
 

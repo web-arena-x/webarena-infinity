@@ -13,11 +13,11 @@ To reach Inbox Zero, we recommend a simple but powerful workflow. Check out this
 Instead of repeatedly marking emails unread when they need further attention, ask yourself: do I need to action this email soon, later, or is it done?
 
 - For messages that need action soon, hit **J** to leave them in the inbox and move to the next message.
-  - You can remember the shortcut as **J** for “today.”
+ - You can remember the shortcut as **J** for “today.”
 - For messages that need action later, hit **H** to set a reminder.
-  - You can remember the shortcut as **H** for the “hour the message will return.”
+ - You can remember the shortcut as **H** for the “hour the message will return.”
 - For messages that are done, hit **E** to Mark Done (Archive) or **V** to folder them. They’ll never be deleted and will return if someone replies.
-  - You can remember the shortcut as **E** for “empty inbox.”
+ - You can remember the shortcut as **E** for “empty inbox.”
 
 💡 **Tip**: Hit **Cmd+K** (Mac) or **Ctrl+K** (Windows)**→ go to Done** to see your Done emails and **Cmd+K** or **Ctrl+K → go to Reminders** to see your pending reminders.
 

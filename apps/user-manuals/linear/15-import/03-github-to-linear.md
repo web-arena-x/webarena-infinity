@@ -16,9 +16,9 @@ Many teams choose a middle ground—**importing only recent and in-progress issu
 
 ## Pre-Migration Planning
 
-1. **Set up Linear teams** for each functional group that will be working in Linear.  
+1. **Set up Linear teams** for each functional group that will be working in Linear. 
 Provision users and add them to appropriate teams. Linear supports SCIM Group Push. 
-  1. Please note that you cannot import to a sub-team directly. If you plan to use subteams, import to an existing (or create a new) top-level Linear team first, then [convert it to a sub-team](https://linear.app/docs/sub-teams#update-an-existing-team-to-a-sub-team) afterwards.
+ 1. Please note that you cannot import to a sub-team directly. If you plan to use subteams, import to an existing (or create a new) top-level Linear team first, then [convert it to a sub-team](https://linear.app/docs/sub-teams#update-an-existing-team-to-a-sub-team) afterwards.
 2. **Align workflows** by creating states in Linear that match what teams use in GitHub. Similar state names will automatically map during import.
 3. **Develop a label cleanup strategy** Clean up unused labels in GitHub and plan which labels should be _team-specific_ vs. _workspace-wide_.
 4. **Enable key Linear features** like Triage, Estimates, Cycles.
@@ -68,7 +68,7 @@ The first time you run an import from a new GitHub organization, you'll need to 
 4. Choose the Linear team to import into.
 5. Decide whether to import data for closed issues.
 6. Review the fetched data
-7. Select if you want to import closed issues into your team's archive.  
+7. Select if you want to import closed issues into your team's archive. 
 This archive is accessible from the dropdown menu on the team in your Linear sidebar. Archived issues can be restored at any time.
 8. Choose whether to sync changes from Linear back to GitHub Issues.
 9. Map your users.
@@ -81,14 +81,8 @@ By default, we will import any projects associated with the repos you choose. Yo
 
 ### Data included in the import
 
-GitHub Issues | Linear
---- | ---
-Title | Title
-Description | Description
-Labels | Labels (team-level)
-Projects | Projects
-Comments | Comments
-Sub-issue | Sub-issue
+GitHub Issues | Linear --- | --- Title | Title Description | Description Labels | Labels (team-level)
+Projects | Projects Comments | Comments Sub-issue | Sub-issue
 
 > [!NOTE]
 > Please note that data not included above like custom fields or issue created dates will not import to Linear.
@@ -147,12 +141,8 @@ Remove team members who were automatically added during import but aren't actual
 
 While the GitHub Issues Importer offers syncing _on imported issues_, the GitHub Issues Sync feature in [Settings > Integrations > GitHub](https://linear.app/settings/integrations/github) allows you to automatically create issues between Linear and GitHub and sync them.
 
-Details | Unidirectional | Bidirectional
---- | --- | ---
-What it does | Creates new issues in Linear when they're created in GitHub | Keeps issues synchronized between both platforms
-Direction | Issues flow from GitHub → Linear | GitHub ↔ Linear (changes in either system reflect in the other)
-Best for | Teams working on open source projects that want private internal discussions while still tracking external GitHub issues | Transition periods or when teams must use GitHub for integration requirements but collaborate with other Linear teams
-What syncs | * New issue creation
+Details | Unidirectional | Bidirectional --- | --- | --- What it does | Creates new issues in Linear when they're created in GitHub | Keeps issues synchronized between both platforms Direction | Issues flow from GitHub → Linear | GitHub ↔ Linear (changes in either system reflect in the other)
+Best for | Teams working on open source projects that want private internal discussions while still tracking external GitHub issues | Transition periods or when teams must use GitHub for integration requirements but collaborate with other Linear teams What syncs | * New issue creation
 * Issue details (title, description)
 * Comments added in GitHub and in Linear
 * Attached images
@@ -162,7 +152,7 @@ What syncs | * New issue creation
 * Attached images
 * Open/closed status (but not detailed workflow states)
 
-GitHub Issues Sync relies on a mapping you provide in [Settings > Integrations > GitHub](https://linear.app/settings/integrations/github) between a Linear team and a GitHub repository.  At this time, you cannot choose to sync only _certain_ Linear issues to GitHub, or select a different repository to sync to except by editing this setting.
+GitHub Issues Sync relies on a mapping you provide in [Settings > Integrations > GitHub](https://linear.app/settings/integrations/github) between a Linear team and a GitHub repository. At this time, you cannot choose to sync only _certain_ Linear issues to GitHub, or select a different repository to sync to except by editing this setting.
 
 > [!NOTE]
 > Please see our GitHub integration [documentation](https://linear.app/docs/github#github-issues-sync) for more information about GitHub Sync

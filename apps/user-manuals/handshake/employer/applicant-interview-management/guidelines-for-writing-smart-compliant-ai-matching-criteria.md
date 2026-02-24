@@ -46,8 +46,7 @@ Limit your criteria to **10 or fewer**, per job.
 
 Avoid criteria that reference protected classes or could lead to discriminatory impact.
 
-**❌ Don’t write**: “Looking for recent grads only,” “Must be under 30,” “US-born candidates”  
-✅ **Instead say**: “Must have graduated by May 2025,” “Open to early career professionals,” or “Authorized to work in the US”
+**❌ Don’t write**: “Looking for recent grads only,” “Must be under 30,” “US-born candidates” ✅ **Instead say**: “Must have graduated by May 2025,” “Open to early career professionals,” or “Authorized to work in the US”
 
 Review the [EEOC laws](https://www.eeoc.gov/equal-employment-opportunity-laws).
 
@@ -55,21 +54,21 @@ Review the [EEOC laws](https://www.eeoc.gov/equal-employment-opportunity-laws).
 
 Avoid criteria based on personal judgment or vague terms.
 
-❌ **Don’t write**: “Must be a culture fit,” “Great attitude,” “Energetic and enthusiastic”.  
+❌ **Don’t write**: “Must be a culture fit,” “Great attitude,” “Energetic and enthusiastic”. 
 ✅ **Instead say**: “Experience collaborating in team environments,” or “Excellent written communication skills”.
 
 #### **4. Too little information**
 
 Single words or unclear phrases can’t be interpreted correctly.
 
-❌ **Don’t write**: “Experienced” or “Ice cream”. The system will not understand what this means.  
+❌ **Don’t write**: “Experienced” or “Ice cream”. The system will not understand what this means. 
 ✅ **Instead provide full context**:“Experience working with frozen dessert products” (if relevant).
 
 #### **5. More than 100 characters per criteria**
 
 Limit each criteria to **100 characters or fewer**, and focus on a single requirement, experience, or skill.
 
-❌ **Don’t write**: “Experience in customer service, retail sales, order fulfillment, and using POS systems and CRMs”.  
+❌ **Don’t write**: “Experience in customer service, retail sales, order fulfillment, and using POS systems and CRMs”. 
 ✅ **Instead**:Split into separate inputs. For example:
 
 - “Experience in customer service”
@@ -79,21 +78,21 @@ Limit each criteria to **100 characters or fewer**, and focus on a single requir
 
 Contact information is not relevant to applicant evaluation.
 
-❌ **Don’t write**:“Call 555-123-4567”.   
+❌ **Don’t write**:“Call 555-123-4567”.  
 ✅ **Instead**:Provide an actual qualification or experience instead.
 
 #### **7.  Email address usage**
 
 The system cannot act on contact instructions.
 
-❌ **Don’t write**:“Contact me at jane@company.com”.   
+❌ **Don’t write**:“Contact me at jane@company.com”.  
 ✅ **Instead**:Use the employer contact options provided in your job posting or profile.
 
 #### **8. URL usage**
 
 The system does not extract information from links.
 
-❌ **Don’t write**: “[www.example.com/requirements](http://www.example.com/requirements)”.  
+❌ **Don’t write**: “[www.example.com/requirements](http://www.example.com/requirements)”. 
 ✅ **Instead**:Paste in the relevant information directly from the website into the edit field.
 
 ### **Tips for writing strong criteria**

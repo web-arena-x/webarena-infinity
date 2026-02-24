@@ -32,12 +32,12 @@ Sometimes you may need to refresh the app manually. For example, if you were rec
 **To refresh the Project Overview screen to check for updates in a project**:
 
 1. Select the project.
-2. Swipe down on the screen.   
+2. Swipe down on the screen.  
    *Note:* You should see a loading icon spin after swiping down.
 
 **To refresh a list or item within a tool**:
 
-1. Navigate to the relevant page and swipe down on the screen.  
+1. Navigate to the relevant page and swipe down on the screen. 
    *Note:* You should see a loading icon spin after swiping down.
 
 ##### **3. Confirm Internet Connection**
@@ -57,7 +57,7 @@ Check the following on your mobile device's settings or control panel:
 
 ##### **5. Log Out and Back In**
 
-If refreshing the app, as described above, doesn't work, try logging out of the Procore app and then logging back in.   
+If refreshing the app, as described above, doesn't work, try logging out of the Procore app and then logging back in.  
 ***Important!***Since Procore allows your login credentials to be remembered automatically, make sure you know the password before logging out of the app.
 
 1. Navigate to the [Sidebar screen](https://support.procore.com/procore-mobile-android/user-guide/sidebar-screen/tutorials/about-the-sidebar-screen-android "About the Sidebar Screen (Android)") by tapping your ****avatar circle.****

@@ -50,11 +50,11 @@ If you're comparing GitLab SAST to another product, you may find that some of it
 When choosing a codebase to test SAST, you should:
 
 - Test in a repository where you can safely modify the CI/CD configuration without getting in the way of normal development activities.
-  SAST scans run in your CI/CD pipeline, so you'll need to make a small edit to the CI/CD configuration to [enable SAST](_index.md#configuration).
-  - You can make a fork or copy of an existing repository for testing. This way, you can set up your testing environment without any chance of interrupting normal development.
+ SAST scans run in your CI/CD pipeline, so you'll need to make a small edit to the CI/CD configuration to [enable SAST](_index.md#configuration).
+ - You can make a fork or copy of an existing repository for testing. This way, you can set up your testing environment without any chance of interrupting normal development.
 - Use a codebase that matches your organization's typical technology stack.
 - Use a language that [GitLab Advanced SAST supports](gitlab_advanced_sast.md#supported-languages).
-  GitLab Advanced SAST produces more accurate results than other [analyzers](analyzers.md).
+ GitLab Advanced SAST produces more accurate results than other [analyzers](analyzers.md).
 
 Your test project must have GitLab Ultimate. Only Ultimate includes [features](_index.md#features) like:
 
@@ -66,10 +66,10 @@ Your test project must have GitLab Ultimate. Only Ultimate includes [features](_
 If you choose to use a benchmark or an intentionally vulnerable application for testing, remember that these applications:
 
 - Focus on specific vulnerability types.
-  The benchmark's focus may be different from the vulnerability types your organization prioritizes for discovery and remediation.
+ The benchmark's focus may be different from the vulnerability types your organization prioritizes for discovery and remediation.
 - Use specific technologies in specific ways that may differ from how your organization builds software.
 - Report results in ways that may implicitly emphasize certain criteria over others.
-  For example, you may prioritize precision (fewer false-positive results) while the benchmark only scores based on recall (fewer false-negative results).
+ For example, you may prioritize precision (fewer false-positive results) while the benchmark only scores based on recall (fewer false-negative results).
 
 [Epic 15296](https://gitlab.com/groups/gitlab-org/-/epics/15296) tracks work to recommend specific projects for testing.
 
@@ -81,8 +81,8 @@ AI models often return code that is not truly exploitable.
 For example:
 
 - AI tools often write small functions that take a parameter and use it in a sensitive context (called a "sink"), without actually receiving any user input.
-  This can be a safe design if the function is only called with program-controlled values, like constants.
-  The code is not vulnerable unless user input is allowed to flow to these sinks without first being sanitized or validated.
+ This can be a safe design if the function is only called with program-controlled values, like constants.
+ The code is not vulnerable unless user input is allowed to flow to these sinks without first being sanitized or validated.
 - AI tools may comment out part of the vulnerability to prevent you from accidentally running the code.
 
 Reporting vulnerabilities in these unrealistic examples would cause false-positive results in real-world code.

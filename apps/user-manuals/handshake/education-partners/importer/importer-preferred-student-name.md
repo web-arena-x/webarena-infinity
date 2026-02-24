@@ -14,8 +14,8 @@ It is strongly advised to not sync in the user's full name in the preferred\_nam
 
 Student's full name = Christina Thompson
 
-preferred\_name = Tina  
-  
+preferred\_name = Tina 
+ 
 Profile will display: Tina Thompson
 
 **Example 2:**
@@ -28,7 +28,7 @@ Profile will display: Thompson, Tina Thompson
 
 If you have accidentally processed a file using the student's full name in the preferred\_name field, this can be corrected by either:
 
-- Updating the preferred\_name to include *only* their first name or nickname  
+- Updating the preferred\_name to include *only* their first name or nickname 
     
-  ***OR***
+ ***OR***
 - Inserting **\*\*CLEAR\*\*** (in preferred\_name field) for each student whose name you would like to clear out. When using **\*\*CLEAR\*\***, every letter should be capitalized with two asterisks at the beginning and end of the word.

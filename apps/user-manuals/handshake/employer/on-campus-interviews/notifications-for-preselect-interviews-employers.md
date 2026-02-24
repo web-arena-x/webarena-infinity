@@ -58,15 +58,14 @@ Hello NAME,
 
 Good news! The application period for your interview at [SCHOOL NAME] has started. You can login to Handshake to view new applicants and see other details about your interview.
 
-The jobs associated with this interview schedule are:  
+The jobs associated with this interview schedule are: 
 [JOB TITLE]
 
 Feel free to contact [SCHOOL NAME] if you have any questions about details of this interview schedule.
 
 You are receiving these emails because you are listed as a contact for an interview schedule in Handshake.
 
-Thank you,  
-[SCHOOL NAME] "
+Thank you, [SCHOOL NAME] "
 
 ![Interview application period started.png](https://support.joinhandshake.com/hc/article_attachments/37569897960087)
 
@@ -88,12 +87,10 @@ The sign up period for your interview at [SCHOOL NAME] is finished. You can see 
 
 Please contact career services at [SCHOOL NAME] to make further changes and add or remove more students to the schedule.
 
-Jobs being interviewed for:  
-[JOB TITLE]  
-You are receiving these emails because you are listed as a contact for an interview schedule in Handshake.
+Jobs being interviewed for: 
+[JOB TITLE] You are receiving these emails because you are listed as a contact for an interview schedule in Handshake.
 
-Thank you,  
-[SCHOOL NAME]
+Thank you, [SCHOOL NAME]
 
 ![Interview signup period finished.png](https://support.joinhandshake.com/hc/article_attachments/37569889321367)
 
@@ -111,23 +108,21 @@ Subject: "Interview Application Period Finished"
 
 Body:
 
-"Interview application period finished  
-  
+"Interview application period finished 
+ 
 Hello [NAME]
 
 The application period for your interview at [SCHOOL NAME] has finished. You can log in to view new applicants and see other details about your interview. A total of [NUMBER OF] applicants applied to interview.
 
-What's next?  
+What's next? 
 Your interview schedule is now finalized. You can view the interview schedule and its time slots, applicants, and other details on Handshake at any time.
 
-The jobs associated with this interview schedule are:  
-[JOB TITLE]  
-Please contact [SCHOOL NAME] if you have any questions about details of this interview schedule.
+The jobs associated with this interview schedule are: 
+[JOB TITLE] Please contact [SCHOOL NAME] if you have any questions about details of this interview schedule.
 
 You are receiving these emails because you are listed as a contact for an interview schedule in Handshake.
 
-Thank you,  
-[SCHOOL NAME]
+Thank you, [SCHOOL NAME]
 
 ![interview application period finished.png](https://support.joinhandshake.com/hc/article_attachments/37569889328535)
 
@@ -143,7 +138,7 @@ Subject: "Interview Schedule Alternate Signup Started"
 
 Body:
 
-"Interview with Café and Co.  
+"Interview with Café and Co. 
 Hello [NAME]
 
 The interview with [COMPANY NAME] on [DATE] is now in the alternate application signup period."

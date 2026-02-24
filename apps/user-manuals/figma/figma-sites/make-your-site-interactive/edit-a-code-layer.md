@@ -20,7 +20,7 @@ To edit a code layer, double-click it on the canvas. You can also select the lay
 
 Editing a code layer opens the composer window. From this window you can chat with AI, write your own code, preview the code layer, and adjust any [custom properties](#h_01JXB7CV7YTXE0Z8A4GJJNQ746).
 
-**Tip**: To open the composer window in a full screen view—and preview all the code components and code layers in the file—click  **More** at the top right of the window, then **Open in Make view**.
+**Tip**: To open the composer window in a full screen view—and preview all the code components and code layers in the file—click **More** at the top right of the window, then **Open in Make view**.
 
 There are a few details to keep in mind as you work with code layers:
 
@@ -42,7 +42,7 @@ The chat history stays attached to the code layer, even if you duplicate the lay
 
 ### Restore a previous version
 
-As you chat back and forth, Figma will add a checkpoint to the chat window for each revision to the code layer. To roll back to a previous version, scroll up in the chat window and click  **Restore this version** on a checkpoint.
+As you chat back and forth, Figma will add a checkpoint to the chat window for each revision to the code layer. To roll back to a previous version, scroll up in the chat window and click **Restore this version** on a checkpoint.
 
 ## Write your own code
 
@@ -64,9 +64,9 @@ Depending on the type of element and how it was generated, you can modify proper
 
 To use the edit tool:
 
-1. At the top of the preview, click  **Edit**.
+1. At the top of the preview, click **Edit**.
 2. Select the element you want to modify.
-3. Click  **Edit properties** to make changes using the toolbar, or  **Edit with prompt** to describe the changes you’d like to make. You can also select  **Go to source** to jump straight to the relevant spot in the code.
+3. Click **Edit properties** to make changes using the toolbar, or **Edit with prompt** to describe the changes you’d like to make. You can also select **Go to source** to jump straight to the relevant spot in the code.
 
 Note: The exact set of properties you can edit depends on the type of element you’ve selected.
 
@@ -76,7 +76,7 @@ Note: The exact set of properties you can edit depends on the type of element yo
 
 Code layers can have customizable properties that control their behavior and appearance. These properties appear in the properties panel and enable people to modify the code layer without needing to edit its underlying code.
 
-**Tip**: When editing a code layer, click  to open the inline properties panel and console.
+**Tip**: When editing a code layer, click to open the inline properties panel and console.
 
 There are several property types available, with more coming soon:
 
@@ -110,7 +110,7 @@ Yes, you can work with components and variables in code layers:
 
 - **Components**: Use a [component reference property](#h_01JXB7CV7YTXE0Z8A4GJJNQ746) to incorporate component instances in your code layer. This keeps the instances connected to their main components.
 - **Styles**: It's currently not possible to reference styles in a code layer.
-- **Variables:** You can bind any custom properties in the code layer to variables by hovering over the property name or value and clicking  **Apply variable to property**.
+- **Variables:** You can bind any custom properties in the code layer to variables by hovering over the property name or value and clicking **Apply variable to property**.
 
 Can code layers share information between them?
 

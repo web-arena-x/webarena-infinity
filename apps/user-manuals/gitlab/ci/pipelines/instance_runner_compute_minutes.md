@@ -32,15 +32,13 @@ For example, if you have a monthly quota of 10,000 compute minutes:
 
 1. On April 1 you have 10,000 compute minutes available.
 1. During April, you use 6,000 of the 10,000 compute minutes available in the quota.
-1. On May 1, the accumulated compute usage resets to 0, and you have 10,000
-   compute minutes available for May.
+1. On May 1, the accumulated compute usage resets to 0, and you have 10,000 compute minutes available for May.
 
 Usage data for the previous month is kept to show a historical view of the consumption over time.
 
 ### Notifications
 
-An in-app banner is displayed and an email notification sent to the
-namespace owners when the remaining compute minutes is:
+An in-app banner is displayed and an email notification sent to the namespace owners when the remaining compute minutes is:
 
 - Less than 25% of the quota.
 - Less than 5% of the quota.
@@ -52,16 +50,13 @@ When the compute quota is used for the current month, instance runners stop proc
 In pipelines that have already started:
 
 - Any pending job (not yet started) or retried job that must be processed by instance runners is dropped.
-- Jobs running on instance runners can continue to run until the overall namespace usage goes over-quota
-  by 1,000 compute minutes. After the 1,000 compute minute grace period, any remaining running jobs
-  are also dropped.
+- Jobs running on instance runners can continue to run until the overall namespace usage goes over-quota by 1,000 compute minutes. After the 1,000 compute minute grace period, any remaining running jobs are also dropped.
 
 Project and group runners are not affected by the compute quota and continue processing jobs.
 
 ## View usage
 
-You can view the compute usage (including [additional minutes](../../subscriptions/gitlab_com/compute_minutes.md)) for a group or personal namespace to understand
-compute usage trends and how many compute minutes remain.
+You can view the compute usage (including [additional minutes](../../subscriptions/gitlab_com/compute_minutes.md)) for a group or personal namespace to understand compute usage trends and how many compute minutes remain.
 
 In some cases, the quota limit is replaced by one of the following labels:
 
@@ -80,9 +75,7 @@ To view compute usage for your group:
 1. Select **Settings** > **Usage quotas**.
 1. Select the **Pipelines** tab.
 
-The projects list shows projects with compute usage or instance runners usage
-in the current month only. The list includes all projects in the namespace and its
-subgroups, sorted in descending order of compute usage.
+The projects list shows projects with compute usage or instance runners usage in the current month only. The list includes all projects in the namespace and its subgroups, sorted in descending order of compute usage.
 
 ### View usage for a personal namespace
 

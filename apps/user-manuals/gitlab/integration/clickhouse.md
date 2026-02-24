@@ -28,9 +28,9 @@ After you configure ClickHouse, you can use the following analytics features:
 
 | Feature | Description |
 |----------------------|---------------------|
-| [Runner fleet dashboard](../ci/runners/runner_fleet_dashboard.md#dashboard-metrics)  | Displays runner usage metrics and job wait times. Provides export of CSV files containing job counts and executed runner minutes by runner type and job status for each project.   |
-| [Contribution analytics](../user/group/contribution_analytics/_index.md)  | Provides analytics of group member contributions (push events, issues, merge requests) over time. ClickHouse reduces the likelihood of timeout issues for large instances. |
-| [GitLab Duo and SDLC trends](../user/analytics/duo_and_sdlc_trends.md)  | Measures the impact of GitLab Duo on software development performance. Tracks development metrics (deployment frequency, lead time, change failure rate, time to restore) alongside AI-specific indicators (GitLab Duo seat adoption, Code Suggestions acceptance rates, and GitLab Duo Chat usage). |
+| [Runner fleet dashboard](../ci/runners/runner_fleet_dashboard.md#dashboard-metrics) | Displays runner usage metrics and job wait times. Provides export of CSV files containing job counts and executed runner minutes by runner type and job status for each project.   |
+| [Contribution analytics](../user/group/contribution_analytics/_index.md) | Provides analytics of group member contributions (push events, issues, merge requests) over time. ClickHouse reduces the likelihood of timeout issues for large instances. |
+| [GitLab Duo and SDLC trends](../user/analytics/duo_and_sdlc_trends.md) | Measures the impact of GitLab Duo on software development performance. Tracks development metrics (deployment frequency, lead time, change failure rate, time to restore) alongside AI-specific indicators (GitLab Duo seat adoption, Code Suggestions acceptance rates, and GitLab Duo Chat usage). |
 | [GraphQL API for AI Metrics](../api/graphql/duo_and_sdlc_trends.md) | Provides programmatic access to GitLab Duo and SDLC trend data through the `AiMetrics`, `AiUserMetrics`, and `AiUsageData` endpoints. Provides export of pre-aggregated metrics and raw event data for integration with BI tools and custom analytics. |
 
 ## Supported ClickHouse versions
@@ -40,7 +40,7 @@ The supported ClickHouse version differs depending on your GitLab version:
 - GitLab 17.7 and later supports ClickHouse 23.x. To use either ClickHouse 24.x or 25.x, use the [workaround](#database-schema-migrations-on-gitlab-1800-and-earlier).
 - GitLab 18.1 and later supports ClickHouse 23.x, 24.x, and 25.x.
 - GitLab 18.8 and later supports ClickHouse 23.x, 24.x, 25.x, and the Replicated database engine.
-  - Older clusters will require an additional permission (`dictGet`), see the [snippet](#database-dictionary-read-support).
+ - Older clusters will require an additional permission (`dictGet`), see the [snippet](#database-dictionary-read-support).
 
 ClickHouse Cloud is always compatible with the latest stable GitLab release.
 
@@ -98,8 +98,8 @@ After you create your ClickHouse Cloud service, you then [create the GitLab data
 Prerequisites:
 
 - Have a ClickHouse instance installed and running. If ClickHouse is not installed, see:
-  - [ClickHouse official installation guide](https://clickhouse.com/docs/en/install).
-  - [ClickHouse recommendations for GitLab Self-Managed](https://clickhouse.com/docs/guides/sizing-and-hardware-recommendations).
+ - [ClickHouse official installation guide](https://clickhouse.com/docs/en/install).
+ - [ClickHouse recommendations for GitLab Self-Managed](https://clickhouse.com/docs/guides/sizing-and-hardware-recommendations).
 - Have a [supported ClickHouse version](#supported-clickhouse-versions).
 - Enable network connectivity from your GitLab instance to ClickHouse.
 - Be an Administrator for both ClickHouse and your GitLab instance.
@@ -117,9 +117,9 @@ Prerequisites:
 - Have a ClickHouse cluster with multiple nodes. A minimum of three nodes is recommended.
 - Define a cluster in the `remote_servers` configuration section.
 - Configure the following macros in your ClickHouse configuration:
-  - `cluster`
-  - `shard`
-  - `replica`
+ - `cluster`
+ - `shard`
+ - `replica`
 
 When configuring the database for HA, you must run the statements with the `ON CLUSTER` clause.
 
@@ -140,11 +140,11 @@ Basic chproxy configuration example:
 
 ```yaml
 server:
-  http:
+ http:
     listen_addr: ":8080"
 
 clusters:
-  - name: "clickhouse_cluster"
+ - name: "clickhouse_cluster"
     nodes: [
       "http://ch-node1:8123",
       "http://ch-node2:8123",
@@ -152,7 +152,7 @@ clusters:
     ]
 
 users:
-  - name: "gitlab"
+ - name: "gitlab"
     password: "your_secure_password"
     to_cluster: "clickhouse_cluster"
     to_user: "gitlab"
@@ -182,8 +182,7 @@ Before configuring the database, verify ClickHouse is installed and accessible:
    clickhouse-client --host your-clickhouse-host --port 9440 --secure --user default --password 'your-password'
    ```
 
-   {{< alert type="note" >}}
-   If you have not configured TLS yet, use port `9000` without the `--secure` flag for initial testing.
+   {{< alert type="note" >}} If you have not configured TLS yet, use port `9000` without the `--secure` flag for initial testing.
    {{< /alert >}}
 
 ### Create database and user
@@ -644,7 +643,7 @@ To ensure the security of your data and ensure audit ability, use the following 
 
 - TLS Encryption: Configure ClickHouse servers to [use TLS encryption](#network-security) to validate connections.
 
-  When configuring the connection URL in GitLab, you should use the `https://` protocol (for example, `https://clickhouse.example.com:8443`) to specify this.
+ When configuring the connection URL in GitLab, you should use the `https://` protocol (for example, `https://clickhouse.example.com:8443`) to specify this.
 
 - IP Allow lists: Restrict access to the ClickHouse port (default `8443` or `9440`) to only the GitLab application nodes and other authorized networks.
 
@@ -670,7 +669,7 @@ For self-managed instances, ensure the `query_log` configuration parameter is en
        <table>query_log</table>
        <partition_by>toYYYYMM(event_date)</partition_by>
        <flush_interval_milliseconds>7500</flush_interval_milliseconds>
-       <ttl>event_date + INTERVAL 30 DAY</ttl>  <!-- Keep only 30 days -->
+       <ttl>event_date + INTERVAL 30 DAY</ttl> <!-- Keep only 30 days -->
    </query_log>
    ```
 
@@ -685,7 +684,7 @@ The recommended system requirements change depending on the number of users.
 | Users | Primary recommendation | Comparable AWS ARM instance | Comparable GCP ARM instance | Comparable Azure ARM instance | Deployment type |
 |---|---|---|---|---|---|
 | 1K | ClickHouse Cloud Basic | - | - | - | Managed |
-| 2K | ClickHouse Cloud Basic | `m8g.xlarge` | `c4a-standard-4` |  `Standard_D4ps_v6` | Managed or Single Node |
+| 2K | ClickHouse Cloud Basic | `m8g.xlarge` | `c4a-standard-4` | `Standard_D4ps_v6` | Managed or Single Node |
 | 3K | ClickHouse Cloud Scale | `m8g.2xlarge` | `c4a-standard-8` | `Standard_D8ps_v6` | Managed or Single Node |
 | 5K | ClickHouse Cloud Scale | `m8g.4xlarge` | `c4a-standard-16` | `Standard_D16ps_v6` | Managed or Single Node |
 | 10K | ClickHouse Cloud Scale | `m8g.4xlarge` | `c4a-standard-16` | `Standard_D16ps_v6` | Managed or Single Node/HA |
@@ -752,15 +751,15 @@ Recommendations for ClickHouse for GitLab Self-Managed deployment:
 
 - Single Node:
 
-  - AWS: m8g.8xlarge (32 vCPU, 128 GB)
-  - GCP: c4a-standard-32 or n4-standard-32 (32 vCPU, 128 GB)
-  - Azure: Standard_D32ps_v6 (32 vCPU, 128 GB)
+ - AWS: m8g.8xlarge (32 vCPU, 128 GB)
+ - GCP: c4a-standard-32 or n4-standard-32 (32 vCPU, 128 GB)
+ - Azure: Standard_D32ps_v6 (32 vCPU, 128 GB)
 
 - HA Deployment:
 
-  - AWS: 3 × m8g.4xlarge (16 vCPU, 64 GB each)
-  - GCP: 3 × c4a-standard-16 or 3 × n4-standard-16 (16 vCPU, 64 GB each)
-  - Azure: 3 x Standard_D16ps_v6 (16 vCPU, 64 GB each)
+ - AWS: 3 × m8g.4xlarge (16 vCPU, 64 GB each)
+ - GCP: 3 × c4a-standard-16 or 3 × n4-standard-16 (16 vCPU, 64 GB each)
+ - Azure: 3 x Standard_D16ps_v6 (16 vCPU, 64 GB each)
 
 - Storage: 400 GB per node with high performance tier.
 
@@ -772,15 +771,15 @@ Recommendations for ClickHouse for GitLab Self-Managed deployment:
 
 - Single Node:
 
-  - AWS: m8g.8xlarge (32 vCPU, 128 GB)
-  - GCP: c4a-standard-32 or n4-standard-32 (32 vCPU, 128 GB)
-  - Azure: Standard_D32ps_v6 (32 vCPU, 128 GB)
+ - AWS: m8g.8xlarge (32 vCPU, 128 GB)
+ - GCP: c4a-standard-32 or n4-standard-32 (32 vCPU, 128 GB)
+ - Azure: Standard_D32ps_v6 (32 vCPU, 128 GB)
 
 - HA Deployment (Preferred):
 
-  - AWS: 3 × m8g.4xlarge (16 vCPU, 64 GB each)
-  - GCP: 3 × c4a-standard-16 or 3 × n4-standard-16 (16 vCPU, 64 GB each)
-  - Azure: 3 x Standard_D16ps_v6 (16 vCPU, 64 GB each)
+ - AWS: 3 × m8g.4xlarge (16 vCPU, 64 GB each)
+ - GCP: 3 × c4a-standard-16 or 3 × n4-standard-16 (16 vCPU, 64 GB each)
+ - Azure: 3 x Standard_D16ps_v6 (16 vCPU, 64 GB each)
 
 - Storage: 1000 GB per node with high performance tier.
 
@@ -797,18 +796,18 @@ HA setup becomes cost effective only at 10k users or above.
 
 - Cluster: A collection of nodes (servers) that work together to store and process data.
 - MergeTree: [`MergeTree`](https://clickhouse.com/docs/engines/table-engines/mergetree-family/mergetree) is a table engine in ClickHouse designed for high data ingest rates and large data volumes.
-  It is the core storage engine in ClickHouse, providing features such as columnar storage, custom partitioning, sparse primary indexes, and support for background data merges.
+ It is the core storage engine in ClickHouse, providing features such as columnar storage, custom partitioning, sparse primary indexes, and support for background data merges.
 - Parts: A physical file on a disk that stores a portion of the table's data.
-  A part is different from a partition, which is a logical division of a table's data that is created using a partition key.
+ A part is different from a partition, which is a logical division of a table's data that is created using a partition key.
 - Replica: A copy of the data stored in a ClickHouse database.
-  You can have any number of replicas of the same data for redundancy and reliability.
-  Replicas are used in conjunction with the ReplicatedMergeTree table engine, which enables ClickHouse to keep multiple copies of data in sync across different servers.
+ You can have any number of replicas of the same data for redundancy and reliability.
+ Replicas are used in conjunction with the ReplicatedMergeTree table engine, which enables ClickHouse to keep multiple copies of data in sync across different servers.
 - Shard: A subset of data.
-  ClickHouse always has at least one shard for your data.
-  If you do not split the data across multiple servers, your data is stored in one shard.
-  Sharding data across multiple servers can be used to divide the load if you exceed the capacity of a single server.
+ ClickHouse always has at least one shard for your data.
+ If you do not split the data across multiple servers, your data is stored in one shard.
+ Sharding data across multiple servers can be used to divide the load if you exceed the capacity of a single server.
 - TTL (Time To Live): Time To Live (TTL) is a ClickHouse feature that automatically moves, deletes, or rolls up columns/rows after a certain time period.
-  This allows you to manage storage more efficiently because you can delete, move, or archive the data that you no longer need to access frequently.
+ This allows you to manage storage more efficiently because you can delete, move, or archive the data that you no longer need to access frequently.
 
 ## Troubleshooting
 

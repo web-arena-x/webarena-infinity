@@ -42,7 +42,7 @@ To update an element’s tag:
 
 **Tip**: You can also right-click a layer on the canvas or in the **Layers** panel and select **HTML tag** from the contextual menu.
 
-**Note:** If you can’t see the HTML tags listed in the **Layers** panel, click  **Zoom/view options** at the top of the right sidebar and enable **Show HTML tags on layers**.
+**Note:** If you can’t see the HTML tags listed in the **Layers** panel, click **Zoom/view options** at the top of the right sidebar and enable **Show HTML tags on layers**.
 
 ### Set accessibility landmarks
 
@@ -104,7 +104,7 @@ You can add properties that give assistive technologies more context about each 
 To configure accessibility properties for elements on your site:
 
 1. Select the element you’d like to adjust.
-2. Click  **Add accessibility settings** in the **Accessibility** section of the right sidebar.
+2. Click **Add accessibility settings** in the **Accessibility** section of the right sidebar.
 3. Choose from the available options. You can find more information about each property type below.
 
 ### Set alt text for images and video

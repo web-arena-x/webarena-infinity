@@ -15,13 +15,10 @@ description: Vulnerability tracking and security disclosure.
 
 For any public project, you can request a CVE identifier (ID).
 
-A [CVE](https://cve.mitre.org/index.html) identifier is assigned to a publicly-disclosed software
-vulnerability. GitLab is a [CVE Numbering Authority](https://about.gitlab.com/security/cve/)
+A [CVE](https://cve.mitre.org/index.html) identifier is assigned to a publicly-disclosed software vulnerability. GitLab is a [CVE Numbering Authority](https://about.gitlab.com/security/cve/)
 ([CNA](https://cve.mitre.org/cve/cna.html)).
 
-Assigning a CVE ID to a vulnerability in your project helps your users stay secure and informed. For
-example, [dependency scanning tools](dependency_scanning/_index.md) can
-detect when vulnerable versions of your project are used as a dependency.
+Assigning a CVE ID to a vulnerability in your project helps your users stay secure and informed. For example, [dependency scanning tools](dependency_scanning/_index.md) can detect when vulnerable versions of your project are used as a dependency.
 
 A common vulnerability workflow is:
 
@@ -42,8 +39,7 @@ To [submit a CVE ID Request](#submit-a-cve-id-request) the following prerequisit
 
 To submit a CVE ID request:
 
-1. Go to the vulnerability's issue and select **Create CVE ID Request**. The new issue page of
-   the [GitLab CVE project](https://gitlab.com/gitlab-org/cves) opens.
+1. Go to the vulnerability's issue and select **Create CVE ID Request**. The new issue page of the [GitLab CVE project](https://gitlab.com/gitlab-org/cves) opens.
 
 1. In the **Title** box, enter a brief description of the vulnerability.
 
@@ -65,5 +61,4 @@ GitLab updates your CVE ID request issue when:
 
 ## CVE assignment
 
-After a CVE identifier is assigned, you can reference it as required. Details of the vulnerability
-submitted in the CVE ID request are published according to your schedule.
+After a CVE identifier is assigned, you can reference it as required. Details of the vulnerability submitted in the CVE ID request are published according to your schedule.

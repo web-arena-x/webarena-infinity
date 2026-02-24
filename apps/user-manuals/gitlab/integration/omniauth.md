@@ -44,8 +44,7 @@ GitLab supports the following OmniAuth providers.
 
 ## Configure common settings
 
-Before you configure the OmniAuth provider,
-configure the settings that are common for all providers.
+Before you configure the OmniAuth provider, configure the settings that are common for all providers.
 
 | Option | Description |
 | ------ | ----------- |
@@ -66,11 +65,11 @@ configure the settings that are common for all providers.
 
 To change the OmniAuth settings:
 
-  {{< tabs >}}
+ {{< tabs >}}
 
-  {{< tab title="Linux package (Omnibus)" >}}
+ {{< tab title="Linux package (Omnibus)" >}}
 
-  1. Edit `/etc/gitlab/gitlab.rb`:
+ 1. Edit `/etc/gitlab/gitlab.rb`:
 
      ```ruby
      # CAUTION!
@@ -82,23 +81,23 @@ To change the OmniAuth settings:
      gitlab_rails['omniauth_block_auto_created_users'] = true
      ```
 
-  1. Save the file and reconfigure GitLab:
+ 1. Save the file and reconfigure GitLab:
 
      ```shell
      sudo gitlab-ctl reconfigure
      ```
 
-  {{< /tab >}}
+ {{< /tab >}}
 
-  {{< tab title="Helm chart (Kubernetes)" >}}
+ {{< tab title="Helm chart (Kubernetes)" >}}
 
-  1. Export the Helm values:
+ 1. Export the Helm values:
 
      ```shell
      helm get values gitlab > gitlab_values.yaml
      ```
 
-  1. Edit `gitlab_values.yaml`, and update the `omniauth` section under `globals.appConfig`:
+ 1. Edit `gitlab_values.yaml`, and update the `omniauth` section under `globals.appConfig`:
 
      ```yaml
      global:
@@ -110,20 +109,19 @@ To change the OmniAuth settings:
            blockAutoCreatedUsers: true
      ```
 
-     For more details, see the
-     [globals documentation](https://docs.gitlab.com/charts/charts/globals.html#omniauth).
+     For more details, see the [globals documentation](https://docs.gitlab.com/charts/charts/globals.html#omniauth).
 
-  1. Save the file and apply the new values:
+ 1. Save the file and apply the new values:
 
      ```shell
      helm upgrade -f gitlab_values.yaml gitlab gitlab/gitlab
      ```
 
-  {{< /tab >}}
+ {{< /tab >}}
 
-  {{< tab title="Docker" >}}
+ {{< tab title="Docker" >}}
 
-  1. Edit `docker-compose.yml`:
+ 1. Edit `docker-compose.yml`:
 
      ```yaml
      version: "3.6"
@@ -136,17 +134,17 @@ To change the OmniAuth settings:
              gitlab_rails['omniauth_block_auto_created_users'] = true
      ```
 
-  1. Save the file and restart GitLab:
+ 1. Save the file and restart GitLab:
 
      ```shell
      docker compose up -d
      ```
 
-  {{< /tab >}}
+ {{< /tab >}}
 
-  {{< tab title="Self-compiled (source)" >}}
+ {{< tab title="Self-compiled (source)" >}}
 
-  1. Edit `/home/git/gitlab/config/gitlab.yml`:
+ 1. Edit `/home/git/gitlab/config/gitlab.yml`:
 
      ```yaml
      ## OmniAuth settings
@@ -167,7 +165,7 @@ To change the OmniAuth settings:
        block_auto_created_users: true
      ```
 
-  1. Save the file and restart GitLab:
+ 1. Save the file and restart GitLab:
 
      ```shell
      # For systems running systemd
@@ -177,12 +175,11 @@ To change the OmniAuth settings:
      sudo service gitlab restart
      ```
 
-  {{< /tab >}}
+ {{< /tab >}}
 
-  {{< /tabs >}}
+ {{< /tabs >}}
 
-After configuring these settings, you can configure
-your chosen [provider](#supported-providers).
+After configuring these settings, you can configure your chosen [provider](#supported-providers).
 
 ### Per-provider configuration
 
@@ -192,15 +189,13 @@ your chosen [provider](#supported-providers).
 
 {{< /history >}}
 
-If `allow_single_sign_on` is set, GitLab uses one of the following fields returned in the OmniAuth `auth_hash` to establish a username in GitLab for the user signing in,
-choosing the first that exists:
+If `allow_single_sign_on` is set, GitLab uses one of the following fields returned in the OmniAuth `auth_hash` to establish a username in GitLab for the user signing in, choosing the first that exists:
 
 - `username`.
 - `nickname`.
 - `email`.
 
-You can create GitLab configuration on a per-provider basis, which is supplied to the [provider](#supported-providers) using `args`. If you set the `gitlab_username_claim`
-variable in `args` for a provider, you can select another claim to use for the GitLab username. The chosen claim must be unique to avoid collisions.
+You can create GitLab configuration on a per-provider basis, which is supplied to the [provider](#supported-providers) using `args`. If you set the `gitlab_username_claim` variable in `args` for a provider, you can select another claim to use for the GitLab username. The chosen claim must be unique to avoid collisions.
 
 {{< tabs >}}
 
@@ -209,26 +204,26 @@ variable in `args` for a provider, you can select another claim to use for the G
 ```ruby
 gitlab_rails['omniauth_providers'] = [
 
-  # The generic pattern for configuring a provider with name PROVIDER_NAME
+ # The generic pattern for configuring a provider with name PROVIDER_NAME
 
-  gitlab_rails['omniauth_providers'] = {
+ gitlab_rails['omniauth_providers'] = {
     name: "PROVIDER_NAME"
     ...
     args: { gitlab_username_claim: 'sub' } # For users signing in with the provider you configure, the GitLab username will be set to the "sub" received from the provider
-  },
+ },
 
-  # Here are examples using GitHub and Kerberos
+ # Here are examples using GitHub and Kerberos
 
-  gitlab_rails['omniauth_providers'] = {
+ gitlab_rails['omniauth_providers'] = {
     name: "github"
     ...
     args: { gitlab_username_claim: 'name' } # For users signing in with GitHub, the GitLab username will be set to the "name" received from GitHub
-  },
-  {
+ },
+ {
     name: "kerberos"
     ...
     args: { gitlab_username_claim: 'uid' } # For users signing in with Kerberos, the GitLab username will be set to the "uid" received from Kerberos
-  },
+ },
 ]
 ```
 
@@ -238,16 +233,16 @@ gitlab_rails['omniauth_providers'] = [
 
 ```yaml
 - { name: 'PROVIDER_NAME',
-  # ...
-  args: { gitlab_username_claim: 'sub' }
+ # ...
+ args: { gitlab_username_claim: 'sub' }
 }
 - { name: 'github',
-  # ...
-  args: { gitlab_username_claim: 'name' }
+ # ...
+ args: { gitlab_username_claim: 'name' }
 }
 - { name: 'kerberos',
-  # ...
-  args: { gitlab_username_claim: 'uid' }
+ # ...
+ args: { gitlab_username_claim: 'uid' }
 }
 ```
 
@@ -258,22 +253,18 @@ gitlab_rails['omniauth_providers'] = [
 ### Passwords for users created via OmniAuth
 
 The [Generated passwords for users created through integrated authentication](../security/passwords_for_integrated_authentication_methods.md)
-guide provides an overview about how GitLab generates and sets passwords for
-users created with OmniAuth.
+guide provides an overview about how GitLab generates and sets passwords for users created with OmniAuth.
 
 ## Enable OmniAuth for an existing user
 
-If you're an existing user, after your GitLab account is
-created, you can activate an OmniAuth provider. For example, if you originally signed in with LDAP, you can enable an OmniAuth
-provider like Google.
+If you're an existing user, after your GitLab account is created, you can activate an OmniAuth provider. For example, if you originally signed in with LDAP, you can enable an OmniAuth provider like Google.
 
 1. Sign in to GitLab with your GitLab credentials, LDAP, or another OmniAuth provider.
 1. In the upper-right corner, select your avatar.
 1. Select **Edit profile**.
 1. On the left sidebar, select **Account**.
 1. In the **Connected Accounts** section, select the OmniAuth provider, such as Google.
-1. You are redirected to the provider. After you authorize GitLab,
-   you are redirected back to GitLab.
+1. You are redirected to the provider. After you authorize GitLab, you are redirected back to GitLab.
 
 You can now use your chosen OmniAuth provider to sign in to GitLab.
 
@@ -293,11 +284,9 @@ To enable or disable an OmniAuth provider:
 
 ## Disable OmniAuth
 
-OmniAuth is enabled by default. However, OmniAuth only works
-if providers are configured and [enabled](#enable-or-disable-sign-in-with-an-omniauth-provider-without-disabling-import-sources).
+OmniAuth is enabled by default. However, OmniAuth only works if providers are configured and [enabled](#enable-or-disable-sign-in-with-an-omniauth-provider-without-disabling-import-sources).
 
-If OmniAuth providers are causing problems even when individually disabled, you
-can disable the entire OmniAuth subsystem by modifying the configuration file.
+If OmniAuth providers are causing problems even when individually disabled, you can disable the entire OmniAuth subsystem by modifying the configuration file.
 
 {{< tabs >}}
 
@@ -313,7 +302,7 @@ gitlab_rails['omniauth_enabled'] = false
 
 ```yaml
 omniauth:
-  enabled: false
+ enabled: false
 ```
 
 {{< /tab >}}
@@ -324,8 +313,7 @@ omniauth:
 
 You can automatically link OmniAuth users with existing GitLab users if their email addresses match.
 
-The following example enables automatic linking
-for the OpenID Connect provider and the Google OAuth provider.
+The following example enables automatic linking for the OpenID Connect provider and the Google OAuth provider.
 
 {{< tabs >}}
 
@@ -341,15 +329,14 @@ gitlab_rails['omniauth_auto_link_user'] = ["openid_connect", "google_oauth2"]
 
 ```yaml
 omniauth:
-  auto_link_user: ["openid_connect", "google_oauth2"]
+ auto_link_user: ["openid_connect", "google_oauth2"]
 ```
 
 {{< /tab >}}
 
 {{< /tabs >}}
 
-This method of enabling automatic linking works for all providers
-[except SAML](https://gitlab.com/gitlab-org/gitlab/-/issues/338293).
+This method of enabling automatic linking works for all providers [except SAML](https://gitlab.com/gitlab-org/gitlab/-/issues/338293).
 To enable automatic linking for SAML, see the [SAML setup instructions](saml.md#configure-saml-support-in-gitlab).
 
 ## Create an external providers list
@@ -357,15 +344,11 @@ To enable automatic linking for SAML, see the [SAML setup instructions](saml.md#
 You can define a list of external OmniAuth providers.
 Users who create accounts or sign in to GitLab through the listed providers do not get access to [internal projects](../user/public_access.md#internal-projects-and-groups) and are marked as [external users](../administration/external_users.md).
 
-To define the external providers list, use the full name of the provider,
-for example, `google_oauth2` for Google. For provider names, see the
-**OmniAuth provider name** column in the [supported providers table](#supported-providers).
+To define the external providers list, use the full name of the provider, for example, `google_oauth2` for Google. For provider names, see the **OmniAuth provider name** column in the [supported providers table](#supported-providers).
 
 {{< alert type="note" >}}
 
-If you remove an OmniAuth provider from the external providers list,
-you must manually update the users that use this sign-in method so their
-accounts are upgraded to full internal accounts.
+If you remove an OmniAuth provider from the external providers list, you must manually update the users that use this sign-in method so their accounts are upgraded to full internal accounts.
 
 {{< /alert >}}
 
@@ -383,7 +366,7 @@ gitlab_rails['omniauth_external_providers'] = ['saml', 'google_oauth2']
 
 ```yaml
 omniauth:
-  external_providers: ['saml', 'google_oauth2']
+ external_providers: ['saml', 'google_oauth2']
 ```
 
 {{< /tab >}}
@@ -531,7 +514,7 @@ gitlab_rails['omniauth_allow_bypass_two_factor'] = ['saml', 'google_oauth2']
 
 ```yaml
 omniauth:
-  allow_bypass_two_factor: ['saml', 'google_oauth2']
+ allow_bypass_two_factor: ['saml', 'google_oauth2']
 ```
 
 {{< /tab >}}
@@ -540,12 +523,9 @@ omniauth:
 
 ## Sign in with a provider automatically
 
-You can add the `auto_sign_in_with_provider` setting to your GitLab
-configuration to redirect login requests to your OmniAuth provider for
-authentication. This removes the need to select the provider before signing in.
+You can add the `auto_sign_in_with_provider` setting to your GitLab configuration to redirect login requests to your OmniAuth provider for authentication. This removes the need to select the provider before signing in.
 
-For example, to enable automatic sign-in for the
-[Azure v2 integration](azure.md):
+For example, to enable automatic sign-in for the [Azure v2 integration](azure.md):
 
 {{< tabs >}}
 
@@ -561,44 +541,35 @@ gitlab_rails['omniauth_auto_sign_in_with_provider'] = 'azure_activedirectory_v2'
 
 ```yaml
 omniauth:
-  auto_sign_in_with_provider: azure_activedirectory_v2
+ auto_sign_in_with_provider: azure_activedirectory_v2
 ```
 
 {{< /tab >}}
 
 {{< /tabs >}}
 
-Keep in mind that every sign-in attempt is redirected to the OmniAuth
-provider, so you can't sign in using local credentials. Ensure at least
-one of the OmniAuth users is an administrator.
+Keep in mind that every sign-in attempt is redirected to the OmniAuth provider, so you can't sign in using local credentials. Ensure at least one of the OmniAuth users is an administrator.
 
-You can also bypass automatic sign-in by browsing to
-`https://gitlab.example.com/users/sign_in?auto_sign_in=false`.
+You can also bypass automatic sign-in by browsing to `https://gitlab.example.com/users/sign_in?auto_sign_in=false`.
 
 ## Use a custom OmniAuth provider icon
 
 Most supported providers include a built-in icon for the rendered sign-in button.
 
-To use your own icon, ensure your image is optimized for rendering at 64 x 64 pixels,
-then override the icon in one of two ways:
+To use your own icon, ensure your image is optimized for rendering at 64 x 64 pixels, then override the icon in one of two ways:
 
 - **Provide a custom image path**:
 
-  1. If you are hosting the image outside of your GitLab server domain, ensure
-     your [content security policies](https://docs.gitlab.com/omnibus/settings/configuration.html#content-security-policy)
+ 1. If you are hosting the image outside of your GitLab server domain, ensure your [content security policies](https://docs.gitlab.com/omnibus/settings/configuration.html#content-security-policy)
      are configured to allow access to the image file.
-  1. Depending on your method of installing GitLab, add a custom `icon` parameter
-     to your GitLab configuration file. Read [OpenID Connect OmniAuth provider](../administration/auth/oidc.md)
+ 1. Depending on your method of installing GitLab, add a custom `icon` parameter to your GitLab configuration file. Read [OpenID Connect OmniAuth provider](../administration/auth/oidc.md)
      for an example for the OpenID Connect provider.
 
-- **Embed an image directly in a configuration file**: This example creates a Base64-encoded
-  version of your image you can serve through a
-  [Data URL](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data):
+- **Embed an image directly in a configuration file**: This example creates a Base64-encoded version of your image you can serve through a [Data URL](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data):
 
-  1. Encode your image file with a GNU `base64` command (such as `base64 -w 0 <logo.png>`)
+ 1. Encode your image file with a GNU `base64` command (such as `base64 -w 0 <logo.png>`)
      which returns a single-line `<base64-data>` string.
-  1. Add the Base64-encoded data to a custom `icon` parameter in your GitLab
-     configuration file:
+ 1. Add the Base64-encoded data to a custom `icon` parameter in your GitLab configuration file:
 
      ```yaml
      omniauth:
@@ -611,32 +582,28 @@ then override the icon in one of two ways:
 
 ## Change apps or configuration
 
-Because OAuth in GitLab doesn't support setting the same external authentication and authorization provider as multiple providers, GitLab configuration and
-user identification must be updated at the same time if the provider or app is changed.
+Because OAuth in GitLab doesn't support setting the same external authentication and authorization provider as multiple providers, GitLab configuration and user identification must be updated at the same time if the provider or app is changed.
 For example, you can set up `saml` and `azure_activedirectory_v2` but cannot add a second `azure_activedirectory_v2` to the same configuration.
 
-These instructions apply to all methods of authentication where GitLab stores an `extern_uid` and it is the only data used
-for user authentication.
+These instructions apply to all methods of authentication where GitLab stores an `extern_uid` and it is the only data used for user authentication.
 
-When changing apps within a provider, if the user `extern_uid` does not change, only the GitLab configuration must be
-updated.
+When changing apps within a provider, if the user `extern_uid` does not change, only the GitLab configuration must be updated.
 
 To swap configurations:
 
 1. Change provider configuration in your `gitlab.rb` file.
 1. Update `extern_uid` for all users that have an identity in GitLab for the previous provider.
 
-To find the `extern_uid`, look at an existing user's current `extern_uid` for an ID that matches the appropriate field in
-your current provider for the same user.
+To find the `extern_uid`, look at an existing user's current `extern_uid` for an ID that matches the appropriate field in your current provider for the same user.
 
 There are two methods to update the `extern_uid`:
 
 - Using the [Users API](../api/users.md#modify-a-user). Pass the provider name and the new `extern_uid`.
 - Using the [Rails console](../administration/operations/rails_console.md):
 
-  ```ruby
-  Identity.where(extern_uid: 'old-id').update!(extern_uid: 'new-id')
-  ```
+ ```ruby
+ Identity.where(extern_uid: 'old-id').update!(extern_uid: 'new-id')
+ ```
 
 ## Known issues
 

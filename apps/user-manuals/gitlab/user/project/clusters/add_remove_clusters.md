@@ -39,18 +39,14 @@ When you successfully connect an existing cluster using cluster certificates, th
 
 ## Remove a cluster
 
-When you remove a cluster integration, you only remove the cluster relationship
-to GitLab, not the cluster. To remove the cluster itself, go to your cluster's
-GKE or EKS dashboard to do it from their UI or use `kubectl`.
+When you remove a cluster integration, you only remove the cluster relationship to GitLab, not the cluster. To remove the cluster itself, go to your cluster's GKE or EKS dashboard to do it from their UI or use `kubectl`.
 
-You need at least Maintainer [permissions](../../permissions.md) to your
-project or group to remove the integration with GitLab.
+You need at least Maintainer [permissions](../../permissions.md) to your project or group to remove the integration with GitLab.
 
 When removing a cluster integration, you have two options:
 
 - **Remove integration**: remove only the Kubernetes integration.
-- **Remove integration and resources**: remove the cluster integration and
-  all GitLab cluster-related resources such as namespaces, roles, and bindings.
+- **Remove integration and resources**: remove the cluster integration and all GitLab cluster-related resources such as namespaces, roles, and bindings.
 
 To remove the Kubernetes cluster integration:
 

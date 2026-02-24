@@ -5,13 +5,11 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Audit event development guidelines
 ---
 
-This guide provides an overview of how audit events work, and how to instrument
-new audit events.
+This guide provides an overview of how audit events work, and how to instrument new audit events.
 
 ## What are audit events?
 
-Audit events are a tool for GitLab owners and administrators to view records of important
-actions performed across the application.
+Audit events are a tool for GitLab owners and administrators to view records of important actions performed across the application.
 
 ## What should not be audit events?
 
@@ -56,44 +54,39 @@ With `Gitlab::Audit::Auditor` service, we can instrument audit events in two way
 
 You can use this method when events are emitted deep in the call stack.
 
-For example, we can record multiple audit events when the user updates a merge
-request approval rule. As part of this user flow, we would like to audit changes
-to both approvers and approval groups. In the initiating service
-(for example, `MergeRequestRuleUpdateService`), we can wrap the `execute` call as follows:
+For example, we can record multiple audit events when the user updates a merge request approval rule. As part of this user flow, we would like to audit changes to both approvers and approval groups. In the initiating service (for example, `MergeRequestRuleUpdateService`), we can wrap the `execute` call as follows:
 
 ```ruby
 # in the initiating service
 audit_context = {
-  name: 'update_merge_approval_rule',
-  author: current_user,
-  scope: project_alpha,
-  target: merge_approval_rule,
-  message: 'Attempted to update an approval rule'
+ name: 'update_merge_approval_rule',
+ author: current_user,
+ scope: project_alpha,
+ target: merge_approval_rule,
+ message: 'Attempted to update an approval rule'
 }
 
 ::Gitlab::Audit::Auditor.audit(audit_context) do
-  service.execute
+ service.execute
 end
 ```
 
-In the model (for example, `ApprovalProjectRule`), we can push audit events on model
-callbacks (for example, `after_save` or `after_add`).
+In the model (for example, `ApprovalProjectRule`), we can push audit events on model callbacks (for example, `after_save` or `after_add`).
 
 ```ruby
 # in the model
 include Auditable
 
 def audit_add(model)
-  push_audit_event('Added an approver on Security rule')
+ push_audit_event('Added an approver on Security rule')
 end
 
 def audit_remove(model)
-  push_audit_event('Removed an approver on Security rule')
+ push_audit_event('Removed an approver on Security rule')
 end
 ```
 
-This method does not support actions that are asynchronous, or
-span across multiple processes (for example, background jobs).
+This method does not support actions that are asynchronous, or span across multiple processes (for example, background jobs).
 
 ### Using standard method call to record single event
 
@@ -101,25 +94,22 @@ This method allows recording single audit event and involves fewer moving parts.
 
 ```ruby
 if merge_approval_rule.save
-  audit_context = {
+ audit_context = {
     name: 'create_merge_approval_rule',
     author: current_user,
     scope: project_alpha,
     target: merge_approval_rule,
     message: 'Created a new approval rule',
     created_at: DateTime.current # Useful for pre-dating an audit event when created asynchronously.
-  }
+ }
 
-  ::Gitlab::Audit::Auditor.audit(audit_context)
+ ::Gitlab::Audit::Auditor.audit(audit_context)
 end
 ```
 
 ### Data volume considerations
 
-Because every audit event is persisted to the database, consider the amount of data we expect to generate, and the rate of generation, for new
-audit events. For new audit events that produce a lot of data in the database, consider adding a
-[streaming-only audit event](#event-streaming) instead. If you have questions about this, feel free to ping
-`@gitlab-org/govern/compliance/backend` in an issue or merge request.
+Because every audit event is persisted to the database, consider the amount of data we expect to generate, and the rate of generation, for new audit events. For new audit events that produce a lot of data in the database, consider adding a [streaming-only audit event](#event-streaming) instead. If you have questions about this, feel free to ping `@gitlab-org/govern/compliance/backend` in an issue or merge request.
 
 ## Audit event instrumentation flows
 
@@ -127,15 +117,11 @@ The two ways we can instrument audit events have different flows.
 
 ### Using block to record multiple events
 
-We wrap the operation block in a `Gitlab::Audit::Auditor` which captures the
-initial audit context (that is, `author`, `scope`, `target`) object that are
-available at the time the operation is initiated.
+We wrap the operation block in a `Gitlab::Audit::Auditor` which captures the initial audit context (that is, `author`, `scope`, `target`) object that are available at the time the operation is initiated.
 
-Extra instrumentation is required in the interacted classes in the chain with
-`Auditable` mixin to add audit events to the audit event queue via `Gitlab::Audit::EventQueue`.
+Extra instrumentation is required in the interacted classes in the chain with `Auditable` mixin to add audit events to the audit event queue via `Gitlab::Audit::EventQueue`.
 
-The `EventQueue` is stored in a local thread via `SafeRequestStore` and then later
-extracted when we record an audit event in `Gitlab::Audit::Auditor`.
+The `EventQueue` is stored in a local thread via `SafeRequestStore` and then later extracted when we record an audit event in `Gitlab::Audit::Auditor`.
 
 ```plantuml
 skinparam shadowing false
@@ -172,8 +158,7 @@ deactivate A1
 
 ### Using standard method call to record single event
 
-This method has a more straight-forward flow, and does not rely on `EventQueue`
-and local thread.
+This method has a more straight-forward flow, and does not rely on `EventQueue` and local thread.
 
 ```plantuml
 skinparam shadowing false
@@ -191,8 +176,7 @@ B-->A:
 deactivate B
 ```
 
-In addition to recording to the database, we also write these events to
-[a log file](../../administration/logs/_index.md#audit_jsonlog).
+In addition to recording to the database, we also write these events to [a log file](../../administration/logs/_index.md#audit_jsonlog).
 
 ## Event type definitions
 
@@ -210,8 +194,7 @@ To add a new audit event type:
 
 1. Create the YAML definition. You can either:
    - Use the `bin/audit-event-type` CLI to create the YAML definition automatically.
-   - Perform manual steps to create a new file in `config/audit_events/types/` with the filename matching the name of the event type. For example,
-     a definition for the event type triggered when a user is added to a project might be stored in `config/audit_events/types/project_add_user.yml`.
+   - Perform manual steps to create a new file in `config/audit_events/types/` with the filename matching the name of the event type. For example, a definition for the event type triggered when a user is added to a project might be stored in `config/audit_events/types/project_add_user.yml`.
 1. Add contents to the file that conform to the [schema](#schema) defined in `config/audit_events/types/type_schema.json`.
 1. Ensure that all calls to `Gitlab::Audit::Auditor` use the `name` defined in your file.
 
@@ -234,8 +217,7 @@ To add a new audit event type:
 Audit event types documentation is automatically generated and [published](../../user/compliance/audit_event_types.md)
 to the GitLab documentation site.
 
-If you add a new audit event type, run the
-[`gitlab:audit_event_types:compile_docs` Rake task](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/tasks/gitlab/audit_event_types/audit_event_types.rake)
+If you add a new audit event type, run the [`gitlab:audit_event_types:compile_docs` Rake task](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/tasks/gitlab/audit_event_types/audit_event_types.rake)
 to update the documentation:
 
 ```shell
@@ -251,21 +233,17 @@ bundle exec rake gitlab:audit_event_types:check_docs
 
 ## Event streaming
 
-All events where the entity is a `Group` or `Project` are recorded in the audit log, and also streamed to one or more
-[event streaming destinations](../../administration/compliance/audit_event_streaming.md). When the entity is a:
+All events where the entity is a `Group` or `Project` are recorded in the audit log, and also streamed to one or more [event streaming destinations](../../administration/compliance/audit_event_streaming.md). When the entity is a:
 
 - `Group`, events are streamed to the group's root ancestor's event streaming destinations.
 - `Project`, events are streamed to the project's root ancestor's event streaming destinations.
 
-You can add streaming-only events that are not stored in the GitLab database. Streaming-only events are primarily intended to be used for actions that generate
-a large amount of data. See [this merge request](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/76719/diffs#d56e47632f0384722d411ed3ab5b15e947bd2265_26_36)
+You can add streaming-only events that are not stored in the GitLab database. Streaming-only events are primarily intended to be used for actions that generate a large amount of data. See [this merge request](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/76719/diffs#d56e47632f0384722d411ed3ab5b15e947bd2265_26_36)
 for an example.
-This feature is under heavy development. Follow the [parent epic](https://gitlab.com/groups/gitlab-org/-/epics/5925) for updates on feature
-development.
+This feature is under heavy development. Follow the [parent epic](https://gitlab.com/groups/gitlab-org/-/epics/5925) for updates on feature development.
 
 ### I18N and the audit event `:message` attribute
 
 We intentionally do not translate audit event messages because translated messages would be saved in the database and served to users, regardless of their locale settings.
 
-For example, this could mean that we use the locale for the authenticated user to record an audit event message and stream the message to an external streaming
-destination in the wrong language for that destination. Users could find that confusing.
+For example, this could mean that we use the locale for the authenticated user to record an audit event message and stream the message to an external streaming destination in the wrong language for that destination. Users could find that confusing.

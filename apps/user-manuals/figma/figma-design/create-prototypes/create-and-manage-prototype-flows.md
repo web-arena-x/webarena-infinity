@@ -24,7 +24,7 @@ A **flow** is a collection of connected frames that make up a single prototype e
 
 A flow starting point is where the flow begins. Flow starting points are set on [top-level frames](https://help.figma.com/hc/en-us/articles/360041539473-Frames-in-Figma#01H8CWAD9EXJJWFQZYDAG3NYKQ).
 
-When you [add a connection](https://help.figma.com/hc/en-us/articles/360040315773-Create-interactions) between two frames with no existing connections, Figma will create a starting point on the top-level frame where the connection started. Flow starting points are shown on the canvas with a  blue preview icon and the flow name.
+When you [add a connection](https://help.figma.com/hc/en-us/articles/360040315773-Create-interactions) between two frames with no existing connections, Figma will create a starting point on the top-level frame where the connection started. Flow starting points are shown on the canvas with a blue preview icon and the flow name.
 
 A frame can only have one flow starting point.
 
@@ -34,7 +34,7 @@ You can also manually create a flow starting point.
 
 1. Select the starting frame.
 2. Select the **Prototype** tab from the right sidebar.
-3. Click the  plus sign in the **Flow starting point** section.
+3. Click the plus sign in the **Flow starting point** section.
 
 ![Prototype tab showing option to add a flow starting point to Frame B with a plus sign for selecting it.](https://help.figma.com/hc/article_attachments/31779384395159)
 
@@ -43,7 +43,7 @@ To see all flow starting points on the current page:
 1. Deselect any objects by clicking an empty part of the canvas.
 2. Select the **Prototype** tab from the right sidebar.
 3. From the **Flows** section, view a list of all flow starting points.
-4. Hover over a flow name and click  **Select frame** to navigate to the frame where the starting point is located.
+4. Hover over a flow name and click **Select frame** to navigate to the frame where the starting point is located.
 
 ### Add or remove frames from a flow
 
@@ -55,7 +55,7 @@ For example, all purple frames in the image below are included in **Flow 1**:
 
 To remove a frame from a flow, remove any prototype interactions that connect the frame to other frames in the flow.
 
-Frames can be included in multiple flows. For example, the blue frame in the image below is included in both **Flow 1** and **Flow 2**:  
+Frames can be included in multiple flows. For example, the blue frame in the image below is included in both **Flow 1** and **Flow 2**: 
 ![Purple frames connected to a blue frame in Figma, showing inclusion in both Flow 1 and Flow 2.](https://help.figma.com/hc/article_attachments/31779384407447)
 
 Once a user navigates to a frame that is included in multiple flows, they can use any interactions on that frame. This opens up the original flow to include any connections from that frame.
@@ -87,7 +87,7 @@ To add a flow description:
 
 1. Select the frame with the flow starting point.
 2. Select the **Prototype** tab from the right sidebar.
-3. From the **Flow starting point** section, click  **Edit description** next to the name of the flow you’d like to edit.
+3. From the **Flow starting point** section, click **Edit description** next to the name of the flow you’d like to edit.
 4. Add a rich text description.
 5. Click X to exit the **Description** panel and save the description.
 
@@ -108,7 +108,7 @@ To delete a flow starting point:
 
 1. Select the frame with the flow starting point.
 2. Select the **Prototype** tab from the right sidebar.
-3. From the **Flow starting point** section, click  **Remove starting point**.
+3. From the **Flow starting point** section, click **Remove starting point**.
 
 Tip: You can also delete a flow starting point by finding the blue starting point icon on the canvas, and clicking and dragging it off the frame to an empty part of the canvas.
 
@@ -121,11 +121,11 @@ You can preview your prototype flows directly in the editor, with an [inline pre
 1. Deselect any objects by clicking an empty part of the canvas.
 2. Select the **Prototype** tab from the right sidebar.
 3. From the **Flows** section, view a list of all flows.
-4. Hover over a flow name and click  **Preview** to open the inline preview.
+4. Hover over a flow name and click **Preview** to open the inline preview.
 
 From the inline preview, navigate through your flow by triggering each prototype interaction.
 
-Tip: You can also open the inline preview by clicking the  blue preview icon on any flow starting point.
+Tip: You can also open the inline preview by clicking the blue preview icon on any flow starting point.
 
 ### Copy and share flow links
 
@@ -136,7 +136,7 @@ From the canvas:
 1. Select the frame with the flow starting point.
 2. Select the **Prototype** tab from the right sidebar.
 3. Hover next to the **Flow starting point** heading.
-4. Click  **Copy link**.
+4. Click **Copy link**.
 
 From presentation view:
 

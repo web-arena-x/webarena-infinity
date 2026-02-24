@@ -35,8 +35,7 @@ You can view vulnerability metrics also in the [Value Streams Dashboard](../../a
 
 ## Security dashboards
 
-Security dashboards are used to assess the security posture of your applications. GitLab provides
-you with a collection of metrics, ratings, and charts for the vulnerabilities detected by the [security scanners](../detect/_index.md) run on your project. The security dashboard provides data such as:
+Security dashboards are used to assess the security posture of your applications. GitLab provides you with a collection of metrics, ratings, and charts for the vulnerabilities detected by the [security scanners](../detect/_index.md) run on your project. The security dashboard provides data such as:
 
 - Vulnerability trends over a 30, 60, or 90-day time-frame for all projects in a group
 - A letter grade rating for each project based on vulnerability severity
@@ -58,8 +57,7 @@ To view the Security Dashboards, the following is required:
 
 {{< alert type="note" >}}
 
-The Security Dashboards show results of scans from the most recent completed pipeline on the
-[default branch](../../project/repository/branches/default.md). Dashboards are updated with the result of completed pipelines run on the default branch; they do not include vulnerabilities discovered in pipelines from other un-merged branches.
+The Security Dashboards show results of scans from the most recent completed pipeline on the [default branch](../../project/repository/branches/default.md). Dashboards are updated with the result of completed pipelines run on the default branch; they do not include vulnerabilities discovered in pipelines from other un-merged branches.
 
 {{< /alert >}}
 
@@ -70,8 +68,7 @@ Each dashboard provides a unique viewpoint of your security posture.
 
 ### Project Security Dashboard
 
-The Project Security Dashboard shows the total number of vulnerabilities detected over time,
-with up to 365 days of historical data for a given project. The dashboard is a historical view of open vulnerabilities in the default branch. Open vulnerabilities are those of only `Needs triage` or `Confirmed` status (`Dismissed` or `Resolved` vulnerabilities are excluded).
+The Project Security Dashboard shows the total number of vulnerabilities detected over time, with up to 365 days of historical data for a given project. The dashboard is a historical view of open vulnerabilities in the default branch. Open vulnerabilities are those of only `Needs triage` or `Confirmed` status (`Dismissed` or `Resolved` vulnerabilities are excluded).
 
 To view a project's security dashboard:
 
@@ -80,17 +77,14 @@ To view a project's security dashboard:
 1. Filter and search for what you need.
    - To filter the chart by severity, select the legend name.
    - To view a specific time frame, use the time range handles ({{< icon name="scroll-handle" >}}).
-   - To view a specific area of the chart, select the left-most icon ({{< icon name="marquee-selection" >}}) and drag
-     across the chart.
+   - To view a specific area of the chart, select the left-most icon ({{< icon name="marquee-selection" >}}) and drag across the chart.
    - To reset to the original range, select **Remove Selection** ({{< icon name="redo" >}}).
 
 ![Project Security Dashboard](img/project_security_dashboard_v16_6.png)
 
 #### Downloading the vulnerability chart
 
-You can download an image of the vulnerability chart from the Project Security Dashboard
-to use in documentation, presentations, and so on. To download the image of the vulnerability
-chart:
+You can download an image of the vulnerability chart from the Project Security Dashboard to use in documentation, presentations, and so on. To download the image of the vulnerability chart:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Secure** > **Security dashboard**.
@@ -100,9 +94,7 @@ You are prompted to download the image in SVG format.
 
 ### Group Security Dashboard
 
-The group Security Dashboard provides an overview of vulnerabilities found in the default
-branches of all projects in a group and its subgroups. The Group Security Dashboard
-supplies the following:
+The group Security Dashboard provides an overview of vulnerabilities found in the default branches of all projects in a group and its subgroups. The Group Security Dashboard supplies the following:
 
 - Vulnerability trends over a 30, 60, or 90-day time frame
 - A letter grade for each project in the group according to its highest-severity open vulnerability. The letter grades are assigned using the following criteria:
@@ -139,8 +131,7 @@ To view group security dashboard:
 
 {{< /history >}}
 
-Use security dashboards to assess the security posture of your applications. GitLab provides
-you with a collection of metrics, ratings, and charts for the vulnerabilities detected by the [security scanners](../detect/_index.md) run on your project. The security dashboard provides data such as:
+Use security dashboards to assess the security posture of your applications. GitLab provides you with a collection of metrics, ratings, and charts for the vulnerabilities detected by the [security scanners](../detect/_index.md) run on your project. The security dashboard provides data such as:
 
 - Vulnerability trends over a 30, 60, or 90-day time frame for all projects in a group.
 - The total number of open vulnerabilities by severity.
@@ -157,8 +148,7 @@ To view the security dashboard for a project or a group you must have:
 
 {{< alert type="note" >}}
 
-The security dashboards show results of scans from the most recently completed pipeline on the
-[default branch](../../project/repository/branches/default.md). Dashboards are updated with the results of completed pipelines run on the default branch. They do not include vulnerabilities discovered in pipelines from other un-merged branches.
+The security dashboards show results of scans from the most recently completed pipeline on the [default branch](../../project/repository/branches/default.md). Dashboards are updated with the results of completed pipelines run on the default branch. They do not include vulnerabilities discovered in pipelines from other un-merged branches.
 
 {{< /alert >}}
 
@@ -176,8 +166,8 @@ You can view a security dashboard for a project or a group. Each dashboard provi
 Both dashboards include:
 
 - [Charts](#charts)
-  - [Vulnerabilities over time](#vulnerabilities-over-time)
-  - [Vulnerability severity panels](#vulnerability-severity-panel)
+ - [Vulnerabilities over time](#vulnerabilities-over-time)
+ - [Vulnerability severity panels](#vulnerability-severity-panel)
 - [Filter the entire dashboard](#filter-the-entire-dashboard)
 
 To view a security dashboard:
@@ -198,9 +188,7 @@ Open vulnerabilities are those with Needs triage or Confirmed status. Closed vul
 
 ### Group security dashboard
 
-The group security dashboard provides an overview of vulnerabilities found in the default
-branches of all projects in a group and its subgroups. The group security dashboard
-supplies the following:
+The group security dashboard provides an overview of vulnerabilities found in the default branches of all projects in a group and its subgroups. The group security dashboard supplies the following:
 
 - The [**Vulnerabilities over time**](#vulnerabilities-over-time) chart, which includes up to 90 days of history.
 - The [**Severity panels**](#vulnerability-severity-panel), which show open vulnerabilities by severity.

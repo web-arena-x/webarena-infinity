@@ -13,7 +13,7 @@ To successfully upload a file via the Importer, the file must follow a strict se
 - File *may not* be another file type with a .CSV extension added to it.
 - File *must be* exported in Unicode (UTF-8).
 - *All dates must be in yyyy-mm-dd format, unless otherwise specified in the UI***.**
-  - For more information, refer to [Importer: Date Formatting](https://support.joinhandshake.com/hc/en-us/articles/231942648).
+ - For more information, refer to [Importer: Date Formatting](https://support.joinhandshake.com/hc/en-us/articles/231942648).
 
 **Important**: if you don't use UTF-8 format, it can cause bad encoding issues, which can lead to poorly translated records or failure to sync/import correctly.
 

@@ -22,8 +22,7 @@ title: Timeline events
 {{< /history >}}
 
 Incident timelines are an important part of record keeping for incidents.
-Timelines can show executives and external viewers what happened during an incident,
-and which steps were taken for it to be resolved.
+Timelines can show executives and external viewers what happened during an incident, and which steps were taken for it to be resolved.
 
 ## View the timeline
 
@@ -85,8 +84,7 @@ Prerequisites:
 
 {{< alert type="warning" >}}
 
-Internal notes added to incident timelines in public and internal
-incidents are visible to anyone with access to the incident.
+Internal notes added to incident timelines in public and internal incidents are visible to anyone with access to the incident.
 
 {{< /alert >}}
 
@@ -177,11 +175,9 @@ Alternatively:
 
 {{< /history >}}
 
-[When creating an event using the form](#using-the-form) or editing it,
-you can specify incident tags to capture relevant incident timestamps.
+[When creating an event using the form](#using-the-form) or editing it, you can specify incident tags to capture relevant incident timestamps.
 Timeline tags are optional. You can choose more than one tag per event.
-When you create a timeline event and select the tags, the event note
-is populated with a default message.
+When you create a timeline event and select the tags, the event note is populated with a default message.
 This allows for a quick event creation. If a note has already been set, it isn't changed.
 Added tags are displayed next to the timestamp.
 

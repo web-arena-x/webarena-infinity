@@ -8,7 +8,7 @@ Amazon Q is a feature designed to assist agents by recommending relevant content
 
 ## How to enable Amazon Q in Engage
 
-In order to enable Amazon Q articles, ensure that the follow prerequisites are in place:  
+In order to enable Amazon Q articles, ensure that the follow prerequisites are in place: 
 1. Create an Amazon Q in Connect domain in the Amazon Connect console and add the relevant integration. [This](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) section in the Amazon Connect document outlines the steps to follow.
 
 2. Add the Amazon Q in Connect block to the relevant contact flows.

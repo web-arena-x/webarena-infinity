@@ -21,7 +21,7 @@ Select One...Sage 300 CRE®Sage 100 Contractor®QuickBooks® DesktopViewpoint® 
 | [**Why are there duplicate company records in Procore’s Company Directory**](https://support.procore.com/faq/what-happens-if-i-have-duplicate-company-records-in-procores-company-directory "faq/what-happens-if-i-have-duplicate-company-records-in-procores-company-directory") | If two of the same company in your Procore directory exist and you want to know how to merge these into one synced vendor |
 | [**How to add new cost codes or cost types to Procore**](https://support.procore.com/tc/procore/Legacy/ERP_Archives/Legacy-Sage300CRE-Tutorials/How_do_I_add_a_new_Sage_300_CRE_cost_code_or_cost_type%3F "faq/how-do-i-add-a-new-sage-300-cre-cost-code-or-cost-type") | If you need to add a new cost code or cost type to Procore |
 
-|  |  |
+| | |
 | --- | --- |
 | [**How to resolve 'Import operation took longer than the set timeout' error**](https://support.procore.com/faq/how-to-resolve-import-operation-took-longer-than-the-set-timeout-sage "How do I resolve the \"The Import operation took longer than the set timeout\" Error when Exporting to ERP") | If you are receiving the error 'Import operation took longer than the set timeout'. |
 

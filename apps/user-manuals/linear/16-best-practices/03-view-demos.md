@@ -22,7 +22,7 @@ Open the help center with `?` and ask a qustion directly in our AI help center. 
 
 Open the help center with `?` and ask a qustion directly in our AI help center. It’ll return an response and also link to any relevant documentation or keyboard shortcuts.**sk OpenAI help**
 
-Open the help center with `?` and ask a qustion directly in our AI help center. It’ll return an response and also link to any relevant documentation or keyboard shortcuts.  
+Open the help center with `?` and ask a qustion directly in our AI help center. It’ll return an response and also link to any relevant documentation or keyboard shortcuts. 
 
 
 ## Reach out to us

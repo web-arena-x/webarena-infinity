@@ -90,7 +90,7 @@ To check in:
 2. They scan the QR code using their phone’s camera.
 3. The check-in form opens automatically, allowing them to complete the process.
 
-**Offline mode supported**:  
+**Offline mode supported**: 
 If a candidate is using the app in offline mode, the form will still load. Their submission will be stored and synced once an internet connection is restored. *Learn more about* [*Checking in Attendees at Events with Unstable WiFi*](https://support.joinhandshake.com/hc/en-us/articles/29124592486551).
 
 ### After the fair
@@ -99,8 +99,8 @@ Following the event:
 
 - **An email summary will be sent to both**:
 
-  - The attending representative(s)
-  - The user who registered the employer
+ - The attending representative(s)
+ - The user who registered the employer
 - **This summary includes the number of candidate check-ins at your booth**
 
 You can also download detailed attendee information from Handshake, including:

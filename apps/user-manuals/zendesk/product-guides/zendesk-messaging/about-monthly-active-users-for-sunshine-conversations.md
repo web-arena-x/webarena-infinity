@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/6546313440538-About-monthl
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 

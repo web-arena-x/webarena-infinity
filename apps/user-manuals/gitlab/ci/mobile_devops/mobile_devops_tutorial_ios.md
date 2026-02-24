@@ -5,8 +5,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: 'Tutorial: Build iOS apps with GitLab Mobile DevOps'
 ---
 
-In this tutorial, you'll create a pipeline by using GitLab CI/CD that builds your iOS mobile app,
-signs it with your credentials, and distributes it to app stores.
+In this tutorial, you'll create a pipeline by using GitLab CI/CD that builds your iOS mobile app, signs it with your credentials, and distributes it to app stores.
 
 To set up mobile DevOps:
 
@@ -25,8 +24,7 @@ Before you start this tutorial, make sure you have:
 
 ## Set up your build environment
 
-Use [GitLab-hosted runners](../runners/_index.md),
-or set up [self-managed runners](https://docs.gitlab.com/runner/#use-self-managed-runners)
+Use [GitLab-hosted runners](../runners/_index.md), or set up [self-managed runners](https://docs.gitlab.com/runner/#use-self-managed-runners)
 for complete control over the build environment.
 
 1. Create a `.gitlab-ci.yml` file in your repository root.
@@ -77,10 +75,10 @@ The following are sample `fastlane/Fastfile` and `.gitlab-ci.yml` files with thi
 
 - `fastlane/Fastfile`:
 
-  ```ruby
-  default_platform(:ios)
+ ```ruby
+ default_platform(:ios)
 
-  platform :ios do
+ platform :ios do
     desc "Build and sign the application for development"
     lane :build do
       setup_ci
@@ -94,20 +92,20 @@ The following are sample `fastlane/Fastfile` and `.gitlab-ci.yml` files with thi
         export_method: "development"
       )
     end
-  end
-  ```
+ end
+ ```
 
 - `.gitlab-ci.yml`:
 
-  ```yaml
-  build_ios:
+ ```yaml
+ build_ios:
     image: macos-12-xcode-14
     stage: build
     script:
       - fastlane build
     tags:
       - saas-macos-medium-m1
-  ```
+ ```
 
 ## Set up app distribution with Apple Store integration and fastlane
 
@@ -140,8 +138,8 @@ The following is a sample `fastlane/Fastfile`:
 default_platform(:ios)
 
 platform :ios do
-  desc "Build and sign the application for distribution, upload to TestFlight"
-  lane :beta do
+ desc "Build and sign the application for distribution, upload to TestFlight"
+ lane :beta do
     setup_ci
 
     match(type: 'appstore', readonly: is_ci)
@@ -161,7 +159,7 @@ platform :ios do
     )
 
     upload_to_testflight
-  end
+ end
 end
 ```
 
@@ -169,14 +167,13 @@ The following is a sample `.gitlab-ci.yml`:
 
 ```yaml
 beta_ios:
-  image: macos-12-xcode-14
-  stage: beta
-  script:
+ image: macos-12-xcode-14
+ stage: beta
+ script:
     - fastlane beta
 ```
 
-Congratulations! Your app is now set up for automated building, signing, and distribution. Try creating
-a merge request to trigger your first pipeline.
+Congratulations! Your app is now set up for automated building, signing, and distribution. Try creating a merge request to trigger your first pipeline.
 
 ## Sample projects
 

@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408883087386-Navigating-t
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Team, Professional, or Enterprise |
 
@@ -28,7 +28,7 @@ Press CTRL with one of the following keys:
 
 - **CTRL** + **number**: Open the chat window for corresponding number.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zopim_keyboardshortcuts_openchat_NEW.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zopim_keyboardshortcuts_openchat_NEW.png)
 - **CTRL** + **,** or **CTRL** + **ESC**: Minimize the chat window.
 - **CTRL** + **.**: Close the chat window. If you're serving the chat, this will end the chat. If you're listening to the chat, it will just close the window.
 - **CTRL** + **~**: Serve a chat request.

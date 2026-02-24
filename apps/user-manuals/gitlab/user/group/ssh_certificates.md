@@ -15,21 +15,16 @@ title: Manage group SSH certificates
 
 You can control and manage Git access to your projects and groups with SSH certificates.
 
-SSH certificates are cryptographically signed documents that authenticate a user's identity and
-permissions.
-They are issued by a trusted Certificate Authority (CA) and contain information such as
-the user's identity, validity period, and permissions.
+SSH certificates are cryptographically signed documents that authenticate a user's identity and permissions.
+They are issued by a trusted Certificate Authority (CA) and contain information such as the user's identity, validity period, and permissions.
 
 The benefits of SSH certificate authentication are:
 
-- Centralized access control: You can manage access through a central CA, instead of individual
-  user-managed SSH keys.
+- Centralized access control: You can manage access through a central CA, instead of individual user-managed SSH keys.
 - Enhanced security: SSH certificates are more secure than traditional SSH keys.
 - Time-limited access: You can set certificates to expire after a specific period.
-- Simplified credential management: Organizations can maintain a list of approved
-  SSH certificate credentials for repository access.
-- Independent from user-managed credentials: Access is controlled with group-managed
-  certificates, and not users' personal public SSH keys.
+- Simplified credential management: Organizations can maintain a list of approved SSH certificate credentials for repository access.
+- Independent from user-managed credentials: Access is controlled with group-managed certificates, and not users' personal public SSH keys.
 
 ## SSH certificates and SSH keys
 
@@ -44,8 +39,7 @@ The following table compares SSH certificates and SSH keys:
 
 ## Authentication flow
 
-The following diagram illustrates how SSH certificate authentication works
-in GitLab, from requesting a certificate to accessing a repository:
+The following diagram illustrates how SSH certificate authentication works in GitLab, from requesting a certificate to accessing a repository:
 
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
@@ -66,8 +60,7 @@ sequenceDiagram
     GitRepo->>User: Allow repository operations
 ```
 
-The authentication process verifies that users have valid SSH certificates before
-allowing repository access.
+The authentication process verifies that users have valid SSH certificates before allowing repository access.
 
 ## Add a CA certificate to a top-level group
 
@@ -101,8 +94,7 @@ Prerequisites:
 
 - You must have the Owner role for the group.
 - The user certificates can only be used to access the projects in the top-level group and its subgroups.
-- A user's username or primary email (`user` or `user@example.com`) must be specified to associate a
-  GitLab user with the user certificate.
+- A user's username or primary email (`user` or `user@example.com`) must be specified to associate a GitLab user with the user certificate.
 - The user must be an [Enterprise User](../enterprise_user/_index.md).
 
 To issue user certificates, use the private key from the pair you [created earlier](#add-a-ca-certificate-to-a-top-level-group):
@@ -128,8 +120,7 @@ The user certificates can only be used to access the projects in the top-level g
 
 {{< /history >}}
 
-You can enforce the usage of SSH certificates and restrict users from authenticating using SSH
-keys and access tokens.
+You can enforce the usage of SSH certificates and restrict users from authenticating using SSH keys and access tokens.
 
 When SSH certificates are enforced:
 

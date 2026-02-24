@@ -17,22 +17,18 @@ Adjust the wiki settings of your GitLab instance.
 
 ## Wiki page content size limit
 
-You can set a maximum content size limit for wiki pages. This limit can prevent
-abuse of the feature. The default value is **5242880 Bytes** (5 MB).
+You can set a maximum content size limit for wiki pages. This limit can prevent abuse of the feature. The default value is **5242880 Bytes** (5 MB).
 
 ### How does it work?
 
-The content size limit is applied when a wiki page is created or updated
-through the GitLab UI or API. Local changes pushed with Git are not validated.
+The content size limit is applied when a wiki page is created or updated through the GitLab UI or API. Local changes pushed with Git are not validated.
 
-To break any existing wiki pages, the limit doesn't take effect until a wiki page
-is edited again and the content changes.
+To break any existing wiki pages, the limit doesn't take effect until a wiki page is edited again and the content changes.
 
 ### Wiki page content size limit configuration
 
 This setting is not available through the [**Admin** area settings](../settings/_index.md).
-To configure this setting, use either the Rails console
-or the [Application settings API](../../api/settings.md).
+To configure this setting, use either the Rails console or the [Application settings API](../../api/settings.md).
 
 {{< alert type="note" >}}
 
@@ -62,14 +58,13 @@ To configure this setting through the Rails console:
 
 To retrieve the current value, start the Rails console and run:
 
-  ```ruby
-  Gitlab::CurrentSettings.wiki_page_max_content_bytes
-  ```
+ ```ruby
+ Gitlab::CurrentSettings.wiki_page_max_content_bytes
+ ```
 
 #### Through the API
 
-To set the wiki page size limit through the Application Settings API, use a command,
-as you would to [update any other setting](../../api/settings.md#update-application-settings):
+To set the wiki page size limit through the Application Settings API, use a command, as you would to [update any other setting](../../api/settings.md#update-application-settings):
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" "https://gitlab.example.com/api/v4/application/settings?wiki_page_max_content_bytes=5242880"
@@ -83,11 +78,9 @@ curl --header "PRIVATE-TOKEN: <your_access_token>" "https://gitlab.example.com/a
 
 ### Reduce wiki repository size
 
-The wiki counts as part of the [namespace storage size](../settings/account_and_limit_settings.md),
-so you should keep your wiki repositories as compact as possible.
+The wiki counts as part of the [namespace storage size](../settings/account_and_limit_settings.md), so you should keep your wiki repositories as compact as possible.
 
-For more information about tools to compact repositories,
-read the documentation on [reducing repository size](../../user/project/repository/repository_size.md#methods-to-reduce-repository-size).
+For more information about tools to compact repositories, read the documentation on [reducing repository size](../../user/project/repository/repository_size.md#methods-to-reduce-repository-size).
 
 ## Allow URI includes for AsciiDoc
 
@@ -97,9 +90,7 @@ read the documentation on [reducing repository size](../../user/project/reposito
 
 {{< /history >}}
 
-Include directives import content from separate pages or external URLs,
-and display them as part of the content of the current document. To enable
-AsciiDoc includes, enable the feature through the Rails console or the API.
+Include directives import content from separate pages or external URLs, and display them as part of the content of the current document. To enable AsciiDoc includes, enable the feature through the Rails console or the API.
 
 ### Through the Rails console
 
@@ -123,19 +114,17 @@ To configure this setting through the Rails console:
 
 To check if includes are enabled, start the Rails console and run:
 
-  ```ruby
-  Gitlab::CurrentSettings.wiki_asciidoc_allow_uri_includes
-  ```
+ ```ruby
+ Gitlab::CurrentSettings.wiki_asciidoc_allow_uri_includes
+ ```
 
 ### Through the API
 
-To set the wiki to allow URI includes for AsciiDoc through the
-[Application Settings API](../../api/settings.md#update-application-settings),
-use a `curl` command:
+To set the wiki to allow URI includes for AsciiDoc through the [Application Settings API](../../api/settings.md#update-application-settings), use a `curl` command:
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" \
-  "https://gitlab.example.com/api/v4/application/settings?wiki_asciidoc_allow_uri_includes=true"
+ "https://gitlab.example.com/api/v4/application/settings?wiki_asciidoc_allow_uri_includes=true"
 ```
 
 ## Related topics

@@ -75,8 +75,7 @@ Invite your team to the workspace via a unique link, email, or bulk CSV upload.
 
 While standardized workflows in Linear enhance scalability and consistency across your organization, we understand that each team needs a certain level of autonomy to succeed.
 
-**At the workspace level, admins can control:** | **While members can customize their team settings:**
---- | ---
+**At the workspace level, admins can control:** | **While members can customize their team settings:** --- | ---
 * [Statuses](https://linear.app/docs/project-status) to show the progress of each project
 * [Updates](https://linear.app/docs/initiative-and-project-updates) for Initiatives and Projects
 * Workspace templates for [Issues](https://linear.app/docs/issue-templates), [Projects](https://linear.app/docs/project-templates) and [Documents](https://linear.app/docs/project-documents#create-document-templates) | * [Statuses](https://linear.app/docs/configuring-workflows) that your Issues will move through

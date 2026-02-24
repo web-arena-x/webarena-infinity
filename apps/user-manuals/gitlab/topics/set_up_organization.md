@@ -6,8 +6,7 @@ description: Users, groups, namespaces, SSH keys.
 title: Manage your organization
 ---
 
-Configure your organization and its users. Determine user roles
-and give everyone access to the projects they need.
+Configure your organization and its users. Determine user roles and give everyone access to the projects they need.
 
 {{< cards >}}
 

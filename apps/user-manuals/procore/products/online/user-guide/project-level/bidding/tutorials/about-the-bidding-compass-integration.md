@@ -41,7 +41,7 @@ Procore customers using COMPASSby Bespoke Metrics can seamlessly view COMPASS�
 
 You can view qualification information when adding bidders from the [Enhanced Bid Management](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/about-bid-management-enhanced-experience "About Bid Management Enhanced Experience") experience, or [leveling bids](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/level-bids-for-a-bid-form "Level Bids for a Bid Form").
 
-|  |  |
+| | |
 | --- | --- |
 | Qualification information includes:   - Annual Revenue - Assigned Project Limits - Assigned Aggregate Limits - Average Contract Value - Health & Safety Contact - EMR ratings for the past three years - Project History - QScore - Qualification Expiration Date - Qualification Status | compass-qualified.png |
 
@@ -82,21 +82,21 @@ When [adding bidders](https://support.procore.com/products/online/user-guide/pro
 
 - **Overview:** General business information from the Procore Construction Network, including office locations, union status, certifications, trades, and licenses. This information comes from either the company's [Procore Construction Network](https://support.procore.com/faq/what-is-the-procore-construction-network "What is the Procore Construction Network?") profile or, if available, directly from their COMPASS profile.
 - **Qualifications (COMPASS):** Vendor-submitted annual data including:
-  - EMR History (last 3 years)
-  - Average Contract Size (previous year)
-  - Annual Revenue Bucket (previous year)
-  - Health and Safety Contact
-  - QScore
-  - Qualification Status, Project/Aggregate Limit, and Expiration (if available)
-  - Up to five current and five completed projects with details like Project Name, Subcontract Value, Location, Estimated Completion Date, GC/Owner, and Scope/CSI Code.
+ - EMR History (last 3 years)
+ - Average Contract Size (previous year)
+ - Annual Revenue Bucket (previous year)
+ - Health and Safety Contact
+ - QScore
+ - Qualification Status, Project/Aggregate Limit, and Expiration (if available)
+ - Up to five current and five completed projects with details like Project Name, Subcontract Value, Location, Estimated Completion Date, GC/Owner, and Scope/CSI Code.
 - **Procore Activity:** Public data and data from Procore projects over the past three years, including:
-  - Total and active project count
-  - Most common project types
-  - Change Order vs. Contract rate
-  - OSHA inspections and violations
-  - Mechanics liens (filed by or against)
-  - Bankruptcies filed
-  - Tax liens filed by the contractor
+ - Total and active project count
+ - Most common project types
+ - Change Order vs. Contract rate
+ - OSHA inspections and violations
+ - Mechanics liens (filed by or against)
+ - Bankruptcies filed
+ - Tax liens filed by the contractor
 
 For more information, see [Where does the 'Qualifications' data come from when searching for bidders?](https://support.procore.com/faq/where-does-the-qualifications-data-come-from-when-searching-for-bidders "Where does the 'Qualifications' data come from when searching for bidders?")
 
@@ -122,7 +122,7 @@ For companies already in your Directory, COMPASS data syncs automatically when k
    2. Address
    3. Locate the 'Entity Type' and select **EIN**.
       1. Enter the **EIN number** next to the 'Entity Type'.
-5. Click **Save**.  
+5. Click **Save**. 
    COMPASS information will sync instantly and be available in the Bidding tool.
 
 ##### Note

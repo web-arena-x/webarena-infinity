@@ -17,13 +17,13 @@ If the discipline for the drawing is not populated or does not appear on the dra
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' on the project's Drawings tool.
+ - 'Admin' on the project's Drawings tool.
 - **Additional Information:**
-  - Abbreviation mappings are project-specific settings and can be changed at any time, which will affect any newly uploaded drawings. Changes will not affect previously uploaded drawings.
-  - Abbreviation mappings are not case sensitive.
-  - Abbreviation mappings will only affect new drawings that uploaded into a project. If a drawing is a revision of a previously uploaded drawing, it will inherit the previous version's discipline.
-  - An abbreviation can only be mapped to a single drawing discipline.
-  - Add additional abbreviation mappings, as necessary. For example, if you want to use 'H' for "Hazardous Materials" instead of "HVAC" you can change the default abbreviation mapping from 'H' to 'HV' and then create a new discipline mapping for 'H' that maps to the "Hazardous Materials" discipline.
+ - Abbreviation mappings are project-specific settings and can be changed at any time, which will affect any newly uploaded drawings. Changes will not affect previously uploaded drawings.
+ - Abbreviation mappings are not case sensitive.
+ - Abbreviation mappings will only affect new drawings that uploaded into a project. If a drawing is a revision of a previously uploaded drawing, it will inherit the previous version's discipline.
+ - An abbreviation can only be mapped to a single drawing discipline.
+ - Add additional abbreviation mappings, as necessary. For example, if you want to use 'H' for "Hazardous Materials" instead of "HVAC" you can change the default abbreviation mapping from 'H' to 'HV' and then create a new discipline mapping for 'H' that maps to the "Hazardous Materials" discipline.
 
 #### Default Drawing Discipline Abbreviation Mappings
 
@@ -54,10 +54,10 @@ If the discipline for the drawing is not populated or does not appear on the dra
 1. Navigate to your project's **Drawings** tool.
 2. Click the **Configure Settings** ****![icons-settings-gear.png](https://support.procore.com/@api/deki/files/89566/icons-settings-gear.png?revision=2&size=bestfit&width=15&height=15)**** icon.
 3. Click **Discipline Abbreviation Setup** to navigate to the drawing discipline abbreviation setup page.
-4. Click on the discipline name or abbreviation to modify an existing entry.  
+4. Click on the discipline name or abbreviation to modify an existing entry. 
    *Note*: Click out of the field to save changes.
-5. To add a new abbreviation, enter an abbreviation and discipline name, then click +**Add**.  
-   *Note*: Changes are automatically saved after this step.  
+5. To add a new abbreviation, enter an abbreviation and discipline name, then click +**Add**. 
+   *Note*: Changes are automatically saved after this step. 
      
    ![default drawing discipline set up.png](https://support.procore.com/@api/deki/files/1277/default_drawing_discipline_set_up.png?revision=1&size=bestfit&width=700&height=121)
 

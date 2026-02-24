@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/6866142556954-Managing-sha
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Professional or Enterprise |
 
-Location:  Admin Center > Workspaces > Agent tools > Layouts
+Location: Admin Center > Workspaces > Agent tools > Layouts
 
 Admins can create app shortcuts as part of a custom ticket layout and share them with agents. You must have a Professional plan or above with [the Agent Workspace](https://support.zendesk.com/hc/en-us/articles/4408821259930) to create custom layouts and share app shortcuts.
 
@@ -52,8 +52,8 @@ Here are some guidelines for how shared app shortcuts added by admins interact w
 
 - Agents who have personal app shortcuts enabled will see a horizontal separator line that delineates shared apps shortcuts pinned by an admin vs. the personal app shortcuts the agent pinned for themselves.
 - Shared app shortcuts added by admins in a ticket layout take priority over personal app shortcuts added by agents.
-  - If an admin has pinned an app as a shared app shortcut in the ticket layout, agents can’t pin that same app as a personal app shortcut.
-  - Agents cannot pin an app that is already included in the main ticket layout.
+ - If an admin has pinned an app as a shared app shortcut in the ticket layout, agents can’t pin that same app as a personal app shortcut.
+ - Agents cannot pin an app that is already included in the main ticket layout.
 
 ## Creating shared app shortcuts
 

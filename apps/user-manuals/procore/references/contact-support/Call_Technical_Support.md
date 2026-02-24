@@ -12,8 +12,7 @@ Source: https://support.procore.com/references/contact-support/Call_Technical_Su
 
 ![customer-support-icon.png](https://support.procore.com/@api/deki/files/214467/customer-support-icon.png?revision=1&size=bestfit&width=115&height=115)
 
-**AU: 61 1800 431 456  
-NZ: 64 0800 005 210**
+**AU: 61 1800 431 456 NZ: 64 0800 005 210**
 
 ![customer-support-icon.png](https://support.procore.com/@api/deki/files/214467/customer-support-icon.png?revision=1&size=bestfit&width=115&height=115)
 

@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/5517626234138-Setting-up-a
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Advanced Data Privacy and Protection (ADPP) |
 
-Location:  Admin Center > Account > Security > Advanced encryption
+Location: Admin Center > Account > Security > Advanced encryption
 
 Advanced encryption allows your company to encrypt your Service Data using your own enterprise Key Management Service (KMS), ensuring data stored in Zendesk can’t be read in plaintext by an external party and is decrypted just in time to enable Zendesk services. This feature strengthens your security posture and helps you comply with data protection and privacy obligations. See [About advanced encryption](https://support.zendesk.com/hc/en-us/articles/5043582015898) to learn more.
 
@@ -124,7 +124,7 @@ Create the KMS configuration assignment, which allows Zendesk to use the KMS con
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/security_ae_add_config_assign.png)
 3. Complete the following fields on the Assign KMS Configuration page:
-   - Organization: Enter the Zendesk subdomain you're setting up for advanced encryption.   
+   - Organization: Enter the Zendesk subdomain you're setting up for advanced encryption.  
      For example, if your support address is *support@mondocam.zendesk.com*, enter **mondocam**.
    - KMS Config ID: Enter the KMS config ID that was created after you [added the KMS configuration](#topic_hny_3xp_jcc).
 

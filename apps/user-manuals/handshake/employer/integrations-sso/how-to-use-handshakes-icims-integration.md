@@ -58,10 +58,10 @@ The status of the application in Handshake is refreshed every hour to match the 
 **The application will reflect one of the following statuses**:
 
 - **Pending**: Indicates the application wasn't fully submitted in iCIMS
-  - The student clicked on the **Apply Externally** button on the job posting on Handshake but did not complete the external application.
+ - The student clicked on the **Apply Externally** button on the job posting on Handshake but did not complete the external application.
 - **Applied**: Indicates the application has been submitted successfully in iCIMS
 - **Hired**: Application was marked as "Hired" in iCIMS
-  - A job posting with only one vacancy will expire automatically in Handshake after a candidate is marked as "Hired" in iCIMS.
+ - A job posting with only one vacancy will expire automatically in Handshake after a candidate is marked as "Hired" in iCIMS.
 - **Rejected**: Application was rejected in iCIMS
 
 **Note**: If you expire your job posting in iCIMS, the job posting will also expire in Handshake.

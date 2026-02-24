@@ -34,8 +34,7 @@ To update your version of the plugin:
 
 ## Report issues with the plugin
 
-You can report any issues, bugs, or feature requests in the
-[`gitlab-eclipse-plugin` issue tracker](https://gitlab.com/gitlab-org/editor-extensions/gitlab-eclipse-plugin/-/issues).
+You can report any issues, bugs, or feature requests in the [`gitlab-eclipse-plugin` issue tracker](https://gitlab.com/gitlab-org/editor-extensions/gitlab-eclipse-plugin/-/issues).
 Use the `Bug` or `Feature Proposal` template.
 
 ## Related topics

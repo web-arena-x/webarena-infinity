@@ -45,11 +45,9 @@ Prerequisites:
 
 - You must install Conan version 1.x.
 
-Download the Conan package manager to your local development environment by
-following the instructions at [conan.io](https://conan.io/downloads).
+Download the Conan package manager to your local development environment by following the instructions at [conan.io](https://conan.io/downloads).
 
-When installation is complete, verify you can use Conan in your terminal by
-running:
+When installation is complete, verify you can use Conan in your terminal by running:
 
 ```shell
 conan --version
@@ -63,16 +61,14 @@ Conan version 1.20.5
 
 ### Install CMake
 
-When you develop with C++ and Conan, you can select from many available
-compilers. This example uses the CMake build system generator.
+When you develop with C++ and Conan, you can select from many available compilers. This example uses the CMake build system generator.
 
 To install CMake:
 
 - For Mac, use [Homebrew](https://brew.sh/) and run `brew install cmake`.
 - For other operating systems, follow the instructions at [cmake.org](https://cmake.org/resources/).
 
-When installation is complete, verify you can use CMake in your terminal by
-running:
+When installation is complete, verify you can use CMake in your terminal by running:
 
 ```shell
 cmake --version
@@ -82,8 +78,7 @@ The CMake version is printed in the output.
 
 ### Create a project
 
-To test the package registry, you need a C++ project. If you don't already have
-one, you can clone the Conan [hello world starter project](https://github.com/conan-io/hello).
+To test the package registry, you need a C++ project. If you don't already have one, you can clone the Conan [hello world starter project](https://github.com/conan-io/hello).
 
 ### Build a Conan 1 package
 
@@ -96,8 +91,7 @@ To build a package:
    conan new Hello/0.1 -t
    ```
 
-1. Create a package for the recipe by running `conan create` with the Conan user
-   and channel:
+1. Create a package for the recipe by running `conan create` with the Conan user and channel:
 
    ```shell
    conan create . mycompany/beta
@@ -105,15 +99,13 @@ To build a package:
 
    {{< alert type="note" >}}
 
-   If you use an [instance remote](../conan_1_repository/_index.md#add-a-remote-for-your-instance), you must
-   follow a specific [naming convention](../conan_1_repository/_index.md#package-recipe-naming-convention-for-instance-remotes).
+   If you use an [instance remote](../conan_1_repository/_index.md#add-a-remote-for-your-instance), you must follow a specific [naming convention](../conan_1_repository/_index.md#package-recipe-naming-convention-for-instance-remotes).
 
    {{< /alert >}}
 
 A package with the recipe `Hello/0.1@mycompany/beta` is created.
 
-For more details about creating and managing Conan packages, see the
-[Conan documentation](https://docs.conan.io/en/latest/creating_packages.html).
+For more details about creating and managing Conan packages, see the [Conan documentation](https://docs.conan.io/en/latest/creating_packages.html).
 
 ## Conan 2
 
@@ -123,8 +115,7 @@ Prerequisites:
 
 - You must install Conan version 2.x. Base Conan version 2 is available and future improvements can be tracked in [epic 8258](https://gitlab.com/groups/gitlab-org/-/epics/8258).
 
-Install the Conan package manager to your local development environment by
-following the instructions at [conan.io](https://docs.conan.io/2/installation.html).
+Install the Conan package manager to your local development environment by following the instructions at [conan.io](https://docs.conan.io/2/installation.html).
 
 When you complete the installation, run the following command to verify you can use Conan in your terminal:
 
@@ -165,17 +156,15 @@ The generated profile is usually enough to get started. For more information on 
 
 ### Install CMake
 
-When you develop with C++ and Conan, you can select from many available
-compilers. The following example uses the CMake build system generator.
+When you develop with C++ and Conan, you can select from many available compilers. The following example uses the CMake build system generator.
 
 Prerequisites:
 
 - Install CMake.
-  - For macOS, install [Homebrew](https://brew.sh/) and run `brew install cmake`.
-  - For other operating systems, follow the instructions at [cmake.org](https://cmake.org/resources/).
+ - For macOS, install [Homebrew](https://brew.sh/) and run `brew install cmake`.
+ - For other operating systems, follow the instructions at [cmake.org](https://cmake.org/resources/).
 
-When installation is complete, verify you can use CMake in your terminal with
-the following command:
+When installation is complete, verify you can use CMake in your terminal with the following command:
 
 ```shell
 cmake --version
@@ -208,8 +197,7 @@ To build a package:
 
 1. Make sure you are in the `hello` folder created in the previous section.
 
-1. Create a package for the recipe by running `conan create` with the Conan user
-   and channel:
+1. Create a package for the recipe by running `conan create` with the Conan user and channel:
 
    ```shell
    conan create . --channel=beta --user=mycompany
@@ -217,8 +205,7 @@ To build a package:
 
 A package with the recipe `hello/0.1@mycompany/beta` is created.
 
-For more details about creating and managing Conan packages, see
-[Creating packages](https://docs.conan.io/2/tutorial/creating_packages).
+For more details about creating and managing Conan packages, see [Creating packages](https://docs.conan.io/2/tutorial/creating_packages).
 
 ## Maven
 
@@ -230,8 +217,7 @@ The required minimum versions are:
 - Maven 3.6+
 
 Follow the instructions at [maven.apache.org](https://maven.apache.org/install.html)
-to download and install Maven for your local development environment. After
-installation is complete, verify you can use Maven in your terminal by running:
+to download and install Maven for your local development environment. After installation is complete, verify you can use Maven in your terminal by running:
 
 ```shell
 mvn --version
@@ -258,11 +244,9 @@ OS name: "mac os x", version: "10.15.2", arch: "x86_64", family: "mac"
 
    The arguments are:
 
-   - `DgroupId`: A unique string that identifies your package. Follow
-     the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html).
+   - `DgroupId`: A unique string that identifies your package. Follow the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html).
    - `DartifactId`: The name of the `JAR`, appended to the end of the `DgroupId`.
-   - `DarchetypeArtifactId`: The archetype used to create the initial structure of
-     the project.
+   - `DarchetypeArtifactId`: The archetype used to create the initial structure of the project.
    - `DinteractiveMode`: Create the project using batch mode (optional).
 
 This message indicates that the project was set up successfully:
@@ -272,22 +256,19 @@ This message indicates that the project was set up successfully:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  3.429 s
+[INFO] Total time: 3.429 s
 [INFO] Finished at: 2020-01-28T11:47:04Z
 [INFO] ------------------------------------------------------------------------
 ```
 
 In the folder where you ran the command, a new directory should be displayed.
-The directory name should match the `DartifactId` parameter, which in this case,
-is `my-project`.
+The directory name should match the `DartifactId` parameter, which in this case, is `my-project`.
 
 ## Gradle
 
 ### Install Gradle
 
-If you want to create a new Gradle project, you must install Gradle. Follow
-instructions at [gradle.org](https://gradle.org/install/) to download and install
-Gradle for your local development environment.
+If you want to create a new Gradle project, you must install Gradle. Follow instructions at [gradle.org](https://gradle.org/install/) to download and install Gradle for your local development environment.
 
 In your terminal, verify you can use Gradle by running:
 
@@ -295,8 +276,7 @@ In your terminal, verify you can use Gradle by running:
 gradle -version
 ```
 
-To use an existing Gradle project, in the project directory,
-on Linux execute `gradlew`, or on Windows execute `gradlew.bat`.
+To use an existing Gradle project, in the project directory, on Linux execute `gradlew`, or on Windows execute `gradlew.bat`.
 
 The output should be similar to:
 
@@ -423,11 +403,9 @@ sbt script version: 1.9.8
 
 ### Install npm
 
-Install Node.js and npm in your local development environment by following
-the instructions at [npmjs.com](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/).
+Install Node.js and npm in your local development environment by following the instructions at [npmjs.com](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/).
 
-When installation is complete, verify you can use npm in your terminal by
-running:
+When installation is complete, verify you can use npm in your terminal by running:
 
 ```shell
 npm --version
@@ -448,18 +426,15 @@ The npm version is shown in the output:
    npm init
    ```
 
-1. Enter responses to the questions. Ensure the package name follows
-   the [naming convention](../npm_registry/_index.md#naming-convention) and is scoped to the project or group where the registry exists.
+1. Enter responses to the questions. Ensure the package name follows the [naming convention](../npm_registry/_index.md#naming-convention) and is scoped to the project or group where the registry exists.
 
 ## Yarn
 
 ### Install Yarn
 
-As an alternative to npm, you can install Yarn in your local environment by following the
-instructions at [classic.yarnpkg.com](https://classic.yarnpkg.com/en/docs/install).
+As an alternative to npm, you can install Yarn in your local environment by following the instructions at [classic.yarnpkg.com](https://classic.yarnpkg.com/en/docs/install).
 
-When installation is complete, verify you can use Yarn in your terminal by
-running:
+When installation is complete, verify you can use Yarn in your terminal by running:
 
 ```shell
 yarn --version
@@ -480,9 +455,7 @@ The Yarn version is shown in the output:
    yarn init
    ```
 
-1. Enter responses to the questions. Ensure the package name follows
-   the [naming convention](../npm_registry/_index.md#naming-convention) and is scoped to the
-   project or group where the registry exists.
+1. Enter responses to the questions. Ensure the package name follows the [naming convention](../npm_registry/_index.md#naming-convention) and is scoped to the project or group where the registry exists.
 
 A `package.json` file is created.
 
@@ -490,9 +463,7 @@ A `package.json` file is created.
 
 ### Install NuGet
 
-Follow the instructions from [Microsoft](https://learn.microsoft.com/en-us/nuget/install-nuget-client-tools) to install NuGet. If you have
-[Visual Studio](https://visualstudio.microsoft.com/vs/), NuGet is
-probably already installed.
+Follow the instructions from [Microsoft](https://learn.microsoft.com/en-us/nuget/install-nuget-client-tools) to install NuGet. If you have [Visual Studio](https://visualstudio.microsoft.com/vs/), NuGet is probably already installed.
 
 Verify that the [NuGet CLI](https://www.nuget.org/) is installed by running:
 
@@ -516,8 +487,7 @@ Available commands:
 
 ### Install pip and twine
 
-Install a recent version of [pip](https://pypi.org/project/pip/) and
-[twine](https://pypi.org/project/twine/).
+Install a recent version of [pip](https://pypi.org/project/pip/) and [twine](https://pypi.org/project/twine/).
 
 ### Create a project
 
@@ -592,11 +562,8 @@ After you create a project, you can create a package.
    touch pyproject.toml
    ```
 
-   This file contains all the information about the package. For more information
-   about this file, see [creating `pyproject.toml`](https://packaging.python.org/en/latest/tutorials/packaging-projects/#creating-pyproject-toml).
-   Because GitLab identifies packages based on
-   [Python normalized names (PEP-503)](https://www.python.org/dev/peps/pep-0503/#normalized-names),
-   ensure your package name meets these requirements. See the [installation section](../pypi_repository/_index.md#authenticate-with-the-gitlab-package-registry)
+   This file contains all the information about the package. For more information about this file, see [creating `pyproject.toml`](https://packaging.python.org/en/latest/tutorials/packaging-projects/#creating-pyproject-toml).
+   Because GitLab identifies packages based on [Python normalized names (PEP-503)](https://www.python.org/dev/peps/pep-0503/#normalized-names), ensure your package name meets these requirements. See the [installation section](../pypi_repository/_index.md#authenticate-with-the-gitlab-package-registry)
    for details.
 
 1. Open the `pyproject.toml` file, and then add basic information:

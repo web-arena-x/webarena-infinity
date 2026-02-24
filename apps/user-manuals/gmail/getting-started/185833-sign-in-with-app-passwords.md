@@ -75,6 +75,6 @@ To remove an App Password:
 Fix problems with Microsoft Outlook
 
 - Use "Sign in with Google":
-  - Try to sign in to Outlook with your Google Account user name. Make sure you have the latest version of the Outlook app or program.
+ - Try to sign in to Outlook with your Google Account user name. Make sure you have the latest version of the Outlook app or program.
 - Use an app password:
-  - If your Google Account has 2-Step Verification turned on and you can't use "Sign in with Google," you can use an [app password](/accounts/answer/185833#app-passwords).
+ - If your Google Account has 2-Step Verification turned on and you can't use "Sign in with Google," you can use an [app password](/accounts/answer/185833#app-passwords).

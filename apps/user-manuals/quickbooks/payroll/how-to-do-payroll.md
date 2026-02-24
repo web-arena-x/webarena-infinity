@@ -489,8 +489,7 @@ Staying on top of your payroll is one of the greatest favors you can do for your
 
 ![Image Alt Text](https://quickbooks.intuit.com/oidam/intuit/sbseg/en_us/Blog/Photography/Headshots/pohl-makenzie-headshot-us-en.jpg)
 
-Makenzie Pohl   
-Makenzie Pohl covers small businesses and other financial topics for QuickBooks. She calls San Diego, CA home and enjoys dining out, photography and traveling in her spare time.
+Makenzie Pohl Makenzie Pohl covers small businesses and other financial topics for QuickBooks. She calls San Diego, CA home and enjoys dining out, photography and traveling in her spare time.
 
 #### Recommended for you
 

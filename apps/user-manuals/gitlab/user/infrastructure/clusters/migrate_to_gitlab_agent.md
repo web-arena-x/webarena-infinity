@@ -18,8 +18,7 @@ To connect your Kubernetes cluster with GitLab, you can use:
 - [A GitLab CI/CD workflow](../../clusters/agent/ci_cd_workflow.md).
 - [A certificate-based integration](_index.md).
 
-The certificate-based integration is
-[**deprecated**](https://about.gitlab.com/blog/2021/11/15/deprecating-the-cert-based-kubernetes-integration/)
+The certificate-based integration is [**deprecated**](https://about.gitlab.com/blog/2021/11/15/deprecating-the-cert-based-kubernetes-integration/)
 in GitLab 14.5. The sunsetting plans are described:
 
 - for [GitLab.com customers](../../../update/deprecations.md#gitlabcom-certificate-based-integration-with-kubernetes).
@@ -27,8 +26,7 @@ in GitLab 14.5. The sunsetting plans are described:
 
 If you are using the certificate-based integration, you should move to another workflow as soon as possible.
 
-As a general rule, to migrate clusters that rely on GitLab CI/CD,
-you can use the [CI/CD workflow](../../clusters/agent/ci_cd_workflow.md).
+As a general rule, to migrate clusters that rely on GitLab CI/CD, you can use the [CI/CD workflow](../../clusters/agent/ci_cd_workflow.md).
 This workflow uses an agent to connect to your cluster. The agent:
 
 - Is not exposed to the internet.
@@ -36,8 +34,7 @@ This workflow uses an agent to connect to your cluster. The agent:
 
 {{< alert type="note" >}}
 
-The certificate-based integration was used for popular GitLab features like
-GitLab-managed Apps, GitLab-managed clusters, and Auto DevOps.
+The certificate-based integration was used for popular GitLab features like GitLab-managed Apps, GitLab-managed clusters, and Auto DevOps.
 
 {{< /alert >}}
 
@@ -226,8 +223,7 @@ For an example, [view this project](https://gitlab.com/gitlab-examples/ops/gitop
 ## Migrate from GitLab-managed applications
 
 GitLab-managed Apps (GMA) were deprecated in GitLab 14.0, and removed in GitLab 15.0.
-The agent for Kubernetes does not support them. To migrate from GMA to the
-agent, go through the following steps:
+The agent for Kubernetes does not support them. To migrate from GMA to the agent, go through the following steps:
 
 1. [Migrate from GitLab-managed Apps to a cluster management project](../../clusters/migrating_from_gma_to_project_template.md).
 1. [Migrate the cluster management project to use the agent](../../clusters/management_project_template.md).

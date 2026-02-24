@@ -8,37 +8,20 @@ Import Jira projects as Linear teams.
 
 We import data from Jira that matches a concept in Linear, and make some adaptations for other fields specified below:
 
-Jira | Linear
---- | ---
-Summary | Title
-Description | Converted into markdown and used as issue description
-Assignee | Assignee (best effort match)
+Jira | Linear --- | --- Summary | Title Description | Converted into markdown and used as issue description Assignee | Assignee (best effort match)
 Creator | Creator (best effort match)
-Priority | Priority
-Issue Key | Used in backlink, or matched (see article)
+Priority | Priority Issue Key | Used in backlink, or matched (see article)
 Issue type | Label (new label will be created on import if no exact match exists in Linear)
 Type | Label (team-level)
-Epic | Project
-Comments | Comments
-Estimate | Estimate
-Due date | Due date
-Created date | Created date
-Parent/Child | Parent/sub-issue
-Label | Label
-Status | Status (best effort conversion)
-Images (inline, in comments, or attached to task) | Image files
-Non-image files | Imported as URLs pointing back to original file in Jira
-Components | Labels (team-level)
+Epic | Project Comments | Comments Estimate | Estimate Due date | Due date Created date | Created date Parent/Child | Parent/sub-issue Label | Label Status | Status (best effort conversion)
+Images (inline, in comments, or attached to task) | Image files Non-image files | Imported as URLs pointing back to original file in Jira Components | Labels (team-level)
 
 > [!NOTE]
 > Please note that data not included above like custom fields will not import to Linear. API credentials must be provided at time of import in order to fetch files.
 
 ## What import method should I choose?
 
-Import type | Pros | Cons
---- | --- | ---
-API imports | Retains the most data, and permits use of Jira Sync functionality if enabled at the end of the import. | Requires Admin permissions in the source Jira project
-CSV imports | Doesn't require high permissions in Jira to initiate, can be used to import many Jira projects at once if you don't need issue ID matching | Jira sync functionality is not supported
+Import type | Pros | Cons --- | --- | --- API imports | Retains the most data, and permits use of Jira Sync functionality if enabled at the end of the import. | Requires Admin permissions in the source Jira project CSV imports | Doesn't require high permissions in Jira to initiate, can be used to import many Jira projects at once if you don't need issue ID matching | Jira sync functionality is not supported
 
 **Both options** will automatically label imported issues with "Migrated," are easily deletable within 7 days from Linear's Import/Export settings, and can support matching issue IDs.
 
@@ -54,7 +37,7 @@ If your individual team is moving to Linear and your broader organization is sti
 
 #### API credential imports
 
-To import issues from Jira as synced, make sure the Jira integration is configured before completing your first import. If you plan to create a new team  for your imported issues during the import (which will also allow matching Jira issue keys in Linear), you don't need to preconfigure team/project mappings in the Jira integration before importing.
+To import issues from Jira as synced, make sure the Jira integration is configured before completing your first import. If you plan to create a new team for your imported issues during the import (which will also allow matching Jira issue keys in Linear), you don't need to preconfigure team/project mappings in the Jira integration before importing.
 
 During the import, ensure _Sync issues after import_ in selected when prompted.
 

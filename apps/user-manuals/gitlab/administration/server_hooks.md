@@ -48,9 +48,7 @@ For GitLab Helm chart instances, see information about [global server hooks in t
 
 ## Prerequisites
 
-- The [storage name](gitaly/configure_gitaly.md#gitlab-requires-a-default-repository-storage), path to the Gitaly configuration file
-  (default is `/var/opt/gitlab/gitaly/config.toml` on Linux package instances), and the
-  [repository relative path](repository_storage_paths.md#from-project-name-to-hashed-path) for the repository.
+- The [storage name](gitaly/configure_gitaly.md#gitlab-requires-a-default-repository-storage), path to the Gitaly configuration file (default is `/var/opt/gitlab/gitaly/config.toml` on Linux package instances), and the [repository relative path](repository_storage_paths.md#from-project-name-to-hashed-path) for the repository.
 - Any language runtimes and utilities that are required by the hooks must be installed on each of the servers that run Gitaly.
 
 ## Set server hooks for a repository
@@ -59,17 +57,12 @@ To set server hooks for a repository:
 
 1. Create tarball containing custom hooks:
    1. Write the code to make the server hook function as expected. Git server hooks can be in any programming language.
-      Ensure the shebang at the top reflects the language type. For example, if the script is in Ruby the shebang is
-      probably `#!/usr/bin/env ruby`.
+      Ensure the shebang at the top reflects the language type. For example, if the script is in Ruby the shebang is probably `#!/usr/bin/env ruby`.
 
-      - To create a single server hook, create a file with a name that matches the hook type. For example, for a
-        `pre-receive` server hook, the filename should be `pre-receive` with no extension.
-      - To create many server hooks, create a directory for the hooks that matches the hook type. For example, for a
-        `pre-receive` server hook, the directory name should be `pre-receive.d`. Put the files for the hook in that
-        directory.
+      - To create a single server hook, create a file with a name that matches the hook type. For example, for a `pre-receive` server hook, the filename should be `pre-receive` with no extension.
+      - To create many server hooks, create a directory for the hooks that matches the hook type. For example, for a `pre-receive` server hook, the directory name should be `pre-receive.d`. Put the files for the hook in that directory.
 
-   1. Ensure the server hook files are executable and do not match the backup file pattern (`*~`). The server hooks be
-      in a `custom_hooks` directory that is at the root of the tarball.
+   1. Ensure the server hook files are executable and do not match the backup file pattern (`*~`). The server hooks be in a `custom_hooks` directory that is at the root of the tarball.
    1. Create the custom hooks archive with the tar command. For example, `tar -cf custom_hooks.tar custom_hooks`.
 1. Run the `hooks set` subcommand with required options to set the Git hooks for the repository. For example:
 
@@ -94,10 +87,7 @@ If you use Gitaly Cluster (Praefect), an individual repository may be replicated
 Consequently, the hook scripts must be copied to every Gitaly node that has a replica of the repository.
 To accomplish this, follow the same steps for setting custom repository hooks for the applicable version and repeat for each storage.
 
-The location to copy the scripts to depends on where repositories are stored. New repositories are created using
-Praefect-generated replica paths which are not the hashed storage path. To identify the replica path,
-[query the Praefect repository metadata](gitaly/praefect/troubleshooting.md#view-repository-metadata) by using
-`-relative-path` option to specify the expected GitLab hashed storage path.
+The location to copy the scripts to depends on where repositories are stored. New repositories are created using Praefect-generated replica paths which are not the hashed storage path. To identify the replica path, [query the Praefect repository metadata](gitaly/praefect/troubleshooting.md#view-repository-metadata) by using `-relative-path` option to specify the expected GitLab hashed storage path.
 
 ## Create global server hooks for all repositories
 
@@ -123,8 +113,7 @@ The directory is set in `gitlab.rb` under `gitaly['configuration'][:hooks][:cust
 
 {{< tab title="Self-compiled (source)" >}}
 
-- The directory is set in `gitaly/config.toml` under the `[hooks]` section. However, GitLab honors the
-  `custom_hooks_dir` value in `gitlab-shell/config.yml` if the value in `gitaly/config.toml` is blank or non-existent.
+- The directory is set in `gitaly/config.toml` under the `[hooks]` section. However, GitLab honors the `custom_hooks_dir` value in `gitlab-shell/config.yml` if the value in `gitaly/config.toml` is blank or non-existent.
 - The default directory is `/home/git/gitlab-shell/hooks`.
 
 {{< /tab >}}
@@ -137,13 +126,10 @@ To create a global server hook for all repositories:
 
 1. On the GitLab server, go to the configured global server hook directory.
 1. In the configured global server hook directory, create a directory for the hooks that matches the hook type. For example, for a `pre-receive` server hook, the directory name should be `pre-receive.d`.
-1. Inside this new directory, add your server hooks. Git server hooks can be in any programming language. Ensure the
-   shebang (`#!`) at the top reflects the language type. For example, if the script is in Ruby the shebang is probably `#!/usr/bin/env ruby`.
-1. Make the hook file executable, ensure that it's owned by the Git user, and ensure it does not match the backup file
-   pattern (`*~`).
+1. Inside this new directory, add your server hooks. Git server hooks can be in any programming language. Ensure the shebang (`#!`) at the top reflects the language type. For example, if the script is in Ruby the shebang is probably `#!/usr/bin/env ruby`.
+1. Make the hook file executable, ensure that it's owned by the Git user, and ensure it does not match the backup file pattern (`*~`).
 
-If the server hook code is properly implemented, it should execute when the Git hook is next triggered. Hooks are executed in alphabetical order by filename in the hook type
-subdirectories.
+If the server hook code is properly implemented, it should execute when the Git hook is next triggered. Hooks are executed in alphabetical order by filename in the hook type subdirectories.
 
 ## Remove server hooks for a repository
 
@@ -192,9 +178,7 @@ The following Git environment variables are supported for `pre-receive` and `pos
 
 ## Custom error messages
 
-When server hooks reject a push, provide clear error messages to help users understand why the
-push was rejected and how to fix the issue. Custom error messages appear in the GitLab UI and in
-the user's terminal when a hook declines a push.
+When server hooks reject a push, provide clear error messages to help users understand why the push was rejected and how to fix the issue. Custom error messages appear in the GitLab UI and in the user's terminal when a hook declines a push.
 
 Without custom error messages, users only see generic messages like `(pre-receive hook declined)`.
 Clear error messages help users:
@@ -230,28 +214,22 @@ When working with Git server hooks, you might encounter the following issues.
 
 ### Error: `pre-receive hook declined`
 
-When a user pushes to a GitLab repository, they might receive an error message that includes
-`(pre-receive hook declined)`. For example:
+When a user pushes to a GitLab repository, they might receive an error message that includes `(pre-receive hook declined)`. For example:
 
 ```plaintext
 ! [remote rejected] main (pre-receive hook declined)
 error: failed to push some refs to 'https://gitlab.example.com/group/project'
 ```
 
-This error indicates that a pre-receive hook rejected the push. Pre-receive hooks run before any
-references are updated in the repository. Git provides three server-side hooks that can reject
-pushes:
+This error indicates that a pre-receive hook rejected the push. Pre-receive hooks run before any references are updated in the repository. Git provides three server-side hooks that can reject pushes:
 
 - `pre-receive`: Runs before any references are updated. Can reject the entire push.
 - `update`: Runs once per branch being updated. Can reject individual branches.
-- `post-receive`: Runs after all references are updated. Cannot reject pushes, but can cause
-  errors if the hook fails.
+- `post-receive`: Runs after all references are updated. Cannot reject pushes, but can cause errors if the hook fails.
 
-The `(pre-receive hook declined)` error usually comes from either the `pre-receive` or `update`
-hook. To identify the issue:
+The `(pre-receive hook declined)` error usually comes from either the `pre-receive` or `update` hook. To identify the issue:
 
-1. Check the output immediately before the `(pre-receive hook declined)` message. The output often
-   contains information about why the push was rejected. For example:
+1. Check the output immediately before the `(pre-receive hook declined)` message. The output often contains information about why the push was rejected. For example:
 
    ```plaintext
    remote: GitLab: The default branch of a project cannot be deleted.
@@ -268,17 +246,10 @@ hook. To identify the issue:
 
 The following are common causes of pre-receive hook failures:
 
-- Default branch protection: Pushes that delete or force-update the default branch are
-  rejected. This occurs with `git push --mirror` when the source repository has a
-  different default branch than the target repository.
-- Push rules: The push violates configured push rules, such as commit message requirements,
-  file size limits, or author email restrictions.
-- Custom server hooks: A custom server hook script rejected the push. Review your custom hook
-  code and error messages.
-- Timeout: The hook took too long to run and was terminated. Check the Gitaly logs for timeout
-  errors.
+- Default branch protection: Pushes that delete or force-update the default branch are rejected. This occurs with `git push --mirror` when the source repository has a different default branch than the target repository.
+- Push rules: The push violates configured push rules, such as commit message requirements, file size limits, or author email restrictions.
+- Custom server hooks: A custom server hook script rejected the push. Review your custom hook code and error messages.
+- Timeout: The hook took too long to run and was terminated. Check the Gitaly logs for timeout errors.
 - LFS objects: Required Git LFS objects are missing from the repository.
 
-To help users understand hook failures use [custom error messages](#custom-error-messages) to provide
-clear feedback about why a push was rejected. Custom error messages appear in the GitLab UI and in
-the user's terminal.
+To help users understand hook failures use [custom error messages](#custom-error-messages) to provide clear feedback about why a push was rejected. Custom error messages appear in the GitLab UI and in the user's terminal.

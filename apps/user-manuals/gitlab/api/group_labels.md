@@ -42,15 +42,15 @@ GET /groups/:id/labels
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/labels?with_counts=true"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/5/labels?with_counts=true"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 7,
     "name": "bug",
     "color": "#FF0000",
@@ -62,8 +62,8 @@ Example response:
     "open_merge_requests_count": 0,
     "subscribed": false,
     "archived": false
-  },
-  {
+ },
+ {
     "id": 4,
     "name": "feature",
     "color": "#228B22",
@@ -75,7 +75,7 @@ Example response:
     "open_merge_requests_count": 0,
     "subscribed": false,
     "archived": false
-  }
+ }
 ]
 ```
 
@@ -97,25 +97,25 @@ GET /groups/:id/labels/:label_id
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/labels/bug"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/5/labels/bug"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 7,
-  "name": "bug",
-  "color": "#FF0000",
-  "text_color" : "#FFFFFF",
-  "description": null,
-  "description_html": null,
-  "open_issues_count": 0,
-  "closed_issues_count": 0,
-  "open_merge_requests_count": 0,
-  "subscribed": false,
-  "archived": false
+ "id": 7,
+ "name": "bug",
+ "color": "#FF0000",
+ "text_color" : "#FFFFFF",
+ "description": null,
+ "description_html": null,
+ "open_issues_count": 0,
+ "closed_issues_count": 0,
+ "open_merge_requests_count": 0,
+ "subscribed": false,
+ "archived": false
 }
 ```
 
@@ -130,38 +130,38 @@ POST /groups/:id/labels
 | Attribute     | Type    | Required | Description                  |
 | ------------- | ------- | -------- | ---------------------------- |
 | `id` | integer or string | yes | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
-| `name`        | string  | yes      | The name of the label        |
-| `color`       | string  | yes      | The color of the label given in 6-digit hex notation with leading '#' sign (for example, #FFAABB) or one of the [CSS color names](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#Color_keywords) |
-| `description` | string  | no       | The description of the label, |
+| `name`        | string | yes      | The name of the label        |
+| `color`       | string | yes      | The color of the label given in 6-digit hex notation with leading '#' sign (for example, #FFAABB) or one of the [CSS color names](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#Color_keywords) |
+| `description` | string | no       | The description of the label, |
 | `archived`    | boolean | no       | Whether the label is archived. Requires the `labels_archive` feature flag to be enabled. |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --data '{
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --data '{
     "name": "Feature Proposal",
     "color": "#FFA500",
     "description": "Describes new ideas"
-  }' \
-  --url "https://gitlab.example.com/api/v4/groups/5/labels"
+ }' \
+ --url "https://gitlab.example.com/api/v4/groups/5/labels"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 9,
-  "name": "Feature Proposal",
-  "color": "#FFA500",
-  "text_color" : "#FFFFFF",
-  "description": "Describes new ideas",
-  "description_html": "Describes new ideas",
-  "open_issues_count": 0,
-  "closed_issues_count": 0,
-  "open_merge_requests_count": 0,
-  "subscribed": false,
-  "archived": false
+ "id": 9,
+ "name": "Feature Proposal",
+ "color": "#FFA500",
+ "text_color" : "#FFFFFF",
+ "description": "Describes new ideas",
+ "description_html": "Describes new ideas",
+ "open_issues_count": 0,
+ "closed_issues_count": 0,
+ "open_merge_requests_count": 0,
+ "subscribed": false,
+ "archived": false
 }
 ```
 
@@ -177,34 +177,34 @@ PUT /groups/:id/labels/:label_id
 | ------------- | ------- | -------- | ---------------------------- |
 | `id` | integer or string | yes | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
 | `label_id` | integer or string | yes | The ID or title of a group's label. |
-| `new_name`    | string  | no      | The new name of the label        |
-| `color`       | string  | no      | The color of the label given in 6-digit hex notation with leading '#' sign (for example, #FFAABB) or one of the [CSS color names](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#Color_keywords) |
-| `description` | string  | no       | The description of the label. |
+| `new_name`    | string | no      | The new name of the label        |
+| `color`       | string | no      | The color of the label given in 6-digit hex notation with leading '#' sign (for example, #FFAABB) or one of the [CSS color names](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#Color_keywords) |
+| `description` | string | no       | The description of the label. |
 | `archived`    | boolean | no       | Whether the label is archived. Requires the `labels_archive` feature flag to be enabled. |
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --data '{"new_name": "Feature Idea"}' \
-  --url "https://gitlab.example.com/api/v4/groups/5/labels/Feature%20Proposal"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --data '{"new_name": "Feature Idea"}' \
+ --url "https://gitlab.example.com/api/v4/groups/5/labels/Feature%20Proposal"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 9,
-  "name": "Feature Idea",
-  "color": "#FFA500",
-  "text_color" : "#FFFFFF",
-  "description": "Describes new ideas",
-  "description_html": "Describes new ideas",
-  "open_issues_count": 0,
-  "closed_issues_count": 0,
-  "open_merge_requests_count": 0,
-  "subscribed": false,
-  "archived": false
+ "id": 9,
+ "name": "Feature Idea",
+ "color": "#FFA500",
+ "text_color" : "#FFFFFF",
+ "description": "Describes new ideas",
+ "description_html": "Describes new ideas",
+ "open_issues_count": 0,
+ "closed_issues_count": 0,
+ "open_merge_requests_count": 0,
+ "subscribed": false,
+ "archived": false
 }
 ```
 
@@ -226,8 +226,8 @@ DELETE /groups/:id/labels/:label_id
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/labels/bug"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/5/labels/bug"
 ```
 
 > [!note]
@@ -235,77 +235,74 @@ curl --request DELETE \
 
 ## Subscribe to a group label
 
-Subscribes the authenticated user to a group label to receive notifications. If
-the user is already subscribed to the label, the status code `304` is returned.
+Subscribes the authenticated user to a group label to receive notifications. If the user is already subscribed to the label, the status code `304` is returned.
 
 ```plaintext
 POST /groups/:id/labels/:label_id/subscribe
 ```
 
-| Attribute  | Type              | Required | Description                          |
+| Attribute | Type              | Required | Description                          |
 | ---------- | ----------------- | -------- | ------------------------------------ |
 | `id`      | integer or string    | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
 | `label_id` | integer or string | yes      | The ID or title of a group's label. |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/labels/9/subscribe"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/5/labels/9/subscribe"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 9,
-  "name": "Feature Idea",
-  "color": "#FFA500",
-  "text_color" : "#FFFFFF",
-  "description": "Describes new ideas",
-  "description_html": "Describes new ideas",
-  "open_issues_count": 0,
-  "closed_issues_count": 0,
-  "open_merge_requests_count": 0,
-  "subscribed": true,
-  "archived": false
+ "id": 9,
+ "name": "Feature Idea",
+ "color": "#FFA500",
+ "text_color" : "#FFFFFF",
+ "description": "Describes new ideas",
+ "description_html": "Describes new ideas",
+ "open_issues_count": 0,
+ "closed_issues_count": 0,
+ "open_merge_requests_count": 0,
+ "subscribed": true,
+ "archived": false
 }
 ```
 
 ## Unsubscribe from a group label
 
-Unsubscribes the authenticated user from a group label to not receive
-notifications from it. If the user is not subscribed to the label, the status
-code `304` is returned.
+Unsubscribes the authenticated user from a group label to not receive notifications from it. If the user is not subscribed to the label, the status code `304` is returned.
 
 ```plaintext
 POST /groups/:id/labels/:label_id/unsubscribe
 ```
 
-| Attribute  | Type              | Required | Description                          |
+| Attribute | Type              | Required | Description                          |
 | ---------- | ----------------- | -------- | ------------------------------------ |
 | `id`      | integer or string    | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
 | `label_id` | integer or string | yes      | The ID or title of a group's label. |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/labels/9/unsubscribe"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/5/labels/9/unsubscribe"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 9,
-  "name": "Feature Idea",
-  "color": "#FFA500",
-  "text_color" : "#FFFFFF",
-  "description": "Describes new ideas",
-  "description_html": "Describes new ideas",
-  "open_issues_count": 0,
-  "closed_issues_count": 0,
-  "open_merge_requests_count": 0,
-  "subscribed": false,
-  "archived": false
+ "id": 9,
+ "name": "Feature Idea",
+ "color": "#FFA500",
+ "text_color" : "#FFFFFF",
+ "description": "Describes new ideas",
+ "description_html": "Describes new ideas",
+ "open_issues_count": 0,
+ "closed_issues_count": 0,
+ "open_merge_requests_count": 0,
+ "subscribed": false,
+ "archived": false
 }
 ```

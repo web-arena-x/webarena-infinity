@@ -12,10 +12,10 @@ You can update the room availability for interview schedules in Handshake per ea
 To update the room availability, you will need the following:
 
 - Assigned the Interview Schedules role in Handshake to access the Interviews page.
-  - *For more information, refer to [School Settings: Career Services Staff Roles and Permissions](https://support.joinhandshake.com/hc/en-us/articles/219132767).*
-- To be connected to the appropriate Career Center to make edit or reserve rooms to interview schedules within the Career Center.   
-  - **Note**: if your school does not use Career Centers, this does not apply.
-  - *For more information on this, refer to [School Settings: Career Centers](https://support.joinhandshake.com/hc/en-us/articles/222026088).*
+ - *For more information, refer to [School Settings: Career Services Staff Roles and Permissions](https://support.joinhandshake.com/hc/en-us/articles/219132767).*
+- To be connected to the appropriate Career Center to make edit or reserve rooms to interview schedules within the Career Center.  
+ - **Note**: if your school does not use Career Centers, this does not apply.
+ - *For more information on this, refer to [School Settings: Career Centers](https://support.joinhandshake.com/hc/en-us/articles/222026088).*
 
 1. Click **Interviews** on the left navigation bar to access the Interviews page in Handshake.
 

@@ -20,7 +20,7 @@ There are two ways you can receive notifications from Handshake:
 
 - In-app
 - Email
-  - **Note**: email notifications will be sent directly to the email address associated with your account.
+ - **Note**: email notifications will be sent directly to the email address associated with your account.
 
 *You can choose to be notified by one, both, or neither of these options.*
 

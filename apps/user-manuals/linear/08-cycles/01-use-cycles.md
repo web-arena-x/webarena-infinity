@@ -80,8 +80,8 @@ Keep up with your Linear cycles in your preferred calendar application by visiti
 
 ## Cycle capacity
 
-On the Cycles view, cycles that have not yet started will display a capacity dial that shows an estimate on whether your team will be likely to complete all the issues added to the cycle.  
-  
+On the Cycles view, cycles that have not yet started will display a capacity dial that shows an estimate on whether your team will be likely to complete all the issues added to the cycle. 
+ 
 Capacity is calculated from the velocity of the previous three completed cycles, i.e. the number of issues or estimate points completed in these cycles. If the team has not completed any cycles previously, capacity will be roughly estimated from the number of members in the team. 
 
 ## FAQ

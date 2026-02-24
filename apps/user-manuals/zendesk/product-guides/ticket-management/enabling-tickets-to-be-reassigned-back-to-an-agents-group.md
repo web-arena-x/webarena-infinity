@@ -6,20 +6,18 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408832718874-Enabling-tic
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > Objects and rules > Tickets >
+Location: Admin Center > Objects and rules > Tickets >
 Settings
 
-By default, once a ticket has been assigned to an individual in a group, it cannot be
-reassigned back to the agent's group. You can modify your ticket settings to change this
-behavior.
+By default, once a ticket has been assigned to an individual in a group, it cannot be reassigned back to the agent's group. You can modify your ticket settings to change this behavior.
 
 ****To enable tickets to be reassigned back to an agent's original group****
 

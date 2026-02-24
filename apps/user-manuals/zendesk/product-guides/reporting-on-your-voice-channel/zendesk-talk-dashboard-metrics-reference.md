@@ -6,21 +6,18 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408883025690-Zendesk-Talk
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Talk Team, Professional, or Enterprise |
 
-This article lists and defines the metrics used in the Talk dashboard. For details about the
-dashboard, see [Analyzing call activity with the Talk Team dashboard](https://support.zendesk.com/hc/en-us/articles/4408821396762)
+This article lists and defines the metrics used in the Talk dashboard. For details about the dashboard, see [Analyzing call activity with the Talk Team dashboard](https://support.zendesk.com/hc/en-us/articles/4408821396762)
 and [Analyzing call activity with the Talk Professional dashboard](https://support.zendesk.com/hc/en-us/articles/4408831823514).
 
-Note: You might sometimes see differences in results between the Explore live dashboard and
-the Talk live calls dashboard. To learn why these can occur, see [Discrepancies between the Talk Live calls dashboard and the
-Explore Enterprise live dashboard](https://support.zendesk.com/hc/en-us/articles/4408828509210).
+Note: You might sometimes see differences in results between the Explore live dashboard and the Talk live calls dashboard. To learn why these can occur, see [Discrepancies between the Talk Live calls dashboard and the Explore Enterprise live dashboard](https://support.zendesk.com/hc/en-us/articles/4408828509210).
 
 This article lists reports in the following sections:
 

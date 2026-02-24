@@ -172,10 +172,10 @@ This converts the creation timestamp (format: `2025-02-15T09:45:32.7+0000`) into
 ## Resources
 
 - [GitLab Value Stream Analytics](../../user/group/value_stream_analytics/_index.md)
-  - [Create a Value Stream](../../user/group/value_stream_analytics/_index.md#create-a-value-stream)
+ - [Create a Value Stream](../../user/group/value_stream_analytics/_index.md#create-a-value-stream)
 - [GitLab Value Streams Dashboard](../../user/analytics/value_streams_dashboard.md)
 - [GitLab Issues API](../../api/issues.md)
-  - [Create new issue](../../api/issues.md#new-issue)
-  - [Edit issue](../../api/issues.md#edit-an-issue)
+ - [Create new issue](../../api/issues.md#new-issue)
+ - [Edit issue](../../api/issues.md#edit-an-issue)
 - [GitLab Project Access Tokens](../../user/project/settings/project_access_tokens.md)
 - [Jira automation with web requests](https://community.atlassian.com/t5/Jira-articles/Automation-for-Jira-Send-web-request-using-Jira-REST-API/ba-p/1443828)

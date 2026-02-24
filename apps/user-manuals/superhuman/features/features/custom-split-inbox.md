@@ -4,9 +4,9 @@ Source: https://help.superhuman.com/hc/en-us/articles/38458483333907-Custom-Spli
 
 ---
 
-|  |
+| |
 | --- |
-| ⚡ **TL;DR**  Create Custom Splits to organize your inbox and prioritize important emails first.   - **Desktop:** Click **Settings ⚙️ → Split Inbox Library**then click **Build Your Own**to create your own Split. To add to a Split, hit **Cmd+K** (Mac)or **Ctrl+K** (Windows) **→ Add to Split.** - **Mobile: Two-finger tap**then type **Split Inbox Library** to build your own Split. To add to a Split, **two-finger** **tap**, then type **Add to Split**. - You can build Splits using Search criteria or Auto Labels. - To help you reach Inbox Zero, the total number of conversations appears beside each Split. - When setting up Splits, aim for no more than seven for optimal productivity. |
+| ⚡ **TL;DR** Create Custom Splits to organize your inbox and prioritize important emails first.   - **Desktop:** Click **Settings ⚙️ → Split Inbox Library**then click **Build Your Own**to create your own Split. To add to a Split, hit **Cmd+K** (Mac)or **Ctrl+K** (Windows) **→ Add to Split.** - **Mobile: Two-finger tap**then type **Split Inbox Library** to build your own Split. To add to a Split, **two-finger** **tap**, then type **Add to Split**. - You can build Splits using Search criteria or Auto Labels. - To help you reach Inbox Zero, the total number of conversations appears beside each Split. - When setting up Splits, aim for no more than seven for optimal productivity. |
 
 Split Inboxes are intentional sections at the top of your inbox designed to enhance focus. They help you prioritize important emails and batch process similar messages.
 

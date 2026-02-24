@@ -29,30 +29,29 @@ When you turn off a feature, the following additional features are also unavaila
 
 - If you turn off the **Issues** feature, project users cannot use:
 
-  - **Issue Boards**
-  - **Service Desk**
-  - Project users can still access **Milestones** from merge requests.
+ - **Issue Boards**
+ - **Service Desk**
+ - Project users can still access **Milestones** from merge requests.
 
 - If you turn off **Issues** and **Merge Requests**, project users cannot use:
 
-  - **Labels**
-  - **Milestones**
+ - **Labels**
+ - **Milestones**
 
 - If you turn off **Repository**, project users cannot access:
 
-  - **Merge requests**
-  - **CI/CD**
-  - **Git Large File Storage**
-  - **Packages**
+ - **Merge requests**
+ - **CI/CD**
+ - **Git Large File Storage**
+ - **Packages**
 
 - The metrics dashboard requires read access to project environments and deployments.
-  Users with access to the metrics dashboard can also access environments and deployments.
+ Users with access to the metrics dashboard can also access environments and deployments.
 
 ## Toggle project features
 
 Available project features are visible and accessible to project members.
-You can turn off specific project features, so that they are not visible
-and accessible to project members, regardless of their role.
+You can turn off specific project features, so that they are not visible and accessible to project members, regardless of their role.
 
 To toggle the availability of individual features in a project:
 
@@ -124,11 +123,8 @@ Prerequisites:
 
 {{< /history >}}
 
-When you review code in a merge request and comment on a line of code, GitLab
-includes a few lines of the diff in the email notification to participants.
-Some organizational policies treat email as a less secure system, or might not
-control their own infrastructure for email. This can present risks to IP or
-access control of source code.
+When you review code in a merge request and comment on a line of code, GitLab includes a few lines of the diff in the email notification to participants.
+Some organizational policies treat email as a less secure system, or might not control their own infrastructure for email. This can present risks to IP or access control of source code.
 
 Prerequisites:
 
@@ -149,21 +145,20 @@ Configure your project's merge request settings:
 - Set up the [merge request method](../merge_requests/methods/_index.md) (merge commit, fast-forward merge).
 - Add merge request [description templates](../description_templates.md).
 - Turn on:
-  - [Merge request approvals](../merge_requests/approvals/_index.md).
-  - [Status checks](../merge_requests/status_checks.md).
-  - [Merge only if pipeline succeeds](../merge_requests/auto_merge.md).
-  - [Merge only when all threads are resolved](../merge_requests/_index.md#prevent-merge-unless-all-threads-are-resolved).
-  - [Required associated issue from Jira](../../../integration/jira/issues.md#require-associated-jira-issue-for-merge-requests-to-be-merged).
-  - [**Delete source branch when merge request is accepted** option by default](#delete-the-source-branch-on-merge-by-default).
+ - [Merge request approvals](../merge_requests/approvals/_index.md).
+ - [Status checks](../merge_requests/status_checks.md).
+ - [Merge only if pipeline succeeds](../merge_requests/auto_merge.md).
+ - [Merge only when all threads are resolved](../merge_requests/_index.md#prevent-merge-unless-all-threads-are-resolved).
+ - [Required associated issue from Jira](../../../integration/jira/issues.md#require-associated-jira-issue-for-merge-requests-to-be-merged).
+ - [**Delete source branch when merge request is accepted** option by default](#delete-the-source-branch-on-merge-by-default).
 - Configure:
-  - [Suggested changes commit messages](../merge_requests/reviews/suggestions.md#configure-the-commit-message-for-applied-suggestions).
-  - [Merge and squash commit message templates](../merge_requests/commit_templates.md).
-  - [Default target project](../merge_requests/creating_merge_requests.md#set-the-default-target-project) for merge requests coming from forks.
+ - [Suggested changes commit messages](../merge_requests/reviews/suggestions.md#configure-the-commit-message-for-applied-suggestions).
+ - [Merge and squash commit message templates](../merge_requests/commit_templates.md).
+ - [Default target project](../merge_requests/creating_merge_requests.md#set-the-default-target-project) for merge requests coming from forks.
 
 ### Delete the source branch on merge by default
 
-In merge requests, you can change the default behavior so that the
-**Delete the source branch** checkbox is always selected.
+In merge requests, you can change the default behavior so that the **Delete the source branch** checkbox is always selected.
 
 To set this default:
 

@@ -8,8 +8,7 @@ title: 'Tutorial: Set up workspaces infrastructure on AWS'
 
 <!-- vale gitlab_base.FutureTense = NO -->
 
-This tutorial guides you through the GitLab workspaces infrastructure setup on AWS using
-[OpenTofu](https://opentofu.org/), an open-source fork of Terraform through Infrastructure as Code (IaC).
+This tutorial guides you through the GitLab workspaces infrastructure setup on AWS using [OpenTofu](https://opentofu.org/), an open-source fork of Terraform through Infrastructure as Code (IaC).
 
 ## Before you begin
 
@@ -35,13 +34,11 @@ To set up GitLab workspaces infrastructure:
 
 ## Fork the repository
 
-First, you need to create your own copy of the infrastructure setup repository so that you can
-configure it for your environment.
+First, you need to create your own copy of the infrastructure setup repository so that you can configure it for your environment.
 
 {{< alert type="note" >}}
 
-It is not possible to create workspaces from projects in your personal namespace. Instead, fork the
-repository to a top-level group or subgroup.
+It is not possible to create workspaces from projects in your personal namespace. Instead, fork the repository to a top-level group or subgroup.
 
 {{< /alert >}}
 
@@ -56,8 +53,7 @@ Next, set up the necessary permissions in AWS so the infrastructure can be prope
 
 To set up AWS credentials:
 
-1. Create an [IAM User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html) or
-   [IAM Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html).
+1. Create an [IAM User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html) or [IAM Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html).
 1. Assign the following permissions:
 
    ```json
@@ -117,8 +113,7 @@ To set up AWS credentials:
 
 ## Prepare domain and certificates
 
-For your workspaces to be accessible, you'll need a domain and TLS certificates to secure the
-connections.
+For your workspaces to be accessible, you'll need a domain and TLS certificates to secure the connections.
 
 To prepare your domain and certificates:
 
@@ -177,8 +172,7 @@ To configure GitLab OAuth:
 1. Update the following settings:
 
    - Name: GitLab Workspaces Proxy
-   - Redirect URI: For example, `https://workspaces.example.dev/auth/callback`. Replace with your
-     user-defined domain.
+   - Redirect URI: For example, `https://workspaces.example.dev/auth/callback`. Replace with your user-defined domain.
    - Select the **Confidential** checkbox.
    - Scopes: `api`, `read_user`, `openid`, and `profile`.
 
@@ -188,8 +182,7 @@ To configure GitLab OAuth:
 
 ## Configure CI/CD variables
 
-Now, you need to add the necessary variables to your CI/CD configuration so the infrastructure
-pipeline can run.
+Now, you need to add the necessary variables to your CI/CD configuration so the infrastructure pipeline can run.
 
 To configure CI/CD variables:
 
@@ -214,7 +207,7 @@ To configure CI/CD variables:
    | `TF_VAR_workspaces_proxy_ssh_host_key`         | Your generated SSH host key. |
    | `TF_VAR_workspaces_proxy_wildcard_domain`      | Wildcard domain for workspaces. |
    | `TF_VAR_workspaces_proxy_wildcard_domain_cert` | TLS certificate for the wildcard domain. |
-   | `TF_VAR_workspaces_proxy_wildcard_domain_key`  | TLS key for the wildcard domain. |
+   | `TF_VAR_workspaces_proxy_wildcard_domain_key` | TLS key for the wildcard domain. |
 
 1. Optional. Add any of these variables to customize your deployment:
 
@@ -246,8 +239,7 @@ To update the agent configuration:
 
    {{< alert type="note" >}}
 
-   The directory that contains the `config.yaml` file must match the agent name you created in the
-   [Create a GitLab agent for Kubernetes token](#create-a-gitlab-agent-for-kubernetes-token) step.
+   The directory that contains the `config.yaml` file must match the agent name you created in the [Create a GitLab agent for Kubernetes token](#create-a-gitlab-agent-for-kubernetes-token) step.
 
    {{< /alert >}}
 
@@ -256,7 +248,7 @@ To update the agent configuration:
    ```yaml
    remote_development:
      enabled: true
-     dns_zone: "workspaces.example.dev"  # Replace with your domain
+     dns_zone: "workspaces.example.dev" # Replace with your domain
    ```
 
    For more configuration options, see [Workspace settings](settings.md).
@@ -265,8 +257,7 @@ To update the agent configuration:
 
 ## Run the pipeline
 
-It's time to deploy your infrastructure. You'll run the CI/CD pipeline to create all the necessary
-resources in AWS.
+It's time to deploy your infrastructure. You'll run the CI/CD pipeline to create all the necessary resources in AWS.
 
 To run the pipeline:
 
@@ -287,8 +278,7 @@ Excellent! Your infrastructure is now being deployed. This might take some time 
 
 ## Configure DNS records
 
-Now that your infrastructure is deployed, you need to configure DNS records to point to your new
-environment.
+Now that your infrastructure is deployed, you need to configure DNS records to point to your new environment.
 
 To configure DNS records:
 
@@ -325,11 +315,9 @@ To verify your workspace setup:
 1. Select your workspace name.
 1. Interact with the workspace by opening the Web IDE, accessing the terminal, or making changes to project files.
 
-Congratulations! You've successfully set up GitLab workspaces infrastructure on AWS. Your users
-can now create development workspace environments for their projects.
+Congratulations! You've successfully set up GitLab workspaces infrastructure on AWS. Your users can now create development workspace environments for their projects.
 
-If you encounter any issues, check the logs for additional details and refer to
-[Troubleshooting workspaces](workspaces_troubleshooting.md) for guidance.
+If you encounter any issues, check the logs for additional details and refer to [Troubleshooting workspaces](workspaces_troubleshooting.md) for guidance.
 
 ## Related topics
 

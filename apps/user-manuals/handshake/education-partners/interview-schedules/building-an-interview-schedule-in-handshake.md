@@ -9,11 +9,11 @@ Building an Interview Schedule means adding time slots that can be customized an
 This resource breaks down the two methods of building approved Interview Schedules:
 
 - Immediately after approval, when the interview is approved by clicking: 
-  - **Approve** on the Interviews page.
-  - **Approve and Build Schedule** on the Interview Details page.
+ - **Approve** on the Interviews page.
+ - **Approve and Build Schedule** on the Interview Details page.
 - At a later date by clicking the:
-  - **Apply Requested Template** button listed in the center of the Interview Details page.
-  - **Build Interview Schedule Slots** button listed under the **Actions** section of the Interview Details page.
+ - **Apply Requested Template** button listed in the center of the Interview Details page.
+ - **Build Interview Schedule Slots** button listed under the **Actions** section of the Interview Details page.
 
 ### Immediately after approval
 
@@ -22,9 +22,9 @@ When an interview is approved from the Interviews page, or if you chose the **Ap
 Take the actions below within the pop-up:
 
 - **Rooms**: Select a **Room** for the interview to occur by clicking the dropdown arrow to the right of the **Choose a Room...** search box. 
-  - Add additional rooms (if needed)  by clicking the **+ Add Room** button.
+ - Add additional rooms (if needed)  by clicking the **+ Add Room** button.
 - **Template**: Confirm the pre-selected template.
-  - If another template should be selected, click the dropdown arrow to the right of the Template box to choose a another available template.
+ - If another template should be selected, click the dropdown arrow to the right of the Template box to choose a another available template.
 - Click the blue **Build** button in the lower right corner to save and build the interview schedule!
 
 ![Build_Schedule_Image.png](https://support.joinhandshake.com/hc/article_attachments/25998585418775)
@@ -41,7 +41,7 @@ If you previously approved the interview and need to build a schedule, you have 
 
 #### Apply Requested Template Button
 
-In the center of the Interview Details page, confirm the selected template and click the blue  **Apply Requested Template** button. 
+In the center of the Interview Details page, confirm the selected template and click the blue **Apply Requested Template** button. 
 
 ![Apply_Requested_Template_Image.png](https://support.joinhandshake.com/hc/article_attachments/25998572307735)
 
@@ -58,9 +58,9 @@ Click the blue **Build Interview Schedule Slots** button under the Actions secti
 Take the actions below within the pop-up:
 
 - **Rooms**: Select a **Room** for the interview to occur by clicking the dropdown arrow to the right of the **Choose a Room...** search box. 
-  - Add additional rooms (if needed)  by clicking the **+ Add Room** button.
+ - Add additional rooms (if needed)  by clicking the **+ Add Room** button.
 - **Template**: Confirm the pre-selected template.
-  - If another template should be selected, click the dropdown arrow to the right of the Template box to choose a another available template.
+ - If another template should be selected, click the dropdown arrow to the right of the Template box to choose a another available template.
 - Click the blue **Build** button in the lower right corner to save and build the interview schedule!
 
 Once you have assigned a room and built out the schedule, slots will appear on the Interview Details page, below the date.

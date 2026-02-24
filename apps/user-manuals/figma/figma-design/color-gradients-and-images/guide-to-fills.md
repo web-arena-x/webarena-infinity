@@ -45,7 +45,7 @@ You can add layer and stroke fills to any type of object. Layer fills are only v
 To add a layer fill:
 
 1. Select the object you want to add a fill to.
-2. In the **Fill** section of the right sidebar, click the  plus to add a new fill.
+2. In the **Fill** section of the right sidebar, click the plus to add a new fill.
 3. By default, Figma adds a solid fill. Click on the fill swatch to open the color picker.
 4. Use the color picker to select a fill type, adjust colors, pattern sources, or select image/video files from your computer. Learn more about [using the color picker](https://help.figma.com/hc/en-us/articles/360041003774-Apply-paints-with-the-color-picker).
 
@@ -58,7 +58,7 @@ To add a layer fill:
 To add a stroke fill:
 
 1. Select the object you want to add a stroke to.
-2. In the **Stroke** section of the right sidebar, click the  plus to add a new stroke.
+2. In the **Stroke** section of the right sidebar, click the plus to add a new stroke.
 3. By default, Figma adds a solid stroke fill. Click on the fill swatch to open the color picker.
 4. Use the color picker to select a fill type, adjust colors, pattern sources, or select image/video files from your computer. Learn more about [using the color picker](https://help.figma.com/hc/en-us/articles/360041003774-Apply-paints-with-the-color-picker).
 
@@ -72,9 +72,9 @@ You can add, remove, or adjust fill properties at any time:
 
 - **Update fill:** To change an existing fill, click on the fill swatch in the **Fill** or **Stroke** section of the right sidebar and use the [color picker](https://help.figma.com/hc/en-us/articles/360041003774-Apply-paints-with-the-color-picker) to update the fill.
 - **Change fill opacity:** Use the opacity field next to the fill swatch to change a fill’s opacity.
-- **Toggle visibility:** Click on the  open eye or  closed eye to toggle the fill’s visibility.
-- **Update fill order:** If a layer has multiple layer or stroke fills, you can hover over the left edge of the fill to reveal the  drag handle. Click and drag the handle to reorder fills.
-- **Remove a fill:** To remove a fill, click the  minus next to the fill or stroke fill.
+- **Toggle visibility:** Click on the open eye or closed eye to toggle the fill’s visibility.
+- **Update fill order:** If a layer has multiple layer or stroke fills, you can hover over the left edge of the fill to reveal the drag handle. Click and drag the handle to reorder fills.
+- **Remove a fill:** To remove a fill, click the minus next to the fill or stroke fill.
 
 ![](https://help.figma.com/hc/article_attachments/34210574256279)
 

@@ -79,8 +79,7 @@ Prerequisites:
    - `gitlab-project-id` - The project ID.
    - `gitlab-access-token` - The access token you created
 
-When your application is configured, run it, and the OpenTelemetry exporter attempts to send
-traces to GitLab.
+When your application is configured, run it, and the OpenTelemetry exporter attempts to send traces to GitLab.
 
 ## View your traces
 

@@ -6,9 +6,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: Troubleshooting DAST scans
 ---
 
-The following troubleshooting scenarios have been collected from customer support cases. If you
-experience a problem not addressed here, or the information here does not fix your problem, create a
-support ticket. For more details, see the [GitLab Support](https://about.gitlab.com/support/) page.
+The following troubleshooting scenarios have been collected from customer support cases. If you experience a problem not addressed here, or the information here does not fix your problem, create a support ticket. For more details, see the [GitLab Support](https://about.gitlab.com/support/) page.
 
 ## When something goes wrong
 
@@ -34,24 +32,24 @@ You might encounter the following issues when you set up DAST for the first time
 When you include the DAST template without defining the target URL, the pipeline fails during configuration validation with the following error:
 
 ```plaintext
-ERR MAIN  configuration validation failed error="the required field URL was not set"
+ERR MAIN configuration validation failed error="the required field URL was not set"
 ```
 
 This error indicates that DAST doesn't know which URL to scan. To fix this issue, define the target URL with one of these methods:
 
 - Set the `DAST_TARGET_URL` CI/CD variable in your `.gitlab-ci.yml` file:
 
-  ```yaml
-  stages:
+ ```yaml
+ stages:
     - dast
 
-  include:
+ include:
     - template: Security/DAST.gitlab-ci.yml
 
-  dast:
+ dast:
     variables:
       DAST_TARGET_URL: "https://example.com"
-  ```
+ ```
 
 - Create an `environment_url.txt` file in the project's root and add the target URL. Use this method to test applications in dynamic environments.
 
@@ -63,8 +61,8 @@ DAST needs to connect to your application using the URL you specified:
 
 - If your `DAST_TARGET_URL` or `DAST_AUTH_URL` includes a port number, ensure your runner can access that specific port.
 - If no port is specified in the URL, DAST uses standard ports:
-  - Port `80` for HTTP URLs (for example, `http://example.com`).
-  - Port `443` for HTTPS URLs (for example, `https://example.com`).
+ - Port `80` for HTTP URLs (for example, `http://example.com`).
+ - Port `443` for HTTPS URLs (for example, `https://example.com`).
 
 Common causes of connectivity issues include:
 
@@ -102,7 +100,7 @@ If you experience connectivity issues:
 
    ```yaml
       variables:
-        DAST_TARGET_CHECK_TIMEOUT: "5m"  # Wait up to 5 minutes
+        DAST_TARGET_CHECK_TIMEOUT: "5m" # Wait up to 5 minutes
    ```
 
 #### DNS lookup failed
@@ -136,8 +134,7 @@ You might see server errors when:
 
 ### What is the expected outcome?
 
-Many users who encounter issues with a DAST scan have a good high-level idea of what they think the scanner should be doing. For example,
-it's not scanning particular pages, or it's not selecting a button on the page.
+Many users who encounter issues with a DAST scan have a good high-level idea of what they think the scanner should be doing. For example, it's not scanning particular pages, or it's not selecting a button on the page.
 
 As much as possible, try to isolate the problem to help narrow the search for a solution. For example, take the situation where DAST isn't scanning a particular page.
 From where should DAST have found the page? What path did it take to get there? Were there elements on the referring page that DAST should have selected, but did not?
@@ -150,13 +147,13 @@ Knowing the outcome you expect, try to replicate it manually using a browser on 
 
 - Open a new incognito/private browser window.
 - Open Developer Tools. Keep an eye on the console for error messages.
-  - In Chrome: `View -> Developer -> Developer Tools`.
-  - In Firefox: `Tools -> Browser Tools -> Web Developer Tools`.
+ - In Chrome: `View -> Developer -> Developer Tools`.
+ - In Firefox: `Tools -> Browser Tools -> Web Developer Tools`.
 - If authenticating:
-  - Go to the `DAST_AUTH_URL`.
-  - Type in the `DAST_AUTH_USERNAME` in the `DAST_AUTH_USERNAME_FIELD`.
-  - Type in the `DAST_AUTH_PASSWORD` in the `DAST_AUTH_PASSWORD_FIELD`.
-  - Select the `DAST_AUTH_SUBMIT_FIELD`.
+ - Go to the `DAST_AUTH_URL`.
+ - Type in the `DAST_AUTH_USERNAME` in the `DAST_AUTH_USERNAME_FIELD`.
+ - Type in the `DAST_AUTH_PASSWORD` in the `DAST_AUTH_PASSWORD_FIELD`.
+ - Select the `DAST_AUTH_SUBMIT_FIELD`.
 - Select links and fill in forms. Navigate to the pages that aren't scanning correctly.
 - Observe how your application behaves. Notice if there is anything that might cause problems for an automated scanner.
 
@@ -169,8 +166,7 @@ DAST cannot scan correctly when:
 
 ### How does your application work?
 
-Understanding how your application works is vital to figuring out why a DAST scan isn't working. For example, the following situations
-may require additional configuration settings.
+Understanding how your application works is vital to figuring out why a DAST scan isn't working. For example, the following situations may require additional configuration settings.
 
 - Is there a popup modal that hides elements?
 - Does a loaded page change dramatically after a certain period of time?
@@ -217,16 +213,15 @@ For example, the following log entry has level `INFO`, is part of the `CRAWL` lo
 
 ### Log destination
 
-Logs are sent to the log file artifact. You can configure each destination to accept different logs using
-the environment variable `DAST_LOG_FILE_CONFIG`.
+Logs are sent to the log file artifact. You can configure each destination to accept different logs using the environment variable `DAST_LOG_FILE_CONFIG`.
 For example:
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_BROWSER_SCAN: "true"
     DAST_LOG_FILE_CONFIG: "loglevel:debug,cache:warn"           # file log defaults to DEBUG level, logs CACHE module at WARN
 ```
@@ -248,8 +243,7 @@ The log levels that can be configured are as follows:
 
 ### Log modules
 
-`LOGLEVEL` configures the default log level for the log destination. If any of the following modules are configured,
-DAST uses the log level for that module in preference to the default log level.
+`LOGLEVEL` configures the default log level for the log destination. If any of the following modules are configured, DAST uses the log level for that module in preference to the default log level.
 
 The modules that can be configured for logging are as follows:
 
@@ -287,7 +281,7 @@ The modules that can be configured for logging are as follows:
 As a simpler alternative to configuring log modules with `DAST_LOG_FILE_CONFIG`, you can set `SECURE_LOG_LEVEL`:
 
 - To any of the [supported log levels](#log-levels).
-  When you do this, the specified level becomes the default log level in the log file for all modules.
+ When you do this, the specified level becomes the default log level in the log file for all modules.
 - To `debug` or `trace` to enable the [auth report](configuration/authentication.md#configure-the-authentication-report).
 - To `trace` to enable [DevTools logging](#chromium-devtools-logging).
 
@@ -295,10 +289,10 @@ For example:
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     SECURE_LOG_LEVEL: "trace"
     # is equivalent to:
     # DAST_LOG_FILE_CONFIG: "loglevel:trace"
@@ -310,15 +304,14 @@ Settings from `DAST_LOG_FILE_CONFIG`, `DAST_LOG_DEVTOOLS_CONFIG`, `DAST_AUTH_REP
 
 ### Example - log crawled paths
 
-Set the log file module `CRAWL` to `DEBUG` to log navigation paths found during the crawl phase of the scan to the log file. This is useful for understanding
-if DAST is crawling your target application correctly.
+Set the log file module `CRAWL` to `DEBUG` to log navigation paths found during the crawl phase of the scan to the log file. This is useful for understanding if DAST is crawling your target application correctly.
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_LOG_FILE_CONFIG: "crawl:debug"
 ```
 
@@ -362,14 +355,14 @@ The environment variable `DAST_LOG_DEVTOOLS_CONFIG` accepts a semi-colon separat
 Logging configurations are declared using the structure `[domain/message]:[what-to-log][,truncate:[max-message-size]]`.
 
 - `domain/message` references what is being logged.
-  - `Default` can be used as a value to represent all domains and messages.
-  - Can be a domain, for example, `Browser`, `CSS`, `Page`, `Network`.
-  - Can be a domain with a message, for example, `Network.responseReceived`.
-  - If multiple configurations apply, the most specific configuration is used.
+ - `Default` can be used as a value to represent all domains and messages.
+ - Can be a domain, for example, `Browser`, `CSS`, `Page`, `Network`.
+ - Can be a domain with a message, for example, `Network.responseReceived`.
+ - If multiple configurations apply, the most specific configuration is used.
 - `what-to-log` references whether and what to log.
-  - `message` logs that a message was received and does not log the message content.
-  - `messageAndBody` logs the message with the message content. Recommended to be used with `truncate`.
-  - `suppress` does not log the message. Used to silence noisy domains and messages.
+ - `message` logs that a message was received and does not log the message content.
+ - `messageAndBody` logs the message with the message content. Recommended to be used with `truncate`.
+ - `suppress` does not log the message. Used to silence noisy domains and messages.
 - `truncate` is an optional configuration to limit the size of the message printed.
 
 ### Example - log all DevTools messages
@@ -378,25 +371,24 @@ Used to log everything when you're not sure where to start.
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_LOG_FILE_CONFIG: "chrom:trace"
     DAST_LOG_DEVTOOLS_CONFIG: "Default:messageAndBody,truncate:2000"
 ```
 
 ### Example - log HTTP messages
 
-Useful for when a resource isn't loading correctly. HTTP message events are logged, as is the decision to continue or
-fail the request. Any errors in the browser console are also logged.
+Useful for when a resource isn't loading correctly. HTTP message events are logged, as is the decision to continue or fail the request. Any errors in the browser console are also logged.
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_LOG_FILE_CONFIG: "chrom:trace"
     DAST_LOG_DEVTOOLS_CONFIG: "Default:suppress;Fetch:messageAndBody,truncate:2000;Network:messageAndBody,truncate:2000;Log:messageAndBody,truncate:2000;Console:messageAndBody,truncate:2000"
 ```
@@ -408,10 +400,10 @@ To output the full diagnostic log to the job console, set both the `DAST_FF_DIAG
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_FF_DIAGNOSTIC_JOB_OUTPUT: "true"
     DAST_LOG_CONFIG: "crawl:debug"                               # console log defaults to INFO level, logs AUTH module at DEBUG
 ```
@@ -429,10 +421,10 @@ For example:
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_LOG_BROWSER_OUTPUT: "true"
 ```
 
@@ -440,8 +432,7 @@ dast:
 
 ### Logs contain `response body exceeds allowed size`
 
-By default DAST processes HTTP requests where the HTTP response body is 10 MB or less. Otherwise, DAST blocks the response
-which can cause scans to fail. This constraint is intended to reduce memory consumption during a scan.
+By default DAST processes HTTP requests where the HTTP response body is 10 MB or less. Otherwise, DAST blocks the response which can cause scans to fail. This constraint is intended to reduce memory consumption during a scan.
 
 An example log is as follows, where DAST blocked the JavaScript file found at `https://example.com/large.js` as it's size is greater than the limit:
 
@@ -454,7 +445,7 @@ This can be changed using the configuration `DAST_PAGE_MAX_RESPONSE_SIZE_MB`. Fo
 
 ```yaml
 dast:
-  variables:
+ variables:
     DAST_PAGE_MAX_RESPONSE_SIZE_MB: "25"
 ```
 
@@ -479,21 +470,15 @@ By default DAST only allows requests to the target URL domain. If your website m
 
 The crawler has default limits on its activity and time spent on the target site:
 
-1. By default, the crawler processes 10,000 actions. An action can be selecting a link or filling out a form. If
-   the crawler breaches this limit, you see the debug level log `not adding navigation as it exceeds max actions`.
-1. By default, the crawler runs for a maximum of 24 hours. If it exceeds this time limit, you see the trace
-   level log `crawl complete, timed out`.
+1. By default, the crawler processes 10,000 actions. An action can be selecting a link or filling out a form. If the crawler breaches this limit, you see the debug level log `not adding navigation as it exceeds max actions`.
+1. By default, the crawler runs for a maximum of 24 hours. If it exceeds this time limit, you see the trace level log `crawl complete, timed out`.
 
 When the crawler reached either of these limits, the scanner stops and cannot cover the target website completely.
 Therefore, a breach of these limits might indicate a problem during the scan and a potential opportunity for optimization.
 
-If your application has template-based pages with similar structure but different data across pages or
-you notice URL patterns (for example, `/products/item-123`, `/products/item-456`, `/products/item-789`),
-configure [grouped URLs](configuration/customize_settings.md#grouped-urls) to reduce scan time while
-maintaining security coverage.
+If your application has template-based pages with similar structure but different data across pages or you notice URL patterns (for example, `/products/item-123`, `/products/item-456`, `/products/item-789`), configure [grouped URLs](configuration/customize_settings.md#grouped-urls) to reduce scan time while maintaining security coverage.
 
-Grouped URLs work well for e-commerce sites with many product pages, content-based sites, or search interfaces
-(for example, `/search?q=term&page=1`, `/search?q=term&page=2`).
+Grouped URLs work well for e-commerce sites with many product pages, content-based sites, or search interfaces (for example, `/search?q=term&page=1`, `/search?q=term&page=2`).
 
 For more information about managing scan time, see [manage scan time](configuration/customize_settings.md#managing-scan-time).
 If no other strategy is suitable and your target site is extensive, increase the crawler timeout (`DAST_CRAWL_TIMEOUT`)

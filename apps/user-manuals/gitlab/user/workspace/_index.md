@@ -24,8 +24,7 @@ A workspace is a virtual sandbox environment for your code in GitLab.
 You can use workspaces to create and manage isolated development environments for your GitLab projects.
 These environments ensure that different projects don't interfere with each other.
 
-Each workspace includes its own set of dependencies, libraries, and tools,
-which you can customize to meet the specific needs of each project.
+Each workspace includes its own set of dependencies, libraries, and tools, which you can customize to meet the specific needs of each project.
 
 A workspace can exist for a maximum of approximately one calendar year, `8760` hours. After this, it is automatically terminated.
 
@@ -33,8 +32,7 @@ For a click-through demo, see [GitLab workspaces](https://tech-marketing.gitlab.
 
 {{< alert type="note" >}}
 
-A workspace runs on any `linux/amd64` Kubernetes cluster that supports the GitLab agent for Kubernetes (`agentk`). If you need to run `sudo` commands, or
-build and run containers in your workspace, there might be platform-specific requirements.
+A workspace runs on any `linux/amd64` Kubernetes cluster that supports the GitLab agent for Kubernetes (`agentk`). If you need to run `sudo` commands, or build and run containers in your workspace, there might be platform-specific requirements.
 
 For more information, see [Platform compatibility](configuration.md#platform-compatibility).
 
@@ -69,8 +67,7 @@ To manage workspaces from a project:
 
 {{< alert type="warning" >}}
 
-When you terminate a workspace, GitLab deletes any unsaved or uncommitted data
-in that workspace. The data cannot be recovered.
+When you terminate a workspace, GitLab deletes any unsaved or uncommitted data in that workspace. The data cannot be recovered.
 
 {{< /alert >}}
 
@@ -104,8 +101,7 @@ To manage all workspaces associated with `agentk`:
 
 {{< alert type="warning" >}}
 
-When you terminate a workspace, GitLab deletes any unsaved or uncommitted data
-in that workspace. The data cannot be recovered.
+When you terminate a workspace, GitLab deletes any unsaved or uncommitted data in that workspace. The data cannot be recovered.
 
 {{< /alert >}}
 
@@ -117,13 +113,12 @@ To identify an agent associated with a running workspace, use one of the followi
 
 - `agent-id` to return the project the agent belongs to.
 - `Query.workspaces` to return:
-  - The cluster agent associated with the workspace.
-  - The project the agent belongs to.
+ - The cluster agent associated with the workspace.
+ - The project the agent belongs to.
 
 ## Devfile
 
-Workspaces have built-in support for devfiles. Devfiles are files that define a development environment
-by specifying the necessary tools, languages, runtimes, and other components for a GitLab project.
+Workspaces have built-in support for devfiles. Devfiles are files that define a development environment by specifying the necessary tools, languages, runtimes, and other components for a GitLab project.
 Use them to automatically configure your development environment with your defined specifications.
 They create consistent and reproducible development environments, regardless of the machine or platform you use.
 
@@ -145,7 +140,7 @@ This devfile contains:
 ```yaml
 schemaVersion: 2.2.0
 components:
-  - name: development-environment
+ - name: development-environment
     attributes:
       gl/inject-editor: true
     container:
@@ -154,13 +149,11 @@ components:
 
 {{< alert type="note" >}}
 
-This container `image` is updated regularly. `[VERSION_TAG]` is a placeholder only. For the latest version, see the
-[default `default_devfile.yaml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/remote_development/settings/default_devfile.yaml).
+This container `image` is updated regularly. `[VERSION_TAG]` is a placeholder only. For the latest version, see the [default `default_devfile.yaml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/remote_development/settings/default_devfile.yaml).
 
 {{< /alert >}}
 
-The workspace default image includes development tools such as Ruby, Node.js, Rust, Go, Python,
-Java, PHP, GCC, and their corresponding package managers. These tools are updated regularly.
+The workspace default image includes development tools such as Ruby, Node.js, Rust, Go, Python, Java, PHP, GCC, and their corresponding package managers. These tools are updated regularly.
 
 A GitLab default devfile might not be suitable for all development environments configurations.
 In these cases, you can create a [custom devfile](#custom-devfile).
@@ -190,22 +183,22 @@ For example, `.devfile/subfolder/devfile.yaml` is not recognized.
 - The devfile must have at least one component.
 - The devfile size must not exceed 3 MB.
 - For `components`:
-  - Names must not start with `gl-`.
-  - Only `container` and `volume` are supported.
+ - Names must not start with `gl-`.
+ - Only `container` and `volume` are supported.
 - For `commands`:
-  - IDs must not start with `gl-`.
-  - Only `exec` and `apply` command types are supported.
-  - For `exec` commands, only the following options are supported: `commandLine`, `component`, `label`, and `hotReloadCapable`.
-  - When `hotReloadCapable` is specified for `exec` commands, it must be set to `false`.
+ - IDs must not start with `gl-`.
+ - Only `exec` and `apply` command types are supported.
+ - For `exec` commands, only the following options are supported: `commandLine`, `component`, `label`, and `hotReloadCapable`.
+ - When `hotReloadCapable` is specified for `exec` commands, it must be set to `false`.
 - For `events`:
-  - Names must not start with `gl-`.
-  - Only `preStart` and `postStart` are supported.
-  - The Devfile standard only allows exec commands to be linked to `postStart` events. If you want an apply command, you must use a `preStart` event.
+ - Names must not start with `gl-`.
+ - Only `preStart` and `postStart` are supported.
+ - The Devfile standard only allows exec commands to be linked to `postStart` events. If you want an apply command, you must use a `preStart` event.
 - `parent`, `projects`, and `starterProjects` are not supported.
 - For `variables`, keys must not start with `gl-`, `gl_`, `GL-`, or `GL_`.
 - For `attributes`:
-  - `pod-overrides` must not be set at the root level or in `components`.
-  - `container-overrides` must not be set in `components`.
+ - `pod-overrides` must not be set at the root level or in `components`.
+ - `container-overrides` must not be set in `components`.
 
 ### `container` component type
 
@@ -229,30 +222,23 @@ The `container` component type supports the following schema properties only:
 
 **Footnotes**:
 
-1. When you create custom container images for the `image` property, you can use the
-   [workspace base image](#workspace-base-image) as your foundation.
-   It includes critical configurations for SSH access, user permissions, and workspace
-   compatibility. If you choose not to use the base image, ensure your custom image meets
-   all workspace requirements.
+1. When you create custom container images for the `image` property, you can use the [workspace base image](#workspace-base-image) as your foundation.
+   It includes critical configurations for SSH access, user permissions, and workspace compatibility. If you choose not to use the base image, ensure your custom image meets all workspace requirements.
 
 #### `overrideCommand` attribute
 
 The `overrideCommand` attribute is a boolean that controls how Workspaces handle container entrypoints.
-This attribute determines whether the container's original entrypoint is preserved or replaced
-with a keep-alive command.
+This attribute determines whether the container's original entrypoint is preserved or replaced with a keep-alive command.
 
 The default value for `overrideCommand` depends on the component type:
 
 - Main component with attribute `gl/inject-editor: true`: Defaults to `true` when not specified.
 - All other components: Defaults to `false` when not specified.
 
-When `true`, the container entrypoint is replaced with `tail -f /dev/null` to keep the
-container running.
-When `false`, the container uses either the devfile component `command`/`args` or the built container
-image's `Entrypoint`/`Cmd`.
+When `true`, the container entrypoint is replaced with `tail -f /dev/null` to keep the container running.
+When `false`, the container uses either the devfile component `command`/`args` or the built container image's `Entrypoint`/`Cmd`.
 
-The following table shows how `overrideCommand` affects container behavior. For clarity, these terms
-are used in the table:
+The following table shows how `overrideCommand` affects container behavior. For clarity, these terms are used in the table:
 
 - Devfile component: The `command` and `args` properties in the devfile component entry.
 - Container image: The `Entrypoint` and `Cmd` fields in the OCI container image.
@@ -270,18 +256,13 @@ are used in the table:
 
 **Footnotes**:
 
-1. When you create a workspace, it cannot access container image details, for example, from private
-   or internal registries. When `overrideCommand` is `false` and the Devfile doesn't specify `command`
-   or `args`, GitLab does not validate container images or check for required `Entrypoint` or `Cmd` fields.
-   You must ensure that either the Devfile or container specifies these fields, or the container exits
-   prematurely and the workspace fails to start.
+1. When you create a workspace, it cannot access container image details, for example, from private or internal registries. When `overrideCommand` is `false` and the Devfile doesn't specify `command` or `args`, GitLab does not validate container images or check for required `Entrypoint` or `Cmd` fields.
+   You must ensure that either the Devfile or container specifies these fields, or the container exits prematurely and the workspace fails to start.
 
 ### User-defined `postStart` events
 
 You can define custom `postStart` events in your devfile to run commands after the workspace starts.
-These `postStart` events do not block workspace accessibility. The workspace becomes available as
-soon as internal initialization is complete, even if your custom `postStart` commands are still
-running or waiting to run.
+These `postStart` events do not block workspace accessibility. The workspace becomes available as soon as internal initialization is complete, even if your custom `postStart` commands are still running or waiting to run.
 
 Use this type of event to:
 
@@ -291,8 +272,7 @@ Use this type of event to:
 
 `postStart` event names must not start with `gl-` and can only reference `exec` type commands.
 
-For an example that shows how to configure `postStart` events,
-see the [example configurations](#example-configurations).
+For an example that shows how to configure `postStart` events, see the [example configurations](#example-configurations).
 
 #### Working directory for `postStart` commands
 
@@ -305,12 +285,12 @@ You can override the default behavior by specifying a `workingDir` in your comma
 
 ```yaml
 commands:
-  - id: install-dependencies
+ - id: install-dependencies
     exec:
       component: tooling-container
       commandLine: "npm install"
       workingDir: "/custom/path"
-  - id: setup-project
+ - id: setup-project
     exec:
       component: tooling-container
       commandLine: "echo 'Setting up in project directory'"
@@ -343,9 +323,9 @@ The following is an example devfile configuration:
 ```yaml
 schemaVersion: 2.2.0
 variables:
-  registry-root: registry.gitlab.com
+ registry-root: registry.gitlab.com
 components:
-  - name: tooling-container
+ - name: tooling-container
     attributes:
       gl/inject-editor: true
     container:
@@ -356,7 +336,7 @@ components:
       endpoints:
         - name: http-3000
           targetPort: 3000
-  - name: database-container
+ - name: database-container
     attributes:
       overrideCommand: false
     container:
@@ -367,34 +347,34 @@ components:
         - name: MYSQL_ROOT_PASSWORD
           value: "my-secret-pw"
 commands:
-  # Command 1: Container 1, no working directory (uses project directory)
-  - id: install-dependencies
+ # Command 1: Container 1, no working directory (uses project directory)
+ - id: install-dependencies
     exec:
       component: tooling-container
       commandLine: "npm install"
 
-  # Command 2: Container 1, with working directory
-  - id: setup-environment
+ # Command 2: Container 1, with working directory
+ - id: setup-environment
     exec:
       component: tooling-container
       commandLine: "echo 'Setting up development environment'"
       workingDir: "/home/gitlab-workspaces"
 
-  # Command 3: Container 2, no working directory (uses container default)
-  - id: init-database
+ # Command 3: Container 2, no working directory (uses container default)
+ - id: init-database
     exec:
       component: database-container
       commandLine: "echo 'Database initialized' > db-init.log"
 
-  # Command 4: Container 2, with working directory
-  - id: setup-database
+ # Command 4: Container 2, with working directory
+ - id: setup-database
     exec:
       component: database-container
       commandLine: "mkdir -p /var/lib/mysql/logs && echo 'DB setup complete' > setup.log"
       workingDir: "/var/lib/mysql"
 
 events:
-  postStart:
+ postStart:
     - install-dependencies
     - setup-environment
     - init-database
@@ -413,13 +393,12 @@ For other examples, see the [`examples` projects](https://gitlab.com/gitlab-org/
 
 By default, workspaces inject and start the [GitLab VS Code fork](https://gitlab.com/gitlab-org/gitlab-web-ide-vscode-fork)
 in the container that has a defined `gl/inject-editor` attribute in the devfile.
-The workspace container where the GitLab VS Code fork is injected
-must meet the following system requirements:
+The workspace container where the GitLab VS Code fork is injected must meet the following system requirements:
 
 - System architecture: AMD64
 - System libraries:
-  - `glibc` 2.28 and later
-  - `glibcxx` 3.4.25 and later
+ - `glibc` 2.28 and later
+ - `glibcxx` 3.4.25 and later
 
 These requirements have been tested on Debian 10.13 and Ubuntu 20.04.
 
@@ -428,9 +407,7 @@ These requirements have been tested on Debian 10.13 and Ubuntu 20.04.
 GitLab always pulls the workspace tools injector image from the GitLab registry (`registry.gitlab.com`).
 This image cannot be overridden.
 
-If you use a private container registry for your other images, GitLab fetches these
-specific images from the GitLab registry. This requirement may impact environments with strict network
-controls, such as offline environments.
+If you use a private container registry for your other images, GitLab fetches these specific images from the GitLab registry. This requirement may impact environments with strict network controls, such as offline environments.
 
 {{< /alert >}}
 
@@ -442,8 +419,7 @@ controls, such as offline environments.
 
 {{< /history >}}
 
-GitLab provides a workspace base image
-(`registry.gitlab.com/gitlab-org/gitlab-build-images:workspaces-base`)
+GitLab provides a workspace base image (`registry.gitlab.com/gitlab-org/gitlab-build-images:workspaces-base`)
 that serves as the foundation for all workspace environments.
 
 The base image includes:
@@ -455,9 +431,7 @@ The base image includes:
 - SSH server configuration for remote access.
 - Security configurations for arbitrary user ID support.
 
-If you prefer not to use the workspace base image, you can create a custom workspace
-image. To ensure GitLab can properly initialize and connect to your custom image, copy the
-necessary configuration commands from the [base image Dockerfile](https://gitlab.com/gitlab-org/gitlab-build-images/-/blob/master/Dockerfile.workspaces-base)
+If you prefer not to use the workspace base image, you can create a custom workspace image. To ensure GitLab can properly initialize and connect to your custom image, copy the necessary configuration commands from the [base image Dockerfile](https://gitlab.com/gitlab-org/gitlab-build-images/-/blob/master/Dockerfile.workspaces-base)
 into your own Dockerfile.
 
 ### Extend the base image
@@ -504,8 +478,7 @@ This extension also powers AI features like GitLab Duo Code Suggestions and GitL
 
 {{< /history >}}
 
-The VS Code Extension Marketplace provides access to extensions that enhance the functionality of the
-Web IDE. By default, the GitLab Web IDE connects to the [Open VSX Registry](https://open-vsx.org/).
+The VS Code Extension Marketplace provides access to extensions that enhance the functionality of the Web IDE. By default, the GitLab Web IDE connects to the [Open VSX Registry](https://open-vsx.org/).
 
 For more information, see [configure VS Code Extension Marketplace](../../administration/settings/vscode_extension_marketplace.md).
 
@@ -518,16 +491,13 @@ For more information, see [configure VS Code Extension Marketplace](../../admini
 
 {{< /history >}}
 
-When you create a workspace, you get a personal access token that expires in 365 days
-with `write_repository` and `api` permissions.
-This token is used to clone the project initially, while starting the workspace,
-and to configure the GitLab Workflow extension for VS Code.
+When you create a workspace, you get a personal access token that expires in 365 days with `write_repository` and `api` permissions.
+This token is used to clone the project initially, while starting the workspace, and to configure the GitLab Workflow extension for VS Code.
 
 Any Git operation you perform in the workspace uses this token for authentication and authorization.
 Terminating the workspace revokes the token.
 
-Use the `GIT_CONFIG_COUNT`, `GIT_CONFIG_KEY_n`, and `GIT_CONFIG_VALUE_n`
-[environment variables](https://git-scm.com/docs/git-config/#Documentation/git-config.txt-GITCONFIGCOUNT)
+Use the `GIT_CONFIG_COUNT`, `GIT_CONFIG_KEY_n`, and `GIT_CONFIG_VALUE_n` [environment variables](https://git-scm.com/docs/git-config/#Documentation/git-config.txt-GITCONFIGCOUNT)
 for Git authentication in the workspace. These variables require Git 2.31 or later in the workspace container.
 
 ## Pod interaction in a cluster
@@ -539,8 +509,7 @@ Consider isolating this feature from other containers in your cluster, because o
 
 ## Network access and workspace authorization
 
-It's the client's responsibility to restrict network access to the Kubernetes control plane
-because GitLab does not have control over the API.
+It's the client's responsibility to restrict network access to the Kubernetes control plane because GitLab does not have control over the API.
 
 Only the workspace creator can access the workspace and any endpoints exposed in that workspace.
 The workspace creator is only authorized to access the workspace after user authentication with OAuth.
@@ -573,20 +542,16 @@ It's not possible for GitLab to predict the Linux user ID for a container image.
 GitLab uses the Linux `root` group ID permission to create, update, or delete files in a container.
 The container runtime used by the Kubernetes cluster must ensure all containers have a default Linux group ID of `0`.
 
-If you have a container image that does not support arbitrary user IDs,
-you cannot create, update, or delete files in a workspace.
-To create a container image that supports arbitrary user IDs,
-see [Create a custom workspace image that supports arbitrary user IDs](create_image.md).
+If you have a container image that does not support arbitrary user IDs, you cannot create, update, or delete files in a workspace.
+To create a container image that supports arbitrary user IDs, see [Create a custom workspace image that supports arbitrary user IDs](create_image.md).
 
 ## Workspace logs directory
 
-When a workspace starts, GitLab creates a logs directory to capture output
-from various initialization and startup processes.
+When a workspace starts, GitLab creates a logs directory to capture output from various initialization and startup processes.
 
 The workspace logs are stored in `/tmp/workspace-logs/`.
 
-This directory helps you monitor workspace startup progress and troubleshoot
-issues with `postStart` events, development tools, and other workspace components.
+This directory helps you monitor workspace startup progress and troubleshoot issues with `postStart` events, development tools, and other workspace components.
 For more information, see [Debug `postStart` events](workspaces_troubleshooting.md#debug-poststart-events).
 
 ### Available log files
@@ -599,12 +564,11 @@ The logs directory contains the following log files:
 | `poststart-stderr.log` | `postStart` command errors | Error output and `stderr` from `postStart` commands. You can use these logs to troubleshoot failed startup scripts. |
 | `start-vscode.log`     | VS Code server startup     | Logs from the GitLab VS Code fork server initialization. |
 | `start-sshd.log`       | SSH daemon startup         | Output from SSH daemon initialization, including server startup and configuration details. |
-| `clone-unshallow.log`  | Git repository conversion  | Logs from the background process that converts the shallow clone to a full clone and retrieves the complete Git history for the project. |
+| `clone-unshallow.log` | Git repository conversion | Logs from the background process that converts the shallow clone to a full clone and retrieves the complete Git history for the project. |
 
 {{< alert type="note" >}}
 
-Log files are recreated each time you restart a workspace. Previous log files are not preserved
-when you stop and restart a workspace.
+Log files are recreated each time you restart a workspace. Previous log files are not preserved when you stop and restart a workspace.
 
 {{< /alert >}}
 
@@ -619,8 +583,7 @@ when you stop and restart a workspace.
 {{< /history >}}
 
 When you create a workspace, GitLab uses shallow cloning to improve performance.
-A shallow clone downloads only the latest commit history instead of the complete Git history,
-which significantly reduces the initial clone time for large repositories.
+A shallow clone downloads only the latest commit history instead of the complete Git history, which significantly reduces the initial clone time for large repositories.
 
 After the workspace starts, Git converts the shallow clone to a full clone in the background.
 This process is transparent and doesn't affect your development workflow.

@@ -30,19 +30,19 @@ If you’ve used Figma Design before, working in design mode should feel familia
 
 The **Layers** section on the left sidebar gives you access to the [layers](https://help.figma.com/hc/en-us/sections/15330116720791-Work-with-layers) of your currently selected object. Any objects you add to the slide, such as frames, text, or images, will be visible here.
 
-While in  slide view, the left sidebar is always visible. If you’re using  grid view, the left sidebar only displays when you have an object selected.
+While in slide view, the left sidebar is always visible. If you’re using grid view, the left sidebar only displays when you have an object selected.
 
 ![](https://help.figma.com/hc/article_attachments/25424759785879)
 
 ## Right sidebar
 
-The right sidebar gives you access to the **Design** and **Animate** tabs. While in  slide view, the right sidebar is always visible. If you’re using  grid view, the right sidebar only displays when you have an object selected.
+The right sidebar gives you access to the **Design** and **Animate** tabs. While in slide view, the right sidebar is always visible. If you’re using grid view, the right sidebar only displays when you have an object selected.
 
 ### Design tab
 
 The **Design** tab lets you view, add, remove, and change the properties of objects on your slide.
 
-If you’re in  slide view with nothing selected, or if you select a slide while in  grid view, you can:
+If you’re in slide view with nothing selected, or if you select a slide while in grid view, you can:
 
 - [Change the background of the slide](change-the-background-of-a-slide.md)
 - [Export the entire slide](../import-and-export/export-from-figma-slides.md)

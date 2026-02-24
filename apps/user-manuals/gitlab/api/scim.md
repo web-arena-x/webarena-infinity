@@ -29,14 +29,14 @@ Prerequisites:
 This API differs from the [internal group SCIM API](../development/internal_api/_index.md#group-scim-api) and the [internal instance SCIM API](../development/internal_api/_index.md#instance-scim-api) which both require a SCIM token.
 
 - This API:
-  - Does not implement the [RFC7644 protocol](https://www.rfc-editor.org/rfc/rfc7644).
-  - Gets, checks, updates, and deletes SCIM identities within groups.
+ - Does not implement the [RFC7644 protocol](https://www.rfc-editor.org/rfc/rfc7644).
+ - Gets, checks, updates, and deletes SCIM identities within groups.
 
 - The internal group and instance SCIM APIs:
-  - Are for system use for SCIM provider integration.
-  - Implement the [RFC7644 protocol](https://www.rfc-editor.org/rfc/rfc7644).
-  - Get a list of SCIM provisioned users for the group or instance.
-  - Create, delete and update SCIM provisioned users for the group or instance.
+ - Are for system use for SCIM provider integration.
+ - Implement the [RFC7644 protocol](https://www.rfc-editor.org/rfc/rfc7644).
+ - Get a list of SCIM provisioned users for the group or instance.
+ - Create, delete and update SCIM provisioned users for the group or instance.
 
 ## Get SCIM identities for a group
 
@@ -56,12 +56,11 @@ Supported attributes:
 |:------------------|:--------|:---------|:----------------------|
 | `id`      | integer or string | Yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
 
-If successful, returns [`200`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute    | Type    | Description               |
 | ------------ | ------- | ------------------------- |
-| `extern_uid` | string  | External UID for the user |
+| `extern_uid` | string | External UID for the user |
 | `user_id`    | integer | ID for the user           |
 | `active`     | boolean | Status of the identity    |
 
@@ -81,8 +80,8 @@ Example request:
 
 ```shell
 curl --location --request GET \
-  --url "https://gitlab.example.com/api/v4/groups/33/scim/identities" \
-  --header "PRIVATE-TOKEN: <PRIVATE-TOKEN>"
+ --url "https://gitlab.example.com/api/v4/groups/33/scim/identities" \
+ --header "PRIVATE-TOKEN: <PRIVATE-TOKEN>"
 ```
 
 ## Get a single SCIM identity
@@ -102,14 +101,14 @@ Supported attributes:
 | Attribute | Type    | Required | Description               |
 | --------- | ------- | -------- | ------------------------- |
 | `id`      | integer | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
-| `uid`     | string  | yes      | External UID of the user. |
+| `uid`     | string | yes      | External UID of the user. |
 
 Example request:
 
 ```shell
 curl --location --request GET \
-  --url "https://gitlab.example.com/api/v4/groups/33/scim/be20d8dcc028677c931e04f387" \
-  --header "PRIVATE-TOKEN: <PRIVATE TOKEN>"
+ --url "https://gitlab.example.com/api/v4/groups/33/scim/be20d8dcc028677c931e04f387" \
+ --header "PRIVATE-TOKEN: <PRIVATE TOKEN>"
 ```
 
 Example response:
@@ -132,7 +131,7 @@ Example response:
 
 Fields that can be updated are:
 
-| SCIM/IdP field  | GitLab field |
+| SCIM/IdP field | GitLab field |
 | --------------- | ------------ |
 | `id/externalId` | `extern_uid` |
 
@@ -151,9 +150,9 @@ Example request:
 
 ```shell
 curl --location --request PATCH \
-  --url "https://gitlab.example.com/api/v4/groups/33/scim/be20d8dcc028677c931e04f387" \
-  --header "PRIVATE-TOKEN: <PRIVATE TOKEN>" \
-  --form "extern_uid=yrnZW46BrtBFqM7xDzE7dddd"
+ --url "https://gitlab.example.com/api/v4/groups/33/scim/be20d8dcc028677c931e04f387" \
+ --header "PRIVATE-TOKEN: <PRIVATE TOKEN>" \
+ --form "extern_uid=yrnZW46BrtBFqM7xDzE7dddd"
 ```
 
 ## Delete a single SCIM identity
@@ -173,14 +172,14 @@ Supported attributes:
 | Attribute | Type    | Required | Description               |
 | --------- | ------- | -------- | ------------------------- |
 | `id`      | integer | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group. |
-| `uid`     | string  | yes      | External UID of the user. |
+| `uid`     | string | yes      | External UID of the user. |
 
 Example request:
 
 ```shell
 curl --location --request DELETE \
-  --url "https://gitlab.example.com/api/v4/groups/33/scim/yrnZW46BrtBFqM7xDzE7dddd" \
-  --header "PRIVATE-TOKEN: <your_access_token>"
+ --url "https://gitlab.example.com/api/v4/groups/33/scim/yrnZW46BrtBFqM7xDzE7dddd" \
+ --header "PRIVATE-TOKEN: <your_access_token>"
 ```
 
 Example response:

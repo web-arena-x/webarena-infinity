@@ -31,8 +31,7 @@ Review the documentation carefully before you use this feature.
 
 {{< /alert >}}
 
-The Maven virtual registry uses a single, well-known URL to manage and distribute
-packages from multiple external registries in GitLab.
+The Maven virtual registry uses a single, well-known URL to manage and distribute packages from multiple external registries in GitLab.
 
 Use the Maven virtual registry to:
 
@@ -41,11 +40,9 @@ Use the Maven virtual registry to:
 - Configure Maven clients to pull packages from configured upstreams.
 - Manage cache entries for available upstreams.
 
-This approach provides better package performance over time,
-and makes it easier to manage your Maven packages.
+This approach provides better package performance over time, and makes it easier to manage your Maven packages.
 
-For general information about managing virtual registries and upstream registries, see
-[Virtual registry](../../virtual_registry/_index.md).
+For general information about managing virtual registries and upstream registries, see [Virtual registry](../../virtual_registry/_index.md).
 
 ## Prerequisites
 
@@ -119,9 +116,9 @@ If you connect the upstream to Maven Central:
 
 - For **Upstream URL**, enter the following URL:
 
-  ```plaintext
-  https://repo1.maven.org/maven2
-  ```
+ ```plaintext
+ https://repo1.maven.org/maven2
+ ```
 
 - For **Artifact caching period** and **Metadata caching period**, set the time to `0`. Maven Central files are immutable.
 
@@ -151,16 +148,15 @@ You should use one of the configurations below for each client.
 | Token type            | Name must be    | Token                                                                   |
 | --------------------- | --------------- | ----------------------------------------------------------------------- |
 | Personal access token | `Private-Token` | Paste token as-is, or define an environment variable to hold the token. |
-| Group deploy token    | `Deploy-Token`  | Paste token as-is, or define an environment variable to hold the token. |
+| Group deploy token    | `Deploy-Token` | Paste token as-is, or define an environment variable to hold the token. |
 | Group access token    | `Private-Token` | Paste token as-is, or define an environment variable to hold the token. |
 | CI/CD Job token          | `Job-Token`     | `${CI_JOB_TOKEN}`                                                       |
 
-Add the following section to your
-[`settings.xml`](https://maven.apache.org/settings.html) file.
+Add the following section to your [`settings.xml`](https://maven.apache.org/settings.html) file.
 
 ```xml
 <settings>
-  <servers>
+ <servers>
     <server>
       <id>gitlab-maven</id>
       <configuration>
@@ -172,7 +168,7 @@ Add the following section to your
         </httpHeaders>
       </configuration>
     </server>
-  </servers>
+ </servers>
 </settings>
 ```
 
@@ -185,10 +181,10 @@ To configure a Maven virtual registry as an additional registry, in the `pom.xml
 
 ```xml
 <repositories>
-  <repository>
+ <repository>
     <id>gitlab-maven</id>
     <url>https://gitlab.example.com/api/v4/virtual_registries/packages/maven/<registry_id></url>
-  </repository>
+ </repository>
 </repositories>
 ```
 
@@ -199,17 +195,17 @@ To configure a Maven virtual registry as a replacement of the default registry, 
 
 ```xml
 <settings>
-  <servers>
+ <servers>
     ...
-  </servers>
-  <mirrors>
+ </servers>
+ <mirrors>
     <mirror>
       <id>central-proxy</id>
       <name>GitLab proxy of central repo</name>
       <url>https://gitlab.example.com/api/v4/virtual_registries/packages/maven/<registry_id></url>
       <mirrorOf>central</mirrorOf>
     </mirror>
-  </mirrors>
+ </mirrors>
 </settings>
 ```
 
@@ -222,24 +218,22 @@ To configure a Maven virtual registry as a replacement of the default registry, 
 | Token type            | Name must be    | Token                                                                   |
 | --------------------- | --------------- | ----------------------------------------------------------------------- |
 | Personal access token | `Private-Token` | Paste token as-is, or define an environment variable to hold the token. |
-| Group deploy token    | `Deploy-Token`  | Paste token as-is, or define an environment variable to hold the token. |
+| Group deploy token    | `Deploy-Token` | Paste token as-is, or define an environment variable to hold the token. |
 | Group access token    | `Private-Token` | Paste token as-is, or define an environment variable to hold the token. |
 | CI/CD Job token          | `Job-Token`     | `${CI_JOB_TOKEN}`                                                       |
 
-In [your `GRADLE_USER_HOME` directory](https://docs.gradle.org/current/userguide/directory_layout.html#dir:gradle_user_home),
-create a file `gradle.properties` with the following content:
+In [your `GRADLE_USER_HOME` directory](https://docs.gradle.org/current/userguide/directory_layout.html#dir:gradle_user_home), create a file `gradle.properties` with the following content:
 
 ```properties
 gitLabPrivateToken=REPLACE_WITH_YOUR_TOKEN
 ```
 
-Add a `repositories` section to your
-[`build.gradle`](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html).
+Add a `repositories` section to your [`build.gradle`](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html).
 
 - In Groovy DSL:
 
-  ```groovy
-  repositories {
+ ```groovy
+ repositories {
       maven {
           url "https://gitlab.example.com/api/v4/virtual_registries/packages/maven/<registry_id>"
           name "GitLab"
@@ -251,13 +245,13 @@ Add a `repositories` section to your
               header(HttpHeaderAuthentication)
           }
       }
-  }
-  ```
+ }
+ ```
 
 - In Kotlin DSL:
 
-  ```kotlin
-  repositories {
+ ```kotlin
+ repositories {
       maven {
           url = uri("https://gitlab.example.com/api/v4/virtual_registries/packages/maven/<registry_id>")
           name = "GitLab"
@@ -269,8 +263,8 @@ Add a `repositories` section to your
               create("header", HttpHeaderAuthentication::class)
           }
       }
-  }
-  ```
+ }
+ ```
 
 - `<registry_id>`: The ID of the Maven virtual registry.
 
@@ -285,8 +279,7 @@ Add a `repositories` section to your
 | Group access token    | The username of the user linked to the access token     | Paste token as-is, or define an environment variable to hold the token. |
 | CI/CD Job token          | `gitlab-ci-token`                                       | `sys.env.get("CI_JOB_TOKEN").get`                                       |
 
-Authentication for [SBT](https://www.scala-sbt.org/index.html) is based on
-[basic HTTP Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication).
+Authentication for [SBT](https://www.scala-sbt.org/index.html) is based on [basic HTTP Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication).
 You must provide a name and a password.
 
 In your [`build.sbt`](https://www.scala-sbt.org/1.x/docs/Directories.html#sbt+build+definition+files), add the following lines:
@@ -298,7 +291,7 @@ credentials += Credentials("GitLab Virtual Registry", "<host>", "<username>", "<
 ```
 
 - `<endpoint_url>`: The Maven virtual registry URL.
-  For example, `https://gitlab.example.com/api/v4/virtual_registries/packages/maven/<registry_id>`, where `<registry_id>` is the ID of the Maven virtual registry.
+ For example, `https://gitlab.example.com/api/v4/virtual_registries/packages/maven/<registry_id>`, where `<registry_id>` is the ID of the Maven virtual registry.
 - `<host>`: The host present in the `<endpoint_url>` without the protocol scheme or the port. For example, `gitlab.example.com`.
 - `<username>`: The username.
 - `<token>`: The configured token.

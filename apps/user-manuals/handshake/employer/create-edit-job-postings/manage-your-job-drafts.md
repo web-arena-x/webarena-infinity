@@ -10,7 +10,7 @@ Your ability to view and edit draft job postings depends on your employer accoun
 
 - **Basic employers:** **Owners** and **Recruiters** can only view and complete drafts they have personally created. Drafts created by teammates will appear in your job list as view-only and cannot be edited.
 
-  - To manage drafts created by teammates, you must upgrade to an eligible paid plan.
+ - To manage drafts created by teammates, you must upgrade to an eligible paid plan.
 - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**, can access and complete drafts created by themselves or teammates, provided they have the appropriate permissions.
 
 *To check the status of all your job postings, including drafts, refer*[*Navigating the Jobs Page*](https://support.joinhandshake.com/hc/en-us/articles/360039550293)*.*
@@ -19,9 +19,9 @@ Your ability to view and edit draft job postings depends on your employer accoun
 
 - [Access your job drafts](#h_01HKX3J6TPB0HTSNEFMGXM6AC1)
 - [Manage your job drafts](#h_01HKX40AYF4JXA1EWVY1VK249Z)
-  - [View drafts](#h_01HKX4CFCVGF17JQ9XGN4HB8W0)
-  - [Edit draft](#h_01HKX4TP7KBCB99FYF2KWVWJ8R)
-  - [Delete a draft](#h_01HKX4XCA1FA9M2V7KFFE1AAWM)
+ - [View drafts](#h_01HKX4CFCVGF17JQ9XGN4HB8W0)
+ - [Edit draft](#h_01HKX4TP7KBCB99FYF2KWVWJ8R)
+ - [Delete a draft](#h_01HKX4XCA1FA9M2V7KFFE1AAWM)
 
 ### Access your job drafts
 

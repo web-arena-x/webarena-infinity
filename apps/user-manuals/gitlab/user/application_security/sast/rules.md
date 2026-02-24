@@ -12,9 +12,7 @@ title: SAST rules
 
 {{< /details >}}
 
-GitLab static application security testing (SAST) uses a set of [analyzers](analyzers.md) to scan
-code for potential vulnerabilities. It automatically chooses which analyzers to run based on which
-programming languages are found in the repository.
+GitLab static application security testing (SAST) uses a set of [analyzers](analyzers.md) to scan code for potential vulnerabilities. It automatically chooses which analyzers to run based on which programming languages are found in the repository.
 
 Each analyzer processes the code, then uses rules to find possible weaknesses in source code.
 The analyzer's rules determine what types of weaknesses it reports.
@@ -30,8 +28,7 @@ SAST is designed to be used in its default configuration, but you can [configure
 
 ## Source of rules
 
-The vulnerability detection rules used by SAST depends on the analyzer used, either GitLab Advanced
-SAST or the Semgrep-based analyzer.
+The vulnerability detection rules used by SAST depends on the analyzer used, either GitLab Advanced SAST or the Semgrep-based analyzer.
 
 ### GitLab Advanced SAST
 
@@ -122,7 +119,7 @@ If you believe a detection rule could be improved for all users, consider:
 
 - Submitting a merge request to the [`sast-rules` repository](https://gitlab.com/gitlab-org/security-products/sast-rules). See the [contribution instructions](https://gitlab.com/gitlab-org/security-products/sast-rules#contributing) for details.
 - Filing an issue in the [`gitlab-org/gitlab` issue tracker](https://gitlab.com/gitlab-org/gitlab/-/issues/).
-  - Post a comment that says `@gitlab-bot label ~"group::static analysis" ~"Category:SAST"` so your issue lands in the correct triage workflow.
+ - Post a comment that says `@gitlab-bot label ~"group::static analysis" ~"Category:SAST"` so your issue lands in the correct triage workflow.
 
 ## Important rule changes
 

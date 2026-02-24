@@ -27,13 +27,13 @@ Each workspace has a default workflow. When you first start using workflows, the
 | Section | Default settings |
 | --- | --- |
 | Auto-accept | Voice calls - Revert to user-level setting in Connect |
-|  | Webchat and social channels - Never |
-|  | Tasks - Never |
+| | Webchat and social channels - Never |
+| | Tasks - Never |
 | Profile creation | Prompt agents to review before creating new profiles |
 | Automatic messages | These messages are off by default |
 | After Contact Work | Internal notes - Optional |
-|  | Resolution Codes - Optional |
-|  | Ignore workflow for specific cases - Off |
+| | Resolution Codes - Optional |
+| | Ignore workflow for specific cases - Off |
 
 ## Custom Workflow
 

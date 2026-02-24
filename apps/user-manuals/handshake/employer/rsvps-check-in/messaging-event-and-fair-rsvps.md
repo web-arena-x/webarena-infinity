@@ -26,10 +26,10 @@ When at least one attendee is selected, bulk action options appear in the table 
 - **Manage labels**
 - **More**
 
-  - Candidate list
-  - All resumes combined
-  - All resumes individually (CSV file)
-  - All resumes and photos individually (ZIP file)
+ - Candidate list
+ - All resumes combined
+ - All resumes individually (CSV file)
+ - All resumes and photos individually (ZIP file)
 
 ![Message candidate .png](https://support.joinhandshake.com/hc/article_attachments/35555576430999)
 

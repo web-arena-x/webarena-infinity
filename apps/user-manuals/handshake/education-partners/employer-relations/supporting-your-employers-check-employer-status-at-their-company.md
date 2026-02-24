@@ -25,8 +25,8 @@ This process outlines steps you can take on your end, before escalating to Hands
 ![Screen_Shot_2020-07-23_at_1.31.00_PM.png](https://support.joinhandshake.com/hc/article_attachments/360082040413)
 
 - **Tip**: If the company in Handshake is large, or if the user has a different email domain, we recommend sharing the Owner's contact information with them. This allows the user to reach out to the Owner or Admin for approval to connect with the company.
-  - Only the Owner or Admin can approve new users – recruiters do not have this permission.
-  - For additional questions regarding approval, employers can contact Support for assistance.
+ - Only the Owner or Admin can approve new users – recruiters do not have this permission.
+ - For additional questions regarding approval, employers can contact Support for assistance.
 
 **Note**: If you attempt to add a new user to a company profile that does not have a matching email domain,  the following error will appear in the lower-right corner of the page:
 

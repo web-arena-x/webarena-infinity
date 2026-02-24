@@ -5,27 +5,18 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: Revert and undo changes
 ---
 
-Working with Git involves experimentation and iteration. Mistakes happen during development,
-and sometimes you need to reverse changes. Git gives you control over your code history
-with features to undo changes at any point in your
-[Git workflow](get_started.md#understand-the-git-workflow).
+Working with Git involves experimentation and iteration. Mistakes happen during development, and sometimes you need to reverse changes. Git gives you control over your code history with features to undo changes at any point in your [Git workflow](get_started.md#understand-the-git-workflow).
 
-Recover from accidental commits, remove sensitive data, fix incorrect merges, and maintain a clean
-repository history. When collaborating with others, preserve transparency with new revert
-commits, or reset your work locally before sharing. The method to use depends on whether the
-changes are:
+Recover from accidental commits, remove sensitive data, fix incorrect merges, and maintain a clean repository history. When collaborating with others, preserve transparency with new revert commits, or reset your work locally before sharing. The method to use depends on whether the changes are:
 
 - Only on your local computer.
 - Stored remotely on a Git server such as GitLab.com.
 
 ## Undo local changes
 
-Until you push your changes to a remote repository, changes
-you make in Git are only in your local development environment.
+Until you push your changes to a remote repository, changes you make in Git are only in your local development environment.
 
-When you _stage_ a file in Git, you instruct Git to track changes to the file in
-preparation for a commit. To disregard changes to a file, and not
-include it in your next commit, _unstage_ the file.
+When you _stage_ a file in Git, you instruct Git to track changes to the file in preparation for a commit. To disregard changes to a file, and not include it in your next commit, _unstage_ the file.
 
 ### Revert unstaged local changes
 
@@ -66,8 +57,7 @@ To undo local changes that are not yet staged:
 
 ### Revert staged local changes
 
-You can undo local changes that are already staged. In the following example,
-a file was added to the staging, but not committed:
+You can undo local changes that are already staged. In the following example, a file was added to the staging, but not committed:
 
 1. Confirm that the file is staged with `git status`:
 
@@ -114,9 +104,7 @@ a file was added to the staging, but not committed:
 
 ## Undo local commits
 
-When you commit to your local repository with `git commit`, Git records
-your changes. Because you did not push to a remote repository yet, your changes are
-not public or shared with others. At this point, you can undo your changes.
+When you commit to your local repository with `git commit`, Git records your changes. Because you did not push to a remote repository yet, your changes are not public or shared with others. At this point, you can undo your changes.
 
 ### Revert commits without altering history
 
@@ -125,8 +113,7 @@ You can revert a commit while retaining the commit history.
 This example uses five commits `A`,`B`,`C`,`D`,`E`, which were committed in order: `A-B-C-D-E`.
 The commit you want to undo is `B`.
 
-1. Find the commit SHA of the commit you want to revert to. To look
-   through a log of commits, use the command `git log`.
+1. Find the commit SHA of the commit you want to revert to. To look through a log of commits, use the command `git log`.
 1. Choose an option and undo your changes:
 
    - To revert changes introduced by commit `B`:
@@ -149,13 +136,11 @@ The commit you want to undo is `B`.
 
 ### Revert commits and modify history
 
-The following sections document tasks that rewrite Git history. For more information, see
-[Rebase and resolve conflicts](git_rebase.md).
+The following sections document tasks that rewrite Git history. For more information, see [Rebase and resolve conflicts](git_rebase.md).
 
 #### Delete a specific commit
 
-You can delete a specific commit. For example, if you have
-commits `A-B-C-D` and you want to delete commit `B`.
+You can delete a specific commit. For example, if you have commits `A-B-C-D` and you want to delete commit `B`.
 
 1. Rebase the range from current commit `D` to `B`:
 
@@ -171,8 +156,7 @@ commits `A-B-C-D` and you want to delete commit `B`.
 
 #### Edit a specific commit
 
-You can modify a specific commit. For example, if you have
-commits `A-B-C-D` and you want to modify something introduced in commit `B`.
+You can modify a specific commit. For example, if you have commits `A-B-C-D` and you want to modify something introduced in commit `B`.
 
 1. Rebase the range from current commit `D` to `B`:
 
@@ -193,8 +177,7 @@ commits `A-B-C-D` and you want to modify something introduced in commit `B`.
 
 ### Undo multiple commits
 
-If you create multiple commits (`A-B-C-D`) on your branch, then realize commits `C` and `D`
-are wrong, undo both incorrect commits:
+If you create multiple commits (`A-B-C-D`) on your branch, then realize commits `C` and `D` are wrong, undo both incorrect commits:
 
 1. Check out the last correct commit. In this example, `B`.
 
@@ -223,15 +206,13 @@ that commit into a new merge request.
 
 {{< alert type="note" >}}
 
-Another solution is to reset to `B` and commit `E`. However, this solution results in `A-B-E`,
-which clashes with what others have locally. Don't use this solution if your branch is shared.
+Another solution is to reset to `B` and commit `E`. However, this solution results in `A-B-E`, which clashes with what others have locally. Don't use this solution if your branch is shared.
 
 {{< /alert >}}
 
 ### Recover undone commits
 
-You can recall previous local commits. However, not all previous commits are available, because
-Git regularly [cleans the commits that are unreachable by branches or tags](https://git-scm.com/book/en/v2/Git-Internals-Maintenance-and-Data-Recovery).
+You can recall previous local commits. However, not all previous commits are available, because Git regularly [cleans the commits that are unreachable by branches or tags](https://git-scm.com/book/en/v2/Git-Internals-Maintenance-and-Data-Recovery).
 
 To view repository history and track prior commits, run `git reflog show`. For example:
 
@@ -260,13 +241,11 @@ This output shows the repository history, including:
 
 ## Undo remote changes
 
-You can undo remote changes on your branch. However, you cannot undo changes on a branch that
-was merged into your branch. In that case, you must revert the changes on the remote branch.
+You can undo remote changes on your branch. However, you cannot undo changes on a branch that was merged into your branch. In that case, you must revert the changes on the remote branch.
 
 ### Revert remote changes without altering history
 
-To undo changes in the remote repository, you can create a new commit with the changes you
-want to undo. This process preserves the history and provides a clear timeline and development structure:
+To undo changes in the remote repository, you can create a new commit with the changes you want to undo. This process preserves the history and provides a clear timeline and development structure:
 
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
@@ -296,27 +275,20 @@ git revert B
 
 You can undo remote changes and change history.
 
-Even with an updated history, old commits can still be
-accessed by commit SHA, at least until all the automated cleanup
-of detached commits is performed, or a cleanup is run manually. Even the cleanup might not remove old commits if there are still refs pointing to them.
+Even with an updated history, old commits can still be accessed by commit SHA, at least until all the automated cleanup of detached commits is performed, or a cleanup is run manually. Even the cleanup might not remove old commits if there are still refs pointing to them.
 
 ![Discrepancy between local branch with altered history and unaltered remote branch](img/rebase_reset_v17_10.drawio.svg)
 
-You should not change the history when you're working in a public branch
-or a branch that might be used by others.
+You should not change the history when you're working in a public branch or a branch that might be used by others.
 
 > [!note]
 > Never modify the commit history of your [default branch](../../user/project/repository/branches/default.md) or shared branch.
 
 ### Modify history with `git rebase`
 
-A branch of a merge request is a public branch and might be used by
-other developers. However, the project rules might require
-you to use `git rebase` to reduce the number of
-displayed commits on target branch after reviews are done.
+A branch of a merge request is a public branch and might be used by other developers. However, the project rules might require you to use `git rebase` to reduce the number of displayed commits on target branch after reviews are done.
 
-You can modify history by using `git rebase -i`. Use this command to modify, squash,
-and delete commits.
+You can modify history by using `git rebase -i`. Use this command to modify, squash, and delete commits.
 
 ```shell
 #
@@ -355,14 +327,12 @@ git rebase -i commit-id
 
 ### Modify history with `git merge --squash`
 
-When contributing to large open source repositories, consider squashing your commits
-into a single commit. This practice:
+When contributing to large open source repositories, consider squashing your commits into a single commit. This practice:
 
 - Helps maintain a clean and linear project history.
 - Simplifies the process of reverting changes, as all changes are condensed into one commit.
 
-To squash commits on your branch to a single commit on a target branch
-at merge, use `git merge --squash`. For example:
+To squash commits on your branch to a single commit on a target branch at merge, use `git merge --squash`. For example:
 
 1. Check out the base branch. In this example, the base branch is `main`:
 
@@ -386,8 +356,7 @@ For information on how to squash commits from the GitLab UI, see [Squash and mer
 
 ### Revert a merge commit to a different parent
 
-When you revert a merge commit, the branch you merged to is always the
-first parent. For example, the [default branch](../../user/project/repository/branches/default.md) or `main`.
+When you revert a merge commit, the branch you merged to is always the first parent. For example, the [default branch](../../user/project/repository/branches/default.md) or `main`.
 To revert a merge commit to a different parent, you must revert the commit from the command line:
 
 1. Identify the SHA of the parent commit you want to revert to.
@@ -402,28 +371,21 @@ For information on reverting changes from the GitLab UI, see [Revert changes](..
 
 ## Handle sensitive information
 
-Sensitive information, such as passwords and API keys, can be
-accidentally committed to a Git repository. This section covers
-ways to handle this situation.
+Sensitive information, such as passwords and API keys, can be accidentally committed to a Git repository. This section covers ways to handle this situation.
 
 ### Redact information
 
-Permanently delete sensitive or confidential information that was accidentally committed, and ensure
-it's no longer accessible in your repository's history. This process replaces a list of strings with `***REMOVED***`.
+Permanently delete sensitive or confidential information that was accidentally committed, and ensure it's no longer accessible in your repository's history. This process replaces a list of strings with `***REMOVED***`.
 
-Alternatively, to completely delete specific files from a repository, see
-[Remove blobs](../../user/project/repository/repository_size.md#remove-blobs).
+Alternatively, to completely delete specific files from a repository, see [Remove blobs](../../user/project/repository/repository_size.md#remove-blobs).
 
 To redact text from your repository, see [Redact text from repository](../../user/project/repository/repository_size.md#redact-text-from-repository).
 
 ### Remove information from commits
 
-You can use Git to delete sensitive information from your past commits. However,
-history is modified in the process.
+You can use Git to delete sensitive information from your past commits. However, history is modified in the process.
 
-To rewrite history with
-[certain filters](https://git-scm.com/docs/git-filter-branch#_options),
-run `git filter-branch`.
+To rewrite history with [certain filters](https://git-scm.com/docs/git-filter-branch#_options), run `git filter-branch`.
 
 To remove a file from the history altogether use:
 
@@ -433,39 +395,35 @@ git filter-branch --tree-filter 'rm filename' HEAD
 
 The `git filter-branch` command might be slow on large repositories.
 Tools are available to execute Git commands more quickly.
-These tools are faster because they do not provide the same
-feature set as `git filter-branch` does, but focus on specific use cases.
+These tools are faster because they do not provide the same feature set as `git filter-branch` does, but focus on specific use cases.
 
-For more information about purging files from the repository history and GitLab storage,
-see [Reduce repository size](../../user/project/repository/repository_size.md#methods-to-reduce-repository-size).
+For more information about purging files from the repository history and GitLab storage, see [Reduce repository size](../../user/project/repository/repository_size.md#methods-to-reduce-repository-size).
 
 ## Undo and remove commits
 
 - Undo your last commit and put everything back in the staging area:
 
-  ```shell
-  git reset --soft HEAD^
-  ```
+ ```shell
+ git reset --soft HEAD^
+ ```
 
 - Add files and change the commit message:
 
-  ```shell
-  git commit --amend -m "New Message"
-  ```
+ ```shell
+ git commit --amend -m "New Message"
+ ```
 
-- Undo the last change and remove all other changes,
-  if you did not push yet:
+- Undo the last change and remove all other changes, if you did not push yet:
 
-  ```shell
-  git reset --hard HEAD^
-  ```
+ ```shell
+ git reset --hard HEAD^
+ ```
 
-- Undo the last change and remove the last two commits,
-  if you did not push yet:
+- Undo the last change and remove the last two commits, if you did not push yet:
 
-  ```shell
-  git reset --hard HEAD^^
-  ```
+ ```shell
+ git reset --hard HEAD^^
+ ```
 
 ### Example `git reset` workflow
 
@@ -528,9 +486,7 @@ The following is a common Git reset workflow:
 
 ## Undo commits with a new commit
 
-If a file was changed in a commit, and you want to change it back to how it was in the previous commit,
-but keep the commit history, you can use `git revert`. The command creates a new commit that reverses
-all actions taken in the original commit.
+If a file was changed in a commit, and you want to change it back to how it was in the previous commit, but keep the commit history, you can use `git revert`. The command creates a new commit that reverses all actions taken in the original commit.
 
 For example, to remove a file's changes in commit `B`, and restore its contents from commit `A`, run:
 
@@ -542,27 +498,25 @@ git revert <commit-sha>
 
 - To remove a file from disk and repository, use `git rm`. To remove a directory, use the `-r` flag:
 
-  ```shell
-  git rm '*.txt'
-  git rm -r <dirname>
-  ```
+ ```shell
+ git rm '*.txt'
+ git rm -r <dirname>
+ ```
 
-- To keep a file on disk but remove it from the repository (such as a file you want
-  to add to `.gitignore`), use the `rm` command with the `--cache` flag:
+- To keep a file on disk but remove it from the repository (such as a file you want to add to `.gitignore`), use the `rm` command with the `--cache` flag:
 
-  ```shell
-  git rm <filename> --cache
-  ```
+ ```shell
+ git rm <filename> --cache
+ ```
 
 These commands remove the file from current branches, but do not expunge it from your repository's history.
-To completely remove all traces of the file, past and present, from your repository, see
-[Remove blobs](../../user/project/repository/repository_size.md#remove-blobs).
+To completely remove all traces of the file, past and present, from your repository, see [Remove blobs](../../user/project/repository/repository_size.md#remove-blobs).
 
 ## Compare `git revert` and `git reset`
 
 - The `git reset` command removes the commit entirely.
 - The `git revert` command removes the changes, but leaves the commit intact.
-  It's safer, because you can revert a revert.
+ It's safer, because you can revert a revert.
 
 ```shell
 # Changed file

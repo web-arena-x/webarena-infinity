@@ -89,39 +89,38 @@ The logs for a given service may be managed and rotated by:
 - `logrotate` and `svlogd`
 - Or not at all
 
-The following table includes information about which daemon is responsible for managing and rotating logs for
-the included services:
+The following table includes information about which daemon is responsible for managing and rotating logs for the included services:
 
 - Logs [managed by `svlogd`](https://docs.gitlab.com/omnibus/settings/logs.html#runit-logs) are written to a file called `current`.
-  Their archived versions are compressed into `@<hexadecimal-ID>.s` files.
+ Their archived versions are compressed into `@<hexadecimal-ID>.s` files.
 - The `logrotate` service built into GitLab [manages all other logs](https://docs.gitlab.com/omnibus/settings/logs.html#logrotate).
-  Their archived versions are compressed into `<original-name>.<number>.gz` files.
+ Their archived versions are compressed into `<original-name>.<number>.gz` files.
 
 | Log type                                        | Managed by logrotate    | Managed by svlogd/runit |
 |:------------------------------------------------|:------------------------|:------------------------|
-| [Alertmanager logs](#alertmanager-logs)         | {{< icon name="dotted-circle" >}} No  | {{< icon name="check-circle" >}} Yes  |
-| [Consul logs](#consul-logs)                     | {{< icon name="dotted-circle" >}} No  | {{< icon name="check-circle" >}} Yes  |
-| [crond logs](#crond-logs)                       | {{< icon name="dotted-circle" >}} No  | {{< icon name="check-circle" >}} Yes  |
-| [Gitaly](#gitaly-logs)                          | {{< icon name="check-circle" >}} Yes  | {{< icon name="check-circle" >}} Yes  |
-| [GitLab Exporter for Linux package installations](#gitlab-exporter-logs) | {{< icon name="dotted-circle" >}} No  | {{< icon name="check-circle" >}} Yes  |
-| [GitLab Pages logs](#pages-logs)                | {{< icon name="check-circle" >}} Yes  | {{< icon name="check-circle" >}} Yes  |
-| GitLab Rails                                    | {{< icon name="check-circle" >}} Yes  | {{< icon name="dotted-circle" >}} No  |
-| [GitLab Shell logs](#gitlab-shelllog)           | {{< icon name="check-circle" >}} Yes  | {{< icon name="dotted-circle" >}} No  |
-| [Grafana logs](#grafana-logs)                   | {{< icon name="dotted-circle" >}} No  | {{< icon name="check-circle" >}} Yes  |
-| [LogRotate logs](#logrotate-logs)               | {{< icon name="dotted-circle" >}} No  | {{< icon name="check-circle" >}} Yes  |
-| [Mailroom](#mail_room_jsonlog-default)          | {{< icon name="check-circle" >}} Yes  | {{< icon name="check-circle" >}} Yes  |
-| [NGINX](#nginx-logs)                            | {{< icon name="check-circle" >}} Yes  | {{< icon name="check-circle" >}} Yes  |
-| [Patroni logs](#patroni-logs)                   | {{< icon name="dotted-circle" >}} No  | {{< icon name="check-circle" >}} Yes  |
-| [PgBouncer logs](#pgbouncer-logs)               | {{< icon name="dotted-circle" >}} No  | {{< icon name="check-circle" >}} Yes  |
-| [PostgreSQL logs](#postgresql-logs)             | {{< icon name="dotted-circle" >}} No  | {{< icon name="check-circle" >}} Yes  |
-| [Praefect logs](#praefect-logs)                 | {{< icon name="dotted-circle" >}} Yes | {{< icon name="check-circle" >}} Yes  |
-| [Prometheus logs](#prometheus-logs)             | {{< icon name="dotted-circle" >}} No  | {{< icon name="check-circle" >}} Yes  |
-| [Puma](#puma-logs)                              | {{< icon name="check-circle" >}} Yes  | {{< icon name="check-circle" >}} Yes  |
-| [Redis logs](#redis-logs)                       | {{< icon name="dotted-circle" >}} No  | {{< icon name="check-circle" >}} Yes  |
-| [Registry logs](#registry-logs)                 | {{< icon name="dotted-circle" >}} No  | {{< icon name="check-circle" >}} Yes  |
-| [Sentinel logs](#sentinel-logs)                 | {{< icon name="dotted-circle" >}} No  | {{< icon name="check-circle" >}} Yes  |
-| [Sidekiq logs](#sidekiq-logs)                   | {{< icon name="dotted-circle" >}} No  | {{< icon name="check-circle" >}} Yes  |
-| [Workhorse logs](#workhorse-logs)               | {{< icon name="check-circle" >}} Yes  | {{< icon name="check-circle" >}} Yes  |
+| [Alertmanager logs](#alertmanager-logs)         | {{< icon name="dotted-circle" >}} No | {{< icon name="check-circle" >}} Yes |
+| [Consul logs](#consul-logs)                     | {{< icon name="dotted-circle" >}} No | {{< icon name="check-circle" >}} Yes |
+| [crond logs](#crond-logs)                       | {{< icon name="dotted-circle" >}} No | {{< icon name="check-circle" >}} Yes |
+| [Gitaly](#gitaly-logs)                          | {{< icon name="check-circle" >}} Yes | {{< icon name="check-circle" >}} Yes |
+| [GitLab Exporter for Linux package installations](#gitlab-exporter-logs) | {{< icon name="dotted-circle" >}} No | {{< icon name="check-circle" >}} Yes |
+| [GitLab Pages logs](#pages-logs)                | {{< icon name="check-circle" >}} Yes | {{< icon name="check-circle" >}} Yes |
+| GitLab Rails                                    | {{< icon name="check-circle" >}} Yes | {{< icon name="dotted-circle" >}} No |
+| [GitLab Shell logs](#gitlab-shelllog)           | {{< icon name="check-circle" >}} Yes | {{< icon name="dotted-circle" >}} No |
+| [Grafana logs](#grafana-logs)                   | {{< icon name="dotted-circle" >}} No | {{< icon name="check-circle" >}} Yes |
+| [LogRotate logs](#logrotate-logs)               | {{< icon name="dotted-circle" >}} No | {{< icon name="check-circle" >}} Yes |
+| [Mailroom](#mail_room_jsonlog-default)          | {{< icon name="check-circle" >}} Yes | {{< icon name="check-circle" >}} Yes |
+| [NGINX](#nginx-logs)                            | {{< icon name="check-circle" >}} Yes | {{< icon name="check-circle" >}} Yes |
+| [Patroni logs](#patroni-logs)                   | {{< icon name="dotted-circle" >}} No | {{< icon name="check-circle" >}} Yes |
+| [PgBouncer logs](#pgbouncer-logs)               | {{< icon name="dotted-circle" >}} No | {{< icon name="check-circle" >}} Yes |
+| [PostgreSQL logs](#postgresql-logs)             | {{< icon name="dotted-circle" >}} No | {{< icon name="check-circle" >}} Yes |
+| [Praefect logs](#praefect-logs)                 | {{< icon name="dotted-circle" >}} Yes | {{< icon name="check-circle" >}} Yes |
+| [Prometheus logs](#prometheus-logs)             | {{< icon name="dotted-circle" >}} No | {{< icon name="check-circle" >}} Yes |
+| [Puma](#puma-logs)                              | {{< icon name="check-circle" >}} Yes | {{< icon name="check-circle" >}} Yes |
+| [Redis logs](#redis-logs)                       | {{< icon name="dotted-circle" >}} No | {{< icon name="check-circle" >}} Yes |
+| [Registry logs](#registry-logs)                 | {{< icon name="dotted-circle" >}} No | {{< icon name="check-circle" >}} Yes |
+| [Sentinel logs](#sentinel-logs)                 | {{< icon name="dotted-circle" >}} No | {{< icon name="check-circle" >}} Yes |
+| [Sidekiq logs](#sidekiq-logs)                   | {{< icon name="dotted-circle" >}} No | {{< icon name="check-circle" >}} Yes |
+| [Workhorse logs](#workhorse-logs)               | {{< icon name="check-circle" >}} Yes | {{< icon name="check-circle" >}} Yes |
 
 For more information on the services that generate these logs, see the [GitLab architecture overview](../../development/architecture.md).
 
@@ -172,8 +171,7 @@ This log is located:
 - In the `/home/git/gitlab/log/production_json.log` file on self-compiled installations.
 - On the Webservice pods under the `subcomponent="production_json"` key on Helm chart installations.
 
-It contains a structured log for Rails controller requests received from
-GitLab, thanks to [Lograge](https://github.com/roidrage/lograge/).
+It contains a structured log for Rails controller requests received from GitLab, thanks to [Lograge](https://github.com/roidrage/lograge/).
 Requests from the API are logged to a separate file in `api_json.log`.
 
 Each line contains JSON that can be ingested by services like Elasticsearch and Splunk.
@@ -181,37 +179,35 @@ Line breaks were added to examples for legibility:
 
 ```json
 {
-  "method":"GET",
-  "path":"/gitlab/gitlab-foss/issues/1234",
-  "format":"html",
-  "controller":"Projects::IssuesController",
-  "action":"show",
-  "status":200,
-  "time":"2017-08-08T20:15:54.821Z",
-  "params":[{"key":"param_key","value":"param_value"}],
-  "remote_ip":"18.245.0.1",
-  "user_id":1,
-  "username":"admin",
-  "queue_duration_s":0.0,
-  "gitaly_calls":16,
-  "gitaly_duration_s":0.16,
-  "redis_calls":115,
-  "redis_duration_s":0.13,
-  "redis_read_bytes":1507378,
-  "redis_write_bytes":2920,
-  "correlation_id":"O1SdybnnIq7",
-  "cpu_s":17.50,
-  "db_duration_s":0.08,
-  "view_duration_s":2.39,
-  "duration_s":20.54,
-  "pid": 81836,
-  "worker_id":"puma_0"
+ "method":"GET",
+ "path":"/gitlab/gitlab-foss/issues/1234",
+ "format":"html",
+ "controller":"Projects::IssuesController",
+ "action":"show",
+ "status":200,
+ "time":"2017-08-08T20:15:54.821Z",
+ "params":[{"key":"param_key","value":"param_value"}],
+ "remote_ip":"18.245.0.1",
+ "user_id":1,
+ "username":"admin",
+ "queue_duration_s":0.0,
+ "gitaly_calls":16,
+ "gitaly_duration_s":0.16,
+ "redis_calls":115,
+ "redis_duration_s":0.13,
+ "redis_read_bytes":1507378,
+ "redis_write_bytes":2920,
+ "correlation_id":"O1SdybnnIq7",
+ "cpu_s":17.50,
+ "db_duration_s":0.08,
+ "view_duration_s":2.39,
+ "duration_s":20.54,
+ "pid": 81836,
+ "worker_id":"puma_0"
 }
 ```
 
-This example was a GET request for a specific
-issue. Each line also contains performance data, with times in
-seconds:
+This example was a GET request for a specific issue. Each line also contains performance data, with times in seconds:
 
 - `duration_s`: Total time to retrieve the request
 - `queue_duration_s`: Total time the request was queued inside GitLab Workhorse
@@ -237,82 +233,73 @@ seconds:
 
 User clone and fetch activity using HTTP transport appears in the log as `action: git_upload_pack`.
 
-In addition, the log contains the originating IP address,
-(`remote_ip`), the user's ID (`user_id`), and username (`username`).
+In addition, the log contains the originating IP address, (`remote_ip`), the user's ID (`user_id`), and username (`username`).
 
-Some endpoints (such as `/search`) may make requests to Elasticsearch if using
-[advanced search](../../user/search/advanced_search.md). These
-additionally log `elasticsearch_calls` and `elasticsearch_call_duration_s`,
-which correspond to:
+Some endpoints (such as `/search`) may make requests to Elasticsearch if using [advanced search](../../user/search/advanced_search.md). These additionally log `elasticsearch_calls` and `elasticsearch_call_duration_s`, which correspond to:
 
 - `elasticsearch_calls`: Total number of calls to Elasticsearch
 - `elasticsearch_duration_s`: Total time taken by Elasticsearch calls
-- `elasticsearch_timed_out_count`: Total number of calls to Elasticsearch that
-  timed out and therefore returned partial results
+- `elasticsearch_timed_out_count`: Total number of calls to Elasticsearch that timed out and therefore returned partial results
 
-ActionCable connection and subscription events are also logged to this file and they follow the
-previous format. The `method`, `path`, and `format` fields are not applicable, and are always empty.
+ActionCable connection and subscription events are also logged to this file and they follow the previous format. The `method`, `path`, and `format` fields are not applicable, and are always empty.
 The ActionCable connection or channel class is used as the `controller`.
 
 ```json
 {
-  "method":null,
-  "path":null,
-  "format":null,
-  "controller":"IssuesChannel",
-  "action":"subscribe",
-  "status":200,
-  "time":"2020-05-14T19:46:22.008Z",
-  "params":[{"key":"project_path","value":"gitlab/gitlab-foss"},{"key":"iid","value":"1"}],
-  "remote_ip":"127.0.0.1",
-  "user_id":1,
-  "username":"admin",
-  "ua":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:76.0) Gecko/20100101 Firefox/76.0",
-  "correlation_id":"jSOIEynHCUa",
-  "duration_s":0.32566
+ "method":null,
+ "path":null,
+ "format":null,
+ "controller":"IssuesChannel",
+ "action":"subscribe",
+ "status":200,
+ "time":"2020-05-14T19:46:22.008Z",
+ "params":[{"key":"project_path","value":"gitlab/gitlab-foss"},{"key":"iid","value":"1"}],
+ "remote_ip":"127.0.0.1",
+ "user_id":1,
+ "username":"admin",
+ "ua":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:76.0) Gecko/20100101 Firefox/76.0",
+ "correlation_id":"jSOIEynHCUa",
+ "duration_s":0.32566
 }
 ```
 
 {{< alert type="note" >}}
 
-If an error occurs, an
-`exception` field is included with `class`, `message`, and
-`backtrace`. Previous versions included an `error` field instead of
-`exception.class` and `exception.message`. For example:
+If an error occurs, an `exception` field is included with `class`, `message`, and `backtrace`. Previous versions included an `error` field instead of `exception.class` and `exception.message`. For example:
 
 {{< /alert >}}
 
 ```json
 {
-  "method": "GET",
-  "path": "/admin",
-  "format": "html",
-  "controller": "Admin::DashboardController",
-  "action": "index",
-  "status": 500,
-  "time": "2019-11-14T13:12:46.156Z",
-  "params": [],
-  "remote_ip": "127.0.0.1",
-  "user_id": 1,
-  "username": "root",
-  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:70.0) Gecko/20100101 Firefox/70.0",
-  "queue_duration": 274.35,
-  "correlation_id": "KjDVUhNvvV3",
-  "queue_duration_s":0.0,
-  "gitaly_calls":16,
-  "gitaly_duration_s":0.16,
-  "redis_calls":115,
-  "redis_duration_s":0.13,
-  "correlation_id":"O1SdybnnIq7",
-  "cpu_s":17.50,
-  "db_duration_s":0.08,
-  "view_duration_s":2.39,
-  "duration_s":20.54,
-  "pid": 81836,
-  "worker_id": "puma_0",
-  "exception.class": "NameError",
-  "exception.message": "undefined local variable or method `adsf' for #<Admin::DashboardController:0x00007ff3c9648588>",
-  "exception.backtrace": [
+ "method": "GET",
+ "path": "/admin",
+ "format": "html",
+ "controller": "Admin::DashboardController",
+ "action": "index",
+ "status": 500,
+ "time": "2019-11-14T13:12:46.156Z",
+ "params": [],
+ "remote_ip": "127.0.0.1",
+ "user_id": 1,
+ "username": "root",
+ "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:70.0) Gecko/20100101 Firefox/70.0",
+ "queue_duration": 274.35,
+ "correlation_id": "KjDVUhNvvV3",
+ "queue_duration_s":0.0,
+ "gitaly_calls":16,
+ "gitaly_duration_s":0.16,
+ "redis_calls":115,
+ "redis_duration_s":0.13,
+ "correlation_id":"O1SdybnnIq7",
+ "cpu_s":17.50,
+ "db_duration_s":0.08,
+ "view_duration_s":2.39,
+ "duration_s":20.54,
+ "pid": 81836,
+ "worker_id": "puma_0",
+ "exception.class": "NameError",
+ "exception.message": "undefined local variable or method `adsf' for #<Admin::DashboardController:0x00007ff3c9648588>",
+ "exception.backtrace": [
     "app/controllers/admin/dashboard_controller.rb:11:in `index'",
     "ee/app/controllers/ee/admin/dashboard_controller.rb:14:in `index'",
     "ee/lib/gitlab/ip_address_state.rb:10:in `with'",
@@ -321,7 +308,7 @@ If an error occurs, an
     "app/controllers/application_controller.rb:450:in `set_session_storage'",
     "app/controllers/application_controller.rb:444:in `set_locale'",
     "ee/lib/gitlab/jira/middleware.rb:19:in `call'"
-  ]
+ ]
 }
 ```
 
@@ -332,33 +319,27 @@ This log is located:
 - In the `/var/log/gitlab/gitlab-rails/production.log` file on Linux package installations.
 - In the `/home/git/gitlab/log/production.log` file on self-compiled installations.
 
-It contains information about all performed requests. You can see the
-URL and type of request, IP address, and what parts of code were
-involved to service this particular request. Also, you can see all SQL
-requests performed, and how much time each took. This task is
-more useful for GitLab contributors and developers. Use part of this log
-file when you're reporting bugs. For example:
+It contains information about all performed requests. You can see the URL and type of request, IP address, and what parts of code were involved to service this particular request. Also, you can see all SQL requests performed, and how much time each took. This task is more useful for GitLab contributors and developers. Use part of this log file when you're reporting bugs. For example:
 
 ```plaintext
 Started GET "/gitlabhq/yaml_db/tree/master" for 168.111.56.1 at 2015-02-12 19:34:53 +0200
 Processing by Projects::TreeController#show as HTML
-  Parameters: {"project_id"=>"gitlabhq/yaml_db", "id"=>"master"}
+ Parameters: {"project_id"=>"gitlabhq/yaml_db", "id"=>"master"}
 
-  ... [CUT OUT]
+ ... [CUT OUT]
 
-  Namespaces"."created_at" DESC, "namespaces"."id" DESC LIMIT 1 [["id", 26]]
-  CACHE (0.0ms) SELECT  "members".* FROM "members"  WHERE "members"."source_type" = 'Project' AND "members"."type" IN ('ProjectMember') AND "members"."source_id" = $1 AND "members"."source_type" = $2 AND "members"."user_id" = 1  ORDER BY "members"."created_at" DESC, "members"."id" DESC LIMIT 1  [["source_id", 18], ["source_type", "Project"]]
-  CACHE (0.0ms) SELECT  "members".* FROM "members"  WHERE "members"."source_type" = 'Project' AND "members".
-  (1.4ms) SELECT COUNT(*) FROM "merge_requests"  WHERE "merge_requests"."target_project_id" = $1 AND ("merge_requests"."state" IN ('opened','reopened')) [["target_project_id", 18]]
-  Rendered layouts/nav/_project.html.haml (28.0ms)
-  Rendered layouts/_collapse_button.html.haml (0.2ms)
-  Rendered layouts/_flash.html.haml (0.1ms)
-  Rendered layouts/_page.html.haml (32.9ms)
+ Namespaces"."created_at" DESC, "namespaces"."id" DESC LIMIT 1 [["id", 26]]
+ CACHE (0.0ms) SELECT "members".* FROM "members" WHERE "members"."source_type" = 'Project' AND "members"."type" IN ('ProjectMember') AND "members"."source_id" = $1 AND "members"."source_type" = $2 AND "members"."user_id" = 1 ORDER BY "members"."created_at" DESC, "members"."id" DESC LIMIT 1 [["source_id", 18], ["source_type", "Project"]]
+ CACHE (0.0ms) SELECT "members".* FROM "members" WHERE "members"."source_type" = 'Project' AND "members".
+ (1.4ms) SELECT COUNT(*) FROM "merge_requests" WHERE "merge_requests"."target_project_id" = $1 AND ("merge_requests"."state" IN ('opened','reopened')) [["target_project_id", 18]]
+ Rendered layouts/nav/_project.html.haml (28.0ms)
+ Rendered layouts/_collapse_button.html.haml (0.2ms)
+ Rendered layouts/_flash.html.haml (0.1ms)
+ Rendered layouts/_page.html.haml (32.9ms)
 Completed 200 OK in 166ms (Views: 117.4ms | ActiveRecord: 27.2ms)
 ```
 
-In this example, the server processed an HTTP request with URL
-`/gitlabhq/yaml_db/tree/master` from IP `168.111.56.1` at `2015-02-12 19:34:53 +0200`.
+In this example, the server processed an HTTP request with URL `/gitlabhq/yaml_db/tree/master` from IP `168.111.56.1` at `2015-02-12 19:34:53 +0200`.
 The request was processed by `Projects::TreeController`.
 
 ## `api_json.log`
@@ -373,33 +354,31 @@ It helps you see requests made directly to the API. For example:
 
 ```json
 {
-  "time":"2018-10-29T12:49:42.123Z",
-  "severity":"INFO",
-  "duration":709.08,
-  "db":14.59,
-  "view":694.49,
-  "status":200,
-  "method":"GET",
-  "path":"/api/v4/projects",
-  "params":[{"key":"action","value":"git-upload-pack"},{"key":"changes","value":"_any"},{"key":"key_id","value":"secret"},{"key":"secret_token","value":"[FILTERED]"}],
-  "host":"localhost",
-  "remote_ip":"::1",
-  "ua":"Ruby",
-  "route":"/api/:version/projects",
-  "user_id":1,
-  "username":"root",
-  "queue_duration":100.31,
-  "gitaly_calls":30,
-  "gitaly_duration":5.36,
-  "pid": 81836,
-  "worker_id": "puma_0",
-  ...
+ "time":"2018-10-29T12:49:42.123Z",
+ "severity":"INFO",
+ "duration":709.08,
+ "db":14.59,
+ "view":694.49,
+ "status":200,
+ "method":"GET",
+ "path":"/api/v4/projects",
+ "params":[{"key":"action","value":"git-upload-pack"},{"key":"changes","value":"_any"},{"key":"key_id","value":"secret"},{"key":"secret_token","value":"[FILTERED]"}],
+ "host":"localhost",
+ "remote_ip":"::1",
+ "ua":"Ruby",
+ "route":"/api/:version/projects",
+ "user_id":1,
+ "username":"root",
+ "queue_duration":100.31,
+ "gitaly_calls":30,
+ "gitaly_duration":5.36,
+ "pid": 81836,
+ "worker_id": "puma_0",
+ ...
 }
 ```
 
-This entry shows an internal endpoint accessed to check whether an
-associated SSH key can download the project in question by using a `git fetch` or
-`git clone`. In this example, we see:
+This entry shows an internal endpoint accessed to check whether an associated SSH key can download the project in question by using a `git fetch` or `git clone`. In this example, we see:
 
 - `duration`: Total time in milliseconds to retrieve the request
 - `queue_duration`: Total time in milliseconds the request was queued inside GitLab Workhorse
@@ -410,10 +389,8 @@ associated SSH key can download the project in question by using a `git fetch` o
 
 {{< alert type="note" >}}
 
-As of [`Grape Logging`](https://github.com/aserafin/grape_logging) v1.8.4,
-the `view_duration_s` is calculated by [`duration_s - db_duration_s`](https://github.com/aserafin/grape_logging/blob/v1.8.4/lib/grape_logging/middleware/request_logger.rb#L117-L119).
-Therefore, `view_duration_s` can be affected by multiple different factors, like read-write
-process on Redis or external HTTP, not only the serialization process.
+As of [`Grape Logging`](https://github.com/aserafin/grape_logging) v1.8.4, the `view_duration_s` is calculated by [`duration_s - db_duration_s`](https://github.com/aserafin/grape_logging/blob/v1.8.4/lib/grape_logging/middleware/request_logger.rb#L117-L119).
+Therefore, `view_duration_s` can be affected by multiple different factors, like read-write process on Redis or external HTTP, not only the serialization process.
 
 {{< /alert >}}
 
@@ -430,14 +407,13 @@ This log is located:
 - In the `/var/log/gitlab/gitlab-rails/application.log` file on Linux package installations.
 - In the `/home/git/gitlab/log/application.log` file on self-compiled installations.
 
-It contains a less structured version of the logs in
-[`application_json.log`](#application_jsonlog), like this example:
+It contains a less structured version of the logs in [`application_json.log`](#application_jsonlog), like this example:
 
 ```plaintext
 October 06, 2014 11:56: User "Administrator" (admin@example.com) was created
 October 06, 2014 11:56: Documentcloud created a new project "Documentcloud / Underscore"
 October 06, 2014 11:56: Gitlab Org created a new project "Gitlab Org / Gitlab Ce"
-October 07, 2014 11:25: User "Claudie Hodkiewicz" (nasir_stehr@olson.co.uk)  was removed
+October 07, 2014 11:25: User "Claudie Hodkiewicz" (nasir_stehr@olson.co.uk) was removed
 October 07, 2014 11:25: Project "project133" was removed
 ```
 
@@ -449,21 +425,20 @@ This log is located:
 - In the `/home/git/gitlab/log/application_json.log` file on self-compiled installations.
 - On the Sidekiq and Webservice pods under the `subcomponent="application_json"` key on Helm chart installations.
 
-It helps you discover events happening in your instance such as user creation
-and project deletion. For example:
+It helps you discover events happening in your instance such as user creation and project deletion. For example:
 
 ```json
 {
-  "severity":"INFO",
-  "time":"2020-01-14T13:35:15.466Z",
-  "correlation_id":"3823a1550b64417f9c9ed8ee0f48087e",
-  "message":"User \"Administrator\" (admin@example.com) was created"
+ "severity":"INFO",
+ "time":"2020-01-14T13:35:15.466Z",
+ "correlation_id":"3823a1550b64417f9c9ed8ee0f48087e",
+ "message":"User \"Administrator\" (admin@example.com) was created"
 }
 {
-  "severity":"INFO",
-  "time":"2020-01-14T13:35:15.466Z",
-  "correlation_id":"78e3df10c9a18745243d524540bd5be4",
-  "message":"Project \"project133\" was removed"
+ "severity":"INFO",
+ "time":"2020-01-14T13:35:15.466Z",
+ "correlation_id":"78e3df10c9a18745243d524540bd5be4",
+ "message":"Project \"project133\" was removed"
 }
 ```
 
@@ -476,28 +451,27 @@ This log is located:
 - On the Sidekiq and Webservice pods under the `subcomponent="integrations_json"` key on Helm chart installations.
 
 It contains information about [integration](../../user/project/integrations/_index.md)
-activities, such as Jira, Asana, and irker services. It uses JSON format,
-like this example:
+activities, such as Jira, Asana, and irker services. It uses JSON format, like this example:
 
 ```json
 {
-  "severity":"ERROR",
-  "time":"2018-09-06T14:56:20.439Z",
-  "service_class":"Integrations::Jira",
-  "project_id":8,
-  "project_path":"h5bp/html5-boilerplate",
-  "message":"Error sending message",
-  "client_url":"http://jira.gitlab.com:8080",
-  "error":"execution expired"
+ "severity":"ERROR",
+ "time":"2018-09-06T14:56:20.439Z",
+ "service_class":"Integrations::Jira",
+ "project_id":8,
+ "project_path":"h5bp/html5-boilerplate",
+ "message":"Error sending message",
+ "client_url":"http://jira.gitlab.com:8080",
+ "error":"execution expired"
 }
 {
-  "severity":"INFO",
-  "time":"2018-09-06T17:15:16.365Z",
-  "service_class":"Integrations::Jira",
-  "project_id":3,
-  "project_path":"namespace2/project2",
-  "message":"Successfully posted",
-  "client_url":"http://jira.example.com"
+ "severity":"INFO",
+ "time":"2018-09-06T17:15:16.365Z",
+ "service_class":"Integrations::Jira",
+ "project_id":3,
+ "project_path":"namespace2/project2",
+ "message":"Successfully posted",
+ "client_url":"http://jira.example.com"
 }
 ```
 
@@ -525,11 +499,7 @@ This log is located:
 - In the `/home/git/gitlab/log/git_json.log` file on self-compiled installations.
 - On the Sidekiq pods under the `subcomponent="git_json"` key on Helm chart installations.
 
-GitLab has to interact with Git repositories, but in some rare cases
-something can go wrong. If this happens, you need to know exactly what
-happened. This log file contains all failed requests from GitLab to Git
-repositories. In the majority of cases this file is useful for developers
-only. For example:
+GitLab has to interact with Git repositories, but in some rare cases something can go wrong. If this happens, you need to know exactly what happened. This log file contains all failed requests from GitLab to Git repositories. In the majority of cases this file is useful for developers only. For example:
 
 ```json
 {
@@ -567,25 +537,24 @@ are logged to this file. For example:
 
 ```json
 {
-  "severity":"INFO",
-  "time":"2018-10-17T17:38:22.523Z",
-  "author_id":3,
-  "entity_id":2,
-  "entity_type":"Project",
-  "change":"visibility",
-  "from":"Private",
-  "to":"Public",
-  "author_name":"John Doe4",
-  "target_id":2,
-  "target_type":"Project",
-  "target_details":"namespace2/project2"
+ "severity":"INFO",
+ "time":"2018-10-17T17:38:22.523Z",
+ "author_id":3,
+ "entity_id":2,
+ "entity_type":"Project",
+ "change":"visibility",
+ "from":"Private",
+ "to":"Public",
+ "author_name":"John Doe4",
+ "target_id":2,
+ "target_type":"Project",
+ "target_details":"namespace2/project2"
 }
 ```
 
 ## Sidekiq logs
 
-For Linux package installations, some Sidekiq logs are in `/var/log/gitlab/sidekiq/current`
-and as follows.
+For Linux package installations, some Sidekiq logs are in `/var/log/gitlab/sidekiq/current` and as follows.
 
 ### `sidekiq.log`
 
@@ -600,32 +569,30 @@ This log is located:
 - In the `/var/log/gitlab/sidekiq/current` file on Linux package installations.
 - In the `/home/git/gitlab/log/sidekiq.log` file on self-compiled installations.
 
-GitLab uses background jobs for processing tasks which can take a long
-time. All information about processing these jobs are written to this
-file. For example:
+GitLab uses background jobs for processing tasks which can take a long time. All information about processing these jobs are written to this file. For example:
 
 ```json
 {
-  "severity":"INFO",
-  "time":"2018-04-03T22:57:22.071Z",
-  "queue":"cronjob:update_all_mirrors",
-  "args":[],
-  "class":"UpdateAllMirrorsWorker",
-  "retry":false,
-  "queue_namespace":"cronjob",
-  "jid":"06aeaa3b0aadacf9981f368e",
-  "created_at":"2018-04-03T22:57:21.930Z",
-  "enqueued_at":"2018-04-03T22:57:21.931Z",
-  "pid":10077,
-  "worker_id":"sidekiq_0",
-  "message":"UpdateAllMirrorsWorker JID-06aeaa3b0aadacf9981f368e: done: 0.139 sec",
-  "job_status":"done",
-  "duration":0.139,
-  "completed_at":"2018-04-03T22:57:22.071Z",
-  "db_duration":0.05,
-  "db_duration_s":0.0005,
-  "gitaly_duration":0,
-  "gitaly_calls":0
+ "severity":"INFO",
+ "time":"2018-04-03T22:57:22.071Z",
+ "queue":"cronjob:update_all_mirrors",
+ "args":[],
+ "class":"UpdateAllMirrorsWorker",
+ "retry":false,
+ "queue_namespace":"cronjob",
+ "jid":"06aeaa3b0aadacf9981f368e",
+ "created_at":"2018-04-03T22:57:21.930Z",
+ "enqueued_at":"2018-04-03T22:57:21.931Z",
+ "pid":10077,
+ "worker_id":"sidekiq_0",
+ "message":"UpdateAllMirrorsWorker JID-06aeaa3b0aadacf9981f368e: done: 0.139 sec",
+ "job_status":"done",
+ "duration":0.139,
+ "completed_at":"2018-04-03T22:57:22.071Z",
+ "db_duration":0.05,
+ "db_duration_s":0.0005,
+ "gitaly_duration":0,
+ "gitaly_calls":0
 }
 ```
 
@@ -650,12 +617,11 @@ For Linux package installations, add the configuration option:
 sidekiq['log_format'] = 'text'
 ```
 
-For self-compiled installations, edit the `gitlab.yml` and set the Sidekiq
-`log_format` configuration option:
+For self-compiled installations, edit the `gitlab.yml` and set the Sidekiq `log_format` configuration option:
 
 ```yaml
-  ## Sidekiq
-  sidekiq:
+ ## Sidekiq
+ sidekiq:
     log_format: text
 ```
 
@@ -667,43 +633,37 @@ This log is located:
 - In the `/home/git/gitlab/log/sidekiq_client.log` file on self-compiled installations.
 - On the Webservice pods under the `subcomponent="sidekiq_client"` key on Helm chart installations.
 
-This file contains logging information about jobs before Sidekiq starts
-processing them, such as before being enqueued.
+This file contains logging information about jobs before Sidekiq starts processing them, such as before being enqueued.
 
-This log file follows the same structure as
-[`sidekiq.log`](#sidekiqlog), so it is structured as JSON if
-you've configured this for Sidekiq as mentioned previously.
+This log file follows the same structure as [`sidekiq.log`](#sidekiqlog), so it is structured as JSON if you've configured this for Sidekiq as mentioned previously.
 
 ## `gitlab-shell.log`
 
-GitLab Shell is used by GitLab for executing Git commands and provide SSH
-access to Git repositories.
+GitLab Shell is used by GitLab for executing Git commands and provide SSH access to Git repositories.
 
-Information containing `git-{upload-pack,receive-pack}` requests is at
-`/var/log/gitlab/gitlab-shell/gitlab-shell.log`. Information about hooks to
-GitLab Shell from Gitaly is at `/var/log/gitlab/gitaly/current`.
+Information containing `git-{upload-pack,receive-pack}` requests is at `/var/log/gitlab/gitlab-shell/gitlab-shell.log`. Information about hooks to GitLab Shell from Gitaly is at `/var/log/gitlab/gitaly/current`.
 
 Example log entries for `/var/log/gitlab/gitlab-shell/gitlab-shell.log`:
 
 ```json
 {
-  "duration_ms": 74.104,
-  "level": "info",
-  "method": "POST",
-  "msg": "Finished HTTP request",
-  "time": "2020-04-17T20:28:46Z",
-  "url": "http://127.0.0.1:8080/api/v4/internal/allowed"
+ "duration_ms": 74.104,
+ "level": "info",
+ "method": "POST",
+ "msg": "Finished HTTP request",
+ "time": "2020-04-17T20:28:46Z",
+ "url": "http://127.0.0.1:8080/api/v4/internal/allowed"
 }
 {
-  "command": "git-upload-pack",
-  "git_protocol": "",
-  "gl_project_path": "root/example",
-  "gl_repository": "project-1",
-  "level": "info",
-  "msg": "executing git command",
-  "time": "2020-04-17T20:28:46Z",
-  "user_id": "user-1",
-  "username": "root"
+ "command": "git-upload-pack",
+ "git_protocol": "",
+ "gl_project_path": "root/example",
+ "gl_repository": "project-1",
+ "level": "info",
+ "msg": "executing git command",
+ "time": "2020-04-17T20:28:46Z",
+ "user_id": "user-1",
+ "username": "root"
 }
 ```
 
@@ -711,43 +671,39 @@ Example log entries for `/var/log/gitlab/gitaly/current`:
 
 ```json
 {
-  "method": "POST",
-  "url": "http://127.0.0.1:8080/api/v4/internal/allowed",
-  "duration": 0.058012959,
-  "gitaly_embedded": true,
-  "pid": 16636,
-  "level": "info",
-  "msg": "finished HTTP request",
-  "time": "2020-04-17T20:29:08+00:00"
+ "method": "POST",
+ "url": "http://127.0.0.1:8080/api/v4/internal/allowed",
+ "duration": 0.058012959,
+ "gitaly_embedded": true,
+ "pid": 16636,
+ "level": "info",
+ "msg": "finished HTTP request",
+ "time": "2020-04-17T20:29:08+00:00"
 }
 {
-  "method": "POST",
-  "url": "http://127.0.0.1:8080/api/v4/internal/pre_receive",
-  "duration": 0.031022552,
-  "gitaly_embedded": true,
-  "pid": 16636,
-  "level": "info",
-  "msg": "finished HTTP request",
-  "time": "2020-04-17T20:29:08+00:00"
+ "method": "POST",
+ "url": "http://127.0.0.1:8080/api/v4/internal/pre_receive",
+ "duration": 0.031022552,
+ "gitaly_embedded": true,
+ "pid": 16636,
+ "level": "info",
+ "msg": "finished HTTP request",
+ "time": "2020-04-17T20:29:08+00:00"
 }
 ```
 
 ## Gitaly logs
 
 This file is in `/var/log/gitlab/gitaly/current` and is produced by [runit](https://smarden.org/runit/).
-`runit` is packaged with the Linux package and a brief explanation of its purpose
-is available [in the Linux package documentation](https://docs.gitlab.com/omnibus/architecture/#runit).
+`runit` is packaged with the Linux package and a brief explanation of its purpose is available [in the Linux package documentation](https://docs.gitlab.com/omnibus/architecture/#runit).
 
 ### `grpc.log`
 
-This file is at `/var/log/gitlab/gitlab-rails/grpc.log` for Linux
-package installations. Native [gRPC](https://grpc.io/) logging used by Gitaly.
+This file is at `/var/log/gitlab/gitlab-rails/grpc.log` for Linux package installations. Native [gRPC](https://grpc.io/) logging used by Gitaly.
 
 ### `gitaly_hooks.log`
 
-This file is at `/var/log/gitlab/gitaly/gitaly_hooks.log` and is
-produced by `gitaly-hooks` command. It also contains records about
-failures received during processing of the responses from GitLab API.
+This file is at `/var/log/gitlab/gitaly/gitaly_hooks.log` and is produced by `gitaly-hooks` command. It also contains records about failures received during processing of the responses from GitLab API.
 
 ## Puma logs
 
@@ -803,8 +759,7 @@ This log is located:
 - In the `/home/git/gitlab/log/features_json.log` file on self-compiled installations.
 - On the Sidekiq and Webservice pods under the `subcomponent="features_json"` key on Helm chart installations.
 
-The modification events from Feature flags in development of GitLab
-are recorded in this file. For example:
+The modification events from Feature flags in development of GitLab are recorded in this file. For example:
 
 ```json
 {"severity":"INFO","time":"2020-11-24T02:30:59.860Z","correlation_id":null,"key":"cd_auto_rollback","action":"enable","extra.thing":"true"}
@@ -906,8 +861,7 @@ This log is located:
 - In the `/home/git/gitlab/log/clickhouse.log` file on self-compiled installations.
 - On the Sidekiq and Webservice pods under the `subcomponent="clickhouse"` key.
 
-The `clickhouse.log` file logs information related to the
-[ClickHouse database client](../../integration/clickhouse.md) in GitLab.
+The `clickhouse.log` file logs information related to the [ClickHouse database client](../../integration/clickhouse.md) in GitLab.
 
 ## `migrations.log`
 
@@ -926,8 +880,7 @@ This log is located:
 - In the `/home/git/gitlab/log/mail_room_json.log` file on self-compiled installations.
 
 This structured log file records internal activity in the `mail_room` gem.
-Its name and path are configurable, so the name and path may not match this one
-documented previously.
+Its name and path are configurable, so the name and path may not match this one documented previously.
 
 ## `web_hooks.log`
 
@@ -953,19 +906,14 @@ The back-off, disablement, and re-enablement events for Webhook are recorded in 
 
 ## Reconfigure logs
 
-Reconfigure log files are in `/var/log/gitlab/reconfigure` for Linux package installations. Self-compiled installations
-don't have reconfigure logs. A reconfigure log is populated whenever `gitlab-ctl reconfigure` is run manually or as part
-of an upgrade.
+Reconfigure log files are in `/var/log/gitlab/reconfigure` for Linux package installations. Self-compiled installations don't have reconfigure logs. A reconfigure log is populated whenever `gitlab-ctl reconfigure` is run manually or as part of an upgrade.
 
-Reconfigure logs files are named according to the UNIX timestamp of when the reconfigure
-was initiated, such as `1509705644.log`
+Reconfigure logs files are named according to the UNIX timestamp of when the reconfigure was initiated, such as `1509705644.log`
 
 ## `sidekiq_exporter.log` and `web_exporter.log`
 
-If Prometheus metrics and the Sidekiq Exporter are both enabled, Sidekiq
-starts a Web server and listens to the defined port (default:
-`8082`). By default, Sidekiq Exporter access logs are disabled but can
-be enabled:
+If Prometheus metrics and the Sidekiq Exporter are both enabled, Sidekiq starts a Web server and listens to the defined port (default:
+`8082`). By default, Sidekiq Exporter access logs are disabled but can be enabled:
 
 - Use the `sidekiq['exporter_log_enabled'] = true` option in `/etc/gitlab/gitlab.rb` on Linux package installations.
 - Use the `sidekiq_exporter.log_enabled` option in `gitlab.yml` on self-compiled installations.
@@ -975,9 +923,7 @@ When enabled, depending on your installation method, this file is located at:
 - `/var/log/gitlab/gitlab-rails/sidekiq_exporter.log` on Linux package installations.
 - `/home/git/gitlab/log/sidekiq_exporter.log` on self-compiled installations.
 
-If Prometheus metrics and the Web Exporter are both enabled, Puma
-starts a Web server and listens to the defined port (default: `8083`), and access logs
-are generated in a location based on your installation method:
+If Prometheus metrics and the Web Exporter are both enabled, Puma starts a Web server and listens to the defined port (default: `8083`), and access logs are generated in a location based on your installation method:
 
 - `/var/log/gitlab/gitlab-rails/web_exporter.log` on Linux package installations.
 - `/home/git/gitlab/log/web_exporter.log` on self-compiled installations.
@@ -1031,8 +977,7 @@ This log is located:
 
 {{< /details >}}
 
-This file logs information related to the Elasticsearch Integration, including
-errors during indexing or searching Elasticsearch.
+This file logs information related to the Elasticsearch Integration, including errors during indexing or searching Elasticsearch.
 
 This log is located:
 
@@ -1045,23 +990,21 @@ Line breaks have been added to the following example line for clarity:
 
 ```json
 {
-  "severity":"DEBUG",
-  "time":"2019-10-17T06:23:13.227Z",
-  "correlation_id":null,
-  "message":"redacted_search_result",
-  "class_name":"Milestone",
-  "id":2,
-  "ability":"read_milestone",
-  "current_user_id":2,
-  "query":"project"
+ "severity":"DEBUG",
+ "time":"2019-10-17T06:23:13.227Z",
+ "correlation_id":null,
+ "message":"redacted_search_result",
+ "class_name":"Milestone",
+ "id":2,
+ "ability":"read_milestone",
+ "current_user_id":2,
+ "query":"project"
 }
 ```
 
 ## `exceptions_json.log`
 
-This file logs the information about exceptions being tracked by
-`Gitlab::ErrorTracking`, which provides a standard and consistent way of
-processing rescued exceptions.
+This file logs the information about exceptions being tracked by `Gitlab::ErrorTracking`, which provides a standard and consistent way of processing rescued exceptions.
 
 This log is located:
 
@@ -1073,18 +1016,18 @@ Each line contains JSON that can be ingested by Elasticsearch. For example:
 
 ```json
 {
-  "severity": "ERROR",
-  "time": "2019-12-17T11:49:29.485Z",
-  "correlation_id": "AbDVUrrTvM1",
-  "extra.project_id": 55,
-  "extra.relation_key": "milestones",
-  "extra.relation_index": 1,
-  "exception.class": "NoMethodError",
-  "exception.message": "undefined method `strong_memoize' for #<Gitlab::ImportExport::RelationFactory:0x00007fb5d917c4b0>",
-  "exception.backtrace": [
+ "severity": "ERROR",
+ "time": "2019-12-17T11:49:29.485Z",
+ "correlation_id": "AbDVUrrTvM1",
+ "extra.project_id": 55,
+ "extra.relation_key": "milestones",
+ "extra.relation_index": 1,
+ "exception.class": "NoMethodError",
+ "exception.message": "undefined method `strong_memoize' for #<Gitlab::ImportExport::RelationFactory:0x00007fb5d917c4b0>",
+ "exception.backtrace": [
     "lib/gitlab/import_export/relation_factory.rb:329:in `unique_relation?'",
     "lib/gitlab/import_export/relation_factory.rb:345:in `find_or_create_object!'"
-  ]
+ ]
 }
 ```
 
@@ -1120,9 +1063,7 @@ This log is located:
 - In the `/home/git/gitlab/log/geo.log` file on self-compiled installations.
 - On the Sidekiq and Webservice pods under the `subcomponent="geo"` key on Helm chart installations.
 
-This file contains information about when Geo attempts to sync repositories
-and files. Each line in the file contains a separate JSON entry that can be
-ingested into (for example, Elasticsearch or Splunk).
+This file contains information about when Geo attempts to sync repositories and files. Each line in the file contains a separate JSON entry that can be ingested into (for example, Elasticsearch or Splunk).
 
 For example:
 
@@ -1171,8 +1112,7 @@ can be used.
 
 {{< /history >}}
 
-The `llm.log` file logs information related to
-[AI features](../../user/gitlab_duo/_index.md). Logging includes information about AI events.
+The `llm.log` file logs information related to [AI features](../../user/gitlab_duo/_index.md). Logging includes information about AI events.
 
 ### LLM input and output logging
 
@@ -1265,8 +1205,7 @@ This log is located:
 
 {{< /history >}}
 
-The `active_context.log` file logs information related to embedding pipelines through the
-[`ActiveContext` layer](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/ai_context_abstraction_layer/).
+The `active_context.log` file logs information related to embedding pipelines through the [`ActiveContext` layer](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/ai_context_abstraction_layer/).
 
 GitLab supports `ActiveContext` code embeddings.
 This pipeline handles embedding generation for project code files.
@@ -1293,8 +1232,7 @@ This log is located:
 
 {{< /history >}}
 
-The `ai_catalog.log` file logs information related to the
-[AI Catalog](../../user/duo_agent_platform/ai_catalog.md), including when AI Catalog flows and agents are executed.
+The `ai_catalog.log` file logs information related to the [AI Catalog](../../user/duo_agent_platform/ai_catalog.md), including when AI Catalog flows and agents are executed.
 
 This log is located:
 
@@ -1318,15 +1256,15 @@ Example:
 
 ```json
 {
-  "checkpoint": "start",
-  "component": "gitlab",
-  "correlation_id": "3823a1550b64417f9c9ed8ee0f48087e",
-  "covered_experience": "create_merge_request",
-  "elapsed_time_s": 0,
-  "environment": "gprd",
-  "feature_category": "code_review_workflow",
-  "logtag": "F",
-  "meta": {
+ "checkpoint": "start",
+ "component": "gitlab",
+ "correlation_id": "3823a1550b64417f9c9ed8ee0f48087e",
+ "covered_experience": "create_merge_request",
+ "elapsed_time_s": 0,
+ "environment": "gprd",
+ "feature_category": "code_review_workflow",
+ "logtag": "F",
+ "meta": {
     "caller_id": "Projects::MergeRequests::CreationsController#create",
     "client_id": "user/123",
     "feature_category": "code_review_workflow",
@@ -1337,18 +1275,18 @@ Example:
     "root_namespace": "project",
     "subscription_plan": "ultimate",
     "user": "a_username"
-  },
-  "severity": "INFO",
-  "shard": "default",
-  "stage": "cny",
-  "start_time": "2025-10-31 15:21:40 UTC",
-  "subcomponent": "user_experience_slis",
-  "tag": "web-cny-rails.var.log.containers.gitlab-cny-webservice-web-123-abc_gitlab-cny_webservice-4567890.log",
-  "tier": "sv",
-  "time": "2025-10-31T15:21:40.333Z",
-  "type": "web",
-  "urgency": "async_fast",
-  "urgency_threshold_s": 15
+ },
+ "severity": "INFO",
+ "shard": "default",
+ "stage": "cny",
+ "start_time": "2025-10-31 15:21:40 UTC",
+ "subcomponent": "user_experience_slis",
+ "tag": "web-cny-rails.var.log.containers.gitlab-cny-webservice-web-123-abc_gitlab-cny_webservice-4567890.log",
+ "tier": "sv",
+ "time": "2025-10-31T15:21:40.333Z",
+ "type": "web",
+ "urgency": "async_fast",
+ "urgency_threshold_s": 15
 }
 ```
 
@@ -1377,8 +1315,7 @@ Below is the default GitLab NGINX access log format:
 '$remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"'
 ```
 
-The `$request` and `$http_referer` are
-[filtered](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/support/nginx/gitlab)
+The `$request` and `$http_referer` are [filtered](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/support/nginx/gitlab)
 for sensitive query string parameters such as secret tokens.
 
 ## Pages logs
@@ -1389,24 +1326,24 @@ For example:
 
 ```json
 {
-  "level": "info",
-  "msg": "GitLab Pages Daemon",
-  "revision": "52b2899",
-  "time": "2020-04-22T17:53:12Z",
-  "version": "1.17.0"
+ "level": "info",
+ "msg": "GitLab Pages Daemon",
+ "revision": "52b2899",
+ "time": "2020-04-22T17:53:12Z",
+ "version": "1.17.0"
 }
 {
-  "level": "info",
-  "msg": "URL: https://gitlab.com/gitlab-org/gitlab-pages",
-  "time": "2020-04-22T17:53:12Z"
+ "level": "info",
+ "msg": "URL: https://gitlab.com/gitlab-org/gitlab-pages",
+ "time": "2020-04-22T17:53:12Z"
 }
 {
-  "gid": 998,
-  "in-place": false,
-  "level": "info",
-  "msg": "running the daemon as unprivileged user",
-  "time": "2020-04-22T17:53:12Z",
-  "uid": 998
+ "gid": 998,
+ "in-place": false,
+ "level": "info",
+ "msg": "running the daemon as unprivileged user",
+ "time": "2020-04-22T17:53:12Z",
+ "uid": 998
 }
 ```
 
@@ -1430,19 +1367,19 @@ It contains JSON-formatted logs of product usage events tracked through Snowplow
 
 ```json
 {
-  "severity":"INFO",
-  "time":"2025-04-09T13:43:40.254Z",
-  "message":"sending event",
-  "payload":"{
-  \"e\":\"se\",
-  \"se_ca\":\"projects:merge_requests:diffs\",
-  \"se_ac\":\"i_code_review_user_searches_diff\",
-  \"cx\":\"eyJzY2hlbWEiOiJpZ2x1OmNvbS5zbm93cGxvd2FuYWx5dGljcy5zbm93cGxvdy9jb250ZXh0cy9qc29uc2NoZW1hLzEtMC0xIiwiZGF0YSI6W3sic2NoZW1hIjoiaWdsdTpjb20uZ2l0bGFiL2dpdGxhYl9zdGFuZGFyZC9qc29uc2NoZW1hLzEtMS0xIiwiZGF0YSI6eyJlbnZpcm9ubWVudCI6ImRldmVsb3BtZW50Iiwic291cmNlIjoiZ2l0bGFiLXJhaWxzIiwiY29ycmVsYXRpb25faWQiOiJlNDk2NzNjNWI2MGQ5ODc0M2U4YWI0MjZiMTZmMTkxMiIsInBsYW4iOiJkZWZhdWx0IiwiZXh0cmEiOnt9LCJ1c2VyX2lkIjpudWxsLCJnbG9iYWxfdXNlcl9pZCI6bnVsbCwiaXNfZ2l0bGFiX3RlYW1fbWVtYmVyIjpudWxsLCJuYW1lc3BhY2VfaWQiOjMxLCJwcm9qZWN0X2lkIjo2LCJmZWF0dXJlX2VuYWJsZWRfYnlfbmFtZXNwYWNlX2lkcyI6bnVsbCwicmVhbG0iOiJzZWxmLW1hbmFnZWQiLCJpbnN0YW5jZV9pZCI6IjJkMDg1NzBkLWNmZGItNDFmMy1iODllLWM3MTM5YmFjZTI3NSIsImhvc3RfbmFtZSI6ImpsYXJzZW4tLTIwMjIxMjE0LVBWWTY5IiwiaW5zdGFuY2VfdmVyc2lvbiI6IjE3LjExLjAiLCJjb250ZXh0X2dlbmVyYXRlZF9hdCI6IjIwMjUtMDQtMDkgMTM6NDM6NDAgVVRDIn19LHsic2NoZW1hIjoiaWdsdTpjb20uZ2l0bGFiL2dpdGxhYl9zZXJ2aWNlX3BpbmcvanNvbnNjaGVtYS8xLTAtMSIsImRhdGEiOnsiZGF0YV9zb3VyY2UiOiJyZWRpc19obGwiLCJldmVudF9uYW1lIjoiaV9jb2RlX3Jldmlld191c2VyX3NlYXJjaGVzX2RpZmYifX1dfQ==\",
-  \"p\":\"srv\",
-  \"dtm\":\"1744206220253\",
-  \"tna\":\"gl\",
-  \"tv\":\"rb-0.8.0\",
-  \"eid\":\"4f067989-d10d-40b0-9312-ad9d7355be7f\"
+ "severity":"INFO",
+ "time":"2025-04-09T13:43:40.254Z",
+ "message":"sending event",
+ "payload":"{
+ \"e\":\"se\",
+ \"se_ca\":\"projects:merge_requests:diffs\",
+ \"se_ac\":\"i_code_review_user_searches_diff\",
+ \"cx\":\"eyJzY2hlbWEiOiJpZ2x1OmNvbS5zbm93cGxvd2FuYWx5dGljcy5zbm93cGxvdy9jb250ZXh0cy9qc29uc2NoZW1hLzEtMC0xIiwiZGF0YSI6W3sic2NoZW1hIjoiaWdsdTpjb20uZ2l0bGFiL2dpdGxhYl9zdGFuZGFyZC9qc29uc2NoZW1hLzEtMS0xIiwiZGF0YSI6eyJlbnZpcm9ubWVudCI6ImRldmVsb3BtZW50Iiwic291cmNlIjoiZ2l0bGFiLXJhaWxzIiwiY29ycmVsYXRpb25faWQiOiJlNDk2NzNjNWI2MGQ5ODc0M2U4YWI0MjZiMTZmMTkxMiIsInBsYW4iOiJkZWZhdWx0IiwiZXh0cmEiOnt9LCJ1c2VyX2lkIjpudWxsLCJnbG9iYWxfdXNlcl9pZCI6bnVsbCwiaXNfZ2l0bGFiX3RlYW1fbWVtYmVyIjpudWxsLCJuYW1lc3BhY2VfaWQiOjMxLCJwcm9qZWN0X2lkIjo2LCJmZWF0dXJlX2VuYWJsZWRfYnlfbmFtZXNwYWNlX2lkcyI6bnVsbCwicmVhbG0iOiJzZWxmLW1hbmFnZWQiLCJpbnN0YW5jZV9pZCI6IjJkMDg1NzBkLWNmZGItNDFmMy1iODllLWM3MTM5YmFjZTI3NSIsImhvc3RfbmFtZSI6ImpsYXJzZW4tLTIwMjIxMjE0LVBWWTY5IiwiaW5zdGFuY2VfdmVyc2lvbiI6IjE3LjExLjAiLCJjb250ZXh0X2dlbmVyYXRlZF9hdCI6IjIwMjUtMDQtMDkgMTM6NDM6NDAgVVRDIn19LHsic2NoZW1hIjoiaWdsdTpjb20uZ2l0bGFiL2dpdGxhYl9zZXJ2aWNlX3BpbmcvanNvbnNjaGVtYS8xLTAtMSIsImRhdGEiOnsiZGF0YV9zb3VyY2UiOiJyZWRpc19obGwiLCJldmVudF9uYW1lIjoiaV9jb2RlX3Jldmlld191c2VyX3NlYXJjaGVzX2RpZmYifX1dfQ==\",
+ \"p\":\"srv\",
+ \"dtm\":\"1744206220253\",
+ \"tna\":\"gl\",
+ \"tv\":\"rb-0.8.0\",
+ \"eid\":\"4f067989-d10d-40b0-9312-ad9d7355be7f\"
 }
 ```
 
@@ -1533,8 +1470,7 @@ For Linux package installations, GitLab Exporter logs are in `/var/log/gitlab/gi
 
 ## GitLab agent server for Kubernetes logs
 
-For Linux package installations, GitLab agent server for Kubernetes logs are
-in `/var/log/gitlab/gitlab-kas/current`.
+For Linux package installations, GitLab agent server for Kubernetes logs are in `/var/log/gitlab/gitlab-kas/current`.
 
 ## Praefect logs
 
@@ -1558,8 +1494,7 @@ This log is located:
 - In the `/home/git/gitlab/log/performance_bar_json.log` file on self-compiled installations.
 - On the Sidekiq pods under the `subcomponent="performance_bar_json"` key on Helm chart installations.
 
-Performance bar statistics (currently only duration of SQL queries) are recorded
-in that file. For example:
+Performance bar statistics (currently only duration of SQL queries) are recorded in that file. For example:
 
 ```json
 {"severity":"INFO","time":"2020-12-04T09:29:44.592Z","correlation_id":"33680b1490ccd35981b03639c406a697","filename":"app/models/ci/pipeline.rb","method_path":"app/models/ci/pipeline.rb:each_with_object","request_id":"rYHomD0VJS4","duration_ms":26.889,"count":2,"query_type": "active-record"}
@@ -1569,18 +1504,14 @@ These statistics are logged on .com only, disabled on self-deployments.
 
 ## Gathering logs
 
-When [troubleshooting](../troubleshooting/_index.md) issues that aren't localized to one of the
-previously listed components, it's helpful to simultaneously gather multiple logs and statistics
-from a GitLab instance.
+When [troubleshooting](../troubleshooting/_index.md) issues that aren't localized to one of the previously listed components, it's helpful to simultaneously gather multiple logs and statistics from a GitLab instance.
 
 > [!note]
 > GitLab Support often asks for one of these, and maintains the required tools.
 
 ### Briefly tail the main logs
 
-If the bug or error is readily reproducible, save the main GitLab logs
-[to a file](../troubleshooting/linux_cheat_sheet.md#files-and-directories) while reproducing the
-problem a few times:
+If the bug or error is readily reproducible, save the main GitLab logs [to a file](../troubleshooting/linux_cheat_sheet.md#files-and-directories) while reproducing the problem a few times:
 
 ```shell
 sudo gitlab-ctl tail | tee /tmp/<case-ID-and-keywords>.log
@@ -1590,15 +1521,12 @@ Conclude the log gathering with <kbd>Control</kbd> + <kbd>C</kbd>.
 
 ### Gathering SOS logs
 
-If performance degradations or cascading errors occur that can't readily be attributed to one
-of the previously listed GitLab components, [use our SOS scripts](../troubleshooting/diagnostics_tools.md#sos-scripts).
+If performance degradations or cascading errors occur that can't readily be attributed to one of the previously listed GitLab components, [use our SOS scripts](../troubleshooting/diagnostics_tools.md#sos-scripts).
 
 ### Fast-stats
 
-[Fast-stats](https://gitlab.com/gitlab-com/support/toolbox/fast-stats) is a tool
-for creating and comparing performance statistics from GitLab logs.
-For more details and instructions to run it, read the
-[documentation for fast-stats](https://gitlab.com/gitlab-com/support/toolbox/fast-stats#usage).
+[Fast-stats](https://gitlab.com/gitlab-com/support/toolbox/fast-stats) is a tool for creating and comparing performance statistics from GitLab logs.
+For more details and instructions to run it, read the [documentation for fast-stats](https://gitlab.com/gitlab-com/support/toolbox/fast-stats#usage).
 
 ## Find relevant log entries with a correlation ID
 

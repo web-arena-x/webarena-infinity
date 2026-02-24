@@ -57,8 +57,7 @@ The Jira development panel connects a Jira instance with all its projects to the
 ## Information displayed in the development panel
 
 You can [view GitLab activity for a Jira issue](https://support.atlassian.com/jira-software-cloud/docs/view-development-information-for-an-issue/)
-in the Jira development panel by referring to the Jira issue by ID in GitLab. The information displayed in the development panel
-depends on where you mention the Jira issue ID in GitLab.
+in the Jira development panel by referring to the Jira issue by ID in GitLab. The information displayed in the development panel depends on where you mention the Jira issue ID in GitLab.
 
 For the [GitLab for Jira Cloud app](connect-app.md), the following information is displayed.
 

@@ -6,7 +6,7 @@ Source: https://support.google.com/mail/answer/7036019
 
 Follow the steps below to help keep your Gmail account secure.
 
-If you think someone has unauthorized access to your account,  [reset your password](https://accounts.google.com/b/0/EditPasswd) immediately.
+If you think someone has unauthorized access to your account, [reset your password](https://accounts.google.com/b/0/EditPasswd) immediately.
 
 ## Step 1: Complete a security checkup
 

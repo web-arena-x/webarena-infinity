@@ -22,8 +22,8 @@ Employers also reduce the amount of time they spend interviewing and reviewing c
 Students are required to either answer the following questions, or they can choose to opt out:
 
 - Select **Yes/No** for both questions:
-  - **Are you legally authorized to work in the United States?**
-  - **Will you now or in the future require visa sponsorship?**
+ - **Are you legally authorized to work in the United States?**
+ - **Will you now or in the future require visa sponsorship?**
 - Or select (checkbox) **Prefer not to answer these questions**
 
 Students can respond to these questions in their account settings. However, if they have not been answered, this prompt will appear the first time students apply for a job, or if they register for a virtual fair and haven't yet applied for a job in Handshake.
@@ -47,9 +47,9 @@ The questions are present on the job form, career fair registration form, and wh
 Employers can select from the following options:
 
 - **This job requires US work authorization**
-  - This job is eligible for US visa sponsorship
-  - This job is open to candidates with Curricular Practical Training ([CPT](https://www.ice.gov/doclib/sevis/pdf/CurricularPracticalTraining.pdf))
-  - This job is open to candidates with Optional Practical Training ([OPT](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students))
+ - This job is eligible for US visa sponsorship
+ - This job is open to candidates with Curricular Practical Training ([CPT](https://www.ice.gov/doclib/sevis/pdf/CurricularPracticalTraining.pdf))
+ - This job is open to candidates with Optional Practical Training ([OPT](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students))
 - **This job does not require US work authorization**
 
 To not disclose work authorization requirements, click the hyperlinked text **Don't disclose**.
@@ -65,7 +65,7 @@ To not disclose work authorization requirements, click the hyperlinked text **Do
 Employers are prompted to answer the following questions when registering for a career fair:
 
 - **Does this job require U.S. work authorization?** *(select Yes/No)*
-  - If you select **Yes**, you'll also be required to answer the following questions:
+ - If you select **Yes**, you'll also be required to answer the following questions:
     - Would you sponsor a work visa for the right candidate? *(select Yes/No)*
     - Are you willing to hire candidates that are temporarily authorized to work for a defined period in their field of study (e.g. for an internship under [OPT/CPT](https://www.ice.gov/sevis/practical-training))? (Select Yes/No)
 
@@ -81,9 +81,9 @@ Employers are prompted to answer the following questions when registering for a 
 
 - Do any of the positions that you are hiring for require work authorization? *(select Yes/No)*
 - If **Yes**, you'll also be required to answer the following questions:
-  - Are the positions you are hiring for located in the US?
-  - Would you sponsor a work visa for the right candidate?
-  - Are you willing to hire candidates that are temporarily authorized to work for a defined period in their field of study? (e.g. for a job/internship under [OPT/CPT](https://www.ice.gov/sevis/practical-training))
+ - Are the positions you are hiring for located in the US?
+ - Would you sponsor a work visa for the right candidate?
+ - Are you willing to hire candidates that are temporarily authorized to work for a defined period in their field of study? (e.g. for a job/internship under [OPT/CPT](https://www.ice.gov/sevis/practical-training))
 
 **Note**: schedule qualification selections act as a blocker, preventing students who do not meet the qualifications from viewing or signing up for 1:1 sessions.
 
@@ -145,12 +145,12 @@ Students who select 'Prefer not to answer these questions' in their profile sett
 
 In the qualification matrix below, the top row shows the Employer Preferences set in the job posting, while the left column lists the possible Student Selections. Each row represents a different combination of student selections.
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
-| Employer Job Form  *upper-most row*     Student Selection  *this column* | | Work auth not disclosed | Work auth not required |
-| Did not disclose=YES  Work Auth= NO  Sponsor Visa = NO  OPT/CPT = NO | Did not disclose=NO  Work Auth=NO  Sponsor Visa=NO  Visa = NO  OPT/CPT = YES/NO |
-| Prefers not to answer | Prefer not to answer these questions = true  Or Not answered | Fully Qualified  Passed  Qualification not showing | Fully Qualified  passed  Qualification not showing |
-| Perm authorized | Legally authorized = TRUE  Require sponsorship = FALSE | Fully Qualified  Passed  Qualification not showing | Fully Qualified  passed  Qualification not showing |
-| Temp authorized | Legally authorized = TRUE  Require sponsorship = TRUE | Fully Qualified  Passed  Qualification not showing | Fully Qualified  Passed  Qualification not showing |
-| Not authorized and require sponsorship | Legally authorized = FALSE  Require sponsorship = TRUE | Fully Qualified  Passed  Qualification not showing | Fully Qualified  Passed  Qualification not showing |
-| Does not make sense in the real world | Legally authorized = FALSE   Require sponsorship = FALSE | Fully Qualified | Fully Qualified |
+| Employer Job Form *upper-most row*   Student Selection *this column* | | Work auth not disclosed | Work auth not required |
+| Did not disclose=YES Work Auth= NO Sponsor Visa = NO OPT/CPT = NO | Did not disclose=NO Work Auth=NO Sponsor Visa=NO Visa = NO OPT/CPT = YES/NO |
+| Prefers not to answer | Prefer not to answer these questions = true Or Not answered | Fully Qualified Passed Qualification not showing | Fully Qualified passed Qualification not showing |
+| Perm authorized | Legally authorized = TRUE Require sponsorship = FALSE | Fully Qualified Passed Qualification not showing | Fully Qualified passed Qualification not showing |
+| Temp authorized | Legally authorized = TRUE Require sponsorship = TRUE | Fully Qualified Passed Qualification not showing | Fully Qualified Passed Qualification not showing |
+| Not authorized and require sponsorship | Legally authorized = FALSE Require sponsorship = TRUE | Fully Qualified Passed Qualification not showing | Fully Qualified Passed Qualification not showing |
+| Does not make sense in the real world | Legally authorized = FALSE  Require sponsorship = FALSE | Fully Qualified | Fully Qualified |

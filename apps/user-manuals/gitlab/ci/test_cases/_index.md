@@ -22,13 +22,10 @@ Teams can:
 - Manage test case visibility with confidential settings.
 - Archive and reopen test cases as needed.
 
-Teams use test cases to streamline collaboration between development and testing teams,
-which eliminates the need for external test planning tools.
+Teams use test cases to streamline collaboration between development and testing teams, which eliminates the need for external test planning tools.
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
-To learn how to use issues and epics to manage your requirements and testing needs
-while integrating with your development workflows, see
-[Streamline Software Development: Integrating Requirements, Testing, and Development Workflows](https://www.youtube.com/watch?v=wbfWM4y2VmM).
+To learn how to use issues and epics to manage your requirements and testing needs while integrating with your development workflows, see [Streamline Software Development: Integrating Requirements, Testing, and Development Workflows](https://www.youtube.com/watch?v=wbfWM4y2VmM).
 <!-- Video published on 2024-02-21 -->
 
 ## Create a test case
@@ -47,14 +44,12 @@ To create a test case in a GitLab project:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Build** > **Test cases**.
-1. Select **New test case**. You are taken to the new test case form. Here you can enter
-   the new case's title, [description](../../user/markdown.md), attach a file, and assign [labels](../../user/project/labels.md).
+1. Select **New test case**. You are taken to the new test case form. Here you can enter the new case's title, [description](../../user/markdown.md), attach a file, and assign [labels](../../user/project/labels.md).
 1. Select **Submit test case**. You are taken to view the new test case.
 
 ## View a test case
 
-You can view all test cases in the project in the test cases list. Filter the
-issue list with a search query, including labels or the test case's title.
+You can view all test cases in the project in the test cases list. Filter the issue list with a search query, including labels or the test case's title.
 
 Prerequisites:
 
@@ -83,8 +78,7 @@ You can edit a test case's title and description.
 Prerequisites:
 
 - You must have at least the Planner role.
-- Users demoted to the Guest role can continue to edit the test cases they created
-  when they were in the higher role.
+- Users demoted to the Guest role can continue to edit the test cases they created when they were in the higher role.
 
 To edit a test case:
 
@@ -113,8 +107,7 @@ To make a test case confidential:
 - When you [create a test case](#create-a-test-case): under **Confidentiality**, select the **This test case is confidential** checkbox.
 - When you [edit a test case](#edit-a-test-case): on the right sidebar, next to **Confidentiality**, select **Edit**, then select **Turn on**.
 
-You can also use the [`/confidential` quick action](../../user/project/quick_actions.md#confidential) when both creating a new test case
-or editing an existing one.
+You can also use the [`/confidential` quick action](../../user/project/quick_actions.md#confidential) when both creating a new test case or editing an existing one.
 
 ## Archive a test case
 

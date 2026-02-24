@@ -18,8 +18,7 @@ GitLab has three types of runners:
 - Group: Available to all projects and subgroups in a group.
 - Project: Associated with specific projects. Typically, project runners are used by one project at a time.
 
-For this tutorial, you'll create a project runner to run jobs defined in a basic pipeline
-configuration:
+For this tutorial, you'll create a project runner to run jobs defined in a basic pipeline configuration:
 
 1. [Create a blank project](#create-a-blank-project)
 1. [Create a project pipeline](#create-a-project-pipeline).
@@ -40,9 +39,7 @@ To create a blank project:
 1. Select **Create blank project**.
 1. Enter the project details:
    - In the **Project name** field, enter the name of your project. The name must start with a lowercase or uppercase letter (`a-zA-Z`), digit (`0-9`), emoji, or underscore (`_`). It can also contain dots (`.`), pluses (`+`), dashes (`-`), or spaces.
-   - In the **Project slug** field, enter the path to your project. The GitLab instance uses the
-     slug as the URL path to the project. To change the slug, first enter the project name,
-     then change the slug.
+   - In the **Project slug** field, enter the path to your project. The GitLab instance uses the slug as the URL path to the project. To change the slug, first enter the project name, then change the slug.
 1. Select **Create project**.
 
 ## Create a project pipeline
@@ -81,8 +78,7 @@ In this file, you define:
 
 ## Create and register a project runner
 
-Next, create a project runner and register it. You must register the runner to link it
-to GitLab so that it can pick up jobs from the project pipeline.
+Next, create a project runner and register it. You must register the runner to link it to GitLab so that it can pick up jobs from the project pipeline.
 
 To create a project runner:
 
@@ -90,15 +86,13 @@ To create a project runner:
 1. Select **Settings** > **CI/CD**.
 1. Expand the **Runners** section.
 1. Select **Create project runner**.
-1. In the **Tags** section, select the **Run untagged** checkbox. [Tags](../../ci/runners/configure_runners.md#control-jobs-that-a-runner-can-run) specify which jobs
-   the runner can run and are optional.
+1. In the **Tags** section, select the **Run untagged** checkbox. [Tags](../../ci/runners/configure_runners.md#control-jobs-that-a-runner-can-run) specify which jobs the runner can run and are optional.
 1. Select **Create runner**.
 1. Select your operating system.
 1. Follow the on-screen instructions to register the runner from the command line. When prompted:
    - For `executor`, because your runner will run directly on the host computer, enter `shell`. The [executor](https://docs.gitlab.com/runner/executors/)
      is the environment where the runner executes the job.
-   - For `GitLab instance URL`, use the URL for your GitLab instance. For example, if your project
-     is hosted on `gitlab.example.com/yourname/yourproject`, then your GitLab instance URL is `https://gitlab.example.com`.
+   - For `GitLab instance URL`, use the URL for your GitLab instance. For example, if your project is hosted on `gitlab.example.com/yourname/yourproject`, then your GitLab instance URL is `https://gitlab.example.com`.
      If your project is hosted on GitLab.com, the URL is `https://gitlab.com`.
 1. Start your runner:
 
@@ -111,20 +105,19 @@ To create a project runner:
 After you register the runner, the configuration and runner authentication token is saved to your `config.toml`.
 The runner uses the token to authenticate with GitLab when picking up jobs from the job queue.
 
-You can use the `config.toml` to
-define more [advanced runner configurations](https://docs.gitlab.com/runner/configuration/advanced-configuration.html).
+You can use the `config.toml` to define more [advanced runner configurations](https://docs.gitlab.com/runner/configuration/advanced-configuration.html).
 
 Here's what your `config.toml` should look like after you register and start the runner:
 
 ```toml
 [[runners]]
-  name = "my-project-runner1"
-  url = "http://127.0.0.1:3000"
-  id = 38
-  token = "glrt-TOKEN"
-  token_obtained_at = 2023-07-05T08:56:33Z
-  token_expires_at = 0001-01-01T00:00:00Z
-  executor = "shell"
+ name = "my-project-runner1"
+ url = "http://127.0.0.1:3000"
+ id = 38
+ token = "glrt-TOKEN"
+ token_obtained_at = 2023-07-05T08:56:33Z
+ token_expires_at = 0001-01-01T00:00:00Z
+ executor = "shell"
 ```
 
 ## Trigger a pipeline to run your runner
@@ -134,8 +127,7 @@ Next, trigger a pipeline in your project so you can view your runner execute a j
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Build** > **Pipelines**.
 1. Select **New pipeline**.
-1. Select a job to view the job log. The output should look similar to this example, which shows
-   your runner successfully executing the job:
+1. Select a job to view the job log. The output should look similar to this example, which shows your runner successfully executing the job:
 
    ```shell
       Running with gitlab-runner 18.0.0 (d7f2cea7)

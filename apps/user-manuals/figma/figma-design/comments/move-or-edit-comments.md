@@ -14,7 +14,7 @@ Anyone with can view access to a file can add and view comments.
 
 You and your team can [add comments](https://help.figma.com/hc/en-us/articles/360041068574) to the canvas or to specific frames and layers in files and prototypes. Figma displays comments right where you added them on the canvas.
 
-[View and reply to comments](https://help.figma.com/hc/en-us/articles/360041547593) from their location in the canvas, or from the right sidebar. To add or manage comments, click  in the toolbar or press `C`.
+[View and reply to comments](https://help.figma.com/hc/en-us/articles/360041547593) from their location in the canvas, or from the right sidebar. To add or manage comments, click in the toolbar or press `C`.
 
 Note: You can't edit layers or layer properties in the canvas when adding comments. Press `Esc` or select another tool in the toolbar to continue editing a file.
 
@@ -23,9 +23,9 @@ Note: You can't edit layers or layer properties in the canvas when adding commen
 You can edit the content of any comment you've posted. This is handy if you've noticed a typo, want to add a clarification, or [mention a collaborator](https://help.figma.com/hc/en-us/articles/360041068574).
 
 1. Select the comment in the canvas, or from the right sidebar in comment mode.
-2. Click  to open the comment menu.
+2. Click to open the comment menu.
 3. Select the **Edit...** option to edit the content of your comment.
-4. Click **Save** to apply your changes or  to exit and discard.
+4. Click **Save** to apply your changes or to exit and discard.
 
 ## Change comment location
 

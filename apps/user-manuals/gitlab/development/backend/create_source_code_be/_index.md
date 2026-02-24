@@ -5,8 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Source Code Management
 ---
 
-The Source Code Management team is responsible for all backend aspects of the product categories
-that fall under the [Source Code group](https://handbook.gitlab.com/handbook/product/categories/#source-code-group)
+The Source Code Management team is responsible for all backend aspects of the product categories that fall under the [Source Code group](https://handbook.gitlab.com/handbook/product/categories/#source-code-group)
 of the [Create stage](https://handbook.gitlab.com/handbook/product/categories/#create-stage)
 of the [DevOps lifecycle](https://handbook.gitlab.com/handbook/product/categories/#devops-stages).
 
@@ -14,8 +13,7 @@ The Source Code Management team interfaces with the Gitaly and Code Review teams
 
 ## Source Code Features Reference
 
-Features owned by the Source Code Management group are listed on the
-[Features by Group Page](https://handbook.gitlab.com/handbook/product/categories/features/#create-source-code-group).
+Features owned by the Source Code Management group are listed on the [Features by Group Page](https://handbook.gitlab.com/handbook/product/categories/features/#create-source-code-group).
 
 ### Code Owners
 
@@ -56,8 +54,7 @@ Details about Protected Branches models can be found in the [Code Owners](../../
 
 [Gitaly](../../../administration/gitaly/_index.md) provides high-level RPC access to Git repositories.
 It is present in every GitLab installation and coordinates Git repository storage and retrieval.
-Gitaly implements a client-server architecture with Gitaly as the server and Gitaly clients, also
-known as _Gitaly consumers_, including:
+Gitaly implements a client-server architecture with Gitaly as the server and Gitaly clients, also known as _Gitaly consumers_, including:
 
 - GitLab Rails
 - GitLab Shell
@@ -67,22 +64,17 @@ Gitaly Rails provides API endpoints that are counterparts of Gitaly RPCs. For mo
 
 ### Annotated Rails Source Code
 
-The `:source_code_management` annotation indicates which code belongs to the Source Code Management
-group in the Rails codebase. The annotated objects are presented the [Source Code owned objects](https://gitlab-com.gitlab.io/gl-infra/platform/stage-groups-index/source-code.html) page, along
-with the [Error Budgets dashboards](https://dashboards.gitlab.net/d/stage-groups-source_code/stage-groups3a-source-code3a-group-dashboard?orgId=1).
+The `:source_code_management` annotation indicates which code belongs to the Source Code Management group in the Rails codebase. The annotated objects are presented the [Source Code owned objects](https://gitlab-com.gitlab.io/gl-infra/platform/stage-groups-index/source-code.html) page, along with the [Error Budgets dashboards](https://dashboards.gitlab.net/d/stage-groups-source_code/stage-groups3a-source-code3a-group-dashboard?orgId=1).
 
 ## GitLab Workhorse
 
-[GitLab Workhorse](../../workhorse/_index.md) is a smart reverse proxy for GitLab. It handles "large" HTTP
-requests such as file downloads, file uploads, `git push`, `git pull` and `git` archive downloads.
+[GitLab Workhorse](../../workhorse/_index.md) is a smart reverse proxy for GitLab. It handles "large" HTTP requests such as file downloads, file uploads, `git push`, `git pull` and `git` archive downloads.
 
-Workhorse itself is not a feature, but there are several features in GitLab
-that would not work efficiently without Workhorse.
+Workhorse itself is not a feature, but there are several features in GitLab that would not work efficiently without Workhorse.
 
 ## GitLab Shell
 
 GitLab Shell handles Git SSH sessions for GitLab and modifies the list of authorized keys.
 For more information, refer to the [GitLab Shell documentation](../../gitlab_shell/_index.md).
 
-To learn about the reasoning behind our creation of `gitlab-sshd`, read the blog post
-[Why we implemented our own SSHD solution](https://about.gitlab.com/blog/2022/08/17/why-we-have-implemented-our-own-sshd-solution-on-gitlab-sass/).
+To learn about the reasoning behind our creation of `gitlab-sshd`, read the blog post [Why we implemented our own SSHD solution](https://about.gitlab.com/blog/2022/08/17/why-we-have-implemented-our-own-sshd-solution-on-gitlab-sass/).

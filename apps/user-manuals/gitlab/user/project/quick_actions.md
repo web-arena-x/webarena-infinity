@@ -35,20 +35,16 @@ Many quick actions accept parameters, which you can enter with quotation marks (
 
 ## Parameters
 
-Many quick actions require a parameter. For example, the `/assign` quick action
-requires a username. GitLab uses [autocomplete characters](autocomplete_characters.md)
-with quick actions to help users enter parameters, by providing a list of
-available values.
+Many quick actions require a parameter. For example, the `/assign` quick action requires a username. GitLab uses [autocomplete characters](autocomplete_characters.md)
+with quick actions to help users enter parameters, by providing a list of available values.
 
-If you manually enter a parameter, it must be enclosed in double quotation marks
-(`"`), unless it contains only these characters:
+If you manually enter a parameter, it must be enclosed in double quotation marks (`"`), unless it contains only these characters:
 
 - ASCII letters
 - Numbers (0-9)
 - Underscore (`_`), hyphen (`-`), question mark (`?`), dot (`.`), ampersand (`&`) or at (`@`)
 
-Parameters are case-sensitive. Autocomplete handles this, and the insertion
-of quotation marks, automatically.
+Parameters are case-sensitive. Autocomplete handles this, and the insertion of quotation marks, automatically.
 
 ## Quick actions
 
@@ -59,8 +55,7 @@ of quotation marks, automatically.
 
 {{< /history >}}
 
-The following quick actions are applicable to descriptions, discussions, and
-threads. Some quick actions might not be available to all subscription tiers.
+The following quick actions are applicable to descriptions, discussions, and threads. Some quick actions might not be available to all subscription tiers.
 
 ### `add_child`
 
@@ -75,27 +70,27 @@ Add one or more items as child items.
 **Parameters**:
 
 - `<item>`: The item to add as a child. The value should be in the format of `#item`, `group/project#item`, or a URL to the item.
-  Multiple work items can be added as child items at the same time.
+ Multiple work items can be added as child items at the same time.
 
 **Examples**:
 
 - Add a single child item:
 
-  ```plaintext
-  /add_child #123
-  ```
+ ```plaintext
+ /add_child #123
+ ```
 
 - Add multiple child items:
 
-  ```plaintext
-  /add_child #123 #456 group/project#789
-  ```
+ ```plaintext
+ /add_child #123 #456 group/project#789
+ ```
 
 - Add a child item using a URL:
 
-  ```plaintext
-  /add_child https://gitlab.com/group/project/-/work_items/123
-  ```
+ ```plaintext
+ /add_child https://gitlab.com/group/project/-/work_items/123
+ ```
 
 ### `add_contacts`
 
@@ -113,15 +108,15 @@ Add one or more active CRM contacts.
 
 - Add a single contact:
 
-  ```plaintext
-  /add_contacts [contact:alex@example.com]
-  ```
+ ```plaintext
+ /add_contacts [contact:alex@example.com]
+ ```
 
 - Add multiple contacts:
 
-  ```plaintext
-  /add_contacts [contact:alex@example.com] [contact:sam@example.com]
-  ```
+ ```plaintext
+ /add_contacts [contact:alex@example.com] [contact:sam@example.com]
+ ```
 
 **Additional details**:
 
@@ -156,15 +151,15 @@ The availability of this feature is controlled by a feature flag. For more infor
 
 - Add a single email participant:
 
-  ```plaintext
-  /add_email alex@example.com
-  ```
+ ```plaintext
+ /add_email alex@example.com
+ ```
 
 - Add multiple email participants:
 
-  ```plaintext
-  /add_email alex@example.com sam@example.com
-  ```
+ ```plaintext
+ /add_email alex@example.com sam@example.com
+ ```
 
 **Additional details**:
 
@@ -183,9 +178,9 @@ Approve the merge request.
 
 - Approve a merge request:
 
-  ```plaintext
-  /approve
-  ```
+ ```plaintext
+ /approve
+ ```
 
 **Additional details**:
 
@@ -220,21 +215,21 @@ Assign one or more users to the work item.
 
 - Assign a single user:
 
-  ```plaintext
-  /assign @alex
-  ```
+ ```plaintext
+ /assign @alex
+ ```
 
 - Assign multiple users:
 
-  ```plaintext
-  /assign @alex @sam
-  ```
+ ```plaintext
+ /assign @alex @sam
+ ```
 
 - Assign yourself:
 
-  ```plaintext
-  /assign me
-  ```
+ ```plaintext
+ /assign me
+ ```
 
 **Additional details**:
 
@@ -259,21 +254,21 @@ Assign one or more users as reviewers.
 
 - Assign a single reviewer:
 
-  ```plaintext
-  /assign_reviewer @alex
-  ```
+ ```plaintext
+ /assign_reviewer @alex
+ ```
 
 - Assign multiple reviewers:
 
-  ```plaintext
-  /assign_reviewer @alex @sam
-  ```
+ ```plaintext
+ /assign_reviewer @alex @sam
+ ```
 
 - Assign yourself as a reviewer:
 
-  ```plaintext
-  /assign_reviewer me
-  ```
+ ```plaintext
+ /assign_reviewer me
+ ```
 
 **Additional details**:
 
@@ -306,15 +301,15 @@ Toggle an emoji reaction.
 
 - Toggle a thumbs up reaction:
 
-  ```plaintext
-  /award :thumbsup:
-  ```
+ ```plaintext
+ /award :thumbsup:
+ ```
 
 - Toggle a heart reaction:
 
-  ```plaintext
-  /award :heart:
-  ```
+ ```plaintext
+ /award :heart:
+ ```
 
 **Additional details**:
 
@@ -345,21 +340,21 @@ Mark the item as blocked by other items.
 
 - Mark as blocked by a single item:
 
-  ```plaintext
-  /blocked_by #123
-  ```
+ ```plaintext
+ /blocked_by #123
+ ```
 
 - Mark as blocked by multiple items:
 
-  ```plaintext
-  /blocked_by #123 group/project#456
-  ```
+ ```plaintext
+ /blocked_by #123 group/project#456
+ ```
 
 - Mark as blocked by an item using a URL:
 
-  ```plaintext
-  /blocked_by https://gitlab.com/group/project/-/work_items/123
-  ```
+ ```plaintext
+ /blocked_by https://gitlab.com/group/project/-/work_items/123
+ ```
 
 **Additional details**:
 
@@ -390,21 +385,21 @@ Mark the item as blocking other items.
 
 - Mark as blocking a single item:
 
-  ```plaintext
-  /blocks #123
-  ```
+ ```plaintext
+ /blocks #123
+ ```
 
 - Mark as blocking multiple items:
 
-  ```plaintext
-  /blocks #123 group/project#456
-  ```
+ ```plaintext
+ /blocks #123 group/project#456
+ ```
 
 - Mark as blocking an item using a URL:
 
-  ```plaintext
-  /blocks https://gitlab.com/group/project/-/work_items/123
-  ```
+ ```plaintext
+ /blocks https://gitlab.com/group/project/-/work_items/123
+ ```
 
 **Additional details**:
 
@@ -427,9 +422,9 @@ Move issue to a column on the board.
 
 - Move to a column:
 
-  ```plaintext
-  /board_move ~"In Progress"
-  ```
+ ```plaintext
+ /board_move ~"In Progress"
+ ```
 
 **Additional details**:
 
@@ -458,24 +453,24 @@ The availability of this feature is controlled by a feature flag. For more infor
 **Parameters**:
 
 - `<cadence>`: The reminder cadence. Options are:
-  - `weekly`
-  - `twice-monthly`
-  - `monthly`
-  - `never` (default)
+ - `weekly`
+ - `twice-monthly`
+ - `monthly`
+ - `never` (default)
 
 **Examples**:
 
 - Set weekly reminders:
 
-  ```plaintext
-  /checkin_reminder weekly
-  ```
+ ```plaintext
+ /checkin_reminder weekly
+ ```
 
 - Disable reminders:
 
-  ```plaintext
-  /checkin_reminder never
-  ```
+ ```plaintext
+ /checkin_reminder never
+ ```
 
 **Additional details**:
 
@@ -497,9 +492,9 @@ Clear the health status.
 
 - Clear health status:
 
-  ```plaintext
-  /clear_health_status
-  ```
+ ```plaintext
+ /clear_health_status
+ ```
 
 **Additional details**:
 
@@ -518,9 +513,9 @@ Clear the weight.
 
 - Clear weight:
 
-  ```plaintext
-  /clear_weight
-  ```
+ ```plaintext
+ /clear_weight
+ ```
 
 ### `clone`
 
@@ -541,21 +536,21 @@ Clone the work item to a given group or project.
 
 - Clone to another project:
 
-  ```plaintext
-  /clone group/project
-  ```
+ ```plaintext
+ /clone group/project
+ ```
 
 - Clone to the current project:
 
-  ```plaintext
-  /clone
-  ```
+ ```plaintext
+ /clone
+ ```
 
 - Clone with notes:
 
-  ```plaintext
-  /clone group/project --with_notes
-  ```
+ ```plaintext
+ /clone group/project --with_notes
+ ```
 
 **Additional details**:
 
@@ -580,9 +575,9 @@ Close the work item.
 
 - Close a work item:
 
-  ```plaintext
-  /close
-  ```
+ ```plaintext
+ /close
+ ```
 
 **Additional details**:
 
@@ -611,15 +606,13 @@ Mark the work item as confidential.
 
 - Mark as confidential:
 
-  ```plaintext
-  /confidential
-  ```
+ ```plaintext
+ /confidential
+ ```
 
 **Additional details**:
 
-- For more information, see [who can see confidential issues](issues/confidential_issues.md#who-can-see-confidential-issues),
-  [OKRs](../okrs.md#who-can-see-confidential-okrs), or
-  [tasks](../tasks.md#who-can-see-confidential-tasks).
+- For more information, see [who can see confidential issues](issues/confidential_issues.md#who-can-see-confidential-issues), [OKRs](../okrs.md#who-can-see-confidential-okrs), or [tasks](../tasks.md#who-can-see-confidential-tasks).
 - To make an item not confidential, in the upper-right corner, select **More actions** ({{< icon name="ellipsis_v" >}}) and then **Turn off confidentiality**.
 
 ### `convert_to_ticket`
@@ -645,9 +638,9 @@ Convert an issue into a Service Desk ticket.
 
 - Convert to a ticket:
 
-  ```plaintext
-  /convert_to_ticket user@example.com
-  ```
+ ```plaintext
+ /convert_to_ticket user@example.com
+ ```
 
 **Additional details**:
 
@@ -681,21 +674,21 @@ Copy labels and milestone from another item.
 
 - Copy metadata from an issue:
 
-  ```plaintext
-  /copy_metadata #123
-  ```
+ ```plaintext
+ /copy_metadata #123
+ ```
 
 - Copy metadata from a merge request:
 
-  ```plaintext
-  /copy_metadata !456
-  ```
+ ```plaintext
+ /copy_metadata !456
+ ```
 
 - Copy metadata from a work item using a URL:
 
-  ```plaintext
-  /copy_metadata https://gitlab.com/group/project/-/work_items/123
-  ```
+ ```plaintext
+ /copy_metadata https://gitlab.com/group/project/-/work_items/123
+ ```
 
 **Additional details**:
 
@@ -719,9 +712,9 @@ Create a new merge request starting from the current issue.
 
 - Create a merge request:
 
-  ```plaintext
-  /create_merge_request fix-bug-123
-  ```
+ ```plaintext
+ /create_merge_request fix-bug-123
+ ```
 
 ### `done`
 
@@ -747,9 +740,9 @@ Mark a to-do item as done.
 
 - Mark to-do as done:
 
-  ```plaintext
-  /done
-  ```
+ ```plaintext
+ /done
+ ```
 
 ### `draft`
 
@@ -763,9 +756,9 @@ Set the draft status of a merge request.
 
 - Mark as draft:
 
-  ```plaintext
-  /draft
-  ```
+ ```plaintext
+ /draft
+ ```
 
 **Additional details**:
 
@@ -791,21 +784,21 @@ Set the due date.
 
 - Set due date to a specific date:
 
-  ```plaintext
-  /due December 31st
-  ```
+ ```plaintext
+ /due December 31st
+ ```
 
 - Set due date relative to today:
 
-  ```plaintext
-  /due in 2 days
-  ```
+ ```plaintext
+ /due in 2 days
+ ```
 
 - Set due date to next Friday:
 
-  ```plaintext
-  /due this Friday
-  ```
+ ```plaintext
+ /due this Friday
+ ```
 
 **Additional details**:
 
@@ -830,15 +823,15 @@ Close this item and mark as related to, and a duplicate of, another item.
 
 - Mark as duplicate:
 
-  ```plaintext
-  /duplicate #123
-  ```
+ ```plaintext
+ /duplicate #123
+ ```
 
 - Mark as duplicate using a URL:
 
-  ```plaintext
-  /duplicate https://gitlab.com/group/project/-/work_items/123
-  ```
+ ```plaintext
+ /duplicate https://gitlab.com/group/project/-/work_items/123
+ ```
 
 ### `epic`
 
@@ -857,21 +850,21 @@ Add to an epic as a child item.
 
 - Add to an epic by reference:
 
-  ```plaintext
-  /epic &123
-  ```
+ ```plaintext
+ /epic &123
+ ```
 
 - Add to an epic by group and reference:
 
-  ```plaintext
-  /epic group&456
-  ```
+ ```plaintext
+ /epic group&456
+ ```
 
 - Add to an epic using a URL:
 
-  ```plaintext
-  /epic https://gitlab.com/groups/group/-/epics/123
-  ```
+ ```plaintext
+ /epic https://gitlab.com/groups/group/-/epics/123
+ ```
 
 **Additional details**:
 
@@ -896,15 +889,15 @@ Set the time estimate.
 
 - Set time estimate:
 
-  ```plaintext
-  /estimate 1mo 2w 3d 4h 5m
-  ```
+ ```plaintext
+ /estimate 1mo 2w 3d 4h 5m
+ ```
 
 - Set time estimate in hours:
 
-  ```plaintext
-  /estimate 8h
-  ```
+ ```plaintext
+ /estimate 8h
+ ```
 
 **Additional details**:
 
@@ -932,21 +925,21 @@ Set the health status.
 
 - Set health status to on track:
 
-  ```plaintext
-  /health_status on_track
-  ```
+ ```plaintext
+ /health_status on_track
+ ```
 
 - Set health status to needs attention:
 
-  ```plaintext
-  /health_status needs_attention
-  ```
+ ```plaintext
+ /health_status needs_attention
+ ```
 
 - Set health status to at risk:
 
-  ```plaintext
-  /health_status at_risk
-  ```
+ ```plaintext
+ /health_status at_risk
+ ```
 
 **Additional details**:
 
@@ -977,21 +970,21 @@ Set the iteration.
 
 - Set to a specific iteration by name:
 
-  ```plaintext
-  /iteration *iteration:"Late in July"
-  ```
+ ```plaintext
+ /iteration *iteration:"Late in July"
+ ```
 
 - Set to current iteration of a cadence:
 
-  ```plaintext
-  /iteration [cadence:"Team cadence"] --current
-  ```
+ ```plaintext
+ /iteration [cadence:"Team cadence"] --current
+ ```
 
 - Set to next iteration when group has one cadence:
 
-  ```plaintext
-  /iteration --next
-  ```
+ ```plaintext
+ /iteration --next
+ ```
 
 **Additional details**:
 
@@ -1014,27 +1007,27 @@ Add one or more labels.
 **Parameters**:
 
 - `~label1 ~label2`: One or more label names.
-  Label names can also start without a tilde (`~`), but mixed syntax is not supported.
+ Label names can also start without a tilde (`~`), but mixed syntax is not supported.
 
 **Examples**:
 
 - Add a single label:
 
-  ```plaintext
-  /label ~bug
-  ```
+ ```plaintext
+ /label ~bug
+ ```
 
 - Add multiple labels:
 
-  ```plaintext
-  /label ~bug ~"high priority"
-  ```
+ ```plaintext
+ /label ~bug ~"high priority"
+ ```
 
 - Add labels without tilde:
 
-  ```plaintext
-  /label bug "high priority"
-  ```
+ ```plaintext
+ /label bug "high priority"
+ ```
 
 **Additional details**:
 
@@ -1055,9 +1048,9 @@ Add a link and description to linked resources in an incident.
 
 - Add a linked resource:
 
-  ```plaintext
-  /link
-  ```
+ ```plaintext
+ /link
+ ```
 
 **Additional details**:
 
@@ -1078,9 +1071,9 @@ Lock the discussions.
 
 - Lock discussions:
 
-  ```plaintext
-  /lock
-  ```
+ ```plaintext
+ /lock
+ ```
 
 **Additional details**:
 
@@ -1098,9 +1091,9 @@ Merge the changes.
 
 - Merge the merge request:
 
-  ```plaintext
-  /merge
-  ```
+ ```plaintext
+ /merge
+ ```
 
 **Additional details**:
 
@@ -1132,9 +1125,9 @@ Set the milestone.
 
 - Set milestone:
 
-  ```plaintext
-  /milestone %"Sprint 1"
-  ```
+ ```plaintext
+ /milestone %"Sprint 1"
+ ```
 
 **Additional details**:
 
@@ -1158,14 +1151,14 @@ Move the work item to another group or project.
 
 - Move to another project:
 
-  ```plaintext
-  /move group/project
-  ```
+ ```plaintext
+ /move group/project
+ ```
 
 **Additional details**:
 
 - Be careful when moving a work item to a location with different access rules.
-  Before moving the work item, make sure it does not contain sensitive data.
+ Before moving the work item, make sure it does not contain sensitive data.
 
 ### `page`
 
@@ -1183,9 +1176,9 @@ Start escalations for the incident.
 
 - Start escalations:
 
-  ```plaintext
-  /page "On-call policy"
-  ```
+ ```plaintext
+ /page "On-call policy"
+ ```
 
 ### `promote_to`
 
@@ -1206,30 +1199,30 @@ Promote a work item to a specified type.
 **Parameters**:
 
 - `<type>`: The type to promote to. Available options:
-  - `Epic` (for issues)
-  - `Incident` (for issues)
-  - `issue` (for tasks)
-  - `objective` (for key results)
+ - `Epic` (for issues)
+ - `Incident` (for issues)
+ - `issue` (for tasks)
+ - `objective` (for key results)
 
 **Examples**:
 
 - Promote issue to epic:
 
-  ```plaintext
-  /promote_to Epic
-  ```
+ ```plaintext
+ /promote_to Epic
+ ```
 
 - Promote task to issue:
 
-  ```plaintext
-  /promote_to issue
-  ```
+ ```plaintext
+ /promote_to issue
+ ```
 
 - Promote key result to objective:
 
-  ```plaintext
-  /promote_to objective
-  ```
+ ```plaintext
+ /promote_to objective
+ ```
 
 **Additional details**:
 
@@ -1248,9 +1241,9 @@ Promote an issue to an incident.
 
 - Promote to incident:
 
-  ```plaintext
-  /promote_to_incident
-  ```
+ ```plaintext
+ /promote_to_incident
+ ```
 
 **Additional details**:
 
@@ -1268,9 +1261,9 @@ Publish an issue to an associated Status Page.
 
 - Publish to status page:
 
-  ```plaintext
-  /publish
-  ```
+ ```plaintext
+ /publish
+ ```
 
 **Additional details**:
 
@@ -1301,15 +1294,15 @@ Toggle an emoji reaction.
 
 - Toggle a thumbs up reaction:
 
-  ```plaintext
-  /react :thumbsup:
-  ```
+ ```plaintext
+ /react :thumbsup:
+ ```
 
 - Toggle a heart reaction:
 
-  ```plaintext
-  /react :heart:
-  ```
+ ```plaintext
+ /react :heart:
+ ```
 
 **Additional details**:
 
@@ -1327,9 +1320,9 @@ Set the ready status of a merge request.
 
 - Mark as ready:
 
-  ```plaintext
-  /ready
-  ```
+ ```plaintext
+ /ready
+ ```
 
 **Additional details**:
 
@@ -1363,15 +1356,15 @@ Replace current assignees with those specified.
 
 - Reassign to a single user:
 
-  ```plaintext
-  /reassign @alex
-  ```
+ ```plaintext
+ /reassign @alex
+ ```
 
 - Reassign to multiple users:
 
-  ```plaintext
-  /reassign @alex @sam
-  ```
+ ```plaintext
+ /reassign @alex @sam
+ ```
 
 **Additional details**:
 
@@ -1395,15 +1388,15 @@ Replace current reviewers with those specified.
 
 - Reassign to a single reviewer:
 
-  ```plaintext
-  /reassign_reviewer @alex
-  ```
+ ```plaintext
+ /reassign_reviewer @alex
+ ```
 
 - Reassign to multiple reviewers:
 
-  ```plaintext
-  /reassign_reviewer @alex @sam
-  ```
+ ```plaintext
+ /reassign_reviewer @alex @sam
+ ```
 
 **Additional details**:
 
@@ -1422,9 +1415,9 @@ Rebase the source branch on the latest commit of the target branch. If there are
 
 - Rebase the merge request:
 
-  ```plaintext
-  /rebase
-  ```
+ ```plaintext
+ /rebase
+ ```
 
 **Additional details**:
 
@@ -1452,15 +1445,15 @@ Replace current labels with those specified.
 
 - Replace with a single label:
 
-  ```plaintext
-  /relabel ~bug
-  ```
+ ```plaintext
+ /relabel ~bug
+ ```
 
 - Replace with multiple labels:
 
-  ```plaintext
-  /relabel ~bug ~"high priority"
-  ```
+ ```plaintext
+ /relabel ~bug ~"high priority"
+ ```
 
 **Additional details**:
 
@@ -1486,15 +1479,15 @@ Mark items as related.
 
 - Relate to a single item:
 
-  ```plaintext
-  /relate #123
-  ```
+ ```plaintext
+ /relate #123
+ ```
 
 - Relate to multiple items:
 
-  ```plaintext
-  /relate #123 group/project#456
-  ```
+ ```plaintext
+ /relate #123 group/project#456
+ ```
 
 **Additional details**:
 
@@ -1525,15 +1518,15 @@ Remove an item as a child item.
 
 - Remove a child item:
 
-  ```plaintext
-  /remove_child #123
-  ```
+ ```plaintext
+ /remove_child #123
+ ```
 
 - Remove a child item using a URL:
 
-  ```plaintext
-  /remove_child https://gitlab.com/group/project/-/work_items/123
-  ```
+ ```plaintext
+ /remove_child https://gitlab.com/group/project/-/work_items/123
+ ```
 
 ### `remove_contacts`
 
@@ -1551,15 +1544,15 @@ Remove one or more CRM contacts.
 
 - Remove a single contact:
 
-  ```plaintext
-  /remove_contacts [contact:alex@example.com]
-  ```
+ ```plaintext
+ /remove_contacts [contact:alex@example.com]
+ ```
 
 - Remove multiple contacts:
 
-  ```plaintext
-  /remove_contacts [contact:alex@example.com] [contact:sam@example.com]
-  ```
+ ```plaintext
+ /remove_contacts [contact:alex@example.com] [contact:sam@example.com]
+ ```
 
 **Additional details**:
 
@@ -1581,9 +1574,9 @@ Remove the due date.
 
 - Remove due date:
 
-  ```plaintext
-  /remove_due_date
-  ```
+ ```plaintext
+ /remove_due_date
+ ```
 
 **Additional details**:
 
@@ -1618,15 +1611,15 @@ The availability of this feature is controlled by a feature flag. For more infor
 
 - Remove a single email participant:
 
-  ```plaintext
-  /remove_email alex@example.com
-  ```
+ ```plaintext
+ /remove_email alex@example.com
+ ```
 
 - Remove multiple email participants:
 
-  ```plaintext
-  /remove_email alex@example.com sam@example.com
-  ```
+ ```plaintext
+ /remove_email alex@example.com sam@example.com
+ ```
 
 **Additional details**:
 
@@ -1648,9 +1641,9 @@ Remove the time estimate.
 
 - Remove time estimate:
 
-  ```plaintext
-  /remove_estimate
-  ```
+ ```plaintext
+ /remove_estimate
+ ```
 
 **Additional details**:
 
@@ -1670,9 +1663,9 @@ Remove the iteration.
 
 - Remove iteration:
 
-  ```plaintext
-  /remove_iteration
-  ```
+ ```plaintext
+ /remove_iteration
+ ```
 
 **Additional details**:
 
@@ -1699,9 +1692,9 @@ Remove the milestone.
 
 - Remove milestone:
 
-  ```plaintext
-  /remove_milestone
-  ```
+ ```plaintext
+ /remove_milestone
+ ```
 
 **Additional details**:
 
@@ -1728,9 +1721,9 @@ Remove the parent from the item.
 
 - Remove parent:
 
-  ```plaintext
-  /remove_parent
-  ```
+ ```plaintext
+ /remove_parent
+ ```
 
 **Additional details**:
 
@@ -1751,9 +1744,9 @@ Remove time spent.
 
 - Remove time spent:
 
-  ```plaintext
-  /remove_time_spent
-  ```
+ ```plaintext
+ /remove_time_spent
+ ```
 
 **Additional details**:
 
@@ -1771,9 +1764,9 @@ Remove a Zoom meeting from an issue.
 
 - Remove Zoom meeting:
 
-  ```plaintext
-  /remove_zoom
-  ```
+ ```plaintext
+ /remove_zoom
+ ```
 
 **Additional details**:
 
@@ -1797,9 +1790,9 @@ Reopen the work item.
 
 - Reopen a work item:
 
-  ```plaintext
-  /reopen
-  ```
+ ```plaintext
+ /reopen
+ ```
 
 **Additional details**:
 
@@ -1822,21 +1815,21 @@ Assign a reviewer or request a new review from one or more users.
 
 - Request review from a single user:
 
-  ```plaintext
-  /request_review @alex
-  ```
+ ```plaintext
+ /request_review @alex
+ ```
 
 - Request review from multiple users:
 
-  ```plaintext
-  /request_review @alex @sam
-  ```
+ ```plaintext
+ /request_review @alex @sam
+ ```
 
 - Request review from yourself:
 
-  ```plaintext
-  /request_review me
-  ```
+ ```plaintext
+ /request_review me
+ ```
 
 **Additional details**:
 
@@ -1861,9 +1854,9 @@ Run a new pipeline for the merge request.
 
 - Run a new pipeline:
 
-  ```plaintext
+ ```plaintext
     /run_pipeline
-  ```
+ ```
 
 **Additional details**:
 
@@ -1871,10 +1864,10 @@ Run a new pipeline for the merge request.
 - You must have permission to create pipelines for the merge request.
 - You can combine this with other quick actions. For example, to run a pipeline and set auto-merge:
 
-  ```plaintext
+ ```plaintext
     /run_pipeline
     /merge
-  ```
+ ```
 
 ### `set_parent`
 
@@ -1902,15 +1895,15 @@ Set the parent item.
 
 - Set parent by reference:
 
-  ```plaintext
-  /set_parent #123
-  ```
+ ```plaintext
+ /set_parent #123
+ ```
 
 - Set parent using a URL:
 
-  ```plaintext
-  /set_parent https://gitlab.com/group/project/-/work_items/123
-  ```
+ ```plaintext
+ /set_parent https://gitlab.com/group/project/-/work_items/123
+ ```
 
 **Additional details**:
 
@@ -1928,29 +1921,29 @@ Set the severity of an incident.
 **Parameters**:
 
 - `<severity>`: The severity level. Available options:
-  - `S1`
-  - `S2`
-  - `S3`
-  - `S4`
-  - `critical`
-  - `high`
-  - `medium`
-  - `low`
-  - `unknown`
+ - `S1`
+ - `S2`
+ - `S3`
+ - `S4`
+ - `critical`
+ - `high`
+ - `medium`
+ - `low`
+ - `unknown`
 
 **Examples**:
 
 - Set severity to critical:
 
-  ```plaintext
-  /severity critical
-  ```
+ ```plaintext
+ /severity critical
+ ```
 
 - Set severity using S-notation:
 
-  ```plaintext
-  /severity S1
-  ```
+ ```plaintext
+ /severity S1
+ ```
 
 ### `ship`
 
@@ -1976,9 +1969,9 @@ The availability of this feature is controlled by a feature flag. For more infor
 
 - Ship the merge request:
 
-  ```plaintext
-  /ship
-  ```
+ ```plaintext
+ /ship
+ ```
 
 **Additional details**:
 
@@ -2003,9 +1996,9 @@ Add `¯\_(ツ)_/¯` to the comment.
 
 - Add shrug:
 
-  ```plaintext
-  /shrug
-  ```
+ ```plaintext
+ /shrug
+ ```
 
 ### `spend`
 
@@ -2027,21 +2020,21 @@ Add or subtract spent time.
 
 - Add spent time:
 
-  ```plaintext
-  /spend 1mo 2w 3d 4h 5m
-  ```
+ ```plaintext
+ /spend 1mo 2w 3d 4h 5m
+ ```
 
 - Subtract spent time:
 
-  ```plaintext
-  /spend -1h 30m
-  ```
+ ```plaintext
+ /spend -1h 30m
+ ```
 
 - Add spent time on a specific date:
 
-  ```plaintext
-  /spend 1mo 2w 3d 4h 5m 2018-08-26
-  ```
+ ```plaintext
+ /spend 1mo 2w 3d 4h 5m 2018-08-26
+ ```
 
 **Additional details**:
 
@@ -2066,9 +2059,9 @@ Set the status.
 
 - Set status:
 
-  ```plaintext
-  /status "In Progress"
-  ```
+ ```plaintext
+ /status "In Progress"
+ ```
 
 **Additional details**:
 
@@ -2086,25 +2079,25 @@ Submit a pending [review](merge_requests/reviews/_index.md#submit-a-review).
 
 - Submit review:
 
-  ```plaintext
-  /submit_review
-  ```
+ ```plaintext
+ /submit_review
+ ```
 
-  ```plaintext
-  /submit_review reviewed
-  ```
+ ```plaintext
+ /submit_review reviewed
+ ```
 
 - Submit review and approve:
 
-  ```plaintext
-  /submit_review approve
-  ```
+ ```plaintext
+ /submit_review approve
+ ```
 
 - Submit review and [request changes](merge_requests/reviews/_index.md#prevent-merge-when-you-request-changes):
 
-  ```plaintext
-  /submit_review requested_changes
-  ```
+ ```plaintext
+ /submit_review requested_changes
+ ```
 
 ### `subscribe`
 
@@ -2130,9 +2123,9 @@ Subscribe to notifications for a work item.
 
 - Subscribe to notifications:
 
-  ```plaintext
-  /subscribe
-  ```
+ ```plaintext
+ /subscribe
+ ```
 
 **Additional details**:
 
@@ -2156,9 +2149,9 @@ Add `(╯°□°)╯︵ ┻━┻` to the comment.
 
 - Add tableflip:
 
-  ```plaintext
-  /tableflip
-  ```
+ ```plaintext
+ /tableflip
+ ```
 
 ### `target_branch`
 
@@ -2176,9 +2169,9 @@ Set the target branch of a merge request.
 
 - Set target branch:
 
-  ```plaintext
-  /target_branch main
-  ```
+ ```plaintext
+ /target_branch main
+ ```
 
 ### `timeline`
 
@@ -2196,9 +2189,9 @@ Add a timeline event to an incident.
 
 - Add a timeline event:
 
-  ```plaintext
-  /timeline DB load spiked | 2022-09-07 09:30
-  ```
+ ```plaintext
+ /timeline DB load spiked | 2022-09-07 09:30
+ ```
 
 ### `title`
 
@@ -2222,9 +2215,9 @@ Change the title.
 
 - Change title:
 
-  ```plaintext
-  /title New title for this item
-  ```
+ ```plaintext
+ /title New title for this item
+ ```
 
 ### `todo`
 
@@ -2250,9 +2243,9 @@ Add a to-do item for yourself.
 
 - Add to-do:
 
-  ```plaintext
-  /todo
-  ```
+ ```plaintext
+ /todo
+ ```
 
 ### `type`
 
@@ -2274,24 +2267,24 @@ Convert a work item to a specified type.
 **Parameters**:
 
 - `<type>`: The type to convert to. Available options:
-  - `issue`
-  - `task`
-  - `objective`
-  - `key result`
+ - `issue`
+ - `task`
+ - `objective`
+ - `key result`
 
 **Examples**:
 
 - Convert to issue:
 
-  ```plaintext
-  /type issue
-  ```
+ ```plaintext
+ /type issue
+ ```
 
 - Convert to task:
 
-  ```plaintext
-  /type task
-  ```
+ ```plaintext
+ /type task
+ ```
 
 **Additional details**:
 
@@ -2309,9 +2302,9 @@ Unapprove the merge request.
 
 - Unapprove a merge request:
 
-  ```plaintext
-  /unapprove
-  ```
+ ```plaintext
+ /unapprove
+ ```
 
 **Additional details**:
 
@@ -2340,21 +2333,21 @@ Remove assignees.
 **Parameters**:
 
 - `@user1 @user2`: Optional. One or more usernames to unassign.
-  If not provided, removes all assignees.
+ If not provided, removes all assignees.
 
 **Examples**:
 
 - Remove specific assignees:
 
-  ```plaintext
-  /unassign @alex @sam
-  ```
+ ```plaintext
+ /unassign @alex @sam
+ ```
 
 - Remove all assignees:
 
-  ```plaintext
-  /unassign
-  ```
+ ```plaintext
+ /unassign
+ ```
 
 **Additional details**:
 
@@ -2378,21 +2371,21 @@ Remove reviewers.
 
 - Remove specific reviewers:
 
-  ```plaintext
-  /unassign_reviewer @alex @sam
-  ```
+ ```plaintext
+ /unassign_reviewer @alex @sam
+ ```
 
 - Remove yourself as a reviewer:
 
-  ```plaintext
-  /unassign_reviewer me
-  ```
+ ```plaintext
+ /unassign_reviewer me
+ ```
 
 - Remove all reviewers:
 
-  ```plaintext
-  /unassign_reviewer
-  ```
+ ```plaintext
+ /unassign_reviewer
+ ```
 
 **Additional details**:
 
@@ -2422,15 +2415,15 @@ Remove labels.
 
 - Remove specific labels:
 
-  ```plaintext
-  /unlabel ~bug ~"high priority"
-  ```
+ ```plaintext
+ /unlabel ~bug ~"high priority"
+ ```
 
 - Remove all labels:
 
-  ```plaintext
-  /unlabel
-  ```
+ ```plaintext
+ /unlabel
+ ```
 
 **Additional details**:
 
@@ -2467,15 +2460,15 @@ Remove a link to another item.
 
 - Unlink an item:
 
-  ```plaintext
-  /unlink #123
-  ```
+ ```plaintext
+ /unlink #123
+ ```
 
 - Unlink an item using a URL:
 
-  ```plaintext
-  /unlink https://gitlab.com/group/project/-/work_items/123
-  ```
+ ```plaintext
+ /unlink https://gitlab.com/group/project/-/work_items/123
+ ```
 
 **Additional details**:
 
@@ -2495,9 +2488,9 @@ Unlock the discussions.
 
 - Unlock discussions:
 
-  ```plaintext
-  /unlock
-  ```
+ ```plaintext
+ /unlock
+ ```
 
 **Additional details**:
 
@@ -2527,9 +2520,9 @@ Unsubscribe from notifications for a work item.
 
 - Unsubscribe from notifications:
 
-  ```plaintext
-  /unsubscribe
-  ```
+ ```plaintext
+ /unsubscribe
+ ```
 
 **Additional details**:
 
@@ -2552,9 +2545,9 @@ Set the weight.
 
 - Set weight:
 
-  ```plaintext
-  /weight 3
-  ```
+ ```plaintext
+ /weight 3
+ ```
 
 ### `zoom`
 
@@ -2573,9 +2566,9 @@ Add a Zoom meeting to an issue or incident.
 
 - Add a Zoom meeting:
 
-  ```plaintext
-  /zoom https://zoom.us/j/123456789
-  ```
+ ```plaintext
+ /zoom https://zoom.us/j/123456789
+ ```
 
 **Additional details**:
 
@@ -2584,13 +2577,11 @@ Add a Zoom meeting to an issue or incident.
 
 ## Commit comments
 
-You can use quick actions when commenting on individual commits. These quick actions work only in
-commit comment threads, not in commit messages or other GitLab contexts.
+You can use quick actions when commenting on individual commits. These quick actions work only in commit comment threads, not in commit messages or other GitLab contexts.
 
 To use quick actions in commit comments:
 
-1. Go to a commit page by selecting a commit from the commits list, merge request,
-   or other commit links.
+1. Go to a commit page by selecting a commit from the commits list, merge request, or other commit links.
 1. In the comment form at the bottom of the commit page, enter your quick action.
 1. Select **Comment**.
 
@@ -2609,23 +2600,20 @@ Create a Git tag pointing to the commented commit.
 
 - Create a tag with a message:
 
-  ```plaintext
-  Ready for release after security fix.
-  /tag v2.1.1 Security patch release
-  ```
+ ```plaintext
+ Ready for release after security fix.
+ /tag v2.1.1 Security patch release
+ ```
 
-  This comment creates a Git tag named `v2.1.1` pointing to the commit, with the
-  message "Security patch release".
+ This comment creates a Git tag named `v2.1.1` pointing to the commit, with the message "Security patch release".
 
 ## Troubleshooting
 
 ### Quick action isn't executed
 
-If you run a quick action, but nothing happens, check if the quick action appears in the autocomplete
-box as you type it.
+If you run a quick action, but nothing happens, check if the quick action appears in the autocomplete box as you type it.
 If it doesn't, it's possible that:
 
-- The feature related to the quick action isn't available to you based on your subscription tier or
-  user role for the group or project.
+- The feature related to the quick action isn't available to you based on your subscription tier or user role for the group or project.
 - A required condition for the quick action isn't met.
-  For example, you're running `/unlabel` on an issue without any labels.
+ For example, you're running `/unlabel` on an issue without any labels.

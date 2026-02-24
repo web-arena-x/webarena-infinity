@@ -223,17 +223,13 @@ Quick intakeContact's page
 
 See below for key details of unfamiliar fields in the Clio Grow matter form:
 
-Matter Type
-:   This is similar to Clio Manage practice areas. It refers to the type of matter. Learn more about adding, editing, and deleting matter types [below](#h_01GNFF64076CZXM5RD0G9125HT)**.**
+Matter Type :   This is similar to Clio Manage practice areas. It refers to the type of matter. Learn more about adding, editing, and deleting matter types [below](#h_01GNFF64076CZXM5RD0G9125HT)**.**
 
-Matter Status
-:   This refers to the current status of a matter. Learn more about matter statuses [here](https://help.clio.com/hc/en-us/articles/9286056633115).
+Matter Status :   This refers to the current status of a matter. Learn more about matter statuses [here](https://help.clio.com/hc/en-us/articles/9286056633115).
 
-Location
-:   This can be used to keep track of the trial location or location of the incident. You can add and edit locations by going to **Settings** > **Matters**.
+Location :   This can be used to keep track of the trial location or location of the incident. You can add and edit locations by going to **Settings** > **Matters**.
 
-Value
-:   This refers to the anticipated total legal fees to be earned.
+Value :   This refers to the anticipated total legal fees to be earned.
 
 ## Create and manage practice areas and matter types
 

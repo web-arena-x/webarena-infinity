@@ -8,7 +8,7 @@ If you need to withdraw an application on behalf of a student, it's important to
 
 - Applications in Handshake can be withdrawn anytime by either the student or Career Services.
 - If an employer is using an external apply link, students will not be able to withdraw the application in Handshake and may reach out to your team for assistance.
-  - **Note**: withdrawing the application in Handshake does not impact the external application, if the student completed that step as well. If it was completed, the student or you should reach out to the employer to request withdrawal.
+ - **Note**: withdrawing the application in Handshake does not impact the external application, if the student completed that step as well. If it was completed, the student or you should reach out to the employer to request withdrawal.
 - If the employer is using our Greenhouse integration, no one will be able to withdraw the application in Handshake, and the student will need to reach out to the employer directly to have the application withdrawn. This applies for any ATS (e.g. Workday, ICIMS).
 
 To withdraw an application in Handshake, follow the steps below.

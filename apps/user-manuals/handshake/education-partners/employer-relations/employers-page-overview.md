@@ -11,12 +11,12 @@ To access this page, click **Employers** on the left navigation menu.
 The Employers page consists of three tabs:
 
 - **Search**
-  - Find any employer using the search function or utilize the discovery prompts and favorites to locate an employer.
-  - Learn more in Employer Search Page
+ - Find any employer using the search function or utilize the discovery prompts and favorites to locate an employer.
+ - Learn more in Employer Search Page
 - **[Your institution]'s network**
-  - Includes all approved and declined employers with your institution
+ - Includes all approved and declined employers with your institution
 - **All Employers**
-  - Includes all employers on Handshake
+ - Includes all employers on Handshake
 
 Below are all the actions you can take from the page to help you make the most of this section in Handshake.
 
@@ -99,8 +99,8 @@ If the user does not have a *Contact* designation, the three dots will open a me
 
 #### Jobs tab
 
-This tab is helpful for jobs that are posted to your school!   
-  
+This tab is helpful for jobs that are posted to your school!  
+ 
 First, you'll notice the insights information about job postings. This information is relevant for the last 365 days Here, you'll have access to:
 
 - **Job posts:** Active job posts, the average amount of days they've been posted on Handshake, when the first and latest jobs have been posted
@@ -146,7 +146,7 @@ The Fairs tab includes insights at the top of the page. This information is rele
 
 - **Fairs attended:**The number of fairs this employer attended.
 - **Total fair revenue:** The accumulation of the amount of money this employer spent while registering for fairs.
-  - **Note:**Selecting this will show the annual revenue trend over the last 5 years
+ - **Note:**Selecting this will show the annual revenue trend over the last 5 years
 - **Booth check-ins:** How many times students have checked-in to this employer's booth.
 - **Fair types attended:** A chart showing which fair types that this employer attended. Virtual or in-person.
 - **Most common major of attendees:** Lists the top 5 most common majors of student attendees.
@@ -173,7 +173,7 @@ The remainder of the overview sections are outlined below:
 
 - About: The description used for this company
 - Recent notes: The latest notes will be provided. You can add a new note by selecting **Add note**
-  - **Add note**: If selected, you can update visibility options and reminder notifications. Type in your note and include an attachment before clicking **Add**.  
+ - **Add note**: If selected, you can update visibility options and reminder notifications. Type in your note and include an attachment before clicking **Add**. 
     ![Add note pop up box.png](https://support.joinhandshake.com/hc/article_attachments/25995548879383)
 - Active jobs: Active job postings will be listed. Select **View all jobs** to view more
 - Events: If the employer has upcoming events, they will be listed here. Select **View all events** to view more
@@ -181,14 +181,14 @@ The remainder of the overview sections are outlined below:
 - Interview schedules: If the employer has upcoming interview schedules, they will be listed here. Select **View all interview schedules** to view more
 - Collections: If the employer is assigned to specific employer collections, they will be listed here.
 - Account information
-  - Status: Whether this employer is pending approval, approved, or declined
-  - Assigned to: If the employer is assigned to a career services staff member, their name will appear here
-  - Employer permissions: The permissions provided to this employer by your institution
-  - Auto approvals: The permissions that are auto approved for this employer by your institution
+ - Status: Whether this employer is pending approval, approved, or declined
+ - Assigned to: If the employer is assigned to a career services staff member, their name will appear here
+ - Employer permissions: The permissions provided to this employer by your institution
+ - Auto approvals: The permissions that are auto approved for this employer by your institution
 - Approval activity: Actions that career services staff members have taken regarding this employer
 - Employer contact information: The company contact information and the company website
-  - Main employer contact: The owner of the company account, and their contact information.
-  - Permissions link: A link to the company settings page where the owner or administrator on the account can update school permissions. Provide this link to employers if you'd like to edit or add jobs on their behalf but you do not have current permissions to do so. Select **copy link** and send the link to the owner or administrator.
+ - Main employer contact: The owner of the company account, and their contact information.
+ - Permissions link: A link to the company settings page where the owner or administrator on the account can update school permissions. Provide this link to employers if you'd like to edit or add jobs on their behalf but you do not have current permissions to do so. Select **copy link** and send the link to the owner or administrator.
 - Staff: The staff most active with your institution
 - Labels: Any labels provided by your staff for this employer
 - Attachments: Any attachments your staff added to this employer for your use
@@ -203,9 +203,9 @@ Filters are available under *Filters* on each tab:
 - In collection(s)
 - Assigned to
 - Status
-  - Approved
-  - Declined
-  - All Statuses
+ - Approved
+ - Declined
+ - All Statuses
 - Label
 - Not label
 - Size

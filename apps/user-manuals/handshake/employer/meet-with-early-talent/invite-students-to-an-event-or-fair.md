@@ -28,9 +28,9 @@ Click **Talent** from the left navigation bar to view profiles of students from 
 
 - To select multiple students, check the boxes next to their names, then click **Message** in the header.
 
-  ![Message button.png](https://support.joinhandshake.com/hc/article_attachments/34730589690903)
+ ![Message button.png](https://support.joinhandshake.com/hc/article_attachments/34730589690903)
 - To select all students on the page, check the box next to **Candidate** at the top of the table, then click **Message** in the header.
-  - To select all students across all pages, click “Select all 10,000” in the header.
+ - To select all students across all pages, click “Select all 10,000” in the header.
 
 ![Message all.png](https://support.joinhandshake.com/hc/article_attachments/34730589694743)
 

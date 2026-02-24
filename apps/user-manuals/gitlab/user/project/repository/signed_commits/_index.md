@@ -13,24 +13,18 @@ title: Signed commits
 
 {{< /details >}}
 
-When you add a digital signature to your commit, you provide extra assurance that a commit
-originated from you, rather than an impersonator. A digital signature is a cryptographic output
-used to verify authenticity.
+When you add a digital signature to your commit, you provide extra assurance that a commit originated from you, rather than an impersonator. A digital signature is a cryptographic output used to verify authenticity.
 
 It's important to understand the difference between signed and verified commits:
 
-- Signed commits have a cryptographic signature attached that proves the commit's
-  integrity and authenticity. The signature is created using a private key.
-- Verified commits have signatures that GitLab can validate against a known public key
-  stored in a user's GitLab profile.
+- Signed commits have a cryptographic signature attached that proves the commit's integrity and authenticity. The signature is created using a private key.
+- Verified commits have signatures that GitLab can validate against a known public key stored in a user's GitLab profile.
 
-If GitLab can verify the committer's identity with a public key, the commit is
-marked **Verified** in the GitLab UI.
+If GitLab can verify the committer's identity with a public key, the commit is marked **Verified** in the GitLab UI.
 
 {{< alert type="note" >}}
 
-The committer and author fields are distinct in Git. The author writes the commit, and the committer
-applies it. Commit signing verifies only the committer's identity.
+The committer and author fields are distinct in Git. The author writes the commit, and the committer applies it. Commit signing verifies only the committer's identity.
 
 {{< /alert >}}
 
@@ -50,15 +44,13 @@ To review commits for a merge request, or for an entire project, and verify they
    - For a merge request:
      1. Select **Code** > **Merge requests**, then select your merge request.
      1. Select **Commits**.
-1. Identify the commit you want to review. Depending on the verification status of the signature,
-   signed commits display either a **Verified** or **Unverified** badge.
+1. Identify the commit you want to review. Depending on the verification status of the signature, signed commits display either a **Verified** or **Unverified** badge.
 
    ![A list of commits with verified and unverified badges.](img/project_signed_and_unsigned_commits_v17_4.png)
 
    Unsigned commits do not display a badge.
 
-1. To display the signature details for a commit, select **Verified** or **Unverified** to see
-   the fingerprint or key ID:
+1. To display the signature details for a commit, select **Verified** or **Unverified** to see the fingerprint or key ID:
 
    ![Verified signature details for a commit.](img/project_signed_commit_verified_signature_v17_4.png)
 
@@ -70,8 +62,7 @@ to check a commit's signature.
 ### Verify web UI commits
 
 GitLab uses SSH to sign commits created through the web UI.
-To verify these commits locally, obtain the GitLab public key for signing web commits
-using the [Web Commits API](../../../../api/web_commits.md#get-public-signing-key).
+To verify these commits locally, obtain the GitLab public key for signing web commits using the [Web Commits API](../../../../api/web_commits.md#get-public-signing-key).
 
 ### Use `gitmailmap` with verified commits
 
@@ -98,8 +89,7 @@ To restore the green verified label, verify the mapped email address, or remove 
 ## Enforce signed commits with push rules
 
 You can require signed commits across your projects using push rules.
-The **Reject unsigned commits** push rule prevents any unsigned commits from being pushed
-to a repository, helping organizations maintain code integrity and meet compliance requirements.
+The **Reject unsigned commits** push rule prevents any unsigned commits from being pushed to a repository, helping organizations maintain code integrity and meet compliance requirements.
 
 For more information about how this rule works and its limitations, see [Require signed commits](../push_rules.md#require-signed-commits).
 
@@ -107,8 +97,7 @@ For more information about how this rule works and its limitations, see [Require
 
 ### Fix verification problems with signed commits
 
-The verification process for commits signed with GPG keys or X.509 certificates
-can fail for multiple reasons:
+The verification process for commits signed with GPG keys or X.509 certificates can fail for multiple reasons:
 
 | Value                       | Description | Possible fixes |
 |-----------------------------|-------------|----------------|

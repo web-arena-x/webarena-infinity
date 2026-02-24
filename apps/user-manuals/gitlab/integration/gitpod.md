@@ -13,24 +13,18 @@ title: Ona
 
 {{< /details >}}
 
-With [Ona](https://ona.com/) (formerly Gitpod), you can describe your development environment as code to get fully
-set up, compiled, and tested development environments for any GitLab project. The development
-environments are not only automated but also prebuilt which means that Ona continuously builds
-your Git branches like a CI/CD server.
+With [Ona](https://ona.com/) (formerly Gitpod), you can describe your development environment as code to get fully set up, compiled, and tested development environments for any GitLab project. The development environments are not only automated but also prebuilt which means that Ona continuously builds your Git branches like a CI/CD server.
 
-This means you don't have to wait for dependencies to download and builds to start
-coding immediately. With Ona you can start coding instantly on any project, branch, and merge
-request from your browser.
+This means you don't have to wait for dependencies to download and builds to start coding immediately. With Ona you can start coding instantly on any project, branch, and merge request from your browser.
 
 To use the GitLab Ona integration, you must enable it for your GitLab instance and in your preferences. Users of:
 
 - GitLab.com can use it immediately after it's [enabled in their user preferences](#enable-ona-in-your-user-preferences).
 - GitLab Self-Managed instances can use it after:
-  1. It's [enabled and configured by a GitLab administrator](#configure-a-gitlab-self-managed-instance).
-  1. It's [enabled in their user settings](#enable-ona-in-your-user-preferences).
+ 1. It's [enabled and configured by a GitLab administrator](#configure-a-gitlab-self-managed-instance).
+ 1. It's [enabled in their user settings](#enable-ona-in-your-user-preferences).
 
-For more information about Ona, see the Ona [features](https://ona.com/) and
-[documentation](https://ona.com/docs).
+For more information about Ona, see the Ona [features](https://ona.com/) and [documentation](https://ona.com/docs).
 
 ## Enable Ona in your user preferences
 
@@ -65,15 +59,14 @@ GitLab users can then [enable the Ona integration for themselves](#enable-ona-in
 
 ## Launch Ona in GitLab
 
-After you [enable Ona](#enable-ona-in-your-user-preferences),
-you can launch it from GitLab in one of these ways:
+After you [enable Ona](#enable-ona-in-your-user-preferences), you can launch it from GitLab in one of these ways:
 
 - From a project repository:
-  1. On the top bar, select **Search or go to** and find your project.
-  1. In the upper right, select **Code** > **Ona**.
+ 1. On the top bar, select **Search or go to** and find your project.
+ 1. In the upper right, select **Code** > **Ona**.
 
 - From a merge request:
-  1. Go to your merge request.
-  1. In the upper-right corner, select **Code** > **Open in Ona**.
+ 1. Go to your merge request.
+ 1. In the upper-right corner, select **Code** > **Open in Ona**.
 
 Ona builds your development environment for your branch.

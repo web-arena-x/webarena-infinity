@@ -40,18 +40,18 @@ GET packages/maven/*path/:file_name
 | Attribute | Type | Required | Description |
 | --------- | ---- | -------- | ----------- |
 | `path`       | string | yes | The Maven package path, in the format `<groupId>/<artifactId>/<version>`. Replace any `.` in the `groupId` with `/`. |
-| `file_name`  | string | yes | The name of the Maven package file. |
+| `file_name` | string | yes | The name of the Maven package file. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/packages/maven/foo/bar/mypkg/1.0-SNAPSHOT/mypkg-1.0-SNAPSHOT.jar"
+ --url "https://gitlab.example.com/api/v4/packages/maven/foo/bar/mypkg/1.0-SNAPSHOT/mypkg-1.0-SNAPSHOT.jar"
 ```
 
 To write the output to file:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/packages/maven/foo/bar/mypkg/1.0-SNAPSHOT/mypkg-1.0-SNAPSHOT.jar" >> mypkg-1.0-SNAPSHOT.jar
+ --url "https://gitlab.example.com/api/v4/packages/maven/foo/bar/mypkg/1.0-SNAPSHOT/mypkg-1.0-SNAPSHOT.jar" >> mypkg-1.0-SNAPSHOT.jar
 ```
 
 This writes the downloaded file to `mypkg-1.0-SNAPSHOT.jar` in the current directory.
@@ -67,18 +67,18 @@ GET groups/:id/-/packages/maven/*path/:file_name
 | Attribute | Type | Required | Description |
 | --------- | ---- | -------- | ----------- |
 | `path`       | string | yes | The Maven package path, in the format `<groupId>/<artifactId>/<version>`. Replace any `.` in the `groupId` with `/`. |
-| `file_name`  | string | yes | The name of the Maven package file. |
+| `file_name` | string | yes | The name of the Maven package file. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/-/packages/maven/foo/bar/mypkg/1.0-SNAPSHOT/mypkg-1.0-SNAPSHOT.jar"
+ --url "https://gitlab.example.com/api/v4/groups/1/-/packages/maven/foo/bar/mypkg/1.0-SNAPSHOT/mypkg-1.0-SNAPSHOT.jar"
 ```
 
 To write the output to file:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/-/packages/maven/foo/bar/mypkg/1.0-SNAPSHOT/mypkg-1.0-SNAPSHOT.jar" >> mypkg-1.0-SNAPSHOT.jar
+ --url "https://gitlab.example.com/api/v4/groups/1/-/packages/maven/foo/bar/mypkg/1.0-SNAPSHOT/mypkg-1.0-SNAPSHOT.jar" >> mypkg-1.0-SNAPSHOT.jar
 ```
 
 This writes the downloaded file to `mypkg-1.0-SNAPSHOT.jar` in the current directory.
@@ -94,18 +94,18 @@ GET projects/:id/packages/maven/*path/:file_name
 | Attribute | Type | Required | Description |
 | --------- | ---- | -------- | ----------- |
 | `path`       | string | yes | The Maven package path, in the format `<groupId>/<artifactId>/<version>`. Replace any `.` in the `groupId` with `/`. |
-| `file_name`  | string | yes | The name of the Maven package file. |
+| `file_name` | string | yes | The name of the Maven package file. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/maven/foo/bar/mypkg/1.0-SNAPSHOT/mypkg-1.0-SNAPSHOT.jar"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/maven/foo/bar/mypkg/1.0-SNAPSHOT/mypkg-1.0-SNAPSHOT.jar"
 ```
 
 To write the output to file:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/maven/foo/bar/mypkg/1.0-SNAPSHOT/mypkg-1.0-SNAPSHOT.jar" >> mypkg-1.0-SNAPSHOT.jar
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/maven/foo/bar/mypkg/1.0-SNAPSHOT/mypkg-1.0-SNAPSHOT.jar" >> mypkg-1.0-SNAPSHOT.jar
 ```
 
 This writes the downloaded file to `mypkg-1.0-SNAPSHOT.jar` in the current directory.
@@ -121,7 +121,7 @@ PUT projects/:id/packages/maven/*path/:file_name
 | Attribute | Type | Required | Description |
 | --------- | ---- | -------- | ----------- |
 | `path`       | string | yes | The Maven package path, in the format `<groupId>/<artifactId>/<version>`. Replace any `.` in the `groupId` with `/`. |
-| `file_name`  | string | yes | The name of the Maven package file. |
+| `file_name` | string | yes | The name of the Maven package file. |
 
 ```shell
 curl --request PUT \

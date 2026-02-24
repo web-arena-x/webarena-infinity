@@ -15,21 +15,15 @@ description: Create non-human accounts for automated processes and third-party s
 
 Service accounts are user accounts that represent non-human entities rather than individual people.
 You can use service accounts to perform automated actions, access data, or run scheduled processes.
-Service accounts are commonly used in pipelines or third-party integrations where credentials must
-remain stable and unaffected by changes in human user membership.
+Service accounts are commonly used in pipelines or third-party integrations where credentials must remain stable and unaffected by changes in human user membership.
 
 There are two types of service accounts:
 
-- Instance service accounts: Available to an entire GitLab instance, but must still be added to
-  groups and projects like a human user. Only available on GitLab Self-Managed and GitLab Dedicated.
-- Group service accounts: Owned by a specific top-level group and can inherit membership to
-  subgroups and projects like a human user.
+- Instance service accounts: Available to an entire GitLab instance, but must still be added to groups and projects like a human user. Only available on GitLab Self-Managed and GitLab Dedicated.
+- Group service accounts: Owned by a specific top-level group and can inherit membership to subgroups and projects like a human user.
 
 You authenticate as a service account with a [personal access token](personal_access_tokens.md).
-Service accounts have the same abilities as human users, and can perform actions
-like interacting with [package and container registries](../packages/_index.md),
-performing [Git operations](personal_access_tokens.md#clone-repository-using-personal-access-token),
-and accessing the API.
+Service accounts have the same abilities as human users, and can perform actions like interacting with [package and container registries](../packages/_index.md), performing [Git operations](personal_access_tokens.md#clone-repository-using-personal-access-token), and accessing the API.
 
 Service accounts:
 
@@ -40,7 +34,7 @@ Service accounts:
 - Do not receive notification emails without [adding a custom email address](../../api/service_accounts.md#create-an-instance-service-account).
 - Are not [billable users](../../subscriptions/manage_users_and_seats.md#billable-users) or [internal users](../../administration/internal_users.md).
 - Are available for [trial versions](https://gitlab.com/-/trial_registrations/new?glm_source=docs.gitlab.com&glm_content=free-user-limit-faq/ee/user/free_user_limit.html)
-  of GitLab.com after the Owner of the top-level group verifies their identity.
+ of GitLab.com after the Owner of the top-level group verifies their identity.
 - Can be used with trial versions of GitLab Self-Managed and GitLab Dedicated.
 
 You can also manage service accounts through the [service accounts API](../../api/service_accounts.md).
@@ -49,8 +43,8 @@ You can also manage service accounts through the [service accounts API](../../ap
 
 - On GitLab.com, you must have the Owner role in a top-level group.
 - On GitLab Self-Managed or GitLab Dedicated you must either:
-  - Be an administrator for the instance.
-  - Have the Owner role in a top-level group and be [allowed to create service accounts](../../administration/settings/account_and_limit_settings.md#allow-top-level-group-owners-to-create-service-accounts).
+ - Be an administrator for the instance.
+ - Have the Owner role in a top-level group and be [allowed to create service accounts](../../administration/settings/account_and_limit_settings.md#allow-top-level-group-owners-to-create-service-accounts).
 
 ## View and manage service accounts
 
@@ -135,33 +129,24 @@ To edit a service account:
 
 ### Service account access to groups and projects
 
-Service accounts are similar to [external users](../../administration/external_users.md). When first
-created, they have limited access to groups and projects. To give a service account access to
-resources, you must add it to each group or project.
+Service accounts are similar to [external users](../../administration/external_users.md). When first created, they have limited access to groups and projects. To give a service account access to resources, you must add it to each group or project.
 
-There is no limit to the number of service accounts you can add to a group or project. Service accounts
-can have different roles in each group, subgroup, or project they are a member of.
+There is no limit to the number of service accounts you can add to a group or project. Service accounts can have different roles in each group, subgroup, or project they are a member of.
 On GitLab.com, service accounts for groups can only belong to a single top-level group.
 
-Service account access to groups and projects is managed the same way as
-human users in the UI. For more information, see
-[groups](../group/_index.md#add-users-to-a-group) and [members of a project](../project/members/_index.md#add-users-to-a-project).
+Service account access to groups and projects is managed the same way as human users in the UI. For more information, see [groups](../group/_index.md#add-users-to-a-group) and [members of a project](../project/members/_index.md#add-users-to-a-project).
 
 You can assign service accounts to groups and projects using the UI or the [members API](../../api/members.md).
 For more information about using the UI, see [add users to a group](../group/_index.md#add-users-to-a-group)
 and [add users to a project](../project/members/_index.md#add-users-to-a-project).
 
-You must use the API when the
-[global SAML group memberships lock](../group/saml_sso/group_sync.md#global-saml-group-memberships-lock)
-or the
-[global LDAP group memberships lock](../../administration/auth/ldap/ldap_synchronization.md#global-ldap-group-memberships-lock)
+You must use the API when the [global SAML group memberships lock](../group/saml_sso/group_sync.md#global-saml-group-memberships-lock)
+or the [global LDAP group memberships lock](../../administration/auth/ldap/ldap_synchronization.md#global-ldap-group-memberships-lock)
 is enabled.
 
 ## Fork projects with a service account
 
-Service accounts can fork projects through the [Project forks API](../../api/project_forks.md), but
-cannot fork to their personal namespace. When forking with a service account, you must specify
-a target group namespace.
+Service accounts can fork projects through the [Project forks API](../../api/project_forks.md), but cannot fork to their personal namespace. When forking with a service account, you must specify a target group namespace.
 
 Prerequisites:
 
@@ -182,9 +167,7 @@ To fork a project using a service account:
 
 ### Delete a service account
 
-When you delete a service account, any contributions made by the account are retained and ownership
-is transferred to a system-wide ghost user account. These contributions can include activity such as
-merge requests, issues, projects, and groups.
+When you delete a service account, any contributions made by the account are retained and ownership is transferred to a system-wide ghost user account. These contributions can include activity such as merge requests, issues, projects, and groups.
 
 To delete a service account:
 
@@ -194,8 +177,7 @@ To delete a service account:
 1. Enter the name of the service account.
 1. Select **Delete user**.
 
-You can also delete the service account and any contributions made by the account. These
-contributions can include activity such as merge requests, issues, groups, and projects.
+You can also delete the service account and any contributions made by the account. These contributions can include activity such as merge requests, issues, groups, and projects.
 
 1. Go to the [Service accounts](#view-and-manage-service-accounts) page.
 1. Identify a service account.
@@ -290,8 +272,8 @@ To revoke a personal access token for a service account:
 
 - On GitLab.com, [GitLab.com-specific rate limits](../gitlab_com/_index.md#rate-limits-on-gitlabcom) apply.
 - On GitLab Self-Managed and GitLab Dedicated, these rate limits apply:
-  - [Configurable rate limits](../../security/rate_limits.md#configurable-limits)
-  - [Non-configurable rate limits](../../security/rate_limits.md#non-configurable-limits)
+ - [Configurable rate limits](../../security/rate_limits.md#configurable-limits)
+ - [Non-configurable rate limits](../../security/rate_limits.md#non-configurable-limits)
 
 ## Related topics
 

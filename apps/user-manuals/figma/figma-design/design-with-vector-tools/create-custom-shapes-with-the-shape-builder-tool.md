@@ -22,7 +22,7 @@ You can access the shape builder tool while in [vector edit mode](https://help.f
 
 1. Select one or more vector layers.
 2. Press `Enter` to open vector edit mode.
-3. Select the  **Shape builder** tool from the secondary toolbar.
+3. Select the **Shape builder** tool from the secondary toolbar.
 
 Once enabled, you can can hover your cursor over the individual regions of the selected layers. You can then use one of the shape builder options to create your new shape.
 

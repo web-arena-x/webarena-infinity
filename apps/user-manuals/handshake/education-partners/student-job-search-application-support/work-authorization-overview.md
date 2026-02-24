@@ -9,14 +9,14 @@ We collect work authorization information directly from students to increase tra
 We believe this process provides a better experience for both students and employers:
 
 - - Students are not spending time applying and interviewing for a job they cannot get.
-  - Employers reduce the amount of time they are spending interviewing and reviewing candidates they cannot hire, while gathering more information about applicants without requiring them to disclose their work authorization status.
+ - Employers reduce the amount of time they are spending interviewing and reviewing candidates they cannot hire, while gathering more information about applicants without requiring them to disclose their work authorization status.
 
 Topics:
 
 - [Student prompt with work authorization questions](#h_01EZFE181BRFK12HCPF2GNBCJR)
 - [Application Qualifications](#h_01EZFE1ECV85S6TG0K562RT46F)
-  - [Student Perspective](#h_01EZFE4WGN9NG9ZG2XDJP3MVJT)
-  - [Employer Perspective](#h_01EZFE53J5QZSF9RERB3W3704S)
+ - [Student Perspective](#h_01EZFE4WGN9NG9ZG2XDJP3MVJT)
+ - [Employer Perspective](#h_01EZFE53J5QZSF9RERB3W3704S)
 - [FAQs](#h_01EZFE1MN3RX2TKK94CNVWPZ17)
 
 ### 
@@ -36,7 +36,7 @@ The prompt contains three options:
 - **Are you legally authorized to work in the United States?** *(yes/no)*
 - **Will you now or in the future require visa sponsorship?** *(yes/no)*
 - **Prefer not to answer these questions.** *(checkbox)*
-  - - There is a tooltip with a "?" icon - hover over the icon to display the following:
+ - - There is a tooltip with a "?" icon - hover over the icon to display the following:
 
       *If you select "Prefer not to Answer", then you will show up when an Employer filters for students who don't require sponsorship or if they filter for students who do require sponsorship.*
 
@@ -111,7 +111,7 @@ When hovering over the qualification numbers, if "Prefer not to answer these que
 #### Can we still import Work Authorization Name?
 
 - Yes, you can; however, we **do not** recommend that you import these fields, as students are prompted for the correct values.
-  - The field for “Visa Status” does still exist on the student profile, but it is not visible to students; it is only viewable by Career Services.
+ - The field for “Visa Status” does still exist on the student profile, but it is not visible to students; it is only viewable by Career Services.
 
 #### Can a student edit these fields after they've submitted them for the first time?
 
@@ -128,11 +128,11 @@ In the qualification chart below, the upper-most row is the Employer Preference 
 
 Student qualification outcomes are listed as Fully Qualified or Not fully qualified –– if not fully qualified, the reasoning is listed in italics below.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
-| **Employer Preference**  *this row (horizontal)*    **Student Selection**  *this column (vertical)* | **Work Authorization not disclosed**  **Did not disclose = Yes**  **Work Auth = No**  **Sponsor Visa = No**  **OPT/CPT = No** | **Work Authorization not required**  **Did not disclose = No**  **Work Auth = No**  **Sponsor Visa = No**  **OPT/CPT = No**  *\*Implies only short term employment, should only be relevant for internships* |
-| Prefer not to answer these questions = checked *OR* Not answered | Fully Qualified  Passed  Qualification not showing | Fully Qualified  Passed  Qualification not showing |
-| Legally authorized = TRUE   Require sponsorship = FALSE  *Implies US Citizen or LPR* | Fully Qualified  Passed  Qualification not showing | Fully Qualified  Passed  Qualification not showing |
-| Legally authorized = TRUE   Require sponsorship = TRUE  *Implies OPT/CPT authorization in near term* | Fully Qualified  Passed  Qualification not showing | Fully Qualified  Passed  Qualification not showing |
-| Legally authorized = FALSE      Require sponsorship = TRUE | Fully Qualified  Passed  Qualification not showing | Fully Qualified  Passed  Qualification not showing |
+| **Employer Preference** *this row (horizontal)*    **Student Selection** *this column (vertical)* | **Work Authorization not disclosed** **Did not disclose = Yes** **Work Auth = No** **Sponsor Visa = No** **OPT/CPT = No** | **Work Authorization not required** **Did not disclose = No** **Work Auth = No** **Sponsor Visa = No** **OPT/CPT = No** *\*Implies only short term employment, should only be relevant for internships* |
+| Prefer not to answer these questions = checked *OR* Not answered | Fully Qualified Passed Qualification not showing | Fully Qualified Passed Qualification not showing |
+| Legally authorized = TRUE   Require sponsorship = FALSE *Implies US Citizen or LPR* | Fully Qualified Passed Qualification not showing | Fully Qualified Passed Qualification not showing |
+| Legally authorized = TRUE   Require sponsorship = TRUE *Implies OPT/CPT authorization in near term* | Fully Qualified Passed Qualification not showing | Fully Qualified Passed Qualification not showing |
+| Legally authorized = FALSE      Require sponsorship = TRUE | Fully Qualified Passed Qualification not showing | Fully Qualified Passed Qualification not showing |
 | Legally authorized = FALSE      Require sponsorship = FALSE | Fully Qualified | Fully Qualified |

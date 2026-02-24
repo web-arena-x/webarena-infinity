@@ -49,7 +49,7 @@ The example below demonstrates how an image set to **Fill** will scale when the 
 
 ## Rotation
 
-You can use the  **Rotate 90º** setting to rotate an image fill clockwise in 90º increments. This won’t affect the orientation of the object itself, just the image fill within it.
+You can use the **Rotate 90º** setting to rotate an image fill clockwise in 90º increments. This won’t affect the orientation of the object itself, just the image fill within it.
 
 **Note:** You can use the Crop settings to freely rotate an image fill instead. Learn more about [cropping images](crop-an-image.md).
 

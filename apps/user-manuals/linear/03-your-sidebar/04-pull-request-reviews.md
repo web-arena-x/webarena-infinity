@@ -66,8 +66,8 @@ No, you can only access your PRs and PRs awaiting your review.
 <details>
 <summary>How do I update a PR that is showing the wrong state?</summary>
 This can happen sometimes if a webhook is missed between Linear and GitHub and we fail to capture the change in PR state automatically.   
-  
-You can trigger an update to the PR state shown in Linear by making a small edit to the PR description in GitHub - for example adding and removing a space.  
-  
+ 
+You can trigger an update to the PR state shown in Linear by making a small edit to the PR description in GitHub - for example adding and removing a space. 
+ 
 Otherwise please reach out to support@linear.app with the PR IDs and we can help refresh these for you.
 </details>

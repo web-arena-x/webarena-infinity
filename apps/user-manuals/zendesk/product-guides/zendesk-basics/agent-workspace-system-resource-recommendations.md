@@ -12,14 +12,14 @@ For an optimal experience, Zendesk recommends: 
 - Upload speed of 10 Mbps or greater
 - 8 GB of RAM or more
 - One of the following operating systems:
-  - MacOS 10.12 Monterey or newer
-  - Windows 10 or newer
-  - For the [mobile app](https://support.zendesk.com/hc/en-us/articles/4408846407066), Android 5.0 or newer, or iOS 15.0 or newer
+ - MacOS 10.12 Monterey or newer
+ - Windows 10 or newer
+ - For the [mobile app](https://support.zendesk.com/hc/en-us/articles/4408846407066), Android 5.0 or newer, or iOS 15.0 or newer
 - One of the following web browsers:
-  - Google Chrome: latest two versions
-  - Mozilla Firefox: latest two versions
-  - Apple Safari: latest two versions
-  - Microsoft Edge: latest two versions
+ - Google Chrome: latest two versions
+ - Mozilla Firefox: latest two versions
+ - Apple Safari: latest two versions
+ - Microsoft Edge: latest two versions
 
 Minimum requirements are: 
 

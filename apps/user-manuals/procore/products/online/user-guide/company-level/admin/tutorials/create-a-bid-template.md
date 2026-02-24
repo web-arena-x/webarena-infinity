@@ -10,7 +10,7 @@ This feature is currently in beta for customers using the [**Enhanced Bid Manag
 
 1. Navigate to the Company level **Admin** tool.
 2. Under 'Project Settings', select **Bidding**.
-3. In the 'New! Template Collections (Beta)' banner, click **Opt-In**.  
+3. In the 'New! Template Collections (Beta)' banner, click **Opt-In**. 
    ![clipboard_ec02d02345c49988b51dc4ceaba65bcc2.png](https://support.procore.com/@api/deki/files/515859/clipboard_ec02d02345c49988b51dc4ceaba65bcc2.png?revision=1)
 4. Review the beta participant terms and mark the checkbox to agree.
 5. Click **Accept Terms** to opt in.
@@ -30,8 +30,8 @@ When building bid packages for a project, simply select these templates to effic
 ## Things to Consider
 
 - **Required User Permissions:**
-  - *To view, create, or edit a bid template*:
-    - 'Admin' level permissions for the Company Admin tool.   
+ - *To view, create, or edit a bid template*:
+    - 'Admin' level permissions for the Company Admin tool.  
       AND
     - 'Read Only' level permissions or higher for the Company Directory tool.
 - Bid templates can only be created with ****Base bid**** and ****Alternates**** scope.
@@ -54,7 +54,7 @@ When building bid packages for a project, simply select these templates to effic
 
 1. Click ****Add Section****.
 2. Enter a name for the section.
-3. To add a line item for the section, click the ****Add Line Item**** menu or the ****plus +****icon for the section****.   
+3. To add a line item for the section, click the ****Add Line Item**** menu or the ****plus +****icon for the section****.  
    ![bidding-add-line-item.png](https://support.procore.com/@api/deki/files/445920/bidding-add-line-item.png?revision=1)****
 4. Continue adding sections and line items as necessary.
 5. **Optional:**To reorder sections or line items, click and drag over the grip ![icon-reorder-grip.png](https://support.procore.com/@api/deki/files/120680/icon-reorder-grip.png?revision=1&size=bestfit&height=16) icon and drop it in a new area.
@@ -66,7 +66,7 @@ When building bid packages for a project, simply select these templates to effic
 2. Select one of the following line item types:
    - ****Cost Code****: Select if you want to add a line item with a cost code.
    - ****Plain Text****: Select if you want to add a general line item without a cost code.
-3. Enter the following information:  
+3. Enter the following information: 
    ****Note:****Required fields are indicated by an asterisk (\*).
    - ****Items\*****:
      - For a Cost Code line item, click the ****Select Cost Code**** drop-down menu and select a cost code.
@@ -76,7 +76,7 @@ When building bid packages for a project, simply select these templates to effic
      - ****Amount****: Select if an amount should be entered.
      - ****Unit/Quantity****: Select if a unit and quantity should be entered.
      - ****Include/Exclude****: Select if this line item should be entered as an inclusion or exclusion for the bid.
-4. To add additional line items, click ****Add Line Item**** and repeat the same process.   
+4. To add additional line items, click ****Add Line Item**** and repeat the same process.  
      
    ![bid-template-add-sections.png](https://support.procore.com/@api/deki/files/500638/bid-template-add-sections.png?revision=1)
 5. If you want to allow bidders to provide alternative options or substitutions, scroll to the Alternates section and add line items as necessary.
@@ -87,7 +87,7 @@ When building bid packages for a project, simply select these templates to effic
 1. In the Bidders section, click the ****Add Bidders****.
 2. Use the ****Search**** ****bar**** and ****Filters**** menu to find existing companies from the Company level Directory tool.
 3. Mark the checkbox next to each company you want to add to the bid form.
-4. Click **Add Bidders**when you are finished adding bidders to the Bid Template.  
+4. Click **Add Bidders**when you are finished adding bidders to the Bid Template. 
    *Note:*Bidders added to a Bid Template will NOT be notified.
 
 ![bid-template-add-bidders.png](https://support.procore.com/@api/deki/files/500637/bid-template-add-bidders.png?revision=1&size=bestfit&width=1104&height=596)

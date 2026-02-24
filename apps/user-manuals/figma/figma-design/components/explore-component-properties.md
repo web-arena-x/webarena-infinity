@@ -36,7 +36,7 @@ Component properties are tied to different design properties. You can create com
 
 Component properties come in different types:
 
-|  |  |
+| | |
 | --- | --- |
 | **Component property type** | **Use this to...** |
 | [Boolean property](#h_01G2Q5GA6DEB604H2E5H5C5TA4) | Indicate which layers can have their layer visibility turned on/off, such as an icon on a button. |
@@ -59,10 +59,10 @@ Currently, boolean properties only support layer visibility.
 When a boolean property is created for layer visibility, a value set to false means the layer will be hidden. If toggle to true, the layer will be visible.
 
 1. Select a main component or component set.
-2. In the right sidebar, click  in the **Properties** section and select **Boolean** from the dropdown.
+2. In the right sidebar, click in the **Properties** section and select **Boolean** from the dropdown.
 3. From the **Create component property** modal, use the fields and dropdown menus to configure the property.
    - Give your property a **name** in the text field.
-   - Set the default **value** to true or false. You can also click  **Apply variable** to apply an existing boolean variable, if available.
+   - Set the default **value** to true or false. You can also click **Apply variable** to apply an existing boolean variable, if available.
 4. Click **Create property**.
 
 ![](https://help.figma.com/hc/article_attachments/27771812397079)
@@ -74,13 +74,13 @@ Warning: Before applying boolean properties to components, it’s important to c
 For example, you have a boolean property applied to an icon in a button component to represent two states: a button with an icon and one without. It’s not possible to set up an interaction between the two because you’re using a single component. Prototype interactions must be between two individual objects.
 
 1. Select a layer nested within a main component or variant.
-2. If you’re working with variants, you can click  to enable multi-edit to edit matching objects and speed up your workflow. Learn how to [multi-edit variants](https://help.figma.com/hc/en-us/articles/21635177948567).
-3. In the right sidebar, find the **Appearance** section and click the  **Apply variable/property** icon.
+2. If you’re working with variants, you can click to enable multi-edit to edit matching objects and speed up your workflow. Learn how to [multi-edit variants](https://help.figma.com/hc/en-us/articles/21635177948567).
+3. In the right sidebar, find the **Appearance** section and click the **Apply variable/property** icon.
 4. Choose a boolean property from the list. When applied, you’ll see a purple pill with the `property name` in the right sidebar.
 
 ![](https://help.figma.com/hc/article_attachments/27771782233751)
 
-Tip: You can create and apply a boolean property from any nested layer in a main component or main variant. Select the nested layer and find the **Appearance** section, then click the  **Apply property** icon. Once you create the property, it’ll be applied to the selected layer.
+Tip: You can create and apply a boolean property from any nested layer in a main component or main variant. Select the nested layer and find the **Appearance** section, then click the **Apply property** icon. Once you create the property, it’ll be applied to the selected layer.
 
 ## Instance swap property
 
@@ -91,7 +91,7 @@ When creating an instance swap property, you can set a default instance using an
 ### Create an instance swap property
 
 1. Select a main component or component set.
-2. In the right sidebar, click  **Properties** section and select **Instance swap** from the dropdown.
+2. In the right sidebar, click **Properties** section and select **Instance swap** from the dropdown.
 3. From the **Create component property** modal, use the fields and dropdown menus to configure the property.
    - Give your property a **name** using the text field.
    - Set the default **value** by using dropdown to select an instance from any components created in the file, or from any libraries added to the file.
@@ -103,19 +103,19 @@ When creating an instance swap property, you can set a default instance using an
 ### Apply an instance swap property to a component
 
 1. Select a instance nested within a main component or variant.
-2. If you’re working with variants, you can click  to enable multi-edit to edit matching objects and speed up your workflow. Learn how to [multi-edit variants](https://help.figma.com/hc/en-us/articles/21635177948567).
-3. At the top of right sidebar, click  **Apply instance swap property**.
+2. If you’re working with variants, you can click to enable multi-edit to edit matching objects and speed up your workflow. Learn how to [multi-edit variants](https://help.figma.com/hc/en-us/articles/21635177948567).
+3. At the top of right sidebar, click **Apply instance swap property**.
 4. Choose an instance property from the list. When applied, you’ll see a purple pill with the `property name` in the right sidebar.
 
 ![](https://help.figma.com/hc/article_attachments/27771782243735)
 
-Tip: You can create and apply a instance swap property from any instance nested within a main component or main variant. Selected the nested instance and click  **Apply/create instance swap property** at the top of the right sidebar. Once you create the property, it’ll be applied to the selected layer.
+Tip: You can create and apply a instance swap property from any instance nested within a main component or main variant. Selected the nested instance and click **Apply/create instance swap property** at the top of the right sidebar. Once you create the property, it’ll be applied to the selected layer.
 
 ### Choose preferred values
 
 Preferred values allow you to create a curated set of components to choose from when swapping instances (via the instance swap property). They reduce guesswork by communicating which specific components can replace an existing one.
 
-> For example, you create an icon button with an instance swap property to indicate that the icon can be swapped. However, your icon library contains over 100 icons, but only 8 of them should be used for this button.  
+> For example, you create an icon button with an instance swap property to indicate that the icon can be swapped. However, your icon library contains over 100 icons, but only 8 of them should be used for this button. 
 >   
 > To make it easy find these 8 icons and to know which one can be used, you add them as preferred values. Now, whenever designers go to swap the icon, they have a curated list of assets they know they can use.
 
@@ -128,9 +128,9 @@ Note: If you don’t want to use a preferred value, click the dropdown or use th
 To add preferred values for an instance:
 
 1. Start by editing its existing instance swap property or creating a new one.
-2. From the respective modals, click  in the **Preferred values** section and check the checkboxes next to the instances you want to include as a preferred values.
+2. From the respective modals, click in the **Preferred values** section and check the checkboxes next to the instances you want to include as a preferred values.
 
-To remove a preferred value, click  next to the value in the **Preferred** values section of the modal.
+To remove a preferred value, click next to the value in the **Preferred** values section of the modal.
 
 ## Text property
 
@@ -143,7 +143,7 @@ If the text layer contains a [bulleted or numbered list style](https://help.figm
 ### Create a text property
 
 1. Select a main component or component set.
-2. Click  **Properties** section of the right sidebar and select **Text** from the dropdown.
+2. Click **Properties** section of the right sidebar and select **Text** from the dropdown.
 3. From the **Create component property** modal, use the fields to configure the property.
    - Give your property a **name** using the text field.
    - Set the default string of text by using the **value** text field. You can also click  **Apply variable** to apply an existing string variable, if available.
@@ -154,7 +154,7 @@ If the text layer contains a [bulleted or numbered list style](https://help.figm
 ### Apply a text property to a component
 
 1. Select a text layer nested in a main component or variant.
-2. In the **Text** section at the top of the right sidebar, hover over the text field and click  **Apply variable/property**.
+2. In the **Text** section at the top of the right sidebar, hover over the text field and click **Apply variable/property**.
 3. Choose a text property from the list.
 
 ![](https://help.figma.com/hc/article_attachments/27771812416663)
@@ -162,8 +162,8 @@ If the text layer contains a [bulleted or numbered list style](https://help.figm
 Tip: You can create and apply a text property from any text layer nested within a main component or main variant.
 
 1. With the nested text layer selected, find the text field in the **Text** section of the right sidebar.
-2. Hover over the text field and click  **Apply variable/property**.
-3. From the menu, click  **Create variable/property**.
+2. Hover over the text field and click **Apply variable/property**.
+3. From the menu, click **Create variable/property**.
 4. From the **Create** dropdown, select **Property**. Then give the property a name and a default value.
 5. Click **Create property**. Once you create the property, it’ll be applied to the selected layer.
 
@@ -201,7 +201,7 @@ If a layer has a component property applied to it, you can switch it to a differ
 Change the default value of a text, boolean, or instance swap property.
 
 1. Select component set or main component.
-2. Click  next to the variant property to open the edit property modal.
+2. Click next to the variant property to open the edit property modal.
 3. Use the text field or dropdown in the **Value** section to update the default value.
 
 Updating the default value will reflect on canvas if the associated instance layer has no property overrides applied.
@@ -212,7 +212,7 @@ Note: The default value of a variant property is determined by the variant in th
 
 Expose specific nested instances to reveal their component properties alongside those of the top-level instance. This helps design system users discover nested instances and their component properties without deep-selecting layers to find them.
 
-> For example, you create a social media card component with multiple components nested inside — an avatar, name, buttons, and so on. You want to change the icon of the *default button* to a “send” icon, and change its text. You also want to change the *cancel button* state to a *disabled* state.  
+> For example, you create a social media card component with multiple components nested inside — an avatar, name, buttons, and so on. You want to change the icon of the *default button* to a “send” icon, and change its text. You also want to change the *cancel button* state to a *disabled* state. 
 >   
 > Instead of deep-selecting into each layer to find their component property controls, exposing nested instances allows you to click just the top-level component — in this case, the social media card — and edit your instance from a single place.
 >
@@ -226,7 +226,7 @@ Note: If you have an exposed nested instance with visibility set to hidden on a 
 
 #### Choose nested instances to expose
 
-With a main component or component set selected, click  in the **Properties** section of right panel and choose **Nested instances** under **Expose properties from**.
+With a main component or component set selected, click in the **Properties** section of right panel and choose **Nested instances** under **Expose properties from**.
 
 ![](https://help.figma.com/hc/article_attachments/24377633446807)
 
@@ -251,7 +251,7 @@ Simplifying an instance helps reduce clutter in the layers and properties panel 
 
 Note: Simplified instances will hide certain layer names, but anyone with **can edit** permissions to the file can still edit the layers.
 
-To simplify an instance, select a main component or component set, and click  **Component configuration** in the right panel From the pop-up, check the **simplify all instances** checkbox.
+To simplify an instance, select a main component or component set, and click **Component configuration** in the right panel From the pop-up, check the **simplify all instances** checkbox.
 
 When using an instance of a simplified component, excess layers will be collapsed under **See all layers**. Click **See all layers** to expand and see the layers. You can collapse it again by clicking outside the layers panel or selecting a different layer.
 
@@ -266,7 +266,7 @@ Note: To use new or updated components across different files, be sure to publis
 Detach text, instance swap, or boolean properties from a layer.
 
 1. Select a nested layer with a component property applied.
-2. Click  in right sidebar panel next to the property you wish to unlink.
+2. Click in right sidebar panel next to the property you wish to unlink.
 
 This removes the component property from the layer, but the component property won’t be deleted.
 
@@ -293,7 +293,7 @@ To rename, reorder, or delete an existing component property:
 To change or reorder values of a variant property:
 
 1. Select component set or main component.
-2. Click  next to the variant property to open the edit property modal.
+2. Click next to the variant property to open the edit property modal.
    - **Change:** In the **Values** section, use the text fields to change or update the values.
    - **Reorder:** Hover over a value to reveal handles. Click and drag to reorder.
 

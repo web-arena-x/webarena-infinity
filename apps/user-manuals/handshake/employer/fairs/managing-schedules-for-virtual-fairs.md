@@ -80,16 +80,16 @@ You can change the schedule owner on your fair registration as long as the emplo
 3. The pop-up modal will expand to include fields to complete.
 
 - **Are you using Handshake Video or another video tool?** (*select one)*
-  - Handshake video session
-  - External video platform
+ - Handshake video session
+ - External video platform
     - If External video platform is selected, enter the URL in the **Video URL** text field.
 - **Title**
 - **Description**
 - **How many people from your team will host this event?**
-  - **Note**: When using Handshake Video, please note that there's a maximum limit of **100** attendees at a time, including team members. Any restrictions for external providers are set by the provider you select.
+ - **Note**: When using Handshake Video, please note that there's a maximum limit of **100** attendees at a time, including team members. Any restrictions for external providers are set by the provider you select.
 - **Time**
 - **Which team members will be participating?**
-  - **Note**: Team members may be added or removed at a later time.
+ - **Note**: Team members may be added or removed at a later time.
 
 4. Once you have filled out all required fields, click the blue button **Create** button in the lower-right corner to save your changes.
 
@@ -112,8 +112,8 @@ You can change the schedule owner on your fair registration as long as the emplo
 4. Next, select if you would like to add qualifications for that 1:1 schedule *(Yes/No)*. 
 
 - If *yes*, click **Next** to choose qualifications (earliest grad date, latest grad date, School years, Minimum GPA, Majors, and Work Authorization) and the duration for which qualifications are effective (*select one)*
-  - **Yes, pause qualifications 48 hours prior**
-  - **No, keep qualifications in place**
+ - **Yes, pause qualifications 48 hours prior**
+ - **No, keep qualifications in place**
 - If *no*, click the blue button **Create** to save the new schedule.
 
 ![Qualifications.png](https://support.joinhandshake.com/hc/article_attachments/26001429293207)
@@ -132,7 +132,7 @@ You can change the schedule owner on your fair registration as long as the emplo
 
 - Edit the title and description
 - Change Handshake-hosted sessions to externally hosted video
-  - **Note**: When using Handshake Video, please note that there's a maximum limit of **100** attendees at a time, including team members. Any restrictions for external providers are set by the provider you select.
+ - **Note**: When using Handshake Video, please note that there's a maximum limit of **100** attendees at a time, including team members. Any restrictions for external providers are set by the provider you select.
 - Change the host count
 - Add or remove team members as hosts
 
@@ -183,11 +183,11 @@ Teammates can be added as hosts for both group and 1:1 sessions.
 2. In the pop-up modal, fill out the following information:
 
 - **Whom would you like to add?**
-  - From the dropdown menu, select an active team member or begin typing to load search results.
+ - From the dropdown menu, select an active team member or begin typing to load search results.
 - **Would you like to add a 1:1 schedule for them?** *(Yes/No)*
-  - If yes, **Would you like to add qualifications for that 1:1 schedule?** *(Yes/No)*
+ - If yes, **Would you like to add qualifications for that 1:1 schedule?** *(Yes/No)*
 - **Choose group sessions you'd like to add them to (optional)**
-  - Select group sessions from the drop-down menu.
+ - Select group sessions from the drop-down menu.
 
 3. After filling all fields, click the blue button **Next** in the lower-right corner.
 
@@ -294,9 +294,9 @@ To view booked sessions, including all RSVPs, click on the **Schedule** tab. All
 
 - To view a student's profile, click **View Profile** to the far right of their name.
 - To manage a session, click the three dots to the far right of each session row. Actions include:
-  - **Cancel meeting**
-  - **Send a message**
-  - **Switch to externally hosted video**
+ - **Cancel meeting**
+ - **Send a message**
+ - **Switch to externally hosted video**
 
 ![Actions you can take.png](https://support.joinhandshake.com/hc/article_attachments/33666764682647)
 

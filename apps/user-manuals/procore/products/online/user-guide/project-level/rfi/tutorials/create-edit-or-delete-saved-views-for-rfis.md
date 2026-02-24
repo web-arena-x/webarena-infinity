@@ -23,33 +23,33 @@ Procore also provides a default 'All RFIs' view. This view cannot be modified.
 ## Things to Consider
 
 - **Prerequisites**
-  - Enable the beta for your project's RFIs tool by toggling the switch next to **Saved Views Beta** in the RFIs tool to the 'on' position.
+ - Enable the beta for your project's RFIs tool by toggling the switch next to **Saved Views Beta** in the RFIs tool to the 'on' position.
 - **Required User Permissions**
-  - *To create, edit, view, or delete Personal Views*:
+ - *To create, edit, view, or delete Personal Views*:
     - 'Read Only' or higher level permissions to the Project level RFIs tool.
-  - *To create, edit, or delete Project Views:*
+ - *To create, edit, or delete Project Views:*
     - 'Admin' level permissions to the Project level RFIs tool.
-  - *To create, edit, or delete Company Views:*
+ - *To create, edit, or delete Company Views:*
     - 'Admin' level permissions to the Company level Admin tool.
-  - *To view Project or Company Views:*
+ - *To view Project or Company Views:*
     - 'Read Only' level permissions or higher to the RFIs tool.
 - **Considerations**
-  - Saved views can be edited or deleted at any time by users with the necessary permissions.
-  - Deleted views cannot be recovered.
-  - You can't change the visibility of an existing saved view right now. To make a personal view visible to the project or company, create a new saved view with the same configurations and select the desired visibility level.
-  - The default 'All RFIs' view cannot be modified or deleted.
+ - Saved views can be edited or deleted at any time by users with the necessary permissions.
+ - Deleted views cannot be recovered.
+ - You can't change the visibility of an existing saved view right now. To make a personal view visible to the project or company, create a new saved view with the same configurations and select the desired visibility level.
+ - The default 'All RFIs' view cannot be modified or deleted.
 
 ##### Note
 
-Saved Views are available on the External Items tab when projects are connected via the  [Connection Manager](https://support.procore.com/products/online/user-guide/project-level/connection-manager "support.procore.com/products/online/user-guide/project-level/connection-manager") tool. See [User Guide: Procore Connect for RFIs](https://support.procore.com/products/online/user-guide/project-level/connection-manager/tutorials/user-guide-procore-connect-for-RFIs "User Guide: Procore Connect for RFIs").
+Saved Views are available on the External Items tab when projects are connected via the [Connection Manager](https://support.procore.com/products/online/user-guide/project-level/connection-manager "support.procore.com/products/online/user-guide/project-level/connection-manager") tool. See [User Guide: Procore Connect for RFIs](https://support.procore.com/products/online/user-guide/project-level/connection-manager/tutorials/user-guide-procore-connect-for-RFIs "User Guide: Procore Connect for RFIs").
 
 - **Required User Permissions**
-  - 'Admin' permissions to the RFI tool.  
+ - 'Admin' permissions to the RFI tool. 
     OR
-  - 'Read Only' or 'Standard' permissions with the 'View External Items' granular permission to the RFI tool.
+ - 'Read Only' or 'Standard' permissions with the 'View External Items' granular permission to the RFI tool.
 - **Additional Information:**
-  - Saved Views aren't shared across tabs. The Items and External Items tabs each maintain their own set.
-  - Follow the steps below to manage Saved Views in the External Items tab.
+ - Saved Views aren't shared across tabs. The Items and External Items tabs each maintain their own set.
+ - Follow the steps below to manage Saved Views in the External Items tab.
 
 ## Steps
 
@@ -85,7 +85,7 @@ Saved Views are available on the External Items tab when projects are connected 
 2. Click **Views.**
 3. Click the vertical ellipsis next to the view you want to edit.
 4. Select **Delete**.
-5. Click **Delete** to confirm that you want to delete the saved view.  
+5. Click **Delete** to confirm that you want to delete the saved view. 
    *Note: Deleted views cannot be recovered.*
 
 ## See Also

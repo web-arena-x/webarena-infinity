@@ -44,8 +44,8 @@ There are two ways to verify email security:
 - On your computer or Android device, when you compose a message, select Message security ![](//storage.googleapis.com/support-kms-prod/UTscb32S6vXRGWlBpKY8ZQlFTfKC5ub2Ne1e).
 - When you receive a message, open the recipient details.
 - If you get a message with a red open lock icon ![](//lh3.googleusercontent.com/Voo-KJStWSUpPumm-ex5WhBWnvWx5AgzgsX-vVC83hFsrOZFGu7B8wOpC11WeeMqUjA=w36), it means the message is unencrypted. You should:
-  - Not send sensitive information.
-  - Let the sender know their message is unencrypted.
+ - Not send sensitive information.
+ - Let the sender know their message is unencrypted.
 
 [Learn how to check your email security](/mail/answer/7039474).
 

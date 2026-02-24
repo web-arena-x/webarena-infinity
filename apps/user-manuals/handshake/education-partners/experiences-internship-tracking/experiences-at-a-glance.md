@@ -8,8 +8,8 @@ This article outlines a high level overview of the Experiences process to help y
 
 - [Experiences Training](https://academy.joinhandshake.com/experiences-training) via Handshake Academy (you'll need to be logged in to Handshake to access this!)
 - [Experiences: Using Handshake to Manage a High Impact Educational Practice](https://joinhandshake.com/blog/career-centers/experiences-using-handshake-to-manage-a-high-impact-educational-practice-2020/) (recorded webinar from 2020)
-- [Experiences 2019 Product Workshop and Training (webinar recording)](https://joinhandshake.com/blog/career-centers/experiences-product-workshop-updates-training-april-2019/) (Spring 2019)  
-  - Related article on updates from Spring 2019: [Experiences Updates (May 2019)](https://support.joinhandshake.com/hc/en-us/articles/360021258933-Experiences-Updates-May-2019-)
+- [Experiences 2019 Product Workshop and Training (webinar recording)](https://joinhandshake.com/blog/career-centers/experiences-product-workshop-updates-training-april-2019/) (Spring 2019) 
+ - Related article on updates from Spring 2019: [Experiences Updates (May 2019)](https://support.joinhandshake.com/hc/en-us/articles/360021258933-Experiences-Updates-May-2019-)
 - Experiences 2019 webinar deck (PDF attachment at the end of the article)
 
 ## **Configuration**
@@ -33,7 +33,7 @@ To learn more about creating surveys, explore our documentation in Assessment & 
 **3. Student Submission**. Student receives a job offer (through Handshake or otherwise) and wants to use the internship for their program requirements.
 
 - This article outlines how a student can submit an Experience: [Request an Experience (as a Student)](https://support.joinhandshake.com/hc/en-us/articles/360021199693).
-  - Find out how to help students if they encounter submission errors: [Troubleshooting: "There Were Some Errors During Submission"](https://support.joinhandshake.com/hc/en-us/articles/115015969868-Troubleshooting-There-Were-Some-Errors-During-Submission-)
+ - Find out how to help students if they encounter submission errors: [Troubleshooting: "There Were Some Errors During Submission"](https://support.joinhandshake.com/hc/en-us/articles/115015969868-Troubleshooting-There-Were-Some-Errors-During-Submission-)
 - This article outlines how CS can also submit an Experience on behalf of a student: [Creating an Experience (on behalf of a student).](https://support.joinhandshake.com/hc/en-us/articles/360021200653-Creating-an-Experience-on-behalf-of-a-student-)
 
 **4. Approval Kickoff**. A pending count will display in the left navigation bar over *Experiences* to notify the CS staff that a student has submitted an experience. At this point the CS staff can review and kick off the approval process: [Start and Manage Approvals](start-and-manage-approvals.md).

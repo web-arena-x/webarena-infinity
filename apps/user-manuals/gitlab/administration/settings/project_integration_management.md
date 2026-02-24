@@ -41,33 +41,24 @@ To configure default settings for an integration:
 
 {{< alert type="warning" >}}
 
-This may affect all or most of the groups and projects on your GitLab instance. Review the details
-below.
+This may affect all or most of the groups and projects on your GitLab instance. Review the details below.
 
 {{< /alert >}}
 
 If this is the first time you are setting up instance-level settings for an integration:
 
-- The integration is enabled for all groups and projects that don't already have this integration configured,
-  if you have the **Enable integration** toggle turned on in the instance-level settings.
-- Groups and projects that already have the integration configured are not affected, but can choose to use the
-  inherited settings at any time.
+- The integration is enabled for all groups and projects that don't already have this integration configured, if you have the **Enable integration** toggle turned on in the instance-level settings.
+- Groups and projects that already have the integration configured are not affected, but can choose to use the inherited settings at any time.
 
 When you make further changes to the instance defaults:
 
 - They are immediately applied to all groups and projects that have the integration set to use default settings.
-- They are immediately applied to newer groups and projects, created after you last saved defaults for the
-  integration. If your instance-level default setting has the **Enable integration** toggle turned
-  on, the integration is automatically enabled for all such groups and projects.
-- Groups and projects with custom settings selected for the integration are not immediately affected and may
-  choose to use the latest defaults at any time.
+- They are immediately applied to newer groups and projects, created after you last saved defaults for the integration. If your instance-level default setting has the **Enable integration** toggle turned on, the integration is automatically enabled for all such groups and projects.
+- Groups and projects with custom settings selected for the integration are not immediately affected and may choose to use the latest defaults at any time.
 
-If [group-level settings](../../user/project/integrations/_index.md#manage-group-default-settings-for-a-project-integration) have also
-been configured for the same integration, projects in that group inherit the group-level settings
-instead of the instance-level settings.
+If [group-level settings](../../user/project/integrations/_index.md#manage-group-default-settings-for-a-project-integration) have also been configured for the same integration, projects in that group inherit the group-level settings instead of the instance-level settings.
 
-Only the entire settings for an integration can be inherited. Per-field inheritance
-is proposed in [epic 2137](https://gitlab.com/groups/gitlab-org/-/epics/2137).
+Only the entire settings for an integration can be inherited. Per-field inheritance is proposed in [epic 2137](https://gitlab.com/groups/gitlab-org/-/epics/2137).
 
 ### Remove default settings for an integration
 
@@ -112,8 +103,7 @@ To view projects in your instance that [use custom settings](../../user/project/
 {{< /history >}}
 
 By default, project and group administrators can enable integrations.
-However, instance administrators can configure an allowlist to control
-which integrations can be enabled on a GitLab instance.
+However, instance administrators can configure an allowlist to control which integrations can be enabled on a GitLab instance.
 
 Enabled integrations that are later blocked by the allowlist settings are disabled.
 If these integrations are allowed again, they are re-enabled with their existing configuration.

@@ -44,8 +44,7 @@ Subject: "Complete your registration for *EVENT NAME*"
 
 Body:
 
-"You're almost done  
-Once you confirm your email below, you can then complete your registration for Working in the Confectionery Industry on the event page."
+"You're almost done Once you confirm your email below, you can then complete your registration for Working in the Confectionery Industry on the event page."
 
 ![confirmation_email_example.png](https://support.joinhandshake.com/hc/article_attachments/25997636895127)
 
@@ -61,8 +60,7 @@ Subject: "Your e-ticket to Working in the Confectionery Industry"
 
 Body:
 
-"Get ready to attend -  
-*EVENT NAME*
+"Get ready to attend - *EVENT NAME*
 
 *DAY, DATE, TIME + TIMEZONE*
 

@@ -63,7 +63,7 @@ We recommend adjusting the entire layer's opacity. Adjust the opacity **Layer** 
 
 Smart animate also takes the layer's rotation and orientation into account.
 
-You can [rotate an object](https://help.figma.com/hc/en-us/articles/360039956914#Rotating_objects) using the  rotation field in the right sidebar or in the canvas itself. Hover over the corner bounds of an object until the rotation cursor  appears.
+You can [rotate an object](https://help.figma.com/hc/en-us/articles/360039956914#Rotating_objects) using the rotation field in the right sidebar or in the canvas itself. Hover over the corner bounds of an object until the rotation cursor appears.
 
 Rotate a single layer at once, or rotate a group of them around a single anchor point.![Animated image showing an object with a different rotation across two frames and the resulting smart animation](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5d950aa32c7d3a7e9ae1f793/file-OOGxIrV1Il.gif)
 
@@ -95,7 +95,7 @@ Select **Smart animate** in the transition field to animate between two frames.
 5. In the **Animation** section, select **Smart animate** from the transition field.
 6. Apply **Easing** to the transition, or change the **Duration** (optional).
 7. Repeat for any other frames you want to smart animate.
-8. Click the  in the toolbar to [open the prototype in Presentation View.](https://help.figma.com/hc/en-us/articles/360040318013)
+8. Click the in the toolbar to [open the prototype in Presentation View.](https://help.figma.com/hc/en-us/articles/360040318013)
 
 In our example below, we have three frames with some matching layers. We want smart animate to animate removing the Abel Tasman Coast Track from our list of favorites. ![Image showing the three separate frames in our prototype](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5d950ace2c7d3a7e9ae1f796/file-H7Ayz3WHDi.png)
 
@@ -116,7 +116,7 @@ To use **Smart animate matching layers**, check the box in the right sidebar whe
 
 ![Interaction details panel showing animation settings with "Push" transition and "Smart Animate Matching Layers" checked.](https://help.figma.com/hc/article_attachments/32404312938519)
 
-In our example below, we have a status bar and navigation that exist across all three frames. We want these to stay in place when we switch between tabs.  
+In our example below, we have a status bar and navigation that exist across all three frames. We want these to stay in place when we switch between tabs. 
 ![Image showing the three frames in our prtotype](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5d950b0f2c7d3a7e9ae1f7a1/file-5gZ13AZyie.png)
 
 We've selected a **Push** Transition to move between Frames. We choose not to check the box next to **Smart animate matching layers**.

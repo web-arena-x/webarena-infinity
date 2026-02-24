@@ -12,41 +12,29 @@ title: Parsing GitLab logs with `jq`
 
 {{< /details >}}
 
-We recommend using log aggregation and search tools like Kibana and Splunk whenever possible,
-but if they are not available you can still quickly parse
-[GitLab logs](_index.md) in JSON format
-using [`jq`](https://stedolan.github.io/jq/).
+We recommend using log aggregation and search tools like Kibana and Splunk whenever possible, but if they are not available you can still quickly parse [GitLab logs](_index.md) in JSON format using [`jq`](https://stedolan.github.io/jq/).
 
 {{< alert type="note" >}}
 
-Specifically for summarizing error events and basic usage statistics,
-the GitLab Support Team offers the specialized
-[`fast-stats` tool](https://gitlab.com/gitlab-com/support/toolbox/fast-stats/#when-to-use-it).
-It can usually process larger logs much faster than `jq` and
-outputs a larger selection of statistical information.
+Specifically for summarizing error events and basic usage statistics, the GitLab Support Team offers the specialized [`fast-stats` tool](https://gitlab.com/gitlab-com/support/toolbox/fast-stats/#when-to-use-it).
+It can usually process larger logs much faster than `jq` and outputs a larger selection of statistical information.
 
 {{< /alert >}}
 
 ## What is JQ?
 
-As noted in its [manual](https://stedolan.github.io/jq/manual/), `jq` is a command-line JSON processor. The following examples
-include use cases targeted for parsing GitLab log files.
+As noted in its [manual](https://stedolan.github.io/jq/manual/), `jq` is a command-line JSON processor. The following examples include use cases targeted for parsing GitLab log files.
 
 ## Parsing Logs
 
-The examples listed below address their respective log files by
-their relative Linux package installation paths and default filenames.
+The examples listed below address their respective log files by their relative Linux package installation paths and default filenames.
 Find the respective full paths in the [GitLab logs sections](_index.md#production_jsonlog).
 
 ### Compressed logs
 
-When [log files are rotated](https://smarden.org/runit/svlogd.8), they are renamed in
-Unix timestamp format and compressed with `gzip`. The resulting file name looks like
-`@40000000624492fa18da6f34.s`. These files must be handled differently before parsing,
-than the more recent log files:
+When [log files are rotated](https://smarden.org/runit/svlogd.8), they are renamed in Unix timestamp format and compressed with `gzip`. The resulting file name looks like `@40000000624492fa18da6f34.s`. These files must be handled differently before parsing, than the more recent log files:
 
-- To uncompress the file, use `gunzip -S .s @40000000624492fa18da6f34.s`, replacing
-  the filename with your compressed log file's name.
+- To uncompress the file, use `gunzip -S .s @40000000624492fa18da6f34.s`, replacing the filename with your compressed log file's name.
 - To read or pipe the file directly, use `zcat` or `zless`.
 - To search file contents, use `zgrep`.
 
@@ -90,7 +78,7 @@ zcat some_json.log.25.gz | (head -1; tail -1) | jq '.time'
 #### Get activity for correlation ID across multiple JSON logs in chronological order
 
 ```shell
-grep -hR <correlationID> | jq -c -R 'fromjson?' | jq -C -s 'sort_by(.time)'  | less -R
+grep -hR <correlationID> | jq -c -R 'fromjson?' | jq -C -s 'sort_by(.time)' | less -R
 ```
 
 ### Parsing `gitlab-rails/production_json.log` and `gitlab-rails/api_json.log`
@@ -154,15 +142,15 @@ jq 'select(.time >= "2023-01-10T00:00:00Z" and .time <= "2023-01-10T12:00:00Z")'
 #### Print the top three controller methods by request volume and their three longest durations
 
 ```shell
-jq -s -r 'group_by(.controller+.action) | sort_by(-length) | limit(3; .[]) | sort_by(-.duration_s) | "CT: \(length)\tMETHOD: \(.[0].controller)#\(.[0].action)\tDURS: \(.[0].duration_s),  \(.[1].duration_s),  \(.[2].duration_s)"' production_json.log
+jq -s -r 'group_by(.controller+.action) | sort_by(-length) | limit(3; .[]) | sort_by(-.duration_s) | "CT: \(length)\tMETHOD: \(.[0].controller)#\(.[0].action)\tDURS: \(.[0].duration_s), \(.[1].duration_s), \(.[2].duration_s)"' production_json.log
 ```
 
 **Example output**
 
 ```plaintext
-CT: 2721   METHOD: SessionsController#new  DURS: 844.06,  713.81,  704.66
-CT: 2435   METHOD: MetricsController#index DURS: 299.29,  284.01,  158.57
-CT: 1328   METHOD: Projects::NotesController#index DURS: 403.99,  386.29,  384.39
+CT: 2721   METHOD: SessionsController#new DURS: 844.06, 713.81, 704.66
+CT: 2435   METHOD: MetricsController#index DURS: 299.29, 284.01, 158.57
+CT: 1328   METHOD: Projects::NotesController#index DURS: 403.99, 386.29, 384.39
 ```
 
 Alternatively, use [`fast-stats`](https://gitlab.com/gitlab-com/support/toolbox/fast-stats):
@@ -176,15 +164,15 @@ fast-stats --verbose --limit=3 production_json.log
 #### Print top three routes with request count and their three longest durations
 
 ```shell
-jq -s -r 'group_by(.route) | sort_by(-length) | limit(3; .[]) | sort_by(-.duration_s) | "CT: \(length)\tROUTE: \(.[0].route)\tDURS: \(.[0].duration_s),  \(.[1].duration_s),  \(.[2].duration_s)"' api_json.log
+jq -s -r 'group_by(.route) | sort_by(-length) | limit(3; .[]) | sort_by(-.duration_s) | "CT: \(length)\tROUTE: \(.[0].route)\tDURS: \(.[0].duration_s), \(.[1].duration_s), \(.[2].duration_s)"' api_json.log
 ```
 
 **Example output**
 
 ```plaintext
-CT: 2472 ROUTE: /api/:version/internal/allowed   DURS: 56402.65,  38411.43,  19500.41
-CT: 297  ROUTE: /api/:version/projects/:id/repository/tags       DURS: 731.39,  685.57,  480.86
-CT: 190  ROUTE: /api/:version/projects/:id/repository/commits    DURS: 1079.02,  979.68,  958.21
+CT: 2472 ROUTE: /api/:version/internal/allowed   DURS: 56402.65, 38411.43, 19500.41
+CT: 297 ROUTE: /api/:version/projects/:id/repository/tags       DURS: 731.39, 685.57, 480.86
+CT: 190 ROUTE: /api/:version/projects/:id/repository/commits    DURS: 1079.02, 979.68, 958.21
 ```
 
 Alternatively, use [`fast-stats`](https://gitlab.com/gitlab-com/support/toolbox/fast-stats):
@@ -197,24 +185,23 @@ fast-stats --verbose --limit=3 api_json.log
 
 ```shell
 jq --raw-output '
-  select(.remote_ip != "127.0.0.1") | [
+ select(.remote_ip != "127.0.0.1") | [
     (.time | split(".")[0] | strptime("%Y-%m-%dT%H:%M:%S") | strftime("…%m-%dT%H…")),
     ."meta.caller_id", .username, .ua
-  ] | @tsv' api_json.log | sort | uniq -c \
-  | grep --invert-match --extended-regexp '^\s+\d{1,3}\b'
+ ] | @tsv' api_json.log | sort | uniq -c \
+ | grep --invert-match --extended-regexp '^\s+\d{1,3}\b'
 ```
 
 **Example output**:
 
 ```plaintext
- 1234 …01-12T01…  GET /api/:version/projects/:id/pipelines  some_user  # plus browser details; OK
-54321 …01-12T01…  POST /api/:version/projects/:id/repository/files/:file_path/raw  some_bot
- 5678 …01-12T01…  PATCH /api/:version/jobs/:id/trace gitlab-runner     # plus version details; OK
+ 1234 …01-12T01… GET /api/:version/projects/:id/pipelines some_user # plus browser details; OK
+54321 …01-12T01… POST /api/:version/projects/:id/repository/files/:file_path/raw some_bot
+ 5678 …01-12T01… PATCH /api/:version/jobs/:id/trace gitlab-runner     # plus version details; OK
 ```
 
 This example shows a custom tool or script causing an unexpectedly high [request rate (>15 RPS)](../reference_architectures/_index.md#available-reference-architectures).
-User agents in this situation can be specialized [third-party clients](../../api/rest/third_party_clients.md),
-or general tools like `curl`.
+User agents in this situation can be specialized [third-party clients](../../api/rest/third_party_clients.md), or general tools like `curl`.
 
 The hourly aggregation helps to:
 
@@ -232,8 +219,7 @@ A high request frequency alone is not automatically a problem, but using a large
 
 ### Parsing `gitlab-rails/importer.log`
 
-To troubleshoot [project imports](../raketasks/project_import_export.md) or
-[migrations](../../user/import/_index.md), run this command:
+To troubleshoot [project imports](../raketasks/project_import_export.md) or [migrations](../../user/import/_index.md), run this command:
 
 ```shell
 jq 'select(.project_path == "<namespace>/<project>").error_messages' importer.log
@@ -247,35 +233,31 @@ For common issues, see [troubleshooting](../raketasks/import_export_rake_tasks_t
 
 ```shell
 jq --raw-output '
-  select(.remote_ip != "127.0.0.1") | [
+ select(.remote_ip != "127.0.0.1") | [
     (.time | split(".")[0] | strptime("%Y-%m-%dT%H:%M:%S") | strftime("…%m-%dT%H…")),
     .remote_ip, .uri, .user_agent
-  ] | @tsv' current |
-  sort | uniq -c
+ ] | @tsv' current |
+ sort | uniq -c
 ```
 
-Similar to the [API `ua` example](#print-top-api-user-agents),
-many unexpected user agents in this output indicate unoptimized scripts.
+Similar to the [API `ua` example](#print-top-api-user-agents), many unexpected user agents in this output indicate unoptimized scripts.
 Expected user agents include `gitlab-runner`, `GitLab-Shell`, and browsers.
 
-The performance impact of runners checking for new jobs can be reduced by increasing
-[the `check_interval` setting](https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-global-section),
-for example.
+The performance impact of runners checking for new jobs can be reduced by increasing [the `check_interval` setting](https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-global-section), for example.
 
 ### Parsing `gitlab-rails/geo.log`
 
 #### Find most common Geo sync errors
 
 If [the `geo:status` Rake task](../geo/replication/troubleshooting/common.md#sync-status-rake-task)
-repeatedly reports that some items never reach 100%,
-the following command helps to focus on the most common errors.
+repeatedly reports that some items never reach 100%, the following command helps to focus on the most common errors.
 
 ```shell
 jq --raw-output 'select(.severity == "ERROR") | [
-  (.time | split(".")[0] | strptime("%Y-%m-%dT%H:%M:%S") | strftime("…%m-%dT%H:%M…")),
-  .class, .id, .message, .error
-  ] | @tsv' geo.log \
-  | sort | uniq -c
+ (.time | split(".")[0] | strptime("%Y-%m-%dT%H:%M:%S") | strftime("…%m-%dT%H:%M…")),
+ .class, .id, .message, .error
+ ] | @tsv' geo.log \
+ | sort | uniq -c
 ```
 
 Refer to our [Geo troubleshooting page](../geo/replication/troubleshooting/_index.md)
@@ -307,37 +289,37 @@ jq 'select(."grpc.time_ms" > 30000)' current
 
 ```shell
 jq --raw-output --slurp '
-  map(
+ map(
     select(
       ."grpc.request.glProjectPath" != null
       and ."grpc.request.glProjectPath" != ""
       and ."grpc.time_ms" != null
     )
-  )
-  | group_by(."grpc.request.glProjectPath")
-  | sort_by(-length)
-  | limit(10; .[])
-  | sort_by(-."grpc.time_ms")
-  | [
+ )
+ | group_by(."grpc.request.glProjectPath")
+ | sort_by(-length)
+ | limit(10; .[])
+ | sort_by(-."grpc.time_ms")
+ | [
       length,
       .[0]."grpc.time_ms",
       .[1]."grpc.time_ms",
       .[2]."grpc.time_ms",
       .[0]."grpc.request.glProjectPath"
     ]
-  | @sh' current |
-  awk 'BEGIN { printf "%7s %10s %10s %10s\t%s\n", "CT", "MAX DURS", "", "", "PROJECT" }
-  { printf "%7u %7u ms, %7u ms, %7u ms\t%s\n", $1, $2, $3, $4, $5 }'
+ | @sh' current |
+ awk 'BEGIN { printf "%7s %10s %10s %10s\t%s\n", "CT", "MAX DURS", "", "", "PROJECT" }
+ { printf "%7u %7u ms, %7u ms, %7u ms\t%s\n", $1, $2, $3, $4, $5 }'
 ```
 
 **Example output**
 
 ```plaintext
    CT    MAX DURS                              PROJECT
-  206    4898 ms,    1101 ms,    1032 ms      'groupD/project4'
-  109    1420 ms,     962 ms,     875 ms      'groupEF/project56'
-  663     106 ms,      96 ms,      94 ms      'groupABC/project123'
-  ...
+ 206    4898 ms,    1101 ms,    1032 ms      'groupD/project4'
+ 109    1420 ms,     962 ms,     875 ms      'groupEF/project56'
+ 663     106 ms,      96 ms,      94 ms      'groupABC/project123'
+ ...
 ```
 
 Alternatively, use [`fast-stats`](https://gitlab.com/gitlab-com/support/toolbox/fast-stats):
@@ -352,16 +334,16 @@ fast-stats top --sort-by=duration current
 jq --raw-output '[
     (.time | split(".")[0] | strptime("%Y-%m-%dT%H:%M:%S") | strftime("…%m-%dT%H…")),
     .username, ."grpc.method", ."grpc.request.glProjectPath"
-  ] | @tsv' current | sort | uniq -c \
-  | grep --invert-match --extended-regexp '^\s+\d{1,3}\b'
+ ] | @tsv' current | sort | uniq -c \
+ | grep --invert-match --extended-regexp '^\s+\d{1,3}\b'
 ```
 
 **Example output**:
 
 ```plaintext
- 5678 …01-12T01…     ReferenceTransactionHook  # Praefect operation; OK
-54321 …01-12T01…  some_bot   GetBlobs    namespace/subgroup/project
- 1234 …01-12T01…  some_user  FindCommit  namespace/subgroup/project
+ 5678 …01-12T01…     ReferenceTransactionHook # Praefect operation; OK
+54321 …01-12T01… some_bot   GetBlobs    namespace/subgroup/project
+ 1234 …01-12T01… some_user FindCommit namespace/subgroup/project
 ```
 
 This example shows a custom tool or script causing unexpectedly high of [request rate (>15 RPS)](../reference_architectures/_index.md#available-reference-architectures) on Gitaly.
@@ -383,8 +365,8 @@ A high request frequency alone is not automatically a problem, but using a large
 
 ```shell
 grep "fatal: " current |
-  jq '."grpc.request.glProjectPath"' |
-  sort | uniq
+ jq '."grpc.request.glProjectPath"' |
+ sort | uniq
 ```
 
 ### Parsing `gitlab-shell/gitlab-shell.log`
@@ -395,33 +377,33 @@ Find the top 20 calls by project and user:
 
 ```shell
 jq --raw-output --slurp '
-  map(
+ map(
     select(
       .username != null and
       .gl_project_path !=null
     )
-  )
-  | group_by(.username+.gl_project_path)
-  | sort_by(-length)
-  | limit(20; .[])
-  | "count: \(length)\tuser: \(.[0].username)\tproject: \(.[0].gl_project_path)" ' \
-  gitlab-shell.log
+ )
+ | group_by(.username+.gl_project_path)
+ | sort_by(-length)
+ | limit(20; .[])
+ | "count: \(length)\tuser: \(.[0].username)\tproject: \(.[0].gl_project_path)" ' \
+ gitlab-shell.log
 ```
 
 Find the top 20 calls by project, user, and command:
 
 ```shell
 jq --raw-output --slurp '
-  map(
+ map(
     select(
-      .command  != null and
+      .command != null and
       .username != null and
       .gl_project_path !=null
     )
-  )
-  | group_by(.username+.gl_project_path+.command)
-  | sort_by(-length)
-  | limit(20; .[])
-  | "count: \(length)\tcommand: \(.[0].command)\tuser: \(.[0].username)\tproject: \(.[0].gl_project_path)" ' \
-  gitlab-shell.log
+ )
+ | group_by(.username+.gl_project_path+.command)
+ | sort_by(-length)
+ | limit(20; .[])
+ | "count: \(length)\tcommand: \(.[0].command)\tuser: \(.[0].username)\tproject: \(.[0].gl_project_path)" ' \
+ gitlab-shell.log
 ```

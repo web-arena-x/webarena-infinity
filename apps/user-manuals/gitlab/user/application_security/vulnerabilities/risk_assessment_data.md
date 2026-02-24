@@ -9,14 +9,11 @@ Use vulnerability risk data to help assess the potential impact to your environm
 
 - Severity: Each vulnerability is assigned a standardized GitLab severity value.
 
-- For vulnerabilities in the [Common Vulnerabilities and Exposures (CVE)](https://www.cve.org/) catalog,
-  the following data can be retrieved through the [vulnerability details](_index.md) page or by using a GraphQL query:
-  - Likelihood of exploitation: [Exploit Prediction Scoring System (EPSS)](https://www.first.org/epss) score.
-  - Existence of known exploits: [Known Exploited Vulnerabilities (KEV)](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) status.
+- For vulnerabilities in the [Common Vulnerabilities and Exposures (CVE)](https://www.cve.org/) catalog, the following data can be retrieved through the [vulnerability details](_index.md) page or by using a GraphQL query:
+ - Likelihood of exploitation: [Exploit Prediction Scoring System (EPSS)](https://www.first.org/epss) score.
+ - Existence of known exploits: [Known Exploited Vulnerabilities (KEV)](https://www.cisa.gov/known-exploited-vulnerabilities-catalog) status.
 
-Use this data to help prioritize remediation and mitigation actions. For example, a vulnerability
-with medium severity and a high EPSS score may require mitigation sooner than a vulnerability with a
-high severity and a low EPSS score.
+Use this data to help prioritize remediation and mitigation actions. For example, a vulnerability with medium severity and a high EPSS score may require mitigation sooner than a vulnerability with a high severity and a low EPSS score.
 
 ## EPSS
 
@@ -28,9 +25,7 @@ high severity and a low EPSS score.
 
 {{< /history >}}
 
-The EPSS score provides an estimate of the likelihood a vulnerability in the CVE catalog will be
-exploited in the next 30 days. EPSS assigns each CVE a score between 0 to 1 (equivalent to 0% to
-100%).
+The EPSS score provides an estimate of the likelihood a vulnerability in the CVE catalog will be exploited in the next 30 days. EPSS assigns each CVE a score between 0 to 1 (equivalent to 0% to 100%).
 
 ## KEV
 
@@ -40,9 +35,7 @@ exploited in the next 30 days. EPSS assigns each CVE a score between 0 to 1 (equ
 
 {{< /history >}}
 
-The KEV catalog lists vulnerabilities that are known to have been exploited. You should prioritize
-the remediation of vulnerabilities in the KEV catalog above other vulnerabilities. Attacks using
-these vulnerabilities have occurred and the exploitation method is likely known to attackers.
+The KEV catalog lists vulnerabilities that are known to have been exploited. You should prioritize the remediation of vulnerabilities in the KEV catalog above other vulnerabilities. Attacks using these vulnerabilities have occurred and the exploitation method is likely known to attackers.
 
 ## Reachability
 
@@ -52,10 +45,7 @@ these vulnerabilities have occurred and the exploitation method is likely known 
 
 {{< /history >}}
 
-Reachability shows if a vulnerable package is imported by your application. Vulnerabilities in
-packages that your code directly interacts with pose a higher risk than those in unused
-dependencies. Prioritize fixing reachable vulnerabilities, as they represent real exposure points
-that attackers could exploit.
+Reachability shows if a vulnerable package is imported by your application. Vulnerabilities in packages that your code directly interacts with pose a higher risk than those in unused dependencies. Prioritize fixing reachable vulnerabilities, as they represent real exposure points that attackers could exploit.
 
 For more details, see [Static reachability](../dependency_scanning/static_reachability.md).
 
@@ -63,18 +53,13 @@ For more details, see [Static reachability](../dependency_scanning/static_reacha
 
 Use the GraphQL API to query the severity, EPSS, and KEV values of vulnerabilities in a project.
 
-The `Vulnerability` type in the GraphQL API has a `cveEnrichment` field, which is populated when the
-`identifiers` field contains a CVE identifier. The `cveEnrichment` field contains the CVE ID, EPSS
-score, and KEV status for the vulnerability. EPSS scores are rounded to the second decimal digit.
+The `Vulnerability` type in the GraphQL API has a `cveEnrichment` field, which is populated when the `identifiers` field contains a CVE identifier. The `cveEnrichment` field contains the CVE ID, EPSS score, and KEV status for the vulnerability. EPSS scores are rounded to the second decimal digit.
 
-For example, the following GraphQL API query returns all vulnerabilities in a given project and
-their CVE ID, EPSS score, and KEV status (`isKnownExploit`). Run the query in the
-[GraphQL explorer](../../../api/graphql/_index.md#interactive-graphql-explorer) or any other GraphQL
-client.
+For example, the following GraphQL API query returns all vulnerabilities in a given project and their CVE ID, EPSS score, and KEV status (`isKnownExploit`). Run the query in the [GraphQL explorer](../../../api/graphql/_index.md#interactive-graphql-explorer) or any other GraphQL client.
 
 ```graphql
 {
-  project(fullPath: "<full/path/to/project>") {
+ project(fullPath: "<full/path/to/project>") {
     vulnerabilities {
       nodes {
         severity
@@ -90,7 +75,7 @@ client.
         reachability
       }
     }
-  }
+ }
 }
 ```
 
@@ -98,7 +83,7 @@ Example output:
 
 ```json
 {
-  "data": {
+ "data": {
     "project": {
       "vulnerabilities": {
         "nodes": [
@@ -135,8 +120,8 @@ Example output:
         ]
       }
     }
-  },
-  "correlationId": "..."
+ },
+ "correlationId": "..."
 }
 ```
 

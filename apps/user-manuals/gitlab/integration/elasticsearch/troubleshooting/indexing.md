@@ -18,8 +18,7 @@ When working with Elasticsearch indexing or searching, you might encounter the f
 
 For indexing issues, try first to create an empty index.
 Check the Elasticsearch instance to see if the `gitlab-production` index exists.
-If it does, manually delete the index on the Elasticsearch instance and try to recreate it from the
-[`recreate_index`](../../advanced_search/elasticsearch.md#gitlab-advanced-search-rake-tasks)
+If it does, manually delete the index on the Elasticsearch instance and try to recreate it from the [`recreate_index`](../../advanced_search/elasticsearch.md#gitlab-advanced-search-rake-tasks)
 Rake task.
 
 If you still encounter issues, try to create an index manually on the Elasticsearch instance.
@@ -39,15 +38,14 @@ Errors might occur on:
 If indexing does not return errors, check the status of indexed projects with the following Rake tasks:
 
 - [`sudo gitlab-rake gitlab:elastic:index_projects_status`](../../advanced_search/elasticsearch.md#gitlab-advanced-search-rake-tasks)
-  for the overall status
+ for the overall status
 - [`sudo gitlab-rake gitlab:elastic:projects_not_indexed`](../../advanced_search/elasticsearch.md#gitlab-advanced-search-rake-tasks)
-  for specific projects that are not indexed
+ for specific projects that are not indexed
 
 If indexing is:
 
 - Complete, contact GitLab Support.
-- Not complete, try to reindex that project by running
-  `sudo gitlab-rake gitlab:elastic:index_projects ID_FROM=<project ID> ID_TO=<project ID>`.
+- Not complete, try to reindex that project by running `sudo gitlab-rake gitlab:elastic:index_projects ID_FROM=<project ID> ID_TO=<project ID>`.
 
 If reindexing the project shows errors on:
 
@@ -56,9 +54,7 @@ If reindexing the project shows errors on:
 
 ## No search results after updating GitLab
 
-We continuously make updates to our indexing strategies and aim to support
-newer versions of Elasticsearch. When indexing changes are made, you might
-have to [reindex](../../advanced_search/elasticsearch.md#zero-downtime-reindexing) after updating GitLab.
+We continuously make updates to our indexing strategies and aim to support newer versions of Elasticsearch. When indexing changes are made, you might have to [reindex](../../advanced_search/elasticsearch.md#zero-downtime-reindexing) after updating GitLab.
 
 ## No search results after indexing all repositories
 
@@ -114,8 +110,7 @@ AWS has [network limits](https://docs.aws.amazon.com/opensearch-service/latest/d
 ## Indexing is very slow or fails with `rejected execution of coordinating operation`
 
 Bulk requests getting rejected by the Elasticsearch nodes are likely due to load and lack of available memory.
-Ensure that your Elasticsearch cluster meets the [system requirements](../../advanced_search/elasticsearch.md#system-requirements) and has enough resources
-to perform bulk operations. See also the error ["429 (Too Many Requests)"](#indexing-fails-with-error-elastic-error-429-too-many-requests).
+Ensure that your Elasticsearch cluster meets the [system requirements](../../advanced_search/elasticsearch.md#system-requirements) and has enough resources to perform bulk operations. See also the error ["429 (Too Many Requests)"](#indexing-fails-with-error-elastic-error-429-too-many-requests).
 
 ## Indexing fails with `strict_dynamic_mapping_exception`
 
@@ -167,10 +162,8 @@ To resolve this issue, increase the value or upgrade Elasticsearch 8.1 or later.
 
 ## Error: `disk usage exceeded flood-stage watermark, index has read-only-allow-delete block`
 
-This error occurs when your Elasticsearch cluster has
-at least one node that is critically low on disk space.
-A cluster that exceeds the default watermark threshold of 95%
-enforces a read-only block that prevents all further write operations.
+This error occurs when your Elasticsearch cluster has at least one node that is critically low on disk space.
+A cluster that exceeds the default watermark threshold of 95% enforces a read-only block that prevents all further write operations.
 This block might cause new index operations to fail and result in outdated search results.
 
 You can check if the cluster is in read-only mode with the following Rake task:
@@ -196,20 +189,11 @@ sudo gitlab-rake gitlab:elastic:estimate_cluster_size
 
 ## Last resort to recreate an index
 
-There may be cases where somehow data never got indexed and it's not in the
-queue, or the index is somehow in a state where migrations just cannot
-proceed. It is always best to try to troubleshoot the root cause of the problem
-by [viewing the logs](access.md#view-logs).
+There may be cases where somehow data never got indexed and it's not in the queue, or the index is somehow in a state where migrations just cannot proceed. It is always best to try to troubleshoot the root cause of the problem by [viewing the logs](access.md#view-logs).
 
-As a last resort, you can recreate the index from scratch. For small GitLab installations,
-recreating the index can be a quick way to resolve some issues. For large GitLab
-installations, however, this method might take a very long time. Your index
-does not show correct search results until the indexing is complete. You might
-want to clear the **Search with advanced search** checkbox
-while the indexing is running.
+As a last resort, you can recreate the index from scratch. For small GitLab installations, recreating the index can be a quick way to resolve some issues. For large GitLab installations, however, this method might take a very long time. Your index does not show correct search results until the indexing is complete. You might want to clear the **Search with advanced search** checkbox while the indexing is running.
 
-If you are sure you've read the previous caveats and want to proceed, then you
-should run the following Rake task to recreate the entire index from scratch.
+If you are sure you've read the previous caveats and want to proceed, then you should run the following Rake task to recreate the entire index from scratch.
 
 {{< tabs >}}
 
@@ -261,8 +245,7 @@ To check the size and details of the dead queue:
    Search::Elastic::DeadQueue.queued_items
    ```
 
-   This command returns a hash where each key is a shard number
-   and each value is an array of `[spec, score]` pairs.
+   This command returns a hash where each key is a shard number and each value is an array of `[spec, score]` pairs.
    The spec contains information about the failed item.
 
 ### Retry items
@@ -320,27 +303,18 @@ When it comes to Elasticsearch, RAM is the key resource. Elasticsearch themselve
 - **At least** 16 GB of RAM for a production instance.
 - Ideally, 64 GB of RAM.
 
-For CPU, Elasticsearch recommends at least 2 CPU cores, but Elasticsearch states common
-setups use up to 8 cores. For more details on server specs, check out the
-[Elasticsearch hardware guide](https://www.elastic.co/guide/en/elasticsearch/guide/current/hardware.html).
+For CPU, Elasticsearch recommends at least 2 CPU cores, but Elasticsearch states common setups use up to 8 cores. For more details on server specs, check out the [Elasticsearch hardware guide](https://www.elastic.co/guide/en/elasticsearch/guide/current/hardware.html).
 
 Beyond the obvious, sharding comes into play. Sharding is a core part of Elasticsearch.
-It allows for horizontal scaling of indices, which is helpful when you are dealing with
-a large amount of data.
+It allows for horizontal scaling of indices, which is helpful when you are dealing with a large amount of data.
 
-With the way GitLab does indexing, there is a **huge** amount of documents being
-indexed. By using sharding, you can speed up the ability of Elasticsearch to locate
-data because each shard is a Lucene index.
+With the way GitLab does indexing, there is a **huge** amount of documents being indexed. By using sharding, you can speed up the ability of Elasticsearch to locate data because each shard is a Lucene index.
 
-If you are not using sharding, you are likely to hit issues when you start using
-Elasticsearch in a production environment.
+If you are not using sharding, you are likely to hit issues when you start using Elasticsearch in a production environment.
 
-An index with only one shard has **no scale factor** and is likely
-to encounter issues when called upon with some frequency. See the
-[Elasticsearch documentation on capacity planning](https://www.elastic.co/guide/en/elasticsearch/guide/2.x/capacity-planning.html).
+An index with only one shard has **no scale factor** and is likely to encounter issues when called upon with some frequency. See the [Elasticsearch documentation on capacity planning](https://www.elastic.co/guide/en/elasticsearch/guide/2.x/capacity-planning.html).
 
-The easiest way to determine if sharding is in use is to check the output of the
-[Elasticsearch Health API](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-health.html):
+The easiest way to determine if sharding is in use is to check the output of the [Elasticsearch Health API](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-health.html):
 
 - Red means the cluster is down.
 - Yellow means it is up with no sharding/replication.
@@ -348,13 +322,9 @@ The easiest way to determine if sharding is in use is to check the output of the
 
 For production use, it should always be green.
 
-Beyond these steps, you get into some of the more complicated things to check,
-such as merges and caching. These can get complicated and it takes some time to
-learn them, so it is best to escalate/pair with an Elasticsearch expert if you need to
-dig further into these.
+Beyond these steps, you get into some of the more complicated things to check, such as merges and caching. These can get complicated and it takes some time to learn them, so it is best to escalate/pair with an Elasticsearch expert if you need to dig further into these.
 
-Reach out to GitLab Support, but this is likely to be something a skilled
-Elasticsearch administrator has more experience with.
+Reach out to GitLab Support, but this is likely to be something a skilled Elasticsearch administrator has more experience with.
 
 ## Slow initial indexing
 
@@ -368,8 +338,7 @@ If your initial indexing is slow, consider [dedicated Sidekiq nodes or processes
 
 ### For non-code documents
 
-If the initial indexing is slow but Sidekiq has enough nodes and processes,
-you can adjust advanced search worker settings in GitLab.
+If the initial indexing is slow but Sidekiq has enough nodes and processes, you can adjust advanced search worker settings in GitLab.
 For **Requeue indexing workers**, the default value is `false`.
 For **Number of shards for non-code indexing**, the default value is `2`.
 These settings limit indexing to 2000 documents per minute.

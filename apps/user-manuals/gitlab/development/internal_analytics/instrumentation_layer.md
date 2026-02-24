@@ -7,8 +7,7 @@ title: Single Instrumentation Layer
 
 ## Single Instrumentation Layer
 
-The Single Instrumentation Layer is an event tracking abstraction that allows to track any events in GitLab using a single interface. It
-uses events definitions from [Internal Event framework](internal_event_instrumentation/event_definition_guide.md) to declare event processing logic.
+The Single Instrumentation Layer is an event tracking abstraction that allows to track any events in GitLab using a single interface. It uses events definitions from [Internal Event framework](internal_event_instrumentation/event_definition_guide.md) to declare event processing logic.
 
 ## Why a Single Instrumentation Layer?
 
@@ -22,13 +21,9 @@ The Single Instrumentation Layer allows to:
 
 [See example MR](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/167415/diffs).
 
-[Event definitions](internal_event_instrumentation/event_definition_guide.md) are used as a declarative specification
-for processing logic and are the single source of truth for event properties, tracking parameters, and other metadata.
+[Event definitions](internal_event_instrumentation/event_definition_guide.md) are used as a declarative specification for processing logic and are the single source of truth for event properties, tracking parameters, and other metadata.
 
-When the Instrumentation Layer tracking method is called (`InternalEventsTracking.track_internal_event`),
-the Instrumentation Layer passes the payload to Internal Events. If extra trackers are defined for the event,
-they are called in order of declaration and the original payload is passed as a parameter. For more information,
-see [how to implement it for your tracking system](#how-to-implement-it-for-your-tracking-system).
+When the Instrumentation Layer tracking method is called (`InternalEventsTracking.track_internal_event`), the Instrumentation Layer passes the payload to Internal Events. If extra trackers are defined for the event, they are called in order of declaration and the original payload is passed as a parameter. For more information, see [how to implement it for your tracking system](#how-to-implement-it-for-your-tracking-system).
 
 ```mermaid
 flowchart TD
@@ -44,8 +39,7 @@ flowchart TD
 
 ### Additional tracking systems
 
-When an event is intended to be processed by tracking systems (for example, [AiTracking](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/tracking/ai_tracking.rb)), the event definition is extended to
-include the additional processing logic. [example](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/167415/diffs#a77ac5c62df6c489c00e9c5dd46960f390c951d0_17_17)
+When an event is intended to be processed by tracking systems (for example, [AiTracking](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/tracking/ai_tracking.rb)), the event definition is extended to include the additional processing logic. [example](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/167415/diffs#a77ac5c62df6c489c00e9c5dd46960f390c951d0_17_17)
 
 This logic is declared using additional processing classes using standard interface.
 
@@ -54,8 +48,7 @@ This logic is declared using additional processing classes using standard interf
 To implement it for your tracking system, you need to:
 
 1. Add a [new event definition](internal_event_instrumentation/event_definition_guide.md) or use existing one ([see events dictionary](https://metrics.gitlab.com/events)).
-1. Implement the processing logic in a new tracking class. The class should have a class method `track_event` that accepts
-   an event name and additional named parameters
+1. Implement the processing logic in a new tracking class. The class should have a class method `track_event` that accepts an event name and additional named parameters
 
    ```ruby
    module Gitlab
@@ -79,7 +72,7 @@ To implement it for your tracking system, you need to:
           description: The type of the processor
    ```
 
-  `protected_properties` contains properties to be sent exclusively to the specified tracking class.
+ `protected_properties` contains properties to be sent exclusively to the specified tracking class.
 
 1. [Trigger the event](internal_event_instrumentation/quick_start.md#trigger-events) in your code using Internal Events framework
 

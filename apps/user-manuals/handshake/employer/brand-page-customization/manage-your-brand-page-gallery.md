@@ -14,11 +14,11 @@ On Handshake, you can manage your gallery to keep your brand page vibrant and cu
 
 - [Access gallery](#h_01J49XTBYKG1K2V4Y0G9S7T1BB)
 - [Manage gallery](#h_01J49XTR51JTP7SQM61WYKRYYQ)
-  - [Add photo](#h_01J49WFDTMWWPS0YWMVZYJYXTS)
-  - [Add video](#h_01J49WQRECERKFZJMA3THR689R)
-  - [Edit photo or video](#h_01J49X1ADGKSTJ62CY4SJM698W)
-  - [Arrange order of photos and videos](#h_01J49YJT65ET63GHM0JNBMKDQH)
-  - [Delete photo or video](#h_01J49Z2EZG1B5NRNSGBAAA2RMJ)
+ - [Add photo](#h_01J49WFDTMWWPS0YWMVZYJYXTS)
+ - [Add video](#h_01J49WQRECERKFZJMA3THR689R)
+ - [Edit photo or video](#h_01J49X1ADGKSTJ62CY4SJM698W)
+ - [Arrange order of photos and videos](#h_01J49YJT65ET63GHM0JNBMKDQH)
+ - [Delete photo or video](#h_01J49Z2EZG1B5NRNSGBAAA2RMJ)
 
 ### 
 

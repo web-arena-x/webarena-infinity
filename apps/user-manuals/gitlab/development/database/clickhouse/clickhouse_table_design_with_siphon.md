@@ -104,12 +104,12 @@ After the table is created, you should update your Siphon configuration in `gdk.
 
 ```yaml
 siphon:
-  enabled: true
-  tables:
-  - organizations
-  - namespaces
-  - projects
-  - labels
+ enabled: true
+ tables:
+ - organizations
+ - namespaces
+ - projects
+ - labels
 ```
 
 After this change, you can restart the Siphon-related processes in your GDK and eventually you should see data synchronized to your table.
@@ -244,15 +244,15 @@ When querying hierarchy-optimized tables it's important to ensure that the `trav
 ```sql
 SELECT COUNT(*)
 FROM (
-  SELECT
+ SELECT
     argMax(title, _siphon_replicated_at) AS title,
     argMax(_siphon_deleted, _siphon_replicated_at) AS _siphon_deleted,
     id,
     traversal_path
-  FROM siphon_labels
-  WHERE
+ FROM siphon_labels
+ WHERE
     traversal_path = '1/9970/'
-  GROUP BY traversal_path, id
+ GROUP BY traversal_path, id
 )
 WHERE _siphon_deleted = false
 ```
@@ -262,15 +262,15 @@ If we only know the `group_id`, we can use a dictionary lookup as the filter:
 ```sql
 SELECT COUNT(*)
 FROM (
-  SELECT
+ SELECT
     argMax(title, _siphon_replicated_at) AS title,
     argMax(_siphon_deleted, _siphon_replicated_at) AS _siphon_deleted,
     id,
     traversal_path
-  FROM siphon_labels
-  WHERE
+ FROM siphon_labels
+ WHERE
     traversal_path = dictGetOrDefault('namespace_traversal_paths_dict', 'traversal_path', 9970, '0/')
-  GROUP BY traversal_path, id
+ GROUP BY traversal_path, id
 )
 WHERE _siphon_deleted = false
 ```
@@ -280,15 +280,15 @@ WHERE _siphon_deleted = false
 ```sql
 SELECT COUNT(*)
 FROM (
-  SELECT
+ SELECT
     argMax(title, _siphon_replicated_at) AS title,
     argMax(_siphon_deleted, _siphon_replicated_at) AS _siphon_deleted,
     id,
     traversal_path
-  FROM siphon_labels
-  WHERE
+ FROM siphon_labels
+ WHERE
     startsWith(traversal_path, '1/9970/')
-  GROUP BY traversal_path, id
+ GROUP BY traversal_path, id
 )
 WHERE _siphon_deleted = false
 ```
@@ -314,16 +314,16 @@ The query above is not deduplicated and it may return duplicated rows, one way o
 ```sql
 SELECT title, id
 FROM (
-  SELECT
+ SELECT
     argMax(title, _siphon_replicated_at) AS title, -- take the latest `title` value
     argMax(_siphon_deleted, _siphon_replicated_at) AS _siphon_deleted, -- take the latest deletion status
     id,
     traversal_path
-  FROM siphon_labels
-  GROUP BY traversal_path, id -- GROUP BY primary key
+ FROM siphon_labels
+ GROUP BY traversal_path, id -- GROUP BY primary key
 )
 WHERE
-  _siphon_deleted = false -- Filter out deleted rows
+ _siphon_deleted = false -- Filter out deleted rows
 ORDER BY title
 LIMIT 5
 ```
@@ -345,9 +345,9 @@ ENGINE = ReplacingMergeTree(_siphon_replicated_at, _siphon_deleted)
 With all denormalizations, there are trade-offs. The Siphon-based hierarchy denormalization provides the following consistency guarantees under normal operation (assuming that the `namespaces` and `projects` tables have finished their initial data snapshot):
 
 - Records in hierarchy-denormalized tables will be inserted, updated, and deleted correctly even when the column on which the hierarchy lookup is based has changed (e.g., `namespace_id` was updated).
-  - **Note:** If the hierarchy lookup column (`namespace_id`) is a sharding key, these columns never change in PostgreSQL by design.
+ - **Note:** If the hierarchy lookup column (`namespace_id`) is a sharding key, these columns never change in PostgreSQL by design.
 - When one of the namespace record references in the `traversal_path` changes (e.g., a subgroup/project is moved or deleted):
-  - Eventual consistency is enforced via periodical consistency check jobs. The system aims to resolve these consistency issues in 5 minutes for large tables (note: this is to be implemented within [this issue](https://gitlab.com/gitlab-org/analytics-section/siphon/-/work_items/160)).
+ - Eventual consistency is enforced via periodical consistency check jobs. The system aims to resolve these consistency issues in 5 minutes for large tables (note: this is to be implemented within [this issue](https://gitlab.com/gitlab-org/analytics-section/siphon/-/work_items/160)).
 
 In development, consistency issues may appear more often as record creation may happen very close to the project or group creation. In these cases, the eventual consistency enforcement should resolve the problems in seconds or minutes (configurable).
 

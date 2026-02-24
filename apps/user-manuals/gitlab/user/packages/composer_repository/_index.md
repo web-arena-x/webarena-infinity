@@ -15,74 +15,66 @@ title: Composer packages in the package registry
 
 {{< alert type="warning" >}}
 
-The Composer package registry for GitLab is under development and isn't ready for production use due to
-limited functionality. This [epic](https://gitlab.com/groups/gitlab-org/-/epics/6817) details the remaining
-work and timelines to make it production ready.
+The Composer package registry for GitLab is under development and isn't ready for production use due to limited functionality. This [epic](https://gitlab.com/groups/gitlab-org/-/epics/6817) details the remaining work and timelines to make it production ready.
 
 {{< /alert >}}
 
 Publish [Composer](https://getcomposer.org/) packages in your project's package registry.
 Then, install the packages whenever you need to use them as a dependency.
 
-For documentation of the specific API endpoints that the Composer
-client uses, see the [Composer API documentation](../../../api/packages/composer.md).
+For documentation of the specific API endpoints that the Composer client uses, see the [Composer API documentation](../../../api/packages/composer.md).
 
-Composer v2.0 is recommended. Composer v1.0 is supported, but it has lower performance when working
-in groups with very large numbers of packages.
+Composer v2.0 is recommended. Composer v1.0 is supported, but it has lower performance when working in groups with very large numbers of packages.
 
 Learn how to [build a Composer package](../workflows/build_packages.md#composer).
 
 ## Publish a Composer package by using the API
 
-Publish a Composer package to the package registry,
-so that anyone who can access the project can use the package as a dependency.
+Publish a Composer package to the package registry, so that anyone who can access the project can use the package as a dependency.
 
 Prerequisites:
 
-- A package in a GitLab repository. Composer packages should be versioned based on
-  the [Composer specification](https://getcomposer.org/doc/04-schema.md#version).
-  If the version is not valid, for example, it has three dots (`1.0.0.0`), an
-  error (`Validation failed: Version is invalid`) occurs when you publish.
+- A package in a GitLab repository. Composer packages should be versioned based on the [Composer specification](https://getcomposer.org/doc/04-schema.md#version).
+ If the version is not valid, for example, it has three dots (`1.0.0.0`), an error (`Validation failed: Version is invalid`) occurs when you publish.
 - A valid `composer.json` file at the project root directory.
 - The Packages feature is enabled in a GitLab repository.
 - The project ID, which is displayed on the [project overview page](../../project/working_with_projects.md#find-the-project-id).
 - One of the following token types:
-  - A [personal access token](../../profile/personal_access_tokens.md) with the scope set to `api`.
-  - A [deploy token](../../project/deploy_tokens/_index.md)
+ - A [personal access token](../../profile/personal_access_tokens.md) with the scope set to `api`.
+ - A [deploy token](../../project/deploy_tokens/_index.md)
     with the scope set to `write_package_registry`.
 
 To publish the package with a personal access token:
 
 - Send a `POST` request to the [Packages API](../../../api/packages.md).
 
-  For example, you can use `curl`:
+ For example, you can use `curl`:
 
-  ```shell
-  curl --fail-with-body --data tag=<tag> "https://__token__:<personal-access-token>@gitlab.example.com/api/v4/projects/<project_id>/packages/composer"
-  ```
+ ```shell
+ curl --fail-with-body --data tag=<tag> "https://__token__:<personal-access-token>@gitlab.example.com/api/v4/projects/<project_id>/packages/composer"
+ ```
 
-  - `<personal-access-token>` is your personal access token.
-  - `<project_id>` is your project ID.
-  - `<tag>` is the Git tag name of the version you want to publish.
+ - `<personal-access-token>` is your personal access token.
+ - `<project_id>` is your project ID.
+ - `<tag>` is the Git tag name of the version you want to publish.
     To publish a branch, use `branch=<branch>` instead of `tag=<tag>`.
 
 To publish the package with a deploy token:
 
 - Send a `POST` request to the [Packages API](../../../api/packages.md).
 
-  For example, you can use `curl`:
+ For example, you can use `curl`:
 
-  ```shell
-  curl --fail-with-body --data tag=<tag> --header "Deploy-Token: <deploy-token>" "https://gitlab.example.com/api/v4/projects/<project_id>/packages/composer"
-  ```
+ ```shell
+ curl --fail-with-body --data tag=<tag> --header "Deploy-Token: <deploy-token>" "https://gitlab.example.com/api/v4/projects/<project_id>/packages/composer"
+ ```
 
-  - `<deploy-token>` is your deploy token
-  - `<project_id>` is your project ID.
-  - `<tag>` is the Git tag name of the version you want to publish.
+ - `<deploy-token>` is your deploy token
+ - `<project_id>` is your project ID.
+ - `<tag>` is the Git tag name of the version you want to publish.
     To publish a branch, use `branch=<branch>` instead of `tag=<tag>`.
 
-You can view the published package by going to **Deploy** > **Package registry** and
-selecting the **Composer** tab.
+You can view the published package by going to **Deploy** > **Package registry** and selecting the **Composer** tab.
 
 ## Publish a Composer package by using CI/CD
 
@@ -134,11 +126,11 @@ Prerequisites:
 - The package registry is enabled in the project responsible for publishing the package.
 - The group ID, which is on the group's home page.
 - One of the following token types:
-  - A [personal access token](../../profile/personal_access_tokens.md)
+ - A [personal access token](../../profile/personal_access_tokens.md)
     with the scope set to, at minimum, `api`.
-  - A [deploy token](../../project/deploy_tokens/_index.md)
+ - A [deploy token](../../project/deploy_tokens/_index.md)
     with the scope set to `read_package_registry`, `write_package_registry`, or both.
-  - A [CI/CD Job token](../../../ci/jobs/ci_job_token.md)
+ - A [CI/CD Job token](../../../ci/jobs/ci_job_token.md)
 
 To install a package:
 
@@ -253,8 +245,7 @@ To install a package:
    ```
 
    - `<DOMAIN-NAME>` is the GitLab instance URL `gitlab.com` or `gitlab.example.com`.
-   - `<personal_access_token>` with the scope set to `api`, or `<deploy_token>` with the scope set
-     to `read_package_registry` and/or `write_package_registry`.
+   - `<personal_access_token>` with the scope set to `api`, or `<deploy_token>` with the scope set to `read_package_registry` and/or `write_package_registry`.
 
 1. If you are on GitLab Self-Managed, add `gitlab-domains` to `composer.json`.
 
@@ -291,8 +282,7 @@ To install a package:
    {{< alert type="note" >}}
 
    On GitLab.com, Composer uses the GitLab token from `auth.json` as a private token by default.
-   Without the `gitlab-domains` definition in `composer.json`, Composer uses the GitLab token
-   as basic-auth, with the token as a username and a blank password. This results in a 401 error.
+   Without the `gitlab-domains` definition in `composer.json`, Composer uses the GitLab token as basic-auth, with the token as a username and a blank password. This results in a 401 error.
 
    {{< /alert >}}
 
@@ -310,10 +300,7 @@ To install a package:
 
 {{< alert type="warning" >}}
 
-Never commit the `auth.json` file to your repository. To install packages from a CI/CD job,
-consider using the [`composer config`](https://getcomposer.org/doc/articles/handling-private-packages.md#satis) tool with your access token
-stored in a [GitLab CI/CD variable](../../../ci/variables/_index.md) or in
-[HashiCorp Vault](../../../ci/secrets/_index.md).
+Never commit the `auth.json` file to your repository. To install packages from a CI/CD job, consider using the [`composer config`](https://getcomposer.org/doc/articles/handling-private-packages.md#satis) tool with your access token stored in a [GitLab CI/CD variable](../../../ci/variables/_index.md) or in [HashiCorp Vault](../../../ci/secrets/_index.md).
 
 {{< /alert >}}
 
@@ -323,14 +310,14 @@ You can install from source by pulling the Git repository directly. To do so, ei
 
 - Use the `--prefer-source` option:
 
-  ```shell
-  composer update --prefer-source
-  ```
+ ```shell
+ composer update --prefer-source
+ ```
 
 - In the `composer.json`, use the [`preferred-install` field under the `config` key](https://getcomposer.org/doc/06-config.md#preferred-install):
 
-  ```json
-  {
+ ```json
+ {
     ...
     "config": {
       "preferred-install": {
@@ -339,7 +326,7 @@ You can install from source by pulling the Git repository directly. To do so, ei
     }
     ...
    }
-  ```
+ ```
 
 #### SSH access
 
@@ -351,8 +338,7 @@ You can install from source by pulling the Git repository directly. To do so, ei
 
 {{< /history >}}
 
-When you install from source, the `composer` configures an
-access to the project's Git repository.
+When you install from source, the `composer` configures an access to the project's Git repository.
 Depending on the project visibility, the access type is different:
 
 - On public projects, the `https` Git URL is used. Make sure you can [clone the repository with HTTPS](../../../topics/git/clone.md#clone-with-https).
@@ -362,11 +348,9 @@ You can access the `ssh` Git URL from a CI/CD job using [SSH keys with GitLab CI
 
 ### Working with Deploy Tokens
 
-Although Composer packages are accessed at the group level, a group or project deploy token can be
-used to access them:
+Although Composer packages are accessed at the group level, a group or project deploy token can be used to access them:
 
-- A group deploy token has access to all packages published to projects in that group or its
-  subgroups.
+- A group deploy token has access to all packages published to projects in that group or its subgroups.
 - A project deploy token only has access to packages published to that particular project.
 
 ## Delete a Composer package
@@ -375,8 +359,7 @@ Prerequisites:
 
 - You must have at least the Maintainer role.
 
-Before you delete a package, make sure you understand
-the [associated security risks](../package_registry/supported_functionality.md#deleting-packages).
+Before you delete a package, make sure you understand the [associated security risks](../package_registry/supported_functionality.md#deleting-packages).
 
 To delete a package, you can either:
 
@@ -387,9 +370,7 @@ To delete a package, you can either:
 
 ### Caching
 
-To improve performance, Composer caches files related to a package. Composer doesn't remove data by
-itself. The cache grows as new packages are installed. If you encounter issues, clear the cache with
-this command:
+To improve performance, Composer caches files related to a package. Composer doesn't remove data by itself. The cache grows as new packages are installed. If you encounter issues, clear the cache with this command:
 
 ```shell
 composer clearcache

@@ -6,20 +6,17 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408839218842-Understandin
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Explore Professional or Enterprise |
 
-Your Zendesk data is split into different *datasets*. Each dataset contains metrics and
-attributes that you can use to [create reports](https://support.zendesk.com/hc/en-us/articles/4408821589530). You must select a specific dataset before
-you can create a report.
+Your Zendesk data is split into different *datasets*. Each dataset contains metrics and attributes that you can use to [create reports](https://support.zendesk.com/hc/en-us/articles/4408821589530). You must select a specific dataset before you can create a report.
 
-Use this article to help choose the right dataset for your reports and to learn more
-advanced information about how datasets store your business information.
+Use this article to help choose the right dataset for your reports and to learn more advanced information about how datasets store your business information.
 
 This article contains the following topics:
 
@@ -35,10 +32,7 @@ Related articles:
 
 The table below describes the datasets that are available for each product.
 
-Tip: Need help finding the right metrics and
-attributes to measure success and make smart business decisions? If so, check
-out [Top 18 customer service metrics to
-measure](https://www.zendesk.com/blog/customer-service-metrics-matter/).
+Tip: Need help finding the right metrics and attributes to measure success and make smart business decisions? If so, check out [Top 18 customer service metrics to measure](https://www.zendesk.com/blog/customer-service-metrics-matter/).
 
 Table 1. Explore default datasets
 
@@ -47,10 +41,10 @@ Table 1. Explore default datasets
 | Support | Tickets | Information about ticket details, like ticket ID and assignee. Does not include ticket update events. [Full list of metrics and attributes](https://support.zendesk.com/hc/en-us/articles/4408827693594#topic_zlf_slp_4y) |
 | Updates history | Information about updates made to tickets during their lifetime. [Full list of metrics and attributes](https://support.zendesk.com/hc/en-us/articles/4408827693594#topic_as3_slp_4y) |
 | Backlog history | Information about your unsolved tickets at the end of a given date. [Full list of metrics and attributes](https://support.zendesk.com/hc/en-us/articles/4408827693594#topic_dfb_ydg_ndb) |
-| SLAs | Information about your service level agreement (SLA) performance. Available only if you have tickets with SLA policies applied. See [Defining and using SLA policies](https://support.zendesk.com/hc/en-us/articles/4408829459866).  [Full list of metrics and attributes](https://support.zendesk.com/hc/en-us/articles/4408827693594#topic_cyq_fr4_l2b) |
-| Group SLAs | Information about your group service level agreement (SLA) performance. Available only if you have tickets with SLA policies applied. See [Defining group SLA policies for internal teams](https://support.zendesk.com/hc/en-us/articles/5322445643802).  [Full list of metrics and attributes](https://support.zendesk.com/hc/en-us/articles/4408827693594#topic_svt_cjx_kxb) |
+| SLAs | Information about your service level agreement (SLA) performance. Available only if you have tickets with SLA policies applied. See [Defining and using SLA policies](https://support.zendesk.com/hc/en-us/articles/4408829459866). [Full list of metrics and attributes](https://support.zendesk.com/hc/en-us/articles/4408827693594#topic_cyq_fr4_l2b) |
+| Group SLAs | Information about your group service level agreement (SLA) performance. Available only if you have tickets with SLA policies applied. See [Defining group SLA policies for internal teams](https://support.zendesk.com/hc/en-us/articles/5322445643802). [Full list of metrics and attributes](https://support.zendesk.com/hc/en-us/articles/4408827693594#topic_svt_cjx_kxb) |
 | Knowledge | Knowledge Capture | Information to help you understand the efficiency of selecting articles to deflect support tickets. [Full list of metrics and attributes](https://support.zendesk.com/hc/en-us/articles/4409155064090#topic_e45_ngh_bfb) |
-| Team Publishing | Information to help you understand your team activity in Guide, including when articles are created, published, edited and more. Available only on Enterprise plans.  [Full list of metrics and attributes](https://support.zendesk.com/hc/en-us/articles/4409155064090#topic_aff_45y_jnb) |
+| Team Publishing | Information to help you understand your team activity in Guide, including when articles are created, published, edited and more. Available only on Enterprise plans. [Full list of metrics and attributes](https://support.zendesk.com/hc/en-us/articles/4409155064090#topic_aff_45y_jnb) |
 | Knowledge Base | Information to help you understand how often your help center articles are being viewed, which articles are being voted up or down, and more. [Full list of metrics and attributes](https://support.zendesk.com/hc/en-us/articles/4409155064090#topic_zwt_jht_cnb) |
 | Search | Information about the searches that users performed and the terms they searched for in your knowledge base. [Full list of metrics and attributes](https://support.zendesk.com/hc/en-us/articles/4409155064090#topic_anj_4gj_nrb) |
 | Community | Information about the activity in your community forums, including the number of posts and comments, upvotes and downvotes, community members, and more. [Full list of metrics and attributes](https://support.zendesk.com/hc/en-us/articles/4409155064090#topic_n5d_4dj_ktb) |
@@ -75,40 +69,18 @@ Table 1. Explore default datasets
 
 ## Understanding dataset structure
 
-Explore datasets contain all of the available information for your product. To query
-your data efficiently and avoid duplicate or inconsistent data, Explore groups your
-data into multiple data tables. You can think of a data table as a kind of "box" in
-which your data is stored. Each data table is not isolated; instead, they're joined
-to one another by *connection points special attributes* that act as unique
-identifiers for each row of data in the table.
+Explore datasets contain all of the available information for your product. To query your data efficiently and avoid duplicate or inconsistent data, Explore groups your data into multiple data tables. You can think of a data table as a kind of "box" in which your data is stored. Each data table is not isolated; instead, they're joined to one another by *connection points special attributes* that act as unique identifiers for each row of data in the table.
 
-In the example diagram below, ticket data is stored in the **Tickets** data table
-and user data is stored in a separate **Users** data table. These data tables are
-joined in the datasets using connection points special attributes.
+In the example diagram below, ticket data is stored in the **Tickets** data table and user data is stored in a separate **Users** data table. These data tables are joined in the datasets using connection points special attributes.
 
-For example, **Ticket ID** is the connection point for the **Ticket** data
-table, but **Requester ID** is the connection point for the **Users** table.
+For example, **Ticket ID** is the connection point for the **Ticket** data table, but **Requester ID** is the connection point for the **Users** table.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Dataset_schemas__Online_Whiteboard_for_Visual_Collaboration.png)
 
-When a user runs a report, Explore determines which tables contain the
-required metrics and attributes and whether the tables need to be joined. If the
-required metrics and attributes are located in one table, then no connections (or
-joins) are made. An example of this is a report that counts ticket IDs by
-status.
+When a user runs a report, Explore determines which tables contain the required metrics and attributes and whether the tables need to be joined. If the required metrics and attributes are located in one table, then no connections (or joins) are made. An example of this is a report that counts ticket IDs by status.
 
-However, if the required metrics and attributes are in multiple data
-tables, then the tables will be joined. An example of this is a report that counts
-ticket updates by assignee name. In this case, the **Ticket updates**,
-**Tickets**, and **Users** tables are joined to generate the result.
+However, if the required metrics and attributes are in multiple data tables, then the tables will be joined. An example of this is a report that counts ticket updates by assignee name. In this case, the **Ticket updates**, **Tickets**, and **Users** tables are joined to generate the result.
 
-Explore data tables are connected using the LEFT JOIN method. This means
-that when the tables are joined, the report returns all rows from the table on the
-left, even if there are no matches from the table on the right. In the example
-above, a count of ticket IDs by assignee name will return all tickets with or
-without an assignee.
+Explore data tables are connected using the LEFT JOIN method. This means that when the tables are joined, the report returns all rows from the table on the left, even if there are no matches from the table on the right. In the example above, a count of ticket IDs by assignee name will return all tickets with or without an assignee.
 
-In some cases, it's technically not possible to store data in multiple data
-tables due to the high volume of the data or high speed of the report execution
-required. An example of this is the Backlog dataset. This uses only one table for
-storing data.
+In some cases, it's technically not possible to store data in multiple data tables due to the high volume of the data or high speed of the report execution required. An example of this is the Backlog dataset. This uses only one table for storing data.

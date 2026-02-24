@@ -58,8 +58,7 @@ The message **No top matches** appears when top matches are not available for th
 
 **What you can do next**
 
-**Add candidate qualifications**  
-Adding candidate qualifications allows Handshake to identify students who closely align with the job requirements.
+**Add candidate qualifications** Adding candidate qualifications allows Handshake to identify students who closely align with the job requirements.
 
 **To add qualifications**:
 
@@ -89,8 +88,7 @@ If no candidates currently meet all selected criteria, no matches will display. 
 
 **What you can do next**
 
-- **Change your qualifications**  
-  Adjusting candidate qualifications can broaden the pool of students who fully match the job.
+- **Change your qualifications** Adjusting candidate qualifications can broaden the pool of students who fully match the job.
 
 **To update qualifications**:
 
@@ -106,8 +104,7 @@ If no candidates currently meet all selected criteria, no matches will display. 
 
 *For additional guidance, refer to* [*Understanding Job and Candidate Qualifications*](https://support.joinhandshake.com/hc/en-us/articles/218693208).
 
-- **Open this job to more schools**  
-  Posting the job to additional schools increases visibility and the number of students eligible to match.
+- **Open this job to more schools** Posting the job to additional schools increases visibility and the number of students eligible to match.
 
 **To post the job to more schools**:
 

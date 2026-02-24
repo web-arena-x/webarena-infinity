@@ -78,29 +78,24 @@ curl --header "PRIVATE-TOKEN: <your_access_token>" "https://gitlab.example.com/a
 
 {{< alert type="warning" >}}
 
-The `active` and `paused` values in the `status` query parameter are deprecated
-and scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `active` and `paused` values in the `status` query parameter are deprecated and scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 Use the `paused` query parameter instead.
 
 {{< /alert >}}
 
 {{< alert type="warning" >}}
 
-The `active` attribute in the response is deprecated
-and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `active` attribute in the response is deprecated and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 Use the `paused` attribute instead.
 
 {{< /alert >}}
 
 {{< alert type="warning" >}}
 
-The `ip_address` attribute in the response is deprecated
-[in GitLab 16.1](https://gitlab.com/gitlab-org/gitlab/-/issues/415159) and is scheduled for removal in
-[a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `ip_address` attribute in the response is deprecated [in GitLab 16.1](https://gitlab.com/gitlab-org/gitlab/-/issues/415159) and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 In GitLab 17.0, this attribute returns an empty string.
 The `ipAddress` attribute can be found inside the respective runner manager.
-It is only available through the GraphQL
-[`CiRunnerManager` type](graphql/reference/_index.md#cirunnermanager).
+It is only available through the GraphQL [`CiRunnerManager` type](graphql/reference/_index.md#cirunnermanager).
 
 {{< /alert >}}
 
@@ -174,29 +169,24 @@ curl --header "PRIVATE-TOKEN: <your_access_token>" "https://gitlab.example.com/a
 
 {{< alert type="warning" >}}
 
-The `active` and `paused` values in the `status` query parameter are deprecated
-and are scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `active` and `paused` values in the `status` query parameter are deprecated and are scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 Use the `paused` query parameter instead.
 
 {{< /alert >}}
 
 {{< alert type="warning" >}}
 
-The `active` attribute in the response is deprecated
-and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `active` attribute in the response is deprecated and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 Use the `paused` attribute instead.
 
 {{< /alert >}}
 
 {{< alert type="warning" >}}
 
-The `ip_address` attribute in the response is deprecated
-[in GitLab 16.1](https://gitlab.com/gitlab-org/gitlab/-/issues/415159) and is scheduled for removal in
-[a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `ip_address` attribute in the response is deprecated [in GitLab 16.1](https://gitlab.com/gitlab-org/gitlab/-/issues/415159) and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 In GitLab 17.0, this attribute returns an empty string.
 The `ipAddress` attribute can be found inside the respective runner manager.
-It is only available through the GraphQL
-[`CiRunnerManager` type](graphql/reference/_index.md#cirunnermanager).
+It is only available through the GraphQL [`CiRunnerManager` type](graphql/reference/_index.md#cirunnermanager).
 
 {{< /alert >}}
 
@@ -267,9 +257,9 @@ Prerequisites:
 
 - User access: You must have one of the following:
 
-  - For group runners: At least the Maintainer role in the owner namespace.
-  - For project runners: At least the Maintainer role in the project that owns the runner.
-  - A custom role with the `admin_runners` permission in the relevant group or project.
+ - For group runners: At least the Maintainer role in the owner namespace.
+ - For project runners: At least the Maintainer role in the project that owns the runner.
+ - A custom role with the `admin_runners` permission in the relevant group or project.
 
 - An access token with the `manage_runner` scope and the appropriate role.
 
@@ -287,32 +277,25 @@ curl --header "PRIVATE-TOKEN: <your_access_token>" "https://gitlab.example.com/a
 
 {{< alert type="warning" >}}
 
-The `active` attribute in the response is deprecated
-and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `active` attribute in the response is deprecated and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 Use the `paused` attribute instead.
 
 {{< /alert >}}
 
 {{< alert type="warning" >}}
 
-The `ip_address` attribute in the response is deprecated
-[in GitLab 16.1](https://gitlab.com/gitlab-org/gitlab/-/issues/415159) and is scheduled for removal in
-[a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `ip_address` attribute in the response is deprecated [in GitLab 16.1](https://gitlab.com/gitlab-org/gitlab/-/issues/415159) and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 In GitLab 17.0, this attribute returns an empty string.
 The `ipAddress` attribute can be found inside the respective runner manager.
-It is only available through the GraphQL
-[`CiRunnerManager` type](graphql/reference/_index.md#cirunnermanager).
+It is only available through the GraphQL [`CiRunnerManager` type](graphql/reference/_index.md#cirunnermanager).
 
 {{< /alert >}}
 
 {{< alert type="note" >}}
 
-The `version`, `revision`, `platform`, and `architecture` attributes in the response are deprecated
-[in GitLab 17.0](https://gitlab.com/gitlab-org/gitlab/-/issues/457128) and are scheduled for removal in
-[a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `version`, `revision`, `platform`, and `architecture` attributes in the response are deprecated [in GitLab 17.0](https://gitlab.com/gitlab-org/gitlab/-/issues/457128) and are scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 The same attributes can be found inside the respective runner manager.
-It is only available through the GraphQL
-[`CiRunnerManager` type](graphql/reference/_index.md#cirunnermanager).
+It is only available through the GraphQL [`CiRunnerManager` type](graphql/reference/_index.md#cirunnermanager).
 
 {{< /alert >}}
 
@@ -366,25 +349,25 @@ Prerequisites:
 
 - User access: You must have one of the following:
 
-  - For instance runners: Administrator access to the GitLab instance.
-  - For group runners: Owner role in the owner namespace.
-  - For project runners: At least the Maintainer role in a project assigned to the runner.
-  - A custom role with the `admin_runners` permission in the relevant group or project.
+ - For instance runners: Administrator access to the GitLab instance.
+ - For group runners: Owner role in the owner namespace.
+ - For project runners: At least the Maintainer role in a project assigned to the runner.
+ - A custom role with the `admin_runners` permission in the relevant group or project.
 
 - An access token with the `manage_runner` scope and the appropriate role.
 
 | Attribute          | Type    | Required | Description |
 |--------------------|---------|----------|-------------|
 | `id`               | integer | yes      | The ID of a runner |
-| `description`      | string  | no       | The description of the runner |
+| `description`      | string | no       | The description of the runner |
 | `active`           | boolean | no       | Deprecated: Use `paused` instead. Flag indicating whether the runner is allowed to receive jobs |
 | `paused`           | boolean | no       | Specifies if the runner should ignore new jobs |
 | `tag_list`         | array   | no       | The list of tags for the runner |
 | `run_untagged`     | boolean | no       | Specifies if the runner can execute untagged jobs |
 | `locked`           | boolean | no       | Specifies if the runner is locked |
-| `access_level`     | string  | no       | The access level of the runner; `not_protected` or `ref_protected` |
-| `maximum_timeout`  | integer | no       | Maximum timeout that limits the amount of time (in seconds) that runners can run jobs |
-| `maintenance_note` | string  | no       | Free-form maintenance notes for the runner (1024 characters) |
+| `access_level`     | string | no       | The access level of the runner; `not_protected` or `ref_protected` |
+| `maximum_timeout` | integer | no       | Maximum timeout that limits the amount of time (in seconds) that runners can run jobs |
+| `maintenance_note` | string | no       | Free-form maintenance notes for the runner (1024 characters) |
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" "https://gitlab.example.com/api/v4/runners/6" \
@@ -393,21 +376,17 @@ curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" "https://gitlab
 
 {{< alert type="warning" >}}
 
-The `active` query parameter is deprecated
-and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `active` query parameter is deprecated and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 Use the `paused` attribute instead.
 
 {{< /alert >}}
 
 {{< alert type="warning" >}}
 
-The `ip_address` attribute in the response is deprecated
-[in GitLab 16.1](https://gitlab.com/gitlab-org/gitlab/-/issues/415159) and is scheduled for removal in
-[a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `ip_address` attribute in the response is deprecated [in GitLab 16.1](https://gitlab.com/gitlab-org/gitlab/-/issues/415159) and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 In GitLab 17.0, this attribute returns an empty string.
 The `ipAddress` attribute can be found inside the respective runner manager.
-It is only available through the GraphQL
-[`CiRunnerManager` type](graphql/reference/_index.md#cirunnermanager).
+It is only available through the GraphQL [`CiRunnerManager` type](graphql/reference/_index.md#cirunnermanager).
 
 {{< /alert >}}
 
@@ -458,10 +437,10 @@ Prerequisites:
 
 - User access: You must have one of the following:
 
-  - For instance runners: Administrator access to the GitLab instance.
-  - For group runners: Owner role in the owner namespace.
-  - For project runners: At least the Maintainer role in a project assigned to the runner.
-  - A custom role with the `admin_runners` permission in the relevant group or project.
+ - For instance runners: Administrator access to the GitLab instance.
+ - For group runners: Owner role in the owner namespace.
+ - For project runners: At least the Maintainer role in a project assigned to the runner.
+ - A custom role with the `admin_runners` permission in the relevant group or project.
 
 - An access token with the `manage_runner` scope and the appropriate role.
 
@@ -480,27 +459,25 @@ PUT --form "active=false" /runners/:runner_id
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" \
-     --form "paused=true"  "https://gitlab.example.com/api/v4/runners/6"
+     --form "paused=true" "https://gitlab.example.com/api/v4/runners/6"
 
 # --or--
 
 # Deprecated: removal planned in 16.0
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" \
-     --form "active=false"  "https://gitlab.example.com/api/v4/runners/6"
+     --form "active=false" "https://gitlab.example.com/api/v4/runners/6"
 ```
 
 {{< alert type="warning" >}}
 
-The `active` form attribute is deprecated
-and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `active` form attribute is deprecated and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 Use the `paused` attribute instead.
 
 {{< /alert >}}
 
 ## List jobs processed by a runner
 
-List jobs that are being processed or were processed by the specified runner. The list of jobs is limited
-to projects where the user has at least the Reporter role.
+List jobs that are being processed or were processed by the specified runner. The list of jobs is limited to projects where the user has at least the Reporter role.
 
 ```plaintext
 GET /runners/:id/jobs
@@ -509,10 +486,10 @@ GET /runners/:id/jobs
 | Attribute   | Type    | Required | Description |
 |-------------|---------|----------|-------------|
 | `id`        | integer | yes      | The ID of a runner |
-| `system_id` | string  | no       | System ID of the machine where the runner manager is running |
-| `status`    | string  | no       | Status of the job; one of: `running`, `success`, `failed`, `canceled` |
-| `order_by`  | string  | no       | Order jobs by `id` |
-| `sort`      | string  | no       | Sort jobs in `asc` or `desc` order (default: `desc`). If `sort` is specified, `order_by` must be specified as well |
+| `system_id` | string | no       | System ID of the machine where the runner manager is running |
+| `status`    | string | no       | Status of the job; one of: `running`, `success`, `failed`, `canceled` |
+| `order_by` | string | no       | Order jobs by `id` |
+| `sort`      | string | no       | Sort jobs in `asc` or `desc` order (default: `desc`). If `sort` is specified, `order_by` must be specified as well |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" "https://gitlab.example.com/api/v4/runners/1/jobs?status=running"
@@ -667,29 +644,24 @@ curl --header "PRIVATE-TOKEN: <your_access_token>" "https://gitlab.example.com/a
 
 {{< alert type="warning" >}}
 
-The `active` and `paused` values in the `status` query parameter are deprecated
-and are scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `active` and `paused` values in the `status` query parameter are deprecated and are scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 Use the `paused` query parameter instead.
 
 {{< /alert >}}
 
 {{< alert type="warning" >}}
 
-The `active` attribute in the response is deprecated
-and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `active` attribute in the response is deprecated and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 Use the `paused` attribute instead.
 
 {{< /alert >}}
 
 {{< alert type="warning" >}}
 
-The `ip_address` attribute in the response is deprecated
-[in GitLab 16.1](https://gitlab.com/gitlab-org/gitlab/-/issues/415159) and is scheduled for removal in
-[a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `ip_address` attribute in the response is deprecated [in GitLab 16.1](https://gitlab.com/gitlab-org/gitlab/-/issues/415159) and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 In GitLab 17.0, this attribute returns an empty string in GitLab 17.0.
 The `ipAddress` attribute can be found inside the respective runner manager.
-It is only available through the GraphQL
-[`CiRunnerManager` type](graphql/reference/_index.md#cirunnermanager).
+It is only available through the GraphQL [`CiRunnerManager` type](graphql/reference/_index.md#cirunnermanager).
 
 {{< /alert >}}
 
@@ -732,8 +704,8 @@ Prerequisites:
 
 - User access: You must have one of the following:
 
-  - At least the Maintainer role for the project that owns the runner and the target project.
-  - A custom role with the `admin_runners` permission in the relevant group or project.
+ - At least the Maintainer role for the project that owns the runner and the target project.
+ - A custom role with the `admin_runners` permission in the relevant group or project.
 
 ```plaintext
 POST /projects/:id/runners
@@ -751,12 +723,9 @@ curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" "https://gitla
 
 {{< alert type="warning" >}}
 
-The `ip_address` attribute in the response is deprecated
-[in GitLab 16.1](https://gitlab.com/gitlab-org/gitlab/-/issues/415159) and is scheduled for removal in
-[a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `ip_address` attribute in the response is deprecated [in GitLab 16.1](https://gitlab.com/gitlab-org/gitlab/-/issues/415159) and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 In GitLab 17.0, this attribute returns an empty string.
-The `ipAddress` attribute can be found inside the respective runner manager. It is only available through the GraphQL
-[`CiRunnerManager` type](graphql/reference/_index.md#cirunnermanager).
+The `ipAddress` attribute can be found inside the respective runner manager. It is only available through the GraphQL [`CiRunnerManager` type](graphql/reference/_index.md#cirunnermanager).
 
 {{< /alert >}}
 
@@ -787,8 +756,8 @@ Prerequisites:
 - You must not lock the runner, unless you are an administrator.
 - User access: You must have one of the following:
 
-  - At least the Maintainer role in the project you want to unassign.
-  - A custom role with the `admin_runners` permission in the relevant group or project.
+ - At least the Maintainer role in the project you want to unassign.
+ - A custom role with the `admin_runners` permission in the relevant group or project.
 
 - An access token with the `manage_runner` scope and the appropriate role.
 
@@ -813,9 +782,9 @@ Prerequisites:
 
 - User access: You must have one of the following:
 
-  - Administrator access to the GitLab instance.
-  - Owner or Auditor role in the group.
-  - A custom role with the `admin_runners` permission in the group.
+ - Administrator access to the GitLab instance.
+ - Owner or Auditor role in the group.
+ - A custom role with the `admin_runners` permission in the group.
 
 - An access token with the `manage_runner` scope and the appropriate role.
 
@@ -842,28 +811,23 @@ curl --header "PRIVATE-TOKEN: <your_access_token>" "https://gitlab.example.com/a
 
 {{< alert type="warning" >}}
 
-The `active` and `paused` values in the `status` query parameter are deprecated
-and are scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `active` and `paused` values in the `status` query parameter are deprecated and are scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 Use the `paused` query parameter instead.
 
 {{< /alert >}}
 
 {{< alert type="warning" >}}
 
-The `active` attribute in the response is deprecated
-and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `active` attribute in the response is deprecated and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 Use the `paused` attribute instead.
 
 {{< /alert >}}
 
 {{< alert type="warning" >}}
 
-The `ip_address` attribute in the response is deprecated
-[in GitLab 16.1](https://gitlab.com/gitlab-org/gitlab/-/issues/415159) and is scheduled for removal in
-[a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
+The `ip_address` attribute in the response is deprecated [in GitLab 16.1](https://gitlab.com/gitlab-org/gitlab/-/issues/415159) and is scheduled for removal in [a future version of the REST API](https://gitlab.com/gitlab-org/gitlab/-/issues/351109).
 In GitLab, t attribute returns an empty string.
-The `ipAddress` attribute can be found inside the respective runner manager. It is only available through the GraphQL
-[`CiRunnerManager` type](graphql/reference/_index.md#cirunnermanager).
+The `ipAddress` attribute can be found inside the respective runner manager. It is only available through the GraphQL [`CiRunnerManager` type](graphql/reference/_index.md#cirunnermanager).
 
 {{< /alert >}}
 
@@ -871,7 +835,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 3,
     "description": "Shared",
     "ip_address": "",
@@ -882,8 +846,8 @@ Example response:
     "name": "gitlab-runner",
     "online": null,
     "status": "never_contacted"
-  },
-  {
+ },
+ {
     "id": 6,
     "description": "Test",
     "ip_address": "",
@@ -894,8 +858,8 @@ Example response:
     "name": "gitlab-runner",
     "online": false,
     "status": "offline"
-  },
-  {
+ },
+ {
     "id": 8,
     "description": "Test 2",
     "ip_address": "",
@@ -906,7 +870,7 @@ Example response:
     "name": "gitlab-runner",
     "online": null,
     "status": "never_contacted"
-  }
+ }
 ]
 ```
 
@@ -914,10 +878,7 @@ Example response:
 
 {{< alert type="warning" >}}
 
-This endpoint returns an `HTTP 410 Gone` status code if registration with runner registration tokens
-is disabled in the project or group settings. If registration with runner registration tokens
-is disabled, use the [`POST /user/runners`](users.md#create-a-runner-linked-to-a-user) endpoint
-to create and register runners instead.
+This endpoint returns an `HTTP 410 Gone` status code if registration with runner registration tokens is disabled in the project or group settings. If registration with runner registration tokens is disabled, use the [`POST /user/runners`](users.md#create-a-runner-linked-to-a-user) endpoint to create and register runners instead.
 
 {{< /alert >}}
 
@@ -938,8 +899,8 @@ POST /runners
 | `run_untagged`     | boolean      | no       | Specifies if the runner should handle untagged jobs |
 | `tag_list`         | string array | no       | A list of runner tags |
 | `access_level`     | string       | no       | The access level of the runner; `not_protected` or `ref_protected` |
-| `maximum_timeout`  | integer      | no       | Maximum timeout that limits the amount of time (in seconds) that runners can run jobs |
-| `maintainer_note`  | string       | no       | [Deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/350730), see `maintenance_note` |
+| `maximum_timeout` | integer      | no       | Maximum timeout that limits the amount of time (in seconds) that runners can run jobs |
+| `maintainer_note` | string       | no       | [Deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/350730), see `maintenance_note` |
 | `maintenance_note` | string       | no       | Free-form maintenance notes for the runner (1024 characters) |
 
 ```shell
@@ -981,10 +942,10 @@ Prerequisites:
 
 - User access: You must have one of the following:
 
-  - For instance runners: Administrator access to the GitLab instance.
-  - For group runners: Owner role in the owner namespace.
-  - For project runners: At least the Maintainer role in the project that owns the runner.
-  - A custom role with the `admin_runners` permission in the relevant group or project.
+ - For instance runners: Administrator access to the GitLab instance.
+ - For group runners: Owner role in the owner namespace.
+ - For project runners: At least the Maintainer role in the project that owns the runner.
+ - A custom role with the `admin_runners` permission in the relevant group or project.
 
 - An access token with the `manage_runner` scope and the appropriate role.
 
@@ -1062,14 +1023,11 @@ Example response:
 
 {{< alert type="warning" >}}
 
-The option to pass runner registration tokens and support for certain configuration arguments is considered legacy
-and is not recommended.
+The option to pass runner registration tokens and support for certain configuration arguments is considered legacy and is not recommended.
 Use the [runner creation workflow](https://docs.gitlab.com/runner/register/#register-with-a-runner-authentication-token)
-to generate an authentication token to register runners. This process provides full
-traceability of runner ownership and enhances your runner fleet's security.
+to generate an authentication token to register runners. This process provides full traceability of runner ownership and enhances your runner fleet's security.
 
-For more information, see
-[Migrating to the new runner registration workflow](../ci/runners/new_creation_workflow.md).
+For more information, see [Migrating to the new runner registration workflow](../ci/runners/new_creation_workflow.md).
 
 {{< /alert >}}
 
@@ -1088,13 +1046,10 @@ curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
 
 {{< alert type="warning" >}}
 
-The option to pass runner registration tokens and support for certain configuration arguments is considered legacy
-and is not recommended.
+The option to pass runner registration tokens and support for certain configuration arguments is considered legacy and is not recommended.
 Use the [runner creation workflow](https://docs.gitlab.com/runner/register/#register-with-a-runner-authentication-token)
-to generate an authentication token to register runners. This process provides full
-traceability of runner ownership and enhances your runner fleet's security.
-For more information, see
-[Migrating to the new runner registration workflow](../ci/runners/new_creation_workflow.md).
+to generate an authentication token to register runners. This process provides full traceability of runner ownership and enhances your runner fleet's security.
+For more information, see [Migrating to the new runner registration workflow](../ci/runners/new_creation_workflow.md).
 
 {{< /alert >}}
 
@@ -1113,13 +1068,10 @@ curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
 
 {{< alert type="warning" >}}
 
-The option to pass runner registration tokens and support for certain configuration arguments is considered legacy
-and is not recommended.
+The option to pass runner registration tokens and support for certain configuration arguments is considered legacy and is not recommended.
 Use the [runner creation workflow](https://docs.gitlab.com/runner/register/#register-with-a-runner-authentication-token)
-to generate an authentication token to register runners. This process provides full
-traceability of runner ownership and enhances your runner fleet's security.
-For more information, see
-[Migrating to the new runner registration workflow](../ci/runners/new_creation_workflow.md).
+to generate an authentication token to register runners. This process provides full traceability of runner ownership and enhances your runner fleet's security.
+For more information, see [Migrating to the new runner registration workflow](../ci/runners/new_creation_workflow.md).
 
 {{< /alert >}}
 
@@ -1142,10 +1094,10 @@ Prerequisites:
 
 - User access: You must have one of the following:
 
-  - For instance runners: Administrator access to the GitLab instance.
-  - For group runners: Owner role in the owner namespace.
-  - For project runners: At least the Maintainer role in a project assigned to the runner.
-  - A custom role with the `admin_runners` permission in the relevant group or project.
+ - For instance runners: Administrator access to the GitLab instance.
+ - For group runners: Owner role in the owner namespace.
+ - For project runners: At least the Maintainer role in a project assigned to the runner.
+ - A custom role with the `admin_runners` permission in the relevant group or project.
 
 - An access token with the `manage_runner` scope and the appropriate role.
 
@@ -1232,9 +1184,9 @@ The response returns with one of the following status codes:
 
 | Status | Description                                   |
 |--------|-----------------------------------------------|
-| `200`  | Job Router information retrieved successfully |
-| `403`  | Forbidden                                     |
-| `501`  | Job Router is not available                   |
+| `200` | Job Router information retrieved successfully |
+| `403` | Forbidden                                     |
+| `501` | Job Router is not available                   |
 
 Example response:
 

@@ -36,12 +36,11 @@ OCS can be configured to run on a cadence by using `agent config` or a project's
 
 ### Enable via agent configuration
 
-To enable scanning of images within your Kubernetes cluster via the agent configuration, add a `container_scanning` configuration block to your agent
-configuration with a `cadence` field containing a [CRON expression](https://en.wikipedia.org/wiki/Cron) for when the scans are run.
+To enable scanning of images within your Kubernetes cluster via the agent configuration, add a `container_scanning` configuration block to your agent configuration with a `cadence` field containing a [CRON expression](https://en.wikipedia.org/wiki/Cron) for when the scans are run.
 
 ```yaml
 container_scanning:
-  cadence: '0 0 * * *' # Daily at 00:00 (Kubernetes cluster time)
+ cadence: '0 0 * * *' # Daily at 00:00 (Kubernetes cluster time)
 ```
 
 The `cadence` field is required. GitLab supports the following types of CRON syntax for the cadence field:
@@ -55,14 +54,12 @@ The `cadence` field is required. GitLab supports the following types of CRON syn
 > The CRON expression is evaluated in [UTC](https://www.timeanddate.com/worldclock/timezone/utc) using the system-time of the Kubernetes-agent pod.
 
 By default, operational container scanning does not scan any workloads for vulnerabilities.
-You can set the `vulnerability_report` block with the `namespaces`
-field which can be used to select which namespaces are scanned. For example,
-if you would like to scan only the `default`, `kube-system` namespaces, you can use this configuration:
+You can set the `vulnerability_report` block with the `namespaces` field which can be used to select which namespaces are scanned. For example, if you would like to scan only the `default`, `kube-system` namespaces, you can use this configuration:
 
 ```yaml
 container_scanning:
-  cadence: '0 0 * * *'
-  vulnerability_report:
+ cadence: '0 0 * * *'
+ vulnerability_report:
     namespaces:
       - default
       - kube-system
@@ -82,8 +79,7 @@ This can be customized by [configuring the Trivy Kubernetes Resource Detection](
 
 ### Enable via scan execution policies
 
-To enable scanning of images in your Kubernetes cluster by using scan execution policies, use the
-[scan execution policy editor](../../application_security/policies/scan_execution_policies.md#scan-execution-policy-editor)
+To enable scanning of images in your Kubernetes cluster by using scan execution policies, use the [scan execution policy editor](../../application_security/policies/scan_execution_policies.md#scan-execution-policy-editor)
 to create a new schedule rule.
 
 > [!note]
@@ -98,17 +94,17 @@ Here is an example of a policy which enables operational container scanning with
 
 ```yaml
 - name: Enforce container scanning in cluster connected through my-gitlab-agent for default and kube-system namespaces
-  enabled: true
-  rules:
-  - type: schedule
+ enabled: true
+ rules:
+ - type: schedule
     cadence: '0 10 * * *'
     agents:
       <agent-name>:
         namespaces:
         - 'default'
         - 'kube-system'
-  actions:
-  - scan: container_scanning
+ actions:
+ - scan: container_scanning
 ```
 
 The keys for a schedule rule are:
@@ -138,20 +134,20 @@ By default the scanner pod's default resource requirements are:
 
 ```yaml
 requests:
-  cpu: 100m
-  memory: 100Mi
-  ephemeral_storage: 1Gi
+ cpu: 100m
+ memory: 100Mi
+ ephemeral_storage: 1Gi
 limits:
-  cpu: 500m
-  memory: 500Mi
-  ephemeral_storage: 3Gi
+ cpu: 500m
+ memory: 500Mi
+ ephemeral_storage: 3Gi
 ```
 
 You can customize it with a `resource_requirements` field.
 
 ```yaml
 container_scanning:
-  resource_requirements:
+ resource_requirements:
     requests:
       cpu: '0.2'
       memory: 200Mi
@@ -179,7 +175,7 @@ If your cluster's firewall restricts access to the Trivy K8s Wrapper repository,
 
 ```yaml
 container_scanning:
-  trivy_k8s_wrapper_image:
+ trivy_k8s_wrapper_image:
     repository: "your-custom-registry/your-image-path"
 ```
 
@@ -201,7 +197,7 @@ For example:
 
 ```yaml
 container_scanning:
-  scanner_timeout: "3600s" # 60 minutes
+ scanner_timeout: "3600s" # 60 minutes
 ```
 
 ## Configure Trivy report size
@@ -222,7 +218,7 @@ For example:
 
 ```yaml
 container_scanning:
-  report_max_size: "300000000" # 300 MB
+ report_max_size: "300000000" # 300 MB
 ```
 
 ## Configure Trivy Kubernetes resource detection
@@ -250,14 +246,14 @@ To do this:
 
 - Specify the resource types with the `resource_types` field:
 
-  ```yaml
-  container_scanning:
+ ```yaml
+ container_scanning:
     vulnerability_report:
       resource_types:
         - Deployment
         - Pod
         - Job
-  ```
+ ```
 
 ## Configure Trivy report artifact deletion
 
@@ -275,10 +271,10 @@ To do this:
 
 - Set `delete_report_artifact` to `false`:
 
-  ```yaml
-  container_scanning:
+ ```yaml
+ container_scanning:
     delete_report_artifact: false
-  ```
+ ```
 
 ## Configure Trivy severity threshold filter
 
@@ -301,7 +297,7 @@ For example, to report vulnerabilities of high and critical severity:
 
 ```yaml
 container_scanning:
-  severity_threshold: "HIGH"
+ severity_threshold: "HIGH"
 ```
 
 ## View cluster vulnerabilities

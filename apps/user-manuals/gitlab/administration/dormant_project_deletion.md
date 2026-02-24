@@ -46,9 +46,7 @@ To configure deletion of dormant projects:
    - The email duration must be less than the **Delete project after** duration.
 1. Select **Save changes**.
 
-Dormant projects that meet the criteria are scheduled for deletion and a warning email is sent. If the
-projects remain dormant, they are deleted after the specified duration. These projects are deleted even if
-[the project is archived](../user/project/working_with_projects.md#archive-a-project).
+Dormant projects that meet the criteria are scheduled for deletion and a warning email is sent. If the projects remain dormant, they are deleted after the specified duration. These projects are deleted even if [the project is archived](../user/project/working_with_projects.md#archive-a-project).
 
 ### Configuration example
 
@@ -92,8 +90,7 @@ If a project exists that has already been dormant for more than 12 months when y
 
 You can view a project's activities and determine when the project was last active in the following ways:
 
-- Go to the [activity page](../user/project/working_with_projects.md#view-project-activity) for the project and view
-  the date of the latest event.
+- Go to the [activity page](../user/project/working_with_projects.md#view-project-activity) for the project and view the date of the latest event.
 - View the `last_activity_at` attribute for the project using the [Projects API](../api/projects.md).
 - List the visible events for the project using the [Events API](../api/events.md#list-all-visible-events-for-a-project).
-  View the `created_at` attribute of the latest event.
+ View the `created_at` attribute of the latest event.

@@ -58,7 +58,7 @@ In the focus view, Figma provides a few ways to navigate to other areas of Dev M
 
 To go to the ready for dev view, in the upper-left corner of the focus view, click **See all ready for dev.**
 
-To see the design in the context of the canvas, in the upper-right corner of the focus view, click  and then select **Inspect on page**.
+To see the design in the context of the canvas, in the upper-right corner of the focus view, click and then select **Inspect on page**.
 
 To return to the area of the Figma interface you were using before you entered the focus view, in the upper-right corner of the focus view, click . If you entered the focus view from the canvas, you’re returned to the position you were at on the canvas. If you entered from the ready for dev view or using a link, then you are returned to the ready for dev view.
 

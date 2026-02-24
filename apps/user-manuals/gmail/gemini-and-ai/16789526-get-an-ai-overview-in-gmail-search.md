@@ -17,11 +17,11 @@ In the Gmail search bar, you can ask natural language questions or key phrases t
 **Important:** This feature is only available in the US and in English.
 
 - **For personal Google Accounts:** You need one of these eligible Google AI plans:
-  - [Google AI Pro](/googleone/answer/14534406)
-  - [Google AI Ultra](/googleone/answer/16286513)
+ - [Google AI Pro](/googleone/answer/14534406)
+ - [Google AI Ultra](/googleone/answer/16286513)
 - **For work or school accounts:** You need an eligible Google Workspace plan with access to Gemini Alpha.
-  - If you use a work or school account, your admin controls access to Gemini Alpha.
-  - If you can't find AI Overview, your admin may not have [Alpha features enabled for your organization](/a/answer/14170809).
+ - If you use a work or school account, your admin controls access to Gemini Alpha.
+ - If you can't find AI Overview, your admin may not have [Alpha features enabled for your organization](/a/answer/14170809).
 
 ### Additional requirements
 
@@ -38,7 +38,7 @@ In the Gmail search bar, you can ask natural language questions or key phrases t
 
 ### Things to try
 
-|  |  |
+| | |
 | --- | --- |
 | **Search objective** | **Example** |
 | **Get answers** | - "When is the next meeting with my manager?" - "Did the customer reply about the commercial sale?" - "When is my next appointment?" - "What is the check-in code for my rental?" |

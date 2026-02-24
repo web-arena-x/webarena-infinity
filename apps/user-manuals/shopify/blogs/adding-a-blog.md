@@ -36,10 +36,9 @@ Desktop
 7. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Content** menu, tap the  icon, and then tap **Blog posts**.
-3. Tap  or  > **Manage blogs**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Content** menu, tap the icon, and then tap **Blog posts**.
+3. Tap or > **Manage blogs**.
 4. Tap **Add blog**.
 5. Give your blog a title (up to 255 characters), and then select how you want to [manage comments](managing-comments.md).
 6. Optional: If you've [created a custom template for blogs](publishing-blogs.md#create-a-new-blog-template), then you can select a template. In the **Template** drop-down menu, select the template that you want to use for the blog. All of the posts in the blog will use the template.

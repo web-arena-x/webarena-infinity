@@ -16,7 +16,7 @@ Prior to setup in Zendesk, you’ll need to enable SMTP AUTH for the address in 
 
 The following example details come from [How to set up SMTP AUTH client submission](https://learn.microsoft.com/en-us/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365#how-to-set-up-smtp-auth-client-submission):
 
-|  |  |
+| | |
 | --- | --- |
 | **Device or Application setting** | **Value** |
 | Server/smart host | [smtp.office365.com](http://smtp.office365.com/) |

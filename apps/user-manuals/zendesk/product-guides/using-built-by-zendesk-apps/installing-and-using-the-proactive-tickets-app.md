@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408828120218-Installing-a
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -33,8 +33,8 @@ To help you get started, this guide will walk through:
 - You must set a default time zone on your [user profile](https://support.zendesk.com/hc/en-us/articles/4408835022490) to use the Proactive Tickets app. If a default time zone isn't set, you will encounter a blank page when running a search.
 - The Proactive Tickets app does not work with [custom ticket statuses.](https://support.zendesk.com/hc/en-us/articles/4412575861018) The app is only compatible with [system ticket status fields](../../agent-guide/ticket-basics/updating-and-solving-tickets.md#topic_i3y_np1_vt).
 - When searching for customers, only 20 display in search results at a time. To create more than 20 tickets at once, increase the number of users per page. See [How can I send more than 20 tickets at a time through the Proactive Tickets app?](https://support.zendesk.com/hc/en-us/articles/6461221673754)
-- When searching for information in custom user fields, use the key that names the custom field. If you are looking for a specific multi-word phrase (such as “renewal date”), enclose it in quotes. This ensures that you receive exact matches.  
-  Example: To search for the custom field named "renewal date," you would enter it as follows: custom\_field\_name: "renewal date".
+- When searching for information in custom user fields, use the key that names the custom field. If you are looking for a specific multi-word phrase (such as “renewal date”), enclose it in quotes. This ensures that you receive exact matches. 
+ Example: To search for the custom field named "renewal date," you would enter it as follows: custom\_field\_name: "renewal date".
 
 ## Installing the Proactive Tickets app
 
@@ -53,12 +53,12 @@ To create a campaign using the Proactive Tickets app, agents must have permissio
 **To create a proactive ticket campaign**
 
 1. Click the Proactive Tickets (![](https://support.zendesk.com/hc/article_attachments/7856445814426)) icon in the left navigation bar.
-2. Enter search criteria to create a filtered list of customers, then click **Search**.  
-   Use the text field at the top to search all user fields. For example, type an organization name, tag, or last name in the text field, and the app will search all user fields to find results.  
+2. Enter search criteria to create a filtered list of customers, then click **Search**. 
+   Use the text field at the top to search all user fields. For example, type an organization name, tag, or last name in the text field, and the app will search all user fields to find results. 
    You can also use individual fields to search for customers. For example, to create a list of customers at the Petipet organization with a VIP tag on their profile, type **Petipet** in the **Organization** field and **VIP** in the **Tags** field.
 3. Select the customers in the list, then select **Create ticket**.
 4. Enter a unique name in the **Name your campaign**field. The name will be added as a tag to all the tickets for this campaign. You can use this tag to create custom reports.
-5. Enter remaining details, like the subject, description, ticket status, and assignee, in the **Create your proactive ticket**section.   
+5. Enter remaining details, like the subject, description, ticket status, and assignee, in the **Create your proactive ticket**section.  
 
    Note: If you're creating proactive tickets with a Solved status, make sure to fill out any required fields on the ticket form before proceeding.
 6. Select a macro to run on the proactive tickets as they are created
@@ -94,41 +94,41 @@ In addition to setting up the Proactive Tickets app, you can set up other aspect
 **Version 2.3.1 - 2022-05-24**
 
 - Improvements
-  - Allow HTML content for ticket description
+ - Allow HTML content for ticket description
 
 **Version 2.2.2 - 2021-05-10**
 
 - Improvements
-  - Fixed several issues with translations and alignment issues
+ - Fixed several issues with translations and alignment issues
 
 **Version 2.2.1 - 2021-01-25**
 
 - Improvements
-  - Added a more specific error message when the agent doesn't have the correct permissions to run a campaign and create the tickets
+ - Added a more specific error message when the agent doesn't have the correct permissions to run a campaign and create the tickets
 
 **Version 2.2.0**
 
 - Improvements
-  - Allows sending campaign to failed users
-  - Updated alert message when campaign fails
+ - Allows sending campaign to failed users
+ - Updated alert message when campaign fails
 
 **Version 2.1.0 - 2020-05-20**
 
 - Improvements
-  - Search Enhancements
-  - Ability to run a macro when Proactive tickets campaign runs (**Basic Plan**)
-- Bug fixes  
-  - Characters in non-English languages being truncated
-  - Fixed an issue where it was searching/including suspended users
-  - Fixed an issue where markdown language wasn't working in ticket description.
+ - Search Enhancements
+ - Ability to run a macro when Proactive tickets campaign runs (**Basic Plan**)
+- Bug fixes 
+ - Characters in non-English languages being truncated
+ - Fixed an issue where it was searching/including suspended users
+ - Fixed an issue where markdown language wasn't working in ticket description.
 
 **Version 2.2.0 - 2020-11-20**
 
 - Improvements
-  - Allow sending campaign to failed users
+ - Allow sending campaign to failed users
 - Bug fixes
-  - Add corresponding error text for unauthorized access instead of generic vague message
-  - Localization and UI update
+ - Add corresponding error text for unauthorized access instead of generic vague message
+ - Localization and UI update
 
 **Version 2.3.0 - 2021-07-30**
 

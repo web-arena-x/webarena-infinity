@@ -12,18 +12,18 @@ To edit submittals in a submittal package in bulk.
 
 If your project has a large number of submittals, you might want to occasionally make bulk edits to all or some of the submittals in a package. For example, if you want to associate all of the submittals in a package with a particular spec section or change the status of all the submittals at once, use the steps below.
 
-*Note:* To edit an individual submittal, see [Edit a Submittal](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/edit-a-submittal "/products/online/user-guide/project-level/submittals/tutorials/edit-a-submittal").   
-  
+*Note:* To edit an individual submittal, see [Edit a Submittal](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/edit-a-submittal "/products/online/user-guide/project-level/submittals/tutorials/edit-a-submittal").  
+ 
 ***Important!*** If you want to perform bulk editing actions on individual submittals that are NOT in the same Submittal Package, see [Perform Bulk Actions on Submittals](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/perform-bulk-actions-on-submittals "Perform Bulk Actions on Submittals").
 
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level users can bulk edit submittals
+ - 'Admin' level users can bulk edit submittals
 - **Additional Information:**
 - - If you want to perform bulk editing actions on individual submittals that are NOT in the same submittal package, see [Perform Bulk Actions on Submittals](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/perform-bulk-actions-on-submittals "Perform Bulk Actions on Submittals"). ​​​​
-  - If one or more of the selected submittals has already been submitted to reviewers for approval, the Submittal Workflow field will be grayed out and unavailable. You cannot bulk edit submittal workflows when one or more submittals have a workflow in progress.
-  - You can apply submittal workflow templates to the selected submittals in a package, as long as there is not a workflow already in progress for any submittals.
+ - If one or more of the selected submittals has already been submitted to reviewers for approval, the Submittal Workflow field will be grayed out and unavailable. You cannot bulk edit submittal workflows when one or more submittals have a workflow in progress.
+ - You can apply submittal workflow templates to the selected submittals in a package, as long as there is not a workflow already in progress for any submittals.
 
 ## Steps
 
@@ -32,7 +32,7 @@ If your project has a large number of submittals, you might want to occasionall
 3. Locate the desired package in the list. Then click **View**.
 4. Click **Bulk Edit****Submittals**.
 5. Choose from these options:
-   - Mark the checkbox(es) that correspond to the submittals you want to edit.   
+   - Mark the checkbox(es) that correspond to the submittals you want to edit.  
      OR
    - Mark the checkbox at the top of the column to select all of the listed submittals.
 6. Click **Next Step**.

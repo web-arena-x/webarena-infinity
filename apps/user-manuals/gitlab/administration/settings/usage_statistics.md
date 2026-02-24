@@ -12,8 +12,7 @@ title: Usage statistics
 
 {{< /details >}}
 
-GitLab Inc. periodically collects information about your instance in order
-to perform various actions.
+GitLab Inc. periodically collects information about your instance in order to perform various actions.
 
 For free GitLab Self-Managed instances, all usage statistics are [opt-out](#enable-or-disable-service-ping).
 
@@ -25,9 +24,7 @@ that are dependent on Service Ping.
 
 ### Why enable Service Ping?
 
-The main purpose of Service Ping is to build a better GitLab. We collect data about how GitLab is used
-to understand feature or stage adoption and usage. This data gives an insight into how GitLab adds
-value and helps our team understand the reasons why people use GitLab, and with this knowledge we're able to make better product decisions.
+The main purpose of Service Ping is to build a better GitLab. We collect data about how GitLab is used to understand feature or stage adoption and usage. This data gives an insight into how GitLab adds value and helps our team understand the reasons why people use GitLab, and with this knowledge we're able to make better product decisions.
 
 There are several other benefits to enabling Service Ping:
 
@@ -54,10 +51,7 @@ These three settings interact in the following ways:
 
 ## Registration Features Program
 
-In GitLab versions 14.1 and later, GitLab Free customers with a GitLab Self-Managed instance running
-GitLab Enterprise Edition can receive paid features by [enabling registration features](#enable-registration-features) and sending us
-activity data through Service Ping. Features introduced here do not remove the feature from its paid
-tier. Instances on a paid tier are subject to the [Product Usage Data policy](https://handbook.gitlab.com/handbook/legal/privacy/customer-product-usage-information/) managed by [Cloud Licensing](https://about.gitlab.com/pricing/licensing-faq/cloud-licensing/).
+In GitLab versions 14.1 and later, GitLab Free customers with a GitLab Self-Managed instance running GitLab Enterprise Edition can receive paid features by [enabling registration features](#enable-registration-features) and sending us activity data through Service Ping. Features introduced here do not remove the feature from its paid tier. Instances on a paid tier are subject to the [Product Usage Data policy](https://handbook.gitlab.com/handbook/legal/privacy/customer-product-usage-information/) managed by [Cloud Licensing](https://about.gitlab.com/pricing/licensing-faq/cloud-licensing/).
 
 ### Available features
 
@@ -105,14 +99,12 @@ In the following table, you can see:
 
 ## Version check
 
-If enabled, version check informs you if a new version is available and the
-importance of it through a status. The status displays on the help pages (`/help`)
+If enabled, version check informs you if a new version is available and the importance of it through a status. The status displays on the help pages (`/help`)
 for all authenticated users, and on the **Admin** area pages. The statuses are:
 
 - Green: You are running the latest version of GitLab.
 - Orange: An updated version of GitLab is available.
-- Red: The version of GitLab you are running is vulnerable. You should install
-  the latest version with security fixes as soon as possible.
+- Red: The version of GitLab you are running is vulnerable. You should install the latest version with security fixes as soon as possible.
 
 ![Version check showing that a non-critical update is available for the GitLab instance](img/non_critical_update_available_v10_6.png)
 
@@ -130,8 +122,7 @@ Prerequisites:
 
 ### Request flow example
 
-The following example shows a basic request/response flow between your
-instance and the GitLab Version Application:
+The following example shows a basic request/response flow between your instance and the GitLab Version Application:
 
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
@@ -147,11 +138,9 @@ sequenceDiagram
 
 ## Configure your network
 
-To send usage statistics to GitLab Inc., you must allow network traffic from your
-GitLab instance to the host `version.gitlab.com` on port `443`.
+To send usage statistics to GitLab Inc., you must allow network traffic from your GitLab instance to the host `version.gitlab.com` on port `443`.
 
-If your GitLab instance is behind a proxy, set the appropriate
-[proxy configuration variables](https://docs.gitlab.com/omnibus/settings/environment-variables.html).
+If your GitLab instance is behind a proxy, set the appropriate [proxy configuration variables](https://docs.gitlab.com/omnibus/settings/environment-variables.html).
 
 ## Enable or disable Service Ping
 
@@ -180,8 +169,7 @@ To enable or disable Service Ping:
 
 ### Through the configuration file
 
-To disable Service Ping and prevent it from being configured in the future through
-the **Admin** area.
+To disable Service Ping and prevent it from being configured in the future through the **Admin** area.
 
 {{< tabs >}}
 
@@ -373,8 +361,7 @@ See [service ping API documentation](../../api/usage_data.md).
 
 ## Manually upload Service Ping payload
 
-You can upload the Service Ping payload to GitLab even if your instance doesn't have internet access,
-or if the Service Ping cron job is not enabled.
+You can upload the Service Ping payload to GitLab even if your instance doesn't have internet access, or if the Service Ping cron job is not enabled.
 
 To upload the payload manually:
 
@@ -387,8 +374,7 @@ To upload the payload manually:
 1. Select **Choose file**, then select the JSON file that contains the downloaded payload.
 1. Select **Upload**.
 
-The uploaded file is encrypted and sent using secure HTTPS protocol. HTTPS creates a secure
-communication channel between web browser and the server, and protects transmitted data against man-in-the-middle attacks.
+The uploaded file is encrypted and sent using secure HTTPS protocol. HTTPS creates a secure communication channel between web browser and the server, and protects transmitted data against man-in-the-middle attacks.
 
 If there are problems with the manual upload:
 

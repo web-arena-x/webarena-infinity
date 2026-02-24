@@ -20,17 +20,16 @@ The Handshake app gives you convenient access to many of the features you use on
 
 - Discover opportunities – Explore jobs, events, and career fairs.
 - Apply for jobs – Submit applications directly through the app.
-- Appointments – Schedule and manage meetings with your career center.  
-  *Check out* [Request an Appointment with your Career Center.](../career-exploration/request-an-appointment-with-your-career-center.md)
-- Messages – View, send, and respond to messages.  
-  *Learn more in* [How to Use Messages in Handshake.](../build-your-network/how-to-use-messages-in-handshake.md)
-- Profile updates – Edit your profile and view insights about your visibility and engagement.  
-  *Check out* [Posting Content to the Handshake Feed.](../career-exploration/posting-content-to-the-handshake-feed.md)
+- Appointments – Schedule and manage meetings with your career center. 
+ *Check out* [Request an Appointment with your Career Center.](../career-exploration/request-an-appointment-with-your-career-center.md)
+- Messages – View, send, and respond to messages. 
+ *Learn more in* [How to Use Messages in Handshake.](../build-your-network/how-to-use-messages-in-handshake.md)
+- Profile updates – Edit your profile and view insights about your visibility and engagement. 
+ *Check out* [Posting Content to the Handshake Feed.](../career-exploration/posting-content-to-the-handshake-feed.md)
 - Push notifications – Get reminders for application deadlines and upcoming events.
-- Event check-in – Scan a QR code to check in quickly at events and fairs.  
-  *Learn more in* [Check-in with an Employer at an Event or Fair.](../events-fairs/check-in-with-an-employer-at-an-event-or-fair.md)
-- Feed – Browse the Handshake Feed and post content  
-  *Check out [Posting Content to the Handshake Feed.](../career-exploration/posting-content-to-the-handshake-feed.md)*
+- Event check-in – Scan a QR code to check in quickly at events and fairs. 
+ *Learn more in* [Check-in with an Employer at an Event or Fair.](../events-fairs/check-in-with-an-employer-at-an-event-or-fair.md)
+- Feed – Browse the Handshake Feed and post content *Check out [Posting Content to the Handshake Feed.](../career-exploration/posting-content-to-the-handshake-feed.md)*
 
 ### 
 

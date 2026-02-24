@@ -13,9 +13,7 @@ title: Where variables can be used
 
 {{< /details >}}
 
-As it's described in the [CI/CD variables](_index.md) documentation, you can
-define many different variables. Some of them can be used for all GitLab CI/CD
-features, but some of them are more or less limited.
+As it's described in the [CI/CD variables](_index.md) documentation, you can define many different variables. Some of them can be used for all GitLab CI/CD features, but some of them are more or less limited.
 
 This document describes where and how the different types of variables can be used.
 
@@ -55,7 +53,7 @@ There are two places defined variables can be used. On the:
 | [`include`](../yaml/_index.md#include)                                  | yes              | GitLab                 | The variable expansion is made by the [internal variable expansion mechanism](#gitlab-internal-variable-expansion-mechanism) in GitLab. <br/><br/>See [Use variables with include](../yaml/includes.md#use-variables-with-include) for more information on supported variables. |
 | [`resource_group`](../yaml/_index.md#resource_group)                    | yes              | GitLab                 | Similar to `environment:url`, but the variables expansion doesn't support the following:<br/>- `CI_ENVIRONMENT_URL`<br/>- [Persisted variables](#persisted-variables). |
 | [`rules:changes`](../yaml/_index.md#ruleschanges)                       | no               | GitLab                 | The variable expansion is made by the [internal variable expansion mechanism](#gitlab-internal-variable-expansion-mechanism) in GitLab. |
-| [`rules:changes:compare_to`](../yaml/_index.md#ruleschangescompare_to)  | no               | GitLab                 | The variable expansion is made by the [internal variable expansion mechanism](#gitlab-internal-variable-expansion-mechanism) in GitLab. |
+| [`rules:changes:compare_to`](../yaml/_index.md#ruleschangescompare_to) | no               | GitLab                 | The variable expansion is made by the [internal variable expansion mechanism](#gitlab-internal-variable-expansion-mechanism) in GitLab. |
 | [`rules:exists`](../yaml/_index.md#rulesexists)                         | no               | GitLab                 | The variable expansion is made by the [internal variable expansion mechanism](#gitlab-internal-variable-expansion-mechanism) in GitLab. |
 | [`rules:if`](../yaml/_index.md#rulesif)                                 | no               | Not applicable         | The variable must be in the form of `$variable`. Not supported are the following:<br/><br/>- `CI_ENVIRONMENT_SLUG` variable.<br/>- [Persisted variables](#persisted-variables). |
 | [`script`](../yaml/_index.md#script)                                    | yes              | Script execution shell | The variable expansion is made by the [execution shell environment](#execution-shell-environment). |
@@ -86,8 +84,7 @@ There are three expansion mechanisms:
 ### GitLab internal variable expansion mechanism
 
 The expanded part needs to be in a form of `$variable`, or `${variable}` or `%variable%`.
-Each form is handled in the same way, no matter which OS/shell handles the job,
-because the expansion is done in GitLab before any runner gets the job.
+Each form is handled in the same way, no matter which OS/shell handles the job, because the expansion is done in GitLab before any runner gets the job.
 
 #### Nested variable expansion
 
@@ -101,73 +98,53 @@ GitLab expands job variable values recursively before sending them to the runner
 
 The runner receives a valid, fully-formed path. For example, if `${CI_BUILDS_DIR}` is `/output`, then `PACKAGE_PATH` would be `/output/out/pkg`.
 
-References to unavailable variables are left intact. In this case, the runner
-[attempts to expand the variable value](#gitlab-runner-internal-variable-expansion-mechanism) at runtime.
+References to unavailable variables are left intact. In this case, the runner [attempts to expand the variable value](#gitlab-runner-internal-variable-expansion-mechanism) at runtime.
 For example, a variable like `CI_BUILDS_DIR` is known by the runner only at runtime.
 
 ### GitLab Runner internal variable expansion mechanism
 
-- Supported: project/group variables, `.gitlab-ci.yml` variables, `config.toml` variables, and
-  variables from triggers, pipeline schedules, and manual pipelines.
+- Supported: project/group variables, `.gitlab-ci.yml` variables, `config.toml` variables, and variables from triggers, pipeline schedules, and manual pipelines.
 - Not supported: variables defined inside of scripts (for example, `export MY_VARIABLE="test"`).
 
-The runner uses Go's `os.Expand()` method for variable expansion. It means that it handles
-only variables defined as `$variable` and `${variable}`. What's also important, is that
-the expansion is done only once, so nested variables may or may not work, depending on the
-ordering of variables definitions, and whether [nested variable expansion](#nested-variable-expansion)
+The runner uses Go's `os.Expand()` method for variable expansion. It means that it handles only variables defined as `$variable` and `${variable}`. What's also important, is that the expansion is done only once, so nested variables may or may not work, depending on the ordering of variables definitions, and whether [nested variable expansion](#nested-variable-expansion)
 is enabled in GitLab.
 
-For artifacts and cache uploads, the runner uses
-[mvdan.cc/sh/v3/expand](https://pkg.go.dev/mvdan.cc/sh/v3/expand) for variable
-expansion instead of Go's `os.Expand()` because `mvdan.cc/sh/v3/expand` supports
-[parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html).
+For artifacts and cache uploads, the runner uses [mvdan.cc/sh/v3/expand](https://pkg.go.dev/mvdan.cc/sh/v3/expand) for variable expansion instead of Go's `os.Expand()` because `mvdan.cc/sh/v3/expand` supports [parameter expansion](https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html).
 
 ### Execution shell environment
 
 This is an expansion phase that takes place during the `script` execution.
-Its behavior depends on the shell used (`bash`, `sh`, `cmd`, PowerShell). For example, if the job's
-`script` contains a line `echo $MY_VARIABLE-${MY_VARIABLE_2}`, it should be properly handled
-by bash/sh (leaving empty strings or some values depending whether the variables were
-defined or not), but don't work with Windows' `cmd` or PowerShell, because these shells
-use a different variables syntax.
+Its behavior depends on the shell used (`bash`, `sh`, `cmd`, PowerShell). For example, if the job's `script` contains a line `echo $MY_VARIABLE-${MY_VARIABLE_2}`, it should be properly handled by bash/sh (leaving empty strings or some values depending whether the variables were defined or not), but don't work with Windows' `cmd` or PowerShell, because these shells use a different variables syntax.
 
 Supported:
 
-- The `script` may use all available variables that are default for the shell (for example, `$PATH` which
-  should be present in all bash/sh shells) and all variables defined by GitLab CI/CD (project/group variables,
-  `.gitlab-ci.yml` variables, `config.toml` variables, and variables from triggers and pipeline schedules).
-- The `script` may also use all variables defined in the lines before. So, for example, if you define
-  a variable `export MY_VARIABLE="test"`:
-  - In `before_script`, it works in the subsequent lines of `before_script` and
-    all lines of the related `script`.
-  - In `script`, it works in the subsequent lines of `script`.
-  - In `after_script`, it works in subsequent lines of `after_script`.
+- The `script` may use all available variables that are default for the shell (for example, `$PATH` which should be present in all bash/sh shells) and all variables defined by GitLab CI/CD (project/group variables, `.gitlab-ci.yml` variables, `config.toml` variables, and variables from triggers and pipeline schedules).
+- The `script` may also use all variables defined in the lines before. So, for example, if you define a variable `export MY_VARIABLE="test"`:
+ - In `before_script`, it works in the subsequent lines of `before_script` and all lines of the related `script`.
+ - In `script`, it works in the subsequent lines of `script`.
+ - In `after_script`, it works in subsequent lines of `after_script`.
 
 In the case of `after_script` scripts, they can:
 
-- Only use variables defined before the script within the same `after_script`
-  section.
+- Only use variables defined before the script within the same `after_script` section.
 - Not use variables defined in `before_script` and `script`.
 
-These restrictions exist because `after_script` scripts are executed in a
-[separated shell context](../yaml/_index.md#after_script).
+These restrictions exist because `after_script` scripts are executed in a [separated shell context](../yaml/_index.md#after_script).
 
 ## Persisted variables
 
 Some predefined variables are called persisted. Persisted variables are:
 
 - Supported for definitions where the [expansion place](#gitlab-ciyml-file) is:
-  - Runner.
-  - Script execution shell.
+ - Runner.
+ - Script execution shell.
 - Not supported:
-  - For definitions where the [expansion place](#gitlab-ciyml-file) is GitLab.
-  - In `rules` [variables expressions](../jobs/job_rules.md#cicd-variable-expressions).
+ - For definitions where the [expansion place](#gitlab-ciyml-file) is GitLab.
+ - In `rules` [variables expressions](../jobs/job_rules.md#cicd-variable-expressions).
 
-[Pipeline trigger jobs](../yaml/_index.md#trigger) cannot use job-level persisted variables,
-but can use pipeline-level persisted variables.
+[Pipeline trigger jobs](../yaml/_index.md#trigger) cannot use job-level persisted variables, but can use pipeline-level persisted variables.
 
-Some of the persisted variables contain tokens and cannot be used by some definitions
-due to security reasons.
+Some of the persisted variables contain tokens and cannot be used by some definitions due to security reasons.
 
 Pipeline-level persisted variables:
 
@@ -189,18 +166,15 @@ Job-level persisted variables:
 
 ## Variables with an environment scope
 
-Variables defined with an environment scope are supported. Given that
-there is a variable `$STAGING_SECRET` defined in a scope of
-`review/staging/*`, the following job that is using dynamic environments
-is created, based on the matching variable expression:
+Variables defined with an environment scope are supported. Given that there is a variable `$STAGING_SECRET` defined in a scope of `review/staging/*`, the following job that is using dynamic environments is created, based on the matching variable expression:
 
 ```yaml
 my-job:
-  stage: staging
-  environment:
+ stage: staging
+ environment:
     name: review/$CI_JOB_STAGE/deploy
-  script:
+ script:
     - 'deploy staging'
-  rules:
+ rules:
     - if: $STAGING_SECRET == 'something'
 ```

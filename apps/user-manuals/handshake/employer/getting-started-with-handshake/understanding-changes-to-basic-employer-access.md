@@ -26,8 +26,8 @@ This article explains the current experience for Basic employers, including key 
 - All existing **Representatives** were automatically upgraded to Recruiter (Standard).
 - Basic accounts include:
 
-  - One **Owner** seat
-  - Unlimited **Recruiter (Standard)** seats
+ - One **Owner** seat
+ - Unlimited **Recruiter (Standard)** seats
 
 ### 2.Collaboration & admin controls
 

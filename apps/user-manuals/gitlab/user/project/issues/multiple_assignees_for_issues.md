@@ -13,16 +13,11 @@ title: Multiple assignees for issues
 
 {{< /details >}}
 
-In large teams with shared ownership, it can be difficult
-to track who is working on an issue, who's already done, or who hasn't started yet.
+In large teams with shared ownership, it can be difficult to track who is working on an issue, who's already done, or who hasn't started yet.
 
-You can add multiple [assignees](managing_issues.md#assignees) to an issue, making it easier to
-track, and making clearer who is accountable for it.
+You can add multiple [assignees](managing_issues.md#assignees) to an issue, making it easier to track, and making clearer who is accountable for it.
 
-Multiple assignees for issues makes collaboration smoother,
-and allows shared responsibilities to be clearly displayed.
-All assignees are shown across your team's workflows and receive notifications (as they
-would as single assignees), simplifying communication and ownership.
+Multiple assignees for issues makes collaboration smoother, and allows shared responsibilities to be clearly displayed.
+All assignees are shown across your team's workflows and receive notifications (as they would as single assignees), simplifying communication and ownership.
 
-After an assignee completes their work, they remove themselves as an assignee, making
-it clear that their task is complete.
+After an assignee completes their work, they remove themselves as an assignee, making it clear that their task is complete.

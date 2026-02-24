@@ -30,8 +30,8 @@ There are two ways to turn on closed captioning:
 
 ### In a file
 
-1. [Join an audio conversation](https://help.figma.com/hc/en-us/articles/1500004414622) from the Figma desktop app by clicking your avatar in a file, then clicking the  **headphones<\strong> icon.</\strong>**
-2. Click  **Settings**.
+1. [Join an audio conversation](https://help.figma.com/hc/en-us/articles/1500004414622) from the Figma desktop app by clicking your avatar in a file, then clicking the **headphones<\strong> icon.</\strong>**
+2. Click **Settings**.
 3. Click the toggle next to **Closed captioning** to toggle it on or off.
 
 ### From account settings

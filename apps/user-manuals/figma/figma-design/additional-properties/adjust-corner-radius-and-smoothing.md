@@ -41,7 +41,7 @@ Tip: Your Small nudge and Big nudge settings apply to corner radius too. Use the
 ### Design tab
 
 1. Select the layer.
-2. Enter a pixel value in the  **Corner radius** field in the right sidebar or hover your cursor over the  icon, then click and drag left to reduce or right to increase.
+2. Enter a pixel value in the **Corner radius** field in the right sidebar or hover your cursor over the icon, then click and drag left to reduce or right to increase.
 
 ![Rectangle selected on canvas with a corner radius input field in the sidebar set to 0, ready for adjustment.](https://help.figma.com/hc/article_attachments/31779413358487)
 
@@ -64,7 +64,7 @@ Caution: It's not possible to adjust an individual corner's radius in an instanc
 ### Independent corners setting (rectangles and frames only)
 
 1. Select the rectangle or frame you want to update.
-2. Click  **Independent corners** in the right sidebar.
+2. Click **Independent corners** in the right sidebar.
 3. In the **Corner radius details** panel, you can:
    - Enter a pixel value for each corner
    - Click **Apply variable** in any of the four corner radius fields to [apply a number variable](https://help.figma.com/hc/en-us/articles/15343107263511)
@@ -90,8 +90,8 @@ You can also adjust the corner radius for an individual corner in the canvas. Th
 1. Select the shape you want to update.
 2. Double-click on the shape or press `Enter` or `Return` to enter vector edit mode.
 3. Select the individual point on the canvas.
-4. Adjust the corner radius using the  field in the right sidebar.
-5. Enter a pixel value in the **Corner radius** field or hover your cursor over the  icon, then click and drag left to reduce and right to increase.
+4. Adjust the corner radius using the field in the right sidebar.
+5. Enter a pixel value in the **Corner radius** field or hover your cursor over the icon, then click and drag left to reduce and right to increase.
 
 # Corner smoothing for squircles
 
@@ -109,5 +109,5 @@ You can apply corner smoothing to any shape you can apply corner radius to. Unli
 
 1. Select the layer you want to update.
 2. Open the **Design** panel in the right sidebar.
-3. Click the  **Independent corners** icon to open the **Corner radius** panel.
+3. Click the **Independent corners** icon to open the **Corner radius** panel.
 4. Use the slider to adjust corner smoothing or click `iOS` to set corner smoothing to 60%, the default for iOS.

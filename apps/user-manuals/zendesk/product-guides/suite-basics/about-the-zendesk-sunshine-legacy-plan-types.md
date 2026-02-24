@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408822153626-About-the-Ze
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 

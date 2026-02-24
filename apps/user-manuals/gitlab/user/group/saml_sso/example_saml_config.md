@@ -140,8 +140,7 @@ Setting the username for the newly provisioned users when assigning them the SCI
 
 ## SAML response example
 
-When a user signs in using SAML, GitLab receives a SAML response. The SAML response can be found in `production.log` logs as a base64-encoded message. Locate the response by
-searching for `SAMLResponse`. The decoded SAML response is in XML format. For example:
+When a user signs in using SAML, GitLab receives a SAML response. The SAML response can be found in `production.log` logs as a base64-encoded message. Locate the response by searching for `SAMLResponse`. The decoded SAML response is in XML format. For example:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

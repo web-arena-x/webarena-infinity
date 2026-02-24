@@ -34,10 +34,10 @@ To start, retrieve the purchase ID for the GitLab Duo add-on. For GitLab.com:
 query {
  addOnPurchases (namespaceId: "gid://gitlab/Group/YOUR_NAMESPACE_ID")
  {
-  name
-  purchasedQuantity
-  assignedQuantity
-  id
+ name
+ purchasedQuantity
+ assignedQuantity
+ id
  }
 }
 ```
@@ -48,10 +48,10 @@ For GitLab Self-Managed and GitLab Dedicated:
 query {
  addOnPurchases
  {
-  name
-  purchasedQuantity
-  assignedQuantity
-  id
+ name
+ purchasedQuantity
+ assignedQuantity
+ id
  }
 }
 ```
@@ -62,14 +62,14 @@ Then assign seats to specific users:
 
 ```graphql
 mutation {
-  userAddOnAssignmentBulkCreate(input: {
+ userAddOnAssignmentBulkCreate(input: {
     addOnPurchaseId: "gid://gitlab/GitlabSubscriptions::AddOnPurchase/YOUR_ADDON_PURCHASE_ID",
     userIds: [
       "gid://gitlab/User/USER_ID_1",
       "gid://gitlab/User/USER_ID_2",
       "gid://gitlab/User/USER_ID_3"
     ]
-  }) {
+ }) {
     addOnPurchase {
       id
       name
@@ -83,7 +83,7 @@ mutation {
         }
       }
     errors
-  }
+ }
 }
 ```
 

@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/6443354721178-Activating-s
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Workforce Management (WFM) or Workforce Engagement Management (WEM) |
 
@@ -24,9 +24,9 @@ Shift trades must be activated in Zendesk WFM before agents can request them.
 **To turn on shift trades**
 
 1. Hover over the schedule icon, then click **Shift trades management**.
-2. Click **Turn on shift trades**.  
+2. Click **Turn on shift trades**. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ts_shift_trades_enable.png)
-3. A manager's approval is required by default. Click **Save**.  
+3. A manager's approval is required by default. Click **Save**. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ts_shift_trades_activate_2.png)
 
 ## Understanding shift trades
@@ -51,6 +51,6 @@ This scenario involves agents trading their shifts on different days, and how th
 - Agent B offers to work the shift on the 25th if Agent A works their shift on the 31st.
 - The agents submit shift trade requests and their manager approves.
 - Now Agent A doesn't have a shift on the 25th because that’s when Agent B has agreed to work.
-- Agent B doesn’t have a shift on the 31st because that’s when Agent A agreed to work.  
+- Agent B doesn’t have a shift on the 31st because that’s when Agent A agreed to work. 
 
-  **Note**: These shifts are removed because the platform doesn't assume work planned for those agents. Managers are offered the freedom to adjust the agents' shifts accordingly.
+ **Note**: These shifts are removed because the platform doesn't assume work planned for those agents. Managers are offered the freedom to adjust the agents' shifts accordingly.

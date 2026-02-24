@@ -9,20 +9,20 @@ There is a lot that goes into running a career fair. This guide is structured as
 Topics:
 
 - **[Step 1: Create and Configure Your Career Fair in Handshake](#h_01FRGTPG6QNM7E45X06YBC2RFS)**
-  - [Create a Career Fair](#h_01FRGVVT4SE1RV5B1GZ2360NSP) 
+ - [Create a Career Fair](#h_01FRGVVT4SE1RV5B1GZ2360NSP) 
     - Payment Options within Career Fairs
-  - [Configure Your Career Fairs Registration Types](#h_01FRGVXNVEQZT6MSV7ZR0Y42JP)
-  - [Print student Name Tags, Configure Kiosk and Name Tag Printer](#h_01FRGVYCWB2224S7P0R13ERPWJ)
-  - [Setting Student Qualifications, Invite Only, and Waitlists](#h_01FRGVZ5J3TXNJ11PQ76K9VQCY)
-  - [Send Invites to Employers](#h_01FRGW08CYSVMX4TYKTNR13ZD6)
+ - [Configure Your Career Fairs Registration Types](#h_01FRGVXNVEQZT6MSV7ZR0Y42JP)
+ - [Print student Name Tags, Configure Kiosk and Name Tag Printer](#h_01FRGVYCWB2224S7P0R13ERPWJ)
+ - [Setting Student Qualifications, Invite Only, and Waitlists](#h_01FRGVZ5J3TXNJ11PQ76K9VQCY)
+ - [Send Invites to Employers](#h_01FRGW08CYSVMX4TYKTNR13ZD6)
 - [**Step 2: Test Registering for the Career Fair**](#h_01FRGWCTBZZS59B6CDWD19GDKJ) 
-  - Signup as an Employer
-  - Signup as a Student
-  - Check in and print a nametag
+ - Signup as an Employer
+ - Signup as a Student
+ - Check in and print a nametag
 - **[Step 3: Workflows and Managing Your Career Fair](#h_01FRGXNDKP3JEZ7QR1QERZS37Z)**
-  - Approving Employer Registrations
-  - Accessing Registration Types (booths) for Employers
-  - Communicating with Students
+ - Approving Employer Registrations
+ - Accessing Registration Types (booths) for Employers
+ - Communicating with Students
 
 ### Step 1: Create and Configure Your Career Fair in Handshake
 
@@ -45,7 +45,7 @@ Manual: You can specify instructions for employers to be able to pay with cash, 
 #### **Configure Your Fair’s Registration Types**
 
 - Set registration types that employers will be able to select and register for.
-  - **Note**: until registration types are created, employers will not be able to register.
+ - **Note**: until registration types are created, employers will not be able to register.
 
 Need further explanation on creating your registration types? Check out [Fairs: Create Registration Types](https://support.joinhandshake.com/hc/en-us/articles/218693078).
 
@@ -68,7 +68,7 @@ Want to add a booth map for each Date and Time? Check out [Career Fairs: Upload 
 #### **Send Invites to Employers**
 
 - Refer to [Fairs: Inviting Employers](https://support.joinhandshake.com/hc/en-us/articles/360006339173-Fairs-Inviting-Employers "https://support.joinhandshake.com/hc/en-us/articles/360006339173-Fairs-Inviting-Employers") for a step-by-step guide to inviting employers.
-  - **Note**: be ready to approve employers that request to attend the fair. Similar to managing employers and jobs, setup saved searches to filter requests.
+ - **Note**: be ready to approve employers that request to attend the fair. Similar to managing employers and jobs, setup saved searches to filter requests.
 
 ### Step 2: Test Registering for the Career Fair
 

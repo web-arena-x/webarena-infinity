@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408822914074-Acquiring-a-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Talk Team, Professional, or Enterprise |
 
@@ -18,13 +18,8 @@ BNetzA has published a [guide](https://www.bundesnetzagentur.de/DE/Fachthemen/Te
 
 The application can be made online or the application form can be mailed or faxed to BNetzA. If you apply online, a signed application must either be faxed or mailed to BNetzA to the following address and fax number:
 
-- Mailing address:  
-  Bundesnetzagentur  
-  Dienstleistungszentrum 22 Nürnberg  
-  Standort Fulda  
-  Marquardstr. 27-29  
-  36039 Fulda  
-  Germany
+- Mailing address: 
+ Bundesnetzagentur Dienstleistungszentrum 22 Nürnberg Standort Fulda Marquardstr. 27-29 36039 Fulda Germany
 - Fax: +49 (0)180 3 11 0900
 
 You can find the online application form [here](https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Nummerierung/0800/start.html).
@@ -41,12 +36,12 @@ The activation process is as follows:
 
 You must meet the [German toll-free regulatory requirements](https://support.zendesk.com/hc/en-us/articles/4408824253978-Zendesk-Talk-and-Zendesk-Text-number-regulatory-requirements#h_846f301a-a425-4130-902e-d83e50c6f448) and submit them to [Zendesk Customer Support](https://support.zendesk.com/hc/en-us/articles/4408843597850) for review. Zendesk needs to collect the documents to ensure BNetzA has allocated you the toll-free number. The regulatory bundle will require you to provide the following information:
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Requirements for business - German toll-free** | | |
 | Business name | Proof of identity | - Excerpt from the commercial register (Handelsregisterauszug) |
 | Numbers allocated | Proof of allocation | - Copy of the allocation letter (Zuteilungsbescheid) showing the name of the company displayed on the allocation letter |
-| VAT number | No documentation required |  |
+| VAT number | No documentation required | |
 
 **Activation**
 

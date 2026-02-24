@@ -63,6 +63,5 @@ Instead, consider starting a Design Document that explains the problem and try t
 ## Widget Architecture
 
 The [Plan stage](https://handbook.gitlab.com/handbook/engineering/development/dev/plan-project-management/)
-is refactoring the right sidebar to consist of **widgets**. They have a specific architecture to be
-reusable and to expose an interface that can be used by external Vue applications on the page.
+is refactoring the right sidebar to consist of **widgets**. They have a specific architecture to be reusable and to expose an interface that can be used by external Vue applications on the page.
 Learn more about the [widget architecture](widgets.md).

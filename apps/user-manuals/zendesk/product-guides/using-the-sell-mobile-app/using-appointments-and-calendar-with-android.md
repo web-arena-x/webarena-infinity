@@ -35,8 +35,8 @@ You can create appointments without associating them to any lead, contact, or de
 
 ## Editing and managing appointments
 
-- To edit or view an appointment you've scheduled, click the appointment from the calendar or lead, contact, or deal that you scheduled the appointment with.   
-  Use these icons to work with your appointment:
+- To edit or view an appointment you've scheduled, click the appointment from the calendar or lead, contact, or deal that you scheduled the appointment with.  
+ Use these icons to work with your appointment:
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_android_edit_icon.png) : edit the appointment details
 

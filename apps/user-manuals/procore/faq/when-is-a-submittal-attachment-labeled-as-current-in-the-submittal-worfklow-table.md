@@ -11,8 +11,8 @@ The **Version** column in the 'Submittal Workflow' table indicates whether the a
 - It has markup that was added in Procore during the active or the most recently completed workflow step.
 - It was uploaded in the active or the most recently completed workflow step.
 
-Current attachments are labeled 'Current**'** in the Version column in the 'Submittal Workflow' table.   
-  
+Current attachments are labeled 'Current**'** in the Version column in the 'Submittal Workflow' table.  
+ 
 ![submittal-table-version-current.png](https://support.procore.com/@api/deki/files/439794/submittal-table-version-current.png?revision=1)
 
 If the file name for an attachment is crossed out in the submittal's **General Information** row or in a step of the submittal workflow and a banner with the text "Non-Current Attachment" displays when the attachment is opened in Procore, this indicates that the attachment is a previous version of an attachment that had markups added to it in Procore.

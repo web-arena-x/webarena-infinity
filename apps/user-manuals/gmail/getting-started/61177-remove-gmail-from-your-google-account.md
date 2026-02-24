@@ -12,15 +12,15 @@ After you remove Gmail from your Google Account:
 - You can no longer use your Gmail address to send or receive emails. If you change your mind, you may be able to [recover your Gmail address and emails](/accounts/answer/61177#recover-gmail).
 - Your Gmail address can’t be used by anyone in the future.
 - You can still access your Google Account and other services that aren't affected like:
-  - [Your activity across Google services](https://myactivity.google.com/myactivity)
-  - [Purchases from Google Play](https://play.google.com/)
+ - [Your activity across Google services](https://myactivity.google.com/myactivity)
+ - [Purchases from Google Play](https://play.google.com/)
 
 ## Before you begin
 
 - If you use Gmail through your work, school, or other group, [contact your administrator](/a/answer/6208960).
 - Before you remove Gmail from your Google Account, [download your data](/accounts/answer/3024190).
 - To continue to use other Google services with your Google Account, you need an alternate email address that isn’t Gmail.
-  - Before you can remove your Gmail address, sign in to your Google Account. If you can’t sign in, [learn how to recover your Google Account or Gmail](/accounts/answer/7682439).
+ - Before you can remove your Gmail address, sign in to your Google Account. If you can’t sign in, [learn how to recover your Google Account or Gmail](/accounts/answer/7682439).
 
 ## Delete your Gmail service
 

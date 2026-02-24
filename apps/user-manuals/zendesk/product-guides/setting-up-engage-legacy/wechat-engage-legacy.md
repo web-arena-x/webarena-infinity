@@ -50,16 +50,16 @@ Once the account has been verified, you will need to complete the following step
 
 - You will need to go to IP Whitelist and add these two IP addresses to the text box:
 - If your instance is in AU-Sydney region, enter these IP addresses:   
-  52.63.123.104 13.54.69.253 54.153.142.150
+ 52.63.123.104 13.54.69.253 54.153.142.150
 - If your instance is in EU-London region, enter these IP addresses:   
-  18.168.27.72 18.134.77.8 35.178.165.248
+ 18.168.27.72 18.134.77.8 35.178.165.248
 - If your instance is in US region, enter these IP addresses:   
-  3.86.171.108 54.158.103.106 54.166.29.108
+ 3.86.171.108 54.158.103.106 54.166.29.108
 
 - Under Server Configuration, add the Local Measure server URL:   
-  <https://webhook-proxy.getlocalmeasure.com/wechat>
+ <https://webhook-proxy.getlocalmeasure.com/wechat>
 - Under Token, add the token:   
-  **WidgetsRUs**
+ **WidgetsRUs**
 - Under Message encryption and decryption key, add the key: **lpcKK6P5PIa5IcnxOxgGcYdHtmiGOrLUaoGPrXetUG3**
 - Under Message encryption and decryption, click 'Plaintext Mode'.
 - Click 'Save'.

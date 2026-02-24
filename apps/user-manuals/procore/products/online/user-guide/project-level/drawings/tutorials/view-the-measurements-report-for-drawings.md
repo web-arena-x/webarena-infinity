@@ -15,7 +15,7 @@ If you have added measurements to drawings in your project using the drawing ma
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Read Only' or higher permissions on the project's Drawings tool.  
+ - 'Read Only' or higher permissions on the project's Drawings tool. 
     *Note:* Since measurement markups cannot be published, you can only view measurements you have added to drawings.
 
 ## Prerequisites

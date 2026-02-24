@@ -12,20 +12,15 @@ title: Audit events
 
 {{< /details >}}
 
-A security audit is an in-depth analysis and review of your infrastructure, which is used to display
-areas of concern and potentially hazardous practices. To assist with the audit process, GitLab provides
-audit events which allow you to track a variety of different actions within GitLab.
-GitLab can help owners and administrators respond to auditors by generating
-comprehensive reports. These audit reports vary in scope, depending on the
-needs.
+A security audit is an in-depth analysis and review of your infrastructure, which is used to display areas of concern and potentially hazardous practices. To assist with the audit process, GitLab provides audit events which allow you to track a variety of different actions within GitLab.
+GitLab can help owners and administrators respond to auditors by generating comprehensive reports. These audit reports vary in scope, depending on the needs.
 
 For example, you can use audit events to track:
 
 - Who changed the permission level of a particular user for a GitLab project, and when.
 - Who added a new user or removed a user, and when.
 
-These events can be used to in an audit to assess risk, strengthen security measures, respond to incidents, and adhere to compliance. For a complete list the audit
-events GitLab provides, see [audit event types](audit_event_types.md). For example:
+These events can be used to in an audit to assess risk, strengthen security measures, respond to incidents, and adhere to compliance. For a complete list the audit events GitLab provides, see [audit event types](audit_event_types.md). For example:
 
 - Generate a report of audit events to provide to an external auditor requesting proof of certain logging capabilities.
 - Provide a report of all users showing their group and project memberships for a quarterly access review so the auditor can verify compliance with an organization's access management policy.
@@ -39,7 +34,7 @@ To view specific types of audit events, you need a minimum role.
 - To view the group audit events of all users in a group, you must have the [Owner role](../permissions.md#roles) for the group.
 - To view the project audit events of all users in a project, you must have at least the [Maintainer role](../permissions.md#roles) for the project.
 - To view the group and project audit events based on your own actions in a group or project, you must have at least the [Developer role](../permissions.md#roles)
-  for the group or project.
+ for the group or project.
 
 Users with the [Auditor access level](../../administration/auditor_users.md) can see group and project events for all users.
 
@@ -99,8 +94,7 @@ Project audit events can also be accessed using the [project audit events API](.
 The time zone used for audit events depends on where you view them:
 
 - In the GitLab UI, your local time zone is used.
-- The [audit events API](../../api/audit_events.md) returns dates and times in UTC by default, or the
-  [configured time zone](../../administration/timezone.md) on GitLab Self-Managed.
+- The [audit events API](../../api/audit_events.md) returns dates and times in UTC by default, or the [configured time zone](../../administration/timezone.md) on GitLab Self-Managed.
 - In CSV exports, UTC is used.
 
 ## Known issues
@@ -112,15 +106,13 @@ The audit events interface has limited search capabilities. Text based searching
 
 Expanding audit event report usability is proposed in [epic 418](https://gitlab.com/groups/gitlab-org/-/epics/418).
 
-For advanced searching and analysis of audit events, consider [streaming audit events](audit_event_streaming.md) to an external destination where you can perform
-comprehensive text searches and analysis.
+For advanced searching and analysis of audit events, consider [streaming audit events](audit_event_streaming.md) to an external destination where you can perform comprehensive text searches and analysis.
 
 ## Contribute to audit events
 
 If you don't see the event you want in any of the epics, you can either:
 
-- Use the audit event proposal issue template to
-  [create an issue](https://gitlab.com/gitlab-org/gitlab/-/issues/new?issuable_template=Audit%20Event%20Proposal) to request it.
+- Use the audit event proposal issue template to [create an issue](https://gitlab.com/gitlab-org/gitlab/-/issues/new?issuable_template=Audit%20Event%20Proposal) to request it.
 - Contribute to GitLab and add the event.
 
 ## Administer topics

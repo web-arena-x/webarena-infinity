@@ -36,23 +36,23 @@ A company that is initially approved *and* later denied by a school cannot post 
 Additionally, the following is impacted:
 
 - **Search**
-  - Employers can no longer search for students from that specific school.
+ - Employers can no longer search for students from that specific school.
 - **Messaging**
-  - Employers cannot send any messages to ‌students from that specific school.
-  - **Note**: if you have any active messages with students at the time the school declines your company, you may continue to message them.
+ - Employers cannot send any messages to ‌students from that specific school.
+ - **Note**: if you have any active messages with students at the time the school declines your company, you may continue to message them.
 - **Jobs**
-  - Jobs posted to the school that were either approved, or in a "pending" or "in progress" status, will be updated to declined.
-  - Any jobs posted to the school that were closed remain closed.
-  - Existing jobs that were HS+, self-service subscription gets canceled or downgraded (*if multi-job toggle is on*)
+ - Jobs posted to the school that were either approved, or in a "pending" or "in progress" status, will be updated to declined.
+ - Any jobs posted to the school that were closed remain closed.
+ - Existing jobs that were HS+, self-service subscription gets canceled or downgraded (*if multi-job toggle is on*)
 - **Fairs**
-  - Registrations for career fairs hosted by their school that are approved or pending will be canceled, and registrants and the associated contacts will be notified.
+ - Registrations for career fairs hosted by their school that are approved or pending will be canceled, and registrants and the associated contacts will be notified.
 - **Events**
-  - Event requests that are either approved or pending and have not yet taken place will be declined, and registrants and attendees will be notified.
+ - Event requests that are either approved or pending and have not yet taken place will be declined, and registrants and attendees will be notified.
 - **Interview Schedules**
-  - Interview schedules that have been approved or pending at the school will be declined and registrants will be notified.
+ - Interview schedules that have been approved or pending at the school will be declined and registrants will be notified.
 - **Applications**
-  - When the school declines an employer, existing applications remain available to employers, and they can still view documents submitted by those applicants.
-  - **Note**: students are *not* notified when employers or jobs they applied to are declined by schools.
+ - When the school declines an employer, existing applications remain available to employers, and they can still view documents submitted by those applicants.
+ - **Note**: students are *not* notified when employers or jobs they applied to are declined by schools.
 
 ### Decline notifications
 

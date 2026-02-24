@@ -32,18 +32,15 @@ Prerequisites:
 To install GitLab for Eclipse:
 
 1. Open your Eclipse IDE and your preferred web browser.
-1. In your web browser, go to the page for the
-   [GitLab for Eclipse plugin](https://marketplace.eclipse.org/content/gitlab-eclipse) in the Eclipse Marketplace.
+1. In your web browser, go to the page for the [GitLab for Eclipse plugin](https://marketplace.eclipse.org/content/gitlab-eclipse) in the Eclipse Marketplace.
 1. On the plugin's page, select **Install**, and drag your mouse over to your Eclipse IDE.
 1. In the **Eclipse Marketplace** window, select the **GitLab For Eclipse** category.
 1. Select **Confirm >**, then select **Finish**.
 1. If the **Trust Authorities** window appears, select the **`https://gitlab.com`** update site and select **Trust Selected**.
 1. Select **Restart Now**.
 
-If the Eclipse Marketplace is unavailable, follow the
-[Eclipse installation instructions](https://help.eclipse.org/latest/index.jsp?topic=%2Forg.eclipse.platform.doc.user%2Ftasks%2Ftasks-124.htm)
-for adding a new software site. For **Work with**, use
-`https://gitlab.com/gitlab-org/editor-extensions/gitlab-eclipse-plugin/-/releases/permalink/latest/downloads/`.
+If the Eclipse Marketplace is unavailable, follow the [Eclipse installation instructions](https://help.eclipse.org/latest/index.jsp?topic=%2Forg.eclipse.platform.doc.user%2Ftasks%2Ftasks-124.htm)
+for adding a new software site. For **Work with**, use `https://gitlab.com/gitlab-org/editor-extensions/gitlab-eclipse-plugin/-/releases/permalink/latest/downloads/`.
 
 ## Connect to GitLab
 
@@ -69,7 +66,6 @@ After you configure the plugin in your IDE, connect it to your GitLab account:
 1. On the left sidebar, select **GitLab**.
 1. Provide the **Connection URL**. For GitLab.com, use `https://gitlab.com`.
 1. For **GitLab Personal Access Token**, paste in the personal access token you created.
-   The token is displayed while being entered for the first time. After applying, the
-   token is not displayed and stored using the Eclipse secure storage.
+   The token is displayed while being entered for the first time. After applying, the token is not displayed and stored using the Eclipse secure storage.
 1. Under the GitLab settings, select **Apply**.
 1. Select **Apply and Close**.

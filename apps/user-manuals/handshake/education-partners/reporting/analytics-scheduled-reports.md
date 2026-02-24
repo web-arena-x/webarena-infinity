@@ -30,26 +30,26 @@ In the popup window that loads, fill out the following information:
 ### Basic Information
 
 - **Name of schedule**(the name will default to the name of the saved report)
-  - The Scheduled Report cannot work if there is a "/" in the name. Please remove any slashes from the schedule name before saving.
+ - The Scheduled Report cannot work if there is a "/" in the name. Please remove any slashes from the schedule name before saving.
 - **Where should this data go?** (Select One: **Email** / **SFTP** / **Amazon S3**)
-  - **Email**: For security reasons, only the creator of the scheduled report can be the recipient. This email address will default to the email address on your Handshake account.
-  - **SFTP**: Enter your **URL** or **IP Address**, **Username**, and **Password**.
-  - **Amazon S3**: Enter your **Bucket**, **Path** (optional), **Access Key**, and **Secret Key**.
+ - **Email**: For security reasons, only the creator of the scheduled report can be the recipient. This email address will default to the email address on your Handshake account.
+ - **SFTP**: Enter your **URL** or **IP Address**, **Username**, and **Password**.
+ - **Amazon S3**: Enter your **Bucket**, **Path** (optional), **Access Key**, and **Secret Key**.
 - **What format should your data be delivered?**
-  - **Email**: (Select one: **CSV ZIP File** / **XLSX** / **JSON** / **HTML** / **Text**)
-  - **SFTP**: (Select one: **CSV ZIP File** / **JSON**)
-  - **Amazon S3**: (Select one: **CSV ZIP File** / **JSON**)
+ - **Email**: (Select one: **CSV ZIP File** / **XLSX** / **JSON** / **HTML** / **Text**)
+ - **SFTP**: (Select one: **CSV ZIP File** / **JSON**)
+ - **Amazon S3**: (Select one: **CSV ZIP File** / **JSON**)
 - **At this time, Row Totals and Calculations are not support for Scheduled Reports.**
 
 ### Delivery timing
 
 - **How often would you like the report to be delivered?** (Select One: **Daily** / **Weekly** / **Monthly**)
-  - **Daily**: Select one from the dropdown: **Every day** / **Weekdays only** / **Specific day**
+ - **Daily**: Select one from the dropdown: **Every day** / **Weekdays only** / **Specific day**
     - - Specific day will allow for multiple days to be selected.
-  - **Weekly**: Select one day of the week from the dropdown.
-  - **Monthly**: Select one from the dropdown: **Every month** / **Specific month**and select what day of the month.
+ - **Weekly**: Select one day of the week from the dropdown.
+ - **Monthly**: Select one from the dropdown: **Every month** / **Specific month**and select what day of the month.
     - - Specific month will allow for multiple months to be selected.
-  - **At what time?** Select from the dropdown, the time you would like to receive the report. Times are available on a 24-hour time format, in 15 minute increments. The time you select will reflect your own timezone.
+ - **At what time?** Select from the dropdown, the time you would like to receive the report. Times are available on a 24-hour time format, in 15 minute increments. The time you select will reflect your own timezone.
 
 ### Summary
 
@@ -61,8 +61,8 @@ If the credentials were not entered correctly:
 
 - **SFTP**: an error will appear in the lower-right corner that states either "Validation Failed. Check your credentials." or "Connection failed. Upload failed due to error."
 - **Amazon S3**: an email will be sent to the address on your account.
-  - Subject: "Error with scheduled job *SCHEDULE NAME*"
-  - Content: "The scheduled job "*SCHEDULE NAME*" failed for *REASON*. Please visit your content (link) to view and resolve the error, or contact your Looker administrator if you need further assistance. Error: (may vary)  
+ - Subject: "Error with scheduled job *SCHEDULE NAME*"
+ - Content: "The scheduled job "*SCHEDULE NAME*" failed for *REASON*. Please visit your content (link) to view and resolve the error, or contact your Looker administrator if you need further assistance. Error: (may vary) 
     - Example email below: ![amazon_s3_credentials_incorrect_email_example_.png](https://support.joinhandshake.com/hc/article_attachments/26001302458903)
 
 ## Editing or deleting a schedule
@@ -78,7 +78,7 @@ To edit or delete a schedule:
 ![edit_schedule.png](https://support.joinhandshake.com/hc/article_attachments/26001302460823)
 
 - **Edit Schedule**: The same fields from creating a schedule (for Basic Information, Delivery timing, and Summary) are available on the **Edit Schedule** popup as well.
-  - An example of the **Edit Schedule** popup:
+ - An example of the **Edit Schedule** popup:
 
 ![Edit schedule pop up.png](https://support.joinhandshake.com/hc/article_attachments/26001342020887)
 
@@ -139,10 +139,10 @@ A: At this time, scheduled reports can only be sent to your own email address. H
 
 A: Handshake’s analytics service is backed by Looker (Google), which has placed some limits on the data that may be delivered to email / SFTP / Amazon S3 –– [Read the details in Looker's scheduling and sharing article](https://docs.looker.com/sharing-and-publishing/scheduling-and-sharing/scheduling). The summary is: 
 
-- Email  
-  - CSV or JSON formats do not have row limits, but have a file size maximum of 15MB so your email client doesn’t reject it.
+- Email 
+ - CSV or JSON formats do not have row limits, but have a file size maximum of 15MB so your email client doesn’t reject it.
 - SFTP
-  - CSV or JSON - No row limit
+ - CSV or JSON - No row limit
 
  
 
@@ -172,5 +172,5 @@ A: If the original report is edited and changes saved, the scheduled report will
 
 **Q: Can we use AZURE SFTP to receive Scheduled Reports?**
 
-A: At this time our data partner, Looker, does not support the host\_key algorithm used by Azure SFTP. Any attempts to send reports to Azure SFTP will result in this error:  
+A: At this time our data partner, Looker, does not support the host\_key algorithm used by Azure SFTP. Any attempts to send reports to Azure SFTP will result in this error: 
 *“Connection failed. Upload to SFTP host ‘**\_\_\_\_\_\_\_\_\_\_\_\_\_\_**’ failed due to error: Net::SSH::Exception. Error: could not settle on host\_key algorithm. Please check your credentials.”*

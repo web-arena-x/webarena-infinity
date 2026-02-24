@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408886879258-Zendesk-Supp
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -262,50 +262,49 @@ For more information about the `user`keyword and how it's different from the `ty
 
 - **How soon can new data be searched?**
 
-  When you add new data to Zendesk Support, it typically takes about a minute before it's indexed and can be searched.
+ When you add new data to Zendesk Support, it typically takes about a minute before it's indexed and can be searched.
 - **How does punctuation affect search?**
 
-  Punctuation characters are generally not included in searches.
+ Punctuation characters are generally not included in searches.
 - **Are there limitations to wildcard searches?**
 
-  You can only do wildcard searches when combined with property keywords (`subject:photo*`).
+ You can only do wildcard searches when combined with property keywords (`subject:photo*`).
 - **Who can search what?**
 
-  Administrators can search all the data in Zendesk Support. Agents can search the data that they've been granted access to. End-users can do full text searches of the knowledge base.
+ Administrators can search all the data in Zendesk Support. Agents can search the data that they've been granted access to. End-users can do full text searches of the knowledge base.
 - **What languages are supported?**
 
-  There is language-specific support for searching in the following languages:
-  - Brazilian Portuguese
-  - Dutch
-  - English
-  - French
-  - German
-  - Italian
-  - Japanese
-  - Russian
-  - Spanish
+ There is language-specific support for searching in the following languages:
+ - Brazilian Portuguese
+ - Dutch
+ - English
+ - French
+ - German
+ - Italian
+ - Japanese
+ - Russian
+ - Spanish
 
-  The support includes dictionary-based tokenization for Japanese, because words are not separated by spaces in that language. For the other languages, the language-specific support is primarily stemming. This means that different forms of the same word can be matched. For instance, both singular and plural forms of a word will typically match. Additionally, if you use the plural form in quotation marks (for example, "cats"), the search will still return results for both "cat" and "cats".
+ The support includes dictionary-based tokenization for Japanese, because words are not separated by spaces in that language. For the other languages, the language-specific support is primarily stemming. This means that different forms of the same word can be matched. For instance, both singular and plural forms of a word will typically match. Additionally, if you use the plural form in quotation marks (for example, "cats"), the search will still return results for both "cat" and "cats".
 
 ## Search operators
 
 You can use the following search operators to build your search statements.
 
-When using operators in your search queries, you must *not* enter a space before or after the operator. For example, entering `updated<2025-07-04` uses “updated” as the operator, while `updated <
-2025-07-04` searches for the word “updated”.
+When using operators in your search queries, you must *not* enter a space before or after the operator. For example, entering `updated<2025-07-04` uses “updated” as the operator, while `updated < 2025-07-04` searches for the word “updated”.
 
 Table 1. Search operators
 
    | Operator | Description |
 | --- | --- |
-| : | The colon indicates that the given field should equal the specified value.  ``` status:open ``` |
-| < | Less than.  ``` status<closed ``` |
-| > | Greater than.  ``` priority>normal ``` |
-| <= | Less than or equal to.  ``` status<=pending ``` |
-| >= | Greater than or equal to.  ``` priority>=normal ``` |
-| " " | Double quotes. In a simple keyword search, this is referred to as a phrase search and returns the exact words in the exact order; however, punctuation characters are not included.  ``` "Please upgrade my account" ```   Note: In the Japanese version of Support, this feature does not work as expected. A simple keyword search that includes double quotes returns results, but the results are not the exact words in the exact order.  In a search including data properties, use double quotes to perform an inclusive AND search, returning results that include *all* properties in the search.  ``` tags:"superman is_awesome" ``` |
-| - | Minus sign. Excludes items containing a word (or property value) from the search results. For example, the following statement searches for any tickets with the status 'pending', but excludes any tickets containing the tag 'invoice' from the search results:  ``` status:pending -tags:invoice ``` |
-| \* | The wildcard operator is useful when you want to search various forms of a word. For example, searching for `photo*` returns results that would include photography, photographer, photograph and any other words that began with 'photo'. However, because of the performance issues involved with doing wildcard searches, unqualified wildcard searches are not currently supported. In other words, you need to use a property keyword to make your search specific to the data you're trying to locate.  ``` subject:photo* ``` |
+| : | The colon indicates that the given field should equal the specified value. ``` status:open ``` |
+| < | Less than. ``` status<closed ``` |
+| > | Greater than. ``` priority>normal ``` |
+| <= | Less than or equal to. ``` status<=pending ``` |
+| >= | Greater than or equal to. ``` priority>=normal ``` |
+| " " | Double quotes. In a simple keyword search, this is referred to as a phrase search and returns the exact words in the exact order; however, punctuation characters are not included. ``` "Please upgrade my account" ```   Note: In the Japanese version of Support, this feature does not work as expected. A simple keyword search that includes double quotes returns results, but the results are not the exact words in the exact order. In a search including data properties, use double quotes to perform an inclusive AND search, returning results that include *all* properties in the search. ``` tags:"superman is_awesome" ``` |
+| - | Minus sign. Excludes items containing a word (or property value) from the search results. For example, the following statement searches for any tickets with the status 'pending', but excludes any tickets containing the tag 'invoice' from the search results: ``` status:pending -tags:invoice ``` |
+| \* | The wildcard operator is useful when you want to search various forms of a word. For example, searching for `photo*` returns results that would include photography, photographer, photograph and any other words that began with 'photo'. However, because of the performance issues involved with doing wildcard searches, unqualified wildcard searches are not currently supported. In other words, you need to use a property keyword to make your search specific to the data you're trying to locate. ``` subject:photo* ``` |
 
 ## Ticket property keywords
 
@@ -318,10 +317,10 @@ Table 2. Searchable ticket properties
    | Keyword | Description |
 | --- | --- |
 | Ticket ID | There isn't a property keyword for the ticket ID. Instead, you simply search for the ticket by its ID number in the following format: ``` 233 ``` |
-| `created` | The date, or date and time, the ticket was created. Enter date in yyy-mm-dd format. ``` created:2011-05-01 ```  Search within a date or time range. Enter times using [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) syntax. For example, to search for a ticket created between 10:30 a.m. and 12 p.m. (UTC) on August 1, 2014:  ``` created>2014-08-01T10:30:00Z created<2014-08-01T12:00:00Z ```  For more information on using date and time in your search, see [Searching by date and time](https://support.zendesk.com/hc/en-us/articles/4408835086106#topic_gbg_dvw_ld). |
-| `updated` | The date of the most recent ticket update. ``` updated>2011-05-15 ```  For more information on using date and time in your search, see [Searching by date and time](https://support.zendesk.com/hc/en-us/articles/4408835086106#topic_gbg_dvw_ld). |
-| `solved` | The date the ticket was set to solved. ``` solved<2011-06-01 ```  For more information on using date and time in your search, see [Searching by date and time](https://support.zendesk.com/hc/en-us/articles/4408835086106#topic_gbg_dvw_ld). |
-| `due_date` | The due date of tickets. ``` due_date:2011-06-01 ```  For more information on using date and time in your search, see [Searching by date and time](https://support.zendesk.com/hc/en-us/articles/4408835086106#topic_gbg_dvw_ld). |
+| `created` | The date, or date and time, the ticket was created. Enter date in yyy-mm-dd format. ``` created:2011-05-01 ``` Search within a date or time range. Enter times using [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) syntax. For example, to search for a ticket created between 10:30 a.m. and 12 p.m. (UTC) on August 1, 2014: ``` created>2014-08-01T10:30:00Z created<2014-08-01T12:00:00Z ``` For more information on using date and time in your search, see [Searching by date and time](https://support.zendesk.com/hc/en-us/articles/4408835086106#topic_gbg_dvw_ld). |
+| `updated` | The date of the most recent ticket update. ``` updated>2011-05-15 ``` For more information on using date and time in your search, see [Searching by date and time](https://support.zendesk.com/hc/en-us/articles/4408835086106#topic_gbg_dvw_ld). |
+| `solved` | The date the ticket was set to solved. ``` solved<2011-06-01 ``` For more information on using date and time in your search, see [Searching by date and time](https://support.zendesk.com/hc/en-us/articles/4408835086106#topic_gbg_dvw_ld). |
+| `due_date` | The due date of tickets. ``` due_date:2011-06-01 ``` For more information on using date and time in your search, see [Searching by date and time](https://support.zendesk.com/hc/en-us/articles/4408835086106#topic_gbg_dvw_ld). |
 | `assignee` | The assigned agent or other entity. You can specify "none", "me", user name (full name or partial), email address, user ID, or phone number (see the [`phone` user property](#topic_rvz_afv_uc) for help searching by phone number). ``` assignee:"Susan Warren" ``` |
 | `submitter` | The ticket submitter. This may be different than the requester if the ticket was submitted by an agent on behalf of the requester. You can specify "none", "me", user name (full name or partial), email address, user ID, or phone number (see the [`phone` user property](#topic_rvz_afv_uc) for help searching by phone number). See [Searching ticket user roles](https://support.zendesk.com/hc/en-us/articles/4408882086298#topic_xca_cjv_uc). ``` submitter:me ``` |
 | `requester` | The ticket requester. You can specify "none", "me", user name (full name or partial), email address, user ID, or phone number (see the [`phone` user property](#topic_rvz_afv_uc) for help searching by phone number). ``` requester:amy@mondocam.com ``` |
@@ -330,21 +329,21 @@ Table 2. Searchable ticket properties
 | `custom_status_id` | If [custom ticket statuses are activated](https://support.zendesk.com/hc/en-us/articles/4412575841306), search for a specific system or custom ticket status. Specify the status by its numeric ID, which you can find on the Ticket statuses page when [editing a ticket status](https://support.zendesk.com/hc/en-us/articles/4412575941402#topic_wqd_t1h_vrb). ``` custom_status_id:2393906 ``` |
 | `status` | Possible values: new, open, pending, hold, solved, closed. ``` status<closed ``` |
 | `ticket_type` | Possible values: question, incident, problem, task. ``` ticket_type:problem ``` |
-| `support_type` | (Applicable only for messaging tickets) Indicates whether a ticket was handled entirely by an AI agent or whether a human agent was involved. Possible values: ai\_agent, agent.  For more information, see [Understanding and viewing AI agent tickets for AI agent–only conversations](https://support.zendesk.com/hc/en-us/articles/9204149016346).  ``` support_type:ai_agent ``` |
-| `priority` | Possible values: low, normal, high, urgent.  ``` priority>low ``` |
-| `group` | Specify the name or ID of a group. Returns tickets assigned to agents who are members of the group. Examples: ``` group:"Level 2" ```  ``` group:20663166 ``` |
-| `organization` | Specify the name or ID of an organization. Returns tickets by requesters who are members of the organization. Examples: ``` organization:customers ```  ``` organization:22989442 ```  You can also specify "none" to return tickets by requesters who are not members of any organization.  ``` organization:none ``` |
-| `tags` | Specify tags that have been added to the ticket or "none." ``` tags:premium ```  To find tickets that include either of two tags, use:  ``` tags:important tags:urgent ```  To find tickets that include both tags:  ``` tags:"important urgent" ``` |
-| `via` | The ticket's source, for example:  - mail (from an email message) - get\_satisfaction, get\_sat, "get satisfaction" (from Get Satisfaction) - closed\_ticket (from a followup ticket) - ticket\_sharing - dropbox (from the Zendesk Feedback Tab) - chat (from Chat) - twitter\_dm, "twitter dm", "twitter direct" (from a Twitter direct message) - twitter\_fav, twitter\_favorite, "twitter favorite" (from a Twitter favorite) - twitter\_like, "twitter like" (from a Twitter like; alias of twitter\_fav) - twitter (from any Twitter method including direct message and favorite) - voicemail (from a voicemail message) - phone\_call\_inbound (from an inbound phone call) - phone\_call\_outbound (from an outbound phone call) - phone (from voicemail, CTI, or an inbound call) - sms, text, "text message" (from a text message) - api (from API call or integrated web service) - logmein, logmein\_rescue, "logmein rescue" (from LogMeIn) - facebook\_post, "facebook post" (from a Facebook wall post to a page) - facebook\_message, "facebook message" (from a Facebook private message to a page) - facebook (from any Facebook method including private message and wall post) - web, "web form" (from a web form) - mobile\_sdk (tickets created using the Zendesk mobile SDK) - "any\_channel" (from the channel framework) - native\_messaging (from the messaging channel) - side\_conversation (from a side conversation) - sunshine\_conversations\_facebook\_messenger - answer\_bot\_for\_web\_widget (from Answer bot tickets)   ``` via:phone ```  For a full list of sources, see [Via types reference in the Zendesk developer documentation](https://developer.zendesk.com/documentation/ticketing/reference-guides/via-types/). |
+| `support_type` | (Applicable only for messaging tickets) Indicates whether a ticket was handled entirely by an AI agent or whether a human agent was involved. Possible values: ai\_agent, agent. For more information, see [Understanding and viewing AI agent tickets for AI agent–only conversations](https://support.zendesk.com/hc/en-us/articles/9204149016346). ``` support_type:ai_agent ``` |
+| `priority` | Possible values: low, normal, high, urgent. ``` priority>low ``` |
+| `group` | Specify the name or ID of a group. Returns tickets assigned to agents who are members of the group. Examples: ``` group:"Level 2" ``` ``` group:20663166 ``` |
+| `organization` | Specify the name or ID of an organization. Returns tickets by requesters who are members of the organization. Examples: ``` organization:customers ``` ``` organization:22989442 ``` You can also specify "none" to return tickets by requesters who are not members of any organization. ``` organization:none ``` |
+| `tags` | Specify tags that have been added to the ticket or "none." ``` tags:premium ``` To find tickets that include either of two tags, use: ``` tags:important tags:urgent ``` To find tickets that include both tags: ``` tags:"important urgent" ``` |
+| `via` | The ticket's source, for example: - mail (from an email message) - get\_satisfaction, get\_sat, "get satisfaction" (from Get Satisfaction) - closed\_ticket (from a followup ticket) - ticket\_sharing - dropbox (from the Zendesk Feedback Tab) - chat (from Chat) - twitter\_dm, "twitter dm", "twitter direct" (from a Twitter direct message) - twitter\_fav, twitter\_favorite, "twitter favorite" (from a Twitter favorite) - twitter\_like, "twitter like" (from a Twitter like; alias of twitter\_fav) - twitter (from any Twitter method including direct message and favorite) - voicemail (from a voicemail message) - phone\_call\_inbound (from an inbound phone call) - phone\_call\_outbound (from an outbound phone call) - phone (from voicemail, CTI, or an inbound call) - sms, text, "text message" (from a text message) - api (from API call or integrated web service) - logmein, logmein\_rescue, "logmein rescue" (from LogMeIn) - facebook\_post, "facebook post" (from a Facebook wall post to a page) - facebook\_message, "facebook message" (from a Facebook private message to a page) - facebook (from any Facebook method including private message and wall post) - web, "web form" (from a web form) - mobile\_sdk (tickets created using the Zendesk mobile SDK) - "any\_channel" (from the channel framework) - native\_messaging (from the messaging channel) - side\_conversation (from a side conversation) - sunshine\_conversations\_facebook\_messenger - answer\_bot\_for\_web\_widget (from Answer bot tickets)   ``` via:phone ``` For a full list of sources, see [Via types reference in the Zendesk developer documentation](https://developer.zendesk.com/documentation/ticketing/reference-guides/via-types/). |
 | `commenter` | People who have added comments to tickets. You can specify "none", "me", user name (full name or partial), email address, user ID, or phone number (see the [`phone` user property](#topic_rvz_afv_uc) for help searching by phone number). ``` commenter:"Mike" ``` |
 | `cc` | People who have been CC'd on tickets. You can specify "none", "me", user name (full name or partial), email address, user ID, or phone number (see the [`phone` user property](#topic_rvz_afv_uc) for help searching by phone number). ``` cc:amanda@mondocam.com ``` |
-| `fieldvalue` | Search for a specific value in any custom ticket fields by using the `fieldvalue` keyword. For example: ``` fieldvalue:12345 ```  This returns all the tickets that have a custom field with the value "12345."  For drop-down custom fields, search for tags associated with the field value you want to find.  For checkbox custom fields, you can search for tickets with the field checked or unchecked. For example:  ``` custom_field_<Field ID>:checked ``` |
-| `custom_field_{id}` | Search for a value of a specific custom ticket field. Specify the field by its numeric ID, which you can get from the URL of the Ticket Fields page in the admin interface or with the [Ticket Fields](https://developer.zendesk.com/api-reference/ticketing/tickets/ticket_fields/) API. The syntax is `custom_field_<custom field ID>:<value>`. Example: ``` custom_field_455214213:shoes ```  See [Searching custom ticket fields](https://support.zendesk.com/hc/en-us/articles/4408882086298#topic_wly_fev_uc). |
-| `brand` | Search for a specific brand on a ticket using the brand name or the brand ID. A brand with two or more words requires quotation marks. For example:  ``` brand:Nordstrom ```   Or  ``` brand: "Banana Republic" ```  Or   ``` brand:<ID number> ``` |
+| `fieldvalue` | Search for a specific value in any custom ticket fields by using the `fieldvalue` keyword. For example: ``` fieldvalue:12345 ``` This returns all the tickets that have a custom field with the value "12345." For drop-down custom fields, search for tags associated with the field value you want to find. For checkbox custom fields, you can search for tickets with the field checked or unchecked. For example: ``` custom_field_<Field ID>:checked ``` |
+| `custom_field_{id}` | Search for a value of a specific custom ticket field. Specify the field by its numeric ID, which you can get from the URL of the Ticket Fields page in the admin interface or with the [Ticket Fields](https://developer.zendesk.com/api-reference/ticketing/tickets/ticket_fields/) API. The syntax is `custom_field_<custom field ID>:<value>`. Example: ``` custom_field_455214213:shoes ``` See [Searching custom ticket fields](https://support.zendesk.com/hc/en-us/articles/4408882086298#topic_wly_fev_uc). |
+| `brand` | Search for a specific brand on a ticket using the brand name or the brand ID. A brand with two or more words requires quotation marks. For example: ``` brand:Nordstrom ```   Or ``` brand: "Banana Republic" ``` Or   ``` brand:<ID number> ``` |
 | `has_attachment` | Search for all tickets with or without attachments using `true` or `false`. To search for tickets with attachments:   ``` has_attachment:true ```   To search for all tickets without attachments:   ``` has_attachment:false ``` |
 | `form` | Search for all tickets created with a particular ticket form. If the name of the ticket form includes multiple words, use quotation marks. For example:   ``` form:"default ticket form" ```   If the name of the ticket form is a single word, you don't have to use the quotation marks. For example:   ``` form:legal ``` |
-| `recipient` | Search for all tickets created with a particular recipient. This only works for Zendesk support addresses (the ultimate destination) of emails forwarded from external addresses.  ``` recipient:support@yoursubdomain.zendesk.com ``` |
-| `comment` | Search for text within a ticket's comment.  ``` comment:fancy ```   To search for an exact match within the comments of a ticket, use double quotes.   ``` comment:"fancy things here" ```   Note: Only the first 500 comments in a ticket are searched. |
+| `recipient` | Search for all tickets created with a particular recipient. This only works for Zendesk support addresses (the ultimate destination) of emails forwarded from external addresses. ``` recipient:support@yoursubdomain.zendesk.com ``` |
+| `comment` | Search for text within a ticket's comment. ``` comment:fancy ```   To search for an exact match within the comments of a ticket, use double quotes.   ``` comment:"fancy things here" ```   Note: Only the first 500 comments in a ticket are searched. |
 
 ## User property keywords
 
@@ -356,20 +355,20 @@ Table 3. User property keywords
 
    | Keyword | Description |
 | --- | --- |
-| `name` | The user's partial or full name.  ``` name:"alex anderson" ``` |
-| `role` | The user's designated role.  ``` role:admin ``` |
-| `email` | Specify the user's email address, or specify none to search for users without an email address.  ``` email:alex@mondocam.com ```  ``` email:"none" ```   Using double quotes to search for an email address does not return an exact match like other keyword searches. For example, if you search the following the results may return any user whose email starts with "dwight":  ``` email:"dwight@mondocam.com" ```  Tip: Wildcards do not work for email address searches. For example, the following search returns no results:  ``` email:dwight* ``` |
-| `group` | The user's group name. This only applies to admin and agent users.  ``` group:"Level 2" ``` |
-| `organization` | Specify the user's organization name or ID, or specify `none` to search for users without an organization. If the user belongs to more than one organization, searching on any of those organizations will return their profile.  ``` organization:mondocam ``` |
-| `created` | The date the user was added to your Zendesk.  ``` created<2011-05-01 ```   For more information on using date and time in your search, see [Searching by date and time](https://support.zendesk.com/hc/en-us/articles/4408835086106#topic_gbg_dvw_ld). |
-| `notes` | All text in the notes field in the user's profile.  ``` notes:"manager" ``` |
-| `details` | All text in the details field in the user's profile.  ``` details:"madison, wi" ``` |
-| `external_id` | Specify the user's external ID, if used, or specify`none` to search for users without an external ID.  ``` external_id:0098884412 ``` |
-| `phone` | Specify the user's phone number, or specify `none` to search for users without a phone number.  ``` phone:+555-111-2222 ```   When searching by phone number, you must include a plus sign (+) before the number. When searching by phone number using the API, you must include %2B (the URL-encoded version of +) before the number (for example, `/api/v2/search?query=type:phone:%2B555-111-2222`). |
-| `tags` | Specify tags on the user's profile, or specify `none` to search for users without tags.  ``` tags:premium tags:wholesale ```  For more information about tagging users and organizations, see [Adding tags to users and organizations](https://support.zendesk.com/hc/en-us/articles/4408881573658). |
-| `customfield` | Custom user fields. ``` plan_type:platinum ```  For more information, see [Searching custom user and organization fields](https://support.zendesk.com/hc/en-us/articles/4408883318554#topic_pyt_m1s_vk). |
-| `is_verified` | Indicates whether any of a user's identities have been verified.  - **is\_verified:false Sunita** returns all users named Sunita who do not have a verified identity. - **is\_verified:true** returns all users with a verified identity.   Any user created via [ticket sharing](https://support.zendesk.com/hc/en-us/articles/4408893967514) is automatically verified. |
-| `is_suspended` | Indicates whether the user has been suspended.  - **is\_suspended:true Sunita** returns all users named Sunita who have been suspended. - **is\_suspended:true** returns all users who have been suspended. |
+| `name` | The user's partial or full name. ``` name:"alex anderson" ``` |
+| `role` | The user's designated role. ``` role:admin ``` |
+| `email` | Specify the user's email address, or specify none to search for users without an email address. ``` email:alex@mondocam.com ``` ``` email:"none" ```   Using double quotes to search for an email address does not return an exact match like other keyword searches. For example, if you search the following the results may return any user whose email starts with "dwight": ``` email:"dwight@mondocam.com" ``` Tip: Wildcards do not work for email address searches. For example, the following search returns no results: ``` email:dwight* ``` |
+| `group` | The user's group name. This only applies to admin and agent users. ``` group:"Level 2" ``` |
+| `organization` | Specify the user's organization name or ID, or specify `none` to search for users without an organization. If the user belongs to more than one organization, searching on any of those organizations will return their profile. ``` organization:mondocam ``` |
+| `created` | The date the user was added to your Zendesk. ``` created<2011-05-01 ```   For more information on using date and time in your search, see [Searching by date and time](https://support.zendesk.com/hc/en-us/articles/4408835086106#topic_gbg_dvw_ld). |
+| `notes` | All text in the notes field in the user's profile. ``` notes:"manager" ``` |
+| `details` | All text in the details field in the user's profile. ``` details:"madison, wi" ``` |
+| `external_id` | Specify the user's external ID, if used, or specify`none` to search for users without an external ID. ``` external_id:0098884412 ``` |
+| `phone` | Specify the user's phone number, or specify `none` to search for users without a phone number. ``` phone:+555-111-2222 ```   When searching by phone number, you must include a plus sign (+) before the number. When searching by phone number using the API, you must include %2B (the URL-encoded version of +) before the number (for example, `/api/v2/search?query=type:phone:%2B555-111-2222`). |
+| `tags` | Specify tags on the user's profile, or specify `none` to search for users without tags. ``` tags:premium tags:wholesale ``` For more information about tagging users and organizations, see [Adding tags to users and organizations](https://support.zendesk.com/hc/en-us/articles/4408881573658). |
+| `customfield` | Custom user fields. ``` plan_type:platinum ``` For more information, see [Searching custom user and organization fields](https://support.zendesk.com/hc/en-us/articles/4408883318554#topic_pyt_m1s_vk). |
+| `is_verified` | Indicates whether any of a user's identities have been verified. - **is\_verified:false Sunita** returns all users named Sunita who do not have a verified identity. - **is\_verified:true** returns all users with a verified identity.   Any user created via [ticket sharing](https://support.zendesk.com/hc/en-us/articles/4408893967514) is automatically verified. |
+| `is_suspended` | Indicates whether the user has been suspended. - **is\_suspended:true Sunita** returns all users named Sunita who have been suspended. - **is\_suspended:true** returns all users who have been suspended. |
 | whatsapp | Search for users based on a WhatsApp phone number. For more information see [Searching for tickets by WhatsApp number](https://support.zendesk.com/hc/en-us/articles/5869718332954). |
 
 ## Organization property keywords
@@ -381,11 +380,11 @@ Table 4. Organization property keywords
    | Keyword | Description |
 | --- | --- |
 | `name` | The organization's partial or full name. ``` name:mondocam ``` |
-| `created` | The date the organization was added.  ``` created<2011-05-01 ```   For more information on using date and time in your search, see [Searching by date and time](https://support.zendesk.com/hc/en-us/articles/4408835086106#topic_gbg_dvw_ld). |
+| `created` | The date the organization was added. ``` created<2011-05-01 ```   For more information on using date and time in your search, see [Searching by date and time](https://support.zendesk.com/hc/en-us/articles/4408835086106#topic_gbg_dvw_ld). |
 | `notes` | All text in the notes field in the user's profile. ``` notes:EMEA ``` |
 | `details` | All text in the details field in the organization's profile. ``` details:london ``` |
-| `tags` | Specify tags that have been added to the organization, or specify `none` to search for organizations without tags.  ``` tags:premium ```   For more information about tagging users and organizations, see [Adding tags to users and organizations](https://support.zendesk.com/hc/en-us/articles/4408881573658). |
-| `customfield` | Custom organization fields. ``` plan_type:platinum ```  For more information, see [Searching custom user and organization fields](https://support.zendesk.com/hc/en-us/articles/4408883318554#topic_pyt_m1s_vk). |
+| `tags` | Specify tags that have been added to the organization, or specify `none` to search for organizations without tags. ``` tags:premium ```   For more information about tagging users and organizations, see [Adding tags to users and organizations](https://support.zendesk.com/hc/en-us/articles/4408881573658). |
+| `customfield` | Custom organization fields. ``` plan_type:platinum ``` For more information, see [Searching custom user and organization fields](https://support.zendesk.com/hc/en-us/articles/4408883318554#topic_pyt_m1s_vk). |
 | `external_id` | The external ID of the organization or specify **none** to search for users without an external ID. ``` external_id:00112345 ``` |
 
 ## Group property keywords
@@ -396,8 +395,8 @@ Table 5. Group property keywords
 
    | Keyword | Description |
 | --- | --- |
-| `name` | The group's name.  ``` name:"level 2" ``` |
-| `created` | The date the group was added. ``` created<2011-05-01 ```  For more information on using date and time in your search, see [Searching by date and time](https://support.zendesk.com/hc/en-us/articles/4408835086106#topic_gbg_dvw_ld). |
+| `name` | The group's name. ``` name:"level 2" ``` |
+| `created` | The date the group was added. ``` created<2011-05-01 ``` For more information on using date and time in your search, see [Searching by date and time](https://support.zendesk.com/hc/en-us/articles/4408835086106#topic_gbg_dvw_ld). |
 
 ## Satisfaction rating searchable values
 
@@ -408,7 +407,7 @@ Table 6. Satisfaction rating keywords
    | Value | Description |
 | --- | --- |
 | `bad` | Tickets that have been rated 'bad'. ``` satisfaction:bad ``` |
-| `badwithcomment` | Tickets that have been rated 'bad' that also include a comment from the ticket requester.  ``` satisfaction:badwithcomment ``` |
+| `badwithcomment` | Tickets that have been rated 'bad' that also include a comment from the ticket requester. ``` satisfaction:badwithcomment ``` |
 | `good` | Tickets that have been rated 'good'. ``` satisfaction:good ``` |
-| `goodwithcomment` | Tickets that have been rated 'good' that also include a comment from the ticket requester.  ``` satisfaction:goodwithcomment ``` |
+| `goodwithcomment` | Tickets that have been rated 'good' that also include a comment from the ticket requester. ``` satisfaction:goodwithcomment ``` |
 | `offered` | When you request a customer satisfaction rating, the ticket satisfaction rating status is set to 'offered'. The following notification is added to the ticket: Customer satisfaction feedback was offered. This means that you've asked for but not yet received a response to the rating request. ``` satisfaction:offered ``` |

@@ -21,16 +21,16 @@ Requests should be submitted to Handshake Support 2 weeks minimum in advance of 
 Contact our Support team and provide the following information: 
 
 - **Event**
-  - Event ID(s)
-  - User ID of the ASL interpreter
+ - Event ID(s)
+ - User ID of the ASL interpreter
 - **Fair**
-  - Fair ID
-  - Session(s) time
-  - Student ID
-  - User ID of the ASL interpreter
+ - Fair ID
+ - Session(s) time
+ - Student ID
+ - User ID of the ASL interpreter
 - **Appointment**
-  - Direct link to the virtual appointment video session
-  - User ID of the ASL interpreter
+ - Direct link to the virtual appointment video session
+ - User ID of the ASL interpreter
 
 **💡Note**: the ID number is the number at the end of the web address when viewing the user's profile or the event/appointment.
 

@@ -8,23 +8,19 @@ Use this article to discover the metrics and attributes you can use to build Exp
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Professional or Enterprise |
 
-Use this article to discover the metrics and attributes you can use to build Explore
-reports based on your usage of Zendesk Support. These datasets are also used for the
-Zendesk Support prebuilt dashboards (see [Overview of the Zendesk Support
-dashboard](../viewing-and-using-dashboards/overview-of-the-zendesk-support-dashboard.md)).
+Use this article to discover the metrics and attributes you can use to build Explore reports based on your usage of Zendesk Support. These datasets are also used for the Zendesk Support prebuilt dashboards (see [Overview of the Zendesk Support dashboard](../viewing-and-using-dashboards/overview-of-the-zendesk-support-dashboard.md)).
 
 For more information about how to create reports with Explore, see [Creating reports](https://support.zendesk.com/hc/en-us/articles/4408821589530-Creating-queries).
 
-Tip: [Read this Zendesk blog post](https://www.zendesk.com/blog/customer-service-metrics-matter/) to learn the
-key customer service metrics that measure performance and drive revenue.
+Tip: [Read this Zendesk blog post](https://www.zendesk.com/blog/customer-service-metrics-matter/) to learn the key customer service metrics that measure performance and drive revenue.
 
 This article contains the following topics:
 
@@ -36,8 +32,7 @@ This article contains the following topics:
 
 ## Tickets dataset
 
-This section lists the metrics and attributes for the Tickets dataset. The dataset
-contains general ticket information, not including changes or updates to tickets.
+This section lists the metrics and attributes for the Tickets dataset. The dataset contains general ticket information, not including changes or updates to tickets.
 For objects related to ticket changes or updates, see [Updates history dataset](#topic_as3_slp_4y).
 
 This section contains the following topics:
@@ -48,15 +43,13 @@ This section contains the following topics:
 
 ### Tickets dataset schema
 
-Use this diagram to help you understand the elements of the Tickets dataset and
-their relationships.
+Use this diagram to help you understand the elements of the Tickets dataset and their relationships.
 
 ![Tickets dataset schema](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Tickets.jpg)
 
 ### Tickets metrics
 
-This sections lists and defines all of the metrics available in the Tickets
-dataset.
+This sections lists and defines all of the metrics available in the Tickets dataset.
 
 Table 1. Tickets metrics
 
@@ -195,8 +188,7 @@ Table 1. Tickets metrics
 
 ### Tickets attributes
 
-This section lists and defines all of the attributes available in the Tickets
-dataset.
+This section lists and defines all of the attributes available in the Tickets dataset.
 
 Table 2. Tickets attributes
 
@@ -301,8 +293,7 @@ Table 2. Tickets attributes
 
 ## Updates history dataset
 
-The Updates history dataset contains metrics and attributes that relate to updates
-and changes in tickets. This section list all available elements for the dataset.
+The Updates history dataset contains metrics and attributes that relate to updates and changes in tickets. This section list all available elements for the dataset.
 
 This section contains the following topics:
 
@@ -312,15 +303,13 @@ This section contains the following topics:
 
 ### Updates history dataset schema
 
-Use this diagram to help you understand the elements of the Updates history
-dataset and their relationships.
+Use this diagram to help you understand the elements of the Updates history dataset and their relationships.
 
 ![Updates history dataset schema](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Ticket%20updates.jpg)
 
 ### Updates history metrics
 
-This section lists and defines all metrics available in the Updates history
-dataset.
+This section lists and defines all metrics available in the Updates history dataset.
 
 Table 3. Updates history metrics
 
@@ -377,15 +366,14 @@ Table 3. Updates history metrics
 
 ### Updates history attributes
 
-This section lists and defines all attributes available in the Updates history
-dataset.
+This section lists and defines all attributes available in the Updates history dataset.
 
 Table 4. Updates history metrics
 
 | Attribute | Definition |
 | --- | --- |
 | Update ID | The unique ID of an update |
-| Update channel | The channel that initiated a ticket update. Note that there is not a unique channel value for the bot. This may skew results in reports based on the update channel for bot workflows.  For more information about the ticket channels Explore collects, see [Understanding ticket channels in Explore](https://support.zendesk.com/hc/en-us/articles/4408836378394). |
+| Update channel | The channel that initiated a ticket update. Note that there is not a unique channel value for the bot. This may skew results in reports based on the update channel for bot workflows. For more information about the ticket channels Explore collects, see [Understanding ticket channels in Explore](https://support.zendesk.com/hc/en-us/articles/4408836378394). |
 | Update country | The country from which a ticket update was initiated. |
 | Update country and region | The country and region from which a ticket update was initiated. |
 | Update latitude | The latitude from which the ticket update was initiated. |
@@ -484,8 +472,7 @@ Table 4. Updates history metrics
 
 ## Backlog history dataset
 
-The Backlog history dataset contains metrics and attributes related to your backlog
-history. The dataset will show you a snapshot of unsolved tickets at any given date.
+The Backlog history dataset contains metrics and attributes related to your backlog history. The dataset will show you a snapshot of unsolved tickets at any given date.
 Explore collects backlog information every time your [data synchronizes](https://support.zendesk.com/hc/en-us/articles/4408820703386-How-frequently-does-my-Zendesk-data-sync-to-Explore-) with Explore.
 
 This section contains the following topics:
@@ -496,15 +483,13 @@ This section contains the following topics:
 
 ### Backlog history dataset schema
 
-Use this diagram to help you understand the elements of the Backlog history
-dataset and their relationships.
+Use this diagram to help you understand the elements of the Backlog history dataset and their relationships.
 
 ![Backlog history dataset schema](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Backlog%20history.png)
 
 ### Backlog history metrics
 
-This section lists and defines all metrics available in the Backlog history
-dataset.
+This section lists and defines all metrics available in the Backlog history dataset.
 
 Table 5. Backlog history metrics
 
@@ -519,9 +504,7 @@ Table 5. Backlog history metrics
 
 ### Backlog history attributes
 
-This section lists and defines all attributes available in the Backlog history
-dataset. Explore collects backlog information every time your data synchronizes
-with Explore.
+This section lists and defines all attributes available in the Backlog history dataset. Explore collects backlog information every time your data synchronizes with Explore.
 
 Table 6. Backlog history attributes
 
@@ -539,23 +522,17 @@ Table 6. Backlog history attributes
 
 ## SLAs dataset
 
-The SLAs dataset contains metrics and attributes that relate to your [SLA policies](https://support.zendesk.com/hc/en-us/articles/4408829459866-Defining-and-using-SLA-policies-Professional-and-Enterprise-). This section list all the
-available elements for the Zendesk SLA dataset. If you have active SLA policies, the
-SLA reporting dashboard enables you to easily view how well you are meeting these
-policies.
+The SLAs dataset contains metrics and attributes that relate to your [SLA policies](https://support.zendesk.com/hc/en-us/articles/4408829459866-Defining-and-using-SLA-policies-Professional-and-Enterprise-). This section list all the available elements for the Zendesk SLA dataset. If you have active SLA policies, the SLA reporting dashboard enables you to easily view how well you are meeting these policies.
 
 - [SLAs dataset schema](#topic_lq4_tyf_kkb)
 - [SLAs metrics](#topic_wcv_4s4_l2b)
 - [SLAs attributes](#topic_oyw_ps4_l2b)
 
-Note: This dataset appears only if you have tickets with SLA
-policies applied and includes SLA data from deleted tickets. See [Defining and using SLA
-policies](https://support.zendesk.com/hc/en-us/articles/4408829459866).
+Note: This dataset appears only if you have tickets with SLA policies applied and includes SLA data from deleted tickets. See [Defining and using SLA policies](https://support.zendesk.com/hc/en-us/articles/4408829459866).
 
 ### SLAs dataset schema
 
-Use this diagram to help you understand the elements of the SLAs dataset and
-their relationships.
+Use this diagram to help you understand the elements of the SLAs dataset and their relationships.
 
 ![SLAs dataset schema](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/SLAs.jpg)
 
@@ -713,26 +690,20 @@ Table 8. SLAs attributes
 | Time - Ticket first assigned | Includes a number of attributes that return the time and date when the ticket was first assigned to an agent. |
 | Time - Ticket type - Task due | Includes a number of attributes that return the due date by which a ticket of type "Task" should be completed. |
 
-Tip: You can also report on custom fields that you’ve created
-in Zendesk Support. See [Reporting with custom fields](https://support.zendesk.com/hc/en-us/articles/4408824384538).
+Tip: You can also report on custom fields that you’ve created in Zendesk Support. See [Reporting with custom fields](https://support.zendesk.com/hc/en-us/articles/4408824384538).
 
 ## Group SLAs dataset
 
-The Group SLAs dataset contains metrics and attributes that relate to your [group SLA policies](https://support.zendesk.com/hc/en-us/articles/5322445643802). This section list all the available
-elements for the Zendesk Group SLA dataset. If you have active group SLA policies,
-the Group SLAs reporting dashboard enables you to easily view how well you are
-meeting these policies.
+The Group SLAs dataset contains metrics and attributes that relate to your [group SLA policies](https://support.zendesk.com/hc/en-us/articles/5322445643802). This section list all the available elements for the Zendesk Group SLA dataset. If you have active group SLA policies, the Group SLAs reporting dashboard enables you to easily view how well you are meeting these policies.
 
 - [Group SLAs metrics](#topic_xvt_cjx_kxb)
 - [Group SLAs attributes](#topic_zvt_cjx_kxb)
 
-Note: This dataset appears only if you have tickets with group
-SLA policies applied. See [Defining group SLA policies](https://support.zendesk.com/hc/en-us/articles/5322445643802).
+Note: This dataset appears only if you have tickets with group SLA policies applied. See [Defining group SLA policies](https://support.zendesk.com/hc/en-us/articles/5322445643802).
 
 ### Group SLAs metrics
 
-This section lists and defines all metrics available in the Group SLAs
-dataset.
+This section lists and defines all metrics available in the Group SLAs dataset.
 
 Table 9. Group SLAs metrics
 
@@ -806,8 +777,7 @@ Table 9. Group SLAs metrics
 
 ### Group SLAs attributes
 
-This section lists and defines all attributes available in the Group SLAs
-dataset.
+This section lists and defines all attributes available in the Group SLAs dataset.
 
 Table 10. Group SLAs attributes
 
@@ -885,5 +855,4 @@ Table 10. Group SLAs attributes
 | Time - Ticket first assigned | Includes a number of attributes that return the time and date when the ticket was first assigned to an agent. |
 | Time - Ticket type - Task due | Includes a number of attributes that return the due date by which a ticket of type "Task" should be completed. |
 
-Tip: You can also report on custom fields that
-you’ve created in Zendesk Support. See [Reporting with custom fields](https://support.zendesk.com/hc/en-us/articles/4408824384538).
+Tip: You can also report on custom fields that you’ve created in Zendesk Support. See [Reporting with custom fields](https://support.zendesk.com/hc/en-us/articles/4408824384538).

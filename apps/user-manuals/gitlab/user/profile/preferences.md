@@ -43,8 +43,7 @@ To change the appearance:
 {{< /history >}}
 
 You can change the navigation theme of the GitLab UI. These colors are displayed on the left sidebar.
-Using individual navigation themes might help you differentiate between your different
-GitLab instances.
+Using individual navigation themes might help you differentiate between your different GitLab instances.
 
 To change the navigation theme:
 
@@ -71,8 +70,7 @@ To change the syntax highlighting theme:
 
 To view the updated syntax highlighting theme, refresh your project's page.
 
-To customize the syntax highlighting theme, you can also [use the Application settings API](../../api/settings.md#available-settings). Use `default_syntax_highlighting_theme` and `default_dark_syntax_highlighting_theme` to change the syntax highlighting colors on a more
-granular level.
+To customize the syntax highlighting theme, you can also [use the Application settings API](../../api/settings.md#available-settings). Use `default_syntax_highlighting_theme` and `default_dark_syntax_highlighting_theme` to change the syntax highlighting colors on a more granular level.
 
 If these steps do not work, your programming language might not be supported by the syntax highlighters.
 For more information, view [Rouge Ruby Library](https://github.com/rouge-ruby/rouge) for guidance on code files and Snippets. View [Monaco Editor](https://microsoft.github.io/monaco-editor/) and [Monarch](https://microsoft.github.io/monaco-editor/monarch.html) for guidance on the Web IDE.
@@ -275,8 +273,7 @@ To auto-enclose characters in description and comment boxes:
 1. Select the **Surround text selection when typing quotes or brackets** checkbox.
 1. Select **Save changes**.
 
-In a description or comment box, you can now type a word, highlight it, then type an
-opening character. Instead of replacing the text, the closing character is added to the end.
+In a description or comment box, you can now type a word, highlight it, then type an opening character. Instead of replacing the text, the closing character is added to the end.
 
 ### Automate new list items
 
@@ -371,8 +368,7 @@ To use exact times on the GitLab UI:
 
 {{< /history >}}
 
-You can customize the format used to display times of activities on your group and project overview pages and user
-profiles. You can display times as:
+You can customize the format used to display times of activities on your group and project overview pages and user profiles. You can display times as:
 
 - 12 hour format. For example: `2:34 PM`.
 - 24 hour format. For example: `14:34`.
@@ -391,8 +387,7 @@ To customize the time format:
 
 ## Disable exact code search (removed)
 
-This feature was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/554933) in GitLab 18.3
-and [removed](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/210974) in 18.6.
+This feature was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/554933) in GitLab 18.3 and [removed](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/210974) in 18.6.
 
 <!--- end_remove -->
 
@@ -486,14 +481,13 @@ You must be the administrator of the GitLab instance to configure GitLab with So
 
 {{< /history >}}
 
-The VS Code Extension Marketplace provides access to extensions that enhance the functionality of the
-Web IDE and workspaces.
+The VS Code Extension Marketplace provides access to extensions that enhance the functionality of the Web IDE and workspaces.
 
 Prerequisites:
 
 - For GitLab Self-Managed and GitLab Dedicated, a GitLab administrator must [enable the extension registry](../../administration/settings/vscode_extension_marketplace.md#enable-the-extension-registry).
 - For enterprise users, a group Owner must [enable the Extension Marketplace](../enterprise_user/_index.md#enable-the-extension-marketplace-for-enterprise-users)
-  for the associated group.
+ for the associated group.
 
 To integrate with the Extension Marketplace:
 

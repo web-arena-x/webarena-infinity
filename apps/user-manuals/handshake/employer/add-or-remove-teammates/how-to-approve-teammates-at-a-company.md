@@ -17,16 +17,16 @@ Basic employers cannot manually approve teammates **unless** the teammate’s em
 Approval behavior depends on the type of email domain:
 
 - **Verified company domain** (e.g., @yourcompany.com)
-  - Users signing up with a verified domain are **automatically approved** and connected to your company profile.
-  - The owner will receive an in-app notification:
+ - Users signing up with a verified domain are **automatically approved** and connected to your company profile.
+ - The owner will receive an in-app notification:
 
-    > “A new teammate has joined the company.”  
+    > “A new teammate has joined the company.” 
     > You can update this in your [*Default Notification Preferences (Employers)*](https://support.joinhandshake.com/hc/en-us/articles/360042349393).
 - **Shared domains**
-  - If a user joins the wrong company (e.g., due to a shared domain across multiple organizations), you can report the user to our Support team.
+ - If a user joins the wrong company (e.g., due to a shared domain across multiple organizations), you can report the user to our Support team.
 - **Generic or unverified domains** (e.g., @gmail.com, @outlook.com)
-  - Auto-approval does not apply.
-  - The owner must manually approve teammate requests.
+ - Auto-approval does not apply.
+ - The owner must manually approve teammate requests.
 
 #### On-campus employers and Premium partners
 

@@ -38,7 +38,7 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/secure_files"
+ --url "https://gitlab.example.com/api/v4/projects/1/secure_files"
 ```
 
 Example response:
@@ -101,7 +101,7 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/secure_files/1"
+ --url "https://gitlab.example.com/api/v4/projects/1/secure_files/1"
 ```
 
 Example response:
@@ -138,10 +138,10 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/secure_files" \
-  --form "name=myfile.jks" \
-  --form "file=@/path/to/file/myfile.jks"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/secure_files" \
+ --form "name=myfile.jks" \
+ --form "file=@/path/to/file/myfile.jks"
 ```
 
 Example response:
@@ -177,9 +177,9 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/secure_files/1/download" \
-  --output myfile.jks
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/secure_files/1/download" \
+ --output myfile.jks
 ```
 
 ## Remove secure file
@@ -201,6 +201,6 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/secure_files/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/secure_files/1"
 ```

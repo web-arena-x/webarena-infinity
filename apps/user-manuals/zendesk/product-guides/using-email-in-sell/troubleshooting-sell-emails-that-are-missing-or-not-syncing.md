@@ -33,10 +33,10 @@ If you cannot find an email in your Sell account try the following options:
 
 - Search for the email address in the global search bar.
 
-  Searching across the entire account helps to catch duplicates. If you have an email address listed twice in your account, remove the duplicate as the email conversation will only appear in one location.
+ Searching across the entire account helps to catch duplicates. If you have an email address listed twice in your account, remove the duplicate as the email conversation will only appear in one location.
 - Check the “To” and “From” recipient information.
 
-  First, verify that the spelling of the email address is correct. Next, verify that you are using the email address that was integrated into your Sell settings, to send the email. If you ask the Zendesk customer support team to help troubleshoot this issue, they will also ask you for this information.
+ First, verify that the spelling of the email address is correct. Next, verify that you are using the email address that was integrated into your Sell settings, to send the email. If you ask the Zendesk customer support team to help troubleshoot this issue, they will also ask you for this information.
 
 ## Email address has not been added to the lead or contact
 

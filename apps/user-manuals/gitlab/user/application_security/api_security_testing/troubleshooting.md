@@ -68,15 +68,12 @@ The text `http://[::]:5000` in the previous message could be different in your c
 
 If you did not find evidence that the port was already taken, check other troubleshooting sections which also address the same error message shown in the job console output. If there are no more options, feel free to [get support or request an improvement](_index.md#get-support-or-request-an-improvement) through the proper channels.
 
-If you can confirm that the issue occurred because the port was already taken, use the CI/CD
-variable `APISEC_API_PORT` to specify a different port for the scanner background component.
+If you can confirm that the issue occurred because the port was already taken, use the CI/CD variable `APISEC_API_PORT` to specify a different port for the scanner background component.
 
 **Solution**
 
 1. Ensure your `.gitlab-ci.yml` file defines the configuration variable `APISEC_API_PORT`.
-1. Update the value of `APISEC_API_PORT` to any available port number greater than 1024. You should
-   check that the proposed port number is not used by GitLab. See the full list of ports used by GitLab
-   in [Package defaults](../../../administration/package_information/defaults.md#ports).
+1. Update the value of `APISEC_API_PORT` to any available port number greater than 1024. You should check that the proposed port number is not used by GitLab. See the full list of ports used by GitLab in [Package defaults](../../../administration/package_information/defaults.md#ports).
 
 ## `Application cannot determine the base URL for the target API`
 
@@ -93,7 +90,7 @@ If you find that some paths are being excluded from operations, make sure that:
 - The variable `DAST_API_EXCLUDE_URLS` is not configured to exclude operations you want to test.
 - The `consumes` array is defined and has a valid type in the target definition JSON file.
 
-  For an example definition, see the [example project target definition file](https://gitlab.com/gitlab-org/security-products/demos/api-dast/openapi-example/-/blob/12e2b039d08208f1dd38a1e7c52b0bda848bb449/rest_target_openapi.json?plain=1#L13).
+ For an example definition, see the [example project target definition file](https://gitlab.com/gitlab-org/security-products/demos/api-dast/openapi-example/-/blob/12e2b039d08208f1dd38a1e7c52b0bda848bb449/rest_target_openapi.json?plain=1#L13).
 
 ### Static environment solution
 
@@ -105,14 +102,14 @@ For environments where the target API remains the same, specify the target URL b
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_TARGET_URL: http://test-deployment/
-  APISEC_OPENAPI: test-api-specification.json
+ APISEC_TARGET_URL: http://test-deployment/
+ APISEC_OPENAPI: test-api-specification.json
 ```
 
 ### Dynamic environment solutions
@@ -130,12 +127,12 @@ Example:
 
 ```yaml
 deploy-test-target:
-  script:
+ script:
     # Perform deployment steps
     # Create environment_url.txt (example)
     - echo http://${CI_PROJECT_ID}-${CI_ENVIRONMENT_SLUG}.example.org > environment_url.txt
 
-  artifacts:
+ artifacts:
     paths:
       - environment_url.txt
 ```
@@ -163,16 +160,16 @@ API security testing can still try to consume an OpenAPI document that does not 
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_PROFILE: Quick
-  APISEC_TARGET_URL: http://test-deployment/
-  APISEC_OPENAPI: test-api-specification.json
-  APISEC_OPENAPI_RELAXED_VALIDATION: 'On'
+ APISEC_PROFILE: Quick
+ APISEC_TARGET_URL: http://test-deployment/
+ APISEC_OPENAPI: test-api-specification.json
+ APISEC_OPENAPI_RELAXED_VALIDATION: 'On'
 ```
 
 ## `No operation in the OpenAPI document is consuming any supported media type`
@@ -208,28 +205,28 @@ For example, if an error occurs with the following configuration:
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_TARGET_URL: https://test-deployment/
-  APISEC_OPENAPI: https://specs/openapi.json
+ APISEC_TARGET_URL: https://test-deployment/
+ APISEC_OPENAPI: https://specs/openapi.json
 ```
 
 Change the prefix of `APISEC_OPENAPI` from `https://` to `http://`:
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_TARGET_URL: https://test-deployment/
-  APISEC_OPENAPI: http://specs/openapi.json
+ APISEC_TARGET_URL: https://test-deployment/
+ APISEC_OPENAPI: http://specs/openapi.json
 ```
 
 If you cannot use a non-TLS connection to access the URL, contact the Support team for help.
@@ -248,7 +245,7 @@ In the job console output the error looks like:
 
 ```plaintext
 Running with gitlab-runner 15.6.0~beta.186.ga889181a (a889181a)
-  on blue-2.shared.runners-manager.gitlab.com/default XxUrkriX
+ on blue-2.shared.runners-manager.gitlab.com/default XxUrkriX
 Resolving secrets
 00:00
 Preparing the "docker+machine" executor
@@ -331,33 +328,33 @@ This issue can be worked around in the following ways:
 
 - Run the container as the `root` user. You should test this configuration as it may not work in all cases. This can be done by modifying the CICD configuration and checking the job output to make sure that `whoami` returns `root` and not `gitlab`. If `gitlab` is displayed, use another workaround. After testing has confirmed the change is successful, the `before_script` can be removed.
 
-  ```yaml
-  api_security:
+ ```yaml
+ api_security:
     image:
       name: $SECURE_ANALYZERS_PREFIX/$APISEC_IMAGE:$APISEC_VERSION$APISEC_IMAGE_SUFFIX
       docker:
         user: root
    before_script:
      - whoami
-  ```
+ ```
 
-  _Example job console output:_
+ _Example job console output:_
 
-  ```log
-  Executing "step_script" stage of the job script
-  Using docker image sha256:8b95f188b37d6b342dc740f68557771bb214fe520a5dc78a88c7a9cc6a0f9901 for registry.gitlab.com/security-products/api-security:5 with digest registry.gitlab.com/security-products/api-security@sha256:092909baa2b41db8a7e3584f91b982174772abdfe8ceafc97cf567c3de3179d1 ...
-  $ whoami
-  root
-  $ /peach/analyzer-api-security
-  17:17:14 [INF] API Security: Gitlab API Security
-  17:17:14 [INF] API Security: -------------------
-  17:17:14 [INF] API Security:
-  17:17:14 [INF] API Security: version: 5.7.0
-  ```
+ ```log
+ Executing "step_script" stage of the job script
+ Using docker image sha256:8b95f188b37d6b342dc740f68557771bb214fe520a5dc78a88c7a9cc6a0f9901 for registry.gitlab.com/security-products/api-security:5 with digest registry.gitlab.com/security-products/api-security@sha256:092909baa2b41db8a7e3584f91b982174772abdfe8ceafc97cf567c3de3179d1 ...
+ $ whoami
+ root
+ $ /peach/analyzer-api-security
+ 17:17:14 [INF] API Security: Gitlab API Security
+ 17:17:14 [INF] API Security: -------------------
+ 17:17:14 [INF] API Security:
+ 17:17:14 [INF] API Security: version: 5.7.0
+ ```
 
 - Wrap the container and add any dependencies at build time. This option has the benefit of running with lower privileges than root which may be a requirement for some customers.
 
-  1. Create a new `Dockerfile` that wraps the existing image.
+ 1. Create a new `Dockerfile` that wraps the existing image.
 
      ```yaml
      ARG SECURE_ANALYZERS_PREFIX
@@ -373,7 +370,7 @@ This issue can be worked around in the following ways:
      USER gitlab
      ```
 
-  1. Build the new image and push it to your local container registry before the API security testing job starts. The image should be removed after the `api_security` job has been completed.
+ 1. Build the new image and push it to your local container registry before the API security testing job starts. The image should be removed after the `api_security` job has been completed.
 
      ```shell
      TARGET_NAME=apisec-$CI_COMMIT_SHA
@@ -387,14 +384,14 @@ This issue can be worked around in the following ways:
      docker push $TARGET_IMAGE
      ```
 
-  1. Extend the `api_security` job and use the new image name.
+ 1. Extend the `api_security` job and use the new image name.
 
      ```yaml
      api_security:
        image: apisec-$CI_COMMIT_SHA
      ```
 
-  1. Remove the temporary container from the registry. See [this documentation page for information on removing container images.](../../packages/container_registry/delete_container_registry_images.md)
+ 1. Remove the temporary container from the registry. See [this documentation page for information on removing container images.](../../packages/container_registry/delete_container_registry_images.md)
 
 - Change the GitLab Runner configuration, disabling the no-new-privileges flag. This could have security implications and should be discussed with your operations and security teams.
 

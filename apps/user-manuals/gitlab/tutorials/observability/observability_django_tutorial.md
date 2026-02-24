@@ -171,7 +171,7 @@ To create an application:
    DjangoInstrumentor().instrument()
    ```
 
-  This code defines the service name `animals-django`, authenticates with GitLab, and instruments the application.
+ This code defines the service name `animals-django`, authenticates with GitLab, and instruments the application.
 
 1. To start collecting traces, restart the Django server. After refreshing `/animals` a few times, you should see traces in the GitLab UI.
 
@@ -188,6 +188,6 @@ To create an application:
     work_counter.add(1)
    ```
 
-  ![Django metrics](img/django_metrics_v17_3.png)
+ ![Django metrics](img/django_metrics_v17_3.png)
 
 <!-- vale gitlab_base.SentenceSpacing = YES -->

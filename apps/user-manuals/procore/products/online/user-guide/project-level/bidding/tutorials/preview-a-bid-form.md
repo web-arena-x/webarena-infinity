@@ -15,18 +15,18 @@ To preview a bid form for a bid package.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.
+ - 'Admin' level permissions on the project's Bidding tool.
 
 ## Steps
 
 1. Navigate to the project's **Bidding** tool.
-2. Click **View** for the relevant bid package.  
+2. Click **View** for the relevant bid package. 
    *Note:* You can also click the name of the bid package.
-3. Click **View Bid Forms**.  
+3. Click **View Bid Forms**. 
      
    ![view-bid-forms.png](https://support.procore.com/@api/deki/files/319692/view-bid-forms.png?revision=1)
 4. Click the bid form that you want to preview.
-5. Click **Preview**.  
+5. Click **Preview**. 
    A preview of the bid form is shown.
 6. When you're done reviewing the bid form, click **Close**.
 

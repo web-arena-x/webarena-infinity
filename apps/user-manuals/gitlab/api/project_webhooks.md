@@ -13,9 +13,7 @@ description: "Set up and manage webhooks for a project with the REST API."
 
 {{< /details >}}
 
-Use this API to manage [project webhooks](../user/project/integrations/webhooks.md). Project webhooks
-are different from [system hooks](system_hooks.md) that impact the entire instance, and
-[group webhooks](group_webhooks.md) that impact all projects and subgroups in a group.
+Use this API to manage [project webhooks](../user/project/integrations/webhooks.md). Project webhooks are different from [system hooks](system_hooks.md) that impact the entire instance, and [group webhooks](group_webhooks.md) that impact all projects and subgroups in a group.
 
 Prerequisites:
 
@@ -54,39 +52,39 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "url": "http://example.com/hook",
-  "name": "Hook name",
-  "description": "Hook description",
-  "project_id": 3,
-  "push_events": true,
-  "push_events_branch_filter": "",
-  "issues_events": true,
-  "confidential_issues_events": true,
-  "merge_requests_events": true,
-  "tag_push_events": true,
-  "note_events": true,
-  "confidential_note_events": true,
-  "job_events": true,
-  "pipeline_events": true,
-  "wiki_page_events": true,
-  "deployment_events": true,
-  "releases_events": true,
-  "milestone_events": true,
-  "feature_flag_events": true,
-  "enable_ssl_verification": true,
-  "repository_update_events": false,
-  "alert_status": "executable",
-  "disabled_until": null,
-  "url_variables": [ ],
-  "created_at": "2012-10-12T17:04:47Z",
-  "resource_access_token_events": true,
-  "custom_webhook_template": "{\"event\":\"{{object_kind}}\"}",
-  "custom_headers": [
+ "id": 1,
+ "url": "http://example.com/hook",
+ "name": "Hook name",
+ "description": "Hook description",
+ "project_id": 3,
+ "push_events": true,
+ "push_events_branch_filter": "",
+ "issues_events": true,
+ "confidential_issues_events": true,
+ "merge_requests_events": true,
+ "tag_push_events": true,
+ "note_events": true,
+ "confidential_note_events": true,
+ "job_events": true,
+ "pipeline_events": true,
+ "wiki_page_events": true,
+ "deployment_events": true,
+ "releases_events": true,
+ "milestone_events": true,
+ "feature_flag_events": true,
+ "enable_ssl_verification": true,
+ "repository_update_events": false,
+ "alert_status": "executable",
+ "disabled_until": null,
+ "url_variables": [ ],
+ "created_at": "2012-10-12T17:04:47Z",
+ "resource_access_token_events": true,
+ "custom_webhook_template": "{\"event\":\"{{object_kind}}\"}",
+ "custom_headers": [
     {
       "key": "Authorization"
     }
-  ]
+ ]
 }
 ```
 
@@ -106,9 +104,9 @@ GET /projects/:id/hooks/:hook_id/events
 
 Supported attributes:
 
-| Attribute  | Type              | Required | Description |
+| Attribute | Type              | Required | Description |
 |:-----------|:------------------|:---------|:------------|
-| `hook_id`  | integer           | Yes      | ID of a project webhook. |
+| `hook_id` | integer           | Yes      | ID of a project webhook. |
 | `id`       | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `status`   | integer or string | No       | Response status code of the events, for example: `200` or `500`. You can search by status category: `successful` (200-299), `client_failure` (400-499), and `server_failure` (500-599). |
 | `page`     | integer           | No       | Page to retrieve. Defaults to `1`. |
@@ -118,7 +116,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "url": "https://example.net/",
     "trigger": "push_hooks",
@@ -239,8 +237,8 @@ Example response:
     "response_body": "{\"success\":true}",
     "execution_duration": 1.0906479999999874,
     "response_status": "200"
-  },
-  {
+ },
+ {
     "id": 2,
     "url": "https://example.net/",
     "trigger": "push_hooks",
@@ -361,7 +359,7 @@ Example response:
     "response_body": "{\"success\":true}",
     "execution_duration": 1.0716120000000728,
     "response_status": "200"
-  }
+ }
 ]
 ```
 
@@ -376,8 +374,7 @@ Example response:
 Resend a specific project webhook event.
 
 This endpoint has a rate limit of five requests per minute for each project webhook and authenticated user.
-To disable this limit on GitLab Self-Managed and GitLab Dedicated, an administrator can
-[disable the feature flag](../administration/feature_flags/_index.md) named `web_hook_event_resend_api_endpoint_rate_limit`.
+To disable this limit on GitLab Self-Managed and GitLab Dedicated, an administrator can [disable the feature flag](../administration/feature_flags/_index.md) named `web_hook_event_resend_api_endpoint_rate_limit`.
 
 ```plaintext
 POST /projects/:id/hooks/:hook_id/events/:hook_event_id/resend
@@ -394,7 +391,7 @@ Example response:
 
 ```json
 {
-  "response_status": 200
+ "response_status": 200
 }
 ```
 
@@ -489,8 +486,7 @@ Supported attributes:
 
 ## Delete project webhook
 
-Remove a webhook from a project. This method is idempotent and can be called multiple times. The project webhook is either
-available or not.
+Remove a webhook from a project. This method is idempotent and can be called multiple times. The project webhook is either available or not.
 
 ```plaintext
 DELETE /projects/:id/hooks/:hook_id
@@ -503,9 +499,7 @@ Supported attributes:
 | `hook_id` | integer           | Yes      | ID of the project webhook. |
 | `id`      | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 
-Note the JSON response differs if the project webhook is available or not. If the project
-hook is available before it's returned in the JSON response or an empty response
-is returned.
+Note the JSON response differs if the project webhook is available or not. If the project hook is available before it's returned in the JSON response or an empty response is returned.
 
 ## Trigger a test project webhook
 
@@ -523,8 +517,7 @@ In GitLab 17.0 and later, this endpoint has a special rate limit:
 - In GitLab 17.0, the rate was three requests per minute for each project webhook.
 - In GitLab 17.1, this was changed to five requests per minute for each project and authenticated user.
 
-To disable this limit on GitLab Self-Managed and GitLab Dedicated, an administrator can
-[disable the feature flag](../administration/feature_flags/_index.md) named `web_hook_test_api_endpoint_rate_limit`.
+To disable this limit on GitLab Self-Managed and GitLab Dedicated, an administrator can [disable the feature flag](../administration/feature_flags/_index.md) named `web_hook_test_api_endpoint_rate_limit`.
 
 ```plaintext
 POST /projects/:id/hooks/:hook_id/test/:trigger

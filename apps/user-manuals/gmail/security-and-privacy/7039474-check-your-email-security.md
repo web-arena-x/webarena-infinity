@@ -34,10 +34,10 @@ If you use Gmail with a work or school account, you can send or receive messages
 ## Learn why some emails aren’t encrypted
 
 - If a sender’s email provider doesn’t support TLS, the email may not be encrypted.
-  - If you receive an unencrypted email with sensitive information, notify the sender.
+ - If you receive an unencrypted email with sensitive information, notify the sender.
 - You may get a warning even when your email is encrypted if:
-  - Encryption hasn't worked for a specific email provider in the past.
-  - You send an email from a custom domain name and not @gmail.com. For example, name@yourdomain.com.
+ - Encryption hasn't worked for a specific email provider in the past.
+ - You send an email from a custom domain name and not @gmail.com. For example, name@yourdomain.com.
 
 ## Related resources
 

@@ -43,27 +43,22 @@ To configure your agent:
 - Add content to the `config.yaml` file optionally created [during installation](install/_index.md#create-an-agent-configuration-file).
 
 You can quickly locate an agent configuration file from the list of agents.
-The **Configuration** column indicates the location of the `config.yaml` file,
-or shows how to create one.
+The **Configuration** column indicates the location of the `config.yaml` file, or shows how to create one.
 
 The agent configuration file manages the various agent features:
 
-- For a GitLab CI/CD workflow. You must [authorize the agent to access your projects](ci_cd_workflow.md#authorize-agent-access), and then
-  [add `kubectl` commands to your `.gitlab-ci.yml` file](ci_cd_workflow.md#update-your-gitlab-ciyml-file-to-run-kubectl-commands).
+- For a GitLab CI/CD workflow. You must [authorize the agent to access your projects](ci_cd_workflow.md#authorize-agent-access), and then [add `kubectl` commands to your `.gitlab-ci.yml` file](ci_cd_workflow.md#update-your-gitlab-ciyml-file-to-run-kubectl-commands).
 - For [user access](user_access.md) to the cluster from the GitLab UI or from the local terminal.
 - For configuring [operational container scanning](vulnerabilities.md).
 - For configuring [remote workspaces](../../workspace/gitlab_agent_configuration.md).
 
 ### Available configuration file fields
 
-The configuration file format for the agent is defined as a
-[protocol buffer message](https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent/-/blob/master/pkg/agentcfg/agentcfg.proto) in the source repository.
+The configuration file format for the agent is defined as a [protocol buffer message](https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent/-/blob/master/pkg/agentcfg/agentcfg.proto) in the source repository.
 
 To view all the available configuration file fields:
 
-1. Go to [`ConfigurationFile`](https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent/-/blob/master/pkg/agentcfg/agentcfg_proto_docs.md#configurationfile) in the
-   [generated documentation](https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent/-/blob/master/pkg/agentcfg/agentcfg_proto_docs.md) to view the fields for the whole
-   agent configuration file.
+1. Go to [`ConfigurationFile`](https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent/-/blob/master/pkg/agentcfg/agentcfg_proto_docs.md#configurationfile) in the [generated documentation](https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent/-/blob/master/pkg/agentcfg/agentcfg_proto_docs.md) to view the fields for the whole agent configuration file.
 1. Select any field types for more information on the structure of the field.
 
 ## View shared agents
@@ -74,9 +69,7 @@ To view all the available configuration file fields:
 
 {{< /history >}}
 
-In addition to the agents owned by your project, you can also view agents shared with the
-[`ci_access`](ci_cd_workflow.md) and [`user_access`](user_access.md) keywords. Once an agent
-is shared with a project, it automatically appears in the project agent tab.
+In addition to the agents owned by your project, you can also view agents shared with the [`ci_access`](ci_cd_workflow.md) and [`user_access`](user_access.md) keywords. Once an agent is shared with a project, it automatically appears in the project agent tab.
 
 To view the list of shared agents:
 
@@ -88,9 +81,7 @@ The list of shared agents and their clusters are displayed.
 
 ## View an agent's activity information
 
-The activity logs help you to identify problems and get the information
-you need for troubleshooting. You can see events from a week before the
-current date. To view an agent's activity:
+The activity logs help you to identify problems and get the information you need for troubleshooting. You can see events from a week before the current date. To view an agent's activity:
 
 1. On the top bar, select **Search or go to** and find the project that contains your agent configuration file.
 1. Select **Operate** > **Kubernetes clusters**.
@@ -101,8 +92,7 @@ The activity list includes:
 - Agent registration events: When a new token is **created**.
 - Connection events: When an agent is successfully **connected** to a cluster.
 
-The connection status is logged when you connect an agent for
-the first time or after more than an hour of inactivity.
+The connection status is logged when you connect an agent for the first time or after more than an hour of inactivity.
 
 View and provide feedback about the UI in [this epic](https://gitlab.com/groups/gitlab-org/-/epics/4739).
 
@@ -114,8 +104,7 @@ View and provide feedback about the UI in [this epic](https://gitlab.com/groups/
 
 {{< /history >}}
 
-To debug the cluster-side component (`agentk`) of the agent, set the log
-level according to the available options:
+To debug the cluster-side component (`agentk`) of the agent, set the log level according to the available options:
 
 - `error`
 - `info`
@@ -130,7 +119,7 @@ You can change your log levels by using a top-level `observability` section in t
 
 ```yaml
 observability:
-  logging:
+ logging:
     level: debug
     grpc_level: warn
 ```
@@ -170,10 +159,7 @@ To reset the agent token without downtime:
 
 ## Remove an agent
 
-You can remove an agent by using the [GitLab UI](#remove-an-agent-through-the-gitlab-ui) or the
-[GraphQL API](#remove-an-agent-with-the-gitlab-graphql-api). The agent and any associated tokens
-are removed from GitLab, but no changes are made in your Kubernetes cluster. You must
-clean up those resources manually.
+You can remove an agent by using the [GitLab UI](#remove-an-agent-through-the-gitlab-ui) or the [GraphQL API](#remove-an-agent-with-the-gitlab-graphql-api). The agent and any associated tokens are removed from GitLab, but no changes are made in your Kubernetes cluster. You must clean up those resources manually.
 
 ### Remove an agent through the GitLab UI
 

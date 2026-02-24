@@ -16,8 +16,7 @@ title: Design management (deprecated)
 
 {{< alert type="warning" >}}
 
-This feature was [deprecated](../../../update/deprecations.md#design-management-deprecated) in GitLab 18.6
-and is planned for removal in 19.0.
+This feature was [deprecated](../../../update/deprecations.md#design-management-deprecated) in GitLab 18.6 and is planned for removal in 19.0.
 This change is a breaking change.
 In GitLab 19.0 and later, users are no longer able to upload new designs.
 Existing designs remain available in read-only mode until GitLab 20.0, giving users time to save their designs as needed.
@@ -28,11 +27,9 @@ GitLab is exploring alternatives that better integrate with the tools designers 
 <!--- end_remove -->
 
 With Design Management you can upload design assets (including wireframes and mockups)
-to GitLab issues and keep them stored in a single place. Product designers, product managers, and
-engineers can collaborate on designs with a single source of truth.
+to GitLab issues and keep them stored in a single place. Product designers, product managers, and engineers can collaborate on designs with a single source of truth.
 
-You can share mockups of designs with your team, or visual regressions can be
-viewed and addressed.
+You can share mockups of designs with your team, or visual regressions can be viewed and addressed.
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
 For a video overview, see [Design Management](https://www.youtube.com/watch?v=CCMtCqdK_aM).
@@ -47,20 +44,15 @@ For a video overview, see [Design Management](https://www.youtube.com/watch?v=CC
 {{< /history >}}
 
 - [Git Large File Storage (LFS)](../../../topics/git/lfs/_index.md) must be enabled:
-  - On GitLab.com, LFS is already enabled.
-  - On GitLab Self-Managed instances, a GitLab administrator must
-    [enable LFS globally](../../../administration/lfs/_index.md).
-  - On both GitLab.com and GitLab Self-Managed instances, LFS must be
-    [enabled for the project itself](../settings/_index.md#configure-project-features-and-permissions).
-    If enabled globally, LFS is enabled by default for all projects. If you have
-    disabled it for your project, you must enable it again.
+ - On GitLab.com, LFS is already enabled.
+ - On GitLab Self-Managed instances, a GitLab administrator must [enable LFS globally](../../../administration/lfs/_index.md).
+ - On both GitLab.com and GitLab Self-Managed instances, LFS must be [enabled for the project itself](../settings/_index.md#configure-project-features-and-permissions).
+    If enabled globally, LFS is enabled by default for all projects. If you have disabled it for your project, you must enable it again.
 
-  Designs are stored as LFS objects.
-  Image thumbnails are stored as other uploads, and are not associated with a project but rather
-  with a specific design model.
+ Designs are stored as LFS objects.
+ Image thumbnails are stored as other uploads, and are not associated with a project but rather with a specific design model.
 
-  A GitLab administrator can verify the relative path of a hashed-stored project by going to **Admin area** > **Projects**
-  and then selecting the project in question. The **Relative path** field contains `@hashed` in its value.
+ A GitLab administrator can verify the relative path of a hashed-stored project by going to **Admin area** > **Projects** and then selecting the project in question. The **Relative path** field contains `@hashed` in its value.
 
 If the requirements are not met, you are notified in the **Designs** section.
 
@@ -92,8 +84,7 @@ To view a design:
 1. Go to an issue.
 1. In the **Designs** section, select the design image you want to view.
 
-The design you selected opens. You can then [zoom in](#zoom-in-on-a-design) on it or
-[create a comment](#add-a-comment-to-a-design).
+The design you selected opens. You can then [zoom in](#zoom-in-on-a-design) on it or [create a comment](#add-a-comment-to-a-design).
 
 ![The 'Designs' section in a GitLab issue, displaying uploaded design mockups.](img/design_management_v14_10.png)
 
@@ -107,16 +98,14 @@ To return to the issue view, either:
 - In the upper-left corner, select the close icon ({{< icon name="close" >}}).
 - Press <kbd>Esc</kbd> on your keyboard.
 
-When a design is added, a green icon ({{< icon name="plus-square" >}}) is displayed on the image
-thumbnail. When a design has been [changed](#add-a-new-version-of-a-design) in the current version,
-a blue icon ({{< icon name="file-modified-solid" >}}) is displayed.
+When a design is added, a green icon ({{< icon name="plus-square" >}}) is displayed on the image thumbnail. When a design has been [changed](#add-a-new-version-of-a-design) in the current version, a blue icon ({{< icon name="file-modified-solid" >}}) is displayed.
 
 ### Zoom in on a design
 
 You can explore a design in more detail by zooming in and out of the image:
 
 - To control the amount of zoom, select plus (`+`) and minus (`-`)
-  at the bottom of the image.
+ at the bottom of the image.
 - To reset the zoom level, select the redo icon ({{< icon name="redo" >}}).
 
 To move around the image while zoomed in, drag the image.
@@ -140,24 +129,20 @@ To add a design to an issue:
 
 1. Go to an issue.
 1. Either:
-   - Select **Upload designs** and then select images from your file browser. You can select up to
-     10 files at once.
+   - Select **Upload designs** and then select images from your file browser. You can select up to 10 files at once.
    <!-- vale gitlab_base.SubstitutionWarning = NO -->
-   - Select **click to upload** and then select images from your file browser. You can select up to
-     10 files at once.
+   - Select **click to upload** and then select images from your file browser. You can select up to 10 files at once.
    <!-- vale gitlab_base.SubstitutionWarning = YES -->
 
    - Drag a file from your file browser and drop it in the drop zone in the **Designs** section.
 
      ![Uploading a new design by dragging and dropping it onto the issue page.](img/design_drag_and_drop_uploads_v13_2.png)
 
-   - Take a screenshot or copy a local image file into your clipboard, hover your cursor over the
-     drop zone, and press <kbd>Control</kbd> or <kbd>Command</kbd>+<kbd>V</kbd>.
+   - Take a screenshot or copy a local image file into your clipboard, hover your cursor over the drop zone, and press <kbd>Control</kbd> or <kbd>Command</kbd>+<kbd>V</kbd>.
 
      When pasting images like this, keep the following in mind:
 
-     - You can paste only one image at a time. When you paste multiple copied files, only the first
-       one is uploaded.
+     - You can paste only one image at a time. When you paste multiple copied files, only the first one is uploaded.
      - If you are pasting a screenshot, the image is added as a PNG file with a generated name of:
        `design_<timestamp>.png`.
      - It's not supported in Internet Explorer.
@@ -184,8 +169,7 @@ It's shown as either **Showing latest version** or **Showing version #N**.
 
 ### Skipped designs
 
-When you upload an image with the same filename as an existing uploaded design and that is the
-same, it's skipped. This means that no new version of the design is created.
+When you upload an image with the same filename as an existing uploaded design and that is the same, it's skipped. This means that no new version of the design is created.
 When designs are skipped, a warning message is displayed.
 
 ## Archive a design
@@ -203,8 +187,7 @@ Archived designs are not permanently lost.
 You can browse [previous versions](#add-a-new-version-of-a-design).
 
 When you archive a design, its URL changes.
-If the design isn't available in the latest version, you can link to it only with the version in the
-URL.
+If the design isn't available in the latest version, you can link to it only with the version in the URL.
 
 Prerequisites:
 
@@ -225,8 +208,8 @@ To archive multiple designs at once:
 ## Design management data persistence
 
 - Design Management data is not deleted when:
-  - [A project is destroyed](https://gitlab.com/gitlab-org/gitlab/-/issues/13429).
-  - [An issue is deleted](https://gitlab.com/gitlab-org/gitlab/-/issues/13427).
+ - [A project is destroyed](https://gitlab.com/gitlab-org/gitlab/-/issues/13429).
+ - [An issue is deleted](https://gitlab.com/gitlab-org/gitlab/-/issues/13427).
 
 ### Replicate design management data
 
@@ -264,13 +247,11 @@ You can start [discussions](../../discussions/_index.md) on uploaded designs. To
 1. Select **Comment**.
 
 You can adjust a pin's position by dragging it around the image.
-Use this when your design's layout has changed, or to move a pin so you can add a new one in
-its place.
+Use this when your design's layout has changed, or to move a pin so you can add a new one in its place.
 
 New discussion threads get different pin numbers, which you can use to refer to them.
 
-New discussions are output to the issue activity,
-so that everyone involved can participate in the discussion.
+New discussions are output to the issue activity, so that everyone involved can participate in the discussion.
 
 ## Delete a comment from a design
 
@@ -298,8 +279,7 @@ To mark a thread as resolved or open, either:
 - In the upper-right corner of the first comment of the discussion, select **Resolve thread** or **Reopen thread** ({{< icon name="check-circle" >}}).
 - Add a new comment to the thread and select or clear the **Resolve thread** checkbox.
 
-Resolving a discussion thread also marks any pending [to-do items](../../todos.md) related to notes
-inside the thread as done. Only to-do items for the user triggering the action are affected.
+Resolving a discussion thread also marks any pending [to-do items](../../todos.md) related to notes inside the thread as done. Only to-do items for the user triggering the action are affected.
 
 Your resolved comment pins disappear from the design to free up space for new discussions.
 To revisit a resolved discussion, expand **Resolved Comments** below the visible threads.
@@ -329,15 +309,11 @@ It's not possible to embed a design this way.
 
 ## Design activity records
 
-User activity events on designs (creation, deletion, and updates) are tracked by GitLab and
-displayed on the [user profile](../../profile/_index.md#access-your-user-profile),
-[group](../../group/manage.md#view-group-activity),
-and [project](../working_with_projects.md#view-project-activity) activity pages.
+User activity events on designs (creation, deletion, and updates) are tracked by GitLab and displayed on the [user profile](../../profile/_index.md#access-your-user-profile), [group](../../group/manage.md#view-group-activity), and [project](../working_with_projects.md#view-project-activity) activity pages.
 
 ## GitLab-Figma plugin
 
-You can use the GitLab-Figma plugin to upload your designs from Figma directly to your issues
-in GitLab.
+You can use the GitLab-Figma plugin to upload your designs from Figma directly to your issues in GitLab.
 
 To use the plugin in Figma, install it from the [Figma Directory](https://www.figma.com/community/plugin/860845891704482356/gitlab)
 and connect to GitLab through a personal access token.
@@ -352,8 +328,7 @@ When working with Design Management, you might encounter the following issues.
 
 You might get an error that states `Could not find design`.
 
-This issue occurs when a design has been [archived](#archive-a-design),
-so it's not available in the latest version, and the link you've followed doesn't specify a version.
+This issue occurs when a design has been [archived](#archive-a-design), so it's not available in the latest version, and the link you've followed doesn't specify a version.
 
 When you archive a design, its URL changes.
 If the design isn't available in the latest version, it can be linked to only with the version in the URL.
@@ -361,8 +336,7 @@ If the design isn't available in the latest version, it can be linked to only wi
 For example, `https://gitlab.example.com/mygroup/myproject/-/issues/123456/designs/menu.png?version=503554`.
 You can no longer access `menu.png` with `https://gitlab.example.com/mygroup/myproject/-/issues/123456/designs/menu.png`.
 
-The workaround is to select one of the previous versions from the dropdown list at the top of the
-**Designs** section.
+The workaround is to select one of the previous versions from the dropdown list at the top of the **Designs** section.
 It's shown as either **Showing latest version** or **Showing version #N**.
 
 Issue [392540](https://gitlab.com/gitlab-org/gitlab/-/issues/392540) tracks improving this behavior.

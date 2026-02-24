@@ -14,7 +14,7 @@ By default, anyone who is a full company Admin and is added to that project's Di
 
 The following matrix describes notification behavior and configuration options:
 
-|  |  |  |  |  |
+| | | | | |
 | --- | --- | --- | --- | --- |
 | Notification Event | Which company receives a notification? | Which users receive a notification? | Where are the settings for this notification configured? | How can this notification be configured? |
 | **Connection Requested** | Upstream | Users with full Company Admin permissions.    *\*Note: Excludes Company Admin users unless they are members of the Project Directory.* | Connection Manager > Configuration Settings | Can be limited to only selected Connection Manager Admin users. Company Admins can be added. |

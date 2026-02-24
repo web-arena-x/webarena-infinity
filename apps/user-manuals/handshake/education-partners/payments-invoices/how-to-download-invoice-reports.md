@@ -15,9 +15,9 @@ If you would like to download a report of all invoices that have been sent to an
 2. On the page that loads, fill in the following information:
 
 - **Start Date** *(enter the date in yyyy-mm-dd format, or click the calendar icon to select a date)* 
-  - **Note**: specify the latest date the item was created (not the date the payment was processed)
+ - **Note**: specify the latest date the item was created (not the date the payment was processed)
 - **End Date** *(enter the date in yyyy-mm-dd format, or click the calendar icon to select a date)* 
-  - **Note**: specify the latest date the item was created (not the date the payment was processed)
+ - **Note**: specify the latest date the item was created (not the date the payment was processed)
 - **Employer name** *(dropdown)* - *if you'd like to download invoices for a specific employer, click in the dropdown and select the employer name. To include all employers, leave blank.*
 - **Payment Status** *(checkbox)* - **paid**, **unpaid**, or **invoiced**
 - **Chargeable Type** *(checkbox)* - **Registration**, **Interview** **Schedule**, **Events**

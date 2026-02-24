@@ -311,8 +311,8 @@ Send Stripe an assertion from your identity provider to grant a team member acce
 
 ```
 <saml2:attribute name="Stripe-Role-STRIPE-ACCOUNT-ID" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
-  <saml2:attributevalue>none
-  </saml2:attributevalue>
+ <saml2:attributevalue>none
+ </saml2:attributevalue>
 </saml2:attribute>
 ```
 

@@ -37,7 +37,7 @@ When a Reminder is returned (whether it was set automatically or manually), Auto
 
 - **Follow-ups** — Superhuman AI will automatically draft a follow-up for emails still awaiting replies.
 - **Scheduling** — Superhuman AI will automatically draft a reply when someone asks to meet.
-  - To loop in a teammate for scheduling, check the box beside **Add teammate on Cc to handle scheduling**. Type their name in the “teammate” line, then type your AI prompt.
+ - To loop in a teammate for scheduling, check the box beside **Add teammate on Cc to handle scheduling**. Type their name in the “teammate” line, then type your AI prompt.
 
 Note that once Auto Drafts for Scheduling are enabled on Desktop, those settings will carry over to Mobile.
 

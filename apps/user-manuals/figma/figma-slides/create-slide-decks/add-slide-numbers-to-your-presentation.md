@@ -18,11 +18,11 @@ You can add slide numbers to all slides in your deck, or to specific slides only
 
 ## Add slide numbers
 
-1. Click  **Assets** in the toolbar.
+1. Click **Assets** in the toolbar.
 2. Select **Slide number**.
 3. Click inside a slide to add the number. Slide numbers can be placed anywhere inside a slide.
 
-Note: You can also add numbers to all slides by entering **Add numbers to all slides** in the  /  **Actions** menu.
+Note: You can also add numbers to all slides by entering **Add numbers to all slides** in the / **Actions** menu.
 
 ![](https://help.figma.com/hc/article_attachments/30436535988375)
 
@@ -31,8 +31,8 @@ Note: You can also add numbers to all slides by entering **Add numbers to all sl
 Once added, you can use the settings in the right sidebar to format the slide number:
 
 - **Count:**
-  - **All slides:** Sets the number based on the slide’s position in the full deck.
-  - **Within row:** Sets the number based on the slide’s position in the current row. You can switch to  **grid view** using the toggle in the left sidebar to see where the slide sits in the row.
+ - **All slides:** Sets the number based on the slide’s position in the full deck.
+ - **Within row:** Sets the number based on the slide’s position in the current row. You can switch to **grid view** using the toggle in the left sidebar to see where the slide sits in the row.
 - **Include total:** Use the toggle to display the current slide number next to the total number of slides in the deck. If enabled, you can use the **Format** dropdown menu to configure how the number looks.
 - **Add to all slides:** Click to automatically apply slide numbers to your entire deck. The numbers will appear in the same location as the currently select number on each slide, but you can adjust their position on individual slides, if needed.
 

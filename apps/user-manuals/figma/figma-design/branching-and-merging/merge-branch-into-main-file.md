@@ -25,7 +25,7 @@ If you have edit access to the main file, you can go ahead and merge the branch.
 ## Open branch review
 
 1. Open the branch you want to merge.
-2. Expand the  menu next to the file/branch name.
+2. Expand the menu next to the file/branch name.
 3. Select **Review and merge changes** to open the branch review modal.
 4. You may need to [review updates from the main file](https://help.figma.com/hc/en-us/articles/5665728006423) and **resolve any conflicts**. Click **Resolve conflicts** to start the process.
 
@@ -40,8 +40,8 @@ At the moment, you need to merge all updates from the branch into the main file.
    - Zoom out
    - Zoom in
    - `FIT` Zoom to fit
-5. Use  and  arrows at the bottom to move between changes if there is more than one change.
-6. Click  in the top left to go back to the summary.
+5. Use and arrows at the bottom to move between changes if there is more than one change.
+6. Click in the top left to go back to the summary.
 
 ### Side by side
 

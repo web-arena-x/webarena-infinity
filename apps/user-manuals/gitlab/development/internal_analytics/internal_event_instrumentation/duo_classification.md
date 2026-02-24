@@ -17,10 +17,10 @@ Add `classification: duo` to your event definition when:
 
 - You are instrumenting AI or GitLab Duo features (e.g., GitLab Duo Chat, GitLab Duo Workflow, AI-powered suggestions)
 - Your event is owned by AI Engineering product groups such as:
-  - `duo_chat`
-  - `ai_framework`
-  - `duo_agent_framework`
-  - Other AI-related product groups
+ - `duo_chat`
+ - `ai_framework`
+ - `duo_agent_framework`
+ - Other AI-related product groups
 - The event data should be considered operational data for GitLab self-managed instances
 
 {{< alert type="note" >}}
@@ -54,21 +54,21 @@ Here's an example of a properly configured GitLab Duo Chat event:
 ```yaml
 ---
 description: "User submits a Duo Chat message.
-  The message is analyzed using LLM (e.g. categorization) and Ruby (e.g. message length).
-  Schema: https://gitlab.com/gitlab-org/iglu/-/blob/master/public/schemas/com.gitlab/ai_question_category/jsonschema
-  Category list: https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/gitlab/llm/fixtures/categories.xml"
+ The message is analyzed using LLM (e.g. categorization) and Ruby (e.g. message length).
+ Schema: https://gitlab.com/gitlab-org/iglu/-/blob/master/public/schemas/com.gitlab/ai_question_category/jsonschema
+ Category list: https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/gitlab/llm/fixtures/categories.xml"
 category: Gitlab::Llm::AiGateway::Completions::CategorizeQuestion
 action: ai_question_category
 classification: duo
 identifiers:
-  - user
+ - user
 product_group: duo_chat
 milestone: '16.6'
 introduced_by_url: https://gitlab.com/gitlab-org/gitlab/-/merge_requests/132803
 tiers:
-  - ultimate
+ - ultimate
 additional_properties:
-  property:
+ property:
     description: Request ID to link to other events of the same AI request.
 ```
 

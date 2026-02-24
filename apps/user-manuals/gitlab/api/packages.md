@@ -30,10 +30,8 @@ Use this API to interact with [GitLab Packages](../administration/packages/_inde
 
 ### For a project
 
-Get a list of project packages. All package types are included in results. When
-accessed without authentication, only packages of public projects are returned.
-By default, packages with `default`, `deprecated`, and `error` status are returned. Use the `status` parameter to view other
-packages.
+Get a list of project packages. All package types are included in results. When accessed without authentication, only packages of public projects are returned.
+By default, packages with `default`, `deprecated`, and `error` status are returned. Use the `status` parameter to view other packages.
 
 ```plaintext
 GET /projects/:id/packages
@@ -52,14 +50,14 @@ GET /projects/:id/packages
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/:id/packages"
+ --url "https://gitlab.example.com/api/v4/projects/:id/packages"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "com/mycompany/my-app",
     "version": "1.0-SNAPSHOT",
@@ -79,31 +77,29 @@ Example response:
       }
     },
     "pipelines": []
-  },
-  {
+ },
+ {
     "id": 2,
     "name": "@foo/bar",
     "version": "1.0.3",
     "package_type": "npm",
     "created_at": "2019-11-27T03:37:38.711Z",
-  },
-  ],
+ },
+ ],
     "tags": []
-  }
+ }
 ]
 ```
 
 By default, the `GET` request returns 20 results, because the API is [paginated](rest/_index.md#pagination).
 
-Although you can filter packages by status, working with packages that have a `processing` status
-can result in malformed data or broken packages.
+Although you can filter packages by status, working with packages that have a `processing` status can result in malformed data or broken packages.
 
 ### For a group
 
 Get a list of project packages at the group level.
 When accessed without authentication, only packages of public projects are returned.
-By default, packages with `default`, `deprecated`, and `error` status are returned. Use the `status` parameter to view other
-packages.
+By default, packages with `default`, `deprecated`, and `error` status are returned. Use the `status` parameter to view other packages.
 
 ```plaintext
 GET /groups/:id/packages
@@ -123,14 +119,14 @@ GET /groups/:id/packages
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/packages?exclude_subgroups=false"
+ --url "https://gitlab.example.com/api/v4/groups/:id/packages?exclude_subgroups=false"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "com/mycompany/my-app",
     "version": "1.0-SNAPSHOT",
@@ -155,8 +151,8 @@ Example response:
         }
       }
     ]
-  },
-  {
+ },
+ {
     "id": 2,
     "name": "@foo/bar",
     "version": "1.0.3",
@@ -181,7 +177,7 @@ Example response:
         }
       }
     ]
-  }
+ }
 ]
 ```
 
@@ -192,8 +188,7 @@ The `_links` object contains the following properties:
 - `web_path`: The path which you can visit in GitLab and see the details of the package.
 - `delete_api_path`: The API path to delete the package. Only available if the request user has permission to do so.
 
-Although you can filter packages by status, working with packages that have a `processing` status
-can result in malformed data or broken packages.
+Although you can filter packages by status, working with packages that have a `processing` status can result in malformed data or broken packages.
 
 ## Get a project package
 
@@ -216,24 +211,24 @@ GET /projects/:id/packages/:package_id
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/:id/packages/:package_id"
+ --url "https://gitlab.example.com/api/v4/projects/:id/packages/:package_id"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "name": "com/mycompany/my-app",
-  "version": "1.0-SNAPSHOT",
-  "package_type": "maven",
-  "_links": {
+ "id": 1,
+ "name": "com/mycompany/my-app",
+ "version": "1.0-SNAPSHOT",
+ "package_type": "maven",
+ "_links": {
     "web_path": "/namespace1/project1/-/packages/1",
     "delete_api_path": "/namespace1/project1/-/packages/1"
-  },
-  "created_at": "2019-11-27T03:37:38.711Z",
-  "last_downloaded_at": "2022-09-07T07:51:50.504Z",
-  "pipelines": [
+ },
+ "created_at": "2019-11-27T03:37:38.711Z",
+ "last_downloaded_at": "2022-09-07T07:51:50.504Z",
+ "pipelines": [
     {
       "id": 123,
       "status": "pending",
@@ -247,8 +242,8 @@ Example response:
         "avatar_url": "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon"
       }
     }
-  ],
-  "versions": [
+ ],
+ "versions": [
     {
       "id":2,
       "version":"2.0-SNAPSHOT",
@@ -269,7 +264,7 @@ Example response:
         }
       ]
     }
-  ]
+ ]
 }
 ```
 
@@ -295,14 +290,14 @@ GET /projects/:id/packages/:package_id/package_files
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/:id/packages/:package_id/package_files"
+ --url "https://gitlab.example.com/api/v4/projects/:id/packages/:package_id/package_files"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 25,
     "package_id": 4,
     "created_at": "2018-11-07T15:25:52.199Z",
@@ -326,8 +321,8 @@ Example response:
         }
       }
     ]
-  },
-  {
+ },
+ {
     "id": 26,
     "package_id": 4,
     "created_at": "2018-11-07T15:25:56.776Z",
@@ -336,8 +331,8 @@ Example response:
     "file_md5": "d90f11d851e17c5513586b4a7e98f1b2",
     "file_sha1": "9608d068fe88aff85781811a42f32d97feb440b5",
     "file_sha256": "2987d068fe88aff85781811a42f32d97feb4f092a399"
-  },
-  {
+ },
+ {
     "id": 27,
     "package_id": 4,
     "created_at": "2018-11-07T15:26:00.556Z",
@@ -346,7 +341,7 @@ Example response:
     "file_md5": "6dfd0cce1203145a927fef5e3a1c650c",
     "file_sha1": "d25932de56052d320a8ac156f745ece73f6a8cd2",
     "file_sha256": "ac849d002e56052d320a8ac156f745ece73f6a8cd2f3e82"
-  }
+ }
 ]
 ```
 
@@ -375,14 +370,14 @@ GET /projects/:id/packages/:package_id/pipelines
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/:id/packages/:package_id/pipelines"
+ --url "https://gitlab.example.com/api/v4/projects/:id/packages/:package_id/pipelines"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "iid": 1,
     "project_id": 9,
@@ -401,8 +396,8 @@ Example response:
       "avatar_url": "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80\u0026d=identicon",
       "web_url": "http://gdk.test:3001/root"
     }
-  },
-  {
+ },
+ {
     "id": 2,
     "iid": 2,
     "project_id": 9,
@@ -421,7 +416,7 @@ Example response:
       "avatar_url": "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80\u0026d=identicon",
       "web_url": "http://gdk.test:3001/root"
     }
-  }
+ }
 ]
 ```
 
@@ -440,8 +435,8 @@ DELETE /projects/:id/packages/:package_id
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/:id/packages/:package_id"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/:id/packages/:package_id"
 ```
 
 Can return the following status codes:
@@ -450,8 +445,7 @@ Can return the following status codes:
 - `403 Forbidden`: The package is protected from deletion.
 - `404 Not Found`: The package was not found.
 
-If [request forwarding](../user/packages/package_registry/supported_functionality.md#forwarding-requests) is enabled,
-deleting a package can introduce a [dependency confusion risk](../user/packages/package_registry/supported_functionality.md#deleting-packages).
+If [request forwarding](../user/packages/package_registry/supported_functionality.md#forwarding-requests) is enabled, deleting a package can introduce a [dependency confusion risk](../user/packages/package_registry/supported_functionality.md#deleting-packages).
 
 If a package is protected by a [protection rule](../user/packages/package_registry/package_protection_rules.md#protect-a-package), then deleting the package is forbidden.
 
@@ -459,8 +453,7 @@ If a package is protected by a [protection rule](../user/packages/package_regist
 
 {{< alert type="warning" >}}
 
-Deleting a package file may corrupt your package making it unusable or unpullable from your package
-manager client. When deleting a package file, be sure that you understand what you're doing.
+Deleting a package file may corrupt your package making it unusable or unpullable from your package manager client. When deleting a package file, be sure that you understand what you're doing.
 
 {{< /alert >}}
 
@@ -478,8 +471,8 @@ DELETE /projects/:id/packages/:package_id/package_files/:package_file_id
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/:id/packages/:package_id/package_files/:package_file_id"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/:id/packages/:package_id/package_files/:package_file_id"
 ```
 
 Can return the following status codes:

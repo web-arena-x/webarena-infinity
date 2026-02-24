@@ -15,9 +15,9 @@ A *submittal package* is a container that stores one or more *submittals*. Typ
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Read Only' or higher on the project's Submittals tool.
+ - 'Read Only' or higher on the project's Submittals tool.
 - **Additional Information:**
-  - Some image attachments may include the option to view them in a map view based on the files' GPS coordinates. See [Which Procore tools let me view digital image attachments in a map view?](https://support.procore.com/faq/which-procore-tools-let-me-view-a-digital-image-attachment-in-a-map-view "Which Procore tools let me view a digital image attachments in a map view?")
+ - Some image attachments may include the option to view them in a map view based on the files' GPS coordinates. See [Which Procore tools let me view digital image attachments in a map view?](https://support.procore.com/faq/which-procore-tools-let-me-view-a-digital-image-attachment-in-a-map-view "Which Procore tools let me view a digital image attachments in a map view?")
 
 ## Steps​
 

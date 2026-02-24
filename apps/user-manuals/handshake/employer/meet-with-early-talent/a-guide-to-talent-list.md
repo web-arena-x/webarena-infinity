@@ -18,10 +18,10 @@ Click **Talent** from the left navigation bar. The page displays a list of th
 
 - Students who have opted to share their profile with employers
 - Students who have engaged with your company on Handshake by:
-  - Following your company on Handshake
-  - Applying for a job
-  - RSVP'ing to an event or fair
-  - Checking into an in-person event or booth at a fair
+ - Following your company on Handshake
+ - Applying for a job
+ - RSVP'ing to an event or fair
+ - Checking into an in-person event or booth at a fair
 
 ![Talent page.png](https://support.joinhandshake.com/hc/article_attachments/29041545595031)
 
@@ -42,7 +42,7 @@ To further refine your search, click the button **All filters**. This opens a si
 - **Segments**
 - **Engagement**
 
-  - **Include candidates that**
+ - **Include candidates that**
 
     - **Any engagement with my company**
     - **Applied to a job**
@@ -65,56 +65,56 @@ To further refine your search, click the button **All filters**. This opens a si
 - **End date**
 - **Exclude candidates that**
 
-  - **Any engagement with my company**
-  - **Applied to a job**
+ - **Any engagement with my company**
+ - **Applied to a job**
 
     - Specify job
-  - **Followed your employer**
-  - **RSVPed to an event**
+ - **Followed your employer**
+ - **RSVPed to an event**
 
     - Specify event
-  - **Checked into an event (Handshake Events required)**
+ - **Checked into an event (Handshake Events required)**
 
     - Specify event
-  - **RSVPed to a career fair**
-  - **Checked into a career fair (Handshake Events required)**
+ - **RSVPed to a career fair**
+ - **Checked into a career fair (Handshake Events required)**
 
     - Specify career fair
 - **Show candidates you haven’t messaged yet**
 - **Show candidates employer hasn’t messaged yet**
 
 - **Experience**
-  - **Languages**
-  - **Language proficiencies**
-  - **Skills**
-  - **Former job titles**
+ - **Languages**
+ - **Language proficiencies**
+ - **Skills**
+ - **Former job titles**
     - Press 'Enter' to add a job title as a tag
-  - **Former employers**
+ - **Former employers**
     - Press 'Enter' to add a job title as a tag
 - **Education**
-  - **Major groups**
-  - **Major keyword search**
+ - **Major groups**
+ - **Major keyword search**
     - Press 'Enter' to add a major as a tag
-  - **Schools**
-  - **School years**
-  - **Type of school**
-  - **Organizations/extracurricular**
+ - **Schools**
+ - **School years**
+ - **Type of school**
+ - **Organizations/extracurricular**
     - Press 'Enter' to add an organization or extracurricular as a tag
-  - **Diversity and inclusion-focused organizations**
-  - **Graduation**
+ - **Diversity and inclusion-focused organizations**
+ - **Graduation**
     - Earliest (date)
     - Latest (date)
-  - **GPA**
+ - **GPA**
     - From (GPA must be between 0.0 - 5.0)
     - To (GPA must be between 0.0 - 5.0)
 - **Profile attributes**
-  - **Location interests**
-  - **Include labels**
-  - **Exclude labels**
+ - **Location interests**
+ - **Include labels**
+ - **Exclude labels**
 - **Handshake open network**
-  - Exclude Handshake Open Network candidates
+ - Exclude Handshake Open Network candidates
 - **Resume**
-  - Candidate has public resume
+ - Candidate has public resume
 
 ![Talent page.png](https://support.joinhandshake.com/hc/article_attachments/28594030499479)
 

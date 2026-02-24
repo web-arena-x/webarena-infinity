@@ -14,9 +14,7 @@ title: 'Tutorial: Install and secure a single node GitLab instance'
 
 <!-- vale gitlab_base.FutureTense = NO -->
 
-In this tutorial you will learn how to install and securely configure a single
-node GitLab instance that can accommodate up to
-[20 RPS or 1,000 users](../../administration/reference_architectures/1k_users.md).
+In this tutorial you will learn how to install and securely configure a single node GitLab instance that can accommodate up to [20 RPS or 1,000 users](../../administration/reference_architectures/1k_users.md).
 
 To install a single node GitLab instance and configure it to be secure:
 
@@ -29,11 +27,10 @@ To install a single node GitLab instance and configure it to be secure:
 
 - A domain name, and a correct [setup of DNS](https://docs.gitlab.com/omnibus/settings/dns.html).
 - A Debian-based server with the following minimum specs:
-  - 8 vCPU
-  - 7.2 GB memory
-  - Enough hard drive space for all your repositories.
-    Read more about the
-    [storage requirements](../../install/requirements.md).
+ - 8 vCPU
+ - 7.2 GB memory
+ - Enough hard drive space for all your repositories.
+    Read more about the [storage requirements](../../install/requirements.md).
 
 ## Secure the server
 
@@ -41,13 +38,11 @@ Before installing GitLab, start by configuring your server to be a bit more secu
 
 ### Configure the firewall
 
-You need to open ports 22 (SSH), 80 (HTTP), and 443 (HTTPS). You can do this by
-either using your cloud provider's console, or at the server level.
+You need to open ports 22 (SSH), 80 (HTTP), and 443 (HTTPS). You can do this by either using your cloud provider's console, or at the server level.
 
 In this example, you'll configure the firewall using [`ufw`](https://wiki.ubuntu.com/UncomplicatedFirewall).
 You'll deny access to all ports, allow ports 80 and 443, and finally, rate limit access to port 22.
-`ufw` can deny connections from an IP address that has attempted to initiate 6 or more
-connections in the last 30 seconds.
+`ufw` can deny connections from an IP address that has attempted to initiate 6 or more connections in the last 30 seconds.
 
 1. Install `ufw`:
 
@@ -70,8 +65,7 @@ connections in the last 30 seconds.
    sudo ufw limit ssh/tcp
    ```
 
-1. Finally, activate the settings. The following needs to run only once, the first time
-   you install the package. Answer yes (`y`) when prompted:
+1. Finally, activate the settings. The following needs to run only once, the first time you install the package. Answer yes (`y`) when prompted:
 
    ```shell
    sudo ufw enable
@@ -96,8 +90,7 @@ connections in the last 30 seconds.
 
 ### Configure the SSH server
 
-To further secure your server, configure SSH to accept public key authentication,
-and disable some features that are potential security risks.
+To further secure your server, configure SSH to accept public key authentication, and disable some features that are potential security risks.
 
 1. Open `/etc/ssh/sshd_config` with your editor and make sure the following are present:
 
@@ -129,13 +122,11 @@ and disable some features that are potential security risks.
    sudo systemctl restart ssh
    ```
 
-   If restarting SSH fails, check that you don't have any
-   duplicate entries in `/etc/ssh/sshd_config`.
+   If restarting SSH fails, check that you don't have any duplicate entries in `/etc/ssh/sshd_config`.
 
 ### Ensure only authorized users are using SSH for Git access
 
-Next, ensure that users cannot pull down projects using SSH unless they have a
-valid GitLab account that can perform Git operations over SSH.
+Next, ensure that users cannot pull down projects using SSH unless they have a valid GitLab account that can perform Git operations over SSH.
 
 To ensure that only authorized users are using SSH for Git access:
 
@@ -154,16 +145,13 @@ To ensure that only authorized users are using SSH for Git access:
 
 ### Make some kernel adjustments
 
-Kernel adjustments do not completely eliminate the threat of an attack, but
-they add an extra layer of security.
+Kernel adjustments do not completely eliminate the threat of an attack, but they add an extra layer of security.
 
-1. Open a new file with your editor under `/etc/sysctl.d`, for example
-   `/etc/sysctl.d/99-gitlab-hardening.conf`, and add the following.
+1. Open a new file with your editor under `/etc/sysctl.d`, for example `/etc/sysctl.d/99-gitlab-hardening.conf`, and add the following.
 
    {{< alert type="note" >}}
 
-   The naming and source directory decide the order of processing, which is
-   important because the last parameter processed might override earlier ones.
+   The naming and source directory decide the order of processing, which is important because the last parameter processed might override earlier ones.
 
    {{< /alert >}}
 
@@ -216,8 +204,7 @@ they add an extra layer of security.
    net.ipv4.conf.default.send_redirects=0
    ```
 
-1. On the next server reboot, the values will be loaded automatically. To load
-   them immediately:
+1. On the next server reboot, the values will be loaded automatically. To load them immediately:
 
    ```shell
    sudo sysctl --system
@@ -254,61 +241,45 @@ Now that your server is set up, install GitLab:
 
    To see the contents of the script, visit <https://packages.gitlab.com/gitlab/gitlab-ee/install>.
 
-1. Install the GitLab package. Provide a strong password with
-   `GITLAB_ROOT_PASSWORD` and replace the `EXTERNAL_URL`
-   with your own. Don't forget to include `https` in the URL, so that a Let's Encrypt
-   certificate is issued.
+1. Install the GitLab package. Provide a strong password with `GITLAB_ROOT_PASSWORD` and replace the `EXTERNAL_URL` with your own. Don't forget to include `https` in the URL, so that a Let's Encrypt certificate is issued.
 
    ```shell
    sudo GITLAB_ROOT_PASSWORD="strong password" EXTERNAL_URL="https://gitlab.example.com" apt install gitlab-ee
    ```
 
-   To learn more about the Let's Encrypt certificate or even
-   use your own, read how to [configure GitLab with TLS](https://docs.gitlab.com/omnibus/settings/ssl/).
+   To learn more about the Let's Encrypt certificate or even use your own, read how to [configure GitLab with TLS](https://docs.gitlab.com/omnibus/settings/ssl/).
 
-   If the password you set wasn't picked up, read more about
-   [resetting the root account password](../../security/reset_user_password.md#reset-the-root-password).
+   If the password you set wasn't picked up, read more about [resetting the root account password](../../security/reset_user_password.md#reset-the-root-password).
 
-1. After a few minutes, GitLab is installed. Sign in
-   using the URL you set up in `EXTERNAL_URL`. Use `root` as the username and
-   the password you set up in `GITLAB_ROOT_PASSWORD`.
+1. After a few minutes, GitLab is installed. Sign in using the URL you set up in `EXTERNAL_URL`. Use `root` as the username and the password you set up in `GITLAB_ROOT_PASSWORD`.
 
 Now it's time to configure GitLab!
 
 ## Configure GitLab
 
-GitLab comes with some sane default configuration options. In this section,
-we will change them to add more functionality, and make GitLab more secure.
+GitLab comes with some sane default configuration options. In this section, we will change them to add more functionality, and make GitLab more secure.
 
-For some of the options you'll use the **Admin** area UI, and for some of them you'll
-edit `/etc/gitlab/gitlab.rb`, the GitLab configuration file.
+For some of the options you'll use the **Admin** area UI, and for some of them you'll edit `/etc/gitlab/gitlab.rb`, the GitLab configuration file.
 
 ### Configure NGINX
 
 NGINX is used to serve up the web interface used to access the GitLab instance.
-For more information about configuring NGINX to be more secure, read about
-[hardening NGINX](../../security/hardening_configuration_recommendations.md#nginx).
+For more information about configuring NGINX to be more secure, read about [hardening NGINX](../../security/hardening_configuration_recommendations.md#nginx).
 
 ### Configure emails
 
-Next, you'll set up and configure an email service. Emails are important for
-verifying new sign ups, resetting passwords, and notifying
-you of GitLab activity.
+Next, you'll set up and configure an email service. Emails are important for verifying new sign ups, resetting passwords, and notifying you of GitLab activity.
 
 #### Configure SMTP
 
 In this tutorial, you'll set up an [SMTP](https://docs.gitlab.com/omnibus/settings/smtp.html)
 server and use the [Mailgun](https://www.mailgun.com/) SMTP provider.
 
-First, start by creating an encrypted file that will contain the login
-credentials, and then configure SMTP for the Linux package:
+First, start by creating an encrypted file that will contain the login credentials, and then configure SMTP for the Linux package:
 
-1. Create a YAML file (for example `smtp.yaml`) that contains the credentials
-   for the SMTP server.
+1. Create a YAML file (for example `smtp.yaml`) that contains the credentials for the SMTP server.
 
-   Your SMTP password must not contain any string delimiters used in
-   Ruby or YAML (for example, `'`) to avoid unexpected behavior during the
-   processing of configuration settings.
+   Your SMTP password must not contain any string delimiters used in Ruby or YAML (for example, `'`) to avoid unexpected behavior during the processing of configuration settings.
 
    ```shell
    user_name: '<SMTP user>'
@@ -321,8 +292,7 @@ credentials, and then configure SMTP for the Linux package:
    cat smtp.yaml | sudo gitlab-rake gitlab:smtp:secret:write
    ```
 
-   By default, the encrypted file is stored under
-   `/var/opt/gitlab/gitlab-rails/shared/encrypted_settings/smtp.yaml.enc`.
+   By default, the encrypted file is stored under `/var/opt/gitlab/gitlab-rails/shared/encrypted_settings/smtp.yaml.enc`.
 
 1. Remove the YAML file:
 
@@ -331,8 +301,7 @@ credentials, and then configure SMTP for the Linux package:
    ```
 
 1. Edit `/etc/gitlab/gitlab.rb` and set up the rest of the SMTP settings.
-   Make sure `gitlab_rails['smtp_user_name']` and `gitlab_rails['smtp_password']`
-   are **not** present, as we've already set them up as encrypted.
+   Make sure `gitlab_rails['smtp_user_name']` and `gitlab_rails['smtp_password']` are **not** present, as we've already set them up as encrypted.
 
    ```ruby
    gitlab_rails['smtp_enable'] = true
@@ -363,14 +332,11 @@ You should now be able to send emails. To test that the configuration worked:
    Notify.test_email('<email_address>', 'Message Subject', 'Message Body').deliver_now
    ```
 
-If you're unable to send emails, see the
-[SMTP troubleshooting section](https://docs.gitlab.com/omnibus/settings/smtp.html#troubleshooting).
+If you're unable to send emails, see the [SMTP troubleshooting section](https://docs.gitlab.com/omnibus/settings/smtp.html#troubleshooting).
 
 #### Require email verification for locked accounts
 
-Account email verification provides an additional layer of GitLab account
-security. When some conditions are met, for example, if there are three or more
-failed sign-in attempts in 24 hours, an account is locked.
+Account email verification provides an additional layer of GitLab account security. When some conditions are met, for example, if there are three or more failed sign-in attempts in 24 hours, an account is locked.
 
 Prerequisites:
 
@@ -384,22 +350,18 @@ To require email verification for locked accounts:
 1. Select the **Email verification for locked accounts** checkbox.
 1. Select **Save changes**.
 
-For more information, read about
-[account email verification](../../security/email_verification.md).
+For more information, read about [account email verification](../../security/email_verification.md).
 
 #### Sign outgoing email with S/MIME
 
-Notification emails sent by GitLab can be signed with
-[S/MIME](https://en.wikipedia.org/wiki/S/MIME) for improved security.
+Notification emails sent by GitLab can be signed with [S/MIME](https://en.wikipedia.org/wiki/S/MIME) for improved security.
 
 A single pair of key and certificate files must be provided:
 
 - Both files must be PEM-encoded.
 - The key file must be unencrypted so that GitLab can read it without user intervention.
 - Only RSA keys are supported.
-- Optional. You can provide a bundle of Certificate Authority (CA) certs
-  (PEM-encoded) to include on each signature. This is typically an
-  intermediate CA.
+- Optional. You can provide a bundle of Certificate Authority (CA) certs (PEM-encoded) to include on each signature. This is typically an intermediate CA.
 
 1. Buy your certificate from a CA.
 1. Edit `/etc/gitlab/gitlab.rb` and adapt the file paths:
@@ -416,23 +378,18 @@ A single pair of key and certificate files must be provided:
    sudo gitlab-ctl reconfigure
    ```
 
-For more information, read about
-[signing outgoing email with S/MIME](../../administration/smime_signing_email.md).
+For more information, read about [signing outgoing email with S/MIME](../../administration/smime_signing_email.md).
 
 ## Next steps
 
-In this tutorial, you learned how to set up your server to be more secure, how
-to install GitLab, and how to configure GitLab to meet some security standards.
+In this tutorial, you learned how to set up your server to be more secure, how to install GitLab, and how to configure GitLab to meet some security standards.
 Some [other steps](../../security/hardening_application_recommendations.md) you can take to secure GitLab include:
 
-- Disabling sign ups. By default, a new GitLab instance has sign up enabled by default. If you don't
-  plan to make your GitLab instance public, you should to disable sign ups.
+- Disabling sign ups. By default, a new GitLab instance has sign up enabled by default. If you don't plan to make your GitLab instance public, you should to disable sign ups.
 - Allowing or denying sign ups using specific email domains.
 - Setting a minimum password length limit for new users.
 - Enforcing two-factor authentication for all users.
 
-There are many other things you can configure apart from hardening your GitLab
-instance, like configuring your own runners to leverage the CI/CD features that
-GitLab has to offer, or properly backing up your instance.
+There are many other things you can configure apart from hardening your GitLab instance, like configuring your own runners to leverage the CI/CD features that GitLab has to offer, or properly backing up your instance.
 
 You can read more about the [steps to take after the installation](../../install/next_steps.md).

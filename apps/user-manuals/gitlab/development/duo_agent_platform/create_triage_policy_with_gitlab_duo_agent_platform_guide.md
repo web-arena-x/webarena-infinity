@@ -87,33 +87,33 @@ The 2 prompts above generated the following policy:
 
 ```yaml
 .common_conditions: &common_conditions
-  state: opened
-  labels:
+ state: opened
+ labels:
     - "group::authentication"
-  forbidden_labels:
+ forbidden_labels:
     - "devops::software supply chain security"
     - "workflow::completed"
 
 .common_actions: &common_actions
-  labels:
+ labels:
     - "devops::software supply chain security"
 
 resource_rules:
-  epics:
+ epics:
     rules:
       - name: (Epics) Add devops::software supply chain security label to group::authentication epics
         conditions:
           <<: *common_conditions
         actions:
           <<: *common_actions
-  issues:
+ issues:
     rules:
       - name: (Issues) Add devops::software supply chain security label to group::authentication issues
         conditions:
           <<: *common_conditions
         actions:
           <<: *common_actions
-  merge_requests:
+ merge_requests:
     rules:
       - name: (Merge Requests) Add devops::software supply chain security label to group::authentication MRs
         conditions:
@@ -146,7 +146,7 @@ May produce this result with an incorrect field `last_updated_at`:
 
 ```yaml
 resource_rules:
-  issues:
+ issues:
     rules:
       - name: Mark as regression when on track issues have no activity for 8+ days
         conditions:
@@ -160,7 +160,7 @@ The correct way of specifying that condition is:
 
 ```yaml
 conditions:
-  ruby: resource[:updated_at] < 8.days.ago.strftime('%Y-%m-%dT00:00:00.000Z')
+ ruby: resource[:updated_at] < 8.days.ago.strftime('%Y-%m-%dT00:00:00.000Z')
 ```
 
 After finding the solution, include this policy in the reference materials linked in your #reference-material prompt to help Workflow avoid similar mistakes.

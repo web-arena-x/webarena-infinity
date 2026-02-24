@@ -14,8 +14,7 @@ description: Configure Geo sites.
 
 {{< /details >}}
 
-You can configure various settings for GitLab Geo sites. For more information, see
-[Geo documentation](geo/_index.md).
+You can configure various settings for GitLab Geo sites. For more information, see [Geo documentation](geo/_index.md).
 
 On either the primary or secondary site:
 
@@ -34,8 +33,7 @@ All Geo sites have the following settings:
 
 ### Allowed Geo IP
 
-The **Allowed Geo IP** setting controls which IP addresses are allowed to make requests to the primary site
-from secondary sites. The primary site uses this setting to validate:
+The **Allowed Geo IP** setting controls which IP addresses are allowed to make requests to the primary site from secondary sites. The primary site uses this setting to validate:
 
 - Git HTTP requests from secondary sites.
 - Geo API requests from secondary sites.
@@ -54,39 +52,25 @@ The **Allowed Geo IP** setting:
 | Setting                   | Description |
 |---------------------------|-------------|
 | Selective synchronization | Enable Geo [selective sync](geo/replication/selective_synchronization.md) for this **secondary** site. |
-| Repository sync capacity  | Number of concurrent requests this **secondary** site makes to the **primary** site when backfilling repositories. |
+| Repository sync capacity | Number of concurrent requests this **secondary** site makes to the **primary** site when backfilling repositories. |
 | File sync capacity        | Number of concurrent requests this **secondary** site makes to the **primary** site when backfilling files. |
 
 ## Geo backfill
 
-**Secondary** sites are notified of changes to repositories and files by the **primary** site,
-and always attempt to synchronize those changes as quickly as possible.
+**Secondary** sites are notified of changes to repositories and files by the **primary** site, and always attempt to synchronize those changes as quickly as possible.
 
-Backfill is the act of populating the **secondary** site with repositories and files that
-existed before the **secondary** site was added to the database. Because there may be
-extremely large numbers of repositories and files, it's not feasible to attempt to
-download them all at once; so, GitLab places an upper limit on the concurrency of
-these operations.
+Backfill is the act of populating the **secondary** site with repositories and files that existed before the **secondary** site was added to the database. Because there may be extremely large numbers of repositories and files, it's not feasible to attempt to download them all at once; so, GitLab places an upper limit on the concurrency of these operations.
 
-How long the backfill takes is dependent on the maximum concurrency, but higher
-values place more strain on the **primary** site. The limits are configurable.
-If your **primary** site has lots of surplus capacity,
-you can increase the values to complete backfill in a shorter time. If it's
-under heavy load and backfill reduces its availability for standard requests,
-you can decrease them.
+How long the backfill takes is dependent on the maximum concurrency, but higher values place more strain on the **primary** site. The limits are configurable.
+If your **primary** site has lots of surplus capacity, you can increase the values to complete backfill in a shorter time. If it's under heavy load and backfill reduces its availability for standard requests, you can decrease them.
 
 ## Set up the internal URLs
 
 You can set up a different URL for synchronization between the primary and secondary site.
 
-The **primary** site's Internal URL is used by **secondary** sites to contact
-it. For example, to sync repositories. The name Internal URL distinguishes it from
-[External URL](https://docs.gitlab.com/omnibus/settings/configuration.html#configuring-the-external-url-for-gitlab),
-which is used by users. Internal URL does not need to be a private address.
+The **primary** site's Internal URL is used by **secondary** sites to contact it. For example, to sync repositories. The name Internal URL distinguishes it from [External URL](https://docs.gitlab.com/omnibus/settings/configuration.html#configuring-the-external-url-for-gitlab), which is used by users. Internal URL does not need to be a private address.
 
-The Internal URL of a **secondary** site is used by the **primary** site to
-contact it. For example, to retrieve sync or verification tracking metadata for
-display in the Admin Area at **Geo** > **Sites** > **Project Repositories**.
+The Internal URL of a **secondary** site is used by the **primary** site to contact it. For example, to retrieve sync or verification tracking metadata for display in the Admin Area at **Geo** > **Sites** > **Project Repositories**.
 
 The internal URL defaults to external URL. To change it:
 
@@ -96,14 +80,10 @@ The internal URL defaults to external URL. To change it:
 1. Edit the internal URL.
 1. Select **Save changes**.
 
-When enabled, the **Admin** area for Geo shows replication details for each site directly
-from the primary site's UI, and through the Geo secondary proxy, if enabled.
+When enabled, the **Admin** area for Geo shows replication details for each site directly from the primary site's UI, and through the Geo secondary proxy, if enabled.
 
 {{< alert type="warning" >}}
 
-We recommend using an HTTPS connection while configuring the Geo sites. To avoid
-breaking communication between **primary** and **secondary** sites when using
-HTTPS, customize your Internal URL to point to a load balancer with TLS
-terminated at the load balancer.
+We recommend using an HTTPS connection while configuring the Geo sites. To avoid breaking communication between **primary** and **secondary** sites when using HTTPS, customize your Internal URL to point to a load balancer with TLS terminated at the load balancer.
 
 {{< /alert >}}

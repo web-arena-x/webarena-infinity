@@ -42,22 +42,19 @@ Features of the editor include:
 - Insert and format code blocks with syntax highlighting.
 - Preview Mermaid, PlantUML, and Kroki diagrams in real time.
 
-To track work on adding the rich text editor to more places across GitLab, see
-[epic 7098](https://gitlab.com/groups/gitlab-org/-/epics/7098).
+To track work on adding the rich text editor to more places across GitLab, see [epic 7098](https://gitlab.com/groups/gitlab-org/-/epics/7098).
 
 ## Switch to the rich text editor
 
 Use the rich text editor to edit descriptions, wiki pages, add comments.
 
-To switch to the rich text editor: In a text box, in the lower-left corner, select
-**Switch to rich text editing**.
+To switch to the rich text editor: In a text box, in the lower-left corner, select **Switch to rich text editing**.
 
 ## Switch to the plain text editor
 
 If you want to enter Markdown source in the text box, return to using the plain text editor.
 
-To switch to the plain text editor: In a text box, in the lower-left corner, select
-**Switch to plain text editing**.
+To switch to the plain text editor: In a text box, in the lower-left corner, select **Switch to plain text editing**.
 
 ![A text editor in rich text editing mode with the "Switch to plain text editing" text box in the lower-left](img/rich_text_editor_01_v16_2.png)
 
@@ -68,8 +65,7 @@ It means that you can switch between plain text and rich text modes without losi
 
 ### Input rules
 
-Rich text editor also supports input rules that let you work with rich content as if you were
-typing Markdown.
+Rich text editor also supports input rules that let you work with rich content as if you were typing Markdown.
 
 Supported input rules:
 
@@ -84,12 +80,11 @@ Supported input rules:
 | ` ```rb ` + <kbd>Enter</kbd> <br> ` ```js ` + <kbd>Enter</kbd> | Code block      |
 | `* List item`, or<br> `- List item`, or<br> `+ List item` | Unordered list       |
 | `1. List item`                                            | Numbered list        |
-| `<details>`                                               | Collapsible section  |
+| `<details>`                                               | Collapsible section |
 
 ## Tables
 
-Unlike in raw Markdown, you can use the rich text editor to insert block content paragraphs,
-list items, diagrams (or even another table!) in table cells.
+Unlike in raw Markdown, you can use the rich text editor to insert block content paragraphs, list items, diagrams (or even another table!) in table cells.
 
 ### Insert a table
 
@@ -121,8 +116,7 @@ To split merged cells: In the upper-right corner of a cell, select the chevron {
 
 ## Insert diagrams
 
-Insert [Mermaid](https://mermaidjs.github.io/) and [PlantUML](https://plantuml.com/) diagrams and
-preview them live as you type the diagram code.
+Insert [Mermaid](https://mermaidjs.github.io/) and [PlantUML](https://plantuml.com/) diagrams and preview them live as you type the diagram code.
 
 To insert a diagram:
 

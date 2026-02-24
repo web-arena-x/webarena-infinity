@@ -35,7 +35,7 @@ If you're not using a free theme from Shopify, then your theme was made by a thi
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Find the theme that you want to edit, and then click **Edit theme**.
-3. Click the  icon.
+3. Click the icon.
 4. Click **View documentation** or **Get support**.
 
 ## Shopify Design Policy

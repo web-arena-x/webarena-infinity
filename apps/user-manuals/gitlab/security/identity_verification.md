@@ -21,8 +21,7 @@ title: Identity verification
 {{< /history >}}
 
 Identity verification provides multiple layers of GitLab account security.
-Depending on your [risk score](../integration/arkose.md), you might be required to perform up to
-three stages of verification to register an account:
+Depending on your [risk score](../integration/arkose.md), you might be required to perform up to three stages of verification to register an account:
 
 - **All users** - Email verification.
 - **Medium-risk users** - Phone number verification.
@@ -37,8 +36,7 @@ See [Make new users confirm email](user_email_confirmation.md).
 
 ## Phone number verification
 
-In addition to email verification, you might also be asked to provide a valid phone number and
-verify a one-time password (OTP) code.
+In addition to email verification, you might also be asked to provide a valid phone number and verify a one-time password (OTP) code.
 
 > [!note]
 > You cannot verify an account with a phone number associated with a banned user.
@@ -48,8 +46,7 @@ verify a one-time password (OTP) code.
 Some countries have limited or no support for phone number verification:
 
 - Unsupported: Phone verification is not available.
-- Partial support: Phone verification might not work due to local regulations or
-  enforcement policies.
+- Partial support: Phone verification might not work due to local regulations or enforcement policies.
 
 If phone verification is unavailable in your country, try [credit card verification](#credit-card-verification)
 or create a [support ticket](https://about.gitlab.com/support/).
@@ -97,7 +94,6 @@ or create a [support ticket](https://about.gitlab.com/support/).
 
 In addition to email and phone number verification, you might have to provide a valid credit card number.
 
-To verify your account, you might need to provide a valid credit card number in addition to your
-email address and phone number. GitLab does not store your card details directly or make any charges.
+To verify your account, you might need to provide a valid credit card number in addition to your email address and phone number. GitLab does not store your card details directly or make any charges.
 
 You cannot verify an account with a credit card number associated with a banned user.

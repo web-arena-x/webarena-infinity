@@ -68,8 +68,7 @@ From: Handshake <handshake@notifications.joinhandshake.com>
 
 Subject: "Don't forget to apply to your favorited job at COMPANY NAME"
 
-Content:  "Your favorited job is expiring soon   
-Hi NAME, heads up - applications for your favorited job are due on DAY, DATE. Here are the details:
+Content:  "Your favorited job is expiring soon Hi NAME, heads up - applications for your favorited job are due on DAY, DATE. Here are the details:
 
 Job: TITLE(+link)
 
@@ -93,8 +92,7 @@ Subject: "Update: COMPANY NAME just edited a job you favorited!"
 
 Content:
 
-"A job you favorited has been updated  
-Hi NAME, COMPANY NAME has made updates to a job you favorited.
+"A job you favorited has been updated Hi NAME, COMPANY NAME has made updates to a job you favorited.
 
 Job: TITLE(+link)
 

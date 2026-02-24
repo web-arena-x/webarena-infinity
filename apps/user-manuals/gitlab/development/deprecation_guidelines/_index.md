@@ -40,8 +40,8 @@ Product and Engineering Managers are responsible and accountable for customer im
 - Executive Summary
 - Impact Assessment
 - Rollout & Communication Plan
-  - Internal Communication
-  - Customer Communication
+ - Internal Communication
+ - Customer Communication
 
 [Request template](https://gitlab.com/gitlab-com/Product/-/issues/new?description_template=Breaking-Change-Exception)
 
@@ -54,11 +54,9 @@ Product and Engineering Managers are responsible and accountable for customer im
 ## Update the deprecations and removals documentation
 
 The [deprecations and removals](../../update/deprecations.md)
-documentation is generated from the YAML files located in
-[`gitlab/data/deprecations`](https://gitlab.com/gitlab-org/gitlab/-/tree/master/data/deprecations).
+documentation is generated from the YAML files located in [`gitlab/data/deprecations`](https://gitlab.com/gitlab-org/gitlab/-/tree/master/data/deprecations).
 
-To update the deprecations and removals page when a YAML file is added,
-edited, or removed:
+To update the deprecations and removals page when a YAML file is added, edited, or removed:
 
 1. From the command line, go to your local clone of the [`gitlab-org/gitlab`](https://gitlab.com/gitlab-org/gitlab) project.
 1. Create, edit, or remove the YAML file under [`data/deprecations`](https://gitlab.com/gitlab-org/gitlab/-/tree/master/data/deprecations).
@@ -92,23 +90,21 @@ The auto-generation of the page [is disabled](https://gitlab.com/gitlab-org/gitl
 When ready to start updating the page again:
 
 - In `lib/tasks/gitlab/docs/compile_windows.rake`:
-  - Uncomment the `# write_windows_content(file)` line.
-  - Add new dates for the breaking change windows.
-  - Update the page introduction.
-  - Run `bin/rake gitlab:docs:compile_windows`.
+ - Uncomment the `# write_windows_content(file)` line.
+ - Add new dates for the breaking change windows.
+ - Update the page introduction.
+ - Run `bin/rake gitlab:docs:compile_windows`.
 - In `.gitlab/ci/docs.gitlab-ci.yml`
-  - Uncomment the `# - bundle exec rake gitlab:docs:check_windows` line
+ - Uncomment the `# - bundle exec rake gitlab:docs:check_windows` line
 - In: `doc/development/deprecation_guidelines/_index.md`:
-  - Remove this note.
+ - Remove this note.
 
 {{< /alert >}}
 
 The [breaking change windows](../../update/breaking_windows.md)
-documentation is generated based on the `window` value in the YAML files located in
-[`gitlab/data/deprecations`](https://gitlab.com/gitlab-org/gitlab/-/tree/master/data/deprecations).
+documentation is generated based on the `window` value in the YAML files located in [`gitlab/data/deprecations`](https://gitlab.com/gitlab-org/gitlab/-/tree/master/data/deprecations).
 
-To update the breaking change windows page when a YAML file is added,
-edited, or removed:
+To update the breaking change windows page when a YAML file is added, edited, or removed:
 
 1. From the command line, go to your local clone of the [`gitlab-org/gitlab`](https://gitlab.com/gitlab-org/gitlab) project.
 1. Create, edit, or remove the YAML file under [`data/deprecations`](https://gitlab.com/gitlab-org/gitlab/-/tree/master/data/deprecations).
@@ -144,8 +140,7 @@ Our APIs have special rules regarding deprecations and breaking changes.
 ### REST API v4
 
 REST API v4 [cannot have breaking changes made to it](../api_styleguide.md#breaking-changes)
-unless the API feature was previously
-[marked as experimental or beta](../api_styleguide.md#experimental-beta-and-generally-available-features).
+unless the API feature was previously [marked as experimental or beta](../api_styleguide.md#experimental-beta-and-generally-available-features).
 
 See [What to do instead of a breaking change?](../api_styleguide.md#what-to-do-instead-of-a-breaking-change)
 
@@ -160,8 +155,7 @@ See the [GraphQL deprecation process](../api_graphql_styleguide.md#deprecating-s
 
 We cannot make breaking changes to webhook payloads.
 
-For a list of what constitutes a breaking webhook payload change and what to do instead, see the
-[Webhook breaking changes guide](../../development/webhooks.md#breaking-changes).
+For a list of what constitutes a breaking webhook payload change and what to do instead, see the [Webhook breaking changes guide](../../development/webhooks.md#breaking-changes).
 
 ## How are Community Contributions to a deprecated feature handled?
 

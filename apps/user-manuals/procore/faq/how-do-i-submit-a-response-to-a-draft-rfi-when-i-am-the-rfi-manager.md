@@ -12,25 +12,25 @@ On occasion, you may discover that an RFI that has been assigned to another indi
 
 ## Steps
 
-1. Navigate to the project's **RFIs** tool.  
+1. Navigate to the project's **RFIs** tool. 
    This reveals the RFIs page.
-2. Click the **Items** tab.  
+2. Click the **Items** tab. 
    This reveals a list of RFIs on the project.
 3. In the **Add Filter** drop-down list, select *Status*.
-4. Place a checkmark in the **Draft** checkbox.  
+4. Place a checkmark in the **Draft** checkbox. 
    This updates the list to include only RFIs in the 'Draft' status.
-5. Locate the desired RFI in the list. Then click View.  
+5. Locate the desired RFI in the list. Then click View. 
    This opens the RFI in view mode.
-6. Click Edit.  
+6. Click Edit. 
    This places the RFI in edit mode.
 7. Select your name from the **Assignees**field.
-8. Click **Save as Open**.  
+8. Click **Save as Open**. 
    This changes the RFI to the 'Open' status and also updates the Ball In Court responsibility to your court.
 9. Under **Question + Responses**, click **Add Response**.
 10. In the text entry area that appears, type your response to the request for information.
-11. Click **Post Response**.  
+11. Click **Post Response**. 
     Your response now appears under All Responses.
-12. Place a checkmark in the **Mark Official** box.   
+12. Place a checkmark in the **Mark Official** box.  
     A GREEN banner appears to confirm the update was successful.
 
 ## See Also

@@ -26,7 +26,7 @@ If there are changes to layers you are editing in your branch, you may need to r
 
 When you accept updates, Figma applies any changes to existing layers, components, or styles in your branch. If new assets were created in the main file, Figma will also add these to your branch. If you've created new assets in your branch, these changes won't have any affect on those assets.
 
-1. Expand the  menu next to the file/branch name in the left sidebar.
+1. Expand the menu next to the file/branch name in the left sidebar.
 2. Select **Update from main...** to preview any updates.
 3. View a list of items that have been , , or . You can see a preview of the latest versions, but it's not a before and after of what's changed.
 4. Select **Apply changes** to apply all updates to your branch.
@@ -53,9 +53,9 @@ Figma will let you know if there are any conflicting changes from the **Update f
 
 If you want to undo or reverse a branch update, you can restore a previous version of the branch. If you notice something doesn’t look right after a merge or update, read our [Incomplete updates and merges](https://help.figma.com/hc/en-us/articles/5691750511383) article.
 
-1. From the branch, click the  next to the file/branch name in the left sidebar.
+1. From the branch, click the next to the file/branch name in the left sidebar.
 2. Select **Show version history** to open version history in the right sidebar.
-3. Select a version before the  update from the main file.
-4. Right-click the version or click the  and select **Restore this version**.
+3. Select a version before the update from the main file.
+4. Right-click the version or click the and select **Restore this version**.
 5. Figma will add two autosave checkpoints to the file's version history. A checkpoint that saves the current version. This is an autosaved version with a timestamp that matches the current time. A checkpoint at the same timestamp for the version you just restored.
 6. Click **Done** in the toolbar to exit version history.

@@ -38,5 +38,4 @@ Create bespoke CSS custom properties when design tokens cannot be used with eith
 
 ### Page bundles
 
-To support dark mode, CSS custom properties should be used in `page_bundle` styles as we do not generate separate
-`*_dark.css` variants of each `page_bundle` file.
+To support dark mode, CSS custom properties should be used in `page_bundle` styles as we do not generate separate `*_dark.css` variants of each `page_bundle` file.

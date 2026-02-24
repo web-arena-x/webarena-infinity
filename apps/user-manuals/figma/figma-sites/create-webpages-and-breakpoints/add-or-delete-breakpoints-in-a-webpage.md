@@ -36,7 +36,7 @@ Let’s say you have a desktop breakpoint 1280px wide, a tablet breakpoint 800px
 
 To add a new breakpoint to a webpage:
 
-1. Click the  **plus** button in the webpage header on the canvas.
+1. Click the **plus** button in the webpage header on the canvas.
 2. Choose a desktop, tablet, or mobile breakpoint with predefined widths, or enter a custom breakpoint width.
 
 If your designs use auto layout, Figma will automatically adjust the layout so it flows better in the new breakpoint size. For example, Figma will adjust the padding to account for content areas that are too narrow, or convert horizontal layouts to vertical if there is not enough width available.

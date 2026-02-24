@@ -5,8 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Workspace reconciliation logic
 ---
 
-This document shows how different events change the database records and how the communication between
-`rails` and `agentk` reflects these events.
+This document shows how different events change the database records and how the communication between `rails` and `agentk` reflects these events.
 
 Two kinds of workspace reconciliation updates exist: `full` and `partial`.
 For more information, see [Types of messages](https://gitlab.com/gitlab-org/workspaces/gitlab-workspaces-docs/-/blob/main/doc/architecture.md#types-of-messages).
@@ -15,11 +14,11 @@ For more information, see [Types of messages](https://gitlab.com/gitlab-org/work
 
 - `request` - The event that occurs. `CURRENT_DB_STATE` describes the state of the database before any event occurs.
 - `include config_to_apply in workspace_rails_info response?`
-  - For events `CURRENT_DB_STATE` and `USER_ACTION`, this is not applicable. Signified by a `-`.
-  - For events `AGENT_ACTION` - Based on the state of the database before the database is updated by the information received from `agentk` about the workspace, should Rails send the `config_to_apply` information to `agentk` based on the condition `desired_state_updated_at >= responded_to_agent_at`?
+ - For events `CURRENT_DB_STATE` and `USER_ACTION`, this is not applicable. Signified by a `-`.
+ - For events `AGENT_ACTION` - Based on the state of the database before the database is updated by the information received from `agentk` about the workspace, should Rails send the `config_to_apply` information to `agentk` based on the condition `desired_state_updated_at >= responded_to_agent_at`?
 - `include deployment_resource_version in workspace_rails_info response?` - Should Rails send the `deployment_resource_version` information to `agentk`?
-  - This field is not shown in the table below for brevity as it always evaluates to true in the scenarios below (except for the [one scenario](#no-update-for-workspace-from-agentk-or-from-user) where it is called out).
-  - Rules of evaluation:
+ - This field is not shown in the table below for brevity as it always evaluates to true in the scenarios below (except for the [one scenario](#no-update-for-workspace-from-agentk-or-from-user) where it is called out).
+ - Rules of evaluation:
     - If information about the workspace was received from `agentk`, then Yes
     - If configuration to apply for the workspace is being sent to `agentk`, then Yes
     - Else, No
@@ -35,8 +34,8 @@ New workspace is requested by the user which results in a Running actual state.
 |        `CURRENT_DB_STATE` - Empty database         |                             -                             |               |                   |                          |                       |
 | `USER_ACTION` - User has requested a new workspace |                             -                             |    Running    | CreationRequested |          05:00           |                       |
 |     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             |    Running    | CreationRequested |          05:00           |         05:01         |
-|  `AGENT_ACTION` - `agentk` reports it as Starting  |                             N                             |    Running    |     Starting      |          05:00           |         05:02         |
-|  `AGENT_ACTION` - `agentk` reports it as Running   |                             N                             |    Running    |      Running      |          05:00           |         05:03         |
+| `AGENT_ACTION` - `agentk` reports it as Starting |                             N                             |    Running    |     Starting      |          05:00           |         05:02         |
+| `AGENT_ACTION` - `agentk` reports it as Running   |                             N                             |    Running    |      Running      |          05:00           |         05:03         |
 
 ### desired: Running / actual: CreationRequested → desired: Running / actual: Failed
 
@@ -47,8 +46,8 @@ New workspace is requested by the user which results in a Failed actual state (f
 |        `CURRENT_DB_STATE` - Empty database         |                             -                             |               |                   |                          |                       |
 | `USER_ACTION` - User has requested a new workspace |                             -                             |    Running    | CreationRequested |          05:00           |                       |
 |     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             |    Running    | CreationRequested |          05:00           |         05:01         |
-|  `AGENT_ACTION` - `agentk` reports it as Starting  |                             N                             |    Running    |     Starting      |          05:00           |         05:02         |
-|  `AGENT_ACTION` - `agentk` reports it as Failing   |                             N                             |    Running    |      Failed       |          05:00           |         05:03         |
+| `AGENT_ACTION` - `agentk` reports it as Starting |                             N                             |    Running    |     Starting      |          05:00           |         05:02         |
+| `AGENT_ACTION` - `agentk` reports it as Failing   |                             N                             |    Running    |      Failed       |          05:00           |         05:03         |
 
 ### desired: Running / actual: CreationRequested → desired: Running / actual: Error
 
@@ -70,8 +69,8 @@ Running workspace is stopped by the user which results in a Stopped actual state
 | `CURRENT_DB_STATE` - Workspace is in Running state |                             -                             |    Running    |   Running    |          05:00           |         05:01         |
 |      `USER_ACTION` - User stops the workspace      |                             -                             |    Stopped    |   Running    |          05:02           |         05:01         |
 |     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             |    Stopped    |   Running    |          05:02           |         05:03         |
-|  `AGENT_ACTION` - `agentk` reports it as Stopping  |                             N                             |    Stopped    |   Stopping   |          05:02           |         05:04         |
-|  `AGENT_ACTION` - `agentk` reports it as Stopped   |                             N                             |    Stopped    |   Stopped    |          05:02           |         05:05         |
+| `AGENT_ACTION` - `agentk` reports it as Stopping |                             N                             |    Stopped    |   Stopping   |          05:02           |         05:04         |
+| `AGENT_ACTION` - `agentk` reports it as Stopped   |                             N                             |    Stopped    |   Stopped    |          05:02           |         05:05         |
 
 ### desired: Running / actual: Running → desired: Stopped / actual: Failed
 
@@ -82,7 +81,7 @@ Running workspace is stopped by the user which results in a Failed actual state 
 | `CURRENT_DB_STATE` - Workspace is in Running state |                             -                             |    Running    |   Running    |          05:00           |         05:01         |
 |      `USER_ACTION` - User stops the workspace      |                             -                             |    Stopped    |   Running    |          05:02           |         05:01         |
 |     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             |    Stopped    |   Running    |          05:02           |         05:03         |
-|  `AGENT_ACTION` - `agentk` reports it as Stopping  |                             N                             |    Stopped    |   Stopping   |          05:02           |         05:04         |
+| `AGENT_ACTION` - `agentk` reports it as Stopping |                             N                             |    Stopped    |   Stopping   |          05:02           |         05:04         |
 |   `AGENT_ACTION` - `agentk` reports it as Failed   |                             N                             |    Stopped    |    Failed    |          05:02           |         05:05         |
 
 ### desired: Running / actual: Running → desired: Stopped / actual: Error
@@ -103,9 +102,9 @@ Running workspace is terminated by the user which results in a Terminated actual
 |                     `request`                      | include `config_to_apply` in `workspace_rails_info` response? | `desired_state` | `actual_state` | `desired_state_updated_at` | `responded_to_agent_at` |
 |:------------------------------------------------:|:---------------------------------------------------------:|:-------------:|:------------:|:------------------------:|:---------------------:|
 | `CURRENT_DB_STATE` - Workspace is in Running state |                             -                             |    Running    |   Running    |          05:00           |         05:01         |
-|   `USER_ACTION` - User terminates the workspace    |                             -                             |  Terminated   |   Running    |          05:02           |         05:01         |
-|     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             |  Terminated   |   Running    |          05:02           |         05:03         |
-| `AGENT_ACTION` - `agentk` reports it as Terminated |                             N                             |  Terminated   |  Terminated  |          05:02           |         05:04         |
+|   `USER_ACTION` - User terminates the workspace    |                             -                             | Terminated   |   Running    |          05:02           |         05:01         |
+|     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             | Terminated   |   Running    |          05:02           |         05:03         |
+| `AGENT_ACTION` - `agentk` reports it as Terminated |                             N                             | Terminated   | Terminated |          05:02           |         05:04         |
 
 ### desired: Running / actual: Running → desired: Terminated / actual: Failed
 
@@ -114,9 +113,9 @@ Running workspace is terminated by the user which results in a Failed actual sta
 |                     `request`                      | include `config_to_apply` in `workspace_rails_info` response? | `desired_state` | `actual_state` | `desired_state_updated_at` | `responded_to_agent_at` |
 |:------------------------------------------------:|:---------------------------------------------------------:|:-------------:|:------------:|:------------------------:|:---------------------:|
 | `CURRENT_DB_STATE` - Workspace is in Running state |                             -                             |    Running    |   Running    |          05:00           |         05:01         |
-|   `USER_ACTION` - User terminates the workspace    |                             -                             |  Terminated   |   Running    |          05:02           |         05:01         |
-|     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             |  Terminated   |   Running    |          05:02           |         05:03         |
-|   `AGENT_ACTION` - `agentk` reports it as Failed   |                             N                             |  Terminated   |    Failed    |          05:02           |         05:04         |
+|   `USER_ACTION` - User terminates the workspace    |                             -                             | Terminated   |   Running    |          05:02           |         05:01         |
+|     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             | Terminated   |   Running    |          05:02           |         05:03         |
+|   `AGENT_ACTION` - `agentk` reports it as Failed   |                             N                             | Terminated   |    Failed    |          05:02           |         05:04         |
 
 ### desired: Running / actual: Running → desired: Terminated / actual: Error
 
@@ -125,9 +124,9 @@ Running workspace is terminated by the user which results in an Error actual sta
 |                     `request`                      | include `config_to_apply` in `workspace_rails_info` response? | `desired_state` | `actual_state` | `desired_state_updated_at` | `responded_to_agent_at` |
 |:------------------------------------------------:|:---------------------------------------------------------:|:-------------:|:------------:|:------------------------:|:---------------------:|
 | `CURRENT_DB_STATE` - Workspace is in Running state |                             -                             |    Running    |   Running    |          05:00           |         05:01         |
-|   `USER_ACTION` - User terminates the workspace    |                             -                             |  Terminated   |   Running    |          05:02           |         05:01         |
-|     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             |  Terminated   |   Running    |          05:02           |         05:03         |
-|   `AGENT_ACTION` - `agentk` reports it as Error    |                             N                             |  Terminated   |    Error     |          05:02           |         05:04         |
+|   `USER_ACTION` - User terminates the workspace    |                             -                             | Terminated   |   Running    |          05:02           |         05:01         |
+|     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             | Terminated   |   Running    |          05:02           |         05:03         |
+|   `AGENT_ACTION` - `agentk` reports it as Error    |                             N                             | Terminated   |    Error     |          05:02           |         05:04         |
 
 ### desired: Stopped / actual: Stopped → desired: Running / actual: Running
 
@@ -138,8 +137,8 @@ Stopped workspace is started by the user which results in a Running actual state
 | `CURRENT_DB_STATE` - Workspace is in Stopped state |                             -                             |    Stopped    |   Stopped    |          05:00           |         05:01         |
 |     `USER_ACTION` - User starts the workspace      |                             -                             |    Running    |   Stopped    |          05:02           |         05:01         |
 |     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             |    Running    |   Stopped    |          05:02           |         05:03         |
-|  `AGENT_ACTION` - `agentk` reports it as Starting  |                             N                             |    Running    |   Starting   |          05:02           |         05:04         |
-|  `AGENT_ACTION` - `agentk` reports it as Running   |                             N                             |    Running    |   Running    |          05:02           |         05:05         |
+| `AGENT_ACTION` - `agentk` reports it as Starting |                             N                             |    Running    |   Starting   |          05:02           |         05:04         |
+| `AGENT_ACTION` - `agentk` reports it as Running   |                             N                             |    Running    |   Running    |          05:02           |         05:05         |
 
 ### desired: Stopped / actual: Stopped → desired: Running / actual: Failed
 
@@ -150,7 +149,7 @@ Stopped workspace is started by the user which results in a Failed actual state 
 | `CURRENT_DB_STATE` - Workspace is in Stopped state |                             -                             |    Stopped    |   Stopped    |          05:00           |         05:01         |
 |     `USER_ACTION` - User starts the workspace      |                             -                             |    Running    |   Stopped    |          05:02           |         05:01         |
 |     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             |    Running    |   Stopped    |          05:02           |         05:03         |
-|  `AGENT_ACTION` - `agentk` reports it as Starting  |                             N                             |    Running    |   Starting   |          05:02           |         05:04         |
+| `AGENT_ACTION` - `agentk` reports it as Starting |                             N                             |    Running    |   Starting   |          05:02           |         05:04         |
 |   `AGENT_ACTION` - `agentk` reports it as Failed   |                             N                             |    Running    |    Failed    |          05:02           |         05:05         |
 
 ### desired: Stopped / actual: Stopped → desired: Running / actual: Error
@@ -171,9 +170,9 @@ Stopped workspace is terminated by the user which results in a Terminated actual
 |                     `request`                      | include `config_to_apply` in `workspace_rails_info` response? | `desired_state` | `actual_state` | `desired_state_updated_at` | `responded_to_agent_at` |
 |:------------------------------------------------:|:---------------------------------------------------------:|:-------------:|:------------:|:------------------------:|:---------------------:|
 | `CURRENT_DB_STATE` - Workspace is in Stopped state |                             -                             |    Stopped    |   Stopped    |          05:00           |         05:01         |
-|   `USER_ACTION` - User terminates the workspace    |                             -                             |  Terminated   |   Stopped    |          05:02           |         05:01         |
-|     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             |  Terminated   |   Stopped    |          05:02           |         05:03         |
-| `AGENT_ACTION` - `agentk` reports it as Terminated |                             N                             |  Terminated   |  Terminated  |          05:02           |         05:04         |
+|   `USER_ACTION` - User terminates the workspace    |                             -                             | Terminated   |   Stopped    |          05:02           |         05:01         |
+|     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             | Terminated   |   Stopped    |          05:02           |         05:03         |
+| `AGENT_ACTION` - `agentk` reports it as Terminated |                             N                             | Terminated   | Terminated |          05:02           |         05:04         |
 
 ### desired: Stopped / actual: Stopped → desired: Terminated / actual: Failed
 
@@ -182,9 +181,9 @@ Stopped workspace is terminated by the user which results in a Failed actual sta
 |                     `request`                      | include `config_to_apply` in `workspace_rails_info` response? | `desired_state` | `actual_state` | `desired_state_updated_at` | `responded_to_agent_at` |
 |:------------------------------------------------:|:---------------------------------------------------------:|:-------------:|:------------:|:------------------------:|:---------------------:|
 | `CURRENT_DB_STATE` - Workspace is in Stopped state |                             -                             |    Stopped    |   Stopped    |          05:00           |         05:01         |
-|   `USER_ACTION` - User terminates the workspace    |                             -                             |  Terminated   |   Stopped    |          05:02           |         05:01         |
-|     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             |  Terminated   |   Stopped    |          05:02           |         05:03         |
-|   `AGENT_ACTION` - `agentk` reports it as Failed   |                             N                             |  Terminated   |    Failed    |          05:02           |         05:04         |
+|   `USER_ACTION` - User terminates the workspace    |                             -                             | Terminated   |   Stopped    |          05:02           |         05:01         |
+|     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             | Terminated   |   Stopped    |          05:02           |         05:03         |
+|   `AGENT_ACTION` - `agentk` reports it as Failed   |                             N                             | Terminated   |    Failed    |          05:02           |         05:04         |
 
 ### desired: Stopped / actual: Stopped → desired: Terminated / actual: Error
 
@@ -193,9 +192,9 @@ Stopped workspace is terminated by the user which results in an Error actual sta
 |                     `request`                      | include `config_to_apply` in `workspace_rails_info` response? | `desired_state` | `actual_state` | `desired_state_updated_at` | `responded_to_agent_at` |
 |:------------------------------------------------:|:---------------------------------------------------------:|:-------------:|:------------:|:------------------------:|:---------------------:|
 | `CURRENT_DB_STATE` - Workspace is in Stopped state |                             -                             |    Stopped    |   Stopped    |          05:00           |         05:01         |
-|   `USER_ACTION` - User terminates the workspace    |                             -                             |  Terminated   |   Stopped    |          05:02           |         05:01         |
-|     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             |  Terminated   |   Stopped    |          05:02           |         05:03         |
-|   `AGENT_ACTION` - `agentk` reports it as Error    |                             N                             |  Terminated   |    Error     |          05:02           |         05:04         |
+|   `USER_ACTION` - User terminates the workspace    |                             -                             | Terminated   |   Stopped    |          05:02           |         05:01         |
+|     `AGENT_ACTION` - `agentk` reports no info      |                             Y                             | Terminated   |   Stopped    |          05:02           |         05:03         |
+|   `AGENT_ACTION` - `agentk` reports it as Error    |                             N                             | Terminated   |    Error     |          05:02           |         05:04         |
 
 ### desired: Running / actual: Failed → desired: Running / actual: Running
 
@@ -204,8 +203,8 @@ Failed workspace becomes ready which results in a Running actual state (for exam
 |                     `request`                     | include `config_to_apply` in `workspace_rails_info` response? | `desired_state` | `actual_state` | `desired_state_updated_at` | `responded_to_agent_at` |
 |:-----------------------------------------------:|:---------------------------------------------------------:|:-------------:|:------------:|:------------------------:|:---------------------:|
 | `CURRENT_DB_STATE` - Workspace is in Failed state |                             -                             |    Running    |    Failed    |          05:00           |         05:01         |
-| `AGENT_ACTION` - `agentk` reports it as Starting  |                             N                             |    Running    |   Starting   |          05:00           |         05:02         |
-|  `AGENT_ACTION` - `agentk` reports it as Running  |                             N                             |    Running    |   Running    |          05:00           |         05:03         |
+| `AGENT_ACTION` - `agentk` reports it as Starting |                             N                             |    Running    |   Starting   |          05:00           |         05:02         |
+| `AGENT_ACTION` - `agentk` reports it as Running |                             N                             |    Running    |   Running    |          05:00           |         05:03         |
 
 ### desired: Running / actual: Failed → desired: Stopped / actual: Stopped
 
@@ -216,8 +215,8 @@ Failed workspace is stopped by the user which results in a Stopped actual state.
 | `CURRENT_DB_STATE` - Workspace is in Failed state |                             -                             |    Running    |    Failed    |          05:00           |         05:01         |
 |     `USER_ACTION` - User stops the workspace      |                             -                             |    Stopped    |    Failed    |          05:02           |         05:01         |
 |     `AGENT_ACTION` - `agentk` reports no info     |                             Y                             |    Stopped    |    Failed    |          05:02           |         05:03         |
-| `AGENT_ACTION` - `agentk` reports it as Stopping  |                             N                             |    Stopped    |   Stopping   |          05:02           |         05:04         |
-|  `AGENT_ACTION` - `agentk` reports it as Stopped  |                             N                             |    Stopped    |   Stopped    |          05:02           |         05:05         |
+| `AGENT_ACTION` - `agentk` reports it as Stopping |                             N                             |    Stopped    |   Stopping   |          05:02           |         05:04         |
+| `AGENT_ACTION` - `agentk` reports it as Stopped |                             N                             |    Stopped    |   Stopped    |          05:02           |         05:05         |
 
 ### desired: Running / actual: Failed → desired: Stopped / actual: Failed
 
@@ -228,7 +227,7 @@ Failed workspace is stopped by the user which results in a Failed actual state (
 | `CURRENT_DB_STATE` - Workspace is in Failed state |                             -                             |    Running    |    Failed    |          05:00           |         05:01         |
 |     `USER_ACTION` - User stops the workspace      |                             -                             |    Stopped    |    Failed    |          05:02           |         05:01         |
 |     `AGENT_ACTION` - `agentk` reports no info     |                             Y                             |    Stopped    |    Failed    |          05:02           |         05:03         |
-|  `AGENT_ACTION` - `agentk` reports it as Failed   |                             N                             |    Stopped    |    Failed    |          05:02           |         05:04         |
+| `AGENT_ACTION` - `agentk` reports it as Failed   |                             N                             |    Stopped    |    Failed    |          05:02           |         05:04         |
 
 ### desired: Running / actual: Failed → desired: Stopped / actual: Error
 
@@ -259,9 +258,9 @@ Failed workspace is terminated by the user which results in a Failed actual stat
 |                     `request`                     | include `config_to_apply` in `workspace_rails_info` response? | `desired_state` | `actual_state` | `desired_state_updated_at` | `responded_to_agent_at` |
 |:-----------------------------------------------:|:---------------------------------------------------------:|:-------------:|:------------:|:------------------------:|:---------------------:|
 | `CURRENT_DB_STATE` - Workspace is in Failed state |                             -                             |    Running    |    Failed    |          05:00           |         05:01         |
-|   `USER_ACTION` - User terminates the workspace   |                             -                             |  Terminated   |    Failed    |          05:02           |         05:01         |
-|     `AGENT_ACTION` - `agentk` reports no info     |                             Y                             |  Terminated   |    Failed    |          05:02           |         05:03         |
-|  `AGENT_ACTION` - `agentk` reports it as Failed   |                             N                             |  Terminated   |    Failed    |          05:02           |         05:04         |
+|   `USER_ACTION` - User terminates the workspace   |                             -                             | Terminated   |    Failed    |          05:02           |         05:01         |
+|     `AGENT_ACTION` - `agentk` reports no info     |                             Y                             | Terminated   |    Failed    |          05:02           |         05:03         |
+| `AGENT_ACTION` - `agentk` reports it as Failed   |                             N                             | Terminated   |    Failed    |          05:02           |         05:04         |
 
 ### desired: Running / actual: Failed → desired: Terminated / actual: Error
 
@@ -270,9 +269,9 @@ Failed workspace is terminated by the user which results in an Error actual stat
 |                     `request`                     | include `config_to_apply` in `workspace_rails_info` response? | `desired_state` | `actual_state` | `desired_state_updated_at` | `responded_to_agent_at` |
 |:-----------------------------------------------:|:---------------------------------------------------------:|:-------------:|:------------:|:------------------------:|:---------------------:|
 | `CURRENT_DB_STATE` - Workspace is in Failed state |                             -                             |    Running    |    Failed    |          05:00           |         05:01         |
-|   `USER_ACTION` - User terminates the workspace   |                             -                             |  Terminated   |    Failed    |          05:02           |         05:01         |
-|     `AGENT_ACTION` - `agentk` reports no info     |                             Y                             |  Terminated   |    Failed    |          05:02           |         05:03         |
-|   `AGENT_ACTION` - `agentk` reports it as Error   |                             N                             |  Terminated   |    Error     |          05:02           |         05:04         |
+|   `USER_ACTION` - User terminates the workspace   |                             -                             | Terminated   |    Failed    |          05:02           |         05:01         |
+|     `AGENT_ACTION` - `agentk` reports no info     |                             Y                             | Terminated   |    Failed    |          05:02           |         05:03         |
+|   `AGENT_ACTION` - `agentk` reports it as Error   |                             N                             | Terminated   |    Error     |          05:02           |         05:04         |
 
 ### desired: Running / actual: Error → desired: Stopped / actual: Error
 
@@ -287,9 +286,9 @@ This transition might not be allowed.
 |                     `request`                     | include `config_to_apply` in `workspace_rails_info` response? | `desired_state` | `actual_state` | `desired_state_updated_at` | `responded_to_agent_at` |
 |:-----------------------------------------------:|:---------------------------------------------------------:|:-------------:|:------------:|:------------------------:|:---------------------:|
 | `CURRENT_DB_STATE` - Workspace is in Failed state |                             -                             |    Running    |    Failed    |          05:00           |         05:01         |
-|   `USER_ACTION` - User terminates the workspace   |                             -                             |  Terminated   |    Failed    |          05:02           |         05:01         |
-|     `AGENT_ACTION` - `agentk` reports no info     |                             Y                             |  Terminated   |    Failed    |          05:02           |         05:03         |
-|   `AGENT_ACTION` - `agentk` reports it as Error   |                             N                             |  Terminated   |    Error     |          05:02           |         05:04         |
+|   `USER_ACTION` - User terminates the workspace   |                             -                             | Terminated   |    Failed    |          05:02           |         05:01         |
+|     `AGENT_ACTION` - `agentk` reports no info     |                             Y                             | Terminated   |    Failed    |          05:02           |         05:03         |
+|   `AGENT_ACTION` - `agentk` reports it as Error   |                             N                             | Terminated   |    Error     |          05:02           |         05:04         |
 
 ### desired: Running / actual: Error → desired: Terminated / actual: Error
 
@@ -304,9 +303,9 @@ This transition might not be allowed. Further evaluation is needed to determine 
 |                     `request`                     | include `config_to_apply` in `workspace_rails_info` response? | `desired_state` | `actual_state` | `desired_state_updated_at` | `responded_to_agent_at` |
 |:-----------------------------------------------:|:---------------------------------------------------------:|:-------------:|:------------:|:------------------------:|:---------------------:|
 | `CURRENT_DB_STATE` - Workspace is in Failed state |                             -                             |    Running    |    Failed    |          05:00           |         05:01         |
-|   `USER_ACTION` - User terminates the workspace   |                             -                             |  Terminated   |    Failed    |          05:02           |         05:01         |
-|     `AGENT_ACTION` - `agentk` reports no info     |                             Y                             |  Terminated   |    Failed    |          05:02           |         05:03         |
-|   `AGENT_ACTION` - `agentk` reports it as Error   |                             N                             |  Terminated   |    Error     |          05:02           |         05:04         |
+|   `USER_ACTION` - User terminates the workspace   |                             -                             | Terminated   |    Failed    |          05:02           |         05:01         |
+|     `AGENT_ACTION` - `agentk` reports no info     |                             Y                             | Terminated   |    Failed    |          05:02           |         05:03         |
+|   `AGENT_ACTION` - `agentk` reports it as Error   |                             N                             | Terminated   |    Error     |          05:02           |         05:04         |
 
 ## Other scenarios
 
@@ -325,14 +324,14 @@ Details of the scenario:
 | `CURRENT_DB_STATE` - Workspace is in Running state |                             -                             |    Running    |   Running    |          05:00           |         05:01         |
 |      `USER_ACTION` - User stops the workspace      |                             -                             |    Stopped    |   Running    |          05:02           |         05:01         |
 |   `AGENT_ACTION` - `agentk` reports it as Failed   |                             Y                             |    Stopped    |    Failed    |          05:02           |         05:03         |
-|  `AGENT_ACTION` - `agentk` reports it as Stopping  |                             N                             |    Stopped    |   Stopping   |          05:02           |         05:04         |
-|  `AGENT_ACTION` - `agentk` reports it as Stopped   |                             N                             |    Stopped    |   Stopped    |          05:02           |         05:05         |
+| `AGENT_ACTION` - `agentk` reports it as Stopping |                             N                             |    Stopped    |   Stopping   |          05:02           |         05:04         |
+| `AGENT_ACTION` - `agentk` reports it as Stopped   |                             N                             |    Stopped    |   Stopped    |          05:02           |         05:05         |
 
 ### Restarting a workspace
 
 Running workspace is restarted by the user which results in a Running actual state.
 
-|                                            `request`                                            | include `config_to_apply` in `workspace_rails_info` response? |  `desired_state`   | `actual_state` | `desired_state_updated_at` | `responded_to_agent_at` |
+|                                            `request`                                            | include `config_to_apply` in `workspace_rails_info` response? | `desired_state`   | `actual_state` | `desired_state_updated_at` | `responded_to_agent_at` |
 |:---------------------------------------------------------------------------------------------:|:---------------------------------------------------------:|:----------------:|:------------:|:------------------------:|:---------------------:|
 |                       `CURRENT_DB_STATE` - Workspace is in Running state                        |                             -                             |     Running      |   Running    |          05:00           |         05:01         |
 |                                  User restarts the workspace                                  |                             -                             | RestartRequested |   Running    |          05:02           |         05:01         |

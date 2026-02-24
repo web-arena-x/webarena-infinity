@@ -36,8 +36,7 @@ There are typically four kinds of online solutions for property managers: mobile
 
 **Cloud Computing:** Remember when you had to store data on large external hard drives? Now Google and other online services offer tech infrastructure in the cloud that you can rent, allowing you to free up space and keep everybody in synch, for much less money.
 
-guide
-[How to Choose the Right Property Management Software](https://www.buildium.com/resource/how-to-choose-property-management-software/)
+guide [How to Choose the Right Property Management Software](https://www.buildium.com/resource/how-to-choose-property-management-software/)
 
 ## Mobile Property Management: 7 Ways to Up Your Game
 

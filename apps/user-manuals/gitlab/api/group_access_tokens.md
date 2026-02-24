@@ -36,7 +36,7 @@ GET /groups/:id/access_tokens?state=inactive
 | `created_before`   | datetime (ISO 8601) | No       | If defined, returns tokens created before the specified time. |
 | `expires_after`    | date (ISO 8601)     | No       | If defined, returns tokens that expire after the specified time. |
 | `expires_before`   | date (ISO 8601)     | No       | If defined, returns tokens that expire before the specified time. |
-| `last_used_after`  | datetime (ISO 8601) | No       | If defined, returns tokens last used after the specified time. |
+| `last_used_after` | datetime (ISO 8601) | No       | If defined, returns tokens last used after the specified time. |
 | `last_used_before` | datetime (ISO 8601) | No       | If defined, returns tokens last used before the specified time. |
 | `revoked`          | boolean             | No       | If `true`, only returns revoked tokens. |
 | `search`           | string              | No       | If defined, returns tokens that include the specified value in the name. |
@@ -45,8 +45,8 @@ GET /groups/:id/access_tokens?state=inactive
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/<group_id>/access_tokens"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/<group_id>/access_tokens"
 ```
 
 ```json
@@ -92,15 +92,15 @@ Gets details on a group access token.
 GET /groups/:id/access_tokens/:token_id
 ```
 
-| Attribute  | Type              | required | Description |
+| Attribute | Type              | required | Description |
 | ---------- | ----------------- | -------- | ----------- |
 | `id`       | integer or string | yes      | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of a group. |
 | `token_id` | integer or string | yes      | ID |
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/<group_id>/access_tokens/<token_id>"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/<group_id>/access_tokens/<token_id>"
 ```
 
 ```json
@@ -142,17 +142,17 @@ POST /groups/:id/access_tokens
 | -------------- | ----------------- | -------- | ----------- |
 | `id`           | integer or string | yes      | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of a group. |
 | `name`         | String            | yes      | Name of the token. |
-| `description`  | string            | no       | Description of the group access token. Maximum: 255 characters. |
+| `description` | string            | no       | Description of the group access token. Maximum: 255 characters. |
 | `scopes`       | `Array[String]`   | yes      | List of [scopes](../user/group/settings/group_access_tokens.md#scopes-for-a-group-access-token) available to the token. |
 | `access_level` | Integer           | no       | Role for the token. Possible values: `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), and `50` (Owner). Default value: `40`. |
 | `expires_at`   | date              | no       | Expiration date of the access token in ISO format (`YYYY-MM-DD`). If undefined, the date is set to the [maximum allowable lifetime limit](../user/profile/personal_access_tokens.md#access-token-expiration). |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type:application/json" \
-  --data '{ "name":"test_token", "scopes":["api", "read_repository"], "expires_at":"2021-01-31", "access_level": 30 }' \
-  --url "https://gitlab.example.com/api/v4/groups/<group_id>/access_tokens"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type:application/json" \
+ --data '{ "name":"test_token", "scopes":["api", "read_repository"], "expires_at":"2021-01-31", "access_level": 30 }' \
+ --url "https://gitlab.example.com/api/v4/groups/<group_id>/access_tokens"
 ```
 
 ```json
@@ -185,8 +185,7 @@ curl --request POST \
 
 Rotates a group access token. This immediately revokes the previous token and creates a new token. Generally, this endpoint rotates a specific group access token by authenticating with a personal access token. You can also use a group access token to rotate itself. For more information, see [Self-rotate](#self-rotate).
 
-If you attempt to use this endpoint to rotate a token that was previously revoked, any active tokens from the same
-token family are revoked. For more information, see [Automatic reuse detection](personal_access_tokens.md#automatic-reuse-detection).
+If you attempt to use this endpoint to rotate a token that was previously revoked, any active tokens from the same token family are revoked. For more information, see [Automatic reuse detection](personal_access_tokens.md#automatic-reuse-detection).
 
 Prerequisites:
 
@@ -205,8 +204,8 @@ POST /groups/:id/access_tokens/:token_id/rotate
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/<group_id>/access_tokens/<token_id>/rotate"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/<group_id>/access_tokens/<token_id>/rotate"
 ```
 
 Example response:
@@ -234,11 +233,11 @@ Other possible responses:
 
 - `400: Bad Request` if not rotated successfully.
 - `401: Unauthorized` if any of the following conditions are true:
-  - The token does not exist.
-  - The token has expired.
-  - The token was revoked.
-  - You do not have access to the specified token.
-  - You're using a group access token to rotate another group access token. See [Self-rotate](#self-rotate) instead.
+ - The token does not exist.
+ - The token has expired.
+ - The token was revoked.
+ - You do not have access to the specified token.
+ - You're using a group access token to rotate another group access token. See [Self-rotate](#self-rotate) instead.
 - `403: Forbidden` if the token is not allowed to rotate itself.
 - `404: Not Found` if the user is an administrator but the token does not exist.
 - `405: Method Not Allowed` if the token is not an access token.
@@ -254,8 +253,8 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_group_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/<group_id>/access_tokens/self/rotate"
+ --header "PRIVATE-TOKEN: <your_group_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/<group_id>/access_tokens/self/rotate"
 ```
 
 ## Revoke a group access token
@@ -266,15 +265,15 @@ Revokes a specified group access token.
 DELETE /groups/:id/access_tokens/:token_id
 ```
 
-| Attribute  | Type              | required | Description |
+| Attribute | Type              | required | Description |
 | ---------- | ----------------- | -------- | ----------- |
 | `id`       | integer or string | yes      | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of a group. |
 | `token_id` | integer           | yes      | ID of a group access token. |
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/<group_id>/access_tokens/<token_id>"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/<group_id>/access_tokens/<token_id>"
 ```
 
 If successful, returns `204 No content`.

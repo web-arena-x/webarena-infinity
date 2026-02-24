@@ -11,9 +11,9 @@ Contacts that are archived won’t appear as options where contacts are normally
 Table of Contents:
 
 - [Archiving a Contact (Current Workflows)](#h_01H914JGHW9KKVQMMVSEGENQRT)
-  - Bulk Archiving Contacts
+ - Bulk Archiving Contacts
     - Bulk Unarchiving Contacts
-  - Archiving Individual Contacts
+ - Archiving Individual Contacts
     - Unarchiving Individual Contacts
 - [Deleting a Contact (Current Workflow)](#h_01F0VPSX09HBAHW5N4E2S9CMMP)
 - [Archiving a Contact (Historical Workflow)](#h_01H9K7X9BJW7VWP53HMRB0715D)
@@ -66,8 +66,8 @@ A pop up box will display, asking if you want to confirm unarchiving this many c
 
 ![Unarchive confirmation pop up.png](https://support.joinhandshake.com/hc/article_attachments/26908414349975)
 
-After unarchiving the contacts, a message will appear at the top of the screen:  
-  
+After unarchiving the contacts, a message will appear at the top of the screen: 
+ 
 *Contacts are being unarchived. It may take a few minutes for your contacts to update.*
 
 Refresh the page after a few minutes, and you will notice that the contacts you selected have been moved to the **Active** tab.
@@ -113,7 +113,7 @@ This is the historical workflow that uses labels
 Using labels ensures that the contact entry remains intact and in place on any historical content (i.e. fair registrations, events, etc.), maintaining the integrity of related reporting.
 
 - This workflow only impacts your institution's contact entry, not the employer's user account.
-  - If an employer's user account needs to be deactivated instead, this must be done by the company's Owner or Admin – you're welcome to share the following article with them for steps [How to Deactivate or Reinstate Teammate Accounts](https://support.joinhandshake.com/hc/en-us/articles/360000287728).
+ - If an employer's user account needs to be deactivated instead, this must be done by the company's Owner or Admin – you're welcome to share the following article with them for steps [How to Deactivate or Reinstate Teammate Accounts](https://support.joinhandshake.com/hc/en-us/articles/360000287728).
 
 If you'd like to implement and use this workflow, your Career Services team should do the following:
 
@@ -145,20 +145,20 @@ After adding the label to appropriate contacts, your staff can use the filter **
 
 On the Contacts page:
 
-- Click on **All Filters**, located in the top of the page, above the Contacts list.  
+- Click on **All Filters**, located in the top of the page, above the Contacts list. 
     
-  ![All Filters button on Contacts list page.png](https://support.joinhandshake.com/hc/article_attachments/26908414355351)
+ ![All Filters button on Contacts list page.png](https://support.joinhandshake.com/hc/article_attachments/26908414355351)
 - Click below **Not Labels** in the sidesheet to search for the label you would like to not appear in the Contacts list.
 
 ![Not Labels in All Filters sidesheet.png](https://support.joinhandshake.com/hc/article_attachments/26908430622999)
 
 - Once selected, click **Apply** and the list will auto-refresh to only display contacts *without* the designated label.
-  - **Tip**: if there's a view that your staff uses frequently, create a Saved Search with pre-set filters to save time later! For the steps, check out [Create a Saved Search](https://support.joinhandshake.com/hc/en-us/articles/219132657).
+ - **Tip**: if there's a view that your staff uses frequently, create a Saved Search with pre-set filters to save time later! For the steps, check out [Create a Saved Search](https://support.joinhandshake.com/hc/en-us/articles/219132657).
 - From here, your staff can proceed with other filters and activities as normal!
 
 In a Targeted Email:
 
 - In a Targeted Email draft, Step 3: Select Recipients, click on **Contacts** as normal, then scroll down the list of filters on the left of the page to **Not Labels**, and check the box next to the relevant label name.
-  - If it's not appearing in the list, use the **+Add Not Labels** text box for a keyword search. ![Contacts not label filter in targeted email.png](https://support.joinhandshake.com/hc/article_attachments/26908430624407)
+ - If it's not appearing in the list, use the **+Add Not Labels** text box for a keyword search. ![Contacts not label filter in targeted email.png](https://support.joinhandshake.com/hc/article_attachments/26908430624407)
 - Once selected, the recipients list will auto-refresh to only display contacts *without* the designated label.
-  - **Note**: the recipient list is dynamic, so if the email is scheduled to be sent another date/time, the recipients list will include contacts that meet the selected criteria *at the time the email is actually sent*.
+ - **Note**: the recipient list is dynamic, so if the email is scheduled to be sent another date/time, the recipients list will include contacts that meet the selected criteria *at the time the email is actually sent*.

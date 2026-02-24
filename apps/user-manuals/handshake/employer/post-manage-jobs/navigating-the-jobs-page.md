@@ -12,7 +12,7 @@ You may also be able to manage jobs or download applicant data, depending on you
 
 - **Basic employers:** **Owners** and **Recruiters** can only manage, edit, or download data for jobs they have personally created. Jobs posted by other teammates will appear on your list, but are **view-only**.
 
-  - To gain full access to manage all jobs and download data, you must upgrade to an eligible paid plan.
+ - To gain full access to manage all jobs and download data, you must upgrade to an eligible paid plan.
 - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**, can manage, edit, or download data for both their own jobs and those posted by teammates, provided they have the appropriate permissions.
 
 Features available to Premium partners only are indicated by an asterisk (\*). *For more information, please check out this* [*resource*](https://joinhandshake.com/employers/products/premium/talent-engagement-suite/).
@@ -47,7 +47,7 @@ Jobs that would benefit from an action are highlighted at the top of the page, a
 - Basic employers are directed to invite matches or upgrade jobs.
 - Plus employers are directed to invite matches, upgrade jobs, automate or manage outreach, or review applicants.
 - **\***Essential and TES customers are directed to invite matches or send a campaign.
-  - The **Create a campaign** button is only visible to users with the roles of Sourcer, Admin, or Owner, and who have the permission to manage campaigns.
+ - The **Create a campaign** button is only visible to users with the roles of Sourcer, Admin, or Owner, and who have the permission to manage campaigns.
 
 **Note**: The yellow, oval-shaped button indicates that the job posting has 5 or fewer applications.
 
@@ -64,20 +64,20 @@ A set of filters is located at the top of the Jobs table, allowing you to refine
 You can filter jobs by the following criteria:
 
 - **Keyword search**
-  - Search by ID number or title
+ - Search by ID number or title
 - **Owner**
-  - Jobs owned by you
-  - Jobs owned by others
+ - Jobs owned by you
+ - Jobs owned by others
 - **Division**
-  - The divisions your company has created in Handshake, sorted by the number of postings they were linked to in descending order.
-  - **Note**: This option is only displayed if the company owner has set up divisions.
+ - The divisions your company has created in Handshake, sorted by the number of postings they were linked to in descending order.
+ - **Note**: This option is only displayed if the company owner has set up divisions.
 - **Status**
-  - **Active**
+ - **Active**
     - Jobs that are pending or approved.
     - **Note**: This filter is selected by default. To view all jobs, including those with a future apply start date, deselect this option.
-  - **Not Posted**
+ - **Not Posted**
     - Jobs whose job form has been completed but not yet posted to any schools.
-  - **Closed**
+ - **Closed**
     - Jobs that have been previously approved at a school and the closing date has passed.
 
 ![Jobs filters.png](https://support.joinhandshake.com/hc/article_attachments/38331229399191)

@@ -16,8 +16,8 @@ Before trying specific fixes, your first goal is to determine the source of the 
 
 Perform this quick diagnostic to guide you to the correct set of solutions:
 
-- **Try a different web browser** (e.g., if you use Chrome, try Firefox or Edge).  
-  OR
+- **Try a different web browser** (e.g., if you use Chrome, try Firefox or Edge). 
+ OR
 - **Open the page in an incognito or private window** in your current browser.
 
 #### Analyze the Result

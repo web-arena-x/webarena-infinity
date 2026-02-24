@@ -12,8 +12,7 @@ title: Manage epics
 
 {{< /details >}}
 
-This page collects instructions for all the things you can do with [epics](_index.md) or in relation
-to them.
+This page collects instructions for all the things you can do with [epics](_index.md) or in relation to them.
 
 ## Create an epic
 
@@ -51,12 +50,8 @@ The newly created epic opens.
 
 If you select **Inherited**:
 
-- For the **start date**: GitLab scans all child epics and issues assigned to the epic,
-  and sets the start date to match the earliest start date found in the child epics or the milestone
-  assigned to the child items.
-- For the **due date**: GitLab scans all child epics and issues assigned to the epic,
-  and sets the due date to match the latest due date found in the child epics or the milestone
-  assigned to the child items.
+- For the **start date**: GitLab scans all child epics and issues assigned to the epic, and sets the start date to match the earliest start date found in the child epics or the milestone assigned to the child items.
+- For the **due date**: GitLab scans all child epics and issues assigned to the epic, and sets the due date to match the latest due date found in the child epics or the milestone assigned to the child items.
 
 These dates are dynamic and recalculated if any of the following occur:
 
@@ -114,10 +109,8 @@ When you view an epic that has a list in the description, you can also reorder t
 
 Prerequisites:
 
-- You must have at least the Planner role for the project, be the author of the epic, or be
-  assigned to the epic.
-- The epic's description must have an [ordered, unordered](../../markdown.md#lists), or
-  [task](../../markdown.md#task-lists) list.
+- You must have at least the Planner role for the project, be the author of the epic, or be assigned to the epic.
+- The epic's description must have an [ordered, unordered](../../markdown.md#lists), or [task](../../markdown.md#task-lists) list.
 
 To reorder list items, when viewing an epic:
 
@@ -220,8 +213,7 @@ An epic can be assigned to one or more users.
 The assignees can be changed as often as needed.
 The idea is that the assignees are people responsible for the epic.
 
-If a user is not a member of a group, an epic can only be assigned to them if another group member
-assigns them.
+If a user is not a member of a group, an epic can only be assigned to them if another group member assigns them.
 
 ### Change assignee on an epic
 
@@ -358,8 +350,7 @@ To do so, either:
 - In the upper-right corner, select **More actions** ({{< icon name="ellipsis_v" >}}) and then **Reopen epic**.
 - Use the [`/reopen` quick action](../../project/quick_actions.md#reopen).
 
-You can also create an epic by
-[promoting an issue](../../project/issues/managing_issues.md#promote-an-issue-to-an-epic).
+You can also create an epic by [promoting an issue](../../project/issues/managing_issues.md#promote-an-issue-to-an-epic).
 
 ## Go to an epic from an issue
 
@@ -371,15 +362,14 @@ If an issue belongs to an epic, you can go to the parent epic from:
 ## View epics list
 
 In a group, the left sidebar displays the total count of open epics.
-This number indicates all epics associated with the group and its subgroups, including epics you
-might not have permission to view.
+This number indicates all epics associated with the group and its subgroups, including epics you might not have permission to view.
 
 Prerequisites:
 
 - You must be a member of either:
-  - The group
-  - A project in the group
-  - A project in one of the group's subgroups
+ - The group
+ - A project in the group
+ - A project in one of the group's subgroups
 
 To view epics in a group:
 
@@ -396,13 +386,11 @@ To set which attributes are shown for epics on the epics list, [configure displa
 
 {{< /history >}}
 
-Whether you can view an epic depends on the [group visibility level](../../public_access.md) and
-the epic's [confidentiality status](#make-an-epic-confidential):
+Whether you can view an epic depends on the [group visibility level](../../public_access.md) and the epic's [confidentiality status](#make-an-epic-confidential):
 
 - Public group and a non-confidential epic: Anyone can view the epic.
 - Private group and non-confidential epic: You must have at least the Guest role for the group, or be a member of a project in the group or one of its subgroups.
-- Confidential epic (regardless of group visibility): You must have at least the Planner
-  role for the group.
+- Confidential epic (regardless of group visibility): You must have at least the Planner role for the group.
 
 ### Open epics in a drawer
 
@@ -429,18 +417,17 @@ When using the drawer:
 To open an epic in the full page view:
 
 - Open the epic in a new tab. From the list of epics, either:
-  - Right-click the epic and open it in a new browser tab.
-  - Hold <kbd>Command</kbd> or <kbd>Control</kbd> and select the epic.
+ - Right-click the epic and open it in a new browser tab.
+ - Hold <kbd>Command</kbd> or <kbd>Control</kbd> and select the epic.
 - Select an epic, and from the drawer, either:
-  - In the upper-left corner, select the issue reference, for example `my_project#123`.
-  - In the upper-right corner, select **Open in full page** ({{< icon name="maximize" >}}).
+ - In the upper-left corner, select the issue reference, for example `my_project#123`.
+ - In the upper-right corner, select **Open in full page** ({{< icon name="maximize" >}}).
 
 To always open issues in full page view, see [set preference whether to open items in a drawer](../../work_items/_index.md#configure-list-display-preferences).
 
 ### Cached epic count
 
-The total count of open epics displayed in the sidebar is cached if higher
-than 1000. The cached value is rounded to thousands or millions and updated every 24 hours.
+The total count of open epics displayed in the sidebar is cached if higher than 1000. The cached value is rounded to thousands or millions and updated every 24 hours.
 
 ## Filter the list of epics
 
@@ -487,8 +474,7 @@ You can use the OR operator (**is one of: `||`**) when you [filter the list of e
 - Authors
 - Labels
 
-`is one of` represents an inclusive OR. For example, if you filter by `Label is one of Deliverable` and
-`Label is one of UX`, GitLab shows epics with either `Deliverable`, `UX`, or both labels.
+`is one of` represents an inclusive OR. For example, if you filter by `Label is one of Deliverable` and `Label is one of UX`, GitLab shows epics with either `Deliverable`, `UX`, or both labels.
 
 ## Sort the list of epics
 
@@ -506,17 +492,13 @@ You can sort the epics list by:
 - Blocking
 
 Each option contains a button that can toggle the order between **Ascending** and **Descending**.
-The sort option and order is saved and used wherever you browse epics, including the
-[Roadmap](../roadmap/_index.md).
+The sort option and order is saved and used wherever you browse epics, including the [Roadmap](../roadmap/_index.md).
 
 ## Change activity sort order
 
-You can reverse the default order and interact with the activity feed sorted by most recent items
-at the top. Your preference is saved in local storage and automatically applied to every epic and issue
-you view.
+You can reverse the default order and interact with the activity feed sorted by most recent items at the top. Your preference is saved in local storage and automatically applied to every epic and issue you view.
 
-To change the activity sort order, select the **Oldest first** dropdown list and select either oldest
-or newest items to be shown first.
+To change the activity sort order, select the **Oldest first** dropdown list and select either oldest or newest items to be shown first.
 
 ## Make an epic confidential
 
@@ -560,20 +542,17 @@ You can also see any epics, issues, and tasks inherited by descendant items.
 Only epics, issues, and tasks that you can access show on the list.
 
 You can always view the issues assigned to the epic if they are in the group's child project.
-It's possible because the visibility setting of a project must be the same as or less restrictive than
-of its parent group.
+It's possible because the visibility setting of a project must be the same as or less restrictive than of its parent group.
 
 ### View count and weight of issues in an epic
 
-In the **Child items** section header, the number of descendant epics and issues and their total
-weight is displayed. Tasks are not included in these counts.
+In the **Child items** section header, the number of descendant epics and issues and their total weight is displayed. Tasks are not included in these counts.
 
 To see the number of open and closed epics and issues:
 
 - In the section header or under each epic name, hover over the total counts.
 
-The numbers reflect all child issues and epics associated with the epic, including those you might
-not have permission to view.
+The numbers reflect all child issues and epics associated with the epic, including those you might not have permission to view.
 
 ### View epic progress
 
@@ -590,8 +569,7 @@ To see the completed and total weight of child issues:
 
 - In the section header, hover over the percentage.
 
-The weights and progress reflect all issues associated with the epic, including issues you might
-not have permission to view.
+The weights and progress reflect all issues associated with the epic, including issues you might not have permission to view.
 
 ### Health status
 
@@ -661,8 +639,7 @@ For information about viewing participants, see [participants](../../participant
 
 {{< /history >}}
 
-Add an existing issue to an epic, or create a new issue that's automatically
-added to the epic.
+Add an existing issue to an epic, or create a new issue that's automatically added to the epic.
 
 The maximum number of direct child issues and epics is 5000.
 
@@ -672,8 +649,7 @@ You can add existing issues to an epic, including issues in a project from a [di
 Newly added issues appear at the top of the list of issues in the **Child items** section.
 
 An epic contains a list of issues and an issue can be set as a child item of at most one epic.
-When you add a new issue that's already linked to an epic, the issue is automatically unlinked from its
-current parent.
+When you add a new issue that's already linked to an epic, the issue is automatically unlinked from its current parent.
 
 Prerequisites:
 
@@ -685,8 +661,7 @@ To add an existing issue to an epic:
 1. Select **Existing issue**.
 1. Identify the issue to be added, using either of the following methods:
    - Paste the link of the issue.
-   - Search for the desired issue by entering part of the issue's title, then selecting the desired
-     match. Issues from different group hierarchies do not appear in search results.
+   - Search for the desired issue by entering part of the issue's title, then selecting the desired match. Issues from different group hierarchies do not appear in search results.
      To add such an issue, enter its full URL.
 
    If there are multiple issues to be added, press <kbd>Space</kbd> and repeat this step.
@@ -694,14 +669,10 @@ To add an existing issue to an epic:
 
 #### Create an issue from an epic
 
-Creating an issue from an epic enables you to maintain focus on the broader context of the epic
-while dividing work into smaller parts.
+Creating an issue from an epic enables you to maintain focus on the broader context of the epic while dividing work into smaller parts.
 
-You can create a new issue from an epic only in projects that are in the epic's group or one of its
-descendant subgroups.
-To create a new issue in a [project that was shared with the epic's group](../../project/members/sharing_projects_groups.md),
-first [create the issue directly in the project](../../project/issues/create_issues.md#from-a-project), and
-then [add an existing issue to an epic](#add-an-existing-issue-to-an-epic).
+You can create a new issue from an epic only in projects that are in the epic's group or one of its descendant subgroups.
+To create a new issue in a [project that was shared with the epic's group](../../project/members/sharing_projects_groups.md), first [create the issue directly in the project](../../project/issues/create_issues.md#from-a-project), and then [add an existing issue to an epic](#add-an-existing-issue-to-an-epic).
 
 Prerequisites:
 
@@ -757,8 +728,7 @@ To reorder issues assigned to an epic:
 
 {{< /details >}}
 
-New issues appear at the top of the list in the **Child items**
-tab. You can move issues from one epic to another.
+New issues appear at the top of the list in the **Child items** tab. You can move issues from one epic to another.
 
 Prerequisites:
 

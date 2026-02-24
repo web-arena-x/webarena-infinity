@@ -13,8 +13,7 @@ Before investigating specific issues, try these troubleshooting steps:
 1. For S3-backed registries, verify your IAM permissions and S3 credentials (including region) are correct.
    For more information, see the [sample IAM policy](https://distribution.github.io/distribution/storage-drivers/s3/).
 
-1. Check for errors in the registry logs (for example, `/var/log/gitlab/registry/current`) and the GitLab production logs
-   (for example, `/var/log/gitlab/gitlab-rails/production.log`).
+1. Check for errors in the registry logs (for example, `/var/log/gitlab/registry/current`) and the GitLab production logs (for example, `/var/log/gitlab/gitlab-rails/production.log`).
 
 1. Review the NGINX configuration file for the container registry (for example, `/var/opt/gitlab/nginx/conf/gitlab-registry.conf`)
    to confirm which port receives requests.
@@ -45,24 +44,18 @@ Before investigating specific issues, try these troubleshooting steps:
 
 ## Using self-signed certificates with container registry
 
-If you're using a self-signed certificate with your container registry, you
-might encounter issues during the CI jobs like the following:
+If you're using a self-signed certificate with your container registry, you might encounter issues during the CI jobs like the following:
 
 ```plaintext
 Error response from daemon: Get registry.example.com/v1/users/: x509: certificate signed by unknown authority
 ```
 
-The Docker daemon running the command expects a cert signed by a recognized CA,
-thus the previous error.
+The Docker daemon running the command expects a cert signed by a recognized CA, thus the previous error.
 
-While GitLab doesn't support using self-signed certificates with Container
-Registry out of the box, it is possible to make it work by
-[instructing the Docker daemon to trust the self-signed certificates](https://distribution.github.io/distribution/about/insecure/#use-self-signed-certificates),
-mounting the Docker daemon and setting `privileged = false` in the GitLab Runner
-`config.toml` file. Setting `privileged = true` takes precedence over the Docker daemon:
+While GitLab doesn't support using self-signed certificates with Container Registry out of the box, it is possible to make it work by [instructing the Docker daemon to trust the self-signed certificates](https://distribution.github.io/distribution/about/insecure/#use-self-signed-certificates), mounting the Docker daemon and setting `privileged = false` in the GitLab Runner `config.toml` file. Setting `privileged = true` takes precedence over the Docker daemon:
 
 ```toml
-  [runners.docker]
+ [runners.docker]
     image = "ruby:2.6"
     privileged = false
     volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
@@ -95,38 +88,37 @@ kernel/3.10.0-693.2.2.el7.x86_64 os/linux arch/amd64 UpstreamClient(Docker-Clien
 
 (Line breaks added for legibility.)
 
-GitLab uses the contents of the certificate key pair's two sides to encrypt the authentication token
-for the Registry. This message means that those contents do not align.
+GitLab uses the contents of the certificate key pair's two sides to encrypt the authentication token for the Registry. This message means that those contents do not align.
 
 Check which files are in use:
 
 - `grep -A6 'auth:' /var/opt/gitlab/registry/config.yml`
 
-  ```yaml
-  ## Container registry certificate
+ ```yaml
+ ## Container registry certificate
      auth:
        token:
          realm: https://gitlab.my.net/jwt/auth
          service: container_registry
          issuer: omnibus-gitlab-issuer
-    -->  rootcertbundle: /var/opt/gitlab/registry/gitlab-registry.crt
+    --> rootcertbundle: /var/opt/gitlab/registry/gitlab-registry.crt
          autoredirect: false
-  ```
+ ```
 
 - `grep -A9 'Container Registry' /var/opt/gitlab/gitlab-rails/etc/gitlab.yml`
 
-  ```yaml
-  ## Container registry key
+ ```yaml
+ ## Container registry key
      registry:
        enabled: true
        host: gitlab.company.com
        port: 4567
        api_url: http://127.0.0.1:5000 # internal address to the registry, is used by GitLab to directly communicate with API
        path: /var/opt/gitlab/gitlab-rails/shared/registry
-  -->  key: /var/opt/gitlab/gitlab-rails/etc/gitlab-registry.key
+ --> key: /var/opt/gitlab/gitlab-rails/etc/gitlab-registry.key
        issuer: omnibus-gitlab-issuer
        notification_secret:
-  ```
+ ```
 
 The output of these `openssl` commands should match, proving that the cert-key pair is a match:
 
@@ -135,18 +127,13 @@ The output of these `openssl` commands should match, proving that the cert-key p
 /opt/gitlab/embedded/bin/openssl rsa -noout -modulus -in /var/opt/gitlab/gitlab-rails/etc/gitlab-registry.key | /opt/gitlab/embedded/bin/openssl sha256
 ```
 
-If the two pieces of the certificate do not align, remove the files and run `gitlab-ctl reconfigure`
-to regenerate the pair. The pair is recreated using the existing values in `/etc/gitlab/gitlab-secrets.json` if they exist. To generate a new pair,
-delete the `registry` section in your `/etc/gitlab/gitlab-secrets.json` before running `gitlab-ctl reconfigure`.
+If the two pieces of the certificate do not align, remove the files and run `gitlab-ctl reconfigure` to regenerate the pair. The pair is recreated using the existing values in `/etc/gitlab/gitlab-secrets.json` if they exist. To generate a new pair, delete the `registry` section in your `/etc/gitlab/gitlab-secrets.json` before running `gitlab-ctl reconfigure`.
 
-If you have overridden the automatically generated self-signed pair with
-your own certificates and have made sure that their contents align, you can delete the 'registry'
-section in your `/etc/gitlab/gitlab-secrets.json` and run `gitlab-ctl reconfigure`.
+If you have overridden the automatically generated self-signed pair with your own certificates and have made sure that their contents align, you can delete the 'registry' section in your `/etc/gitlab/gitlab-secrets.json` and run `gitlab-ctl reconfigure`.
 
 ## AWS S3 with the GitLab registry error when pushing large images
 
-When using AWS S3 with the GitLab registry, an error may occur when pushing
-large images. Look in the Registry log for the following error:
+When using AWS S3 with the GitLab registry, an error may occur when pushing large images. Look in the Registry log for the following error:
 
 ```plaintext
 level=error msg="response completed with error" err.code=unknown err.detail="unexpected EOF" err.message="unknown error"
@@ -197,10 +184,7 @@ Start with a value between `25000000` (25 MB) and `50000000` (50 MB).
 
 ## Supporting older Docker clients
 
-The Docker container registry shipped with GitLab disables the schema1 manifest
-by default. If you are still using older Docker clients (1.9 or older), you may
-experience an error pushing images. See
-[issue 4145](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/4145) for more details.
+The Docker container registry shipped with GitLab disables the schema1 manifest by default. If you are still using older Docker clients (1.9 or older), you may experience an error pushing images. See [issue 4145](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/4145) for more details.
 
 You can add a configuration option for backwards compatibility.
 
@@ -236,24 +220,19 @@ You can add a configuration option for backwards compatibility.
 
 ## Docker connection error
 
-A Docker connection error can occur when there are special characters in either the group,
-project or branch name. Special characters can include:
+A Docker connection error can occur when there are special characters in either the group, project or branch name. Special characters can include:
 
 - Leading underscore
 - Trailing hyphen/dash
 - Double hyphen/dash
 
-To get around this, you can [change the group path](../../user/group/manage.md#change-a-groups-path),
-[change the project path](../../user/project/working_with_projects.md#rename-a-repository) or change the
-branch name. Another option is to create a [push rule](../../user/project/repository/push_rules.md) to prevent
-this error for the entire instance.
+To get around this, you can [change the group path](../../user/group/manage.md#change-a-groups-path), [change the project path](../../user/project/working_with_projects.md#rename-a-repository) or change the branch name. Another option is to create a [push rule](../../user/project/repository/push_rules.md) to prevent this error for the entire instance.
 
 ## Image push errors
 
 You might get stuck in retry loops when pushing Docker images, even though `docker login` succeeds.
 
-This issue occurs when NGINX isn't properly forwarding headers to the registry, typically in custom
-setups where SSL is offloaded to a third-party reverse proxy.
+This issue occurs when NGINX isn't properly forwarding headers to the registry, typically in custom setups where SSL is offloaded to a third-party reverse proxy.
 
 For more information, see [Docker push through NGINX proxy fails trying to send a 32B layer #970](https://github.com/docker/distribution/issues/970).
 
@@ -328,8 +307,7 @@ Access to the debug endpoint must be locked down in a production environment.
 
 {{< /alert >}}
 
-The optional debug server can be enabled by setting the registry debug address
-in your `gitlab.rb` configuration.
+The optional debug server can be enabled by setting the registry debug address in your `gitlab.rb` configuration.
 
 ```ruby
 registry['debug_addr'] = "localhost:5001"
@@ -364,10 +342,10 @@ To enable Prometheus metrics, add the following configuration in `gitlab.rb`:
 ```ruby
 # Enable Prometheus metrics
 registry['debug'] = {
-  'prometheus' => {
+ 'prometheus' => {
     'enabled' => true,
     'path' => '/metrics'
-  }
+ }
 }
 ```
 
@@ -456,7 +434,7 @@ curl "localhost:5001/metrics"
 |-------------|-------------|--------|---------|
 | `registry_database_query_duration_seconds` | A histogram of latencies for database queries. | `name` | Prometheus default buckets. <sup>1</sup> |
 | `registry_database_lb_lsn_cache_operation_duration_seconds` | A histogram of latencies for database load balancing LSN cache operations. | `operation`, `error` | `operation`: `set`, `get`<br>`error`: `true`, `false`<br>Prometheus default buckets. <sup>1</sup> |
-| `registry_database_lb_lookup_seconds` | A histogram of latencies for database load balancing DNS lookups. | `lookup_type`, `error` | `lookup_type`: `srv`, `host`<br>`error`: `true`, `false`<br>Prometheus default buckets. <sup>1</sup>  |
+| `registry_database_lb_lookup_seconds` | A histogram of latencies for database load balancing DNS lookups. | `lookup_type`, `error` | `lookup_type`: `srv`, `host`<br>`error`: `true`, `false`<br>Prometheus default buckets. <sup>1</sup> |
 | `registry_database_lb_lag_seconds` | A histogram of replication lag in seconds for each replica. | `replica` | `[0.001, 0.01, 0.1, 0.5, 1, 5, 10, 20, 30, 60]` (1ms to 60s) |
 | `registry_database_row_count_collection_duration_seconds` | A histogram of total duration for collecting all database row count queries in a single run. | None | `[0.1, 0.5, 1, 2, 5, 10, 30, 60]` (100ms to 60s) |
 
@@ -573,15 +551,14 @@ This configuration is temporary and is discarded when you run `gitlab-ctl reconf
 
 ### Enable Registry Prometheus Metrics
 
-If the debug server is enabled, you can also enable Prometheus metrics. This endpoint exposes highly detailed telemetry
-related to almost all registry operations.
+If the debug server is enabled, you can also enable Prometheus metrics. This endpoint exposes highly detailed telemetry related to almost all registry operations.
 
 ```ruby
 registry['debug'] = {
-  'prometheus' => {
+ 'prometheus' => {
     'enabled' => true,
     'path' => '/metrics'
-  }
+ }
 }
 ```
 
@@ -594,34 +571,27 @@ curl "localhost:5001/debug/metrics"
 ## Tags with an empty name
 
 If using [AWS DataSync](https://aws.amazon.com/datasync/)
-to copy the registry data to or between S3 buckets, an empty metadata object is created in the root
-path of each container repository in the destination bucket. This causes the registry to interpret
-such files as a tag that appears with no name in the GitLab UI and API. For more information, see
-[this issue](https://gitlab.com/gitlab-org/container-registry/-/issues/341).
+to copy the registry data to or between S3 buckets, an empty metadata object is created in the root path of each container repository in the destination bucket. This causes the registry to interpret such files as a tag that appears with no name in the GitLab UI and API. For more information, see [this issue](https://gitlab.com/gitlab-org/container-registry/-/issues/341).
 
 To fix this you can do one of two things:
 
 - Use the AWS CLI [`rm`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/rm.html)
-  command to remove the empty objects from the root of each affected repository. Pay special
-  attention to the trailing `/` and make sure not to use the `--recursive` option:
+ command to remove the empty objects from the root of each affected repository. Pay special attention to the trailing `/` and make sure not to use the `--recursive` option:
 
-  ```shell
-  aws s3 rm s3://<bucket>/docker/registry/v2/repositories/<path to repository>/
-  ```
+ ```shell
+ aws s3 rm s3://<bucket>/docker/registry/v2/repositories/<path to repository>/
+ ```
 
 - Use the AWS CLI [`sync`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/sync.html)
-  command to copy the registry data to a new bucket and configure the registry to use it. This
-  leaves the empty objects behind.
+ command to copy the registry data to a new bucket and configure the registry to use it. This leaves the empty objects behind.
 
 ## Advanced Troubleshooting
 
-We use a concrete example to illustrate how to
-diagnose a problem with the S3 setup.
+We use a concrete example to illustrate how to diagnose a problem with the S3 setup.
 
 ### Investigate a cleanup policy
 
-If you're unsure why your cleanup policy did or didn't delete a tag, execute the policy line by line
-by running the below script from the [Rails console](../operations/rails_console.md).
+If you're unsure why your cleanup policy did or didn't delete a tag, execute the policy line by line by running the below script from the [Rails console](../operations/rails_console.md).
 This can help diagnose problems with the policy.
 
 ```ruby
@@ -660,8 +630,7 @@ tags.map(&:name)
 
 ### Unexpected 403 error during push
 
-A user attempted to enable an S3-backed Registry. The `docker login` step went
-fine. However, when pushing an image, the output showed:
+A user attempted to enable an S3-backed Registry. The `docker login` step went fine. However, when pushing an image, the output showed:
 
 ```plaintext
 The push refers to a repository [s3-testing.myregistry.com:5050/root/docker-test/docker-image]
@@ -678,29 +647,16 @@ a08f14ef632e: Pushing [==================================================>] 2.04
 error parsing HTTP 403 response body: unexpected end of JSON input: ""
 ```
 
-This error is ambiguous because it's not clear whether the 403 is coming from the
-GitLab Rails application, the Docker Registry, or something else. In this
-case, because we know that the login succeeded, we probably need to look
-at the communication between the client and the Registry.
+This error is ambiguous because it's not clear whether the 403 is coming from the GitLab Rails application, the Docker Registry, or something else. In this case, because we know that the login succeeded, we probably need to look at the communication between the client and the Registry.
 
-The REST API between the Docker client and Registry is described
-[in the Docker documentation](https://distribution.github.io/distribution/spec/api/). Usually, one would just
-use Wireshark or tcpdump to capture the traffic and see where things went
-wrong. However, because all communications between Docker clients and servers
-are done over HTTPS, it's a bit difficult to decrypt the traffic quickly even
-if you know the private key. What can we do instead?
+The REST API between the Docker client and Registry is described [in the Docker documentation](https://distribution.github.io/distribution/spec/api/). Usually, one would just use Wireshark or tcpdump to capture the traffic and see where things went wrong. However, because all communications between Docker clients and servers are done over HTTPS, it's a bit difficult to decrypt the traffic quickly even if you know the private key. What can we do instead?
 
-One way would be to disable HTTPS by setting up an
-[insecure Registry](https://distribution.github.io/distribution/about/insecure/). This could introduce a
-security hole and is only recommended for local testing. If you have a
-production system and can't or don't want to do this, there is another way:
+One way would be to disable HTTPS by setting up an [insecure Registry](https://distribution.github.io/distribution/about/insecure/). This could introduce a security hole and is only recommended for local testing. If you have a production system and can't or don't want to do this, there is another way:
 use mitmproxy, which stands for Man-in-the-Middle Proxy.
 
 ### mitmproxy
 
-[mitmproxy](https://mitmproxy.org/) allows you to place a proxy between your
-client and server to inspect all traffic. One wrinkle is that your system
-needs to trust the mitmproxy SSL certificates for this to work.
+[mitmproxy](https://mitmproxy.org/) allows you to place a proxy between your client and server to inspect all traffic. One wrinkle is that your system needs to trust the mitmproxy SSL certificates for this to work.
 
 The following installation instructions assume you are running Ubuntu:
 
@@ -733,13 +689,11 @@ This command runs mitmproxy on port `9000`. In another window, run:
 curl --proxy "http://localhost:9000" "https://httpbin.org/status/200"
 ```
 
-If everything is set up correctly, information is displayed on the mitmproxy window and
-no errors are generated by the curl commands.
+If everything is set up correctly, information is displayed on the mitmproxy window and no errors are generated by the curl commands.
 
 ### Running the Docker daemon with a proxy
 
-For Docker to connect through a proxy, you must start the Docker daemon with the
-proper environment variables. The easiest way is to shutdown Docker (for example `sudo initctl stop docker`)
+For Docker to connect through a proxy, you must start the Docker daemon with the proper environment variables. The easiest way is to shutdown Docker (for example `sudo initctl stop docker`)
 and then run Docker by hand. As root, run:
 
 ```shell
@@ -752,8 +706,7 @@ This command launches the Docker daemon and proxies all connections through mitm
 
 ### Running the Docker client
 
-Now that we have mitmproxy and Docker running, we can attempt to sign in and
-push a container image. You may need to run as root to do this. For example:
+Now that we have mitmproxy and Docker running, we can attempt to sign in and push a container image. You may need to run as root to do this. For example:
 
 ```shell
 docker login example.s3.amazonaws.com:5050
@@ -783,15 +736,13 @@ This output shows:
 - The `201` redirected the client to the Amazon S3 bucket.
 - The HEAD request to the AWS bucket reported a `403 Unauthorized`.
 
-What does this mean? This strongly suggests that the S3 user does not have the right
-[permissions to perform a HEAD request](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html).
+What does this mean? This strongly suggests that the S3 user does not have the right [permissions to perform a HEAD request](https://docs.aws.amazon.com/AmazonS3/latest/API/API_HeadObject.html).
 The solution: check the [IAM permissions again](https://distribution.github.io/distribution/storage-drivers/s3/).
 After the right permissions were set, the error went away.
 
 ## Missing `gitlab-registry.key` prevents container repository deletion
 
-If you disable your GitLab instance's container registry and try to remove a project that has
-container repositories, the following error occurs:
+If you disable your GitLab instance's container registry and try to remove a project that has container repositories, the following error occurs:
 
 ```plaintext
 Errno::ENOENT: No such file or directory @ rb_sysopen - /var/opt/gitlab/gitlab-rails/etc/gitlab-registry.key
@@ -809,8 +760,7 @@ In this case, follow these steps:
    for the changes to take effect.
 1. Try the removal again.
 
-If you still can't remove the repository using the common methods, you can use the
-[GitLab Rails console](../operations/rails_console.md)
+If you still can't remove the repository using the common methods, you can use the [GitLab Rails console](../operations/rails_console.md)
 to remove the project by force:
 
 ```ruby
@@ -819,15 +769,13 @@ prj = Project.find_by_full_path(<project_path>)
 
 # The following will delete the project's container registry, so be sure to double-check the path beforehand!
 if prj.has_container_registry_tags?
-  prj.container_repositories.each { |p| p.destroy }
+ prj.container_repositories.each { |p| p.destroy }
 end
 ```
 
 ## Registry service listens on IPv6 address instead of IPv4
 
-You might see the following error if the `localhost` hostname resolves to a IPv6
-loopback address (`::1`) on your GitLab server and GitLab expects the registry service
-to be available on the IPv4 loopback address (`127.0.0.1`):
+You might see the following error if the `localhost` hostname resolves to a IPv6 loopback address (`::1`) on your GitLab server and GitLab expects the registry service to be available on the IPv4 loopback address (`127.0.0.1`):
 
 ```plaintext
 request: "GET /v2/ HTTP/1.1", upstream: "http://[::1]:5000/v2/", host: "registry.example.com:5005"

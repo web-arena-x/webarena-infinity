@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408886939930-Adding-agent
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -18,15 +18,13 @@ Verified AI summary ◀▼
 
 Add agents and admins to manage customer support by manually entering details, bulk importing, or using the API. Customize user roles, ticket access, and privileges to fit your team's needs. Define user options like email, role, and language, and set agent permissions for ticket access and comments. Ensure you have available seats before adding new team members.
 
-You can add team members (agents and admins) manually, through a bulk import of users, or
-through the Zendesk API. You must be an admin to add team members.
+You can add team members (agents and admins) manually, through a bulk import of users, or through the Zendesk API. You must be an admin to add team members.
 
 This article covers the following topics:
 
 - [Adding an agent or admin](#topic_h43_2k2_yg)
 - [About the user options](#topic_kjp_mze_dc)
-- [About agent privileges and ticket
-  access](#topic_3zw_yl2_yg)
+- [About agent privileges and ticket access](#topic_3zw_yl2_yg)
 
 To add users in a bulk import, see [Bulk importing users](https://support.zendesk.com/hc/en-us/articles/4408893496218). To add users with the API, see [Zendesk Developer Tools: Introduction](https://developer.zendesk.com/documentation/developer-tools/).
 
@@ -41,12 +39,9 @@ Related articles:
 
 Admins can add any type of user (end users, agents, and other admins).
 
-The account owner can also add agent seats to your subscription. The
-account owner is included as an agent seat in your subscription.
+The account owner can also add agent seats to your subscription. The account owner is included as an agent seat in your subscription.
 
-Before you add a team member, you can check the **Seats remaining**
-section of the Team members page to find out whether you have any available seats. If you don’t
-have any seats left, you won’t be able to add the agent or admin.
+Before you add a team member, you can check the **Seats remaining** section of the Team members page to find out whether you have any available seats. If you don’t have any seats left, you won’t be able to add the agent or admin.
 
 **To add an agent or admin**
 
@@ -56,30 +51,18 @@ have any seats left, you won’t be able to add the agent or admin.
    The Team members page opens.
 2. Click **Create team member**.
 3. Enter the team member’s **Name** and **Email**, then click **Next**.
-4. In the **Assign role** section, select the user’s Support role from the
-   **Support** drop-down list, then click **Next**.
+4. In the **Assign role** section, select the user’s Support role from the **Support** drop-down list, then click **Next**.
 
-   You set only the Support role
-   now. You can set other roles later.
+   You set only the Support role now. You can set other roles later.
 
-   If the team member is an AI agents -
-   Advanced user only and should not consume a Zendesk seat, select
-   **Contributor**.
-5. If the team member you're adding isn't an admin and your account has multiple brands,
-   you may be prompted to select brands for the team member, depending on your [brand settings](https://support.zendesk.com/hc/en-us/articles/7584022494874#topic_yb2_whp_ngc). Select the brands that the team
-   member should have access to. This [restricts the agent](https://support.zendesk.com/hc/en-us/articles/7584022494874) from accessing tickets in other
-   brands.
+   If the team member is an AI agents - Advanced user only and should not consume a Zendesk seat, select **Contributor**.
+5. If the team member you're adding isn't an admin and your account has multiple brands, you may be prompted to select brands for the team member, depending on your [brand settings](https://support.zendesk.com/hc/en-us/articles/7584022494874#topic_yb2_whp_ngc). Select the brands that the team member should have access to. This [restricts the agent](https://support.zendesk.com/hc/en-us/articles/7584022494874) from accessing tickets in other brands.
 6. Click **Save**.
 
-   The new user is saved. If the **Also send a welcome
-   email when a new user is created by an agent or administrator** option [is selected](https://support.zendesk.com/hc/en-us/articles/4408824350746#topic_vcv_xqj_v1b), the new user receives a welcome
-   email and link to sign in.
-7. (Optional) Click the new team member, who initially appears at the
-   top of the list, to access their profile and assign any [additional roles](https://support.zendesk.com/hc/en-us/articles/4408824375450#topic_ppd_dky_lkb).
+   The new user is saved. If the **Also send a welcome email when a new user is created by an agent or administrator** option [is selected](https://support.zendesk.com/hc/en-us/articles/4408824350746#topic_vcv_xqj_v1b), the new user receives a welcome email and link to sign in.
+7. (Optional) Click the new team member, who initially appears at the top of the list, to access their profile and assign any [additional roles](https://support.zendesk.com/hc/en-us/articles/4408824375450#topic_ppd_dky_lkb).
 
-After you add the new team member, you can [open their Support profile](https://support.zendesk.com/hc/en-us/articles/4408822762650) to set [user options](#topic_kjp_mze_dc) and [agent permissions](#topic_3zw_yl2_yg). On
-Enterprise plans, agent permissions are not set in the profile, but are determined by the
-agent’s [custom role](https://support.zendesk.com/hc/en-us/articles/4408882153882).
+After you add the new team member, you can [open their Support profile](https://support.zendesk.com/hc/en-us/articles/4408822762650) to set [user options](#topic_kjp_mze_dc) and [agent permissions](#topic_3zw_yl2_yg). On Enterprise plans, agent permissions are not set in the profile, but are determined by the agent’s [custom role](https://support.zendesk.com/hc/en-us/articles/4408882153882).
 
 ## About user options
 
@@ -103,17 +86,13 @@ The following table describes the options that can be set for a new user.
 
 ## About agent privileges and ticket access
 
-When you add agents you need to define their privileges (groups they will be assigned to,
-their access to tickets, if they can make both public and private comments, and their forums
-access). These privileges are described in the following table.
+When you add agents you need to define their privileges (groups they will be assigned to, their access to tickets, if they can make both public and private comments, and their forums access). These privileges are described in the following table.
 
-Note: On Enterprise plans, you set the agent's groups in the agent's profile, but you do
-*not* set agent permissions and ticket access in the agent's profile. Agent
-permissions and access (except for groups) are determined by the [agent's custom role](https://support.zendesk.com/hc/en-us/articles/4408882153882).
+Note: On Enterprise plans, you set the agent's groups in the agent's profile, but you do *not* set agent permissions and ticket access in the agent's profile. Agent permissions and access (except for groups) are determined by the [agent's custom role](https://support.zendesk.com/hc/en-us/articles/4408882153882).
 
 | Privileges | Description |
 | --- | --- |
-| Brand membership | Defines the brands in which the user can view, search, and access tickets. Depending on your [configuration](https://support.zendesk.com/hc/en-us/articles/7584022494874#topic_yb2_whp_ngc), team members may be added to brands automatically when they are created, but you can modify their brand membership as needed.  A team member’s role can further refine their access. For example, a team member’s role might limit them to only tickets in their groups.  For more information about brand membership, see [Restricting agent ticket access by brand](https://support.zendesk.com/hc/en-us/articles/7584022494874). |
+| Brand membership | Defines the brands in which the user can view, search, and access tickets. Depending on your [configuration](https://support.zendesk.com/hc/en-us/articles/7584022494874#topic_yb2_whp_ngc), team members may be added to brands automatically when they are created, but you can modify their brand membership as needed. A team member’s role can further refine their access. For example, a team member’s role might limit them to only tickets in their groups. For more information about brand membership, see [Restricting agent ticket access by brand](https://support.zendesk.com/hc/en-us/articles/7584022494874). |
 | Groups | List of groups the agent belongs to. Agents must belong to at least one group. Click the group name to edit the groups for the agent. For information about groups, see [Creating groups](https://support.zendesk.com/hc/en-us/articles/4408894175130#topic_wyj_dse_bc). |
-| Access | Define the agent's access to tickets as one of the following:  - All tickets - Tickets in agent's groups - Tickets in agent's org - Assigned tickets only If you select to restrict the agent to an   organization, you must also set the agent's organization (on the **Add   user** page). See [Restricting agents to   an organization](https://support.zendesk.com/hc/en-us/articles/4408846640410#topic_ebz_dtn_bc).  Notwithstanding ticket access   restrictions, CC'ing an agent on any ticket lets the agent receive email   notifications of all public and private updates to the   ticket.  Agents must have **All tickets** access to create or edit   end users. However, agents with any ticket access level can create users   when setting the ticket requester to a new user.  Note: On Enterprise plans, you do not set ticket access in agent profiles.   Agent permissions are determined by the agent's custom role (see [Creating custom roles and assigning   agents](https://support.zendesk.com/hc/en-us/articles/4408882153882)). |
-| Comments | Determine the type of comments an agent can make on tickets.  - **Notes and replies** enables the agent to add both internal notes and   public replies to tickets. - **Notes only** enables the agent to add only internal notes to   tickets. |
+| Access | Define the agent's access to tickets as one of the following: - All tickets - Tickets in agent's groups - Tickets in agent's org - Assigned tickets only If you select to restrict the agent to an   organization, you must also set the agent's organization (on the **Add   user** page). See [Restricting agents to   an organization](https://support.zendesk.com/hc/en-us/articles/4408846640410#topic_ebz_dtn_bc). Notwithstanding ticket access   restrictions, CC'ing an agent on any ticket lets the agent receive email   notifications of all public and private updates to the   ticket. Agents must have **All tickets** access to create or edit   end users. However, agents with any ticket access level can create users   when setting the ticket requester to a new user. Note: On Enterprise plans, you do not set ticket access in agent profiles.   Agent permissions are determined by the agent's custom role (see [Creating custom roles and assigning   agents](https://support.zendesk.com/hc/en-us/articles/4408882153882)). |
+| Comments | Determine the type of comments an agent can make on tickets. - **Notes and replies** enables the agent to add both internal notes and   public replies to tickets. - **Notes only** enables the agent to add only internal notes to   tickets. |

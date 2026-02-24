@@ -11,17 +11,17 @@ Handshake is an excellent resource to ensure remote engagement between your care
 We've put together a guide below to help you maximize the tools available to you, and we also have recordings of our [maximizing remote engagement](https://register.gotowebinar.com/recording/5873286956503953672) and [video conference/meeting basics](https://register.gotowebinar.com/recording/2974490520704299528?mkt_tok=eyJpIjoiTVdKbVpqRmlPV1ZrWmpNMCIsInQiOiJEZVZiQmtwZlozd2VvaThKRTd3cXhuUVhPYlZYRkg5RmloaUMwb21oc1BnYnNJdXcwSGNGdjVMXC9EbTFCdGlBdU5JS3d4eHFIdFdteGJBcmNYVHhoeDVtTnd0aExWQXJpdkJjK0g3TmVkejh0cUJmUVZOaGx3dzFKRExWdWVhb3oifQ%3D%3D) webinars and guides attached to this article. Click one of the topics to jump to a specific section in this article:
 
 - [Events](#events)
-  - Learn how to update existing events with a virtual meeting link, update room locations, check-in students, and help students search for virtual events.
+ - Learn how to update existing events with a virtual meeting link, update room locations, check-in students, and help students search for virtual events.
 - [Fairs](#fairs)
-  - Learn about moving fairs to a virtual event setting.
+ - Learn about moving fairs to a virtual event setting.
 - [Appointments](#appointments)
-  - Setup a robust remote appointment experience for students.
-- [Interviews](#interviews)  
-  - Update your rooms with a recurring virtual meeting link and review employer tips.
+ - Setup a robust remote appointment experience for students.
+- [Interviews](#interviews) 
+ - Update your rooms with a recurring virtual meeting link and review employer tips.
 - [Jobs](#jobs)
-  - Explore two different workflows to help students locate remote opportunities in Handshake.
+ - Explore two different workflows to help students locate remote opportunities in Handshake.
 - [Additional Resources](#Bottom)
-  - See the attachments at the bottom of this page for a downloadable copy of Handshake's recommended email to send to students about virtual engagement, recordings of webinars on implementing virtual meeting links, and more.
+ - See the attachments at the bottom of this page for a downloadable copy of Handshake's recommended email to send to students about virtual engagement, recordings of webinars on implementing virtual meeting links, and more.
 
 **Follow Handshake best practices for boosting engagement online:** 
 

@@ -13,8 +13,7 @@ description: "Export project relations with the REST API."
 
 {{< /details >}}
 
-Use this API to migrate a project structure. Each top-level
-relation (for example, milestones, boards, and labels) is stored as a separate file.
+Use this API to migrate a project structure. Each top-level relation (for example, milestones, boards, and labels) is stored as a separate file.
 
 This API is primarily used during [group migration by direct transfer](../user/group/import/_index.md).
 You cannot use this API with the [project import and export API](project_import_export.md).
@@ -34,13 +33,13 @@ POST /projects/:id/export_relations
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/export_relations"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/export_relations"
 ```
 
 ```json
 {
-  "message": "202 Accepted"
+ "message": "202 Accepted"
 }
 ```
 
@@ -52,15 +51,15 @@ View the status of the relations export:
 GET /projects/:id/export_relations/status
 ```
 
-| Attribute  | Type              | Required | Description                                        |
+| Attribute | Type              | Required | Description                                        |
 |------------|-------------------|----------|----------------------------------------------------|
 | `id`       | integer or string | Yes      | ID of the project.                                 |
 | `relation` | string            | No       | Name of the project top-level relation to view.    |
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/export_relations/status"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/export_relations/status"
 ```
 
 The status can be one of the following:
@@ -71,7 +70,7 @@ The status can be one of the following:
 
 ```json
 [
-  {
+ {
     "relation": "project_badges",
     "status": 1,
     "error": null,
@@ -87,15 +86,15 @@ The status can be one of the following:
         "updated_at": "2021-05-04T11:25:20.423Z"
       }
     ]
-  },
-  {
+ },
+ {
     "relation": "boards",
     "status": 1,
     "error": null,
     "updated_at": "2021-05-04T11:25:20.085Z",
     "batched": false,
     "batches_count": 0
-  }
+ }
 ]
 ```
 
@@ -116,10 +115,10 @@ GET /projects/:id/export_relations/download
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --remote-header-name \
-  --remote-name \
-  --url "https://gitlab.example.com/api/v4/projects/1/export_relations/download?relation=labels"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --remote-header-name \
+ --remote-name \
+ --url "https://gitlab.example.com/api/v4/projects/1/export_relations/download?relation=labels"
 ```
 
 ```shell

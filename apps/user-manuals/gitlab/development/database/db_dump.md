@@ -5,15 +5,11 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Importing a database dump into a staging environment
 ---
 
-Sometimes it is useful to import the database from a production environment
-into a staging environment for testing. The procedure below assumes you have
-SSH and `sudo` access to both the production environment and the staging VM.
+Sometimes it is useful to import the database from a production environment into a staging environment for testing. The procedure below assumes you have SSH and `sudo` access to both the production environment and the staging VM.
 
-**Destroy your staging VM** when you are done with it. It is important to avoid
-data leaks.
+**Destroy your staging VM** when you are done with it. It is important to avoid data leaks.
 
-On the staging VM, add the following line to `/etc/gitlab/gitlab.rb` to speed up
-large database imports.
+On the staging VM, add the following line to `/etc/gitlab/gitlab.rb` to speed up large database imports.
 
 ```shell
 # On STAGING
@@ -24,23 +20,19 @@ sudo gitlab-ctl stop puma
 sudo gitlab-ctl stop sidekiq
 ```
 
-Next, we let the production environment stream a compressed SQL dump to our
-local machine via SSH, and redirect this stream to a `psql` client on the staging
-VM.
+Next, we let the production environment stream a compressed SQL dump to our local machine via SSH, and redirect this stream to a `psql` client on the staging VM.
 
 ```shell
 # On LOCAL MACHINE
 ssh -C gitlab.example.com sudo -u gitlab-psql /opt/gitlab/embedded/bin/pg_dump -Cc gitlabhq_production |\
-  ssh -C staging-vm sudo -u gitlab-psql /opt/gitlab/embedded/bin/psql -d template1
+ ssh -C staging-vm sudo -u gitlab-psql /opt/gitlab/embedded/bin/psql -d template1
 ```
 
 ## Recreating directory structure
 
-If you need to re-create some directory structure on the staging server you can
-use this procedure.
+If you need to re-create some directory structure on the staging server you can use this procedure.
 
-First, on the production server, create a list of directories you want to
-re-create.
+First, on the production server, create a list of directories you want to re-create.
 
 ```shell
 # On PRODUCTION

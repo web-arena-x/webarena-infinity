@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408832461210-Resolving-is
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -51,7 +51,7 @@ Often these types of errors can be solved by updating your credit card informati
 
 The following table show some common error codes that might occur.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | Error Code | Description | Resolution |
 | 4 - Hold-call | Pick-up card (no fraud) | Your card may have been reported lost or stolen, or the account has been closed. Call your credit card issuer (the phone number is usually on the back of your card) to resolve the issue. |

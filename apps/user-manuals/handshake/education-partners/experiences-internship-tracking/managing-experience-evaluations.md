@@ -107,6 +107,6 @@ If the Reviewer is still running into issues updating this information, they can
 # **FAQ**
 
 - **What if I am logged into Handshake when I receive the Evaluation link?**
-  - You will still be able to submit an evaluation logged into Handshake. Students will be required to sign into Handshake to complete their evaluation.
+ - You will still be able to submit an evaluation logged into Handshake. Students will be required to sign into Handshake to complete their evaluation.
 - **Will students be able to see an employer's submitted evaluation?**
-  - No, students will only be able to see evaluations they have submitted.
+ - No, students will only be able to see evaluations they have submitted.

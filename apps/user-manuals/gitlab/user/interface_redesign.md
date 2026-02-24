@@ -16,18 +16,15 @@ description: Learn about an upcoming redesign of GitLab user interface.
 {{< history >}}
 
 - Introduced in GitLab 18.5 [with a flag](../administration/feature_flags/_index.md) named `paneled_view`.
-  Disabled by default.
+ Disabled by default.
 - [Enabled on GitLab.com, GitLab Self-Managed, and GitLab Dedicated](https://gitlab.com/gitlab-org/gitlab/-/work_items/574049) in GitLab 18.6.
 - Toggle [removed](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/212303) in GitLab 18.7.
 - [Generally available](https://gitlab.com/gitlab-org/gitlab/-/work_items/574049) in GitLab 18.8. Feature flag `paneled_view` removed.
 
 {{< /history >}}
 
-This interface redesign prepares the GitLab UI for AI-native workflows where intelligent agents
-work alongside development teams.
-This modernized interface centralizes AI interactions in a persistent sidebar, introduces
-a panel-based layout that accommodates both traditional development tasks and AI-assisted workflows,
-and reduces navigation complexity.
+This interface redesign prepares the GitLab UI for AI-native workflows where intelligent agents work alongside development teams.
+This modernized interface centralizes AI interactions in a persistent sidebar, introduces a panel-based layout that accommodates both traditional development tasks and AI-assisted workflows, and reduces navigation complexity.
 
 ![Projects page with the new UI.](img/paneled_view_projects_v18_7.png)
 

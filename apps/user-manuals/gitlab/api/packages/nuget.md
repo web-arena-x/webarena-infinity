@@ -44,16 +44,16 @@ GET projects/:id/packages/nuget/download/:package_name/index
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/download/MyNuGetPkg/index"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/download/MyNuGetPkg/index"
 ```
 
 Example response:
 
 ```json
 {
-  "versions": [
+ "versions": [
     "1.3.0.17"
-  ]
+ ]
 }
 ```
 
@@ -74,22 +74,21 @@ GET projects/:id/packages/nuget/download/:package_name/:package_version/:package
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/download/MyNuGetPkg/1.3.0.17/mynugetpkg.1.3.0.17.nupkg"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/download/MyNuGetPkg/1.3.0.17/mynugetpkg.1.3.0.17.nupkg"
 ```
 
 Write the output to a file:
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/download/MyNuGetPkg/1.3.0.17/mynugetpkg.1.3.0.17.nupkg" > MyNuGetPkg.1.3.0.17.nupkg
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/download/MyNuGetPkg/1.3.0.17/mynugetpkg.1.3.0.17.nupkg" > MyNuGetPkg.1.3.0.17.nupkg
 ```
 
 This writes the downloaded file to `MyNuGetPkg.1.3.0.17.nupkg` in the current directory.
 
 {{< alert type="note" >}}
 
-This API returns a `404` status when you use [group endpoints](#group-level). Use the NuGet package manager CLI to
-[install packages](../../user/packages/nuget_repository/_index.md#install-a-package) with group endpoints to avoid this error.
+This API returns a `404` status when you use [group endpoints](#group-level). Use the NuGet package manager CLI to [install packages](../../user/packages/nuget_repository/_index.md#install-a-package) with group endpoints to avoid this error.
 
 {{< /alert >}}
 
@@ -105,15 +104,15 @@ Upload a NuGet package file:
 
 - For NuGet v3 feed:
 
-  ```plaintext
-  PUT projects/:id/packages/nuget
-  ```
+ ```plaintext
+ PUT projects/:id/packages/nuget
+ ```
 
 - For NuGet V2 feed:
 
-  ```plaintext
-  PUT projects/:id/packages/nuget/v2
-  ```
+ ```plaintext
+ PUT projects/:id/packages/nuget/v2
+ ```
 
 | Attribute         | Type   | Required | Description |
 | ----------------- | ------ | -------- | ----------- |
@@ -124,21 +123,21 @@ Upload a NuGet package file:
 
 - For NuGet v3 feed:
 
-  ```shell
-  curl --request PUT \
+ ```shell
+ curl --request PUT \
       --form 'package=@path/to/mynugetpkg.1.3.0.17.nupkg' \
       --user <username>:<personal_access_token> \
       --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/"
-  ```
+ ```
 
 - For NuGet v2 feed:
 
-  ```shell
-  curl --request PUT \
+ ```shell
+ curl --request PUT \
       --form 'package=@path/to/mynugetpkg.1.3.0.17.nupkg' \
       --user <username>:<personal_access_token> \
       --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/v2"
-  ```
+ ```
 
 ## Upload a symbol package file
 
@@ -164,8 +163,7 @@ curl --request PUT \
 
 ## Route prefix
 
-For the remaining routes, there are two sets of identical routes that each make requests in
-different scopes:
+For the remaining routes, there are two sets of identical routes that each make requests in different scopes:
 
 - Use the group-level prefix to make requests in a group's scope.
 - Use the project-level prefix to make requests in a single project's scope.
@@ -214,12 +212,12 @@ Example response:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <service xmlns="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" xml:base="https://gitlab.example.com/api/v4/projects/1/packages/nuget/v2">
-  <workspace>
+ <workspace>
     <atom:title type="text">Default</atom:title>
     <collection href="Packages">
       <atom:title type="text">Packages</atom:title>
     </collection>
-  </workspace>
+ </workspace>
 </service>
 ```
 
@@ -248,8 +246,8 @@ Example response:
 
 ```json
 {
-  "version": "3.0.0",
-  "resources": [
+ "version": "3.0.0",
+ "resources": [
     {
       "@id": "https://gitlab.example.com/api/v4/projects/1/packages/nuget/query",
       "@type": "SearchQueryService",
@@ -295,12 +293,11 @@ Example response:
       "@type": "SymbolPackagePublish/4.9.0",
       "comment": "Push symbol packages."
     }
-  ]
+ ]
 }
 ```
 
-The URLs in the response have the same route prefix used to request them. If you request them with
-the group-level route, the returned URLs contain `/groups/:id/-`.
+The URLs in the response have the same route prefix used to request them. If you request them with the group-level route, the returned URLs contain `/groups/:id/-`.
 
 ## Metadata Service
 
@@ -316,15 +313,15 @@ GET <route-prefix>/metadata/:package_name/index
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/metadata/MyNuGetPkg/index"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/metadata/MyNuGetPkg/index"
 ```
 
 Example response:
 
 ```json
 {
-  "count": 1,
-  "items": [
+ "count": 1,
+ "items": [
     {
       "@id": "https://gitlab.example.com/api/v4/projects/1/packages/nuget/metadata/MyNuGetPkg/1.3.0.17.json",
       "lower": "1.3.0.17",
@@ -349,7 +346,7 @@ Example response:
         }
       ]
     }
-  ]
+ ]
 }
 ```
 
@@ -368,16 +365,16 @@ GET <route-prefix>/metadata/:package_name/:package_version
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/metadata/MyNuGetPkg/1.3.0.17"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/metadata/MyNuGetPkg/1.3.0.17"
 ```
 
 Example response:
 
 ```json
 {
-  "@id": "https://gitlab.example.com/api/v4/projects/1/packages/nuget/metadata/MyNuGetPkg/1.3.0.17.json",
-  "packageContent": "https://gitlab.example.com/api/v4/projects/1/packages/nuget/download/MyNuGetPkg/1.3.0.17/helloworld.1.3.0.17.nupkg",
-  "catalogEntry": {
+ "@id": "https://gitlab.example.com/api/v4/projects/1/packages/nuget/metadata/MyNuGetPkg/1.3.0.17.json",
+ "packageContent": "https://gitlab.example.com/api/v4/projects/1/packages/nuget/download/MyNuGetPkg/1.3.0.17/helloworld.1.3.0.17.nupkg",
+ "catalogEntry": {
     "@id": "https://gitlab.example.com/api/v4/projects/1/packages/nuget/metadata/MyNuGetPkg/1.3.0.17.json",
     "authors": "Author1, Author2",
     "dependencyGroups": [],
@@ -388,7 +385,7 @@ Example response:
     "description": "Description of the package",
     "summary": "Description of the package",
     "published": "2023-05-08T17:23:25Z",
-  }
+ }
 }
 ```
 
@@ -402,22 +399,22 @@ GET <route-prefix>/query
 
 | Attribute    | Type    | Required | Description |
 | ------------ | ------- | -------- | ----------- |
-| `q`          | string  | yes      | The search query. |
+| `q`          | string | yes      | The search query. |
 | `skip`       | integer | no       | The number of results to skip. |
 | `take`       | integer | no       | The number of results to return. |
 | `prerelease` | boolean | no       | Include prerelease versions. Defaults to `true` if no value is supplied. |
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/query?q=MyNuGet"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/query?q=MyNuGet"
 ```
 
 Example response:
 
 ```json
 {
-  "totalHits": 1,
-  "data": [
+ "totalHits": 1,
+ "data": [
     {
       "@type": "Package",
       "authors": "Author1, Author2",
@@ -437,7 +434,7 @@ Example response:
       ],
       "tags": ""
     }
-  ]
+ ]
 }
 ```
 
@@ -471,10 +468,10 @@ Possible request responses:
 
 | Status | Description |
 | ------ | ----------- |
-| `204`  | Package deleted |
-| `401`  | Unauthorized |
-| `403`  | Forbidden |
-| `404`  | Not found |
+| `204` | Package deleted |
+| `401` | Unauthorized |
+| `403` | Forbidden |
+| `404` | Not found |
 
 ## Download a debugging symbol file `.pdb`
 
@@ -498,24 +495,24 @@ GET <route-prefix>/symbolfiles/:file_name/:signature/:file_name
 
 ```shell
 curl --header "Symbolchecksum: SHA256:<file_checksum>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/symbolfiles/:file_name/:signature/:file_name"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/symbolfiles/:file_name/:signature/:file_name"
 ```
 
 Write the output to a file:
 
 ```shell
 curl --header "Symbolchecksum: SHA256:<file_checksum>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/symbolfiles/mynugetpkg.pdb/k813f89485474661234z7109cve5709eFFFFFFFF/mynugetpkg.pdb" > mynugetpkg.pdb
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/nuget/symbolfiles/mynugetpkg.pdb/k813f89485474661234z7109cve5709eFFFFFFFF/mynugetpkg.pdb" > mynugetpkg.pdb
 ```
 
 Possible request responses:
 
 | Status | Description |
 | ------ | ----------- |
-| `200`  | File downloaded |
-| `400`  | Bad request |
-| `403`  | Forbidden |
-| `404`  | Not found |
+| `200` | File downloaded |
+| `400` | Bad request |
+| `403` | Forbidden |
+| `404` | Not found |
 
 ## V2 Feed Metadata Endpoints
 
@@ -541,7 +538,7 @@ Example response:
 
 ```xml
 <edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
-  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0" m:MaxDataServiceVersion="2.0">
+ <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0" m:MaxDataServiceVersion="2.0">
     <Schema xmlns="http://schemas.microsoft.com/ado/2006/04/edm" Namespace="NuGetGallery.OData">
       <EntityType Name="V2FeedPackage" m:HasStream="true">
         <Key>
@@ -570,7 +567,7 @@ Example response:
         </FunctionImport>
       </EntityContainer>
     </Schema>
-  </edmx:DataServices>
+ </edmx:DataServices>
 </edmx:Edmx>
 ```
 
@@ -608,10 +605,7 @@ Example response:
 
 {{< alert type="note" >}}
 
-GitLab doesn't receive an authentication token for the `Packages()` and
-`FindPackagesByID()` endpoints, so the latest version of the package
-cannot be returned. You must provide the version when you install
-or upgrade a package with the NuGet v2 feed.
+GitLab doesn't receive an authentication token for the `Packages()` and `FindPackagesByID()` endpoints, so the latest version of the package cannot be returned. You must provide the version when you install or upgrade a package with the NuGet v2 feed.
 
 {{< /alert >}}
 

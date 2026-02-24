@@ -19,7 +19,7 @@ Reporting a message allows our Trust and Safety team to proactively review the i
 2. Choose why you are reporting the message by selecting the radio button, located to the left of the reason:
 
 - **This employer appears to be fake or fraudulent**
-  - *if selected, please describe the situation by typing in the provided text box*.
+ - *if selected, please describe the situation by typing in the provided text box*.
 - **This employer is spamming me**
 
 ![Report_Employer_Prompt_Image.png](https://support.joinhandshake.com/hc/article_attachments/25995122949015)

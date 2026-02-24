@@ -15,8 +15,7 @@ description: Understand the permissions and capabilities available to each user 
 
 Roles define a user's permissions in a group or project.
 
-Users with [administrator access](../administration/_index.md) have all permissions and can
-perform any action.
+Users with [administrator access](../administration/_index.md) have all permissions and can perform any action.
 
 ## Roles
 
@@ -30,17 +29,14 @@ When you add a user to a group or project, you assign them a role.
 The role determines their permissions. Assign either a [default role](#default-roles)
 or a [custom role](custom_roles/_index.md).
 
-A user can have different roles for each group and project. Users always retain the
-permissions for their highest role. For example, if a user has:
+A user can have different roles for each group and project. Users always retain the permissions for their highest role. For example, if a user has:
 
 - The Maintainer role for a parent group
 - The Developer role for a project in that group
 
 The user inherits the permissions for their Maintainer role in the project.
 
-To view assigned roles, go to the **Members** page for a
-[group](group/_index.md#view-group-members) or
-[project](project/members/_index.md#view-project-members).
+To view assigned roles, go to the **Members** page for a [group](group/_index.md#view-group-members) or [project](project/members/_index.md#view-project-members).
 
 ### Default roles
 
@@ -72,8 +68,7 @@ It's okay to list multiple related objects per line (for example, "View pipeline
 
 ## Group permissions
 
-Any user can remove themselves from a group, unless they are the only Owner of
-the group.
+Any user can remove themselves from a group, unless they are the only Owner of the group.
 
 The following table lists group permissions available for each role:
 
@@ -108,13 +103,10 @@ Group permissions for [group features](group/_index.md):
 
 **Footnotes**
 
-1. Developers and Maintainers can view events based on their individual actions only. For more
-   information, see the [prerequisites](compliance/audit_events.md#prerequisites).
-1. Developers, Maintainers and Owners: Only if the project creation role is set
-   [for the instance](../administration/settings/visibility_and_access_controls.md#define-which-roles-can-create-projects)
+1. Developers and Maintainers can view events based on their individual actions only. For more information, see the [prerequisites](compliance/audit_events.md#prerequisites).
+1. Developers, Maintainers and Owners: Only if the project creation role is set [for the instance](../administration/settings/visibility_and_access_controls.md#define-which-roles-can-create-projects)
     or [for the group](group/_index.md#specify-who-can-add-projects-to-a-group).
-   <br>Developers: Developers can push commits to the default branch of a new project only
-   if the [default branch protection](group/manage.md#change-the-default-branch-protection-of-a-group)
+   <br>Developers: Developers can push commits to the default branch of a new project only if the [default branch protection](group/manage.md#change-the-default-branch-protection-of-a-group)
    is set to "Partially protected" or "Not protected".
 1. Maintainers: Only if users with the Maintainer role [can create subgroups](group/subgroups/_index.md#change-who-can-create-subgroups).
 1. Does not apply to subgroups.
@@ -187,13 +179,12 @@ Group permissions for [GitLab Duo](gitlab_duo/_index.md):
 | Use GitLab Duo features <sup>1</sup>                                                                       |            |   ✓   |     ✓   |    ✓     |     ✓     |     ✓      |   ✓   |
 | Configure [GitLab Duo feature availability](gitlab_duo/turn_on_off.md#for-a-group-or-subgroup)             |            |       |         |          |           |     ✓      |   ✓   |
 | Configure [GitLab Duo Self Hosted](../administration/gitlab_duo_self_hosted/configure_duo_features.md)     |            |       |         |          |           |            |   ✓   |
-| Enable [beta and experimental features](gitlab_duo/turn_on_off.md#turn-on-beta-and-experimental-features)  |            |       |         |          |           |            |   ✓   |
+| Enable [beta and experimental features](gitlab_duo/turn_on_off.md#turn-on-beta-and-experimental-features) |            |       |         |          |           |            |   ✓   |
 | Purchase [GitLab Duo seats](../subscriptions/subscription-add-ons.md#purchase-additional-gitlab-duo-seats) |            |       |         |          |           |            |   ✓   |
 
 **Footnotes**
 
-1. If the user has GitLab Duo Pro or Enterprise, the
-   [user must be assigned a seat to gain access to that GitLab Duo add-on](../subscriptions/subscription-add-ons.md#assign-gitlab-duo-seats).
+1. If the user has GitLab Duo Pro or Enterprise, the [user must be assigned a seat to gain access to that GitLab Duo add-on](../subscriptions/subscription-add-ons.md#assign-gitlab-duo-seats).
    If the user has GitLab Duo Core, there are no other requirements.
 
 ### Group packages and registries
@@ -297,8 +288,7 @@ Groups permissions for workspaces:
 
 ## Project permissions
 
-A user's role determines what permissions they have on a project. The Owner role provides all permissions but is
-available only:
+A user's role determines what permissions they have on a project. The Owner role provides all permissions but is available only:
 
 - For group and project Owners.
 - For Administrators.
@@ -308,13 +298,9 @@ Personal [namespace](namespace/_index.md) owners:
 - Are displayed as having the Maintainer role on projects in the namespace, but have the same permissions as a user with the Owner role.
 - For new projects in the namespace, are displayed as having the Owner role.
 
-When you configure [protected branch settings](project/repository/branches/protection_rules.md),
-selecting a role grants access to users with that role and all higher roles. For example, if you select
-**Maintainers** in the protected branch settings, users with both the Maintainer and Owner roles
-can perform the action.
+When you configure [protected branch settings](project/repository/branches/protection_rules.md), selecting a role grants access to users with that role and all higher roles. For example, if you select **Maintainers** in the protected branch settings, users with both the Maintainer and Owner roles can perform the action.
 
-For more information about how to manage project members, see
-[members of a project](project/members/_index.md).
+For more information about how to manage project members, see [members of a project](project/members/_index.md).
 
 The following tables list the project permissions available for each role.
 
@@ -361,21 +347,14 @@ Project permissions for [project features](project/organize_work_with_projects.m
 <!-- Disable ordered list rule https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md029---ordered-list-item-prefix -->
 <!-- markdownlint-disable MD029 -->
 
-1. On GitLab Self-Managed, users with the Guest role are able to perform this action only on
-   public and internal projects (not on private projects). [External users](../administration/external_users.md)
+1. On GitLab Self-Managed, users with the Guest role are able to perform this action only on public and internal projects (not on private projects). [External users](../administration/external_users.md)
    must be given explicit access (at least the **Reporter** role) even if the project is internal.
-   Users with the Guest role on GitLab.com are only able to perform this action on public projects
-   because internal visibility is not available.
+   Users with the Guest role on GitLab.com are only able to perform this action on public projects because internal visibility is not available.
 2. Applies only to comments on [Design Management](project/issues/design_management.md) designs.
-3. Guest users can access GitLab [**Releases**](project/releases/_index.md) for downloading
-   assets but are not allowed to download the source code nor see
-   [repository information like commits and release evidence](project/releases/_index.md#view-a-release-and-download-assets).
-4. If the [tag is protected](project/protected_tags.md), this depends on the access given to
-   Developers and Maintainers.
-5. For GitLab Self-Managed, project access tokens are available in all tiers. For GitLab.com,
-   project access tokens are supported in the Premium and Ultimate tier (excluding [trial licenses](https://about.gitlab.com/free-trial/)).
-6. A Maintainer or Owner can't change project features visibility level if
-   [project visibility](public_access.md) is set to private.
+3. Guest users can access GitLab [**Releases**](project/releases/_index.md) for downloading assets but are not allowed to download the source code nor see [repository information like commits and release evidence](project/releases/_index.md#view-a-release-and-download-assets).
+4. If the [tag is protected](project/protected_tags.md), this depends on the access given to Developers and Maintainers.
+5. For GitLab Self-Managed, project access tokens are available in all tiers. For GitLab.com, project access tokens are supported in the Premium and Ultimate tier (excluding [trial licenses](https://about.gitlab.com/free-trial/)).
+6. A Maintainer or Owner can't change project features visibility level if [project visibility](public_access.md) is set to private.
 
    <!-- markdownlint-enable MD029 -->
 
@@ -436,9 +415,9 @@ Project permissions for [application security](application_security/secure_your_
 [GitLab CI/CD](../ci/_index.md) permissions for some roles can be modified by these settings:
 
 - [Project-based pipeline visibility](../ci/pipelines/settings.md#change-which-users-can-view-your-pipelines):
-  When set to public, gives access to certain CI/CD features to Guest project members.
+ When set to public, gives access to certain CI/CD features to Guest project members.
 - [Pipeline visibility](../ci/pipelines/settings.md#change-pipeline-visibility-for-non-project-members-in-public-projects):
-  When set to **Everyone with Access**, gives access to certain CI/CD "view" features to non-project members.
+ When set to **Everyone with Access**, gives access to certain CI/CD "view" features to non-project members.
 
 Project Owners can perform any listed action, and can delete pipelines:
 
@@ -498,11 +477,8 @@ Project Owners can perform any listed action, and can delete pipelines:
 1. Non-members and guests: Only if the project is public.
 2. Non-members: Only if the project is public and **Project-based pipeline visibility** is enabled.
    <br>Guests: Only if **Project-based pipeline visibility** is enabled.
-3. Non-members: Only if the project is public, **Project-based pipeline visibility** is enabled,
-   and [`artifacts:public: false`](../ci/yaml/_index.md#artifactspublic) is not set on the job.
-   <br>Guests: Only if **Project-based pipeline visibility** is enabled and
-   `artifacts:public: false` is not set on the job.<br>Reporters: Only if `artifacts:public: false`
-   is not set on the job.<br>The `artifacts:public` setting only affects GitLab UI and API access.
+3. Non-members: Only if the project is public, **Project-based pipeline visibility** is enabled, and [`artifacts:public: false`](../ci/yaml/_index.md#artifactspublic) is not set on the job.
+   <br>Guests: Only if **Project-based pipeline visibility** is enabled and `artifacts:public: false` is not set on the job.<br>Reporters: Only if `artifacts:public: false` is not set on the job.<br>The `artifacts:public` setting only affects GitLab UI and API access.
    CI/CD job tokens can still access artifacts with the runner API.
 4. Guests: Only if **Project-based pipeline visibility** is enabled.
 5. Reporters: Only if the user is [part of a group with access to the protected environment](../ci/environments/protected_environments.md#deployment-only-access-to-protected-environments).
@@ -530,12 +506,12 @@ Guest users and members with the Reporter role cannot do any of these actions.
 | --------------------------------------------------------- | :-------: | :--------: |
 | Clone source and LFS from current project                 |     ✓     |     ✓      |
 | Clone source and LFS from public projects                 |     ✓     |     ✓      |
-| Clone source and LFS from internal projects <sup>1</sup>  |     ✓     |     ✓      |
+| Clone source and LFS from internal projects <sup>1</sup> |     ✓     |     ✓      |
 | Clone source and LFS from private projects <sup>2</sup>   |     ✓     |     ✓      |
 | Pull container images from current project                |     ✓     |     ✓      |
 | Pull container images from public projects                |     ✓     |     ✓      |
 | Pull container images from internal projects <sup>1</sup> |     ✓     |     ✓      |
-| Pull container images from private projects <sup>2</sup>  |     ✓     |     ✓      |
+| Pull container images from private projects <sup>2</sup> |     ✓     |     ✓      |
 | Push container images to current project <sup>3</sup>     |     ✓     |     ✓      |
 
 **Footnotes**
@@ -557,11 +533,8 @@ Project permissions for [compliance](compliance/_index.md) features including co
 
 **Footnotes**
 
-1. On GitLab Self-Managed, users with the Guest role are able to perform this action only on public
-   and internal projects (not on private projects). [External users](../administration/external_users.md)
-   must have at least the Reporter role, even if the project is internal. Users with the Guest
-   role on GitLab.com are able to perform this action only on public projects because internal
-   visibility is not available.
+1. On GitLab Self-Managed, users with the Guest role are able to perform this action only on public and internal projects (not on private projects). [External users](../administration/external_users.md)
+   must have at least the Reporter role, even if the project is internal. Users with the Guest role on GitLab.com are able to perform this action only on public projects because internal visibility is not available.
 1. Users can only view events based on their individual actions. For more details, see the [prerequisites](compliance/audit_events.md#prerequisites).
 
 ### Project GitLab Duo
@@ -597,20 +570,11 @@ Project permissions for [merge requests](project/merge_requests/_index.md):
 
 **Footnotes**
 
-1. On GitLab Self-Managed, users with the Guest role are able to perform this action only on public
-   and internal projects (not on private projects). [External users](../administration/external_users.md)
-   must be given explicit access (at least the **Reporter** role) even if the project is internal. Users
-   with the Guest role on GitLab.com are only able to perform this action on public projects because
-   internal visibility is not available.
-1. Approval from Planner and Reporter roles is available only if
-   [enabled for the project](project/merge_requests/approvals/rules.md#enable-approval-permissions-for-additional-users).
-1. In projects that accept contributions from external members, users can create, edit, and close their
-   own merge requests. For **private** projects, this excludes the Guest role as those users
-   [cannot clone private projects](public_access.md#private-projects-and-groups). For **internal**
-   projects, includes users with read-only access to the project, as
-   [they can clone internal projects](public_access.md#internal-projects-and-groups).
-1. In projects that accept contributions from external members, users can create, edit, and close their
-   own merge requests. They cannot edit some fields, like assignees, reviewers, labels, and milestones.
+1. On GitLab Self-Managed, users with the Guest role are able to perform this action only on public and internal projects (not on private projects). [External users](../administration/external_users.md)
+   must be given explicit access (at least the **Reporter** role) even if the project is internal. Users with the Guest role on GitLab.com are only able to perform this action on public projects because internal visibility is not available.
+1. Approval from Planner and Reporter roles is available only if [enabled for the project](project/merge_requests/approvals/rules.md#enable-approval-permissions-for-additional-users).
+1. In projects that accept contributions from external members, users can create, edit, and close their own merge requests. For **private** projects, this excludes the Guest role as those users [cannot clone private projects](public_access.md#private-projects-and-groups). For **internal** projects, includes users with read-only access to the project, as [they can clone internal projects](public_access.md#internal-projects-and-groups).
+1. In projects that accept contributions from external members, users can create, edit, and close their own merge requests. They cannot edit some fields, like assignees, reviewers, labels, and milestones.
 
 ### Project model registry and experiments
 
@@ -629,12 +593,9 @@ Project permissions for [model registry](project/ml/model_registry/_index.md) an
 
 **Footnotes**
 
-1. Non-members can only view models and versions in public projects with the **Everyone with access**
-   visibility level. Non-members can't view internal projects, even if they're logged in.
-1. Non-members can only view model experiments in public projects with the **Everyone with access**
-   visibility level. Non-members can't view internal projects, even if they're logged in.
-1. You can also upload and download artifacts with the package registry API, which uses
-   a different set of permissions.
+1. Non-members can only view models and versions in public projects with the **Everyone with access** visibility level. Non-members can't view internal projects, even if they're logged in.
+1. Non-members can only view model experiments in public projects with the **Everyone with access** visibility level. Non-members can't view internal projects, even if they're logged in.
+1. You can also upload and download artifacts with the package registry API, which uses a different set of permissions.
 
 ### Project monitoring
 
@@ -682,15 +643,13 @@ Project permissions for [package registry](packages/_index.md):
 | Pull packages <sup>1</sup>              |   ✓   |    ✓    |    ✓     |     ✓     |     ✓      |   ✓   |
 | Publish packages                        |       |         |          |     ✓     |     ✓      |   ✓   |
 | Delete packages                         |       |         |          |           |     ✓      |   ✓   |
-| Delete files associated with a package  |       |         |          |           |     ✓      |   ✓   |
+| Delete files associated with a package |       |         |          |           |     ✓      |   ✓   |
 
 **Footnotes**
 
-1. On GitLab Self-Managed, users with the Guest role are able to perform this action only on public
-   and internal projects (not on private projects). [External users](../administration/external_users.md)
+1. On GitLab Self-Managed, users with the Guest role are able to perform this action only on public and internal projects (not on private projects). [External users](../administration/external_users.md)
    must be given explicit access (at least the **Reporter** role) even if the project is internal.
-   Users with the Guest role on GitLab.com are only able to perform this action on public projects
-   because internal visibility is not available.
+   Users with the Guest role on GitLab.com are only able to perform this action on public projects because internal visibility is not available.
 
 ### Project planning
 
@@ -724,10 +683,7 @@ Project permissions for [issues](project/issues/_index.md):
 
 **Footnotes**
 
-1. Metadata includes labels, assignees, milestones, epics, weight, confidentiality, time tracking,
-   and more. Guest users can only set metadata when creating an issue. They cannot change the
-   metadata on existing issues. Guest users can modify the title and description of issues that
-   they authored or are assigned to.
+1. Metadata includes labels, assignees, milestones, epics, weight, confidentiality, time tracking, and more. Guest users can only set metadata when creating an issue. They cannot change the metadata on existing issues. Guest users can modify the title and description of issues that they authored or are assigned to.
 1. Guest users can close and reopen issues that they authored or are assigned to.
 1. Guest users can archive and reopen issues that they authored or are assigned to.
 1. Guest users can modify the title and description that they authored or are assigned to.
@@ -808,40 +764,16 @@ Project permissions for [repository](project/repository/_index.md) features incl
 <!-- Disable ordered list rule https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md029---ordered-list-item-prefix -->
 <!-- markdownlint-disable MD029 -->
 
-1. On GitLab Self-Managed, users with the Guest role are able to perform this action only on public
-   and internal projects (not on private projects). [External users](../administration/external_users.md)
+1. On GitLab Self-Managed, users with the Guest role are able to perform this action only on public and internal projects (not on private projects). [External users](../administration/external_users.md)
    must be given explicit access (at least the **Reporter** role) even if the project is internal.
-   Users with the Guest role on GitLab.com are only able to perform this action on public projects because
-   internal visibility is not available. In GitLab 15.9 and later, users with the Guest role and an
-   Ultimate license can view private repository content if an administrator (on GitLab Self-Managed
-   or GitLab Dedicated) or group owner (on GitLab.com) gives those users permission. The administrator
-   or group owner can create a [custom role](custom_roles/_index.md) through the API or UI and assign
-   that role to the users. In GitLab 18.7 and later, users with the Planner role can view private repository content.
-2. On GitLab Self-Managed, users with the Guest role are able to perform this action only on public
-   and internal projects (not on private projects). [External users](../administration/external_users.md)
-   must be given explicit access (at least the **Reporter** role) even if the project is internal. Users
-   with the Guest role on GitLab.com are only able to perform this action on public projects because
-   internal visibility is not available. In GitLab 15.9 and later, users with the Guest role and an
-   Ultimate license can search private repository content if an administrator (on GitLab Self-Managed
-   or GitLab Dedicated) or group owner (on GitLab.com) gives those users permission. The administrator
-   or group owner can create a [custom role](custom_roles/_index.md) through the API or UI and assign
-   that role to the users.
-3. On GitLab Self-Managed, users with the Guest role are able to perform this action only on public
-   and internal projects (not on private projects). [External users](../administration/external_users.md)
-   must be given explicit access (at least the **Reporter** role) even if the project is internal. Users
-   with the Guest role on GitLab.com are only able to perform this action on public projects because
-   internal visibility is not available.
-4. If the [branch is protected](project/repository/branches/protected.md), this depends on the
-   access given to Developers and Maintainers.
-5. On GitLab Self-Managed, users with the Guest role are able to perform this action only on public
-   and internal projects (not on private projects). [External users](../administration/external_users.md)
-   must be given explicit access (at least the **Reporter** role) even if the project is internal. Users
-   with the Guest role on GitLab.com are only able to perform this action on public projects because
-   internal visibility is not available. In GitLab 15.9 and later, users with the Guest role and an
-   Ultimate license can view private repository content if an administrator (on GitLab Self-Managed
-   or GitLab Dedicated) or group owner (on GitLab.com) gives those users permission. The administrator
-   or group owner can create a [custom role](custom_roles/_index.md) through the API or UI and assign
-   that role to the users.
+   Users with the Guest role on GitLab.com are only able to perform this action on public projects because internal visibility is not available. In GitLab 15.9 and later, users with the Guest role and an Ultimate license can view private repository content if an administrator (on GitLab Self-Managed or GitLab Dedicated) or group owner (on GitLab.com) gives those users permission. The administrator or group owner can create a [custom role](custom_roles/_index.md) through the API or UI and assign that role to the users. In GitLab 18.7 and later, users with the Planner role can view private repository content.
+2. On GitLab Self-Managed, users with the Guest role are able to perform this action only on public and internal projects (not on private projects). [External users](../administration/external_users.md)
+   must be given explicit access (at least the **Reporter** role) even if the project is internal. Users with the Guest role on GitLab.com are only able to perform this action on public projects because internal visibility is not available. In GitLab 15.9 and later, users with the Guest role and an Ultimate license can search private repository content if an administrator (on GitLab Self-Managed or GitLab Dedicated) or group owner (on GitLab.com) gives those users permission. The administrator or group owner can create a [custom role](custom_roles/_index.md) through the API or UI and assign that role to the users.
+3. On GitLab Self-Managed, users with the Guest role are able to perform this action only on public and internal projects (not on private projects). [External users](../administration/external_users.md)
+   must be given explicit access (at least the **Reporter** role) even if the project is internal. Users with the Guest role on GitLab.com are only able to perform this action on public projects because internal visibility is not available.
+4. If the [branch is protected](project/repository/branches/protected.md), this depends on the access given to Developers and Maintainers.
+5. On GitLab Self-Managed, users with the Guest role are able to perform this action only on public and internal projects (not on private projects). [External users](../administration/external_users.md)
+   must be given explicit access (at least the **Reporter** role) even if the project is internal. Users with the Guest role on GitLab.com are only able to perform this action on public projects because internal visibility is not available. In GitLab 15.9 and later, users with the Guest role and an Ultimate license can view private repository content if an administrator (on GitLab Self-Managed or GitLab Dedicated) or group owner (on GitLab.com) gives those users permission. The administrator or group owner can create a [custom role](custom_roles/_index.md) through the API or UI and assign that role to the users.
 6. Not allowed for Guest, Reporter, Developer, Maintainer, or Owner. See [protected branches](project/repository/branches/protected.md#allow-force-push).
 
 <!-- markdownlint-enable MD029 -->
@@ -865,12 +797,9 @@ Project permissions for [user management](project/members/_index.md).
 
 ## Subgroup permissions
 
-When you add a member to a subgroup, they inherit the membership and
-permission level from the parent groups. This model allows access to
-nested groups if you have membership in one of its parents.
+When you add a member to a subgroup, they inherit the membership and permission level from the parent groups. This model allows access to nested groups if you have membership in one of its parents.
 
-For more information, see
-[subgroup memberships](group/subgroups/_index.md#subgroup-membership).
+For more information, see [subgroup memberships](group/subgroups/_index.md#subgroup-membership).
 
 ## Users with Minimal Access
 
@@ -890,13 +819,11 @@ For more information, see
 Users with the Minimal Access role do not:
 
 - Automatically have access to projects and subgroups in that top-level group.
-  Owners must explicitly add these users to the specific subgroups and
-  projects.
+ Owners must explicitly add these users to the specific subgroups and projects.
 - Count as licensed seats on GitLab Self-Managed Ultimate subscriptions or any GitLab.com subscriptions, provided the user has no other role anywhere in the instance or in the GitLab.com namespace.
 
 You can use the Minimal Access role with [SAML SSO for GitLab.com groups](group/saml_sso/_index.md)
-to control access to groups and projects in the group hierarchy. You can set the default role to
-Minimal Access for members automatically added to the top-level group through SSO.
+to control access to groups and projects in the group hierarchy. You can set the default role to Minimal Access for members automatically added to the top-level group through SSO.
 
 1. On the top bar, select **Search or go to** and find your group.
 1. Select **Settings** > **SAML SSO**.

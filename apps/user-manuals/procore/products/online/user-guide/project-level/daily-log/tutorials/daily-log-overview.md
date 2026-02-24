@@ -11,13 +11,13 @@ To provide a brief overview of the function and purpose of each section of the
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Read Only' or above users on the Daily Log tool can view and search for entries.
-  - 'Standard' or 'Admin' users can add and edit daily log entries.
-  - 'Admin' users can configure advanced settings, copy entries, and set which sections appear on the Daily Log.
+ - 'Read Only' or above users on the Daily Log tool can view and search for entries.
+ - 'Standard' or 'Admin' users can add and edit daily log entries.
+ - 'Admin' users can configure advanced settings, copy entries, and set which sections appear on the Daily Log.
 - **Additional Information:**
-  - Not all sections listed below are turned on by default. To learn how to turn on and off certain sections, see [Configure Advanced Settings: Daily Log](https://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/configure-advanced-settings-daily-log "Configure Advanced Settings: Daily Log").
-  - It's important to note that each section's purpose is meant as a suggestion; your team can use each section as needed.
-  - Once you have completed the day's entries, you can mark the day as 'Complete.' See [Mark a Daily Log as Complete](https://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/mark-a-daily-log-as-complete "Mark a Daily Log as Complete").
+ - Not all sections listed below are turned on by default. To learn how to turn on and off certain sections, see [Configure Advanced Settings: Daily Log](https://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/configure-advanced-settings-daily-log "Configure Advanced Settings: Daily Log").
+ - It's important to note that each section's purpose is meant as a suggestion; your team can use each section as needed.
+ - Once you have completed the day's entries, you can mark the day as 'Complete.' See [Mark a Daily Log as Complete](https://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/mark-a-daily-log-as-complete "Mark a Daily Log as Complete").
 
 ## Overview
 
@@ -51,9 +51,9 @@ The Weather section can be used to track many things. For example, you might wan
 
 ### Manpower
 
-The Manpower section tracks the people on site who have completed work on the project for that day. You are able to collect information on the companies on site, the number of workers, the number of hours they worked, and the cost code associated with their work.  
-  
-You can configure your Manpower section so that the 'Hours' and 'Workers' values on a copied manpower entry are set to zero (0). See [Configure Advanced Settings: Daily Log](https://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/configure-advanced-settings-daily-log "Configure Advanced Settings: Daily Log").  
+The Manpower section tracks the people on site who have completed work on the project for that day. You are able to collect information on the companies on site, the number of workers, the number of hours they worked, and the cost code associated with their work. 
+ 
+You can configure your Manpower section so that the 'Hours' and 'Workers' values on a copied manpower entry are set to zero (0). See [Configure Advanced Settings: Daily Log](https://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/configure-advanced-settings-daily-log "Configure Advanced Settings: Daily Log"). 
 *Note*: If this setting is not enabled, the copied manpower entry will include the number of hours and workers from the previous entry.
 
 ### Notes

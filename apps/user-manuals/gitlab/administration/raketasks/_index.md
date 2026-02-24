@@ -12,8 +12,7 @@ title: Rake tasks
 
 {{< /details >}}
 
-GitLab provides [Rake](https://ruby.github.io/rake/) tasks to assist you with common administration and operational
-processes.
+GitLab provides [Rake](https://ruby.github.io/rake/) tasks to assist you with common administration and operational processes.
 
 All Rake tasks must be run on a Rails node unless the documentation for a task specifically states otherwise.
 

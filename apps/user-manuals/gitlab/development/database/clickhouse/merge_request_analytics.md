@@ -25,12 +25,9 @@ You can filter by:
 
 ## Current performance problems
 
-- The aggregation queries require specialized indexes, which cost additional
-  disk space (index-only scans).
-- Querying the whole 12 months is slow (statement timeout). Instead, the frontend
-  requests data per month (12 database queries).
-- Even with specialized indexes, making the feature available on the group level
-  would not be feasible due to the large volume of merge requests.
+- The aggregation queries require specialized indexes, which cost additional disk space (index-only scans).
+- Querying the whole 12 months is slow (statement timeout). Instead, the frontend requests data per month (12 database queries).
+- Even with specialized indexes, making the feature available on the group level would not be feasible due to the large volume of merge requests.
 
 ## Example queries
 
@@ -44,17 +41,15 @@ WHERE (NOT EXISTS
          (SELECT 1
           FROM "banned_users"
           WHERE (merge_requests.author_id = banned_users.user_id)))
-  AND "merge_request_metrics"."target_project_id" = 278964
-  AND "merge_request_metrics"."merged_at" >= '2022-12-01 00:00:00'
-  AND "merge_request_metrics"."merged_at" <= '2023-01-01 00:00:00'
+ AND "merge_request_metrics"."target_project_id" = 278964
+ AND "merge_request_metrics"."merged_at" >= '2022-12-01 00:00:00'
+ AND "merge_request_metrics"."merged_at" <= '2023-01-01 00:00:00'
 ```
 
 The `merge_request_metrics` table was de-normalized (by adding `target_project_id`)
-to improve the first-page load time. The query itself works well for smaller date ranges,
-however, it can time out as the date range increases.
+to improve the first-page load time. The query itself works well for smaller date ranges, however, it can time out as the date range increases.
 
-After an extra filter is added, the query becomes more complex because it must also
-filter the `merge_requests` table:
+After an extra filter is added, the query becomes more complex because it must also filter the `merge_requests` table:
 
 ```sql
 SELECT COUNT(*)
@@ -64,17 +59,16 @@ WHERE (NOT EXISTS
          (SELECT 1
           FROM "banned_users"
           WHERE (merge_requests.author_id = banned_users.user_id)))
-  AND "merge_requests"."author_id" IN
+ AND "merge_requests"."author_id" IN
     (SELECT "users"."id"
      FROM "users"
      WHERE (LOWER("users"."username") IN (LOWER('ahegyi'))))
-  AND "merge_request_metrics"."target_project_id" = 278964
-  AND "merge_request_metrics"."merged_at" >= '2022-12-01 00:00:00'
-  AND "merge_request_metrics"."merged_at" <= '2023-01-01 00:00:00'
+ AND "merge_request_metrics"."target_project_id" = 278964
+ AND "merge_request_metrics"."merged_at" >= '2022-12-01 00:00:00'
+ AND "merge_request_metrics"."merged_at" <= '2023-01-01 00:00:00'
 ```
 
-To calculate mean time to merge, we also query the total time between the
-merge request creation time and merge time.
+To calculate mean time to merge, we also query the total time between the merge request creation time and merge time.
 
 ```sql
 SELECT EXTRACT(epoch
@@ -85,24 +79,22 @@ WHERE (NOT EXISTS
          (SELECT 1
           FROM "banned_users"
           WHERE (merge_requests.author_id = banned_users.user_id)))
-  AND "merge_requests"."author_id" IN
+ AND "merge_requests"."author_id" IN
     (SELECT "users"."id"
      FROM "users"
      WHERE (LOWER("users"."username") IN (LOWER('ahegyi'))))
-  AND "merge_request_metrics"."target_project_id" = 278964
-  AND "merge_request_metrics"."merged_at" >= '2022-08-01 00:00:00'
-  AND "merge_request_metrics"."merged_at" <= '2022-09-01 00:00:00'
-  AND "merge_request_metrics"."merged_at" > "merge_request_metrics"."created_at"
+ AND "merge_request_metrics"."target_project_id" = 278964
+ AND "merge_request_metrics"."merged_at" >= '2022-08-01 00:00:00'
+ AND "merge_request_metrics"."merged_at" <= '2022-09-01 00:00:00'
+ AND "merge_request_metrics"."merged_at" > "merge_request_metrics"."created_at"
 LIMIT 1
 ```
 
 ## Store merge request data in ClickHouse
 
-Several other use cases exist for storing and querying merge request data in
-[ClickHouse](../../../integration/clickhouse.md). In this document, we focus on this particular feature.
+Several other use cases exist for storing and querying merge request data in [ClickHouse](../../../integration/clickhouse.md). In this document, we focus on this particular feature.
 
-The core data exists in the `merge_request_metrics` and in the `merge_requests`
-database tables. Some filters require extra tables to be joined:
+The core data exists in the `merge_request_metrics` and in the `merge_requests` database tables. Some filters require extra tables to be joined:
 
 - `banned_users`: Filter out merge requests created by banned users.
 - `labels`: A merge request can have one or more assigned labels.
@@ -120,23 +112,18 @@ The `merge_requests` table contains data that can be filtered directly:
 ### Keep ClickHouse data up to date
 
 Replicating or syncing the `merge_requests` table is unfortunately not enough.
-Separate queries to associated tables are required to insert one de-normalized
-`merge_requests` row into the ClickHouse database.
+Separate queries to associated tables are required to insert one de-normalized `merge_requests` row into the ClickHouse database.
 
 Change detection is non-trivial to implement. A few corners we could cut:
 
 - The feature is available for GitLab Premium and GitLab Ultimate customers.
-  We don't have to sync all the data, but instead sync only the `merge_requests` records
-  which are part of licensed groups.
-- Data changes (often) happen via the `MergeRequest` services, where bumping the
-  `updated_at` timestamp column is mostly consistent. Some sort of incremental
-  synchronization process could be implemented.
+ We don't have to sync all the data, but instead sync only the `merge_requests` records which are part of licensed groups.
+- Data changes (often) happen via the `MergeRequest` services, where bumping the `updated_at` timestamp column is mostly consistent. Some sort of incremental synchronization process could be implemented.
 - We only need to query the merged merge requests. After the merge, the record rarely changes.
 
 ### Database table structure
 
-The database table structure uses de-normalization to make all required columns
-available in one database table. This eliminates the need for `JOINs`.
+The database table structure uses de-normalization to make all required columns available in one database table. This eliminates the need for `JOINs`.
 
 ```sql
 CREATE TABLE merge_requests
@@ -157,12 +144,9 @@ ENGINE = ReplacingMergeTree(updated_at)
 ORDER BY (project_id, merged_at, id);
 ```
 
-Similarly to the [activity data example](gitlab_activity_data.md), we use the
-`ReplacingMergeTree` engine. Several columns of the merge request record may change,
-so keeping the table up-to-date is important.
+Similarly to the [activity data example](gitlab_activity_data.md), we use the `ReplacingMergeTree` engine. Several columns of the merge request record may change, so keeping the table up-to-date is important.
 
-The database table is ordered by the `project_id, merged_at, id` columns. This ordering
-optimizes the table data for our use case: querying the `merged_at` column in a project.
+The database table is ordered by the `project_id, merged_at, id` columns. This ordering optimizes the table data for our use case: querying the `merged_at` column in a project.
 
 ## Rewrite the count query
 
@@ -177,13 +161,11 @@ LIMIT 1000000;
 
 {{< alert type="note" >}}
 
-Some integer data types were cast as `UInt8` so it is highly probable that they
-have same values across different rows.
+Some integer data types were cast as `UInt8` so it is highly probable that they have same values across different rows.
 
 {{< /alert >}}
 
-The original count query only aggregated data for one month. With ClickHouse, we can
-attempt aggregating the data for the whole year.
+The original count query only aggregated data for one month. With ClickHouse, we can attempt aggregating the data for the whole year.
 
 PostgreSQL-based count query:
 
@@ -195,23 +177,23 @@ WHERE (NOT EXISTS
          (SELECT 1
           FROM "banned_users"
           WHERE (merge_requests.author_id = banned_users.user_id)))
-  AND "merge_request_metrics"."target_project_id" = 278964
-  AND "merge_request_metrics"."merged_at" >= '2022-12-01 00:00:00'
-  AND "merge_request_metrics"."merged_at" <= '2023-01-01 00:00:00'
+ AND "merge_request_metrics"."target_project_id" = 278964
+ AND "merge_request_metrics"."merged_at" >= '2022-12-01 00:00:00'
+ AND "merge_request_metrics"."merged_at" <= '2023-01-01 00:00:00'
 ```
 
 ClickHouse query:
 
 ```sql
 SELECT
-  toYear(merged_at) AS year,
-  toMonth(merged_at) AS month,
-  COUNT(*)
+ toYear(merged_at) AS year,
+ toMonth(merged_at) AS month,
+ COUNT(*)
 FROM merge_requests
 WHERE
-  project_id = 200
-  AND merged_at BETWEEN '2022-01-01 00:00:00'
-  AND '2023-01-01 00:00:00'
+ project_id = 200
+ AND merged_at BETWEEN '2022-01-01 00:00:00'
+ AND '2023-01-01 00:00:00'
 GROUP BY year, month
 ```
 
@@ -226,8 +208,7 @@ Processed 8.19 thousand rows, 131.07 KB (783.45 thousand rows/s., 12.54 MB/s.)
 ## Rewrite the Mean time to merge query
 
 The query calculates the mean time to merge as:
-`duration(created_at, merged_at) / merge_request_count`. The calculation is done in
-two separate steps:
+`duration(created_at, merged_at) / merge_request_count`. The calculation is done in two separate steps:
 
 1. Request the monthly counts and the monthly duration values.
 1. Sum the counts to get the yearly count.
@@ -238,14 +219,14 @@ In ClickHouse, we can calculate the mean time to merge with one query:
 
 ```sql
 SELECT
-  SUM(
+ SUM(
     dateDiff('second', merged_at, created_at) / 3600 / 24
-  ) / COUNT(*) AS mean_time_to_merge -- mean_time_to_merge is in days
+ ) / COUNT(*) AS mean_time_to_merge -- mean_time_to_merge is in days
 FROM merge_requests
 WHERE
-  project_id = 200
-  AND merged_at BETWEEN '2022-01-01 00:00:00'
-  AND '2023-01-01 00:00:00'
+ project_id = 200
+ AND merged_at BETWEEN '2022-01-01 00:00:00'
+ AND '2023-01-01 00:00:00'
 ```
 
 ## Filtering
@@ -255,22 +236,21 @@ For example, filtering for a label and a milestone:
 
 ```sql
 SELECT
-  toYear(merged_at) AS year,
-  toMonth(merged_at) AS month,
-  COUNT(*)
+ toYear(merged_at) AS year,
+ toMonth(merged_at) AS month,
+ COUNT(*)
 FROM merge_requests
 WHERE
-  project_id = 200
-  AND milestone_id = 15
-  AND has(label_ids, 118)
-  AND -- array includes 118
-  merged_at BETWEEN '2022-01-01 00:00:00'
-  AND '2023-01-01 00:00:00'
+ project_id = 200
+ AND milestone_id = 15
+ AND has(label_ids, 118)
+ AND -- array includes 118
+ merged_at BETWEEN '2022-01-01 00:00:00'
+ AND '2023-01-01 00:00:00'
 GROUP BY year, month
 ```
 
-Optimizing a particular filter is usually done with a database index. This particular
-query reads 8000 rows:
+Optimizing a particular filter is usually done with a database index. This particular query reads 8000 rows:
 
 ```plaintext
 1 row in set. Elapsed: 0.016 sec.
@@ -282,18 +262,16 @@ Adding an index on `milestone_id`:
 ```sql
 ALTER TABLE merge_requests
 ADD
-  INDEX milestone_id_index milestone_id TYPE minmax GRANULARITY 10;
+ INDEX milestone_id_index milestone_id TYPE minmax GRANULARITY 10;
 ALTER TABLE
-  merge_requests MATERIALIZE INDEX milestone_id_index;
+ merge_requests MATERIALIZE INDEX milestone_id_index;
 ```
 
 On the generated data, adding the index didn't improve the performance.
 
 ### Banned users filter
 
-A recently added feature in GitLab filters out merge requests where the author is
-banned by the admins. The banned users are tracked on the instance level in the
-`banned_users` database table.
+A recently added feature in GitLab filters out merge requests where the author is banned by the admins. The banned users are tracked on the instance level in the `banned_users` database table.
 
 #### Idea 1: Enumerate the banned user IDs
 
@@ -310,17 +288,17 @@ In ClickHouse
 
 ```sql
 SELECT
-  toYear(merged_at) AS year,
-  toMonth(merged_at) AS month,
-  COUNT(*)
+ toYear(merged_at) AS year,
+ toMonth(merged_at) AS month,
+ COUNT(*)
 FROM merge_requests
 WHERE
-  author_id NOT IN (1, 2, 3, 4) AND -- banned users
-  project_id = 200
-  AND milestone_id = 15
-  AND has(label_ids, 118) AND -- array includes 118
-  merged_at BETWEEN '2022-01-01 00:00:00'
-  AND '2023-01-01 00:00:00'
+ author_id NOT IN (1, 2, 3, 4) AND -- banned users
+ project_id = 200
+ AND milestone_id = 15
+ AND has(label_ids, 118) AND -- array includes 118
+ merged_at BETWEEN '2022-01-01 00:00:00'
+ AND '2023-01-01 00:00:00'
 GROUP BY year, month
 ```
 
@@ -328,27 +306,24 @@ The problem with this approach is that the number of banned users could increase
 
 #### Idea 2: replicate the `banned_users` table
 
-Assuming that the `banned_users table` doesn't grow to millions of rows, we could
-attempt to periodically sync the whole table to ClickHouse. With this approach,
-a mostly consistent `banned_users` table could be used in the ClickHouse database query:
+Assuming that the `banned_users table` doesn't grow to millions of rows, we could attempt to periodically sync the whole table to ClickHouse. With this approach, a mostly consistent `banned_users` table could be used in the ClickHouse database query:
 
 ```sql
 SELECT
-  toYear(merged_at) AS year,
-  toMonth(merged_at) AS month,
-  COUNT(*)
+ toYear(merged_at) AS year,
+ toMonth(merged_at) AS month,
+ COUNT(*)
 FROM merge_requests
 WHERE
-  author_id NOT IN (SELECT user_id FROM banned_users) AND
-  project_id = 200 AND
-  milestone_id = 15 AND
-  has(label_ids, 118) AND -- array includes 118
-  merged_at BETWEEN '2022-01-01 00:00:00' AND '2023-01-01 00:00:00'
+ author_id NOT IN (SELECT user_id FROM banned_users) AND
+ project_id = 200 AND
+ milestone_id = 15 AND
+ has(label_ids, 118) AND -- array includes 118
+ merged_at BETWEEN '2022-01-01 00:00:00' AND '2023-01-01 00:00:00'
 GROUP BY year, month
 ```
 
-Alternatively, the `banned_users` table could be stored as a
-[dictionary](https://clickhouse.com/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts)
+Alternatively, the `banned_users` table could be stored as a [dictionary](https://clickhouse.com/docs/en/sql-reference/dictionaries/external-dictionaries/external-dicts)
 to further improve the query performance.
 
 #### Idea 3: Alter the feature

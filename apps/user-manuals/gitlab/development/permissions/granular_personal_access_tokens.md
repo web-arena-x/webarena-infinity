@@ -52,8 +52,7 @@ For guidance on permission granularity and preferred actions, see the [Naming Pe
 
 #### Permission Naming Pattern
 
-Follow the pattern: `action_resource(_subresource)`
-**Use singular** instead of plural for the resource and subresource. Example: `read_job` (instead of `read_jobs` regardless of which boundary it applies to) and `create_pipeline_schedule_variable`.
+Follow the pattern: `action_resource(_subresource)` **Use singular** instead of plural for the resource and subresource. Example: `read_job` (instead of `read_jobs` regardless of which boundary it applies to) and `create_pipeline_schedule_variable`.
 
 **Examples:**
 
@@ -70,18 +69,18 @@ Follow the pattern: `action_resource(_subresource)`
 #### Common Patterns
 
 - **List and Show operations**: Use a single `read_resource` permission for both
-  - `GET /projects/:id/jobs` → `read_job`
-  - `GET /projects/:id/jobs/:job_id` → `read_job`
+ - `GET /projects/:id/jobs` → `read_job`
+ - `GET /projects/:id/jobs/:job_id` → `read_job`
 
 - **Nested resources**: Include the parent resource in the permission name
-  - `POST /projects/:id/pipeline_schedules/:id/variables` → `create_pipeline_schedule_variable`
+ - `POST /projects/:id/pipeline_schedules/:id/variables` → `create_pipeline_schedule_variable`
 
 - **Special actions**: Create specific permissions for unique operations
-  - Cancel, retry, download, trigger, etc. each get their own permission
+ - Cancel, retry, download, trigger, etc. each get their own permission
 
 - **Attribute updates**: Do not create separate permissions for individual attributes
-  - `update_issue` covers updating title, description, assignees, etc.
-  - Do not create `update_issue_description`, `update_issue_title`
+ - `update_issue` covers updating title, description, assignees, etc.
+ - Do not create `update_issue_description`, `update_issue_title`
 
 ### Step 3: Generate Permission Definition Files
 
@@ -98,8 +97,8 @@ The generator creates a template. Fill in all required fields:
 name: read_job
 description: Grants the ability to read CI/CD jobs
 boundaries:
-  - group
-  - project
+ - group
+ - project
 ```
 
 **Required Fields:**
@@ -121,11 +120,11 @@ Define permission groups in `config/authz/permission_groups/assignable_permissio
 name: run_job
 description: Grants the ability to run jobs
 permissions:
-  - play_job
-  - retry_job
+ - play_job
+ - retry_job
 boundaries:
-  - group
-  - project
+ - group
+ - project
 ```
 
 Each permission included in the group should exist as an individual permission. Only permissions assigned to permission group(s) can be used to authorize API requests using granular PATs.
@@ -137,7 +136,7 @@ For each endpoint, add the `route_setting :authorization` decorator immediately 
 ```ruby
 route_setting :authorization, permissions: :read_job, boundary_type: :project
 get ':id/jobs' do
-  # endpoint implementation
+ # endpoint implementation
 end
 ```
 
@@ -157,11 +156,11 @@ For each endpoint, add the `'authorizing granular token permissions'` shared exa
 
 ```ruby
 it_behaves_like 'authorizing granular token permissions', :<permission_name> do
-  let(:boundary_object) { <boundary_object> }
-  let(:user) { <user> }
-  let(:request) do
+ let(:boundary_object) { <boundary_object> }
+ let(:user) { <user> }
+ let(:request) do
     <http_method> api("<endpoint_path>", personal_access_token: pat), params: <params_if_needed>
-  end
+ end
 end
 ```
 
@@ -224,12 +223,7 @@ Feature.enable(:granular_personal_access_tokens)
 user = User.human.first
 
 # Create granular token
-token = PersonalAccessTokens::CreateService.new(
-  current_user: user,
-  target_user: user,
-  organization_id: user.organization_id,
-  params: { expires_at: 1.month.from_now, scopes: ['granular'], granular: true, name: 'gPAT' }
-).execute[:personal_access_token]
+token = PersonalAccessTokens::CreateService.new( current_user: user, target_user: user, organization_id: user.organization_id, params: { expires_at: 1.month.from_now, scopes: ['granular'], granular: true, name: 'gPAT' } ).execute[:personal_access_token]
 
 # Get the appropriate boundary object (project, group, :user, or :instance)
 boundary = Authz::Boundary.for(user.projects.first)

@@ -12,8 +12,7 @@ Depending on your account type, this role may appear as Owner only, or as both O
 
 The steps below explain how to identify the correct person, even if your team uses the terms interchangeably.
 
-**Role terminology on Handshake**  
-Teammates may use **O****wner** and **A****dmin** interchangeably, but in Handshake these are two distinct roles. Availability depends on your account type:
+**Role terminology on Handshake** Teammates may use **O****wner** and **A****dmin** interchangeably, but in Handshake these are two distinct roles. Availability depends on your account type:
 
 - **Basic, Plus, and Pro** accounts include the **Owner** role only.
 - **Essentials** and **Talent Engagement Suite** accounts include both **Owner** and **Admin** roles.

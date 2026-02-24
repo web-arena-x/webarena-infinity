@@ -77,14 +77,14 @@ Tip: Be sure to check out our [Customer-centric cookbook](https://support.zende
 The filters you apply to create customer lists consist of conditions, field operators, and condition values. Filters are essentially ‘if’ statements that return all customers that meet the specified criteria. For example, here are three filters you might apply to a customer list:
 
 - ```
-  Plan type is premium
-  ```
+ Plan type is premium
+ ```
 - ```
-  Created after 01/01/2013
-  ```
+ Created after 01/01/2013
+ ```
 - ```
-  Organization is ABC Company
-  ```
+ Organization is ABC Company
+ ```
 
 The conditions for customer list filters include the system attributes, tags, and custom user fields. The operators and condition values vary depending on the selected condition.
 
@@ -107,9 +107,9 @@ In addition to lists you and your team have created, there is one default list n
 
 - Click the **Customer Lists** icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/customer_lists_icon.png)) in the sidebar, then select a customer list.
 
-  In the left pane you see your customer lists, with shared lists first and personal lists below that in the **Your lists** section. In the right pane you see the selected customer list.
+ In the left pane you see your customer lists, with shared lists first and personal lists below that in the **Your lists** section. In the right pane you see the selected customer list.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/customer_lists_viewing.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/customer_lists_viewing.png)
 
 Note: If you have more than 100,000 total users you will not see a complete list of matched users in your customer lists. Instead, you will see a sample of users that match the customer list. Admins can export a customer list of up to 100,000 users in size by selecting **Export as CSV to see the entire list** in the message that appears in sampled lists.
 

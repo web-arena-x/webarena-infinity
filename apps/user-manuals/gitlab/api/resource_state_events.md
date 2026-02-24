@@ -42,7 +42,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 142,
     "user": {
       "id": 1,
@@ -58,8 +58,8 @@ Example response:
     "source_commit": null,
     "source_merge_request_id": null,
     "state": "opened"
-  },
-  {
+ },
+ {
     "id": 143,
     "user": {
       "id": 1,
@@ -75,7 +75,7 @@ Example response:
     "source_commit": null,
     "source_merge_request_id": null,
     "state": "closed"
-  }
+ }
 ]
 ```
 
@@ -105,21 +105,21 @@ Example response:
 
 ```json
 {
-  "id": 143,
-  "user": {
+ "id": 143,
+ "user": {
     "id": 1,
     "name": "Administrator",
     "username": "root",
     "state": "active",
     "avatar_url": "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "web_url": "http://gitlab.example.com/root"
-  },
-  "created_at": "2018-08-21T14:38:20.077Z",
-  "resource_type": "Issue",
-  "resource_id": 11,
-  "source_commit": null,
-  "source_merge_request_id": null,
-  "state": "closed"
+ },
+ "created_at": "2018-08-21T14:38:20.077Z",
+ "resource_type": "Issue",
+ "resource_id": 11,
+ "source_commit": null,
+ "source_merge_request_id": null,
+ "state": "closed"
 }
 ```
 
@@ -148,7 +148,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 142,
     "user": {
       "id": 1,
@@ -164,8 +164,8 @@ Example response:
     "source_commit": null,
     "source_merge_request_id": null,
     "state": "opened"
-  },
-  {
+ },
+ {
     "id": 143,
     "user": {
       "id": 1,
@@ -181,7 +181,7 @@ Example response:
     "source_commit": null,
     "source_merge_request_id": null,
     "state": "closed"
-  }
+ }
 ]
 ```
 
@@ -211,21 +211,21 @@ Example response:
 
 ```json
 {
-  "id": 120,
-  "user": {
+ "id": 120,
+ "user": {
     "id": 1,
     "name": "Administrator",
     "username": "root",
     "state": "active",
     "avatar_url": "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "web_url": "http://gitlab.example.com/root"
-  },
-  "created_at": "2018-08-21T14:38:20.077Z",
-  "resource_type": "MergeRequest",
-  "resource_id": 11,
-  "source_commit": null,
-  "source_merge_request_id": null,
-  "state": "closed"
+ },
+ "created_at": "2018-08-21T14:38:20.077Z",
+ "resource_type": "MergeRequest",
+ "resource_id": 11,
+ "source_commit": null,
+ "source_merge_request_id": null,
+ "state": "closed"
 }
 ```
 
@@ -239,10 +239,8 @@ Example response:
 
 {{< alert type="warning" >}}
 
-The Epics REST API was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/460668) in GitLab 17.0
-and is planned for removal in v5 of the API.
-From GitLab 17.4 to 18.0, if [the new look for epics](../user/group/epics/_index.md#epics-as-work-items) is enabled, and in GitLab 18.1 and later, use the
-Work Items API instead. For more information, see [migrate epic APIs to work items](graphql/epic_work_items_api_migration_guide.md).
+The Epics REST API was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/460668) in GitLab 17.0 and is planned for removal in v5 of the API.
+From GitLab 17.4 to 18.0, if [the new look for epics](../user/group/epics/_index.md#epics-as-work-items) is enabled, and in GitLab 18.1 and later, use the Work Items API instead. For more information, see [migrate epic APIs to work items](graphql/epic_work_items_api_migration_guide.md).
 This change is a breaking change.
 
 {{< /alert >}}
@@ -270,7 +268,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 142,
     "user": {
       "id": 1,
@@ -286,8 +284,8 @@ Example response:
     "source_commit": null,
     "source_merge_request_id": null,
     "state": "opened"
-  },
-  {
+ },
+ {
     "id": 143,
     "user": {
       "id": 1,
@@ -303,7 +301,7 @@ Example response:
     "source_commit": null,
     "source_merge_request_id": null,
     "state": "closed"
-  }
+ }
 ]
 ```
 
@@ -319,7 +317,7 @@ Parameters:
 
 | Attribute                 | Type           | Required | Description                                                                   |
 |---------------------------| -------------- | -------- |-------------------------------------------------------------------------------|
-| `id`                      | integer or string | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group.  |
+| `id`                      | integer or string | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group. |
 | `epic_id`                 | integer        | yes      | The ID of an epic.                                                           |
 | `resource_state_event_id` | integer        | yes      | The ID of a state event.                                                       |
 
@@ -333,20 +331,20 @@ Example response:
 
 ```json
 {
-  "id": 143,
-  "user": {
+ "id": 143,
+ "user": {
     "id": 1,
     "name": "Administrator",
     "username": "root",
     "state": "active",
     "avatar_url": "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "web_url": "http://gitlab.example.com/root"
-  },
-  "created_at": "2018-08-21T14:38:20.077Z",
-  "resource_type": "Epic",
-  "resource_id": 11,
-  "source_commit": null,
-  "source_merge_request_id": null,
-  "state": "closed"
+ },
+ "created_at": "2018-08-21T14:38:20.077Z",
+ "resource_type": "Epic",
+ "resource_id": 11,
+ "source_commit": null,
+ "source_merge_request_id": null,
+ "state": "closed"
 }
 ```

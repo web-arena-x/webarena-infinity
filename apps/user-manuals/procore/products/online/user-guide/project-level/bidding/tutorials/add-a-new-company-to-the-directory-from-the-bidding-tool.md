@@ -15,12 +15,12 @@ To add companies and contacts to the Company level Directory in order to invite 
 ## Things to Consider
 
 - ****Required User Permissions:****
-  - 'Admin' level permissions on the Project level Directory tool.  
+ - 'Admin' level permissions on the Project level Directory tool. 
     OR
-  - 'Read Only' level permissions or higher on the Project level Directory with the 'Create and Edit Companies' AND 'Create and Edit Users' granular permissions. See [Grant Granular Permissions in a Project Permission Template](https://support.procore.com/products/online/user-guide/company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template "Grant Granular Permissions in a Project Permissions Template").
+ - 'Read Only' level permissions or higher on the Project level Directory with the 'Create and Edit Companies' AND 'Create and Edit Users' granular permissions. See [Grant Granular Permissions in a Project Permission Template](https://support.procore.com/products/online/user-guide/company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template "Grant Granular Permissions in a Project Permissions Template").
 - ****Additional Information:****
-  - Adding a company and contact through this process will only add them to the Company level Directory, not the Project level Directory.
-  - Adding a contact through this process will not automatically send an invitation to bid email. The email will be sent when the invitation to bid email is sent. See [Add Bidders to a Bid Form](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/add-bidders-to-a-bid-form "Add Bidders to a Bid Form (Beta)") and [Invite Bidders](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/invite-bidders "Invite Bidders (Beta)").
+ - Adding a company and contact through this process will only add them to the Company level Directory, not the Project level Directory.
+ - Adding a contact through this process will not automatically send an invitation to bid email. The email will be sent when the invitation to bid email is sent. See [Add Bidders to a Bid Form](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/add-bidders-to-a-bid-form "Add Bidders to a Bid Form (Beta)") and [Invite Bidders](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/invite-bidders "Invite Bidders (Beta)").
 
 ## Prerequisites
 
@@ -30,19 +30,18 @@ To add companies and contacts to the Company level Directory in order to invite 
 
 1. Navigate to the project's ****Bidding**** tool.
 2. Open the bid package.
-3. Across from the bid form that you want to add a contact to, click the **plus** ![icon-plus-2.png](https://support.procore.com/@api/deki/files/341368/icon-plus-2.png?revision=1&size=bestfit&width=18&height=19) icon and select **Directory**.   
-   ![add-bidders-plus.png](https://support.procore.com/@api/deki/files/398803/add-bidders-plus.png?revision=1)  
+3. Across from the bid form that you want to add a contact to, click the **plus** ![icon-plus-2.png](https://support.procore.com/@api/deki/files/341368/icon-plus-2.png?revision=1&size=bestfit&width=18&height=19) icon and select **Directory**.  
+   ![add-bidders-plus.png](https://support.procore.com/@api/deki/files/398803/add-bidders-plus.png?revision=1) 
    ***Tip!***You can access the same option by clicking **Add Bidders** on the 'Bidders' tab of a bid form. See [Add Bidders to a Bid Form](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/add-bidders-to-a-bid-form "Add Bidders to a Bid Form").
 4. At the top of the page, click ****Add Company****.
-5. In the side panel, enter any necessary information.  
+5. In the side panel, enter any necessary information. 
    ****Note:**** Required fields are indicated by an asterisk (\*).
    - ****General Information****
      - ****Company Name****\*****:****Enter the full legal business name for the company.
      - ****Phone Number:****Enter the company's primary telephone number.
      - ****Fax Number:****Enter the company's primary facsimile number.
      - ****Office Address:****Enter the business address (e.g. number and street name) for the company.
-     - ****City:****Enter the full city name (e.g. Santa Barbara) for the company's address  
-       ****Note**:** Always spell out the full city name and do NOT enter abbreviations.
+     - ****City:****Enter the full city name (e.g. Santa Barbara) for the company's address ****Note**:** Always spell out the full city name and do NOT enter abbreviations.
      - ****Country:****Select the country name associated with the company's address from the drop-down list.
      - ****State:****Select the state associated with the company's address from the drop-down list.
      - ****Zip Code:****Enter the zip code associated with the company's address.
@@ -56,7 +55,7 @@ To add companies and contacts to the Company level Directory in order to invite 
      - ****Cost Codes:**** Select the cost codes that apply to this company.
    - ****Business Certifications****:
      - Click the toggle ON for any certifications that apply to the company
-6. When you are ready to add the company to your Directory, click ****Save****.  
+6. When you are ready to add the company to your Directory, click ****Save****. 
    **Note:**The company will also be added to the 'Selected Companies' list.
 
 ## See Also

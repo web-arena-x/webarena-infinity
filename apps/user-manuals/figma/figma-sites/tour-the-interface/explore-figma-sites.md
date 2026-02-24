@@ -40,7 +40,7 @@ The left navigation bar helps you quickly switch between tasks in Figma Sites:
 The toolbar houses all the tools you’ll need to create your site:
 
 - Add objects like webpages, frames, images, text, and shapes
-- Access [Figma AI tools](https://help.figma.com/hc/en-us/articles/31433998164375) in the  **Actions** menu.
+- Access [Figma AI tools](https://help.figma.com/hc/en-us/articles/31433998164375) in the **Actions** menu.
 
 **Tip**: If you’ve spent time designing in Figma Design, working in Figma Sites will feel very familiar. Check out this list of [design tools available in Figma Sites](https://help.figma.com/hc/en-us/articles/31242787286935).
 
@@ -74,7 +74,7 @@ There are a few ways to get a head start with Figma Sites if you don't want to s
 
 Every new file opens with the template picker.
 
-These templates, and many more, are also available in  [**Templates and tools**](https://help.figma.com/hc/en-us/articles/31668820539287) in the file browser.
+These templates, and many more, are also available in [**Templates and tools**](https://help.figma.com/hc/en-us/articles/31668820539287) in the file browser.
 
 ### **Copy and paste from Figma Design**
 
@@ -98,7 +98,7 @@ Figma Sites gives you lots of control when creating pixel-perfect layouts for di
 
 When you create a new site, you’ll see a grey container. This is a webpage. Each webpage has a name, a button to preview it, and a way to add new breakpoints.
 
-Click the  **Webpage** icon in the toolbar to add a new webpage.
+Click the **Webpage** icon in the toolbar to add a new webpage.
 
 [Learn more about adding and organizing webpages.](https://help.figma.com/hc/en-us/articles/31242763080983)
 
@@ -120,7 +120,7 @@ If your webpage has more than one breakpoint, you can add, select, and edit obje
 
 ![Preview window with controls at the top displaying a webpage titled "Welcome, Earthling" alongside coastal scenery.](https://help.figma.com/hc/article_attachments/31909128088343)
 
-When you’re ready, preview your site to experience it as your users will. It’s a great way to quickly check animations, interactions, and responsiveness—without needing to publish first. Simply tap the  **Preview** icon on any webpage, or press the `Shift` `Space` keyboard shortcut to open the inline preview.
+When you’re ready, preview your site to experience it as your users will. It’s a great way to quickly check animations, interactions, and responsiveness—without needing to publish first. Simply tap the **Preview** icon on any webpage, or press the `Shift` `Space` keyboard shortcut to open the inline preview.
 
 [Learn more about previewing in Figma Sites.](https://help.figma.com/hc/en-us/articles/31242824747287)
 

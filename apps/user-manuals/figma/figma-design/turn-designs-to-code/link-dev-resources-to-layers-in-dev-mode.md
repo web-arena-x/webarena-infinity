@@ -28,7 +28,7 @@ To link to a dev resource:
 
 1. Copy the URL you want to add.
 2. In Dev Mode, select a layer on the canvas.
-3. In the inspect panel, click  **Layer options**, and then **Add a dev resource link**.
+3. In the inspect panel, click **Layer options**, and then **Add a dev resource link**.
 4. In the box that appears in the inspect panel, paste the link.
 5. Press `Enter`
 
@@ -36,7 +36,7 @@ To link to a dev resource:
 
 # Remove a linked Dev resource
 
-1. In the inspect panel**,** click  **Additional options** next to the link to the resource.
+1. In the inspect panel**,** click **Additional options** next to the link to the resource.
 2. Select **Delete link**.
 
 Note: Dev resources with related plugins may have different ways of detaching a link from a layer. [Learn more about using plugins in Dev Mode.](../tour-the-interface/guide-to-dev-mode.md#01H8CR3K6W4DXEW0G1VP2SE003)

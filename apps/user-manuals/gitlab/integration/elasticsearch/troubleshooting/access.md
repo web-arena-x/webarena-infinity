@@ -74,16 +74,10 @@ es_url.save!
 
 ## View logs
 
-One of the most valuable tools for identifying issues with the Elasticsearch
-integration are logs. The most relevant logs for this integration are:
+One of the most valuable tools for identifying issues with the Elasticsearch integration are logs. The most relevant logs for this integration are:
 
-1. [`sidekiq.log`](../../../administration/logs/_index.md#sidekiqlog) - All of the
-   indexing happens in Sidekiq, so much of the relevant logs for the
-   Elasticsearch integration can be found in this file.
-1. [`elasticsearch.log`](../../../administration/logs/_index.md#elasticsearchlog) - There
-   are additional logs specific to Elasticsearch that are sent to this file
-   that might contain diagnostic information about searching,
-   indexing, or migrations.
+1. [`sidekiq.log`](../../../administration/logs/_index.md#sidekiqlog) - All of the indexing happens in Sidekiq, so much of the relevant logs for the Elasticsearch integration can be found in this file.
+1. [`elasticsearch.log`](../../../administration/logs/_index.md#elasticsearchlog) - There are additional logs specific to Elasticsearch that are sent to this file that might contain diagnostic information about searching, indexing, or migrations.
 
 Here are some common pitfalls and how to overcome them.
 
@@ -91,48 +85,41 @@ Here are some common pitfalls and how to overcome them.
 
 To verify that your GitLab instance is using Elasticsearch:
 
-- When you perform a search, in the upper-right corner of the search results page,
-  ensure **Advanced search is enabled** is displayed.
+- When you perform a search, in the upper-right corner of the search results page, ensure **Advanced search is enabled** is displayed.
 
-- In the **Admin** area, under **Settings** > **Search**, check that the
-  advanced search settings are selected.
+- In the **Admin** area, under **Settings** > **Search**, check that the advanced search settings are selected.
 
-  Those same settings there can be obtained from the Rails console if necessary:
+ Those same settings there can be obtained from the Rails console if necessary:
 
-  ```ruby
-  ::Gitlab::CurrentSettings.elasticsearch_search?         # Whether or not searches will use Elasticsearch
-  ::Gitlab::CurrentSettings.elasticsearch_indexing?       # Whether or not content will be indexed in Elasticsearch
-  ::Gitlab::CurrentSettings.elasticsearch_limit_indexing? # Whether or not Elasticsearch is limited only to certain projects/namespaces
-  ```
+ ```ruby
+ ::Gitlab::CurrentSettings.elasticsearch_search?         # Whether or not searches will use Elasticsearch
+ ::Gitlab::CurrentSettings.elasticsearch_indexing?       # Whether or not content will be indexed in Elasticsearch
+ ::Gitlab::CurrentSettings.elasticsearch_limit_indexing? # Whether or not Elasticsearch is limited only to certain projects/namespaces
+ ```
 
-- Confirm searches use Elasticsearch by accessing the
-  [Rails console](../../../administration/operations/rails_console.md) and running the following
-  commands:
+- Confirm searches use Elasticsearch by accessing the [Rails console](../../../administration/operations/rails_console.md) and running the following commands:
 
-  ```rails
-  u = User.find_by_email('email_of_user_doing_search')
-  s = SearchService.new(u, {:search => 'search_term'})
-  pp s.search_objects.class
-  ```
+ ```rails
+ u = User.find_by_email('email_of_user_doing_search')
+ s = SearchService.new(u, {:search => 'search_term'})
+ pp s.search_objects.class
+ ```
 
-  The output from the last command is the key here. If it shows:
+ The output from the last command is the key here. If it shows:
 
-  - `ActiveRecord::Relation`, **it is not** using Elasticsearch.
-  - `Kaminari::PaginatableArray`, **it is** using Elasticsearch.
+ - `ActiveRecord::Relation`, **it is not** using Elasticsearch.
+ - `Kaminari::PaginatableArray`, **it is** using Elasticsearch.
 
-- If Elasticsearch is limited to specific namespaces and you need to know if
-  Elasticsearch is being used for a specific project or namespace, you can use
-  the Rails console:
+- If Elasticsearch is limited to specific namespaces and you need to know if Elasticsearch is being used for a specific project or namespace, you can use the Rails console:
 
-  ```ruby
-  ::Gitlab::CurrentSettings.search_using_elasticsearch?(scope: Namespace.find_by_full_path("/my-namespace"))
-  ::Gitlab::CurrentSettings.search_using_elasticsearch?(scope: Project.find_by_full_path("/my-namespace/my-project"))
-  ```
+ ```ruby
+ ::Gitlab::CurrentSettings.search_using_elasticsearch?(scope: Namespace.find_by_full_path("/my-namespace"))
+ ::Gitlab::CurrentSettings.search_using_elasticsearch?(scope: Project.find_by_full_path("/my-namespace/my-project"))
+ ```
 
 ## Error: `User: anonymous is not authorized to perform: es:ESHttpGet`
 
-When using a domain level access policy with AWS OpenSearch or Elasticsearch, the AWS role is not assigned to the
-correct GitLab nodes. The GitLab Rails and Sidekiq nodes require permission to communicate with the search cluster.
+When using a domain level access policy with AWS OpenSearch or Elasticsearch, the AWS role is not assigned to the correct GitLab nodes. The GitLab Rails and Sidekiq nodes require permission to communicate with the search cluster.
 
 ```plaintext
 User: anonymous is not authorized to perform: es:ESHttpGet because no resource-based policy allows the es:ESHttpGet
@@ -147,12 +134,11 @@ When using AWS authorization with advanced search, the region you specify must b
 
 ## Error: `no permissions for [indices:data/write/bulk]`
 
-When using fine-grained access control with an IAM role or a role created using AWS OpenSearch Dashboards, you might
-encounter the following error:
+When using fine-grained access control with an IAM role or a role created using AWS OpenSearch Dashboards, you might encounter the following error:
 
 ```json
 {
-  "error": {
+ "error": {
     "root_cause": [
       {
         "type": "security_exception",
@@ -161,33 +147,30 @@ encounter the following error:
     ],
     "type": "security_exception",
     "reason": "no permissions for [indices:data/write/bulk] and User [name=arn:aws:iam::xxx:role/INSERT_ROLE_NAME_HERE, backend_roles=[arn:aws:iam::xxx:role/INSERT_ROLE_NAME_HERE], requestedTenant=null]"
-  },
-  "status": 403
+ },
+ "status": 403
 }
 ```
 
-To fix this, you need
-to [map the roles to users](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-mapping)
+To fix this, you need to [map the roles to users](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-mapping)
 in the AWS OpenSearch Dashboards.
 
 ## Create additional master users in AWS OpenSearch Service
 
 You can set a master user when you create a domain.
 With this user, you can create additional master users.
-For more information, see the
-[AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-more-masters).
+For more information, see the [AWS documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html#fgac-more-masters).
 
-To create users and roles with permissions and map users to roles,
-see the [OpenSearch documentation](https://opensearch.org/docs/latest/security/access-control/users-roles/).
+To create users and roles with permissions and map users to roles, see the [OpenSearch documentation](https://opensearch.org/docs/latest/security/access-control/users-roles/).
 You must include the following permissions in the role:
 
 ```json
 {
-  "cluster_permissions": [
+ "cluster_permissions": [
     "cluster_composite_ops",
     "cluster_monitor"
-  ],
-  "index_permissions": [
+ ],
+ "index_permissions": [
     {
       "index_patterns": [
         "gitlab*"
@@ -210,19 +193,16 @@ You must include the following permissions in the role:
         "indices:monitor/stats"
       ]
     }
-  ]
+ ]
 }
 ```
 
 ## Accumulation of open TCP connections
 
-In GitLab 17.11 and later, you might notice an increase in
-open TCP connections from GitLab processes to external services.
+In GitLab 17.11 and later, you might notice an increase in open TCP connections from GitLab processes to external services.
 These connections accumulate over time and are not properly closed.
 
-This issue is related to the Faraday adapter switching from
-`net_http` to `typhoeus` for connection pooling in GitLab.
+This issue is related to the Faraday adapter switching from `net_http` to `typhoeus` for connection pooling in GitLab.
 For more information, see [issue 550805](https://gitlab.com/gitlab-org/gitlab/-/issues/550805).
 
-To resolve this issue, set
-[`elasticsearch_client_adapter`](../../../api/settings.md#available-settings) to `net_http`.
+To resolve this issue, set [`elasticsearch_client_adapter`](../../../api/settings.md#available-settings) to `net_http`.

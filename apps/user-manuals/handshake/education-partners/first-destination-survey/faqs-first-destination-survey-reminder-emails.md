@@ -70,7 +70,7 @@ To keep the First Destination invitation and request message consistent for stud
 Yes, you can use the bulk action **Send Email to Surveyees.**
 
 - - **Tip**: copy the link in the Survey Setup Details section to direct students to this survey.
-  - **Note**: The survey link will only appear if the survey is published and there are recipients on the survey. Students will need to login to Handshake to submit a response if they are using this link.
+ - **Note**: The survey link will only appear if the survey is published and there are recipients on the survey. Students will need to login to Handshake to submit a response if they are using this link.
 
 ![Send email to surveyees.png](https://support.joinhandshake.com/hc/article_attachments/26001456682903)
 

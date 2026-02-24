@@ -28,14 +28,14 @@ For example, if your**Identifier Column** is set to *username*, Importer will us
 
 - If the username listed on the import file *is* found, the system will begin to *update* the information to match what is on the file.
 - If the username listed on the import file is *not* found, the system will begin to *create* an account for that username.
-  - If the email address is found in Handshake, the row will fail. This is what causes the error message **{"success":false,"errors":{"email\_address":["has already been taken"]}**.
+ - If the email address is found in Handshake, the row will fail. This is what causes the error message **{"success":false,"errors":{"email\_address":["has already been taken"]}**.
 
 ## How do I resolve this error?
 
 One thing to consider when addressing this error message is, how many students on the import file received this error message?
 
 - If less than 5, these students can be manually updated in Handshake.
-  - Before taking action to fix this error, you will need to first confirm whether or not the student is connected to your institution already. For more information on this, skip to [Confirm a students connection](#h_01FVJKXZWJM3NYG44DK5AC0QR4).
+ - Before taking action to fix this error, you will need to first confirm whether or not the student is connected to your institution already. For more information on this, skip to [Confirm a students connection](#h_01FVJKXZWJM3NYG44DK5AC0QR4).
 - If more than 5, follow the steps below for re-uploading your file.
 
 #### 
@@ -92,7 +92,7 @@ To connect a student to your institution, follow the steps outlined in [Add an E
 Once the student is added, you will need to either:
 
 - Update the username on the profile manually
-  - For more information, go to the [update students username manually](#h_01FTVHG9K1N9374AYFNQEF7F16) section in this article.
+ - For more information, go to the [update students username manually](#h_01FTVHG9K1N9374AYFNQEF7F16) section in this article.
 - Re-upload the file into Importer
 
 ### Student is in Handshake, but connected to different institution

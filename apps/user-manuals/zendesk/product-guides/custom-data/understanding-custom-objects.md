@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/5914453843994-Understandin
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Enterprise |
 
@@ -59,14 +59,14 @@ Custom objects are a powerful tool for gathering more data in Zendesk, but the f
 **Custom object and field limitations**
 
 - Your maximum number of custom objects depends on your plan:
-  - Suite Team: 3 custom objects
-  - Suite Growth: 5 custom objects
-  - Suite Professional, Support Enterprise: 30 custom objects
-  - Suite Enterprise and Enterprise Plus: 50 custom objects
+ - Suite Team: 3 custom objects
+ - Suite Growth: 5 custom objects
+ - Suite Professional, Support Enterprise: 30 custom objects
+ - Suite Enterprise and Enterprise Plus: 50 custom objects
 - The following limits exist for fields on custom objects:
-  - Each custom object can have a maximum of 100 fields.
-  - Suite Team and Growth plans can have a maximum of 5 [lookup relationship fields](https://support.zendesk.com/hc/en-us/articles/4591924111770) per object.
-  - Support Enterprise and Suite Professional and above can have a maximum of 10 [lookup relationship fields](https://support.zendesk.com/hc/en-us/articles/4591924111770) per custom object.
+ - Each custom object can have a maximum of 100 fields.
+ - Suite Team and Growth plans can have a maximum of 5 [lookup relationship fields](https://support.zendesk.com/hc/en-us/articles/4591924111770) per object.
+ - Support Enterprise and Suite Professional and above can have a maximum of 10 [lookup relationship fields](https://support.zendesk.com/hc/en-us/articles/4591924111770) per custom object.
 - Only admins can create custom objects. Admins and [agents in custom roles with permission](https://support.zendesk.com/hc/en-us/articles/4408882153882) can view, edit, add, and delete custom object records.
 - Sandboxes don't copy custom object records, lookup fields, or triggers that reference custom objects.
 

@@ -13,25 +13,21 @@ title: DevOps Research and Assessment (DORA) metrics
 
 {{< /details >}}
 
-[DevOps Research and Assessment (DORA)](https://cloud.google.com/blog/products/devops-sre/using-the-four-keys-to-measure-your-devops-performance) metrics
-deliver evidence-based insights about your DevOps performance.
-These four key measurements demonstrate how fast your team delivers changes
-and how well those changes perform in production.
-When tracked consistently, DORA metrics highlight improvement opportunities
-across your software delivery process.
+[DevOps Research and Assessment (DORA)](https://cloud.google.com/blog/products/devops-sre/using-the-four-keys-to-measure-your-devops-performance) metrics deliver evidence-based insights about your DevOps performance.
+These four key measurements demonstrate how fast your team delivers changes and how well those changes perform in production.
+When tracked consistently, DORA metrics highlight improvement opportunities across your software delivery process.
 
-Use DORA metrics for strategic decision-making, to justify process improvement investments to stakeholders,
-or to compare your team's performance against industry benchmarks to identify competitive advantages.
+Use DORA metrics for strategic decision-making, to justify process improvement investments to stakeholders, or to compare your team's performance against industry benchmarks to identify competitive advantages.
 
 The four DORA metrics measure two critical aspects of DevOps:
 
 - **Velocity metrics** track how quickly your organization delivers software:
-  - [Deployment frequency](#deployment-frequency): How often code is deployed to production
-  - [Lead time for changes](#lead-time-for-changes): How long it takes code to reach production
+ - [Deployment frequency](#deployment-frequency): How often code is deployed to production
+ - [Lead time for changes](#lead-time-for-changes): How long it takes code to reach production
 
 - **Stability metrics** measure your software's reliability:
-  - [Change failure rate](#change-failure-rate): How often deployments cause production failures
-  - [Time to restore service](#time-to-restore-service): How quickly service recovers after failures
+ - [Change failure rate](#change-failure-rate): How often deployments cause production failures
+ - [Time to restore service](#time-to-restore-service): How quickly service recovers after failures
 
 The dual focus on velocity and stability metrics helps leaders find the optimal balance between speed and quality in their delivery workflows.
 
@@ -250,9 +246,7 @@ For PagerDuty, you can [set up a webhook](../../operations/incident_management/m
 to automatically create a GitLab incident for each PagerDuty incident.
 This configuration requires you to make changes in both PagerDuty and GitLab.
 
-For other incident management tools, you can set up the
-[HTTP integration](../../operations/incident_management/integrations.md#alerting-endpoints),
-and use it to automatically:
+For other incident management tools, you can set up the [HTTP integration](../../operations/incident_management/integrations.md#alerting-endpoints), and use it to automatically:
 
 1. [Create an incident when an alert is triggered](../../operations/incident_management/manage_incidents.md#automatically-when-an-alert-is-triggered).
 1. [Close incidents via recovery alerts](../../operations/incident_management/manage_incidents.md#automatically-close-incidents-via-recovery-alerts).
@@ -273,7 +267,7 @@ The following table provides an overview of the DORA metrics' availability in pr
 | Metric                    | Level             | Comments |
 |---------------------------|-------------------|----------|
 | `deployment_frequency`    | Project           | Unit in deployment count. |
-| `deployment_frequency`    | Group             | Unit in deployment count. Aggregation method is average.  |
+| `deployment_frequency`    | Group             | Unit in deployment count. Aggregation method is average. |
 | `lead_time_for_changes`   | Project           | Unit in seconds. Aggregation method is median. |
 | `lead_time_for_changes`   | Group             | Unit in seconds. Aggregation method is median. |
 | `time_to_restore_service` | Project and group | Unit in days. Aggregation method is median. (Available in UI chart in GitLab 15.1 and later) |
@@ -286,6 +280,6 @@ The following table provides an overview of the DORA metrics' data aggregation i
 | Metric name | Measured values | Data aggregation in the [Value Streams Dashboard](value_streams_dashboard.md) | Data aggregation in [CI/CD analytics charts](ci_cd_analytics.md) | Data aggregation in [Custom insights reporting](../project/insights/_index.md#dora-query-parameters) |
 |---------------------------|-------------------|-----------------------------------------------------|------------------------|----------|
 | Deployment frequency | Number of successful deployments | daily average per month | daily average | `day` (default) or `month` |
-| Lead time for changes | Number of seconds to successfully deliver a commit into production | daily median per month | median time |  `day` (default) or `month` |
+| Lead time for changes | Number of seconds to successfully deliver a commit into production | daily median per month | median time | `day` (default) or `month` |
 | Time to restore service | Number of seconds an incident was open for           | daily median per month | daily median | `day` (default) or `month` |
 | Change failure rate | percentage of deployments that cause an incident in production | daily median per month | percentage of failed deployments | `day` (default) or `month` |

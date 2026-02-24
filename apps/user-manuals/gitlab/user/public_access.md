@@ -34,9 +34,7 @@ Private groups can have only private subgroups and projects.
 
 {{< alert type="note" >}}
 
-When you [share a private group with another group](project/members/sharing_projects_groups.md#invite-a-group-to-a-group),
-users who don't have access to the private group can view a list of users who have access to the inviting group
-through the endpoint `https://gitlab.com/groups/<inviting-group-name>/-/autocomplete_sources/members`.
+When you [share a private group with another group](project/members/sharing_projects_groups.md#invite-a-group-to-a-group), users who don't have access to the private group can view a list of users who have access to the inviting group through the endpoint `https://gitlab.com/groups/<inviting-group-name>/-/autocomplete_sources/members`.
 However, the name and path of the private group are masked, and the users' membership source is not displayed.
 
 {{< /alert >}}
@@ -72,9 +70,7 @@ Public groups can have public, internal, or private subgroups and projects.
 
 {{< alert type="note" >}}
 
-If an administrator restricts the
-[**Public** visibility level](../administration/settings/visibility_and_access_controls.md#restrict-visibility-levels),
-then the public access directory (`/public`) is visible only to authenticated users.
+If an administrator restricts the [**Public** visibility level](../administration/settings/visibility_and_access_controls.md#restrict-visibility-levels), then the public access directory (`/public`) is visible only to authenticated users.
 
 {{< /alert >}}
 
@@ -90,8 +86,7 @@ Prerequisites:
 1. Select **Settings** > **General**.
 1. Expand **Visibility, project features, permissions**.
 1. From the **Project visibility** dropdown list, select an option.
-   The visibility setting for a project must be at least as restrictive
-   as the visibility of its parent group.
+   The visibility setting for a project must be at least as restrictive as the visibility of its parent group.
 1. Select **Save changes**.
 
 ## Change the visibility of individual features in a project
@@ -115,16 +110,13 @@ You can change the visibility of all projects in a group.
 Prerequisites:
 
 - You must have the Owner role for a group.
-- Projects and subgroups must already have visibility settings that are at least as
-  restrictive as the new setting of the parent group. For example, you cannot set a group
-  to private if a project or subgroup in that group is public.
+- Projects and subgroups must already have visibility settings that are at least as restrictive as the new setting of the parent group. For example, you cannot set a group to private if a project or subgroup in that group is public.
 
 1. On the top bar, select **Search or go to** and find your group.
 1. Select **Settings** > **General**.
 1. Expand **Naming, description, visibility**.
 1. For **Visibility level**, select an option.
-   The visibility setting for a project must be at least as restrictive
-   as the visibility of its parent group.
+   The visibility setting for a project must be at least as restrictive as the visibility of its parent group.
 1. Select **Save changes**.
 
 ## Restrict use of public or internal projects

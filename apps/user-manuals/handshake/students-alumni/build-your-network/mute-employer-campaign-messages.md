@@ -9,10 +9,10 @@ If you've received a campaign message from an employer or location that doesn't 
 You can mute yourself from campaign messages by choosing one of the following options:
 
 - **Employer outreach**
-  - You won't receive any campaign messages from the employer for 90 days. This includes messages sent from other users at the company.
+ - You won't receive any campaign messages from the employer for 90 days. This includes messages sent from other users at the company.
 - **Location outreach**
-  - You won't receive any campaign messages for the specific job location for 90 days. This applies to any Handshake-hosted jobs associated with the specified job location.
-  - **Note**: To mute a location, the job promoted in the campaign must have a location listed.
+ - You won't receive any campaign messages for the specific job location for 90 days. This applies to any Handshake-hosted jobs associated with the specified job location.
+ - **Note**: To mute a location, the job promoted in the campaign must have a location listed.
 
 Muting yourself only applies to campaign outreach. You may still receive bulk outreach or 1:1 messages.
 
@@ -31,8 +31,7 @@ Campaign messages are used by employers to highlight opportunities they think ma
 3. In the pop-up that appears, select what you’d like to mute:
 
 - - **The company for 90 days**
-  - **The location for 90 days**  
-    *(If the campaign does not specify a work location, the option to mute by location will not be available. In that case, you can only mute messages from the company.)*
+ - **The location for 90 days** *(If the campaign does not specify a work location, the option to mute by location will not be available. In that case, you can only mute messages from the company.)*
 
 4. Once you've selected your preferred option, click the black **Confirm** button in the lower-right corner of the pop-up. The campaign message will then be moved to your **Archived** messages.
 

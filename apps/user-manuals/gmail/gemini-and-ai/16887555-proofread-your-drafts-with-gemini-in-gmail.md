@@ -16,9 +16,9 @@ To improve your drafts, you can use Gemini in Gmail to proofread and get advance
 To use Proofread:
 
 - **For personal Google Accounts:** You need an eligible Google AI plan:
-  - [Google AI Plus](/googleone/answer/16548195)
-  - [Google AI Pro](/googleone/answer/14534406)
-  - [Google AI Ultra](/googleone/answer/16286513)
+ - [Google AI Plus](/googleone/answer/16548195)
+ - [Google AI Pro](/googleone/answer/14534406)
+ - [Google AI Ultra](/googleone/answer/16286513)
 - **For work or school accounts:** You need an eligible Google Workspace plan. [Learn more about Gemini features and plans](/docs/answer/13952129#workspace-business).
 
 ## Accept suggestions in a draft
@@ -33,9 +33,9 @@ To use Proofread:
 
 - When you ignore a suggestion, it doesn’t reappear for the same word or phrase unless you change the text.
 - To undo a change:
-  - **On Windows:** Press **Ctrl** + **Z**.
-  - **On Mac:** Press **Cmd** + **Z**.
-  - **On screen readers:**
+ - **On Windows:** Press **Ctrl** + **Z**.
+ - **On Mac:** Press **Cmd** + **Z**.
+ - **On screen readers:**
     1. To find underlined words, use your arrow keys.
     2. Select **Tab** ![and then](//lh3.googleusercontent.com/3_l97rr0GvhSP2XV5OoCkV2ZDTIisAOczrSdzNCBxhIKWrjXjHucxNwocghoUa39gw=h36) **Enter**.
 

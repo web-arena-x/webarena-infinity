@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408824813722-Turning-on-s
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Professional or Enterprise |
 
@@ -18,7 +18,7 @@ Verified AI summary ◀▼
 
 Suggested macros use AI to recommend relevant macros based on past ticket data, helping you quickly resolve customer requests. You can enable this feature if your account has sufficient macro usage data.
 
-Location:  Admin Center > Workspaces > Agent tools > Macros
+Location: Admin Center > Workspaces > Agent tools > Macros
 
 Suggested macros are AI-powered suggestions that help agents find the right macros to apply to the tickets they’re currently working on. These suggestions are based on macros that were applied to similar tickets in the past, and are intended to help agents resolve the customer’s request more quickly.
 

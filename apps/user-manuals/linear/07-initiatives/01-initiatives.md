@@ -45,13 +45,13 @@ Designating Initiatives as planned, active or complete clearly signals the Initi
 
 Use the Overview page to share detailed information about the overall Initiative and the projects within it. From this page, you can access and modify the following Initiative properties:
 
-  * **Status:** Indicates if an Initiative is Planned, Active, or Completed.
-  * **Owner:** Initially set to the creator of the Initiative but can be reassigned to another workspace member.
-  * **Target Date:** The expected completion date of the Initiative.
-  * **Resources:** Relevant documents or links associated with the Initiative.
-  * **Latest update:** The most recent Initiative update.
-  * **Descriptions:** Detailed information about the Initiative.
-  * **Project List:** Each project included in the Initiative.
+ * **Status:** Indicates if an Initiative is Planned, Active, or Completed.
+ * **Owner:** Initially set to the creator of the Initiative but can be reassigned to another workspace member.
+ * **Target Date:** The expected completion date of the Initiative.
+ * **Resources:** Relevant documents or links associated with the Initiative.
+ * **Latest update:** The most recent Initiative update.
+ * **Descriptions:** Detailed information about the Initiative.
+ * **Project List:** Each project included in the Initiative.
 
 ### Initiative graph
 

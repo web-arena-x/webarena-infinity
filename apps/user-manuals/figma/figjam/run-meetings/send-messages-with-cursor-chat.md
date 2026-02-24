@@ -26,7 +26,7 @@ There are multiple ways to enter cursor chat mode:
 - **Deselect everything** on the board and use keyboard shortcut `/`
 - Right-click the board and select **Cursor chat** from the menu
 - With the **emote wheel** open, click
-- Click  in the upper right-hand corner and select **cursor chat**
+- Click in the upper right-hand corner and select **cursor chat**
 
 Once you've entered cursor chat mode, an empty speech bubble appears next to your cursor.
 
@@ -61,4 +61,4 @@ There are several ways to quickly exit out of cursor chat mode:
 - Switch to a different tool
 - Open a menu
 
-FigJam also eventually fades your cursor chat and switches you back to the  select tool if you haven't typed a new message in a while.
+FigJam also eventually fades your cursor chat and switches you back to the select tool if you haven't typed a new message in a while.

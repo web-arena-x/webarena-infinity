@@ -43,8 +43,7 @@ For more information, see the history.
 
 {{< /alert >}}
 
-You can select a model for a feature in a top-level group. The model that you select
-applies to that feature for all child groups and projects.
+You can select a model for a feature in a top-level group. The model that you select applies to that feature for all child groups and projects.
 
 Prerequisites:
 
@@ -69,7 +68,7 @@ To select a model for a feature:
 - In the IDE, model selection for GitLab Duo Chat (Agentic) is applied only when the connection type is set to WebSocket.
 
 - The OpenAI models used in GitLab Duo Chat (Agentic) have experimental support, specifically for GPT-5, GPT-5 mini, and GPT-5-Codex.
-  Please leave your feedback about using OpenAI models in GitLab Duo Chat (Agentic) in this [issue](https://gitlab.com/gitlab-org/gitlab/-/issues/572864).
+ Please leave your feedback about using OpenAI models in GitLab Duo Chat (Agentic) in this [issue](https://gitlab.com/gitlab-org/gitlab/-/issues/572864).
 
 {{< /alert >}}
 

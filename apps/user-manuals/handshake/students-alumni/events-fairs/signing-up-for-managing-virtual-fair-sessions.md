@@ -25,14 +25,14 @@ Learn how to sign up for virtual fairs and effectively manage your schedule in H
 
 **Tip**: to view fairs only hosted by your school, click **More filters,** then add a check next to **Posted by my school**.
 
-4. Click on the name of the fair you'd like to participate in —  this will open the fair's overview page.
+4. Click on the name of the fair you'd like to participate in — this will open the fair's overview page.
 
 The overview page displays details about the fair, including the registration end date, the fair's contact, as well as the options to Save (bookmark icon) and **Register** in the upper-right corner.
 
 Right above the listed Contact information, there are three tabs:
 
 - **Available sessions** - click this tab to review available employer sessions
-  - **Note**: *You can sign up for sessions without clicking "Register" first! You'll be automatically registered for the fair upon your first session signup.*
+ - **Note**: *You can sign up for sessions without clicking "Register" first! You'll be automatically registered for the fair upon your first session signup.*
 - **Your schedule** - once you've signed up for at least one session, this is where the session details are listed (and how you'll join the session when it starts)
 - **Career fair details** -the default tab that loads with fair setup details
 
@@ -40,7 +40,7 @@ Right above the listed Contact information, there are three tabs:
 
 **Note**: if your school has added custom questions for students, you'll be prompted to answer those questions after registering for the fair. After you finish the survey, you'll get a confirmation in the lower-right corner of the page and be taken back to the fair.
 
-Once registered, a confirmation popup will appear on your screen —  click **View employer sessions**.
+Once registered, a confirmation popup will appear on your screen — click **View employer sessions**.
 
 ![registration_confirmation_popup.png](https://support.joinhandshake.com/hc/article_attachments/25997598177559)
 
@@ -53,10 +53,10 @@ Once registered, a confirmation popup will appear on your screen —  click **V
 6. When you locate an employer that you'd like to sign up for a session with, look for the session information to appear below the employer name and description.
 
 - Group sessions will have a custom title and indicate the time length.
-  - Session lengths may vary (10, 15, 20, 30, 45, or 60 minutes)
-  - If multiple divisions (departments) from the company have registered, the group session title may include the division name for clarity!
+ - Session lengths may vary (10, 15, 20, 30, 45, or 60 minutes)
+ - If multiple divisions (departments) from the company have registered, the group session title may include the division name for clarity!
 - Individual sessions are indicated by "*One on One with EMPLOYER NAME*"
-  - Session lengths may vary (10, 15, 20, 30, 45, or 60 minutes)
+ - Session lengths may vary (10, 15, 20, 30, 45, or 60 minutes)
 
 ![Group_vs_Individual_Session.png](https://support.joinhandshake.com/hc/article_attachments/25997598202903)
 
@@ -76,9 +76,9 @@ Once registered, a confirmation popup will appear on your screen —  click **V
 ### 1:1 Sessions
 
 - The session host's name is listed with their job title below. Click on your preferred session start time, then click **Confirm** to sign up, or click the link **Show all available times** to choose from more more times!
-  - **Note**: you can sign up for only 1 session per recruiter — to sign up with another recruiter, click on "*One on One with EMPLOYER NAME*" again, then select your preferred session.
+ - **Note**: you can sign up for only 1 session per recruiter — to sign up with another recruiter, click on "*One on One with EMPLOYER NAME*" again, then select your preferred session.
 - If there's a red dot to the right of a session start time, that indicates you are currently signed up for a different session during that time.
-  - To sign up for this session, you'd need to cancel the existing session sign up.
+ - To sign up for this session, you'd need to cancel the existing session sign up.
 
 ![1-1_Session_Signup_Popup.png](https://support.joinhandshake.com/hc/article_attachments/25997598208663)
 

@@ -43,9 +43,9 @@ You may use the filters on the left side of the page to identify applicants base
 
 - **Keyword Search**
 - **Scheduling**
-  - Interview Slot Taken
-  - Sourced Students
-  - Hide Late Applications
+ - Interview Slot Taken
+ - Sourced Students
+ - Hide Late Applications
 - **Status** *(application status)*
 - **Labels**
 - **Not Labels**
@@ -76,16 +76,16 @@ To take further action on specific applicants, check the box to the left of thei
 Once an applicant(s) is selected, the following actions can be taken:
 
 - **Message Applicants**
-  - *For more details, refer to [Messaging Applicants](https://support.joinhandshake.com/hc/en-us/articles/226294668)**.*
+ - *For more details, refer to [Messaging Applicants](https://support.joinhandshake.com/hc/en-us/articles/226294668)**.*
 - **Download Applicant Packages** (PDF, Zip, and CSV)
-  - *Learn how to [Download Applications / Create a Resume Book](../applicant-interview-management/download-applications-create-a-resume-book.md).*
+ - *Learn how to [Download Applications / Create a Resume Book](../applicant-interview-management/download-applications-create-a-resume-book.md).*
 - **Add or remove labels**
-  - *Check out [Best Practice: Use Labels to Manage Applicants](https://support.joinhandshake.com/hc/en-us/articles/360000666487-Best-Practice-Use-Labels-to-Manage-Applicants)**.*
+ - *Check out [Best Practice: Use Labels to Manage Applicants](https://support.joinhandshake.com/hc/en-us/articles/360000666487-Best-Practice-Use-Labels-to-Manage-Applicants)**.*
 - **Add students to interview group**
-  - *Learn more about [Adding Students to an Interview Group](https://support.joinhandshake.com/hc/en-us/articles/115012273867)*.
+ - *Learn more about [Adding Students to an Interview Group](https://support.joinhandshake.com/hc/en-us/articles/115012273867)*.
 - **Remove students from interview group**
 - **Mark applications primary, hired, or declined**
-  - *Read more about[Status Management](#h_01GE0XG01NN4P2V6JZPNZXK0VN)**.*
+ - *Read more about[Status Management](#h_01GE0XG01NN4P2V6JZPNZXK0VN)**.*
 
 ![More_dropdown_.png](https://support.joinhandshake.com/hc/article_attachments/26001238444695)
 

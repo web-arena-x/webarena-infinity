@@ -56,6 +56,4 @@ For deprecated, [certificate-based clusters](../../user/infrastructure/clusters/
 ## Test your configuration
 
 After completing configuration, test your setup by creating a merge request.
-Verify whether your application deployed as a Review App in the Kubernetes
-cluster with the `review/*` environment scope. Similarly, check the
-other environments.
+Verify whether your application deployed as a Review App in the Kubernetes cluster with the `review/*` environment scope. Similarly, check the other environments.

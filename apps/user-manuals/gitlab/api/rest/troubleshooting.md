@@ -19,8 +19,7 @@ To troubleshoot, refer to the REST API status codes. It might also help to inclu
 
 ## Status codes
 
-The GitLab REST API returns a status code with every response, according to context and action. The
-status code returned by a request can be useful when troubleshooting.
+The GitLab REST API returns a status code with every response, according to context and action. The status code returned by a request can be useful when troubleshooting.
 
 The following table gives an overview of how the API functions generally behave.
 
@@ -45,7 +44,7 @@ The following table shows the possible return codes for API requests.
 | `401 Unauthorized`        | The user isn't authenticated. A valid [user token](authentication.md) is necessary. |
 | `403 Forbidden`           | The request isn't allowed. For example, the user isn't allowed to delete a project. |
 | `404 Not Found`           | A resource couldn't be accessed. For example, an ID for a resource couldn't be found, or the user isn't authorized to access the resource. |
-| `405 Method Not Allowed`  | The request isn't supported. |
+| `405 Method Not Allowed` | The request isn't supported. |
 | `409 Conflict`            | A conflicting resource already exists. |
 | `412 Precondition Failed` | The request was denied. This can happen if the `If-Unmodified-Since` header is provided when trying to delete a resource, which was modified in between. |
 | `422 Unprocessable`       | The entity couldn't be processed. |
@@ -55,15 +54,12 @@ The following table shows the possible return codes for API requests.
 
 ### Status code 400
 
-When working with the API you may encounter validation errors, in which case
-the API returns an HTTP `400` error.
+When working with the API you may encounter validation errors, in which case the API returns an HTTP `400` error.
 
 Such errors appear in the following cases:
 
-- A required attribute of the API request is missing (for example, the title of
-  an issue isn't given).
-- An attribute did not pass the validation (for example, the user bio is too
-  long).
+- A required attribute of the API request is missing (for example, the title of an issue isn't given).
+- An attribute did not pass the validation (for example, the user bio is too long).
 
 When an attribute is missing, you receive something like:
 
@@ -75,8 +71,7 @@ Content-Type: application/json
 }
 ```
 
-When a validation error occurs, error messages are different. They hold
-all details of validation errors:
+When a validation error occurs, error messages are different. They hold all details of validation errors:
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -90,8 +85,7 @@ Content-Type: application/json
 }
 ```
 
-This makes error messages more machine-readable. The format can be described as
-follows:
+This makes error messages more machine-readable. The format can be described as follows:
 
 ```json
 {
@@ -120,8 +114,8 @@ To include HTTP response headers in the response, use the `--include` option:
 
 ```shell
 curl --request GET \
-  --include \
-  --url "https://gitlab.example.com/api/v4/projects"
+ --include \
+ --url "https://gitlab.example.com/api/v4/projects"
 HTTP/2 200
 ...
 ```
@@ -134,8 +128,8 @@ To include the HTTP exit code, include the `--fail` option:
 
 ```shell
 curl --request GET \
-  --fail \
-  --url "https://gitlab.example.com/api/v4/does-not-exist"
+ --fail \
+ --url "https://gitlab.example.com/api/v4/does-not-exist"
 curl: (22) The requested URL returned error: 404
 ```
 
@@ -145,23 +139,23 @@ REST API requests can be detected as spam. If a request is detected as spam and:
 
 - A CAPTCHA service is not configured, an error response is returned. For example:
 
-  ```json
-  {"message":{"error":"Your snippet has been recognized as spam and has been discarded."}}
-  ```
+ ```json
+ {"message":{"error":"Your snippet has been recognized as spam and has been discarded."}}
+ ```
 
 - A CAPTCHA service is configured, you receive a response with:
-  - `needs_captcha_response` set to `true`.
-  - The `spam_log_id` and `captcha_site_key` fields set.
+ - `needs_captcha_response` set to `true`.
+ - The `spam_log_id` and `captcha_site_key` fields set.
 
-  For example:
+ For example:
 
-  ```json
-  {"needs_captcha_response":true,"spam_log_id":42,"captcha_site_key":"REDACTED","message":{"error":"Your snippet has been recognized as spam. Please, change the content or solve the reCAPTCHA to proceed."}}
-  ```
+ ```json
+ {"needs_captcha_response":true,"spam_log_id":42,"captcha_site_key":"REDACTED","message":{"error":"Your snippet has been recognized as spam. Please, change the content or solve the reCAPTCHA to proceed."}}
+ ```
 
-  - Use the `captcha_site_key` to obtain a CAPTCHA response value using the appropriate CAPTCHA API.
+ - Use the `captcha_site_key` to obtain a CAPTCHA response value using the appropriate CAPTCHA API.
     Only [Google reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display) is supported.
-  - Resubmit the request with the `X-GitLab-Captcha-Response` and `X-GitLab-Spam-Log-Id` headers set.
+ - Resubmit the request with the `X-GitLab-Captcha-Response` and `X-GitLab-Spam-Log-Id` headers set.
 
     ```shell
     export CAPTCHA_RESPONSE="<CAPTCHA response obtained from CAPTCHA service>"
@@ -176,12 +170,9 @@ REST API requests can be detected as spam. If a request is detected as spam and:
 
 ## Error: `404 Not Found` when using a reverse proxy
 
-If your GitLab instance uses a reverse proxy, you might see `404 Not Found` errors when
-using a GitLab [editor extension](../../editor_extensions/_index.md), the GitLab CLI, or
-API calls with URL-encoded parameters.
+If your GitLab instance uses a reverse proxy, you might see `404 Not Found` errors when using a GitLab [editor extension](../../editor_extensions/_index.md), the GitLab CLI, or API calls with URL-encoded parameters.
 
-This problem occurs when your reverse proxy decodes characters like `/`, `?`, and `@`
-before passing the parameters on to GitLab.
+This problem occurs when your reverse proxy decodes characters like `/`, `?`, and `@` before passing the parameters on to GitLab.
 
 To resolve this problem, edit the configuration for your reverse proxy:
 
@@ -196,23 +187,23 @@ For example:
 
 ```plaintext
 <VirtualHost *:443>
-  ServerName git.example.com
+ ServerName git.example.com
 
-  SSLEngine on
-  SSLCertificateFile     /etc/letsencrypt/live/git.example.com/fullchain.pem
-  SSLCertificateKeyFile  /etc/letsencrypt/live/git.example.com/privkey.pem
-  SSLVerifyClient None
+ SSLEngine on
+ SSLCertificateFile     /etc/letsencrypt/live/git.example.com/fullchain.pem
+ SSLCertificateKeyFile /etc/letsencrypt/live/git.example.com/privkey.pem
+ SSLVerifyClient None
 
-  ProxyRequests     Off
-  ProxyPreserveHost On
-  AllowEncodedSlashes NoDecode
+ ProxyRequests     Off
+ ProxyPreserveHost On
+ AllowEncodedSlashes NoDecode
 
-  <Location />
+ <Location />
      ProxyPass http://127.0.0.1:8080/ nocanon
      ProxyPassReverse http://127.0.0.1:8080/
      Order deny,allow
      Allow from all
-  </Location>
+ </Location>
 </VirtualHost>
 ```
 
@@ -222,9 +213,9 @@ For example:
 
 ```plaintext
 server {
-  listen       80;
-  server_name  gitlab.example.com;
-  location / {
+ listen       80;
+ server_name gitlab.example.com;
+ location / {
      proxy_pass    http://ip:port;
      proxy_set_header        X-Forwarded-Proto $scheme;
      proxy_set_header        Host              $http_host;
@@ -232,7 +223,7 @@ server {
      proxy_set_header        X-Forwarded-For   $proxy_add_x_forwarded_for;
      proxy_read_timeout    300;
      proxy_connect_timeout 300;
-  }
+ }
 }
 ```
 

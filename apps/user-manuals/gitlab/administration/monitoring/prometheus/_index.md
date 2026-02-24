@@ -12,38 +12,27 @@ title: Monitoring GitLab with Prometheus
 
 {{< /details >}}
 
-[Prometheus](https://prometheus.io) is a powerful time-series monitoring service, providing a flexible
-platform for monitoring GitLab and other software products.
+[Prometheus](https://prometheus.io) is a powerful time-series monitoring service, providing a flexible platform for monitoring GitLab and other software products.
 
-GitLab provides out-of-the-box monitoring with Prometheus, providing access to high quality time-series monitoring of
-GitLab services.
+GitLab provides out-of-the-box monitoring with Prometheus, providing access to high quality time-series monitoring of GitLab services.
 
-Prometheus and the various exporters listed in this page are bundled in Linux packages. Check each exporter's
-documentation for the timeline they got added. For self-compiled installations, you must install them
-yourself. Over subsequent releases additional GitLab metrics are captured.
+Prometheus and the various exporters listed in this page are bundled in Linux packages. Check each exporter's documentation for the timeline they got added. For self-compiled installations, you must install them yourself. Over subsequent releases additional GitLab metrics are captured.
 
 Prometheus services are on by default.
 
-Prometheus and its exporters don't authenticate users, and are available to anyone who can access
-them.
+Prometheus and its exporters don't authenticate users, and are available to anyone who can access them.
 
 ## How Prometheus works
 
-Prometheus works by periodically connecting to data sources and collecting their
-performance metrics through the [various exporters](#bundled-software-metrics). To view
-and work with the monitoring data, you can either
-[connect directly to Prometheus](#viewing-performance-metrics) or use a
-dashboard tool like [Grafana](https://grafana.com).
+Prometheus works by periodically connecting to data sources and collecting their performance metrics through the [various exporters](#bundled-software-metrics). To view and work with the monitoring data, you can either [connect directly to Prometheus](#viewing-performance-metrics) or use a dashboard tool like [Grafana](https://grafana.com).
 
 ## Configuring Prometheus
 
 For self-compiled installations, you must install and configure it yourself.
 
 Prometheus and its exporters are on by default.
-Prometheus runs as the `gitlab-prometheus` user and listen on
-`http://localhost:9090`. By default, Prometheus is only accessible from the GitLab server itself.
-Each exporter is automatically set up as a
-monitoring target for Prometheus, unless individually disabled.
+Prometheus runs as the `gitlab-prometheus` user and listen on `http://localhost:9090`. By default, Prometheus is only accessible from the GitLab server itself.
+Each exporter is automatically set up as a monitoring target for Prometheus, unless individually disabled.
 
 To disable Prometheus and all of its exporters, and any exporters added in the future:
 
@@ -58,22 +47,18 @@ To disable Prometheus and all of its exporters, and any exporters added in the f
    puma['exporter_enabled'] = false
    ```
 
-1. Save the file and [reconfigure GitLab](../../restart_gitlab.md#reconfigure-a-linux-package-installation) for the changes to
-   take effect.
+1. Save the file and [reconfigure GitLab](../../restart_gitlab.md#reconfigure-a-linux-package-installation) for the changes to take effect.
 
 ### Changing the port and address Prometheus listens on
 
 {{< alert type="warning" >}}
 
 You can change the port Prometheus listens on, but you should not.
-This change might affect or conflict with other services that run on the GitLab
-server. Proceed at your own risk.
+This change might affect or conflict with other services that run on the GitLab server. Proceed at your own risk.
 
 {{< /alert >}}
 
-To access Prometheus from outside the GitLab server,
-change the address/port that Prometheus
-listens on:
+To access Prometheus from outside the GitLab server, change the address/port that Prometheus listens on:
 
 1. Edit `/etc/gitlab/gitlab.rb`
 1. Add or find and uncomment the following line:
@@ -82,9 +67,7 @@ listens on:
    prometheus['listen_address'] = 'localhost:9090'
    ```
 
-   Replace `localhost:9090` with the address or port you want Prometheus to
-   listen on. If you would like to allow access to Prometheus to hosts other
-   than `localhost`, leave out the host, or use `0.0.0.0` to allow public access:
+   Replace `localhost:9090` with the address or port you want Prometheus to listen on. If you would like to allow access to Prometheus to hosts other than `localhost`, leave out the host, or use `0.0.0.0` to allow public access:
 
    ```ruby
    prometheus['listen_address'] = ':9090'
@@ -92,21 +75,18 @@ listens on:
    prometheus['listen_address'] = '0.0.0.0:9090'
    ```
 
-1. Save the file and [reconfigure GitLab](../../restart_gitlab.md#reconfigure-a-linux-package-installation) for the changes to
-   take effect
+1. Save the file and [reconfigure GitLab](../../restart_gitlab.md#reconfigure-a-linux-package-installation) for the changes to take effect
 
 ### Adding custom scrape configurations
 
-You can configure additional scrape targets for the Linux package-bundled
-Prometheus by editing `prometheus['scrape_configs']` in `/etc/gitlab/gitlab.rb`
-using the [Prometheus scrape target configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#%3Cscrape_config%3E)
+You can configure additional scrape targets for the Linux package-bundled Prometheus by editing `prometheus['scrape_configs']` in `/etc/gitlab/gitlab.rb` using the [Prometheus scrape target configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#%3Cscrape_config%3E)
 syntax.
 
 Here is an example configuration to scrape `http://1.1.1.1:8060/probe?param_a=test&param_b=additional_test`:
 
 ```ruby
 prometheus['scrape_configs'] = [
-  {
+ {
     'job_name': 'custom-scrape',
     'metrics_path': '/probe',
     'params' => {
@@ -116,7 +96,7 @@ prometheus['scrape_configs'] = [
     'static_configs' => [
       'targets' => ['1.1.1.1:8060'],
     ],
-  },
+ },
 ]
 ```
 
@@ -127,12 +107,10 @@ An external [Grafana](../performance/grafana_configuration.md) can be configured
 
 A standalone Monitoring node is recommended for [GitLab deployments with multiple nodes](../../reference_architectures/_index.md).
 
-The steps below are the minimum necessary to configure a Monitoring node running Prometheus with the Linux
-package:
+The steps below are the minimum necessary to configure a Monitoring node running Prometheus with the Linux package:
 
 1. SSH into the Monitoring node.
-1. [Install](https://about.gitlab.com/install/) the Linux package you want using **steps 1 and 2** from the GitLab
-   downloads page, but do not follow the remaining steps.
+1. [Install](https://about.gitlab.com/install/) the Linux package you want using **steps 1 and 2** from the GitLab downloads page, but do not follow the remaining steps.
 1. Make sure to collect the IP addresses or DNS records of the Consul server nodes, for the next step.
 1. Edit `/etc/gitlab/gitlab.rb` and add the contents:
 
@@ -169,12 +147,9 @@ The next step is to tell all the other nodes where the monitoring node is:
 
    Where `10.0.0.1:9090` is the IP address and port of the Prometheus node.
 
-1. Save the file and [reconfigure GitLab](../../restart_gitlab.md#reconfigure-a-linux-package-installation) for the changes to
-   take effect.
+1. Save the file and [reconfigure GitLab](../../restart_gitlab.md#reconfigure-a-linux-package-installation) for the changes to take effect.
 
-After monitoring using Service Discovery is enabled with `consul['monitoring_service_discovery'] = true`,
-ensure that `prometheus['scrape_configs']` is not set in `/etc/gitlab/gitlab.rb`. Setting both
-`consul['monitoring_service_discovery'] = true` and `prometheus['scrape_configs']` in `/etc/gitlab/gitlab.rb` results in errors.
+After monitoring using Service Discovery is enabled with `consul['monitoring_service_discovery'] = true`, ensure that `prometheus['scrape_configs']` is not set in `/etc/gitlab/gitlab.rb`. Setting both `consul['monitoring_service_discovery'] = true` and `prometheus['scrape_configs']` in `/etc/gitlab/gitlab.rb` results in errors.
 
 ### Using an external Prometheus server
 
@@ -230,8 +205,7 @@ To use an external Prometheus server:
    gitlab_rails['prometheus_address'] = '192.168.0.1:9090'
    ```
 
-1. To scrape NGINX metrics, you must also configure NGINX to allow the Prometheus server
-   IP. For example:
+1. To scrape NGINX metrics, you must also configure NGINX to allow the Prometheus server IP. For example:
 
    ```ruby
    nginx['status']['options'] = {
@@ -253,19 +227,16 @@ To use an external Prometheus server:
    }
    ```
 
-1. To allow the Prometheus server to fetch from the [GitLab metrics](#gitlab-metrics) endpoint, add the Prometheus
-   server IP address to the [monitoring IP allowlist](../ip_allowlist.md):
+1. To allow the Prometheus server to fetch from the [GitLab metrics](#gitlab-metrics) endpoint, add the Prometheus server IP address to the [monitoring IP allowlist](../ip_allowlist.md):
 
    ```ruby
    gitlab_rails['monitoring_whitelist'] = ['127.0.0.0/8', '192.168.0.1']
    ```
 
-1. As we are setting each bundled service's [exporter](#bundled-software-metrics) to listen on a network address,
-   update the firewall on the instance to only allow traffic from your Prometheus IP for the exporters enabled. A full reference list of exporter services and [their respective ports](../../package_information/defaults.md#ports) is available.
+1. As we are setting each bundled service's [exporter](#bundled-software-metrics) to listen on a network address, update the firewall on the instance to only allow traffic from your Prometheus IP for the exporters enabled. A full reference list of exporter services and [their respective ports](../../package_information/defaults.md#ports) is available.
 1. [Reconfigure GitLab](../../restart_gitlab.md#reconfigure-a-linux-package-installation) to apply the changes.
 1. Edit the Prometheus server's configuration file.
-1. Add each node's exporters to the Prometheus server's
-   [scrape target configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#%3Cscrape_config%3E).
+1. Add each node's exporters to the Prometheus server's [scrape target configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#%3Cscrape_config%3E).
    For example, a sample snippet using `static_configs`:
 
    ```yaml
@@ -322,9 +293,7 @@ To use an external Prometheus server:
 
    {{< alert type="warning" >}}
 
-   The `gitlab-rails` job in the snippet assumes that GitLab is reachable through HTTPS. If your
-   deployment doesn't use HTTPS, the job configuration is adapted to use the `http` scheme and port
-   80.
+   The `gitlab-rails` job in the snippet assumes that GitLab is reachable through HTTPS. If your deployment doesn't use HTTPS, the job configuration is adapted to use the `http` scheme and port 80.
 
    {{< /alert >}}
 
@@ -334,12 +303,8 @@ To use an external Prometheus server:
 
 Prometheus has several custom flags to configure local storage:
 
-- `storage.tsdb.retention.time`: when to remove old data. Defaults to `15d`. Overrides
-  `storage.tsdb.retention` if this flag is set to anything other than the default.
-- `storage.tsdb.retention.size`: (experimental) the maximum number of bytes of storage blocks to
-  retain. The oldest data is removed first. Defaults to `0` (disabled). This flag is experimental
-  and may change in future releases. Units supported: `B`, `KB`, `MB`, `GB`, `TB`, `PB`, `EB`. For
-  example, `512MB`.
+- `storage.tsdb.retention.time`: when to remove old data. Defaults to `15d`. Overrides `storage.tsdb.retention` if this flag is set to anything other than the default.
+- `storage.tsdb.retention.size`: (experimental) the maximum number of bytes of storage blocks to retain. The oldest data is removed first. Defaults to `0` (disabled). This flag is experimental and may change in future releases. Units supported: `B`, `KB`, `MB`, `GB`, `TB`, `PB`, `EB`. For example, `512MB`.
 
 To configure the storage retention size:
 
@@ -364,18 +329,13 @@ To configure the storage retention size:
 
 You can visit `http://localhost:9090` for the dashboard that Prometheus offers by default.
 
-If SSL has been enabled on your GitLab instance, you may not be able to access
-Prometheus on the same browser as GitLab if using the same FQDN due to [HSTS](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security).
-[A GitLab test project exists](https://gitlab.com/gitlab-org/multi-user-prometheus) to provide access, but in the interim there are
-some workarounds: using a separate FQDN, using server IP, using a separate browser for Prometheus, resetting HSTS, or
-having [NGINX proxy it](https://docs.gitlab.com/omnibus/settings/nginx.html#inserting-custom-nginx-settings-into-the-gitlab-server-block).
+If SSL has been enabled on your GitLab instance, you may not be able to access Prometheus on the same browser as GitLab if using the same FQDN due to [HSTS](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security).
+[A GitLab test project exists](https://gitlab.com/gitlab-org/multi-user-prometheus) to provide access, but in the interim there are some workarounds: using a separate FQDN, using server IP, using a separate browser for Prometheus, resetting HSTS, or having [NGINX proxy it](https://docs.gitlab.com/omnibus/settings/nginx.html#inserting-custom-nginx-settings-into-the-gitlab-server-block).
 
-The performance data collected by Prometheus can be viewed directly in the
-Prometheus console, or through a compatible dashboard tool.
+The performance data collected by Prometheus can be viewed directly in the Prometheus console, or through a compatible dashboard tool.
 The Prometheus interface provides a [flexible query language](https://prometheus.io/docs/prometheus/latest/querying/basics/)
 to work with the collected data where you can visualize the output.
-For a more fully featured dashboard, Grafana can be used and has
-[official support for Prometheus](https://prometheus.io/docs/visualization/grafana/).
+For a more fully featured dashboard, Grafana can be used and has [official support for Prometheus](https://prometheus.io/docs/visualization/grafana/).
 
 ## Sample Prometheus queries
 
@@ -394,8 +354,7 @@ Below are some sample Prometheus queries that can be used.
 
 ## Prometheus as a Grafana data source
 
-Grafana allows you to import Prometheus performance metrics as a data source,
-and render the metrics as graphs and dashboards, which is helpful with visualization.
+Grafana allows you to import Prometheus performance metrics as a data source, and render the metrics as graphs and dashboards, which is helpful with visualization.
 
 To add a Prometheus dashboard for a single server GitLab setup:
 
@@ -418,15 +377,13 @@ Many of the GitLab dependencies bundled in the Linux package are preconfigured t
 
 ### Node exporter
 
-The node exporter allows you to measure various machine resources, such as
-memory, disk, and CPU utilization.
+The node exporter allows you to measure various machine resources, such as memory, disk, and CPU utilization.
 
 [Read more about the node exporter](node_exporter.md).
 
 ### Web exporter
 
-The web exporter is a dedicated metrics server that allows splitting end-user and Prometheus traffic
-into two separate applications to improve performance and availability.
+The web exporter is a dedicated metrics server that allows splitting end-user and Prometheus traffic into two separate applications to improve performance and availability.
 
 [Read more about the web exporter](web_exporter.md).
 

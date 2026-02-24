@@ -14,14 +14,12 @@ If a page has five or more troubleshooting topics, put those topics on a [separa
 Troubleshooting information includes:
 
 - Problem-solving information that might be considered risky.
-- Information about rare cases. All troubleshooting information
-  is included, no matter how unlikely a user is to encounter a situation.
+- Information about rare cases. All troubleshooting information is included, no matter how unlikely a user is to encounter a situation.
 
 This kind of content can be helpful to others, and the benefits outweigh the risks.
 If you think you have an exception to this rule, contact the Technical Writing team.
 
-GitLab Support maintains their own
-[troubleshooting content](../../../administration/troubleshooting/_index.md).
+GitLab Support maintains their own [troubleshooting content](../../../administration/troubleshooting/_index.md).
 
 ## Format
 
@@ -67,9 +65,8 @@ For more guidance on solution types, see [workaround](../styleguide/word_list.md
 For the title of a **Troubleshooting reference** topic:
 
 - Consider including at least a partial output message.
-  If the message is more than 70 characters, include the text that's most important, or describe the message instead. Don't disable the `line-length` markdownlint rule.
-- If you need to shorten a title that contains an error message, use an ellipsis (`...`) to
-  indicate that some detail was removed.
+ If the message is more than 70 characters, include the text that's most important, or describe the message instead. Don't disable the `line-length` markdownlint rule.
+- If you need to shorten a title that contains an error message, use an ellipsis (`...`) to indicate that some detail was removed.
 - State the type of message at the start of the title. This indicates the severity. For example, `Error:`, `Warning:`.
 - Do not use links in the title.
 
@@ -91,8 +88,7 @@ To resolve this issue...
 
 ## Rails console write functions
 
-If the troubleshooting suggestion includes a function that changes data on the GitLab instance,
-add the following warning:
+If the troubleshooting suggestion includes a function that changes data on the GitLab instance, add the following warning:
 
 ```markdown
 > [!warning]

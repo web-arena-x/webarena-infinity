@@ -16,7 +16,7 @@ Organization admins can manage Dev Mode settings for the entire organization, in
 - Update the [default code language for Dev Mode code snippets](#h_01HX7WZYS0ZVPTSZ472B38CS7A)
 - [Set a plugin to auto-run](#h_01HX7X3W9ZGSN655DPYKTHMQRX) for members when they open a file
 
-**Tip:** You can check who has a Dev seat under the  **People** tab in **Admin**.
+**Tip:** You can check who has a Dev seat under the **People** tab in **Admin**.
 
 [Learn more about managing Dev Mode seats as an admin →](https://help.figma.com/hc/en-us/articles/19813618057623-Dev-Mode-is-out-of-beta-what-admins-need-to-know#h_01HKN1D11HX25FYBJXCVR1FR75)
 

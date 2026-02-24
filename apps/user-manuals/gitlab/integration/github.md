@@ -13,13 +13,11 @@ title: Use GitHub as an OAuth 2.0 authentication provider
 {{< /details >}}
 
 You can integrate your GitLab instance with GitHub.com and GitHub Enterprise.
-You can import projects from GitHub, or sign in to GitLab
-with your GitHub credentials.
+You can import projects from GitHub, or sign in to GitLab with your GitHub credentials.
 
 ## Create an OAuth app in GitHub
 
-To enable the GitHub OmniAuth provider, you need an OAuth 2.0 client ID and client
-secret from GitHub:
+To enable the GitHub OmniAuth provider, you need an OAuth 2.0 client ID and client secret from GitHub:
 
 1. Sign in to GitHub.
 1. [Create an OAuth App](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)
@@ -32,25 +30,22 @@ secret from GitHub:
 
 For some integrations, the [OAuth 2 covert redirect](https://oauth.net/advisories/2014-1-covert-redirect/)
 vulnerability can compromise GitLab accounts.
-To mitigate this vulnerability, append `/users/auth` to the authorization
-callback URL.
+To mitigate this vulnerability, append `/users/auth` to the authorization callback URL.
 
 However, GitHub does not validate the subdomain part of the `redirect_uri`.
-Therefore, a subdomain takeover, an XSS, or an open redirect on any subdomain of
-your website could enable the covert redirect attack.
+Therefore, a subdomain takeover, an XSS, or an open redirect on any subdomain of your website could enable the covert redirect attack.
 
 ## Enable GitHub OAuth in GitLab
 
 1. Configure the [common settings](omniauth.md#configure-common-settings)
-   to add `github` as a single sign-on provider. This enables Just-In-Time
-   account provisioning for users who do not have an existing GitLab account.
+   to add `github` as a single sign-on provider. This enables Just-In-Time account provisioning for users who do not have an existing GitLab account.
 
 1. Edit the GitLab configuration file using the following information:
 
    | GitHub setting | Value in the GitLab configuration file | Description             |
    |----------------|----------------------------------------|-------------------------|
    | Client ID      | `YOUR_APP_ID`                          | OAuth 2.0 client ID     |
-   | Client secret  | `YOUR_APP_SECRET`                      | OAuth 2.0 client secret |
+   | Client secret | `YOUR_APP_SECRET`                      | OAuth 2.0 client secret |
    | URL            | `https://github.example.com/`          | GitHub deployment URL   |
 
    - For Linux package installations:
@@ -71,8 +66,7 @@ your website could enable the covert redirect attack.
         ]
         ```
 
-        For GitHub Enterprise, update the following section and replace
-        `https://github.example.com/` with your GitHub URL:
+        For GitHub Enterprise, update the following section and replace `https://github.example.com/` with your GitHub URL:
 
         ```ruby
         gitlab_rails['omniauth_providers'] = [
@@ -104,8 +98,7 @@ your website could enable the covert redirect attack.
             args: { scope: 'user:email' } }
         ```
 
-        For GitHub Enterprise, update the following section and replace
-        `https://github.example.com/` with your GitHub URL:
+        For GitHub Enterprise, update the following section and replace `https://github.example.com/` with your GitHub URL:
 
         ```yaml
         - { name: 'github',
@@ -119,8 +112,7 @@ your website could enable the covert redirect attack.
      1. Save the file and [restart](../administration/restart_gitlab.md#self-compiled-installations)
         GitLab.
 
-1. Refresh the GitLab sign-in page. A GitHub icon should display below the
-   sign-in form.
+1. Refresh the GitLab sign-in page. A GitHub icon should display below the sign-in form.
 
 1. Select the icon. Sign in to GitHub and authorize the GitLab application.
 
@@ -128,8 +120,7 @@ your website could enable the covert redirect attack.
 
 ### Imports from GitHub Enterprise with a self-signed certificate fail
 
-When you import projects from GitHub Enterprise using a self-signed
-certificate, the imports fail.
+When you import projects from GitHub Enterprise using a self-signed certificate, the imports fail.
 
 To fix this issue, you must disable SSL verification:
 
@@ -199,8 +190,7 @@ To fix this issue, you must disable SSL verification:
 
 ### Signing in using GitHub Enterprise returns a 500 error
 
-This error can occur because of a network connectivity issue between your
-GitLab instance and GitHub Enterprise.
+This error can occur because of a network connectivity issue between your GitLab instance and GitHub Enterprise.
 
 To check for a connectivity issue:
 
@@ -212,8 +202,7 @@ To check for a connectivity issue:
    ```
 
 1. [Start the rails console](../administration/operations/rails_console.md#starting-a-rails-console-session)
-   and run the following commands. Replace `<github_url>` with the URL of your
-   GitHub Enterprise instance:
+   and run the following commands. Replace `<github_url>` with the URL of your GitHub Enterprise instance:
 
    ```ruby
    uri = URI.parse("https://<github_url>") # replace `GitHub-URL` with the real one here
@@ -223,9 +212,7 @@ To check for a connectivity issue:
    response = http.request(Net::HTTP::Get.new(uri.request_uri))
    ```
 
-1. If a similar `execution expired` error is returned, this confirms the error is
-   caused by a connectivity issue. Make sure the GitLab server can reach
-   your GitHub Enterprise instance.
+1. If a similar `execution expired` error is returned, this confirms the error is caused by a connectivity issue. Make sure the GitLab server can reach your GitHub Enterprise instance.
 
 ### Signing in using your GitHub account without a pre-existing GitLab account is not allowed
 

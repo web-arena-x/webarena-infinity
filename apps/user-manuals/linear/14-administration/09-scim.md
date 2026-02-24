@@ -21,7 +21,7 @@ With SCIM enabled, user accounts can be automatically created, updated, and susp
 4. Click _"View configuration"_ to get your **SCIM base connector URL** and **Bearer Auth token.** Keep these values at hand as you will need them to configure SCIM in your Identity provider.
 
 > [!NOTE]
-> Once enabled, Admins will **not** be able to manage users from within Linear as they will be kept up to date through your identity provider.  
+> Once enabled, Admins will **not** be able to manage users from within Linear as they will be kept up to date through your identity provider. 
 > If necessary, you can temporarily enable a manual override to allow user suspension. This may be useful if you need to remove members or Guests that were added to Linear before you enabled SCIM.
 
 #### OneLogin
@@ -48,8 +48,8 @@ With SCIM enabled, user accounts can be automatically created, updated, and susp
 
 Linear's SCIM integration also supports group push. From your side all you have to do is start pushing groups from your Identity provider to Linear. These will then map 1:1 with teams in Linear.
 
-  
-To link an existing team to a Group, you first need to import teams from Linear. These teams will be recognized as groups by your Identity provider. Once imported, you can then select the appropriate team when configuring group push.  
+ 
+To link an existing team to a Group, you first need to import teams from Linear. These teams will be recognized as groups by your Identity provider. Once imported, you can then select the appropriate team when configuring group push. 
 
 
 Once a team is linked to a Group, this team's membership is solely managed through your identity provider and not in Linear directly.
@@ -92,7 +92,7 @@ Linear keeps the following user and team properties in Linear up to date in near
 * **Email (`userName`):** primary identifier; must be a valid email. SCIM updates are accepted when the email domains are claimed by your workspace. 
 * **Full Name:** resolved in order: `name.formatted` → `name.givenName + name.familyName` → `displayName`
 * **Username/Nickname:** updated from `displayName`. Linear ensures uniqueness by appending a number when needed.
-* **Active:**  `active: false` suspends the user; `active: true` unsuspends.
+* **Active:** `active: false` suspends the user; `active: true` unsuspends.
 * **Avatar:** updated from `avatarUrl` or `photos[].value` 
 
 **Teams**
@@ -111,8 +111,8 @@ Once SCIM is disabled on Linear side:
 This does mean that if SCIM is re-enabled on Linear side, any changes or member removals that happened on your Identity provider will have to be pushed again to Linear. Refer to your Identity provider documentation for more information on accomplishing this.
 
 If you need to remove some Linear accounts that are not part of your IDP, we recommend enabling the temporary override from your Linear SCIM settings, rather than disabling SCIM.   
-  
-You'll find the option for this at the bottom of your SCIM settings page and it will allow the Admin or Owner who toggles the setting to manually suspend users temporarily.  
+ 
+You'll find the option for this at the bottom of your SCIM settings page and it will allow the Admin or Owner who toggles the setting to manually suspend users temporarily. 
 
 ![SCIM Manual overrides button with "Enable override" option](https://webassets.linear.app/images/ornj730p/production/e48d8a73d4a1ede5965682104bc1f5581966a1b4-2058x562.png?q=95&auto=format&dpr=2)
 

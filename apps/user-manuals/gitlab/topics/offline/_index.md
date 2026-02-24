@@ -13,13 +13,11 @@ title: Offline GitLab
 
 {{< /details >}}
 
-Computers in an offline environment are isolated from the public internet as a security measure. This
-page lists all the information available for running GitLab in an offline environment.
+Computers in an offline environment are isolated from the public internet as a security measure. This page lists all the information available for running GitLab in an offline environment.
 
 ## Quick start
 
-If you plan to deploy a GitLab instance on a physically-isolated and offline network, see the
-[quick start guide](quick_start_guide.md) for configuration steps.
+If you plan to deploy a GitLab instance on a physically-isolated and offline network, see the [quick start guide](quick_start_guide.md) for configuration steps.
 
 ## Features
 

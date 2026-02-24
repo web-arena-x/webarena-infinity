@@ -15,15 +15,13 @@ title: Syntax highlighting
 
 GitLab provides syntax highlighting for files through two complementary systems:
 
-- [Rouge](https://rubygems.org/gems/rouge) (Ruby gem): Server-side highlighting that processes files
-  on GitLab servers. It is used for:
-  - Repository file viewing
-  - Merge request diffs
-  - Commit diffs
-  - Compare view
-  - Blame view
-- [Highlight.js](https://github.com/highlightjs/highlight.js/): Client-side highlighting that runs
-  in your browser. It is used to view repository files in the browser for supported languages.
+- [Rouge](https://rubygems.org/gems/rouge) (Ruby gem): Server-side highlighting that processes files on GitLab servers. It is used for:
+ - Repository file viewing
+ - Merge request diffs
+ - Commit diffs
+ - Compare view
+ - Blame view
+- [Highlight.js](https://github.com/highlightjs/highlight.js/): Client-side highlighting that runs in your browser. It is used to view repository files in the browser for supported languages.
 
 The paths here use the [`.gitattributes` interface](https://git-scm.com/docs/gitattributes) in Git.
 
@@ -45,10 +43,8 @@ The Web IDE [does not support `.gitattribute` files](https://gitlab.com/gitlab-o
 
 To override syntax highlighting for a file type:
 
-1. If a `.gitattributes` file does not exist in the root directory of your project,
-   create a blank file with this name.
-1. For each file type you want to modify, add a line to the `.gitattributes` file
-   declaring the file extension and your desired highlighting language:
+1. If a `.gitattributes` file does not exist in the root directory of your project, create a blank file with this name.
+1. For each file type you want to modify, add a line to the `.gitattributes` file declaring the file extension and your desired highlighting language:
 
    ```conf
    # This extension typically receives Perl syntax highlighting. If you
@@ -58,8 +54,7 @@ To override syntax highlighting for a file type:
 
 1. Commit, push, and merge your changes into your default branch.
 
-After the changes merge into your [default branch](../branches/default.md),
-all `*.pl` files in your project are highlighted in your preferred language.
+After the changes merge into your [default branch](../branches/default.md), all `*.pl` files in your project are highlighted in your preferred language.
 
 You can also extend the highlighting with Common Gateway Interface (CGI) options, such as:
 
@@ -73,8 +68,7 @@ You can also extend the highlighting with Common Gateway Interface (CGI) options
 
 ## Disable syntax highlighting for a file type
 
-To disable highlighting entirely for a file type, follow the instructions for overriding
-the highlighting for a file type, and use `gitlab-language=text`:
+To disable highlighting entirely for a file type, follow the instructions for overriding the highlighting for a file type, and use `gitlab-language=text`:
 
 ```conf
 # Disable syntax highlighting for this file type
@@ -86,11 +80,11 @@ the highlighting for a file type, and use `gitlab-language=text`:
 The following file size limits apply to the syntax highlighters:
 
 - Rouge (server-side): 512 KB by default (configurable)
-  - Files larger than this limit render in plain text without syntax highlighting.
+ - Files larger than this limit render in plain text without syntax highlighting.
 
 - Highlight.js (client-side): 2 MB (not configurable)
-  - Falls back to Rouge highlighting if a language is not supported.
-  - Files larger than this limit cannot be highlighted in the frontend and must be viewed as raw content.
+ - Falls back to Rouge highlighting if a language is not supported.
+ - Files larger than this limit cannot be highlighted in the frontend and must be viewed as raw content.
 
 To change the Rouge highlighting limit:
 

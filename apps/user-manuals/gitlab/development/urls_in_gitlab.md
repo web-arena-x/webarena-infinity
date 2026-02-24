@@ -7,8 +7,7 @@ title: URLs in GitLab
 
 ## Overview
 
-GitLab supports multiple deployment configurations that affect how URLs are generated and
-resolved. Using hardcoded or absolute URLs can break functionality in these scenarios:
+GitLab supports multiple deployment configurations that affect how URLs are generated and resolved. Using hardcoded or absolute URLs can break functionality in these scenarios:
 
 - [Relative URL installations](../install/relative_url.md) - GitLab deployments with a path prefix, for example, `https://example.com/gitlab/`.
 - [Geo deployments](../administration/geo/_index.md) - Primary and secondary sites with different URLs
@@ -21,9 +20,9 @@ To ensure URLs work correctly across all deployment configurations follow the be
 - Use Rails as the single source of truth for generating URLs. If you need a URL on the
 frontend, generate it in Rails and pass it to the frontend.
 - Use relative URLs for internal application links. Use absolute URLs only when:
-  - Generating links for emails.
-  - Constructing URLs for external services.
-  - Building clone or download URLs that must work outside the web interface.
+ - Generating links for emails.
+ - Constructing URLs for external services.
+ - Building clone or download URLs that must work outside the web interface.
 
 ## Backend guidelines
 
@@ -34,9 +33,9 @@ to generate URLs.
 
 - Use `*_path` helpers for all internal application links.
 - Use `*_url` helpers only for links that need to be consumed outside of the application, such as:
-  - Links for emails.
-  - URLs for external services.
-  - Clone or download URLs that must work outside the web interface.
+ - Links for emails.
+ - URLs for external services.
+ - Clone or download URLs that must work outside the web interface.
 
 ```ruby
 # Correct - Relative path
@@ -50,8 +49,7 @@ redirect_to project_url(@project)
 
 ### JavaScript and Vue
 
-Do not hardcode or construct URLs in JavaScript or Vue. Generate URLs in Rails and pass
-them to the frontend through data attributes, GraphQL queries, or REST APIs.
+Do not hardcode or construct URLs in JavaScript or Vue. Generate URLs in Rails and pass them to the frontend through data attributes, GraphQL queries, or REST APIs.
 
 ```javascript
 // Incorrect - Do not construct URLs on the frontend
@@ -70,25 +68,22 @@ Pass URLs from Rails to the frontend by using `data-*` attributes. For example:
 
 ```javascript
 const initMyApp = () => {
-  const el = document.getElementById('js-my-app');
+ const el = document.getElementById('js-my-app');
 
-  if (!el) return false;
+ if (!el) return false;
 
-  const { basePath } = el.dataset
+ const { basePath } = el.dataset
 }
 ```
 
 ### GraphQL queries
 
-Avoid using `webUrl` fields. Instead, use the `webPath` or other relative URL field, for
-example, `adminEditPath`. If the `webPath` field does not exist on that GraphQL type, add
-it. Be careful of [compatibility across updates](multi_version_compatibility.md#when-modifying-javascriptvue)
+Avoid using `webUrl` fields. Instead, use the `webPath` or other relative URL field, for example, `adminEditPath`. If the `webPath` field does not exist on that GraphQL type, add it. Be careful of [compatibility across updates](multi_version_compatibility.md#when-modifying-javascriptvue)
 when you add new GraphQL fields.
 
 ### REST API
 
-Avoid using `web_url` fields. Instead, use `web_path` or other relative URL fields, for
-example, `admin_edit_path`. If `web_path` does not exist on the REST API endpoint, add it.
+Avoid using `web_url` fields. Instead, use `web_path` or other relative URL fields, for example, `admin_edit_path`. If `web_path` does not exist on the REST API endpoint, add it.
 Be careful of [compatibility across updates](multi_version_compatibility.md#when-modifying-javascriptvue)
 when you add new fields to REST API endpoints.
 

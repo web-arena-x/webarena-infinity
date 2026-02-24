@@ -5,10 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Constraints naming conventions
 ---
 
-The most common option is to let Rails pick the name for database constraints and indexes or let
-PostgreSQL use the defaults (when applicable). However, when defining custom names in Rails, or
-working in Go applications where no ORM is used, it is important to follow strict naming conventions
-to improve consistency and discoverability.
+The most common option is to let Rails pick the name for database constraints and indexes or let PostgreSQL use the defaults (when applicable). However, when defining custom names in Rails, or working in Go applications where no ORM is used, it is important to follow strict naming conventions to improve consistency and discoverability.
 
 The table below describes the naming conventions for custom PostgreSQL constraints.
 The intent is not to retroactively change names in existing databases but rather ensure consistency of future changes.

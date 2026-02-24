@@ -15,10 +15,8 @@ description: Use GitLab Wiki with your planning workflow. Connect documentation 
 
 GitLab Wiki works with your planning tools. It's not a separate tool.
 You can link wiki pages to epics, issues, and boards.
-With embedded views powered by GitLab Query Language (GLQL), your wiki pages can display
-live, auto-updating views of issues and work items - turning documentation into dynamic dashboards.
-Learn how to connect wiki with issues, epics, and boards to create a smooth workflow where
-documentation and planning work together.
+With embedded views powered by GitLab Query Language (GLQL), your wiki pages can display live, auto-updating views of issues and work items - turning documentation into dynamic dashboards.
+Learn how to connect wiki with issues, epics, and boards to create a smooth workflow where documentation and planning work together.
 
 A wiki helps your planning tools by giving you:
 
@@ -148,8 +146,7 @@ With custom text: [[Backend API Standards|backend/api:api-standards]]
 {{< /history >}}
 
 Transform your wiki pages into live dashboards using [GitLab Query Language](../../glql/_index.md) (GLQL).
-Embedded views automatically update when data changes, providing real-time visibility into your planning data
-without leaving the wiki.
+Embedded views automatically update when data changes, providing real-time visibility into your planning data without leaving the wiki.
 
 {{< alert type="note" >}}
 
@@ -164,18 +161,11 @@ To embed a GLQL query, use a code block with `glql` as the language identifier:
 
 ````yaml
 ```glql
-display: table
-title: Sprint 18.5 Dashboard
-description: Current sprint work items
-fields: title, assignee, state, health, labels, milestone, updated
-limit: 20
-sort: updated desc
-query: project = "gitlab-org/gitlab" and milestone = "18.5" and opened = true
+display: table title: Sprint 18.5 Dashboard description: Current sprint work items fields: title, assignee, state, health, labels, milestone, updated limit: 20 sort: updated desc query: project = "gitlab-org/gitlab" and milestone = "18.5" and opened = true
 ```
 ````
 
-This creates a live table showing all open issues in the current milestone, automatically updating
-as issues are created, modified, or closed.
+This creates a live table showing all open issues in the current milestone, automatically updating as issues are created, modified, or closed.
 
 ### Planning dashboard examples
 
@@ -183,8 +173,7 @@ Create comprehensive planning dashboards directly in your wiki pages.
 
 {{< alert type="note" >}}
 
-In the examples throughout this section, replace `project = "group/project"` with your actual project path,
-such as `project = "gitlab-org/gitlab"` or `project = "my-team/my-project"`.
+In the examples throughout this section, replace `project = "group/project"` with your actual project path, such as `project = "gitlab-org/gitlab"` or `project = "my-team/my-project"`.
 
 {{< /alert >}}
 
@@ -196,13 +185,7 @@ Sprint overview dashboard:
 
 ````yaml
 ```glql
-display: table
-title: Sprint Overview
-description: All work for the current sprint
-fields: title, assignee, state, labels("priority::*") as "Priority", health, due
-limit: 30
-sort: due asc
-query: project = "group/project" and milestone = "Current Sprint" and opened = true
+display: table title: Sprint Overview description: All work for the current sprint fields: title, assignee, state, labels("priority::*") as "Priority", health, due limit: 30 sort: due asc query: project = "group/project" and milestone = "Current Sprint" and opened = true
 ```
 ````
 
@@ -210,12 +193,7 @@ Critical bugs tracker:
 
 ````yaml
 ```glql
-display: table
-title: Critical Bugs
-description: High-priority bugs requiring immediate attention
-fields: title, assignee, labels, created, updated
-limit: 10
-query: project = "group/project" and label = "bug" and label = "severity::1" and opened = true
+display: table title: Critical Bugs description: High-priority bugs requiring immediate attention fields: title, assignee, labels, created, updated limit: 10 query: project = "group/project" and label = "bug" and label = "severity::1" and opened = true
 ```
 ````
 
@@ -223,13 +201,7 @@ Team workload view:
 
 ````yaml
 ```glql
-display: list
-title: Team Work In Progress
-description: Active work items by team member
-fields: title, assignee, milestone, due
-limit: 15
-sort: assignee asc
-query: project = "group/project" and assignee in (alice, bob, charlie) and label = "workflow::in dev"
+display: list title: Team Work In Progress description: Active work items by team member fields: title, assignee, milestone, due limit: 15 sort: assignee asc query: project = "group/project" and assignee in (alice, bob, charlie) and label = "workflow::in dev"
 ```
 ````
 
@@ -237,13 +209,7 @@ Personal task list:
 
 ````yaml
 ```glql
-display: orderedList
-title: My Tasks
-description: Tasks assigned to me, sorted by priority
-fields: title, labels("priority::*") as "Priority", due
-limit: 10
-sort: due asc
-query: type = Task and assignee = currentUser() and opened = true
+display: orderedList title: My Tasks description: Tasks assigned to me, sorted by priority fields: title, labels("priority::*") as "Priority", due limit: 10 sort: due asc query: type = Task and assignee = currentUser() and opened = true
 ```
 ````
 
@@ -278,10 +244,10 @@ Create a connected documentation flow throughout your sprint:
 #### Post-sprint
 
 - Retrospectives: Create wiki retrospective pages that reference:
-  - Completed issues
-  - Velocity metrics
-  - Action items (as new issues)
-  - Lessons learned
+ - Completed issues
+ - Velocity metrics
+ - Action items (as new issues)
+ - Lessons learned
 
 ### Long-term planning documentation
 
@@ -495,11 +461,7 @@ Structure your team handbook with embedded views for real-time insights:
 ## Current sprint status
 
 ```glql
-display: table
-title: Sprint Progress
-fields: title, assignee, state, labels("workflow::*") as "Status"
-limit: 20
-query: project = "team/project" and milestone = "Sprint 23" and opened = true
+display: table title: Sprint Progress fields: title, assignee, state, labels("workflow::*") as "Status" limit: 20 query: project = "team/project" and milestone = "Sprint 23" and opened = true
 ```
 
 ## Processes
@@ -550,10 +512,10 @@ query: project = "team/project" and milestone = "Sprint 23" and opened = true
 
 | Item type                 | Syntax              | Example |
 | ------------------------- | ------------------- | ------- |
-| Issue (same project)      | `#123`              | `#123`  |
+| Issue (same project)      | `#123`              | `#123` |
 | Issue (different project) | `group/project#123` | `gitlab-org/gitlab#123` |
-| Merge request             | `!123`              | `!123`  |
-| Epic                      | `&123`              | `&123`  |
+| Merge request             | `!123`              | `!123` |
+| Epic                      | `&123`              | `&123` |
 | Milestone                 | `%"Milestone Name"` | `%"18.5"` |
 
 ### Creating issues from wiki

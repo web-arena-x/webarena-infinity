@@ -14,8 +14,7 @@ title: Update your Admin area settings
 
 {{< /details >}}
 
-As an instance administrator, you can manage the behavior of your
-deployment.
+As an instance administrator, you can manage the behavior of your deployment.
 
 Use **Settings** to control settings across the instance.
 

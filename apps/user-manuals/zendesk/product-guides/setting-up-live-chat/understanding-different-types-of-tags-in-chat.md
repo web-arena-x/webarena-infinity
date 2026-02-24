@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408888643866-Understandin
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Team, Professional, or Enterprise |
 
@@ -23,7 +23,7 @@ You can use either or both types of tags to better understand your chat traffic.
 
 Table 1.
 
-|  | Chat tags | Javascript API and trigger tags |
+| | Chat tags | Javascript API and trigger tags |
 | --- | --- | --- |
 | How they're added and removed | - Directly in the chat panel. For details, see [Managing individual tags in the chat panel](../live-chat-agent-guide/adding-tags-to-chat-sessions.md#topic_vvx_lnm_nt). - Using a shortcut with an associated chat tag. For details, see [Adding tags with shortcuts](../live-chat-agent-guide/adding-tags-to-chat-sessions.md#topic_wdz_jtm_nt). - In History for past chats and offline messages. | - Through the API using the API calls addTags and removeTags. For details, see the [Javascript API documentation](https://api.zopim.com/files/meshim/widget/controllers/LiveChatAPI-js.html). - With a trigger using the actions Add tag and Remove tag. For details, see [Chat trigger conditions and actions reference](https://support.zendesk.com/hc/en-us/articles/4408842880282). - In History for past chats and offline messages. |
 | What they're used for | Categorize chat sessions based on actual content of conversation. For example, you might add a reporting\_issue tag to customers who are having issues with your reporting feature. Chat tags apply to individual conversations; they are not intended for overall user management. | Add details about a visitor based on information other than chat content. For example, you could add a returning\_customer tag to visitors who have previously purchased something on your website. |

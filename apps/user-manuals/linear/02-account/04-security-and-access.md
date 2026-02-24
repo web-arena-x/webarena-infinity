@@ -11,9 +11,9 @@ The security and access page allows you to view and manage connected devices and
 ## Sessions
 
 See a list of current and previously connected devices from here along with details of the location, source type and date last seen.   
-  
-To revoke individual sessions, hover over them and choose the _Revoke access_ option. To remove all connections except the current one, choose _Revoke all._  
-  
+ 
+To revoke individual sessions, hover over them and choose the _Revoke access_ option. To remove all connections except the current one, choose _Revoke all._ 
+ 
 You can view additional details such as IP address or the original sign in date, by clicking on each entry.
 
 Inactive sessions will be automatically expired after 30 days.

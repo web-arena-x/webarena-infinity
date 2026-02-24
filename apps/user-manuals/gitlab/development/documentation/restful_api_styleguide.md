@@ -6,13 +6,9 @@ description: Writing styles, markup, formatting, and other standards for the Git
 title: Documenting REST API resources
 ---
 
-REST API resources are documented in Markdown under
-[`/doc/api`](https://gitlab.com/gitlab-org/gitlab/-/tree/master/doc/api). Each
-resource has its own Markdown file, which is linked from
-[`api_resources.md`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/api/api_resources.md).
+REST API resources are documented in Markdown under [`/doc/api`](https://gitlab.com/gitlab-org/gitlab/-/tree/master/doc/api). Each resource has its own Markdown file, which is linked from [`api_resources.md`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/api/api_resources.md).
 
-When modifying the Markdown or API code, also update the corresponding
-[OpenAPI definition](https://gitlab.com/gitlab-org/gitlab/-/tree/master/doc/api/openapi), by running `bin/rake gitlab:openapi:v2:generate`.
+When modifying the Markdown or API code, also update the corresponding [OpenAPI definition](https://gitlab.com/gitlab-org/gitlab/-/tree/master/doc/api/openapi), by running `bin/rake gitlab:openapi:v2:generate`.
 To check if the OpenAPI definition needs to be updated, you can run `bin/rake gitlab:openapi:v2:check_docs`.
 This is also checked by the `openapi-doc-check` CI/CD job that runs for commits that modify API code or documentation.
 
@@ -20,9 +16,9 @@ The Markdown topic for an API resource must include:
 
 - A block that includes the HTTP method (like GET, PUT, DELETE) followed by the request path. Always start the path with a `/`. For example:
 
-  ```plaintext
-  GET /api/v4/projects/:id/repository/branches
-  ```
+ ```plaintext
+ GET /api/v4/projects/:id/repository/branches
+ ```
 
 - A detailed [description of the attributes](#request-attributes).
 - A detailed [description of the response body](#response-attributes).
@@ -33,8 +29,7 @@ After a new API documentation page is added, [add an entry in the global navigat
 
 ## API topic template
 
-Use the following template to help you get started. Be sure to list any
-required attributes first in the table.
+Use the following template to help you get started. Be sure to list any required attributes first in the table.
 
 ````markdown
 ## API name
@@ -81,17 +76,13 @@ response attributes:
 Example request:
 
 ```shell
-curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/endpoint?parameters"
+curl --header "PRIVATE-TOKEN: <your_access_token>" \ --url "https://gitlab.example.com/api/v4/endpoint?parameters"
 ```
 
 Example response:
 
 ```json
-[
-  {
-  }
-]
+[ { } ]
 ```
 ````
 
@@ -100,8 +91,7 @@ Example response:
 Add [history](styleguide/availability_details.md#history)
 to describe new or updated API calls.
 
-To add history for an individual attribute, include it in the history
-for the section. For example:
+To add history for an individual attribute, include it in the history for the section. For example:
 
 ```markdown
 ### Edit a widget
@@ -113,13 +103,11 @@ for the section. For example:
 {{</* /history */>}}
 ```
 
-If the API or attribute is deployed behind a feature flag,
-[include the feature flag information](feature_flags.md) in the history.
+If the API or attribute is deployed behind a feature flag, [include the feature flag information](feature_flags.md) in the history.
 
 ## Deprecations
 
-To document the deprecation of an API endpoint, follow the steps to
-[deprecate a page or topic](styleguide/deprecations_and_removals.md).
+To document the deprecation of an API endpoint, follow the steps to [deprecate a page or topic](styleguide/deprecations_and_removals.md).
 
 To deprecate an attribute:
 
@@ -145,11 +133,9 @@ To widely announce a deprecation, [update the REST API deprecations page](../../
 
 ## API introduction
 
-Each API is made of one or more operations. At the start of the topic, include information that
-applies to all operations in the API, and a short description of the related features.
+Each API is made of one or more operations. At the start of the topic, include information that applies to all operations in the API, and a short description of the related features.
 
-For consistency, try to start the introduction with: `Use this API to {verb} + [{feature}](link/to/UI/docs).`
-This allows us to direct users to related documentation that might include more context.
+For consistency, try to start the introduction with: `Use this API to {verb} + [{feature}](link/to/UI/docs).` This allows us to direct users to related documentation that might include more context.
 
 For example:
 
@@ -159,8 +145,7 @@ For example:
 
 ## Operation titles
 
-Start an operation title with a verb. For consistency,
-use these verbs based on the HTTP method:
+Start an operation title with a verb. For consistency, use these verbs based on the HTTP method:
 
 | HTTP method      | Verb     | Alternatives | Examples |
 | ---------------- | -------- | ------------ | -------- |
@@ -171,14 +156,11 @@ use these verbs based on the HTTP method:
 | `PATCH`          | Update   | Modify       | `Update a freeze period`, `Modify an existing commit thread note` |
 | `DELETE`         | Delete   |              | `Delete a feature` |
 
-When possible, use the recommended verb. Alternatives might be needed in specific contexts, but
-minimize their use to maintain consistency.
+When possible, use the recommended verb. Alternatives might be needed in specific contexts, but minimize their use to maintain consistency.
 
 ## Operation descriptions
 
-Each operation should include a short description that explains its use, and highlights any
-important information. If possible, write the first sentence to broadly repeat the title of
-the operation. For example:
+Each operation should include a short description that explains its use, and highlights any important information. If possible, write the first sentence to broadly repeat the title of the operation. For example:
 
 - `List all project access tokens` -> `Lists all project access tokens.`
 - `Delete an SSH key` -> `Deletes an SSH key from your user account.`
@@ -192,8 +174,8 @@ You must document the request attributes in an operation. When creating the tabl
 - List any path attributes first, then any required attributes, then sort alphabetically.
 - Place the attribute name in code blocks using backticks (`` ` ``).
 - Document any tier or offering information specific to an attribute in the description.
-  - If an attribute is available for Premium, mention that it's also available for Ultimate.
-  - Combine this tier and offering information when possible. For example: `GitLab Self-Managed, Premium and Ultimate only.`
+ - If an attribute is available for Premium, mention that it's also available for Ultimate.
+ - Combine this tier and offering information when possible. For example: `GitLab Self-Managed, Premium and Ultimate only.`
 
 ```markdown
 | Attribute                    | Type          | Required | Description                                         |
@@ -221,9 +203,9 @@ Generally, this happens if one of two attributes is required or if an attribute 
 
 First define the attribute itself, then mention any requirements. Use this format:
 
-  ```markdown
-  Required if `attribute1` is `true`.
-  ```
+ ```markdown
+ Required if `attribute1` is `true`.
+ ```
 
 For example:
 
@@ -243,11 +225,10 @@ When creating the table and attribute descriptions:
 - Place the attribute name in code blocks using backticks (`` ` ``).
 - If describing an object or array, use dot notation to represent the sub-attributes. For example, `project.name` or `projects[].name`.
 - Document any tier or offering information specific to an attribute in the description.
-  - If an attribute is available for Premium, mention that it's also available for Ultimate.
-  - Combine this tier and offering information when possible. For example: `GitLab Self-Managed, Premium and Ultimate only.`
+ - If an attribute is available for Premium, mention that it's also available for Ultimate.
+ - Combine this tier and offering information when possible. For example: `GitLab Self-Managed, Premium and Ultimate only.`
 
-Start the description with the following sentence, replacing `status code` with the
-relevant [HTTP status code](../../api/rest/troubleshooting.md#status-codes), for example:
+Start the description with the following sentence, replacing `status code` with the relevant [HTTP status code](../../api/rest/troubleshooting.md#status-codes), for example:
 
 ```markdown
 If successful, returns [`200 OK`](../../api/rest/troubleshooting.md#status-codes) and the
@@ -258,7 +239,7 @@ following response attributes:
 | Attribute      | Type          | Description |
 | -------------- | ------------- | ----------- |
 | `assignee_ids` | integer array | IDs of the users to assign the issue to. Premium and Ultimate only. |
-| `commits`      | object array  | Commits in the merge request diff. |
+| `commits`      | object array | Commits in the merge request diff. |
 | `commits[].id` | string        | ID of the commit. |
 ```
 
@@ -267,7 +248,7 @@ Rendered example:
 | Attribute      | Type          | Description |
 | -------------- | ------------- | ----------- |
 | `assignee_ids` | integer array | IDs of the users to assign the issue to. Premium and Ultimate only. |
-| `commits`      | object array  | Commits in the merge request diff. |
+| `commits`      | object array | Commits in the merge request diff. |
 | `commits[].id` | string        | ID of the commit. |
 
 For information about writing attribute descriptions, see the [GraphQL API description style guide](../api_graphql_styleguide.md#description-style-guide).
@@ -276,15 +257,11 @@ For information about writing attribute descriptions, see the [GraphQL API descr
 
 - Use `https://gitlab.example.com/api/v4/` as an endpoint.
 - Wherever needed use this personal access token: `<your_access_token>`.
-- Always put the request first. `GET` is the default so you don't have to
-  include it.
-- Use long option names (`--header` instead of `-H`) for legibility. (Tested in
-  [`scripts/lint-doc.sh`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/scripts/lint-doc.sh).)
+- Always put the request first. `GET` is the default so you don't have to include it.
+- Use long option names (`--header` instead of `-H`) for legibility. (Tested in [`scripts/lint-doc.sh`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/scripts/lint-doc.sh).)
 - Declare URLs with the `--url` parameter, and wrap the URL in double quotes (`"`).
-- Prefer to use examples using the personal access token and don't pass data of
-  username and password.
-- For legibility, use the ` \ ` character and indentation to break long single-line
-  commands apart into multiple lines.
+- Prefer to use examples using the personal access token and don't pass data of username and password.
+- For legibility, use the ` \ ` character and indentation to break long single-line commands apart into multiple lines.
 
 | Methods                                         | Description                                            |
 |-------------------------------------------------|--------------------------------------------------------|
@@ -295,8 +272,7 @@ For information about writing attribute descriptions, see the [GraphQL API descr
 
 ## cURL Examples
 
-The following sections include a set of [cURL](https://curl.se/) examples
-you can use in the API documentation.
+The following sections include a set of [cURL](https://curl.se/) examples you can use in the API documentation.
 
 > [!warning]
 > Do not use information for real users, URLs, or tokens. For documentation, refer to our
@@ -309,7 +285,7 @@ Get the details of a group:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/gitlab-org"
+ --url "https://gitlab.example.com/api/v4/groups/gitlab-org"
 ```
 
 ### cURL example with parameters passed in the URL
@@ -318,19 +294,17 @@ Create a new project under the authenticated user's namespace:
 
 ```shell
 curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects?name=foo"
+ --url "https://gitlab.example.com/api/v4/projects?name=foo"
 ```
 
 ### Post data using cURL's `--data`
 
-Instead of using `--request POST` and appending the parameters to the URI, you
-can use cURL's `--data` option. The example below creates a new project
-`foo` under the authenticated user's namespace.
+Instead of using `--request POST` and appending the parameters to the URI, you can use cURL's `--data` option. The example below creates a new project `foo` under the authenticated user's namespace.
 
 ```shell
 curl --data "name=foo" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects"
 ```
 
 ### Post data using cURL's `--data-urlencode`
@@ -350,51 +324,50 @@ For an attribute with special characters:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --data-urlencode "description=Fix issue with 'quotes' & ampersands" \
-  --url "https://gitlab.example.com/api/v4/projects/1/issues"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --data-urlencode "description=Fix issue with 'quotes' & ampersands" \
+ --url "https://gitlab.example.com/api/v4/projects/1/issues"
 ```
 
 For content with regular expression patterns:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --data-urlencode "name_regex_delete=dev-.+" \
-  --url "https://gitlab.example.com/api/v4/projects/5/registry/repositories/2/tags"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --data-urlencode "name_regex_delete=dev-.+" \
+ --url "https://gitlab.example.com/api/v4/projects/5/registry/repositories/2/tags"
 ```
 
 For content from a file, use `attribute@filename`:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --data-urlencode "title=API documentation update" \
-  --data-urlencode "content@content.md" \
-  --url "https://gitlab.example.com/api/v4/projects/1/wikis"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --data-urlencode "title=API documentation update" \
+ --data-urlencode "content@content.md" \
+ --url "https://gitlab.example.com/api/v4/projects/1/wikis"
 ```
 
 ### Post data using JSON content
 
-This example creates a new group. Be aware of the use of single (`'`) and double
-(`"`) quotes.
+This example creates a new group. Be aware of the use of single (`'`) and double (`"`) quotes.
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --data '{"path": "my-group", "name": "My group"}' \
-  --url "https://gitlab.example.com/api/v4/groups"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --data '{"path": "my-group", "name": "My group"}' \
+ --url "https://gitlab.example.com/api/v4/groups"
 ```
 
 For readability, you can also set up the `--data` by using the following format:
 
 ```shell
 curl --request POST \
-  --url "https://gitlab.example.com/api/v4/groups" \
-  --header "content-type: application/json" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --data '{
+ --url "https://gitlab.example.com/api/v4/groups" \
+ --header "content-type: application/json" \
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --data '{
     "path": "my-group",
     "name": "My group"
 }'
@@ -402,45 +375,38 @@ curl --request POST \
 
 ### Post data using form-data
 
-Instead of using JSON or URL-encoding data, you can use `multipart/form-data` which
-properly handles data encoding:
+Instead of using JSON or URL-encoding data, you can use `multipart/form-data` which properly handles data encoding:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --form "title=ssh-key" \
-  --form "key=ssh-rsa AAAAB3NzaC1yc2EA..." \
-  --url "https://gitlab.example.com/api/v4/users/25/keys"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --form "title=ssh-key" \
+ --form "key=ssh-rsa AAAAB3NzaC1yc2EA..." \
+ --url "https://gitlab.example.com/api/v4/users/25/keys"
 ```
 
-The above example adds an SSH public key titled `ssh-key` to the account of
-a user with ID 25. The operation requires administrator access.
+The above example adds an SSH public key titled `ssh-key` to the account of a user with ID 25. The operation requires administrator access.
 
 ### Escape special characters
 
-Spaces or slashes (`/`) can sometimes result in errors, so you should
-escape them when possible. In the example below we create a new issue which
-contains spaces in its title. Observe how spaces are escaped using the `%20`
-ASCII code.
+Spaces or slashes (`/`) can sometimes result in errors, so you should escape them when possible. In the example below we create a new issue which contains spaces in its title. Observe how spaces are escaped using the `%20` ASCII code.
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/42/issues?title=Hello%20GitLab"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/42/issues?title=Hello%20GitLab"
 ```
 
 Use `%2F` for slashes (`/`).
 
 ### Pass arrays to API calls
 
-The GitLab API sometimes accepts arrays of strings or integers. For example, to
-exclude specific users when requesting a list of users for a project, you would
-do something like this:
+The GitLab API sometimes accepts arrays of strings or integers. For example, to exclude specific users when requesting a list of users for a project, you would do something like this:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>"
-  --data "skip_users[]=<user_id>" \
-  --data "skip_users[]=<user_id>" \
-  --url "https://gitlab.example.com/api/v4/projects/<project_id>/users"
+ --header "PRIVATE-TOKEN: <your_access_token>"
+ --data "skip_users[]=<user_id>" \
+ --data "skip_users[]=<user_id>" \
+ --url "https://gitlab.example.com/api/v4/projects/<project_id>/users"
 ```

@@ -4,8 +4,7 @@ Source: https://help.figma.com/hc/en-us/articles/15300412458647-Explore-FigJam-f
 
 ---
 
-[
-](https://cdn.sanity.io/files/599r6htc/localized/3e6204807a9cc5d2b20e5e6d97e7a252a7b74496.webm)
+[ ](https://cdn.sanity.io/files/599r6htc/localized/3e6204807a9cc5d2b20e5e6d97e7a252a7b74496.webm)
 
 In this guide, we’ll cover the basics of working in FigJam. You can come back to this guide any time you need a refresher. Want to learn more about the difference between design files and FigJam files? Check out our [What is Figma](https://help.figma.com/hc/en-us/articles/14563969806359) guide.
 
@@ -17,7 +16,7 @@ There are objects—like text, shapes, images, and sticky notes—that allow you
 
 FigJam files in the file browser
 
-You can identify FigJam files in the file browser by the icon  on the file card.
+You can identify FigJam files in the file browser by the icon on the file card.
 
 ![FigJam file card labeled "User research" with a purple marker icon and recent edit timestamp.](https://help.figma.com/hc/article_attachments/15328478302999)
 
@@ -53,7 +52,7 @@ The top panels are where you’ll find your file settings and tools for collabor
 
 ### File settings
 
-On the left, you’ll find the  file menu, name, and pages. Click the file name to expand the file settings panel.
+On the left, you’ll find the file menu, name, and pages. Click the file name to expand the file settings panel.
 
 ![Page list in a FigJam file.](https://help.figma.com/hc/article_attachments/34612820396823)
 
@@ -71,7 +70,7 @@ The main toolbar — which we call the delightful toolbar — holds all of your 
 
 ### Navigation
 
-Switch between the  **Hand** tool to explore the file or the  **Move** tool to move or make changes to an object.
+Switch between the **Hand** tool to explore the file or the **Move** tool to move or make changes to an object.
 
 ### Objects
 
@@ -87,17 +86,17 @@ Make **Connections** between objects on the board.
 
 Access tools for creating **Text**, **Sections**, **Tables**, **Stamps** and **Emotes**, **Comments**, and **Actions**.
 
-Open the  stamp wheel and toggle between permanent **Stamps** and temporary **Emotes**.
+Open the stamp wheel and toggle between permanent **Stamps** and temporary **Emotes**.
 
-Add  **Comments** to your board.
+Add **Comments** to your board.
 
-Perform  **Actions** using Figma AI, like making templates, diagrams, and images or editing text.
+Perform **Actions** using Figma AI, like making templates, diagrams, and images or editing text.
 
 ### Inserts
 
-In the far right of toolbar you’ll see a  plus icon.
+In the far right of toolbar you’ll see a plus icon.
 
-Click  to find templates for activities, widgets, plugins, or use sticker packs and component libraries from the Community.
+Click to find templates for activities, widgets, plugins, or use sticker packs and component libraries from the Community.
 
 Or access more tools, like the timer, mind maps, face stamps, and code blocks; or import media or links with live previews.
 
@@ -201,7 +200,7 @@ Paste links to rich media from other websites—like videos, articles, or docume
 
 ### Stamps
 
-Add your thoughts and opinions, or express your support with stamps. Press `E` and make sure you have  **Stamp** selected. Select from the wheel and add your stamp of approval or other more permanent sentiments to the board.
+Add your thoughts and opinions, or express your support with stamps. Press `E` and make sure you have **Stamp** selected. Select from the wheel and add your stamp of approval or other more permanent sentiments to the board.
 
 **[Learn more →](https://help.figma.com/hc/en-us/articles/1500004290981)**
 
@@ -288,12 +287,11 @@ Use audio to have live conversations with other collaborators directly in your F
 
 ### Emotes
 
-Quickly express your thoughts and feelings with emotes. Press `E` and make sure you have  **Emote** selected. Select from the wheel and click and hold over the board to express your reactions in the moment.
+Quickly express your thoughts and feelings with emotes. Press `E` and make sure you have **Emote** selected. Select from the wheel and click and hold over the board to express your reactions in the moment.
 
 **[Learn more →](https://help.figma.com/hc/en-us/articles/1500004290981)**
 
-[
-](https://video.twimg.com/tweet_video/E-NFvadWEAQOlVM.mp4)
+[ ](https://video.twimg.com/tweet_video/E-NFvadWEAQOlVM.mp4)
 
 ### High fives
 
@@ -311,7 +309,7 @@ Cursor chat allows you to type live, temporary messages to others in your FigJam
 
 ### Comments
 
-Use comments to give feedback, ask questions, or leave notes throughout the board. Click  to enter comment mode. Then, click somewhere on the board to pin your comment and start typing.
+Use comments to give feedback, ask questions, or leave notes throughout the board. Click to enter comment mode. Then, click somewhere on the board to pin your comment and start typing.
 
 You can @mention collaborators, as well as add emoji to your messages. Adding to a thread? You can reply to the thread or add a quick emoji reaction.
 

@@ -10,16 +10,16 @@ Create documents inside of issues to keep relevant information and updates in on
 
 ## Create documents
 
-Create documents when inside of a issue under the `…` menu of an issue > Add Document. It will get added to the resources section of an issue.  
-  
+Create documents when inside of a issue under the `…` menu of an issue > Add Document. It will get added to the resources section of an issue. 
+ 
 In documents, you can type in plain text, use code snippets, format with headers and reference issues and projects. 
 
 ## Create document templates
 
-You can create document templates to write documents faster and guide creators to share information effectively. These templates can be selected when creating a new document inside a project or issue.  
-  
-To create a document template, you can navigate to either the workspace template settings or team template settings. Once you've created the document template, press `save `to make the template available for your team and workspace members.  
-  
+You can create document templates to write documents faster and guide creators to share information effectively. These templates can be selected when creating a new document inside a project or issue. 
+ 
+To create a document template, you can navigate to either the workspace template settings or team template settings. Once you've created the document template, press `save `to make the template available for your team and workspace members. 
+ 
 To edit, duplicate or delete a template, go to the same page where you created the templates and then hover over the template name in order to show contextual controls. Click on the overflow menu and take the desired action.
 
 ## Document subscriptions

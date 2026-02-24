@@ -8,7 +8,7 @@ Reviewers are contacts that may not have Handshake accounts that are a part of t
 
 # **Approval Process**
 
-1. Approval request email sent to Reviewer  
+1. Approval request email sent to Reviewer 
    1. [Experience Emails](experiences-emails.md)
    2. [How to Start and Manage Approvals](https://support.joinhandshake.com/hc/en-us/articles/360021202253)
 2. Click the button to **Review Experience Request,**this will open the Experience Approval form in a new tab

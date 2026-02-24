@@ -49,9 +49,9 @@ Semantic search capability in your online store search is available only if your
 
 * Your store has fewer than 200,000 products.
 * Your store is on one the following [pricing plans](https://www.shopify.com/pricing):
-  + Grow
-  + Advanced
-  + Plus
+ + Grow
+ + Advanced
+ + Plus
 * Semantic search capability doesn't apply to [predictive search](predictive-search.md).
 * Semantic search capibility isn't supported for the Japanese locale.
 

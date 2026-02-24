@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/5705595205402-Activating-y
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
@@ -16,11 +16,7 @@ Gather complements the knowledge base in your help center. You must have Guide b
 
 ## Activating the community
 
-When you activate the community, it is visible to end users in your activated help center. If you
-have been working on your help center in setup mode and your community is already
-activated, then you need to [activate the help
-center](https://support.zendesk.com/hc/en-us/articles/4408846795674#topic_ckn_wc4_qy) when you are ready to go
-live.
+When you activate the community, it is visible to end users in your activated help center. If you have been working on your help center in setup mode and your community is already activated, then you need to [activate the help center](https://support.zendesk.com/hc/en-us/articles/4408846795674#topic_ckn_wc4_qy) when you are ready to go live.
 
 **To activate the community**
 

@@ -11,23 +11,23 @@ Consider creating sub-issues when a set of work is too large to be a single issu
 ## Create a sub-issue
 
 Create a sub-issue by opening the parent issue and click the `+ Add sub-issues` button below the issue description. This will launch the sub-issue editor. You can also use the shortcut `Command` `Shift` `O` to open the editor.   
-  
+ 
 You can also create sub-issues in the issue creation modal (C) by pressing `Command` `Shift` `O` to open the editor or under the `...` menu and _"Add sub-issue"._ 
 
-When you save a sub-issue, it will automatically launch the editor to create a new one. If you want to create a new one with the same values (labels/assignee etc.) you can press `⌘ Shift` `Enter `or  `Shift`+ click the save button. Press `Esc` to exit the sub-issue editor and continue updating the parent issue.  
-  
-You can turn a comment under an issue into a sub-issue by hovering over a comment and clicking the `…` menu then _"new sub-issue from comment"._ Selecting a comment's text and pressing  `⌘` `Shift` `O` will also create a sub-issue.  
-  
-If you have a list (bulleted, numbered or checklist) you can highlight the checklist and hit `⌘` `Shift` `O` to convert to sub-issues or choose the _"Create sub-issues(s) from selection"_ item in the formatting toolbar.  
-  
+When you save a sub-issue, it will automatically launch the editor to create a new one. If you want to create a new one with the same values (labels/assignee etc.) you can press `⌘ Shift` `Enter `or `Shift`+ click the save button. Press `Esc` to exit the sub-issue editor and continue updating the parent issue. 
+ 
+You can turn a comment under an issue into a sub-issue by hovering over a comment and clicking the `…` menu then _"new sub-issue from comment"._ Selecting a comment's text and pressing `⌘` `Shift` `O` will also create a sub-issue. 
+ 
+If you have a list (bulleted, numbered or checklist) you can highlight the checklist and hit `⌘` `Shift` `O` to convert to sub-issues or choose the _"Create sub-issues(s) from selection"_ item in the formatting toolbar. 
+ 
 You can add a template using the templates icon when creating a sub-issue or using the command menu under "Create new sub-issue from template" when viewing the parent.
 
 ## Copy properties
 
 Sub-issues created in the editor automatically copy issue properties from the parent issue such as the project and cycle _as long as those are set before you create the sub-issue_. 
 
-Team, labels and assignees are not copied over. You can't create sub-issues while editing the parent issue, but the option will come up once you press save.  
-  
+Team, labels and assignees are not copied over. You can't create sub-issues while editing the parent issue, but the option will come up once you press save. 
+ 
 You can duplicate a parent and its sub-issues from the Parent's `... `menu under _"Duplicate"_ and hit the toggle _"Include sub-issues"._
 
 ## Status automation
@@ -62,10 +62,10 @@ Sometimes an issue grows so large it's more appropriate to turn it into a projec
 
 ## Filter sub-issues
 
-You can usually set the view to show or hide sub-issues in [Display Options.](https://linear.app/docs/display-options) You can also use [Filters](https://linear.app/docs/filters) to show only top-level (parent) issues, issues with sub-issues, or only sub-issues. If you use these filters frequently, consider creating a [custom view.](https://linear.app/docs/custom-views)  
-  
-You can also hide completed sub-issues by default under the `...` menu and toggling "Always hide completed sub-issues".  
-  
+You can usually set the view to show or hide sub-issues in [Display Options.](https://linear.app/docs/display-options) You can also use [Filters](https://linear.app/docs/filters) to show only top-level (parent) issues, issues with sub-issues, or only sub-issues. If you use these filters frequently, consider creating a [custom view.](https://linear.app/docs/custom-views) 
+ 
+You can also hide completed sub-issues by default under the `...` menu and toggling "Always hide completed sub-issues". 
+ 
 You can also sort your sub-issues under an issue from the `…` menu and _"Order by"_ though this only updates it for the current user, not globally.
 
 ## Display options

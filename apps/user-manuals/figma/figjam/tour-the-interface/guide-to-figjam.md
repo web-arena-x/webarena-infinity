@@ -35,7 +35,7 @@ Create a new FigJam file from any file creation point in the file browser.
 
 1. Open Figma in the file browser.
 2. Click into your **Recents** or **Drafts** in the sidebar.
-3. Select  **FigJam board**at the top right of the screen
+3. Select **FigJam board**at the top right of the screen
 
 ### File browser
 
@@ -68,7 +68,7 @@ Use pages to create individual spaces for activities, separate work streams betw
 
 To add a page:
 
-1. Click  in the left panel.
+1. Click in the left panel.
 2. Give the new page a name, then press `Return` / `Enter`.
 
 ![Dropdown menu in a FigJam board displaying different pages for organizing collaboration activities like brainstorming sessions.](https://help.figma.com/hc/article_attachments/34398622509463)
@@ -83,7 +83,7 @@ There are two ways to create a section on your board.
 
 #### Toolbar
 
-1. Click  in the bottom toolbar or use the keyboard shortcut `⇧ Shift` `S`.
+1. Click in the bottom toolbar or use the keyboard shortcut `⇧ Shift` `S`.
 2. Click the location of the board where you’d like the section to go to create a square section, or click and drag to create a custom sized section.
 
 You can also click and drag a section over the objects you want to add to it.
@@ -102,11 +102,11 @@ You can also click and drag a section over the objects you want to add to it.
 
 Stickies are the virtual equivalent to the sticky notes we all know and love. They're the core for any FigJam board, along with shapes and connectors.
 
-1. Click  in the toolbar or press `S`.
+1. Click in the toolbar or press `S`.
 2. Click an area of the board to place the sticky note.
 3. Start typing.
 
-By default, stickies you add to the board will have your name on them, but you can click  to turn this off from the properties menu when you select the sticky.
+By default, stickies you add to the board will have your name on them, but you can click to turn this off from the properties menu when you select the sticky.
 
 [Learn more about sticky notes in FigJam →](https://help.figma.com/hc/en-us/articles/1500004414322)
 
@@ -120,7 +120,7 @@ Shapes are perfect for diagrams, flow charts, user journeys and flows, and so mu
 
 There are a few ways to create a shape, from either the toolbar or an existing shape on the board.
 
-1. Click the **Shape** tool and select a shape. Click  to toggle betweeb **Basic**, **Flowchart**, and **Misc.** shapes.
+1. Click the **Shape** tool and select a shape. Click to toggle betweeb **Basic**, **Flowchart**, and **Misc.** shapes.
 2. Hover the shape preview over the board to pick a spot.
 3. Click again to drop the shape.
 
@@ -133,7 +133,7 @@ You can also drag and drop a shape from the toolbar onto the board.
 Use tidy up to rearrange and organize objects like stickies and shapes into a uniform grid of rows and columns. You can also adjust the horizontal and vertical spacing between objects and rearrange their order while maintaining their spacing.
 
 1. Select at least three objects on your board. **[Learn how to select multiple objects ↑](#h_01F3PWAKB76XYA57PCZB37PKHV)**
-2. Click  in the selection's toolbar.
+2. Click in the selection's toolbar.
 
 Your objects are moved into a grid formation with even spacing. The dots and lines that appear in the selection's bounding box allow you to rearrange objects and adjust spacing.
 
@@ -145,7 +145,7 @@ Your objects are moved into a grid formation with even spacing. The dots and lin
 
 Add connectors between stickies to diagram flows or create paths for others to follow.
 
-1. Click  in the toolbar.
+1. Click in the toolbar.
 2. Select between an **elbow** or **straight** connector. You can also use the keyboard shortcuts `X` or `⇧ Shift` `L` to create an elbow connection, and `L` for a straight connection.
 3. Click and drag your cursor between the objects you want to connect.
 
@@ -184,7 +184,7 @@ To highlight your board:
 To use washi tape:
 
 1. Click the drawing tools menu and select **washi tape** or press `W`.
-2. Select a washi tape design or click  to upload an image.
+2. Select a washi tape design or click to upload an image.
 3. Click and drag on the board where you want to add tape.
 
 [Learn more about FigJam's drawing tools →](https://help.figma.com/hc/en-us/articles/1500004414442)
@@ -193,7 +193,7 @@ To use washi tape:
 
 Text is a crucial element for jotting down ideas while brainstorming and communicating information to others.
 
-Click  in the toolbar or press `T` to add text to the board.
+Click in the toolbar or press `T` to add text to the board.
 
 Text objects are used to add text on top of other objects or directly to the board.
 
@@ -201,7 +201,7 @@ Text objects are used to add text on top of other objects or directly to the boa
 
 Single click creates a text box that resizes horizontally as you type, also known as point text. Drag the sides of a text box to adjust its width.
 
-1. Select the  **text** tool or press `T` .
+1. Select the **text** tool or press `T` .
 2. Click anywhere on the board to create a text box.
 
 #### Click and drag
@@ -217,7 +217,7 @@ Use click and drag to create a text box that wraps any horizontal overflow text 
 
 Templates add pre-created content to a new or existing file, giving your team guidance and starting points they can build on. For example, the [Daily standup template](https://www.figma.com/community/file/1025461733126324339) adds pre-created columns to your board so your team can add their tasks and goals as stickies. The [Prioritization matrix template](https://www.figma.com/community/file/1025577303786969236) adds designated spaces for brainstorming and a matrix for determining feasibility and priority for ideas in a project.
 
-1. Click  in the right sidebar.
+1. Click in the right sidebar.
 2. Scroll and browse through available templates, or use the search bar to search for a specific keyword.
 3. Hover over any template and click **Add template** to add it to your board.
 
@@ -246,7 +246,7 @@ Static images do not animate. Supported static image formats PNG, JPEG, HEIC, GI
 
 To add an image:
 
-1. Click  in the toolbar.
+1. Click in the toolbar.
 2. Select the **More** tab.
 3. Select **Media**.
 4. Choose an image from your computer.
@@ -281,7 +281,7 @@ If you already have the URL copied to your clipboard, select the text and press 
 
 To import a CSV, drag and drop the file into your board or:
 
-1. Click  in the top toolbar.
+1. Click in the top toolbar.
 2. Go to **File** > **Import from CSV**.
 3. Select a CSV file and click **Open**.
 
@@ -319,7 +319,7 @@ Widgets are custom objects you can add to yourFigJam board. They allow you to le
 
 To add widgets:
 
-1. Click  in the toolbar.
+1. Click in the toolbar.
 2. In the **Widgets** tab, search "Asana” or "Jira".
 3. Click the widget to add it to your board.
 
@@ -347,7 +347,7 @@ FigJam is the perfect card sorting tool for research teams. In this tutorial, we
 
 #### Comments, mentions, and chat
 
-- Click  in the toolbar or press `C` to leave a comment on the board
+- Click in the toolbar or press `C` to leave a comment on the board
 - When editing a text field, type `@` to tag a person in your file
 - Press `/` and start typing to display a temporary message in your multiplayer cursor in a file
 
@@ -359,7 +359,7 @@ Stamps are curated stickers you can place on the board or object to communicate 
 
 To use stamps:
 
-1. Click  in the toolbar or press the keyboard shortcut `E`.
+1. Click in the toolbar or press the keyboard shortcut `E`.
 2. Click on your stamp of choice from the stamp wheel.
 3. Click on the board or on an object to place the stamp.
 
@@ -370,12 +370,12 @@ To use emotes:
 1. Select the **emote** tool. There are a few ways to do this:
 
    - Right-click the board and select **emote**.
-   - Click  and select **emote**.
-   - With the stamp wheel open, click the  to switch to the emote wheel.
+   - Click and select **emote**.
+   - With the stamp wheel open, click the to switch to the emote wheel.
 2. Click on your emote of choice from the emote wheel.
 3. Click anywhere on the board to release a burst of emotes. Click and hold to release an ongoing stream of emotes.
 
-FigJam eventually fades emote mode and switches you back to the  select tool if you haven't emoted in a while.
+FigJam eventually fades emote mode and switches you back to the select tool if you haven't emoted in a while.
 
 You can also press `Esc` to exit out of the emote tool.
 
@@ -387,7 +387,7 @@ With libraries in FigJam, you can add to your board stickers and components crea
 
 To browse your libraries:
 
-1. Click  in the toolbar.
+1. Click in the toolbar.
 2. Select the **Stickers** tab.
 3. Search for stickers and components or browse your libraries.
 4. Click and drag an object from the library to your board.
@@ -398,11 +398,11 @@ Tip! You could also use the keyboard shortcut `⌥ Option``2` / `Alt``2` to open
 
 #### Audio call
 
-To start or join a conversation, click  in the toolbar. A conversation is active when a green outline appears around the  and avatars.
+To start or join a conversation, click in the toolbar. A conversation is active when a green outline appears around the and avatars.
 
 ![Audio headphone button in profile icon modal.](https://help.figma.com/hc/article_attachments/34398622512151)
 
-To join an active conversation, click  **Join.**
+To join an active conversation, click **Join.**
 
 [Learn more about audio chat →](https://help.figma.com/hc/en-us/articles/1500004414622)
 

@@ -25,8 +25,7 @@ Use this approach when you want to:
 
 ## Example walkthrough
 
-To effectively organize and manage
-your packages with this approach, you should:
+To effectively organize and manage your packages with this approach, you should:
 
 - Create a dedicated top-level group for artifact
 management with projects organized by package type.
@@ -35,9 +34,7 @@ artifacts to improve performance when consuming packages.
 
 ### Recommended structure
 
-The following example
-provides an overview of how you should
-structure your top-level group and projects:
+The following example provides an overview of how you should structure your top-level group and projects:
 
 ```plaintext
 company_namespace/artifact_management/ # top-level group
@@ -76,8 +73,7 @@ Create projects for each package type you need:
 1. Set the appropriate visibility level.
 1. Select **Create project**.
 
-Start with the package types your organization uses most,
-then expand the structure as you adopt additional package formats.
+Start with the package types your organization uses most, then expand the structure as you adopt additional package formats.
 This approach scales naturally while maintaining security and ease of use.
 
 Configure group settings:
@@ -88,9 +84,7 @@ Configure group settings:
 
 ## Configure authentication and access
 
-Authentication varies based on your use case. Refer
-to the suggestions below. For more information about
-authentication, see [Authenticate with the registry](../../packages/package_registry/supported_functionality.md#authenticate-with-the-registry)
+Authentication varies based on your use case. Refer to the suggestions below. For more information about authentication, see [Authenticate with the registry](../../packages/package_registry/supported_functionality.md#authenticate-with-the-registry)
 
 For local development (developers):
 
@@ -120,8 +114,7 @@ Create a group deploy token for organization-wide package consumption:
 
 Save the token securely.
 
-If you want to use CI/CD job tokens for publishing,
-configure the job token allowlist:
+If you want to use CI/CD job tokens for publishing, configure the job token allowlist:
 
 1. In each package-specific project, on the left sidebar, select **Settings** > **CI/CD**.
 1. Expand **Token Access**.
@@ -190,27 +183,21 @@ mvn deploy
 Configure your project's `package.json`:
 
 ```json
-{
-  "name": "@company/my-package",
-  "publishConfig": {
-    "registry": "${CI_API_V4_URL}/projects/NODE_PACKAGES_PROJECT_ID/packages/npm/"
-  }
-}
+{ "name": "@company/my-package", "publishConfig": { "registry": "${CI_API_V4_URL}/projects/NODE_PACKAGES_PROJECT_ID/packages/npm/" } }
 ```
 
 For CI/CD publishing, the job token is used automatically:
 
 ```yaml
 publish:
-  script:
+ script:
     - npm publish
 ```
 
 For local publishing, configure authentication:
 
 ```shell
-npm config set @company:registry https://gitlab.example.com/api/v4/projects/NODE_PACKAGES_PROJECT_ID/packages/npm/
-npm config set //gitlab.example.com/api/v4/projects/NODE_PACKAGES_PROJECT_ID/packages/npm/:_authToken ${PERSONAL_ACCESS_TOKEN}
+npm config set @company:registry https://gitlab.example.com/api/v4/projects/NODE_PACKAGES_PROJECT_ID/packages/npm/ npm config set //gitlab.example.com/api/v4/projects/NODE_PACKAGES_PROJECT_ID/packages/npm/:_authToken ${PERSONAL_ACCESS_TOKEN}
 
 {{< /tab >}}
 
@@ -220,7 +207,7 @@ Configure publishing in your CI/CD pipeline:
 
 ```yaml
 publish:
-  script:
+ script:
     - pip install build twine
     - python -m build
     - TWINE_PASSWORD=${CI_JOB_TOKEN} TWINE_USERNAME=gitlab-ci-token twine upload --repository-url ${CI_API_V4_URL}/projects/PYTHON_PACKAGES_PROJECT_ID/packages/pypi dist/*
@@ -239,7 +226,7 @@ Build and push Docker images:
 
 ```yaml
 build-image:
-  script:
+ script:
     - docker build -t $CI_REGISTRY/artifact-management/docker-images/my-app:$CI_COMMIT_SHA .
     - docker push $CI_REGISTRY/artifact-management/docker-images/my-app:$CI_COMMIT_SHA
 ```
@@ -247,8 +234,7 @@ build-image:
 For local development:
 
 ```shell
-docker login gitlab.example.com -u ${USERNAME} -p ${PERSONAL_ACCESS_TOKEN}
-docker push gitlab.example.com/artifact-management/docker-images/my-app:latest
+docker login gitlab.example.com -u ${USERNAME} -p ${PERSONAL_ACCESS_TOKEN} docker push gitlab.example.com/artifact-management/docker-images/my-app:latest
 
 {{< /tab >}}
 
@@ -258,7 +244,7 @@ Publish Terraform modules:
 
 ```yaml
 publish-module:
-  script:
+ script:
     - tar -czf module.tar.gz *.tf
     - 'curl --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file module.tar.gz "${CI_API_V4_URL}/projects/TERRAFORM_PACKAGES_PROJECT_ID/packages/terraform/modules/my-module/my-provider/1.0.0/file"'
 ```
@@ -271,7 +257,7 @@ Configure publishing in your project file or CI/CD pipeline:
 
 ```yaml
 publish:
-  script:
+ script:
     - dotnet pack
     - dotnet nuget push "bin/Release/*.nupkg" --source ${CI_API_V4_URL}/projects/NUGET_PACKAGES_PROJECT_ID/packages/nuget/index.json --api-key ${CI_JOB_TOKEN}
 ```
@@ -289,7 +275,7 @@ Upload generic packages:
 
 ```yaml
 upload-package:
-  script:
+ script:
     - 'curl --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file my-package.zip "${CI_API_V4_URL}/projects/GENERIC_PACKAGES_PROJECT_ID/packages/generic/my-package/1.0.0/my-package.zip"'
 ```
 
@@ -412,8 +398,7 @@ Configure authentication in your `settings.xml`:
 Configure your `.npmrc` file:
 
 ```ini
-@company:registry=https://gitlab.example.com/api/v4/groups/artifact-management/-/packages/npm/
-//gitlab.example.com/api/v4/groups/artifact-management/-/packages/npm/:_authToken=${DEPLOY_TOKEN}
+@company:registry=https://gitlab.example.com/api/v4/groups/artifact-management/-/packages/npm/ //gitlab.example.com/api/v4/groups/artifact-management/-/packages/npm/:_authToken=${DEPLOY_TOKEN}
 ```
 
 {{< /tab >}}
@@ -424,8 +409,7 @@ Configure `pip` to use the group registry:
 
 ```ini
 # pip.conf or ~/.pip/pip.conf
-[global]
-extra-index-url = https://deploy-token-username:deploy-token-password@gitlab.example.com/api/v4/groups/artifact-management/-/packages/pypi/simple/
+[global] extra-index-url = https://deploy-token-username:deploy-token-password@gitlab.example.com/api/v4/groups/artifact-management/-/packages/pypi/simple/
 ```
 
 Or use environment variables:
@@ -456,8 +440,8 @@ Then reference modules in your Terraform configuration:
 
 ```hcl
 module "example" {
-  source = "gitlab.example.com/artifact-management/terraform-modules//my-module"
-  version = "1.0.0"
+ source = "gitlab.example.com/artifact-management/terraform-modules//my-module"
+ version = "1.0.0"
 }
 ```
 
@@ -465,7 +449,7 @@ Or using the project-specific URL:
 
 ```hcl
 module "example" {
-  source = "https://gitlab.example.com/api/v4/projects/TERRAFORM_PACKAGES_PROJECT_ID/packages/terraform/modules/my-module/my-provider/1.0.0"
+ source = "https://gitlab.example.com/api/v4/projects/TERRAFORM_PACKAGES_PROJECT_ID/packages/terraform/modules/my-module/my-provider/1.0.0"
 }
 ```
 
@@ -478,15 +462,15 @@ Configure NuGet to use the group registry:
 ```xml
 <!-- nuget.config -->
 <configuration>
-  <packageSources>
+ <packageSources>
     <add key="GitLab" value="https://gitlab.example.com/api/v4/groups/artifact-management/-/packages/nuget/index.json" />
-  </packageSources>
-  <packageSourceCredentials>
+ </packageSources>
+ <packageSourceCredentials>
     <GitLab>
       <add key="Username" value="deploy-token-username" />
       <add key="ClearTextPassword" value="deploy-token-password" />
     </GitLab>
-  </packageSourceCredentials>
+ </packageSourceCredentials>
 </configuration>
 
 {{< /tab >}}
@@ -504,30 +488,29 @@ curl --header "DEPLOY-TOKEN: ${DEPLOY_TOKEN}" "https://gitlab.example.com/api/v4
 
 ## Example CI/CD configuration
 
-The following example shows you how a project
-might consume packages from multiple package types:
+The following example shows you how a project might consume packages from multiple package types:
 
 ```yaml
 stages:
-  - build
-  - test
+ - build
+ - test
 
 variables:
-  MAVEN_OPTS: "-Dmaven.repo.local=${CI_PROJECT_DIR}/.m2/repository"
+ MAVEN_OPTS: "-Dmaven.repo.local=${CI_PROJECT_DIR}/.m2/repository"
 
 before_script:
-  # Configure npm registry
-  - echo "@company:registry=${CI_API_V4_URL}/groups/artifact-management/-/packages/npm/" >> .npmrc
-  - echo "//${CI_SERVER_HOST}/api/v4/groups/artifact-management/-/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
+ # Configure npm registry
+ - echo "@company:registry=${CI_API_V4_URL}/groups/artifact-management/-/packages/npm/" >> .npmrc
+ - echo "//${CI_SERVER_HOST}/api/v4/groups/artifact-management/-/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> .npmrc
 
 build:
-  stage: build
-  script:
+ stage: build
+ script:
     # Install npm dependencies from group registry
     - npm install
     # Build with Maven dependencies from group registry
     - mvn compile
-  cache:
+ cache:
     paths:
       - .m2/repository/
       - node_modules/

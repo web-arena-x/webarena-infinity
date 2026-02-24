@@ -48,7 +48,7 @@ After exporting your smart list, you'll receive a notification when it has been 
 
 - Click the **Export complete** notification.
 
-  A CSV file will download.
+ A CSV file will download.
 
 **To find all of your exported smart list in Exports**
 

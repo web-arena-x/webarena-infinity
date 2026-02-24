@@ -13,8 +13,7 @@ description: New project and project templates.
 
 {{< /details >}}
 
-You have different options to create a project. You can create a blank project, create a project
-from built-in or custom templates, or [create a project with `git push`](../../topics/git/project.md).
+You have different options to create a project. You can create a blank project, create a project from built-in or custom templates, or [create a project with `git push`](../../topics/git/project.md).
 
 ## Create a blank project
 
@@ -64,8 +63,7 @@ To create a project from a built-in template:
 
 {{< alert type="note" >}}
 
-If a user creates a project from a template, or [imports a project](settings/import_export.md#import-a-project-and-its-data),
-they are shown as the author of the imported items, which retain the original timestamp from the template or import.
+If a user creates a project from a template, or [imports a project](settings/import_export.md#import-a-project-and-its-data), they are shown as the author of the imported items, which retain the original timestamp from the template or import.
 This can make items appear as if they were created before the user's account existed.
 
 {{< /alert >}}
@@ -75,8 +73,7 @@ Before GitLab 17.1, the label was suffixed with `(imported from GitLab)`.
 
 ### Create a project from the HIPAA Audit Protocol template
 
-The HIPAA Audit Protocol template contains issues for audit inquiries in the
-HIPAA Audit Protocol published by the U.S Department of Health and Human Services.
+The HIPAA Audit Protocol template contains issues for audit inquiries in the HIPAA Audit Protocol published by the U.S Department of Health and Human Services.
 
 To create a project from the HIPAA Audit Protocol template:
 
@@ -156,20 +153,13 @@ To create a project that uses SHA-256 hashing:
 
 ### Why SHA-256?
 
-By default, Git uses the SHA-1 hashing algorithm
-to generate a 40-character
-ID for objects such as commits, blobs, trees, and tags. The SHA-1 algorithm was proven to be insecure when
-[Google was able to produce a hash collision](https://security.googleblog.com/2017/02/announcing-first-sha1-collision.html).
-The Git project is not yet impacted by these
-kinds of attacks because of the way Git stores objects.
+By default, Git uses the SHA-1 hashing algorithm to generate a 40-character ID for objects such as commits, blobs, trees, and tags. The SHA-1 algorithm was proven to be insecure when [Google was able to produce a hash collision](https://security.googleblog.com/2017/02/announcing-first-sha1-collision.html).
+The Git project is not yet impacted by these kinds of attacks because of the way Git stores objects.
 
 In SHA-256 repositories, the algorithm generates a 64-character ID instead of a 40-character ID.
-The Git project determined that the SHA-256 feature is safe to use when they
-[removed the experimental label](https://github.com/git/git/blob/master/Documentation/RelNotes/2.42.0.txt#L41-L45).
+The Git project determined that the SHA-256 feature is safe to use when they [removed the experimental label](https://github.com/git/git/blob/master/Documentation/RelNotes/2.42.0.txt#L41-L45).
 
-Federal regulations, such as NIST and CISA [guidelines](https://csrc.nist.gov/projects/hash-functions/nist-policy-on-hash-functions),
-which [FedRamp](https://www.fedramp.gov/) enforces, have set a due date in 2030 to stop using SHA-1 and
-encourage agencies to move away from SHA-1 earlier, if possible.
+Federal regulations, such as NIST and CISA [guidelines](https://csrc.nist.gov/projects/hash-functions/nist-policy-on-hash-functions), which [FedRamp](https://www.fedramp.gov/) enforces, have set a due date in 2030 to stop using SHA-1 and encourage agencies to move away from SHA-1 earlier, if possible.
 
 ## Related topics
 

@@ -5,28 +5,21 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Navigation sidebar
 ---
 
-Follow these guidelines when contributing additions or changes to the
-[redesigned](https://gitlab.com/groups/gitlab-org/-/epics/9044) navigation
-sidebar.
+Follow these guidelines when contributing additions or changes to the [redesigned](https://gitlab.com/groups/gitlab-org/-/epics/9044) navigation sidebar.
 
-These guidelines reflect the current state of the navigation sidebar. However,
-the sidebar is a work in progress, and so is this documentation.
+These guidelines reflect the current state of the navigation sidebar. However, the sidebar is a work in progress, and so is this documentation.
 
 ## Adding items to the sidebar
 
-Before adding an item to the sidebar, ensure you review and follow the
-processes outlined in the [handbook page for navigation](https://handbook.gitlab.com/handbook/product/ux/navigation/).
+Before adding an item to the sidebar, ensure you review and follow the processes outlined in the [handbook page for navigation](https://handbook.gitlab.com/handbook/product/ux/navigation/).
 
 ## Adding page-specific Vue content
 
-Pages can render arbitrary content into the sidebar using the `SidebarPortal`
-component. Content passed to its default slot is rendered below that
-page's navigation items in the sidebar.
+Pages can render arbitrary content into the sidebar using the `SidebarPortal` component. Content passed to its default slot is rendered below that page's navigation items in the sidebar.
 
 {{< alert type="note" >}}
 
-Only one instance of this component on a given page is supported. This is to
-avoid ordering issues and cluttering the sidebar.
+Only one instance of this component on a given page is supported. This is to avoid ordering issues and cluttering the sidebar.
 
 {{< /alert >}}
 
@@ -53,4 +46,4 @@ You can test that they're working by [setting up snowplow on your GDK](https://g
 | Category | `data-tracking-category` | `groups:show`      | The page that the user was on when the item was clicked. |
 | Action   | `data-tracking-action`   | `click_link`       | The action taken. In most cases this is `click_link` or `click_menu_item` |
 | Label    | `data-tracking-label`    | `group_issue_list` | A descriptor for what was clicked on. This is inferred by the ID of the item in most cases, but falls back to `item_without_id`. This is one to look out for. |
-| Property | `data-tracking-property` | `nav_panel_group`  | This describes where in the nav the link was clicked. If it's in the main nav panel, then it needs to describe which panel. |
+| Property | `data-tracking-property` | `nav_panel_group` | This describes where in the nav the link was clicked. If it's in the main nav panel, then it needs to describe which panel. |

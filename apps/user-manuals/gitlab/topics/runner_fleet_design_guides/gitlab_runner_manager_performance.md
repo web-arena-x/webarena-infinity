@@ -2,9 +2,9 @@
 stage: Verify
 group: Runner Core
 info: >-
-  To determine the technical writer assigned to the Stage/Group associated with
-  this page, see
-  https://handbook.gitlab.com/handbook/product/ux/technical-writing/#assignments
+ To determine the technical writer assigned to the Stage/Group associated with
+ this page, see
+ https://handbook.gitlab.com/handbook/product/ux/technical-writing/#assignments
 description: Optimize GitLab Runner Manager Pod performance in Kubernetes environments.
 title: Optimize GitLab Runner manager pod performance
 ---
@@ -15,9 +15,7 @@ title: Optimize GitLab Runner manager pod performance
 
 {{< /details >}}
 
-To monitor and optimize GitLab Runner manager pod performance in Kubernetes environments, GitLab recommends
-the following best practices. Apply them to identify performance bottlenecks and implement solutions for
-optimal CI/CD pipeline execution.
+To monitor and optimize GitLab Runner manager pod performance in Kubernetes environments, GitLab recommends the following best practices. Apply them to identify performance bottlenecks and implement solutions for optimal CI/CD pipeline execution.
 
 ## Prerequisites
 
@@ -88,17 +86,14 @@ Each responsibility affects performance differently:
 
 Install GitLab Runner through the [GitLab Runner Operator](https://gitlab.com/gitlab-org/gl-openshift/gitlab-runner-operator).
 The Operator actively receives new features and improvements.
-The GitLab Runner team installs the Operator through the
-[Experimental GRIT framework](https://gitlab.com/gitlab-org/ci-cd/runner-tools/grit/-/tree/main/scenarios/google/gke/operator?ref_type=heads).
+The GitLab Runner team installs the Operator through the [Experimental GRIT framework](https://gitlab.com/gitlab-org/ci-cd/runner-tools/grit/-/tree/main/scenarios/google/gke/operator?ref_type=heads).
 
-The easiest way to install GitLab Runner in Kubernetes is to apply the
-[`operator.k8s.yaml` manifest from the latest release](https://gitlab.com/gitlab-org/gl-openshift/gitlab-runner-operator/-/releases)
+The easiest way to install GitLab Runner in Kubernetes is to apply the [`operator.k8s.yaml` manifest from the latest release](https://gitlab.com/gitlab-org/gl-openshift/gitlab-runner-operator/-/releases)
 and then follow the instructions in the [Operator install documentation](https://docs.gitlab.com/runner/install/operator/#install-on-kubernetes).
 
 ## Configure monitoring
 
-Observability is critical for GitLab Runner administration in Kubernetes because
-pods are ephemeral and metrics provide the primary operational visibility.
+Observability is critical for GitLab Runner administration in Kubernetes because pods are ephemeral and metrics provide the primary operational visibility.
 
 For monitoring, install [`kube-prometheus-stack`](https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/README.md).
 
@@ -135,11 +130,11 @@ Monitor these essential metrics:
 
 | Metric                                             | Description                      | Performance Indicator |
 | -------------------------------------------------- | -------------------------------- | --------------------- |
-| `gitlab_runner_jobs`                               | Current running jobs             | Job queue saturation  |
-| `gitlab_runner_limit`                              | Configured job concurrency limit | Capacity utilization  |
+| `gitlab_runner_jobs`                               | Current running jobs             | Job queue saturation |
+| `gitlab_runner_limit`                              | Configured job concurrency limit | Capacity utilization |
 | `gitlab_runner_request_concurrency_exceeded_total` | Requests above concurrency limit | API throttling        |
 | `gitlab_runner_errors_total`                       | Total caught errors              | System stability      |
-| `container_cpu_usage_seconds_total`                | Container CPU usage              | Resource consumption  |
+| `container_cpu_usage_seconds_total`                | Container CPU usage              | Resource consumption |
 | `container_memory_working_set_bytes`               | Container memory usage           | Memory pressure       |
 
 ### Prometheus queries
@@ -244,13 +239,13 @@ GitLab Runner Manager Pod performance is tested using a job that maximizes log o
 
 ```yaml
 performance_test:
-  stage: build
-  timeout: 30m
-  tags:
+ stage: build
+ timeout: 30m
+ tags:
     - kubernetes_runner
-  image: alpine:latest
-  parallel: 100
-  variables:
+ image: alpine:latest
+ parallel: 100
+ variables:
     FILE_SIZE_MB: 4
     CHUNK_SIZE_BYTES: 1024
     FILE_NAME: "test_file_${CI_JOB_ID}_${FILE_SIZE_MB}MB.dat"
@@ -258,7 +253,7 @@ performance_test:
     KUBERNETES_CPU_LIMIT: "200m"
     KUBERNETES_MEMORY_REQUEST: "200Mi"
     KUBERNETES_MEMORY_LIMIT: "200Mi"
-  script:
+ script:
     - echo "Starting performance test job ${CI_PARALLEL_ID}/${CI_PARALLEL_TOTAL} with ${FILE_SIZE_MB}MB file size, ${CHUNK_SIZE_BYTES} bytes chunk size"
     - dd if=/dev/urandom of="${FILE_NAME}" bs=1M count=${FILE_SIZE_MB}
     - echo "File generated successfully. Size:"
@@ -277,8 +272,7 @@ performance_test:
 
 </details>
 
-This test generates 4 MB of log output per job, which reaches the default
-[`output_limit`](https://docs.gitlab.com/runner/configuration/advanced-configuration/#the-runners-section)
+This test generates 4 MB of log output per job, which reaches the default [`output_limit`](https://docs.gitlab.com/runner/configuration/advanced-configuration/#the-runners-section)
 to stress test the manager pod's log processing capabilities.
 
 **Test results:**
@@ -323,9 +317,9 @@ For 50 concurrent jobs:
 
 ```yaml
 resources:
-  requests:
+ requests:
     cpu: "310m" # 10m + (50 × 6m) = 310m
-  limits:
+ limits:
     cpu: "465m" # 50% headroom for burst traffic
 ```
 
@@ -333,9 +327,9 @@ For 100 concurrent jobs:
 
 ```yaml
 resources:
-  requests:
+ requests:
     cpu: "610m" # 10m + (100 × 6m) = 610m
-  limits:
+ limits:
     cpu: "915m" # 50% headroom
 ```
 
@@ -356,9 +350,9 @@ For 50 concurrent jobs:
 
 ```yaml
 resources:
-  requests:
+ requests:
     memory: "175Mi" # 50 + (50 × 2.5) = 175 MB
-  limits:
+ limits:
     memory: "350Mi" # 100% headroom
 ```
 
@@ -366,16 +360,15 @@ For 100 concurrent jobs:
 
 ```yaml
 resources:
-  requests:
+ requests:
     memory: "300Mi" # 50 + (100 × 2.5) = 300 MB
-  limits:
+ limits:
     memory: "600Mi" # 100% headroom
 ```
 
 {{< alert type="note" >}}
 
-Memory usage varies significantly based on log volume. Jobs producing more than
-4 MB of logs require proportionally more memory.
+Memory usage varies significantly based on log volume. Jobs producing more than 4 MB of logs require proportionally more memory.
 
 {{< /alert >}}
 
@@ -385,15 +378,15 @@ Memory usage varies significantly based on log volume. Jobs producing more than
 
 ```yaml
 resources:
-  limits:
+ limits:
     cpu: 300m
     memory: 256Mi
-  requests:
+ requests:
     cpu: 150m
     memory: 128Mi
 
 runners:
-  config: |
+ config: |
     concurrent = 20
 
     [[runners]]
@@ -405,15 +398,15 @@ runners:
 
 ```yaml
 resources:
-  limits:
+ limits:
     cpu: 1000m
     memory: 1Gi
-  requests:
+ requests:
     cpu: 600m
     memory: 600Mi
 
 runners:
-  config: |
+ config: |
     concurrent = 150
 
     [[runners]]
@@ -429,15 +422,15 @@ Configure automatic scaling:
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: gitlab-runner-hpa
+ name: gitlab-runner-hpa
 spec:
-  scaleTargetRef:
+ scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: gitlab-runner
-  minReplicas: 2
-  maxReplicas: 5
-  metrics:
+ minReplicas: 2
+ maxReplicas: 5
+ metrics:
     - type: Resource
       resource:
         name: cpu
@@ -464,8 +457,8 @@ Address common manager pod performance problems with these solutions.
 
 ```toml
 [[runners]]
-  [runners.kubernetes]
-    poll_interval = "5s"  # Increase from default 3s
+ [runners.kubernetes]
+    poll_interval = "5s" # Increase from default 3s
     poll_timeout = "180s"
 ```
 
@@ -475,15 +468,14 @@ Apply these performance optimization strategies for challenging scenarios.
 
 ### Cache optimization
 
-Configure distributed caching to reduce manager pod load. This action reduces computation
-required for job pods by sharing cached files:
+Configure distributed caching to reduce manager pod load. This action reduces computation required for job pods by sharing cached files:
 
 ```toml
 [runners.cache]
-  Type = "s3"
-  Shared = true
+ Type = "s3"
+ Shared = true
 
-  [runners.cache.s3]
+ [runners.cache.s3]
     ServerAddress = "cache.example.com"
     BucketName = "gitlab-runner-cache"
     PreSignedURLDisabled = false
@@ -491,9 +483,7 @@ required for job pods by sharing cached files:
 
 ## Node segregation
 
-Segregate manager pods from job pods by using dedicated nodes to ensure stable
-performance and prevent resource contention. This isolation prevents job pods
-from disrupting critical manager pod operations.
+Segregate manager pods from job pods by using dedicated nodes to ensure stable performance and prevent resource contention. This isolation prevents job pods from disrupting critical manager pod operations.
 
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
@@ -562,12 +552,12 @@ Update the GitLab Runner Operator configuration to schedule manager pods only on
 apiVersion: apps.gitlab.com/v1beta2
 kind: Runner
 metadata:
-  name: gitlab-runner
+ name: gitlab-runner
 spec:
-  gitlabUrl: https://gitlab.example.com
-  token: gitlab-runner-secret
-  buildImage: alpine
-  podSpec:
+ gitlabUrl: https://gitlab.example.com
+ token: gitlab-runner-secret
+ buildImage: alpine
+ podSpec:
     name: "manager-node-affinity"
     patch: |
       {
@@ -637,20 +627,20 @@ Calculate optimal resources using this Python function:
 def calculate_manager_resources(concurrent_jobs, avg_log_mb_per_job=4):
     """Calculate Manager Pod resources based on performance testing."""
     # CPU: ~6m per concurrent job + 10m base
-    base_cpu = 0.01  # 10m
-    cpu_per_job = 0.006  # 6m per job
+    base_cpu = 0.01 # 10m
+    cpu_per_job = 0.006 # 6m per job
     total_cpu = base_cpu + (concurrent_jobs * cpu_per_job)
 
     # Memory: ~2.5MB per job + 50MB base (for 4MB log output)
     base_memory = 50
-    memory_per_job = 2.5 * (avg_log_mb_per_job / 4)  # Scale with log size
+    memory_per_job = 2.5 * (avg_log_mb_per_job / 4) # Scale with log size
     total_memory = base_memory + (concurrent_jobs * memory_per_job)
 
     return {
         'cpu_request': f"{int(total_cpu * 1000)}m",
-        'cpu_limit': f"{int(total_cpu * 1.5 * 1000)}m",  # 50% headroom
+        'cpu_limit': f"{int(total_cpu * 1.5 * 1000)}m", # 50% headroom
         'memory_request': f"{int(total_memory)}Mi",
-        'memory_limit': f"{int(total_memory * 2.0)}Mi"  # 100% headroom
+        'memory_limit': f"{int(total_memory * 2.0)}Mi" # 100% headroom
     }
 ```
 
@@ -660,7 +650,7 @@ Establish thresholds for proactive intervention:
 
 | Metric         | Warning        | Critical       | Action Required         |
 | -------------- | -------------- | -------------- | ----------------------- |
-| CPU Usage      | 70% sustained  | 85% sustained  | Scale or optimize       |
+| CPU Usage      | 70% sustained | 85% sustained | Scale or optimize       |
 | Memory Usage   | 80% of limit   | 90% of limit   | Increase limits         |
 | API Error Rate | 2% of requests | 5% of requests | Investigate bottlenecks |
 | Job Queue Time | 30 seconds     | 2 minutes      | Review capacity         |
@@ -674,8 +664,7 @@ Establish thresholds for proactive intervention:
 
 ## Summary
 
-Optimizing GitLab Runner manager pod performance requires systematic monitoring,
-proper resource allocation, and proactive troubleshooting.
+Optimizing GitLab Runner manager pod performance requires systematic monitoring, proper resource allocation, and proactive troubleshooting.
 
 Key strategies include:
 

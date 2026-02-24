@@ -5,12 +5,10 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: 'Tutorial: Automatically build and publish packages with CI/CD'
 ---
 
-You can use CI/CD to build and publish your PyPI packages. Automatic builds can help you keep your packages
-up to date and available to others.
+You can use CI/CD to build and publish your PyPI packages. Automatic builds can help you keep your packages up to date and available to others.
 
 In this tutorial, you'll create a new CI/CD configuration to build, test, and publish a sample PyPI package.
-When you finish, you should better understand how each step in the pipeline works, and feel comfortable integrating CI/CD
-into your own package registry workflow.
+When you finish, you should better understand how each step in the pipeline works, and feel comfortable integrating CI/CD into your own package registry workflow.
 
 To automatically build and publish packages with CI/CD:
 
@@ -27,8 +25,7 @@ Before you complete this tutorial, make sure you have the following:
 
 ## Create a `.gitlab-ci.yml` file
 
-Every CI/CD configuration needs a `.gitlab-ci.yml`. This file defines each stage in the CI/CD pipeline. In this case,
-the stages are:
+Every CI/CD configuration needs a `.gitlab-ci.yml`. This file defines each stage in the CI/CD pipeline. In this case, the stages are:
 
 - `build` - Build a PyPI package.
 - `test` - Validate the package with the testing framework `pytest`.
@@ -95,7 +92,7 @@ Here's a quick explanation of the committed code:
 - `build` - Build the packages and store the results as an artifact.
 - `test` - Install and run pytest to validate the package.
 - `publish` - Upload the package to the package registry with twine, only if a new tag is pushed.
-  Authenticate with the package registry using the `CI_JOB_TOKEN`.
+ Authenticate with the package registry using the `CI_JOB_TOKEN`.
 
 ### Authenticate without a CI/CD variable
 
@@ -130,5 +127,4 @@ The configuration you added:
 - Uses GitLab CI/CD variables for sensitive information like authentication tokens.
 - Publishes only when a new Git tag is pushed. This ensures only properly versioned releases are published.
 
-Congratulations! You've successfully built, tested, and published a package with GitLab CI/CD. You should be able to
-use a similar configuration to streamline your own development processes.
+Congratulations! You've successfully built, tested, and published a package with GitLab CI/CD. You should be able to use a similar configuration to streamline your own development processes.

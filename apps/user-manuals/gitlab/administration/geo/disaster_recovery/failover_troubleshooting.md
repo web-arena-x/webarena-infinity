@@ -14,13 +14,11 @@ title: Troubleshooting Geo failover
 
 ## Fixing errors during a failover or when promoting a secondary to a primary site
 
-The following are possible error messages that might be encountered during failover or
-when promoting a secondary to a primary site with strategies to resolve them.
+The following are possible error messages that might be encountered during failover or when promoting a secondary to a primary site with strategies to resolve them.
 
 ### Message: `ActiveRecord::RecordInvalid: Validation failed: Name has already been taken`
 
-When [promoting a **secondary** site](_index.md#step-3-promoting-a-secondary-site),
-you might encounter the following error message:
+When [promoting a **secondary** site](_index.md#step-3-promoting-a-secondary-site), you might encounter the following error message:
 
 ```plaintext
 Running gitlab-rake geo:set_secondary_as_primary...
@@ -37,19 +35,17 @@ Tasks: TOP => geo:set_secondary_as_primary
 You successfully promoted this node!
 ```
 
-If you encounter this message when running `gitlab-rake geo:set_secondary_as_primary`
-or `gitlab-ctl promote-to-primary-node`, enter a Rails console and run:
+If you encounter this message when running `gitlab-rake geo:set_secondary_as_primary` or `gitlab-ctl promote-to-primary-node`, enter a Rails console and run:
 
-  ```ruby
-  Rails.application.load_tasks; nil
-  Gitlab::Geo.expire_cache!
-  Rake::Task['geo:set_secondary_as_primary'].invoke
-  ```
+ ```ruby
+ Rails.application.load_tasks; nil
+ Gitlab::Geo.expire_cache!
+ Rake::Task['geo:set_secondary_as_primary'].invoke
+ ```
 
 ### Message: ``NoMethodError: undefined method `secondary?' for nil:NilClass``
 
-When [promoting a **secondary** site](_index.md#step-3-promoting-a-secondary-site),
-you might encounter the following error message:
+When [promoting a **secondary** site](_index.md#step-3-promoting-a-secondary-site), you might encounter the following error message:
 
 ```plaintext
 sudo gitlab-rake geo:set_secondary_as_primary
@@ -64,33 +60,26 @@ Tasks: TOP => geo:set_secondary_as_primary
 (See full trace by running task with --trace)
 ```
 
-This command is intended to be executed on a secondary site only, and this error message
-is displayed if you attempt to run this command on a primary site.
+This command is intended to be executed on a secondary site only, and this error message is displayed if you attempt to run this command on a primary site.
 
 ### Expired artifacts
 
-If you notice for some reason there are more artifacts on the Geo
-**secondary** site than on the Geo **primary** site, you can use the Rake task
-to [cleanup orphan artifact files](../../raketasks/cleanup.md#remove-orphan-artifact-files)
+If you notice for some reason there are more artifacts on the Geo **secondary** site than on the Geo **primary** site, you can use the Rake task to [cleanup orphan artifact files](../../raketasks/cleanup.md#remove-orphan-artifact-files)
 
-On a Geo **secondary** site, this command also cleans up all Geo
-registry record related to the orphan files on disk.
+On a Geo **secondary** site, this command also cleans up all Geo registry record related to the orphan files on disk.
 
 ### Fixing sign in errors
 
 #### Message: The redirect URI included is not valid
 
-If you are able to sign in to the web interface for the **primary** site, but you receive this error message
-when attempting to sign in to a **secondary** web interface, you should verify the Geo
-site's URL matches its external URL.
+If you are able to sign in to the web interface for the **primary** site, but you receive this error message when attempting to sign in to a **secondary** web interface, you should verify the Geo site's URL matches its external URL.
 
 On the **primary** site:
 
 1. In the upper-right corner, select **Admin**.
 1. Select **Geo** > **Sites**.
 1. Find the affected **secondary** site and select **Edit**.
-1. Ensure the **URL** field matches the value found in `/etc/gitlab/gitlab.rb`
-   in `external_url "https://gitlab.example.com"` on the **Rails nodes of the secondary** site.
+1. Ensure the **URL** field matches the value found in `/etc/gitlab/gitlab.rb` in `external_url "https://gitlab.example.com"` on the **Rails nodes of the secondary** site.
 
 #### Authenticating with SAML on the secondary site always lands on the primary site
 

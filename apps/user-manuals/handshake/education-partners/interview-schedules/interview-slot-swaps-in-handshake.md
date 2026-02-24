@@ -24,9 +24,9 @@ Once a swap is requested, the student whom requested the swap can choose to with
 When a student submits a swap request, the following will be notified:
 
 - Career services users with the "Interview Schedule" and the "School Settings: Rooms" staff roles.
-  - For more information on roles in Handshake, refer to [School Settings: Career Services Staff Roles and Permissions](https://support.joinhandshake.com/hc/en-us/articles/219132767).
+ - For more information on roles in Handshake, refer to [School Settings: Career Services Staff Roles and Permissions](https://support.joinhandshake.com/hc/en-us/articles/219132767).
 - Candidate currently in the slot
-  - **Note**: student information is kept anonymous between students. The candidate will not have access to the student whom is requesting the swap.
+ - **Note**: student information is kept anonymous between students. The candidate will not have access to the student whom is requesting the swap.
 
 Depending on the user's preferences in Handshake, notifications are provided in Handshake and via email.
 

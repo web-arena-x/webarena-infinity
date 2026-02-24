@@ -32,9 +32,7 @@ Use pipeline secret detection with secret push protection to further strengthen 
 
 ## Secret push protection workflow
 
-Secret push protection takes place in the pre-receive hook. When you push changes to GitLab,
-push protection checks each file or commit for secrets. By default, if a secret is detected,
-the push is blocked.
+Secret push protection takes place in the pre-receive hook. When you push changes to GitLab, push protection checks each file or commit for secrets. By default, if a secret is detected, the push is blocked.
 
 <!-- To edit the diagram, use either Draw.io or the VS Code extension "Draw.io Integration" -->
 ![A flowchart showing how secret protection can block a push](img/spp_workflow_v17_9.drawio.svg)
@@ -45,9 +43,7 @@ When a push is blocked, GitLab prompts a message that includes:
 - Filename and line containing the secret.
 - Type of secret.
 
-For example, the following is an extract of the message returned when a push using the Git CLI is
-blocked. When using other clients, including the GitLab Web IDE, the format of the message is
-different but the content is the same.
+For example, the following is an extract of the message returned when a push using the Git CLI is blocked. When using other clients, including the GitLab Web IDE, the format of the message is different but the content is the same.
 
 ```plain
 remote: PUSH BLOCKED: Secrets detected in code changes
@@ -62,11 +58,7 @@ If secret push protection does not detect any secrets in your commits, no messag
 
 ## Detected secrets
 
-Secret push protection scans files or commits for specific patterns. Each pattern
-matches a specific type of secret. To confirm which secrets are detected by secret push protection,
-see [detected secrets](../detected_secrets.md). Only high-confidence patterns were chosen for secret
-push protection, to minimize the delay when pushing your commits and minimize the number of false
-alerts. For example, personal access tokens that use a custom prefix are not detected by secret push protection.
+Secret push protection scans files or commits for specific patterns. Each pattern matches a specific type of secret. To confirm which secrets are detected by secret push protection, see [detected secrets](../detected_secrets.md). Only high-confidence patterns were chosen for secret push protection, to minimize the delay when pushing your commits and minimize the number of false alerts. For example, personal access tokens that use a custom prefix are not detected by secret push protection.
 You can [exclude](../exclusions.md) selected secrets from detection by secret push protection.
 
 ## Getting started
@@ -120,8 +112,7 @@ You can also enable secret push protection for all projects in a group [with the
 
 Secret push protection does not block a secret when:
 
-- You used the skip secret push protection option when you pushed
-  the commits.
+- You used the skip secret push protection option when you pushed the commits.
 - The secret is excluded from secret push protection.
 - The secret is in a path defined as an [exclusion](../exclusions.md).
 
@@ -168,16 +159,16 @@ When a push is blocked, secret push protection provides detailed information to 
 Not all detections require immediate action. Consider the following when evaluating results:
 
 - True positives: Legitimate secrets that should be rotated and removed. For example:
-  - Valid API keys or tokens
-  - Production database credentials
-  - Private cryptographic keys
-  - Any credentials that could grant unauthorized access
+ - Valid API keys or tokens
+ - Production database credentials
+ - Private cryptographic keys
+ - Any credentials that could grant unauthorized access
 
 - False positives: Detected patterns that aren't actual secrets. For example:
-  - Test data that resembles secrets but has no real-world value
-  - Placeholder values in configuration templates
-  - Example credentials in documentation
-  - Hash values or checksums that match secret patterns
+ - Test data that resembles secrets but has no real-world value
+ - Placeholder values in configuration templates
+ - Example credentials in documentation
+ - Hash values or checksums that match secret patterns
 
 Document common false positive patterns in your organization to streamline future evaluations.
 
@@ -192,11 +183,10 @@ False positives can significantly impact developer productivity and lead to secu
 To reduce false positives:
 
 - [Configure exclusions](../exclusions.md) strategically:
-  - Create path-based exclusions for test directories, documentation, and third party dependencies.
-  - Use pattern-based exclusions for known false positive patterns specific to your codebase.
-  - Document your exclusion rules and review them regularly.
-- Create standards for placeholder values and test credentials,
-  which should match your exclusion rules, but not the [default ruleset](../detected_secrets.md).
+ - Create path-based exclusions for test directories, documentation, and third party dependencies.
+ - Use pattern-based exclusions for known false positive patterns specific to your codebase.
+ - Document your exclusion rules and review them regularly.
+- Create standards for placeholder values and test credentials, which should match your exclusion rules, but not the [default ruleset](../detected_secrets.md).
 - Monitor false positive rates and continue to adjust exclusions accordingly.
 
 ### Optimize performance
@@ -254,12 +244,9 @@ When secret push protection blocks a push, you can either:
 
 ### Skip secret push protection
 
-In some cases, it might be necessary to skip secret push protection. For example, a developer might need
-to commit a placeholder secret for testing, or a user might want to skip secret push protection due to
-a Git operation timeout.
+In some cases, it might be necessary to skip secret push protection. For example, a developer might need to commit a placeholder secret for testing, or a user might want to skip secret push protection due to a Git operation timeout.
 
-Audit events are logged when
-secret push protection is skipped. Audit event details include:
+Audit events are logged when secret push protection is skipped. Audit event details include:
 
 - Skip method used.
 - GitLab account name.
@@ -268,8 +255,7 @@ secret push protection is skipped. Audit event details include:
 - Target branch. (Introduced in GitLab 17.4)
 - Commits that skipped secret push protection. (Introduced in GitLab 17.9)
 
-If pipeline secret detection is enabled, the content of all commits are
-scanned after they are pushed to the repository.
+If pipeline secret detection is enabled, the content of all commits are scanned after they are pushed to the repository.
 
 To skip secret push protection for all commits in a push, either:
 
@@ -282,23 +268,19 @@ To skip secret push protection from the command line:
 
 - Use the `secret_push_protection.skip_all` push option.
 
-  For example, you have several commits that are blocked from being pushed because one of them
-  contains a secret. To skip secret push protection, you append the push option to the Git command.
+ For example, you have several commits that are blocked from being pushed because one of them contains a secret. To skip secret push protection, you append the push option to the Git command.
 
-  ```shell
-  git push -o secret_push_protection.skip_all
-  ```
+ ```shell
+ git push -o secret_push_protection.skip_all
+ ```
 
 #### For any Git client
 
 To skip secret push protection:
 
-- Add `[skip secret push protection]` to one of the commit messages, on either an existing line or a new
-  line, then push the commits.
+- Add `[skip secret push protection]` to one of the commit messages, on either an existing line or a new line, then push the commits.
 
-  For example, you are using the GitLab Web IDE and have several commits that are blocked from being
-  pushed because one of them contains a secret. To skip secret push protection, edit the latest
-  commit message and add `[skip secret push protection]`, then push the commits.
+ For example, you are using the GitLab Web IDE and have several commits that are blocked from being pushed because one of them contains a secret. To skip secret push protection, edit the latest commit message and add `[skip secret push protection]`, then push the commits.
 
 ## Troubleshooting
 
@@ -307,13 +289,9 @@ When working with secret push protection, you might encounter the following situ
 ### Push blocked unexpectedly
 
 Before GitLab 17.11, secret push protection scanned the contents of all modified files.
-This can cause a push to be unexpectedly blocked if a modified file contains a secret,
-even if the secret is not part of the diff.
+This can cause a push to be unexpectedly blocked if a modified file contains a secret, even if the secret is not part of the diff.
 
-On GitLab 17.10 and earlier, enable the `spp_scan_diffs` feature flag
-to ensure that only newly committed changes are scanned. To push a Web IDE change to a
-file that contains a secret, you need to additionally enable the
-`secret_checks_for_web_requests` feature flag.
+On GitLab 17.10 and earlier, enable the `spp_scan_diffs` feature flag to ensure that only newly committed changes are scanned. To push a Web IDE change to a file that contains a secret, you need to additionally enable the `secret_checks_for_web_requests` feature flag.
 
 ### File was not scanned
 

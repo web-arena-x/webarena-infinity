@@ -17,8 +17,7 @@ When working with application security features, you might encounter the followi
 
 ## Logging level
 
-The verbosity of logs output by GitLab analyzers is determined by the `SECURE_LOG_LEVEL` environment
-variable. Messages of this logging level or higher are output.
+The verbosity of logs output by GitLab analyzers is determined by the `SECURE_LOG_LEVEL` environment variable. Messages of this logging level or higher are output.
 
 From highest to lowest severity, the logging levels are:
 
@@ -32,9 +31,7 @@ From highest to lowest severity, the logging levels are:
 
 {{< alert type="warning" >}}
 
-Debug logging can be a serious security risk. The output may contain the content of
-environment variables and other secrets available to the job. The output is uploaded
-to the GitLab server and is visible in job logs.
+Debug logging can be a serious security risk. The output may contain the content of environment variables and other secrets available to the job. The output is uploaded to the GitLab server and is visible in job logs.
 
 {{< /alert >}}
 
@@ -42,11 +39,10 @@ To enable debug-level logging, add the following to your `.gitlab-ci.yml` file:
 
 ```yaml
 variables:
-  SECURE_LOG_LEVEL: "debug"
+ SECURE_LOG_LEVEL: "debug"
 ```
 
-This indicates to all GitLab analyzers that they are to output all messages. For more details,
-see [logging level](#logging-level).
+This indicates to all GitLab analyzers that they are to output all messages. For more details, see [logging level](#logging-level).
 
 <!-- NOTE: The below subsection(`### Secure job failing with exit code 1`) documentation URL is referred in the [/gitlab-org/security-products/analyzers/command](https://gitlab.com/gitlab-org/security-products/analyzers/command/-/blob/main/command.go#L19) repository. If this section/subsection changes, ensure to update the corresponding URL in the mentioned repository.
 -->
@@ -62,8 +58,7 @@ If a Secure job is failing and it's unclear why:
 
 ## Outdated security reports
 
-When a security report generated for a merge request becomes outdated, the merge request shows a
-warning message in the security widget and prompts you to take an appropriate action.
+When a security report generated for a merge request becomes outdated, the merge request shows a warning message in the security widget and prompts you to take an appropriate action.
 
 This can happen in two scenarios:
 
@@ -72,38 +67,29 @@ This can happen in two scenarios:
 
 ### Source branch is behind the target branch
 
-A security report can be out of date when the most recent common ancestor commit between the
-target branch and the source branch is not the most recent commit on the target branch.
+A security report can be out of date when the most recent common ancestor commit between the target branch and the source branch is not the most recent commit on the target branch.
 
 To fix this issue, rebase or merge to incorporate the changes from the target branch.
 
 ### Target branch security report is out of date
 
-This can happen for many reasons, including failed jobs or new advisories. When the merge request
-shows that a security report is out of date, you must run a new pipeline on the target branch.
+This can happen for many reasons, including failed jobs or new advisories. When the merge request shows that a security report is out of date, you must run a new pipeline on the target branch.
 Select **new pipeline** to run a new pipeline.
 
 ## Getting warning messages `… report.json: no matching files`
 
 {{< alert type="warning" >}}
 
-Debug logging can be a serious security risk. The output may contain the content of
-environment variables and other secrets available to the job. The output is uploaded
-to the GitLab server and visible in job logs.
+Debug logging can be a serious security risk. The output may contain the content of environment variables and other secrets available to the job. The output is uploaded to the GitLab server and visible in job logs.
 
 {{< /alert >}}
 
-This message is often followed by the [error `No files to upload`](../../ci/jobs/job_artifacts_troubleshooting.md#error-message-no-files-to-upload),
-and preceded by other errors or warnings that indicate why the JSON report wasn't generated. Check
-the entire job log for such messages. If you don't find these messages, retry the failed job after
-setting `SECURE_LOG_LEVEL: "debug"` as a [custom CI/CD variable](../../ci/variables/_index.md#for-a-project).
+This message is often followed by the [error `No files to upload`](../../ci/jobs/job_artifacts_troubleshooting.md#error-message-no-files-to-upload), and preceded by other errors or warnings that indicate why the JSON report wasn't generated. Check the entire job log for such messages. If you don't find these messages, retry the failed job after setting `SECURE_LOG_LEVEL: "debug"` as a [custom CI/CD variable](../../ci/variables/_index.md#for-a-project).
 This provides extra information to investigate further.
 
 ## Getting error message `sast job: config key may not be used with 'rules': only/except`
 
-When [including](../../ci/yaml/_index.md#includetemplate) a `.gitlab-ci.yml` template
-like [`SAST.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Security/SAST.gitlab-ci.yml),
-the following error may occur, depending on your GitLab CI/CD configuration:
+When [including](../../ci/yaml/_index.md#includetemplate) a `.gitlab-ci.yml` template like [`SAST.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Security/SAST.gitlab-ci.yml), the following error may occur, depending on your GitLab CI/CD configuration:
 
 ```plaintext
 Unable to run pipeline
@@ -122,49 +108,44 @@ For more information, see [Overriding SAST jobs](sast/_index.md#overriding-sast-
 
 ### Transitioning your `only/except` syntax to `rules`
 
-When overriding the template to control job execution, previous instances of
-[`only` or `except`](../../ci/yaml/deprecated_keywords.md#only--except) are no longer compatible
-and must be transitioned to [the `rules` syntax](../../ci/yaml/_index.md#rules).
+When overriding the template to control job execution, previous instances of [`only` or `except`](../../ci/yaml/deprecated_keywords.md#only--except) are no longer compatible and must be transitioned to [the `rules` syntax](../../ci/yaml/_index.md#rules).
 
-If your override is aimed at limiting jobs to only run on `main`, the previous syntax
-would look similar to:
+If your override is aimed at limiting jobs to only run on `main`, the previous syntax would look similar to:
 
 ```yaml
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 # Ensure that the scanning is only executed on main or merge requests
 spotbugs-sast:
-  only:
+ only:
     refs:
       - main
       - merge_requests
 ```
 
-To transition the previous configuration to the new `rules` syntax, the override
-would be written as follows:
+To transition the previous configuration to the new `rules` syntax, the override would be written as follows:
 
 ```yaml
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 # Ensure that the scanning is only executed on main or merge requests
 spotbugs-sast:
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == "main"
     - if: $CI_MERGE_REQUEST_ID
 ```
 
-If your override is aimed at limiting jobs to only run on branches, not tags,
-it would look similar to:
+If your override is aimed at limiting jobs to only run on branches, not tags, it would look similar to:
 
 ```yaml
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 # Ensure that the scanning is not executed on tags
 spotbugs-sast:
-  except:
+ except:
     - tags
 ```
 
@@ -172,11 +153,11 @@ To transition to the new `rules` syntax, the override would be rewritten as:
 
 ```yaml
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 # Ensure that the scanning is not executed on tags
 spotbugs-sast:
-  rules:
+ rules:
     - if: $CI_COMMIT_TAG == null
 ```
 
@@ -186,13 +167,12 @@ For more information, see [`rules`](../../ci/yaml/_index.md#rules).
 
 To ensure the latest support, migrate to [`rules`](../../ci/yaml/_index.md#rules).
 
-If you're unable to immediately update your CI/CD configuration, there are several workarounds that
-involve pinning to the previous template versions, for example:
+If you're unable to immediately update your CI/CD configuration, there are several workarounds that involve pinning to the previous template versions, for example:
 
-  ```yaml
-  include:
+ ```yaml
+ include:
     remote: 'https://gitlab.com/gitlab-org/gitlab/-/raw/12-10-stable-ee/lib/gitlab/ci/templates/Security/SAST.gitlab-ci.yml'
-  ```
+ ```
 
 In addition, a dedicated project containing the versioned legacy templates is available.
 This can be used for offline setups or for anyone wishing to use [Auto DevOps](../../topics/autodevops/_index.md).
@@ -201,34 +181,24 @@ Instructions are available in the [legacy template project](https://gitlab.com/g
 
 ### Vulnerabilities are found, but the job succeeds. How can you have a pipeline fail instead?
 
-In these circumstances, that the job succeeds is the default behavior. The job's status indicates
-success or failure of the analyzer itself. Analyzer results are displayed in the
-[job logs](../../ci/jobs/job_logs.md#expand-and-collapse-job-log-sections),
-[merge request widget](detect/security_scanning_results.md), or
-[security dashboard](security_dashboard/_index.md).
+In these circumstances, that the job succeeds is the default behavior. The job's status indicates success or failure of the analyzer itself. Analyzer results are displayed in the [job logs](../../ci/jobs/job_logs.md#expand-and-collapse-job-log-sections), [merge request widget](detect/security_scanning_results.md), or [security dashboard](security_dashboard/_index.md).
 
 ## Error: job `is used for configuration only, and its script should not be executed`
 
 [Changes made in GitLab 13.4](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/41260)
-to the `Security/Dependency-Scanning.gitlab-ci.yml` and `Security/SAST.gitlab-ci.yml`
-templates mean that if you enable the `sast` or `dependency_scanning` jobs by setting the `rules` attribute,
-they fail with the error `(job) is used for configuration only, and its script should not be executed`.
+to the `Security/Dependency-Scanning.gitlab-ci.yml` and `Security/SAST.gitlab-ci.yml` templates mean that if you enable the `sast` or `dependency_scanning` jobs by setting the `rules` attribute, they fail with the error `(job) is used for configuration only, and its script should not be executed`.
 
-The `sast` or `dependency_scanning` stanzas can be used to make changes to all SAST or dependency scanning,
-such as changing `variables` or the `stage`, but they cannot be used to define shared `rules`.
+The `sast` or `dependency_scanning` stanzas can be used to make changes to all SAST or dependency scanning, such as changing `variables` or the `stage`, but they cannot be used to define shared `rules`.
 
 There [is an issue open to improve extendability](https://gitlab.com/gitlab-org/gitlab/-/issues/218444).
-You can upvote the issue to help with prioritization, and
-[contributions are welcomed](https://about.gitlab.com/community/contribute/).
+You can upvote the issue to help with prioritization, and [contributions are welcomed](https://about.gitlab.com/community/contribute/).
 
 ## Empty vulnerability report, dependency list pages
 
-If the pipeline has manual steps with a job that has the `allow_failure: false` option, and this job is not finished,
-GitLab can't populate listed pages with the data from security reports.
+If the pipeline has manual steps with a job that has the `allow_failure: false` option, and this job is not finished, GitLab can't populate listed pages with the data from security reports.
 In this case, [the vulnerability report](vulnerability_report/_index.md) and [the dependency list](dependency_list/_index.md)
 pages are empty.
 These security pages can be populated by running the jobs from the manual step of the pipeline.
 
 There is [an issue open to handle this scenario](https://gitlab.com/gitlab-org/gitlab/-/issues/346843).
-You can upvote the issue to help with prioritization, and
-[contributions are welcomed](https://about.gitlab.com/community/contribute/).
+You can upvote the issue to help with prioritization, and [contributions are welcomed](https://about.gitlab.com/community/contribute/).

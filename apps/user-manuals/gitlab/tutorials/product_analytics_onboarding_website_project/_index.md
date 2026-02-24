@@ -18,8 +18,7 @@ title: 'Tutorial: Set up product analytics in a GitLab Pages website project'
 Understanding how your users engage with your website or application is important for making data-driven decisions.
 By identifying the most and least used features by your users, your team can decide where and how to spend their time effectively.
 
-Follow along to learn how to set up an example website project, onboard product analytics for the project, instrument the website to start collecting events,
-and use project-level analytics dashboards to understand user behavior.
+Follow along to learn how to set up an example website project, onboard product analytics for the project, instrument the website to start collecting events, and use project-level analytics dashboards to understand user behavior.
 
 Here's an overview of what we're going to do:
 
@@ -40,8 +39,7 @@ To follow along this tutorial, you must:
 
 First of all, you need to create a project in your group.
 
-GitLab provides project templates,
-which make it easier to set up a project with all the necessary files for various use cases.
+GitLab provides project templates, which make it easier to set up a project with all the necessary files for various use cases.
 Here, you'll create a project for a plain HTML website.
 
 To create a project:

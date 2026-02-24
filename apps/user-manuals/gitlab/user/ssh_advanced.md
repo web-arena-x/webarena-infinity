@@ -40,16 +40,14 @@ To generate ED25519_SK or ECDSA_SK SSH keys, you must use OpenSSH 8.2 or later:
    ssh-keygen -t ecdsa-sk -C "<comment>"
    ```
 
-   If your security key supports FIDO2 resident keys, you can enable this when
-   creating your SSH key:
+   If your security key supports FIDO2 resident keys, you can enable this when creating your SSH key:
 
    ```shell
    ssh-keygen -t ed25519-sk -O resident -C "<comment>"
    ```
 
    `-O resident` indicates that the key should be stored on the FIDO authenticator itself.
-   Resident key is easier to import to a new computer because it can be loaded directly
-   from the security key by [`ssh-add -K`](https://man.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man1/ssh-add.1#K)
+   Resident key is easier to import to a new computer because it can be loaded directly from the security key by [`ssh-add -K`](https://man.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man1/ssh-add.1#K)
    or [`ssh-keygen -K`](https://man.openbsd.org/cgi-bin/man.cgi/OpenBSD-current/man1/ssh-keygen#K).
 
 1. Press <kbd>Enter</kbd>. Output similar to the following is displayed:
@@ -94,8 +92,7 @@ You can use [1Password](https://1password.com/) and the [1Password browser exten
 1. Select **Key**, and you should see the 1Password helper appear.
 1. Select the 1Password icon and unlock 1Password.
 1. You can then select **Create SSH Key** or select an existing SSH key to fill in the public key.
-1. In the **Title** box, enter a description, like `Work Laptop` or
-   `Home Workstation`.
+1. In the **Title** box, enter a description, like `Work Laptop` or `Home Workstation`.
 1. Optional. Select the **Usage type** of the key. It can be used either for `Authentication` or `Signing` or both. `Authentication & Signing` is the default value.
 1. Optional. Update **Expiration date** to modify the default expiration date.
 1. Select **Add key**.
@@ -131,16 +128,13 @@ To disable the enterprise users' SSH Keys:
 
 ## Upgrade your RSA key pair to a more secure format
 
-If your version of OpenSSH is between 6.5 and 7.8, you can save your private
-RSA SSH keys in a more secure OpenSSH format by opening a terminal and running
-this command:
+If your version of OpenSSH is between 6.5 and 7.8, you can save your private RSA SSH keys in a more secure OpenSSH format by opening a terminal and running this command:
 
 ```shell
 ssh-keygen -o -f ~/.ssh/id_rsa
 ```
 
-Alternatively, you can generate a new RSA key with the more secure encryption format with
-the following command:
+Alternatively, you can generate a new RSA key with the more secure encryption format with the following command:
 
 ```shell
 ssh-keygen -o -t rsa -b 4096 -C "<comment>"
@@ -160,31 +154,26 @@ You can update the passphrase for your SSH key:
 
 ## Use different accounts on a single GitLab instance
 
-You can use multiple accounts to connect to a single instance of GitLab. You
-can do this by using the command in the [previous topic](#use-different-keys-for-different-repositories).
-However, even if you set `IdentitiesOnly` to `yes`, you cannot sign in if an
-`IdentityFile` exists outside of a `Host` block.
+You can use multiple accounts to connect to a single instance of GitLab. You can do this by using the command in the [previous topic](#use-different-keys-for-different-repositories).
+However, even if you set `IdentitiesOnly` to `yes`, you cannot sign in if an `IdentityFile` exists outside of a `Host` block.
 
 Instead, you can assign aliases to hosts in the `~/.ssh/config` file.
 
-- For the `Host`, use an alias like `user_1.gitlab.com` and
-  `user_2.gitlab.com`. Advanced configurations
-  are more difficult to maintain, and these strings are easier to
-  understand when you use tools like `git remote`.
+- For the `Host`, use an alias like `user_1.gitlab.com` and `user_2.gitlab.com`. Advanced configurations are more difficult to maintain, and these strings are easier to understand when you use tools like `git remote`.
 - For the `IdentityFile`, use the path the private key.
 
 ```conf
 # User1 Account Identity
 Host <user_1.gitlab.com>
-  Hostname gitlab.com
-  PreferredAuthentications publickey
-  IdentityFile ~/.ssh/<example_ssh_key1>
+ Hostname gitlab.com
+ PreferredAuthentications publickey
+ IdentityFile ~/.ssh/<example_ssh_key1>
 
 # User2 Account Identity
 Host <user_2.gitlab.com>
-  Hostname gitlab.com
-  PreferredAuthentications publickey
-  IdentityFile ~/.ssh/<example_ssh_key2>
+ Hostname gitlab.com
+ PreferredAuthentications publickey
+ IdentityFile ~/.ssh/<example_ssh_key2>
 ```
 
 Now, to clone a repository for `user_1`, use `user_1.gitlab.com` in the `git clone` command:
@@ -201,8 +190,7 @@ git remote set-url origin git@<user_1.gitlab.com>:gitlab-org/gitlab.git
 
 {{< alert type="note" >}}
 
-Private and public keys contain sensitive data. Ensure the permissions
-on the files make them readable to you but not accessible to others.
+Private and public keys contain sensitive data. Ensure the permissions on the files make them readable to you but not accessible to others.
 
 {{< /alert >}}
 
@@ -216,8 +204,7 @@ Open a terminal and run this command:
 git config core.sshCommand "ssh -o IdentitiesOnly=yes -i ~/.ssh/private-key-filename-for-this-repository -F /dev/null"
 ```
 
-This command does not use the SSH Agent and requires Git 2.10 or later. For more information
-on `ssh` command options, see the `man` pages for both `ssh` and `ssh_config`.
+This command does not use the SSH Agent and requires Git 2.10 or later. For more information on `ssh` command options, see the `man` pages for both `ssh` and `ssh_config`.
 
 ## Use SSH keys in another directory
 
@@ -257,20 +244,16 @@ If you use [EGit](https://projects.eclipse.org/projects/technology.egit), you ca
 ## Use SSH on Microsoft Windows
 
 On Windows 10, you can either use the [Windows Subsystem for Linux (WSL)](https://learn.microsoft.com/en-us/windows/wsl/install)
-with [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install#update-to-wsl-2) which
-has both `git` and `ssh` preinstalled, or install [Git for Windows](https://gitforwindows.org) to
-use SSH through PowerShell.
+with [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/install#update-to-wsl-2) which has both `git` and `ssh` preinstalled, or install [Git for Windows](https://gitforwindows.org) to use SSH through PowerShell.
 
-The SSH key generated in WSL is not directly available for Git for Windows, and vice versa,
-as both have a different home directory:
+The SSH key generated in WSL is not directly available for Git for Windows, and vice versa, as both have a different home directory:
 
 - WSL: `/home/<user>`
 - Git for Windows: `C:\Users\<user>`
 
 You can either copy over the `.ssh/` directory to use the same key, or generate a key in each environment.
 
-If you're running Windows 11 and using [OpenSSH for Windows](https://learn.microsoft.com/en-us/windows-server/administration/OpenSSH/openssh-overview), ensure the `HOME`
-environment variable is set correctly. Otherwise, your private SSH key might not be found.
+If you're running Windows 11 and using [OpenSSH for Windows](https://learn.microsoft.com/en-us/windows-server/administration/OpenSSH/openssh-overview), ensure the `HOME` environment variable is set correctly. Otherwise, your private SSH key might not be found.
 
 Alternative tools include:
 
@@ -279,6 +262,4 @@ Alternative tools include:
 
 ## Use two-factor authentication for Git over SSH
 
-You can use two-factor authentication (2FA) for
-[Git over SSH](../security/two_factor_authentication.md#2fa-for-git-over-ssh-operations). You should use
-`ED25519_SK` or `ECDSA_SK` SSH keys. For more information, see [supported SSH key types](ssh.md#supported-ssh-key-types).
+You can use two-factor authentication (2FA) for [Git over SSH](../security/two_factor_authentication.md#2fa-for-git-over-ssh-operations). You should use `ED25519_SK` or `ECDSA_SK` SSH keys. For more information, see [supported SSH key types](ssh.md#supported-ssh-key-types).

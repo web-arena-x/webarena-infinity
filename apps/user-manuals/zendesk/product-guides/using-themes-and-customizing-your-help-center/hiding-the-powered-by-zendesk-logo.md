@@ -6,21 +6,19 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408887194778-Hiding-the-P
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Guide Professional or Enterprise |
 
-By default, your help center will display the Powered by Zendesk logo at the bottom of each
-page.
+By default, your help center will display the Powered by Zendesk logo at the bottom of each page.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/powered_by_zendesk_logo.png)
 
-You can hide the logo, if you want. For more information on customizing your help center, see
-[Branding your help center](https://support.zendesk.com/hc/en-us/articles/4408824139546-Branding-your-Help-Center).
+You can hide the logo, if you want. For more information on customizing your help center, see [Branding your help center](https://support.zendesk.com/hc/en-us/articles/4408824139546-Branding-your-Help-Center).
 
 **To remove the Powered by Zendesk logo**
 
@@ -28,7 +26,6 @@ You can hide the logo, if you want. For more information on customizing your hel
 2. Under **Integrations**, uncheck **Powered by Zendesk logo**.
 3. Click **Update** at the top of the page.
 
-   The Powered by Zendesk logo will no longer
-   be displayed on your help center.
+   The Powered by Zendesk logo will no longer be displayed on your help center.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/guide-powered-by-zd-logo-ut.png)

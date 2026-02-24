@@ -18,8 +18,8 @@ You can also create dependencies from the timeline view. Hover at the end of a p
 
 * Click on any dependency line to jump to a project, or remove that dependency.
 * When dragging a project with dependencies, there are several ergonomics to help you plan quickly:
-  * Any projects in the dependency chain that are backlog or planned will be "bumped" with the dragged project. Hold `Cmd/Ctrl` to keep the chain in place.
-  * Hold `Shift` to move all projects in the dependency together, regardless of status.
+ * Any projects in the dependency chain that are backlog or planned will be "bumped" with the dragged project. Hold `Cmd/Ctrl` to keep the chain in place.
+ * Hold `Shift` to move all projects in the dependency together, regardless of status.
 
 ## View project dependencies
 

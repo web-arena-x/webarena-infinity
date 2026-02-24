@@ -48,11 +48,9 @@ There are two options that, when enabled, allow your end-users to contact you: c
 
 **![](https://support.zendesk.com/hc/article_attachments/4408894706842/COPPA_1.png)**
 
-Contact form option  
-If you have the contact form option enabled, the end-user’s email address is a required field because it is the only way to respond. To avoid collecting the data of minors, you should not use the Web Widget for creating tickets. You should disable this option.
+Contact form option If you have the contact form option enabled, the end-user’s email address is a required field because it is the only way to respond. To avoid collecting the data of minors, you should not use the Web Widget for creating tickets. You should disable this option.
 
-Chat option  
-If you have the chat option enabled, the Web Widget will respect the settings you have configured in Zendesk Chat. See the next section about Zendesk Chat widget.
+Chat option If you have the chat option enabled, the Web Widget will respect the settings you have configured in Zendesk Chat. See the next section about Zendesk Chat widget.
 
 ---
 
@@ -60,8 +58,7 @@ If you have the chat option enabled, the Web Widget will respect the settings yo
 
 The Zendesk Chat widget enables you to embed live chat on your website.
 
-Pre-chat form and visitor profile  
-By far, the easiest way to ensure that no personal information is collected is to disable the pre-chat form and visitor profile. When configured in this way, the Zendesk Chat widget does not ask for any information, but instead initiates an anonymous chat when the end-user clicks it.
+Pre-chat form and visitor profile By far, the easiest way to ensure that no personal information is collected is to disable the pre-chat form and visitor profile. When configured in this way, the Zendesk Chat widget does not ask for any information, but instead initiates an anonymous chat when the end-user clicks it.
 
 To disable the pre-chat form and visitor profile, toggle both features off in their settings pages. See [Editing the pre-chat form](https://support.zendesk.com/hc/en-us/articles/4408882974234) and [Editing visitor profile settings](https://support.zendesk.com/hc/en-us/articles/4408887640730).
 
@@ -73,13 +70,11 @@ If setting fields to simply ‘not required’ meets your unique needs, you can 
 
 You can learn more about the Pre-Chat Form [here](https://support.zendesk.com/hc/en-us/articles/203688996-Using-the-Pre-Chat-form). You can learn more about the Visitor Profile [here](https://support.zendesk.com/hc/en-us/articles/216742068).
 
-Offline messages  
-When you are outside of your working hours, or you have no agents signed in, there is the option to accept offline messages. When enabled, this requires end-users to provide their name and email address.
+Offline messages When you are outside of your working hours, or you have no agents signed in, there is the option to accept offline messages. When enabled, this requires end-users to provide their name and email address.
 
 Offline messages can be disabled if you do not wish to collect this kind of information. Instructions on how to manage offline messages are [here](https://support.zendesk.com/hc/en-us/articles/217295247), and you can disable them.
 
-Chat transcript  
-End-users have the option to request a copy of the chat transcript. To do this, they must supply their email address. This email address is not recorded against the end-user profile, and is used only to service the request for the transcript.
+Chat transcript End-users have the option to request a copy of the chat transcript. To do this, they must supply their email address. This email address is not recorded against the end-user profile, and is used only to service the request for the transcript.
 
 ---
 
@@ -92,11 +87,9 @@ When creating tickets, you might want to avoid collecting personal information. 
 - **JWT authentication:** This enables you to identify end-users from your own database of users, and this information is required for the end-user to proceed. If using JWT authentication, email is a required piece of information.
 - **Anonymous authentication:** This does not require details from the end-user, but will accept them if provided. If using anonymous authentication, it is possible to create an identity with no identifying information present.
 
-Creating an identity without name or email  
-You can find instructions in our developer documentation on how to update your code. Android instructions are [here](https://developer.zendesk.com/documentation/classic-web-widget-sdks/support-sdk/android/sdk_set_identity/#setting-an-anonymous-identity) and iOS instructions are [here](https://developer.zendesk.com/documentation/classic-web-widget-sdks/support-sdk/ios/sdk_set_identity/#setting-an-anonymous-identity). Both include code snippets.
+Creating an identity without name or email You can find instructions in our developer documentation on how to update your code. Android instructions are [here](https://developer.zendesk.com/documentation/classic-web-widget-sdks/support-sdk/android/sdk_set_identity/#setting-an-anonymous-identity) and iOS instructions are [here](https://developer.zendesk.com/documentation/classic-web-widget-sdks/support-sdk/ios/sdk_set_identity/#setting-an-anonymous-identity). Both include code snippets.
 
-Keeping your users informed  
-If you do not collect your end-user’s email address, you will need a way to share ticket updates with them in your app. To do this using the Support SDK, ensure that the Conversations feature is enabled in your app settings in Zendesk.
+Keeping your users informed If you do not collect your end-user’s email address, you will need a way to share ticket updates with them in your app. To do this using the Support SDK, ensure that the Conversations feature is enabled in your app settings in Zendesk.
 
 To enable Conversations:
 

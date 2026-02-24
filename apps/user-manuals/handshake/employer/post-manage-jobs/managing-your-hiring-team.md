@@ -85,7 +85,7 @@ Availability varies by plan:
 - The dropdown is populated from your **Contacts**, not the **Teammates** list.
 - If the person you want to add does not appear, they must first be created as an external contact.
 
-  - Refer to [How to Create an External Contact](https://support.joinhandshake.com/hc/en-us/articles/7475310750103).
+ - Refer to [How to Create an External Contact](https://support.joinhandshake.com/hc/en-us/articles/7475310750103).
 - Unlimited hiring team members can be added to a job.
 
 2. Once the team member(s) is selected, click the black button **Save** in the upper-right corner of the section.

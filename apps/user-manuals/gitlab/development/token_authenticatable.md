@@ -26,25 +26,25 @@ To define a `token_field` attribute in your model, include the module and call `
 
 ```ruby
 class User < ApplicationRecord
-  include TokenAuthenticatable
+ include TokenAuthenticatable
 
-  add_authentication_token_field :token_field, encrypted: :required
+ add_authentication_token_field :token_field, encrypted: :required
 end
 ```
 
 ### Storage strategies
 
 - `encrypted: :required`: Stores the encrypted token in the `token_field_encrypted` column.
-  The `token_field_encrypted` column needs to exist. We strongly encourage to use this strategy.
+ The `token_field_encrypted` column needs to exist. We strongly encourage to use this strategy.
 - `encrypted: :migrating`: Stores the encrypted and plaintext tokens in `token_field_encrypted` and `token_field`.
-  Always reads the plaintext token. This should be used while an attribute is transitioning to be encrypted.
-  Both `token_field` and `token_field_encrypted` columns need to exist.
+ Always reads the plaintext token. This should be used while an attribute is transitioning to be encrypted.
+ Both `token_field` and `token_field_encrypted` columns need to exist.
 - `encrypted: :optional`: Stores the encrypted token in the `token_field_encrypted` column.
-  Reads from `token_field_encrypted` first and fallbacks to `token_field`.
-  Nullifies the plaintext token in the `token_field` column when writing the encrypted token.
-  Both `token_field` and `token_field_encrypted` columns need to exist.
+ Reads from `token_field_encrypted` first and fallbacks to `token_field`.
+ Nullifies the plaintext token in the `token_field` column when writing the encrypted token.
+ Both `token_field` and `token_field_encrypted` columns need to exist.
 - `digest: true`: Stores the token's digest in the database.
-  The `token_field_digest` column needs to exist.
+ The `token_field_digest` column needs to exist.
 - `insecure: true`: Stores the token as-is (not encrypted nor digested) in the database. We strongly discourage the usage of this strategy.
 
 {{< alert type="note" >}}
@@ -63,17 +63,16 @@ The `token_field_encrypted` column should always be indexed, because it is used 
 
 - `unique: false`: Doesn't enforce token uniqueness and disables the generation of `find_by_token_field` (where `token_field` is the attribute name). Default is `true`.
 - `format_with_prefix: :compute_token_prefix`: Allows to define a prefix for the token. The `#compute_token_prefix` method needs to return a `String`. Default is no prefix.
-  See guidance on [token prefixes](secure_coding_guidelines/_index.md#token-prefixes).
+ See guidance on [token prefixes](secure_coding_guidelines/_index.md#token-prefixes).
 - `expires_at: :compute_token_expiration_time`: Allows to define a time when the token should expire.
-  The `#compute_token_expiration_time` method needs to return a `Time` object. Default is no expiration.
+ The `#compute_token_expiration_time` method needs to return a `Time` object. Default is no expiration.
 - `token_generator:` A proc that returns a token. If absent, a random token is generated using `Devise.friendly_token`.
 - `routable_token:`: A hash allowing to define "routable" parts that should be encoded in the token.
-  This follows the [Routable Tokens design document](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/cells/routable_tokens/#proposal).
-  Supported keys are:
-  - `if:`: a proc receiving the token owner record. The proc usually has a feature flag check, and/or other checks.
+ This follows the [Routable Tokens design document](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/cells/routable_tokens/#proposal).
+ Supported keys are:
+ - `if:`: a proc receiving the token owner record. The proc usually has a feature flag check, and/or other checks.
     If the proc returns `false`, a random token is generated using `Devise.friendly_token`.
-  - `payload:`: A `{ key => proc }` hash with allowed keys `c`, `o`, `g`, `p`,`u` which
-    [complies with the specification](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/cells/routable_tokens/#meaning-of-fields).
+ - `payload:`: A `{ key => proc }` hash with allowed keys `c`, `o`, `g`, `p`,`u` which [complies with the specification](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/cells/routable_tokens/#meaning-of-fields).
     See an example in the [Routable Tokens design document](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/cells/routable_tokens/#integration-into-token-authenticatable).
 - `require_prefix_for_validation:` (only for the `:encrypted` strategy): Checks that the token prefix matches the expected prefix. If the prefix doesn't match, it behaves as if the token isn't set. Default `false`.
 

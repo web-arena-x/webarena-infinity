@@ -33,14 +33,12 @@ To view CI/CD analytics:
 ## Pipeline metrics
 
 You can view the history of your pipeline successes and failures, and how long each pipeline ran.
-Pipeline statistics are gathered by collecting all available pipelines for the
-project, regardless of status. The data available for each individual day is based
-on when the pipeline was created.
+Pipeline statistics are gathered by collecting all available pipelines for the project, regardless of status. The data available for each individual day is based on when the pipeline was created.
 
 CI/CD analytics displays key metrics about your pipelines:
 
 - **Total pipeline runs**: The total number of pipelines that have run in the selected time period. The total pipeline calculation includes child pipelines and pipelines that failed with an invalid YAML.
-  To filter pipelines based on other attributes, use the [Pipelines API](../../api/pipelines.md#list-project-pipelines).
+ To filter pipelines based on other attributes, use the [Pipelines API](../../api/pipelines.md#list-project-pipelines).
 - **Median duration**: The median time it takes for pipelines to complete.
 - **Failure rate**: The percentage of pipelines that failed.
 - **Success rate**: The percentage of pipelines that completed successfully.

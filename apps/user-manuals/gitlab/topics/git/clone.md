@@ -6,8 +6,7 @@ description: Learn how to clone Git repositories from a GitLab server using diff
 title: Clone a Git repository to your local computer
 ---
 
-You can clone a Git repository to your local computer. This action creates a copy of the repository and
-establishes a connection that synchronizes changes between your computer and the GitLab server.
+You can clone a Git repository to your local computer. This action creates a copy of the repository and establishes a connection that synchronizes changes between your computer and the GitLab server.
 This connection requires you to add credentials.
 You can either [clone with SSH](#clone-with-ssh) or [clone with HTTPS](#clone-with-https).
 SSH is the recommended authentication method.
@@ -44,8 +43,7 @@ Clone with SSH when you want to authenticate only one time.
 ## Clone with HTTPS
 
 Clone with HTTPS when you want to authenticate each time you perform an operation between your computer and GitLab.
-[OAuth credential helpers](../../user/profile/account/two_factor_authentication.md#oauth-credential-helpers) can decrease
-the number of times you must manually authenticate, making HTTPS a seamless experience.
+[OAuth credential helpers](../../user/profile/account/two_factor_authentication.md#oauth-credential-helpers) can decrease the number of times you must manually authenticate, making HTTPS a seamless experience.
 
 1. On the top bar, select **Search or go to** and find the project you want to clone.
 1. On the project's overview page, in the upper-right corner, select **Code**, then copy the URL for **Clone with HTTPS**.
@@ -75,8 +73,7 @@ the number of times you must manually authenticate, making HTTPS a seamless expe
 
 {{< alert type="note" >}}
 
-On Windows, if you enter your password incorrectly multiple times and an `Access denied` message appears,
-add your namespace (username or group) to the path:
+On Windows, if you enter your password incorrectly multiple times and an `Access denied` message appears, add your namespace (username or group) to the path:
 `git clone https://namespace@gitlab.com/gitlab-org/gitlab.git`.
 
 {{< /alert >}}
@@ -103,37 +100,32 @@ git clone https://<username>:<token>@gitlab.example.com/tanuki/awesome_project.g
 
 ## Clone and open in Apple Xcode
 
-Projects that contain a `.xcodeproj` or `.xcworkspace` directory can be cloned
-into Xcode on macOS.
+Projects that contain a `.xcodeproj` or `.xcworkspace` directory can be cloned into Xcode on macOS.
 
 1. From the GitLab UI, go to the project's overview page.
 1. In the upper-right corner, select **Code**.
 1. Select **Xcode**.
 
-The project is cloned onto your computer and you are
-prompted to open Xcode.
+The project is cloned onto your computer and you are prompted to open Xcode.
 
 ## Clone and open in Visual Studio Code
 
-All projects can be cloned into Visual Studio Code from the GitLab user interface, but you
-can also install the [GitLab Workflow extension for VS Code](../../editor_extensions/visual_studio_code/_index.md) to clone from
-Visual Studio Code.
+All projects can be cloned into Visual Studio Code from the GitLab user interface, but you can also install the [GitLab Workflow extension for VS Code](../../editor_extensions/visual_studio_code/_index.md) to clone from Visual Studio Code.
 
 Prerequisites:
 
 - [Visual Studio Code](https://code.visualstudio.com/) must be installed on your local machine.
-  Other versions of VS Code, like VS Code Insiders and VSCodium, are not supported.
+ Other versions of VS Code, like VS Code Insiders and VSCodium, are not supported.
 - [Configure your browser for IDE protocols](#configure-browsers-for-ide-protocols).
 
 - From the GitLab interface:
-  1. Go to the project's overview page.
-  1. In the upper-right corner, select **Code**.
-  1. Under **Open in your IDE**, select **Visual Studio Code (SSH)** or **Visual Studio Code (HTTPS)**.
-  1. Select a folder to clone the project into.
+ 1. Go to the project's overview page.
+ 1. In the upper-right corner, select **Code**.
+ 1. Under **Open in your IDE**, select **Visual Studio Code (SSH)** or **Visual Studio Code (HTTPS)**.
+ 1. Select a folder to clone the project into.
 
      After Visual Studio Code clones your project, it opens the folder.
-- From Visual Studio Code, with the [extension](../../editor_extensions/visual_studio_code/_index.md) installed, use the
-  extension's [`Git: Clone` command](../../editor_extensions/visual_studio_code/remote_urls.md#clone-a-git-project).
+- From Visual Studio Code, with the [extension](../../editor_extensions/visual_studio_code/_index.md) installed, use the extension's [`Git: Clone` command](../../editor_extensions/visual_studio_code/remote_urls.md#clone-a-git-project).
 
 ## Clone and open in IntelliJ IDEA
 
@@ -153,14 +145,12 @@ To do this:
 
 ## Configure browsers for IDE protocols
 
-To ensure that the **Open in IDE** feature is working, you must configure your browsers to handle
-custom application protocols, such as `vscode://` or `jetbrains://`.
+To ensure that the **Open in IDE** feature is working, you must configure your browsers to handle custom application protocols, such as `vscode://` or `jetbrains://`.
 
 ### Firefox
 
 Firefox handles custom protocols automatically if the required application is installed on your system.
-When you first select a custom protocol link, a dialog opens and requests if you want
-to open the application. Select **Open link** to allow Firefox to open the application.
+When you first select a custom protocol link, a dialog opens and requests if you want to open the application. Select **Open link** to allow Firefox to open the application.
 
 If you don't want to be prompted again, select the checkbox to remember your choice.
 
@@ -177,39 +167,29 @@ If your preferred IDE is not listed, you are prompted to choose an application t
 ### Chrome
 
 Chrome handles custom protocols automatically if the required application is installed on your system.
-When you first select a custom protocol link in Chrome, a dialog opens and requests if you want
-to open the application. Select **Open** to allow Chrome to open the application.
+When you first select a custom protocol link in Chrome, a dialog opens and requests if you want to open the application. Select **Open** to allow Chrome to open the application.
 
 If you don't want to be prompted again, select the checkbox to remember your choice.
 
 ## Reduce clone size
 
-As Git repositories grow in size, they can become cumbersome to work with
-because of:
+As Git repositories grow in size, they can become cumbersome to work with because of:
 
 - The large amount of history that must be downloaded.
 - The large amount of disk space they require.
 
 [Partial clone](https://git-scm.com/docs/partial-clone)
-is a performance optimization that allows Git to function without having a
-complete copy of the repository. The goal of this work is to allow Git better
-handle extremely large repositories.
+is a performance optimization that allows Git to function without having a complete copy of the repository. The goal of this work is to allow Git better handle extremely large repositories.
 
 Git 2.22.0 or later is required.
 
 ### Filter by file size
 
-Storing large binary files in Git is usually discouraged, because every large
-file added is downloaded by everyone who clones or fetches changes
-thereafter. These downloads are slow and problematic, especially when working from a slow
-or unreliable internet connection.
+Storing large binary files in Git is usually discouraged, because every large file added is downloaded by everyone who clones or fetches changes thereafter. These downloads are slow and problematic, especially when working from a slow or unreliable internet connection.
 
-Using partial clone with a file size filter solves this problem, by excluding
-troublesome large files from clones and fetches. When Git encounters a missing
-file, it's downloaded on demand.
+Using partial clone with a file size filter solves this problem, by excluding troublesome large files from clones and fetches. When Git encounters a missing file, it's downloaded on demand.
 
-When cloning a repository, use the `--filter=blob:limit=<size>` argument. For example,
-to clone the repository excluding files larger than 1 megabyte:
+When cloning a repository, use the `--filter=blob:limit=<size>` argument. For example, to clone the repository excluding files larger than 1 megabyte:
 
 ```shell
 git clone --filter=blob:limit=1m git@gitlab.com:gitlab-com/www-gitlab-com.git
@@ -244,9 +224,7 @@ When changing branches, Git may download more missing files.
 
 ### Filter by object type
 
-For repositories with millions of files and a long history, you can exclude all files and use
-[`git sparse-checkout`](https://git-scm.com/docs/git-sparse-checkout) to reduce the size of
-your working copy.
+For repositories with millions of files and a long history, you can exclude all files and use [`git sparse-checkout`](https://git-scm.com/docs/git-sparse-checkout) to reduce the size of your working copy.
 
 ```shell
 # Clone the repo excluding all files
@@ -277,30 +255,22 @@ Resolving deltas: 100% (16/16), done.
 Updating files: 100% (302/302), done.
 ```
 
-For more details, see the Git documentation for
-[`sparse-checkout`](https://git-scm.com/docs/git-sparse-checkout).
+For more details, see the Git documentation for [`sparse-checkout`](https://git-scm.com/docs/git-sparse-checkout).
 
 ### Filter by file path
 
-Deeper integration between partial clone and sparse checkout is possible through the
-`--filter=sparse:oid=<blob-ish>` filter spec. This mode of filtering uses a format similar to a
-`.gitignore` file to specify which files to include when cloning and fetching.
+Deeper integration between partial clone and sparse checkout is possible through the `--filter=sparse:oid=<blob-ish>` filter spec. This mode of filtering uses a format similar to a `.gitignore` file to specify which files to include when cloning and fetching.
 
 {{< alert type="warning" >}}
 
-Partial clone using `sparse` filters is still experimental. It might be slow and significantly increase
-[Gitaly](../../administration/gitaly/_index.md) resource utilization when cloning and fetching.
-[Filter all blobs and use sparse-checkout](#filter-by-object-type) instead, because
-[`git-sparse-checkout`](https://git-scm.com/docs/git-sparse-checkout) simplifies
-this type of partial clone use and overcomes its limitations.
+Partial clone using `sparse` filters is still experimental. It might be slow and significantly increase [Gitaly](../../administration/gitaly/_index.md) resource utilization when cloning and fetching.
+[Filter all blobs and use sparse-checkout](#filter-by-object-type) instead, because [`git-sparse-checkout`](https://git-scm.com/docs/git-sparse-checkout) simplifies this type of partial clone use and overcomes its limitations.
 
 {{< /alert >}}
 
-For more details, see the Git documentation for
-[`rev-list-options`](https://git-scm.com/docs/git-rev-list#Documentation/git-rev-list.txt---filterltfilter-specgt).
+For more details, see the Git documentation for [`rev-list-options`](https://git-scm.com/docs/git-rev-list#Documentation/git-rev-list.txt---filterltfilter-specgt).
 
-1. Create a filter spec. For example, consider a monolithic repository with many applications,
-   each in a different subdirectory in the root. Create a file `shiny-app/.filterspec`:
+1. Create a filter spec. For example, consider a monolithic repository with many applications, each in a different subdirectory in the root. Create a file `shiny-app/.filterspec`:
 
    ```plaintext
    # Only the paths listed in the file will be downloaded when performing a
@@ -320,8 +290,7 @@ For more details, see the Git documentation for
    shared-component-b/
    ```
 
-1. Clone and filter by path. Support for `--filter=sparse:oid` using the
-   clone command is not fully integrated with sparse checkout.
+1. Clone and filter by path. Support for `--filter=sparse:oid` using the clone command is not fully integrated with sparse checkout.
 
    ```shell
    # Clone the filtered set of objects using the filterspec stored on the
@@ -334,26 +303,18 @@ For more details, see the Git documentation for
 
    {{< alert type="warning" >}}
 
-   Git integrations with `bash`, Zsh, etc and editors that automatically
-   show Git status information often run `git fetch` which fetches the
-   entire repository. Disabling or reconfiguring these integrations might be required.
+   Git integrations with `bash`, Zsh, etc and editors that automatically show Git status information often run `git fetch` which fetches the entire repository. Disabling or reconfiguring these integrations might be required.
 
    {{< /alert >}}
 
 ### Remove partial clone filtering
 
-Git repositories with partial clone filtering can have the filtering removed. To
-remove filtering:
+Git repositories with partial clone filtering can have the filtering removed. To remove filtering:
 
-1. Fetch everything that has been excluded by the filters, to make sure that the
-   repository is complete. If `git sparse-checkout` was used, use
-   `git sparse-checkout disable` to disable it. See the
-   [`disable` documentation](https://git-scm.com/docs/git-sparse-checkout#Documentation/git-sparse-checkout.txt-emdisableem)
+1. Fetch everything that has been excluded by the filters, to make sure that the repository is complete. If `git sparse-checkout` was used, use `git sparse-checkout disable` to disable it. See the [`disable` documentation](https://git-scm.com/docs/git-sparse-checkout#Documentation/git-sparse-checkout.txt-emdisableem)
    for more information.
 
-   Then do a regular `fetch` to ensure that the repository is complete. To check if
-   there are missing objects to fetch, and then fetch them, especially when not using
-   `git sparse-checkout`, the following commands can be used:
+   Then do a regular `fetch` to ensure that the repository is complete. To check if there are missing objects to fetch, and then fetch them, especially when not using `git sparse-checkout`, the following commands can be used:
 
    ```shell
    # Show missing objects
@@ -369,17 +330,13 @@ remove filtering:
    git rev-list --objects --all --missing=print | grep -e '^\?' | wc -l
    ```
 
-1. Repack everything. This can be done using `git repack -a -d`, for example. This
-   should leave only three files in `.git/objects/pack/`:
+1. Repack everything. This can be done using `git repack -a -d`, for example. This should leave only three files in `.git/objects/pack/`:
    - A `pack-<SHA1>.pack` file.
    - Its corresponding `pack-<SHA1>.idx` file.
    - A `pack-<SHA1>.promisor` file.
 
-1. Delete the `.promisor` file. The previous step should have left only one
-   `pack-<SHA1>.promisor` file, which should be empty and should be deleted.
+1. Delete the `.promisor` file. The previous step should have left only one `pack-<SHA1>.promisor` file, which should be empty and should be deleted.
 
-1. Remove partial clone configuration. The partial clone-related configuration
-   variables should be removed from Git configuration files. Usually only the following
-   configuration must be removed:
+1. Remove partial clone configuration. The partial clone-related configuration variables should be removed from Git configuration files. Usually only the following configuration must be removed:
    - `remote.origin.promisor`.
    - `remote.origin.partialclonefilter`.

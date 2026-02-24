@@ -39,13 +39,13 @@ An example implementation of runtime limiting using the `Gitlab::Metrics::Runtim
 
 ```ruby
 def perform(project_id)
-  runtime_limiter = Gitlab::Metrics::RuntimeLimiter.new(3.minutes)
+ runtime_limiter = Gitlab::Metrics::RuntimeLimiter.new(3.minutes)
 
-  project = Project.find(1)
-  project.issues.each_batch(of: :iid) do |scope|
+ project = Project.find(1)
+ project.issues.each_batch(of: :iid) do |scope|
     scope.update_all(updated_at: Time.current)
     break if runtime_limiter.over_time?
-  end
+ end
 end
 ```
 
@@ -53,11 +53,11 @@ The batching in the code snippet stops when 3 minutes of runtime is reached. The
 
 ```ruby
 def perform(project_id, iid = nil)
-  runtime_limiter = Gitlab::Metrics::RuntimeLimiter.new(3.minutes)
+ runtime_limiter = Gitlab::Metrics::RuntimeLimiter.new(3.minutes)
 
-  project = Project.find(project_id)
-  # Restore the previous iid if present
-  project.issues.where('iid > ?', iid || 0).each_batch(of: :iid) do |scope|
+ project = Project.find(project_id)
+ # Restore the previous iid if present
+ project.issues.where('iid > ?', iid || 0).each_batch(of: :iid) do |scope|
     max_iid = scope.maximum(:iid)
     scope.update_all(updated_at: Time.current)
 
@@ -66,28 +66,28 @@ def perform(project_id, iid = nil)
 
       break
     end
-  end
+ end
 end
 ```
 
 Implementing a "continue later" mechanism can add significant complexity to the implementation. Hence, before committing to this work, analyze the existing data in the production database and try to extrapolate data growth. A few examples:
 
 - Mark all `pending` todos for a given user as `done` does not need a "continue later" mechanism.
-  - Reasoning: The number of pending todos will most likely not going to be over a few thousand database rows, even for the busiest users. Updating these rows would finish 99.9% of the time under 1 minute.
+ - Reasoning: The number of pending todos will most likely not going to be over a few thousand database rows, even for the busiest users. Updating these rows would finish 99.9% of the time under 1 minute.
 - Store CI build records in a CSV files within a given project might require a "continue later" mechanism.
-  - Reasoning: for very active projects, CI job count can grow at a very high rate into millions of rows.
+ - Reasoning: for very active projects, CI job count can grow at a very high rate into millions of rows.
 
 When a very large volume of updates happen in the background job, it's advisable (not a strict requirement) to add some sleep to the code and limit the total number of records we update. This reduces the pressure on the primary databases and gives a small window for potential database migrations to acquire heavier locks.
 
 ```ruby
 def perform(project_id, iid = nil)
-  max_updates = 100_000 # Allow maximum N updates
-  updates = 0
-  status = :completed
-  runtime_limiter = Gitlab::Metrics::RuntimeLimiter.new(3.minutes)
+ max_updates = 100_000 # Allow maximum N updates
+ updates = 0
+ status = :completed
+ runtime_limiter = Gitlab::Metrics::RuntimeLimiter.new(3.minutes)
 
-  project = Project.find(project_id)
-  project.issues.where('iid > ?', iid || 0).each_batch(of: :iid) do |scope|
+ project = Project.find(project_id)
+ project.issues.where('iid > ?', iid || 0).each_batch(of: :iid) do |scope|
     max_iid = scope.maximum(:iid)
     updates += scope.update_all(updated_at: Time.current)
 
@@ -100,7 +100,7 @@ def perform(project_id, iid = nil)
 
     # Adding sleep when we expect long running batching that modifies large volume of data
     sleep 0.01
-  end
+ end
 end
 ```
 
@@ -110,8 +110,8 @@ For traceability purposes, it's a good practice to expose metrics so we can see 
 
 ```ruby
 log_extra_metadata_on_done(:result, {
-  status: :limit_reached, # or :completed
-  updated_rows: updates
+ status: :limit_reached, # or :completed
+ updated_rows: updates
 })
 ```
 
@@ -127,40 +127,40 @@ Example: process all issues in a project.
 
 ```ruby
 def perform
-  project_id, iid = load_cursor # Load cursor from Redis
+ project_id, iid = load_cursor # Load cursor from Redis
 
-  return unless project_id # Nothing was enqueued
+ return unless project_id # Nothing was enqueued
 
-  project = Project.find(project_id)
-  project.issues.where('iid > ?', iid || 0).each_batch(of: :iid) do |scope|
+ project = Project.find(project_id)
+ project.issues.where('iid > ?', iid || 0).each_batch(of: :iid) do |scope|
     # Do something with issues.
     # Break here, set interrupted flag if time limit is up.
     # Set iid to the last processed value.
-  end
+ end
 
-  # Continue the work later
-  push_cursor(project_id, iid) if interrupted?
+ # Continue the work later
+ push_cursor(project_id, iid) if interrupted?
 end
 
 private
 
 def load_cursor
-  # Take 1 element, not crash safe.
-  raw_cursor = Gitlab::Redis::SharedState.with do |redis|
+ # Take 1 element, not crash safe.
+ raw_cursor = Gitlab::Redis::SharedState.with do |redis|
     redis.lpop('my_cursor')
-  end
+ end
 
-  return unless raw_cursor
+ return unless raw_cursor
 
-  cursor = Gitlab::Json.parse(raw_cursor)
-  [cursor['project_id'], cursor['iid']]
+ cursor = Gitlab::Json.parse(raw_cursor)
+ [cursor['project_id'], cursor['iid']]
 end
 
 def push_cursor(project_id, iid)
-  # Work is not finished, put the cursor at the beginning of the list so the next job can pick it up.
-  Gitlab::Redis::SharedState.with do |redis|
+ # Work is not finished, put the cursor at the beginning of the list so the next job can pick it up.
+ Gitlab::Redis::SharedState.with do |redis|
     redis.lpush('my_cursor', Gitlab::Json.dump({ project_id: project_id, iid: iid }))
-  end
+ end
 end
 ```
 
@@ -168,14 +168,14 @@ In the application code, you can put an item in the queue after the database tra
 
 ```ruby
 def execute
-  ApplicationRecord.transaction do
+ ApplicationRecord.transaction do
     user.save!
     Event.create!(user: user, issue: issue)
-  end
+ end
 
-  # Application could crash here
+ # Application could crash here
 
-  MyRedieQueue.add(user: user, issue: issue)
+ MyRedieQueue.add(user: user, issue: issue)
 end
 ```
 
@@ -204,20 +204,20 @@ Pros:
 Cons:
 
 - Depending on the volume, the implementation can be quite complex:
-  - Partitioned database table: this should be considered for high-throughput workers.
-  - Consider the [sliding-window partitioning strategy](loose_foreign_keys.md#database-partitioning).
-  - Complex, cross-partition queries.
+ - Partitioned database table: this should be considered for high-throughput workers.
+ - Consider the [sliding-window partitioning strategy](loose_foreign_keys.md#database-partitioning).
+ - Complex, cross-partition queries.
 
 Example: set up reliable way of sending emails
 
 ```ruby
 # In a service
 def execute
-  ApplicationRecord.transaction do
+ ApplicationRecord.transaction do
     user.save!
     Event.create!(user: user, issue: issue)
     IssueEmailWorkerQueue.insert!(user: user, issue: issue)
-  end
+ end
 end
 ```
 
@@ -225,12 +225,12 @@ The `IssueEmailWorkerQueue` record stores all necessary information for executin
 
 ```ruby
 def perform
-  runtime_limiter = Gitlab::Metrics::RuntimeLimiter.new(3.minutes)
-  items = EmailWorkerQueue.order(:id).take(25)
+ runtime_limiter = Gitlab::Metrics::RuntimeLimiter.new(3.minutes)
+ items = EmailWorkerQueue.order(:id).take(25)
 
-  items.each do |item|
+ items.each do |item|
     # Do something with the item
-  end
+ end
 end
 ```
 
@@ -244,16 +244,16 @@ Example Redis lock usage:
 
 ```ruby
 class MyJob
-  include ApplicationWorker
-  include Gitlab::ExclusiveLeaseHelpers
+ include ApplicationWorker
+ include Gitlab::ExclusiveLeaseHelpers
 
-  MAX_TTL = 2.5.minutes.to_i # It should be similar to the runtime limit.
+ MAX_TTL = 2.5.minutes.to_i # It should be similar to the runtime limit.
 
-  def perform
+ def perform
     in_lock('my_lock_key', ttl: MAX_TTL, retries: 0) do
       # Do the work here.
     end
-  end
+ end
 end
 ```
 
@@ -282,9 +282,9 @@ Example:
 
 ```ruby
 loop do
-  # Requires an index on project_id
-  delete_count = project.issues.limit(1000).delete_all
-  break if delete_count == 0 # Exit the loop when there are not records to be deleted
+ # Requires an index on project_id
+ delete_count = project.issues.limit(1000).delete_all
+ break if delete_count == 0 # Exit the loop when there are not records to be deleted
 end
 ```
 
@@ -304,9 +304,9 @@ It's possible to make the loop-based approach process records in a specific orde
 
 ```ruby
 loop do
-  # Requires a composite index on (project_id, created_at)
-  delete_count = project.issues.limit(1000).order(created_at: :desc).delete_all
-  break if delete_count == 0
+ # Requires a composite index on (project_id, created_at)
+ delete_count = project.issues.limit(1000).order(created_at: :desc).delete_all
+ break if delete_count == 0
 end
 ```
 
@@ -314,15 +314,15 @@ With the index mentioned in the previous example, we can also use `timestamp` co
 
 ```ruby
 loop do
-  # Requires a composite index on (project_id, created_at)
-  delete_count = project
+ # Requires a composite index on (project_id, created_at)
+ delete_count = project
     .issues
     .where('created_at < ?', 1.month.ago)
     .limit(1000)
     .order(created_at: :desc)
     .delete_all
 
-  break if delete_count == 0
+ break if delete_count == 0
 end
 ```
 
@@ -335,10 +335,10 @@ We can use a single, unique column (primary key or column which has a unique ind
 # EachBatch uses the primary key by default for the batching.
 cursor = nil
 project.issues.where('id > ?', cursor || 0).each_batch do |batch|
-  issues = batch.to_a
-  cursor = issues.last.id # For the next job
+ issues = batch.to_a
+ cursor = issues.last.id # For the next job
 
-  # do something with the issues records
+ # do something with the issues records
 end
 ```
 
@@ -362,13 +362,13 @@ One approach is to batch over the "parent" table, in this case using the `Projec
 cursor = nil
 # Uses the primary key index
 Project.where('id > ?', cursor || 0).each_batch do |batch|
-  cursor = batch.maximum(:id) # For the next job
+ cursor = batch.maximum(:id) # For the next job
 
-  project_ids = batch
+ project_ids = batch
     .where('EXISTS (SELECT 1 FROM issues WHERE projects.id=issues.project_id)')
     .pluck(:id)
 
-  Project.where(id: project_ids).update_all(update_all: Time.current)
+ Project.where(id: project_ids).update_all(update_all: Time.current)
 end
 ```
 
@@ -385,10 +385,10 @@ The batching query runs a full table scan over the `projects` table which might 
 ```ruby
 # requires an index on (project_id)
 Issue.distinct_each_batch(column: :project_id) do |scope|
-  project_ids = scope.pluck(:project_id)
-  cursor = project_ids.last # For the next job
+ project_ids = scope.pluck(:project_id)
+ cursor = project_ids.last # For the next job
 
-  Project.where(id: project_ids).update_all(update_all: Time.current)
+ Project.where(id: project_ids).update_all(update_all: Time.current)
 end
 ```
 
@@ -409,19 +409,19 @@ Example: delete issue records older than one year.
 
 ```ruby
 def perform
-  cursor = load_cursor || {}
-  # Requires a composite index on (created_at, id) columns
-  scope = Issue.where('created_at > ?', 1.year.ago).order(:created_at, :id)
+ cursor = load_cursor || {}
+ # Requires a composite index on (created_at, id) columns
+ scope = Issue.where('created_at > ?', 1.year.ago).order(:created_at, :id)
 
-  iterator = Gitlab::Pagination::Keyset::Iterator.new(scope: scope, cursor: cursor)
+ iterator = Gitlab::Pagination::Keyset::Iterator.new(scope: scope, cursor: cursor)
 
-  iterator.each_batch(of: 100) do |records|
+ iterator.each_batch(of: 100) do |records|
     loaded_records = records.to_a
 
     loaded_records.each { |record| record.destroy } # Calling destroy so callbacks are invoked
-  end
+ end
 
-  cursor = iterator.send(:cursor) # Store the cursor after this step, for the next job
+ cursor = iterator.send(:cursor) # Store the cursor after this step, for the next job
 end
 ```
 
@@ -453,13 +453,13 @@ This batching technique uses [offset pagination](pagination_guidelines.md#offset
 
 ```ruby
 def perform(project_id)
-  # We have a composite index on (project_id, created_at) columns
-  issues = Issue
+ # We have a composite index on (project_id, created_at) columns
+ issues = Issue
     .where(project_id: project_id)
     .order(:created_at)
     .to_a
 
-  # do something with the issues
+ # do something with the issues
 end
 ```
 
@@ -467,15 +467,15 @@ As the number of issues within the project grows, the query gets slower and even
 
 ```ruby
 def perform(project_id)
-  page = 1
+ page = 1
 
-  loop do
+ loop do
     issues = Issue.where(project_id: project_id).order(:created_at).page(page).to_a
     page +=1
     break if issues.empty?
 
     # do something with the issues
-  end
+ end
 end
 ```
 
@@ -501,7 +501,7 @@ Example: iterate over issues in a group
 group = Group.find(9970)
 
 Issue.where(project_id: group.all_project_ids).each_batch do |scope|
-  # Do something with issues
+ # Do something with issues
 end
 ```
 
@@ -534,14 +534,14 @@ Example batching query:
 
 ```ruby
 Namespace.where('traversal_ids[1] = ?', 9970).where(type: 'Project').each_batch do |project_namespaces|
-  project_ids = Project.where(project_namespace_id: project_namespaces.select(:id)).pluck(:id)
-  cursor = project_namespaces.last.id # For the next job
+ project_ids = Project.where(project_namespace_id: project_namespaces.select(:id)).pluck(:id)
+ cursor = project_namespaces.last.id # For the next job
 
-  project_ids.each do |project_id|
+ project_ids.each do |project_id|
     Issue.where(project_id: project_id).each_batch(column: :iid) do |issues|
       # do something with the issues
     end
-  end
+ end
 end
 ```
 
@@ -568,14 +568,14 @@ iterator = Gitlab::Database::NamespaceEachBatch.new(namespace_class: Namespaces:
 
 # Requires a composite index on (parent_id, id) columns
 iterator.each_batch(of: 100) do |ids, new_cursor|
-  cursor = new_cursor # For the next job, contains the new current_id and depth values
+ cursor = new_cursor # For the next job, contains the new current_id and depth values
 
-  project_ids = Project.where(project_namespace_id: ids)
-  project_ids.each do |project_id|
+ project_ids = Project.where(project_namespace_id: ids)
+ project_ids.each do |project_id|
     Issue.where(project_id: project_id).each_batch(column: :iid) do |issues|
       # do something with the issues
     end
-  end
+ end
 end
 ```
 

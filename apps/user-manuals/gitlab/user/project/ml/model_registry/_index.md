@@ -20,10 +20,7 @@ title: Model registry
 
 {{< /history >}}
 
-A machine learning model registry serves as a centralized repository for managing machine learning
-models throughout their lifecycle. It functions like a specialized database that stores model
-versions along with essential metadata including performance metrics, validation results, and
-data lineage information.
+A machine learning model registry serves as a centralized repository for managing machine learning models throughout their lifecycle. It functions like a specialized database that stores model versions along with essential metadata including performance metrics, validation results, and data lineage information.
 
 Use GitLab model registries to:
 
@@ -37,8 +34,7 @@ For more information about model registry features and capabilities, see [epic 9
 ## Access the model registry
 
 The model registry is controlled by the package registry setting.
-Before using the model registry, make
-sure the [package registry is enabled](../../../../administration/packages/_index.md#enable-or-disable-the-package-registry).
+Before using the model registry, make sure the [package registry is enabled](../../../../administration/packages/_index.md#enable-or-disable-the-package-registry).
 
 To access the model registry, on the left sidebar, select **Deploy** > **Model registry**.
 
@@ -153,8 +149,7 @@ To delete artifacts of a version:
 
 Models and model versions can be created using the [MLflow](https://www.mlflow.org/docs/latest/tracking.html) client compatibility.
 For more information about how to create and manage models and model versions, see [MLflow client compatibility](../experiment_tracking/mlflow_client.md#model-registry).
-You can also create models directly on GitLab by selecting **Create Model**
-on the Model registry page.
+You can also create models directly on GitLab by selecting **Create Model** on the Model registry page.
 
 ### Add artifacts, metrics, and parameters to a model version by using MLflow
 
@@ -167,34 +162,23 @@ Users can log metrics and a parameters of a model version through the MLflow cli
 
 ## Link a model version to a CI/CD job
 
-When creating a model version through a GitLab CI/CD job, you can link the model
-version to the job, giving convenient access to the job's logs, merge request, and pipeline.
+When creating a model version through a GitLab CI/CD job, you can link the model version to the job, giving convenient access to the job's logs, merge request, and pipeline.
 This can be done through the MLflow client compatibility. [View details](../experiment_tracking/mlflow_client.md#linking-a-model-version-to-a-cicd-job).
 
 ## Model versions and semantic versioning
 
 The version of a model version in GitLab must follow [Semantic Version specification](https://semver.org/).
-Using semantic versioning facilitates model deployment, by communicating which
-if a new version can be deployed without changes to the application:
+Using semantic versioning facilitates model deployment, by communicating which if a new version can be deployed without changes to the application:
 
-- **Major (integer)**: A change in the major component signifies a breaking change in the model, and that the application
-  that consumes the model must be updated to properly use this new version.
-  A new algorithm or the addition of a mandatory feature column are examples of breaking
-  changes that would require a bump at the major component.
+- **Major (integer)**: A change in the major component signifies a breaking change in the model, and that the application that consumes the model must be updated to properly use this new version.
+ A new algorithm or the addition of a mandatory feature column are examples of breaking changes that would require a bump at the major component.
 
-- **Minor (integer)**: A change in the minor component signifies a non-breaking change, and that the
-  consumer can safely use the new version without breaking, although the consumer might
-  need to be updated to use its new functionality. For example, adding a non-mandatory
-  feature column with a default value to the model is a minor bump, because when a value for
-  the added column is not passed, inference still works.
+- **Minor (integer)**: A change in the minor component signifies a non-breaking change, and that the consumer can safely use the new version without breaking, although the consumer might need to be updated to use its new functionality. For example, adding a non-mandatory feature column with a default value to the model is a minor bump, because when a value for the added column is not passed, inference still works.
 
-- **Patch (integer)**: A change in the patch component means that a new version is out that does not
-  require any action by the application. For example, a daily retrain of the
-  model does not change the feature set or how the application consumes the
-  model version. Auto updating to a new patch is a safe update.
+- **Patch (integer)**: A change in the patch component means that a new version is out that does not require any action by the application. For example, a daily retrain of the model does not change the feature set or how the application consumes the model version. Auto updating to a new patch is a safe update.
 
 - **Prerelease (text)**: Represents a version that is not yet ready for production use.
-  Used to identify alpha, beta, or release candidate versions of the model.
+ Used to identify alpha, beta, or release candidate versions of the model.
 
 ### Model version examples
 

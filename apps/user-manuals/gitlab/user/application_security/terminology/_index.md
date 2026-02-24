@@ -21,62 +21,43 @@ Software that analyzes a [scan target type](#scan-target-type) for security vuln
 
 CI/CD-based analyzers integrate into GitLab using a CI/CD job. The report produced by the CI/CD-based analyzer is published as an artifact after the job completes. GitLab ingests this report, allowing users to visualize and manage found vulnerabilities. The generated reports adhere to the [secure report format](#secure-report-format).
 
-Many GitLab analyzers follow a standard approach using Docker to run a wrapped scanner. For example,
-the image `semgrep` is an analyzer that wraps the scanner `Semgrep`. However, some analyzers run directly within GitLab Rails or other target environments rather than in separate containers.
+Many GitLab analyzers follow a standard approach using Docker to run a wrapped scanner. For example, the image `semgrep` is an analyzer that wraps the scanner `Semgrep`. However, some analyzers run directly within GitLab Rails or other target environments rather than in separate containers.
 
 ## Attack surface
 
-The different places in an application that are vulnerable to attack. Secure products discover and
-search the attack surface during scans. Each product defines the attack surface differently. For
-example, SAST uses files and line numbers, and DAST uses URLs.
+The different places in an application that are vulnerable to attack. Secure products discover and search the attack surface during scans. Each product defines the attack surface differently. For example, SAST uses files and line numbers, and DAST uses URLs.
 
 ## Component
 
-A software component that makes up a portion of a software project. Examples include libraries, drivers, data, and
-[many more](https://cyclonedx.org/docs/1.5/json/#components_items_type).
+A software component that makes up a portion of a software project. Examples include libraries, drivers, data, and [many more](https://cyclonedx.org/docs/1.5/json/#components_items_type).
 
 ## Corpus
 
-The set of meaningful test cases that are generated while the fuzzer is running. Each meaningful
-test case produces new coverage in the tested program. You should re-use the corpus and pass it
-to subsequent runs.
+The set of meaningful test cases that are generated while the fuzzer is running. Each meaningful test case produces new coverage in the tested program. You should re-use the corpus and pass it to subsequent runs.
 
 ## CNA
 
-[CVE](#cve) Numbering Authorities (CNAs) are organizations from around the world that are authorized by
-the [Mitre Corporation](https://cve.mitre.org/) to assign [CVE](#cve)s to vulnerabilities in products or
-services within their respective scope. [GitLab is a CNA](https://about.gitlab.com/security/cve/).
+[CVE](#cve) Numbering Authorities (CNAs) are organizations from around the world that are authorized by the [Mitre Corporation](https://cve.mitre.org/) to assign [CVE](#cve)s to vulnerabilities in products or services within their respective scope. [GitLab is a CNA](https://about.gitlab.com/security/cve/).
 
 ## CVE
 
-Common Vulnerabilities and Exposures (CVE®) is a list of common identifiers for publicly known
-cybersecurity vulnerabilities. The list is managed by the [Mitre Corporation](https://cve.mitre.org/).
+Common Vulnerabilities and Exposures (CVE®) is a list of common identifiers for publicly known cybersecurity vulnerabilities. The list is managed by the [Mitre Corporation](https://cve.mitre.org/).
 
 ## CVSS
 
-The Common Vulnerability Scoring System (CVSS) is a free and open industry standard for assessing
-the severity of computer system security vulnerabilities.
+The Common Vulnerability Scoring System (CVSS) is a free and open industry standard for assessing the severity of computer system security vulnerabilities.
 
 ## CWE
 
-Common Weakness Enumeration (CWE™) is a community-developed list of common software and hardware
-weakness types that have security ramifications. Weaknesses are flaws, faults, bugs,
-vulnerabilities, or other errors in software or hardware implementation, code, design, or
-architecture. If left unaddressed, weaknesses could result in systems, networks, or hardware being
-vulnerable to attack. The CWE List and associated classification taxonomy serve as a language that
-you can use to identify and describe these weaknesses in terms of CWEs.
+Common Weakness Enumeration (CWE™) is a community-developed list of common software and hardware weakness types that have security ramifications. Weaknesses are flaws, faults, bugs, vulnerabilities, or other errors in software or hardware implementation, code, design, or architecture. If left unaddressed, weaknesses could result in systems, networks, or hardware being vulnerable to attack. The CWE List and associated classification taxonomy serve as a language that you can use to identify and describe these weaknesses in terms of CWEs.
 
 ## Deduplication
 
-When a category's process deems findings to be the same, or if they are similar enough that a noise reduction is
-required, only one finding is kept and the others are eliminated. Read more about the [deduplication process](../detect/vulnerability_deduplication.md).
+When a category's process deems findings to be the same, or if they are similar enough that a noise reduction is required, only one finding is kept and the others are eliminated. Read more about the [deduplication process](../detect/vulnerability_deduplication.md).
 
 ## Dependency graph export
 
-A dependency graph export lists the direct and indirect dependencies used by a project and
-includes the relationships between them. It's differentiated from a lock file because it may
-not be required by a [package manager](#package-managers) during installation like in the case of a `pipdeptree graph`
-[export](https://github.com/tox-dev/pipdeptree/blob/28ed57c8e96ed1fce13a7abbf167e850625a835c/README.md#visualizing-the-dependency-graph).
+A dependency graph export lists the direct and indirect dependencies used by a project and includes the relationships between them. It's differentiated from a lock file because it may not be required by a [package manager](#package-managers) during installation like in the case of a `pipdeptree graph` [export](https://github.com/tox-dev/pipdeptree/blob/28ed57c8e96ed1fce13a7abbf167e850625a835c/README.md#visualizing-the-dependency-graph).
 
 ## Dependency version conflict
 
@@ -87,8 +68,7 @@ Consider the following:
 - Dependency X requires `packageA` at exactly version 1.0.0
 - Dependency Y requires `packageA` version 1.0.1 or higher
 
-In this example, no version of `packageA` can satisfy both constraints, resulting in a dependency
-version conflict.
+In this example, no version of `packageA` can satisfy both constraints, resulting in a dependency version conflict.
 
 ## Dependency version incompatibility
 
@@ -104,9 +84,7 @@ However, `packageA` version `1.0.1` does satisfy the constraint.
 
 ## Duplicate finding
 
-A legitimate finding that is reported multiple times. This can occur when different scanners
-discover the same finding, or when a single scan inadvertently reports the same finding more than
-once.
+A legitimate finding that is reported multiple times. This can occur when different scanners discover the same finding, or when a single scan inadvertently reports the same finding more than once.
 
 ## False positive
 
@@ -114,9 +92,7 @@ A finding that doesn't exist but is incorrectly reported as existing.
 
 ## Finding
 
-An asset that has the potential to be vulnerable, identified in a project by an analyzer. Assets
-include but are not restricted to source code, binary packages, containers, dependencies, networks,
-applications, and infrastructure.
+An asset that has the potential to be vulnerable, identified in a project by an analyzer. Assets include but are not restricted to source code, binary packages, containers, dependencies, networks, applications, and infrastructure.
 
 Findings are all potential vulnerability items scanners identify in MRs/feature branches. Only after merging to default does a finding become a [vulnerability](#vulnerability).
 
@@ -127,9 +103,7 @@ You can interact with vulnerability findings in two ways.
 
 ## Grouping
 
-A flexible and non-destructive way to visually organize vulnerabilities in groups when there are multiple findings
-that are likely related but do not qualify for deduplication. For example, you can include findings that should be
-evaluated together, would be fixed by the same action, or come from the same source.
+A flexible and non-destructive way to visually organize vulnerabilities in groups when there are multiple findings that are likely related but do not qualify for deduplication. For example, you can include findings that should be evaluated together, would be fixed by the same action, or come from the same source.
 
 ## Identifier
 
@@ -143,21 +117,15 @@ A legitimate finding that a particular customer doesn't care about.
 
 ## Known affected component
 
-A component that matches the requirements for a vulnerability to be exploitable. For example,
-`packageA@1.0.3` matches the name, package type, and one of the affected versions or version
-ranges of `FAKECVE-2023-0001`.
+A component that matches the requirements for a vulnerability to be exploitable. For example, `packageA@1.0.3` matches the name, package type, and one of the affected versions or version ranges of `FAKECVE-2023-0001`.
 
 ## Location fingerprint
 
-A finding's location fingerprint is a text value that's unique for each location on the attack
-surface. Each security product defines this according to its type of attack surface. For example, SAST
-incorporates file path and line number.
+A finding's location fingerprint is a text value that's unique for each location on the attack surface. Each security product defines this according to its type of attack surface. For example, SAST incorporates file path and line number.
 
 ## Lock file
 
-A lock file exhaustively lists both the direct and indirect dependencies of an application to ensure reproducible builds
-by a package manager. It may also be a [dependency graph export](#dependency-graph-export) like in the case of a
-`Gemfile.lock` file, but listing dependency relationships is not a requirement or guaranteed.
+A lock file exhaustively lists both the direct and indirect dependencies of an application to ensure reproducible builds by a package manager. It may also be a [dependency graph export](#dependency-graph-export) like in the case of a `Gemfile.lock` file, but listing dependency relationships is not a requirement or guaranteed.
 
 ## Package managers and package types
 
@@ -174,40 +142,25 @@ Each package manager, platform, type, or ecosystem has its own conventions and p
 The following table is a non-exhaustive list of some of the package managers and types referenced in GitLab documentation and software tools.
 
 <style>
-table.package-managers-and-types tr:nth-child(even) {
-    background-color: transparent;
-}
+table.package-managers-and-types tr:nth-child(even) { background-color: transparent; }
 
-table.package-managers-and-types td {
-    border-left: 1px solid #dbdbdb;
-    border-right: 1px solid #dbdbdb;
-    border-bottom: 1px solid #dbdbdb;
-}
+table.package-managers-and-types td { border-left: 1px solid #dbdbdb; border-right: 1px solid #dbdbdb; border-bottom: 1px solid #dbdbdb; }
 
-table.package-managers-and-types tr td:first-child {
-    border-left: 0;
-}
+table.package-managers-and-types tr td:first-child { border-left: 0; }
 
-table.package-managers-and-types tr td:last-child {
-    border-right: 0;
-}
+table.package-managers-and-types tr td:last-child { border-right: 0; }
 
-table.package-managers-and-types ul {
-    font-size: 1em;
-    list-style-type: none;
-    padding-left: 0px;
-    margin-bottom: 0px;
-}
+table.package-managers-and-types ul { font-size: 1em; list-style-type: none; padding-left: 0px; margin-bottom: 0px; }
 </style>
 
 <table class="package-managers-and-types">
-  <thead>
+ <thead>
     <tr>
       <th>Package Type</th>
       <th>Package Manager</th>
     </tr>
-  </thead>
-  <tbody>
+ </thead>
+ <tbody>
     <tr>
       <td>gem</td>
       <td><a href="https://bundler.io/">Bundler</a></td>
@@ -258,7 +211,7 @@ table.package-managers-and-types ul {
     <tr>
       <td><a href="https://python-poetry.org/">Poetry</a></td>
     </tr>
-  </tbody>
+ </tbody>
 </table>
 
 ## Pipeline Security tab
@@ -267,26 +220,19 @@ A page that displays findings discovered in the associated CI pipeline.
 
 ## Possibly affected component
 
-A software component that is possibly affected by vulnerability. For example, when scanning a
-project for known vulnerabilities, components are first evaluated to see if they match the name
-and [package type](https://github.com/package-url/purl-spec/blob/master/PURL-TYPES.rst).
+A software component that is possibly affected by vulnerability. For example, when scanning a project for known vulnerabilities, components are first evaluated to see if they match the name and [package type](https://github.com/package-url/purl-spec/blob/master/PURL-TYPES.rst).
 During this stage, they're possibly affected by the vulnerability, and are only [known to be affected](#known-affected-component)
 after it's confirmed that they fall in the affected version range.
 
 ## Post-filter
 
-Post-filters help reduce noise in the scanner results and automate manual tasks. You can specify criteria that updates
-or modifies vulnerability data based on scanner results. For example, you can flag findings as likely false positives
-and automatically resolve vulnerabilities that are no longer detected. These are not permanent actions and can be changed.
+Post-filters help reduce noise in the scanner results and automate manual tasks. You can specify criteria that updates or modifies vulnerability data based on scanner results. For example, you can flag findings as likely false positives and automatically resolve vulnerabilities that are no longer detected. These are not permanent actions and can be changed.
 
-Support for automatically resolving findings is tracked in [epic 7478](https://gitlab.com/groups/gitlab-org/-/epics/7478) and
-support for cheap scan is proposed in [epic 7886](https://gitlab.com/groups/gitlab-org/-/epics/7886).
+Support for automatically resolving findings is tracked in [epic 7478](https://gitlab.com/groups/gitlab-org/-/epics/7478) and support for cheap scan is proposed in [epic 7886](https://gitlab.com/groups/gitlab-org/-/epics/7886).
 
 ## Pre-filter
 
-An irreversible action that is done to filter out targets before analysis occurs. This is usually provided to allow
-the user to reduce scope and noise and speed up the analysis. This should not be done if a record is needed as
-GitLab doesn't store anything related to the skipped/excluded code or assets.
+An irreversible action that is done to filter out targets before analysis occurs. This is usually provided to allow the user to reduce scope and noise and speed up the analysis. This should not be done if a record is needed as GitLab doesn't store anything related to the skipped/excluded code or assets.
 
 Examples: `DS_EXCLUDED_PATHS` should `Exclude files and directories from the scan based on the paths provided.`
 
@@ -313,8 +259,7 @@ Reachability indicates whether a [component](#component) listed as a dependency 
 
 ## Report finding
 
-A [finding](#finding) that only exists in a report produced by an analyzer, and is yet to be
-persisted to the database. The report finding becomes a [vulnerability finding](#vulnerability-finding)
+A [finding](#finding) that only exists in a report produced by an analyzer, and is yet to be persisted to the database. The report finding becomes a [vulnerability finding](#vulnerability-finding)
 once it's imported into the database.
 
 ## Scan type (report type)
@@ -341,18 +286,15 @@ Software that scans for security vulnerabilities in a scan target (an instance o
 
 ## Secure product
 
-A group of features related to a specific area of application security with first-class support by
-GitLab.
+A group of features related to a specific area of application security with first-class support by GitLab.
 
-Products include container scanning, dependency scanning, dynamic application security
-testing (DAST), secret detection, static application security testing (SAST), and fuzz testing.
+Products include container scanning, dependency scanning, dynamic application security testing (DAST), secret detection, static application security testing (SAST), and fuzz testing.
 
 Each of these products typically include one or more analyzers.
 
 ## Secure report format
 
-A standard report format that Secure products comply with when creating JSON reports. The format is described by a
-[JSON schema](https://gitlab.com/gitlab-org/security-products/security-report-schemas).
+A standard report format that Secure products comply with when creating JSON reports. The format is described by a [JSON schema](https://gitlab.com/gitlab-org/security-products/security-report-schemas).
 
 ## Security dashboard
 
@@ -361,22 +303,15 @@ Vulnerabilities are only created from findings discovered on the project's defau
 
 ## Seed corpus
 
-The set of test cases given as initial input to the fuzz target. This usually speeds up the fuzz
-target substantially. This can be either manually created test cases or auto-generated with the fuzz
-target itself from previous runs.
+The set of test cases given as initial input to the fuzz target. This usually speeds up the fuzz target substantially. This can be either manually created test cases or auto-generated with the fuzz target itself from previous runs.
 
 ## Vendor
 
-The party maintaining an analyzer. As such, a vendor is responsible for integrating a scanner into
-GitLab and keeping it compatible as they evolve. A vendor isn't necessarily the author or maintainer
-of the scanner, as in the case of using an open core or OSS project as a base solution of an
-offering. For scanners included as part of a GitLab distribution or GitLab subscription, the vendor
-is listed as GitLab.
+The party maintaining an analyzer. As such, a vendor is responsible for integrating a scanner into GitLab and keeping it compatible as they evolve. A vendor isn't necessarily the author or maintainer of the scanner, as in the case of using an open core or OSS project as a base solution of an offering. For scanners included as part of a GitLab distribution or GitLab subscription, the vendor is listed as GitLab.
 
 ## Vulnerability
 
-A flaw that has a negative impact on the security of its environment. Vulnerabilities describe the
-error or weakness, and don't describe where the error is located (see [finding](#finding)).
+A flaw that has a negative impact on the security of its environment. Vulnerabilities describe the error or weakness, and don't describe where the error is located (see [finding](#finding)).
 
 Each vulnerability maps to a unique finding.
 
@@ -384,14 +319,11 @@ Vulnerabilities exist in the default branch. Findings (see [finding](#finding)) 
 
 ## Vulnerability finding
 
-When a [report finding](#report-finding) is stored to the database, it becomes a vulnerability
-[finding](#finding).
+When a [report finding](#report-finding) is stored to the database, it becomes a vulnerability [finding](#finding).
 
 ## Vulnerability tracking
 
-Deals with the responsibility of matching findings across scans so that a finding's lifecycle can
-be understood. Engineers and security teams use this information to decide whether to merge code
-changes, and to see unresolved findings and when they were introduced.
+Deals with the responsibility of matching findings across scans so that a finding's lifecycle can be understood. Engineers and security teams use this information to decide whether to merge code changes, and to see unresolved findings and when they were introduced.
 
 Vulnerabilities are tracked by comparing the location fingerprint, primary identifier, and report type.
 

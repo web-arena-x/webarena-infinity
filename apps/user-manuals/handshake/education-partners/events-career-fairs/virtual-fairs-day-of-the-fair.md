@@ -17,8 +17,8 @@ On the day of the fair, there will be a banner across the top of your homepage d
 ### Have your resources ready
 
 - Get familiar with the [Session Details page](https://support.joinhandshake.com/hc/en-us/articles/360053520554) - this will help you see employer 1:1 preference settings (which can exclude some students from signing up).
-- Send relevant resources ahead of time for testing network connection and video/audio settings  
-  - <https://network-test.daily.co/index.html>
+- Send relevant resources ahead of time for testing network connection and video/audio settings 
+ - <https://network-test.daily.co/index.html>
 - [Virtual Fair Launch Kit](https://learn.joinhandshake.com/virtual-fair-launch-kit/) resources: email templates, blogs, help articles, promotional materials.
 - [Virtual Fairs: Support Options](https://support.joinhandshake.com/hc/en-us/articles/360049792714)
 - [Handshake's Status Page](https://status.joinhandshake.com/)
@@ -33,14 +33,14 @@ On the day of the fair, there will be a banner across the top of your homepage d
 
 - For students and employers to test network connections: <https://network-test.daily.co/index.html>
 - For employer support:
-  - [Virtual Fairs: Supporting Employers](https://support.joinhandshake.com/hc/en-us/articles/360049480714)
-  - [Video Requirements for Employers at Virtual Fairs](https://support.joinhandshake.com/hc/en-us/articles/360051802973)
-  - Check out our [Handshake Video Test](https://support.joinhandshake.com/hc/en-us/articles/360055116693) guide - this is available for both Career Services users and employers!
+ - [Virtual Fairs: Supporting Employers](https://support.joinhandshake.com/hc/en-us/articles/360049480714)
+ - [Video Requirements for Employers at Virtual Fairs](https://support.joinhandshake.com/hc/en-us/articles/360051802973)
+ - Check out our [Handshake Video Test](https://support.joinhandshake.com/hc/en-us/articles/360055116693) guide - this is available for both Career Services users and employers!
 - For student support:
-  - [Virtual Fairs: Supporting Students](https://support.joinhandshake.com/hc/en-us/articles/360051037214)
-  - [Video Requirements for Students at Virtual Fairs](https://support.joinhandshake.com/hc/en-us/articles/360051037914)
-  - [Reporting an Issue at a Virtual Fair](https://support.joinhandshake.com/hc/en-us/articles/360052165133) (students)
-  - [Profile Privacy Options in Handshake](https://support.joinhandshake.com/hc/en-us/articles/115007281988)
+ - [Virtual Fairs: Supporting Students](https://support.joinhandshake.com/hc/en-us/articles/360051037214)
+ - [Video Requirements for Students at Virtual Fairs](https://support.joinhandshake.com/hc/en-us/articles/360051037914)
+ - [Reporting an Issue at a Virtual Fair](https://support.joinhandshake.com/hc/en-us/articles/360052165133) (students)
+ - [Profile Privacy Options in Handshake](https://support.joinhandshake.com/hc/en-us/articles/115007281988)
 
 ### Trust & Safety
 
@@ -54,7 +54,7 @@ On the day of the fair, there will be a banner across the top of your homepage d
 
 - Employers are able to access/launch sessions 1 hour early for testing purposes.
 - Students (attendees) can access 5 minutes early for testing purposes.
-  - **Note**: Students must be signed up for a session in order to join!
+ - **Note**: Students must be signed up for a session in order to join!
 - Employers and students can cancel sessions on the day of the fair, but we will confirm with them that they would like to cancel on short notice.
 
 ![article_7.2.b..png](https://support.joinhandshake.com/hc/article_attachments/25997308897815)
@@ -81,7 +81,7 @@ On the day of the fair, there will be a banner across the top of your homepage d
 ### Reporting on fair interactions
 
 - **Career Centers are able to report on session signups, attendance, no-shows, and more via Quick Downloads and Analytics.**
-  - ****Note**: Analytics data will upload that night following the fair and be available for reporting the next day!**
+ - ****Note**: Analytics data will upload that night following the fair and be available for reporting the next day!**
 
 **For more detailed information on followups and reporting, please refer to [Virtual Fairs: Post Fair Reports & Session Info](https://support.joinhandshake.com/hc/en-us/articles/360049998814).**
 

@@ -24,40 +24,7 @@ Legend:
 
 🟣 Admins can only manage team settings for public teams or private teams they are a member of
 
-**Action** | **Workspace Owner** | **Admin**
---- | --- | ---
-**Workspace configuration** |  | 
-Change workspace name, icon, enable/disable features at workspace level | ✅ | ❌
-Delete workspace | ✅ | ❌
-Restrict workspace creation | ✅ | ❌
-**Security & compliance** |  | 
-Manage security settings | ✅ | ❌
-View audit log | ✅ | ❌
-Manage OAuth app approvals | ✅ | ❌
-**User & access management** |  | 
-Invite users | ✅ | 🟨
-Promote or demote members to admin | ✅ | ✅
-Promote or demote admins to owners | ✅ | ❌
-**Team management** |  | 
-Create and delete teams | ✅ | ✅
-Manage all public teams | ✅ | ✅
-Manage all private teams | ✅ | 🟣
-Manage Triage Rules | ✅ | 🟣
-**Integrations and API** |  | 
-Enable and disconnect integrations | ✅ | ✅
-Manage API settings | ✅ | 🟨
-Create webhooks | ✅ | 🟨
-Create OAuth apps | ✅ | 🟨
-**Workflows** |  | 
-Manage Labels | ✅ | 🟨
-Manage Project Statuses | ✅ | ✅
-Manage SLA settings | ✅ | ✅
-Manage AI settings | ✅ | ✅
-Manage Customer Requests | ✅ | ✅
-**Data & billing** |  | 
-Billing | ✅ | ❌
-Workspace imports | ✅ | 🟨
-Workspace exports | ✅ | ❌
+**Action** | **Workspace Owner** | **Admin** --- | --- | --- **Workspace configuration** | | Change workspace name, icon, enable/disable features at workspace level | ✅ | ❌ Delete workspace | ✅ | ❌ Restrict workspace creation | ✅ | ❌ **Security & compliance** | | Manage security settings | ✅ | ❌ View audit log | ✅ | ❌ Manage OAuth app approvals | ✅ | ❌ **User & access management** | | Invite users | ✅ | 🟨 Promote or demote members to admin | ✅ | ✅ Promote or demote admins to owners | ✅ | ❌ **Team management** | | Create and delete teams | ✅ | ✅ Manage all public teams | ✅ | ✅ Manage all private teams | ✅ | 🟣 Manage Triage Rules | ✅ | 🟣 **Integrations and API** | | Enable and disconnect integrations | ✅ | ✅ Manage API settings | ✅ | 🟨 Create webhooks | ✅ | 🟨 Create OAuth apps | ✅ | 🟨 **Workflows** | | Manage Labels | ✅ | 🟨 Manage Project Statuses | ✅ | ✅ Manage SLA settings | ✅ | ✅ Manage AI settings | ✅ | ✅ Manage Customer Requests | ✅ | ✅ **Data & billing** | | Billing | ✅ | ❌ Workspace imports | ✅ | 🟨 Workspace exports | ✅ | ❌
 
 ## Managing admin and owner roles with SCIM
 

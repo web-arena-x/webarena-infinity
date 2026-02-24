@@ -5,13 +5,11 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Gotchas
 ---
 
-The purpose of this guide is to document potential "gotchas" that contributors
-might encounter or should avoid during development of GitLab CE and EE.
+The purpose of this guide is to document potential "gotchas" that contributors might encounter or should avoid during development of GitLab CE and EE.
 
 ## Do not read files from app/assets directory
 
-Omnibus GitLab has [dropped the `app/assets` directory](https://gitlab.com/gitlab-org/omnibus-gitlab/-/merge_requests/2456),
-after asset compilation. The `ee/app/assets`, `vendor/assets` directories are dropped as well.
+Omnibus GitLab has [dropped the `app/assets` directory](https://gitlab.com/gitlab-org/omnibus-gitlab/-/merge_requests/2456), after asset compilation. The `ee/app/assets`, `vendor/assets` directories are dropped as well.
 
 This means that reading files from that directory fails in Omnibus-installed GitLab instances:
 
@@ -29,9 +27,9 @@ Consider the following factory:
 
 ```ruby
 FactoryBot.define do
-  factory :label do
+ factory :label do
     sequence(:title) { |n| "label#{n}" }
-  end
+ end
 end
 ```
 
@@ -41,23 +39,23 @@ Consider the following API spec:
 require 'spec_helper'
 
 RSpec.describe API::Labels do
-  it 'creates a first label' do
+ it 'creates a first label' do
     create(:label)
 
     get api("/projects/#{project.id}/labels", user)
 
     expect(response).to have_gitlab_http_status(:ok)
     expect(json_response.first['name']).to eq('label1')
-  end
+ end
 
-  it 'creates a second label' do
+ it 'creates a second label' do
     create(:label)
 
     get api("/projects/#{project.id}/labels", user)
 
     expect(response).to have_gitlab_http_status(:ok)
     expect(json_response.first['name']).to eq('label1')
-  end
+ end
 end
 ```
 
@@ -75,16 +73,13 @@ When run, this spec doesn't do what we might expect:
 
 This is because FactoryBot sequences are not reset for each example.
 
-Remember that sequence-generated values exist only to avoid having to
-explicitly set attributes that have a uniqueness constraint when using a factory.
+Remember that sequence-generated values exist only to avoid having to explicitly set attributes that have a uniqueness constraint when using a factory.
 
 ### Solution
 
-If you assert against a sequence-generated attribute's value, you should set it
-explicitly. Also, the value you set shouldn't match the sequence pattern.
+If you assert against a sequence-generated attribute's value, you should set it explicitly. Also, the value you set shouldn't match the sequence pattern.
 
-For instance, using our `:label` factory, writing `create(:label, title: 'foo')`
-is ok, but `create(:label, title: 'label1')` is not.
+For instance, using our `:label` factory, writing `create(:label, title: 'foo')` is ok, but `create(:label, title: 'label1')` is not.
 
 Following is the fixed API spec:
 
@@ -92,23 +87,23 @@ Following is the fixed API spec:
 require 'spec_helper'
 
 RSpec.describe API::Labels do
-  it 'creates a first label' do
+ it 'creates a first label' do
     create(:label, title: 'foo')
 
     get api("/projects/#{project.id}/labels", user)
 
     expect(response).to have_gitlab_http_status(:ok)
     expect(json_response.first['name']).to eq('foo')
-  end
+ end
 
-  it 'creates a second label' do
+ it 'creates a second label' do
     create(:label, title: 'bar')
 
     get api("/projects/#{project.id}/labels", user)
 
     expect(response).to have_gitlab_http_status(:ok)
     expect(json_response.first['name']).to eq('bar')
-  end
+ end
 end
 ```
 
@@ -117,14 +112,12 @@ end
 ### Why
 
 - Because it is not isolated therefore it might be broken at times.
-- Because it doesn't work whenever the method we want to stub was defined
-  in a prepended module, which is very likely the case in EE. We could see
-  error like this:
+- Because it doesn't work whenever the method we want to stub was defined in a prepended module, which is very likely the case in EE. We could see error like this:
 
-  ```plaintext
-  1.1) Failure/Error: expect_any_instance_of(ApplicationSetting).to receive_messages(messages)
+ ```plaintext
+ 1.1) Failure/Error: expect_any_instance_of(ApplicationSetting).to receive_messages(messages)
        Using `any_instance` to stub a method (elasticsearch_indexing) that has been defined on a prepended module (EE::ApplicationSetting) is not supported.
-  ```
+ ```
 
 ### Alternatives
 
@@ -150,47 +143,45 @@ We could write:
 ```ruby
 # Do this:
 expect_next_instance_of(Project) do |project|
-  expect(project).to receive(:add_import_job)
+ expect(project).to receive(:add_import_job)
 end
 
 # Do this:
 allow_next_instance_of(Project) do |project|
-  allow(project).to receive(:add_import_job)
+ allow(project).to receive(:add_import_job)
 end
 
 # Do this:
 expect_next_found_instance_of(Project) do |project|
-  expect(project).to receive(:add_import_job)
+ expect(project).to receive(:add_import_job)
 end
 
 # Do this:
 allow_next_found_instance_of(Project) do |project|
-  allow(project).to receive(:add_import_job)
+ allow(project).to receive(:add_import_job)
 end
 ```
 
-Since Active Record is not calling the `.new` method on model classes to instantiate the objects,
-you should use `expect_next_found_instance_of` or `allow_next_found_instance_of` mock helpers to set up mock on objects returned by Active Record query & finder methods._
+Since Active Record is not calling the `.new` method on model classes to instantiate the objects, you should use `expect_next_found_instance_of` or `allow_next_found_instance_of` mock helpers to set up mock on objects returned by Active Record query & finder methods._
 
 It is also possible to set mocks and expectations for multiple instances of the same Active Record model by using the `expect_next_found_(number)_instances_of` and `allow_next_found_(number)_instances_of` helpers, like so;
 
 ```ruby
 expect_next_found_2_instances_of(Project) do |project|
-  expect(project).to receive(:add_import_job)
+ expect(project).to receive(:add_import_job)
 end
 
 allow_next_found_2_instances_of(Project) do |project|
-  allow(project).to receive(:add_import_job)
+ allow(project).to receive(:add_import_job)
 end
 ```
 
-If we also want to initialize the instance with some particular arguments, we
-could also pass it like:
+If we also want to initialize the instance with some particular arguments, we could also pass it like:
 
 ```ruby
 # Do this:
 expect_next_instance_of(MergeRequests::RefreshService, project, user) do |refresh_service|
-  expect(refresh_service).to receive(:execute).with(oldrev, newrev, ref)
+ expect(refresh_service).to receive(:execute).with(oldrev, newrev, ref)
 end
 ```
 
@@ -210,8 +201,7 @@ This rule is [enforced automatically by RuboCop](https://gitlab.com/gitlab-org/g
 
 ## Do not use inline JavaScript in views
 
-Using the inline `:javascript` Haml filters comes with a
-performance overhead. Using inline JavaScript is not a good way to structure your code and should be avoided.
+Using the inline `:javascript` Haml filters comes with a performance overhead. Using inline JavaScript is not a good way to structure your code and should be avoided.
 
 We've [removed these two filters](https://gitlab.com/gitlab-org/gitlab/-/blob/master/config/initializers/hamlit.rb)
 in an initializer.
@@ -253,11 +243,9 @@ MR for reference: [!37671](https://gitlab.com/gitlab-org/gitlab/-/merge_requests
 
 ## Do not override `has_many through:` or `has_one through:` associations
 
-Associations with the `:through` option should not be overridden as we could accidentally
-destroy the wrong object.
+Associations with the `:through` option should not be overridden as we could accidentally destroy the wrong object.
 
-This is because the `destroy()` method behaves differently when acting on
-`has_many through:` and `has_one through:` associations.
+This is because the `destroy()` method behaves differently when acting on `has_many through:` and `has_one through:` associations.
 
 ```ruby
 group.users.destroy(id)
@@ -267,9 +255,9 @@ The code example above reads as if we are destroying a `User` record, but behind
 
 ```ruby
 class Group < Namespace
-  has_many :group_members, -> { where(requested_at: nil).where.not(members: { access_level: Gitlab::Access::MINIMAL_ACCESS }) }, dependent: :destroy, as: :source
+ has_many :group_members, -> { where(requested_at: nil).where.not(members: { access_level: Gitlab::Access::MINIMAL_ACCESS }) }, dependent: :destroy, as: :source
 
-  has_many :users, through: :group_members
+ has_many :users, through: :group_members
 end
 ```
 
@@ -283,13 +271,13 @@ Now, if we override the `users` association, so like:
 
 ```ruby
 class Group < Namespace
-  has_many :group_members, -> { where(requested_at: nil).where.not(members: { access_level: Gitlab::Access::MINIMAL_ACCESS }) }, dependent: :destroy, as: :source
+ has_many :group_members, -> { where(requested_at: nil).where.not(members: { access_level: Gitlab::Access::MINIMAL_ACCESS }) }, dependent: :destroy, as: :source
 
-  has_many :users, through: :group_members
+ has_many :users, through: :group_members
 
-  def users
+ def users
     super.where(admin: false)
-  end
+ end
 end
 ```
 
@@ -302,7 +290,6 @@ group.users.destroy(id)
 a `User` record will be deleted, which can lead to data loss.
 
 In short, overriding a `has_many through:` or `has_one through:` association can prove dangerous.
-To prevent this from happening, we are introducing an
-automated check in [!131455](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/131455).
+To prevent this from happening, we are introducing an automated check in [!131455](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/131455).
 
 For more information, see [issue 424536](https://gitlab.com/gitlab-org/gitlab/-/issues/424536).

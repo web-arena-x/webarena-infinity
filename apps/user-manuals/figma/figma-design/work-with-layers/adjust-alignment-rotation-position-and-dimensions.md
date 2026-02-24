@@ -41,7 +41,7 @@ Use the alignment controls in the right sidebar to align an object to its parent
 
 Alternatively, use keyboard shortcuts:
 
-|  |  |
+| | |
 | --- | --- |
 | **Action** | **Keyboard shortcut** |
 | Align top | `Alt``W` |
@@ -124,7 +124,7 @@ The main purpose of the tidy up function is to arrange layers so they [meet both
 - Distribute will only set a uniform distance between layers, it doesn't require layers to overlap on either axis. Tidy up will perform both, if required.
 - Tidy up lets you align objects along both axis at the same time. Distribute only works along one axis at a time: distribute horizontal spacing or distribute vertical spacing.
 
-For both distribute and tidy up, Figma will show the space between in the  or  field. This is based on the most common space between value (the mode).
+For both distribute and tidy up, Figma will show the space between in the or field. This is based on the most common space between value (the mode).
 
 Note: If you have **Snap to pixel grid** enabled, you may see subtle discrepancies in spacing between layers. Figma will allow up to 1px of rounding.
 
@@ -167,9 +167,9 @@ Every layer in the canvas will have its own dimensions. To view a layer's dimens
 
 Select a layer to make changes to a layer's dimensions. There are then a few methods:
 
-- To adjust the **width** of a layer: hover over the layer's left or right bounds until the  appears. Click and drag to resize.
-- To adjust the **height** of a layer: hover over the layer's top or bottom bounds until the  appears. Click and drag to resize.
-- To adjust both the **width** and **height** of a layer: hover over any corner of the layer's bounds until the  appears. Click and drag to resize.
+- To adjust the **width** of a layer: hover over the layer's left or right bounds until the appears. Click and drag to resize.
+- To adjust the **height** of a layer: hover over the layer's top or bottom bounds until the appears. Click and drag to resize.
+- To adjust both the **width** and **height** of a layer: hover over any corner of the layer's bounds until the appears. Click and drag to resize.
 - Adjust both the `W` and `H` fields in the right sidebar.
 
 Tip: Create fixed layers and control how layers respond as you resize them with constraints. Learn how to use [constraints](https://help.figma.com/hc/en-us/articles/360039957734).
@@ -178,9 +178,9 @@ Tip: Create fixed layers and control how layers respond as you resize them with 
 
 Locking the aspect ratio of a layer allows you to maintain its width to height ratio whenever the layer is resized.
 
-To enable this setting, select a layer and click  **Lock aspect ratio** in the **Layout** or **Auto layout** section of the right sidebar. You can resize the layer from the canvas or using either the `W` and `H` fields in the right sidebar. If you update either of the `W` and `H` fields, Figma will update the other accordingly.
+To enable this setting, select a layer and click **Lock aspect ratio** in the **Layout** or **Auto layout** section of the right sidebar. You can resize the layer from the canvas or using either the `W` and `H` fields in the right sidebar. If you update either of the `W` and `H` fields, Figma will update the other accordingly.
 
-To turn this off, select the layer and click  **Lock aspect ratio** again.
+To turn this off, select the layer and click **Lock aspect ratio** again.
 
 ![](https://help.figma.com/hc/article_attachments/29799649008791)
 
@@ -217,11 +217,11 @@ Tip! You can animate layers rotating between frames in your prototypes. Learn ho
 Find the rotation field at the top of the **Design** panel in the right sidebar.
 
 1. Select the layer you want to rotate.
-2. In the right sidebar, use the  field to enter your desired rotation.
+2. In the right sidebar, use the field to enter your desired rotation.
 
 ### Canvas
 
-1. Hover just outside one of the layer's bounds until the  icon appears.
+1. Hover just outside one of the layer's bounds until the icon appears.
 2. Click and drag to rotate your selection:
    - Drag clockwise to create a negative angle (towards `-180°` ).
    - Drag counterclockwise to create a positive angle (towards `180°` )
@@ -276,51 +276,51 @@ There are a few ways to adjust a layer's order.
 
 - 1 
 
-  ### Layers panel
+ ### Layers panel
 
-  Adjust the order of the layer by changing the layer's position in the **Layers** panel.
+ Adjust the order of the layer by changing the layer's position in the **Layers** panel.
 
-  1. Open the **Layers** panel in the left sidebar.
-  2. Click and drag the layer to change it's position in the layer hierarchy:
+ 1. Open the **Layers** panel in the left sidebar.
+ 2. Click and drag the layer to change it's position in the layer hierarchy:
      - Move the layer up to bring the layer forward
      - Move the layer down to send the layer back
-  3. Release to apply.
+ 3. Release to apply.
 
-  Note: Layer order works the opposite way inside an auto layout frame. This is because auto layout wasn't designed to support layers that overlap.
+ Note: Layer order works the opposite way inside an auto layout frame. This is because auto layout wasn't designed to support layers that overlap.
 
-  If you change the order of layers in an auto layout frame, this will change the position and order of the layer within the the frame. Outside of an auto layout frame, changing the layer order won't affect a layer's position on the `X` or `Y` axes.
+ If you change the order of layers in an auto layout frame, this will change the position and order of the layer within the the frame. Outside of an auto layout frame, changing the layer order won't affect a layer's position on the `X` or `Y` axes.
 
-  [Learn more about using auto layout.](https://help.figma.com/hc/en-us/articles/360040451373)
+ [Learn more about using auto layout.](https://help.figma.com/hc/en-us/articles/360040451373)
 - 2 
 
-  ### Keyboard shortcuts
+ ### Keyboard shortcuts
 
-  Bring forward:
+ Bring forward:
 
-  - Mac: `⌘Command` `]`
-  - Windows: `Ctrl` `]`
+ - Mac: `⌘Command` `]`
+ - Windows: `Ctrl` `]`
 
-  Bring to front:
+ Bring to front:
 
-  - Mac: `⌘ Command` `⌥ Option` `]`
-  - Windows: `Ctrl` `Shift` `]`
+ - Mac: `⌘ Command` `⌥ Option` `]`
+ - Windows: `Ctrl` `Shift` `]`
 
-  Send backward:
+ Send backward:
 
-  - Mac: `⌘ Command` `[`
-  - Windows: `Ctrl` `[`
+ - Mac: `⌘ Command` `[`
+ - Windows: `Ctrl` `[`
 
-  Send to back:
+ Send to back:
 
-  - Mac: `⌘ Command` `⌥ Option` `[`
-  - Windows: `Ctrl` `Shift` `[`
+ - Mac: `⌘ Command` `⌥ Option` `[`
+ - Windows: `Ctrl` `Shift` `[`
 - 3 
 
-  ### Right-click menu
+ ### Right-click menu
 
-  1. Select the layer(s) in the canvas.
-  2. Right-click on the selection to open the context menu:
-  3. Choose from:  
+ 1. Select the layer(s) in the canvas.
+ 2. Right-click on the selection to open the context menu:
+ 3. Choose from: 
      - Bring forward
      - Bring to front
      - Send backward

@@ -40,7 +40,7 @@ Images might display differently from what you're expecting, but that might be d
 * If your header displays larger and your logo image displays smaller than you're expecting, then it might be due to whitespace in the logo image file. Whitespace in the logo image file can cause the logo to display smaller and your header might display larger due to the whitespace. Edit the image file to verify it's cropped around the logo and there is no whitespace.
 * If your slideshow image is being cropped, then this is by design to verify that the images display the same on mobile as on desktop. Because content displays much smaller on a mobile screen, there is a lot of detail that can be lost by shrinking the content. Instead, the content is cropped to verify that the details aren't lost. A portrait image, which is taller than it is wide, can also take up significant space on desktop. This is why slideshow images have a maximum height. You can [add a focal point](../../images/theme-images.md#focal-points) to your slideshow images to verify the focal point is always the center of the slideshow image.
 
-  **Adaptive height option:** Many Shopify themes include an adaptive height setting for slideshows that adjusts the slideshow height to match the first image slide, reducing cropping across different screen sizes. This feature is available in all currently supported themes developed by Shoify.
+ **Adaptive height option:** Many Shopify themes include an adaptive height setting for slideshows that adjusts the slideshow height to match the first image slide, reducing cropping across different screen sizes. This feature is available in all currently supported themes developed by Shoify.
 * If a GIF image isn't displaying correctly and it's been added to your storefront with the rich text editor, such as in the product description or in a blog post, then it might be due to the image size. You can correct this by clicking the GIF in the rich text editor, and then click **Edit image**. In the **Image size** dropdown menu, select **Original**. You can then resize the GIF by clicking and dragging the corners of the image inward to make it smaller or outward to make it larger.
 * If your images have a significant color change on your storefront from your original image, then your images might not be in the standard Red Green Blue (sRBG) colors. To fix this color change, save your file in a photo editing application as a sRBG. Common terms for this are "Web optimize", "Adjust image for Web", or "Save for Web." Learn more about [color profiles](../../images/theme-images.md#image-color-profiles).
 * If your product images on your collection pages aren't aligning, then you might need to adjust the aspect ratio in the product image files so that they're the same height to width ratio, and then upload the product image again. You can also use an [image editing app from the Shopify App Store](https://apps.shopify.com/search?q=image+edit).
@@ -99,7 +99,7 @@ You can review the HTML code in the rich text editor.
 #### Steps:
 
 1. Navigate to the page in your admin.
-2. Click  **Display HTML** button to review the HTML code.
+2. Click **Display HTML** button to review the HTML code.
 3. Locate any HTML code that might cause display issues and remove it.
 4. Click **Save**.
 
@@ -140,7 +140,7 @@ When you add content directly to a collapsible block in your theme editor, that 
 6. Go to a product page in your admin and scroll to the metafields section at the bottom of the page.
 7. Add your product-specific content to the metafield you created.
 8. In your theme editor, go to the product template and find your **Collapsible row** section.
-9. In the **Row content** setting, click the  button.
+9. In the **Row content** setting, click the button.
 10. Select your metafield from the available options.
 11. Save your changes.
 

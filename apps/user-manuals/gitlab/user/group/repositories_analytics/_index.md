@@ -38,9 +38,9 @@ To view repository analytics for a group:
 The group **Repository analytics** page displays:
 
 - **Current group code coverage**:
-  - Number of projects with coverage reports.
-  - Average coverage percentage across all projects.
-  - Total number of pipeline jobs that produce coverage reports.
+ - Number of projects with coverage reports.
+ - Average coverage percentage across all projects.
+ - Total number of pipeline jobs that produce coverage reports.
 
 - **Average test coverage**: A graph that shows the average test coverage across all projects in your group for the last 30 days.
 
@@ -57,10 +57,10 @@ The CSV report:
 - Shows one row per day when coverage was reported.
 - Uses the last value of the day if multiple coverage reports were generated.
 - Contains the following information for each coverage report:
-  - Date the coverage job ran
-  - Name of the job that generated the report
-  - Project name
-  - Coverage percentage
+ - Date the coverage job ran
+ - Name of the job that generated the report
+ - Project name
+ - Coverage percentage
 
 To download the coverage data:
 

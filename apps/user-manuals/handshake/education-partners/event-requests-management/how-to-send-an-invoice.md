@@ -11,10 +11,10 @@ If you've approved employers for your upcoming fair, it's time to invoice them! 
 There's two ways to invoice employers:
 
 - **Automatic Invoicing**
-  - If your fair is set to automatically create invoices, the “New Invoice” window will pop-up as soon as you approve an employer’s registration (skip to step 5 below).
+ - If your fair is set to automatically create invoices, the “New Invoice” window will pop-up as soon as you approve an employer’s registration (skip to step 5 below).
     - To learn the difference between automatic and manual fair invoice creation, refer to [About Invoice After Approving](https://support.joinhandshake.com/hc/en-us/articles/219132857-About-Invoice-After-Approving).
 - **Manual Invoicing**
-  - If your fair is set to manually create invoices (or if you chose not to send an automatically generated invoice during registration approval), you’ll need to create a new invoice (follow all steps below).
+ - If your fair is set to manually create invoices (or if you chose not to send an automatically generated invoice during registration approval), you’ll need to create a new invoice (follow all steps below).
 
 1. Click Fairs on the left navigation bar, then click on the fair you'd like to send invoices to.
 
@@ -37,10 +37,10 @@ When you've selected from either of these options, a pop-up will load that displ
 3. A New Invoice form will load:
 
 - **Recipients**: Choose your invoice recipients
-  - The recipients listed will be any registrants, contacts associated with the registration.
-  - **Note**: if you’d like to send a “test invoice”, choose only yourself — you’ll be able to resend the invoice to the employer later.
-- **Invoice Number** and **Amount** are auto-generated and can not be modified.  
-  - The invoice amount is calculated based on the pricing your school defined when creating the fair and the fair options the employer selected.
+ - The recipients listed will be any registrants, contacts associated with the registration.
+ - **Note**: if you’d like to send a “test invoice”, choose only yourself — you’ll be able to resend the invoice to the employer later.
+- **Invoice Number** and **Amount** are auto-generated and can not be modified. 
+ - The invoice amount is calculated based on the pricing your school defined when creating the fair and the fair options the employer selected.
     - If you need to change the invoice amount for some reason, you should edit the career fair registration to add a discount or add any extra items to help adjust the amount due, then generate a new invoice.
 - **Subject** is auto-generated based on the employer’s name and the fair’s name. You’re welcome to change it if desired.
 - **Custom Message** is populated with the Default invoice message if one was configured for the fair. You can change the message just for this employer here on the invoice form, or you can change the message for all future invoices by editing the Default invoice message in the fair’s details.

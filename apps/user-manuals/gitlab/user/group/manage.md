@@ -10,13 +10,8 @@ Use groups to manage one or more related projects at the same time.
 {{< alert type="note" >}}
 
 On GitLab Self-Managed, if you want to see an overview of your entire organization, you should create one top-level group.
-For more information about efforts to create an organization view of all groups,
-[see epic 9266](https://gitlab.com/groups/gitlab-org/-/epics/9266).
-A top-level group offers insights in your entire organization through a complete
-[Security Dashboard and Center](../application_security/security_dashboard/_index.md),
-[Vulnerability report](../application_security/vulnerability_report/_index.md),
-[compliance center](../compliance/compliance_center/_index.md), and
-[value stream analytics](value_stream_analytics/_index.md).
+For more information about efforts to create an organization view of all groups, [see epic 9266](https://gitlab.com/groups/gitlab-org/-/epics/9266).
+A top-level group offers insights in your entire organization through a complete [Security Dashboard and Center](../application_security/security_dashboard/_index.md), [Vulnerability report](../application_security/vulnerability_report/_index.md), [compliance center](../compliance/compliance_center/_index.md), and [value stream analytics](value_stream_analytics/_index.md).
 
 {{< /alert >}}
 
@@ -39,33 +34,28 @@ To add a group README:
 
 ## Change the Owner of a group
 
-You can change the Owner of a group. Each group must always have at least one
-human member with the Owner role. Internal users ("bots") and service accounts cannot be the only Owner of a group.
+You can change the Owner of a group. Each group must always have at least one human member with the Owner role. Internal users ("bots") and service accounts cannot be the only Owner of a group.
 
 - As an administrator:
-  1. On the top bar, select **Search or go to** and find your group.
-  1. Select **Manage** > **Members**.
-  1. Give a different member the Owner role.
-  1. Refresh the page. You can now remove the Owner role from the original Owner.
+ 1. On the top bar, select **Search or go to** and find your group.
+ 1. Select **Manage** > **Members**.
+ 1. Give a different member the Owner role.
+ 1. Refresh the page. You can now remove the Owner role from the original Owner.
 - As the current group's Owner:
-  1. On the top bar, select **Search or go to** and find your group.
-  1. Select **Manage** > **Members**.
-  1. Give a different member the Owner role.
-  1. Have the new Owner sign in and remove the Owner role from you.
+ 1. On the top bar, select **Search or go to** and find your group.
+ 1. Select **Manage** > **Members**.
+ 1. Give a different member the Owner role.
+ 1. Have the new Owner sign in and remove the Owner role from you.
 
 ## Change a group's path
 
-Changing a group's path (group URL) can have unintended side effects. Read how redirects behave
-for [projects](../project/repository/_index.md#repository-path-changes)
+Changing a group's path (group URL) can have unintended side effects. Read how redirects behave for [projects](../project/repository/_index.md#repository-path-changes)
 and in the [API](../../api/rest/_index.md#redirects)
 before you proceed.
 
-If you are changing the path so it can be claimed by another group or user,
-you must rename the group too. Both names and paths must
-be unique.
+If you are changing the path so it can be claimed by another group or user, you must rename the group too. Both names and paths must be unique.
 
-To retain ownership of the original namespace and protect the URL redirects,
-create a new group and transfer projects to it instead.
+To retain ownership of the original namespace and protect the URL redirects, create a new group and transfer projects to it instead.
 
 To change your group path (group URL):
 
@@ -77,9 +67,7 @@ To change your group path (group URL):
 
 {{< alert type="warning" >}}
 
-It is not possible to rename a namespace if it contains a
-project with [Container Registry](../packages/container_registry/_index.md) tags,
-because the project cannot be moved.
+It is not possible to rename a namespace if it contains a project with [Container Registry](../packages/container_registry/_index.md) tags, because the project cannot be moved.
 
 {{< /alert >}}
 
@@ -92,18 +80,13 @@ For more information about our solution to mitigate this timeout risk, see [issu
 
 ## Change the default branch protection of a group
 
-The administrator of a GitLab instance can configure default branch protections for
-[all projects in an instance](../project/repository/branches/default.md#for-all-projects-in-an-instance).
-Groups in that instance inherit the branch protection set at the global level. Group owners can
-[override the instance settings](../project/repository/branches/default.md#for-all-projects-in-a-group)
-for projects in a group. In [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/), the administrator
-of the instance can disable this privilege.
+The administrator of a GitLab instance can configure default branch protections for [all projects in an instance](../project/repository/branches/default.md#for-all-projects-in-an-instance).
+Groups in that instance inherit the branch protection set at the global level. Group owners can [override the instance settings](../project/repository/branches/default.md#for-all-projects-in-a-group)
+for projects in a group. In [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/), the administrator of the instance can disable this privilege.
 
 ## Use a custom name for the initial branch
 
-When you create a new project in GitLab, a default branch is created with the
-first push. The group Owner can
-[customize the initial branch](../project/repository/branches/default.md#change-the-default-branch-name-for-new-projects-in-a-group)
+When you create a new project in GitLab, a default branch is created with the first push. The group Owner can [customize the initial branch](../project/repository/branches/default.md#change-the-default-branch-name-for-new-projects-in-a-group)
 for the group's projects to meet your group's needs.
 
 ## Archive a group
@@ -191,8 +174,7 @@ Transferring groups moves them from one place to another in the same GitLab inst
 - Convert a top-level group into a subgroup by transferring it to the desired group.
 - Convert a subgroup into a top-level group by transferring it out of its current group.
 
-If you need to copy a group to a different GitLab instance,
-[migrate the group by direct transfer](import/_index.md).
+If you need to copy a group to a different GitLab instance, [migrate the group by direct transfer](import/_index.md).
 
 When transferring groups, note:
 
@@ -239,11 +221,8 @@ To disable email notifications:
 
 {{< /history >}}
 
-When you comment on code in a merge request, GitLab
-includes a few lines of the diff in the email notification to participants.
-Some organizational policies treat email as a less secure system, or might not
-control their own infrastructure for email. This can present risks to IP or
-access control of source code.
+When you comment on code in a merge request, GitLab includes a few lines of the diff in the email notification to participants.
+Some organizational policies treat email as a less secure system, or might not control their own infrastructure for email. This can present risks to IP or access control of source code.
 
 Prerequisites:
 
@@ -270,11 +249,11 @@ To disable diff previews for all projects in a group:
 The following group and project members receive notification emails about access tokens that are expiring soon:
 
 - For group access tokens:
-  - Members with the Owner role.
-  - In GitLab 17.7 and later, members who inherit the Owner role for the group, if that group or its parent group has the appropriate setting configured.
+ - Members with the Owner role.
+ - In GitLab 17.7 and later, members who inherit the Owner role for the group, if that group or its parent group has the appropriate setting configured.
 - For project access tokens:
-  - Members of the project with at least the Maintainer role.
-  - In GitLab 17.7 and later, project members who have inherited the Owner or Maintainer role due to the project belonging to a group, if that group or its parent group has the appropriate setting configured.
+ - Members of the project with at least the Maintainer role.
+ - In GitLab 17.7 and later, project members who have inherited the Owner or Maintainer role due to the project belonging to a group, if that group or its parent group has the appropriate setting configured.
 
 You can enable notifications to inherited members of a group:
 
@@ -313,8 +292,7 @@ To configure these webhooks to also trigger 60 days and 30 days before a token e
 
 ## Disable group mentions
 
-You can prevent users from being added to a conversation and getting notified when
-anyone [mentions a group](../discussions/_index.md#mentions)
+You can prevent users from being added to a conversation and getting notified when anyone [mentions a group](../discussions/_index.md#mentions)
 in which those users are members.
 
 Groups with disabled mentions are visualized accordingly in the autocompletion dropdown list.
@@ -348,9 +326,7 @@ To disable group mentions:
 > The availability of this feature is controlled by a feature flag.
 > For more information, see the history.
 
-You can prevent [enterprise users](../enterprise_user/_index.md) in your group from creating
-[snippets](../snippets.md) in their personal namespace. When disabled, enterprise users
-can still create project snippets.
+You can prevent [enterprise users](../enterprise_user/_index.md) in your group from creating [snippets](../snippets.md) in their personal namespace. When disabled, enterprise users can still create project snippets.
 
 Prerequisites:
 
@@ -372,9 +348,7 @@ To restrict personal snippets for enterprise users:
 
 {{< /history >}}
 
-On GitLab.com, you can remove the ability for users to invite new members to subgroups or projects in a top-level
-group. This also stops group Owners from sending invites. You must disable this setting before you
-can invite users again.
+On GitLab.com, you can remove the ability for users to invite new members to subgroups or projects in a top-level group. This also stops group Owners from sending invites. You must disable this setting before you can invite users again.
 
 On GitLab Self-Managed and GitLab Dedicated instances, you can prevent user invitations for the entire instance.
 For more information, see [prevent invitations to a groups and projects](../../administration/settings/visibility_and_access_controls.md#prevent-invitations-to-groups-and-projects).
@@ -432,11 +406,9 @@ For members with `Minimal Access` in the selected group, their `Max Role` and `S
 {{< /history >}}
 
 Use restricted access to prevent overage fees.
-Overage fees occur when you exceed the number of seats in your subscription,
-and must be paid at the next [quarterly reconciliation](../../subscriptions/quarterly_reconciliation.md).
+Overage fees occur when you exceed the number of seats in your subscription, and must be paid at the next [quarterly reconciliation](../../subscriptions/quarterly_reconciliation.md).
 
-When you turn on restricted access, groups cannot add new billable users when there are no seats
-left in the subscription.
+When you turn on restricted access, groups cannot add new billable users when there are no seats left in the subscription.
 
 > [!note]
 > If [user cap](#user-cap-for-groups) is enabled for a group that has pending members, when you enable restricted access all pending members are automatically removed from the group.
@@ -454,8 +426,7 @@ To turn on restricted access:
 1. Expand **Permissions and group features**.
 1. Under **Seat control**, select **Restricted access**.
 
-When you turn on restricted access, the setting to
-[prevent inviting groups outside the group hierarchy](../project/members/sharing_projects_groups.md#prevent-inviting-groups-outside-the-group-hierarchy)
+When you turn on restricted access, the setting to [prevent inviting groups outside the group hierarchy](../project/members/sharing_projects_groups.md#prevent-inviting-groups-outside-the-group-hierarchy)
 is automatically turned on.
 
 You can still independently configure [project sharing for the group and its subgroups](../project/members/sharing_projects_groups.md#prevent-a-project-from-being-shared-with-groups) as needed.
@@ -465,16 +436,11 @@ You can still independently configure [project sharing for the group and its sub
 When you turn on restricted access, the following known issues might occur and result in overages:
 
 - The number of seats can still be exceeded if:
-  - You use SAML, SCIM, or LDAP to add new members, and have exceeded the number of seats in the subscription.
-  - Multiple users with the Owner role add members simultaneously.
-  - New billable members delay accepting an invitation.
-  - You change from using the user cap to restricted access, and have members pending approval
-    from before you changed to restricted access. In this case, those members remain in a pending state. If
-    pending members are approved while using restricted access, you might exceed the number of seats in your subscription.
-- If you renew your subscription through the GitLab Sales Team for fewer users than your current
-  subscription, you will incur an overage fee. To avoid this fee, remove additional users before your
-  renewal starts. For example, if you have 20 users and renew your subscription for 15 users,
-  you will be charged overages for the five additional users.
+ - You use SAML, SCIM, or LDAP to add new members, and have exceeded the number of seats in the subscription.
+ - Multiple users with the Owner role add members simultaneously.
+ - New billable members delay accepting an invitation.
+ - You change from using the user cap to restricted access, and have members pending approval from before you changed to restricted access. In this case, those members remain in a pending state. If pending members are approved while using restricted access, you might exceed the number of seats in your subscription.
+- If you renew your subscription through the GitLab Sales Team for fewer users than your current subscription, you will incur an overage fee. To avoid this fee, remove additional users before your renewal starts. For example, if you have 20 users and renew your subscription for 15 users, you will be charged overages for the five additional users.
 
 Additionally, restricted access might block the standard non-overage flows:
 
@@ -522,8 +488,7 @@ To set a user cap:
 1. From **Seat control**, select the **Set user cap** checkbox and enter the number of users in the field.
 1. Select **Save changes**.
 
-If you already have more users in the group than the user cap value, users
-are not removed. However, you can't add more without approval.
+If you already have more users in the group than the user cap value, users are not removed. However, you can't add more without approval.
 
 Increasing the user cap does not approve pending members.
 
@@ -547,8 +512,7 @@ Decreasing the user cap does not approve pending members.
 
 ### Approve pending members for a group
 
-When the number of billable users reaches the user cap, any new member is put in a pending state
-and must be approved.
+When the number of billable users reaches the user cap, any new member is put in a pending state and must be approved.
 
 Pending members do not count as billable. Members count as billable only after they have been approved and are no longer in a pending state.
 
@@ -565,12 +529,9 @@ To approve members that are pending because they've exceeded the user cap:
 
 ### Known issues
 
-The user cap cannot be enabled if a group, subgroup, or project is shared externally. If a group, subgroup,
-or project is shared externally, it is shared outside of the namespace hierarchy, regardless of its level
-in the hierarchy.
+The user cap cannot be enabled if a group, subgroup, or project is shared externally. If a group, subgroup, or project is shared externally, it is shared outside of the namespace hierarchy, regardless of its level in the hierarchy.
 
-To ensure that the user cap applies when groups, subgroups, or projects are shared externally,
-[restrict group sharing only in the top-level namespace](../../user/project/members/sharing_projects_groups.md#prevent-inviting-groups-outside-the-group-hierarchy).
+To ensure that the user cap applies when groups, subgroups, or projects are shared externally, [restrict group sharing only in the top-level namespace](../../user/project/members/sharing_projects_groups.md#prevent-inviting-groups-outside-the-group-hierarchy).
 A top-level namespace restriction allows invitations in the same namespace and prevents new user (seat) additions from external shares.
 
 GitLab.com Ultimate has a [known issue](https://gitlab.com/gitlab-org/gitlab/-/issues/441504) where you cannot add guest users to a group when billable users exceed the user cap. For example, suppose you have a user cap of 5, with 3 developers, and 2 guests. After you add 2 more developers, you cannot add any more users, even if they are guest users that don't consume a billable seat.
@@ -584,22 +545,15 @@ GitLab.com Ultimate has a [known issue](https://gitlab.com/gitlab-org/gitlab/-/i
 
 {{< /details >}}
 
-Use group file templates to share a set of templates for common file
-types with every project in a group. It is analogous to the
-[instance template repository](../../administration/settings/instance_template_repository.md).
-The selected project should follow the same naming conventions as
-are documented on that page.
+Use group file templates to share a set of templates for common file types with every project in a group. It is analogous to the [instance template repository](../../administration/settings/instance_template_repository.md).
+The selected project should follow the same naming conventions as are documented on that page.
 
 You can only choose projects in the group as the template source.
-This includes projects shared with the group, but it **excludes** projects in
-subgroups or parent groups of the group being configured.
+This includes projects shared with the group, but it **excludes** projects in subgroups or parent groups of the group being configured.
 
-You can configure this feature for both subgroups and immediate parent groups. A project
-in a subgroup has access to the templates for that subgroup and
-any immediate parent groups.
+You can configure this feature for both subgroups and immediate parent groups. A project in a subgroup has access to the templates for that subgroup and any immediate parent groups.
 
-To learn how to create templates for issues and merge requests, see
-[description templates](../project/description_templates.md).
+To learn how to create templates for issues and merge requests, see [description templates](../project/description_templates.md).
 
 Define project templates at a group level by setting a group as the template source.
 For more information, see [group-level project templates](custom_project_templates.md).
@@ -639,13 +593,11 @@ To enable group file templates:
 
 Group Owners can set up merge request checks on a top-level group, which apply to all subgroups and projects.
 
-If the settings are inherited by a subgroup or project, they cannot be changed in the subgroup or project
-that inherited them.
+If the settings are inherited by a subgroup or project, they cannot be changed in the subgroup or project that inherited them.
 
 ### Require a successful pipeline for merge
 
-You can configure all child projects in your group to require a complete and successful pipeline before
-merge.
+You can configure all child projects in your group to require a complete and successful pipeline before merge.
 
 See also [the project-level setting](../project/merge_requests/auto_merge.md#require-a-successful-pipeline-for-merge).
 
@@ -719,9 +671,7 @@ To view the merge request approval settings for a group:
 1. Select the settings you want.
 1. Select **Save changes**.
 
-Approval settings should not be confused with [approval rules](../project/merge_requests/approvals/rules.md). Support
-for the ability to set merge request approval rules for groups is tracked in
-[epic 4367](https://gitlab.com/groups/gitlab-org/-/epics/4367).
+Approval settings should not be confused with [approval rules](../project/merge_requests/approvals/rules.md). Support for the ability to set merge request approval rules for groups is tracked in [epic 4367](https://gitlab.com/groups/gitlab-org/-/epics/4367).
 
 ## Group activity analytics
 
@@ -743,16 +693,13 @@ You can view the most recent actions taken in a group, either in your browser or
 1. On the top bar, select **Search or go to** and find your group.
 1. Select **Manage** > **Activity**.
 
-To view the activity feed in Atom format, select the
-**RSS** ({{< icon name="rss" >}}) icon.
+To view the activity feed in Atom format, select the **RSS** ({{< icon name="rss" >}}) icon.
 
 ## Display GitLab Credits user data
 
 {{< history >}}
 
-- Namespace setting to allow the display of user data
-  [introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/215371) in GitLab 18.7
-  [with a flag](../../administration/feature_flags/_index.md) named `usage_billing_dev`.
+- Namespace setting to allow the display of user data [introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/215371) in GitLab 18.7 [with a flag](../../administration/feature_flags/_index.md) named `usage_billing_dev`.
 
 {{< /history >}}
 

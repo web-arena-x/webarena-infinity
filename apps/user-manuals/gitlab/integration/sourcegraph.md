@@ -16,8 +16,7 @@ title: Sourcegraph
 > On GitLab.com, this feature is available for public projects only.
 
 [Sourcegraph](https://sourcegraph.com) provides code intelligence features in the GitLab UI.
-When enabled, participating projects display a code intelligence popover in
-these code views:
+When enabled, participating projects display a code intelligence popover in these code views:
 
 - Merge request diffs
 - Commit view
@@ -47,10 +46,9 @@ For more information, see [epic 2201](https://gitlab.com/groups/gitlab-org/-/epi
 Prerequisites:
 
 - You must have a Sourcegraph instance [configured and running](https://sourcegraph.com/docs/admin)
-  with your GitLab instance as an external service.
-- If your Sourcegraph instance uses an HTTPS connection to GitLab, you must
-  [configure HTTPS](https://sourcegraph.com/docs/admin/http_https_configuration)
-  for your Sourcegraph instance.
+ with your GitLab instance as an external service.
+- If your Sourcegraph instance uses an HTTPS connection to GitLab, you must [configure HTTPS](https://sourcegraph.com/docs/admin/http_https_configuration)
+ for your Sourcegraph instance.
 
 In Sourcegraph:
 
@@ -79,8 +77,7 @@ Prerequisites:
 
 ## Enable Sourcegraph in user preferences
 
-Users on GitLab Self-Managed must also configure their user settings to use the
-Sourcegraph integration.
+Users on GitLab Self-Managed must also configure their user settings to use the Sourcegraph integration.
 
 On GitLab.com, the integration is available for all public projects.
 Private projects are not supported.
@@ -104,7 +101,4 @@ To enable this feature in your GitLab user preferences:
 
 ### Sourcegraph is not working
 
-If you enabled Sourcegraph for your project but it is not working, Sourcegraph might not
-have indexed the project yet. You can check if Sourcegraph is available for your project
-by visiting `https://sourcegraph.com/gitlab.com/<project-path>`, replacing `<project-path>`
-with the path to your GitLab project.
+If you enabled Sourcegraph for your project but it is not working, Sourcegraph might not have indexed the project yet. You can check if Sourcegraph is available for your project by visiting `https://sourcegraph.com/gitlab.com/<project-path>`, replacing `<project-path>` with the path to your GitLab project.

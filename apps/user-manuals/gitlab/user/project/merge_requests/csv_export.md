@@ -18,8 +18,7 @@ To export merge requests to a CSV file:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Code** > **Merge requests**.
-1. Add any searches or filters. This can help you keep the size of the CSV file under the 15 MB limit. The limit ensures
-   the file can be emailed to a variety of email providers.
+1. Add any searches or filters. This can help you keep the size of the CSV file under the 15 MB limit. The limit ensures the file can be emailed to a variety of email providers.
 1. Select **Actions** ({{< icon name="ellipsis_v" >}}) > **Export as CSV**.
 1. Confirm the correct number of merge requests are to be exported.
 1. Select **Export merge requests**.
@@ -37,8 +36,8 @@ The following table shows the attributes in the CSV file.
 | State              | Opened, Closed, Locked, or Merged                            |
 | Source Branch      | Source branch                                                |
 | Target Branch      | Target branch                                                |
-| Source Project ID  | ID of the source project                                     |
-| Target Project ID  | ID of the target project                                     |
+| Source Project ID | ID of the source project                                     |
+| Target Project ID | ID of the target project                                     |
 | Author             | Full name of the merge request author                        |
 | Author Username    | Username of the author, with the @ symbol omitted            |
 | Assignees          | Full names of the merge request assignees, joined with a `,` |

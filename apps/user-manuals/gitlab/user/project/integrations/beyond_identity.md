@@ -22,11 +22,9 @@ title: Beyond Identity
 In GitLab, users can sign their commits after [adding a GPG key to their profile](../repository/signed_commits/gpg.md).
 The GitLab integration with [Beyond Identity](https://www.beyondidentity.com/) extends this feature.
 
-When configured, this integration uses Beyond Identity to validate any new GPG key that a user adds
-to their profile. Keys that do not pass validation are rejected, and the user must upload a new key.
+When configured, this integration uses Beyond Identity to validate any new GPG key that a user adds to their profile. Keys that do not pass validation are rejected, and the user must upload a new key.
 
-When a user pushes a signed commit to the GitLab instance, GitLab runs a pre-receive
-check to validate those commits against the GPG key stored in the user's profile.
+When a user pushes a signed commit to the GitLab instance, GitLab runs a pre-receive check to validate those commits against the GPG key stored in the user's profile.
 This ensures that only commits signed with validated keys are accepted.
 
 ## Set up the Beyond Identity integration for your instance
@@ -55,11 +53,9 @@ When a user adds a GPG key to their profile, the key is verified:
 
 - If the key wasn't issued by the Beyond Identity Authenticator, it's accepted.
 - If the key was issued by the Beyond Identity Authenticator, but the key is invalid, it's rejected.
-  For example: the email used in the user's GitLab profile is different from the email assigned to
-  the key in the Beyond Identity Authenticator.
+ For example: the email used in the user's GitLab profile is different from the email assigned to the key in the Beyond Identity Authenticator.
 
-When a user pushes a commit, GitLab checks that the commit was signed by a GPG signature uploaded to the
-user profile.
+When a user pushes a commit, GitLab checks that the commit was signed by a GPG signature uploaded to the user profile.
 If the signature cannot be verified, the push is rejected.
 Web commits are accepted without a signature.
 

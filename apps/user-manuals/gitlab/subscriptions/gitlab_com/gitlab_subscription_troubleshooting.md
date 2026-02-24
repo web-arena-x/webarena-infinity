@@ -26,8 +26,7 @@ When you purchase a GitLab subscription, your credit card might be declined beca
 - The transaction exceeds the credit limit or the card's maximum transaction amount.
 - The [transaction is not allowed](#error-transaction_not_allowed).
 
-Check with your financial institution to confirm if any of these reasons apply. If they don't
-apply, contact [GitLab Support](https://support.gitlab.com/hc/en-us/requests/new?ticket_form_id=360000071293).
+Check with your financial institution to confirm if any of these reasons apply. If they don't apply, contact [GitLab Support](https://support.gitlab.com/hc/en-us/requests/new?ticket_form_id=360000071293).
 
 ### Error: `transaction_not_allowed`
 
@@ -46,24 +45,23 @@ Your transaction might be declined because of one or more of the following reaso
 - Your card was issued in India and the transaction does not comply with [RBI's e-mandate rules](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=12051&Mode=0).
 - Your card isn't activated for online purchases.
 - Your card has specific usage limitations.
-  For example, it is a debit card that is limited to local transactions only.
+ For example, it is a debit card that is limited to local transactions only.
 - The transaction triggers your bank's security protocols.
 
 To resolve this issue, try the following:
 
 - For cards issued in India: Process your transaction through an authorized local reseller.
-  Reach out to one of the following GitLab partners in India:
+ Reach out to one of the following GitLab partners in India:
 
-  - [Datamato Technologies Private Limited](https://about.gitlab.com/partners/channel-partners/#/1345598)
-  - [FineShift Software Private Limited](https://about.gitlab.com/partners/channel-partners/#/1737250)
+ - [Datamato Technologies Private Limited](https://about.gitlab.com/partners/channel-partners/#/1345598)
+ - [FineShift Software Private Limited](https://about.gitlab.com/partners/channel-partners/#/1737250)
 
 - For cards issued outside of the United States: Ensure your card is enabled for international use, and verify if there are country-specific restrictions.
 - Contact your financial institution: Ask for the reason why your transaction was declined, and request that your card is enabled for this type of transaction.
 
 ## Error: `Attempt_Exceed_Limitation`
 
-When you purchase a GitLab subscription, you might get the error
-`Attempt_Exceed_Limitation - Attempt exceed the limitation, refresh page to try again.`.
+When you purchase a GitLab subscription, you might get the error `Attempt_Exceed_Limitation - Attempt exceed the limitation, refresh page to try again.`.
 
 This issue occurs when the credit card form is re-submitted three times within one minute or six times within one hour.
 To resolve this issue, wait a few minutes and retry the purchase.
@@ -82,8 +80,7 @@ To resolve this issue, contact your [GitLab sales representative](https://custom
 
 ## No purchases listed in the Customers Portal account
 
-To view purchases in the Customers Portal on the **Subscriptions & purchases** page,
-you must be added as a contact in your organization for the subscription.
+To view purchases in the Customers Portal on the **Subscriptions & purchases** page, you must be added as a contact in your organization for the subscription.
 
 To be added as a contact, [create a ticket with the GitLab Support team](https://support.gitlab.com/hc/en-us/requests/new?ticket_form_id=360000071293).
 
@@ -95,8 +92,6 @@ Ensure that you have the Owner role for that namespace, and review the [transfer
 ## Subscription data fails to synchronize
 
 On GitLab Self-Managed or GitLab Dedicated, your subscription data might fail to synchronize.
-This issue can occur when network traffic between your GitLab instance and certain
-IP addresses is not allowed.
+This issue can occur when network traffic between your GitLab instance and certain IP addresses is not allowed.
 
-To resolve this issue, allow network traffic from your GitLab instance to the IP addresses
-`172.64.146.11:443` and `104.18.41.245:443` (`customers.gitlab.com`).
+To resolve this issue, allow network traffic from your GitLab instance to the IP addresses `172.64.146.11:443` and `104.18.41.245:443` (`customers.gitlab.com`).

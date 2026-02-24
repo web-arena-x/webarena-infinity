@@ -34,10 +34,10 @@ If you encounter unexpected errors or unusual behavior while using Handshake suc
 
 - If you’re already using Chrome, or if the issue occurs in multiple browsers, clear your browser’s cache and cookies. For additional guidance, refer to [Refresh your Cache](http://www.refreshyourcache.com/en/home/).
 - If you cannot clear your cache immediately, you can use an incognito or private browsing window:
-  - **PC (Windows 7/8/10/11):**
+ - **PC (Windows 7/8/10/11):**
     - **Chrome:** Press **Ctrl + Shift + N**.
     - **Firefox/Edge:** Press **Ctrl + Shift + P**.
-  - **Mac (OS X):**
+ - **Mac (OS X):**
     - **Chrome/Safari:** Press **Command + Shift + N**.
     - **Firefox:** Press **Command + Shift + P**.
 

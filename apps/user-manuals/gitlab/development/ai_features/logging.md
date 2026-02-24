@@ -58,5 +58,4 @@ log_conditional_info(user, message:"User prompt processed", event_name: 'ai_even
 log_error(user, message: "System application error", event_name: 'ai_event', ai_component: 'abstraction_layer', error_message: sanitized_error_message)
 ```
 
-**Important**: Familiarize yourself with our [Data Retention Policy](../../user/gitlab_duo/data_usage.md#data-retention) and remember
-to make sure we are not logging user input and LLM-generated output.
+**Important**: Familiarize yourself with our [Data Retention Policy](../../user/gitlab_duo/data_usage.md#data-retention) and remember to make sure we are not logging user input and LLM-generated output.

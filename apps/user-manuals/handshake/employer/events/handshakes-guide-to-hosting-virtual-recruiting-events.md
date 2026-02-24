@@ -25,11 +25,11 @@ To edit an event, refer to [How to Edit an Event](https://support.joinhandshake.
 You can choose between hosting an interactive event or a large event:
 
 - **Interactive events**
-  - Support up to 100 registrants.
-  - Participants can independently unmute themselves and turn on their cameras.
+ - Support up to 100 registrants.
+ - Participants can independently unmute themselves and turn on their cameras.
 - **Large events**
-  - Support up to 1,000 registrants.
-  - Participants cannot unmute themselves or enable their cameras independently.
+ - Support up to 1,000 registrants.
+ - Participants cannot unmute themselves or enable their cameras independently.
 
 When creating the event, you can set the total number of hosts and assign teammates as co-hosts afterward.
 
@@ -90,7 +90,7 @@ Use Handshake's segmentation tools to invite priority student groups. Aim for a 
 
 - **For attendees**: Recap key content and share next steps, like applying for open roles.
 - **For no-shows**: Send a “sorry we missed you” message with your main call to action.
-  - *Learn more about* [*Messaging Event and Fair RSVPs*](https://support.joinhandshake.com/hc/en-us/articles/360001020627).
+ - *Learn more about* [*Messaging Event and Fair RSVPs*](https://support.joinhandshake.com/hc/en-us/articles/360001020627).
 
 **2. Measure Success**
 

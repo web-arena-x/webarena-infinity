@@ -28,9 +28,7 @@ You can migrate GitLab groups:
 - From one GitLab Self-Managed or GitLab Dedicated instance to another
 - On the same GitLab instance
 
-Migration by direct transfer creates a new copy of the group. If you want to move groups instead of copying groups, you
-can [transfer groups](../manage.md#transfer-a-group) if the groups are in the same GitLab instance. Transferring groups
-instead of migrating them is a faster and more complete option.
+Migration by direct transfer creates a new copy of the group. If you want to move groups instead of copying groups, you can [transfer groups](../manage.md#transfer-a-group) if the groups are in the same GitLab instance. Transferring groups instead of migrating them is a faster and more complete option.
 
 You can migrate groups in two ways:
 
@@ -39,64 +37,49 @@ You can migrate groups in two ways:
 
 If you migrate from GitLab.com to a GitLab Self-Managed or GitLab Dedicated instance, an administrator can create users on the instance.
 
-On GitLab Self-Managed and GitLab Dedicated, by default [migrating group items](migrated_items.md#migrated-group-items) is not available. To show the
-feature, an administrator can [enable it in application settings](../../../administration/settings/import_and_export_settings.md#enable-migration-of-groups-and-projects-by-direct-transfer).
+On GitLab Self-Managed and GitLab Dedicated, by default [migrating group items](migrated_items.md#migrated-group-items) is not available. To show the feature, an administrator can [enable it in application settings](../../../administration/settings/import_and_export_settings.md#enable-migration-of-groups-and-projects-by-direct-transfer).
 
 Migrating groups by direct transfer copies the groups from one place to another. You can:
 
 - Copy many groups at once.
 - In the GitLab UI, copy top-level groups to:
-  - Another top-level group.
-  - The subgroup of any existing top-level group.
-  - Another GitLab instance, including GitLab.com.
+ - Another top-level group.
+ - The subgroup of any existing top-level group.
+ - Another GitLab instance, including GitLab.com.
 - In the [API](../../../api/bulk_imports.md), copy top-level groups and subgroups to these locations.
 - Copy groups with or without projects.
-  Copying groups with projects is available by default on GitLab.com.
+ Copying groups with projects is available by default on GitLab.com.
 
 Not all group and project resources are copied. See list of copied resources below:
 
 - [Migrated group items](migrated_items.md#migrated-group-items).
 - [Migrated project items](migrated_items.md#migrated-project-items).
 
-After you start a migration, you should not make any changes to imported groups or projects
-on the source instance because these changes might not be copied to the destination instance.
+After you start a migration, you should not make any changes to imported groups or projects on the source instance because these changes might not be copied to the destination instance.
 
-You are encouraged to leave your feedback about migrating by direct transfer in
-[the feedback issue](https://gitlab.com/gitlab-org/gitlab/-/issues/284495).
+You are encouraged to leave your feedback about migrating by direct transfer in [the feedback issue](https://gitlab.com/gitlab-org/gitlab/-/issues/284495).
 
 ## Migrating specific projects
 
-Migrating groups by using direct transfer in the GitLab UI migrates all projects in the group. If you want to migrate only specific projects in the group by using direct
-transfer, you must use the [API](../../../api/bulk_imports.md#start-a-new-group-or-project-migration).
+Migrating groups by using direct transfer in the GitLab UI migrates all projects in the group. If you want to migrate only specific projects in the group by using direct transfer, you must use the [API](../../../api/bulk_imports.md#start-a-new-group-or-project-migration).
 
 ## Known issues
 
 - Because of [issue 406685](https://gitlab.com/gitlab-org/gitlab/-/issues/406685), files with a filename longer than 255 characters are not migrated.
-- In GitLab 16.1 and earlier, you should not use direct transfer with
-  [scheduled scan execution policies](../../application_security/policies/scan_execution_policies.md).
+- In GitLab 16.1 and earlier, you should not use direct transfer with [scheduled scan execution policies](../../application_security/policies/scan_execution_policies.md).
 - For a list of other known issues, see [epic 6629](https://gitlab.com/groups/gitlab-org/-/epics/6629).
-- In GitLab 16.9 and earlier, because of [issue 438422](https://gitlab.com/gitlab-org/gitlab/-/issues/438422), you might see the
-  `DiffNote::NoteDiffFileCreationError` error. When this error occurs, the diff of a note on a merge request's diff
-  is missing, but the note and the merge request are still imported.
-- When mapped from the source instance, shared members are mapped as direct members on the destination unless those
-  memberships already exist on the destination. This means that importing a top-level group on the source instance to a
-  top-level group on the destination instance always maps to direct members in projects, even though the source top-level
-  group contains the necessary shared membership hierarchy details. Support for full mapping of shared memberships is
-  proposed in [issue 458345](https://gitlab.com/gitlab-org/gitlab/-/issues/458345).
-- In GitLab 17.0, 17.1, and 17.2, imported epics and work items are mapped
-  to the importing user rather than the original author.
+- In GitLab 16.9 and earlier, because of [issue 438422](https://gitlab.com/gitlab-org/gitlab/-/issues/438422), you might see the `DiffNote::NoteDiffFileCreationError` error. When this error occurs, the diff of a note on a merge request's diff is missing, but the note and the merge request are still imported.
+- When mapped from the source instance, shared members are mapped as direct members on the destination unless those memberships already exist on the destination. This means that importing a top-level group on the source instance to a top-level group on the destination instance always maps to direct members in projects, even though the source top-level group contains the necessary shared membership hierarchy details. Support for full mapping of shared memberships is proposed in [issue 458345](https://gitlab.com/gitlab-org/gitlab/-/issues/458345).
+- In GitLab 17.0, 17.1, and 17.2, imported epics and work items are mapped to the importing user rather than the original author.
 
 ## Estimating migration duration
 
 Estimating the duration of migration by direct transfer is difficult. The following factors affect migration duration:
 
-- Hardware and database resources available on the source and destination GitLab instances. More resources on the source and destination instances can result in
-  shorter migration duration because:
-  - The source instance receives API requests, and extracts and serializes the entities to export.
-  - The destination instance runs the jobs and creates the entities in its database.
-- Complexity and size of data to be exported. For example, imagine you want to migrate two different projects with 1000 merge requests each. The two projects can take
-  very different amounts of time to migrate if one of the projects has a lot more attachments, comments, and other items on the merge requests. Therefore, the number
-  of merge requests on a project is a poor predictor of how long a project will take to migrate.
+- Hardware and database resources available on the source and destination GitLab instances. More resources on the source and destination instances can result in shorter migration duration because:
+ - The source instance receives API requests, and extracts and serializes the entities to export.
+ - The destination instance runs the jobs and creates the entities in its database.
+- Complexity and size of data to be exported. For example, imagine you want to migrate two different projects with 1000 merge requests each. The two projects can take very different amounts of time to migrate if one of the projects has a lot more attachments, comments, and other items on the merge requests. Therefore, the number of merge requests on a project is a poor predictor of how long a project will take to migrate.
 
 There's no exact formula to reliably estimate a migration. However, the average durations of each pipeline worker importing a project relation can help you to get an idea of how long importing your projects might take:
 
@@ -144,20 +127,15 @@ These are some strategies for reducing the duration of migrations that use direc
 
 ### Add Sidekiq workers to the destination instance
 
-A single direct transfer migration runs five entities (groups or projects) per import at a time,
-regardless of the number of workers available on the destination instance.
-More Sidekiq workers on the destination instance can reduce the time it takes to import each entity,
-as long as the instance has enough resources to handle additional concurrent jobs.
-In GitLab 16.8 and later, with the introduction of bulk import and export of relations,
-the number of available workers on the destination instance has become more critical.
+A single direct transfer migration runs five entities (groups or projects) per import at a time, regardless of the number of workers available on the destination instance.
+More Sidekiq workers on the destination instance can reduce the time it takes to import each entity, as long as the instance has enough resources to handle additional concurrent jobs.
+In GitLab 16.8 and later, with the introduction of bulk import and export of relations, the number of available workers on the destination instance has become more critical.
 
-For more information about how to add Sidekiq workers to the destination instance, see information about
-[Sidekiq configuration for imports](../../../administration/sidekiq/configuration_for_imports.md).
+For more information about how to add Sidekiq workers to the destination instance, see information about [Sidekiq configuration for imports](../../../administration/sidekiq/configuration_for_imports.md).
 
 ### Redistribute large projects or start separate migrations
 
-The number of workers on the source instance should be enough to export the 5 concurrent entities in parallel (for each running import). Otherwise, there can be
-delays and potential timeouts as the destination is waiting for exported data to become available.
+The number of workers on the source instance should be enough to export the 5 concurrent entities in parallel (for each running import). Otherwise, there can be delays and potential timeouts as the destination is waiting for exported data to become available.
 
 Distributing projects in different groups helps to avoid timeouts. If several large projects are in the same group, you can:
 
@@ -203,15 +181,14 @@ After migration:
 
 - Private groups and projects stay private.
 - Internal groups and projects:
-  - Stay internal when copied into an internal group unless internal visibility is [restricted](../../../administration/settings/visibility_and_access_controls.md#restrict-visibility-levels). In that case, the groups and projects become private.
-  - Become private when copied into a private group.
+ - Stay internal when copied into an internal group unless internal visibility is [restricted](../../../administration/settings/visibility_and_access_controls.md#restrict-visibility-levels). In that case, the groups and projects become private.
+ - Become private when copied into a private group.
 - Public groups and projects:
-  - Stay public when copied into a public group unless public visibility is [restricted](../../../administration/settings/visibility_and_access_controls.md#restrict-visibility-levels). In that case, the groups and projects become internal.
-  - Become internal when copied into an internal group unless internal visibility is [restricted](../../../administration/settings/visibility_and_access_controls.md#restrict-visibility-levels). In that case, the groups and projects become private.
-  - Become private when copied into a private group.
+ - Stay public when copied into a public group unless public visibility is [restricted](../../../administration/settings/visibility_and_access_controls.md#restrict-visibility-levels). In that case, the groups and projects become internal.
+ - Become internal when copied into an internal group unless internal visibility is [restricted](../../../administration/settings/visibility_and_access_controls.md#restrict-visibility-levels). In that case, the groups and projects become private.
+ - Become private when copied into a private group.
 
-If you used a private network on your source instance to hide content from the general public,
-make sure to have a similar setup on the destination instance, or to import into a private group.
+If you used a private network on your source instance to hide content from the general public, make sure to have a similar setup on the destination instance, or to import into a private group.
 
 ## Migration by direct transfer process
 

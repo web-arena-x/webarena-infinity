@@ -7,7 +7,7 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/4407079610903-Using-
 When processing job posting requests, if you choose to decline a posting, a popup appears to gather more information:
 
 - select a reason for the decline. These job decline reasons make it easier for employers to understand why their job was declined at a specific school.
-  - The selection chosen will be added as a comment to the job's comment history. Employers are able to review the decline reason and comment added.
+ - The selection chosen will be added as a comment to the job's comment history. Employers are able to review the decline reason and comment added.
 - choose to share your name with the employer.
 - choose to allow employers to initiate a second request for approval after being declined once.
 
@@ -17,29 +17,29 @@ In the prompt that appears, check the appropriate box(es) that represent the rea
 
 Check at least one of the boxes listed:
 
-- **Pay structure**  
-  - This job is being declined due to its pay structure
-- **Job requires upfront cost**  
-  - This job is being declined for requiring an upfront cost
+- **Pay structure** 
+ - This job is being declined due to its pay structure
+- **Job requires upfront cost** 
+ - This job is being declined for requiring an upfront cost
 - **Not aligned with my institution's offerings**
-  - Note: We do not recommend declining jobs based on academic/degree fit. Handshake will only recommend this job to students who we think may be interested in it.
-- **Employer is a third party recruiter or staffing agency**  
-  - This job is being declined because it is from a third party recruiter or staffing agency
-- **Location doesn't make sense for my students**  
-  - This job is an international position or its location does not make sense for my students
+ - Note: We do not recommend declining jobs based on academic/degree fit. Handshake will only recommend this job to students who we think may be interested in it.
+- **Employer is a third party recruiter or staffing agency** 
+ - This job is being declined because it is from a third party recruiter or staffing agency
+- **Location doesn't make sense for my students** 
+ - This job is an international position or its location does not make sense for my students
 - **Job is located at a residential address**
-  - This job is located at a residential address, and your institution chooses not to approve jobs located at residential addresses
-- **Job description needs more information****(please explain below)**  
-  - This job description requires more information
-- **Other (please explain below)**  
-  - This job is being declined for a reason other than those listed above
+ - This job is located at a residential address, and your institution chooses not to approve jobs located at residential addresses
+- **Job description needs more information****(please explain below)** 
+ - This job description requires more information
+- **Other (please explain below)** 
+ - This job is being declined for a reason other than those listed above
 
 **Note**: If the reason isn't listed, check the last box, "Decline reason not listed", and add the accurate reason in the text box: **Please tell us more about this decision**...
 
 - **Share my name with employer** (Yes / No)
-  - If you select this option, your name will be displayed with the comment.
+ - If you select this option, your name will be displayed with the comment.
 - **Would you like to invite this employer to submit this job for approval again after changes or discussion?** (Yes / No)
-  - If you select this option, employers will be able to submit the job for approval one more time, after describing the actions taken. *Refer to [Processing Job Posting Requests](https://support.joinhandshake.com/hc/en-us/articles/218693638) for details on second requests.*
+ - If you select this option, employers will be able to submit the job for approval one more time, after describing the actions taken. *Refer to [Processing Job Posting Requests](https://support.joinhandshake.com/hc/en-us/articles/218693638) for details on second requests.*
 
 ![Job Decline reasons .png](https://support.joinhandshake.com/hc/article_attachments/25998877964055)
 

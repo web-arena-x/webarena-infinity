@@ -6,7 +6,7 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360036981454-Employe
 
 This is a list of all Industries in Handshake. This list is available as a download at the bottom of this article in a .csv file format.
 
-|  |
+| |
 | --- |
 | Industries List |
 | Accounting |

@@ -114,12 +114,11 @@ Similar to the [AI feature development process](ai_feature_development_playbook.
 
 - [AI evaluation tooling](https://gitlab.com/gitlab-org/modelops/ai-model-validation-and-research/ai-evaluation): The group containing AI evaluation tooling used at GitLab.
 - [LangSmith Evaluations YouTube playlist](https://www.youtube.com/playlist?list=PLfaIDFEXuae0um8Fj0V4dHG37fGFU8Q5S):
-  Deep dive on evaluation with LangSmith.
+ Deep dive on evaluation with LangSmith.
 - [LangSmith Evaluation Cookbook](https://github.com/langchain-ai/langsmith-cookbook/blob/main/README.md#testing--evaluation):
-  Contains various evaluation scenarios and examples.
-- [LangSmith How To Guides](https://docs.smith.langchain.com/evaluation/how_to_guides): Contains various how to
-  walkthroughs.
+ Contains various evaluation scenarios and examples.
+- [LangSmith How To Guides](https://docs.smith.langchain.com/evaluation/how_to_guides): Contains various how to walkthroughs.
 - [GitLab Duo Chat Documentation](duo_chat.md):
-  Comprehensive guide on setting up and using LangSmith for chat evaluations.
+ Comprehensive guide on setting up and using LangSmith for chat evaluations.
 - [Prompt and AI Feature Evaluation Setup and Workflow](https://gitlab.com/groups/gitlab-org/-/epics/13952):
-  Details on the overall workflow and setup for evaluations.
+ Details on the overall workflow and setup for evaluations.

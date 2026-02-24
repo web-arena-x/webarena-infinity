@@ -5,8 +5,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: 'Tutorial: Build Android apps with GitLab Mobile DevOps'
 ---
 
-In this tutorial, you'll create a pipeline by using GitLab CI/CD that builds your Android mobile app,
-signs it with your credentials, and distributes it to app stores.
+In this tutorial, you'll create a pipeline by using GitLab CI/CD that builds your Android mobile app, signs it with your credentials, and distributes it to app stores.
 
 To set up mobile DevOps:
 
@@ -25,8 +24,7 @@ Before you start this tutorial, make sure you have:
 
 ## Set up your build environment
 
-Use [GitLab-hosted runners](../runners/_index.md),
-or set up [self-managed runners](https://docs.gitlab.com/runner/#use-self-managed-runners)
+Use [GitLab-hosted runners](../runners/_index.md), or set up [self-managed runners](https://docs.gitlab.com/runner/#use-self-managed-runners)
 for complete control over the build environment.
 
 Android builds use Docker images, offering multiple Android API versions.
@@ -101,21 +99,21 @@ The following are sample `fastlane/Fastfile` and `.gitlab-ci.yml` files with thi
 
 - `fastlane/Fastfile`:
 
-  ```ruby
-  default_platform(:android)
+ ```ruby
+ default_platform(:android)
 
-  platform :android do
+ platform :android do
     desc "Create and sign a new build"
     lane :build do
       gradle(tasks: ["clean", "assembleRelease", "bundleRelease"])
     end
-  end
-  ```
+ end
+ ```
 
 - `.gitlab-ci.yml`:
 
-  ```yaml
-  build:
+ ```yaml
+ build:
     image: fabernovel/android:api-33-v1.7.0
     stage: build
     script:
@@ -125,7 +123,7 @@ The following are sample `fastlane/Fastfile` and `.gitlab-ci.yml` files with thi
       - glab auth login --hostname $CI_SERVER_FQDN --job-token $CI_JOB_TOKEN
       - glab securefile download --all --output-dir .secure_files/
       - fastlane build
-  ```
+ ```
 
 ## Set up Android apps distribution with Google Play integration and fastlane
 
@@ -148,14 +146,14 @@ The following is a sample `fastlane/Fastfile`:
 default_platform(:android)
 
 platform :android do
-  desc "Submit a new Beta build to the Google Play store"
-  lane :beta do
+ desc "Submit a new Beta build to the Google Play store"
+ lane :beta do
     upload_to_play_store(
       track: 'internal',
       aab: 'app/build/outputs/bundle/release/app-release.aab',
       release_status: 'draft'
     )
-  end
+ end
 end
 ```
 
@@ -163,17 +161,16 @@ The following is a sample `.gitlab-ci.yml`:
 
 ```yaml
 beta:
-  image: fabernovel/android:api-33-v1.7.0
-  stage: beta
-  script:
+ image: fabernovel/android:api-33-v1.7.0
+ stage: beta
+ script:
     - fastlane beta
 ```
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
 For an overview, see [Google Play integration demo](https://youtu.be/Fxaj3hna4uk).
 
-Congratulations! Your app is now set up for automated building, signing, and distribution. Try creating
-a merge request to trigger your first pipeline.
+Congratulations! Your app is now set up for automated building, signing, and distribution. Try creating a merge request to trigger your first pipeline.
 
 ## Related topics
 

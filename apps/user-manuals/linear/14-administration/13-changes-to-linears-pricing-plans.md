@@ -2,10 +2,10 @@
 
 ## **We’re moving all workspaces onto our current plans**
 
-  
+ 
 Your workspace started using Linear when we were focused on being a fast issue tracker. That speed isn’t going anywhere, but Linear has changed a lot since then. We’ve automated triage, enabled customer feedback capture, introduced agents that help draft PRs and fix bugs, and more. Linear has grown into a full product development platform.
 
-Your current plan was designed before all of this existed. To make sure everyone can access these new capabilities, and to simplify our offerings, we’re moving all workspaces onto our current plans.  
+Your current plan was designed before all of this existed. To make sure everyone can access these new capabilities, and to simplify our offerings, we’re moving all workspaces onto our current plans. 
 
 
 ## **What’s changing**
@@ -16,7 +16,7 @@ We’re retiring our legacy plans (Plus and Standard) and moving all workspaces 
 
 **If you’re on Standard**, your workspace will move to Basic by default. If you’re using features like triage responsibility, private teams, guest accounts, or support integrations, we recommend moving to Business to keep them.
 
-When your plan updates, you’ll get access to our latest features like [Customer Requests](https://linear.app/customer-requests), [Triage Intelligence](https://linear.app/docs/triage-intelligence), and the [Linear Agent for Slack](https://linear.app/changelog/2025-10-23-linear-agent-for-slack). You can see a full feature comparison in your [billing settings](https://linear.app/settings/billing/plans).  
+When your plan updates, you’ll get access to our latest features like [Customer Requests](https://linear.app/customer-requests), [Triage Intelligence](https://linear.app/docs/triage-intelligence), and the [Linear Agent for Slack](https://linear.app/changelog/2025-10-23-linear-agent-for-slack). You can see a full feature comparison in your [billing settings](https://linear.app/settings/billing/plans). 
 
 
 ## Timeline

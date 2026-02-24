@@ -15,11 +15,11 @@ After you create a new bid package, you can copy bid forms from previous bid pac
 ## Things to Consider
 
 - **Required User Permissions**
-  - 'Admin' level permissions to the project's Bidding tool.  
+ - 'Admin' level permissions to the project's Bidding tool. 
     *Note:* You will only have access to copy bid packages from projects that you have access to.
 - **Additional Information**
-  - Copying bid forms is only available for bid packages created after March 18, 2024.
-  - Bid forms can be copied from projects that:
+ - Copying bid forms is only available for bid packages created after March 18, 2024.
+ - Bid forms can be copied from projects that:
     - Use the Enhanced Bidding Experience
     - Are active and not archived
     - Have at least one bid form in the bid package

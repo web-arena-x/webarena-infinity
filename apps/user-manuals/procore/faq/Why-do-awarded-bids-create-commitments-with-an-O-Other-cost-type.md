@@ -24,6 +24,6 @@ While there is no direct way within Procore to identify whether a cost type was
 
 ## See Also
 
-Beta: [Award a Bid and Convert it to a Subcontract or Purchase Order](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/award-a-bid-and-convert-it-to-a-subcontract-or-purchase-order "Award a Bid and Convert it to a Subcontract or Purchase Order")  
-Legacy: [Award a Winning Bid and Convert it into a Purchase Order](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/award-a-winning-bid-and-convert-it-into-a-purchase-order "Award a Winning Bid and Convert it into a Purchase Order")  
+Beta: [Award a Bid and Convert it to a Subcontract or Purchase Order](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/award-a-bid-and-convert-it-to-a-subcontract-or-purchase-order "Award a Bid and Convert it to a Subcontract or Purchase Order") 
+Legacy: [Award a Winning Bid and Convert it into a Purchase Order](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/award-a-winning-bid-and-convert-it-into-a-purchase-order "Award a Winning Bid and Convert it into a Purchase Order") 
 Legacy: [Award a Winning Bid and Convert it into a Subcontract](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/award-a-winning-bid-and-convert-it-into-a-subcontract "Award a Winning Bid and Convert it into a Subcontract")

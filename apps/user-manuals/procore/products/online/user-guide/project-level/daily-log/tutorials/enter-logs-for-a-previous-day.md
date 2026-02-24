@@ -11,12 +11,12 @@ To enter information for a previous log entry.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Standard' or Admin' on the project's Daily Log tool.
+ - 'Standard' or Admin' on the project's Daily Log tool.
 
 ## Steps
 
 1. Navigate to the project's **Daily Log** tool.
-2. Click on the calendar icon next to today's date to pull up a monthly view.  
+2. Click on the calendar icon next to today's date to pull up a monthly view. 
      
    ![select calendar.png](https://support.procore.com/@api/deki/files/64710/select_calendar.png?revision=1)
 3. Select a past date.

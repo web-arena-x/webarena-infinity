@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408836035866-CCs-and-foll
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > Objects and rules > Tickets > Settings
+Location: Admin Center > Objects and rules > Tickets > Settings
 
 This is a complete list of documentation about CCs and followers.
 

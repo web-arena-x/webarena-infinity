@@ -33,13 +33,13 @@ Below **Top Matches**, the **More Matches** section displays all candidates who 
 
 When inviting students to apply, the message composer will open with a pre-written message:
 
-> *"*Hi {first name},  
+> *"*Hi {first name}, 
 > We looked at your profile and think you'd be a great fit for {role} because you match these qualifications:
 >
 > - Area of study: {major}
 > - Class year: {class year}
-> - Graduation: {graduation year}  
->   This position aligns with your interests in {matching interests} near {matching location interest}.  
+> - Graduation: {graduation year} 
+>   This position aligns with your interests in {matching interests} near {matching location interest}. 
 >   We're looking for students like you – we hope you'll apply!"
 
 If you select multiple students, the message will be sent to each student individually. The pre-written message will automatically personalize details such as the student’s name, qualifications, and matching interests.
@@ -89,7 +89,7 @@ A confirmation banner will appear in the lower-right corner of the page, display
 ![Message button.png](https://support.joinhandshake.com/hc/article_attachments/34785841578903)
 
 - To select all students on the page, check the box next to **Candidate** at the top of the table, then click **Message** in the header.
-  - To select all students across all pages, click “Select all 10,000” in the header.
+ - To select all students across all pages, click “Select all 10,000” in the header.
 
 ![Message candidates from talent table.png](https://support.joinhandshake.com/hc/article_attachments/31941824708887)
 

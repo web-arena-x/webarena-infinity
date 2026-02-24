@@ -26,10 +26,8 @@ title: GitLab MCP server
 > [!warning]
 > To provide feedback on this feature, leave a comment on [issue 561564](https://gitlab.com/gitlab-org/gitlab/-/issues/561564).
 
-With the GitLab [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) server,
-you can securely connect AI tools and applications to your GitLab instance.
-AI assistants like Claude Desktop, Claude Code, Cursor, and other MCP-compatible tools
-can then access your GitLab data and perform actions on your behalf.
+With the GitLab [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) server, you can securely connect AI tools and applications to your GitLab instance.
+AI assistants like Claude Desktop, Claude Code, Cursor, and other MCP-compatible tools can then access your GitLab data and perform actions on your behalf.
 
 The GitLab MCP server provides a standardized way for AI tools to:
 
@@ -38,9 +36,7 @@ The GitLab MCP server provides a standardized way for AI tools to:
 - Interact with GitLab APIs securely.
 - Perform GitLab-specific operations through AI assistants.
 
-The GitLab MCP server supports [OAuth 2.0 Dynamic Client Registration](https://tools.ietf.org/html/rfc7591),
-which enables AI tools to register themselves with your GitLab instance. When an AI tool connects to
-your GitLab MCP server for the first time, it:
+The GitLab MCP server supports [OAuth 2.0 Dynamic Client Registration](https://tools.ietf.org/html/rfc7591), which enables AI tools to register themselves with your GitLab instance. When an AI tool connects to your GitLab MCP server for the first time, it:
 
 1. Registers itself as an OAuth application.
 1. Requests authorization to access your GitLab data.
@@ -51,8 +47,7 @@ For a click-through demo, see [GitLab Duo Agent Platform - GitLab MCP server](ht
 
 ## Prerequisites
 
-- Have [GitLab Duo Core](../../gitlab_duo/turn_on_off.md#turn-gitlab-duo-core-on-or-off) and
-  [beta and experimental features](../../gitlab_duo/turn_on_off.md#turn-on-beta-and-experimental-features) turned on.
+- Have [GitLab Duo Core](../../gitlab_duo/turn_on_off.md#turn-gitlab-duo-core-on-or-off) and [beta and experimental features](../../gitlab_duo/turn_on_off.md#turn-on-beta-and-experimental-features) turned on.
 
 ## Connect a client to the GitLab MCP server
 
@@ -61,8 +56,7 @@ The GitLab MCP server supports two transport types:
 - **HTTP transport (recommended)**: Direct connection without additional dependencies.
 - **stdio transport with `mcp-remote`**: Connection through a proxy (requires Node.js).
 
-Common AI tools support the JSON configuration format for the `mcpServers` key
-and provide different methods to configure the GitLab MCP server settings.
+Common AI tools support the JSON configuration format for the `mcpServers` key and provide different methods to configure the GitLab MCP server settings.
 
 ### HTTP transport (recommended)
 
@@ -75,17 +69,17 @@ and provide different methods to configure the GitLab MCP server settings.
 To configure the GitLab MCP server by using HTTP transport, use this format:
 
 - Replace `<gitlab.example.com>` with:
-  - On GitLab Self-Managed, your GitLab instance URL.
-  - On GitLab.com, `gitlab.com`.
+ - On GitLab Self-Managed, your GitLab instance URL.
+ - On GitLab.com, `gitlab.com`.
 
 ```json
 {
-  "mcpServers": {
+ "mcpServers": {
     "GitLab": {
       "type": "http",
       "url": "https://<gitlab.example.com>/api/v4/mcp"
     }
-  }
+ }
 }
 ```
 
@@ -99,12 +93,12 @@ To configure the GitLab MCP server by using stdio transport, use this format:
 
 - For the `"command":` parameter, if `npx` is installed locally instead of globally, provide the full path to `npx`.
 - Replace `<gitlab.example.com>` with:
-  - On GitLab Self-Managed, your GitLab instance URL.
-  - On GitLab.com, `gitlab.com`.
+ - On GitLab Self-Managed, your GitLab instance URL.
+ - On GitLab.com, `gitlab.com`.
 
 ```json
 {
-  "mcpServers": {
+ "mcpServers": {
     "GitLab": {
       "command": "npx",
       "args": [
@@ -112,7 +106,7 @@ To configure the GitLab MCP server by using stdio transport, use this format:
         "https://<gitlab.example.com>/api/v4/mcp"
       ]
     }
-  }
+ }
 }
 ```
 
@@ -240,8 +234,7 @@ Exercise extreme caution or use MCP tools only on GitLab objects you trust.
 
 ## Connect Gemini Code Assist and Gemini CLI to the GitLab MCP server
 
-Gemini Code Assist and Gemini CLI use HTTP transport
-for direct connection without additional dependencies.
+Gemini Code Assist and Gemini CLI use HTTP transport for direct connection without additional dependencies.
 To configure the GitLab MCP server in Gemini Code Assist or Gemini CLI:
 
 1. Edit `~/.gemini/settings.json` and add the GitLab MCP server.
@@ -293,8 +286,7 @@ To configure the GitLab MCP server in GitHub Copilot in VS Code:
 1. Save the configuration globally or in the `vscode/mcp.json` workspace.
 
    The OAuth authorization page should appear.
-   Otherwise, open the Command Palette and search for **MCP: List Servers**
-   to check the status or restart the server.
+   Otherwise, open the Command Palette and search for **MCP: List Servers** to check the status or restart the server.
 
 1. In your browser, review and approve the authorization request.
 
@@ -362,12 +354,11 @@ To configure the GitLab MCP server in OpenAI Codex:
      - On GitLab Self-Managed, your GitLab instance URL.
      - On GitLab.com, `gitlab.com`.
 
-  ```shell
-  codex mcp add --url "https://<gitlab.example.com>/api/v4/mcp" GitLab
-  ```
+ ```shell
+ codex mcp add --url "https://<gitlab.example.com>/api/v4/mcp" GitLab
+ ```
 
-1. Edit `~/.codex/config.toml` and, in the `[features]` section,
-   enable the `rmcp_client` feature flag.
+1. Edit `~/.codex/config.toml` and, in the `[features]` section, enable the `rmcp_client` feature flag.
 
    ```toml
    [features]

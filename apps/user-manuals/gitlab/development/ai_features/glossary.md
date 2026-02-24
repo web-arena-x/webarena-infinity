@@ -5,9 +5,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: GitLab Duo Glossary
 ---
 
-This is a list of terms that may have a general meaning but also may have a
-specific meaning at GitLab. If you encounter a piece of technical jargon related
-to AI that you think could benefit from being in this list, add it!
+This is a list of terms that may have a general meaning but also may have a specific meaning at GitLab. If you encounter a piece of technical jargon related to AI that you think could benefit from being in this list, add it!
 
 ## General terminology
 
@@ -18,16 +16,13 @@ A variation on Fine Tuning. Instead of opening the model and adjusting the layer
 ### AI Catalog
 
 A central registry of available agents and flows in the GitLab Duo Agent Platform.
-Shared across the instance. The Catalog functions as both a marketplace and
-control plane, enabling safe, observable, and scalable AI deployment across
-GitLab.
+Shared across the instance. The Catalog functions as both a marketplace and control plane, enabling safe, observable, and scalable AI deployment across GitLab.
 
 The vision is for the AI Catalog to provide:
 
 - **Discovery**: Users can browse, search, and understand what AI capabilities exist.
 - **Governance**: Admins can manage access, usage policies, and audit logs.
-- **Extensibility**: Developers can register new agents or flows with metadata, inputs/outputs, and
-  performance metrics.
+- **Extensibility**: Developers can register new agents or flows with metadata, inputs/outputs, and performance metrics.
 
 ### AI gateway
 
@@ -163,14 +158,9 @@ Method for LLM evaluation that compares aspects of text at the granularity of in
 
 ### Zero-shot agent
 
-In the general world of AI, a learning model or system that can perform tasks without having seen any
-examples of that task during training. At GitLab, we use this term to refer specifically to a piece of our code that serves
-as a sort of LLM-powered air traffic controller for GitLab Duo Chat. The GitLab zero-shot agent has a
-system prompt that explains how an LLM should interpret user input from GitLab Duo Chat as well as a
-list of tool descriptions. Using this information, the agent determines which tool to use to answer a user's question.
+In the general world of AI, a learning model or system that can perform tasks without having seen any examples of that task during training. At GitLab, we use this term to refer specifically to a piece of our code that serves as a sort of LLM-powered air traffic controller for GitLab Duo Chat. The GitLab zero-shot agent has a system prompt that explains how an LLM should interpret user input from GitLab Duo Chat as well as a list of tool descriptions. Using this information, the agent determines which tool to use to answer a user's question.
 The agent may decide that no tools are required and answer the question directly.
-If a tool is used, the answer from the tool is fed back to the zero-shot agent to evaluate if the answer is
-sufficient or if an additional tool must be used to answer the question.
+If a tool is used, the answer from the tool is fed back to the zero-shot agent to evaluate if the answer is sufficient or if an additional tool must be used to answer the question.
 
 [Code](https://gitlab.com/gitlab-org/gitlab/-/blob/6b747cbd7c6a71145a8bfb8201db3c857b5aed6a/ee/lib/gitlab/llm/chain/agents/zero_shot/executor.rb).
 
@@ -180,10 +170,8 @@ sufficient or if an additional tool must be used to answer the question.
 
 ### Flow
 
-A predefined, structured sequence of steps that orchestrates a team of agents to execute actions
-(either agentic or deterministic) to complete a task. Flows are initiated by triggers or manually.
-Inputs can be natural language or predefined key-values (for example, project name, feature flag to
-remove).
+A predefined, structured sequence of steps that orchestrates a team of agents to execute actions (either agentic or deterministic) to complete a task. Flows are initiated by triggers or manually.
+Inputs can be natural language or predefined key-values (for example, project name, feature flag to remove).
 
 Example: "Generate test cases → Update CI pipeline file → Commit changes → Notify user in MR."
 
@@ -194,43 +182,31 @@ Example: "Generate test cases → Update CI pipeline file → Commit changes →
 
 #### Flow execution
 
-- **Runner job**: Sometimes called "remote execution." Asynchronous execution in
-  the platform using GitLab Runner.
-- **Local (IDE or CLI)**: Synchronous execution. Can interact directly with the file system
-  (for example, Software Development Flow).
+- **Runner job**: Sometimes called "remote execution." Asynchronous execution in the platform using GitLab Runner.
+- **Local (IDE or CLI)**: Synchronous execution. Can interact directly with the file system (for example, Software Development Flow).
 
 #### When to use flows
 
-Flows are best used for repeatable, multi-step automations that need to run reliably and
-consistently across projects. Flows are ideal when a task follows a predictable pattern, such as
-fixing failing pipelines, updating dependencies, or applying policy checks. Flows can be
-executed without continuous human input.
+Flows are best used for repeatable, multi-step automations that need to run reliably and consistently across projects. Flows are ideal when a task follows a predictable pattern, such as fixing failing pipelines, updating dependencies, or applying policy checks. Flows can be executed without continuous human input.
 
 ### Agent
 
-An Agent is an autonomous, persona-like software component powered by an AI
-model. Agents perform a specific task or set of tasks on behalf of the user or
-system in the GitLab ecosystem
+An Agent is an autonomous, persona-like software component powered by an AI model. Agents perform a specific task or set of tasks on behalf of the user or system in the GitLab ecosystem
 
 #### Agent types
 
 - **Foundational**: A GitLab-maintained, platform-native agent that provides general or cross-workflow intelligence.
-  - Purpose: Serves as a baseline capability accessible across the product,
-    ensuring consistent quality, safety, and governance.
-  - How to invoke: Foundational Agents can be invoked in GitLab Duo Chat only
-  - Example: GitLab Duo Security Analyst Chat Agent for answering questions about
-    vulnerabilities in chat.
+ - Purpose: Serves as a baseline capability accessible across the product, ensuring consistent quality, safety, and governance.
+ - How to invoke: Foundational Agents can be invoked in GitLab Duo Chat only
+ - Example: GitLab Duo Security Analyst Chat Agent for answering questions about vulnerabilities in chat.
 - **Custom**: Built by users through the AI Catalog.
-  - Purpose: Enables teams to leverage proprietary knowledge, tools, and decision logic in GitLab guardrails.
-  - How to invoke: Custom Agents can be invoked in GitLab Duo Chat only
-  - Example: An agent created specifically answering a questions about a codebase
+ - Purpose: Enables teams to leverage proprietary knowledge, tools, and decision logic in GitLab guardrails.
+ - How to invoke: Custom Agents can be invoked in GitLab Duo Chat only
+ - Example: An agent created specifically answering a questions about a codebase
 - **External**: Also known as "Third-Party Flows" or "CLI Agents." An externally developed agent integrated into the GitLab Duo Agent Platform
-  - Purpose: Expands platform capability by allowing external vendors to operate
-    in the GitLab workflow orchestration and policy layer.
-  - How to invoke: External Agents are invoked through `@` mentions in comments OR through
-    assignment to issues, epics, or merge requests. They cannot be invoked through GitLab Duo
-    Chat.
-  - Example: Amazon Q or Claude integrated for code generation or review.
+ - Purpose: Expands platform capability by allowing external vendors to operate in the GitLab workflow orchestration and policy layer.
+ - How to invoke: External Agents are invoked through `@` mentions in comments OR through assignment to issues, epics, or merge requests. They cannot be invoked through GitLab Duo Chat.
+ - Example: Amazon Q or Claude integrated for code generation or review.
 
 #### Agent Execution
 
@@ -240,18 +216,13 @@ External agents can be configured with triggers.
 
 #### When to use agents
 
-Agents are best used for on-demand, interactive, or context-specific tasks that benefit from
-reasoning and natural-language interaction, such as explaining code, summarizing issues, generating
-content, or providing recommendations. They are ideal when the task requires flexibility and
-human-in-the-loop decision-making rather than a predefined, repeatable workflow.
+Agents are best used for on-demand, interactive, or context-specific tasks that benefit from reasoning and natural-language interaction, such as explaining code, summarizing issues, generating content, or providing recommendations. They are ideal when the task requires flexibility and human-in-the-loop decision-making rather than a predefined, repeatable workflow.
 
 ### Session
 
-The contextual runtime state of an agent or flow that begins after an agent or
-flow is triggered. During a session, agents perform actions to complete tasks.
+The contextual runtime state of an agent or flow that begins after an agent or flow is triggered. During a session, agents perform actions to complete tasks.
 Agents reason over evolving context and maintain continuity across interactions.
-For example, remembering prior steps in a refactor sequence or the rationale
-behind a code fix.
+For example, remembering prior steps in a refactor sequence or the rationale behind a code fix.
 
 In the GitLab UI, sessions capture:
 
@@ -261,18 +232,14 @@ In the GitLab UI, sessions capture:
 
 ### Tool
 
-A **discrete, deterministic capability** an agent (or flow step) invokes to perform read or write
-actions. Tools can be used to perform these in GitLab or in third-party applications through MCP
-or other protocols.
+A **discrete, deterministic capability** an agent (or flow step) invokes to perform read or write actions. Tools can be used to perform these in GitLab or in third-party applications through MCP or other protocols.
 
 *Examples:* read GitLab issues, clone a repository, commit and push changes, call a REST API.
 Tools expose data or side-effects; they themselves perform **no reasoning**.
 
 ### Trigger
 
-An event that starts a Flow or activates an External Agent. Triggers are created
-for each External Agent or Flow on a per-project basis. To run a flow,
-there must be a trigger configured for that External Agent or Flow in that project.
+An event that starts a Flow or activates an External Agent. Triggers are created for each External Agent or Flow on a per-project basis. To run a flow, there must be a trigger configured for that External Agent or Flow in that project.
 
 Events include:
 
@@ -280,8 +247,7 @@ Events include:
 - User prompts or actions (for example, `@` mention on an issue, issue assignment “)
 - Time-based (for example, daily at 18:00, every Monday) (planned)
 
-Many Triggers can be created to start Flows, however, there are only two available
-Triggers (`@` mention and issue assignment) for External Agents.
+Many Triggers can be created to start Flows, however, there are only two available Triggers (`@` mention and issue assignment) for External Agents.
 
 ### Supporting terminology
 
@@ -307,14 +273,10 @@ Triggers (`@` mention and issue assignment) for External Agents.
 
 ### Advanced context resolver
 
-Advanced context is a comprehensive set of code-related information extending
-beyond a single file, including open file tabs, imports, dependencies,
-cross-file symbols and definitions, and project-wide relevant code snippets.
+Advanced context is a comprehensive set of code-related information extending beyond a single file, including open file tabs, imports, dependencies, cross-file symbols and definitions, and project-wide relevant code snippets.
 
 Advanced context *resolver* is a system designed to gather the above advanced context.
-By providing advanced context, the resolver providers the LLM with a more
-holistic understanding of the project structure, enabling more accurate and
-context-aware code suggestions and generation.
+By providing advanced context, the resolver providers the LLM with a more holistic understanding of the project structure, enabling more accurate and context-aware code suggestions and generation.
 
 ### AI context abstraction layer
 
@@ -326,8 +288,7 @@ This [architecture](https://handbook.gitlab.com/handbook/engineering/architectur
 
 ### AI context policies
 
-A user-defined and user-managed mechanism allowing precise control over the
-content that can be sent to LLMs as contextual information.
+A user-defined and user-managed mechanism allowing precise control over the content that can be sent to LLMs as contextual information.
 GitLab has an [architecture document](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/ai_context_management/)
 that proposes a format for AI Context Policies.
 
@@ -336,20 +297,16 @@ that proposes a format for AI Context Policies.
 This refers to a repository that the user explicitly provides using the `/include` command. The user may narrow the scope by choosing a directory within a repository.
 This feature allows the user to ask questions about an entire repository, or a subset of that repository by selecting specific directories.
 
-This is automatically enhanced by performing a semantic search of the user's question over the [Code Embeddings](#code-embeddings) of the included repository,
-with the search results then added to the context sent to the LLM. This gives the LLM information about the included repository or directory that is specifically
-targeted to the user's question, allowing the LLM to generate a more helpful response.
+This is automatically enhanced by performing a semantic search of the user's question over the [Code Embeddings](#code-embeddings) of the included repository, with the search results then added to the context sent to the LLM. This gives the LLM information about the included repository or directory that is specifically targeted to the user's question, allowing the LLM to generate a more helpful response.
 
-This [architecture document](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/codebase_as_chat_context/) proposes
-Codebase as Chat Context enhanced by semantic search over Code Embeddings.
+This [architecture document](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/codebase_as_chat_context/) proposes Codebase as Chat Context enhanced by semantic search over Code Embeddings.
 
 In the future, the repository or directory context may also be enhanced by a [Knowledge Graph](#knowledge-graph) search.
 
 ### Code embeddings
 
 The [Code Embeddings initiative](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/codebase_as_chat_context/code_embeddings/)
-aims to build vector embeddings representation of files in a repository. The file contents are chunked into logical segments, then embeddings are generated
-for the chunked content and stored in a vector store.
+aims to build vector embeddings representation of files in a repository. The file contents are chunked into logical segments, then embeddings are generated for the chunked content and stored in a vector store.
 
 With Code Embeddings, we can perform a semantic search over a given repository, with the search results then used as additional context for an LLM.
 (See [Codebase as Chat Context](#codebase-as-chat-context) for how Code Embeddings will be used in GitLab Duo Chat.)
@@ -376,10 +333,7 @@ The [GitLab Code Parser](https://gitlab.com/gitlab-org/code-creation/gitlab-code
 
 ### Supplementary user context
 
-Information, such as open tabs in their IDE, files, and folders,
-that the user provides from their local environment to extend the default AI
-Context. This is sometimes called "pinned context" internally. GitLab Duo Chat users
-can provide supplementary user context with the `/include` command (IDE only).
+Information, such as open tabs in their IDE, files, and folders, that the user provides from their local environment to extend the default AI Context. This is sometimes called "pinned context" internally. GitLab Duo Chat users can provide supplementary user context with the `/include` command (IDE only).
 
 ## GitLab Licensing and Subscription Terminology
 

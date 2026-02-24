@@ -71,7 +71,7 @@ sequenceDiagram
 Gitaly Cluster (Praefect) configured storages are backed up in the same way as standalone Gitaly instances.
 
 - When Gitaly Cluster (Praefect) receives the RPC calls from `gitaly-backup`, it rebuilds its own database.
-  - There is no need to backup the Gitaly Cluster (Praefect) database separately.
+ - There is no need to backup the Gitaly Cluster (Praefect) database separately.
 - Each repository is backed up only once, regardless of the replication factor, because backups operate through RPCs.
 
 ### Server-side backups
@@ -147,20 +147,17 @@ Each sub-task identifies a set of files in a task-specific directory and:
 1. Saves the `tar` file to the [backup staging directory](#backup-staging-directory).
 
 Because backups are created from live instances, files might be modified during the backup process.
-In this case, an [alternate strategy](backup_gitlab.md#backup-strategy-option) can be used to back up files. The `rsync` utility creates a copy of the
-files to back up and passes them to `tar` for archiving.
+In this case, an [alternate strategy](backup_gitlab.md#backup-strategy-option) can be used to back up files. The `rsync` utility creates a copy of the files to back up and passes them to `tar` for archiving.
 
 {{< alert type="note" >}}
 
-If you are using this strategy, the machine running the backup Rake task must have
-sufficient storage for both the copied files and the compressed archive.
+If you are using this strategy, the machine running the backup Rake task must have sufficient storage for both the copied files and the compressed archive.
 
 {{< /alert >}}
 
 ## Backup ID
 
-Backup IDs are unique identifiers for backup archives. These IDs are crucial when you need to restore
-GitLab, and multiple backup archives are available.
+Backup IDs are unique identifiers for backup archives. These IDs are crucial when you need to restore GitLab, and multiple backup archives are available.
 
 Backup archives are saved in a directory specified by the `backup_path` setting in the `config/gitlab.yml` file.
 The default location is `/var/opt/gitlab/backups`.
@@ -180,10 +177,8 @@ By default, the filename follows the `<backup-id>_gitlab_backup.tar` structure. 
 
 ## Backup information file
 
-The backup information file, `backup_information.yml`, saves all the backup inputs that are not included
-in the backup. The file is saved in the [backup staging directory](#backup-staging-directory).
-Sub-tasks use this file to determine how to restore and link data in the backup with external
-services like [server-side repository backups](#server-side-backups).
+The backup information file, `backup_information.yml`, saves all the backup inputs that are not included in the backup. The file is saved in the [backup staging directory](#backup-staging-directory).
+Sub-tasks use this file to determine how to restore and link data in the backup with external services like [server-side repository backups](#server-side-backups).
 
 The backup information file includes the following:
 

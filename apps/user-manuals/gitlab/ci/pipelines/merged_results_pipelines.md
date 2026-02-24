@@ -15,10 +15,7 @@ title: Merged results pipelines
 A merged results pipeline runs on the result of the source and target branches merged together.
 It is a type of [merge request pipeline](merge_request_pipelines.md).
 
-GitLab creates an internal commit with the merged results, so the pipeline can run
-against it. This commit does not exist in either branch,
-but you can view it in the pipeline details. The author of the internal commit is
-always the user that created the merge request.
+GitLab creates an internal commit with the merged results, so the pipeline can run against it. This commit does not exist in either branch, but you can view it in the pipeline details. The author of the internal commit is always the user that created the merge request.
 
 The pipeline runs against the target branch as it exists at the moment you run the pipeline.
 Over time, while you're working in the source branch, the target branch might change.
@@ -32,15 +29,12 @@ and is labeled as `merge request`.
 
 To use merged results pipelines:
 
-- Your project's `.gitlab-ci.yml` file must be configured to
-  [run jobs in merge request pipelines](merge_request_pipelines.md#prerequisites).
-- Your repository must be a GitLab repository, not an
-  [external repository](../ci_cd_for_external_repos/_index.md).
+- Your project's `.gitlab-ci.yml` file must be configured to [run jobs in merge request pipelines](merge_request_pipelines.md#prerequisites).
+- Your repository must be a GitLab repository, not an [external repository](../ci_cd_for_external_repos/_index.md).
 
 ## Enable merged results pipelines
 
-To enable merged results pipelines in a project, you must have at least the
-Maintainer role:
+To enable merged results pipelines in a project, you must have at least the Maintainer role:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Settings** > **Merge requests**.
@@ -49,9 +43,7 @@ Maintainer role:
 
 {{< alert type="warning" >}}
 
-If you select the checkbox but don't configure your pipeline to use
-merge request pipelines, your merge requests may become stuck in an
-unresolved state or your pipelines may be dropped.
+If you select the checkbox but don't configure your pipeline to use merge request pipelines, your merge requests may become stuck in an unresolved state or your pipelines may be dropped.
 
 {{< /alert >}}
 
@@ -65,7 +57,6 @@ With merged results pipelines, the internal commit that GitLab creates is used a
 
 ### Successful merged results pipeline overrides a failed branch pipeline
 
-A failed branch pipeline is sometimes ignored when the
-[**Pipelines must succeed** setting](../../user/project/merge_requests/auto_merge.md#require-a-successful-pipeline-for-merge)
+A failed branch pipeline is sometimes ignored when the [**Pipelines must succeed** setting](../../user/project/merge_requests/auto_merge.md#require-a-successful-pipeline-for-merge)
 is activated.
 [Issue 385841](https://gitlab.com/gitlab-org/gitlab/-/issues/385841) is open to track this.

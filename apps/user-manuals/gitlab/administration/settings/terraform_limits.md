@@ -20,8 +20,7 @@ description: Configure Terraform storage limits.
 {{< /history >}}
 
 You can limit the total storage of [Terraform state files](../terraform_state.md).
-The limit applies to each individual
-state file version, and is checked whenever a new version is created.
+The limit applies to each individual state file version, and is checked whenever a new version is created.
 
 Prerequisites:
 

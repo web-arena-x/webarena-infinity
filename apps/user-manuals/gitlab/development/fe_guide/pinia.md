@@ -83,23 +83,23 @@ Prefer using global Pinia stores for global reactive state.
 import { isNarrowScreenMediaQuery } from '~/lib/utils/css_utils';
 
 new Vue({
-  data() {
+ data() {
     return {
       isNarrow: false,
     };
-  },
-  mounted() {
+ },
+ mounted() {
     const query = isNarrowScreenMediaQuery();
     this.isNarrow = query.matches;
 
     query.addEventListener('change', (event) => {
       this.isNarrow = event.matches;
     });
-  },
-  render() {
+ },
+ render() {
     if (this.isNarrow) return null;
     //
-  },
+ },
 });
 ```
 
@@ -109,12 +109,12 @@ import { pinia } from '~/pinia/instance';
 import { useViewport } from '~/pinia/global_stores/viewport';
 
 new Vue({
-  pinia,
-  ...mapState(useViewport, ['isNarrowScreen']),
-  render() {
+ pinia,
+ ...mapState(useViewport, ['isNarrowScreen']),
+ render() {
     if (this.isNarrowScreen) return null;
     //
-  },
+ },
 });
 ```
 
@@ -143,14 +143,14 @@ import { createTestingPinia } from '@pinia/testing';
 import { useMyStore } from '~/my_store.js';
 
 describe('MyStore', () => {
-  beforeEach(() => {
+ beforeEach(() => {
     createTestingPinia({ stubActions: false });
-  });
+ });
 
-  it('does something', () => {
+ it('does something', () => {
     useMyStore().someAction();
     expect(useMyStore().someState).toBe(true);
-  });
+ });
 });
 ```
 
@@ -186,25 +186,25 @@ import MyComponent from '~/my_component.vue';
 Vue.use(PiniaVuePlugin);
 
 describe('MyComponent', () => {
-  let pinia;
-  let wrapper;
+ let pinia;
+ let wrapper;
 
-  const createComponent = () => {
+ const createComponent = () => {
     wrapper = shallowMount(MyComponent, { pinia });
-  }
+ }
 
-  beforeEach(() => {
+ beforeEach(() => {
     pinia = createTestingPinia();
     // store is created before component is rendered
     useMyStore();
-  });
+ });
 
-  it('does something', () => {
+ it('does something', () => {
     createComponent();
     // all actions are stubbed by default
     expect(useMyStore().someAction).toHaveBeenCalledWith({ arg: 'foo' });
     expect(useMyStore().someAction).toHaveBeenCalledTimes(1);
-  });
+ });
 });
 ```
 
@@ -220,33 +220,32 @@ In that case it is allowed to set the state directly:
 
 ```javascript
 describe('MyComponent', () => {
-  let pinia;
-  let wrapper;
+ let pinia;
+ let wrapper;
 
-  const createComponent = () => {
+ const createComponent = () => {
     wrapper = shallowMount(MyComponent, { pinia });
-  }
+ }
 
-  beforeEach(() => {
+ beforeEach(() => {
     // all the actions are stubbed, we can't use them to change the state anymore
     pinia = createTestingPinia();
     // store is created before component is rendered
     useMyStore();
-  });
+ });
 
-  it('does something', () => {
+ it('does something', () => {
     // state is set directly instead of using an action
     useMyStore().someState = { value: 1 };
     createComponent();
     // ...
-  });
+ });
 });
 ```
 
 ## Migrating from Vuex
 
-GitLab is actively migrating from Vuex, you can contribute and follow this progress
-[in epic 18476](https://gitlab.com/groups/gitlab-org/-/epics/18476).
+GitLab is actively migrating from Vuex, you can contribute and follow this progress [in epic 18476](https://gitlab.com/groups/gitlab-org/-/epics/18476).
 
 Before migrating decide what your primary [state manager](state_management.md) should be first.
 Proceed with this guide if Pinia was your choice.
@@ -292,8 +291,7 @@ Follow these steps to iterate over the migration process and split the work onto
    Track your migration progress in that issue. If necessary, split the migration into multiple issues.
 1. Create a new CODEOWNERS (`.gitlab/CODEOWNERS`) rule for the store files you're migrating, include all the Vuex module dependencies and store specs.
 
-   If you are migrating only a single store module then you would need to include only `state.js` (or your `index.js`),
-   `actions.js`, `mutations.js` and `getters.js` and their respective spec files.
+   If you are migrating only a single store module then you would need to include only `state.js` (or your `index.js`), `actions.js`, `mutations.js` and `getters.js` and their respective spec files.
 
    Assign at least two individuals responsible for reviewing changes made to the Vuex store.
    Always sync your changes from Vuex store to Pinia. This is very important so you don't introduce regressions with the Pinia store.
@@ -411,16 +409,16 @@ To mitigate this issue consider using `tryStore` plugin for Pinia during migrati
 ```javascript
 // store_alpha/actions.js
 function callOtherStore() {
-  // bad ❌, circular dependency created
-  useBetaStore().bar();
+ // bad ❌, circular dependency created
+ useBetaStore().bar();
 }
 ```
 
 ```javascript
 // store_beta/actions.js
 function callOtherStore() {
-  // bad ❌, circular dependency created
-  useAlphaStore().bar();
+ // bad ❌, circular dependency created
+ useAlphaStore().bar();
 }
 ```
 
@@ -429,16 +427,16 @@ function callOtherStore() {
 ```javascript
 // store_alpha/actions.js
 function callOtherStore() {
-  // OK ✅, circular dependency avoided
-  this.tryStore('betaStore').bar();
+ // OK ✅, circular dependency avoided
+ this.tryStore('betaStore').bar();
 }
 ```
 
 ```javascript
 // store_beta/actions.js
 function callOtherStore() {
-  // OK ✅, circular dependency avoided
-  this.tryStore('alphaStore').bar();
+ // OK ✅, circular dependency avoided
+ this.tryStore('alphaStore').bar();
 }
 ```
 
@@ -496,9 +494,9 @@ import Vuex from 'vuex';
 import createOldStore from './stores/old_store';
 
 export default new Vuex.Store({
-  modules: {
+ modules: {
     oldStore: createOldStore(),
-  },
+ },
 });
 ```
 
@@ -508,16 +506,16 @@ import { defineStore } from 'pinia';
 import oldVuexStore from './store'
 
 export const useMigratedStore = defineStore('migratedStore', {
-  syncWith: {
+ syncWith: {
     store: oldVuexStore,
     name: 'oldStore', // use legacy store name if it is defined inside Vuex `modules`
     namespaced: true, // set to 'true' if Vuex module is namespaced
-  },
-  // the state here gets sync with Vuex, any changes to migratedStore also propagate to the Vuex store
-  state() {
+ },
+ // the state here gets sync with Vuex, any changes to migratedStore also propagate to the Vuex store
+ state() {
     // ...
-  },
-  // ...
+ },
+ // ...
 });
 ```
 
@@ -545,7 +543,7 @@ We can migrate these specs using `createTestPiniaAction` helper from `helpers/pi
 
 ```javascript
 describe('SomeStore', () => {
-  it('runs actions', () => {
+ it('runs actions', () => {
     return testAction(
       store.actionToBeCalled, // action to be called immediately
       { someArg: 1 }, // action call arguments
@@ -553,7 +551,7 @@ describe('SomeStore', () => {
       [{ type: 'MUTATION_NAME', payload: '123' }], // mutation calls to expect
       [{ type: 'actionName' }], // action calls to expect
     );
-  });
+ });
 });
 ```
 
@@ -563,15 +561,15 @@ describe('SomeStore', () => {
 import { createTestPiniaAction } from 'helpers/pinia_helpers';
 
 describe('SomeStore', () => {
-  let store;
-  let testAction;
+ let store;
+ let testAction;
 
-  beforeEach(() => {
+ beforeEach(() => {
     store = useMyStore();
     testAction = createTestPiniaAction(store);
-  });
+ });
 
-  it('runs actions', () => {
+ it('runs actions', () => {
     return testAction(
       store.actionToBeCalled,
       { someArg: 1 },
@@ -579,7 +577,7 @@ describe('SomeStore', () => {
       [{ type: store.MUTATION_NAME, payload: '123' }], // explicit reference to migrated mutation
       [{ type: store.actionName }], // explicit reference to migrated action
     );
-  });
+ });
 });
 ```
 
@@ -595,12 +593,12 @@ To work around this you can use `createCustomGetters` helper from `helpers/pinia
 
 ```javascript
 describe('SomeStore', () => {
-  it('runs actions', () => {
+ it('runs actions', () => {
     const dispatch = jest.fn();
     const getters = { someGetter: 1 };
     someAction({ dispatch, getters });
     expect(dispatch).toHaveBeenCalledWith('anotherAction', 1);
-  });
+ });
 });
 ```
 
@@ -610,10 +608,10 @@ describe('SomeStore', () => {
 import { createCustomGetters } from 'helpers/pinia_helpers';
 
 describe('SomeStore', () => {
-  let store;
-  let getters;
+ let store;
+ let getters;
 
-  beforeEach(() => {
+ beforeEach(() => {
     getters = {};
     createTestingPinia({
       stubActions: false,
@@ -624,13 +622,13 @@ describe('SomeStore', () => {
       ],
     });
     store = useMyStore();
-  });
+ });
 
-  it('runs actions', () => {
+ it('runs actions', () => {
     getters.someGetter = 1;
     store.someAction();
     expect(store.anotherAction).toHaveBeenCalledWith(1);
-  });
+ });
 });
 ```
 
@@ -646,11 +644,11 @@ If your component's code is expecting an action to return a promise stub it acco
 
 ```javascript
 describe('MyComponent', () => {
-  let pinia;
+ let pinia;
 
-  beforeEach(() => {
+ beforeEach(() => {
     pinia = createTestingPinia();
     useMyStore().someAsyncAction.mockResolvedValue(); // this now returns a promise
-  });
+ });
 });
 ```

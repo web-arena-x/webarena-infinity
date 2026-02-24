@@ -3,9 +3,9 @@
 We offer multiple ways to log in and options to restrict login methods for added security.
 
 > [!NOTE]
-> Login restrictions are available to workspaces on our [Business](https://linear.app/pricing) and [Enterprise](https://linear.app/pricing) plans.  
+> Login restrictions are available to workspaces on our [Business](https://linear.app/pricing) and [Enterprise](https://linear.app/pricing) plans. 
 >   
-> SAML authentication and IP restrictions are only available to workspaces on our  [Enterprise](https://linear.app/pricing) plan.
+> SAML authentication and IP restrictions are only available to workspaces on our [Enterprise](https://linear.app/pricing) plan.
 
 ![Image of the login options available when opening your Linear app for the first time](https://webassets.linear.app/images/ornj730p/production/9306cc45d0751696c7f04f496ff4934408921c52-1820x1238.png?q=95&auto=format&dpr=2)
 
@@ -37,7 +37,7 @@ Refer to our [SAML](https://linear.app/docs/saml-and-access-control) help docs.
 ## Restrict login methods
 
 Admins can require specific login methods to allow for all members. This setting can be managed by navigating to [Settings > Administration > Security](https://linear.app/settings/security).   
-  
+ 
 Users with the highest role in the workspace (owners or admins, depending on the workspace) can login through any method to ensure they have access to these settings and prevent lockouts for other users.
 
 ### IP restrictions
@@ -68,7 +68,7 @@ If you click the workspace name in the upper left and hover over **Switch worksp
 
 ## Logging out
 
-For security purposes, when signing out of a workspace in a given location, you will be signed out of all other sessions, requiring you to log back in next time you access Linear elsewhere.  
+For security purposes, when signing out of a workspace in a given location, you will be signed out of all other sessions, requiring you to log back in next time you access Linear elsewhere. 
 
 
 ## FAQ
