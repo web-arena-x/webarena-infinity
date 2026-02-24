@@ -1,0 +1,17 @@
+# Live Chat Configuration Recommendations for Data Center Location Enabled Accounts
+
+Source: https://support.zendesk.com/hc/en-us/articles/5478153924250-Live-Chat-Configuration-Recommendations-for-Data-Center-Location-Enabled-Accounts
+
+---
+
+While Live Chat Functionality is generally able to be hosted in any of the AWS Regions where Zendesk hosts data according to our Data Center Location offering, US-hosting and EEA-hosting exceptions apply in certain circumstances, as described in our [Regional Data Hosting Policy.](https://support.zendesk.com/hc/en-us/articles/4408883599130) This article describes how to configure the product to avoid the application of each of these exceptions.
+
+1. Attachments are stored in EEA. To avoid using this feature, you can disable [file sending options](../setting-up-live-chat/managing-file-sending-in-live-chat.md).
+
+   Note: This first locality exception does not apply to files uploaded into accounts that have activated the Agent Workspace. Reach out to [Zendesk Customer Support](https://support.zendesk.com/hc/en-us/articles/4408843597850) to learn more about the geographical location of your account.
+2. Within Chat, Agent avatars, Chat badges, and Chat concierge avatars are stored in the EEA. To avoid EEA hosting of this data, avoid uploading these. Alternatively, you can explore using the [Chat Web SDK](https://api.zopim.com/web-sdk/) to self-host assets impacted by this limitation. Similarly, exports of Chat transcripts and Chat analytics in the History list require hosting in the EEA. To avoid EEA hosting of this data, avoid using these features.
+3. When leveraging “authenticated visitors”, unique user identifiers (such as external ID and email address) for the purposes of mapping to visitors are hosted in the European Economic Area (EEA). To minimize the hosting of EEA data, you can ensure that the external IDs do not include personal identifiable information for the purpose of visitor authentication.
+4. When leveraging “email reports” and CSV exports, Subscriber acknowledges that these emails are sent through our email service hosted in the US region only. This includes Chat transcripts via email, by (a) email piping, (b) email chat transcript option in Web Widget, and (c) sharing exports via email from the Chat dashboard. To avoid US hosting of this data, avoid using email piping. [Hide the option on our Web Widget (Classic)](https://developer.zendesk.com/api-reference/widget/settings/#menuoptionsv) for end users to request their transcript via email. To access transcripts from Chat, use our [Chat Public APIs](https://developer.zendesk.com/api-reference/live-chat/chat-api/chats/#list-chats) instead. This limitation also affects daily, weekly, monthly Chat analytics reports emailed to admins and agents when enabled. To avoid US hosting of this data, disable this feature.
+5. With respect to the [Real Time Monitor dashboard](../reporting-for-for-live-chat/monitoring-real-time-chat-metrics.md) and the corresponding APIs, the metric calculations are done through a service hosted in the EEA region only.
+
+***Disclaimer**: Due to changes in the Zendesk Service, the configurations in this document may change from time to time. This document does not constitute an exhaustive template for all controls over such data nor constitutes legal advice.*

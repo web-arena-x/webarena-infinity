@@ -1,0 +1,53 @@
+# RFIs - FAQ - Procore
+
+Source: https://support.procore.com/products/online/user-guide/project-level/rfi/faq
+
+---
+
+- [Can I create an RFI with a duplicate number?](../../../../../faq/can-i-create-an-rfi-with-a-duplicate-number.md)
+- [Can I provide users with 'Read Only' level permissions with limited access to update information in Procore?](../../../../../faq/can-i-provide-users-with-read-only-level-permissions-with-limited-access-to-update-information-in-procore.md)
+- [Does a user need to log in to Procore to respond to an RFI?](../../../../../faq/does-a-user-need-to-log-in-to-procore-to-respond-to-an-rfi.md)
+- [How can I troubleshoot an issue with the Procore Web Application?](../../../../../faq/how-can-i-troubleshoot-an-issue-with-the-procore-web-application.md)
+- [How do I access an RFI as an assignee?](../../../../../faq/how-do-i-access-an-rfi-as-an-assignee.md)
+- [How do I change my web browser's default email client for mailto links?](https://support.procore.com/faq/how-do-i-change-my-web-browsers-default-email-client-for-mailto-links)
+- [How do I control which emails are sent by Procore during the RFI process?](../../../../../faq/how-do-i-control-which-emails-are-sent-by-procore-during-the-rfi-process.md)
+- [How do I filter items by multi-tiered locations?](../../../../../faq/how-do-i-filter-items-by-multi-tiered-locations.md)
+- [How do I filter out 'Recycled' items from a custom RFIs report?](../../../../../faq/how-do-i-filter-out-recycled-items-from-a-custom-rfis-report.md)
+- [How do I mark an assignee as a required responder on an RFI?](../../../../../faq/how-do-i-mark-an-assignee-as-a-required-responder-on-an-rfi.md)
+- [How do I submit a response to a 'Draft' RFI when I am the RFI Manager?](../../../../../faq/how-do-i-submit-a-response-to-a-draft-rfi-when-i-am-the-rfi-manager.md)
+- [How does Procore assign numbers to RFIs?](../../../../../faq/how-does-procore-assign-numbers-to-rfis.md)
+- RFIs: Notifications
+- [What are "related items" in Procore?](../../../../../faq/what-are-related-items-in-procore.md)
+- [What are Procore's default cost codes?](../../../../../faq/what-are-procores-default-cost-codes.md)
+- [What are configurable fieldsets and which Procore tools support them?](../../../../../faq/what-are-configurable-fieldsets-and-which-procore-tools-support-them.md)
+- [What are custom fields and which Procore tools support them?](../../../../../faq/what-are-custom-fields-and-which-procore-tools-support-them.md)
+- [What are custom sections and which Procore tools support them?](../../../../../faq/what-are-custom-sections-and-which-procore-tools-support-them.md)
+- [What are multi-tiered locations?](../../../../../faq/what-are-multi-tiered-locations.md)
+- What are the GH Phipps Default Punch List TYPE(s)
+- [What fieldset configurations are recommended for configurable fieldsets?](../../../../../faq/what-fieldset-configurations-are-recommended-for-configurable-fieldsets.md)
+- [What granular permissions are available for the project's RFIs tool?](../../../../../faq/what-granular-permissions-are-available-for-the-projects-rfis-tool.md)
+- [What is Procore's Recycle Bin?](../../../../../faq/what-is-procores-recycle-bin.md)
+- [What is a 'Draft' RFI?](../../../../../faq/what-is-a-draft-rfi.md)
+- [What is an RFI?](../../../../../faq/what-is-an-rfi.md)
+- [What is an advanced search symbol in Procore?](../../../../../faq/what-is-an-advanced-search-symbol-in-procore.md)
+- [What is the Draft RFI with AI Beta?](../../../../../faq/what-is-the-draft-rfi-with-ai.md)
+- What is the RFI Manager role?
+- [What is the RFI Manager role?](../../../../../faq/what-is-the-rfi-manager-role.md)
+- [What is the difference between Document Management attachments and attachments from other tools?](../../../../../faq/what-is-the-difference-between-document-management-attachments-and-attachments-from-other-tools.md)
+- [What is the difference between a distribution group and distribution list in Procore?](../../../../../faq/what-is-the-difference-between-a-distribution-group-and-a-distribution-list.md)
+- [What options do I have for numbering RFIs in Procore?](../../../../../faq/what-options-do-i-have-for-numbering-rfis-in-procore.md)
+- [What user roles can view which types of RFIs?](../../../../../faq/what-user-roles-can-view-which-types-of-rfis.md)
+- [What's the difference between adding an assignee to a RFI and forwarding an RFI for review?](../../../../../faq/whats-the-difference-between-adding-an-assignee-to-an-rfi-and-forwarding-an-rfi-for-review.md)
+- When do the download links in emails sent from Procore expire?
+- [When does the RFIs tool send email notifications?](../../../../../faq/when-does-the-rfis-tool-send-email-notifications.md)
+- [Where do the selections in the 'Specification Section' drop-down list come from?](../../../../../faq/where-do-the-selections-in-the-spec-sections-drop-down-list-come-from.md)
+- [Which Microsoft Excel file versions can be attached to items in Procore?](../../../../../faq/which-microsoft-excel-file-versions-can-be-attached-to-items-in-procore.md)
+- [Which Procore tools can I use to create a change event?](../../../../../faq/which-procore-tools-can-i-use-to-create-a-change-event.md)
+- [Which Procore tools let me view digital image attachments in a map view?](../../../../../faq/which-procore-tools-let-me-view-a-digital-image-attachment-in-a-map-view.md)
+- [Which Procore tools support granular permissions?](../../../../../faq/which-procore-tools-support-granular-permissions.md)
+- [Which fields in the RFIs tool can be configured as required, optional, or hidden?](../../../../../faq/which-fields-in-the-rfis-tool-can-be-configured-as-required-optional-or-hidden.md)
+- [Which tools can attach Document Management files?](../../../../../faq/which-tools-can-attach-document-management-files.md)
+- [Who can be designated as an 'Assignee' on an RFI?](../../../../../faq/who-can-be-designated-as-an-assignee-on-an-rfi.md)
+- [Who can view a 'Draft' RFI?](../../../../../faq/who-can-view-a-draft-rfi.md)
+- [Why can't I delete items in Procore?](../../../../../faq/why-cant-i-delete-items-in-procore.md)
+- [Why do some of our project's RFI numbers have two prefixes?](../../../../../faq/why-do-some-of-our-projects-rfi-numbers-have-two-prefixes.md)

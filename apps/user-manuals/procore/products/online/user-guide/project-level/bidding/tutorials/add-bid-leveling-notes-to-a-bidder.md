@@ -1,0 +1,45 @@
+# Add Bid Leveling Notes to a Bidder - Procore
+
+Source: https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/add-bid-leveling-notes-to-a-bidder
+
+---
+
+## Background
+
+The Bid Leveling Notes feature allows you to add specific notes for each bidder directly within the bid leveling phase of the project. This functionality helps you document and track communication, considerations, and other important information related to each bidder's submission. The Bid Leveling Notes apply to the entire bid rather than a specific line item.
+
+## Things to Consider
+
+- **Required User Permissions**:
+  - 'Admin' level permissions on the project's Bidding tool.
+  - ‘Read Only’ and ‘Standard’ level permissions on the project's Bidding tool to view bid leveling notes.
+- **Additional Information**:
+  - Unlimited Leveling Notes: Add as many notes as you need.
+  - Bid Leveling Notes are distinct from the notes added to a bidder in the **Bidders** tab. You can view the history of notes from the Bidders tab, but they do not appear in the bid leveling row.
+  - This feature only works for newer bid packages that have response types configured (after October 2023). See [Create a Bid Form](create-a-bid-form.md#Add_Line_Items).
+
+## Steps
+
+1. Navigate to the project's **Bidding** tool.
+2. Click **View** or the name of the relevant bid package.  
+   *Note:*You can also click the name of the bid package.
+3. Click the bid form **name**.
+4. Click the **Bid Leveling tab**.
+5. Click the **Leveled Bids view**.
+6. In the **Leveling Note** row, click **+ Add Note**.
+7. A text field will appear on the right. Type your note and click **Add Note**.  
+   *Note:*To add another note to the same bidder, click the note in the **Leveling Notes** row. The same text field will appear on the right to type your note and save.
+
+#### Edit a Bid Leveling Note
+
+1. While in the **Leveled Bids view**, click the note in the **Leveling Notes** row.
+2. A window will appear on the right, displaying all notes entered for that bidder.
+3. Click the **vertical ellipsis**  ![icon-ellipsis-options-menu.png](data:image/png;base64,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)  icon next to the note you want to edit.
+4. Click **Edit**.
+
+#### Delete a Bid Leveling Note
+
+1. While in the **Leveled Bids view**, click the note in the **Leveling Notes** row.
+2. A window will appear on the right, displaying all notes entered for that bidder.
+3. Click the **vertical ellipsis**  ![icon-ellipsis-options-menu.png](data:image/png;base64,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)  icon next to the note you want to delete.
+4. Click **Delete**.
