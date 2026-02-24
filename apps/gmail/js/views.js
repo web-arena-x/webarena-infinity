@@ -94,7 +94,7 @@ const Views = {
             ? `<span class="nav-item-count">${label.unreadCount}</span>`
             : '';
 
-        let html = `<div class="nav-item${active}${nested}" data-route="${Components.escapeAttr(label.id)}" data-testid="sidebar-label-${Components.escapeAttr(label.id)}">`;
+        let html = `<div class="nav-item${active}${nested}" data-route="label/${Components.escapeAttr(label.id)}" data-testid="sidebar-label-${Components.escapeAttr(label.id)}">`;
         html += colorDot;
         html += `<span class="nav-item-text">${Components.escapeHtml(label.name)}</span>`;
         html += countHtml;
@@ -108,7 +108,7 @@ const Views = {
 
     renderToolbar(view, emails) {
         const selectedCount = AppState.selectedEmailIds.size;
-        const allEmails = AppState.sortEmails(emails);
+        const allEmails = emails || [];
         const paged = AppState.getPagedEmails(allEmails);
 
         let html = '<div class="toolbar-left">';
@@ -212,15 +212,8 @@ const Views = {
             return Views._renderEmptyState(AppState.currentView);
         }
 
-        const sorted = AppState.sortEmails(emails);
-        const paged = AppState.getPagedEmails(sorted);
-
-        if (paged.items.length === 0) {
-            return Views._renderEmptyState(AppState.currentView);
-        }
-
         let html = '<div class="email-list" data-testid="email-list">';
-        for (const email of paged.items) {
+        for (const email of emails) {
             html += Views._renderEmailRow(email);
         }
         html += '</div>';

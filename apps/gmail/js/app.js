@@ -80,24 +80,20 @@ const App = {
             sidebarNav.innerHTML = Views.renderSidebar();
         }
 
-        // Toolbar
         const toolbar = document.getElementById('toolbar');
-        if (toolbar && typeof Views !== 'undefined') {
-            toolbar.innerHTML = Views.renderToolbar();
-        }
-
-        // Content
         const contentWrapper = document.getElementById('contentWrapper');
         if (!contentWrapper || typeof Views === 'undefined') return;
 
-        // Settings page
+        // Settings page — no toolbar, no email list
         if (AppState.currentView === 'settings') {
+            if (toolbar) toolbar.innerHTML = '';
             contentWrapper.innerHTML = Views.renderSettings();
             return;
         }
 
-        // Email detail view
+        // Email detail view — no toolbar
         if (AppState.currentEmailId) {
+            if (toolbar) toolbar.innerHTML = '';
             const email = AppState.getEmailById(AppState.currentEmailId);
             if (email) {
                 if (!email.isRead) {
@@ -118,33 +114,46 @@ const App = {
 
         // Search results
         if (AppState.searchResults !== null) {
-            contentWrapper.innerHTML = Views.renderSearchResults(
-                AppState.searchQuery, AppState.searchResults
-            );
+            if (toolbar) toolbar.innerHTML = Views.renderToolbar(AppState.currentView, AppState.searchResults);
+            contentWrapper.innerHTML = Views.renderSearchResults(AppState.searchResults);
             return;
         }
 
-        // Inbox with categories
+        // Compute emails for the current view
+        let emails;
         if (AppState.currentView === 'inbox' && AppState.settings.inboxType === 'default') {
             const catEnabled = AppState.settings.categoriesEnabled || {};
             const anyCategory = catEnabled.social || catEnabled.promotions ||
                                 catEnabled.updates || catEnabled.forums;
             if (anyCategory) {
-                let html = App._renderCategoryTabs();
-                const emails = AppState.getInboxEmailsByCategory(AppState.currentCategory);
-                const sorted = AppState.sortEmails(emails);
-                const paged = AppState.getPagedEmails(sorted);
-                html += Views.renderEmailList(paged.items, AppState.currentView);
-                contentWrapper.innerHTML = html;
-                return;
+                emails = AppState.getInboxEmailsByCategory(AppState.currentCategory);
+            } else {
+                emails = AppState.getInboxEmails();
             }
+        } else {
+            emails = AppState.getEmailsForView(AppState.currentView);
         }
 
-        // Default: email list for view
-        const emails = AppState.getEmailsForView(AppState.currentView);
         const sorted = AppState.sortEmails(emails);
         const paged = AppState.getPagedEmails(sorted);
-        contentWrapper.innerHTML = Views.renderEmailList(paged.items, AppState.currentView);
+
+        // Toolbar (needs the full sorted list for pagination info)
+        if (toolbar) {
+            toolbar.innerHTML = Views.renderToolbar(AppState.currentView, sorted);
+        }
+
+        // Content
+        let contentHtml = '';
+        if (AppState.currentView === 'inbox' && AppState.settings.inboxType === 'default') {
+            const catEnabled = AppState.settings.categoriesEnabled || {};
+            const anyCategory = catEnabled.social || catEnabled.promotions ||
+                                catEnabled.updates || catEnabled.forums;
+            if (anyCategory) {
+                contentHtml += App._renderCategoryTabs();
+            }
+        }
+        contentHtml += Views.renderEmailList(paged.items);
+        contentWrapper.innerHTML = contentHtml;
     },
 
     _renderCategoryTabs() {
