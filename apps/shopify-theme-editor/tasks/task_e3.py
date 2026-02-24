@@ -1,20 +1,16 @@
 import requests
 
+
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that 'Sense' is now the live theme."""
+    """Verify Instagram link is set."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
+
     state = resp.json()
+    val = state.get("themeSettings", {}).get("socialMedia", {}).get("instagram")
+    expected = "https://instagram.com/mystorefront"
+    if val != expected:
+        return False, f"Expected instagram='{expected}', got '{val}'."
 
-    sense = next((t for t in state["themes"] if t["name"] == "Sense"), None)
-    if not sense:
-        return False, "Theme 'Sense' not found."
-    if sense.get("status") != "live":
-        return False, f"Theme 'Sense' status is '{sense.get('status')}', expected 'live'."
-
-    dawn = next((t for t in state["themes"] if t["name"] == "Dawn"), None)
-    if dawn and dawn.get("status") == "live":
-        return False, "Theme 'Dawn' is still live."
-
-    return True, "Theme 'Sense' is now the live theme."
+    return True, "Instagram link is set correctly."

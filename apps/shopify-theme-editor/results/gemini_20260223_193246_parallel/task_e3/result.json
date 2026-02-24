@@ -1,0 +1,18 @@
+{
+  "task_id": "task_e3",
+  "difficulty": "easy",
+  "instruction": "Set the Instagram link to 'https://instagram.com/mystorefront' in the Social media theme settings.",
+  "passed": true,
+  "verifier_message": "Instagram link is set correctly.",
+  "elapsed": 37.3,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully set the Instagram link to 'https://instagram.com/mystorefront' in the Social media theme settings.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

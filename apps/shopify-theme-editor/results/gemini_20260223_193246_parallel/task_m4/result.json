@@ -1,0 +1,23 @@
+{
+  "task_id": "task_m4",
+  "difficulty": "medium",
+  "instruction": "Move the 'Featured collection' section above the 'Image banner' section on the Home page.",
+  "passed": true,
+  "verifier_message": "Featured collection is above Image banner.",
+  "elapsed": 38.5,
+  "steps": 10,
+  "is_done": true,
+  "final_result": "Unable to move the 'Featured collection' section above the 'Image banner' section. Tried clicking, scrolling, JavaScript drag and drop, and direct DOM manipulation, but none of these methods were successful.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

@@ -1,799 +1,629 @@
-// ============================================================
-// app.js — Hash-based router and event handler attachment
-// ============================================================
-
-const Router = {
-    routes: {
-        '/': () => Views.themes(),
-        '/editor/:themeId': (params) => Views.editor(parseInt(params.themeId)),
-        '/settings/:themeId': (params) => Views.themeSettings(parseInt(params.themeId))
-    },
-
-    navigate(path) {
-        window.location.hash = '#' + path;
-    },
-
-    getCurrentPath() {
-        return window.location.hash.slice(1) || '/';
-    },
-
-    parsePath(path) {
-        const [pathPart, queryPart] = path.split('?');
-        const segments = pathPart.split('/').filter(Boolean);
-
-        // Parse query params
-        const queryParams = {};
-        if (queryPart) {
-            queryPart.split('&').forEach(p => {
-                const [k, v] = p.split('=');
-                queryParams[decodeURIComponent(k)] = decodeURIComponent(v || '');
-            });
-        }
-
-        return { segments, queryParams };
-    },
-
-    matchRoute(path) {
-        const { segments, queryParams } = this.parsePath(path);
-        AppState.queryParams = queryParams;
-
-        for (const [pattern, handler] of Object.entries(this.routes)) {
-            const patternSegments = pattern.split('/').filter(Boolean);
-
-            if (patternSegments.length !== segments.length) continue;
-
-            const params = {};
-            let match = true;
-
-            for (let i = 0; i < patternSegments.length; i++) {
-                if (patternSegments[i].startsWith(':')) {
-                    params[patternSegments[i].slice(1)] = segments[i];
-                } else if (patternSegments[i] !== segments[i]) {
-                    match = false;
-                    break;
-                }
-            }
-
-            if (match) {
-                AppState.currentRoute = path;
-                AppState.routeParams = params;
-                return handler(params);
-            }
-        }
-
-        // Default to themes list
-        AppState.currentRoute = '/';
-        return Views.themes();
-    },
-
-    render() {
-        const path = this.getCurrentPath();
-        const content = this.matchRoute(path);
-        const wrapper = document.getElementById('contentWrapper');
-        if (wrapper) {
-            wrapper.innerHTML = content;
-            this.attachHandlers();
-        }
-    },
-
-    attachHandlers() {
-        // ---- Theme card actions ----
-        document.querySelectorAll('[data-action="customize"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', (e) => {
-                const themeId = parseInt(e.target.dataset.themeId);
-                AppState.selectedThemeId = themeId;
-                AppState.selectedTemplateId = null;
-                AppState.selectedSectionId = null;
-                AppState.selectedBlockId = null;
-                Router.navigate('/editor/' + themeId);
-            });
-        });
-
-        document.querySelectorAll('[data-action="publish"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', (e) => {
-                const themeId = parseInt(e.target.dataset.themeId);
-                const theme = AppState.getTheme(themeId);
-                Components.confirm('Publish theme',
-                    `Are you sure you want to publish "${theme?.name}"? This will replace your current live theme.`,
-                    () => {
-                        AppState.publishTheme(themeId);
-                        Components.showToast('Theme published', 'success');
-                        Router.render();
-                    }
-                );
-            });
-        });
-
-        document.querySelectorAll('[data-action="theme-menu"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const themeId = e.target.closest('[data-theme-id]').dataset.themeId;
-                const menu = document.getElementById('themeMenu' + themeId);
-                document.querySelectorAll('.theme-menu.active').forEach(m => {
-                    if (m !== menu) m.classList.remove('active');
-                });
-                if (menu) menu.classList.toggle('active');
-            });
-        });
-
-        document.querySelectorAll('[data-action="rename"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                Views._showRenameThemeModal(parseInt(btn.dataset.themeId));
-            });
-        });
-
-        document.querySelectorAll('[data-action="duplicate"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                AppState.duplicateTheme(parseInt(btn.dataset.themeId));
-                Components.showToast('Theme duplicated', 'success');
-                Router.render();
-            });
-        });
-
-        document.querySelectorAll('[data-action="preview"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                Components.showToast('Preview link copied to clipboard', 'info');
-            });
-        });
-
-        document.querySelectorAll('[data-action="delete"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                const themeId = parseInt(btn.dataset.themeId);
-                const theme = AppState.getTheme(themeId);
-                Components.confirm('Delete theme',
-                    `Are you sure you want to delete "${theme?.name}"? This action cannot be undone.`,
-                    () => {
-                        AppState.deleteTheme(themeId);
-                        Components.showToast('Theme deleted', 'success');
-                        Router.render();
-                    },
-                    { danger: true, confirmText: 'Delete' }
-                );
-            });
-        });
-
-        // ---- Add theme button ----
-        const addThemeBtn = document.getElementById('addThemeBtn');
-        if (addThemeBtn && !addThemeBtn._handlerAttached) {
-            addThemeBtn._handlerAttached = true;
-            addThemeBtn.addEventListener('click', () => Views._showAddThemeModal());
-        }
-
-        // ---- Reset data button ----
-        const resetBtn = document.getElementById('resetDataBtn');
-        if (resetBtn && !resetBtn._handlerAttached) {
-            resetBtn._handlerAttached = true;
-            resetBtn.addEventListener('click', () => {
-                Components.confirm('Reset all data',
-                    'This will restore all themes and settings to their original state. All changes will be lost.',
-                    () => {
-                        AppState.resetToSeedData();
-                        AppState.notify();
-                        Components.showToast('Data reset to defaults', 'success');
-                        Router.navigate('/');
-                    },
-                    { danger: true, confirmText: 'Reset' }
-                );
-            });
-        }
-
-        // ---- Editor: Back to themes ----
-        document.querySelectorAll('[data-action="back-to-themes"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                AppState.selectedSectionId = null;
-                AppState.selectedBlockId = null;
-                Router.navigate('/');
-            });
-        });
-
-        // ---- Editor: Back to editor from settings ----
-        document.querySelectorAll('[data-action="back-to-editor"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                Router.navigate('/editor/' + AppState.selectedThemeId);
-            });
-        });
-
-        // ---- Template selector ----
-        const templateSelector = document.getElementById('templateSelector');
-        if (templateSelector && !templateSelector._handlerAttached) {
-            templateSelector._handlerAttached = true;
-            templateSelector.addEventListener('change', (e) => {
-                const templateId = parseInt(e.detail.value);
-                AppState.selectedTemplateId = templateId;
-                AppState.selectedSectionId = null;
-                AppState.selectedBlockId = null;
-                Router.render();
-            });
-        }
-
-        // ---- View mode ----
-        document.querySelectorAll('[data-action="set-mode"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                AppState.editorMode = btn.dataset.mode;
-                Router.render();
-            });
-        });
-
-        // ---- Open theme settings ----
-        document.querySelectorAll('[data-action="open-theme-settings"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                Router.navigate('/settings/' + AppState.selectedThemeId);
-            });
-        });
-
-        // ---- Section tree items ----
-        document.querySelectorAll('.tree-section-header .tree-label').forEach(label => {
-            if (label._handlerAttached) return;
-            label._handlerAttached = true;
-            label.addEventListener('click', () => {
-                const sectionId = parseInt(label.dataset.sectionId);
-                AppState.selectedSectionId = sectionId;
-                AppState.selectedBlockId = null;
-                Router.render();
-            });
-        });
-
-        document.querySelectorAll('.tree-expand').forEach(arrow => {
-            if (arrow._handlerAttached) return;
-            arrow._handlerAttached = true;
-            arrow.addEventListener('click', (e) => {
-                const sectionId = arrow.dataset.sectionId;
-                const blocksEl = document.getElementById('sectionBlocks' + sectionId);
-                if (blocksEl) {
-                    blocksEl.classList.toggle('collapsed');
-                    arrow.classList.toggle('collapsed');
-                }
-            });
-        });
-
-        // ---- Block tree items ----
-        document.querySelectorAll('.tree-block').forEach(block => {
-            if (block._handlerAttached) return;
-            block._handlerAttached = true;
-            block.addEventListener('click', () => {
-                const blockId = parseInt(block.dataset.blockId);
-                const b = AppState.getBlock(blockId);
-                if (b) {
-                    AppState.selectedBlockId = blockId;
-                    AppState.selectedSectionId = b.sectionId;
-                    Router.render();
-                }
-            });
-        });
-
-        // ---- Preview section click ----
-        document.querySelectorAll('.preview-section').forEach(el => {
-            if (el._handlerAttached) return;
-            el._handlerAttached = true;
-            el.addEventListener('click', () => {
-                const sectionId = parseInt(el.dataset.sectionId);
-                AppState.selectedSectionId = sectionId;
-                AppState.selectedBlockId = null;
-                Router.render();
-            });
-        });
-
-        // ---- Add section buttons ----
-        document.querySelectorAll('[data-action="add-section"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const area = btn.dataset.area;
-                const templateId = parseInt(btn.dataset.templateId);
-                Views._showAddSectionModal(templateId, AppState.selectedThemeId, area);
-            });
-        });
-
-        // ---- Section settings actions ----
-        this._attachSectionActions();
-        this._attachBlockActions();
-        this._attachSettingsInputs();
-        this._attachThemeSettingsInputs();
-        this._attachSettingsTabNavigation();
-
-        // ---- Close settings panel ----
-        document.querySelectorAll('[data-action="close-settings"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                AppState.selectedSectionId = null;
-                AppState.selectedBlockId = null;
-                Router.render();
-            });
-        });
-
-        document.querySelectorAll('[data-action="back-to-section"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                AppState.selectedBlockId = null;
-                Router.render();
-            });
-        });
-
-        // ---- Collapse headers ----
-        document.querySelectorAll('[data-collapse]').forEach(header => {
-            if (header._handlerAttached) return;
-            header._handlerAttached = true;
-            header.addEventListener('click', (e) => {
-                if (e.target.tagName === 'BUTTON') return;
-                const targetId = header.dataset.collapse;
-                const target = document.getElementById(targetId);
-                if (target) {
-                    target.classList.toggle('collapsed');
-                    header.querySelector('.collapse-icon')?.classList.toggle('collapsed');
-                }
-            });
-        });
-    },
-
-    _attachSectionActions() {
-        document.querySelectorAll('[data-action="hide-section"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                AppState.hideSection(parseInt(btn.dataset.sectionId));
-                Router.render();
-            });
-        });
-
-        document.querySelectorAll('[data-action="duplicate-section"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                AppState.duplicateSection(parseInt(btn.dataset.sectionId));
-                Components.showToast('Section duplicated', 'success');
-                Router.render();
-            });
-        });
-
-        document.querySelectorAll('[data-action="remove-section"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                Components.confirm('Remove section',
-                    'Are you sure you want to remove this section? All blocks in this section will also be removed.',
-                    () => {
-                        AppState.removeSection(parseInt(btn.dataset.sectionId));
-                        Components.showToast('Section removed', 'success');
-                        Router.render();
-                    },
-                    { danger: true, confirmText: 'Remove' }
-                );
-            });
-        });
-
-        document.querySelectorAll('[data-action="move-section-up"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                AppState.moveSectionUp(parseInt(btn.dataset.sectionId));
-                Router.render();
-            });
-        });
-
-        document.querySelectorAll('[data-action="move-section-down"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                AppState.moveSectionDown(parseInt(btn.dataset.sectionId));
-                Router.render();
-            });
-        });
-    },
-
-    _attachBlockActions() {
-        document.querySelectorAll('[data-action="select-block"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                const blockId = parseInt(btn.dataset.blockId);
-                const block = AppState.getBlock(blockId);
-                if (block) {
-                    AppState.selectedBlockId = blockId;
-                    AppState.selectedSectionId = block.sectionId;
-                    Router.render();
-                }
-            });
-        });
-
-        document.querySelectorAll('[data-action="hide-block"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                AppState.hideBlock(parseInt(btn.dataset.blockId));
-                Router.render();
-            });
-        });
-
-        document.querySelectorAll('[data-action="duplicate-block"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                AppState.duplicateBlock(parseInt(btn.dataset.blockId));
-                Components.showToast('Block duplicated', 'success');
-                Router.render();
-            });
-        });
-
-        document.querySelectorAll('[data-action="remove-block"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                AppState.removeBlock(parseInt(btn.dataset.blockId));
-                Components.showToast('Block removed', 'success');
-                Router.render();
-            });
-        });
-
-        document.querySelectorAll('[data-action="move-block-up"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                AppState.moveBlockUp(parseInt(btn.dataset.blockId));
-                Router.render();
-            });
-        });
-
-        document.querySelectorAll('[data-action="move-block-down"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                AppState.moveBlockDown(parseInt(btn.dataset.blockId));
-                Router.render();
-            });
-        });
-
-        // Add block
-        document.querySelectorAll('[data-action="add-block"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                const sectionId = parseInt(btn.dataset.sectionId);
-                const typeDropdown = document.getElementById('addBlockType');
-                const blockType = typeDropdown?.dataset.value;
-                if (!blockType) {
-                    Components.showToast('Select a block type first', 'warning');
-                    return;
-                }
-                const blockDef = BLOCK_TYPES.find(bt => bt.id === blockType);
-                AppState.addBlock(sectionId, AppState.selectedThemeId, blockType, blockDef?.name);
-                Components.showToast('Block added', 'success');
-                Router.render();
-            });
-        });
-    },
-
-    _attachSettingsInputs() {
-        // Section name
-        const sectionName = document.getElementById('sectionName');
-        if (sectionName && !sectionName._handlerAttached) {
-            sectionName._handlerAttached = true;
-            sectionName.addEventListener('change', () => {
-                AppState.renameSection(AppState.selectedSectionId, sectionName.value);
-            });
-        }
-
-        // Section color scheme dropdown
-        const sectionColorScheme = document.getElementById('sectionColorScheme');
-        if (sectionColorScheme && !sectionColorScheme._handlerAttached) {
-            sectionColorScheme._handlerAttached = true;
-            sectionColorScheme.addEventListener('change', (e) => {
-                AppState.updateSectionColorScheme(AppState.selectedSectionId, parseInt(e.detail.value));
-            });
-        }
-
-        // Section custom CSS
-        const sectionCss = document.getElementById('sectionCustomCss');
-        if (sectionCss && !sectionCss._handlerAttached) {
-            sectionCss._handlerAttached = true;
-            sectionCss.addEventListener('change', () => {
-                AppState.updateSectionCustomCss(AppState.selectedSectionId, sectionCss.value);
-            });
-        }
-
-        // Block settings
-        this._attachBlockSettingsInputs();
-    },
-
-    _attachBlockSettingsInputs() {
-        if (!AppState.selectedBlockId) return;
-        const block = AppState.getBlock(AppState.selectedBlockId);
-        if (!block) return;
-
-        // Block name
-        const blockName = document.getElementById('blockName');
-        if (blockName && !blockName._handlerAttached) {
-            blockName._handlerAttached = true;
-            blockName.addEventListener('change', () => {
-                AppState.renameBlock(AppState.selectedBlockId, blockName.value);
-            });
-        }
-
-        // Block text
-        const blockText = document.getElementById('blockText');
-        if (blockText && !blockText._handlerAttached) {
-            blockText._handlerAttached = true;
-            blockText.addEventListener('change', () => {
-                AppState.updateBlockSettings(AppState.selectedBlockId, { text: blockText.value });
-                Router.render();
-            });
-        }
-
-        // Block title
-        const blockTitle = document.getElementById('blockTitle');
-        if (blockTitle && !blockTitle._handlerAttached) {
-            blockTitle._handlerAttached = true;
-            blockTitle.addEventListener('change', () => {
-                AppState.updateBlockSettings(AppState.selectedBlockId, { title: blockTitle.value });
-                Router.render();
-            });
-        }
-
-        // Block link
-        const blockLink = document.getElementById('blockLink');
-        if (blockLink && !blockLink._handlerAttached) {
-            blockLink._handlerAttached = true;
-            blockLink.addEventListener('change', () => {
-                AppState.updateBlockSettings(AppState.selectedBlockId, { link: blockLink.value });
-            });
-        }
-
-        // Block size dropdown
-        const blockSize = document.getElementById('blockSize');
-        if (blockSize && !blockSize._handlerAttached) {
-            blockSize._handlerAttached = true;
-            blockSize.addEventListener('change', (e) => {
-                AppState.updateBlockSettings(AppState.selectedBlockId, { size: e.detail.value });
-            });
-        }
-
-        // Block style dropdown
-        const blockStyle = document.getElementById('blockStyle');
-        if (blockStyle && !blockStyle._handlerAttached) {
-            blockStyle._handlerAttached = true;
-            blockStyle.addEventListener('change', (e) => {
-                AppState.updateBlockSettings(AppState.selectedBlockId, { style: e.detail.value });
-            });
-        }
-
-        // Block menu dropdown
-        const blockMenu = document.getElementById('blockMenu');
-        if (blockMenu && !blockMenu._handlerAttached) {
-            blockMenu._handlerAttached = true;
-            blockMenu.addEventListener('change', (e) => {
-                AppState.updateBlockSettings(AppState.selectedBlockId, { menu: e.detail.value });
-            });
-        }
-    },
-
-    _attachThemeSettingsInputs() {
-        const themeId = AppState.selectedThemeId;
-        const settings = AppState.getThemeSettings(themeId);
-        if (!settings) return;
-
-        // Logo settings
-        this._bindInput('logoAltText', v => AppState.updateThemeSettings(themeId, 'logo.altText', v));
-        this._bindRange('logoWidth', v => AppState.updateThemeSettings(themeId, 'logo.width', parseInt(v)));
-
-        // Typography
-        this._bindDropdown('headingFont', v => AppState.updateThemeSettings(themeId, 'typography.headingFont', v));
-        this._bindDropdown('bodyFont', v => AppState.updateThemeSettings(themeId, 'typography.bodyFont', v));
-        this._bindDropdown('fontSizeScale', v => AppState.updateThemeSettings(themeId, 'typography.fontSizeScale', parseInt(v)));
-
-        // Layout
-        this._bindRange('pageWidth', v => AppState.updateThemeSettings(themeId, 'layout.pageWidth', parseInt(v)));
-        this._bindRange('sectionSpacing', v => AppState.updateThemeSettings(themeId, 'layout.sectionSpacing', parseInt(v)));
-        this._bindRange('gridHSpacing', v => AppState.updateThemeSettings(themeId, 'layout.gridHorizontalSpacing', parseInt(v)));
-        this._bindRange('gridVSpacing', v => AppState.updateThemeSettings(themeId, 'layout.gridVerticalSpacing', parseInt(v)));
-
-        // Animations
-        this._bindCheckbox('revealOnScroll', v => AppState.updateThemeSettings(themeId, 'animations.revealOnScroll', v));
-        this._bindDropdown('hoverEffect', v => AppState.updateThemeSettings(themeId, 'animations.hoverEffect', v));
-
-        // Buttons
-        this._bindDropdown('buttonStyle', v => AppState.updateThemeSettings(themeId, 'buttons.style', v));
-        this._bindRange('buttonRadius', v => AppState.updateThemeSettings(themeId, 'buttons.borderRadius', parseInt(v)));
-        this._bindDropdown('variantPillStyle', v => AppState.updateThemeSettings(themeId, 'variantPills.style', v));
-
-        // Inputs
-        this._bindDropdown('inputStyle', v => AppState.updateThemeSettings(themeId, 'inputs.style', v));
-        this._bindRange('inputRadius', v => AppState.updateThemeSettings(themeId, 'inputs.borderRadius', parseInt(v)));
-
-        // Badges
-        this._bindDropdown('saleBadgePos', v => AppState.updateThemeSettings(themeId, 'badges.salePosition', v));
-        this._bindDropdown('saleBadgeShape', v => AppState.updateThemeSettings(themeId, 'badges.saleShape', v));
-        this._bindDropdown('soldOutBadgePos', v => AppState.updateThemeSettings(themeId, 'badges.soldOutPosition', v));
-        this._bindDropdown('soldOutBadgeShape', v => AppState.updateThemeSettings(themeId, 'badges.soldOutShape', v));
-
-        // Search
-        this._bindCheckbox('searchSuggestions', v => AppState.updateThemeSettings(themeId, 'searchBehavior.enableSuggestions', v));
-        this._bindCheckbox('searchShowVendor', v => AppState.updateThemeSettings(themeId, 'searchBehavior.showVendor', v));
-        this._bindCheckbox('searchShowPrice', v => AppState.updateThemeSettings(themeId, 'searchBehavior.showPrice', v));
-
-        // Currency
-        this._bindCheckbox('showCurrencyCode', v => AppState.updateThemeSettings(themeId, 'currencyFormat.showCurrencyCode', v));
-
-        // Cart
-        this._bindDropdown('cartType', v => { AppState.updateThemeSettings(themeId, 'cart.type', v); Router.render(); });
-        this._bindCheckbox('cartShowVendor', v => AppState.updateThemeSettings(themeId, 'cart.showVendor', v));
-        this._bindCheckbox('cartEnableNote', v => AppState.updateThemeSettings(themeId, 'cart.enableNote', v));
-        this._bindDropdown('cartColorScheme', v => AppState.updateThemeSettings(themeId, 'cart.cartColorSchemeId', parseInt(v)));
-
-        // Custom CSS
-        this._bindTextarea('themeCustomCss', v => AppState.updateThemeCustomCss(themeId, v));
-
-        // Social links
-        ['instagram', 'tiktok', 'facebook', 'pinterest', 'twitter', 'youtube', 'linkedin', 'snapchat', 'tumblr', 'vimeo'].forEach(platform => {
-            this._bindInput('social_' + platform, v => AppState.updateSocialLink(themeId, platform, v));
-        });
-
-        // Color scheme interactions
-        document.querySelectorAll('.color-scheme-card').forEach(card => {
-            if (card._handlerAttached) return;
-            card._handlerAttached = true;
-            card.addEventListener('click', () => {
-                const schemeId = parseInt(card.dataset.schemeId);
-                const scheme = settings.colors.find(c => c.id === schemeId);
-                if (scheme) {
-                    const editor = document.getElementById('colorSchemeEditor');
-                    if (editor) {
-                        editor.innerHTML = Views._renderColorSchemeEditor(themeId, scheme);
-                        Router._attachColorSchemeEditorInputs(themeId, schemeId);
-                    }
-                }
-            });
-        });
-
-        document.querySelectorAll('[data-action="add-color-scheme"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                const scheme = AppState.addColorScheme(themeId);
-                if (scheme) {
-                    Components.showToast('Color scheme added', 'success');
-                    Router.render();
-                } else {
-                    Components.showToast('Maximum 21 color schemes', 'error');
-                }
-            });
-        });
-
-        // Attach color scheme editor inputs if visible
-        const csEditor = document.querySelector('.color-scheme-detail');
-        if (csEditor) {
-            const schemeId = parseInt(csEditor.dataset.schemeId);
-            this._attachColorSchemeEditorInputs(themeId, schemeId);
-        }
-    },
-
-    _attachColorSchemeEditorInputs(themeId, schemeId) {
-        this._bindInput('schemeName', v => AppState.updateColorScheme(themeId, schemeId, 'name', v));
-        this._bindColorInput('schemeBg', v => AppState.updateColorScheme(themeId, schemeId, 'background', v));
-        this._bindInput('schemeBgGradient', v => AppState.updateColorScheme(themeId, schemeId, 'backgroundGradient', v));
-        this._bindColorInput('schemeText', v => AppState.updateColorScheme(themeId, schemeId, 'text', v));
-        this._bindColorInput('schemeSolidBtnBg', v => AppState.updateColorScheme(themeId, schemeId, 'solidButtonBg', v));
-        this._bindColorInput('schemeSolidBtnText', v => AppState.updateColorScheme(themeId, schemeId, 'solidButtonText', v));
-        this._bindColorInput('schemeOutlineBtn', v => AppState.updateColorScheme(themeId, schemeId, 'outlineButton', v));
-        this._bindColorInput('schemeShadow', v => AppState.updateColorScheme(themeId, schemeId, 'shadow', v));
-
-        document.querySelectorAll('[data-action="remove-color-scheme"]').forEach(btn => {
-            if (btn._handlerAttached) return;
-            btn._handlerAttached = true;
-            btn.addEventListener('click', () => {
-                const sid = parseInt(btn.dataset.schemeId);
-                Components.confirm('Remove color scheme',
-                    'Are you sure? Sections using this scheme will revert to the default.',
-                    () => {
-                        AppState.removeColorScheme(themeId, sid);
-                        Components.showToast('Color scheme removed', 'success');
-                        Router.render();
-                    },
-                    { danger: true }
-                );
-            });
-        });
-    },
-
-    _attachSettingsTabNavigation() {
-        document.querySelectorAll('[data-settings-tab]').forEach(tab => {
-            if (tab._handlerAttached) return;
-            tab._handlerAttached = true;
-            tab.addEventListener('click', () => {
-                const tabId = tab.dataset.settingsTab;
-                Router.navigate('/settings/' + AppState.selectedThemeId + '?settingsTab=' + tabId);
-            });
-        });
-    },
-
-    // ---- Binding helpers ----
-    _bindInput(id, handler) {
-        const el = document.getElementById(id);
-        if (el && !el._handlerAttached) {
-            el._handlerAttached = true;
-            el.addEventListener('change', () => handler(el.value));
-        }
-    },
-
-    _bindTextarea(id, handler) {
-        const el = document.getElementById(id);
-        if (el && !el._handlerAttached) {
-            el._handlerAttached = true;
-            el.addEventListener('change', () => handler(el.value));
-        }
-    },
-
-    _bindCheckbox(id, handler) {
-        const el = document.getElementById(id);
-        if (el && !el._handlerAttached) {
-            el._handlerAttached = true;
-            el.addEventListener('change', () => handler(el.checked));
-        }
-    },
-
-    _bindDropdown(id, handler) {
-        const el = document.getElementById(id);
-        if (el && !el._handlerAttached) {
-            el._handlerAttached = true;
-            el.addEventListener('change', (e) => handler(e.detail.value));
-        }
-    },
-
-    _bindRange(id, handler) {
-        const el = document.getElementById(id);
-        if (el && !el._handlerAttached) {
-            el._handlerAttached = true;
-            el.addEventListener('input', () => {
-                const valueEl = document.getElementById(id + 'Value');
-                if (valueEl) valueEl.textContent = el.value + (el.dataset.unit || 'px');
-                handler(el.value);
-            });
-        }
-    },
-
-    _bindColorInput(id, handler) {
-        const el = document.getElementById(id);
-        if (el && !el._handlerAttached) {
-            el._handlerAttached = true;
-            el.addEventListener('change', () => {
-                const val = el.value;
-                if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
-                    const swatch = document.getElementById(id + 'Swatch');
-                    if (swatch) swatch.style.background = val;
-                    handler(val);
-                }
-            });
-        }
+/* ================================================================
+   Shopify Theme Editor — Application Controller
+   ================================================================ */
+
+(function() {
+  'use strict';
+
+  // ── DOM References ──────────────────────────────────────────
+  const sidebar = document.getElementById('sidebar');
+  const sidebarContent = document.getElementById('sidebarContent');
+  const settingsPanel = document.getElementById('settingsPanel');
+  const previewWindow = document.getElementById('previewWindow');
+  const tabSections = document.getElementById('tabSections');
+  const tabThemeSettings = document.getElementById('tabThemeSettings');
+
+  // Menu bar elements
+  const templateSelector = document.getElementById('templateSelector');
+  const marketSelector = document.getElementById('marketSelector');
+  const btnUndo = document.getElementById('btnUndo');
+  const btnRedo = document.getElementById('btnRedo');
+  const btnSave = document.getElementById('btnSave');
+  const btnInspector = document.getElementById('btnInspector');
+  const btnDesktop = document.getElementById('btnDesktop');
+  const btnMobile = document.getElementById('btnMobile');
+  const btnFullscreen = document.getElementById('btnFullscreen');
+
+  // ── Render cycle ────────────────────────────────────────────
+  function render() {
+    // Sidebar tabs
+    tabSections.classList.toggle('active', AppState.sidebarView === 'sections');
+    tabThemeSettings.classList.toggle('active', AppState.sidebarView === 'themeSettings');
+
+    // Sidebar content
+    if (AppState.sidebarView === 'sections') {
+      sidebarContent.innerHTML = Views.renderSectionsTab();
+    } else {
+      sidebarContent.innerHTML = Views.renderThemeSettingsTab();
     }
-};
 
-// ---- Initialize ----
-document.addEventListener('DOMContentLoaded', () => {
-    AppState.init();
+    // Settings panel
+    settingsPanel.innerHTML = Views.renderSettingsPanel();
 
-    window.addEventListener('hashchange', () => Router.render());
-    Router.render();
-});
+    // Preview
+    previewWindow.innerHTML = Views.renderPreview();
+
+    // Menu bar state
+    btnUndo.disabled = AppState.undoStack.length === 0;
+    btnRedo.disabled = AppState.redoStack.length === 0;
+    btnSave.classList.toggle('has-changes', AppState.hasUnsavedChanges);
+    btnInspector.classList.toggle('active', AppState.previewInspectorActive);
+
+    btnDesktop.classList.toggle('active', AppState.screenSize === 'desktop');
+    btnMobile.classList.toggle('active', AppState.screenSize === 'mobile');
+    btnFullscreen.classList.toggle('active', AppState.screenSize === 'fullscreen');
+
+    // Attach event handlers
+    attachHandlers();
+  }
+
+  // ── Event handlers ──────────────────────────────────────────
+  function attachHandlers() {
+    // Section tree: select section
+    document.querySelectorAll('[data-select-section]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', () => {
+        AppState.selectedSectionId = el.dataset.selectSection;
+        AppState.selectedBlockId = null;
+        render();
+      });
+    });
+
+    // Section tree: select block
+    document.querySelectorAll('[data-select-block]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', () => {
+        const block = AppState.getBlock(el.dataset.selectBlock);
+        if (block) {
+          AppState.selectedSectionId = block.sectionId;
+          AppState.selectedBlockId = el.dataset.selectBlock;
+        }
+        render();
+      });
+    });
+
+    // Section tree: toggle section visibility
+    document.querySelectorAll('[data-toggle-section-vis]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        AppState.toggleSectionVisibility(el.dataset.toggleSectionVis);
+      });
+    });
+
+    // Section tree: toggle block visibility
+    document.querySelectorAll('[data-toggle-block-vis]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        AppState.toggleBlockVisibility(el.dataset.toggleBlockVis);
+      });
+    });
+
+    // Add section button
+    document.querySelectorAll('[data-add-section]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', () => {
+        const group = el.dataset.addSection;
+        Components.showSectionTypePicker((type) => {
+          AppState.addSection(AppState.currentTemplate, group, type);
+        });
+      });
+    });
+
+    // Theme settings categories
+    document.querySelectorAll('[data-theme-category]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', () => {
+        AppState.themeSettingsCategory = el.dataset.themeCategory;
+        AppState.selectedSectionId = null;
+        AppState.selectedBlockId = null;
+        render();
+      });
+    });
+
+    // Preview section click
+    document.querySelectorAll('[data-preview-section]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', () => {
+        AppState.selectedSectionId = el.dataset.previewSection;
+        AppState.selectedBlockId = null;
+        AppState.sidebarView = 'sections';
+        render();
+      });
+    });
+
+    // Settings panel: back to sections list
+    document.querySelectorAll('[data-deselect-section]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', () => {
+        AppState.selectedSectionId = null;
+        AppState.selectedBlockId = null;
+        render();
+      });
+    });
+
+    // Settings panel: back to section from block
+    document.querySelectorAll('[data-back-to-section]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', () => {
+        AppState.selectedBlockId = null;
+        render();
+      });
+    });
+
+    // Remove section
+    document.querySelectorAll('[data-remove-section]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', () => {
+        Components.confirm('Remove section', 'Are you sure you want to remove this section?', () => {
+          AppState.removeSection(el.dataset.removeSection);
+        });
+      });
+    });
+
+    // Remove block
+    document.querySelectorAll('[data-remove-block]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        AppState.removeBlock(el.dataset.removeBlock);
+      });
+    });
+
+    // Move block up/down
+    document.querySelectorAll('[data-move-block-up]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', (e) => { e.stopPropagation(); AppState.moveBlockUp(el.dataset.moveBlockUp); });
+    });
+    document.querySelectorAll('[data-move-block-down]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', (e) => { e.stopPropagation(); AppState.moveBlockDown(el.dataset.moveBlockDown); });
+    });
+
+    // Duplicate block
+    document.querySelectorAll('[data-duplicate-block]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', (e) => { e.stopPropagation(); AppState.duplicateBlock(el.dataset.duplicateBlock); });
+    });
+
+    // Add block
+    document.querySelectorAll('[data-add-block-to]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', () => {
+        const section = AppState.getSection(el.dataset.addBlockTo);
+        if (section) {
+          Components.showBlockTypePicker(section.type, (blockType) => {
+            AppState.addBlock(section.id, blockType);
+          });
+        }
+      });
+    });
+
+    // Color scheme: edit
+    document.querySelectorAll('[data-edit-scheme]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', () => {
+        showColorSchemeEditor(el.dataset.editScheme);
+      });
+    });
+
+    // Color scheme: remove
+    document.querySelectorAll('[data-remove-scheme]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', () => {
+        Components.confirm('Remove color scheme', 'Are you sure?', () => {
+          AppState.removeColorScheme(el.dataset.removeScheme);
+        });
+      });
+    });
+
+    // Add color scheme
+    const addSchemeBtn = document.getElementById('addColorSchemeBtn');
+    if (addSchemeBtn && !addSchemeBtn._handlerAttached) {
+      addSchemeBtn._handlerAttached = true;
+      addSchemeBtn.addEventListener('click', () => {
+        const newId = AppState.addColorScheme();
+        showColorSchemeEditor(newId);
+      });
+    }
+
+    // Theme style buttons
+    document.querySelectorAll('[data-apply-style]').forEach(el => {
+      if (el._handlerAttached) return;
+      el._handlerAttached = true;
+      el.addEventListener('click', () => {
+        AppState.applyThemeStyle(el.dataset.applyStyle);
+      });
+    });
+
+    // Attach settings panel input handlers
+    attachSettingsInputHandlers();
+  }
+
+  // ── Settings input change handlers ──────────────────────────
+  function attachSettingsInputHandlers() {
+    const panel = settingsPanel;
+    if (!panel || panel._inputHandlersAttached) return;
+    panel._inputHandlersAttached = true;
+
+    panel.addEventListener('change', handleSettingsChange);
+    panel.addEventListener('input', debounce(handleSettingsInput, 300));
+  }
+
+  function handleSettingsChange(e) {
+    const target = e.target;
+
+    // Toggle switches
+    if (target.classList.contains('toggle-input')) {
+      const checked = target.checked;
+      applySettingValue(target.id, checked);
+      return;
+    }
+
+    // Custom dropdown change events
+    if (e.detail && e.detail.value !== undefined) {
+      const dropdown = e.target.closest('.custom-dropdown');
+      if (dropdown) {
+        applySettingValue(dropdown.id, e.detail.value);
+      }
+      return;
+    }
+  }
+
+  function handleSettingsInput(e) {
+    const target = e.target;
+
+    // Range sliders
+    if (target.classList.contains('range-slider')) {
+      applySettingValue(target.id, parseFloat(target.value));
+      return;
+    }
+
+    // Text inputs
+    if (target.classList.contains('text-input') || target.classList.contains('color-hex-input')) {
+      applySettingValue(target.id, target.value);
+      return;
+    }
+
+    // Textareas
+    if (target.tagName === 'TEXTAREA') {
+      applySettingValue(target.id, target.value);
+      return;
+    }
+
+    // Number inputs
+    if (target.type === 'number') {
+      applySettingValue(target.id, parseFloat(target.value));
+      return;
+    }
+  }
+
+  function applySettingValue(inputId, value) {
+    if (!inputId) return;
+
+    // Theme settings mapping (prefix-based)
+    const mappings = {
+      // Typography
+      'typo-headingFont': () => AppState.updateThemeSettings('typography', { headingFont: value }),
+      'typo-headingFontSizeScale': () => AppState.updateThemeSettings('typography', { headingFontSizeScale: value }),
+      'typo-bodyFont': () => AppState.updateThemeSettings('typography', { bodyFont: value }),
+      'typo-bodyFontSizeScale': () => AppState.updateThemeSettings('typography', { bodyFontSizeScale: value }),
+
+      // Layout
+      'layout-pageWidth': () => AppState.updateThemeSettings('layout', { pageWidth: value }),
+      'layout-sectionSpacing': () => AppState.updateThemeSettings('layout', { sectionSpacing: value }),
+      'layout-gridHorizontalSpace': () => AppState.updateThemeSettings('layout', { gridHorizontalSpace: value }),
+      'layout-gridVerticalSpace': () => AppState.updateThemeSettings('layout', { gridVerticalSpace: value }),
+
+      // Logo
+      'logo-altText': () => AppState.updateThemeSettings('logo', { altText: value }),
+      'logo-desktopLogoWidth': () => AppState.updateThemeSettings('logo', { desktopLogoWidth: value }),
+      'logo-faviconAltText': () => AppState.updateThemeSettings('logo', { faviconAltText: value }),
+
+      // Animations
+      'anim-revealSectionsOnScroll': () => AppState.updateThemeSettings('animations', { revealSectionsOnScroll: value }),
+      'anim-hoverEffect': () => AppState.updateThemeSettings('animations', { hoverEffect: value }),
+
+      // Buttons
+      'btn-borderRadius': () => AppState.updateThemeSettings('buttons', { borderRadius: value }),
+      'btn-shadow': () => AppState.updateThemeSettings('buttons', { shadow: value }),
+      'btn-border': () => AppState.updateThemeSettings('buttons', { border: value }),
+
+      // Variant pills
+      'vp-shape': () => AppState.updateThemeSettings('variantPills', { shape: value }),
+      'vp-border': () => AppState.updateThemeSettings('variantPills', { border: value }),
+
+      // Inputs
+      'inp-shape': () => AppState.updateThemeSettings('inputs', { shape: value }),
+      'inp-border': () => AppState.updateThemeSettings('inputs', { border: value }),
+
+      // Product cards
+      'pc-style': () => AppState.updateThemeSettings('productCards', { style: value }),
+      'pc-imageRatio': () => AppState.updateThemeSettings('productCards', { imageRatio: value }),
+      'pc-showSecondImageOnHover': () => AppState.updateThemeSettings('productCards', { showSecondImageOnHover: value }),
+      'pc-showVendor': () => AppState.updateThemeSettings('productCards', { showVendor: value }),
+      'pc-showRating': () => AppState.updateThemeSettings('productCards', { showRating: value }),
+
+      // Collection cards
+      'cc-style': () => AppState.updateThemeSettings('collectionCards', { style: value }),
+      'cc-imageRatio': () => AppState.updateThemeSettings('collectionCards', { imageRatio: value }),
+
+      // Blog cards
+      'bc-style': () => AppState.updateThemeSettings('blogCards', { style: value }),
+      'bc-showDate': () => AppState.updateThemeSettings('blogCards', { showDate: value }),
+      'bc-showAuthor': () => AppState.updateThemeSettings('blogCards', { showAuthor: value }),
+
+      // Content containers
+      'cc2-borderRadius': () => AppState.updateThemeSettings('contentContainers', { borderRadius: value }),
+      'cc2-shadow': () => AppState.updateThemeSettings('contentContainers', { shadow: value }),
+
+      // Media
+      'media-borderRadius': () => AppState.updateThemeSettings('media', { borderRadius: value }),
+      'media-shadow': () => AppState.updateThemeSettings('media', { shadow: value }),
+
+      // Dropdowns/popups
+      'dp-borderRadius': () => AppState.updateThemeSettings('dropdownsAndPopups', { borderRadius: value }),
+      'dp-shadow': () => AppState.updateThemeSettings('dropdownsAndPopups', { shadow: value }),
+
+      // Drawers
+      'dr-borderRadius': () => AppState.updateThemeSettings('drawers', { borderRadius: value }),
+      'dr-shadow': () => AppState.updateThemeSettings('drawers', { shadow: value }),
+
+      // Badges
+      'badge-salePosition': () => AppState.updateThemeSettings('badges', { salePosition: value }),
+      'badge-saleShape': () => AppState.updateThemeSettings('badges', { saleShape: value }),
+      'badge-saleColor': () => AppState.updateThemeSettings('badges', { saleColor: value }),
+      'badge-soldOutPosition': () => AppState.updateThemeSettings('badges', { soldOutPosition: value }),
+      'badge-soldOutShape': () => AppState.updateThemeSettings('badges', { soldOutShape: value }),
+
+      // Brand information
+      'brand-showBrandImage': () => AppState.updateThemeSettings('brandInformation', { showBrandImage: value }),
+      'brand-showBrandDescription': () => AppState.updateThemeSettings('brandInformation', { showBrandDescription: value }),
+      'brand-showSocialMediaLinks': () => AppState.updateThemeSettings('brandInformation', { showSocialMediaLinks: value }),
+
+      // Social media
+      'social-facebook': () => AppState.updateThemeSettings('socialMedia', { facebook: value }),
+      'social-instagram': () => AppState.updateThemeSettings('socialMedia', { instagram: value }),
+      'social-twitter': () => AppState.updateThemeSettings('socialMedia', { twitter: value }),
+      'social-tiktok': () => AppState.updateThemeSettings('socialMedia', { tiktok: value }),
+      'social-snapchat': () => AppState.updateThemeSettings('socialMedia', { snapchat: value }),
+      'social-pinterest': () => AppState.updateThemeSettings('socialMedia', { pinterest: value }),
+      'social-tumblr': () => AppState.updateThemeSettings('socialMedia', { tumblr: value }),
+      'social-youtube': () => AppState.updateThemeSettings('socialMedia', { youtube: value }),
+      'social-vimeo': () => AppState.updateThemeSettings('socialMedia', { vimeo: value }),
+      'social-linkedin': () => AppState.updateThemeSettings('socialMedia', { linkedin: value }),
+
+      // Search behavior
+      'search-enableSuggestions': () => AppState.updateThemeSettings('searchBehavior', { enableSuggestions: value }),
+      'search-showVendor': () => AppState.updateThemeSettings('searchBehavior', { showVendor: value }),
+      'search-showPrice': () => AppState.updateThemeSettings('searchBehavior', { showPrice: value }),
+
+      // Currency format
+      'currency-showCurrencyCodes': () => AppState.updateThemeSettings('currencyFormat', { showCurrencyCodes: value }),
+
+      // Cart
+      'cart-type': () => AppState.updateThemeSettings('cart', { type: value }),
+      'cart-showVendor': () => AppState.updateThemeSettings('cart', { showVendor: value }),
+      'cart-enableCartNote': () => AppState.updateThemeSettings('cart', { enableCartNote: value }),
+      'cart-drawerCollection': () => AppState.updateThemeSettings('cart', { drawerCollection: value }),
+      'cart-drawerColorSchemeId': () => AppState.updateThemeSettings('cart', { drawerColorSchemeId: value }),
+
+      // Custom CSS
+      'custom-css': () => { AppState.themeSettings.customCSS = value; AppState._pushUndo(); AppState.notify(); },
+
+      // Section settings
+      'section-name': () => {
+        if (AppState.selectedSectionId) AppState.updateSectionName(AppState.selectedSectionId, value);
+      },
+      'section-colorSchemeId': () => {
+        if (AppState.selectedSectionId) AppState.updateSectionSettings(AppState.selectedSectionId, { colorSchemeId: value });
+      },
+      'section-autoPlay': () => {
+        if (AppState.selectedSectionId) AppState.updateSectionSettings(AppState.selectedSectionId, { autoPlay: value });
+      },
+      'section-slideInterval': () => {
+        if (AppState.selectedSectionId) AppState.updateSectionSettings(AppState.selectedSectionId, { slideInterval: value });
+      },
+      'section-title': () => {
+        if (AppState.selectedSectionId) AppState.updateSectionSettings(AppState.selectedSectionId, { title: value });
+      },
+      'section-collectionId': () => {
+        if (AppState.selectedSectionId) AppState.updateSectionSettings(AppState.selectedSectionId, { collectionId: parseInt(value) || value });
+      },
+      'section-productsToShow': () => {
+        if (AppState.selectedSectionId) AppState.updateSectionSettings(AppState.selectedSectionId, { productsToShow: value });
+      },
+      'section-height': () => {
+        if (AppState.selectedSectionId) AppState.updateSectionSettings(AppState.selectedSectionId, { height: value });
+      },
+      'section-columnsDesktop': () => {
+        if (AppState.selectedSectionId) AppState.updateSectionSettings(AppState.selectedSectionId, { columnsDesktop: value });
+      },
+      'section-fullWidth': () => {
+        if (AppState.selectedSectionId) AppState.updateSectionSettings(AppState.selectedSectionId, { fullWidth: value });
+      },
+
+      // Block settings
+      'block-text': () => { if (AppState.selectedBlockId) AppState.updateBlockSettings(AppState.selectedBlockId, { text: value }); },
+      'block-link': () => { if (AppState.selectedBlockId) AppState.updateBlockSettings(AppState.selectedBlockId, { link: value }); },
+      'block-heading': () => { if (AppState.selectedBlockId) AppState.updateBlockSettings(AppState.selectedBlockId, { heading: value }); },
+      'block-subheading': () => { if (AppState.selectedBlockId) AppState.updateBlockSettings(AppState.selectedBlockId, { subheading: value }); },
+      'block-buttonLabel': () => { if (AppState.selectedBlockId) AppState.updateBlockSettings(AppState.selectedBlockId, { buttonLabel: value }); },
+      'block-buttonLink': () => { if (AppState.selectedBlockId) AppState.updateBlockSettings(AppState.selectedBlockId, { buttonLink: value }); },
+      'block-size': () => { if (AppState.selectedBlockId) AppState.updateBlockSettings(AppState.selectedBlockId, { size: value }); },
+      'block-label': () => { if (AppState.selectedBlockId) AppState.updateBlockSettings(AppState.selectedBlockId, { label: value }); },
+      'block-style': () => { if (AppState.selectedBlockId) AppState.updateBlockSettings(AppState.selectedBlockId, { style: value }); },
+      'block-title': () => { if (AppState.selectedBlockId) AppState.updateBlockSettings(AppState.selectedBlockId, { title: value }); },
+      'block-linkLabel': () => { if (AppState.selectedBlockId) AppState.updateBlockSettings(AppState.selectedBlockId, { linkLabel: value }); },
+      'block-linkUrl': () => { if (AppState.selectedBlockId) AppState.updateBlockSettings(AppState.selectedBlockId, { linkUrl: value }); },
+      'block-collectionId': () => { if (AppState.selectedBlockId) AppState.updateBlockSettings(AppState.selectedBlockId, { collectionId: parseInt(value) || value }); },
+      'block-placeholder': () => { if (AppState.selectedBlockId) AppState.updateBlockSettings(AppState.selectedBlockId, { placeholder: value }); },
+    };
+
+    const handler = mappings[inputId];
+    if (handler) handler();
+  }
+
+  // ── Color scheme editor modal ───────────────────────────────
+  function showColorSchemeEditor(schemeId) {
+    const scheme = AppState.themeSettings.colors.schemes.find(s => s.id === schemeId);
+    if (!scheme) return;
+
+    const bodyHtml = `<div class="color-scheme-editor">
+      ${Components.textInput('cse-name', scheme.name, { label: 'Name' })}
+      ${Components.colorPicker('cse-background', scheme.background, { label: 'Background' })}
+      ${Components.textInput('cse-backgroundGradient', scheme.backgroundGradient, { label: 'Background gradient', placeholder: 'e.g. linear-gradient(135deg, #667eea, #764ba2)' })}
+      ${Components.colorPicker('cse-text', scheme.text, { label: 'Text' })}
+      ${Components.colorPicker('cse-solidButtonBackground', scheme.solidButtonBackground, { label: 'Solid button background' })}
+      ${Components.colorPicker('cse-solidButtonLabel', scheme.solidButtonLabel, { label: 'Solid button label' })}
+      ${Components.colorPicker('cse-outlineButton', scheme.outlineButton, { label: 'Outline button' })}
+      ${Components.colorPicker('cse-shadow', scheme.shadow, { label: 'Shadow' })}
+    </div>`;
+
+    Components.showModal('Edit color scheme: ' + scheme.name, bodyHtml,
+      `<button class="btn btn-secondary" data-modal-cancel>Cancel</button>
+       <button class="btn btn-primary" data-modal-save>Save</button>`,
+      {
+        onOpen: () => {
+          const overlay = document.getElementById('modalOverlay');
+          overlay.querySelector('[data-modal-cancel]').onclick = () => Components.closeModal();
+          overlay.querySelector('[data-modal-save]').onclick = () => {
+            const getVal = (id) => document.getElementById(id) ? document.getElementById(id).value : '';
+            AppState.updateColorScheme(schemeId, {
+              name: getVal('cse-name'),
+              background: getVal('cse-background'),
+              backgroundGradient: getVal('cse-backgroundGradient'),
+              text: getVal('cse-text'),
+              solidButtonBackground: getVal('cse-solidButtonBackground'),
+              solidButtonLabel: getVal('cse-solidButtonLabel'),
+              outlineButton: getVal('cse-outlineButton'),
+              shadow: getVal('cse-shadow')
+            });
+            Components.closeModal();
+          };
+        }
+      }
+    );
+  }
+
+  // ── Utility ─────────────────────────────────────────────────
+  function debounce(fn, ms) {
+    let timer;
+    return function(...args) {
+      clearTimeout(timer);
+      timer = setTimeout(() => fn.apply(this, args), ms);
+    };
+  }
+
+  // ── SSE Connection ──────────────────────────────────────────
+  function connectSSE() {
+    const es = new EventSource('/api/events');
+    es.onmessage = (event) => {
+      if (event.data === 'reset') {
+        AppState.resetToSeedData();
+      }
+    };
+    es.onerror = () => {
+      // Reconnect handled automatically by EventSource
+    };
+  }
+
+  // ── Initialize ──────────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', () => {
+    // Subscribe to state changes
+    AppState.subscribe(() => render());
+
+    // Sidebar tab switching
+    tabSections.addEventListener('click', () => {
+      AppState.sidebarView = 'sections';
+      AppState.themeSettingsCategory = null;
+      render();
+    });
+    tabThemeSettings.addEventListener('click', () => {
+      AppState.sidebarView = 'themeSettings';
+      AppState.selectedSectionId = null;
+      AppState.selectedBlockId = null;
+      render();
+    });
+
+    // Menu bar: template selector
+    templateSelector.addEventListener('change', (e) => {
+      if (e.detail && e.detail.value) {
+        AppState.currentTemplate = e.detail.value;
+        AppState.selectedSectionId = null;
+        AppState.selectedBlockId = null;
+        render();
+      }
+    });
+
+    // Menu bar: buttons
+    btnUndo.addEventListener('click', () => AppState.undo());
+    btnRedo.addEventListener('click', () => AppState.redo());
+    btnSave.addEventListener('click', () => {
+      AppState.save();
+      Components.showToast('Theme saved successfully', 'success');
+    });
+
+    btnInspector.addEventListener('click', () => {
+      AppState.previewInspectorActive = !AppState.previewInspectorActive;
+      render();
+    });
+
+    btnDesktop.addEventListener('click', () => { AppState.screenSize = 'desktop'; render(); });
+    btnMobile.addEventListener('click', () => { AppState.screenSize = 'mobile'; render(); });
+    btnFullscreen.addEventListener('click', () => { AppState.screenSize = 'fullscreen'; render(); });
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'z' && !e.shiftKey) {
+        e.preventDefault();
+        AppState.undo();
+      }
+      if ((e.ctrlKey || e.metaKey) && (e.key === 'y' || (e.key === 'z' && e.shiftKey))) {
+        e.preventDefault();
+        AppState.redo();
+      }
+      if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+        e.preventDefault();
+        AppState.save();
+        Components.showToast('Theme saved successfully', 'success');
+      }
+    });
+
+    // Custom dropdown event delegation for settings panel
+    settingsPanel.addEventListener('change', (e) => {
+      const dropdown = e.target.closest('.custom-dropdown');
+      if (dropdown && e.detail && e.detail.value !== undefined) {
+        applySettingValue(dropdown.id, e.detail.value);
+      }
+    });
+
+    // Initial push state to server
+    AppState._pushStateToServer(AppState._getPersistable());
+
+    // Connect to SSE
+    connectSSE();
+
+    // Initial render
+    render();
+  });
+
+})();

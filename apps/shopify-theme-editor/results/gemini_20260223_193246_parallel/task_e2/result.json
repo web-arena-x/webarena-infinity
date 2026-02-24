@@ -1,0 +1,18 @@
+{
+  "task_id": "task_e2",
+  "difficulty": "easy",
+  "instruction": "Enable 'Show currency codes' in the Currency format theme settings.",
+  "passed": true,
+  "verifier_message": "Show currency codes is enabled.",
+  "elapsed": 26.0,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully enabled 'Show currency codes' in the Currency format theme settings.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

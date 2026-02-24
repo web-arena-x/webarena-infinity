@@ -1,23 +1,17 @@
 import requests
 
+
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify sale badge position and shape changed for Dawn theme."""
+    """Verify there are 2 Slideshow sections on Home page (original + duplicate)."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
+
     state = resp.json()
+    slideshows = [s for s in state["sections"]
+                  if s["type"] == "slideshow" and s["templateId"] == "home"]
 
-    settings = next((ts for ts in state["themeSettings"] if ts.get("themeId") == 1), None)
-    if not settings:
-        return False, "Theme settings for Dawn not found."
+    if len(slideshows) < 2:
+        return False, f"Expected at least 2 slideshow sections, found {len(slideshows)}."
 
-    badges = settings.get("badges", {})
-    pos = badges.get("salePosition")
-    shape = badges.get("saleShape")
-
-    if pos != "top-right":
-        return False, f"Sale badge position is '{pos}', expected 'top-right'."
-    if shape != "circle":
-        return False, f"Sale badge shape is '{shape}', expected 'circle'."
-
-    return True, "Sale badge position changed to 'top-right' and shape to 'circle'."
+    return True, "Slideshow section has been duplicated."

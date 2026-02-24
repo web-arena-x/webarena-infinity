@@ -1,18 +1,18 @@
 import requests
 
+
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify 'Image banner' section renamed to 'Hero Section'."""
+    """Verify a new 'Image with text' section exists in the template area."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
+
     state = resp.json()
+    # The seed already has one image_with_text section (section_7)
+    iwt_sections = [s for s in state["sections"]
+                    if s["type"] == "image_with_text" and s["templateId"] == "home" and s["group"] == "template"]
 
-    # Section id 3 was 'Image banner' in template 1
-    section = next((s for s in state["sections"] if s.get("id") == 3), None)
-    if not section:
-        return False, "Section id 3 not found."
+    if len(iwt_sections) < 2:
+        return False, f"Expected at least 2 'Image with text' sections in template area, found {len(iwt_sections)}."
 
-    if section.get("name") != "Hero Section":
-        return False, f"Section name is '{section.get('name')}', expected 'Hero Section'."
-
-    return True, "Section 'Image banner' renamed to 'Hero Section'."
+    return True, "New 'Image with text' section added to template area."

@@ -1,876 +1,561 @@
-// ============================================================
-// views.js — All view renderers for the Shopify Theme Editor
-// ============================================================
+/* ================================================================
+   Shopify Theme Editor — View Renderers
+   ================================================================ */
 
 const Views = {
 
-    // ==============================
-    // Themes List (Home Page)
-    // ==============================
-    themes() {
-        const liveTheme = AppState.getLiveTheme();
-        const otherThemes = AppState.themes.filter(t => t.status !== 'live');
-
-        return `<div class="page-header">
-            <h1>Themes</h1>
-            <div class="page-header-actions">
-                <button class="btn btn-primary" id="addThemeBtn" data-testid="add-theme-btn">Add theme</button>
-            </div>
-        </div>
-
-        ${liveTheme ? `
-        <div class="section-group">
-            <h2 class="section-title">Current theme</h2>
-            <div class="themes-grid">
-                ${Components.themeCard(liveTheme)}
-            </div>
-        </div>` : ''}
-
-        <div class="section-group">
-            <h2 class="section-title">Theme library <span class="count-badge">${otherThemes.length}</span></h2>
-            <div class="themes-grid">
-                ${otherThemes.map(t => Components.themeCard(t)).join('')}
-            </div>
-        </div>
-
-        <div class="section-group">
-            <div class="reset-section">
-                <button class="btn btn-secondary" id="resetDataBtn" data-testid="reset-data-btn">Reset to default data</button>
-                <span class="reset-hint">Restore all themes and settings to their original state</span>
-            </div>
-        </div>`;
-    },
-
-    // ==============================
-    // Theme Editor View
-    // ==============================
-    editor(themeId) {
-        const theme = AppState.getTheme(themeId);
-        if (!theme) return '<div class="error-page"><h2>Theme not found</h2></div>';
-
-        const templates = AppState.getTemplatesForTheme(themeId);
-        const selectedTemplate = AppState.selectedTemplateId
-            ? AppState.getTemplate(AppState.selectedTemplateId)
-            : templates[0];
-
-        if (selectedTemplate && !AppState.selectedTemplateId) {
-            AppState.selectedTemplateId = selectedTemplate.id;
-        }
-
-        const sections = selectedTemplate
-            ? AppState.getSectionsForTemplate(selectedTemplate.id)
-            : [];
-
-        const headerSections = sections.filter(s => s.area === 'header');
-        const templateSections = sections.filter(s => s.area === 'template');
-        const footerSections = sections.filter(s => s.area === 'footer');
-
-        const settings = AppState.getThemeSettings(themeId);
-
-        // Template dropdown options
-        const templateOptions = templates.map(t => ({
-            value: String(t.id),
-            label: t.name + (t.isDefault ? '' : ' (custom)')
-        }));
-
-        return `<div class="editor-layout">
-            <div class="editor-topbar">
-                <div class="editor-topbar-left">
-                    <button class="btn btn-icon" data-action="back-to-themes" data-testid="back-btn" title="Back to themes">&larr;</button>
-                    <span class="editor-theme-name">${Components.escapeHtml(theme.name)}</span>
-                    ${Components.statusBadge(theme.status)}
-                </div>
-                <div class="editor-topbar-center">
-                    ${Components.dropdown('templateSelector', templateOptions, String(selectedTemplate?.id || ''), { placeholder: 'Select template' })}
-                </div>
-                <div class="editor-topbar-right">
-                    <div class="editor-view-modes">
-                        <button class="btn btn-icon ${AppState.editorMode === 'desktop' ? 'active' : ''}" data-action="set-mode" data-mode="desktop" title="Desktop">&#128187;</button>
-                        <button class="btn btn-icon ${AppState.editorMode === 'mobile' ? 'active' : ''}" data-action="set-mode" data-mode="mobile" title="Mobile">&#128241;</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="editor-content">
-                <div class="editor-sidebar" id="editorSidebar">
-                    <div class="sidebar-section">
-                        <div class="sidebar-header" data-collapse="header-sections">
-                            <span class="collapse-icon">&#9660;</span>
-                            <span>Header</span>
-                            <button class="btn btn-icon btn-xs" data-action="add-section" data-area="header" data-template-id="${selectedTemplate?.id}" title="Add section">+</button>
-                        </div>
-                        <div class="sidebar-content" id="header-sections">
-                            ${headerSections.map(s => Components.sectionTreeItem(s, AppState.getBlocksForSection(s.id))).join('')}
-                        </div>
-                    </div>
-
-                    <div class="sidebar-section">
-                        <div class="sidebar-header" data-collapse="template-sections">
-                            <span class="collapse-icon">&#9660;</span>
-                            <span>Template</span>
-                            <button class="btn btn-icon btn-xs" data-action="add-section" data-area="template" data-template-id="${selectedTemplate?.id}" title="Add section">+</button>
-                        </div>
-                        <div class="sidebar-content" id="template-sections">
-                            ${templateSections.map(s => Components.sectionTreeItem(s, AppState.getBlocksForSection(s.id))).join('')}
-                        </div>
-                    </div>
-
-                    <div class="sidebar-section">
-                        <div class="sidebar-header" data-collapse="footer-sections">
-                            <span class="collapse-icon">&#9660;</span>
-                            <span>Footer</span>
-                            <button class="btn btn-icon btn-xs" data-action="add-section" data-area="footer" data-template-id="${selectedTemplate?.id}" title="Add section">+</button>
-                        </div>
-                        <div class="sidebar-content" id="footer-sections">
-                            ${footerSections.map(s => Components.sectionTreeItem(s, AppState.getBlocksForSection(s.id))).join('')}
-                        </div>
-                    </div>
-
-                    <div class="sidebar-divider"></div>
-
-                    <div class="sidebar-nav">
-                        <div class="sidebar-nav-item" data-action="open-theme-settings" data-testid="theme-settings-btn">
-                            <span class="sidebar-nav-icon">&#9881;</span>
-                            <span>Theme settings</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="editor-preview" id="editorPreview">
-                    ${this._renderPreview(theme, selectedTemplate, sections)}
-                </div>
-
-                <div class="editor-settings-panel ${AppState.selectedSectionId || AppState.selectedBlockId ? 'active' : ''}" id="settingsPanel">
-                    ${this._renderSettingsPanel(themeId)}
-                </div>
-            </div>
-        </div>`;
-    },
-
-    _renderPreview(theme, template, sections) {
-        if (!template) return '<div class="preview-empty">Select a template to preview</div>';
-
-        const templateSections = sections.filter(s => s.area === 'template' && !s.hidden);
-
-        return `<div class="preview-frame ${AppState.editorMode === 'mobile' ? 'preview-mobile' : ''}">
-            <div class="preview-header">
-                <div class="preview-header-bar">
-                    <span class="preview-store-name">${Components.escapeHtml(AppState.currentUser.storeName)}</span>
-                    <div class="preview-header-nav">
-                        <span>Shop</span><span>About</span><span>Contact</span><span>&#128722;</span>
-                    </div>
-                </div>
-            </div>
-            <div class="preview-body">
-                ${templateSections.map(s => this._renderPreviewSection(s)).join('')}
-            </div>
-            <div class="preview-footer">
-                <div class="preview-footer-bar">
-                    <span>&copy; ${new Date().getFullYear()} ${Components.escapeHtml(AppState.currentUser.storeName)}</span>
-                </div>
-            </div>
-        </div>`;
-    },
-
-    _renderPreviewSection(section) {
-        const blocks = AppState.getBlocksForSection(section.id).filter(b => !b.hidden);
-        const isSelected = AppState.selectedSectionId === section.id;
-
-        let contentHtml = '';
-        switch (section.type) {
-            case 'image-banner':
-                contentHtml = `<div class="preview-banner">
-                    ${blocks.map(b => {
-                        if (b.type === 'heading') return `<h1>${Components.escapeHtml(b.settings.text || '')}</h1>`;
-                        if (b.type === 'text') return `<p>${Components.escapeHtml(b.settings.text || '')}</p>`;
-                        if (b.type === 'button') return `<button class="preview-btn">${Components.escapeHtml(b.settings.text || 'Button')}</button>`;
-                        return '';
-                    }).join('')}
-                </div>`;
-                break;
-            case 'rich-text':
-                contentHtml = `<div class="preview-rich-text">
-                    ${blocks.map(b => {
-                        if (b.type === 'heading') return `<h2>${Components.escapeHtml(b.settings.text || '')}</h2>`;
-                        if (b.type === 'text') return `<p>${Components.escapeHtml(b.settings.text || '')}</p>`;
-                        if (b.type === 'button') return `<button class="preview-btn-outline">${Components.escapeHtml(b.settings.text || 'Button')}</button>`;
-                        return '';
-                    }).join('')}
-                </div>`;
-                break;
-            case 'featured-collection':
-                contentHtml = `<div class="preview-collection">
-                    <h2>Featured Collection</h2>
-                    <div class="preview-product-grid">
-                        <div class="preview-product-card"><div class="preview-product-img"></div><span>Product 1</span></div>
-                        <div class="preview-product-card"><div class="preview-product-img"></div><span>Product 2</span></div>
-                        <div class="preview-product-card"><div class="preview-product-img"></div><span>Product 3</span></div>
-                    </div>
-                </div>`;
-                break;
-            case 'newsletter':
-                contentHtml = `<div class="preview-newsletter">
-                    ${blocks.map(b => {
-                        if (b.type === 'heading') return `<h2>${Components.escapeHtml(b.settings.text || '')}</h2>`;
-                        if (b.type === 'text') return `<p>${Components.escapeHtml(b.settings.text || '')}</p>`;
-                        if (b.type === 'email-form') return `<div class="preview-email-form"><input type="text" placeholder="Email" disabled /><button class="preview-btn">Subscribe</button></div>`;
-                        return '';
-                    }).join('')}
-                </div>`;
-                break;
-            case 'multicolumn':
-                contentHtml = `<div class="preview-multicolumn">
-                    ${blocks.map(b => {
-                        if (b.type === 'column') return `<div class="preview-column"><strong>${Components.escapeHtml(b.settings.title || '')}</strong><p>${Components.escapeHtml(b.settings.text || '')}</p></div>`;
-                        return '';
-                    }).join('')}
-                </div>`;
-                break;
-            case 'image-with-text':
-                contentHtml = `<div class="preview-image-text">
-                    <div class="preview-image-placeholder"></div>
-                    <div class="preview-text-side">
-                        ${blocks.map(b => {
-                            if (b.type === 'heading') return `<h2>${Components.escapeHtml(b.settings.text || '')}</h2>`;
-                            if (b.type === 'text') return `<p>${Components.escapeHtml(b.settings.text || '')}</p>`;
-                            if (b.type === 'button') return `<button class="preview-btn">${Components.escapeHtml(b.settings.text || 'Button')}</button>`;
-                            return '';
-                        }).join('')}
-                    </div>
-                </div>`;
-                break;
-            case 'contact-form':
-                contentHtml = `<div class="preview-contact">
-                    ${blocks.map(b => {
-                        if (b.type === 'heading') return `<h1>${Components.escapeHtml(b.settings.text || '')}</h1>`;
-                        if (b.type === 'text') return `<p>${Components.escapeHtml(b.settings.text || '')}</p>`;
-                        return '';
-                    }).join('')}
-                    <div class="preview-form"><input disabled placeholder="Name"/><input disabled placeholder="Email"/><textarea disabled placeholder="Message"></textarea><button class="preview-btn">Send</button></div>
-                </div>`;
-                break;
-            default:
-                contentHtml = `<div class="preview-generic"><span class="preview-section-label">${Components.escapeHtml(section.name)}</span></div>`;
-        }
-
-        return `<div class="preview-section ${isSelected ? 'preview-section-selected' : ''}" data-section-id="${section.id}">
-            ${contentHtml}
-        </div>`;
-    },
-
-    // ==============================
-    // Settings Panel (Right sidebar)
-    // ==============================
-    _renderSettingsPanel(themeId) {
-        if (AppState.selectedBlockId) {
-            return this._renderBlockSettings(AppState.selectedBlockId);
-        }
-        if (AppState.selectedSectionId) {
-            return this._renderSectionSettings(AppState.selectedSectionId, themeId);
-        }
-        return '<div class="settings-empty"><p>Select a section or block to edit its settings</p></div>';
-    },
-
-    _renderSectionSettings(sectionId, themeId) {
-        const section = AppState.getSection(sectionId);
-        if (!section) return '';
-
-        const settings = AppState.getThemeSettings(themeId);
-        const colorSchemes = settings ? settings.colors : [];
-        const colorOptions = colorSchemes.map(c => ({ value: String(c.id), label: c.name }));
-        const blocks = AppState.getBlocksForSection(sectionId);
-        const blockTypesForSection = BLOCK_TYPES.filter(bt => bt.sections.includes(section.type));
-
-        return `<div class="settings-panel-content">
-            <div class="settings-panel-header">
-                <button class="btn btn-icon btn-xs" data-action="close-settings">&larr;</button>
-                <h3>${Components.escapeHtml(section.name)}</h3>
-            </div>
-
-            <div class="settings-section">
-                <h4>Section settings</h4>
-                ${Components.formField('Name', Components.textInput('sectionName', section.name))}
-                ${Components.formField('Color scheme', Components.dropdown('sectionColorScheme', colorOptions, String(section.colorSchemeId)))}
-                ${Components.formField('Custom CSS', Components.textarea('sectionCustomCss', section.customCss, { rows: 3, maxLength: 500 }),
-                    { hint: 'Max 500 characters. Scoped to this section.' })}
-            </div>
-
-            <div class="settings-section">
-                <h4>Blocks <span class="count-badge">${blocks.length}</span></h4>
-                <div class="block-list">
-                    ${blocks.map(b => `
-                        <div class="block-list-item ${b.hidden ? 'block-hidden' : ''}" data-block-id="${b.id}">
-                            <span class="block-drag">&#8942;&#8942;</span>
-                            <span class="block-name" data-action="select-block" data-block-id="${b.id}">${Components.escapeHtml(b.name)}</span>
-                            <div class="block-actions">
-                                <button class="btn btn-icon btn-xs" data-action="hide-block" data-block-id="${b.id}" title="${b.hidden ? 'Show' : 'Hide'}">${b.hidden ? '&#128065;' : '&#128064;'}</button>
-                                <button class="btn btn-icon btn-xs" data-action="move-block-up" data-block-id="${b.id}" title="Move up">&uarr;</button>
-                                <button class="btn btn-icon btn-xs" data-action="move-block-down" data-block-id="${b.id}" title="Move down">&darr;</button>
-                                <button class="btn btn-icon btn-xs" data-action="duplicate-block" data-block-id="${b.id}" title="Duplicate">&#8943;</button>
-                                <button class="btn btn-icon btn-xs btn-danger-icon" data-action="remove-block" data-block-id="${b.id}" title="Remove">&times;</button>
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-                ${blockTypesForSection.length > 0 ? `
-                <div class="add-block-section">
-                    ${Components.dropdown('addBlockType', blockTypesForSection.map(bt => ({ value: bt.id, label: bt.name })), '', { placeholder: 'Choose block type' })}
-                    <button class="btn btn-secondary btn-sm" data-action="add-block" data-section-id="${sectionId}">Add block</button>
-                </div>` : ''}
-            </div>
-
-            <div class="settings-section">
-                <h4>Section actions</h4>
-                <div class="section-actions-group">
-                    <button class="btn btn-secondary btn-sm" data-action="hide-section" data-section-id="${sectionId}">${section.hidden ? 'Show section' : 'Hide section'}</button>
-                    <button class="btn btn-secondary btn-sm" data-action="duplicate-section" data-section-id="${sectionId}">Duplicate</button>
-                    <button class="btn btn-secondary btn-sm" data-action="move-section-up" data-section-id="${sectionId}">Move up</button>
-                    <button class="btn btn-secondary btn-sm" data-action="move-section-down" data-section-id="${sectionId}">Move down</button>
-                    <button class="btn btn-danger btn-sm" data-action="remove-section" data-section-id="${sectionId}">Remove section</button>
-                </div>
-            </div>
-        </div>`;
-    },
-
-    _renderBlockSettings(blockId) {
-        const block = AppState.getBlock(blockId);
-        if (!block) return '';
-
-        let settingsHtml = '';
-        switch (block.type) {
-            case 'heading':
-                settingsHtml = `
-                    ${Components.formField('Heading text', Components.textInput('blockText', block.settings.text || ''))}
-                    ${Components.formField('Size', Components.dropdown('blockSize', [
-                        { value: 'h1', label: 'Heading 1' },
-                        { value: 'h2', label: 'Heading 2' },
-                        { value: 'h3', label: 'Heading 3' },
-                        { value: 'h4', label: 'Heading 4' }
-                    ], block.settings.size || 'h2'))}`;
-                break;
-            case 'text':
-                settingsHtml = Components.formField('Text', Components.textarea('blockText', block.settings.text || '', { rows: 4 }));
-                break;
-            case 'button':
-                settingsHtml = `
-                    ${Components.formField('Button label', Components.textInput('blockText', block.settings.text || ''))}
-                    ${Components.formField('Link', Components.textInput('blockLink', block.settings.link || '', { placeholder: '/collections/all' }))}
-                    ${Components.formField('Style', Components.dropdown('blockStyle', [
-                        { value: 'solid', label: 'Solid' },
-                        { value: 'outline', label: 'Outline' }
-                    ], block.settings.style || 'solid'))}`;
-                break;
-            case 'announcement':
-                settingsHtml = `
-                    ${Components.formField('Text', Components.textInput('blockText', block.settings.text || ''))}
-                    ${Components.formField('Link', Components.textInput('blockLink', block.settings.link || '', { placeholder: '/collections/sale' }))}`;
-                break;
-            case 'column':
-                settingsHtml = `
-                    ${Components.formField('Title', Components.textInput('blockTitle', block.settings.title || ''))}
-                    ${Components.formField('Description', Components.textarea('blockText', block.settings.text || '', { rows: 3 }))}`;
-                break;
-            case 'menu':
-                settingsHtml = `
-                    ${Components.formField('Heading', Components.textInput('blockTitle', block.settings.title || ''))}
-                    ${Components.formField('Menu', Components.dropdown('blockMenu', [
-                        { value: 'main-menu', label: 'Main menu' },
-                        { value: 'footer', label: 'Footer menu' }
-                    ], block.settings.menu || 'main-menu'))}`;
-                break;
-            default:
-                settingsHtml = '<p class="settings-note">No configurable settings for this block type.</p>';
-        }
-
-        return `<div class="settings-panel-content">
-            <div class="settings-panel-header">
-                <button class="btn btn-icon btn-xs" data-action="back-to-section">&larr;</button>
-                <h3>${Components.escapeHtml(block.name)}</h3>
-            </div>
-
-            <div class="settings-section">
-                <h4>Block settings</h4>
-                ${Components.formField('Name', Components.textInput('blockName', block.name))}
-                ${settingsHtml}
-            </div>
-
-            <div class="settings-section">
-                <h4>Block actions</h4>
-                <div class="section-actions-group">
-                    <button class="btn btn-secondary btn-sm" data-action="hide-block" data-block-id="${blockId}">${block.hidden ? 'Show block' : 'Hide block'}</button>
-                    <button class="btn btn-secondary btn-sm" data-action="duplicate-block" data-block-id="${blockId}">Duplicate</button>
-                    <button class="btn btn-danger btn-sm" data-action="remove-block" data-block-id="${blockId}">Remove block</button>
-                </div>
-            </div>
-        </div>`;
-    },
-
-    // ==============================
-    // Theme Settings Page
-    // ==============================
-    themeSettings(themeId) {
-        const theme = AppState.getTheme(themeId);
-        const settings = AppState.getThemeSettings(themeId);
-        if (!theme || !settings) return '<div class="error-page"><h2>Theme settings not found</h2></div>';
-
-        const activeTab = AppState.queryParams.settingsTab || 'colors';
-
-        const tabList = [
-            { id: 'logo', label: 'Logo' },
-            { id: 'colors', label: 'Colors' },
-            { id: 'typography', label: 'Typography' },
-            { id: 'layout', label: 'Layout' },
-            { id: 'animations', label: 'Animations' },
-            { id: 'buttons', label: 'Buttons' },
-            { id: 'inputs', label: 'Inputs' },
-            { id: 'badges', label: 'Badges' },
-            { id: 'social', label: 'Social media' },
-            { id: 'search', label: 'Search' },
-            { id: 'currency', label: 'Currency' },
-            { id: 'cart', label: 'Cart' },
-            { id: 'custom-css', label: 'Custom CSS' }
-        ];
-
-        return `<div class="editor-layout">
-            <div class="editor-topbar">
-                <div class="editor-topbar-left">
-                    <button class="btn btn-icon" data-action="back-to-editor" data-testid="back-to-editor-btn" title="Back to editor">&larr;</button>
-                    <span class="editor-theme-name">Theme settings - ${Components.escapeHtml(theme.name)}</span>
-                </div>
-                <div class="editor-topbar-right"></div>
-            </div>
-            <div class="settings-page-layout">
-                <div class="settings-tabs-sidebar">
-                    ${tabList.map(t => `
-                        <div class="settings-tab-item ${t.id === activeTab ? 'active' : ''}" data-settings-tab="${t.id}" data-testid="settings-tab-${t.id}">
-                            ${Components.escapeHtml(t.label)}
-                        </div>
-                    `).join('')}
-                </div>
-                <div class="settings-tab-content">
-                    ${this._renderSettingsTab(themeId, activeTab, settings)}
-                </div>
-            </div>
-        </div>`;
-    },
-
-    _renderSettingsTab(themeId, tab, settings) {
-        switch (tab) {
-            case 'logo':
-                return this._renderLogoSettings(themeId, settings);
-            case 'colors':
-                return this._renderColorSettings(themeId, settings);
-            case 'typography':
-                return this._renderTypographySettings(themeId, settings);
-            case 'layout':
-                return this._renderLayoutSettings(themeId, settings);
-            case 'animations':
-                return this._renderAnimationSettings(themeId, settings);
-            case 'buttons':
-                return this._renderButtonSettings(themeId, settings);
-            case 'inputs':
-                return this._renderInputSettings(themeId, settings);
-            case 'badges':
-                return this._renderBadgeSettings(themeId, settings);
-            case 'social':
-                return this._renderSocialSettings(themeId, settings);
-            case 'search':
-                return this._renderSearchSettings(themeId, settings);
-            case 'currency':
-                return this._renderCurrencySettings(themeId, settings);
-            case 'cart':
-                return this._renderCartSettings(themeId, settings);
-            case 'custom-css':
-                return this._renderCustomCssSettings(themeId, settings);
-            default:
-                return '<p>Select a settings category</p>';
-        }
-    },
-
-    _renderLogoSettings(themeId, settings) {
-        return `<div class="settings-content">
-            <h2>Logo</h2>
-            ${Components.formField('Logo alt text', Components.textInput('logoAltText', settings.logo.altText, { placeholder: 'Describe your logo' }))}
-            ${Components.formField('Desktop logo width', Components.rangeInput('logoWidth', settings.logo.width, 50, 300, { unit: 'px' }))}
-            <h2 class="mt-lg">Favicon</h2>
-            ${Components.infoBox('Favicons display in browser tabs, history, and bookmarks. Recommended size: 32x32px.')}
-        </div>`;
-    },
-
-    _renderColorSettings(themeId, settings) {
-        const schemes = settings.colors;
-        return `<div class="settings-content">
-            <h2>Color schemes <span class="count-badge">${schemes.length}/21</span></h2>
-            ${Components.infoBox('Define up to 21 color schemes. Assign them to sections and blocks.')}
-
-            <div class="color-schemes-grid">
-                ${schemes.map(s => Components.colorSchemePreview(s, false)).join('')}
-                ${schemes.length < 21 ? `<div class="color-scheme-add" data-action="add-color-scheme" data-testid="add-color-scheme-btn">
-                    <span>+</span><span>Add scheme</span>
-                </div>` : ''}
-            </div>
-
-            <div id="colorSchemeEditor">
-                ${schemes.length > 0 ? this._renderColorSchemeEditor(themeId, schemes[0]) : ''}
-            </div>
-        </div>`;
-    },
-
-    _renderColorSchemeEditor(themeId, scheme) {
-        return `<div class="color-scheme-detail" data-scheme-id="${scheme.id}">
-            <h3>Editing: ${Components.escapeHtml(scheme.name)}</h3>
-            ${Components.formField('Scheme name', Components.textInput('schemeName', scheme.name))}
-            ${Components.formField('Background', Components.colorInput('schemeBg', scheme.background))}
-            ${Components.formField('Background gradient', Components.textInput('schemeBgGradient', scheme.backgroundGradient, { placeholder: 'e.g. linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }))}
-            ${Components.formField('Text', Components.colorInput('schemeText', scheme.text))}
-            ${Components.formField('Solid button background', Components.colorInput('schemeSolidBtnBg', scheme.solidButtonBg))}
-            ${Components.formField('Solid button text', Components.colorInput('schemeSolidBtnText', scheme.solidButtonText))}
-            ${Components.formField('Outline button', Components.colorInput('schemeOutlineBtn', scheme.outlineButton))}
-            ${Components.formField('Shadow', Components.colorInput('schemeShadow', scheme.shadow))}
-            ${!scheme.isDefault ? `<button class="btn btn-danger btn-sm mt-md" data-action="remove-color-scheme" data-scheme-id="${scheme.id}">Remove scheme</button>` : ''}
-        </div>`;
-    },
-
-    _renderTypographySettings(themeId, settings) {
-        const allFonts = [...FONT_LIBRARY, ...SYSTEM_FONTS].sort();
-        const fontOptions = allFonts.map(f => ({ value: f, label: f }));
-        const scaleOptions = [];
-        for (let s = 100; s <= 150; s += 5) {
-            scaleOptions.push({ value: String(s), label: s + '%' });
-        }
-
-        return `<div class="settings-content">
-            <h2>Typography</h2>
-            ${Components.formField('Heading font', Components.dropdown('headingFont', fontOptions, settings.typography.headingFont, { searchable: true }))}
-            ${Components.formField('Body font', Components.dropdown('bodyFont', fontOptions, settings.typography.bodyFont, { searchable: true }))}
-            ${Components.formField('Font size scale', Components.dropdown('fontSizeScale', scaleOptions, String(settings.typography.fontSizeScale)))}
-        </div>`;
-    },
-
-    _renderLayoutSettings(themeId, settings) {
-        return `<div class="settings-content">
-            <h2>Layout</h2>
-            ${Components.formField('Page width', Components.rangeInput('pageWidth', settings.layout.pageWidth, 1000, 1600, { unit: 'px' }))}
-            ${Components.formField('Space between sections', Components.rangeInput('sectionSpacing', settings.layout.sectionSpacing, 0, 100, { unit: 'px' }))}
-            <h3 class="mt-lg">Grid</h3>
-            ${Components.formField('Horizontal spacing', Components.rangeInput('gridHSpacing', settings.layout.gridHorizontalSpacing, 0, 40, { unit: 'px' }))}
-            ${Components.formField('Vertical spacing', Components.rangeInput('gridVSpacing', settings.layout.gridVerticalSpacing, 0, 40, { unit: 'px' }))}
-        </div>`;
-    },
-
-    _renderAnimationSettings(themeId, settings) {
-        return `<div class="settings-content">
-            <h2>Animations</h2>
-            ${Components.checkbox('revealOnScroll', settings.animations.revealOnScroll, 'Reveal sections on scroll')}
-            ${Components.formField('Hover effect', Components.dropdown('hoverEffect', [
-                { value: 'none', label: 'None' },
-                { value: 'vertical-lift', label: 'Vertical lift' },
-                { value: '3d-lift', label: '3D lift' }
-            ], settings.animations.hoverEffect))}
-        </div>`;
-    },
-
-    _renderButtonSettings(themeId, settings) {
-        return `<div class="settings-content">
-            <h2>Buttons</h2>
-            ${Components.formField('Button style', Components.dropdown('buttonStyle', [
-                { value: 'rounded', label: 'Rounded' },
-                { value: 'square', label: 'Square' },
-                { value: 'pill', label: 'Pill' }
-            ], settings.buttons.style))}
-            ${Components.formField('Border radius', Components.rangeInput('buttonRadius', settings.buttons.borderRadius, 0, 40, { unit: 'px' }))}
-            <h3 class="mt-lg">Variant pills</h3>
-            ${Components.formField('Pill style', Components.dropdown('variantPillStyle', [
-                { value: 'rounded', label: 'Rounded' },
-                { value: 'square', label: 'Square' },
-                { value: 'pill', label: 'Pill' }
-            ], settings.variantPills.style))}
-        </div>`;
-    },
-
-    _renderInputSettings(themeId, settings) {
-        return `<div class="settings-content">
-            <h2>Inputs</h2>
-            ${Components.formField('Input style', Components.dropdown('inputStyle', [
-                { value: 'outlined', label: 'Outlined' },
-                { value: 'filled', label: 'Filled' },
-                { value: 'underlined', label: 'Underlined' }
-            ], settings.inputs.style))}
-            ${Components.formField('Border radius', Components.rangeInput('inputRadius', settings.inputs.borderRadius, 0, 40, { unit: 'px' }))}
-        </div>`;
-    },
-
-    _renderBadgeSettings(themeId, settings) {
-        const positionOptions = [
-            { value: 'top-left', label: 'Top left' },
-            { value: 'top-right', label: 'Top right' },
-            { value: 'bottom-left', label: 'Bottom left' },
-            { value: 'bottom-right', label: 'Bottom right' }
-        ];
-        const shapeOptions = [
-            { value: 'rectangle', label: 'Rectangle' },
-            { value: 'circle', label: 'Circle' }
-        ];
-
-        return `<div class="settings-content">
-            <h2>Badges</h2>
-            <h3>Sale badge</h3>
-            ${Components.formField('Position', Components.dropdown('saleBadgePos', positionOptions, settings.badges.salePosition))}
-            ${Components.formField('Shape', Components.dropdown('saleBadgeShape', shapeOptions, settings.badges.saleShape))}
-            <h3 class="mt-lg">Sold out badge</h3>
-            ${Components.formField('Position', Components.dropdown('soldOutBadgePos', positionOptions, settings.badges.soldOutPosition))}
-            ${Components.formField('Shape', Components.dropdown('soldOutBadgeShape', shapeOptions, settings.badges.soldOutShape))}
-        </div>`;
-    },
-
-    _renderSocialSettings(themeId, settings) {
-        const platforms = [
-            { key: 'instagram', label: 'Instagram' },
-            { key: 'tiktok', label: 'TikTok' },
-            { key: 'facebook', label: 'Facebook' },
-            { key: 'pinterest', label: 'Pinterest' },
-            { key: 'twitter', label: 'Twitter / X' },
-            { key: 'youtube', label: 'YouTube' },
-            { key: 'linkedin', label: 'LinkedIn' },
-            { key: 'snapchat', label: 'Snapchat' },
-            { key: 'tumblr', label: 'Tumblr' },
-            { key: 'vimeo', label: 'Vimeo' }
-        ];
-
-        return `<div class="settings-content">
-            <h2>Social media</h2>
-            ${Components.infoBox('Add links to your social media accounts. These display in the footer.')}
-            ${platforms.map(p =>
-                Components.formField(p.label, Components.textInput('social_' + p.key, settings.socialLinks[p.key] || '', { placeholder: 'https://' + p.key + '.com/...' }))
-            ).join('')}
-        </div>`;
-    },
-
-    _renderSearchSettings(themeId, settings) {
-        return `<div class="settings-content">
-            <h2>Search behavior</h2>
-            ${Components.checkbox('searchSuggestions', settings.searchBehavior.enableSuggestions, 'Enable search suggestions')}
-            ${Components.checkbox('searchShowVendor', settings.searchBehavior.showVendor, 'Show product vendor in suggestions')}
-            ${Components.checkbox('searchShowPrice', settings.searchBehavior.showPrice, 'Show product price in suggestions')}
-        </div>`;
-    },
-
-    _renderCurrencySettings(themeId, settings) {
-        return `<div class="settings-content">
-            <h2>Currency format</h2>
-            ${Components.checkbox('showCurrencyCode', settings.currencyFormat.showCurrencyCode, 'Show currency codes with prices')}
-        </div>`;
-    },
-
-    _renderCartSettings(themeId, settings) {
-        const colorSchemeOptions = settings.colors.map(c => ({ value: String(c.id), label: c.name }));
-        return `<div class="settings-content">
-            <h2>Cart</h2>
-            ${Components.formField('Cart type', Components.dropdown('cartType', [
-                { value: 'drawer', label: 'Drawer', description: 'Side panel that keeps the customer on the page' },
-                { value: 'page', label: 'Page', description: 'Full cart page for checkout' },
-                { value: 'popup', label: 'Popup notification', description: 'Brief notification when adding to cart' }
-            ], settings.cart.type))}
-            ${Components.checkbox('cartShowVendor', settings.cart.showVendor, 'Show vendor')}
-            ${Components.checkbox('cartEnableNote', settings.cart.enableNote, 'Enable cart note')}
-            ${settings.cart.type === 'drawer' ? Components.formField('Cart drawer color scheme', Components.dropdown('cartColorScheme', colorSchemeOptions, String(settings.cart.cartColorSchemeId))) : ''}
-        </div>`;
-    },
-
-    _renderCustomCssSettings(themeId, settings) {
-        const theme = AppState.getTheme(themeId);
-        return `<div class="settings-content">
-            <h2>Custom CSS</h2>
-            ${Components.warningBox('Custom CSS rules may stop working with theme updates. Max 1500 characters.')}
-            ${Components.formField('CSS', Components.textarea('themeCustomCss', theme?.customCss || '', { rows: 10, maxLength: 1500 }))}
-        </div>`;
-    },
-
-    // ==============================
-    // Add Section Modal
-    // ==============================
-    _showAddSectionModal(templateId, themeId, area) {
-        const availableSections = SECTION_TYPES.filter(st => {
-            if (area === 'header') return st.area === 'header' || st.area === 'template';
-            if (area === 'footer') return st.area === 'footer' || st.area === 'template';
-            return st.area === 'template';
-        });
-
-        const bodyHtml = `
-            <div class="section-picker">
-                <input type="text" id="sectionSearchInput" class="form-input" placeholder="Search sections..." data-testid="section-search" />
-                <div class="section-picker-grid" id="sectionPickerGrid">
-                    ${availableSections.map(st => `
-                        <div class="section-picker-item" data-section-type="${st.id}" data-testid="section-type-${st.id}">
-                            <div class="section-picker-icon">${st.icon}</div>
-                            <div class="section-picker-name">${Components.escapeHtml(st.name)}</div>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>`;
-
-        Components.showModal('Add section', bodyHtml, '', { wide: true });
-
-        setTimeout(() => {
-            // Search
-            const searchInput = document.getElementById('sectionSearchInput');
-            if (searchInput) {
-                searchInput.addEventListener('input', (e) => {
-                    const q = e.target.value.toLowerCase();
-                    document.querySelectorAll('.section-picker-item').forEach(item => {
-                        const name = item.querySelector('.section-picker-name').textContent.toLowerCase();
-                        item.style.display = name.includes(q) ? '' : 'none';
-                    });
-                });
-            }
-
-            // Selection
-            document.querySelectorAll('.section-picker-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    const sectionType = item.dataset.sectionType;
-                    const sectionDef = SECTION_TYPES.find(st => st.id === sectionType);
-                    AppState.addSection(templateId, themeId, sectionType, area, sectionDef?.name);
-                    Components.closeModal();
-                    Components.showToast('Section added', 'success');
-                    Router.render();
-                });
-            });
-        }, 100);
-    },
-
-    // ==============================
-    // Create Template Modal
-    // ==============================
-    _showCreateTemplateModal(themeId) {
-        const templateTypeOptions = TEMPLATE_TYPES.filter(t => ['product', 'collection', 'page', 'blog', 'blog-post'].includes(t))
-            .map(t => `<div class="dropdown-item" data-value="${t}">${t}</div>`);
-
-        const existingTemplates = AppState.getTemplatesForTheme(themeId);
-        const baseOptions = existingTemplates.map(t => ({ value: String(t.id), label: t.name }));
-
-        const bodyHtml = `
-            ${Components.formField('Template name', Components.textInput('newTemplateName', '', { placeholder: 'e.g., Summer Sale' }), { required: true })}
-            ${Components.formField('Template type', Components.dropdown('newTemplateType', [
-                { value: 'product', label: 'Product' },
-                { value: 'collection', label: 'Collection' },
-                { value: 'page', label: 'Page' },
-                { value: 'blog', label: 'Blog' },
-                { value: 'blog-post', label: 'Blog post' }
-            ], 'product'))}
-            ${Components.formField('Based on', Components.dropdown('newTemplateBase', [
-                { value: '', label: 'Empty template' },
-                ...baseOptions
-            ], ''))}
-        `;
-
-        Components.showModal('Create template', bodyHtml,
-            `<button class="btn btn-secondary" onclick="Components.closeModal()">Cancel</button>
-             <button class="btn btn-primary" id="createTemplateConfirmBtn">Create</button>`
-        );
-
-        setTimeout(() => {
-            const btn = document.getElementById('createTemplateConfirmBtn');
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    const name = document.getElementById('newTemplateName')?.value;
-                    const type = document.getElementById('newTemplateType')?.dataset.value || 'product';
-                    const baseId = document.getElementById('newTemplateBase')?.dataset.value;
-
-                    if (!name || !name.trim()) {
-                        Components.showToast('Template name is required', 'error');
-                        return;
-                    }
-
-                    const template = AppState.createTemplate(themeId, name.trim(), type, baseId ? parseInt(baseId) : null);
-                    if (template) {
-                        Components.closeModal();
-                        Components.showToast('Template created', 'success');
-                        AppState.selectedTemplateId = template.id;
-                        Router.render();
-                    }
-                });
-            }
-        }, 100);
-    },
-
-    // ==============================
-    // Rename Theme Modal
-    // ==============================
-    _showRenameThemeModal(themeId) {
-        const theme = AppState.getTheme(themeId);
-        if (!theme) return;
-
-        const bodyHtml = Components.formField('Theme name', Components.textInput('renameThemeInput', theme.name), { required: true });
-
-        Components.showModal('Rename theme', bodyHtml,
-            `<button class="btn btn-secondary" onclick="Components.closeModal()">Cancel</button>
-             <button class="btn btn-primary" id="renameThemeConfirmBtn">Save</button>`
-        );
-
-        setTimeout(() => {
-            const btn = document.getElementById('renameThemeConfirmBtn');
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    const name = document.getElementById('renameThemeInput')?.value;
-                    if (name && name.trim()) {
-                        AppState.renameTheme(themeId, name.trim());
-                        Components.closeModal();
-                        Components.showToast('Theme renamed', 'success');
-                        Router.render();
-                    }
-                });
-            }
-        }, 100);
-    },
-
-    // ==============================
-    // Add Theme Modal
-    // ==============================
-    _showAddThemeModal() {
-        if (AppState.themes.length >= AppState.currentUser.maxThemes) {
-            Components.showToast(`Maximum ${AppState.currentUser.maxThemes} themes reached`, 'error');
-            return;
-        }
-
-        const bodyHtml = `
-            ${Components.formField('Theme name', Components.textInput('newThemeName', '', { placeholder: 'My new theme' }), { required: true })}
-            ${Components.formField('Source', Components.dropdown('newThemeSource', [
-                { value: 'shopify', label: 'Free Shopify theme' },
-                { value: 'theme-store', label: 'Theme Store' },
-                { value: 'upload', label: 'Upload ZIP file' }
-            ], 'shopify'))}
-            ${Components.formField('Architecture', Components.dropdown('newThemeArch', [
-                { value: 'online_store_2.0', label: 'Online Store 2.0' },
-                { value: 'theme_blocks', label: 'Theme Blocks (latest)' }
-            ], 'online_store_2.0'))}
-        `;
-
-        Components.showModal('Add theme', bodyHtml,
-            `<button class="btn btn-secondary" onclick="Components.closeModal()">Cancel</button>
-             <button class="btn btn-primary" id="addThemeConfirmBtn">Add theme</button>`
-        );
-
-        setTimeout(() => {
-            const btn = document.getElementById('addThemeConfirmBtn');
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    const name = document.getElementById('newThemeName')?.value;
-                    const source = document.getElementById('newThemeSource')?.dataset.value || 'shopify';
-                    const arch = document.getElementById('newThemeArch')?.dataset.value || 'online_store_2.0';
-
-                    if (!name || !name.trim()) {
-                        Components.showToast('Theme name is required', 'error');
-                        return;
-                    }
-
-                    const theme = AppState.addTheme(name.trim(), source, arch);
-                    if (theme) {
-                        Components.closeModal();
-                        Components.showToast('Theme added', 'success');
-                        Router.render();
-                    }
-                });
-            }
-        }, 100);
+  // ── Sidebar: Sections Tab ───────────────────────────────────
+  renderSectionsTab() {
+    const templateId = AppState.currentTemplate;
+    const headerSections = AppState.getSectionsByGroup(templateId, 'header');
+    const templateSections = AppState.getSectionsByGroup(templateId, 'template');
+    const footerSections = AppState.getSectionsByGroup(templateId, 'footer');
+
+    let html = '';
+
+    // Header group
+    html += `<div class="section-group" data-group="header">
+      <div class="section-group-header">
+        <span class="section-group-label">Header</span>
+      </div>
+      <div class="section-group-items">`;
+    headerSections.forEach(s => { html += Components.sectionTreeItem(s, AppState.selectedSectionId === s.id); });
+    html += `</div></div>`;
+
+    // Template group
+    html += `<div class="section-group" data-group="template">
+      <div class="section-group-header">
+        <span class="section-group-label">Template</span>
+      </div>
+      <div class="section-group-items">`;
+    templateSections.forEach(s => { html += Components.sectionTreeItem(s, AppState.selectedSectionId === s.id); });
+    html += `</div>
+      <button class="add-section-btn" data-add-section="template">+ Add section</button>
+    </div>`;
+
+    // Footer group
+    html += `<div class="section-group" data-group="footer">
+      <div class="section-group-header">
+        <span class="section-group-label">Footer</span>
+      </div>
+      <div class="section-group-items">`;
+    footerSections.forEach(s => { html += Components.sectionTreeItem(s, AppState.selectedSectionId === s.id); });
+    html += `</div></div>`;
+
+    return html;
+  },
+
+  // ── Sidebar: Theme Settings Tab ─────────────────────────────
+  renderThemeSettingsTab() {
+    const categories = [
+      { key: 'logo', label: 'Logo' },
+      { key: 'colors', label: 'Colors' },
+      { key: 'typography', label: 'Typography' },
+      { key: 'layout', label: 'Layout' },
+      { key: 'animations', label: 'Animations' },
+      { key: 'buttons', label: 'Buttons' },
+      { key: 'variantPills', label: 'Variant pills' },
+      { key: 'inputs', label: 'Inputs' },
+      { key: 'productCards', label: 'Product cards' },
+      { key: 'collectionCards', label: 'Collection cards' },
+      { key: 'blogCards', label: 'Blog cards' },
+      { key: 'contentContainers', label: 'Content containers' },
+      { key: 'media', label: 'Media' },
+      { key: 'dropdownsAndPopups', label: 'Dropdowns and pop-ups' },
+      { key: 'drawers', label: 'Drawers' },
+      { key: 'badges', label: 'Badges' },
+      { key: 'brandInformation', label: 'Brand information' },
+      { key: 'socialMedia', label: 'Social media' },
+      { key: 'searchBehavior', label: 'Search behavior' },
+      { key: 'currencyFormat', label: 'Currency format' },
+      { key: 'cart', label: 'Cart' },
+      { key: 'customCSS', label: 'Custom CSS' },
+      { key: 'activeThemeStyle', label: 'Theme style' }
+    ];
+
+    return `<div class="theme-settings-list">
+      ${categories.map(c =>
+        `<div class="theme-settings-item${AppState.themeSettingsCategory === c.key ? ' active' : ''}" data-theme-category="${c.key}">
+          ${Components.escapeHtml(c.label)}
+        </div>`
+      ).join('')}
+    </div>`;
+  },
+
+  // ── Settings Panel ──────────────────────────────────────────
+  renderSettingsPanel() {
+    // Theme settings category
+    if (AppState.sidebarView === 'themeSettings' && AppState.themeSettingsCategory) {
+      return this.renderThemeSettingsPanel(AppState.themeSettingsCategory);
     }
+
+    // Block settings
+    if (AppState.selectedBlockId) {
+      return this.renderBlockSettings(AppState.selectedBlockId);
+    }
+
+    // Section settings
+    if (AppState.selectedSectionId) {
+      return this.renderSectionSettings(AppState.selectedSectionId);
+    }
+
+    return '<div class="settings-empty"><p>Select a section, block, or theme setting to edit.</p></div>';
+  },
+
+  // ── Theme Settings Panels ───────────────────────────────────
+  renderThemeSettingsPanel(category) {
+    const ts = AppState.themeSettings;
+    let html = '';
+
+    switch (category) {
+      case 'logo':
+        html = `<div class="settings-panel" data-settings-for="logo">
+          <h3>Logo</h3>
+          ${Components.textInput('logo-altText', ts.logo.altText, { label: 'Logo alt text', placeholder: 'Describe your logo' })}
+          ${Components.rangeSlider('logo-desktopLogoWidth', ts.logo.desktopLogoWidth, 50, 300, { label: 'Desktop logo width', unit: 'px' })}
+          ${Components.textInput('logo-faviconAltText', ts.logo.faviconAltText, { label: 'Favicon alt text' })}
+        </div>`;
+        break;
+
+      case 'colors':
+        html = `<div class="settings-panel" data-settings-for="colors">
+          <h3>Colors</h3>
+          <div class="color-schemes-list">
+            ${ts.colors.schemes.map(s => `
+              <div class="color-scheme-entry" data-scheme-id="${s.id}">
+                <div class="color-scheme-header">
+                  <span class="color-scheme-name">${Components.escapeHtml(s.name)}</span>
+                  <button class="btn-icon" data-edit-scheme="${s.id}" title="Edit">&#9998;</button>
+                  <button class="btn-icon btn-danger-icon" data-remove-scheme="${s.id}" title="Remove">&times;</button>
+                </div>
+                <div class="color-scheme-swatches">
+                  <div class="mini-swatch" style="background:${Components.escapeAttr(s.background)}" title="Background"></div>
+                  <div class="mini-swatch" style="background:${Components.escapeAttr(s.text)}" title="Text"></div>
+                  <div class="mini-swatch" style="background:${Components.escapeAttr(s.solidButtonBackground)}" title="Button"></div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+          <button class="btn btn-secondary" id="addColorSchemeBtn">+ Add color scheme</button>
+        </div>`;
+        break;
+
+      case 'typography':
+        html = `<div class="settings-panel" data-settings-for="typography">
+          <h3>Typography</h3>
+          ${Components.dropdown('typo-headingFont',
+            FONT_LIBRARY.map(f => ({ value: f, label: f })),
+            ts.typography.headingFont,
+            { label: 'Heading font', searchable: true }
+          )}
+          <label class="field-label">Heading font</label>
+          ${Components.rangeSlider('typo-headingFontSizeScale', ts.typography.headingFontSizeScale, 100, 150, { label: 'Font size scale', unit: '%', step: 5 })}
+          ${Components.dropdown('typo-bodyFont',
+            FONT_LIBRARY.map(f => ({ value: f, label: f })),
+            ts.typography.bodyFont,
+            { label: 'Body font', searchable: true }
+          )}
+          <label class="field-label">Body font</label>
+          ${Components.rangeSlider('typo-bodyFontSizeScale', ts.typography.bodyFontSizeScale, 100, 150, { label: 'Body font size scale', unit: '%', step: 5 })}
+        </div>`;
+        break;
+
+      case 'layout':
+        html = `<div class="settings-panel" data-settings-for="layout">
+          <h3>Layout</h3>
+          ${Components.rangeSlider('layout-pageWidth', ts.layout.pageWidth, 1000, 1600, { label: 'Page width', unit: 'px' })}
+          ${Components.rangeSlider('layout-sectionSpacing', ts.layout.sectionSpacing, 0, 100, { label: 'Section spacing', unit: 'px' })}
+          ${Components.rangeSlider('layout-gridHorizontalSpace', ts.layout.gridHorizontalSpace, 0, 40, { label: 'Grid horizontal space', unit: 'px' })}
+          ${Components.rangeSlider('layout-gridVerticalSpace', ts.layout.gridVerticalSpace, 0, 40, { label: 'Grid vertical space', unit: 'px' })}
+        </div>`;
+        break;
+
+      case 'animations':
+        html = `<div class="settings-panel" data-settings-for="animations">
+          <h3>Animations</h3>
+          ${Components.toggleSwitch('anim-revealSectionsOnScroll', ts.animations.revealSectionsOnScroll, { label: 'Reveal sections on scroll' })}
+          ${Components.dropdown('anim-hoverEffect',
+            [{ value: 'None', label: 'None' }, { value: 'Vertical lift', label: 'Vertical lift' }, { value: '3D lift', label: '3D lift' }],
+            ts.animations.hoverEffect
+          )}
+          <label class="field-label">Hover effect</label>
+        </div>`;
+        break;
+
+      case 'buttons':
+        html = `<div class="settings-panel" data-settings-for="buttons"><h3>Buttons</h3>
+          ${Components.rangeSlider('btn-borderRadius', ts.buttons.borderRadius, 0, 40, { label: 'Border radius', unit: 'px' })}
+          ${Components.dropdown('btn-shadow', [{value:'None',label:'None'},{value:'Small',label:'Small'},{value:'Medium',label:'Medium'},{value:'Large',label:'Large'}], ts.buttons.shadow)}
+          <label class="field-label">Shadow</label>
+          ${Components.dropdown('btn-border', [{value:'None',label:'None'},{value:'Outline',label:'Outline'}], ts.buttons.border)}
+          <label class="field-label">Border</label>
+        </div>`;
+        break;
+
+      case 'variantPills':
+        html = `<div class="settings-panel" data-settings-for="variantPills"><h3>Variant pills</h3>
+          ${Components.dropdown('vp-shape', [{value:'Rectangle',label:'Rectangle'},{value:'Pill',label:'Pill'}], ts.variantPills.shape)}
+          <label class="field-label">Shape</label>
+          ${Components.dropdown('vp-border', [{value:'None',label:'None'},{value:'Outline',label:'Outline'}], ts.variantPills.border)}
+          <label class="field-label">Border</label>
+        </div>`;
+        break;
+
+      case 'inputs':
+        html = `<div class="settings-panel" data-settings-for="inputs"><h3>Inputs</h3>
+          ${Components.dropdown('inp-shape', [{value:'Rectangle',label:'Rectangle'},{value:'Pill',label:'Pill'}], ts.inputs.shape)}
+          <label class="field-label">Shape</label>
+          ${Components.dropdown('inp-border', [{value:'None',label:'None'},{value:'Outline',label:'Outline'}], ts.inputs.border)}
+          <label class="field-label">Border</label>
+        </div>`;
+        break;
+
+      case 'productCards':
+        html = `<div class="settings-panel" data-settings-for="productCards"><h3>Product cards</h3>
+          ${Components.dropdown('pc-style', [{value:'Standard',label:'Standard'},{value:'Card',label:'Card'}], ts.productCards.style)}
+          <label class="field-label">Style</label>
+          ${Components.dropdown('pc-imageRatio', [{value:'Adapt',label:'Adapt'},{value:'Portrait',label:'Portrait'},{value:'Square',label:'Square'}], ts.productCards.imageRatio)}
+          <label class="field-label">Image ratio</label>
+          ${Components.toggleSwitch('pc-showSecondImageOnHover', ts.productCards.showSecondImageOnHover, { label: 'Show second image on hover' })}
+          ${Components.toggleSwitch('pc-showVendor', ts.productCards.showVendor, { label: 'Show vendor' })}
+          ${Components.toggleSwitch('pc-showRating', ts.productCards.showRating, { label: 'Show rating' })}
+        </div>`;
+        break;
+
+      case 'collectionCards':
+        html = `<div class="settings-panel" data-settings-for="collectionCards"><h3>Collection cards</h3>
+          ${Components.dropdown('cc-style', [{value:'Standard',label:'Standard'},{value:'Card',label:'Card'}], ts.collectionCards.style)}
+          <label class="field-label">Style</label>
+          ${Components.dropdown('cc-imageRatio', [{value:'Adapt',label:'Adapt'},{value:'Portrait',label:'Portrait'},{value:'Square',label:'Square'}], ts.collectionCards.imageRatio)}
+          <label class="field-label">Image ratio</label>
+        </div>`;
+        break;
+
+      case 'blogCards':
+        html = `<div class="settings-panel" data-settings-for="blogCards"><h3>Blog cards</h3>
+          ${Components.dropdown('bc-style', [{value:'Standard',label:'Standard'},{value:'Card',label:'Card'}], ts.blogCards.style)}
+          <label class="field-label">Style</label>
+          ${Components.toggleSwitch('bc-showDate', ts.blogCards.showDate, { label: 'Show date' })}
+          ${Components.toggleSwitch('bc-showAuthor', ts.blogCards.showAuthor, { label: 'Show author' })}
+        </div>`;
+        break;
+
+      case 'contentContainers':
+        html = `<div class="settings-panel" data-settings-for="contentContainers"><h3>Content containers</h3>
+          ${Components.rangeSlider('cc2-borderRadius', ts.contentContainers.borderRadius, 0, 40, { label: 'Border radius', unit: 'px' })}
+          ${Components.dropdown('cc2-shadow', [{value:'None',label:'None'},{value:'Small',label:'Small'},{value:'Medium',label:'Medium'}], ts.contentContainers.shadow)}
+          <label class="field-label">Shadow</label>
+        </div>`;
+        break;
+
+      case 'media':
+        html = `<div class="settings-panel" data-settings-for="media"><h3>Media</h3>
+          ${Components.rangeSlider('media-borderRadius', ts.media.borderRadius, 0, 40, { label: 'Border radius', unit: 'px' })}
+          ${Components.dropdown('media-shadow', [{value:'None',label:'None'},{value:'Small',label:'Small'},{value:'Medium',label:'Medium'}], ts.media.shadow)}
+          <label class="field-label">Shadow</label>
+        </div>`;
+        break;
+
+      case 'dropdownsAndPopups':
+        html = `<div class="settings-panel" data-settings-for="dropdownsAndPopups"><h3>Dropdowns and pop-ups</h3>
+          ${Components.rangeSlider('dp-borderRadius', ts.dropdownsAndPopups.borderRadius, 0, 40, { label: 'Border radius', unit: 'px' })}
+          ${Components.dropdown('dp-shadow', [{value:'None',label:'None'},{value:'Small',label:'Small'},{value:'Medium',label:'Medium'}], ts.dropdownsAndPopups.shadow)}
+          <label class="field-label">Shadow</label>
+        </div>`;
+        break;
+
+      case 'drawers':
+        html = `<div class="settings-panel" data-settings-for="drawers"><h3>Drawers</h3>
+          ${Components.rangeSlider('dr-borderRadius', ts.drawers.borderRadius, 0, 40, { label: 'Border radius', unit: 'px' })}
+          ${Components.dropdown('dr-shadow', [{value:'None',label:'None'},{value:'Small',label:'Small'},{value:'Medium',label:'Medium'}], ts.drawers.shadow)}
+          <label class="field-label">Shadow</label>
+        </div>`;
+        break;
+
+      case 'badges':
+        html = `<div class="settings-panel" data-settings-for="badges"><h3>Badges</h3>
+          ${Components.dropdown('badge-salePosition', [{value:'Top left',label:'Top left'},{value:'Top right',label:'Top right'},{value:'Bottom left',label:'Bottom left'},{value:'Bottom right',label:'Bottom right'}], ts.badges.salePosition)}
+          <label class="field-label">Sale badge position</label>
+          ${Components.dropdown('badge-saleShape', [{value:'Rectangle',label:'Rectangle'},{value:'Circle',label:'Circle'}], ts.badges.saleShape)}
+          <label class="field-label">Sale badge shape</label>
+          ${Components.colorPicker('badge-saleColor', ts.badges.saleColor, { label: 'Sale badge color' })}
+          ${Components.dropdown('badge-soldOutPosition', [{value:'Top left',label:'Top left'},{value:'Top right',label:'Top right'},{value:'Bottom left',label:'Bottom left'},{value:'Bottom right',label:'Bottom right'}], ts.badges.soldOutPosition)}
+          <label class="field-label">Sold out badge position</label>
+          ${Components.dropdown('badge-soldOutShape', [{value:'Rectangle',label:'Rectangle'},{value:'Circle',label:'Circle'}], ts.badges.soldOutShape)}
+          <label class="field-label">Sold out badge shape</label>
+        </div>`;
+        break;
+
+      case 'brandInformation':
+        html = `<div class="settings-panel" data-settings-for="brandInformation"><h3>Brand information</h3>
+          ${Components.toggleSwitch('brand-showBrandImage', ts.brandInformation.showBrandImage, { label: 'Show brand image' })}
+          ${Components.toggleSwitch('brand-showBrandDescription', ts.brandInformation.showBrandDescription, { label: 'Show brand description' })}
+          ${Components.toggleSwitch('brand-showSocialMediaLinks', ts.brandInformation.showSocialMediaLinks, { label: 'Show social media links' })}
+        </div>`;
+        break;
+
+      case 'socialMedia':
+        html = `<div class="settings-panel" data-settings-for="socialMedia"><h3>Social media</h3>
+          ${Components.textInput('social-facebook', ts.socialMedia.facebook, { label: 'Facebook', placeholder: 'https://facebook.com/...' })}
+          ${Components.textInput('social-instagram', ts.socialMedia.instagram, { label: 'Instagram', placeholder: 'https://instagram.com/...' })}
+          ${Components.textInput('social-twitter', ts.socialMedia.twitter, { label: 'Twitter', placeholder: 'https://twitter.com/...' })}
+          ${Components.textInput('social-tiktok', ts.socialMedia.tiktok, { label: 'TikTok', placeholder: 'https://tiktok.com/...' })}
+          ${Components.textInput('social-snapchat', ts.socialMedia.snapchat, { label: 'Snapchat', placeholder: 'https://snapchat.com/...' })}
+          ${Components.textInput('social-pinterest', ts.socialMedia.pinterest, { label: 'Pinterest', placeholder: 'https://pinterest.com/...' })}
+          ${Components.textInput('social-tumblr', ts.socialMedia.tumblr, { label: 'Tumblr', placeholder: 'https://tumblr.com/...' })}
+          ${Components.textInput('social-youtube', ts.socialMedia.youtube, { label: 'YouTube', placeholder: 'https://youtube.com/...' })}
+          ${Components.textInput('social-vimeo', ts.socialMedia.vimeo, { label: 'Vimeo', placeholder: 'https://vimeo.com/...' })}
+          ${Components.textInput('social-linkedin', ts.socialMedia.linkedin, { label: 'LinkedIn', placeholder: 'https://linkedin.com/...' })}
+        </div>`;
+        break;
+
+      case 'searchBehavior':
+        html = `<div class="settings-panel" data-settings-for="searchBehavior"><h3>Search behavior</h3>
+          ${Components.toggleSwitch('search-enableSuggestions', ts.searchBehavior.enableSuggestions, { label: 'Enable search suggestions' })}
+          ${Components.toggleSwitch('search-showVendor', ts.searchBehavior.showVendor, { label: 'Show product vendor' })}
+          ${Components.toggleSwitch('search-showPrice', ts.searchBehavior.showPrice, { label: 'Show product price' })}
+        </div>`;
+        break;
+
+      case 'currencyFormat':
+        html = `<div class="settings-panel" data-settings-for="currencyFormat"><h3>Currency format</h3>
+          ${Components.toggleSwitch('currency-showCurrencyCodes', ts.currencyFormat.showCurrencyCodes, { label: 'Show currency codes' })}
+        </div>`;
+        break;
+
+      case 'cart':
+        html = `<div class="settings-panel" data-settings-for="cart"><h3>Cart</h3>
+          ${Components.dropdown('cart-type', [{value:'Drawer',label:'Drawer'},{value:'Page',label:'Page'},{value:'Popup notification',label:'Popup notification'}], ts.cart.type)}
+          <label class="field-label">Cart type</label>
+          ${Components.toggleSwitch('cart-showVendor', ts.cart.showVendor, { label: 'Show vendor' })}
+          ${Components.toggleSwitch('cart-enableCartNote', ts.cart.enableCartNote, { label: 'Enable cart note' })}
+          ${Components.dropdown('cart-drawerCollection',
+            [{ value: '', label: 'None' }].concat(AppState.collections.map(c => ({ value: c.title, label: c.title }))),
+            ts.cart.drawerCollection,
+            { searchable: true }
+          )}
+          <label class="field-label">Drawer collection</label>
+          ${Components.dropdown('cart-drawerColorSchemeId',
+            ts.colors.schemes.map(s => ({ value: s.id, label: s.name })),
+            ts.cart.drawerColorSchemeId
+          )}
+          <label class="field-label">Drawer color scheme</label>
+        </div>`;
+        break;
+
+      case 'customCSS':
+        html = `<div class="settings-panel" data-settings-for="customCSS"><h3>Custom CSS</h3>
+          ${Components.textInput('custom-css', ts.customCSS, { label: 'Custom CSS code', placeholder: '/* Your custom CSS here */', multiline: true })}
+        </div>`;
+        break;
+
+      case 'activeThemeStyle':
+        html = `<div class="settings-panel" data-settings-for="activeThemeStyle"><h3>Theme style</h3>
+          <div class="theme-style-list">
+            ${THEME_STYLES.map(s =>
+              `<button class="theme-style-option${ts.activeThemeStyle === s.id ? ' active' : ''}" data-apply-style="${s.id}">${Components.escapeHtml(s.name)}</button>`
+            ).join('')}
+          </div>
+        </div>`;
+        break;
+
+      default:
+        html = `<div class="settings-panel"><h3>${Components.escapeHtml(category)}</h3><p>Settings panel coming soon.</p></div>`;
+    }
+
+    return html;
+  },
+
+  // ── Section Settings ────────────────────────────────────────
+  renderSectionSettings(sectionId) {
+    const section = AppState.getSection(sectionId);
+    if (!section) return '';
+
+    let fieldsHtml = '';
+
+    // Common section settings
+    fieldsHtml += Components.textInput('section-name', section.name, { label: 'Section name' });
+
+    if (section.settings.colorSchemeId !== undefined) {
+      fieldsHtml += Components.dropdown('section-colorSchemeId',
+        AppState.themeSettings.colors.schemes.map(s => ({ value: s.id, label: s.name })),
+        section.settings.colorSchemeId
+      );
+      fieldsHtml += '<label class="field-label">Color scheme</label>';
+    }
+
+    // Type-specific settings
+    switch (section.type) {
+      case 'slideshow':
+        fieldsHtml += Components.toggleSwitch('section-autoPlay', section.settings.autoPlay || false, { label: 'Auto-play' });
+        fieldsHtml += Components.rangeSlider('section-slideInterval', section.settings.slideInterval || 5, 1, 10, { label: 'Slide interval', unit: 's' });
+        break;
+      case 'featured_collection':
+        fieldsHtml += Components.textInput('section-title', section.settings.title || '', { label: 'Title' });
+        fieldsHtml += Components.dropdown('section-collectionId',
+          AppState.collections.map(c => ({ value: String(c.id), label: c.title })),
+          String(section.settings.collectionId || '')
+        );
+        fieldsHtml += '<label class="field-label">Collection</label>';
+        fieldsHtml += Components.rangeSlider('section-productsToShow', section.settings.productsToShow || 8, 2, 24, { label: 'Products to show' });
+        break;
+      case 'image_banner':
+        fieldsHtml += Components.dropdown('section-height',
+          [{value:'Small',label:'Small'},{value:'Medium',label:'Medium'},{value:'Large',label:'Large'}],
+          section.settings.height || 'Medium'
+        );
+        fieldsHtml += '<label class="field-label">Height</label>';
+        break;
+      case 'multicolumn':
+        fieldsHtml += Components.textInput('section-title', section.settings.title || '', { label: 'Title' });
+        fieldsHtml += Components.rangeSlider('section-columnsDesktop', section.settings.columnsDesktop || 3, 1, 6, { label: 'Columns (desktop)' });
+        break;
+      case 'collection_list':
+        fieldsHtml += Components.textInput('section-title', section.settings.title || '', { label: 'Title' });
+        fieldsHtml += Components.rangeSlider('section-columnsDesktop', section.settings.columnsDesktop || 4, 1, 6, { label: 'Columns (desktop)' });
+        break;
+      case 'newsletter':
+        fieldsHtml += Components.toggleSwitch('section-fullWidth', section.settings.fullWidth || false, { label: 'Full width' });
+        break;
+    }
+
+    // Blocks list
+    const blocksHtml = section.blocks.sort((a, b) => a.order - b.order).map(block => {
+      const bSel = AppState.selectedBlockId === block.id ? ' selected' : '';
+      return `<div class="block-list-item${bSel}" data-select-block="${block.id}">
+        <span>${Components.escapeHtml(block.name)}</span>
+        <div class="block-actions">
+          <button class="btn-icon" data-move-block-up="${block.id}" title="Move up">&#9650;</button>
+          <button class="btn-icon" data-move-block-down="${block.id}" title="Move down">&#9660;</button>
+          <button class="btn-icon" data-duplicate-block="${block.id}" title="Duplicate">&#10697;</button>
+          <button class="btn-icon btn-danger-icon" data-remove-block="${block.id}" title="Remove">&times;</button>
+        </div>
+      </div>`;
+    }).join('');
+
+    const addBlockBtn = (BLOCK_TYPES[section.type] && BLOCK_TYPES[section.type].length > 0)
+      ? `<button class="btn btn-secondary add-block-btn" data-add-block-to="${section.id}">+ Add block</button>`
+      : '';
+
+    return `<div class="settings-panel section-settings" data-settings-for-section="${sectionId}">
+      <div class="settings-panel-header">
+        <button class="btn-back" data-deselect-section>&larr; Back</button>
+        <h3>${Components.escapeHtml(section.name)}</h3>
+      </div>
+      ${fieldsHtml}
+      <div class="section-blocks-area">
+        <h4>Blocks</h4>
+        ${blocksHtml}
+        ${addBlockBtn}
+      </div>
+      <div class="section-danger-zone">
+        <button class="btn btn-danger" data-remove-section="${sectionId}">Remove section</button>
+      </div>
+    </div>`;
+  },
+
+  // ── Block Settings ──────────────────────────────────────────
+  renderBlockSettings(blockId) {
+    const block = AppState.getBlock(blockId);
+    if (!block) return '';
+
+    let fieldsHtml = '';
+
+    switch (block.type) {
+      case 'announcement':
+        fieldsHtml += Components.textInput('block-text', block.settings.text || '', { label: 'Text' });
+        fieldsHtml += Components.textInput('block-link', block.settings.link || '', { label: 'Link' });
+        break;
+      case 'slide':
+        fieldsHtml += Components.textInput('block-heading', block.settings.heading || '', { label: 'Heading' });
+        fieldsHtml += Components.textInput('block-subheading', block.settings.subheading || '', { label: 'Subheading' });
+        fieldsHtml += Components.textInput('block-buttonLabel', block.settings.buttonLabel || '', { label: 'Button label' });
+        fieldsHtml += Components.textInput('block-buttonLink', block.settings.buttonLink || '', { label: 'Button link' });
+        break;
+      case 'heading':
+        fieldsHtml += Components.textInput('block-text', block.settings.text || '', { label: 'Heading text' });
+        fieldsHtml += Components.dropdown('block-size',
+          [{value:'Small',label:'Small'},{value:'Medium',label:'Medium'},{value:'Large',label:'Large'}],
+          block.settings.size || 'Medium'
+        );
+        fieldsHtml += '<label class="field-label">Size</label>';
+        break;
+      case 'text':
+        fieldsHtml += Components.textInput('block-text', block.settings.text || '', { label: 'Text', multiline: true });
+        break;
+      case 'button':
+        fieldsHtml += Components.textInput('block-label', block.settings.label || '', { label: 'Label' });
+        fieldsHtml += Components.textInput('block-link', block.settings.link || '', { label: 'Link' });
+        fieldsHtml += Components.dropdown('block-style',
+          [{value:'Primary',label:'Primary'},{value:'Secondary',label:'Secondary'}],
+          block.settings.style || 'Primary'
+        );
+        fieldsHtml += '<label class="field-label">Style</label>';
+        break;
+      case 'column':
+        fieldsHtml += Components.textInput('block-title', block.settings.title || '', { label: 'Title' });
+        fieldsHtml += Components.textInput('block-text', block.settings.text || '', { label: 'Text', multiline: true });
+        fieldsHtml += Components.textInput('block-linkLabel', block.settings.linkLabel || '', { label: 'Link label' });
+        fieldsHtml += Components.textInput('block-linkUrl', block.settings.linkUrl || '', { label: 'Link URL' });
+        break;
+      case 'collection':
+        fieldsHtml += Components.dropdown('block-collectionId',
+          AppState.collections.map(c => ({ value: String(c.id), label: c.title })),
+          String(block.settings.collectionId || '')
+        );
+        fieldsHtml += '<label class="field-label">Collection</label>';
+        break;
+      case 'email_form':
+        fieldsHtml += Components.textInput('block-buttonLabel', block.settings.buttonLabel || '', { label: 'Button label' });
+        fieldsHtml += Components.textInput('block-placeholder', block.settings.placeholder || '', { label: 'Placeholder' });
+        break;
+      default:
+        fieldsHtml += '<p>Edit settings for this block type.</p>';
+        break;
+    }
+
+    return `<div class="settings-panel block-settings" data-settings-for-block="${blockId}">
+      <div class="settings-panel-header">
+        <button class="btn-back" data-back-to-section="${block.sectionId}">&larr; Back</button>
+        <h3>${Components.escapeHtml(block.name)}</h3>
+      </div>
+      ${fieldsHtml}
+      <div class="section-danger-zone">
+        <button class="btn btn-danger" data-remove-block="${blockId}">Remove block</button>
+      </div>
+    </div>`;
+  },
+
+  // ── Preview Window ──────────────────────────────────────────
+  renderPreview() {
+    const sections = AppState.getSectionsForTemplate(AppState.currentTemplate);
+    const inspectorActive = AppState.previewInspectorActive;
+
+    let html = '<div class="preview-sections">';
+
+    sections.forEach(section => {
+      const hidden = !section.visible;
+      const classes = ['preview-section'];
+      if (hidden && !inspectorActive) return; // skip hidden when inspector off
+      if (hidden) classes.push('preview-hidden');
+      if (AppState.selectedSectionId === section.id) classes.push('preview-selected');
+      if (section.group === 'header') classes.push('preview-header');
+      if (section.group === 'footer') classes.push('preview-footer');
+
+      const blockNames = section.blocks
+        .filter(b => b.visible)
+        .sort((a, b) => a.order - b.order)
+        .map(b => Components.escapeHtml(b.name))
+        .join(', ');
+
+      html += `<div class="${classes.join(' ')}" data-preview-section="${section.id}">
+        <div class="preview-section-label">${Components.escapeHtml(section.name)}</div>
+        ${blockNames ? `<div class="preview-section-blocks">${blockNames}</div>` : ''}
+        ${hidden ? '<div class="preview-hidden-badge">Hidden</div>' : ''}
+      </div>`;
+    });
+
+    html += '</div>';
+    return html;
+  }
 };

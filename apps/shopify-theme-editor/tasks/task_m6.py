@@ -1,18 +1,19 @@
 import requests
 
+
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify YouTube URL set for Dawn theme."""
+    """Verify showVendor and showPrice are both enabled in Search behavior."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
+
     state = resp.json()
+    sb = state.get("themeSettings", {}).get("searchBehavior", {})
 
-    settings = next((ts for ts in state["themeSettings"] if ts.get("themeId") == 1), None)
-    if not settings:
-        return False, "Theme settings for Dawn not found."
+    if sb.get("showVendor") is not True:
+        return False, f"Expected showVendor=true, got {sb.get('showVendor')}."
 
-    youtube = settings.get("socialLinks", {}).get("youtube")
-    if youtube != "https://youtube.com/@northwindtraders":
-        return False, f"YouTube URL is '{youtube}', expected 'https://youtube.com/@northwindtraders'."
+    if sb.get("showPrice") is not True:
+        return False, f"Expected showPrice=true, got {sb.get('showPrice')}."
 
-    return True, "YouTube URL set correctly."
+    return True, "Show vendor and show price are both enabled in search behavior."

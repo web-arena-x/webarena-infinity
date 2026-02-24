@@ -1,18 +1,19 @@
 import requests
 
+
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify button style changed to 'pill' for Dawn theme."""
+    """Verify showSecondImageOnHover and showVendor are enabled in product cards."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
+
     state = resp.json()
+    pc = state.get("themeSettings", {}).get("productCards", {})
 
-    settings = next((ts for ts in state["themeSettings"] if ts.get("themeId") == 1), None)
-    if not settings:
-        return False, "Theme settings for Dawn not found."
+    if pc.get("showSecondImageOnHover") is not True:
+        return False, f"Expected showSecondImageOnHover=true, got {pc.get('showSecondImageOnHover')}."
 
-    style = settings.get("buttons", {}).get("style")
-    if style != "pill":
-        return False, f"Button style is '{style}', expected 'pill'."
+    if pc.get("showVendor") is not True:
+        return False, f"Expected showVendor=true, got {pc.get('showVendor')}."
 
-    return True, "Button style changed to 'pill'."
+    return True, "Show second image on hover and show vendor are both enabled."

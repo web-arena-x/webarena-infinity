@@ -1,23 +1,18 @@
 import requests
 
+
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify a new Rich text section was added to Dawn's Default product template."""
+    """Verify a new color scheme exists with background '#f0e6d3' and text '#1a1a2e'."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
+
     state = resp.json()
+    schemes = state.get("themeSettings", {}).get("colors", {}).get("schemes", [])
 
-    # Template 1 = Default product for Dawn (theme 1)
-    rich_text_sections = [s for s in state["sections"]
-                          if s.get("templateId") == 1 and s.get("type") == "rich-text"
-                          and s.get("area") == "template"]
+    # Look for a scheme (beyond the original 5) with the target colors
+    match = [s for s in schemes if s.get("background") == "#f0e6d3" and s.get("text") == "#1a1a2e"]
+    if not match:
+        return False, "No color scheme found with background '#f0e6d3' and text '#1a1a2e'."
 
-    # Seed has one rich-text section (id 4) in template 1
-    if len(rich_text_sections) < 2:
-        return False, f"Expected at least 2 Rich text sections in template, found {len(rich_text_sections)}."
-
-    new_sections = [s for s in rich_text_sections if s.get("id") != 4]
-    if not new_sections:
-        return False, "No new Rich text section found."
-
-    return True, "New Rich text section added to Default product template."
+    return True, "New color scheme with correct background and text colors found."

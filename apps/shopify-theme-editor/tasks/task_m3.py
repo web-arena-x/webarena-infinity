@@ -1,18 +1,21 @@
 import requests
 
+
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify cart type changed to 'page' for Dawn theme."""
+    """Verify heading font is 'Montserrat' and heading font size scale is 130."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
+
     state = resp.json()
+    typo = state.get("themeSettings", {}).get("typography", {})
 
-    settings = next((ts for ts in state["themeSettings"] if ts.get("themeId") == 1), None)
-    if not settings:
-        return False, "Theme settings for Dawn not found."
+    font = typo.get("headingFont")
+    if font != "Montserrat":
+        return False, f"Expected headingFont 'Montserrat', got '{font}'."
 
-    cart_type = settings.get("cart", {}).get("type")
-    if cart_type != "page":
-        return False, f"Cart type is '{cart_type}', expected 'page'."
+    scale = typo.get("headingFontSizeScale")
+    if scale != 130:
+        return False, f"Expected headingFontSizeScale=130, got {scale}."
 
-    return True, "Cart type changed to 'page'."
+    return True, "Heading font is 'Montserrat' at 130% scale."

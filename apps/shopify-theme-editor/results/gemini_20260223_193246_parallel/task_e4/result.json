@@ -1,0 +1,16 @@
+{
+  "task_id": "task_e4",
+  "difficulty": "easy",
+  "instruction": "Hide the 'Rich text' section on the Home page.",
+  "passed": true,
+  "verifier_message": "Rich text section is hidden.",
+  "elapsed": 16.6,
+  "steps": 3,
+  "is_done": true,
+  "final_result": "Successfully hid the 'Rich text' section on the Home page.",
+  "errors": [
+    null,
+    null,
+    null
+  ]
+}

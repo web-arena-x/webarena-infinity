@@ -1,26 +1,21 @@
 import requests
 
+
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify typography fonts and page width changed for Dawn theme."""
+    """Verify new color scheme with gradient and text '#ffffff'."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
+
     state = resp.json()
+    schemes = state.get("themeSettings", {}).get("colors", {}).get("schemes", [])
 
-    settings = next((ts for ts in state["themeSettings"] if ts.get("themeId") == 1), None)
-    if not settings:
-        return False, "Theme settings for Dawn not found."
+    expected_gradient = "linear-gradient(135deg, #667eea, #764ba2)"
+    match = [s for s in schemes
+             if s.get("backgroundGradient") == expected_gradient
+             and s.get("text") == "#ffffff"]
 
-    heading = settings.get("typography", {}).get("headingFont")
-    if heading != "Playfair Display":
-        return False, f"Heading font is '{heading}', expected 'Playfair Display'."
+    if not match:
+        return False, f"No color scheme found with gradient '{expected_gradient}' and text '#ffffff'."
 
-    body = settings.get("typography", {}).get("bodyFont")
-    if body != "Lato":
-        return False, f"Body font is '{body}', expected 'Lato'."
-
-    width = settings.get("layout", {}).get("pageWidth")
-    if width != 1400:
-        return False, f"Page width is {width}, expected 1400."
-
-    return True, "Fonts changed and page width set to 1400."
+    return True, "Color scheme with specified gradient and white text found."

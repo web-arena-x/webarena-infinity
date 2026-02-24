@@ -1,0 +1,418 @@
+{
+  "history": [
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Start",
+        "memory": null,
+        "next_goal": "Initial navigation",
+        "action": [
+          {
+            "navigate": {
+              "url": "http://localhost:8002",
+              "new_tab": false
+            }
+          }
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "long_term_memory": "Found initial url and automatically loaded it. Navigated to http://localhost:8002",
+          "extracted_content": "\ud83d\udd17 Navigated to http://localhost:8002",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [],
+        "screenshot_path": null,
+        "interacted_element": [
+          null
+        ],
+        "url": "http://localhost:8002",
+        "title": "Initial Actions"
+      },
+      "metadata": {
+        "step_start_time": 1771893322.740322,
+        "step_end_time": 1771893322.740322,
+        "step_number": 0,
+        "step_interval": null
+      },
+      "state_message": null
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully loaded the page. Verdict: Success",
+        "memory": "I need to enable 'Show second image on hover' and 'Show vendor' in the Product cards theme settings.",
+        "next_goal": "Click on the 'Theme settings' button.",
+        "action": [
+          {
+            "click": {
+              "index": 9242
+            }
+          }
+        ],
+        "thinking": "I need to enable 'Show second image on hover' and 'Show vendor' in the Product cards theme settings. First, I need to click on the 'Theme settings' button. Then, I need to scroll down to the 'Product cards' section. Finally, I need to enable the 'Show second image on hover' and 'Show vendor' options.",
+        "current_plan_item": 0,
+        "plan_update": [
+          "Click on the 'Theme settings' button.",
+          "Scroll down to the 'Product cards' section.",
+          "Enable the 'Show second image on hover' option.",
+          "Enable the 'Show vendor' option."
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"Theme settings\" id=tabThemeSettings",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 209.25,
+            "click_y": 66.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://localhost:8002/",
+            "title": "localhost:8002",
+            "target_id": "0B1C",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/var/folders/tj/3vs6n8b53wj6q691gkb1fd3c0000gn/T/browser_use_agent_0699cf24-a610-7f73-8000-9d721b868808_1771893322/screenshots/step_1.png",
+        "interacted_element": [
+          {
+            "node_id": 9039,
+            "backend_node_id": 9242,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "sidebar-tab",
+              "id": "tabThemeSettings"
+            },
+            "x_path": "html/body/div[1]/div[2]/div[1]/button[2]",
+            "element_hash": 1727641043662625638,
+            "stable_hash": 10951013080517401442,
+            "bounds": {
+              "x": 139.5,
+              "y": 48.0,
+              "width": 139.5,
+              "height": 37.0
+            },
+            "ax_name": "Theme settings"
+          }
+        ],
+        "url": "http://localhost:8002/",
+        "title": "localhost:8002"
+      },
+      "metadata": {
+        "step_start_time": 1771893322.740416,
+        "step_end_time": 1771893326.2458901,
+        "step_number": 1,
+        "step_interval": 0.0
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://localhost:8002\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://localhost:8002. Your task: Enable 'Show second image on hover' and 'Show vendor' in the Product cards theme settings.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step1 maximum:500\nToday:2026-02-23</step_info>\n</agent_state>\n<browser_state>\n<page_stats>0 links, 214 interactive, 0 iframes, 355 total elements</page_stats>\nCurrent tab: 0B1C\nAvailable tabs:\nTab 0B1C: http://localhost:8002/ - localhost:8002\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n[9379]<button title=Back />\n[9382]<span />\n\tDawn\n[9385]<span />\n\tLive\n[9392]<div />\n\tHome page\n\t[9394]<span />\n[9442]<div />\n\tUnited States\n\t[9444]<span />\n[9234]<button id=btnInspector title=Preview inspector />\n[9235]<button id=btnDesktop title=Desktop />\n[9236]<button id=btnMobile title=Mobile />\n[9237]<button id=btnFullscreen title=Fullscreen />\n[9238]<button id=btnUndo title=Undo (Ctrl+Z) disabled=true />\n[9239]<button id=btnRedo title=Redo (Ctrl+Y) disabled=true />\n[9240]<button id=btnSave title=Save (Ctrl+S) />\n\tSave\n[9241]<button id=tabSections />\n\tSections\n[9242]<button id=tabThemeSettings />\n\tTheme settings\n|scroll element|<div id=sidebarContent /> (0.0 pages above, 0.9 pages below)\n\t[9504]<span />\n\t\tHeader\n\t[9511]<div />\n\t\t[9513]<span />\n\t\t[9243]<span />\n\t\t\tAnnouncement bar\n\t\t[9244]<button title=Toggle visibility />\n\t[9522]<div />\n\t\t[9245]<span />\n\t\t\tAnnouncement\n\t\t[9246]<button title=Toggle visibility />\n\t[9528]<div />\n\t\t[9247]<span />\n\t\t\tAnnouncement\n\t\t[9248]<button title=Toggle visibility />\n\t[9537]<div />\n\t\t[9539]<span />\n\t\t[9249]<span />\n\t\t\tHeader\n\t\t[9250]<button title=Toggle visibility />\n\t[9548]<div />\n\t\t[9251]<span />\n\t\t\tMega menu\n\t\t[9252]<button title=Toggle visibility />\n\t[9554]<div />\n\t\t[9253]<span />\n\t\t\tNavigation link\n\t\t[9254]<button title=Toggle visibility />\n\tTemplate\n\t[9572]<div />\n\t\t[9574]<span />\n\t\t[9255]<span />\n\t\t\tSlideshow\n\t\t[9256]<button title=Toggle visibility />\n\t[9583]<div />\n\t\t[9257]<span />\n\t\t\tSlide\n\t\t[9258]<button title=Toggle visibility />\n\t[9589]<div />\n\t\t[9259]<span />\n\t\t\tSlide\n\t\t[9260]<button title=Toggle visibility />\n\t[9595]<div />\n\t\t[9261]<span />\n\t\t\tSlide\n\t\t[9262]<button title=Toggle visibility />\n\t[9604]<div />\n\t\t[9606]<span />\n\t\t[9263]<span />\n\t\t\tRich text\n\t\t[9264]<button title=Toggle visibility />\n\t[9615]<div />\n\t\t[9265]<span />\n\t\t\tHeading\n\t\t[9266]<button title=Toggle visibility />\n\t[9621]<div />\n\t\t[9267]<span />\n\t\t\tText\n\t\t[9268]<button title=Toggle visibility />\n\t[9630]<div />\n\t\t[9632]<span />\n\t\t[9269]<span />\n\t\t\tFeatured collection\n\t\t[9270]<button title=Toggle visibility />\n\t[9644]<div />\n\t\t[9646]<span />\n\t\t[9271]<span />\n\t\t\tImage banner\n\t\t[9272]<button title=Toggle visibility />\n\t[9655]<div />\n\t\t[9273]<span />\n\t\t\tHeading\n\t\t[9274]<button title=Toggle visibility />\n\t[9661]<div />\n\t\t[9275]<span />\n\t\t\tButton\n\t\t[9276]<button title=Toggle visibility />\n\t[9670]<div />\n\t\t[9672]<span />\n\t\t[9277]<span />\n\t\t\tImage with text\n\t\t[9278]<button title=Toggle visibility />\n\t[9681]<div />\n\t\t[9279]<span />\n\t\t\tHeading\n\t\t[9280]<button title=Toggle visibility />\n\t[9687]<div />\n\t\t[9281]<span />\n\t\t\tText\n\t\t[9282]<button title=Toggle visibility />\n\t[9693]<div />\n\t\t[9283]<span />\n\t\t\tButton\n\t\t[9284]<button title=Toggle visibility />\n\t[9702]<div />\n\t\t[9704]<span />\n\t\t[9285]<span />\n\t\t\tCollage\n\t\t[9286]<button title=Toggle visibility />\n\t[9713]<div />\n\t\t[9287]<span />\n\t\t\tImage\n\t\t[9288]<button title=Toggle visibility />\n\t[9719]<div />\n\t\t[9289]<span />\n\t\t\tProduct\n\t\t[9290]<button title=Toggle visibility />\n\t[9725]<div />\n\t\t[9291]<span />\n\t\t\tVideo\n\t\t[9292]<button title=Toggle visibility />\n\t[9734]<div />\n\t\t[9736]<span />\n\t\t[9293]<span />\n\t\t\tCollection list\n\t\t[9294]<button title=Toggle visibility />\n\t[9745]<div />\n\t\t[9295]<span />\n\t\t\tCollection\n\t\t[9296]<button title=Toggle visibility />\n\t[9751]<div />\n\t\t[9297]<span />\n\t\t\tCollection\n\t\t[9298]<button title=Toggle visibility />\n\t[9757]<div />\n\t\t[9299]<span />\n\t\t\tCollection\n\t\t[9300]<button title=Toggle visibility />\n\t[9763]<div />\n\t\t[9301]<span />\n\t\t\tCollection\n\t\t[9302]<button title=Toggle visibility />\n\t[9772]<div />\n\t\t[9774]<span />\n\t\t[9303]<span />\n\t\t\tFeatured product\n\t\t[9304]<button title=Toggle visibility />\n\t[9783]<div />\n\t\t[9305]<span />\n\t\t\tText\n\t\t[9306]<button title=Toggle visibility />\n\t[9789]<div />\n\t\t[9307]<span />\n\t\t\tVariant picker\n\t\t[9308]<button title=Toggle visibility />\n\t[9795]<div />\n\t\t[9309]<span />\n\t\t\tBuy buttons\n\t\t[9310]<button title=Toggle visibility />\n\t[9804]<div />\n\t\t[9806]<span />\n\t\t[9311]<span />\n\t\t\tNewsletter\n\t\t[9312]<button title=Toggle visibility />\n\t[9815]<div />\n\t\t[9313]<span />\n\t\t\tHeading\n\t\t[9314]<button title=Toggle visibility />\n\t[9821]<div />\n\t\t[9315]<span />\n\t\t\tText\n\t\t[9316]<button title=Toggle visibility />\n\t[9827]<div />\n\t\t[9317]<span />\n\t\t\tEmail form\n\t\t[9318]<button title=Toggle visibility />\n\t[9836]<div />\n\t\t[9838]<span />\n\t\t[9319]<span />\n\t\t\tVideo\n\t\t[9320]<button title=Toggle visibility />\n\t[9850]<div />\n\t\t[9852]<span />\n\t\t[9321]<span />\n\t\t\tMulticolumn\n\t\t[9322]<button title=Toggle visibility />\n\t[9861]<div />\n\t\t[9323]<span />\n\t\t\tColumn\n\t\t[9324]<button title=Toggle visibility />\n\t[9867]<div />\n\t\t[9325]<span />\n\t\t\tColumn\n\t\t[9326]<button title=Toggle visibility />\n\t[9873]<div />\n\t\t[9327]<span />\n\t\t\tColumn\n\t\t[9328]<button title=Toggle visibility />\n\t[9329]<button />\n\t\t+ Add section\n\t[9887]<span />\n\t\tFooter\n\t[9894]<div />\n\t\t[9896]<span />\n\t\t[9330]<span />\n\t\t\tFooter\n\t\t[9331]<button title=Toggle visibility />\n\t[9905]<div />\n\t\t[9332]<span />\n\t\t\tLink list\n\t\t[9333]<button title=Toggle visibility />\n\t[9911]<div />\n\t\t[9334]<span />\n\t\t\tLink list\n\t\t[9335]<button title=Toggle visibility />\n\t[9917]<div />\n\t\t[9336]<span />\n\t\t\tText\n\t\t[9337]<button title=Toggle visibility />\n|scroll element|<div id=previewWindow /> (0.0 pages above, 0.0 pages below)\n\t[9338]<div />\n\t\t[9931]<div />\n\t\t\tAnnouncement bar\n\t\t[9934]<div />\n\t\t\tAnnouncement, Announcement\n\t[9339]<div />\n\t\t[9938]<div />\n\t\t\tHeader\n\t\t[9941]<div />\n\t\t\tMega menu, Navigation link\n\t[9340]<div />\n\t\t[9945]<div />\n\t\t\tSlideshow\n\t\t[9948]<div />\n\t\t\tSlide, Slide, Slide\n\t[9341]<div />\n\t\t[9952]<div />\n\t\t\tRich text\n\t\t[9955]<div />\n\t\t\tHeading, Text\n\t[9342]<div />\n\t\t[9959]<div />\n\t\t\tFeatured collection\n\t[9343]<div />\n\t\t[9963]<div />\n\t\t\tImage banner\n\t\t[9966]<div />\n\t\t\tHeading, Button\n\t[9344]<div />\n\t\t[9354]<div />\n\t\t\tImage with text\n\t\t[9972]<div />\n\t\t\tHeading, Text, Button\n\t[9345]<div />\n\t\t[9976]<div />\n\t\t\tCollage\n\t\t[9979]<div />\n\t\t\tImage, Product, Video\n\t[9346]<div />\n\t\t[9983]<div />\n\t\t\tCollection list\n\t\t[9986]<div />\n\t\t\tCollection, Collection, Collection, Collection\n\t[9347]<div />\n\t\t[9990]<div />\n\t\t\tFeatured product\n\t\t[9993]<div />\n\t\t\tText, Variant picker, Buy buttons\n\t[9348]<div />\n\t\t[9997]<div />\n\t\t\tNewsletter\n\t\t[10000]<div />\n\t\t\tHeading, Text, Email form\n\t[9349]<div />\n\t\t[10004]<div />\n\t\t\tVideo\n\t[9350]<div />\n\t\t[10008]<div />\n\t\t\tMulticolumn\n\t\t[10011]<div />\n\t\t\tColumn, Column, Column\n\t[9351]<div />\n\t\t[10015]<div />\n\t\t\tFooter\n\t\t[10018]<div />\n\t\t\tLink list, Link list, Text\nSelect a section, block, or theme setting to edit.\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully clicked the 'Theme settings' button. Verdict: Success",
+        "memory": "Currently in the Theme settings. Need to enable 'Show second image on hover' and 'Show vendor' in the Product cards theme settings.",
+        "next_goal": "Click on the 'Product cards' section to expand it.",
+        "action": [
+          {
+            "click": {
+              "index": 10078
+            }
+          }
+        ],
+        "thinking": "I have successfully clicked on the 'Theme settings' button in the previous step. Now, I need to scroll down to the 'Product cards' section and then enable the 'Show second image on hover' and 'Show vendor' options. I will start by clicking on the 'Product cards' section to expand it.",
+        "current_plan_item": 1,
+        "plan_update": [
+          "Click on the 'Theme settings' button.",
+          "Scroll down to the 'Product cards' section.",
+          "Enable the 'Show second image on hover' option.",
+          "Enable the 'Show vendor' option."
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked div \"Product cards\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 139.5,
+            "click_y": 404.0
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://localhost:8002/",
+            "title": "localhost:8002",
+            "target_id": "0B1C",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/var/folders/tj/3vs6n8b53wj6q691gkb1fd3c0000gn/T/browser_use_agent_0699cf24-a610-7f73-8000-9d721b868808_1771893322/screenshots/step_2.png",
+        "interacted_element": [
+          {
+            "node_id": 9554,
+            "backend_node_id": 10078,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "DIV",
+            "attributes": {
+              "class": "theme-settings-item",
+              "data-theme-category": "productCards"
+            },
+            "x_path": "html/body/div[1]/div[2]/div[2]/div/div[9]",
+            "element_hash": 8842999635537483722,
+            "stable_hash": 8842999635537483722,
+            "bounds": {
+              "x": 0.0,
+              "y": 386.0,
+              "width": 279.0,
+              "height": 36.0
+            },
+            "ax_name": null
+          }
+        ],
+        "url": "http://localhost:8002/",
+        "title": "localhost:8002"
+      },
+      "metadata": {
+        "step_start_time": 1771893326.2486029,
+        "step_end_time": 1771893333.1114008,
+        "step_number": 2,
+        "step_interval": 3.505474090576172
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://localhost:8002\n<step>\nSuccessfully loaded the page. Verdict: Success\nI need to enable 'Show second image on hover' and 'Show vendor' in the Product cards theme settings.\nClick on the 'Theme settings' button.\nResult\nClicked button \"Theme settings\" id=tabThemeSettings\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://localhost:8002. Your task: Enable 'Show second image on hover' and 'Show vendor' in the Product cards theme settings.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Click on the 'Theme settings' button.\n[ ] 1: Scroll down to the 'Product cards' section.\n[ ] 2: Enable the 'Show second image on hover' option.\n[ ] 3: Enable the 'Show vendor' option.\n</plan>\n<step_info>Step2 maximum:500\nToday:2026-02-23</step_info>\n</agent_state>\n<browser_state>\n<page_stats>0 links, 79 interactive, 0 iframes, 155 total elements</page_stats>\nCurrent tab: 0B1C\nAvailable tabs:\nTab 0B1C: http://localhost:8002/ - localhost:8002\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n[9379]<button title=Back />\n[9382]<span />\n\tDawn\n[9385]<span />\n\tLive\n[9392]<div />\n\tHome page\n\t[9394]<span />\n[9442]<div />\n\tUnited States\n\t[9444]<span />\n[9234]<button id=btnInspector title=Preview inspector />\n[9235]<button id=btnDesktop title=Desktop />\n[9236]<button id=btnMobile title=Mobile />\n[9237]<button id=btnFullscreen title=Fullscreen />\n[9238]<button id=btnUndo title=Undo (Ctrl+Z) disabled=true />\n[9239]<button id=btnRedo title=Redo (Ctrl+Y) disabled=true />\n[9240]<button id=btnSave title=Save (Ctrl+S) />\n\tSave\n[9241]<button id=tabSections />\n\tSections\n[9242]<button id=tabThemeSettings />\n\tTheme settings\n*[10070]<div />\n\tLogo\n*[10071]<div />\n\tColors\n*[10072]<div />\n\tTypography\n*[10073]<div />\n\tLayout\n*[10074]<div />\n\tAnimations\n*[10075]<div />\n\tButtons\n*[10076]<div />\n\tVariant pills\n*[10077]<div />\n\tInputs\n*[10078]<div />\n\tProduct cards\n*[10079]<div />\n\tCollection cards\n*[10080]<div />\n\tBlog cards\n*[10081]<div />\n\tContent containers\n*[10082]<div />\n\tMedia\n*[10083]<div />\n\tDropdowns and pop-ups\n*[10084]<div />\n\tDrawers\n*[10085]<div />\n\tBadges\n*[10086]<div />\n\tBrand information\n*[10087]<div />\n\tSocial media\n*[10088]<div />\n\tSearch behavior\n*[10089]<div />\n\tCurrency format\n*[10090]<div />\n\tCart\n*[10091]<div />\n\tCustom CSS\n*[10092]<div />\n\tTheme style\n|scroll element|<div id=previewWindow /> (0.0 pages above, 0.0 pages below)\n\t*[10096]<div />\n\t\t*[10097]<div />\n\t\t\tAnnouncement bar\n\t\t*[10098]<div />\n\t\t\tAnnouncement, Announcement\n\t*[10099]<div />\n\t\t*[10100]<div />\n\t\t\tHeader\n\t\t*[10101]<div />\n\t\t\tMega menu, Navigation link\n\t*[10102]<div />\n\t\t*[10103]<div />\n\t\t\tSlideshow\n\t\t*[10104]<div />\n\t\t\tSlide, Slide, Slide\n\t*[10105]<div />\n\t\t*[10106]<div />\n\t\t\tRich text\n\t\t*[10107]<div />\n\t\t\tHeading, Text\n\t*[10108]<div />\n\t\t*[10109]<div />\n\t\t\tFeatured collection\n\t*[10110]<div />\n\t\t*[10111]<div />\n\t\t\tImage banner\n\t\t*[10112]<div />\n\t\t\tHeading, Button\n\t*[10113]<div />\n\t\t*[10114]<div />\n\t\t\tImage with text\n\t\t*[10115]<div />\n\t\t\tHeading, Text, Button\n\t*[10116]<div />\n\t\t*[10117]<div />\n\t\t\tCollage\n\t\t*[10118]<div />\n\t\t\tImage, Product, Video\n\t*[10119]<div />\n\t\t*[10120]<div />\n\t\t\tCollection list\n\t\t*[10121]<div />\n\t\t\tCollection, Collection, Collection, Collection\n\t*[10122]<div />\n\t\t*[10123]<div />\n\t\t\tFeatured product\n\t\t*[10124]<div />\n\t\t\tText, Variant picker, Buy buttons\n\t*[10125]<div />\n\t\t*[10126]<div />\n\t\t\tNewsletter\n\t\t*[10127]<div />\n\t\t\tHeading, Text, Email form\n\t*[10128]<div />\n\t\t*[10129]<div />\n\t\t\tVideo\n\t*[10130]<div />\n\t\t*[10131]<div />\n\t\t\tMulticolumn\n\t\t*[10132]<div />\n\t\t\tColumn, Column, Column\n\t*[10133]<div />\n\t\t*[10134]<div />\n\t\t\tFooter\n\t\t*[10135]<div />\n\t\t\tLink list, Link list, Text\nSelect a section, block, or theme setting to edit.\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully clicked the 'Product cards' section. Verdict: Success",
+        "memory": "Successfully opened the 'Product cards' section in the theme settings. Now I need to enable 'Show second image on hover' and 'Show vendor'.",
+        "next_goal": "Enable the 'Show second image on hover' option.",
+        "action": [
+          {
+            "click": {
+              "index": 10278
+            }
+          }
+        ],
+        "thinking": "I have successfully clicked the 'Product cards' section. Now I need to enable the 'Show second image on hover' and 'Show vendor' options. I will click on the 'Show second image on hover' first and then 'Show vendor'.",
+        "current_plan_item": 2,
+        "plan_update": [
+          "Click on the 'Theme settings' button.",
+          "Scroll down to the 'Product cards' section.",
+          "Enable the 'Show second image on hover' option.",
+          "Enable the 'Show vendor' option."
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked span \"Show second image on hover\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1737.5,
+            "click_y": 247.0
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://localhost:8002/",
+            "title": "localhost:8002",
+            "target_id": "0B1C",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/var/folders/tj/3vs6n8b53wj6q691gkb1fd3c0000gn/T/browser_use_agent_0699cf24-a610-7f73-8000-9d721b868808_1771893322/screenshots/step_3.png",
+        "interacted_element": [
+          {
+            "node_id": 9922,
+            "backend_node_id": 10278,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "SPAN",
+            "attributes": {
+              "class": "toggle-text"
+            },
+            "x_path": "html/body/div[1]/div[4]/div/div[3]/label/span",
+            "element_hash": 7906106473220547481,
+            "stable_hash": 7906106473220547481,
+            "bounds": {
+              "x": 1617.0,
+              "y": 239.0,
+              "width": 241.0,
+              "height": 16.0
+            },
+            "ax_name": null
+          }
+        ],
+        "url": "http://localhost:8002/",
+        "title": "localhost:8002"
+      },
+      "metadata": {
+        "step_start_time": 1771893333.115608,
+        "step_end_time": 1771893339.6027331,
+        "step_number": 3,
+        "step_interval": 6.862797975540161
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://localhost:8002\n<step>\nSuccessfully loaded the page. Verdict: Success\nI need to enable 'Show second image on hover' and 'Show vendor' in the Product cards theme settings.\nClick on the 'Theme settings' button.\nResult\nClicked button \"Theme settings\" id=tabThemeSettings\n<step>\nSuccessfully clicked the 'Theme settings' button. Verdict: Success\nCurrently in the Theme settings. Need to enable 'Show second image on hover' and 'Show vendor' in the Product cards theme settings.\nClick on the 'Product cards' section to expand it.\nResult\nClicked div \"Product cards\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://localhost:8002. Your task: Enable 'Show second image on hover' and 'Show vendor' in the Product cards theme settings.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Click on the 'Theme settings' button.\n[ ] 1: Scroll down to the 'Product cards' section.\n[ ] 2: Enable the 'Show second image on hover' option.\n[ ] 3: Enable the 'Show vendor' option.\n</plan>\n<step_info>Step3 maximum:500\nToday:2026-02-23</step_info>\n</agent_state>\n<browser_state>\n<page_stats>0 links, 92 interactive, 0 iframes, 185 total elements</page_stats>\nCurrent tab: 0B1C\nAvailable tabs:\nTab 0B1C: http://localhost:8002/ - localhost:8002\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n[9379]<button title=Back />\n[9382]<span />\n\tDawn\n[9385]<span />\n\tLive\n[9392]<div />\n\tHome page\n\t[9394]<span />\n[9442]<div />\n\tUnited States\n\t[9444]<span />\n[9234]<button id=btnInspector title=Preview inspector />\n[9235]<button id=btnDesktop title=Desktop />\n[9236]<button id=btnMobile title=Mobile />\n[9237]<button id=btnFullscreen title=Fullscreen />\n[9238]<button id=btnUndo title=Undo (Ctrl+Z) disabled=true />\n[9239]<button id=btnRedo title=Redo (Ctrl+Y) disabled=true />\n[9240]<button id=btnSave title=Save (Ctrl+S) />\n\tSave\n[9241]<button id=tabSections />\n\tSections\n[9242]<button id=tabThemeSettings />\n\tTheme settings\n*[10234]<div />\n\tLogo\n*[10235]<div />\n\tColors\n*[10236]<div />\n\tTypography\n*[10237]<div />\n\tLayout\n*[10238]<div />\n\tAnimations\n*[10239]<div />\n\tButtons\n*[10240]<div />\n\tVariant pills\n*[10241]<div />\n\tInputs\n*[10242]<div />\n\tProduct cards\n*[10243]<div />\n\tCollection cards\n*[10244]<div />\n\tBlog cards\n*[10245]<div />\n\tContent containers\n*[10246]<div />\n\tMedia\n*[10247]<div />\n\tDropdowns and pop-ups\n*[10248]<div />\n\tDrawers\n*[10249]<div />\n\tBadges\n*[10250]<div />\n\tBrand information\n*[10251]<div />\n\tSocial media\n*[10252]<div />\n\tSearch behavior\n*[10253]<div />\n\tCurrency format\n*[10254]<div />\n\tCart\n*[10255]<div />\n\tCustom CSS\n*[10256]<div />\n\tTheme style\n|scroll element|<div id=previewWindow /> (0.0 pages above, 0.0 pages below)\n\t*[10295]<div />\n\t\t*[10296]<div />\n\t\t\tAnnouncement bar\n\t\t*[10297]<div />\n\t\t\tAnnouncement, Announcement\n\t*[10298]<div />\n\t\t*[10299]<div />\n\t\t\tHeader\n\t\t*[10300]<div />\n\t\t\tMega menu, Navigation link\n\t*[10301]<div />\n\t\t*[10302]<div />\n\t\t\tSlideshow\n\t\t*[10303]<div />\n\t\t\tSlide, Slide, Slide\n\t*[10304]<div />\n\t\t*[10305]<div />\n\t\t\tRich text\n\t\t*[10306]<div />\n\t\t\tHeading, Text\n\t*[10307]<div />\n\t\t*[10308]<div />\n\t\t\tFeatured collection\n\t*[10309]<div />\n\t\t*[10310]<div />\n\t\t\tImage banner\n\t\t*[10311]<div />\n\t\t\tHeading, Button\n\t*[10312]<div />\n\t\t*[10313]<div />\n\t\t\tImage with text\n\t\t*[10314]<div />\n\t\t\tHeading, Text, Button\n\t*[10315]<div />\n\t\t*[10316]<div />\n\t\t\tCollage\n\t\t*[10317]<div />\n\t\t\tImage, Product, Video\n\t*[10318]<div />\n\t\t*[10319]<div />\n\t\t\tCollection list\n\t\t*[10320]<div />\n\t\t\tCollection, Collection, Collection, Collection\n\t*[10321]<div />\n\t\t*[10322]<div />\n\t\t\tFeatured product\n\t\t*[10323]<div />\n\t\t\tText, Variant picker, Buy buttons\n\t*[10324]<div />\n\t\t*[10325]<div />\n\t\t\tNewsletter\n\t\t*[10326]<div />\n\t\t\tHeading, Text, Email form\n\t*[10327]<div />\n\t\t*[10328]<div />\n\t\t\tVideo\n\t*[10329]<div />\n\t\t*[10330]<div />\n\t\t\tMulticolumn\n\t\t*[10331]<div />\n\t\t\tColumn, Column, Column\n\t*[10332]<div />\n\t\t*[10333]<div />\n\t\t\tFooter\n\t\t*[10334]<div />\n\t\t\tLink list, Link list, Text\nProduct cards\n*[10260]<div />\n\tStandard\n\t*[10261]<span />\nStyle\n*[10268]<div />\n\tAdapt\n\t*[10269]<span />\nImage ratio\n*[10278]<span />\n\tShow second image on hover\n*[10279]<div />\n\t*[10280]<div />\n*[10284]<span />\n\tShow vendor\n*[10285]<div />\n\t*[10286]<div />\n*[10290]<span />\n\tShow rating\n*[10291]<div />\n\t*[10292]<div />\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully enabled the 'Show second image on hover' option. Verdict: Success",
+        "memory": "Enabled 'Show second image on hover'. Need to enable 'Show vendor'.",
+        "next_goal": "Enable the 'Show vendor' option.",
+        "action": [
+          {
+            "click": {
+              "index": 10539
+            }
+          }
+        ],
+        "thinking": "I have successfully enabled the 'Show second image on hover' option. Now I need to enable the 'Show vendor' option. I will click on the 'Show vendor' span to enable it.",
+        "current_plan_item": 0,
+        "plan_update": [
+          "Click on the 'Theme settings' button.",
+          "Scroll down to the 'Product cards' section.",
+          "Enable the 'Show second image on hover' option.",
+          "Enable the 'Show vendor' option."
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked span \"Show vendor\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1737.5,
+            "click_y": 279.0
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://localhost:8002/",
+            "title": "localhost:8002",
+            "target_id": "0B1C",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/var/folders/tj/3vs6n8b53wj6q691gkb1fd3c0000gn/T/browser_use_agent_0699cf24-a610-7f73-8000-9d721b868808_1771893322/screenshots/step_4.png",
+        "interacted_element": [
+          {
+            "node_id": 10212,
+            "backend_node_id": 10539,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "SPAN",
+            "attributes": {
+              "class": "toggle-text"
+            },
+            "x_path": "html/body/div[1]/div[4]/div/div[4]/label/span",
+            "element_hash": 7906106473220547481,
+            "stable_hash": 7906106473220547481,
+            "bounds": {
+              "x": 1617.0,
+              "y": 271.0,
+              "width": 241.0,
+              "height": 16.0
+            },
+            "ax_name": null
+          }
+        ],
+        "url": "http://localhost:8002/",
+        "title": "localhost:8002"
+      },
+      "metadata": {
+        "step_start_time": 1771893339.6240299,
+        "step_end_time": 1771893343.487187,
+        "step_number": 4,
+        "step_interval": 6.4871251583099365
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://localhost:8002\n<step>\nSuccessfully loaded the page. Verdict: Success\nI need to enable 'Show second image on hover' and 'Show vendor' in the Product cards theme settings.\nClick on the 'Theme settings' button.\nResult\nClicked button \"Theme settings\" id=tabThemeSettings\n<step>\nSuccessfully clicked the 'Theme settings' button. Verdict: Success\nCurrently in the Theme settings. Need to enable 'Show second image on hover' and 'Show vendor' in the Product cards theme settings.\nClick on the 'Product cards' section to expand it.\nResult\nClicked div \"Product cards\"\n<step>\nSuccessfully clicked the 'Product cards' section. Verdict: Success\nSuccessfully opened the 'Product cards' section in the theme settings. Now I need to enable 'Show second image on hover' and 'Show vendor'.\nEnable the 'Show second image on hover' option.\nResult\nClicked span \"Show second image on hover\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://localhost:8002. Your task: Enable 'Show second image on hover' and 'Show vendor' in the Product cards theme settings.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Click on the 'Theme settings' button.\n[ ] 1: Scroll down to the 'Product cards' section.\n[ ] 2: Enable the 'Show second image on hover' option.\n[ ] 3: Enable the 'Show vendor' option.\n</plan>\n<step_info>Step4 maximum:500\nToday:2026-02-23</step_info>\n</agent_state>\n<browser_state>\n<page_stats>0 links, 92 interactive, 0 iframes, 185 total elements</page_stats>\nCurrent tab: 0B1C\nAvailable tabs:\nTab 0B1C: http://localhost:8002/ - localhost:8002\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n[9379]<button title=Back />\n[9382]<span />\n\tDawn\n[9385]<span />\n\tLive\n[9392]<div />\n\tHome page\n\t[9394]<span />\n[9442]<div />\n\tUnited States\n\t[9444]<span />\n[9234]<button id=btnInspector title=Preview inspector />\n[9235]<button id=btnDesktop title=Desktop />\n[9236]<button id=btnMobile title=Mobile />\n[9237]<button id=btnFullscreen title=Fullscreen />\n[9238]<button id=btnUndo title=Undo (Ctrl+Z) />\n[9239]<button id=btnRedo title=Redo (Ctrl+Y) disabled=true />\n[9240]<button id=btnSave title=Save (Ctrl+S) />\n\tSave\n[9241]<button id=tabSections />\n\tSections\n[9242]<button id=tabThemeSettings />\n\tTheme settings\n*[10489]<div />\n\tLogo\n*[10490]<div />\n\tColors\n*[10491]<div />\n\tTypography\n*[10492]<div />\n\tLayout\n*[10493]<div />\n\tAnimations\n*[10494]<div />\n\tButtons\n*[10495]<div />\n\tVariant pills\n*[10496]<div />\n\tInputs\n*[10497]<div />\n\tProduct cards\n*[10498]<div />\n\tCollection cards\n*[10499]<div />\n\tBlog cards\n*[10500]<div />\n\tContent containers\n*[10501]<div />\n\tMedia\n*[10502]<div />\n\tDropdowns and pop-ups\n*[10503]<div />\n\tDrawers\n*[10504]<div />\n\tBadges\n*[10505]<div />\n\tBrand information\n*[10506]<div />\n\tSocial media\n*[10507]<div />\n\tSearch behavior\n*[10508]<div />\n\tCurrency format\n*[10509]<div />\n\tCart\n*[10510]<div />\n\tCustom CSS\n*[10511]<div />\n\tTheme style\n|scroll element|<div id=previewWindow /> (0.0 pages above, 0.0 pages below)\n\t*[10550]<div />\n\t\t*[10551]<div />\n\t\t\tAnnouncement bar\n\t\t*[10552]<div />\n\t\t\tAnnouncement, Announcement\n\t*[10553]<div />\n\t\t*[10554]<div />\n\t\t\tHeader\n\t\t*[10555]<div />\n\t\t\tMega menu, Navigation link\n\t*[10556]<div />\n\t\t*[10557]<div />\n\t\t\tSlideshow\n\t\t*[10558]<div />\n\t\t\tSlide, Slide, Slide\n\t*[10559]<div />\n\t\t*[10560]<div />\n\t\t\tRich text\n\t\t*[10561]<div />\n\t\t\tHeading, Text\n\t*[10562]<div />\n\t\t*[10563]<div />\n\t\t\tFeatured collection\n\t*[10564]<div />\n\t\t*[10565]<div />\n\t\t\tImage banner\n\t\t*[10566]<div />\n\t\t\tHeading, Button\n\t*[10567]<div />\n\t\t*[10568]<div />\n\t\t\tImage with text\n\t\t*[10569]<div />\n\t\t\tHeading, Text, Button\n\t*[10570]<div />\n\t\t*[10571]<div />\n\t\t\tCollage\n\t\t*[10572]<div />\n\t\t\tImage, Product, Video\n\t*[10573]<div />\n\t\t*[10574]<div />\n\t\t\tCollection list\n\t\t*[10575]<div />\n\t\t\tCollection, Collection, Collection, Collection\n\t*[10576]<div />\n\t\t*[10577]<div />\n\t\t\tFeatured product\n\t\t*[10578]<div />\n\t\t\tText, Variant picker, Buy buttons\n\t*[10579]<div />\n\t\t*[10580]<div />\n\t\t\tNewsletter\n\t\t*[10581]<div />\n\t\t\tHeading, Text, Email form\n\t*[10582]<div />\n\t\t*[10583]<div />\n\t\t\tVideo\n\t*[10584]<div />\n\t\t*[10585]<div />\n\t\t\tMulticolumn\n\t\t*[10586]<div />\n\t\t\tColumn, Column, Column\n\t*[10587]<div />\n\t\t*[10588]<div />\n\t\t\tFooter\n\t\t*[10589]<div />\n\t\t\tLink list, Link list, Text\nProduct cards\n*[10515]<div />\n\tStandard\n\t*[10516]<span />\nStyle\n*[10523]<div />\n\tAdapt\n\t*[10524]<span />\nImage ratio\n*[10533]<span />\n\tShow second image on hover\n*[10534]<div />\n\t*[10535]<div />\n*[10539]<span />\n\tShow vendor\n*[10540]<div />\n\t*[10541]<div />\n*[10545]<span />\n\tShow rating\n*[10546]<div />\n\t*[10547]<div />\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully enabled the 'Show vendor' option. Verdict: Success",
+        "memory": "Successfully enabled 'Show second image on hover' and 'Show vendor' in the Product cards theme settings.",
+        "next_goal": "Complete the task by calling the 'done' action.",
+        "action": [
+          {
+            "done": {
+              "text": "Successfully enabled 'Show second image on hover' and 'Show vendor' in the Product cards theme settings.",
+              "success": true
+            }
+          }
+        ],
+        "thinking": "I have successfully enabled both 'Show second image on hover' and 'Show vendor' in the Product cards theme settings. Now I am ready to complete the task.",
+        "current_plan_item": 0,
+        "plan_update": [
+          "Click on the 'Theme settings' button.",
+          "Scroll down to the 'Product cards' section.",
+          "Enable the 'Show second image on hover' option.",
+          "Enable the 'Show vendor' option."
+        ]
+      },
+      "result": [
+        {
+          "is_done": true,
+          "success": true,
+          "judgement": {
+            "reasoning": "The agent successfully navigated to the theme settings, accessed the product cards section, and enabled both 'Show second image on hover' and 'Show vendor' as requested. The agent's actions align with the task instructions and the final result confirms successful completion.",
+            "verdict": true,
+            "failure_reason": "",
+            "impossible_task": false,
+            "reached_captcha": false
+          },
+          "attachments": [],
+          "long_term_memory": "Task completed: True - Successfully enabled 'Show second image on hover' and 'Show vendor' in the Product cards theme setti - 4 more characters",
+          "extracted_content": "Successfully enabled 'Show second image on hover' and 'Show vendor' in the Product cards theme settings.",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://localhost:8002/",
+            "title": "localhost:8002",
+            "target_id": "0B1C",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/var/folders/tj/3vs6n8b53wj6q691gkb1fd3c0000gn/T/browser_use_agent_0699cf24-a610-7f73-8000-9d721b868808_1771893322/screenshots/step_5.png",
+        "interacted_element": [
+          null
+        ],
+        "url": "http://localhost:8002/",
+        "title": "localhost:8002"
+      },
+      "metadata": {
+        "step_start_time": 1771893343.4922729,
+        "step_end_time": 1771893348.057245,
+        "step_number": 5,
+        "step_interval": 3.863157033920288
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://localhost:8002\n<step>\nSuccessfully loaded the page. Verdict: Success\nI need to enable 'Show second image on hover' and 'Show vendor' in the Product cards theme settings.\nClick on the 'Theme settings' button.\nResult\nClicked button \"Theme settings\" id=tabThemeSettings\n<step>\nSuccessfully clicked the 'Theme settings' button. Verdict: Success\nCurrently in the Theme settings. Need to enable 'Show second image on hover' and 'Show vendor' in the Product cards theme settings.\nClick on the 'Product cards' section to expand it.\nResult\nClicked div \"Product cards\"\n<step>\nSuccessfully clicked the 'Product cards' section. Verdict: Success\nSuccessfully opened the 'Product cards' section in the theme settings. Now I need to enable 'Show second image on hover' and 'Show vendor'.\nEnable the 'Show second image on hover' option.\nResult\nClicked span \"Show second image on hover\"\n<step>\nSuccessfully enabled the 'Show second image on hover' option. Verdict: Success\nEnabled 'Show second image on hover'. Need to enable 'Show vendor'.\nEnable the 'Show vendor' option.\nResult\nClicked span \"Show vendor\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://localhost:8002. Your task: Enable 'Show second image on hover' and 'Show vendor' in the Product cards theme settings.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Click on the 'Theme settings' button.\n[ ] 1: Scroll down to the 'Product cards' section.\n[ ] 2: Enable the 'Show second image on hover' option.\n[ ] 3: Enable the 'Show vendor' option.\n</plan>\n<step_info>Step5 maximum:500\nToday:2026-02-23</step_info>\n</agent_state>\n<browser_state>\n<page_stats>0 links, 92 interactive, 0 iframes, 185 total elements</page_stats>\nCurrent tab: 0B1C\nAvailable tabs:\nTab 0B1C: http://localhost:8002/ - localhost:8002\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n[9379]<button title=Back />\n[9382]<span />\n\tDawn\n[9385]<span />\n\tLive\n[9392]<div />\n\tHome page\n\t[9394]<span />\n[9442]<div />\n\tUnited States\n\t[9444]<span />\n[9234]<button id=btnInspector title=Preview inspector />\n[9235]<button id=btnDesktop title=Desktop />\n[9236]<button id=btnMobile title=Mobile />\n[9237]<button id=btnFullscreen title=Fullscreen />\n[9238]<button id=btnUndo title=Undo (Ctrl+Z) />\n[9239]<button id=btnRedo title=Redo (Ctrl+Y) disabled=true />\n[9240]<button id=btnSave title=Save (Ctrl+S) />\n\tSave\n[9241]<button id=tabSections />\n\tSections\n[9242]<button id=tabThemeSettings />\n\tTheme settings\n*[10744]<div />\n\tLogo\n*[10745]<div />\n\tColors\n*[10746]<div />\n\tTypography\n*[10747]<div />\n\tLayout\n*[10748]<div />\n\tAnimations\n*[10749]<div />\n\tButtons\n*[10750]<div />\n\tVariant pills\n*[10751]<div />\n\tInputs\n*[10752]<div />\n\tProduct cards\n*[10753]<div />\n\tCollection cards\n*[10754]<div />\n\tBlog cards\n*[10755]<div />\n\tContent containers\n*[10756]<div />\n\tMedia\n*[10757]<div />\n\tDropdowns and pop-ups\n*[10758]<div />\n\tDrawers\n*[10759]<div />\n\tBadges\n*[10760]<div />\n\tBrand information\n*[10761]<div />\n\tSocial media\n*[10762]<div />\n\tSearch behavior\n*[10763]<div />\n\tCurrency format\n*[10764]<div />\n\tCart\n*[10765]<div />\n\tCustom CSS\n*[10766]<div />\n\tTheme style\n|scroll element|<div id=previewWindow /> (0.0 pages above, 0.0 pages below)\n\t*[10805]<div />\n\t\t*[10806]<div />\n\t\t\tAnnouncement bar\n\t\t*[10807]<div />\n\t\t\tAnnouncement, Announcement\n\t*[10808]<div />\n\t\t*[10809]<div />\n\t\t\tHeader\n\t\t*[10810]<div />\n\t\t\tMega menu, Navigation link\n\t*[10811]<div />\n\t\t*[10812]<div />\n\t\t\tSlideshow\n\t\t*[10813]<div />\n\t\t\tSlide, Slide, Slide\n\t*[10814]<div />\n\t\t*[10815]<div />\n\t\t\tRich text\n\t\t*[10816]<div />\n\t\t\tHeading, Text\n\t*[10817]<div />\n\t\t*[10818]<div />\n\t\t\tFeatured collection\n\t*[10819]<div />\n\t\t*[10820]<div />\n\t\t\tImage banner\n\t\t*[10821]<div />\n\t\t\tHeading, Button\n\t*[10822]<div />\n\t\t*[10823]<div />\n\t\t\tImage with text\n\t\t*[10824]<div />\n\t\t\tHeading, Text, Button\n\t*[10825]<div />\n\t\t*[10826]<div />\n\t\t\tCollage\n\t\t*[10827]<div />\n\t\t\tImage, Product, Video\n\t*[10828]<div />\n\t\t*[10829]<div />\n\t\t\tCollection list\n\t\t*[10830]<div />\n\t\t\tCollection, Collection, Collection, Collection\n\t*[10831]<div />\n\t\t*[10832]<div />\n\t\t\tFeatured product\n\t\t*[10833]<div />\n\t\t\tText, Variant picker, Buy buttons\n\t*[10834]<div />\n\t\t*[10835]<div />\n\t\t\tNewsletter\n\t\t*[10836]<div />\n\t\t\tHeading, Text, Email form\n\t*[10837]<div />\n\t\t*[10838]<div />\n\t\t\tVideo\n\t*[10839]<div />\n\t\t*[10840]<div />\n\t\t\tMulticolumn\n\t\t*[10841]<div />\n\t\t\tColumn, Column, Column\n\t*[10842]<div />\n\t\t*[10843]<div />\n\t\t\tFooter\n\t\t*[10844]<div />\n\t\t\tLink list, Link list, Text\nProduct cards\n*[10770]<div />\n\tStandard\n\t*[10771]<span />\nStyle\n*[10778]<div />\n\tAdapt\n\t*[10779]<span />\nImage ratio\n*[10788]<span />\n\tShow second image on hover\n*[10789]<div />\n\t*[10790]<div />\n*[10794]<span />\n\tShow vendor\n*[10795]<div />\n\t*[10796]<div />\n*[10800]<span />\n\tShow rating\n*[10801]<div />\n\t*[10802]<div />\n[End of page]\n</browser_state>\n"
+    }
+  ]
+}

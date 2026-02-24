@@ -1,28 +1,25 @@
 import requests
 
+
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify TikTok set, LinkedIn set, and Pinterest cleared in social links."""
+    """Verify layout: pageWidth=1400, sectionSpacing=48, gridHorizontalSpace=24, gridVerticalSpace=20."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
+
     state = resp.json()
+    layout = state.get("themeSettings", {}).get("layout", {})
 
-    settings = next((ts for ts in state["themeSettings"] if ts.get("themeId") == 1), None)
-    if not settings:
-        return False, "Theme settings for Dawn not found."
+    checks = [
+        ("pageWidth", 1400),
+        ("sectionSpacing", 48),
+        ("gridHorizontalSpace", 24),
+        ("gridVerticalSpace", 20),
+    ]
 
-    social = settings.get("socialLinks", {})
+    for key, expected in checks:
+        val = layout.get(key)
+        if val != expected:
+            return False, f"Expected {key}={expected}, got {val}."
 
-    tiktok = social.get("tiktok")
-    if tiktok != "https://tiktok.com/@northwindtraders":
-        return False, f"TikTok URL is '{tiktok}', expected 'https://tiktok.com/@northwindtraders'."
-
-    linkedin = social.get("linkedin")
-    if linkedin != "https://linkedin.com/company/northwindtraders":
-        return False, f"LinkedIn URL is '{linkedin}', expected 'https://linkedin.com/company/northwindtraders'."
-
-    pinterest = social.get("pinterest")
-    if pinterest != "":
-        return False, f"Pinterest URL is '{pinterest}', expected empty string."
-
-    return True, "TikTok and LinkedIn URLs set, Pinterest cleared."
+    return True, "Layout settings: pageWidth=1400, sectionSpacing=48, gridHorizontalSpace=24, gridVerticalSpace=20."

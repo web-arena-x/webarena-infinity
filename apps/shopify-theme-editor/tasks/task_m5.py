@@ -1,22 +1,21 @@
 import requests
 
+
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify block 'Aisha Patel' removed from 'Team members' section in About template."""
+    """Verify page width is 1200 and section spacing is 36."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
+
     state = resp.json()
+    layout = state.get("themeSettings", {}).get("layout", {})
 
-    # Section 24 = 'Team members' in About template (template 6)
-    # Block id 22 = 'Aisha Patel' column block
-    block = next((b for b in state["blocks"] if b.get("id") == 22), None)
-    if block:
-        return False, "Block 'Aisha Patel' still exists."
+    pw = layout.get("pageWidth")
+    if pw != 1200:
+        return False, f"Expected pageWidth=1200, got {pw}."
 
-    # Also check by name in section 24 blocks
-    aisha_blocks = [b for b in state["blocks"]
-                    if b.get("sectionId") == 24 and b.get("name") == "Aisha Patel"]
-    if aisha_blocks:
-        return False, "Block 'Aisha Patel' still found in Team members section."
+    ss = layout.get("sectionSpacing")
+    if ss != 36:
+        return False, f"Expected sectionSpacing=36, got {ss}."
 
-    return True, "Block 'Aisha Patel' removed from Team members section."
+    return True, "Page width is 1200px and section spacing is 36px."

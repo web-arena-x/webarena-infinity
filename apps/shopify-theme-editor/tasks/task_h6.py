@@ -1,22 +1,32 @@
 import requests
 
+
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify new Announcement block added to Announcement bar in Default product template."""
+    """Verify new Image banner section with Heading block and Button block."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
+
     state = resp.json()
+    # Seed has one image_banner (section_6)
+    ib_sections = [s for s in state["sections"]
+                   if s["type"] == "image_banner" and s["templateId"] == "home" and s["group"] == "template"]
 
-    # Section 2 = Announcement bar in template 1
-    announcement_blocks = [b for b in state["blocks"]
-                           if b.get("sectionId") == 2 and b.get("type") == "announcement"]
+    if len(ib_sections) < 2:
+        return False, f"Expected at least 2 image_banner sections, found {len(ib_sections)}."
 
-    # Seed has 2 announcement blocks (ids 1, 2)
-    if len(announcement_blocks) < 3:
-        return False, f"Expected at least 3 Announcement blocks, found {len(announcement_blocks)}."
+    # Find the new one
+    new_ib = [s for s in ib_sections if s["id"] != "section_6"]
+    if not new_ib:
+        return False, "No new image banner section found."
 
-    new_blocks = [b for b in announcement_blocks if b.get("id") not in [1, 2]]
-    if not new_blocks:
-        return False, "No new Announcement block found."
+    blocks = new_ib[0]["blocks"]
+    heading_blocks = [b for b in blocks if b["type"] == "heading"]
+    button_blocks = [b for b in blocks if b["type"] == "button"]
 
-    return True, f"New Announcement block added. Total announcements: {len(announcement_blocks)}."
+    if not heading_blocks:
+        return False, "New image banner section has no Heading block."
+    if not button_blocks:
+        return False, "New image banner section has no Button block."
+
+    return True, "New Image banner section with Heading and Button blocks found."

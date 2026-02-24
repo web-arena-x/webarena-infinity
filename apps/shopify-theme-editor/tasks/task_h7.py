@@ -1,23 +1,22 @@
 import requests
 
+
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify 'Sale announcement' block removed and 'Subheading' block hidden."""
+    """Verify badges: salePosition='Top right', saleShape='Circle', soldOutPosition='Bottom right'."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
+
     state = resp.json()
+    badges = state.get("themeSettings", {}).get("badges", {})
 
-    # Block id 2 = 'Sale announcement' in section 2 (Announcement bar)
-    sale_block = next((b for b in state["blocks"] if b.get("id") == 2), None)
-    if sale_block:
-        return False, "Block 'Sale announcement' (id 2) still exists."
+    if badges.get("salePosition") != "Top right":
+        return False, f"Expected salePosition='Top right', got '{badges.get('salePosition')}'."
 
-    # Block id 4 = 'Subheading' in section 3 (Image banner)
-    sub_block = next((b for b in state["blocks"] if b.get("id") == 4), None)
-    if not sub_block:
-        return False, "Block 'Subheading' (id 4) not found."
+    if badges.get("saleShape") != "Circle":
+        return False, f"Expected saleShape='Circle', got '{badges.get('saleShape')}'."
 
-    if sub_block.get("hidden") is not True:
-        return False, f"Block 'Subheading' is not hidden (hidden={sub_block.get('hidden')})."
+    if badges.get("soldOutPosition") != "Bottom right":
+        return False, f"Expected soldOutPosition='Bottom right', got '{badges.get('soldOutPosition')}'."
 
-    return True, "'Sale announcement' removed and 'Subheading' hidden."
+    return True, "Badges: sale Top right/Circle, sold out Bottom right."

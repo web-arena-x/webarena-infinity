@@ -1,0 +1,18 @@
+{
+  "task_id": "task_m7",
+  "difficulty": "medium",
+  "instruction": "Change the cart type to 'Drawer' and enable 'Enable cart note' in the Cart theme settings.",
+  "passed": true,
+  "verifier_message": "Cart type is 'Drawer' and cart note is enabled.",
+  "elapsed": 15.8,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully changed the cart type to 'Drawer' and enabled 'Enable cart note' in the Cart theme settings.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

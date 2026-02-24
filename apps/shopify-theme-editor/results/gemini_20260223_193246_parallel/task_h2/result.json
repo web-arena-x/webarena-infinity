@@ -1,0 +1,20 @@
+{
+  "task_id": "task_h2",
+  "difficulty": "hard",
+  "instruction": "Add a new 'Multicolumn' section to the template area of the Home page, then add a Column block to it.",
+  "passed": true,
+  "verifier_message": "New Multicolumn section with Column block found.",
+  "elapsed": 25.8,
+  "steps": 7,
+  "is_done": true,
+  "final_result": "Successfully added a Multicolumn section and a Column block to the Home page.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

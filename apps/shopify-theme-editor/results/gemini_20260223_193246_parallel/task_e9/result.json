@@ -1,0 +1,18 @@
+{
+  "task_id": "task_e9",
+  "difficulty": "easy",
+  "instruction": "Change the body font size scale to 120% in the Typography theme settings.",
+  "passed": true,
+  "verifier_message": "Body font size scale is 120%.",
+  "elapsed": 18.3,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "The body font size scale is already set to 120%. The task is complete.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

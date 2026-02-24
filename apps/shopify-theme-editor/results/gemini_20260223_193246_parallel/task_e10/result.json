@@ -1,0 +1,18 @@
+{
+  "task_id": "task_e10",
+  "difficulty": "easy",
+  "instruction": "Disable 'Enable search suggestions' in the Search behavior theme settings.",
+  "passed": true,
+  "verifier_message": "Search suggestions is disabled.",
+  "elapsed": 23.2,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully disabled 'Enable search suggestions' in the Search behavior theme settings.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

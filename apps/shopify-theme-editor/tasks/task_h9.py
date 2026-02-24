@@ -1,22 +1,26 @@
 import requests
 
+
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify 'Impact' theme published and renamed to 'Impact Pro'."""
+    """Verify 5 social media links all set to greenleaf URLs."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
+
     state = resp.json()
+    social = state.get("themeSettings", {}).get("socialMedia", {})
 
-    theme = next((t for t in state["themes"] if t.get("name") == "Impact Pro"), None)
-    if not theme:
-        return False, "Theme 'Impact Pro' not found."
+    expected = {
+        "facebook": "https://facebook.com/greenleaf",
+        "instagram": "https://instagram.com/greenleaf",
+        "twitter": "https://twitter.com/greenleaf",
+        "pinterest": "https://pinterest.com/greenleaf",
+        "youtube": "https://youtube.com/greenleaf",
+    }
 
-    if theme.get("status") != "live":
-        return False, f"Theme 'Impact Pro' status is '{theme.get('status')}', expected 'live'."
+    for key, url in expected.items():
+        val = social.get(key)
+        if val != url:
+            return False, f"Expected {key}='{url}', got '{val}'."
 
-    # Dawn should no longer be live
-    dawn = next((t for t in state["themes"] if t.get("name") == "Dawn"), None)
-    if dawn and dawn.get("status") == "live":
-        return False, "Theme 'Dawn' is still live."
-
-    return True, "Theme 'Impact' published and renamed to 'Impact Pro'."
+    return True, "All 5 social media links set to greenleaf URLs."

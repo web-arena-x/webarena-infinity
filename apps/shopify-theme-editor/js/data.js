@@ -1,605 +1,626 @@
-// ============================================================
-// data.js — Rich, realistic mock data for Shopify Theme Editor
-// ============================================================
+/* ================================================================
+   Shopify Theme Editor — Seed Data
+   ================================================================ */
 
 const SEED_DATA_VERSION = 1;
 
-// ---- Theme Architecture Types ----
-const ARCHITECTURE_TYPES = {
-    VINTAGE: 'vintage',
-    ONLINE_STORE_2: 'online_store_2.0',
-    THEME_BLOCKS: 'theme_blocks'
-};
-
-// ---- Theme Statuses ----
-const THEME_STATUS = {
-    LIVE: 'live',
-    DRAFT: 'draft',
-    TRIAL: 'trial'
-};
-
-// ---- Visibility / Template Types ----
-const TEMPLATE_TYPES = [
-    'product', 'collection', 'collections-list', 'page', 'blog',
-    'blog-post', 'cart', 'search', 'gift-card', 'password', '404'
-];
-
-// ---- Section Areas ----
-const SECTION_AREAS = {
-    HEADER: 'header',
-    TEMPLATE: 'template',
-    FOOTER: 'footer'
-};
-
-// ---- Cart Display Types ----
-const CART_TYPES = {
-    DRAWER: 'drawer',
-    PAGE: 'page',
-    POPUP: 'popup'
-};
-
-// ---- Animation Types ----
-const HOVER_EFFECTS = {
-    NONE: 'none',
-    VERTICAL_LIFT: 'vertical-lift',
-    THREE_D_LIFT: '3d-lift'
-};
-
-// ---- Badge Shapes ----
-const BADGE_SHAPES = {
-    RECTANGLE: 'rectangle',
-    CIRCLE: 'circle'
-};
-
-// ---- Badge Positions ----
-const BADGE_POSITIONS = {
-    TOP_LEFT: 'top-left',
-    TOP_RIGHT: 'top-right',
-    BOTTOM_LEFT: 'bottom-left',
-    BOTTOM_RIGHT: 'bottom-right'
-};
-
-// ---- Button Styles ----
-const BUTTON_STYLES = {
-    ROUNDED: 'rounded',
-    SQUARE: 'square',
-    PILL: 'pill'
-};
-
-// ---- Input Styles ----
-const INPUT_STYLES = {
-    OUTLINED: 'outlined',
-    FILLED: 'filled',
-    UNDERLINED: 'underlined'
-};
-
-// ---- Current User (Store Owner) ----
-const CURRENT_USER = {
-    id: 1,
-    name: 'Olivia Chen',
-    email: 'olivia@northwindtraders.com',
-    storeName: 'Northwind Traders',
-    storeUrl: 'northwind-traders.myshopify.com',
-    plan: 'advanced',
-    maxThemes: 20
-};
-
-// ---- Color Schemes ----
-const DEFAULT_COLOR_SCHEMES = [
-    {
-        id: 1, name: 'Scheme 1', isDefault: true,
-        background: '#ffffff', backgroundGradient: '',
-        text: '#121212', solidButtonBg: '#121212',
-        solidButtonText: '#ffffff', outlineButton: '#121212',
-        shadow: '#121212'
-    },
-    {
-        id: 2, name: 'Scheme 2', isDefault: false,
-        background: '#f3f3f3', backgroundGradient: '',
-        text: '#1a1a1a', solidButtonBg: '#1a1a1a',
-        solidButtonText: '#f3f3f3', outlineButton: '#1a1a1a',
-        shadow: '#1a1a1a'
-    },
-    {
-        id: 3, name: 'Accent', isDefault: false,
-        background: '#2c5f2d', backgroundGradient: '',
-        text: '#ffffff', solidButtonBg: '#97bc62',
-        solidButtonText: '#2c5f2d', outlineButton: '#ffffff',
-        shadow: '#1a3a1c'
-    },
-    {
-        id: 4, name: 'Dark Mode', isDefault: false,
-        background: '#1a1a2e', backgroundGradient: '',
-        text: '#e0e0e0', solidButtonBg: '#e94560',
-        solidButtonText: '#ffffff', outlineButton: '#e94560',
-        shadow: '#0f0f1a'
-    },
-    {
-        id: 5, name: 'Warm Earth', isDefault: false,
-        background: '#fdf6ec', backgroundGradient: '',
-        text: '#3d2c1e', solidButtonBg: '#c8553d',
-        solidButtonText: '#fdf6ec', outlineButton: '#c8553d',
-        shadow: '#3d2c1e'
-    }
-];
-
-// ---- Social Media Links ----
-const DEFAULT_SOCIAL_LINKS = {
-    instagram: 'https://instagram.com/northwindtraders',
-    tiktok: '',
-    facebook: 'https://facebook.com/northwindtraders',
-    pinterest: 'https://pinterest.com/northwindtraders',
-    twitter: 'https://twitter.com/northwindtraders',
-    youtube: '',
-    linkedin: '',
-    snapchat: '',
-    tumblr: '',
-    vimeo: ''
-};
-
-// ---- Section Types ----
-const SECTION_TYPES = [
-    { id: 'announcement-bar', name: 'Announcement bar', area: 'header', icon: 'M' },
-    { id: 'header', name: 'Header', area: 'header', icon: 'H' },
-    { id: 'image-banner', name: 'Image banner', area: 'template', icon: 'I' },
-    { id: 'rich-text', name: 'Rich text', area: 'template', icon: 'T' },
-    { id: 'featured-collection', name: 'Featured collection', area: 'template', icon: 'C' },
-    { id: 'collage', name: 'Collage', area: 'template', icon: 'G' },
-    { id: 'collection-list', name: 'Collection list', area: 'template', icon: 'L' },
-    { id: 'image-with-text', name: 'Image with text', area: 'template', icon: 'P' },
-    { id: 'multicolumn', name: 'Multicolumn', area: 'template', icon: 'M' },
-    { id: 'slideshow', name: 'Slideshow', area: 'template', icon: 'S' },
-    { id: 'video', name: 'Video', area: 'template', icon: 'V' },
-    { id: 'newsletter', name: 'Email signup', area: 'template', icon: 'E' },
-    { id: 'contact-form', name: 'Contact form', area: 'template', icon: 'F' },
-    { id: 'map', name: 'Map', area: 'template', icon: 'M' },
-    { id: 'custom-liquid', name: 'Custom Liquid', area: 'template', icon: 'L' },
-    { id: 'product-grid', name: 'Product grid', area: 'template', icon: 'G' },
-    { id: 'related-products', name: 'Related products', area: 'template', icon: 'R' },
-    { id: 'blog-posts', name: 'Blog posts', area: 'template', icon: 'B' },
-    { id: 'footer', name: 'Footer', area: 'footer', icon: 'F' },
-    { id: 'cart-items', name: 'Cart items', area: 'template', icon: 'C' },
-    { id: 'cart-subtotal', name: 'Subtotal', area: 'template', icon: 'S' },
-    { id: 'search-results', name: 'Search results', area: 'template', icon: 'S' },
-    { id: 'password-header', name: 'Password header', area: 'header', icon: 'P' },
-    { id: 'password-footer', name: 'Password footer', area: 'footer', icon: 'P' }
-];
-
-// ---- Block Types ----
-const BLOCK_TYPES = [
-    { id: 'heading', name: 'Heading', sections: ['rich-text', 'image-banner', 'image-with-text', 'collage'] },
-    { id: 'text', name: 'Text', sections: ['rich-text', 'image-banner', 'image-with-text', 'multicolumn'] },
-    { id: 'button', name: 'Button', sections: ['rich-text', 'image-banner', 'image-with-text', 'slideshow'] },
-    { id: 'image', name: 'Image', sections: ['collage', 'multicolumn', 'image-with-text', 'slideshow'] },
-    { id: 'link', name: 'Link', sections: ['announcement-bar', 'footer'] },
-    { id: 'email-form', name: 'Email form', sections: ['newsletter'] },
-    { id: 'product-card', name: 'Product card', sections: ['featured-collection', 'product-grid', 'related-products'] },
-    { id: 'collection-card', name: 'Collection card', sections: ['collection-list'] },
-    { id: 'menu', name: 'Menu column', sections: ['footer'] },
-    { id: 'brand-info', name: 'Brand information', sections: ['footer'] },
-    { id: 'social-links', name: 'Social links', sections: ['footer'] },
-    { id: 'video-block', name: 'Video', sections: ['collage', 'multicolumn'] },
-    { id: 'blog-post-card', name: 'Blog post card', sections: ['blog-posts'] },
-    { id: 'search-input', name: 'Search input', sections: ['search-results'] },
-    { id: 'announcement', name: 'Announcement', sections: ['announcement-bar'] },
-    { id: 'mega-menu', name: 'Mega menu', sections: ['header'] },
-    { id: 'slide', name: 'Slide', sections: ['slideshow'] },
-    { id: 'column', name: 'Column', sections: ['multicolumn'] }
-];
-
-// ---- Themes ----
-const THEMES = [
-    {
-        id: 1,
-        name: 'Dawn',
-        status: 'live',
-        version: '15.0',
-        architecture: ARCHITECTURE_TYPES.ONLINE_STORE_2,
-        source: 'shopify',
-        price: 0,
-        lastSaved: '2026-02-18T14:22:00Z',
-        createdAt: '2025-06-10T09:00:00Z',
-        updatedAt: '2026-02-18T14:22:00Z',
-        updateAvailable: true,
-        updateVersion: '16.0',
-        previewUrl: 'https://northwind-traders.myshopify.com/?preview_theme_id=1',
-        customCss: '',
-        themeStyle: 'default'
-    },
-    {
-        id: 2,
-        name: 'Craft',
-        status: 'draft',
-        version: '8.0',
-        architecture: ARCHITECTURE_TYPES.ONLINE_STORE_2,
-        source: 'shopify',
-        price: 0,
-        lastSaved: '2026-01-28T10:15:00Z',
-        createdAt: '2025-08-20T11:00:00Z',
-        updatedAt: '2026-01-28T10:15:00Z',
-        updateAvailable: false,
-        updateVersion: null,
-        previewUrl: 'https://northwind-traders.myshopify.com/?preview_theme_id=2',
-        customCss: '.hero-section { padding: 60px 0; }',
-        themeStyle: 'default'
-    },
-    {
-        id: 3,
-        name: 'Sense',
-        status: 'draft',
-        version: '12.0',
-        architecture: ARCHITECTURE_TYPES.ONLINE_STORE_2,
-        source: 'shopify',
-        price: 0,
-        lastSaved: '2025-12-05T16:30:00Z',
-        createdAt: '2025-04-15T08:00:00Z',
-        updatedAt: '2025-12-05T16:30:00Z',
-        updateAvailable: true,
-        updateVersion: '13.2',
-        previewUrl: 'https://northwind-traders.myshopify.com/?preview_theme_id=3',
-        customCss: '',
-        themeStyle: 'bold'
-    },
-    {
-        id: 4,
-        name: 'Ride',
-        status: 'trial',
-        version: '4.0',
-        architecture: ARCHITECTURE_TYPES.THEME_BLOCKS,
-        source: 'theme-store',
-        price: 350,
-        lastSaved: '2026-02-10T09:45:00Z',
-        createdAt: '2026-01-15T14:00:00Z',
-        updatedAt: '2026-02-10T09:45:00Z',
-        updateAvailable: false,
-        updateVersion: null,
-        previewUrl: 'https://northwind-traders.myshopify.com/?preview_theme_id=4',
-        customCss: '',
-        themeStyle: 'sporty'
-    },
-    {
-        id: 5,
-        name: 'Impact',
-        status: 'draft',
-        version: '6.2',
-        architecture: ARCHITECTURE_TYPES.THEME_BLOCKS,
-        source: 'theme-store',
-        price: 320,
-        lastSaved: '2026-02-14T11:20:00Z',
-        createdAt: '2025-11-01T10:00:00Z',
-        updatedAt: '2026-02-14T11:20:00Z',
-        updateAvailable: false,
-        updateVersion: null,
-        previewUrl: 'https://northwind-traders.myshopify.com/?preview_theme_id=5',
-        customCss: '.product-title { font-weight: 900; }',
-        themeStyle: 'bold'
-    },
-    {
-        id: 6,
-        name: 'Crave',
-        status: 'draft',
-        version: '3.1',
-        architecture: ARCHITECTURE_TYPES.ONLINE_STORE_2,
-        source: 'shopify',
-        price: 0,
-        lastSaved: '2025-09-18T08:30:00Z',
-        createdAt: '2025-07-05T12:00:00Z',
-        updatedAt: '2025-09-18T08:30:00Z',
-        updateAvailable: true,
-        updateVersion: '4.0',
-        previewUrl: 'https://northwind-traders.myshopify.com/?preview_theme_id=6',
-        customCss: '',
-        themeStyle: 'default'
-    },
-    {
-        id: 7,
-        name: 'Copy of Dawn',
-        status: 'draft',
-        version: '15.0',
-        architecture: ARCHITECTURE_TYPES.ONLINE_STORE_2,
-        source: 'shopify',
-        price: 0,
-        lastSaved: '2026-02-01T13:00:00Z',
-        createdAt: '2026-02-01T13:00:00Z',
-        updatedAt: '2026-02-01T13:00:00Z',
-        updateAvailable: false,
-        updateVersion: null,
-        previewUrl: 'https://northwind-traders.myshopify.com/?preview_theme_id=7',
-        customCss: '',
-        themeStyle: 'default'
-    }
-];
-
-// ---- Templates ----
-const TEMPLATES = [
-    // Dawn (theme 1) templates
-    { id: 1, themeId: 1, name: 'Default product', type: 'product', handle: 'product', isDefault: true },
-    { id: 2, themeId: 1, name: 'Default collection', type: 'collection', handle: 'collection', isDefault: true },
-    { id: 3, themeId: 1, name: 'Collections list', type: 'collections-list', handle: 'list-collections', isDefault: true },
-    { id: 4, themeId: 1, name: 'Default page', type: 'page', handle: 'page', isDefault: true },
-    { id: 5, themeId: 1, name: 'Contact', type: 'page', handle: 'contact', isDefault: false },
-    { id: 6, themeId: 1, name: 'About', type: 'page', handle: 'about', isDefault: false },
-    { id: 7, themeId: 1, name: 'Default blog', type: 'blog', handle: 'blog', isDefault: true },
-    { id: 8, themeId: 1, name: 'Default blog post', type: 'blog-post', handle: 'article', isDefault: true },
-    { id: 9, themeId: 1, name: 'Cart', type: 'cart', handle: 'cart', isDefault: true },
-    { id: 10, themeId: 1, name: 'Search', type: 'search', handle: 'search', isDefault: true },
-    { id: 11, themeId: 1, name: 'Gift card', type: 'gift-card', handle: 'gift_card', isDefault: true },
-    { id: 12, themeId: 1, name: 'Password', type: 'password', handle: 'password', isDefault: true },
-    { id: 13, themeId: 1, name: '404', type: '404', handle: '404', isDefault: true },
-    { id: 14, themeId: 1, name: 'Featured product', type: 'product', handle: 'product.featured', isDefault: false },
-    // Craft (theme 2) templates
-    { id: 15, themeId: 2, name: 'Default product', type: 'product', handle: 'product', isDefault: true },
-    { id: 16, themeId: 2, name: 'Default collection', type: 'collection', handle: 'collection', isDefault: true },
-    { id: 17, themeId: 2, name: 'Default page', type: 'page', handle: 'page', isDefault: true },
-    { id: 18, themeId: 2, name: 'Default blog', type: 'blog', handle: 'blog', isDefault: true },
-    { id: 19, themeId: 2, name: 'Cart', type: 'cart', handle: 'cart', isDefault: true },
-    { id: 20, themeId: 2, name: 'Search', type: 'search', handle: 'search', isDefault: true },
-    { id: 21, themeId: 2, name: 'FAQ', type: 'page', handle: 'page.faq', isDefault: false },
-    // Minimal templates for other themes
-    { id: 22, themeId: 3, name: 'Default product', type: 'product', handle: 'product', isDefault: true },
-    { id: 23, themeId: 3, name: 'Default collection', type: 'collection', handle: 'collection', isDefault: true },
-    { id: 24, themeId: 3, name: 'Default page', type: 'page', handle: 'page', isDefault: true },
-    { id: 25, themeId: 4, name: 'Default product', type: 'product', handle: 'product', isDefault: true },
-    { id: 26, themeId: 4, name: 'Default collection', type: 'collection', handle: 'collection', isDefault: true },
-    { id: 27, themeId: 5, name: 'Default product', type: 'product', handle: 'product', isDefault: true },
-    { id: 28, themeId: 5, name: 'Default collection', type: 'collection', handle: 'collection', isDefault: true },
-    { id: 29, themeId: 6, name: 'Default product', type: 'product', handle: 'product', isDefault: true },
-    { id: 30, themeId: 6, name: 'Default page', type: 'page', handle: 'page', isDefault: true },
-    { id: 31, themeId: 7, name: 'Default product', type: 'product', handle: 'product', isDefault: true },
-    { id: 32, themeId: 7, name: 'Default collection', type: 'collection', handle: 'collection', isDefault: true }
-];
-
-// ---- Sections (instances within templates) ----
-const SECTIONS = [
-    // Dawn default product template (template 1)
-    { id: 1, templateId: 1, themeId: 1, type: 'header', name: 'Header', area: 'header', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 2, templateId: 1, themeId: 1, type: 'announcement-bar', name: 'Announcement bar', area: 'header', position: 1, hidden: false, customCss: '', colorSchemeId: 3 },
-    { id: 3, templateId: 1, themeId: 1, type: 'image-banner', name: 'Image banner', area: 'template', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 4, templateId: 1, themeId: 1, type: 'rich-text', name: 'Rich text', area: 'template', position: 1, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 5, templateId: 1, themeId: 1, type: 'featured-collection', name: 'Featured collection', area: 'template', position: 2, hidden: false, customCss: '', colorSchemeId: 2 },
-    { id: 6, templateId: 1, themeId: 1, type: 'related-products', name: 'Related products', area: 'template', position: 3, hidden: true, customCss: '', colorSchemeId: 1 },
-    { id: 7, templateId: 1, themeId: 1, type: 'newsletter', name: 'Email signup', area: 'template', position: 4, hidden: false, customCss: '', colorSchemeId: 4 },
-    { id: 8, templateId: 1, themeId: 1, type: 'footer', name: 'Footer', area: 'footer', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-
-    // Dawn default collection template (template 2)
-    { id: 9, templateId: 2, themeId: 1, type: 'header', name: 'Header', area: 'header', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 10, templateId: 2, themeId: 1, type: 'product-grid', name: 'Product grid', area: 'template', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 11, templateId: 2, themeId: 1, type: 'newsletter', name: 'Email signup', area: 'template', position: 1, hidden: false, customCss: '', colorSchemeId: 4 },
-    { id: 12, templateId: 2, themeId: 1, type: 'footer', name: 'Footer', area: 'footer', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-
-    // Dawn default page template (template 4)
-    { id: 13, templateId: 4, themeId: 1, type: 'header', name: 'Header', area: 'header', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 14, templateId: 4, themeId: 1, type: 'rich-text', name: 'Rich text', area: 'template', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 15, templateId: 4, themeId: 1, type: 'image-with-text', name: 'Image with text', area: 'template', position: 1, hidden: false, customCss: '', colorSchemeId: 2 },
-    { id: 16, templateId: 4, themeId: 1, type: 'footer', name: 'Footer', area: 'footer', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-
-    // Dawn Contact template (template 5)
-    { id: 17, templateId: 5, themeId: 1, type: 'header', name: 'Header', area: 'header', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 18, templateId: 5, themeId: 1, type: 'contact-form', name: 'Contact form', area: 'template', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 19, templateId: 5, themeId: 1, type: 'map', name: 'Map', area: 'template', position: 1, hidden: true, customCss: '', colorSchemeId: 1 },
-    { id: 20, templateId: 5, themeId: 1, type: 'footer', name: 'Footer', area: 'footer', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-
-    // Dawn About template (template 6)
-    { id: 21, templateId: 6, themeId: 1, type: 'header', name: 'Header', area: 'header', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 22, templateId: 6, themeId: 1, type: 'image-banner', name: 'Hero banner', area: 'template', position: 0, hidden: false, customCss: '', colorSchemeId: 3 },
-    { id: 23, templateId: 6, themeId: 1, type: 'rich-text', name: 'Our story', area: 'template', position: 1, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 24, templateId: 6, themeId: 1, type: 'multicolumn', name: 'Team members', area: 'template', position: 2, hidden: false, customCss: '', colorSchemeId: 2 },
-    { id: 25, templateId: 6, themeId: 1, type: 'image-with-text', name: 'Mission statement', area: 'template', position: 3, hidden: false, customCss: '', colorSchemeId: 5 },
-    { id: 26, templateId: 6, themeId: 1, type: 'footer', name: 'Footer', area: 'footer', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-
-    // Dawn Cart template (template 9)
-    { id: 27, templateId: 9, themeId: 1, type: 'header', name: 'Header', area: 'header', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 28, templateId: 9, themeId: 1, type: 'cart-items', name: 'Cart items', area: 'template', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 29, templateId: 9, themeId: 1, type: 'cart-subtotal', name: 'Subtotal', area: 'template', position: 1, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 30, templateId: 9, themeId: 1, type: 'featured-collection', name: 'You may also like', area: 'template', position: 2, hidden: false, customCss: '', colorSchemeId: 2 },
-    { id: 31, templateId: 9, themeId: 1, type: 'footer', name: 'Footer', area: 'footer', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-
-    // Dawn Blog template (template 7)
-    { id: 32, templateId: 7, themeId: 1, type: 'header', name: 'Header', area: 'header', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 33, templateId: 7, themeId: 1, type: 'blog-posts', name: 'Blog posts', area: 'template', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 34, templateId: 7, themeId: 1, type: 'footer', name: 'Footer', area: 'footer', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-
-    // Dawn Password template (template 12)
-    { id: 35, templateId: 12, themeId: 1, type: 'password-header', name: 'Password header', area: 'header', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 36, templateId: 12, themeId: 1, type: 'newsletter', name: 'Email signup banner', area: 'template', position: 0, hidden: false, customCss: '', colorSchemeId: 4 },
-    { id: 37, templateId: 12, themeId: 1, type: 'password-footer', name: 'Password footer', area: 'footer', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-
-    // Craft default product template (template 15)
-    { id: 38, templateId: 15, themeId: 2, type: 'header', name: 'Header', area: 'header', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 39, templateId: 15, themeId: 2, type: 'image-banner', name: 'Image banner', area: 'template', position: 0, hidden: false, customCss: '', colorSchemeId: 1 },
-    { id: 40, templateId: 15, themeId: 2, type: 'featured-collection', name: 'Featured collection', area: 'template', position: 1, hidden: false, customCss: '', colorSchemeId: 2 },
-    { id: 41, templateId: 15, themeId: 2, type: 'footer', name: 'Footer', area: 'footer', position: 0, hidden: false, customCss: '', colorSchemeId: 1 }
-];
-
-// ---- Blocks (within sections) ----
-const BLOCKS = [
-    // Announcement bar blocks (section 2)
-    { id: 1, sectionId: 2, themeId: 1, type: 'announcement', name: 'Announcement', position: 0, hidden: false, settings: { text: 'Free shipping on orders over $75', link: '/collections/all' } },
-    { id: 2, sectionId: 2, themeId: 1, type: 'announcement', name: 'Sale announcement', position: 1, hidden: false, settings: { text: 'Winter Sale - Up to 40% off selected items', link: '/collections/sale' } },
-
-    // Image banner blocks (section 3)
-    { id: 3, sectionId: 3, themeId: 1, type: 'heading', name: 'Heading', position: 0, hidden: false, settings: { text: 'Welcome to Northwind Traders', size: 'h1' } },
-    { id: 4, sectionId: 3, themeId: 1, type: 'text', name: 'Subheading', position: 1, hidden: false, settings: { text: 'Discover our curated collection of premium goods' } },
-    { id: 5, sectionId: 3, themeId: 1, type: 'button', name: 'Shop now button', position: 2, hidden: false, settings: { text: 'Shop now', link: '/collections/all', style: 'solid' } },
-
-    // Rich text blocks (section 4)
-    { id: 6, sectionId: 4, themeId: 1, type: 'heading', name: 'Heading', position: 0, hidden: false, settings: { text: 'About Our Collection', size: 'h2' } },
-    { id: 7, sectionId: 4, themeId: 1, type: 'text', name: 'Description', position: 1, hidden: false, settings: { text: 'Each product in our store is thoughtfully sourced from artisans around the world.' } },
-    { id: 8, sectionId: 4, themeId: 1, type: 'button', name: 'Learn more', position: 2, hidden: false, settings: { text: 'Learn more', link: '/pages/about', style: 'outline' } },
-
-    // Email signup blocks (section 7)
-    { id: 9, sectionId: 7, themeId: 1, type: 'heading', name: 'Heading', position: 0, hidden: false, settings: { text: 'Subscribe to our newsletter', size: 'h2' } },
-    { id: 10, sectionId: 7, themeId: 1, type: 'text', name: 'Description', position: 1, hidden: false, settings: { text: 'Be the first to know about new collections and exclusive offers.' } },
-    { id: 11, sectionId: 7, themeId: 1, type: 'email-form', name: 'Email form', position: 2, hidden: false, settings: {} },
-
-    // Footer blocks (section 8)
-    { id: 12, sectionId: 8, themeId: 1, type: 'menu', name: 'Quick links', position: 0, hidden: false, settings: { title: 'Quick links', menu: 'main-menu' } },
-    { id: 13, sectionId: 8, themeId: 1, type: 'menu', name: 'Customer service', position: 1, hidden: false, settings: { title: 'Customer Service', menu: 'footer' } },
-    { id: 14, sectionId: 8, themeId: 1, type: 'brand-info', name: 'Brand information', position: 2, hidden: false, settings: {} },
-    { id: 15, sectionId: 8, themeId: 1, type: 'social-links', name: 'Social links', position: 3, hidden: false, settings: {} },
-
-    // About page blocks (template 6)
-    // Hero banner blocks (section 22)
-    { id: 16, sectionId: 22, themeId: 1, type: 'heading', name: 'Heading', position: 0, hidden: false, settings: { text: 'Our Story', size: 'h1' } },
-    { id: 17, sectionId: 22, themeId: 1, type: 'text', name: 'Subtitle', position: 1, hidden: false, settings: { text: 'Crafting excellence since 2018' } },
-
-    // Our story blocks (section 23)
-    { id: 18, sectionId: 23, themeId: 1, type: 'heading', name: 'Heading', position: 0, hidden: false, settings: { text: 'What We Believe', size: 'h2' } },
-    { id: 19, sectionId: 23, themeId: 1, type: 'text', name: 'Content', position: 1, hidden: false, settings: { text: 'At Northwind Traders, we believe in sustainable sourcing and fair trade practices.' } },
-
-    // Team members blocks (section 24)
-    { id: 20, sectionId: 24, themeId: 1, type: 'column', name: 'Olivia Chen', position: 0, hidden: false, settings: { title: 'Olivia Chen', text: 'Founder & CEO' } },
-    { id: 21, sectionId: 24, themeId: 1, type: 'column', name: 'Marcus Rivera', position: 1, hidden: false, settings: { title: 'Marcus Rivera', text: 'Head of Design' } },
-    { id: 22, sectionId: 24, themeId: 1, type: 'column', name: 'Aisha Patel', position: 2, hidden: false, settings: { title: 'Aisha Patel', text: 'Operations Manager' } },
-
-    // Mission statement blocks (section 25)
-    { id: 23, sectionId: 25, themeId: 1, type: 'heading', name: 'Heading', position: 0, hidden: false, settings: { text: 'Our Mission', size: 'h2' } },
-    { id: 24, sectionId: 25, themeId: 1, type: 'text', name: 'Mission text', position: 1, hidden: false, settings: { text: 'To connect customers with products that tell a story and make a positive impact on communities worldwide.' } },
-    { id: 25, sectionId: 25, themeId: 1, type: 'button', name: 'CTA button', position: 2, hidden: false, settings: { text: 'Meet our artisans', link: '/pages/artisans', style: 'solid' } },
-
-    // Contact form section blocks (section 18)
-    { id: 26, sectionId: 18, themeId: 1, type: 'heading', name: 'Heading', position: 0, hidden: false, settings: { text: 'Get in Touch', size: 'h1' } },
-    { id: 27, sectionId: 18, themeId: 1, type: 'text', name: 'Description', position: 1, hidden: false, settings: { text: 'We would love to hear from you. Send us a message and we will respond within 24 hours.' } },
-
-    // Blog posts blocks (section 33)
-    { id: 28, sectionId: 33, themeId: 1, type: 'heading', name: 'Blog title', position: 0, hidden: false, settings: { text: 'From the Blog', size: 'h1' } },
-
-    // Cart featured collection blocks (section 30)
-    { id: 29, sectionId: 30, themeId: 1, type: 'heading', name: 'Heading', position: 0, hidden: false, settings: { text: 'You may also like', size: 'h2' } },
-
-    // Password page blocks (section 36)
-    { id: 30, sectionId: 36, themeId: 1, type: 'heading', name: 'Heading', position: 0, hidden: false, settings: { text: 'Coming Soon', size: 'h1' } },
-    { id: 31, sectionId: 36, themeId: 1, type: 'text', name: 'Description', position: 1, hidden: false, settings: { text: 'We are working on something exciting. Enter your email to be notified when we launch.' } },
-    { id: 32, sectionId: 36, themeId: 1, type: 'email-form', name: 'Email form', position: 2, hidden: false, settings: {} }
-];
-
-// ---- Theme Settings (per theme) ----
-const THEME_SETTINGS = [
-    {
-        themeId: 1,
-        logo: { url: '', altText: '', width: 120 },
-        favicon: { url: '' },
-        colors: JSON.parse(JSON.stringify(DEFAULT_COLOR_SCHEMES)),
-        typography: {
-            headingFont: 'Assistant',
-            bodyFont: 'Assistant',
-            fontSizeScale: 100
-        },
-        layout: {
-            pageWidth: 1200,
-            sectionSpacing: 36,
-            gridHorizontalSpacing: 12,
-            gridVerticalSpacing: 12
-        },
-        animations: {
-            revealOnScroll: true,
-            hoverEffect: HOVER_EFFECTS.VERTICAL_LIFT
-        },
-        buttons: {
-            style: BUTTON_STYLES.ROUNDED,
-            borderRadius: 4
-        },
-        variantPills: {
-            style: BUTTON_STYLES.ROUNDED
-        },
-        inputs: {
-            style: INPUT_STYLES.OUTLINED,
-            borderRadius: 4
-        },
-        badges: {
-            salePosition: BADGE_POSITIONS.TOP_LEFT,
-            saleShape: BADGE_SHAPES.RECTANGLE,
-            soldOutPosition: BADGE_POSITIONS.BOTTOM_LEFT,
-            soldOutShape: BADGE_SHAPES.RECTANGLE
-        },
-        socialLinks: JSON.parse(JSON.stringify(DEFAULT_SOCIAL_LINKS)),
-        searchBehavior: {
-            enableSuggestions: true,
-            showVendor: true,
-            showPrice: true
-        },
-        currencyFormat: {
-            showCurrencyCode: false
-        },
-        cart: {
-            type: CART_TYPES.DRAWER,
-            showVendor: false,
-            enableNote: true,
-            emptyDrawerCollection: '',
-            cartColorSchemeId: 1
-        },
-        customCss: ''
-    },
-    {
-        themeId: 2,
-        logo: { url: '', altText: '', width: 150 },
-        favicon: { url: '' },
-        colors: JSON.parse(JSON.stringify(DEFAULT_COLOR_SCHEMES)),
-        typography: {
-            headingFont: 'Playfair Display',
-            bodyFont: 'Roboto',
-            fontSizeScale: 110
-        },
-        layout: {
-            pageWidth: 1400,
-            sectionSpacing: 48,
-            gridHorizontalSpacing: 16,
-            gridVerticalSpacing: 16
-        },
-        animations: {
-            revealOnScroll: false,
-            hoverEffect: HOVER_EFFECTS.THREE_D_LIFT
-        },
-        buttons: {
-            style: BUTTON_STYLES.PILL,
-            borderRadius: 24
-        },
-        variantPills: {
-            style: BUTTON_STYLES.PILL
-        },
-        inputs: {
-            style: INPUT_STYLES.FILLED,
-            borderRadius: 8
-        },
-        badges: {
-            salePosition: BADGE_POSITIONS.TOP_RIGHT,
-            saleShape: BADGE_SHAPES.CIRCLE,
-            soldOutPosition: BADGE_POSITIONS.BOTTOM_RIGHT,
-            soldOutShape: BADGE_SHAPES.RECTANGLE
-        },
-        socialLinks: JSON.parse(JSON.stringify(DEFAULT_SOCIAL_LINKS)),
-        searchBehavior: {
-            enableSuggestions: true,
-            showVendor: false,
-            showPrice: true
-        },
-        currencyFormat: {
-            showCurrencyCode: true
-        },
-        cart: {
-            type: CART_TYPES.PAGE,
-            showVendor: true,
-            enableNote: false,
-            emptyDrawerCollection: '',
-            cartColorSchemeId: 1
-        },
-        customCss: '.hero-section { padding: 60px 0; }'
-    }
-];
-
-// ---- Font Library ----
+// ── Font Library ──────────────────────────────────────────────────
 const FONT_LIBRARY = [
-    'Abril Fatface', 'Alegreya', 'Alegreya Sans', 'Anonymous Pro', 'Arvo',
-    'Assistant', 'Bitter', 'Cormorant', 'DM Sans', 'EB Garamond',
-    'Fira Code', 'IBM Plex Sans', 'IBM Plex Serif', 'Inter', 'Josefin Sans',
-    'Lato', 'Libre Baskerville', 'Lora', 'Merriweather', 'Montserrat',
-    'Mulish', 'Nunito', 'Nunito Sans', 'Open Sans', 'Oswald',
-    'Poppins', 'PT Sans', 'PT Serif', 'Playfair Display', 'Quicksand',
-    'Raleway', 'Roboto', 'Roboto Condensed', 'Roboto Slab', 'Rubik',
-    'Source Sans Pro', 'Source Serif Pro', 'Space Grotesk', 'Space Mono', 'Work Sans'
+  "Assistant", "Bitter", "Cormorant", "DM Sans", "IBM Plex Sans",
+  "Josefin Sans", "Lato", "Montserrat", "Open Sans", "Playfair Display",
+  "Roboto", "Source Sans Pro", "Abril Fatface", "Anonymous Pro"
 ];
 
-// ---- System Fonts ----
-const SYSTEM_FONTS = [
-    'Arial', 'Courier New', 'Georgia', 'Helvetica', 'Times New Roman', 'Verdana'
+// ── Theme Styles (presets) ────────────────────────────────────────
+const THEME_STYLES = [
+  {
+    id: "default", name: "Default",
+    settings: {
+      typography: { headingFont: "Assistant", headingFontSizeScale: 100, bodyFont: "Assistant", bodyFontSizeScale: 100 },
+      colors: { primarySchemeBackground: "#ffffff", primarySchemeText: "#121212" },
+      buttons: { borderRadius: 0, shadow: "None" },
+      animations: { hoverEffect: "None", revealSectionsOnScroll: false }
+    }
+  },
+  {
+    id: "spotlight", name: "Spotlight",
+    settings: {
+      typography: { headingFont: "Montserrat", headingFontSizeScale: 120, bodyFont: "Open Sans", bodyFontSizeScale: 100 },
+      colors: { primarySchemeBackground: "#1a1a2e", primarySchemeText: "#eaeaea" },
+      buttons: { borderRadius: 40, shadow: "Small" },
+      animations: { hoverEffect: "Vertical lift", revealSectionsOnScroll: true }
+    }
+  },
+  {
+    id: "crave", name: "Crave",
+    settings: {
+      typography: { headingFont: "Playfair Display", headingFontSizeScale: 130, bodyFont: "Lato", bodyFontSizeScale: 105 },
+      colors: { primarySchemeBackground: "#fdf6ec", primarySchemeText: "#2d2d2d" },
+      buttons: { borderRadius: 8, shadow: "Small" },
+      animations: { hoverEffect: "3D lift", revealSectionsOnScroll: true }
+    }
+  },
+  {
+    id: "craft", name: "Craft",
+    settings: {
+      typography: { headingFont: "Cormorant", headingFontSizeScale: 110, bodyFont: "DM Sans", bodyFontSizeScale: 100 },
+      colors: { primarySchemeBackground: "#f5f0eb", primarySchemeText: "#3c3c3c" },
+      buttons: { borderRadius: 4, shadow: "None" },
+      animations: { hoverEffect: "None", revealSectionsOnScroll: false }
+    }
+  },
+  {
+    id: "ride", name: "Ride",
+    settings: {
+      typography: { headingFont: "Josefin Sans", headingFontSizeScale: 115, bodyFont: "Source Sans Pro", bodyFontSizeScale: 100 },
+      colors: { primarySchemeBackground: "#0d0d0d", primarySchemeText: "#f0f0f0" },
+      buttons: { borderRadius: 20, shadow: "Medium" },
+      animations: { hoverEffect: "Vertical lift", revealSectionsOnScroll: true }
+    }
+  },
+  {
+    id: "sense", name: "Sense",
+    settings: {
+      typography: { headingFont: "DM Sans", headingFontSizeScale: 100, bodyFont: "DM Sans", bodyFontSizeScale: 100 },
+      colors: { primarySchemeBackground: "#fafafa", primarySchemeText: "#1a1a1a" },
+      buttons: { borderRadius: 0, shadow: "None" },
+      animations: { hoverEffect: "None", revealSectionsOnScroll: false }
+    }
+  },
+  {
+    id: "colorblock", name: "Colorblock",
+    settings: {
+      typography: { headingFont: "IBM Plex Sans", headingFontSizeScale: 110, bodyFont: "IBM Plex Sans", bodyFontSizeScale: 105 },
+      colors: { primarySchemeBackground: "#ffd166", primarySchemeText: "#073b4c" },
+      buttons: { borderRadius: 12, shadow: "Small" },
+      animations: { hoverEffect: "3D lift", revealSectionsOnScroll: true }
+    }
+  }
 ];
+
+// ── Templates ─────────────────────────────────────────────────────
+const TEMPLATES = [
+  { id: "home", name: "Home page" },
+  { id: "products", name: "Products" },
+  { id: "collections", name: "Collections" },
+  { id: "blog", name: "Blog posts" },
+  { id: "cart", name: "Cart" },
+  { id: "pages", name: "Pages" },
+  { id: "search", name: "Search" },
+  { id: "password", name: "Password" },
+  { id: "404", name: "404" },
+  { id: "gift_card", name: "Gift card" },
+  { id: "collection_list", name: "Collection list" },
+  { id: "contact", name: "Contact" }
+];
+
+// ── Available Section Types ───────────────────────────────────────
+const AVAILABLE_SECTION_TYPES = [
+  { type: "slideshow",          name: "Slideshow",          category: "Hero" },
+  { type: "image_banner",       name: "Image banner",       category: "Hero" },
+  { type: "video",              name: "Video",              category: "Media" },
+  { type: "rich_text",          name: "Rich text",          category: "Content" },
+  { type: "image_with_text",    name: "Image with text",    category: "Content" },
+  { type: "multicolumn",        name: "Multicolumn",        category: "Content" },
+  { type: "collage",            name: "Collage",            category: "Media" },
+  { type: "featured_collection",name: "Featured collection",category: "Collection" },
+  { type: "collection_list",    name: "Collection list",    category: "Collection" },
+  { type: "featured_product",   name: "Featured product",   category: "Product" },
+  { type: "newsletter",         name: "Newsletter",         category: "Engagement" },
+  { type: "contact_form",       name: "Contact form",       category: "Engagement" },
+  { type: "custom_liquid",      name: "Custom Liquid",      category: "Advanced" },
+  { type: "map",                name: "Map",                category: "Advanced" }
+];
+
+// ── Block Type Definitions per Section Type ───────────────────────
+const BLOCK_TYPES = {
+  slideshow:           [{ type: "slide",   name: "Slide" }],
+  image_banner:        [{ type: "heading", name: "Heading" }, { type: "button", name: "Button" }, { type: "text", name: "Text" }],
+  video:               [{ type: "heading", name: "Heading" }, { type: "text", name: "Text" }],
+  rich_text:           [{ type: "heading", name: "Heading" }, { type: "text", name: "Text" }, { type: "button", name: "Button" }],
+  image_with_text:     [{ type: "heading", name: "Heading" }, { type: "text", name: "Text" }, { type: "button", name: "Button" }],
+  multicolumn:         [{ type: "column",  name: "Column" }],
+  collage:             [{ type: "image", name: "Image" }, { type: "product", name: "Product" }, { type: "video", name: "Video" }],
+  featured_collection: [{ type: "product_card", name: "Product card" }],
+  collection_list:     [{ type: "collection", name: "Collection" }],
+  featured_product:    [{ type: "text", name: "Text" }, { type: "variant_picker", name: "Variant picker" }, { type: "buy_buttons", name: "Buy buttons" }],
+  newsletter:          [{ type: "heading", name: "Heading" }, { type: "text", name: "Text" }, { type: "email_form", name: "Email form" }],
+  contact_form:        [{ type: "heading", name: "Heading" }, { type: "text", name: "Text" }],
+  custom_liquid:       [{ type: "liquid", name: "Liquid" }],
+  map:                 [{ type: "heading", name: "Heading" }, { type: "text", name: "Text" }],
+  header:              [{ type: "mega_menu", name: "Mega menu" }, { type: "nav_link", name: "Navigation link" }],
+  announcement_bar:    [{ type: "announcement", name: "Announcement" }],
+  footer:              [{ type: "link_list", name: "Link list" }, { type: "text", name: "Text" }, { type: "brand_information", name: "Brand information" }]
+};
+
+// ── Products ──────────────────────────────────────────────────────
+const PRODUCTS = [
+  {
+    id: 1, title: "Classic Cotton T-Shirt", vendor: "GreenLeaf Apparel", type: "Apparel",
+    price: 29.99, compareAtPrice: 39.99, tags: ["cotton", "casual", "bestseller"],
+    variants: [
+      { id: 101, title: "Small / White", price: 29.99, sku: "TSHIRT-S-W", inventory: 45 },
+      { id: 102, title: "Medium / White", price: 29.99, sku: "TSHIRT-M-W", inventory: 62 },
+      { id: 103, title: "Large / Black", price: 29.99, sku: "TSHIRT-L-B", inventory: 38 }
+    ],
+    image: null, collection_ids: [1, 2]
+  },
+  {
+    id: 2, title: "Organic Linen Dress", vendor: "GreenLeaf Apparel", type: "Apparel",
+    price: 89.99, compareAtPrice: null, tags: ["linen", "organic", "summer"],
+    variants: [
+      { id: 201, title: "Small / Natural", price: 89.99, sku: "DRESS-S-N", inventory: 20 },
+      { id: 202, title: "Medium / Natural", price: 89.99, sku: "DRESS-M-N", inventory: 15 }
+    ],
+    image: null, collection_ids: [1, 3]
+  },
+  {
+    id: 3, title: "Bamboo Cutting Board Set", vendor: "EcoHome Goods", type: "Home & Garden",
+    price: 44.99, compareAtPrice: 54.99, tags: ["bamboo", "kitchen", "eco-friendly"],
+    variants: [
+      { id: 301, title: "3-Piece Set", price: 44.99, sku: "BOARD-3PC", inventory: 80 },
+      { id: 302, title: "5-Piece Set", price: 64.99, sku: "BOARD-5PC", inventory: 35 }
+    ],
+    image: null, collection_ids: [4, 9]
+  },
+  {
+    id: 4, title: "Wireless Bluetooth Earbuds", vendor: "TechWave", type: "Electronics",
+    price: 79.99, compareAtPrice: 99.99, tags: ["wireless", "bluetooth", "audio"],
+    variants: [
+      { id: 401, title: "Black", price: 79.99, sku: "EARBUDS-BLK", inventory: 120 },
+      { id: 402, title: "White", price: 79.99, sku: "EARBUDS-WHT", inventory: 95 }
+    ],
+    image: null, collection_ids: [2, 5]
+  },
+  {
+    id: 5, title: "Handmade Ceramic Mug", vendor: "ArtisanCraft", type: "Home & Garden",
+    price: 24.99, compareAtPrice: null, tags: ["ceramic", "handmade", "gift"],
+    variants: [
+      { id: 501, title: "Ocean Blue", price: 24.99, sku: "MUG-BLUE", inventory: 55 },
+      { id: 502, title: "Forest Green", price: 24.99, sku: "MUG-GREEN", inventory: 42 },
+      { id: 503, title: "Sunset Orange", price: 24.99, sku: "MUG-ORANGE", inventory: 30 }
+    ],
+    image: null, collection_ids: [4, 6, 8]
+  },
+  {
+    id: 6, title: "Leather Crossbody Bag", vendor: "UrbanStyle Co", type: "Accessories",
+    price: 129.99, compareAtPrice: 159.99, tags: ["leather", "crossbody", "premium"],
+    variants: [
+      { id: 601, title: "Tan", price: 129.99, sku: "BAG-TAN", inventory: 25 },
+      { id: 602, title: "Black", price: 129.99, sku: "BAG-BLK", inventory: 30 }
+    ],
+    image: null, collection_ids: [2, 8]
+  },
+  {
+    id: 7, title: "Natural Face Serum", vendor: "PureGlow Beauty", type: "Beauty",
+    price: 49.99, compareAtPrice: null, tags: ["natural", "skincare", "serum"],
+    variants: [
+      { id: 701, title: "30ml", price: 49.99, sku: "SERUM-30", inventory: 70 },
+      { id: 702, title: "50ml", price: 69.99, sku: "SERUM-50", inventory: 40 }
+    ],
+    image: null, collection_ids: [3, 9]
+  },
+  {
+    id: 8, title: "Smart Home Speaker", vendor: "TechWave", type: "Electronics",
+    price: 149.99, compareAtPrice: 179.99, tags: ["smart-home", "speaker", "voice-assistant"],
+    variants: [
+      { id: 801, title: "Charcoal", price: 149.99, sku: "SPEAKER-CHAR", inventory: 60 },
+      { id: 802, title: "Cream", price: 149.99, sku: "SPEAKER-CRM", inventory: 45 }
+    ],
+    image: null, collection_ids: [5, 8]
+  },
+  {
+    id: 9, title: "Yoga Mat Premium", vendor: "ZenFit", type: "Accessories",
+    price: 59.99, compareAtPrice: 74.99, tags: ["yoga", "fitness", "eco-friendly"],
+    variants: [
+      { id: 901, title: "Lavender", price: 59.99, sku: "YOGA-LAV", inventory: 90 },
+      { id: 902, title: "Midnight Blue", price: 59.99, sku: "YOGA-BLUE", inventory: 75 }
+    ],
+    image: null, collection_ids: [3, 9]
+  },
+  {
+    id: 10, title: "Stainless Steel Water Bottle", vendor: "EcoHome Goods", type: "Accessories",
+    price: 34.99, compareAtPrice: null, tags: ["stainless-steel", "reusable", "eco-friendly"],
+    variants: [
+      { id: 1001, title: "500ml / Silver", price: 34.99, sku: "BOTTLE-500-S", inventory: 150 },
+      { id: 1002, title: "750ml / Silver", price: 39.99, sku: "BOTTLE-750-S", inventory: 100 },
+      { id: 1003, title: "500ml / Matte Black", price: 36.99, sku: "BOTTLE-500-B", inventory: 80 }
+    ],
+    image: null, collection_ids: [2, 9]
+  },
+  {
+    id: 11, title: "Wool Blend Scarf", vendor: "GreenLeaf Apparel", type: "Apparel",
+    price: 45.99, compareAtPrice: 59.99, tags: ["wool", "winter", "warm"],
+    variants: [
+      { id: 1101, title: "Heather Grey", price: 45.99, sku: "SCARF-GREY", inventory: 35 },
+      { id: 1102, title: "Burgundy", price: 45.99, sku: "SCARF-BURG", inventory: 28 }
+    ],
+    image: null, collection_ids: [7, 10]
+  },
+  {
+    id: 12, title: "Portable Phone Charger", vendor: "TechWave", type: "Electronics",
+    price: 39.99, compareAtPrice: 49.99, tags: ["portable", "charger", "travel"],
+    variants: [
+      { id: 1201, title: "10000mAh", price: 39.99, sku: "CHARGER-10K", inventory: 200 },
+      { id: 1202, title: "20000mAh", price: 59.99, sku: "CHARGER-20K", inventory: 120 }
+    ],
+    image: null, collection_ids: [5, 7]
+  }
+];
+
+// ── Collections ───────────────────────────────────────────────────
+const COLLECTIONS = [
+  { id: 1,  title: "Summer Collection",   description: "Light and breezy styles for the warm season",         productCount: 3 },
+  { id: 2,  title: "Best Sellers",         description: "Our most popular products loved by customers",        productCount: 4 },
+  { id: 3,  title: "New Arrivals",         description: "Fresh picks just added to our store",                 productCount: 3 },
+  { id: 4,  title: "Home Essentials",      description: "Everything you need to make your house a home",       productCount: 2 },
+  { id: 5,  title: "Tech Accessories",     description: "Cutting-edge gadgets and tech gear",                  productCount: 3 },
+  { id: 6,  title: "Gift Ideas",           description: "Perfect presents for every occasion",                 productCount: 1 },
+  { id: 7,  title: "Sale Items",           description: "Great deals and discounts on selected products",      productCount: 2 },
+  { id: 8,  title: "Premium Collection",   description: "Luxury products crafted with the finest materials",   productCount: 3 },
+  { id: 9,  title: "Eco-Friendly",         description: "Sustainable products that are good for the planet",   productCount: 4 },
+  { id: 10, title: "Winter Warmers",       description: "Cozy products to keep you warm all winter long",      productCount: 1 }
+];
+
+// ── Markets ───────────────────────────────────────────────────────
+const MARKETS = [
+  { id: 1, name: "United States",  currency: "USD", locale: "en-US", primary: true },
+  { id: 2, name: "European Union", currency: "EUR", locale: "en-EU", primary: false },
+  { id: 3, name: "United Kingdom", currency: "GBP", locale: "en-GB", primary: false },
+  { id: 4, name: "Canada",         currency: "CAD", locale: "en-CA", primary: false },
+  { id: 5, name: "Japan",          currency: "JPY", locale: "ja-JP", primary: false }
+];
+
+// ── Theme Settings ────────────────────────────────────────────────
+const THEME_SETTINGS = {
+  logo: {
+    image: null,
+    altText: "",
+    desktopLogoWidth: 120,
+    faviconImage: null,
+    faviconAltText: ""
+  },
+  colors: {
+    schemes: [
+      {
+        id: "scheme_1", name: "Scheme 1",
+        background: "#ffffff", backgroundGradient: "",
+        text: "#121212",
+        solidButtonBackground: "#121212", solidButtonLabel: "#ffffff",
+        outlineButton: "#121212", shadow: "#121212"
+      },
+      {
+        id: "scheme_2", name: "Scheme 2",
+        background: "#f3f3f3", backgroundGradient: "",
+        text: "#1a1a1a",
+        solidButtonBackground: "#1a1a1a", solidButtonLabel: "#ffffff",
+        outlineButton: "#1a1a1a", shadow: "#1a1a1a"
+      },
+      {
+        id: "scheme_3", name: "Accent 1",
+        background: "#1a1a2e", backgroundGradient: "",
+        text: "#eaeaea",
+        solidButtonBackground: "#e94560", solidButtonLabel: "#ffffff",
+        outlineButton: "#eaeaea", shadow: "#0f0f1a"
+      },
+      {
+        id: "scheme_4", name: "Accent 2",
+        background: "#fdf6ec", backgroundGradient: "",
+        text: "#2d2d2d",
+        solidButtonBackground: "#c8553d", solidButtonLabel: "#ffffff",
+        outlineButton: "#2d2d2d", shadow: "#c8b99a"
+      },
+      {
+        id: "scheme_5", name: "Inverse",
+        background: "#121212", backgroundGradient: "",
+        text: "#ffffff",
+        solidButtonBackground: "#ffffff", solidButtonLabel: "#121212",
+        outlineButton: "#ffffff", shadow: "#000000"
+      }
+    ]
+  },
+  typography: {
+    headingFont: "Assistant",
+    headingFontSizeScale: 100,
+    bodyFont: "Assistant",
+    bodyFontSizeScale: 100
+  },
+  layout: {
+    pageWidth: 1600,
+    sectionSpacing: 0,
+    gridHorizontalSpace: 8,
+    gridVerticalSpace: 8
+  },
+  animations: {
+    revealSectionsOnScroll: false,
+    hoverEffect: "None"
+  },
+  buttons: {
+    borderRadius: 0,
+    shadow: "None",
+    border: "None",
+    shadowOpacity: 0,
+    horizontalOffset: 0,
+    verticalOffset: 4,
+    blur: 5
+  },
+  variantPills: {
+    shape: "Rectangle",
+    border: "Outline",
+    shadow: "None"
+  },
+  inputs: {
+    shape: "Rectangle",
+    border: "Outline",
+    shadow: "None"
+  },
+  productCards: {
+    style: "Standard",
+    imageRatio: "Adapt",
+    showSecondImageOnHover: false,
+    showVendor: false,
+    showRating: false,
+    colorSchemeId: "scheme_1"
+  },
+  collectionCards: {
+    style: "Standard",
+    imageRatio: "Adapt",
+    colorSchemeId: "scheme_1"
+  },
+  blogCards: {
+    style: "Standard",
+    imageRatio: "Adapt",
+    showDate: true,
+    showAuthor: false,
+    colorSchemeId: "scheme_1"
+  },
+  contentContainers: {
+    borderRadius: 0,
+    shadow: "None",
+    border: "None"
+  },
+  media: {
+    borderRadius: 0,
+    shadow: "None",
+    border: "None"
+  },
+  dropdownsAndPopups: {
+    borderRadius: 0,
+    shadow: "Small",
+    border: "Outline"
+  },
+  drawers: {
+    borderRadius: 0,
+    shadow: "None",
+    border: "None"
+  },
+  badges: {
+    salePosition: "Bottom left",
+    saleShape: "Rectangle",
+    saleColor: "#e94560",
+    soldOutPosition: "Bottom left",
+    soldOutShape: "Rectangle",
+    soldOutColor: "#6b7280"
+  },
+  brandInformation: {
+    showBrandImage: false,
+    showBrandDescription: false,
+    showSocialMediaLinks: true
+  },
+  socialMedia: {
+    facebook: "",
+    instagram: "",
+    twitter: "",
+    tiktok: "",
+    snapchat: "",
+    pinterest: "",
+    tumblr: "",
+    youtube: "",
+    vimeo: "",
+    linkedin: ""
+  },
+  searchBehavior: {
+    enableSuggestions: true,
+    showVendor: false,
+    showPrice: false
+  },
+  currencyFormat: {
+    showCurrencyCodes: false
+  },
+  cart: {
+    type: "Drawer",
+    showVendor: false,
+    enableCartNote: false,
+    drawerCollection: "",
+    drawerColorSchemeId: "scheme_1"
+  },
+  customCSS: "",
+  activeThemeStyle: "default"
+};
+
+// ── Sections (Home page seed data) ────────────────────────────────
+
+const SECTIONS = [
+  // --- Header group ---
+  {
+    id: "section_1", type: "announcement_bar", name: "Announcement bar",
+    templateId: "home", group: "header", order: 0, visible: true, collapsed: false,
+    settings: { colorSchemeId: "scheme_3", autoRotate: true, rotateInterval: 5 },
+    blocks: [
+      { id: "block_1", type: "announcement", name: "Announcement", sectionId: "section_1", order: 0, visible: true,
+        settings: { text: "Free shipping on orders over $50!", link: "/collections/all" } },
+      { id: "block_2", type: "announcement", name: "Announcement", sectionId: "section_1", order: 1, visible: true,
+        settings: { text: "Summer Sale — Up to 40% off selected items", link: "/collections/sale-items" } }
+    ]
+  },
+  {
+    id: "section_2", type: "header", name: "Header",
+    templateId: "home", group: "header", order: 1, visible: true, collapsed: false,
+    settings: { logoWidth: 120, stickyHeader: true, showSearchIcon: true, menuType: "Dropdown", colorSchemeId: "scheme_1" },
+    blocks: [
+      { id: "block_3", type: "mega_menu", name: "Mega menu", sectionId: "section_2", order: 0, visible: true,
+        settings: { label: "Shop", collectionId: 2 } },
+      { id: "block_4", type: "nav_link", name: "Navigation link", sectionId: "section_2", order: 1, visible: true,
+        settings: { label: "About", url: "/pages/about" } }
+    ]
+  },
+
+  // --- Template group ---
+  {
+    id: "section_3", type: "slideshow", name: "Slideshow",
+    templateId: "home", group: "template", order: 0, visible: true, collapsed: false,
+    settings: { autoPlay: true, slideInterval: 5, height: "Large", colorSchemeId: "scheme_1" },
+    blocks: [
+      { id: "block_5", type: "slide", name: "Slide", sectionId: "section_3", order: 0, visible: true,
+        settings: { heading: "Welcome to GreenLeaf", subheading: "Sustainable style for modern living", buttonLabel: "Shop Now", buttonLink: "/collections/all", image: null } },
+      { id: "block_6", type: "slide", name: "Slide", sectionId: "section_3", order: 1, visible: true,
+        settings: { heading: "Summer Collection 2025", subheading: "Light fabrics, bold colors", buttonLabel: "Explore", buttonLink: "/collections/summer-collection", image: null } },
+      { id: "block_7", type: "slide", name: "Slide", sectionId: "section_3", order: 2, visible: true,
+        settings: { heading: "Eco-Friendly Products", subheading: "Good for you, good for the planet", buttonLabel: "Learn More", buttonLink: "/pages/sustainability", image: null } }
+    ]
+  },
+  {
+    id: "section_4", type: "rich_text", name: "Rich text",
+    templateId: "home", group: "template", order: 1, visible: true, collapsed: false,
+    settings: { colorSchemeId: "scheme_1", fullWidth: false },
+    blocks: [
+      { id: "block_8", type: "heading", name: "Heading", sectionId: "section_4", order: 0, visible: true,
+        settings: { text: "Welcome to Our Store", size: "Large" } },
+      { id: "block_9", type: "text", name: "Text", sectionId: "section_4", order: 1, visible: true,
+        settings: { text: "Discover our curated collection of sustainable and stylish products designed for modern living." } }
+    ]
+  },
+  {
+    id: "section_5", type: "featured_collection", name: "Featured collection",
+    templateId: "home", group: "template", order: 2, visible: true, collapsed: false,
+    settings: { collectionId: 2, title: "Best Sellers", productsToShow: 8, showViewAll: true, colorSchemeId: "scheme_1", columnsDesktop: 4 },
+    blocks: []
+  },
+  {
+    id: "section_6", type: "image_banner", name: "Image banner",
+    templateId: "home", group: "template", order: 3, visible: true, collapsed: false,
+    settings: { image: null, height: "Medium", desktopContentPosition: "Center", colorSchemeId: "scheme_3" },
+    blocks: [
+      { id: "block_10", type: "heading", name: "Heading", sectionId: "section_6", order: 0, visible: true,
+        settings: { text: "New Season Arrivals", size: "Large" } },
+      { id: "block_11", type: "button", name: "Button", sectionId: "section_6", order: 1, visible: true,
+        settings: { label: "Shop New Arrivals", link: "/collections/new-arrivals", style: "Primary" } }
+    ]
+  },
+  {
+    id: "section_7", type: "image_with_text", name: "Image with text",
+    templateId: "home", group: "template", order: 4, visible: true, collapsed: false,
+    settings: { image: null, imageWidth: "Medium", desktopImagePlacement: "Left", desktopContentAlignment: "Left", colorSchemeId: "scheme_1" },
+    blocks: [
+      { id: "block_12", type: "heading", name: "Heading", sectionId: "section_7", order: 0, visible: true,
+        settings: { text: "Our Story", size: "Medium" } },
+      { id: "block_13", type: "text", name: "Text", sectionId: "section_7", order: 1, visible: true,
+        settings: { text: "Founded in 2020, GreenLeaf is committed to bringing you sustainable products that don't compromise on style or quality." } },
+      { id: "block_14", type: "button", name: "Button", sectionId: "section_7", order: 2, visible: true,
+        settings: { label: "Read More", link: "/pages/about", style: "Secondary" } }
+    ]
+  },
+  {
+    id: "section_8", type: "collage", name: "Collage",
+    templateId: "home", group: "template", order: 5, visible: true, collapsed: false,
+    settings: { desktopLayout: "Left large", mobileLayout: "Collage", colorSchemeId: "scheme_1" },
+    blocks: [
+      { id: "block_15", type: "image", name: "Image", sectionId: "section_8", order: 0, visible: true,
+        settings: { image: null, altText: "Sustainable Living" } },
+      { id: "block_16", type: "product", name: "Product", sectionId: "section_8", order: 1, visible: true,
+        settings: { productId: 5 } },
+      { id: "block_17", type: "video", name: "Video", sectionId: "section_8", order: 2, visible: true,
+        settings: { videoUrl: "https://www.youtube.com/watch?v=example", altText: "Brand story" } }
+    ]
+  },
+  {
+    id: "section_9", type: "collection_list", name: "Collection list",
+    templateId: "home", group: "template", order: 6, visible: true, collapsed: false,
+    settings: { title: "Shop by Category", imageRatio: "Square", columnsDesktop: 4, colorSchemeId: "scheme_1" },
+    blocks: [
+      { id: "block_18", type: "collection", name: "Collection", sectionId: "section_9", order: 0, visible: true,
+        settings: { collectionId: 1 } },
+      { id: "block_19", type: "collection", name: "Collection", sectionId: "section_9", order: 1, visible: true,
+        settings: { collectionId: 4 } },
+      { id: "block_20", type: "collection", name: "Collection", sectionId: "section_9", order: 2, visible: true,
+        settings: { collectionId: 5 } },
+      { id: "block_21", type: "collection", name: "Collection", sectionId: "section_9", order: 3, visible: true,
+        settings: { collectionId: 9 } }
+    ]
+  },
+  {
+    id: "section_10", type: "featured_product", name: "Featured product",
+    templateId: "home", group: "template", order: 7, visible: true, collapsed: false,
+    settings: { productId: 7, showDynamicCheckout: true, colorSchemeId: "scheme_4" },
+    blocks: [
+      { id: "block_22", type: "text", name: "Text", sectionId: "section_10", order: 0, visible: true,
+        settings: { text: "Our most popular face serum — 100% natural ingredients." } },
+      { id: "block_23", type: "variant_picker", name: "Variant picker", sectionId: "section_10", order: 1, visible: true,
+        settings: { style: "Pills" } },
+      { id: "block_24", type: "buy_buttons", name: "Buy buttons", sectionId: "section_10", order: 2, visible: true,
+        settings: { showDynamicCheckout: true } }
+    ]
+  },
+  {
+    id: "section_11", type: "newsletter", name: "Newsletter",
+    templateId: "home", group: "template", order: 8, visible: true, collapsed: false,
+    settings: { colorSchemeId: "scheme_5", fullWidth: true },
+    blocks: [
+      { id: "block_25", type: "heading", name: "Heading", sectionId: "section_11", order: 0, visible: true,
+        settings: { text: "Subscribe to Our Newsletter", size: "Medium" } },
+      { id: "block_26", type: "text", name: "Text", sectionId: "section_11", order: 1, visible: true,
+        settings: { text: "Stay updated with new products, exclusive offers, and sustainability tips." } },
+      { id: "block_27", type: "email_form", name: "Email form", sectionId: "section_11", order: 2, visible: true,
+        settings: { buttonLabel: "Subscribe", placeholder: "Enter your email" } }
+    ]
+  },
+  {
+    id: "section_12", type: "video", name: "Video",
+    templateId: "home", group: "template", order: 9, visible: true, collapsed: false,
+    settings: { videoUrl: "https://www.youtube.com/watch?v=example", coverImage: null, autoplay: false, colorSchemeId: "scheme_1" },
+    blocks: []
+  },
+  {
+    id: "section_13", type: "multicolumn", name: "Multicolumn",
+    templateId: "home", group: "template", order: 10, visible: true, collapsed: false,
+    settings: { title: "Why Choose GreenLeaf?", imageRatio: "Circle", columnsDesktop: 3, colorSchemeId: "scheme_2" },
+    blocks: [
+      { id: "block_28", type: "column", name: "Column", sectionId: "section_13", order: 0, visible: true,
+        settings: { title: "Sustainable", text: "All our products are ethically sourced and eco-friendly.", image: null, linkLabel: "", linkUrl: "" } },
+      { id: "block_29", type: "column", name: "Column", sectionId: "section_13", order: 1, visible: true,
+        settings: { title: "Quality First", text: "We never compromise on quality — every product is tested and approved.", image: null, linkLabel: "", linkUrl: "" } },
+      { id: "block_30", type: "column", name: "Column", sectionId: "section_13", order: 2, visible: true,
+        settings: { title: "Fast Shipping", text: "Free shipping on orders over $50, delivered to your door.", image: null, linkLabel: "", linkUrl: "" } }
+    ]
+  },
+
+  // --- Footer group ---
+  {
+    id: "section_14", type: "footer", name: "Footer",
+    templateId: "home", group: "footer", order: 0, visible: true, collapsed: false,
+    settings: { colorSchemeId: "scheme_5", showPaymentIcons: true, showCountrySelector: false, showLanguageSelector: false },
+    blocks: [
+      { id: "block_31", type: "link_list", name: "Link list", sectionId: "section_14", order: 0, visible: true,
+        settings: { heading: "Quick Links", links: [
+          { label: "Search", url: "/search" },
+          { label: "About Us", url: "/pages/about" },
+          { label: "Contact", url: "/pages/contact" },
+          { label: "FAQ", url: "/pages/faq" }
+        ] } },
+      { id: "block_32", type: "link_list", name: "Link list", sectionId: "section_14", order: 1, visible: true,
+        settings: { heading: "Policies", links: [
+          { label: "Shipping Policy", url: "/policies/shipping-policy" },
+          { label: "Refund Policy", url: "/policies/refund-policy" },
+          { label: "Privacy Policy", url: "/policies/privacy-policy" },
+          { label: "Terms of Service", url: "/policies/terms-of-service" }
+        ] } },
+      { id: "block_33", type: "text", name: "Text", sectionId: "section_14", order: 2, visible: true,
+        settings: { heading: "Our Mission", text: "GreenLeaf is dedicated to making sustainable living accessible and stylish for everyone." } }
+    ]
+  }
+];
+
+// ── ID Counters ───────────────────────────────────────────────────
+var _nextSectionId = 15;
+var _nextBlockId = 34;
+var _nextColorSchemeId = 6;

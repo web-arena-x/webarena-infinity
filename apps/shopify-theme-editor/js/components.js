@@ -1,375 +1,339 @@
-// ============================================================
-// components.js — Reusable UI components
-// ============================================================
+/* ================================================================
+   Shopify Theme Editor — Custom UI Components
+   ================================================================ */
 
 const Components = {
 
-    // ---- Escape Helpers ----
-    escapeHtml(str) {
-        if (!str) return '';
-        return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#x27;');
-    },
+  // ── Utility ─────────────────────────────────────────────────
+  escapeHtml(str) {
+    if (str == null) return '';
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  },
 
-    escapeAttr(str) {
-        return this.escapeHtml(str);
-    },
+  escapeAttr(str) {
+    if (str == null) return '';
+    return String(str).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  },
 
-    // ---- Format Helpers ----
-    formatDate(dateStr) {
-        if (!dateStr) return '';
-        const d = new Date(dateStr);
-        return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-    },
+  // ── Toast ───────────────────────────────────────────────────
+  showToast(message, type = 'info', duration = 3000) {
+    const container = document.getElementById('toastContainer');
+    if (!container) return;
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.textContent = message;
+    container.appendChild(toast);
+    requestAnimationFrame(() => toast.classList.add('visible'));
+    setTimeout(() => {
+      toast.classList.remove('visible');
+      setTimeout(() => toast.remove(), 300);
+    }, duration);
+  },
 
-    timeAgo(dateStr) {
-        if (!dateStr) return '';
-        const d = new Date(dateStr);
-        const now = new Date();
-        const diff = now - d;
-        const mins = Math.floor(diff / 60000);
-        if (mins < 1) return 'just now';
-        if (mins < 60) return mins + 'm ago';
-        const hours = Math.floor(mins / 60);
-        if (hours < 24) return hours + 'h ago';
-        const days = Math.floor(hours / 24);
-        if (days < 30) return days + 'd ago';
-        return this.formatDate(dateStr);
-    },
+  // ── Modal ───────────────────────────────────────────────────
+  showModal(title, bodyHtml, footerHtml, opts = {}) {
+    const overlay = document.getElementById('modalOverlay');
+    const titleEl = document.getElementById('modalTitle');
+    const bodyEl = document.getElementById('modalBody');
+    const footerEl = document.getElementById('modalFooter');
+    if (!overlay) return;
+    titleEl.textContent = title;
+    bodyEl.innerHTML = bodyHtml;
+    footerEl.innerHTML = footerHtml || '';
+    overlay.classList.add('active');
+    if (opts.onOpen) opts.onOpen();
+  },
 
-    // ---- Custom Dropdown ----
-    dropdown(id, options, selectedValue, opts = {}) {
-        const placeholder = opts.placeholder || 'Select...';
-        const searchable = opts.searchable || false;
-        const selected = options.find(o => o.value === selectedValue);
-        const displayText = selected ? this.escapeHtml(selected.label) : placeholder;
+  closeModal() {
+    const overlay = document.getElementById('modalOverlay');
+    if (overlay) overlay.classList.remove('active');
+  },
 
-        let searchHtml = '';
-        if (searchable) {
-            searchHtml = `<div class="dropdown-search-wrap">
-                <input type="text" class="dropdown-search" data-dropdown-id="${id}" placeholder="Search..." />
-            </div>`;
+  confirm(title, message, onConfirm) {
+    this.showModal(title,
+      `<p>${this.escapeHtml(message)}</p>`,
+      `<button class="btn btn-secondary" data-modal-cancel>Cancel</button>
+       <button class="btn btn-danger" data-modal-confirm>Confirm</button>`,
+      {
+        onOpen: () => {
+          const overlay = document.getElementById('modalOverlay');
+          overlay.querySelector('[data-modal-cancel]').onclick = () => this.closeModal();
+          overlay.querySelector('[data-modal-confirm]').onclick = () => { this.closeModal(); onConfirm(); };
         }
+      }
+    );
+  },
 
-        let itemsHtml = options.map(o =>
-            `<div class="dropdown-item ${o.value === selectedValue ? 'selected' : ''}"
-                  data-value="${this.escapeAttr(o.value)}"
-                  data-dropdown-id="${id}">
-                ${this.escapeHtml(o.label)}
-                ${o.description ? `<span class="dropdown-item-desc">${this.escapeHtml(o.description)}</span>` : ''}
-            </div>`
-        ).join('');
+  // ── Custom Dropdown ─────────────────────────────────────────
+  dropdown(id, options, selectedValue, opts = {}) {
+    const placeholder = opts.placeholder || 'Select...';
+    const searchable = opts.searchable || false;
+    const selectedOpt = options.find(o => o.value === selectedValue);
+    const displayText = selectedOpt ? this.escapeHtml(selectedOpt.label) : placeholder;
 
-        return `<div class="custom-dropdown" id="${id}" data-value="${this.escapeAttr(selectedValue || '')}">
-            <div class="dropdown-trigger" data-dropdown-id="${id}">
-                <span class="dropdown-label">${displayText}</span>
-                <span class="dropdown-arrow">&#9662;</span>
-            </div>
-            <div class="dropdown-menu">
-                ${searchHtml}
-                <div class="dropdown-items">${itemsHtml}</div>
-            </div>
-        </div>`;
-    },
-
-    // ---- Modal ----
-    showModal(title, bodyHtml, footerHtml, opts = {}) {
-        const modal = document.getElementById('appModal');
-        if (!modal) return;
-
-        const titleEl = modal.querySelector('.modal-title');
-        const bodyEl = modal.querySelector('.modal-body');
-        const footerEl = modal.querySelector('.modal-footer');
-
-        titleEl.textContent = title;
-        bodyEl.innerHTML = bodyHtml;
-        footerEl.innerHTML = footerHtml;
-
-        if (opts.wide) modal.querySelector('.modal-content').classList.add('wide');
-        else modal.querySelector('.modal-content').classList.remove('wide');
-
-        modal.classList.add('active');
-        AppState.modalOpen = true;
-    },
-
-    closeModal() {
-        const modal = document.getElementById('appModal');
-        if (modal) {
-            modal.classList.remove('active');
-            AppState.modalOpen = false;
-        }
-    },
-
-    confirm(title, message, onConfirm, opts = {}) {
-        const isDanger = opts.danger || false;
-        const confirmText = opts.confirmText || 'Confirm';
-        const cancelText = opts.cancelText || 'Cancel';
-
-        this.showModal(title,
-            `<p style="margin: 0;">${this.escapeHtml(message)}</p>`,
-            `<button class="btn btn-secondary" onclick="Components.closeModal()">${cancelText}</button>
-             <button class="btn ${isDanger ? 'btn-danger' : 'btn-primary'}" id="modalConfirmBtn">${confirmText}</button>`
-        );
-
-        setTimeout(() => {
-            const btn = document.getElementById('modalConfirmBtn');
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    onConfirm();
-                    this.closeModal();
-                });
-            }
-        }, 50);
-    },
-
-    // ---- Toast ----
-    showToast(message, type = 'info', duration = 4000) {
-        const container = document.getElementById('toastContainer');
-        if (!container) return;
-
-        const toast = document.createElement('div');
-        toast.className = `toast toast-${type}`;
-        const icons = { info: 'i', success: '\u2713', warning: '\u26A0', error: '\u2717' };
-        toast.innerHTML = `<span class="toast-icon">${icons[type] || 'i'}</span>
-            <span class="toast-message">${this.escapeHtml(message)}</span>
-            <button class="toast-close" onclick="this.parentElement.remove()">\u00D7</button>`;
-        container.appendChild(toast);
-
-        setTimeout(() => { if (toast.parentElement) toast.remove(); }, duration);
-    },
-
-    // ---- Form Components ----
-    formField(label, inputHtml, opts = {}) {
-        const required = opts.required ? '<span class="required">*</span>' : '';
-        const error = opts.error ? `<div class="field-error-msg">${this.escapeHtml(opts.error)}</div>` : '';
-        const hint = opts.hint ? `<div class="field-hint">${this.escapeHtml(opts.hint)}</div>` : '';
-        return `<div class="form-field ${opts.error ? 'has-error' : ''}">
-            <label class="form-label">${this.escapeHtml(label)}${required}</label>
-            ${inputHtml}
-            ${hint}
-            ${error}
-        </div>`;
-    },
-
-    textInput(id, value, opts = {}) {
-        const placeholder = opts.placeholder || '';
-        const maxLength = opts.maxLength ? `maxlength="${opts.maxLength}"` : '';
-        const disabled = opts.disabled ? 'disabled' : '';
-        return `<input type="text" id="${id}" class="form-input" value="${this.escapeAttr(value || '')}"
-                    placeholder="${this.escapeAttr(placeholder)}" ${maxLength} ${disabled}
-                    data-testid="${id}" />`;
-    },
-
-    textarea(id, value, opts = {}) {
-        const rows = opts.rows || 3;
-        const maxLength = opts.maxLength ? `maxlength="${opts.maxLength}"` : '';
-        return `<textarea id="${id}" class="form-textarea" rows="${rows}" ${maxLength}
-                    data-testid="${id}">${this.escapeHtml(value || '')}</textarea>`;
-    },
-
-    numberInput(id, value, opts = {}) {
-        const min = opts.min !== undefined ? `min="${opts.min}"` : '';
-        const max = opts.max !== undefined ? `max="${opts.max}"` : '';
-        const step = opts.step ? `step="${opts.step}"` : '';
-        return `<input type="number" id="${id}" class="form-input form-input-number" value="${value || 0}"
-                    ${min} ${max} ${step} data-testid="${id}" />`;
-    },
-
-    rangeInput(id, value, min, max, opts = {}) {
-        const step = opts.step || 1;
-        const unit = opts.unit || '';
-        return `<div class="range-input-wrap">
-            <input type="range" id="${id}" class="form-range" value="${value}" min="${min}" max="${max}" step="${step}"
-                data-testid="${id}" />
-            <span class="range-value" id="${id}Value">${value}${unit}</span>
-        </div>`;
-    },
-
-    checkbox(id, checked, label, opts = {}) {
-        return `<label class="checkbox-label" for="${id}">
-            <input type="checkbox" id="${id}" ${checked ? 'checked' : ''} data-testid="${id}" />
-            <span class="checkbox-text">${this.escapeHtml(label)}</span>
-        </label>`;
-    },
-
-    colorInput(id, value) {
-        return `<div class="color-input-wrap">
-            <div class="color-swatch" id="${id}Swatch" style="background:${value}" data-color="${this.escapeAttr(value)}" data-input-id="${id}"></div>
-            <input type="text" id="${id}" class="form-input color-hex-input" value="${this.escapeAttr(value || '#000000')}"
-                maxlength="7" pattern="^#[0-9A-Fa-f]{6}$" data-testid="${id}" />
-        </div>`;
-    },
-
-    // ---- Status Badge ----
-    statusBadge(status) {
-        const colors = { live: 'green', draft: 'gray', trial: 'orange' };
-        const labels = { live: 'Live', draft: 'Draft', trial: 'Trial' };
-        return `<span class="badge badge-${colors[status] || 'gray'}">${labels[status] || status}</span>`;
-    },
-
-    // ---- Theme Card ----
-    themeCard(theme) {
-        const isLive = theme.status === 'live';
-        return `<div class="theme-card ${isLive ? 'theme-card-live' : ''}" data-theme-id="${theme.id}" data-testid="theme-card-${theme.id}">
-            <div class="theme-card-preview">
-                <div class="theme-preview-placeholder">
-                    <span class="theme-preview-name">${this.escapeHtml(theme.name)}</span>
-                    <span class="theme-preview-version">v${this.escapeHtml(theme.version)}</span>
-                </div>
-            </div>
-            <div class="theme-card-info">
-                <div class="theme-card-header">
-                    <h3 class="theme-card-title">${this.escapeHtml(theme.name)}</h3>
-                    ${this.statusBadge(theme.status)}
-                </div>
-                <div class="theme-card-meta">
-                    <span>Last saved: ${this.timeAgo(theme.lastSaved)}</span>
-                    ${theme.updateAvailable ? '<span class="update-available">Update available (v' + this.escapeHtml(theme.updateVersion) + ')</span>' : ''}
-                </div>
-                <div class="theme-card-actions">
-                    ${isLive
-                        ? `<button class="btn btn-primary btn-sm" data-action="customize" data-theme-id="${theme.id}">Customize</button>`
-                        : `<button class="btn btn-primary btn-sm" data-action="customize" data-theme-id="${theme.id}">Customize</button>
-                           <button class="btn btn-secondary btn-sm" data-action="publish" data-theme-id="${theme.id}">Publish</button>`
-                    }
-                    <div class="theme-card-more">
-                        <button class="btn btn-icon btn-sm theme-more-btn" data-action="theme-menu" data-theme-id="${theme.id}">&#8942;</button>
-                        <div class="theme-menu" id="themeMenu${theme.id}">
-                            <div class="theme-menu-item" data-action="rename" data-theme-id="${theme.id}">Rename</div>
-                            <div class="theme-menu-item" data-action="duplicate" data-theme-id="${theme.id}">Duplicate</div>
-                            <div class="theme-menu-item" data-action="preview" data-theme-id="${theme.id}">Preview</div>
-                            ${!isLive ? `<div class="theme-menu-item theme-menu-item-danger" data-action="delete" data-theme-id="${theme.id}">Delete</div>` : ''}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>`;
-    },
-
-    // ---- Section Tree Item ----
-    sectionTreeItem(section, blocks) {
-        const blockItems = blocks.map(b =>
-            `<div class="tree-block ${b.hidden ? 'tree-hidden' : ''} ${AppState.selectedBlockId === b.id ? 'tree-selected' : ''}"
-                  data-block-id="${b.id}" data-testid="block-${b.id}">
-                <span class="tree-icon">&#9632;</span>
-                <span class="tree-label">${this.escapeHtml(b.name)}</span>
-                ${b.hidden ? '<span class="tree-hidden-icon" title="Hidden">&#128065;</span>' : ''}
-            </div>`
-        ).join('');
-
-        return `<div class="tree-section ${section.hidden ? 'tree-hidden' : ''}" data-section-id="${section.id}" data-testid="section-${section.id}">
-            <div class="tree-section-header ${AppState.selectedSectionId === section.id ? 'tree-selected' : ''}">
-                <span class="tree-expand" data-section-id="${section.id}">&#9654;</span>
-                <span class="tree-label" data-section-id="${section.id}">${this.escapeHtml(section.name)}</span>
-                ${section.hidden ? '<span class="tree-hidden-icon" title="Hidden">&#128065;</span>' : ''}
-            </div>
-            <div class="tree-section-blocks" id="sectionBlocks${section.id}">
-                ${blockItems}
-            </div>
-        </div>`;
-    },
-
-    // ---- Info / Warning / Error boxes ----
-    infoBox(message) {
-        return `<div class="msg-box msg-info"><span class="msg-icon">i</span> ${this.escapeHtml(message)}</div>`;
-    },
-
-    warningBox(message) {
-        return `<div class="msg-box msg-warning"><span class="msg-icon">\u26A0</span> ${this.escapeHtml(message)}</div>`;
-    },
-
-    errorBox(message) {
-        return `<div class="msg-box msg-error"><span class="msg-icon">\u2717</span> ${this.escapeHtml(message)}</div>`;
-    },
-
-    successBox(message) {
-        return `<div class="msg-box msg-success"><span class="msg-icon">\u2713</span> ${this.escapeHtml(message)}</div>`;
-    },
-
-    // ---- Tabs ----
-    tabs(tabList, activeTab) {
-        return `<div class="tabs">
-            ${tabList.map(t =>
-                `<div class="tab-item ${t.id === activeTab ? 'tab-active' : ''}" data-tab="${t.id}" data-testid="tab-${t.id}">
-                    ${this.escapeHtml(t.label)}
-                </div>`
-            ).join('')}
-        </div>`;
-    },
-
-    // ---- Color Scheme Preview ----
-    colorSchemePreview(scheme, isSelected) {
-        return `<div class="color-scheme-card ${isSelected ? 'color-scheme-selected' : ''}" data-scheme-id="${scheme.id}" data-testid="color-scheme-${scheme.id}">
-            <div class="color-scheme-preview" style="background:${scheme.background}; color:${scheme.text};">
-                <div class="color-scheme-sample-text">Aa</div>
-                <div class="color-scheme-buttons">
-                    <span class="color-scheme-btn-solid" style="background:${scheme.solidButtonBg}; color:${scheme.solidButtonText};">Btn</span>
-                    <span class="color-scheme-btn-outline" style="border-color:${scheme.outlineButton}; color:${scheme.outlineButton};">Btn</span>
-                </div>
-            </div>
-            <div class="color-scheme-name">${this.escapeHtml(scheme.name)}</div>
-        </div>`;
+    let searchHtml = '';
+    if (searchable) {
+      searchHtml = `<input type="text" class="dropdown-search-input" placeholder="Search..." />`;
     }
+
+    const optionsHtml = options.map(o =>
+      `<div class="dropdown-item${o.value === selectedValue ? ' selected' : ''}" data-value="${this.escapeAttr(o.value)}">${this.escapeHtml(o.label)}</div>`
+    ).join('');
+
+    return `<div class="custom-dropdown" id="${id}" data-dropdown-id="${id}">
+      <div class="dropdown-trigger" tabindex="0">${displayText}<span class="dropdown-arrow">&#9662;</span></div>
+      <div class="dropdown-menu">
+        ${searchHtml}
+        <div class="dropdown-options">${optionsHtml}</div>
+      </div>
+    </div>`;
+  },
+
+  // ── Color Picker (hex input + swatch) ───────────────────────
+  colorPicker(id, value, opts = {}) {
+    const label = opts.label || '';
+    const swatchStyle = value ? `background:${this.escapeAttr(value)}` : 'background:#ffffff';
+    return `<div class="color-picker-field" data-color-picker-id="${id}">
+      ${label ? `<label class="field-label">${this.escapeHtml(label)}</label>` : ''}
+      <div class="color-picker-row">
+        <div class="color-swatch" style="${swatchStyle}"></div>
+        <input type="text" class="color-hex-input" id="${id}" value="${this.escapeAttr(value || '')}" placeholder="#000000" data-color-input="${id}" />
+      </div>
+    </div>`;
+  },
+
+  // ── Range Slider ────────────────────────────────────────────
+  rangeSlider(id, value, min, max, opts = {}) {
+    const step = opts.step || 1;
+    const label = opts.label || '';
+    const unit = opts.unit || '';
+    return `<div class="range-slider-field">
+      ${label ? `<label class="field-label">${this.escapeHtml(label)}</label>` : ''}
+      <div class="range-slider-row">
+        <input type="range" id="${id}" class="range-slider" min="${min}" max="${max}" step="${step}" value="${value}" data-range-id="${id}" />
+        <span class="range-value" data-range-value="${id}">${value}${unit}</span>
+      </div>
+    </div>`;
+  },
+
+  // ── Toggle Switch ───────────────────────────────────────────
+  toggleSwitch(id, checked, opts = {}) {
+    const label = opts.label || '';
+    return `<div class="toggle-field">
+      <label class="toggle-label" for="${id}">
+        <span class="toggle-text">${this.escapeHtml(label)}</span>
+        <div class="toggle-switch${checked ? ' active' : ''}" data-toggle-id="${id}">
+          <div class="toggle-knob"></div>
+        </div>
+        <input type="checkbox" id="${id}" class="toggle-input" ${checked ? 'checked' : ''} style="display:none" />
+      </label>
+    </div>`;
+  },
+
+  // ── Text Input ──────────────────────────────────────────────
+  textInput(id, value, opts = {}) {
+    const label = opts.label || '';
+    const placeholder = opts.placeholder || '';
+    const multiline = opts.multiline || false;
+    const inputHtml = multiline
+      ? `<textarea id="${id}" class="text-input" placeholder="${this.escapeAttr(placeholder)}" rows="4">${this.escapeHtml(value || '')}</textarea>`
+      : `<input type="text" id="${id}" class="text-input" value="${this.escapeAttr(value || '')}" placeholder="${this.escapeAttr(placeholder)}" />`;
+    return `<div class="text-input-field">
+      ${label ? `<label class="field-label" for="${id}">${this.escapeHtml(label)}</label>` : ''}
+      ${inputHtml}
+    </div>`;
+  },
+
+  // ── Number Input ────────────────────────────────────────────
+  numberInput(id, value, opts = {}) {
+    const label = opts.label || '';
+    const min = opts.min != null ? `min="${opts.min}"` : '';
+    const max = opts.max != null ? `max="${opts.max}"` : '';
+    const step = opts.step != null ? `step="${opts.step}"` : '';
+    return `<div class="text-input-field">
+      ${label ? `<label class="field-label" for="${id}">${this.escapeHtml(label)}</label>` : ''}
+      <input type="number" id="${id}" class="text-input" value="${value}" ${min} ${max} ${step} />
+    </div>`;
+  },
+
+  // ── Section Tree Item ───────────────────────────────────────
+  sectionTreeItem(section, isSelected) {
+    const visIcon = section.visible ? '&#128065;' : '&#128065;&#xFE0E;';
+    const visClass = section.visible ? 'visible' : 'hidden';
+    const selClass = isSelected ? ' selected' : '';
+    const blocksHtml = section.blocks
+      .sort((a, b) => a.order - b.order)
+      .map(block => {
+        const bSel = AppState.selectedBlockId === block.id ? ' selected' : '';
+        const bVis = block.visible ? 'visible' : 'hidden';
+        return `<div class="tree-block${bSel}" data-block-id="${block.id}">
+          <span class="tree-block-name" data-select-block="${block.id}">${this.escapeHtml(block.name)}</span>
+          <button class="tree-vis-btn ${bVis}" data-toggle-block-vis="${block.id}" title="Toggle visibility">${block.visible ? '&#128065;' : '&#128065;&#xFE0E;'}</button>
+        </div>`;
+      }).join('');
+
+    return `<div class="tree-section${selClass}" data-section-id="${section.id}">
+      <div class="tree-section-header">
+        <span class="tree-drag-handle">&#9776;</span>
+        <span class="tree-section-name" data-select-section="${section.id}">${this.escapeHtml(section.name)}</span>
+        <button class="tree-vis-btn ${visClass}" data-toggle-section-vis="${section.id}" title="Toggle visibility">${visIcon}</button>
+      </div>
+      <div class="tree-section-blocks">${blocksHtml}</div>
+    </div>`;
+  },
+
+  // ── Section Type Picker Modal ───────────────────────────────
+  showSectionTypePicker(onSelect) {
+    const categories = {};
+    AVAILABLE_SECTION_TYPES.forEach(t => {
+      if (!categories[t.category]) categories[t.category] = [];
+      categories[t.category].push(t);
+    });
+
+    let bodyHtml = '<div class="section-type-picker">';
+    for (const [cat, types] of Object.entries(categories)) {
+      bodyHtml += `<div class="section-type-category"><h4>${this.escapeHtml(cat)}</h4>`;
+      types.forEach(t => {
+        bodyHtml += `<button class="section-type-option" data-section-type="${t.type}">${this.escapeHtml(t.name)}</button>`;
+      });
+      bodyHtml += '</div>';
+    }
+    bodyHtml += '</div>';
+
+    this.showModal('Add section', bodyHtml, '', {
+      onOpen: () => {
+        document.querySelectorAll('[data-section-type]').forEach(btn => {
+          btn.onclick = () => {
+            this.closeModal();
+            onSelect(btn.dataset.sectionType);
+          };
+        });
+      }
+    });
+  },
+
+  // ── Block Type Picker Modal ─────────────────────────────────
+  showBlockTypePicker(sectionType, onSelect) {
+    const types = BLOCK_TYPES[sectionType] || [];
+    if (types.length === 0) {
+      this.showToast('No block types available for this section', 'warning');
+      return;
+    }
+
+    let bodyHtml = '<div class="block-type-picker">';
+    types.forEach(t => {
+      bodyHtml += `<button class="section-type-option" data-block-type="${t.type}">${this.escapeHtml(t.name)}</button>`;
+    });
+    bodyHtml += '</div>';
+
+    this.showModal('Add block', bodyHtml, '', {
+      onOpen: () => {
+        document.querySelectorAll('[data-block-type]').forEach(btn => {
+          btn.onclick = () => {
+            this.closeModal();
+            onSelect(btn.dataset.blockType);
+          };
+        });
+      }
+    });
+  }
 };
 
-// ---- Global event delegation for dropdowns ----
+// ── Global event delegation for dropdowns ─────────────────────────
 document.addEventListener('click', function(e) {
-    // Dropdown trigger
-    const trigger = e.target.closest('.dropdown-trigger');
-    if (trigger) {
-        const dropdown = trigger.closest('.custom-dropdown');
-        if (dropdown) {
-            // Close all other dropdowns
-            document.querySelectorAll('.custom-dropdown.open').forEach(d => {
-                if (d !== dropdown) d.classList.remove('open');
-            });
-            dropdown.classList.toggle('open');
-            const searchInput = dropdown.querySelector('.dropdown-search');
-            if (searchInput) setTimeout(() => searchInput.focus(), 50);
-            e.stopPropagation();
-            return;
-        }
-    }
-
-    // Dropdown item selection
-    const item = e.target.closest('.dropdown-item');
-    if (item) {
-        const dropdownId = item.dataset.dropdownId;
-        const dropdown = document.getElementById(dropdownId);
-        if (dropdown) {
-            const value = item.dataset.value;
-            dropdown.dataset.value = value;
-            const label = dropdown.querySelector('.dropdown-label');
-            if (label) label.textContent = item.textContent.trim();
-            dropdown.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('selected'));
-            item.classList.add('selected');
-            dropdown.classList.remove('open');
-
-            // Fire custom change event
-            dropdown.dispatchEvent(new CustomEvent('change', { detail: { value: value } }));
-        }
-        e.stopPropagation();
-        return;
-    }
-
-    // Close dropdowns on outside click
+  // Toggle dropdown
+  const trigger = e.target.closest('.dropdown-trigger');
+  if (trigger) {
+    const dropdown = trigger.closest('.custom-dropdown');
+    const wasOpen = dropdown.classList.contains('open');
+    // Close all dropdowns first
     document.querySelectorAll('.custom-dropdown.open').forEach(d => d.classList.remove('open'));
+    if (!wasOpen) {
+      dropdown.classList.add('open');
+      const searchInput = dropdown.querySelector('.dropdown-search-input');
+      if (searchInput) { searchInput.value = ''; searchInput.focus(); }
+    }
+    return;
+  }
 
-    // Close theme menus
-    document.querySelectorAll('.theme-menu.active').forEach(m => m.classList.remove('active'));
+  // Select dropdown item
+  const item = e.target.closest('.dropdown-item');
+  if (item) {
+    const dropdown = item.closest('.custom-dropdown');
+    const value = item.dataset.value;
+    const label = item.textContent;
+    const trigger = dropdown.querySelector('.dropdown-trigger');
+    trigger.innerHTML = Components.escapeHtml(label) + '<span class="dropdown-arrow">&#9662;</span>';
+    dropdown.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('selected'));
+    item.classList.add('selected');
+    dropdown.classList.remove('open');
+    dropdown.dispatchEvent(new CustomEvent('change', { detail: { value } }));
+    return;
+  }
+
+  // Toggle switch
+  const toggle = e.target.closest('.toggle-switch');
+  if (toggle) {
+    toggle.classList.toggle('active');
+    const input = toggle.parentElement.querySelector('.toggle-input');
+    if (input) {
+      input.checked = toggle.classList.contains('active');
+      input.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+    return;
+  }
+
+  // Close dropdowns on outside click
+  if (!e.target.closest('.custom-dropdown')) {
+    document.querySelectorAll('.custom-dropdown.open').forEach(d => d.classList.remove('open'));
+  }
 });
 
-// Dropdown search
+// Dropdown search filtering
 document.addEventListener('input', function(e) {
-    if (e.target.classList.contains('dropdown-search')) {
-        const query = e.target.value.toLowerCase();
-        const dropdownId = e.target.dataset.dropdownId;
-        const dropdown = document.getElementById(dropdownId);
-        if (dropdown) {
-            dropdown.querySelectorAll('.dropdown-item').forEach(item => {
-                const text = item.textContent.toLowerCase();
-                item.style.display = text.includes(query) ? '' : 'none';
-            });
-        }
+  if (e.target.classList.contains('dropdown-search-input')) {
+    const query = e.target.value.toLowerCase();
+    const options = e.target.closest('.dropdown-menu').querySelectorAll('.dropdown-item');
+    options.forEach(opt => {
+      opt.style.display = opt.textContent.toLowerCase().includes(query) ? '' : 'none';
+    });
+  }
+});
+
+// Color swatch update on hex input
+document.addEventListener('input', function(e) {
+  if (e.target.classList.contains('color-hex-input')) {
+    const field = e.target.closest('.color-picker-field');
+    if (field) {
+      const swatch = field.querySelector('.color-swatch');
+      if (swatch && e.target.value) {
+        swatch.style.background = e.target.value;
+      }
     }
+  }
+});
+
+// Range slider value display
+document.addEventListener('input', function(e) {
+  if (e.target.classList.contains('range-slider')) {
+    const id = e.target.dataset.rangeId;
+    const valueEl = document.querySelector(`[data-range-value="${id}"]`);
+    if (valueEl) {
+      const unit = valueEl.textContent.replace(/[\d.]+/, '').trim();
+      valueEl.textContent = e.target.value + (unit || '');
+    }
+  }
+});
+
+// Modal overlay close
+document.addEventListener('click', function(e) {
+  if (e.target.id === 'modalOverlay') {
+    Components.closeModal();
+  }
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    Components.closeModal();
+  }
 });

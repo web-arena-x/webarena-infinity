@@ -6,10 +6,17 @@ Serves static files and exposes API endpoints:
   GET  /api/state  — Read the current application state (for verifiers)
   PUT  /api/state  — Update the server-side state copy (called by browser)
   POST /api/reset  — Reset the app state to seed data
-  GET  /api/events — SSE stream for pushing reset commands to browser
 
 Usage:
     python3 server.py [--port PORT]
+
+Example (Python verifier):
+    import requests
+    state = requests.get('http://localhost:8000/api/state').json()
+    assert state['themeSettings']['typography']['headingFont'] == 'Playfair Display'
+
+Example (reset):
+    requests.post('http://localhost:8000/api/reset')
 """
 
 import http.server
@@ -24,13 +31,13 @@ class ThreadedHTTPServer(socketserver.ThreadingMixIn, http.server.HTTPServer):
     daemon_threads = True
 
 
-# SSE client queues
+# SSE client queues — each connected browser tab gets one
 _clients = []
 _clients_lock = threading.Lock()
 
-# Server-side copy of application state
+# Server-side copy of application state (pushed by browser on every mutation)
 _app_state = None
-_seed_state = None
+_seed_state = None  # Snapshot of the first state push (seed data)
 _state_lock = threading.Lock()
 
 
@@ -56,7 +63,10 @@ class AppHandler(http.server.SimpleHTTPRequestHandler):
         else:
             super().do_GET()
 
+    # ---- State sync ----
+
     def _handle_put_state(self):
+        """Browser pushes its AppState here on every mutation."""
         global _app_state, _seed_state
         content_length = int(self.headers.get('Content-Length', 0))
         body = self.rfile.read(content_length)
@@ -64,8 +74,9 @@ class AppHandler(http.server.SimpleHTTPRequestHandler):
             parsed = json.loads(body)
             with _state_lock:
                 _app_state = parsed
+                # Capture the first push as seed state snapshot
                 if _seed_state is None:
-                    _seed_state = json.loads(json.dumps(parsed))
+                    _seed_state = json.loads(json.dumps(parsed))  # deep copy
             self.send_response(200)
             self.send_header('Content-Type', 'application/json')
             self.end_headers()
@@ -74,6 +85,7 @@ class AppHandler(http.server.SimpleHTTPRequestHandler):
             self.send_error(400, 'Invalid JSON')
 
     def _handle_get_state(self):
+        """Verifiers read the current application state from here."""
         with _state_lock:
             state = _app_state
         if state is None:
@@ -87,11 +99,14 @@ class AppHandler(http.server.SimpleHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(json.dumps(state).encode())
 
+    # ---- Reset ----
+
     def _handle_reset(self):
+        """Reset server state to seed data and notify connected browsers."""
         global _app_state
         with _state_lock:
             if _seed_state is not None:
-                _app_state = json.loads(json.dumps(_seed_state))
+                _app_state = json.loads(json.dumps(_seed_state))  # deep copy
             else:
                 _app_state = None
         with _clients_lock:
@@ -107,7 +122,10 @@ class AppHandler(http.server.SimpleHTTPRequestHandler):
             'clients_notified': len(_clients)
         }).encode())
 
+    # ---- SSE ----
+
     def _handle_sse(self):
+        """Server-Sent Events stream for pushing commands to the browser."""
         self.send_response(200)
         self.send_header('Content-Type', 'text/event-stream')
         self.send_header('Cache-Control', 'no-cache')
@@ -123,7 +141,7 @@ class AppHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.flush()
 
             while True:
-                event = q.get()
+                event = q.get()  # blocks until a signal arrives
                 self.wfile.write(f'data: {event}\n\n'.encode())
                 self.wfile.flush()
         except (BrokenPipeError, ConnectionResetError, OSError):
