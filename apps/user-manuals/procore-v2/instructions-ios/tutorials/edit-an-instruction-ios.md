@@ -1,0 +1,24 @@
+# Edit an Instruction (iOS)
+
+Source: https://v2.support.procore.com/product-manuals/instructions-ios/tutorials/edit-an-instruction-ios
+
+---
+
+## Things to Consider
+
+- **Required User Permissions:**
+
+ - *To edit any instruction,* 'Admin' level permissions on the project's Instructions tool.
+ - *To edit an instruction that you created,* 'Standard' level permissions on the project's Instructions tool.
+- **Additional Information**:
+
+ - Email notifications are not sent after editing an instruction using the Procore mobile app.
+
+## Steps
+
+1. Navigate to the project's **Instructions** tool using an iOS mobile device.
+2. Tap the instruction you want to edit.
+3. Tap **Edit**.
+4. Edit the instruction's information as necessary. 
+   *Note*: The options available to select in the 'Status' field depend on the current status of the instruction you are editing. After an instruction has been saved as 'Issued', you cannot set it back to 'Draft'.
+5. Tap **Save**.

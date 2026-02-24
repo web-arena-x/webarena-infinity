@@ -1,0 +1,80 @@
+# Commitments
+
+Source: https://v2.support.procore.com/product-manuals/commitments-project/faq-or-troubleshooting
+
+---
+
+Table of Contents
+
+## FAQ/Troubleshooting
+
+#### Commitment Change Orders
+
+- [Can I customize the numbering system for financial objects in Procore?](/faq-can-i-customize-the-numbering-system-for-financial-management-objects-in-procore/)
+- [How can I troubleshoot an issue with the Procore Web Application?](/faq-how-can-i-troubleshoot-an-issue-with-the-procore-web-application/)
+- [How can I use tax codes on a Procore project?](/faq-how-can-i-use-tax-codes-on-a-procore-project/)
+- [How do I change my web browser's default email client for mailto links?](/faq-how-do-i-change-my-web-browsers-default-email-client-for-mailto-links/)
+- [What are "related items" in Procore?](/faq-what-are-related-items-in-procore/)
+- [What are Procore's default change types and change reasons?](/faq-what-are-procores-default-change-types-and-change-reasons/)
+- [What are Procore's default cost codes?](/faq-what-are-procores-default-cost-codes/)
+- [What are the default statuses for change orders in Procore?](/faq-what-are-the-default-statuses-for-change-orders-in-procore/)
+- [What are the different change order tier settings in Project Financials?](/faq-what-are-the-different-change-order-tier-settings-in-project-financials/)
+- [What are the different Financial Line Item options for Single Tool Reports?](/faq-what-are-the-different-financial-line-item-options-for-single-tool-reports/)
+- [What do the different DocuSignÂ® banners in Procore mean?](/faq-what-do-the-different-docusign-banners-in-procore-mean/)
+- [What granular permissions are available for Project level Workflows? (Beta)](/faq-what-granular-permissions-are-available-for-project-level-workflows/)
+- [What happens when 'Restrict Non-draft edits to Contracts and Change Orders' and 'Enable Always Editable Schedule of Values' are both enabled?](/faq-what-happens-when-restrict-non-draft-edits-to-contracts-and-change-orders-and-enable-always-editable-schedule-of-values-are-both-enabled/)
+- [What is a budget code in Procore's WBS?](/faq-what-is-a-budget-code-in-procores-wbs/)
+- [What is a downstream collaborator?](/faq-what-is-a-downstream-collaborator/)
+- [When do the download links in emails sent from Procore expire?](/faq-when-do-the-download-links-in-emails-sent-from-procore-expire/)
+- [Which Microsoft Excel file versions can be attached to items in Procore?](/faq-which-microsoft-excel-file-versions-can-be-attached-to-items-in-procore/)
+- [Which Procore project tools support the DocuSignÂ® integration?](/faq-which-procore-project-tools-support-the-docusign-integration/)
+- [Which Procore tools support Work Breakdown Structure?](/faq-which-procore-tools-support-work-breakdown-structure/)
+- [Which units of measure are included on Procore's master list?](/faq-which-units-of-measure-are-included-in-procores-master-list/)
+
+#### Uncategorized
+
+- [Can I edit or delete a commitment after its been synced with an integrated ERP system?](/faq-can-i-edit-or-delete-a-commitment-after-its-been-synced-with-an-erp-integration/)
+- [Can I import a CSV into a Project Financials tool's schedule of values if it has blank values?](/faq-can-i-import-a-csv-into-a-project-financial-tools-schedule-of-values-if-it-has-blank-values/)
+- [Does an invoice contact need an 'Invite to Bill' to submit an invoice?](/faq-does-an-invoice-contact-need-an-invite-to-bill-to-submit-an-invoice/)
+- [How are Invoice and Contract Compliance different with Procore Pay?](/faq-how-are-invoice-and-contract-compliance-different-with-procore-pay/)
+- [How do I bill for stored materials in an invoice? (Beta)](/faq-how-do-i-bill-for-stored-materials-in-an-invoice/)
+- [How do I prevent or allow overbilling on a subcontractor invoice?](/faq-how-do-i-prevent-or-allow-overbilling-on-a-subcontractor-invoice/)
+- [How do I set and release retainage on a subcontractor invoice in Procore?](/faq-how-do-i-set-and-release-retainage-on-a-subcontractor-invoice-in-procore/)
+- [How do I set the accounting method for a contract or funding?](/faq-how-do-i-set-the-accounting-method-for-a-contract-or-funding/)
+- [How do I submit a Subcontractor Schedule of Values for a Procore commitment?](/faq-how-do-i-submit-a-subcontractor-schedule-of-values-for-a-procore-commitment/)
+- [How does Procore calculate an invoice's 'Current Payment Due' amount?](/faq-how-does-procore-calculate-an-invoices-current-payment-due-amount/)
+- [What are custom fields and which Procore tools support them?](/faq-what-are-custom-fields-and-which-procore-tools-support-them/)
+- [What are custom sections and which Procore tools support them?](/faq-what-are-custom-sections-and-which-procore-tools-support-them/)
+- [What are joint payments and joint checks?](/faq-what-are-joint-payments-and-joint-checks/)
+- [What are multi-tiered locations?](/faq-what-are-multi-tiered-locations/)
+- [What are Procore's default cost types?](/faq-what-are-procores-default-cost-types/)
+- [What are the default columns in the Contracts tab of the Commitments tool?](/faq-what-are-the-default-columns-in-the-contracts-tab-of-the-commitments-tool/)
+- [What are the default commitment statuses in Procore?](/faq-what-are-the-default-commitment-statuses-in-procore/)
+- [What are the default statuses for Procore invoices?](/faq-what-are-the-default-statuses-for-procore-invoices/)
+- [What are the different types of invoices in Procore?](/faq-what-are-the-different-types-of-invoices-in-procore/)
+- [What are the DocuSignÂ® fields and can I customize them?](/faq-what-are-the-docusign-fields-and-can-i-customize-them/)
+- [What are the requirements for importing SOV Line Items from CSV?](/faq-what-are-the-requirements-for-importing-sov-line-items-from-csv/)
+- [What are the sub-tier lien waiver statuses on a subcontractor invoice with Procore Pay?](/faq-what-are-the-sub-tier-lien-waiver-statuses-on-a-subcontractor-invoice-with-procore-pay/)
+- [What are the sub-tier statuses on a commitment with Procore Pay?](/faq-what-are-the-sub-tier-statuses-on-a-commitment-with-procore-pay/)
+- [What do I do when a commitment fails to export from the ERP Integrations tool?](/faq-what-do-i-do-when-a-commimtment-fails-to-export-from-the-erp-integrations-tool/)
+- [What do we need to consider before allowing downstream collaborators to submit invoices in Procore?](/faq-what-do-we-need-to-consider-before-allowing-downstream-collaborators-to-submit-invoices-in-procore/)
+- [What granular permissions are available for the project's Commitments tool?](/faq-what-granular-permissions-are-available-for-the-projects-commitments-tool/)
+- [What is a manual hold on a subcontractor invoice?](/faq-what-is-a-manual-hold-on-a-subcontractor-invoice/)
+- [What is a split payment?](/faq-what-is-a-split-payment/)
+- [What is a Subcontractor Schedule of Values?](/faq-what-is-a-subcontractor-schedule-of-values/)
+- [What is an invoice administrator?](/faq-what-is-an-invoice-administrator/)
+- [What is an invoice contact?](/faq-what-is-an-invoice-contact/)
+- [What is Procore's Recycle Bin?](/faq-what-is-procores-recycle-bin/)
+- [What is sliding scale retention?](/faq-what-is-sliding-scale-retention/)
+- [What is the 'Enable Always Editable Schedule of Values' setting?](/faq-what-is-the-enable-always-editable-schedule-of-values-setting/)
+- [What is the maximum character length for a commitment's 'Number (#)'?](/faq-what-is-the-maximum-character-length-for-a-commitments-number/)
+- [What is the maximum character length for a commitment's 'Title'?](/faq-what-is-the-maximum-character-length-for-a-commitment-title/)
+- [What tool names and terms are different in Procore for general contractors, owners, and specialty contractors?](/faq-what-tool-names-and-terms-are-different-in-procore-for-general-contractors-owners-and-specialty-contractors/)
+- [When does Procore send email notifications to invoice contacts?](/faq-when-does-procore-send-email-notifications-to-invoice-contacts/)
+- [Which fields in the Commitments tool can be configured as required, optional, or hidden?](/faq-which-fields-in-the-commitments-tool-can-be-configured-as-required-optional-or-hidden/)
+- [Which Procore tools support granular permissions?](/faq-which-procore-tools-support-granular-permissions/)
+- [Which Procore tools support Workflows?](/faq-which-procore-tools-support-workflows/)
+- [Who can manage compliance on commitments with Procore Pay? (Beta)](/faq-who-can-manage-compliance-on-commitments-with-procore-pay/)
+- [Who has the authority to sign a lien waiver in Procore Pay?](/faq-who-has-the-authority-to-sign-a-lien-waiver-in-procore-pay/)
+- [Why are my change order line items duplicated on my subcontractor invoice?](/faq-why-are-my-change-order-line-items-duplicated-on-my-subcontractor-invoice/)
+- [Why isn't the 'Job to Date Costs' column in the budget matching our subcontractor invoice amounts?](/faq-why-isnt-the-job-to-date-costs-column-in-the-budget-matching-our-subcontractor-invoice-amounts/)

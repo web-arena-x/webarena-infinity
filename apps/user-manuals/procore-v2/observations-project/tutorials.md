@@ -1,0 +1,56 @@
+# Observations
+
+Source: https://v2.support.procore.com/product-manuals/observations-project/tutorials
+
+---
+
+Table of Contents
+
+## Tutorials
+
+- [Add a Comment to an Observation](/product-manuals/observations-project/tutorials/add-a-comment-to-an-observation/)
+- [Add a Multi-Tiered Location to an Item](/product-manuals/admin-project/tutorials/add-a-multi-tiered-location-to-an-item/)
+- [Add a Photo to an Observation so that it Populates in the Photos Tool](/product-manuals/observations-project/tutorials/add-a-photo-to-an-observation-so-that-it-populates-in-the-photos-tool/)
+- [Add a Related Item to an Observation](/product-manuals/observations-project/tutorials/add-a-related-item-to-an-observation/)
+- [Add Company Level Observation Types](/product-manuals/admin-company/tutorials/add-company-level-observation-types/)
+- [Add Project Level Observation Types](/product-manuals/observations-project/tutorials/add-project-level-observation-types/)
+- [Add Root Cause Analysis Fields](/product-manuals/admin-company/tutorials/add-root-cause-analysis-fields/)
+- [Apply Configurable Fieldsets to Projects](/product-manuals/admin-company/tutorials/apply-configurable-fieldsets-to-projects/)
+- [Bulk Edit Coordination Issues](/product-manuals/coordination-issues-project/tutorials/bulk-edit-coordination-issues/)
+- [Close an Observation](/product-manuals/observations-project/tutorials/close-an-observation/)
+- [Configure Advanced Settings: Observations](/product-manuals/observations-project/tutorials/configure-advanced-settings-observations/)
+- [Copy a Configurable Fieldset](/product-manuals/admin-company/tutorials/copy-a-configurable-fieldset/)
+- [Create a Change Event from an Observation](/product-manuals/observations-project/tutorials/create-a-change-event-from-an-observation/)
+- [Create a Company Level Observation Template](/product-manuals/admin-company/tutorials/create-a-company-level-observation-template/)
+- [Create a Project Level Observation Template](/product-manuals/observations-project/tutorials/create-a-project-level-observation-template/)
+- [Create an Observation](/product-manuals/observations-project/tutorials/create-an-observation/)
+- [Create an Observation from an Inspection](/product-manuals/inspections-project/tutorials/create-an-observation-from-an-inspection/)
+- [Create Custom Observation Categories](/product-manuals/admin-company/tutorials/create-custom-observation-categories/)
+- [Create New Configurable Fieldsets](/product-manuals/admin-company/tutorials/create-new-configurable-fieldsets/)
+- [Create New Custom Fields](/product-manuals/admin-company/tutorials/create-new-custom-fields/)
+- [Customize the Column Display in the Observations Tool](/product-manuals/observations-project/tutorials/customize-the-column-display-in-the-observations-tool/)
+- [Deactivate an Observation Template on a Project](/product-manuals/observations-project/tutorials/deactivate-an-observation-template-on-a-project/)
+- [Delete a Company Level Observation Template](/product-manuals/admin-company/tutorials/delete-a-company-level-observation-template/)
+- [Delete an Observation](/product-manuals/observations-project/tutorials/delete-an-observation/)
+- [Delete an Observation Template from a Project](/product-manuals/observations-project/tutorials/delete-an-observation-template-from-a-project/)
+- [Delete Configurable Fieldsets](/product-manuals/admin-company/tutorials/delete-configurable-fieldsets/)
+- [Delete Observation Types](/product-manuals/admin-company/tutorials/delete-observation-types/)
+- [Delete Project Level Observation Types](/product-manuals/observations-project/tutorials/delete-project-observation-types/)
+- [Delete Root Cause Analysis Fields](/product-manuals/admin-company/tutorials/delete-root-cause-analysis-fields/)
+- [Edit an Observation](/product-manuals/observations-project/tutorials/edit-an-observation/)
+- [Edit Configurable Fieldsets](/product-manuals/admin-company/tutorials/edit-configurable-fieldsets/)
+- [Edit Observation Types](/product-manuals/admin-company/tutorials/edit-observation-types/)
+- [Edit Project Level Observation Types](/product-manuals/observations-project/tutorials/edit-project-level-observation-types/)
+- [Email Observations](/product-manuals/observations-project/tutorials/email-observations/)
+- [Enable the Observations Tool](/product-manuals/observations-project/tutorials/enable-the-observations-tool/)
+- [Export Observations as a PDF or CSV](/product-manuals/observations-project/tutorials/export-observations-as-a-pdf-csv/)
+- [Mark an Observation Type as Inactive](/product-manuals/admin-company/tutorials/mark-an-observation-type-as-inactive/)
+- [Reject an Observation](/product-manuals/observations-project/tutorials/reject-an-observation/)
+- [Remove Configurable Fieldsets from Projects](/product-manuals/admin-company/tutorials/remove-configurable-fieldsets-from-projects/)
+- [Respond to an Observation](/product-manuals/observations-project/tutorials/respond-to-an-observation/)
+- [Retrieve an Observation From the Recycle Bin](/product-manuals/observations-project/tutorials/retrieve-an-observation-from-the-recycle-bin/)
+- [Search for and Filter Observations](/product-manuals/observations-project/tutorials/search-for-and-filter-observations/)
+- [Separate Quality Observations from Safety Observations](/product-manuals/admin-company/tutorials/separate-quality-observations-from-safety-observations/)
+- [Update the Status of an Observation](/product-manuals/observations-project/tutorials/update-the-status-of-an-observation/)
+- [View an Observation](/product-manuals/observations-project/tutorials/view-an-observation/)
+- [View Observations by Type](/product-manuals/observations-project/tutorials/view-observations-by-type/)

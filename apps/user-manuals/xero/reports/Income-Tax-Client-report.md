@@ -1,0 +1,121 @@
+# Income Tax Client report
+
+Source: https://central.xero.com/s/article/Income-Tax-Client-report
+
+---
+
+## Overview
+
+- The Income Tax Client report provides details of your linked clients from the ATO.
+- The report isn't automatic, you generate it by request.
+- Use Report Builder to view details of the report.
+
+About the Income Tax Client report
+
+The Income Tax Client report provides details from the Australian Tax Office (ATO) of clients linked to your registered Tax Agent Number (TAN).
+
+Each time you request this report in Xero the ATO generates it. The details are then available until you download a new report. The report provides information on the four most recent years of data for each client. The latest report requested overwrites the previous details, ensuring the most up-to-date information is available.
+
+View the information in the Income Tax Client report using Report Builder. You can create a custom report to show the details you need.
+
+The ATO allows you to request this report once a day, however we suggest that most tax practices would only need to do this fortnightly or monthly. The Income Tax Client report is made available daily from 5am AEST for all requests done the previous day. You'll need to manually check when the report details are available.
+
+The report works best for practices that don't have their TAN entered in multiple practices. This provides an accurate list of all clients in your records and the Income Tax Client report. For security, Xero is unable to share this report between practices.
+
+If you share your TAN with multiple practices, we suggest downloading the report in each practice. Allow up to 24 hours for each practice to get the report.
+
+Only clients with matching TFNs will update. You can use the existing 'Income tax lodgment status' and 'Outstanding activity statement' ATO reports and [import client records](Import-client-data-into-Xero-Tax.md) into Xero Tax.
+
+When the Income Tax Client report downloads, it will update the **Prepare Tax Form**due date for clients with matching TFNs. It will also update the **Active ATO Client**for clients with matching TFNs.
+
+### Information in the report
+
+Client details included in the Income Tax Client report:
+
+- Tax file number
+- Client type
+- Client first name
+- Client surname
+- Client organisation name
+- Substituted Account Period (SAP)
+- Lodgment method
+- Lodgment status
+- Current financial year lodgment due date
+
+The Income Tax Client report doesn’t include clients with a Further Return Not Necessary (FRNN) indicator or some Security-Assessed Clients (SAC). The report only shows clients who have a tax obligation. If a client doesn't appear on the report you’ll need to check [ATO online services](https://www.ato.gov.au/online-services). This can happen if the client has lodged a final tax return or if further returns aren't necessary.
+
+The report won't create any new client records in Xero Tax. If a client isn't in Xero Tax but is on the ATO list, the data will still be pulled in and available in Report Builder but a new client record won't be created.
+
+The ATO will provide the current year and the last three years of each of your clients, as well as the lodgment due date for the current year. When the report is received from the ATO, your client’s due date will be updated in Xero Tax.
+
+### Tax return due dates
+
+When creating a tax return, due dates are updated as follows:
+
+- **Individual**, **Company**, **Trust**, **Partnership and SMSF returns** – If a current tax return is being created, and the due date is valid for that tax year (eg 15 May), the due date will be populated in the creation window and used in the tax return.
+
+ If a prior year tax return is being created, validation options have been removed, and today's due date will be populated as the due date. You can update this date if needed.
+- **FBT returns**– The due date will be 21 May of the tax year.
+- **PSAR**– The due date will be 14 July of the tax year.
+
+Changing the due dates in the tax return won't update the due date in the client record. Changing the due date in the client record won't affect returns that have already been created.
+
+### View the report history
+
+You’re able to view the event history for the Income Tax Client report. This includes:
+
+- When the report is requested
+- When the report is received
+- The name of the user and a time stamp
+
+To view the history:
+
+1. In the **Business** menu, select **Settings**.
+2. Click on **ATO Online Services**.
+3. Select the **History** tab.
+
+You can export the history as a CSV file.
+
+Request the Income Tax Client report
+
+1. In the **Business** menu, select **Settings**.
+2. Click on **ATO Online Services**.
+3. Under **Income Tax Client Report**, select the relevant tax agent. You can select more than one.
+4. Click **Request Now**.
+
+The Income Tax Client report usually returns details within two hours, however it might take up to 24 hours to be generated by the ATO.
+
+When the new report is received, the old report will be deleted. This means only the latest information will be available for reporting.
+
+View the Income Tax Client report details in Report Builder
+
+Once the Income Tax Client report information is received from the ATO, it’s held in the Practice Manager/Xero Tax database. You need to use Report Builder to view the details.
+
+Data available to report on in the Report Builder:
+
+- Income Tax Client report details (ITCRPT)
+- Client records
+- Tax return status
+
+You need administrator user privilege to create reports using the Income Tax Client report data.
+
+To build a report using Income Tax Client information:
+
+1. In the **Reports** menu, select **Report Builder**.
+2. Click **New report**.
+3. For **Report type**, select **Income Tax Client**, and for **Report layout**, select **Table**.
+4. Use the **[ITCRPT]** fields in sections 2 and 3 of the Report Designer to pull information from the Income Tax Client report.
+5. (Optional) You can use other fields, such as **[Client]**, to add other details to the report.
+6. (Optional) In section 3, use a filter of **[Client] Status includes Client**to hide archived clients.
+
+When you select the report type:
+
+**Income Tax Client – Client**, the report shows a full list of clients in Xero Tax. This can help identify clients in Xero Tax that don't exist in the ATO record.
+
+**Income Tax Client – ITCRPT**, the report shows the full ATO list of clients. This can help identify clients in the ATO list that don't exist in the Xero Tax client record.
+
+You'll need to set the match TFN option to **No** to find clients that don't exist.
+
+## What's next?
+
+Find out [how to create a report](Create-reports-with-Report-Builder.md) using Report Builder.

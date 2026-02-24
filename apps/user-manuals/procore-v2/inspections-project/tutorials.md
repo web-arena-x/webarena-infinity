@@ -1,0 +1,51 @@
+# Inspections (Project)
+
+Source: https://v2.support.procore.com/product-manuals/inspections-project/tutorials
+
+---
+
+Table of Contents
+
+## Tutorials
+
+- [Add a Multi-Tiered Location to an Item](/product-manuals/admin-project/tutorials/add-a-multi-tiered-location-to-an-item/)
+- [Add a Photo to an Inspection so that it Populates in the Photos Tool](/product-manuals/inspections-project/tutorials/add-a-photo-to-an-inspection-so-that-it-populates-in-the-photos-tool/)
+- [Add a Related Item to an Inspection](/product-manuals/inspections-project/tutorials/add-a-related-item-to-an-inspection/)
+- [Add Attachments to an Inspection Item](/product-manuals/inspections-project/tutorials/add-attachments-to-an-inspection-item/)
+- [Add Comments to an Inspection Item](/product-manuals/inspections-project/tutorials/add-comments-to-an-inspection-item/)
+- [Add Company Level Inspection Templates to Your Project](/product-manuals/inspections-project/tutorials/add-company-level-inspection-templates-to-your-project/)
+- [Add Conditional Logic to a Project Level Inspection Template](/product-manuals/inspections-project/tutorials/add-conditional-logic-to-project-level-inspection-template/)
+- [Add Signers to an Inspection](/product-manuals/inspections-project/tutorials/add-signers-to-an-inspection/)
+- [Clone a Project Inspection Template to a Company](/product-manuals/inspections-project/tutorials/clone-a-project-inspection-template-to-company/)
+- [Close an Inspection](/product-manuals/inspections-project/tutorials/close-an-inspection/)
+- [Configure Advanced Settings: Project Level Inspections](/product-manuals/inspections-project/tutorials/configure-advanced-settings-project-level-inspections/)
+- [Create a Project Level Inspection Template](/product-manuals/inspections-project/tutorials/create-a-project-level-inspection-template/)
+- [Create an Inspection](/product-manuals/inspections-project/tutorials/create-an-inspection/)
+- [Create an Inspection Schedule](/product-manuals/inspections-project/tutorials/create-an-inspection-schedule/)
+- [Create an Observation from an Inspection](/product-manuals/inspections-project/tutorials/create-an-observation-from-an-inspection/)
+- [Customize the Column Display in the Inspections Tool](/product-manuals/inspections-project/tutorials/customize-the-column-display-in-the-inspections-tool/)
+- [Delete an Inspection](/product-manuals/inspections-project/tutorials/delete-an-inspection/)
+- [Delete an Inspection Schedule](/product-manuals/inspections-project/tutorials/delete-an-inspection-schedule/)
+- [Delete an Inspection Template](/product-manuals/inspections-project/tutorials/delete-an-inspection-template/)
+- [Edit a Project Level Inspection](/product-manuals/inspections-project/tutorials/edit-a-project-level-inspection/)
+- [Edit a Project Level Inspection Template](/product-manuals/inspections-project/tutorials/edit-a-project-level-inspection-template/)
+- [Edit an Inspection Schedule](/product-manuals/inspections-project/tutorials/edit-an-inspection-schedule/)
+- [Email Inspections](/product-manuals/inspections-project/tutorials/email-inspections/)
+- [Enable the Inspections Tool](/product-manuals/inspections-project/tutorials/enable-the-inspections-tool/)
+- [Export a List of Inspections](/product-manuals/inspections-project/tutorials/export-a-list-of-inspections/)
+- [Export an Individual Inspection](/product-manuals/inspections-project/tutorials/export-an-individual-inspection/)
+- [Group Inspections on the List Page](/product-manuals/inspections-project/tutorials/group-inspections-on-the-list-page/)
+- [Perform an Inspection](/product-manuals/inspections-project/tutorials/perform-an-inspection/)
+- [Reinspect Closed Inspections](/product-manuals/inspections-project/tutorials/reinspect-closed-inspections/)
+- [Resize Column Width in the Inspections Tool](/product-manuals/inspections-project/tutorials/resize-column-width-in-the-inspections-tool/)
+- [Retrieve a Project Level Inspection Template from Recycle Bin](/product-manuals/inspections-project/tutorials/retrieve-a-project-level-inspection-template-from-the-recycle-bin/)
+- [Retrieve an Inspection From the Recycle Bin](/product-manuals/inspections-project/tutorials/retrieve-an-inspection-from-the-recycle-bin/)
+- [Search and Filter for Inspections](/product-manuals/inspections-project/tutorials/search-and-filter-for-inspections/)
+- [Search and Filter Inspection Schedules](/product-manuals/inspections-project/tutorials/search-and-filter-inspection-schedules/)
+- [Sign a Completed Inspection](/product-manuals/inspections-project/tutorials/sign-a-completed-inspection/)
+- [View a Project Level Inspection Template](/product-manuals/inspections-project/tutorials/view-a-project-level-inspection-template/)
+- [View Inspection Schedules](/product-manuals/inspections-project/tutorials/view-inspection-schedules/)
+- [View Project Level Inspections](/product-manuals/inspections-project/tutorials/view-project-level-inspections/)
+- [View Signatures on an Inspection](/product-manuals/inspections-project/tutorials/view-signatures-on-an-inspection/)
+- [View the Activity Feed of Items in an Inspection](/product-manuals/inspections-project/tutorials/view-the-activity-feed-of-items-in-an-inspection/)
+- [View the Change History of an Inspection](/product-manuals/inspections-project/tutorials/view-the-change-history-of-an-inspection/)

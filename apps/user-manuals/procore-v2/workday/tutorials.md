@@ -1,0 +1,58 @@
+# WorkdayÂ®
+
+Source: https://v2.support.procore.com/product-manuals/workday/tutorials
+
+---
+
+Table of Contents
+
+## Tutorials
+
+- [Accept or Reject a CCO for Export to ERP](/product-manuals/erp-integrations-company/tutorials/accept-or-reject-a-cco-for-export-to-erp/)
+- [Accept or Reject a Commitment for Export to ERP](/product-manuals/erp-integrations-company/tutorials/accept-or-reject-a-commitment-for-export-to-erp/)
+- [Accept or Reject a Project for Export to ERP](/product-manuals/erp-integrations-company/tutorials/accept-or-reject-a-project-for-export-to-erp/)
+- [Accept or Reject Subcontractor Invoices for Export to ERP](/product-manuals/erp-integrations-company/tutorials/accept-or-reject-subcontractor-invoices-for-export-to-erp/)
+- [Add an ERP Company to the Procore Company Directory](/product-manuals/erp-integrations-company/tutorials/add-an-erp-company-to-the-company-directory/)
+- [Add an ERP Job to Procore](/product-manuals/erp-integrations-company/tutorials/add-an-erp-job-to-procore/)
+- [Add ERP Standard Cost Codes to a Project](/product-manuals/erp-integrations-company/tutorials/add-erp-standard-cost-codes-to-a-project/)
+- [Add ERP Standard Cost Codes to the Company Level Admin Tool](/product-manuals/erp-integrations-company/tutorials/add-erp-standard-cost-codes-to-the-company-level-admin-tool/)
+- [Archive an ERP Company in Procore](/product-manuals/erp-integrations-company/tutorials/archive-an-erp-company-in-procore/)
+- [Configure Advanced Settings: ERP Integrations](/product-manuals/erp-integrations-company/tutorials/configure-advanced-settings-erp-integrations/)
+- [Configure Cost Code Preferences for ERP](/product-manuals/erp-integrations-company/tutorials/configure-cost-code-preferences-for-erp/)
+- [Consolidate Duplicate Companies in the Company Directory](/product-manuals/erp-integrations-company/tutorials/consolidate-duplicate-companies-in-the-company-directory/)
+- [Delete a Commitment Synced with ERP](/product-manuals/erp-integrations-company/tutorials/delete-a-commitment-synced-with-erp/)
+- [Delete Project Cost Codes from an ERP Integrated Project](/product-manuals/erp-integrations-company/tutorials/delete-project-cost-codes-from-a-procore-erp-project/)
+- [Edit a Commitment Synced with ERP](/product-manuals/erp-integrations-company/tutorials/edit-a-commitment-synced-with-erp/)
+- [Edit Synced Direct Cost Transactions](/product-manuals/erp-integrations-company/tutorials/edit-synced-direct-cost-transactions/)
+- [Enable or Disable ERP Direct Exports](/product-manuals/erp-integrations-company/tutorials/enable-or-disable-erp-direct-exports/)
+- [Export a Commitment Change Order (CCO) to ERP](/product-manuals/erp-integrations-company/tutorials/export-a-cco-to-erp/)
+- [Export a Commitment to ERP](/product-manuals/erp-integrations-company/tutorials/export-a-commitment-to-erp/)
+- [Export Subcontractor Invoices from Procore to ERP](/product-manuals/erp-integrations-company/tutorials/export-subcontractor-invoices-from-procore-to-erp/)
+- [Grant Accounting Approver Privileges](/product-manuals/erp-integrations-company/tutorials/grant-accounting-approver-privileges/)
+- [Import a Prime Contract from an Integrated ERP System into Procore](/product-manuals/erp-integrations-company/tutorials/import-a-prime-contract-from-an-integrated-erp-system-into-procore/)
+- [Import a Prime Contract into Procore from WorkdayÂ®](/product-manuals/workday/tutorials/import-a-prime-contract-from-procore-into-workday/)
+- [Link ERP Companies to Procore Companies](/product-manuals/erp-integrations-company/tutorials/link-erp-companies-to-procore-companies/)
+- [Link ERP Projects to Existing Procore Projects](/product-manuals/erp-integrations-company/tutorials/link-erp-projects-to-procore-projects/)
+- [Resend a Rejected CCO to ERP Integrations for Accounting Acceptance](/product-manuals/erp-integrations-company/tutorials/resend-a-rejected-cco-to-erp-integrations-for-accounting-acceptance/)
+- [Resend a Rejected Commitment to ERP Integrations for Accounting Acceptance](/product-manuals/erp-integrations-company/tutorials/resend-a-rejected-commitment-to-erp-integrations-for-accounting-acceptance/)
+- [Resend a Rejected Project to ERP for Accounting Acceptance](/product-manuals/erp-integrations-company/tutorials/resend-a-rejected-project-to-erp-for-accounting-acceptance/)
+- [Resend a Rejected Subcontractor Invoice to ERP Integrations for Accounting Acceptance](/product-manuals/erp-integrations-company/tutorials/resend-a-rejected-subcontractor-invoice-to-erp-integrations-for-accounting-acceptance/)
+- [Restore an Archived ERP Company for ERP Integrations](/product-manuals/erp-integrations-company/tutorials/restore-an-archived-erp-company-for-erp-integrations/)
+- [Retrieve a CCO from ERP Integrations Before Acceptance](/product-manuals/erp-integrations-company/tutorials/retrieve-a-cco-from-erp-integrations-before-acceptance/)
+- [Retrieve a Commitment from ERP Integrations Before Acceptance](/product-manuals/erp-integrations-company/tutorials/retrieve-a-commitment-from-erp-integrations-before-acceptance/)
+- [Retrieve a Project from ERP Before Accounting Acceptance](/product-manuals/erp-integrations-company/tutorials/retrieve-a-project-from-erp-before-accounting-acceptance/)
+- [Retrieve a Subcontractor Invoice from ERP Integrations Before Acceptance](/product-manuals/erp-integrations-company/tutorials/retrieve-a-subcontractor-invoice-from-erp-integrations-before-acceptance/)
+- [Send a CCO to ERP for Accounting Acceptance](/product-manuals/erp-integrations-company/tutorials/send-a-cco-to-erp-integrations-for-accounting-acceptance/)
+- [Send a Commitment to ERP Integrations for Accounting Acceptance](/product-manuals/erp-integrations-company/tutorials/send-a-commitment-to-erp-integrations-for-accounting-acceptance/)
+- [Send a Procore Project to ERP for Accounting Acceptance](/product-manuals/erp-integrations-company/tutorials/send-a-procore-project-to-erp-integrations-for-accounting-acceptance/)
+- [Send Subcontractor Invoices to ERP Integrations for Accounting Acceptance](/product-manuals/erp-integrations-company/tutorials/send-subcontractor-invoices-to-erp-integrations-for-accounting-acceptance/)
+- [Unlink a Company Synced with ERP](/product-manuals/erp-integrations-company/tutorials/unlink-a-company-synced-with-erp/)
+- [Unlink a Project Synced with ERP](/product-manuals/erp-integrations-company/tutorials/unlink-a-project-synced-with-erp/)
+- [Unlink CCOs Synced with ERP](/product-manuals/erp-integrations-company/tutorials/unlink-ccos-synced-with-erp/)
+- [Unlink Commitments Synced with ERP](/product-manuals/erp-integrations-company/tutorials/unlink-commitments-synced-with-erp/)
+- [Unlink or Reset PCCOs Synced with ERP](/product-manuals/erp-integrations-company/tutorials/unlink-pccos-synced-with-erp/)
+- [Unlink Subcontractor Invoices Synced with ERP](/product-manuals/erp-integrations-company/tutorials/unlink-subcontractor-invoices-synced-with-erp/)
+- [View an Accountant Report for ERP](/product-manuals/erp-integrations-company/tutorials/view-an-accountant-report-for-erp/)
+- [View an ERP Job Costs Report](/product-manuals/erp-integrations-company/tutorials/view-a-erp-job-costs-report/)
+- [View an ERP Unsyncable Direct Costs Report](/product-manuals/erp-integrations-company/tutorials/view-an-ERP-unsyncable-direct-costs-report/)
+- [View the Archived Companies List for ERP](/product-manuals/erp-integrations-company/tutorials/view-the-archived-companies-list-for-erp/)

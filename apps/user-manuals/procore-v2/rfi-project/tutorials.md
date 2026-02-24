@@ -1,0 +1,57 @@
+# RFIs
+
+Source: https://v2.support.procore.com/product-manuals/rfi-project/tutorials
+
+---
+
+Table of Contents
+
+## Tutorials
+
+- [Add a Multi-Tiered Location to an Item](/product-manuals/admin-project/tutorials/add-a-multi-tiered-location-to-an-item/)
+- [Add a Related Item to an RFI](/product-manuals/rfi-project/tutorials/add-a-related-item-to-an-rfi/)
+- [Add Assignees to an RFI as an Assignee on an RFI](/product-manuals/rfi-project/tutorials/add-assignees-to-an-rfi-as-an-assignee-on-an-rfi/)
+- [Apply Configurable Fieldsets to Projects](/product-manuals/admin-company/tutorials/apply-configurable-fieldsets-to-projects/)
+- [Choose an "Official Response" for an RFI](/product-manuals/rfi-project/tutorials/choose-an-official-response-for-an-rfi/)
+- [Close an RFI](/product-manuals/rfi-project/tutorials/close-an-rfi/)
+- [Configure a Prefix and Starting Number for RFIs](/product-manuals/rfi-project/tutorials/configure-a-prefix-and-starting-number-for-rfis/)
+- [Configure Advanced Settings: RFIs](/product-manuals/rfi-project/tutorials/configure-advanced-settings-rfis/)
+- [Copy a Configurable Fieldset](/product-manuals/admin-company/tutorials/copy-a-configurable-fieldset/)
+- [Create a Change Event from an RFI](/product-manuals/rfi-project/tutorials/create-a-change-event-from-an-rfi/)
+- [Create a Correspondence Item from an RFI](/product-manuals/rfi-project/tutorials/create-a-correspondence-item-from-an-rfi/)
+- [Create a Potential Change Order from an RFI](/product-manuals/rfi-project/tutorials/create-a-potential-change-order-from-an-rfi/)
+- [Create an Instruction from an RFI](/product-manuals/rfi-project/tutorials/create-an-instruction-from-an-rfi/)
+- [Create an RFI](/product-manuals/rfi-project/tutorials/create-an-rfi/)
+- [Create and View an RFI Report](/product-manuals/rfi-project/tutorials/create-and-view-an-rfi-report/)
+- [Create Custom Sections](/product-manuals/admin-company/tutorials/create-custom-sections/)
+- [Create New Configurable Fieldsets](/product-manuals/admin-company/tutorials/create-new-configurable-fieldsets/)
+- [Create New Custom Fields](/product-manuals/admin-company/tutorials/create-new-custom-fields/)
+- [Create or Link RFIs on a Drawing](/product-manuals/drawings-project/tutorials/create-or-link-rfis-on-a-drawing/)
+- [Create, Edit, or Delete Saved Views for RFIs](/product-manuals/rfi-project/tutorials/create-edit-or-delete-saved-views-for-rfis/)
+- [Customize the Column Display in the RFIs Tool](/product-manuals/rfi-project/tutorials/customize-the-column-display-in-the-rfis-tools/)
+- [Delete a Response to an RFI](/product-manuals/rfi-project/tutorials/delete-a-response-to-an-rfi/)
+- [Delete an RFI](/product-manuals/rfi-project/tutorials/delete-an-rfi/)
+- [Delete Configurable Fieldsets](/product-manuals/admin-company/tutorials/delete-configurable-fieldsets/)
+- [Designate the Default RFI Manager for a Project's RFIs](/product-manuals/rfi-project/tutorials/designate-the-default-rfi-manager-for-a-projects-rfis/)
+- [Draft an RFI with AI (Beta)](/product-manuals/rfi-project/tutorials/draft-an-rfi-with-ai/)
+- [Edit a Custom RFI Report](/product-manuals/rfi-project/tutorials/edit-a-custom-rfi-report/)
+- [Edit an RFI](/product-manuals/rfi-project/tutorials/edit-an-rfi/)
+- [Edit Configurable Fieldsets](/product-manuals/admin-company/tutorials/edit-configurable-fieldsets/)
+- [Export an RFI](/product-manuals/rfi-project/tutorials/export-an-rfi/)
+- [Export RFIs to CSV or PDF](/product-manuals/rfi-project/tutorials/export-rfis/)
+- [Forward an RFI by Email](/product-manuals/rfi-project/tutorials/forward-an-rfi-by-email/)
+- [Forward an RFI for Review](/product-manuals/rfi-project/tutorials/forward-an-rfi-for-review/)
+- [Navigate Procore's Tools](/product-manuals/login-and-account-management/tutorials/navigate-procores-tools/)
+- [Perform Bulk Actions on RFIs](/product-manuals/rfi-project/tutorials/perform-bulk-actions-on-rfis/)
+- [Remove Configurable Fieldsets from Projects](/product-manuals/admin-company/tutorials/remove-configurable-fieldsets-from-projects/)
+- [Reopen an RFI](/product-manuals/rfi-project/tutorials/reopen-an-rfi/)
+- [Resize the Column Width in the RFIs Log](/product-manuals/rfi-project/tutorials/resize-the-column-width-in-the-rfis-log/)
+- [Respond to an RFI](/product-manuals/rfi-project/tutorials/respond-to-an-rfi/)
+- [Retrieve an RFI from the Recycle Bin](/product-manuals/rfi-project/tutorials/retrieve-an-rfi-from-the-recycle-bin/)
+- [Revise an RFI](/product-manuals/rfi-project/tutorials/revise-an-rfi/)
+- [Search for and Filter RFIs](/product-manuals/rfi-project/tutorials/search-for-and-filter-rfis/)
+- [Share a Custom RFI Report](/product-manuals/rfi-project/tutorials/share-a-custom-rfi-report/)
+- [Shift the Ball In Court on an RFI](/product-manuals/rfi-project/tutorials/shift-the-ball-in-court-on-an-rfi/)
+- [View RFIs](/product-manuals/rfi-project/tutorials/view-rfis/)
+- [View the Change History of an RFI](/product-manuals/rfi-project/tutorials/view-the-change-history-of-an-rfi/)
+- [View the Distribution History of a Custom RFI Report](/product-manuals/rfi-project/tutorials/view-the-distribution-history-of-a-custom-rfi-report/)

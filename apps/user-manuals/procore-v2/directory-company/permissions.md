@@ -1,0 +1,93 @@
+# Directory (Company)
+
+Source: https://v2.support.procore.com/product-manuals/directory-company/permissions
+
+---
+
+Table of Contents
+
+## Permissions
+
+Learn which user permissions are required to take the described actions in this tool.
+
+##### Â Important
+
+Some actions that impact this tool are done in other Procore tools.
+
+#### Permissions
+
+| | The action is available on Procore's Web, iOS, and/or Android application.
+
+Users can take the action with this permission level.
+
+Users can take this action with this permission level AND one or more additional requirements, like [granular permissions](/faq-what-are-permissions-in-procore-and-how-do-they-work).
+
+[What granular permissions are available for the Company level Directory tool?](/faq-what-granular-permissions-are-available-for-the-company-level-directory-tool)
+
+##### Â Important
+
+A user who is granted 'Admin' level permissions on the Company level Directory tool is automatically granted 'Admin' permissions across all Project level and Company level tools.
+
+| [Company Directory Tutorials](/product-manuals/directory-company/tutorials)   Action | None | Read Only | Standard | Admin | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Accept or Deny a User's Request to Join Your Company   [Web](tutorials/accept-or-deny-a-users-request-to-join-your-company.md) | | | | | |
+| Add a Company to a Project   [Web](tutorials/add-a-company-to-a-project-from-the-company-directory.md) | | - Create and Edit Companies | - Create and Edit Companies | | |
+| Add a Company to the Company Directory   [Web](tutorials/add-a-company-to-the-company-directory.md) | | - Create and Edit Companies | - Create and Edit Companies | | |
+| Add a Distribution Group to the Company Directory   [Web](tutorials/add-a-distribution-group-to-the-company-directory.md) | | | | | |
+| Add a User Account to the Company Directory   [Web](tutorials/add-a-user-account-to-the-company-directory.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | Users with granular permissions have the following limitations:   - Can only assign users to [assignable company permissions templates](/faq-what-is-an-assignable-permissions-template). - Can only assign users to projects that they are a part of. |
+| Add a User to a Company [Web](tutorials/add-a-user-to-a-company-in-the-company-directory.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | Users with granular permissions have the following limitations:   - Can only assign users to [assignable company permissions templates](/faq-what-is-an-assignable-permissions-template). - Can only assign users to projects that they are a part of. |
+| Add a User to Future Projects in Your Company's Directory (Beta) [Web](tutorials/add-a-user-to-future-projects-in-your-company-directory.md) | | - Assign to Future Projects | - Assign to Future Projects | | |
+| Add a User to Projects in Your Company's Procore Account (Option 1)   [Web](tutorials/add-an-existing-user-to-projects-in-your-companys-procore-account.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | Users with granular permissions can only add other users to projects that they are members of. |
+| Add a User to Projects in Your Company's Procore Account (Option 2, Beta)   [Web](tutorials/add-an-existing-user-to-projects-in-your-companys-procore-account.md) | | - Add or Update Project Assignment AND - View User Detail | - Add or Update Project Assignment AND - View User Detail | | Users with granular permissions can only add other users to projects that they are members of. |
+| Add Insurance for a Vendor in the Company Directory   [Web](tutorials/add-insurance-to-a-company-record-in-the-company-directory.md) | | - Create and Edit Companies | - Create and Edit Companies | | |
+| Add or Edit Sensitive Fields for People in Resource Planning   [Web](../resource-planning-company/tutorials/edit-people-information-for-resource-planning.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | Users must also have 'Read Only' level permissions or higher to the **Resource Planning** tool with the 'Edit People Details' AND 'Edit People Sensitive Fields' granular permissions in the Resource Planning tool. |
+| Add or Edit Resource Planning Tags   [Web](../resource-planning-company/tutorials/add-or-edit-tags-for-people-in-resource-planning.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | Users must also have 'Read Only' level permissions or higher to the **Resource Planning** tool with the 'Edit People Tags' granular permission in the Resource Planning tool. |
+| Add People to Resource Planning   [Web](../resource-planning-company/tutorials/add-people-to-resource-planning.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | âââââââUsers must also have 'Read Only' level permissions or higher to the **Resource Planning** tool with the 'Create People' granular permission in the Resource Planning tool. |
+| Allow Users to Create New Projects   [Web](tutorials/allow-users-to-create-new-projects.md) | | | | | |
+| Assign a Company Permission Template to a User in the Company Directory   [Web](tutorials/assign-a-company-permissions-template-to-a-user-in-the-company-directory.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | Users with granular permissions have the following limitations:   - Can only assign users to [assignable company permissions templates](/faq-what-is-an-assignable-permissions-template). - Can only assign users to projects that they are a part of. - Cannot change permissions for Company Admins. The 'Company Permissions' section will be hidden for those users. |
+| Assign a Default Project Permissions Template to a User in the Company Directory   [Web](tutorials/assign-a-project-permissions-template-to-a-user-in-the-company-directory.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | Users with granular permissions have the following limitations:   - Must also have 'Read Only' level permissions or higher on the Project level Directory tool with the 'Manage Permission Templates (Assignable Only)' granular permission enabled. - Can only assign other users [assignable permissions templates](/faq-what-is-an-assignable-permissions-template). |
+| Assign a Project Permissions Template to a User in the Company Directory (Option 1) [Web](tutorials/assign-a-project-permissions-template-to-a-user-in-the-company-directory.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | Users with granular permissions have the following limitations:   - Must also have 'Read Only' permissions or higher on the Project level Directory tool with the 'Manage Permission Templates (Assignable Only)' granular permission. - Can only assign global or project specific permissions templates that are designated as [assignable permissions templates](/faq-what-is-an-assignable-permissions-template) for their own project permissions template. - Can only update another user's project permissions template for projects that they have already been added to. |
+| Assign a Project Permissions Template to a User in the Company Directory (Option 2, Beta)   [Web](tutorials/assign-a-project-permissions-template-to-a-user-in-the-company-directory.md) | | - Add or Update Project Assignment AND - View User Detail | - Add or Update Project Assignment AND - View User Detail | | Users with granular permissions have the following limitations:   - Must also have 'Read Only' permissions or higher on the Project level Directory tool with the 'Manage Permission Templates (Assignable Only)' granular permission. - Can only assign global or project specific permissions templates that are designated as [assignable permissions templates](/faq-what-is-an-assignable-permissions-template) for their own project permissions template. - Can only update another user's project permissions template for projects that they have already been added to. |
+| Assign Project Roles from the Company Directory (Option 1)   [Web](tutorials/assign-project-roles-from-the-company-directory.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | |
+| Assign Project Roles from the Company Directory (Option 2, Beta)   [Web](tutorials/assign-project-roles-from-the-company-directory.md) | | - Add or Update Project Assignment AND - View User Detail | - Add or Update Project Assignment AND - View User Detail | | |
+| Change a User's Resource Planning Permissions   [Web](../resource-planning-company/tutorials/change-a-users-permission-template-in-resource-planning.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | âââââââUsers must also have 'Read Only' level permissions or higher to the **Resource Planning** tool with the 'Edit People Permissions and Type' granular permission in the Resource Planning tool. |
+| Configure Advanced Settings: Company Directory   [Web](tutorials/configure-advanced-settings-company-directory.md) | | | | | |
+| Customize the Column Display in the Directory Tool   [Web](tutorials/customize-the-column-display-in-the-company-directory-tool.md) | | | | | |
+| Deactivate a Contact in the Company Directory   [Web](tutorials/inactivate-a-contact-in-the-company-directory.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | |
+| Deactivate a Company in the Company Directory   [Web](tutorials/inactivate-a-company-in-the-company-directory.md) | | - Create and Edit Companies | - Create and Edit Companies | | |
+| Deactivate User Accounts in the Company Directory   [Web](tutorials/inactivate-a-batch-of-user-accounts-in-the-company-directory.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | |
+| Delete a Distribution Group from the Company Directory   [Web](tutorials/delete-a-distribution-group-from-the-company-directory.md) | | | | | |
+| Designate an Insurance Manager for Your Procore Company   [Web](tutorials/designate-an-insurance-manager-for-your-procore-company.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | |
+| Download a vCard for a User Account in the Company Directory   [Web](tutorials/download-a-vcard-for-a-user-account-in-the-company-directory.md) | | | | | |
+| Download a Company or User Import Template   [Web](tutorials/download-the-company-or-user-import-template.md) | | | | | |
+| Edit a Company in the Company Directory   [Web](tutorials/edit-a-company-in-the-company-directory.md) | | - Create and Edit Companies | - Create and Edit Companies | | |
+| Edit a Contact in the Company Directory   [Web](tutorials/edit-a-contact-in-the-company-directory.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | |
+| Edit a Distribution Group in the Company Directory   [Web](tutorials/edit-a-distribution-group-in-the-company-directory.md) | | | | | |
+| Edit a User Account in the Company Directory   [Web](tutorials/edit-a-user-account-in-the-company-directory.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | Users with granular permissions have the following limitations:   - Can only assign users to [assignable company permissions templates](/faq-what-is-an-assignable-permissions-template). - Cannot change permissions for Company Admins. The 'Company Permissions' section will be hidden for those users. |
+| Edit a User's Distribution Groups in the Company Directory   [Web](tutorials/edit-a-users-distribution-groups-in-the-company-directory.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | |
+| Edit a User's Email Address in the Company Directory   [Web](tutorials/edit-a-user-account-in-the-company-directory.md) | | | | | |
+| Edit a User's Login in the Company Directory   [Web](tutorials/edit-a-user-account-in-the-company-directory.md) | | | | | |
+| Edit Resource Planning Information for People   [Web](../resource-planning-company/tutorials/edit-people-information-for-resource-planning.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | âââââââUsers must also have 'Read Only' level permissions or higher to the **Resource Planning** tool with the 'Edit People' granular permission in the Resource Planning tool. |
+| Export the Company Directory to CSV or PDF   Web | | | | | |
+| Invite or Re-invite a User to Procore   [Web](tutorials/export-the-company-directory-to-csv-or-pdf.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | |
+| Manage Attachments for People in Resource Planning   [Web](../resource-planning-company/tutorials/manage-attachments-for-people.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | âââââââUsers must also have 'Read Only' level permissions or higher to the **Resource Planning** tool with the 'Edit People Attachments' granular permission in the Resource Planning tool. |
+| Manage Bid Contacts   [Web](tutorials/set-bidder-information-company-level.md) | | - Create and Edit Companies OR - Manage Bid Contacts | - Create and Edit Companies OR - Manage Bid Contacts | | |
+| Merge Companies   [Web](tutorials/merge-companies.md) | | | | | |
+| Reactivate a Contact in the Company Directory   [Web](tutorials/reactivate-a-contact-in-the-company-directory.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | |
+| Reactivate a Company in the Company Directory   [Web](tutorials/reactivate-a-company-in-the-company-directory.md) | | - Create and Edit Companies | - Create and Edit Companies | | |
+| Reactivate a User in the Company Directory   [Web](tutorials/reactivate-a-user-in-the-company-directory.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | |
+| Refresh Bid Contacts for Connected Companies in the Company Directory   [Web](tutorials/refresh-bid-contacts-for-connected-companies-in-the-company-directory.md) | | - Create and Edit Companies OR - Manage Bid Contacts | - Create and Edit Companies OR - Manage Bid Contacts | | |
+| Remove a User from Projects (Option 1)   [Web](tutorials/remove-an-existing-user-from-projects-in-your-companys-procore-account.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | Users with granular permissions can only remove other users to projects that they are members of. |
+| Remove a User from Projects (Option 2, Beta)   [Web](tutorials/remove-an-existing-user-from-projects-in-your-companys-procore-account.md) | | - Remove Project Assignment AND - View User Detail | - Remove Project Assignment AND - View User Detail | | Users with granular permissions can only remove other users to projects that they are members of. |
+| Remove Company Insurance   [Web](tutorials/remove-company-insurance.md) | | - Create and Edit Companies | - Create and Edit Companies | | |
+| Respond to a 'Welcome to Procore' Email   [Web](tutorials/respond-to-a-welcome-to-procore-email.md) | | | | | |
+| Search and Filter Users, Contacts, and Companies in the Company Directory (Active)   [Web](tutorials/search-and-filter-the-company-directory.md) | | | | | |
+| Search and Filter Companies in the Company Directory (Inactive)   [Web](tutorials/search-and-filter-the-company-directory.md) | | - Create and Edit Companies | - Create and Edit Companies | | |
+| Search and Filter Users and Contacts in the Company Directory (Inactive)   [Web](tutorials/search-and-filter-the-company-directory.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) | - Create and Edit Users (Based on Assignable Permissions Templates) | | |
+| Send a Company or User Import Template to Procore   [Web](tutorials/send-a-completed-company-or-user-import-template-to-procore.md) | | | | | |
+| Set Bidder Information at the Company Level   [Web](tutorials/set-bidder-information-company-level.md) | | - Create and Edit Companies OR - Manage Bid Contacts | - Create and Edit Companies OR - Manage Bid Contacts | | |
+| Update Expiring Insurance for a Vendor in the Company Directory   [Web](tutorials/update-expiring-insurance-for-a-vendor-in-the-company-directory.md) | | - Create and Edit Companies | - Create and Edit Companies | | |
+| View Company Details in the Company Level Directory Tool   [Web](tutorials/view-company-details-in-the-company-level-directory-tool.md) | | - Create and Edit Companies OR - View Company Detail | - Create and Edit Companies OR - View Company Detail | | |
+| View Merge Company History   Web | | | | | |
+| View User Change History   [Web](tutorials/view-merge-company-history.md) | | | | | |
+| View User Details in the Company Level Directory Tool [Web](tutorials/view-user-details-in-the-company-level-directory-tool.md) | | - Create and Edit Users (Based on Assignable Permissions Templates) OR - View User Detail | - Create and Edit Users (Based on Assignable Permissions Templates) OR - View User Detail | | |
