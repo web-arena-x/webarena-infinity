@@ -18,7 +18,10 @@ Type 'q' to quit or pick a different task.
 import argparse
 import importlib.util
 import json
+import subprocess
+import sys
 import time
+import webbrowser
 from pathlib import Path
 
 import requests
@@ -130,6 +133,47 @@ def run_loop(task, tasks, app_dir, server_url):
             return "switch"
 
 
+def _run_web_mode(app_dir, port, server_url):
+    """Start the app server with --test-mode and open the browser."""
+    print(f"Starting server with test panel on port {port}...")
+    proc = subprocess.Popen(
+        [sys.executable, "server.py", "--port", str(port), "--test-mode"],
+        cwd=str(app_dir),
+    )
+    # Poll until server is ready
+    deadline = time.time() + 15
+    ready = False
+    while time.time() < deadline:
+        try:
+            r = requests.get(f"{server_url}/", timeout=2)
+            if r.status_code == 200:
+                ready = True
+                break
+        except requests.ConnectionError:
+            pass
+        time.sleep(0.5)
+
+    if not ready:
+        print("Error: server did not start in time.")
+        proc.terminate()
+        sys.exit(1)
+
+    print(f"Server ready at {server_url}")
+    print("Opening browser... Press Ctrl+C to stop.\n")
+    webbrowser.open(server_url)
+
+    try:
+        proc.wait()
+    except KeyboardInterrupt:
+        print("\nShutting down server...")
+        proc.terminate()
+        try:
+            proc.wait(timeout=5)
+        except subprocess.TimeoutExpired:
+            proc.kill()
+    print("Done.")
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Interactive verifier testing tool for human spot-checking."
@@ -144,6 +188,11 @@ def main():
     parser.add_argument(
         "--port", type=int, default=8080, help="Server port (default: 8080)"
     )
+    parser.add_argument(
+        "--web",
+        action="store_true",
+        help="Start server with in-browser test panel and open in browser",
+    )
     args = parser.parse_args()
 
     app_dir = Path(args.app_dir).resolve()
@@ -152,6 +201,11 @@ def main():
         sys.exit(1)
 
     server_url = f"http://localhost:{args.port}"
+
+    if args.web:
+        _run_web_mode(app_dir, args.port, server_url)
+        return
+
     tasks = load_tasks(app_dir)
 
     # If task_id provided, jump straight to it

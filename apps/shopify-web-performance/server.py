@@ -155,6 +155,14 @@ if __name__ == '__main__':
         idx = sys.argv.index('--port')
         port = int(sys.argv[idx + 1])
 
+    if '--test-mode' in sys.argv:
+        import os as _os
+        _app = _os.path.dirname(_os.path.abspath(__file__))
+        _repo = _os.path.dirname(_os.path.dirname(_app))
+        sys.path.insert(0, _os.path.join(_repo, 'evaluation'))
+        from test_mode import patch_handler_for_test_mode
+        patch_handler_for_test_mode(AppHandler, _app)
+
     server = ThreadedHTTPServer(('', port), AppHandler)
     print(f'Serving on http://localhost:{port}')
     print(f'  API:  GET  http://localhost:{port}/api/state')
