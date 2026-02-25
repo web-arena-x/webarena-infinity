@@ -1,0 +1,182 @@
+[
+  {
+    "id": "task_e1",
+    "difficulty": "easy",
+    "instruction": "Star the email with the subject 'Q1 Product Roadmap Review' from Sarah Chen.",
+    "verify": "tasks/task_e1.py"
+  },
+  {
+    "id": "task_e2",
+    "difficulty": "easy",
+    "instruction": "Mark the email from Marcus Williams about 'Design System Update v4.2' as read.",
+    "verify": "tasks/task_e2.py"
+  },
+  {
+    "id": "task_e3",
+    "difficulty": "easy",
+    "instruction": "Archive the email from Carlos Mendez about 'Shipping Update: Order #LP-2026-8834'.",
+    "verify": "tasks/task_e3.py"
+  },
+  {
+    "id": "task_e4",
+    "difficulty": "easy",
+    "instruction": "Delete the email with the subject 'Property Listing: 45 Oak Avenue' from Tom Bradley.",
+    "verify": "tasks/task_e4.py"
+  },
+  {
+    "id": "task_e5",
+    "difficulty": "easy",
+    "instruction": "Mark the email from Nate Patel about 'CI/CD Pipeline Migration Plan' as important.",
+    "verify": "tasks/task_e5.py"
+  },
+  {
+    "id": "task_e6",
+    "difficulty": "easy",
+    "instruction": "Remove the star from the email with the subject 'Partnership Opportunity - Series B Company' from Emily Rodriguez.",
+    "verify": "tasks/task_e6.py"
+  },
+  {
+    "id": "task_e7",
+    "difficulty": "easy",
+    "instruction": "Move the email from the Crypto Gains sender about 'Turn $100 into $100,000 with this coin!' out of Spam and back to the Inbox.",
+    "verify": "tasks/task_e7.py"
+  },
+  {
+    "id": "task_e8",
+    "difficulty": "easy",
+    "instruction": "Report the email from Amazon with the subject 'Your recommendations: Tech deals of the week' as spam.",
+    "verify": "tasks/task_e8.py"
+  },
+  {
+    "id": "task_e9",
+    "difficulty": "easy",
+    "instruction": "Unblock the email address 'annoying@daily-deals.biz' from the blocked senders list in Settings.",
+    "verify": "tasks/task_e9.py"
+  },
+  {
+    "id": "task_e10",
+    "difficulty": "easy",
+    "instruction": "Turn off Conversation View in Gmail settings.",
+    "verify": "tasks/task_e10.py"
+  },
+  {
+    "id": "task_m1",
+    "difficulty": "medium",
+    "instruction": "Apply the label 'Action Required' to the email from Jennifer Wu with the subject 'Re: Collaboration Proposal'.",
+    "verify": "tasks/task_m1.py"
+  },
+  {
+    "id": "task_m2",
+    "difficulty": "medium",
+    "instruction": "Create a new label called 'Urgent' with a red color.",
+    "verify": "tasks/task_m2.py"
+  },
+  {
+    "id": "task_m3",
+    "difficulty": "medium",
+    "instruction": "Change the inbox layout type to 'Unread first' in Settings.",
+    "verify": "tasks/task_m3.py"
+  },
+  {
+    "id": "task_m4",
+    "difficulty": "medium",
+    "instruction": "Delete the email filter that matches emails from 'sarah.chen@techcorp.io'.",
+    "verify": "tasks/task_m4.py"
+  },
+  {
+    "id": "task_m5",
+    "difficulty": "medium",
+    "instruction": "Rename the label 'Waiting For Reply' to 'Pending Response'.",
+    "verify": "tasks/task_m5.py"
+  },
+  {
+    "id": "task_m6",
+    "difficulty": "medium",
+    "instruction": "Change the theme to 'Dark' in Gmail settings.",
+    "verify": "tasks/task_m6.py"
+  },
+  {
+    "id": "task_m7",
+    "difficulty": "medium",
+    "instruction": "Disable the 'Social' category tab in inbox settings so that Social emails appear in the Primary tab instead.",
+    "verify": "tasks/task_m7.py"
+  },
+  {
+    "id": "task_m8",
+    "difficulty": "medium",
+    "instruction": "Move the email from Sophie Laurent about 'Bonjour! Conference Speaker Invitation' to the 'Travel' label and remove it from the Inbox.",
+    "verify": "tasks/task_m8.py"
+  },
+  {
+    "id": "task_m9",
+    "difficulty": "medium",
+    "instruction": "Change the Undo Send delay to 30 seconds in Settings.",
+    "verify": "tasks/task_m9.py"
+  },
+  {
+    "id": "task_m10",
+    "difficulty": "medium",
+    "instruction": "Set the email density to 'Compact' in Settings.",
+    "verify": "tasks/task_m10.py"
+  },
+  {
+    "id": "task_h1",
+    "difficulty": "hard",
+    "instruction": "Create a new email filter that matches emails from 'notifications@vercel.com' and automatically applies the label 'Work' and marks them as read.",
+    "verify": "tasks/task_h1.py"
+  },
+  {
+    "id": "task_h2",
+    "difficulty": "hard",
+    "instruction": "Create a new label called 'DevOps' as a sub-label under the 'Work' label, with a teal color. Then apply this new label to the email from Nate Patel about 'CI/CD Pipeline Migration Plan'.",
+    "verify": "tasks/task_h2.py"
+  },
+  {
+    "id": "task_h3",
+    "difficulty": "hard",
+    "instruction": "Archive all unread emails in the Promotions category tab.",
+    "verify": "tasks/task_h3.py"
+  },
+  {
+    "id": "task_h4",
+    "difficulty": "hard",
+    "instruction": "Move the email from David Kim about 'Tax Season Reminder: Documents Needed' to the 'Finance' label, star it with a yellow star, and mark it as important.",
+    "verify": "tasks/task_h4.py"
+  },
+  {
+    "id": "task_h5",
+    "difficulty": "hard",
+    "instruction": "Change the inbox type to 'Multiple Inboxes' and set the first section's search query to 'label:Action Required' with the section name 'Action Items'.",
+    "verify": "tasks/task_h5.py"
+  },
+  {
+    "id": "task_h6",
+    "difficulty": "hard",
+    "instruction": "Enable the Reading Pane and set its position to 'Right of inbox'. Then change the maximum page size to 25 emails per page.",
+    "verify": "tasks/task_h6.py"
+  },
+  {
+    "id": "task_h7",
+    "difficulty": "hard",
+    "instruction": "Delete the label 'Newsletters'. All emails previously labeled 'Newsletters' should no longer have this label.",
+    "verify": "tasks/task_h7.py"
+  },
+  {
+    "id": "task_h8",
+    "difficulty": "hard",
+    "instruction": "Compose and send a new email to 'sarah.chen@techcorp.io' with the subject 'Project Update Meeting' and body text 'Hi Sarah, can we schedule a project update meeting for next week? Thanks, Alex'.",
+    "verify": "tasks/task_h8.py"
+  },
+  {
+    "id": "task_h9",
+    "difficulty": "hard",
+    "instruction": "Remove the label 'Action Required' from the email about 'URGENT: Production database issue' from Sarah Chen, and then mark that same email as read.",
+    "verify": "tasks/task_h9.py"
+  },
+  {
+    "id": "task_h10",
+    "difficulty": "hard",
+    "instruction": "Disable keyboard shortcuts, turn off importance markers, and set the default reply behavior to 'Reply all' in Settings.",
+    "verify": "tasks/task_h10.py"
+  }
+]

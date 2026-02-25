@@ -34,8 +34,10 @@ docker compose up --scale gitlab=20  # scale up
 
 ### Running an App Server Directly
 
+Servers use `SimpleHTTPRequestHandler` and serve files relative to CWD, so you must `cd` into the app directory first:
+
 ```bash
-python apps/linear/server.py --port 8000
+cd apps/gmail && python3 server.py --port 8000
 ```
 
 ### AWS Pipeline
@@ -58,7 +60,7 @@ python infra/agent_worker.py
 
 ### Package Management
 
-Uses `uv` (not pip). Python >=3.12 required. The single dependency is `browser-use>=0.11.9`.
+Uses `uv` (not pip). Python >=3.12 required. The single dependency is `browser-use>=0.11.9`. Shared venv lives at `~/mirror-mirror/.venv` — run `uv sync` from the repo root, then `uv pip install playwright && uv run python -m playwright install chromium`.
 
 ## Architecture
 
@@ -132,3 +134,14 @@ Each `tasks/task_*.py` exports `verify(server_url: str) -> tuple[bool, str]`. Ve
 ### Environment Manifest
 
 `infra/env_manifest.jsonl` defines environments to generate. Each line maps an `env_id` to a `docs_path` containing the source documentation.
+
+## Lessons Learned
+
+### Multi-Agent Module Integration
+
+When delegating large JS files (views.js, app.js, etc.) to separate background agents:
+
+- Define cross-module contracts (function signatures, route formats, data flow) **before** delegating
+- Do a post-integration review tracing all cross-module calls (especially render pipelines)
+- Sanity checks test state logic only, not UI rendering — always test in a browser or simulate the full render path in Node
+- Common failure modes: interface mismatches (missing args, wrong route formats, double sort/page)
