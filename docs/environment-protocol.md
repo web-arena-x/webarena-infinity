@@ -74,7 +74,7 @@ python server.py --port PORT   # Default: 8000
 
 ### ID Convention
 - `e` = easy, `m` = medium, `h` = hard
-- 8 tasks per difficulty level (24 total in apps/gitlab-org-management)
+- Typically 8–10 tasks per difficulty level (e.g., 24 total in gitlab-org-management, 30 in gmail)
 
 ## Verifier Script Pattern
 

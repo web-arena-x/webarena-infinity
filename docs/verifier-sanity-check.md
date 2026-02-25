@@ -72,18 +72,7 @@ Write simple lookup helpers that search by name. If an entity isn't found, fail 
 
 ### 2. Match the Serialized Data Shape
 
-Verifiers read state after serialization (JSON round-trip). The solve must produce data in the same shape. A common mistake is using a string where the real data uses a structured object:
-
-```python
-# If the app stores roles as {"id": 50, "name": "Owner", "level": 50}
-# and the verifier checks entry["role"]["name"] == "Owner"
-
-# Wrong — shape mismatch, verifier will fail
-entry["role"] = "Owner"
-
-# Correct — matches the serialized shape
-entry["role"] = {"id": 50, "name": "Owner", "level": 50}
-```
+Verifiers read state after JSON serialization. The solve must produce data in the same shape — structured objects, not plain strings. See [task-design-guide.md § Verifier Conventions](task-design-guide.md#verifier-conventions) for the full explanation.
 
 Define constants for enums/structured values once, reuse everywhere.
 
@@ -111,6 +100,8 @@ When creating new entities, use whatever auto-increment counter the environment 
 If seed data is defined in JavaScript, SQL, or another format, evaluate it programmatically rather than duplicating it as Python dicts. Duplication drifts.
 
 For JavaScript seed data, pipe it through `node -` and parse the JSON output. For SQL fixtures, query the database. The point is: one source of truth, one derivation path.
+
+> **Note:** In practice, existing sanity checks (e.g., gitlab-org-management) construct the expected state directly in Python rather than evaluating the JS source. This is pragmatic when the seed data is stable, but be aware that the Python representation can drift from the JS source over time.
 
 ## Parallel Execution
 

@@ -68,10 +68,10 @@ Each task is defined as a JSON object:
 
 ```json
 {
-  "id": "task_001",
+  "id": "task_e1",
   "difficulty": "easy | medium | hard",
   "instruction": "Natural language instruction for the agent.",
-  "verify": "path/to/verifier.py"
+  "verify": "tasks/task_e1.py"
 }
 ```
 

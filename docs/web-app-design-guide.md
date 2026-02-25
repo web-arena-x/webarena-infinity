@@ -1,4 +1,4 @@
-# Project Specification: Documentation-Driven System Replication
+# Web App Design Guide
 
 ## Objective
 Reconstruct a web application that reflects the **core operational logic, constraints, and behaviors** described in a selected set of inter-connected, user-facing documentation. The goal is fidelity to documented behavior, not feature completeness of the original system.
@@ -355,37 +355,9 @@ function loadState() {
 
 ### 11. Structured Data Serialization
 
-When state objects contain **nested references** (e.g., enum-like constants, configuration objects), the serialized (JSON) representation preserves the full structure. External consumers of the API (verifiers, tests, integrations) must account for this.
+When state objects contain **nested references** (e.g., enum-like constants, configuration objects), the serialized (JSON) representation preserves the full structure. External consumers (verifiers, tests) must dereference to the primitive value — never compare structured fields against plain strings.
 
-#### The Problem
-
-```javascript
-// Roles defined as structured objects:
-const ROLES = {
-    OWNER: { id: 50, name: 'Owner', level: 50 },
-    DEVELOPER: { id: 30, name: 'Developer', level: 30 },
-};
-
-// A record references the object:
-{ userId: 1, role: ROLES.OWNER, ... }
-```
-
-When serialized to JSON, `role` becomes `{"id": 50, "name": "Owner", "level": 50}` — **not** the string `"Owner"`. Any external code comparing `role == "Owner"` will always fail.
-
-#### The Rule
-
-**Never compare structured fields against plain strings.** Always dereference to the primitive value:
-
-```python
-# Correct
-record["role"]["name"] == "Owner"
-record.get("maxRole", {}).get("name") == "Reporter"
-
-# Wrong — always False after serialization
-record["role"] == "Owner"
-```
-
-This applies to any field that stores an object reference rather than a scalar value.
+See [task-design-guide.md § Verifier Conventions](task-design-guide.md#verifier-conventions) for the full explanation and examples.
 
 ### 12. Implementation Checklist
 

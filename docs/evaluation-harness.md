@@ -57,7 +57,7 @@ class AgentResult:
 
 ## Output Structure
 ```
-evaluation/results/{model}_{timestamp}/
+{web-app}/results/{model}_{timestamp}/
 ├── results.json          # Aggregate metrics
 ├── report.html           # HTML report
 └── {task_id}/
@@ -66,6 +66,8 @@ evaluation/results/{model}_{timestamp}/
     ├── conversations/    # LLM prompts & responses
     └── screenshots/      # Step-by-step screenshots
 ```
+
+By default, results are written to `{web-app}/results/`. Override with `--output-dir`.
 
 ## Key Functions in `evaluation/tasks.py`
 
