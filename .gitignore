@@ -14,6 +14,9 @@ wheels/
 
 # Run results (only ignore top-level evaluation results, not per-app results)
 /evaluation/results/
+
+# HTML reports (large, regenerable via: python evaluation/regenerate_report.py <run_dir>)
+**/results/**/report.html
 .notes.md
 
 # Infra worker logs and temp files
