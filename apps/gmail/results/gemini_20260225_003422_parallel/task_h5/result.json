@@ -1,0 +1,22 @@
+{
+  "task_id": "task_h5",
+  "difficulty": "hard",
+  "instruction": "Change the inbox type to 'Multiple Inboxes' and set the first section's search query to 'label:Action Required' with the section name 'Action Items'.",
+  "passed": false,
+  "verifier_message": "Settings issues: inboxType is 'multiple', expected 'multiple_inboxes'.",
+  "elapsed": 39.4,
+  "steps": 9,
+  "is_done": true,
+  "final_result": "Successfully changed the inbox type to 'Multiple Inboxes' and set the first section's search query to 'label:Action Required' with the section name 'Action Items'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

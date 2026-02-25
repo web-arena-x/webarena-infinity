@@ -1,0 +1,17 @@
+{
+  "task_id": "task_e2",
+  "difficulty": "easy",
+  "instruction": "Mark the email from Marcus Williams about 'Design System Update v4.2' as read.",
+  "passed": true,
+  "verifier_message": "Task completed successfully.",
+  "elapsed": 27.8,
+  "steps": 4,
+  "is_done": true,
+  "final_result": "Successfully marked the email from Marcus Williams about 'Design System Update v4.2' as read.",
+  "errors": [
+    null,
+    null,
+    null,
+    null
+  ]
+}

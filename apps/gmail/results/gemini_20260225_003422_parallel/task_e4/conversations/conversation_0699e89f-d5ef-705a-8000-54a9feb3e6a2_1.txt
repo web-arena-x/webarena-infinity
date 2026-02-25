@@ -1,0 +1,1352 @@
+ system 
+You are an AI agent designed to operate in an iterative loop to automate browser tasks. Your ultimate goal is accomplishing the task provided in <user_request>.
+<intro>
+You excel at following tasks:
+1. Navigating complex websites and extracting precise information
+2. Automating form submissions and interactive web actions
+3. Gathering and saving information
+4. Using your filesystem effectively to decide what to keep in your context
+5. Operate effectively in an agent loop
+6. Efficiently performing diverse web tasks
+</intro>
+<language_settings>
+- Default working language: **English**
+- Always respond in the same language as the user request
+</language_settings>
+<input>
+At every step, your input will consist of:
+1. <agent_history>: A chronological event stream including your previous actions and their results.
+2. <agent_state>: Current <user_request>, summary of <file_system>, <todo_contents>, and <step_info>.
+3. <browser_state>: Current URL, open tabs, interactive elements indexed for actions, and visible page content.
+4. <browser_vision>: Screenshot of the browser with bounding boxes around interactive elements. If you used screenshot before, this will contain a screenshot.
+5. <read_state> This will be displayed only if your previous action was extract or read_file. This data is only shown in the current step.
+</input>
+<agent_history>
+Agent history will be given as a list of step information as follows:
+<step_{step_number}>:
+Evaluation of Previous Step: Assessment of last action
+Memory: Your memory of this step
+Next Goal: Your goal for this step
+Action Results: Your actions and their results
+</step_{step_number}>
+and system messages wrapped in <sys> tag.
+</agent_history>
+<user_request>
+USER REQUEST: This is your ultimate objective and always remains visible.
+- This has the highest priority. Make the user happy.
+- If the user request is very specific - then carefully follow each step and dont skip or hallucinate steps.
+- If the task is open ended you can plan yourself how to get it done.
+</user_request>
+<browser_state>
+1. Browser State will be given as:
+Current URL: URL of the page you are currently viewing.
+Open Tabs: Open tabs with their ids.
+Interactive Elements: All interactive elements will be provided in format as [index]<type>text</type> where
+- index: Numeric identifier for interaction
+- type: HTML element type (button, input, etc.)
+- text: Element description
+Examples:
+[33]<div>User form</div>
+\t*[35]<button aria-label='Submit form'>Submit</button>
+Note that:
+- Only elements with numeric indexes in [] are interactive
+- (stacked) indentation (with \t) is important and means that the element is a (html) child of the element above (with a lower index)
+- Elements tagged with a star `*[` are the new interactive elements that appeared on the website since the last step - if url has not changed. Your previous actions caused that change. Think if you need to interact with them, e.g. after input you might need to select the right option from the list.
+- Pure text elements without [] are not interactive.
+</browser_state>
+<browser_vision>
+If you used screenshot before, you will be provided with a screenshot of the current page with  bounding boxes around interactive elements. This is your GROUND TRUTH: reason about the image in your thinking to evaluate your progress.
+If an interactive index inside your browser_state does not have text information, then the interactive index is written at the top center of it's element in the screenshot.
+Use screenshot if you are unsure or simply want more information.
+</browser_vision>
+<browser_rules>
+Strictly follow these rules while using the browser and navigating the web:
+- Only interact with elements that have a numeric [index] assigned.
+- Only use indexes that are explicitly provided.
+- If research is needed, open a **new tab** instead of reusing the current one.
+- If the page changes after, for example, an input text action, analyse if you need to interact with new elements, e.g. selecting the right option from the list.
+- By default, only elements in the visible viewport are listed.
+- If a captcha appears, attempt solving it if possible. If not, use fallback strategies (e.g., alternative site, backtrack). Do not spend more than 3-4 steps on a single captcha - if blocked, try alternative approaches or report the limitation.
+- If the page is not fully loaded, use the wait action.
+- You can call extract on specific pages to gather structured semantic information from the entire page, including parts not currently visible.
+- Call extract only if the information you are looking for is not visible in your <browser_state> otherwise always just use the needed text from the <browser_state>.
+- Calling the extract tool is expensive! DO NOT query the same page with the same extract query multiple times. Make sure that you are on the page with relevant information based on the screenshot before calling this tool.
+- Use search_page to quickly find specific text or patterns on the page — it's free and instant. Great for: verifying content exists, finding where data is located, checking for error messages, locating prices/dates/IDs.
+- Use find_elements with CSS selectors to explore DOM structure — also free and instant. Great for: counting items (e.g. table rows, product cards), getting links or attributes, understanding page layout before extracting.
+- Prefer search_page and find_elements over scrolling when looking for specific content not visible in browser_state.
+- If you fill an input field and your action sequence is interrupted, most often something changed e.g. suggestions popped up under the field.
+- If the action sequence was interrupted in previous step due to page changes, make sure to complete any remaining actions that were not executed. For example, if you tried to input text and click a search button but the click was not executed because the page changed, you should retry the click action in your next step.
+- If the <user_request> includes specific page information such as product type, rating, price, location, etc., ALWAYS look for filter/sort options FIRST before browsing results. Apply all relevant filters before scrolling through results.
+- The <user_request> is the ultimate goal. If the user specifies explicit steps, they have always the highest priority.
+- If you input into a field, you might need to press enter, click the search button, or select from dropdown for completion.
+- For autocomplete/combobox fields (e.g. search boxes with suggestions, fields with role="combobox"): type your search text, then WAIT for the suggestions dropdown to appear in the next step. If suggestions appear (new elements marked with *[), click the correct one instead of pressing Enter. If no suggestions appear after one step, you may press Enter or submit normally.
+- Don't login into a page if you don't have to. Don't login if you don't have the credentials.
+- There are 2 types of tasks always first think which type of request you are dealing with:
+1. Very specific step by step instructions:
+- Follow them as very precise and don't skip steps. Try to complete everything as requested.
+2. Open ended tasks. Plan yourself, be creative in achieving them.
+- If you get stuck e.g. with logins or captcha in open-ended tasks you can re-evaluate the task and try alternative ways, e.g. sometimes accidentally login pops up, even though there some part of the page is accessible or you get some information via web search.
+- If you reach a PDF viewer, the file is automatically downloaded and you can see its path in <available_file_paths>. You can either read the file or scroll in the page to see more.
+- Handle popups, modals, cookie banners, and overlays immediately before attempting other actions. Look for close buttons (X, Close, Dismiss, No thanks, Skip) or accept/reject options. If a popup blocks interaction with the main page, handle it first.
+- If you encounter access denied (403), bot detection, or rate limiting, do NOT repeatedly retry the same URL. Try alternative approaches or report the limitation.
+- Detect and break out of unproductive loops: if you are on the same URL for 3+ steps without meaningful progress, or the same action fails 2-3 times, try a different approach. Track what you have tried in memory to avoid repeating failed approaches.
+</browser_rules>
+<file_system>
+- You have access to a persistent file system which you can use to track progress, store results, and manage long tasks.
+- Your file system is initialized with a `todo.md`: Use this to keep a checklist for known subtasks. Use `replace_file` tool to update markers in `todo.md` as first action whenever you complete an item. This file should guide your step-by-step execution when you have a long running task.
+- If you are writing a `csv` file, make sure to use double quotes if cell elements contain commas.
+- If the file is too large, you are only given a preview of your file. Use `read_file` to see the full content if necessary.
+- If exists, <available_file_paths> includes files you have downloaded or uploaded by the user. You can only read or upload these files but you don't have write access.
+- If the task is really long, initialize a `results.md` file to accumulate your results.
+- DO NOT use the file system if the task is less than 10 steps!
+</file_system>
+<planning>
+Decide whether to plan based on task complexity:
+- Simple task (1-3 actions, e.g. "go to X and click Y"): Act directly. Do NOT output `plan_update`.
+- Complex but clear task (multi-step, known approach): Output `plan_update` immediately with 3-10 todo items.
+- Complex and unclear task (unfamiliar site, vague goal): Explore for a few steps first, then output `plan_update` once you understand the landscape.
+When a plan exists, `<plan>` in your input shows status markers: [x]=done, [>]=current, [ ]=pending, [-]=skipped.
+Output `current_plan_item` (0-indexed) to indicate which item you are working on.
+Output `plan_update` again only to revise the plan after unexpected obstacles or after exploration.
+Completing all plan items does NOT mean the task is done. Always verify against the original <user_request> before calling `done`.
+</planning>
+<task_completion_rules>
+You must call the `done` action in one of two cases:
+- When you have fully completed the USER REQUEST.
+- When you reach the final allowed step (`max_steps`), even if the task is incomplete.
+- If it is ABSOLUTELY IMPOSSIBLE to continue.
+The `done` action is your opportunity to terminate and share your findings with the user.
+- Set `success` to `true` only if the full USER REQUEST has been completed with no missing components.
+- If any part of the request is missing, incomplete, or uncertain, set `success` to `false`.
+- You can use the `text` field of the `done` action to communicate your findings and `files_to_display` to send file attachments to the user, e.g. `["results.md"]`.
+- Put ALL the relevant information you found so far in the `text` field when you call `done` action.
+- Combine `text` and `files_to_display` to provide a coherent reply to the user and fulfill the USER REQUEST.
+- You are ONLY ALLOWED to call `done` as a single action. Don't call it together with other actions.
+- If the user asks for specified format, such as "return JSON with following structure", "return a list of format...", MAKE sure to use the right format in your answer.
+- If the user asks for a structured output, your `done` action's schema will be modified. Take this schema into account when solving the task!
+- When you reach 75% of your step budget, critically evaluate whether you can complete the full task in the remaining steps.
+  If completion is unlikely, shift strategy: focus on the highest-value remaining items and consolidate your results (save progress to files if the file system is in use).
+  This ensures that when you do call `done` (at max_steps or earlier), you have meaningful partial results to deliver.
+- For large multi-item tasks (e.g. "search 50 items"), estimate the per-item cost from the first few items.
+  If the task will exceed your budget, prioritize the most important items and save results incrementally.
+<pre_done_verification>
+BEFORE calling `done` with `success=true`, you MUST perform this verification:
+1. **Re-read the USER REQUEST** — list every concrete requirement (items to find, actions to perform, format to use, filters to apply).
+2. **Check each requirement against your results:**
+   - Did you extract the CORRECT number of items? (e.g., "list 5 items" → count them)
+   - Did you apply ALL specified filters/criteria? (e.g., price range, date, location)
+   - Does your output match the requested format exactly?
+3. **Verify actions actually completed:**
+   - If you submitted a form, posted a comment, or saved a file — check the page state or screenshot to confirm it happened.
+   - If you took a screenshot or downloaded a file — verify it exists in your file system.
+4. **Check for fabricated content:**
+   - Every fact, price, name, and date in your response must come from the page you visited — never generate plausible-sounding data.
+5. **If ANY requirement is unmet, uncertain, or unverifiable — set `success` to `false`.**
+   Partial results with `success=false` are more valuable than overclaiming success.
+</pre_done_verification>
+</task_completion_rules>
+<action_rules>
+- You are allowed to use a maximum of 5 actions per step.
+If you are allowed multiple actions, you can specify multiple actions in the list to be executed sequentially (one after another).
+- If the page changes after an action, the remaining actions are automatically skipped and you get the new state.
+Check the browser state each step to verify your previous action achieved its goal.
+</action_rules>
+<efficiency_guidelines>
+You can output multiple actions in one step. Try to be efficient where it makes sense. Do not predict actions which do not make sense for the current page.
+
+**Action categories:**
+- **Page-changing (always last):** `navigate`, `search`, `go_back`, `switch` — these always change the page. Remaining actions after them are skipped automatically.
+- **Potentially page-changing:** `click` (on links/buttons that navigate), `evaluate` (with JS navigation) — monitored at runtime; if the page changes, remaining actions are skipped.
+- **Safe to chain:** `input`, `scroll`, `find_text`, `extract`, `search_page`, file operations — these do not change the page and can be freely combined.
+
+**Recommended combinations:**
+- `input` + `input` + `input` + `click` → Fill multiple form fields then submit
+- `input` + `input` → Fill multiple form fields
+- `scroll` + `scroll` → Scroll further down the page
+- `click` + `click` → Navigate multi-step flows (only when clicks do not navigate)
+- File operations + browser actions
+
+Do not try multiple different paths in one step. Always have one clear goal per step.
+Place any page-changing action **last** in your action list, since actions after it will not run.
+</efficiency_guidelines>
+<reasoning_rules>
+You must reason explicitly and systematically at every step in your `thinking` block.
+Exhibit the following reasoning patterns to successfully achieve the <user_request>:
+- Reason about <agent_history> to track progress and context toward <user_request>.
+- Analyze the most recent "Next Goal" and "Action Result" in <agent_history> and clearly state what you previously tried to achieve.
+- Analyze all relevant items in <agent_history>, <browser_state>, <read_state>, <file_system>, <read_state> and the screenshot to understand your state.
+- Explicitly judge success/failure/uncertainty of the last action. Never assume an action succeeded just because it appears to be executed in your last step in <agent_history>. For example, you might have "Action 1/1: Input '2025-05-05' into element 3." in your history even though inputting text failed. Always verify using <browser_vision> (screenshot) as the primary ground truth. If a screenshot is unavailable, fall back to <browser_state>. If the expected change is missing, mark the last action as failed (or uncertain) and plan a recovery.
+- If todo.md is empty and the task is multi-step, generate a stepwise plan in todo.md using file tools.
+- Analyze `todo.md` to guide and track your progress.
+- If any todo.md items are finished, mark them as complete in the file.
+- Analyze whether you are stuck, e.g. when you repeat the same actions multiple times without any progress. Then consider alternative approaches.
+- Analyze the <read_state> where one-time information are displayed due to your previous action. Reason about whether you want to keep this information in memory and plan writing them into a file if applicable using the file tools.
+- If you see information relevant to <user_request>, plan saving the information into a file.
+- Before writing data into a file, analyze the <file_system> and check if the file already has some content to avoid overwriting.
+- Decide what concise, actionable context should be stored in memory to inform future reasoning.
+- When ready to finish, state you are preparing to call done and communicate completion/results to the user.
+- Before done, use read_file to verify file contents intended for user output.
+- Always reason about the <user_request>. Make sure to carefully analyze the specific steps and information required. E.g. specific filters, specific form fields, specific information to search. Make sure to always compare the current trajectory with the user request.
+</reasoning_rules>
+<examples>
+Here are examples of good output patterns. Use them as reference but never copy them directly.
+<todo_examples>
+  "write_file": {
+    "file_name": "todo.md",
+    "content": "# ArXiv CS.AI Recent Papers Collection Task\n\n## Goal: Collect metadata for 20 most recent papers\n\n## Tasks:\n- [ ] Navigate to https://arxiv.org/list/cs.AI/recent\n- [ ] Initialize papers.md file for storing paper data\n- [ ] Collect paper 1/20: The Automated LLM Speedrunning Benchmark\n- [x] Collect paper 2/20: AI Model Passport\n- [ ] Collect paper 3/20: Embodied AI Agents\n- [ ] Collect paper 4/20: Conceptual Topic Aggregation\n- [ ] Collect paper 5/20: Artificial Intelligent Disobedience\n- [ ] Continue collecting remaining papers from current page\n- [ ] Navigate through subsequent pages if needed\n- [ ] Continue until 20 papers are collected\n- [ ] Verify all 20 papers have complete metadata\n- [ ] Final review and completion"
+  }
+</todo_examples>
+<evaluation_examples>
+- Positive Examples:
+"evaluation_previous_goal": "Successfully navigated to the product page and found the target information. Verdict: Success"
+"evaluation_previous_goal": "Clicked the login button and user authentication form appeared. Verdict: Success"
+- Negative Examples:
+"evaluation_previous_goal": "Failed to input text into the search bar as I cannot see it in the image. Verdict: Failure"
+"evaluation_previous_goal": "Clicked the submit button with index 15 but the form was not submitted successfully. Verdict: Failure"
+</evaluation_examples>
+<memory_examples>
+"memory": "Visited 2 of 5 target websites. Collected pricing data from Amazon ($39.99) and eBay ($42.00). Still need to check Walmart, Target, and Best Buy for the laptop comparison."
+"memory": "Found many pending reports that need to be analyzed in the main page. Successfully processed the first 2 reports on quarterly sales data and moving on to inventory analysis and customer feedback reports."
+"memory": "Search returned results but no filter applied yet. User wants items under $50 with 4+ stars. Will apply price filter first, then rating filter."
+"memory": "Popup appeared blocking the page. Need to close it first before continuing with search."
+"memory": "Previous click on search button failed - page did not change. Will try pressing Enter in the search field instead."
+"memory": "Captcha appeared twice on this site. Will try alternative approach via search engine instead of direct navigation."
+"memory": "403 error on main product page. Will try searching for the product on a different site instead of retrying."
+</memory_examples>
+<next_goal_examples>
+"next_goal": "Click on the 'Add to Cart' button to proceed with the purchase flow."
+"next_goal": "Extract details from the first item on the page."
+"next_goal": "Close the popup that appeared blocking the main content."
+"next_goal": "Apply price filter to narrow results to items under $50."
+</next_goal_examples>
+</examples>
+<output>
+You must ALWAYS respond with a valid JSON in this exact format:
+{
+  "thinking": "A structured <think>-style reasoning block that applies the <reasoning_rules> provided above.",
+  "evaluation_previous_goal": "Concise one-sentence analysis of your last action. Clearly state success, failure, or uncertain.",
+  "memory": "1-3 sentences of specific memory of this step and overall progress. You should put here everything that will help you track progress in future steps. Like counting pages visited, items found, etc.",
+  "next_goal": "State the next immediate goal and action to achieve it, in one clear sentence.",
+  "current_plan_item": 0,
+  "plan_update": ["Todo item 1", "Todo item 2", "Todo item 3"],
+  "action":[{"navigate": { "url": "url_value"}}, // ... more actions in sequence]
+}
+Action list should NEVER be empty.
+`current_plan_item` and `plan_update` are optional. See <planning> for details.
+</output>
+<critical_reminders>
+1. ALWAYS verify action success using the screenshot before proceeding
+2. ALWAYS handle popups/modals/cookie banners before other actions
+3. ALWAYS apply filters when user specifies criteria (price, rating, location, etc.)
+4. NEVER repeat the same failing action more than 2-3 times - try alternatives
+5. NEVER assume success - always verify from screenshot or browser state
+6. If blocked by captcha/login/403, try alternative approaches rather than retrying
+7. Put ALL relevant findings in done action's text field
+8. Match user's requested output format exactly
+9. Track progress in memory to avoid loops
+10. When at max_steps, call done with whatever results you have
+11. Always compare current trajectory against the user's original request
+12. Be efficient - combine actions when possible but verify results between major steps
+</critical_reminders>
+<error_recovery>
+When encountering errors or unexpected states:
+1. First, verify the current state using screenshot as ground truth
+2. Check if a popup, modal, or overlay is blocking interaction
+3. If an element is not found, scroll to reveal more content
+4. If an action fails repeatedly (2-3 times), try an alternative approach
+5. If blocked by login/captcha/403, consider alternative sites or search engines
+6. If the page structure is different than expected, re-analyze and adapt
+7. If stuck in a loop, explicitly acknowledge it in memory and change strategy
+8. If max_steps is approaching, prioritize completing the most important parts of the task
+</error_recovery>
+
+
+ user 
+<agent_history>
+Agent initialized
+<step>
+Result
+Found initial url and automatically loaded it. Navigated to http://localhost:8002
+</agent_history>
+
+<agent_state>
+<user_request>
+You are interacting with a web application at http://localhost:8002. Your task: Delete the email with the subject 'Property Listing: 45 Oak Avenue' from Tom Bradley.
+</user_request>
+<file_system>
+
+</file_system>
+<todo_contents>
+[empty todo.md, fill it when applicable]
+</todo_contents>
+<step_info>Step1 maximum:500
+Today:2026-02-25</step_info>
+</agent_state>
+<browser_state>
+<page_stats>0 links, 724 interactive, 0 iframes, 1 shadow(open), 0 shadow(closed), 1093 total elements</page_stats>
+Current tab: D588
+Available tabs:
+Tab D588: http://localhost:8002/ - localhost:8002
+
+<page_info>0.0 above, 0.0 below </page_info>
+
+Interactive elements:
+[Start of page]
+[127]<button id=menuToggle aria-label=Main menu />
+<svg /> <!-- SVG content collapsed -->
+Gmail
+[171]<div id=searchBar />
+	[173]<button aria-label=Search />
+	|SHADOW(open)|[69]<input type=text id=searchInput placeholder=Search mail autocomplete=off />
+	[128]<button id=searchOptionsBtn aria-label=Show search options />
+[189]<button id=settingsBtn aria-label=Settings />
+[195]<div id=userAvatar />
+	[197]<span id=userInitials />
+		AJ
+|scroll element|<nav id=sidebar /> (0.0 pages above, 0.1 pages below)
+	[209]<button id=composeBtn />
+		Compose
+	[221]<div />
+		[222]<span />
+			[223]<svg /> <!-- SVG content collapsed -->
+		[225]<span />
+			Inbox
+		[227]<span />
+			19
+	[229]<div />
+		[230]<span />
+			[231]<svg /> <!-- SVG content collapsed -->
+		[233]<span />
+			Starred
+	[235]<div />
+		[236]<span />
+			[237]<svg /> <!-- SVG content collapsed -->
+		[239]<span />
+			Snoozed
+	[241]<div />
+		[242]<span />
+			[243]<svg /> <!-- SVG content collapsed -->
+		[245]<span />
+			Sent
+	[247]<div />
+		[248]<span />
+			[249]<svg /> <!-- SVG content collapsed -->
+		[251]<span />
+			Drafts
+		[253]<span />
+	[255]<div />
+		[256]<span />
+			[257]<svg /> <!-- SVG content collapsed -->
+		[259]<span />
+			Important
+	[261]<div />
+		[262]<span />
+			[263]<svg /> <!-- SVG content collapsed -->
+		[265]<span />
+			All Mail
+	[267]<div />
+		[268]<span />
+			[269]<svg /> <!-- SVG content collapsed -->
+		[271]<span />
+			Spam
+		[273]<span />
+	[275]<div />
+		[276]<span />
+			[277]<svg /> <!-- SVG content collapsed -->
+		[279]<span />
+			Trash
+	Labels
+	[285]<button />
+	[287]<div />
+		[288]<span />
+		[289]<span />
+			Work
+		[291]<span />
+			12
+	[293]<div />
+		[294]<span />
+		[295]<span />
+			Projects
+		[297]<span />
+	[299]<div />
+		[300]<span />
+		[301]<span />
+			Meetings
+		[303]<span />
+	[305]<div />
+		[306]<span />
+		[307]<span />
+			Clients
+		[309]<span />
+	[311]<div />
+		[312]<span />
+		[313]<span />
+			HR
+	[315]<div />
+		[316]<span />
+		[317]<span />
+			Personal
+	[319]<div />
+		[320]<span />
+		[321]<span />
+			Family
+	[323]<div />
+		[324]<span />
+		[325]<span />
+			Friends
+	[327]<div />
+		[328]<span />
+		[329]<span />
+			Finance
+	[331]<div />
+		[332]<span />
+		[333]<span />
+			Invoices
+	[335]<div />
+		[336]<span />
+		[337]<span />
+			Banking
+	[339]<div />
+		[340]<span />
+		[341]<span />
+			Travel
+		[343]<span />
+	[345]<div />
+		[346]<span />
+		[347]<span />
+			Receipts
+	[349]<div />
+		[350]<span />
+		[351]<span />
+			Newsletters
+		[353]<span />
+	[355]<div />
+		[356]<span />
+		[357]<span />
+			Health
+	[359]<div />
+		[360]<span />
+		[361]<span />
+			Education
+	[363]<div />
+		[364]<span />
+		[365]<span />
+			Action Required
+		[367]<span />
+	[369]<div />
+		[370]<span />
+		[371]<span />
+			Waiting For Reply
+		[373]<span />
+	[375]<div />
+		[376]<span />
+		[377]<span />
+			Reference
+	[379]<div />
+		[380]<span />
+			[381]<svg /> <!-- SVG content collapsed -->
+		[383]<span />
+			Create new label
+[395]<div />
+	[70]<input type=checkbox id=selectAllCheckbox checked=false />
+	[396]<button />
+[398]<button title=Refresh />
+1-48 of 48
+|scroll element|<div id=contentWrapper /> (0.0 pages above, 1.0 pages below)
+	[419]<button />
+		Primary
+	[427]<button />
+		Social
+	[435]<button />
+		Promotions
+	[443]<button />
+		Updates
+	[451]<button />
+		Forums
+	[460]<div />
+		[71]<input type=checkbox checked=false />
+		[461]<button />
+		[463]<button />
+		[465]<span />
+			Sarah Chen
+		[467]<div />
+			[468]<span />
+				Q1 Product Roadmap Review
+			[470]<span />
+				[471]<span />
+					Work
+				[473]<span />
+					Projects
+			[475]<span />
+				Hi Alex, I've attached the updated Q1 product roadmap for your review. Please take a look before our meeting on Thursday.
+		[478]<span title=Has attachment />
+			[479]<svg /> <!-- SVG content collapsed -->
+		[481]<span />
+			4:15 AM
+	[496]<div />
+		[72]<input type=checkbox checked=false />
+		[497]<button />
+		[499]<button />
+		[501]<span />
+			Priya Sharma
+		[503]<div />
+			[504]<span />
+				Re: API Integration Issue
+			[506]<span />
+				[507]<span />
+					Work
+				[509]<span />
+					Projects
+			[511]<span />
+				I found the root cause. The timeout was set to 30s but the new endpoint needs at least 45s. I'll push a fix today.
+		[514]<span />
+			3:42 AM
+	[529]<div />
+		[73]<input type=checkbox checked=false />
+		[530]<button />
+		[532]<button />
+		[534]<span />
+			Morning Brew
+		[536]<div />
+			[537]<span />
+				Daily Brew: Fed signals rate cuts
+			[539]<span />
+				[540]<span />
+					Newsletters
+			[542]<span />
+				Fed Chair signals possible rate cuts in Q2. Tesla hits $300/share. Apple Vision Pro sales surge 200%.
+		[545]<span />
+			1:30 AM
+	[560]<div />
+		[74]<input type=checkbox checked=false />
+		[561]<button />
+			[562]<span />
+		[564]<button />
+		[566]<span />
+			Priya Sharma
+		[568]<div />
+			[569]<span />
+				API Integration Issue
+			[571]<span />
+				[572]<span />
+					Work
+				[574]<span />
+					Projects
+			[576]<span />
+				Hey Alex, we're seeing intermittent failures on the payment gateway API. Getting 504 errors about 15% of the time.
+		[579]<span />
+			Yesterday
+	[594]<div />
+		[75]<input type=checkbox checked=false />
+		[595]<button />
+		[597]<button />
+		[599]<span />
+			David Kim
+		[601]<div />
+			[602]<span />
+				Monthly Financial Report - January 2026
+			[604]<span />
+				[605]<span />
+					Finance
+				[607]<span />
+					Invoices
+			[609]<span />
+				Please find attached the January financial summary. Revenue was up 12% MoM, with notable growth in enterprise segment.
+		[612]<span title=Has attachment />
+			[613]<svg /> <!-- SVG content collapsed -->
+		[615]<span />
+			Yesterday
+	[630]<div />
+		[76]<input type=checkbox checked=false />
+		[631]<button />
+		[633]<button />
+		[635]<span />
+			Marcus Williams
+		[637]<div />
+			[638]<span />
+				Design System Update v4.2
+			[640]<span />
+				[641]<span />
+					Work
+			[643]<span />
+				The new component library is ready for review. Key changes: updated color tokens, new navigation patterns, and improved responsive breakpoints.
+		[646]<span title=Has attachment />
+			[647]<svg /> <!-- SVG content collapsed -->
+		[649]<span />
+			Yesterday
+	[664]<div />
+		[77]<input type=checkbox checked=false />
+		[665]<button />
+			[666]<span />
+		[668]<button />
+		[670]<span />
+			Emily Rodriguez
+		[672]<div />
+			[673]<span />
+				Partnership Opportunity - Series B Company
+			[675]<span />
+				[676]<span />
+					Work
+				[678]<span />
+					Clients
+				[680]<span />
+					Action Required
+			[682]<span />
+				Alex, I'd like to introduce you to a Series B company in the AI space. They're looking for integration partners and I think there's a great fit.
+		[685]<span />
+			Yesterday
+	[700]<div />
+		[78]<input type=checkbox checked=false />
+		[701]<button />
+		[703]<button />
+		[705]<span />
+			Kevin Zhao
+		[707]<div />
+			[708]<span />
+				Research Paper: Quantum Error Correction
+			[710]<span />
+				[711]<span />
+					Education
+				[713]<span />
+					Reference
+			[715]<span />
+				Our team just published a new paper on quantum error correction codes. Thought you might find it interesting given our conversation last week.
+		[718]<span title=Has attachment />
+			[719]<svg /> <!-- SVG content collapsed -->
+		[721]<span />
+			Sun
+	[736]<div />
+		[79]<input type=checkbox checked=false />
+		[737]<button />
+		[739]<button />
+		[741]<span />
+			Nate Patel
+		[743]<div />
+			[744]<span />
+				CI/CD Pipeline Migration Plan
+			[746]<span />
+				[747]<span />
+					Work
+				[749]<span />
+					Projects
+				[751]<span />
+					Action Required
+			[753]<span />
+				Here's the migration plan for moving our CI/CD from Jenkins to GitHub Actions. Estimated 3 weeks for full cutover.
+		[756]<span title=Has attachment />
+			[757]<svg /> <!-- SVG content collapsed -->
+		[759]<span />
+			Sun
+	[774]<div />
+		[80]<input type=checkbox checked=false />
+		[775]<button />
+		[777]<button />
+		[779]<span />
+			Maya Patel
+		[781]<div />
+			[782]<span />
+				Team Standup Notes - Feb 22
+			[784]<span />
+				[785]<span />
+					Work
+				[787]<span />
+					Meetings
+			[129]<span />
+				Quick summary from today's standup: Backend team finishing auth refactor, Frontend starting dashboard redesign, QA blocked on staging env.
+		[791]<span />
+			Sun
+	[806]<div />
+		[81]<input type=checkbox checked=false />
+		[807]<button />
+			[808]<span />
+		[810]<button />
+		[812]<span />
+			The Pragmatic Engineer
+		[814]<div />
+			[815]<span />
+				Big Tech hiring is back - what changed?
+			[817]<span />
+				[818]<span />
+					Newsletters
+				[820]<span />
+					Reference
+			[822]<span />
+				After 2 years of hiring freezes, FAANG companies are ramping up. Here's what's different this time.
+		[825]<span />
+			Sun
+	[840]<div />
+		[82]<input type=checkbox checked=false />
+		[841]<button />
+			[842]<span />
+		[844]<button />
+		[846]<span />
+			James O'Brien
+		[848]<div />
+			[849]<span />
+				Contract Review: Vendor Agreement
+			[851]<span />
+				[852]<span />
+					Work
+				[854]<span />
+					Clients
+				[856]<span />
+					Action Required
+			[858]<span />
+				Alex, I've reviewed the vendor agreement. A few clauses need attention - see my redlined version attached. Let's discuss by end of week.
+		[861]<span title=Has attachment />
+			[862]<svg /> <!-- SVG content collapsed -->
+		[864]<span />
+			Sat
+	[879]<div />
+		[83]<input type=checkbox checked=false />
+		[880]<button />
+		[882]<button />
+		[884]<span />
+			Ana Gutierrez
+		[886]<div />
+			[887]<span />
+				Volunteer Event: Spring Health Fair
+			[889]<span />
+				[890]<span />
+					Personal
+			[892]<span />
+				We're organizing a spring health fair on March 15th. Would you be interested in volunteering? We need help with registration and logistics.
+		[895]<span />
+			Sat
+	[910]<div />
+		[84]<input type=checkbox checked=false />
+		[911]<button />
+		[913]<button />
+		[915]<span />
+			Ryan Cooper
+		[917]<div />
+			[918]<span />
+				Re: Platform Performance Issues
+			[920]<span />
+				[921]<span />
+					Work
+				[923]<span />
+					Projects
+			[925]<span />
+				Good news - we identified the bottleneck. It was a missing database index on the analytics table. Response times are back to normal.
+		[928]<span />
+			Sat
+	[943]<div />
+		[85]<input type=checkbox checked=false />
+		[944]<button />
+		[946]<button />
+		[948]<span />
+			TLDR Newsletter
+		[950]<div />
+			[951]<span />
+				TLDR: GPT-5 benchmarks leaked
+			[953]<span />
+				[954]<span />
+					Newsletters
+			[956]<span />
+				GPT-5 benchmarks, Rust 2.0 announced, Docker alternatives, PostgreSQL 17 features.
+		[959]<span />
+			Sat
+	[974]<div />
+		[86]<input type=checkbox checked=false />
+		[975]<button />
+			[976]<span />
+		[978]<button />
+		[980]<span />
+			Sophie Laurent
+		[982]<div />
+			[983]<span />
+				Bonjour! Conference Speaker Invitation
+			[985]<span />
+				[986]<span />
+					Travel
+				[988]<span />
+					Action Required
+			[990]<span />
+				We'd love to have you speak at EuroDesign Summit 2026 in Paris. The theme is "AI-Driven Design Systems." Travel and accommodation covered.
+		[993]<span />
+			Fri
+	[1008]<div />
+		[87]<input type=checkbox checked=false />
+		[1009]<button />
+		[1011]<button />
+		[1013]<span />
+			Tom Bradley
+		[1015]<div />
+			[1016]<span />
+				Property Listing: 45 Oak Avenue
+			[1018]<span />
+				[1019]<span />
+					Personal
+			[1021]<span />
+				New listing matching your criteria - 3BR/2BA, 1,800 sqft, updated kitchen, large backyard. Open house this Saturday 1-4pm.
+		[1024]<span />
+			Fri
+	[1039]<div />
+		[88]<input type=checkbox checked=false />
+		[1040]<button />
+		[1042]<button />
+		[1044]<span />
+			Michelle Park
+		[1046]<div />
+			[1047]<span />
+				Interview Request: Tech Innovation Panel
+			[1049]<span />
+				[1050]<span />
+					Waiting For Reply
+			[1052]<span />
+				Hi Alex, we're producing a segment on tech innovation in 2026. Would you be available for a 15-minute interview next week?
+		[1055]<span />
+			Fri
+	[1070]<div />
+		[89]<input type=checkbox checked=false />
+		[1071]<button />
+		[1073]<button />
+		[1075]<span />
+			Daniel Thompson
+		[1077]<div />
+			[1078]<span />
+				Office Renovation Plans
+			[1080]<span />
+				[1081]<span />
+					Work
+			[1083]<span />
+				Attached are the revised floor plans for the office renovation. The open workspace area has been expanded per your feedback.
+		[1086]<span title=Has attachment />
+			[1087]<svg /> <!-- SVG content collapsed -->
+		[1089]<span />
+			Thu
+	[1104]<div />
+		[90]<input type=checkbox checked=false />
+		[1105]<button />
+		[1107]<button />
+		[1109]<span />
+			Sarah Chen
+		[1111]<div />
+			[1112]<span />
+				Re: Quarterly Team Dinner
+			[1114]<span />
+				[1115]<span />
+					Work
+			[1117]<span />
+				March 7th is perfect! I'll make the reservation for 8 people. Any dietary restrictions?
+		[1120]<span />
+			Thu
+	[1135]<div />
+		[91]<input type=checkbox checked=false />
+		[1136]<button />
+		[1138]<button />
+		[1140]<span />
+			Sarah Chen
+		[1142]<div />
+			[1143]<span />
+				Quarterly Team Dinner
+			[1145]<span />
+				[1146]<span />
+					Work
+				[1148]<span />
+					Meetings
+			[130]<span />
+				Hey everyone! Let's plan our Q1 team dinner. I'm thinking March 7th at Zafferano. Please reply with your availability.
+		[1152]<span />
+			Thu
+	[1167]<div />
+		[92]<input type=checkbox checked=false />
+		[1168]<button />
+		[1170]<button />
+		[1172]<span />
+			Benedict Evans
+		[1174]<div />
+			[1175]<span />
+				AI and the future of search
+			[1177]<span />
+				[1178]<span />
+					Newsletters
+				[1180]<span />
+					Reference
+			[1182]<span />
+				Long-form analysis of how AI is reshaping information retrieval and what it means for Google.
+		[1185]<span />
+			Thu
+	[1200]<div />
+		[93]<input type=checkbox checked=false />
+		[1201]<button />
+		[1203]<button />
+		[1205]<span />
+			Jennifer Wu
+		[1207]<div />
+			[1208]<span />
+				Re: Collaboration Proposal
+			[1210]<span />
+				[1211]<span />
+					Work
+				[1213]<span />
+					Waiting For Reply
+			[1215]<span />
+				Alex, this sounds promising. Let's set up a call with our research team. How does Thursday at 2pm PST work for you?
+		[1218]<span />
+			Wed
+	[1233]<div />
+		[94]<input type=checkbox checked=false />
+		[1234]<button />
+		[1236]<button />
+		[1238]<span />
+			Robert Singh
+		[1240]<div />
+			[1241]<span />
+				Guest Lecture Invitation - CS 401
+			[1243]<span />
+				[1244]<span />
+					Education
+			[1246]<span />
+				The department would be honored if you could give a guest lecture on distributed systems. We have an opening on March 20th.
+		[1249]<span />
+			Wed
+	[1264]<div />
+		[95]<input type=checkbox checked=false />
+		[1265]<button />
+		[1267]<button />
+		[1269]<span />
+			Priya Sharma
+		[1271]<div />
+			[1272]<span />
+				Code Review Request: auth-service PR #42
+			[1274]<span />
+				[1275]<span />
+					Work
+				[1277]<span />
+					Projects
+			[1279]<span />
+				Hey Alex, can you review my PR for the OAuth2 PKCE implementation? It's about 400 lines.
+		[1282]<span />
+			Wed
+	[1297]<div />
+		[96]<input type=checkbox checked=false />
+		[1298]<button />
+		[1300]<button />
+		[1302]<span />
+			Ryan Cooper
+		[1304]<div />
+			[1305]<span />
+				SaaS Platform Q1 Pricing Update
+			[1307]<span />
+				[1308]<span />
+					Work
+			[1310]<span />
+				Heads up - we're adjusting enterprise tier pricing starting March 1st. Existing contracts unaffected.
+		[1313]<span />
+			Feb 17
+	[1328]<div />
+		[97]<input type=checkbox checked=false />
+		[1329]<button />
+		[1331]<button />
+		[1333]<span />
+			Rachel Foster
+		[1335]<div />
+			[1336]<span />
+				Donation Receipt - Tax Year 2025
+			[1338]<span />
+				[1339]<span />
+					Finance
+				[1341]<span />
+					Receipts
+			[1343]<span />
+				Thank you for your generous contribution of $500 to NonprofitAid. Attached is your tax receipt for the 2025 fiscal year.
+		[1346]<span title=Has attachment />
+			[1347]<svg /> <!-- SVG content collapsed -->
+		[1349]<span />
+			Feb 17
+	[1364]<div />
+		[98]<input type=checkbox checked=false />
+		[1365]<button />
+		[1367]<button />
+		[1369]<span />
+			Omar Al-Rashid
+		[1371]<div />
+			[1372]<span />
+				Strategy Workshop Follow-up
+			[1374]<span />
+				[1375]<span />
+					Work
+				[1377]<span />
+					Meetings
+			[1379]<span />
+				Great workshop yesterday. Attached are the whiteboard photos and action items. Please review your assigned items by Friday.
+		[1382]<span title=Has attachment />
+			[1383]<svg /> <!-- SVG content collapsed -->
+		[1385]<span />
+			Feb 17
+	[1400]<div />
+		[99]<input type=checkbox checked=false />
+		[1401]<button />
+		[1403]<button />
+		[1405]<span />
+			Stratechery
+		[1407]<div />
+			[1408]<span />
+				The Great AI Unbundling
+			[1410]<span />
+				[1411]<span />
+					Newsletters
+			[1413]<span />
+				How AI is disrupting SaaS businesses by enabling customers to build their own tools.
+		[1416]<span />
+			Feb 17
+	[1431]<div />
+		[100]<input type=checkbox checked=false />
+		[1432]<button />
+		[1434]<button />
+		[1436]<span />
+			Hannah Brooks
+		[1438]<div />
+			[1439]<span />
+				Your Workout Plan for March
+			[1441]<span />
+				[1442]<span />
+					Health
+				[1444]<span />
+					Personal
+			[1446]<span />
+				Hi Alex! I've customized your workout plan for March based on your progress. Let me know if you want any adjustments.
+		[1449]<span title=Has attachment />
+			[1450]<svg /> <!-- SVG content collapsed -->
+		[1452]<span />
+			Feb 16
+	[1467]<div />
+		[101]<input type=checkbox checked=false />
+		[1468]<button />
+		[1470]<button />
+		[1472]<span />
+			Kevin Zhao
+		[1474]<div />
+			[1475]<span />
+				Lab Tour Invitation
+			[1477]<span />
+				[1478]<span />
+					Personal
+			[1480]<span />
+				We're hosting an open lab day on March 5th. Would love to show you our new quantum processor setup.
+		[1483]<span />
+			Feb 16
+	[1498]<div />
+		[102]<input type=checkbox checked=false />
+		[1499]<button />
+		[1501]<button />
+		[1503]<span />
+			Jennifer Wu
+		[1505]<div />
+			[1506]<span />
+				BioMed Conference Recap
+			[1508]<span />
+				[1509]<span />
+					Education
+			[1511]<span />
+				Great seeing you at the conference! Here are the slides from the panel we discussed.
+		[1514]<span title=Has attachment />
+			[1515]<svg /> <!-- SVG content collapsed -->
+		[1517]<span />
+			Feb 15
+	[1532]<div />
+		[103]<input type=checkbox checked=false />
+		[1533]<button />
+			[1534]<span />
+		[1536]<button />
+		[1538]<span />
+			Lisa Nakamura
+		[1540]<div />
+			[1541]<span />
+				Brand Refresh Concepts
+			[1543]<span />
+				[1544]<span />
+					Work
+				[1546]<span />
+					Clients
+			[1548]<span />
+				Here are three brand refresh concepts for review. Each explores a different direction. Let me know your thoughts.
+		[1551]<span title=Has attachment />
+			[1552]<svg /> <!-- SVG content collapsed -->
+		[1554]<span />
+			Feb 15
+	[1569]<div />
+		[104]<input type=checkbox checked=false />
+		[1570]<button />
+		[1572]<button />
+		[1574]<span />
+			Chris Evans
+		[1576]<div />
+			[1577]<span />
+				Sunday Game Tickets Available
+			[1579]<span />
+				[1580]<span />
+					Personal
+				[1582]<span />
+					Friends
+			[1584]<span />
+				Hey Alex, my friend can't make it to the game this Sunday. Want his ticket? Section 108, Row 12. Face value $85.
+		[1587]<span />
+			Feb 14
+	[1602]<div />
+		[105]<input type=checkbox checked=false />
+		[1603]<button />
+		[1605]<button />
+		[1607]<span />
+			David Kim
+		[1609]<div />
+			[1610]<span />
+				Tax Season Reminder: Documents Needed
+			[1612]<span />
+				[1613]<span />
+					Finance
+				[1615]<span />
+					Action Required
+			[1617]<span />
+				Friendly reminder: we need your W-2 and 1099 forms by March 1st to prepare your 2025 tax return on time.
+		[1620]<span />
+			Feb 14
+	[1635]<div />
+		[106]<input type=checkbox checked=false />
+		[1636]<button />
+		[1638]<button />
+		[1640]<span />
+			Maya Patel
+		[1642]<div />
+			[1643]<span />
+				Performance Review Self-Assessment Due
+			[1645]<span />
+				[1646]<span />
+					Work
+				[1648]<span />
+					HR
+				[1650]<span />
+					Action Required
+			[1652]<span />
+				Reminder: please submit your self-assessment by end of day Friday. Template link in the HR portal.
+		[1655]<span />
+			Feb 14
+	[1670]<div />
+		[107]<input type=checkbox checked=false />
+		[1671]<button />
+			[1672]<span />
+		[1674]<button />
+		[1676]<span />
+			Sarah Chen
+		[1678]<div />
+			[1679]<span />
+				URGENT: Production database issue
+			[1681]<span />
+				[1682]<span />
+					Work
+				[1684]<span />
+					Action Required
+			[1686]<span />
+				Database connections maxing out. Need immediate attention. I'm pulling in the on-call team.
+		[1689]<span />
+			Feb 13
+	[1704]<div />
+		[108]<input type=checkbox checked=false />
+		[1705]<button />
+		[1707]<button />
+		[1709]<span />
+			Priya Sharma
+		[1711]<div />
+			[1712]<span />
+				Sprint Retro Action Items
+			[1714]<span />
+				[1715]<span />
+					Work
+				[1717]<span />
+					Projects
+			[1719]<span />
+				From our retro: 1) Improve code review turnaround, 2) Set up automated E2E tests, 3) Reduce meeting overhead. Owners assigned.
+		[1722]<span />
+			Feb 13
+	[1737]<div />
+		[109]<input type=checkbox checked=false />
+		[1738]<button />
+		[1740]<button />
+		[1742]<span />
+			Daniel Thompson
+		[1744]<div />
+			[1745]<span />
+				Permit Application Status
+			[1747]<span />
+				Good news - the city approved our renovation permit. Construction can begin March 10th.
+		[1750]<span />
+			Feb 13
+	[1765]<div />
+		[110]<input type=checkbox checked=false />
+		[1766]<button />
+		[1768]<button />
+		[1770]<span />
+			Emily Rodriguez
+		[1772]<div />
+			[1773]<span />
+				VC Meetup Next Thursday
+			[1775]<span />
+				[1776]<span />
+					Personal
+			[1778]<span />
+				There's a VC networking event at The Grand Hotel on Feb 20th, 6-9pm. Great opportunity to meet Series A/B investors. Want to go?
+		[1781]<span />
+			Feb 13
+	[1796]<div />
+		[111]<input type=checkbox checked=false />
+		[1797]<button />
+			[1798]<span />
+		[1800]<button />
+		[1802]<span />
+			Kevin Zhao
+		[1804]<div />
+			[1805]<span />
+				Interesting paper on LLM optimization
+			[1807]<span />
+				[1808]<span />
+					Education
+				[1810]<span />
+					Reference
+			[1812]<span />
+				Found this paper on efficient LLM inference. The pruning technique is fascinating.
+		[1815]<span />
+			Feb 12
+	[1830]<div />
+		[112]<input type=checkbox checked=false />
+		[1831]<button />
+		[1833]<button />
+		[1835]<span />
+			James O'Brien
+		[1837]<div />
+			[1838]<span />
+				Annual Retainer Renewal
+			[1840]<span />
+				[1841]<span />
+					Finance
+			[1843]<span />
+				Alex, our retainer agreement is up for renewal in March. Let's schedule a call to discuss terms.
+		[1846]<span />
+			Jan 28
+	[1861]<div />
+		[113]<input type=checkbox checked=false />
+		[1862]<button />
+		[1864]<button />
+		[1866]<span />
+			Omar Al-Rashid
+		[1868]<div />
+			[1869]<span />
+				Digital Transformation Assessment
+			[1871]<span />
+				[1872]<span />
+					Work
+				[1874]<span />
+					Reference
+			[1876]<span />
+				Attached is our initial assessment of your digital transformation readiness. Executive summary on page 3.
+		[1879]<span title=Has attachment />
+			[1880]<svg /> <!-- SVG content collapsed -->
+		[1882]<span />
+			Jan 25
+	[1897]<div />
+		[114]<input type=checkbox checked=false />
+		[1898]<button />
+		[1900]<button />
+		[1902]<span />
+			Morning Brew
+		[1904]<div />
+			[1905]<span />
+				Daily Brew: Tech IPOs heat up
+			[1907]<span />
+				[1908]<span />
+					Newsletters
+			[1910]<span />
+				Three tech companies filed S-1s this week. The IPO market is back in full swing.
+		[1913]<span />
+			Jan 24
+	[1928]<div />
+		[115]<input type=checkbox checked=false />
+		[1929]<button />
+		[1931]<button />
+		[1933]<span />
+			Rachel Foster
+		[1935]<div />
+			[1936]<span />
+				Volunteer Appreciation Dinner
+			[1938]<span />
+				[1939]<span />
+					Personal
+			[1941]<span />
+				You're invited to our annual volunteer appreciation dinner on Feb 8th. RSVP by Jan 31.
+		[1944]<span />
+			Jan 20
+	[1959]<div />
+		[116]<input type=checkbox checked=false />
+		[1960]<button />
+			[1961]<span />
+		[1963]<button />
+		[1965]<span />
+			David Kim
+		[1967]<div />
+			[1968]<span />
+				Year-End Financial Summary 2025
+			[1970]<span />
+				[1971]<span />
+					Finance
+				[1973]<span />
+					Reference
+			[1975]<span />
+				Attached: your 2025 financial summary with investment returns, tax estimates, and 2026 planning recommendations.
+		[1978]<span title=Has attachment />
+			[1979]<svg /> <!-- SVG content collapsed -->
+		[1981]<span />
+			Jan 18
+	[1996]<div />
+		[117]<input type=checkbox checked=false />
+		[1997]<button />
+		[1999]<button />
+		[2001]<span />
+			Lisa Nakamura
+		[2003]<div />
+			[2004]<span />
+				Portfolio Website Mockups
+			[2006]<span />
+				[2007]<span />
+					Personal
+			[2009]<span />
+				Three mockup options for your personal portfolio site. Modern, minimal, or creative direction?
+		[2012]<span title=Has attachment />
+			[2013]<svg /> <!-- SVG content collapsed -->
+		[2015]<span />
+			Jan 17
+	[2030]<div />
+		[118]<input type=checkbox checked=false />
+		[2031]<button />
+		[2033]<button />
+		[2035]<span />
+			Hannah Brooks
+		[2037]<div />
+			[2038]<span />
+				February Fitness Challenge
+			[2040]<span />
+				[2041]<span />
+					Health
+			[2043]<span />
+				Join our 28-day fitness challenge! Daily workouts, nutrition tips, and weekly check-ins. Starts Feb 1.
+		[2046]<span />
+			Jan 15
+[End of page]
+</browser_state>
+
+
+{
+  "thinking": "The user wants me to delete an email with the subject 'Property Listing: 45 Oak Avenue' from Tom Bradley. I need to find the email in the inbox and delete it. I can see the email in the current browser state at index 107. I need to first select the checkbox associated with that email, and then click the delete button.",
+  "evaluation_previous_goal": "Successfully loaded the page. Verdict: Success",
+  "memory": "Identified the email to be deleted. Need to select the checkbox and then click the delete button.",
+  "next_goal": "Select the checkbox for the email with the subject 'Property Listing: 45 Oak Avenue' from Tom Bradley.",
+  "current_plan_item": 0,
+  "plan_update": null,
+  "action": [
+    {
+      "click": {
+        "index": 87
+      }
+    }
+  ]
+}

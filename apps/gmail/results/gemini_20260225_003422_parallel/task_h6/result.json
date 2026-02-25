@@ -1,0 +1,27 @@
+{
+  "task_id": "task_h6",
+  "difficulty": "hard",
+  "instruction": "Enable the Reading Pane and set its position to 'Right of inbox'. Then change the maximum page size to 25 emails per page.",
+  "passed": true,
+  "verifier_message": "Task completed successfully.",
+  "elapsed": 60.6,
+  "steps": 14,
+  "is_done": true,
+  "final_result": "Successfully enabled the Reading Pane and set its position to 'Right of inbox'. Also, successfully changed the maximum page size to 25 emails per page.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

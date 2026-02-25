@@ -8,8 +8,9 @@ def verify(server_url: str) -> tuple[bool, str]:
     state = resp.json()
 
     blocked_senders = state.get("blockedSenders", [])
+    blocked_emails = [b.get("email") if isinstance(b, dict) else b for b in blocked_senders]
 
-    if "annoying@daily-deals.biz" not in blocked_senders:
+    if "annoying@daily-deals.biz" not in blocked_emails:
         return True, "Task completed successfully."
     else:
         return False, "'annoying@daily-deals.biz' is still in blockedSenders list."

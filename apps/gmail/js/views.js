@@ -229,17 +229,17 @@ const Views = {
         let html = `<div class="email-item${selected}${unread}" data-email-id="${email.id}" data-testid="email-item-${email.id}">`;
 
         // Checkbox
-        html += `<input type="checkbox" class="email-checkbox" data-action="toggle-select" data-email-id="${email.id}" data-testid="email-checkbox-${email.id}" ${isChecked}>`;
+        html += `<input type="checkbox" class="email-checkbox" data-email-id="${email.id}" data-testid="email-checkbox-${email.id}" ${isChecked}>`;
 
         // Star
         const starClass = email.isStarred ? ' starred' : '';
-        html += `<button class="email-star${starClass}" data-action="toggle-star" data-email-id="${email.id}" data-testid="email-star-${email.id}">`;
+        html += `<button class="email-star${starClass}" data-email-id="${email.id}" data-testid="email-star-${email.id}">`;
         html += Components.starIcon(email.starType, email.isStarred);
         html += `</button>`;
 
         // Importance marker
         if (showImportance) {
-            html += `<button ${email.isImportant ? 'class="email-important marked"' : 'class="email-important"'} data-action="toggle-important" data-email-id="${email.id}" data-testid="email-important-${email.id}">`;
+            html += `<button ${email.isImportant ? 'class="email-important marked"' : 'class="email-important"'} data-email-id="${email.id}" data-testid="email-important-${email.id}">`;
             html += email.isImportant ? '&#9654;' : '&#9655;';
             html += `</button>`;
         }
@@ -536,7 +536,7 @@ const Views = {
         html += '<div class="settings-row">';
         html += '<div class="settings-row-label">Gmail display language</div>';
         html += '<div class="settings-row-control">';
-        html += Components.dropdown('settings-language', [
+        html += Components.dropdown('language-dropdown', [
             { id: 'English (US)', name: 'English (US)' },
             { id: 'English (UK)', name: 'English (UK)' },
             { id: 'Spanish', name: 'Spanish' },
@@ -569,7 +569,7 @@ const Views = {
         html += '<div class="settings-row">';
         html += '<div class="settings-row-label">When replying to a message</div>';
         html += '<div class="settings-row-control">';
-        html += Components.radioGroup('defaultReplyBehavior', [
+        html += Components.radioGroup('reply-behavior', [
             { id: 'reply', name: 'Reply' },
             { id: 'reply-all', name: 'Reply all' },
         ], s.defaultReplyBehavior);
@@ -582,7 +582,7 @@ const Views = {
         html += '<div class="settings-row">';
         html += '<div class="settings-row-label">Send cancellation period</div>';
         html += '<div class="settings-row-control">';
-        html += Components.dropdown('settings-undo-send', [
+        html += Components.dropdown('undo-send-dropdown', [
             { id: 5, name: '5 seconds' },
             { id: 10, name: '10 seconds' },
             { id: 20, name: '20 seconds' },
@@ -647,10 +647,10 @@ const Views = {
         // Nudges
         html += '<div class="settings-group">';
         html += '<div class="settings-group-title">Nudges</div>';
-        html += Components.toggle('settings-nudge-reply', s.nudges.suggestEmailsToReply,
+        html += Components.toggle('setting-nudge-reply', s.nudges.suggestEmailsToReply,
             'Suggest emails to reply to',
             'Emails you might have forgotten to respond to will appear at the top of your inbox');
-        html += Components.toggle('settings-nudge-followup', s.nudges.suggestEmailsToFollowUp,
+        html += Components.toggle('setting-nudge-followup', s.nudges.suggestEmailsToFollowUp,
             'Suggest emails to follow up on',
             'Sent emails you might need to follow up on will appear at the top of your inbox');
         html += '</div>';
@@ -661,7 +661,7 @@ const Views = {
         html += '<div class="settings-row">';
         html += '<div class="settings-row-label">After archiving or deleting a conversation</div>';
         html += '<div class="settings-row-control">';
-        html += Components.radioGroup('autoAdvance', [
+        html += Components.radioGroup('auto-advance', [
             { id: 'newer', name: 'Go to the next (newer) conversation' },
             { id: 'older', name: 'Go to the previous (older) conversation' },
             { id: 'list', name: 'Go back to the threadlist' },
@@ -672,7 +672,7 @@ const Views = {
         // Keyboard Shortcuts
         html += '<div class="settings-group">';
         html += '<div class="settings-group-title">Keyboard shortcuts</div>';
-        html += Components.toggle('settings-keyboard-shortcuts', s.keyboardShortcutsEnabled,
+        html += Components.toggle('setting-keyboard-shortcuts', s.keyboardShortcutsEnabled,
             'Keyboard shortcuts',
             'Enable keyboard shortcuts for faster navigation');
         html += '</div>';
@@ -683,7 +683,7 @@ const Views = {
         html += '<div class="settings-row">';
         html += '<div class="settings-row-label">Email notifications</div>';
         html += '<div class="settings-row-control">';
-        html += Components.radioGroup('desktopNotifications', [
+        html += Components.radioGroup('desktop-notifications', [
             { id: 'off', name: 'Mail notifications off' },
             { id: 'important', name: 'Important mail notifications on' },
             { id: 'all', name: 'New mail notifications on' },
@@ -716,7 +716,7 @@ const Views = {
         html += '<div class="settings-row">';
         html += '<div class="settings-row-label">Show this many conversations per page</div>';
         html += '<div class="settings-row-control">';
-        html += Components.dropdown('settings-page-size', [
+        html += Components.dropdown('page-size-dropdown', [
             { id: 10, name: '10' },
             { id: 25, name: '25' },
             { id: 50, name: '50' },
@@ -731,7 +731,7 @@ const Views = {
         html += '<div class="settings-row">';
         html += '<div class="settings-row-label">Display button labels or icons</div>';
         html += '<div class="settings-row-control">';
-        html += Components.radioGroup('buttonLabels', [
+        html += Components.radioGroup('button-labels', [
             { id: 'icons', name: 'Icons' },
             { id: 'text', name: 'Text' },
         ], s.buttonLabels);
@@ -741,7 +741,7 @@ const Views = {
         // Dynamic email
         html += '<div class="settings-group">';
         html += '<div class="settings-group-title">Dynamic email</div>';
-        html += Components.toggle('settings-dynamic-email', s.dynamicEmail,
+        html += Components.toggle('setting-dynamic-email', s.dynamicEmail,
             'Enable dynamic email',
             'Allow email senders to include interactive content in their emails');
         html += '</div>';
@@ -831,7 +831,7 @@ const Views = {
         html += '<div class="settings-row">';
         html += '<div class="settings-row-label">Inbox type</div>';
         html += '<div class="settings-row-control">';
-        html += Components.dropdown('settings-inbox-type', [
+        html += Components.dropdown('inbox-type-dropdown', [
             { id: 'default', name: 'Default' },
             { id: 'important-first', name: 'Important first' },
             { id: 'unread-first', name: 'Unread first' },
@@ -862,7 +862,7 @@ const Views = {
         // Importance markers
         html += '<div class="settings-group">';
         html += '<div class="settings-group-title">Importance markers</div>';
-        html += Components.toggle('settings-importance-markers', s.importanceMarkers,
+        html += Components.toggle('setting-importance-markers', s.importanceMarkers,
             'Show markers',
             'Show importance markers next to messages that Gmail predicts are important');
         html += '</div>';
@@ -873,7 +873,7 @@ const Views = {
         html += '<div class="settings-row">';
         html += '<div class="settings-row-label">Reading pane position</div>';
         html += '<div class="settings-row-control">';
-        html += Components.radioGroup('previewPane', [
+        html += Components.radioGroup('preview-pane', [
             { id: 'none', name: 'No split' },
             { id: 'right', name: 'Right of inbox' },
             { id: 'bottom', name: 'Below inbox' },
@@ -943,7 +943,7 @@ const Views = {
                 html += `<span class="blocked-sender-email">${Components.escapeHtml(blocked.email)}</span>`;
                 html += `<div style="font-size:12px;color:var(--text-secondary)">Blocked ${Components.formatDate(blocked.blockedAt)}</div>`;
                 html += `</div>`;
-                html += `<button class="unblock-btn" data-action="unblock-sender" data-email="${Components.escapeAttr(blocked.email)}" data-testid="unblock-${Components.escapeAttr(blocked.email)}">unblock</button>`;
+                html += `<button class="unblock-btn" data-action="unblock-sender" data-sender-email="${Components.escapeAttr(blocked.email)}" data-testid="unblock-${Components.escapeAttr(blocked.email)}">unblock</button>`;
                 html += `</div>`;
             }
         }

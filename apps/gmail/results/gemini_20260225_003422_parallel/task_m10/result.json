@@ -1,0 +1,17 @@
+{
+  "task_id": "task_m10",
+  "difficulty": "medium",
+  "instruction": "Set the email density to 'Compact' in Settings.",
+  "passed": true,
+  "verifier_message": "Task completed successfully.",
+  "elapsed": 18.5,
+  "steps": 4,
+  "is_done": true,
+  "final_result": "Successfully set the email density to 'Compact'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null
+  ]
+}

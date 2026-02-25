@@ -381,6 +381,12 @@ const AppState = {
         this.notify();
     },
 
+    emptySpam() {
+        this.emails = this.emails.filter(e => !e.isSpam);
+        this._recalculateLabelCounts();
+        this.notify();
+    },
+
     markAsSpam(emailIds) {
         for (const id of emailIds) {
             const email = this.getEmailById(id);

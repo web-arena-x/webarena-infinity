@@ -1,0 +1,18 @@
+{
+  "task_id": "task_e9",
+  "difficulty": "easy",
+  "instruction": "Unblock the email address 'annoying@daily-deals.biz' from the blocked senders list in Settings.",
+  "passed": true,
+  "verifier_message": "Task completed successfully.",
+  "elapsed": 27.0,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully unblocked the email address 'annoying@daily-deals.biz' from the blocked senders list in Settings.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

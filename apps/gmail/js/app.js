@@ -208,6 +208,43 @@ const App = {
             contextMenu.classList.remove('open');
         }
 
+        // --- Checkbox on email item (before data-action to prevent interception) ---
+        const emailCheckbox = target.closest('.email-checkbox');
+        if (emailCheckbox) {
+            const emailId = parseInt(emailCheckbox.dataset.emailId, 10);
+            if (AppState.selectedEmailIds.has(emailId)) {
+                AppState.selectedEmailIds.delete(emailId);
+            } else {
+                AppState.selectedEmailIds.add(emailId);
+            }
+            App.render();
+            return;
+        }
+
+        // --- Star click (before data-action to prevent interception) ---
+        const starEl = target.closest('.email-star');
+        if (starEl) {
+            e.preventDefault();
+            e.stopPropagation();
+            const emailId = parseInt(starEl.dataset.emailId, 10);
+            if (emailId) {
+                AppState.cycleStar(emailId);
+            }
+            return;
+        }
+
+        // --- Importance marker click (before data-action to prevent interception) ---
+        const importanceEl = target.closest('.email-important');
+        if (importanceEl) {
+            e.preventDefault();
+            e.stopPropagation();
+            const emailId = parseInt(importanceEl.dataset.emailId, 10);
+            if (emailId) {
+                AppState.toggleImportant(emailId);
+            }
+            return;
+        }
+
         // --- data-route: navigate ---
         const routeEl = target.closest('[data-route]');
         if (routeEl) {
@@ -269,43 +306,6 @@ const App = {
             return;
         }
 
-        // --- Checkbox on email item ---
-        const emailCheckbox = target.closest('.email-checkbox');
-        if (emailCheckbox) {
-            const emailId = parseInt(emailCheckbox.dataset.emailId, 10);
-            if (AppState.selectedEmailIds.has(emailId)) {
-                AppState.selectedEmailIds.delete(emailId);
-            } else {
-                AppState.selectedEmailIds.add(emailId);
-            }
-            App.render();
-            return;
-        }
-
-        // --- Star click ---
-        const starEl = target.closest('.email-star');
-        if (starEl) {
-            e.preventDefault();
-            e.stopPropagation();
-            const emailId = parseInt(starEl.dataset.emailId, 10);
-            if (emailId) {
-                AppState.cycleStar(emailId);
-            }
-            return;
-        }
-
-        // --- Importance marker click ---
-        const importanceEl = target.closest('.email-important');
-        if (importanceEl) {
-            e.preventDefault();
-            e.stopPropagation();
-            const emailId = parseInt(importanceEl.dataset.emailId, 10);
-            if (emailId) {
-                AppState.toggleImportant(emailId);
-            }
-            return;
-        }
-
         // --- data-email-id: open email ---
         const emailEl = target.closest('[data-email-id]');
         if (emailEl && !target.closest('.email-checkbox') && !target.closest('.email-star') &&
@@ -317,10 +317,10 @@ const App = {
         }
 
         // --- Settings tab click ---
-        const settingsTab = target.closest('.settings-tab[data-tab]');
+        const settingsTab = target.closest('.settings-tab[data-settings-tab]');
         if (settingsTab) {
             e.preventDefault();
-            AppState.settingsTab = settingsTab.dataset.tab;
+            AppState.settingsTab = settingsTab.dataset.settingsTab;
             App.render();
             return;
         }
@@ -1042,6 +1042,152 @@ const App = {
                 Components.showToast('Settings saved');
                 break;
 
+            // ---- Cancel settings ----
+            case 'cancel-settings':
+                App.navigate('inbox');
+                break;
+
+            // ---- Empty spam ----
+            case 'empty-spam':
+                Components.confirmDanger(
+                    'Empty Spam',
+                    'All messages in Spam will be permanently deleted. This action cannot be undone.',
+                    'Empty Spam now',
+                    () => {
+                        AppState.emptySpam();
+                        Components.showToast('Spam has been emptied');
+                    }
+                );
+                break;
+
+            // ---- Single-email actions (hover buttons / email detail toolbar) ----
+            case 'archive-email': {
+                const emailId = parseInt(el.dataset.emailId, 10) || currentId;
+                if (emailId) {
+                    AppState.archiveEmails([emailId]);
+                    App._advanceAfterAction();
+                    Components.showToast('Conversation archived', 'Undo', () => {
+                        AppState.moveToInbox([emailId]);
+                    });
+                }
+                break;
+            }
+
+            case 'delete-email': {
+                const emailId = parseInt(el.dataset.emailId, 10) || currentId;
+                if (emailId) {
+                    AppState.trashEmails([emailId]);
+                    App._advanceAfterAction();
+                    Components.showToast('Conversation moved to Trash', 'Undo', () => {
+                        AppState.moveToInbox([emailId]);
+                    });
+                }
+                break;
+            }
+
+            case 'spam-email': {
+                const emailId = parseInt(el.dataset.emailId, 10) || currentId;
+                if (emailId) {
+                    AppState.markAsSpam([emailId]);
+                    App._advanceAfterAction();
+                    Components.showToast('Conversation marked as spam', 'Undo', () => {
+                        AppState.unmarkSpam([emailId]);
+                    });
+                }
+                break;
+            }
+
+            case 'mark-read-email': {
+                const emailId = parseInt(el.dataset.emailId, 10) || currentId;
+                if (emailId) {
+                    AppState.markAsRead([emailId]);
+                    Components.showToast('Conversation marked as read');
+                }
+                break;
+            }
+
+            case 'mark-unread-email': {
+                const emailId = parseInt(el.dataset.emailId, 10) || currentId;
+                if (emailId) {
+                    AppState.markAsUnread([emailId]);
+                    Components.showToast('Conversation marked as unread');
+                }
+                break;
+            }
+
+            // ---- Toolbar aliases ----
+            case 'label-selected': {
+                const ids = selectedIds.length > 0 ? selectedIds : (currentId ? [currentId] : []);
+                if (ids.length > 0) App.showLabelPicker(ids);
+                break;
+            }
+
+            case 'move-to-selected': {
+                const ids = selectedIds.length > 0 ? selectedIds : (currentId ? [currentId] : []);
+                if (ids.length > 0) App.showMoveToPicker(ids);
+                break;
+            }
+
+            case 'more-actions': {
+                App.showMoreMenu(el);
+                break;
+            }
+
+            // ---- Context menu / More menu items ----
+            case 'mark-important-selected': {
+                const ids = selectedIds.length > 0 ? selectedIds : (currentId ? [currentId] : []);
+                for (const id of ids) {
+                    const email = AppState.getEmailById(id);
+                    if (email && !email.isImportant) AppState.toggleImportant(id);
+                }
+                break;
+            }
+
+            case 'mark-not-important-selected': {
+                const ids = selectedIds.length > 0 ? selectedIds : (currentId ? [currentId] : []);
+                for (const id of ids) {
+                    const email = AppState.getEmailById(id);
+                    if (email && email.isImportant) AppState.toggleImportant(id);
+                }
+                break;
+            }
+
+            case 'mute-selected': {
+                const ids = selectedIds.length > 0 ? selectedIds : (currentId ? [currentId] : []);
+                if (ids.length > 0) {
+                    AppState.muteEmails(ids);
+                    AppState.selectedEmailIds = new Set();
+                    Components.showToast('Conversation muted');
+                }
+                break;
+            }
+
+            case 'unmute-selected': {
+                const ids = selectedIds.length > 0 ? selectedIds : (currentId ? [currentId] : []);
+                for (const id of ids) {
+                    const email = AppState.getEmailById(id);
+                    if (email) {
+                        email.isMuted = false;
+                        email.isArchived = false;
+                        if (!email.labels.includes('INBOX')) email.labels.push('INBOX');
+                    }
+                }
+                AppState._recalculateLabelCounts();
+                AppState.selectedEmailIds = new Set();
+                AppState.notify();
+                Components.showToast('Conversation unmuted');
+                break;
+            }
+
+            // ---- Expand message ----
+            case 'expand-message': {
+                const msgCard = el.closest('.message-card');
+                if (msgCard) {
+                    msgCard.classList.toggle('collapsed');
+                }
+                break;
+            }
+
             default:
                 console.warn('Unknown action:', action);
         }
@@ -1250,12 +1396,19 @@ const App = {
             'button-labels': 'buttonLabels',
             'reply-behavior': 'defaultReplyBehavior',
             'desktop-notifications': 'desktopNotifications',
+            'conversationView': 'conversationView',
+            'sendAndArchive': 'sendAndArchive',
+            'hoverActions': 'hoverActions',
+            'multipleInboxPosition': 'multipleInboxPosition',
         };
+
+        const booleanRadios = ['conversationView', 'sendAndArchive', 'hoverActions'];
 
         const settingKey = radioMap[name];
         if (settingKey) {
             let parsedValue = value;
             if (settingKey === 'undoSendDelay') parsedValue = parseInt(value, 10);
+            if (booleanRadios.includes(settingKey)) parsedValue = (value === 'on');
             AppState.updateSetting(settingKey, parsedValue);
         }
     },
@@ -1718,6 +1871,20 @@ const App = {
                 value = input.value;
             }
             AppState.updateSetting(key, value);
+        }
+
+        // Save multiple inbox sections
+        const sections = [];
+        let i = 0;
+        while (true) {
+            const queryInput = document.querySelector(`[data-field="multi-inbox-query-${i}"]`);
+            const nameInput = document.querySelector(`[data-field="multi-inbox-name-${i}"]`);
+            if (!queryInput) break;
+            sections.push({ query: queryInput.value, name: nameInput ? nameInput.value : '' });
+            i++;
+        }
+        if (sections.length > 0) {
+            AppState.updateSetting('multipleInboxSections', sections);
         }
     },
 

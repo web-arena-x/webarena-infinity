@@ -1,0 +1,18 @@
+{
+  "task_id": "task_m9",
+  "difficulty": "medium",
+  "instruction": "Change the Undo Send delay to 30 seconds in Settings.",
+  "passed": true,
+  "verifier_message": "Task completed successfully.",
+  "elapsed": 21.5,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully changed the Undo Send delay to 30 seconds in Settings.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}
