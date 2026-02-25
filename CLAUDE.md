@@ -137,11 +137,25 @@ Each `tasks/task_*.py` exports `verify(server_url: str) -> tuple[bool, str]`. Ve
 
 ## Lessons Learned
 
+### Cross-Module Contract Mismatches (views.js ↔ app.js)
+
+The #1 source of bugs in generated apps. No type system enforces consistency, so string keys drift between the HTML that views.js renders and the handler maps in app.js. **Always audit after generation:**
+
+- **One dispatch mechanism per element.** Don't put `data-action` on elements that also have class-based handlers (`.email-star`, `.email-checkbox`). If both exist, `handleClick` ordering determines which fires — a subtle, silent bug.
+- **Grep handler maps against rendered HTML.** Every key in `handleDropdownSelect`/`handleToggleChange`/`handleRadioChange` maps must appear verbatim as an ID or `name` in views.js. Watch for prefix drift (`settings-` vs `setting-`), casing drift (`camelCase` vs `kebab-case`), and suffix drift (`settings-language` vs `language-dropdown`).
+- **Grep all `data-action="..."` values** in views.js/components.js and verify each has a `case` in `handleAction`. Missing cases fail silently (`console.warn` only).
+- **Check verifier data shapes against data.js.** If seed data uses objects (`[{email, blockedAt}]`), verifiers must access the nested field, not compare against the object.
+
 ### Multi-Agent Module Integration
 
-When delegating large JS files (views.js, app.js, etc.) to separate background agents:
+When delegating large JS files to separate background agents:
 
 - Define cross-module contracts (function signatures, route formats, data flow) **before** delegating
 - Do a post-integration review tracing all cross-module calls (especially render pipelines)
-- Sanity checks test state logic only, not UI rendering — always test in a browser or simulate the full render path in Node
-- Common failure modes: interface mismatches (missing args, wrong route formats, double sort/page)
+- Sanity checks test state logic only, not UI rendering — always test in a browser too
+
+### Eval Harness Reliability
+
+- `start_server()` auto-kills zombie processes on the target port before launching (`kill_port()` in `evaluation/server.py`)
+- `agent.setup()` polls for seed state (up to 10s) rather than using a fixed sleep, handling slow browser startups under parallel load
+- `GET /api/state` returns 404 until a browser PUTs state — this is by design, not a bug

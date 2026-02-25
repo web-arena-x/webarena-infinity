@@ -95,14 +95,20 @@ class BrowserUseAgent:
 
         page = await self._session.get_current_page()
         await page.goto(server_url)
-        # Give the app JS time to push state via PUT /api/state
-        await asyncio.sleep(2.0)
 
-        resp = requests.get(f"{server_url}/api/state")
-        if resp.status_code != 200:
+        # Poll for the browser JS to push state via PUT /api/state
+        for _ in range(10):
+            await asyncio.sleep(1.0)
+            try:
+                resp = requests.get(f"{server_url}/api/state", timeout=2)
+                if resp.status_code == 200:
+                    break
+            except requests.RequestException:
+                pass
+        else:
             raise RuntimeError(
                 "Seed state not captured after first load. "
-                f"GET /api/state returned {resp.status_code}"
+                "GET /api/state never returned 200 within 10s"
             )
 
     async def run(self, task: str, server_url: str, task_dir: Path) -> AgentResult:

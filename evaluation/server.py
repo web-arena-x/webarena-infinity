@@ -1,5 +1,7 @@
 """Server lifecycle management: start, wait, stop."""
 
+import os
+import signal
 import subprocess
 import sys
 import time
@@ -7,7 +9,29 @@ import time
 import requests
 
 
+def kill_port(port: int):
+    """Kill any process listening on the given port (handles zombie servers)."""
+    try:
+        result = subprocess.run(
+            ["lsof", "-ti", f":{port}"],
+            capture_output=True, text=True, timeout=5,
+        )
+        pids = result.stdout.strip().split()
+        for pid in pids:
+            if pid:
+                try:
+                    os_pid = int(pid)
+                    os.kill(os_pid, signal.SIGTERM)
+                except (ValueError, ProcessLookupError, PermissionError):
+                    pass
+        if pids:
+            time.sleep(0.5)
+    except (subprocess.TimeoutExpired, FileNotFoundError):
+        pass
+
+
 def start_server(web_app_dir: str, port: int) -> subprocess.Popen:
+    kill_port(port)
     return subprocess.Popen(
         [sys.executable, "server.py", "--port", str(port)],
         cwd=web_app_dir,
