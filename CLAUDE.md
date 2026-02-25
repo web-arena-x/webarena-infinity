@@ -11,14 +11,11 @@ Mirror-Mirror is a scalable pipeline for auto-generating web-app testing environ
 ### Local Evaluation
 
 ```bash
-# Single task (starts server automatically, results go to apps/linear-account-settings/results/)
-python evaluation/run_eval.py --model gemini --task-id task_e1 --web-app apps/linear-account-settings
+# Single task (starts server automatically, results go to apps/<app>/results/)
+python evaluation/run_eval_parallel.py --model gemini --task-id task_e1 --workers 1 --web-app apps/linear-account-settings
 
 # Filter by difficulty
-python evaluation/run_eval.py --model gpt --difficulty easy --web-app apps/linear-account-settings
-
-# Parallel evaluation (local servers on ports 8001+)
-python evaluation/run_eval_parallel.py --model claude --workers 4 --web-app apps/linear-account-settings
+python evaluation/run_eval_parallel.py --model gpt --difficulty easy --workers 4 --web-app apps/linear-account-settings
 
 # Parallel evaluation against remote pre-running servers
 python evaluation/run_eval_parallel.py --model gemini --workers 8 \
