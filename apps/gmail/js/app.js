@@ -9,6 +9,7 @@ const App = {
     _keySequenceTimer: null,
     _openDropdownId: null,
     _contextMenuEmailId: null,
+    _labelPickerEmailIds: [],
 
     // ============================================================
     // Router
@@ -360,8 +361,14 @@ const App = {
             const checkbox = labelPickerItem.querySelector('input[type="checkbox"]');
             const labelId = labelPickerItem.dataset.labelId;
             if (checkbox && labelId) {
+                // Toggle checkbox if the click was on the row, not the checkbox itself
+                if (target !== checkbox) {
+                    checkbox.checked = !checkbox.checked;
+                }
                 const isChecked = checkbox.checked;
-                const emailIds = Array.from(AppState.selectedEmailIds);
+                const emailIds = App._labelPickerEmailIds.length > 0
+                    ? App._labelPickerEmailIds
+                    : Array.from(AppState.selectedEmailIds);
                 if (emailIds.length === 0 && AppState.currentEmailId) {
                     emailIds.push(AppState.currentEmailId);
                 }
@@ -1482,6 +1489,7 @@ const App = {
     // ============================================================
 
     showLabelPicker(emailIds) {
+        App._labelPickerEmailIds = emailIds;
         const userLabels = AppState.getUserLabels();
 
         // Determine which labels are currently applied to all selected emails

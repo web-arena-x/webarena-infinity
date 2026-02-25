@@ -553,6 +553,20 @@ const Views = {
         html += '</div></div>';
         html += '</div>';
 
+        // Theme
+        html += '<div class="settings-group">';
+        html += '<div class="settings-group-title">Theme</div>';
+        html += '<div class="settings-row">';
+        html += '<div class="settings-row-label">Theme</div>';
+        html += '<div class="settings-row-control">';
+        html += Components.dropdown('theme-dropdown', [
+            { id: 'default', name: 'Default' },
+            { id: 'dark', name: 'Dark' },
+            { id: 'soft', name: 'Soft' },
+        ], s.theme);
+        html += '</div></div>';
+        html += '</div>';
+
         // Phone number (static display)
         html += '<div class="settings-group">';
         html += '<div class="settings-group-title">Phone number</div>';
@@ -571,7 +585,7 @@ const Views = {
         html += '<div class="settings-row-control">';
         html += Components.radioGroup('reply-behavior', [
             { id: 'reply', name: 'Reply' },
-            { id: 'reply-all', name: 'Reply all' },
+            { id: 'reply_all', name: 'Reply all' },
         ], s.defaultReplyBehavior);
         html += '</div></div>';
         html += '</div>';
@@ -833,11 +847,11 @@ const Views = {
         html += '<div class="settings-row-control">';
         html += Components.dropdown('inbox-type-dropdown', [
             { id: 'default', name: 'Default' },
-            { id: 'important-first', name: 'Important first' },
-            { id: 'unread-first', name: 'Unread first' },
-            { id: 'starred-first', name: 'Starred first' },
+            { id: 'important_first', name: 'Important first' },
+            { id: 'unread_first', name: 'Unread first' },
+            { id: 'starred_first', name: 'Starred first' },
             { id: 'priority', name: 'Priority Inbox' },
-            { id: 'multiple', name: 'Multiple Inboxes' },
+            { id: 'multiple_inboxes', name: 'Multiple Inboxes' },
         ], s.inboxType);
         html += '</div></div>';
         html += '</div>';
