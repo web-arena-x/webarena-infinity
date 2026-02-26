@@ -1,0 +1,362 @@
+[
+  {
+    "id": "task_e1",
+    "difficulty": "easy",
+    "instruction": "Star Sarah Chen's Q1 product roadmap email.",
+    "verify": "real-tasks/task_e1.py"
+  },
+  {
+    "id": "task_e2",
+    "difficulty": "easy",
+    "instruction": "Mark the conference speaker invitation from Sophie Laurent as read.",
+    "verify": "real-tasks/task_e2.py"
+  },
+  {
+    "id": "task_e3",
+    "difficulty": "easy",
+    "instruction": "Trash the property listing email from Tom Bradley.",
+    "verify": "real-tasks/task_e3.py"
+  },
+  {
+    "id": "task_e4",
+    "difficulty": "easy",
+    "instruction": "Archive the shipping update from Carlos Mendez.",
+    "verify": "real-tasks/task_e4.py"
+  },
+  {
+    "id": "task_e5",
+    "difficulty": "easy",
+    "instruction": "Turn off conversation view.",
+    "verify": "real-tasks/task_e5.py"
+  },
+  {
+    "id": "task_e6",
+    "difficulty": "easy",
+    "instruction": "Switch to dark mode.",
+    "verify": "real-tasks/task_e6.py"
+  },
+  {
+    "id": "task_e7",
+    "difficulty": "easy",
+    "instruction": "The collaboration proposal from Jennifer Wu isn't important — remove the importance marker.",
+    "verify": "real-tasks/task_e7.py"
+  },
+  {
+    "id": "task_e8",
+    "difficulty": "easy",
+    "instruction": "Remove the star from Emily Rodriguez's partnership opportunity email.",
+    "verify": "real-tasks/task_e8.py"
+  },
+  {
+    "id": "task_e9",
+    "difficulty": "easy",
+    "instruction": "Change the undo send timer to 30 seconds.",
+    "verify": "real-tasks/task_e9.py"
+  },
+  {
+    "id": "task_e10",
+    "difficulty": "easy",
+    "instruction": "Mark Priya Sharma's latest message about the API integration issue as read.",
+    "verify": "real-tasks/task_e10.py"
+  },
+  {
+    "id": "task_e11",
+    "difficulty": "easy",
+    "instruction": "Trash the volunteer event email from Ana Gutierrez.",
+    "verify": "real-tasks/task_e11.py"
+  },
+  {
+    "id": "task_e12",
+    "difficulty": "easy",
+    "instruction": "Turn off hover actions.",
+    "verify": "real-tasks/task_e12.py"
+  },
+  {
+    "id": "task_e13",
+    "difficulty": "easy",
+    "instruction": "The Crypto Gains email in spam isn't actually spam — move it back to the inbox.",
+    "verify": "real-tasks/task_e13.py"
+  },
+  {
+    "id": "task_e14",
+    "difficulty": "easy",
+    "instruction": "Set the default reply behavior to Reply all.",
+    "verify": "real-tasks/task_e14.py"
+  },
+  {
+    "id": "task_e15",
+    "difficulty": "easy",
+    "instruction": "Mark Marcus Williams' Design System Update email as important.",
+    "verify": "real-tasks/task_e15.py"
+  },
+  {
+    "id": "task_e16",
+    "difficulty": "easy",
+    "instruction": "Unstar the contract review email from James O'Brien.",
+    "verify": "real-tasks/task_e16.py"
+  },
+  {
+    "id": "task_e17",
+    "difficulty": "easy",
+    "instruction": "Switch to compact display density.",
+    "verify": "real-tasks/task_e17.py"
+  },
+  {
+    "id": "task_e18",
+    "difficulty": "easy",
+    "instruction": "Turn off keyboard shortcuts.",
+    "verify": "real-tasks/task_e18.py"
+  },
+  {
+    "id": "task_e19",
+    "difficulty": "easy",
+    "instruction": "Unblock the sender annoying@daily-deals.biz.",
+    "verify": "real-tasks/task_e19.py"
+  },
+  {
+    "id": "task_e20",
+    "difficulty": "easy",
+    "instruction": "Set the maximum page size to 25 conversations.",
+    "verify": "real-tasks/task_e20.py"
+  },
+  {
+    "id": "task_m1",
+    "difficulty": "medium",
+    "instruction": "Add the Clients label to David Kim's tax season reminder email.",
+    "verify": "real-tasks/task_m1.py"
+  },
+  {
+    "id": "task_m2",
+    "difficulty": "medium",
+    "instruction": "Create a new label called 'Urgent' with a red background color.",
+    "verify": "real-tasks/task_m2.py"
+  },
+  {
+    "id": "task_m3",
+    "difficulty": "medium",
+    "instruction": "Move Emily Rodriguez's VC meetup email to the Social category.",
+    "verify": "real-tasks/task_m3.py"
+  },
+  {
+    "id": "task_m4",
+    "difficulty": "medium",
+    "instruction": "Snooze the CI/CD Pipeline Migration Plan email until tomorrow.",
+    "verify": "real-tasks/task_m4.py"
+  },
+  {
+    "id": "task_m5",
+    "difficulty": "medium",
+    "instruction": "Remove the Action Required label from the contract review email by James O'Brien.",
+    "verify": "real-tasks/task_m5.py"
+  },
+  {
+    "id": "task_m6",
+    "difficulty": "medium",
+    "instruction": "Set up a filter for emails from david.kim@financeplus.com that automatically applies the Finance label.",
+    "verify": "real-tasks/task_m6.py"
+  },
+  {
+    "id": "task_m7",
+    "difficulty": "medium",
+    "instruction": "Block the sender of the '$5,000,000 inheritance' email in the trash.",
+    "verify": "real-tasks/task_m7.py"
+  },
+  {
+    "id": "task_m8",
+    "difficulty": "medium",
+    "instruction": "Disable the Social category tab in the inbox.",
+    "verify": "real-tasks/task_m8.py"
+  },
+  {
+    "id": "task_m9",
+    "difficulty": "medium",
+    "instruction": "Rename the Reference label to Resources.",
+    "verify": "real-tasks/task_m9.py"
+  },
+  {
+    "id": "task_m10",
+    "difficulty": "medium",
+    "instruction": "Delete the filter that handles GitHub notifications.",
+    "verify": "real-tasks/task_m10.py"
+  },
+  {
+    "id": "task_m11",
+    "difficulty": "medium",
+    "instruction": "Turn off the Send and Archive feature.",
+    "verify": "real-tasks/task_m11.py"
+  },
+  {
+    "id": "task_m12",
+    "difficulty": "medium",
+    "instruction": "Disable the Forums category.",
+    "verify": "real-tasks/task_m12.py"
+  },
+  {
+    "id": "task_m13",
+    "difficulty": "medium",
+    "instruction": "Archive the latest Morning Brew newsletter.",
+    "verify": "real-tasks/task_m13.py"
+  },
+  {
+    "id": "task_m14",
+    "difficulty": "medium",
+    "instruction": "Add the Projects label to the office renovation email from Daniel Thompson.",
+    "verify": "real-tasks/task_m14.py"
+  },
+  {
+    "id": "task_m15",
+    "difficulty": "medium",
+    "instruction": "Switch the inbox type to Important first.",
+    "verify": "real-tasks/task_m15.py"
+  },
+  {
+    "id": "task_m16",
+    "difficulty": "medium",
+    "instruction": "Empty the spam folder.",
+    "verify": "real-tasks/task_m16.py"
+  },
+  {
+    "id": "task_m17",
+    "difficulty": "medium",
+    "instruction": "Move the archived sprint planning notes from Sarah Chen back to the inbox.",
+    "verify": "real-tasks/task_m17.py"
+  },
+  {
+    "id": "task_m18",
+    "difficulty": "medium",
+    "instruction": "Turn off the reply nudge suggestions.",
+    "verify": "real-tasks/task_m18.py"
+  },
+  {
+    "id": "task_m19",
+    "difficulty": "medium",
+    "instruction": "Set auto-advance to go to the previous (older) conversation.",
+    "verify": "real-tasks/task_m19.py"
+  },
+  {
+    "id": "task_m20",
+    "difficulty": "medium",
+    "instruction": "Change button labels to show text instead of icons.",
+    "verify": "real-tasks/task_m20.py"
+  },
+  {
+    "id": "task_h1",
+    "difficulty": "hard",
+    "instruction": "Create a label called 'Q1 Priority' nested under Work, then apply it to Sarah Chen's Q1 Product Roadmap Review email.",
+    "verify": "real-tasks/task_h1.py"
+  },
+  {
+    "id": "task_h2",
+    "difficulty": "hard",
+    "instruction": "Update the Datadog alerts filter to also archive matching emails and forward them to priya.sharma@cloudnine.dev instead of nate.patel@devops.tools.",
+    "verify": "real-tasks/task_h2.py"
+  },
+  {
+    "id": "task_h3",
+    "difficulty": "hard",
+    "instruction": "Archive all unread emails in the Social category.",
+    "verify": "real-tasks/task_h3.py"
+  },
+  {
+    "id": "task_h4",
+    "difficulty": "hard",
+    "instruction": "Set up a filter for emails with 'invoice' or 'payment' in the subject that automatically applies the Invoices label and marks them as read.",
+    "verify": "real-tasks/task_h4.py"
+  },
+  {
+    "id": "task_h5",
+    "difficulty": "hard",
+    "instruction": "Trash all promotional emails from Amazon, Nike, and REI.",
+    "verify": "real-tasks/task_h5.py"
+  },
+  {
+    "id": "task_h6",
+    "difficulty": "hard",
+    "instruction": "Change the star on the United Airlines deal email to a green star, move it from Promotions to Primary, and apply the Action Required label.",
+    "verify": "real-tasks/task_h6.py"
+  },
+  {
+    "id": "task_h7",
+    "difficulty": "hard",
+    "instruction": "Create a nested label 'Taxes' under Finance, then apply it to both of David Kim's finance-related emails — the tax season reminder and the year-end financial summary.",
+    "verify": "real-tasks/task_h7.py"
+  },
+  {
+    "id": "task_h8",
+    "difficulty": "hard",
+    "instruction": "Switch to dark theme with compact density, disable both hover actions and dynamic email, and change the undo send delay to 20 seconds.",
+    "verify": "real-tasks/task_h8.py"
+  },
+  {
+    "id": "task_h9",
+    "difficulty": "hard",
+    "instruction": "Configure the multiple inbox: set section 1 to search 'is:important' with the name 'Priority', and section 2 to search 'label:Action Required' with the name 'Action Items'.",
+    "verify": "real-tasks/task_h9.py"
+  },
+  {
+    "id": "task_h10",
+    "difficulty": "hard",
+    "instruction": "Remove all user labels from Priya Sharma's Sprint Retro Action Items email and add Waiting For Reply instead.",
+    "verify": "real-tasks/task_h10.py"
+  },
+  {
+    "id": "task_h11",
+    "difficulty": "hard",
+    "instruction": "Trash all unread primary emails that have attachments.",
+    "verify": "real-tasks/task_h11.py"
+  },
+  {
+    "id": "task_h12",
+    "difficulty": "hard",
+    "instruction": "Mark Marcus Williams' Design System Update as read, star it with a blue star, and apply the Projects label.",
+    "verify": "real-tasks/task_h12.py"
+  },
+  {
+    "id": "task_h13",
+    "difficulty": "hard",
+    "instruction": "Create a label called 'Conferences' under Work, and apply it to both Sophie Laurent's EuroDesign Summit email and the Figma Config 2026 email.",
+    "verify": "real-tasks/task_h13.py"
+  },
+  {
+    "id": "task_h14",
+    "difficulty": "hard",
+    "instruction": "Disable the Promotions, Updates, and Forums category tabs, and change the inbox type to Important first.",
+    "verify": "real-tasks/task_h14.py"
+  },
+  {
+    "id": "task_h15",
+    "difficulty": "hard",
+    "instruction": "Edit the Morning Brew filter to also archive matching messages and mark them as read.",
+    "verify": "real-tasks/task_h15.py"
+  },
+  {
+    "id": "task_h16",
+    "difficulty": "hard",
+    "instruction": "Create a filter for emails with attachments larger than 5 MB that applies the Reference label and skips the inbox.",
+    "verify": "real-tasks/task_h16.py"
+  },
+  {
+    "id": "task_h17",
+    "difficulty": "hard",
+    "instruction": "Archive all emails labeled Newsletters that are currently in the inbox.",
+    "verify": "real-tasks/task_h17.py"
+  },
+  {
+    "id": "task_h18",
+    "difficulty": "hard",
+    "instruction": "Unsnooze Tom Bradley's mortgage pre-approval email and add the Action Required label to it.",
+    "verify": "real-tasks/task_h18.py"
+  },
+  {
+    "id": "task_h19",
+    "difficulty": "hard",
+    "instruction": "Empty the trash, then report all the spam emails as not spam.",
+    "verify": "real-tasks/task_h19.py"
+  },
+  {
+    "id": "task_h20",
+    "difficulty": "hard",
+    "instruction": "Delete the Receipts label and add the Finance label to all emails that previously had Receipts applied.",
+    "verify": "real-tasks/task_h20.py"
+  }
+]

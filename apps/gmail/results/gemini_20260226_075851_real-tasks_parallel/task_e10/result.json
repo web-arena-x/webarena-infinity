@@ -1,0 +1,17 @@
+{
+  "task_id": "task_e10",
+  "difficulty": "easy",
+  "instruction": "Mark Priya Sharma's latest message about the API integration issue as read.",
+  "passed": true,
+  "verifier_message": "Email id=2 ('Re: API Integration Issue') is marked as read.",
+  "elapsed": 69.9,
+  "steps": 4,
+  "is_done": true,
+  "final_result": "I have successfully marked Priya Sharma's latest message about the API integration issue ('Re: API Integration Issue', Yesterday) as read.",
+  "errors": [
+    null,
+    null,
+    null,
+    null
+  ]
+}

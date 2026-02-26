@@ -1,0 +1,27 @@
+{
+  "task_id": "task_h3",
+  "difficulty": "hard",
+  "instruction": "Archive all unread emails in the Social category.",
+  "passed": true,
+  "verifier_message": "All unread social emails ([31, 33, 37, 43]) are archived.",
+  "elapsed": 178.0,
+  "steps": 14,
+  "is_done": true,
+  "final_result": "I have successfully archived all unread emails in the Social category. After identifying 4 unread messages (LinkedIn endorsement, GitHub PR #847, GitHub Issue #312, and GitHub Dependabot), I selected and archived them. A final check confirmed that no unread emails remain in the Social inbox.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    "Failed to click element <button index=110763>. The element may not be interactable or visible. If the page changed after navigation/interaction, the index [110763] may be stale. Get fresh browser state before retrying.",
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

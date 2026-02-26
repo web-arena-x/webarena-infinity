@@ -1,0 +1,24 @@
+{
+  "task_id": "task_m17",
+  "difficulty": "medium",
+  "instruction": "Move the archived sprint planning notes from Sarah Chen back to the inbox.",
+  "passed": true,
+  "verifier_message": "Email 85 (Sprint planning notes) is unarchived and back in INBOX.",
+  "elapsed": 116.3,
+  "steps": 11,
+  "is_done": true,
+  "final_result": "I have successfully moved the archived email 'Meeting notes: Sprint planning' from Sarah Chen back to your inbox. I located the email on the third page of 'All Mail', selected it, and used the 'Move to Inbox' action. I have verified that it is now visible in your Inbox.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

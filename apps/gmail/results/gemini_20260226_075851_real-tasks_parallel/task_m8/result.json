@@ -1,0 +1,14 @@
+{
+  "task_id": "task_m8",
+  "difficulty": "medium",
+  "instruction": "Disable the Social category tab in the inbox.",
+  "passed": false,
+  "verifier_message": "Timed out after 300s",
+  "elapsed": 300,
+  "steps": -1,
+  "is_done": false,
+  "final_result": null,
+  "errors": [
+    "Timeout after 300s"
+  ]
+}
