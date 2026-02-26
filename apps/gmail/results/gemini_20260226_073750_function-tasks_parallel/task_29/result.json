@@ -1,0 +1,19 @@
+{
+  "task_id": "task_29",
+  "difficulty": "",
+  "instruction": "Go to the Trash folder and move the email 'Congratulations! You won $10,000!' back to the Inbox.",
+  "passed": true,
+  "verifier_message": "Email 'Congratulations! You won $10,000!' moved from Trash to Inbox.",
+  "elapsed": 30.7,
+  "steps": 6,
+  "is_done": true,
+  "final_result": "Successfully moved the email 'Congratulations! You won $10,000!' from the Trash folder to the Inbox.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

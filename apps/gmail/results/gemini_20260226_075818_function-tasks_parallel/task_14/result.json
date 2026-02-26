@@ -1,0 +1,17 @@
+{
+  "task_id": "task_14",
+  "difficulty": "",
+  "instruction": "Create a new label called 'Urgent'.",
+  "passed": true,
+  "verifier_message": "Label 'Urgent' created successfully.",
+  "elapsed": 36.1,
+  "steps": 4,
+  "is_done": true,
+  "final_result": "I have successfully created the new label 'Urgent' as requested. You can see it in the sidebar under the Labels section.",
+  "errors": [
+    null,
+    null,
+    null,
+    null
+  ]
+}

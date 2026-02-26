@@ -1,0 +1,22 @@
+{
+  "task_id": "task_22",
+  "difficulty": "",
+  "instruction": "Change the display theme to dark mode.",
+  "passed": true,
+  "verifier_message": "Theme changed to dark mode.",
+  "elapsed": 68.5,
+  "steps": 9,
+  "is_done": true,
+  "final_result": "I have successfully changed the display theme to dark mode. I navigated to the settings, selected 'Dark' from the theme dropdown, and saved the changes. The settings now reflect that the Dark theme is active.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    "Element index 60882 not found in browser state",
+    null,
+    null,
+    null,
+    null
+  ]
+}

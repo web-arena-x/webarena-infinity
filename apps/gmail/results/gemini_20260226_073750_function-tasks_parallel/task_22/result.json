@@ -1,0 +1,18 @@
+{
+  "task_id": "task_22",
+  "difficulty": "",
+  "instruction": "Change the display theme to dark mode.",
+  "passed": true,
+  "verifier_message": "Theme changed to dark mode.",
+  "elapsed": 17.4,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "The display theme has been successfully changed to dark mode.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

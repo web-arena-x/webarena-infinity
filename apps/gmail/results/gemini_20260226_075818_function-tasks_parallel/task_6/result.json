@@ -1,0 +1,14 @@
+{
+  "task_id": "task_6",
+  "difficulty": "",
+  "instruction": "Remove the important marker from the email 'Q1 Product Roadmap Review' from Sarah Chen.",
+  "passed": false,
+  "verifier_message": "Timed out after 300s",
+  "elapsed": 300,
+  "steps": -1,
+  "is_done": false,
+  "final_result": null,
+  "errors": [
+    "Timeout after 300s"
+  ]
+}

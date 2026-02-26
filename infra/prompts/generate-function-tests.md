@@ -1,1 +1,1 @@
-Follow `./docs/function-task-design-guide.md` to create 50 tasks for `apps/{app-name}`and follow `./docs/verifier-sanity-check.md` to create sanity checks.
+Follow `docs/function-task-design-guide.md` to create as many tasks (50+ will be ideal when the app is complicated) for `apps/{app-name}` and follow `docs/verifier-sanity-check.md` to create sanity checks.

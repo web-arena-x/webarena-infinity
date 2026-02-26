@@ -1,0 +1,20 @@
+{
+  "task_id": "task_15",
+  "difficulty": "",
+  "instruction": "Create a new label called 'Deadlines' nested under the 'Work' label.",
+  "passed": true,
+  "verifier_message": "Label 'Deadlines' created as a child of 'Work'.",
+  "elapsed": 39.6,
+  "steps": 7,
+  "is_done": true,
+  "final_result": "Successfully created the 'Deadlines' label nested under 'Work'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

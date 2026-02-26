@@ -1,0 +1,18 @@
+{
+  "task_id": "task_23",
+  "difficulty": "",
+  "instruction": "Change the display density to compact.",
+  "passed": true,
+  "verifier_message": "Display density changed to compact.",
+  "elapsed": 21.6,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully changed the display density to compact.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

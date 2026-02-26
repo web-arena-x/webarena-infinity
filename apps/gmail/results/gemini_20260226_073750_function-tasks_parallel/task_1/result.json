@@ -1,0 +1,17 @@
+{
+  "task_id": "task_1",
+  "difficulty": "",
+  "instruction": "Mark the email 'Q1 Product Roadmap Review' from Sarah Chen as read.",
+  "passed": true,
+  "verifier_message": "Email 'Q1 Product Roadmap Review' is marked as read.",
+  "elapsed": 26.9,
+  "steps": 4,
+  "is_done": true,
+  "final_result": "Successfully marked the email 'Q1 Product Roadmap Review' from Sarah Chen as read.",
+  "errors": [
+    null,
+    null,
+    null,
+    null
+  ]
+}

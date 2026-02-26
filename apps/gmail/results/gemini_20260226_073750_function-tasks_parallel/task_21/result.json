@@ -1,0 +1,19 @@
+{
+  "task_id": "task_21",
+  "difficulty": "",
+  "instruction": "Delete the filter that matches emails from 'notifications@linkedin.com'.",
+  "passed": true,
+  "verifier_message": "Filter for 'notifications@linkedin.com' has been deleted.",
+  "elapsed": 27.2,
+  "steps": 6,
+  "is_done": true,
+  "final_result": "Successfully deleted the filter that matches emails from 'notifications@linkedin.com'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}
