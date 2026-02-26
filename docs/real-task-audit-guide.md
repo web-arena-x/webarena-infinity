@@ -4,7 +4,7 @@ Principles for deciding when to update tasks, verifiers, or UI after reviewing a
 
 ## Core Principle: Feasibility Is the Only Standard
 
-If a human can complete the task through the UI, the task and verifier are correct — regardless of agent pass rate. A 0% pass rate on a feasible task is an agent problem, not a benchmark problem.
+If a human can complete the task through the UI, the task and verifier are correct — regardless of agent pass rate. A 0% pass rate on a feasible task is an agent problem, not a website problem.
 
 The evaluation measures agent capability, not task difficulty targets. Adjusting tasks to improve pass rates would undermine the benchmark.
 
