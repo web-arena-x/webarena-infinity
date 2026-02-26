@@ -1,0 +1,22 @@
+{
+  "task_id": "task_m8",
+  "difficulty": "medium",
+  "instruction": "Create a new email filter that matches emails from 'newsletter@figma.com' and categorizes them as Promotions.",
+  "passed": false,
+  "verifier_message": "Verifier exception: 'NoneType' object has no attribute 'lower'",
+  "elapsed": 75.1,
+  "steps": 9,
+  "is_done": true,
+  "final_result": "I have created a filter that applies the 'Newsletters' label to emails from 'newsletter@figma.com'. However, I was unable to directly categorize the emails as 'Promotions' as requested, because that category was not available. Therefore, the task was not fully completed as requested.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

@@ -12,8 +12,8 @@ from agents import AgentResult
 TASK_TIMEOUT = 300  # seconds per task wall-clock limit
 
 
-def load_tasks(web_app_dir: str) -> list[dict]:
-    with open(Path(web_app_dir) / "tasks.json") as f:
+def load_tasks(web_app_dir: str, task_suite: str = "tasks") -> list[dict]:
+    with open(Path(web_app_dir) / f"{task_suite}.json") as f:
         return json.load(f)
 
 

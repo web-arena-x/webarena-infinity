@@ -1,0 +1,26 @@
+{
+  "task_id": "task_e11",
+  "difficulty": "easy",
+  "instruction": "Change the button labels setting to show text instead of icons in Settings.",
+  "passed": false,
+  "verifier_message": "Button labels are not set to 'text' (buttonLabels='icons').",
+  "elapsed": 104.1,
+  "steps": 13,
+  "is_done": true,
+  "final_result": "I was unable to locate the 'Button labels' setting in the settings menu. Therefore, I cannot change the setting to show text instead of icons. ",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

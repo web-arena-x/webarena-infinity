@@ -1,0 +1,33 @@
+{
+  "task_id": "task_h8",
+  "difficulty": "hard",
+  "instruction": "Create a new label called 'DevReports' with an orange color, then apply it to both the email 'Deployment successful: production' from Vercel and the email 'Alert: High CPU usage on prod-api-3' from Datadog.",
+  "passed": false,
+  "verifier_message": "Email 'Deployment successful: production' does not have DevReports label ('label_30') in its labels: ['INBOX', 'CATEGORY_UPDATES', 'label_1']",
+  "elapsed": 167.6,
+  "steps": 20,
+  "is_done": true,
+  "final_result": "Created the 'DevReports' label with orange color. However, I was unable to find the emails 'Deployment successful: production' from Vercel and 'Alert: High CPU usage on prod-api-3' from Datadog to apply the label. Therefore, the task is incomplete.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

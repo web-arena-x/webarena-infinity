@@ -1,0 +1,19 @@
+{
+  "task_id": "task_e14",
+  "difficulty": "easy",
+  "instruction": "Turn off the follow-up email suggestion nudges in Settings.",
+  "passed": true,
+  "verifier_message": "Task completed successfully.",
+  "elapsed": 45.4,
+  "steps": 6,
+  "is_done": true,
+  "final_result": "Successfully turned off the follow-up email suggestion nudges in Settings.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

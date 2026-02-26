@@ -205,16 +205,19 @@ async def main():
     parser.add_argument("--output-dir", default=None,
                         help="Results directory (default: <web-app>/results)")
     parser.add_argument("--web-app", default="apps/gitlab-org-management")
+    parser.add_argument("--task-suite", default="tasks",
+                        help="Task suite name, e.g. 'tasks' or 'tasks-function-test' (loads <name>.json)")
     args = parser.parse_args()
 
     web_app_dir = str(Path(args.web_app).resolve())
     output_dir = args.output_dir or os.path.join(web_app_dir, "results")
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    run_dir = Path(output_dir) / f"{args.model}_{timestamp}_parallel"
+    suite_tag = f"_{args.task_suite}" if args.task_suite != "tasks" else ""
+    run_dir = Path(output_dir) / f"{args.model}_{timestamp}{suite_tag}_parallel"
     run_dir.mkdir(parents=True, exist_ok=True)
 
     # Load and filter tasks
-    all_tasks = load_tasks(web_app_dir)
+    all_tasks = load_tasks(web_app_dir, task_suite=args.task_suite)
     tasks = filter_tasks(all_tasks, task_id=args.task_id, difficulty=args.difficulty)
     if not tasks:
         print(f"{RED}No tasks matched.{RESET}")
@@ -228,6 +231,7 @@ async def main():
     print(f"{BOLD}{CYAN}  Parallel Evaluation{RESET}")
     print(f"{BOLD}{CYAN}{'=' * 60}{RESET}")
     print(f"  {DIM}Model:{RESET}   {BOLD}{args.model}{RESET}")
+    print(f"  {DIM}Suite:{RESET}   {BOLD}{args.task_suite}{RESET}")
     print(f"  {DIM}Tasks:{RESET}   {BOLD}{len(tasks)}{RESET}")
     print(f"  {DIM}Workers:{RESET} {BOLD}{num_workers}{RESET}")
     print(f"  {DIM}Env:{RESET}     {BOLD}{args.env_host}:{args.base_port}-{port_hi}{RESET}")

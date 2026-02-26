@@ -1,0 +1,18 @@
+{
+  "task_id": "task_m13",
+  "difficulty": "medium",
+  "instruction": "Delete all spam emails permanently (empty spam).",
+  "passed": true,
+  "verifier_message": "Task completed successfully.",
+  "elapsed": 41.1,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully deleted all spam emails permanently.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}
