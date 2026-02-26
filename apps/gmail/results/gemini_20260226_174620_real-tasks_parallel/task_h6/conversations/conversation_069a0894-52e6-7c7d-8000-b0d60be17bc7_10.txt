@@ -1,0 +1,761 @@
+ system 
+You are an AI agent designed to operate in an iterative loop to automate browser tasks. Your ultimate goal is accomplishing the task provided in <user_request>.
+<intro>
+You excel at following tasks:
+1. Navigating complex websites and extracting precise information
+2. Automating form submissions and interactive web actions
+3. Gathering and saving information
+4. Using your filesystem effectively to decide what to keep in your context
+5. Operate effectively in an agent loop
+6. Efficiently performing diverse web tasks
+</intro>
+<language_settings>
+- Default working language: **English**
+- Always respond in the same language as the user request
+</language_settings>
+<input>
+At every step, your input will consist of:
+1. <agent_history>: A chronological event stream including your previous actions and their results.
+2. <agent_state>: Current <user_request>, summary of <file_system>, <todo_contents>, and <step_info>.
+3. <browser_state>: Current URL, open tabs, interactive elements indexed for actions, and visible page content.
+4. <browser_vision>: Screenshot of the browser with bounding boxes around interactive elements. If you used screenshot before, this will contain a screenshot.
+5. <read_state> This will be displayed only if your previous action was extract or read_file. This data is only shown in the current step.
+</input>
+<agent_history>
+Agent history will be given as a list of step information as follows:
+<step_{step_number}>:
+Evaluation of Previous Step: Assessment of last action
+Memory: Your memory of this step
+Next Goal: Your goal for this step
+Action Results: Your actions and their results
+</step_{step_number}>
+and system messages wrapped in <sys> tag.
+</agent_history>
+<user_request>
+USER REQUEST: This is your ultimate objective and always remains visible.
+- This has the highest priority. Make the user happy.
+- If the user request is very specific - then carefully follow each step and dont skip or hallucinate steps.
+- If the task is open ended you can plan yourself how to get it done.
+</user_request>
+<browser_state>
+1. Browser State will be given as:
+Current URL: URL of the page you are currently viewing.
+Open Tabs: Open tabs with their ids.
+Interactive Elements: All interactive elements will be provided in format as [index]<type>text</type> where
+- index: Numeric identifier for interaction
+- type: HTML element type (button, input, etc.)
+- text: Element description
+Examples:
+[33]<div>User form</div>
+\t*[35]<button aria-label='Submit form'>Submit</button>
+Note that:
+- Only elements with numeric indexes in [] are interactive
+- (stacked) indentation (with \t) is important and means that the element is a (html) child of the element above (with a lower index)
+- Elements tagged with a star `*[` are the new interactive elements that appeared on the website since the last step - if url has not changed. Your previous actions caused that change. Think if you need to interact with them, e.g. after input you might need to select the right option from the list.
+- Pure text elements without [] are not interactive.
+</browser_state>
+<browser_vision>
+If you used screenshot before, you will be provided with a screenshot of the current page with  bounding boxes around interactive elements. This is your GROUND TRUTH: reason about the image in your thinking to evaluate your progress.
+If an interactive index inside your browser_state does not have text information, then the interactive index is written at the top center of it's element in the screenshot.
+Use screenshot if you are unsure or simply want more information.
+</browser_vision>
+<browser_rules>
+Strictly follow these rules while using the browser and navigating the web:
+- Only interact with elements that have a numeric [index] assigned.
+- Only use indexes that are explicitly provided.
+- If research is needed, open a **new tab** instead of reusing the current one.
+- If the page changes after, for example, an input text action, analyse if you need to interact with new elements, e.g. selecting the right option from the list.
+- By default, only elements in the visible viewport are listed.
+- If a captcha appears, attempt solving it if possible. If not, use fallback strategies (e.g., alternative site, backtrack). Do not spend more than 3-4 steps on a single captcha - if blocked, try alternative approaches or report the limitation.
+- If the page is not fully loaded, use the wait action.
+- You can call extract on specific pages to gather structured semantic information from the entire page, including parts not currently visible.
+- Call extract only if the information you are looking for is not visible in your <browser_state> otherwise always just use the needed text from the <browser_state>.
+- Calling the extract tool is expensive! DO NOT query the same page with the same extract query multiple times. Make sure that you are on the page with relevant information based on the screenshot before calling this tool.
+- Use search_page to quickly find specific text or patterns on the page — it's free and instant. Great for: verifying content exists, finding where data is located, checking for error messages, locating prices/dates/IDs.
+- Use find_elements with CSS selectors to explore DOM structure — also free and instant. Great for: counting items (e.g. table rows, product cards), getting links or attributes, understanding page layout before extracting.
+- Prefer search_page and find_elements over scrolling when looking for specific content not visible in browser_state.
+- If you fill an input field and your action sequence is interrupted, most often something changed e.g. suggestions popped up under the field.
+- If the action sequence was interrupted in previous step due to page changes, make sure to complete any remaining actions that were not executed. For example, if you tried to input text and click a search button but the click was not executed because the page changed, you should retry the click action in your next step.
+- If the <user_request> includes specific page information such as product type, rating, price, location, etc., ALWAYS look for filter/sort options FIRST before browsing results. Apply all relevant filters before scrolling through results.
+- The <user_request> is the ultimate goal. If the user specifies explicit steps, they have always the highest priority.
+- If you input into a field, you might need to press enter, click the search button, or select from dropdown for completion.
+- For autocomplete/combobox fields (e.g. search boxes with suggestions, fields with role="combobox"): type your search text, then WAIT for the suggestions dropdown to appear in the next step. If suggestions appear (new elements marked with *[), click the correct one instead of pressing Enter. If no suggestions appear after one step, you may press Enter or submit normally.
+- Don't login into a page if you don't have to. Don't login if you don't have the credentials.
+- There are 2 types of tasks always first think which type of request you are dealing with:
+1. Very specific step by step instructions:
+- Follow them as very precise and don't skip steps. Try to complete everything as requested.
+2. Open ended tasks. Plan yourself, be creative in achieving them.
+- If you get stuck e.g. with logins or captcha in open-ended tasks you can re-evaluate the task and try alternative ways, e.g. sometimes accidentally login pops up, even though there some part of the page is accessible or you get some information via web search.
+- If you reach a PDF viewer, the file is automatically downloaded and you can see its path in <available_file_paths>. You can either read the file or scroll in the page to see more.
+- Handle popups, modals, cookie banners, and overlays immediately before attempting other actions. Look for close buttons (X, Close, Dismiss, No thanks, Skip) or accept/reject options. If a popup blocks interaction with the main page, handle it first.
+- If you encounter access denied (403), bot detection, or rate limiting, do NOT repeatedly retry the same URL. Try alternative approaches or report the limitation.
+- Detect and break out of unproductive loops: if you are on the same URL for 3+ steps without meaningful progress, or the same action fails 2-3 times, try a different approach. Track what you have tried in memory to avoid repeating failed approaches.
+</browser_rules>
+<file_system>
+- You have access to a persistent file system which you can use to track progress, store results, and manage long tasks.
+- Your file system is initialized with a `todo.md`: Use this to keep a checklist for known subtasks. Use `replace_file` tool to update markers in `todo.md` as first action whenever you complete an item. This file should guide your step-by-step execution when you have a long running task.
+- If you are writing a `csv` file, make sure to use double quotes if cell elements contain commas.
+- If the file is too large, you are only given a preview of your file. Use `read_file` to see the full content if necessary.
+- If exists, <available_file_paths> includes files you have downloaded or uploaded by the user. You can only read or upload these files but you don't have write access.
+- If the task is really long, initialize a `results.md` file to accumulate your results.
+- DO NOT use the file system if the task is less than 10 steps!
+</file_system>
+<planning>
+Decide whether to plan based on task complexity:
+- Simple task (1-3 actions, e.g. "go to X and click Y"): Act directly. Do NOT output `plan_update`.
+- Complex but clear task (multi-step, known approach): Output `plan_update` immediately with 3-10 todo items.
+- Complex and unclear task (unfamiliar site, vague goal): Explore for a few steps first, then output `plan_update` once you understand the landscape.
+When a plan exists, `<plan>` in your input shows status markers: [x]=done, [>]=current, [ ]=pending, [-]=skipped.
+Output `current_plan_item` (0-indexed) to indicate which item you are working on.
+Output `plan_update` again only to revise the plan after unexpected obstacles or after exploration.
+Completing all plan items does NOT mean the task is done. Always verify against the original <user_request> before calling `done`.
+</planning>
+<task_completion_rules>
+You must call the `done` action in one of two cases:
+- When you have fully completed the USER REQUEST.
+- When you reach the final allowed step (`max_steps`), even if the task is incomplete.
+- If it is ABSOLUTELY IMPOSSIBLE to continue.
+The `done` action is your opportunity to terminate and share your findings with the user.
+- Set `success` to `true` only if the full USER REQUEST has been completed with no missing components.
+- If any part of the request is missing, incomplete, or uncertain, set `success` to `false`.
+- You can use the `text` field of the `done` action to communicate your findings and `files_to_display` to send file attachments to the user, e.g. `["results.md"]`.
+- Put ALL the relevant information you found so far in the `text` field when you call `done` action.
+- Combine `text` and `files_to_display` to provide a coherent reply to the user and fulfill the USER REQUEST.
+- You are ONLY ALLOWED to call `done` as a single action. Don't call it together with other actions.
+- If the user asks for specified format, such as "return JSON with following structure", "return a list of format...", MAKE sure to use the right format in your answer.
+- If the user asks for a structured output, your `done` action's schema will be modified. Take this schema into account when solving the task!
+- When you reach 75% of your step budget, critically evaluate whether you can complete the full task in the remaining steps.
+  If completion is unlikely, shift strategy: focus on the highest-value remaining items and consolidate your results (save progress to files if the file system is in use).
+  This ensures that when you do call `done` (at max_steps or earlier), you have meaningful partial results to deliver.
+- For large multi-item tasks (e.g. "search 50 items"), estimate the per-item cost from the first few items.
+  If the task will exceed your budget, prioritize the most important items and save results incrementally.
+<pre_done_verification>
+BEFORE calling `done` with `success=true`, you MUST perform this verification:
+1. **Re-read the USER REQUEST** — list every concrete requirement (items to find, actions to perform, format to use, filters to apply).
+2. **Check each requirement against your results:**
+   - Did you extract the CORRECT number of items? (e.g., "list 5 items" → count them)
+   - Did you apply ALL specified filters/criteria? (e.g., price range, date, location)
+   - Does your output match the requested format exactly?
+3. **Verify actions actually completed:**
+   - If you submitted a form, posted a comment, or saved a file — check the page state or screenshot to confirm it happened.
+   - If you took a screenshot or downloaded a file — verify it exists in your file system.
+4. **Check for fabricated content:**
+   - Every fact, price, name, and date in your response must come from the page you visited — never generate plausible-sounding data.
+5. **If ANY requirement is unmet, uncertain, or unverifiable — set `success` to `false`.**
+   Partial results with `success=false` are more valuable than overclaiming success.
+</pre_done_verification>
+</task_completion_rules>
+<action_rules>
+- You are allowed to use a maximum of 5 actions per step.
+If you are allowed multiple actions, you can specify multiple actions in the list to be executed sequentially (one after another).
+- If the page changes after an action, the remaining actions are automatically skipped and you get the new state.
+Check the browser state each step to verify your previous action achieved its goal.
+</action_rules>
+<efficiency_guidelines>
+You can output multiple actions in one step. Try to be efficient where it makes sense. Do not predict actions which do not make sense for the current page.
+
+**Action categories:**
+- **Page-changing (always last):** `navigate`, `search`, `go_back`, `switch` — these always change the page. Remaining actions after them are skipped automatically.
+- **Potentially page-changing:** `click` (on links/buttons that navigate), `evaluate` (with JS navigation) — monitored at runtime; if the page changes, remaining actions are skipped.
+- **Safe to chain:** `input`, `scroll`, `find_text`, `extract`, `search_page`, file operations — these do not change the page and can be freely combined.
+
+**Recommended combinations:**
+- `input` + `input` + `input` + `click` → Fill multiple form fields then submit
+- `input` + `input` → Fill multiple form fields
+- `scroll` + `scroll` → Scroll further down the page
+- `click` + `click` → Navigate multi-step flows (only when clicks do not navigate)
+- File operations + browser actions
+
+Do not try multiple different paths in one step. Always have one clear goal per step.
+Place any page-changing action **last** in your action list, since actions after it will not run.
+</efficiency_guidelines>
+<reasoning_rules>
+You must reason explicitly and systematically at every step in your `thinking` block.
+Exhibit the following reasoning patterns to successfully achieve the <user_request>:
+- Reason about <agent_history> to track progress and context toward <user_request>.
+- Analyze the most recent "Next Goal" and "Action Result" in <agent_history> and clearly state what you previously tried to achieve.
+- Analyze all relevant items in <agent_history>, <browser_state>, <read_state>, <file_system>, <read_state> and the screenshot to understand your state.
+- Explicitly judge success/failure/uncertainty of the last action. Never assume an action succeeded just because it appears to be executed in your last step in <agent_history>. For example, you might have "Action 1/1: Input '2025-05-05' into element 3." in your history even though inputting text failed. Always verify using <browser_vision> (screenshot) as the primary ground truth. If a screenshot is unavailable, fall back to <browser_state>. If the expected change is missing, mark the last action as failed (or uncertain) and plan a recovery.
+- If todo.md is empty and the task is multi-step, generate a stepwise plan in todo.md using file tools.
+- Analyze `todo.md` to guide and track your progress.
+- If any todo.md items are finished, mark them as complete in the file.
+- Analyze whether you are stuck, e.g. when you repeat the same actions multiple times without any progress. Then consider alternative approaches.
+- Analyze the <read_state> where one-time information are displayed due to your previous action. Reason about whether you want to keep this information in memory and plan writing them into a file if applicable using the file tools.
+- If you see information relevant to <user_request>, plan saving the information into a file.
+- Before writing data into a file, analyze the <file_system> and check if the file already has some content to avoid overwriting.
+- Decide what concise, actionable context should be stored in memory to inform future reasoning.
+- When ready to finish, state you are preparing to call done and communicate completion/results to the user.
+- Before done, use read_file to verify file contents intended for user output.
+- Always reason about the <user_request>. Make sure to carefully analyze the specific steps and information required. E.g. specific filters, specific form fields, specific information to search. Make sure to always compare the current trajectory with the user request.
+</reasoning_rules>
+<examples>
+Here are examples of good output patterns. Use them as reference but never copy them directly.
+<todo_examples>
+  "write_file": {
+    "file_name": "todo.md",
+    "content": "# ArXiv CS.AI Recent Papers Collection Task\n\n## Goal: Collect metadata for 20 most recent papers\n\n## Tasks:\n- [ ] Navigate to https://arxiv.org/list/cs.AI/recent\n- [ ] Initialize papers.md file for storing paper data\n- [ ] Collect paper 1/20: The Automated LLM Speedrunning Benchmark\n- [x] Collect paper 2/20: AI Model Passport\n- [ ] Collect paper 3/20: Embodied AI Agents\n- [ ] Collect paper 4/20: Conceptual Topic Aggregation\n- [ ] Collect paper 5/20: Artificial Intelligent Disobedience\n- [ ] Continue collecting remaining papers from current page\n- [ ] Navigate through subsequent pages if needed\n- [ ] Continue until 20 papers are collected\n- [ ] Verify all 20 papers have complete metadata\n- [ ] Final review and completion"
+  }
+</todo_examples>
+<evaluation_examples>
+- Positive Examples:
+"evaluation_previous_goal": "Successfully navigated to the product page and found the target information. Verdict: Success"
+"evaluation_previous_goal": "Clicked the login button and user authentication form appeared. Verdict: Success"
+- Negative Examples:
+"evaluation_previous_goal": "Failed to input text into the search bar as I cannot see it in the image. Verdict: Failure"
+"evaluation_previous_goal": "Clicked the submit button with index 15 but the form was not submitted successfully. Verdict: Failure"
+</evaluation_examples>
+<memory_examples>
+"memory": "Visited 2 of 5 target websites. Collected pricing data from Amazon ($39.99) and eBay ($42.00). Still need to check Walmart, Target, and Best Buy for the laptop comparison."
+"memory": "Found many pending reports that need to be analyzed in the main page. Successfully processed the first 2 reports on quarterly sales data and moving on to inventory analysis and customer feedback reports."
+"memory": "Search returned results but no filter applied yet. User wants items under $50 with 4+ stars. Will apply price filter first, then rating filter."
+"memory": "Popup appeared blocking the page. Need to close it first before continuing with search."
+"memory": "Previous click on search button failed - page did not change. Will try pressing Enter in the search field instead."
+"memory": "Captcha appeared twice on this site. Will try alternative approach via search engine instead of direct navigation."
+"memory": "403 error on main product page. Will try searching for the product on a different site instead of retrying."
+</memory_examples>
+<next_goal_examples>
+"next_goal": "Click on the 'Add to Cart' button to proceed with the purchase flow."
+"next_goal": "Extract details from the first item on the page."
+"next_goal": "Close the popup that appeared blocking the main content."
+"next_goal": "Apply price filter to narrow results to items under $50."
+</next_goal_examples>
+</examples>
+<output>
+You must ALWAYS respond with a valid JSON in this exact format:
+{
+  "thinking": "A structured <think>-style reasoning block that applies the <reasoning_rules> provided above.",
+  "evaluation_previous_goal": "Concise one-sentence analysis of your last action. Clearly state success, failure, or uncertain.",
+  "memory": "1-3 sentences of specific memory of this step and overall progress. You should put here everything that will help you track progress in future steps. Like counting pages visited, items found, etc.",
+  "next_goal": "State the next immediate goal and action to achieve it, in one clear sentence.",
+  "current_plan_item": 0,
+  "plan_update": ["Todo item 1", "Todo item 2", "Todo item 3"],
+  "action":[{"navigate": { "url": "url_value"}}, // ... more actions in sequence]
+}
+Action list should NEVER be empty.
+`current_plan_item` and `plan_update` are optional. See <planning> for details.
+</output>
+<critical_reminders>
+1. ALWAYS verify action success using the screenshot before proceeding
+2. ALWAYS handle popups/modals/cookie banners before other actions
+3. ALWAYS apply filters when user specifies criteria (price, rating, location, etc.)
+4. NEVER repeat the same failing action more than 2-3 times - try alternatives
+5. NEVER assume success - always verify from screenshot or browser state
+6. If blocked by captcha/login/403, try alternative approaches rather than retrying
+7. Put ALL relevant findings in done action's text field
+8. Match user's requested output format exactly
+9. Track progress in memory to avoid loops
+10. When at max_steps, call done with whatever results you have
+11. Always compare current trajectory against the user's original request
+12. Be efficient - combine actions when possible but verify results between major steps
+</critical_reminders>
+<error_recovery>
+When encountering errors or unexpected states:
+1. First, verify the current state using screenshot as ground truth
+2. Check if a popup, modal, or overlay is blocking interaction
+3. If an element is not found, scroll to reveal more content
+4. If an action fails repeatedly (2-3 times), try an alternative approach
+5. If blocked by login/captcha/403, consider alternative sites or search engines
+6. If the page structure is different than expected, re-analyze and adapt
+7. If stuck in a loop, explicitly acknowledge it in memory and change strategy
+8. If max_steps is approaching, prioritize completing the most important parts of the task
+</error_recovery>
+
+
+ user 
+<agent_history>
+Agent initialized
+<step>
+Result
+Found initial url and automatically loaded it. Navigated to http://localhost:9005
+<step>
+Initial navigation to the web application was successful. Verdict: Success
+Task: 1. Find United Airlines email in Promotions. 2. Change star to green. 3. Move to Primary. 4. Apply 'Action Required' label.
+Navigate to the Promotions tab to find the United Airlines email.
+Result
+Clicked button "Promotions
+2"
+<step>
+Successfully navigated to the Promotions tab and identified the United Airlines email. Verdict: Success
+Located United Airlines email in Promotions tab. Need to: 1. Change star to green, 2. Move to Primary, 3. Apply 'Action Required' label.
+Click the star button on the United Airlines email to begin changing its color.
+Result
+Clicked button "★"
+<step>
+The star button was clicked once, but the color change to green is not yet confirmed. Verdict: Uncertain
+Navigated to Promotions and clicked the United Airlines email star once. Need to cycle to green, move to Primary, and label as 'Action Required'.
+Select the United Airlines email and click the star again to cycle towards green.
+Result
+Clicked button "★"
+Clicked input type=checkbox checkbox-state=unchecked
+<step>
+The star was clicked for the second time and the checkbox was clicked, but the checkbox still shows as 'unchecked' in the browser state. Verdict: Uncertain.
+I am in the Promotions tab. I have clicked the United Airlines star twice and the checkbox once. I need to reach the green star (likely 3rd or 4th click), apply the 'Action Required' label, and move it to the Primary tab.
+Click the star again to cycle towards green and ensure the email is selected by clicking the checkbox.
+Result
+Clicked button "★"
+Clicked input type=checkbox checkbox-state=unchecked
+<step>
+The star was clicked for the third time and the checkbox was clicked, but the checkbox remains unchecked. Verdict: Uncertain.
+I am in the Promotions tab. I have clicked the United Airlines star 3 times and attempted to select the email. Goal: Cycle star to green, select email, apply 'Action Required' label, and move to Primary.
+Click the star again to cycle towards green and select the United Airlines email by clicking its checkbox.
+Result
+Clicked button "★"
+Clicked input type=checkbox checkbox-state=unchecked
+<step>
+The star was clicked for the fourth time and the checkbox was clicked, but the checkbox remains unchecked in the browser state. Verdict: Uncertain.
+I am in the Promotions tab. I have clicked the United Airlines star 4 times and attempted to select the email multiple times. I need to reach the green star, select the email, apply the 'Action Required' label, and move it to the Primary tab.
+Select the United Airlines email by clicking its checkbox and click the star again to cycle towards green.
+Result
+Clicked input type=checkbox checkbox-state=unchecked
+Clicked button "★"
+<step>
+The star was clicked for the fifth time and the checkbox is now successfully checked. Verdict: Success
+United Airlines email is selected. Star has been clicked 5 times. Goal: Green star, 'Action Required' label, move to Primary.
+Click the star again to cycle towards green and then open the Labels menu.
+Result
+Clicked button "★"
+Clicked button
+<step>
+The United Airlines email checkbox is successfully checked, and the star has been clicked for the sixth time. Verdict: Success
+United Airlines email is selected. Star has been clicked 6 times. Next steps are to apply the 'Action Required' label and move the email to the Primary tab.
+Click the 'Labels' button to apply the 'Action Required' label to the selected email.
+Result
+Clicked button
+<step>
+The Labels menu was successfully opened. Verdict: Success
+United Airlines email is selected in the Promotions tab. The star has been clicked 6 times. The Labels menu is currently open.
+Select the 'Action Required' label and apply it to the email.
+Result
+Clicked input type=checkbox checkbox-state=unchecked
+Clicked button "Apply"
+</agent_history>
+
+<agent_state>
+<user_request>
+You are interacting with a web application at http://localhost:9005. Your task: Change the star on the United Airlines deal email to a green star, move it from Promotions to Primary, and apply the Action Required label.
+</user_request>
+<file_system>
+
+</file_system>
+<todo_contents>
+[empty todo.md, fill it when applicable]
+</todo_contents>
+<plan>
+[>] 0: Navigate to Promotions tab
+[ ] 1: Locate United Airlines deal email
+[ ] 2: Change star to green star
+[ ] 3: Apply 'Action Required' label
+[ ] 4: Move email to Primary tab
+</plan>
+<step_info>Step10 maximum:500
+Today:2026-02-26</step_info>
+</agent_state>
+<browser_state>
+<page_stats>0 links, 270 interactive, 0 iframes, 1 shadow(open), 0 shadow(closed), 442 total elements</page_stats>
+Current tab: 6850
+Available tabs:
+Tab 6850: http://localhost:9005/ - localhost:9005
+
+<page_info>0.0 above, 0.0 below </page_info>
+
+Interactive elements:
+[Start of page]
+*[19205]<button id=menuToggle aria-label=Main menu />
+<svg /> <!-- SVG content collapsed -->
+Gmail
+*[19247]<div id=searchBar />
+	*[19249]<button aria-label=Search />
+	|SHADOW(open)|*[19145]<input type=text id=searchInput placeholder=Search mail autocomplete=off />
+	*[19206]<button id=searchOptionsBtn aria-label=Show search options />
+*[19265]<button id=settingsBtn aria-label=Settings />
+*[19271]<div id=userAvatar />
+	*[19273]<span id=userInitials />
+		AJ
+|scroll element|<nav id=sidebar /> (0.0 pages above, 0.1 pages below)
+	*[19285]<button id=composeBtn />
+		Compose
+	*[26114]<div />
+		*[26115]<span />
+			*[26116]<svg /> <!-- SVG content collapsed -->
+		*[26118]<span />
+			Inbox
+		*[26119]<span />
+			19
+	*[26120]<div />
+		*[26121]<span />
+			*[26122]<svg /> <!-- SVG content collapsed -->
+		*[26124]<span />
+			Starred
+	*[26125]<div />
+		*[26126]<span />
+			*[26127]<svg /> <!-- SVG content collapsed -->
+		*[26129]<span />
+			Snoozed
+	*[26130]<div />
+		*[26131]<span />
+			*[26132]<svg /> <!-- SVG content collapsed -->
+		*[26134]<span />
+			Sent
+	*[26135]<div />
+		*[26136]<span />
+			*[26137]<svg /> <!-- SVG content collapsed -->
+		*[26139]<span />
+			Drafts
+		*[26140]<span />
+	*[26141]<div />
+		*[26142]<span />
+			*[26143]<svg /> <!-- SVG content collapsed -->
+		*[26145]<span />
+			Important
+	*[26146]<div />
+		*[26147]<span />
+			*[26148]<svg /> <!-- SVG content collapsed -->
+		*[26150]<span />
+			All Mail
+	*[26151]<div />
+		*[26152]<span />
+			*[26153]<svg /> <!-- SVG content collapsed -->
+		*[26155]<span />
+			Spam
+		*[26156]<span />
+	*[26157]<div />
+		*[26158]<span />
+			*[26159]<svg /> <!-- SVG content collapsed -->
+		*[26161]<span />
+			Trash
+	Labels
+	*[26165]<button />
+	*[26166]<div />
+		*[26167]<span />
+		*[26168]<span />
+			Work
+		*[26169]<span />
+			12
+	*[26170]<div />
+		*[26171]<span />
+		*[26172]<span />
+			Projects
+		*[26173]<span />
+	*[26174]<div />
+		*[26175]<span />
+		*[26176]<span />
+			Meetings
+		*[26177]<span />
+	*[26178]<div />
+		*[26179]<span />
+		*[26180]<span />
+			Clients
+		*[26181]<span />
+	*[26182]<div />
+		*[26183]<span />
+		*[26184]<span />
+			HR
+	*[26185]<div />
+		*[26186]<span />
+		*[26187]<span />
+			Personal
+	*[26188]<div />
+		*[26189]<span />
+		*[26190]<span />
+			Family
+	*[26191]<div />
+		*[26192]<span />
+		*[26193]<span />
+			Friends
+	*[26194]<div />
+		*[26195]<span />
+		*[26196]<span />
+			Finance
+	*[26197]<div />
+		*[26198]<span />
+		*[26199]<span />
+			Invoices
+	*[26200]<div />
+		*[26201]<span />
+		*[26202]<span />
+			Banking
+	*[26203]<div />
+		*[26204]<span />
+		*[26205]<span />
+			Travel
+		*[26206]<span />
+	*[26207]<div />
+		*[26208]<span />
+		*[26209]<span />
+			Receipts
+	*[26210]<div />
+		*[26211]<span />
+		*[26212]<span />
+			Newsletters
+		*[26213]<span />
+	*[26214]<div />
+		*[26215]<span />
+		*[26216]<span />
+			Health
+	*[26217]<div />
+		*[26218]<span />
+		*[26219]<span />
+			Education
+	*[26220]<div />
+		*[26221]<span />
+		*[26222]<span />
+			Action Required
+		*[26223]<span />
+	*[26224]<div />
+		*[26225]<span />
+		*[26226]<span />
+			Waiting For Reply
+		*[26227]<span />
+	*[26228]<div />
+		*[26229]<span />
+		*[26230]<span />
+			Reference
+	*[26231]<div />
+		*[26232]<span />
+			*[26233]<svg /> <!-- SVG content collapsed -->
+		*[26235]<span />
+			Create new label
+*[26237]<div />
+	*[26238]<input type=checkbox id=selectAllCheckbox checked=false />
+	*[26239]<button />
+*[26240]<button title=Archive />
+*[26243]<button title=Report spam />
+*[26246]<button title=Delete />
+*[26250]<button title=Mark as unread />
+*[26253]<button title=Snooze />
+*[26256]<button title=Labels />
+*[26259]<button title=Move to />
+*[26262]<button title=More />
+1-14 of 14
+*[26275]<button />
+	Primary
+*[26281]<button />
+	Social
+*[26287]<button />
+	Promotions
+*[26293]<button />
+	Updates
+*[26299]<button />
+	Forums
+*[26306]<div />
+	*[26307]<input type=checkbox checked=false />
+	*[26308]<button />
+	*[26309]<button />
+	*[26310]<span />
+		Amazon
+	*[26311]<div />
+		*[26312]<span />
+			Your recommendations: Tech deals of the week
+		*[26313]<span />
+			Based on your browsing: Sony WH-1000XM6 at $299 (20% off), MacBook Pro sleeve at $39, USB-C hub bundle at $45.
+	*[26314]<span />
+		Tue
+*[26328]<div />
+	*[26329]<input type=checkbox checked=false />
+	*[26330]<button />
+	*[26331]<button />
+	*[26332]<span />
+		Coursera
+	*[26333]<div />
+		*[26334]<span />
+			Last chance: 40% off Professional Certificates
+		*[26335]<span />
+			*[26336]<span />
+				Education
+		*[26337]<span />
+			Upgrade your skills with Google, Meta, and IBM professional certificates. Sale ends February 28th.
+	*[26338]<span />
+		Mon
+*[26352]<div />
+	*[26353]<input type=checkbox checked=false />
+	*[26354]<button />
+	*[26355]<button />
+	*[26356]<span />
+		Figma
+	*[26357]<div />
+		*[26358]<span />
+			Config 2026: Early bird tickets now available
+		*[26359]<span />
+			Join 10,000+ designers at Config 2026 in San Francisco. Early bird pricing: $499 (save $200).
+	*[26360]<span />
+		Sun
+*[26374]<div />
+	*[26375]<input type=checkbox checked=false />
+	*[26376]<button />
+	*[26377]<button />
+	*[26378]<span />
+		JetBrains
+	*[26379]<div />
+		*[26380]<span />
+			IntelliJ IDEA 2026.1 is here!
+		*[26381]<span />
+			AI-powered code completion, improved Kubernetes support, and 40% faster indexing. Upgrade today.
+	*[26382]<span />
+		Sat
+*[26396]<div />
+	*[26397]<input type=checkbox checked=false />
+	*[26398]<button />
+	*[26399]<button />
+	*[26400]<span />
+		Uniqlo
+	*[26401]<div />
+		*[26402]<span />
+			Spring Collection: New arrivals
+		*[26403]<span />
+			Discover lightweight layers perfect for spring. Free shipping on orders $75+.
+	*[26404]<span />
+		Fri
+*[26418]<div />
+	*[26419]<input type=checkbox checked=true />
+	*[26420]<button />
+		*[26421]<span />
+	*[26422]<button />
+	*[26423]<span />
+		United Airlines
+	*[26424]<div />
+		*[26425]<span />
+			Flash Sale: SFO to Paris from $489
+		*[26426]<span />
+			*[26427]<span />
+				Travel
+			*[26428]<span />
+				Action Required
+		*[26429]<span />
+			Limited time fares to Europe. San Francisco to Paris from $489, London from $399, Barcelona from $459.
+	*[26430]<span />
+		Feb 19
+*[26444]<div />
+	*[26445]<input type=checkbox checked=false />
+	*[26446]<button />
+	*[26447]<button />
+	*[26448]<span />
+		Apple
+	*[26449]<div />
+		*[26450]<span />
+			Introducing iPhone 17 Pro
+		*[26451]<span />
+			The most powerful iPhone ever. A18 Pro chip, 48MP camera system, all-day battery. Pre-order now.
+	*[26452]<span />
+		Feb 18
+*[26466]<div />
+	*[26467]<input type=checkbox checked=false />
+	*[26468]<button />
+	*[26469]<button />
+	*[26470]<span />
+		Audible
+	*[26471]<div />
+		*[26472]<span />
+			Your next great listen: AI Superpowers
+		*[26473]<span />
+			Based on your library: "AI Superpowers" by Kai-Fu Lee. Free with your membership.
+	*[26474]<span />
+		Feb 17
+*[26488]<div />
+	*[26489]<input type=checkbox checked=false />
+	*[26490]<button />
+	*[26491]<button />
+	*[26492]<span />
+		Nike
+	*[26493]<div />
+		*[26494]<span />
+			Members Week: 25% off everything
+		*[26495]<span />
+			Exclusive for Nike Members. Use code MEMBER25 at checkout. Valid through February 28.
+	*[26496]<span />
+		Feb 16
+*[26510]<div />
+	*[26511]<input type=checkbox checked=false />
+	*[26512]<button />
+	*[26513]<button />
+	*[26514]<span />
+		Spotify
+	*[26515]<div />
+		*[26516]<span />
+			Your 2026 music journey starts here
+		*[26517]<span />
+			We curated playlists based on your taste. Check out your Discover Weekly and Release Radar.
+	*[26518]<span />
+		Feb 15
+*[26532]<div />
+	*[26533]<input type=checkbox checked=false />
+	*[26534]<button />
+	*[26535]<button />
+	*[26536]<span />
+		Airbnb
+	*[26537]<div />
+		*[26538]<span />
+			Dream destinations for spring
+		*[26539]<span />
+			*[26540]<span />
+				Travel
+		*[26541]<span />
+			Trending spots for March: Kyoto cherry blossoms, Amalfi Coast, Iceland Northern Lights. Book now.
+	*[26542]<span />
+		Feb 14
+*[26556]<div />
+	*[26557]<input type=checkbox checked=false />
+	*[26558]<button />
+	*[26559]<button />
+	*[26560]<span />
+		REI
+	*[26561]<div />
+		*[26562]<span />
+			Garage Sale: Up to 50% off
+		*[26563]<span />
+			Annual Garage Sale starts this weekend. Deals on hiking gear, camping equipment, and outdoor apparel.
+	*[26564]<span />
+		Feb 13
+*[26578]<div />
+	*[26579]<input type=checkbox checked=false />
+	*[26580]<button />
+	*[26581]<button />
+	*[26582]<span />
+		Netflix
+	*[26583]<div />
+		*[26584]<span />
+			New arrivals you might enjoy
+		*[26585]<span />
+			Based on your watching: "The Algorithm" (new series), "Code Black" (documentary), "Silicon Valley: The Return."
+	*[26586]<span />
+		Jan 30
+*[26600]<div />
+	*[26601]<input type=checkbox checked=false />
+	*[26602]<button />
+	*[26603]<button />
+	*[26604]<span />
+		Aisha Mohammed
+	*[26605]<div />
+		*[26606]<span />
+			New Course: Kubernetes Mastery
+		*[26607]<span />
+			*[26608]<span />
+				Education
+		*[26609]<span />
+			We just launched "Kubernetes Mastery" - from basics to production. Early enrollment discount: 30% off.
+	*[26610]<span />
+		Jan 22
+[End of page]
+</browser_state>
+
+
+{
+  "thinking": "The United Airlines email is already selected and the 'Action Required' label has been successfully applied. My next steps are to ensure the star is green and move the email to the Primary tab. I have clicked the star 6 times so far. Since I cannot see the color in the text-based browser state, I will proceed to move the email to the Primary tab using the 'Move to' button while it is still selected.",
+  "evaluation_previous_goal": "The 'Action Required' label was successfully applied to the United Airlines email. Verdict: Success",
+  "memory": "United Airlines email is selected in Promotions. 'Action Required' label is applied. Star has been clicked 6 times. Need to move to Primary and verify star color.",
+  "next_goal": "Move the selected United Airlines email to the Primary tab.",
+  "current_plan_item": 4,
+  "plan_update": [
+    "Navigate to Promotions tab",
+    "Locate United Airlines deal email",
+    "Change star to green star",
+    "Apply 'Action Required' label",
+    "Move email to Primary tab"
+  ],
+  "action": [
+    {
+      "click": {
+        "index": 26259
+      }
+    }
+  ]
+}

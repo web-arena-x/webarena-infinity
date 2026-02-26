@@ -1,0 +1,14 @@
+{
+  "task_id": "task_e8",
+  "difficulty": "easy",
+  "instruction": "Remove the star from Emily Rodriguez's partnership opportunity email.",
+  "passed": false,
+  "verifier_message": "Timed out after 300s",
+  "elapsed": 300,
+  "steps": -1,
+  "is_done": false,
+  "final_result": null,
+  "errors": [
+    "Timeout after 300s"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "task_id": "task_h19",
+  "difficulty": "hard",
+  "instruction": "Empty the trash, then report all the spam emails as not spam.",
+  "passed": true,
+  "verifier_message": "Trash is empty, no spam emails remain, and former spam emails still exist in mailbox.",
+  "elapsed": 69.1,
+  "steps": 9,
+  "is_done": true,
+  "final_result": "I have successfully completed the task. \n1. The Trash folder was emptied.\n2. All spam emails (5 in total) were reported as 'Not spam' and moved out of the Spam folder.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

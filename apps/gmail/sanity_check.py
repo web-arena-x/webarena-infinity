@@ -272,7 +272,7 @@ def solve_task_e13(state):
 
 def solve_task_e14(state):
     """Set default reply to reply all."""
-    state["settings"]["defaultReplyBehavior"] = "reply-all"
+    state["settings"]["defaultReplyBehavior"] = "reply_all"
 
 
 def solve_task_e15(state):
@@ -439,7 +439,7 @@ def solve_task_m14(state):
 
 def solve_task_m15(state):
     """Switch inbox type to Important first."""
-    state["settings"]["inboxType"] = "important-first"
+    state["settings"]["inboxType"] = "important_first"
 
 
 def solve_task_m16(state):
@@ -641,7 +641,7 @@ def solve_task_h14(state):
     state["settings"]["categoriesEnabled"]["promotions"] = False
     state["settings"]["categoriesEnabled"]["updates"] = False
     state["settings"]["categoriesEnabled"]["forums"] = False
-    state["settings"]["inboxType"] = "important-first"
+    state["settings"]["inboxType"] = "important_first"
 
 
 def solve_task_h15(state):

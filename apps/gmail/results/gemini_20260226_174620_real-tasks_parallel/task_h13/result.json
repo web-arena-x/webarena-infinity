@@ -1,0 +1,30 @@
+{
+  "task_id": "task_h13",
+  "difficulty": "hard",
+  "instruction": "Create a label called 'Conferences' under Work, and apply it to both Sophie Laurent's EuroDesign Summit email and the Figma Config 2026 email.",
+  "passed": true,
+  "verifier_message": "'Conferences' label (id=label_30) exists under Work and is applied to emails 14 and 46.",
+  "elapsed": 169.2,
+  "steps": 17,
+  "is_done": true,
+  "final_result": "I have successfully created the 'Conferences' label under 'Work' and applied it to both Sophie Laurent's EuroDesign Summit email and the Figma Config 2026 email. \n\nVerification:\n- Sophie Laurent (EuroDesign Summit): Label 'Conferences' applied.\n- Figma (Config 2026): Label 'Conferences' applied.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

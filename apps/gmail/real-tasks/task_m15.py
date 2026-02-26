@@ -11,6 +11,6 @@ def verify(server_url: str) -> tuple[bool, str]:
     state = response.json()
 
     inbox_type = state.get("settings", {}).get("inboxType")
-    if inbox_type == "important-first":
-        return True, "Inbox type is set to 'important-first'."
-    return False, f"Expected inboxType to be 'important-first', got {inbox_type!r}."
+    if inbox_type == "important_first":
+        return True, "Inbox type is set to 'important_first'."
+    return False, f"Expected inboxType to be 'important_first', got {inbox_type!r}."

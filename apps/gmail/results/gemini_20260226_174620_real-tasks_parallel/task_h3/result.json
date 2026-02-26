@@ -1,0 +1,19 @@
+{
+  "task_id": "task_h3",
+  "difficulty": "hard",
+  "instruction": "Archive all unread emails in the Social category.",
+  "passed": true,
+  "verifier_message": "All unread social emails ([31, 33, 37, 43]) are archived.",
+  "elapsed": 58.2,
+  "steps": 6,
+  "is_done": true,
+  "final_result": "I have successfully archived all unread emails in the Social category. I filtered the emails using the search query 'category:social is:unread', which returned 15 emails. All 15 emails were selected and archived, as confirmed by the on-screen message '15 conversation(s) archived'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

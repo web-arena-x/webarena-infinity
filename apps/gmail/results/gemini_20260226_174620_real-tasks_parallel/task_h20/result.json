@@ -1,0 +1,30 @@
+{
+  "task_id": "task_h20",
+  "difficulty": "hard",
+  "instruction": "Delete the Receipts label and add the Finance label to all emails that previously had Receipts applied.",
+  "passed": true,
+  "verifier_message": "Receipts label deleted and Finance label applied to all former Receipts emails (19, 22, 67, 69, 88).",
+  "elapsed": 148.7,
+  "steps": 17,
+  "is_done": true,
+  "final_result": "I have successfully deleted the 'Receipts' label and migrated all associated emails to the 'Finance' label. \n\nSummary of actions:\n- Found 5 emails with the 'Receipts' label.\n- Applied the 'Finance' label to all 5 emails.\n- Deleted the 'Receipts' label from the Settings > Labels menu.\n- Verified that 'label:Receipts' no longer returns any results and that the emails are now accessible under 'label:Finance'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

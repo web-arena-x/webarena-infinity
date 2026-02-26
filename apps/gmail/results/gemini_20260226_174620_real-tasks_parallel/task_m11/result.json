@@ -1,0 +1,20 @@
+{
+  "task_id": "task_m11",
+  "difficulty": "medium",
+  "instruction": "Turn off the Send and Archive feature.",
+  "passed": true,
+  "verifier_message": "Send and Archive is disabled.",
+  "elapsed": 71.2,
+  "steps": 7,
+  "is_done": true,
+  "final_result": "I have successfully turned off the 'Send and Archive' feature by navigating to the settings page, selecting the 'Hide \"Send & Archive\" button in reply' option, and saving the changes. The settings have been confirmed as saved.",
+  "errors": [
+    null,
+    null,
+    "Element index 36881 not found in browser state",
+    null,
+    null,
+    null,
+    null
+  ]
+}

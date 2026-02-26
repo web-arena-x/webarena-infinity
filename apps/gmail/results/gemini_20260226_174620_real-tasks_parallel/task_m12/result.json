@@ -1,0 +1,20 @@
+{
+  "task_id": "task_m12",
+  "difficulty": "medium",
+  "instruction": "Disable the Forums category.",
+  "passed": true,
+  "verifier_message": "Forums category is disabled.",
+  "elapsed": 73.6,
+  "steps": 7,
+  "is_done": true,
+  "final_result": "I have successfully disabled the Forums category. I navigated to Settings > Inbox, unchecked the Forums category, and saved the changes. I then verified that the Forums tab is no longer visible in the Inbox.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

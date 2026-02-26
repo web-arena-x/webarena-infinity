@@ -1,6 +1,6 @@
 """
 Task: Set the default reply behavior to Reply all.
-Verify: state["settings"]["defaultReplyBehavior"] == "reply-all".
+Verify: state["settings"]["defaultReplyBehavior"] == "reply_all".
 """
 
 import requests
@@ -15,10 +15,10 @@ def verify(server_url: str) -> tuple[bool, str]:
     settings = state.get("settings", {})
 
     reply_behavior = settings.get("defaultReplyBehavior")
-    if reply_behavior != "reply-all":
+    if reply_behavior != "reply_all":
         return False, (
-            f"Default reply behavior is not 'reply-all'. "
+            f"Default reply behavior is not 'reply_all'. "
             f"defaultReplyBehavior='{reply_behavior}'"
         )
 
-    return True, "Default reply behavior is set to 'reply-all'."
+    return True, "Default reply behavior is set to 'reply_all'."

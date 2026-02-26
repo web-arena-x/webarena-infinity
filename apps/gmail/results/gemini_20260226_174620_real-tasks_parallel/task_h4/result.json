@@ -1,0 +1,28 @@
+{
+  "task_id": "task_h4",
+  "difficulty": "hard",
+  "instruction": "Set up a filter for emails with 'invoice' or 'payment' in the subject that automatically applies the Invoices label and marks them as read.",
+  "passed": true,
+  "verifier_message": "Filter for invoice/payment emails correctly applies Invoices label and marks as read.",
+  "elapsed": 196.6,
+  "steps": 15,
+  "is_done": true,
+  "final_result": "I have successfully set up the email filter. \n\nFilter Details:\n- Criteria: Subject contains 'invoice' or 'payment'\n- Actions: Apply label 'Invoices' and Mark as read\n\nYou can see the new filter in your Settings under 'Filters and Blocked Addresses'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

@@ -21,9 +21,9 @@ def verify(server_url: str) -> tuple[bool, str]:
             )
 
     inbox_type = settings.get("inboxType", "")
-    if inbox_type != "important-first":
+    if inbox_type != "important_first":
         errors.append(
-            f"inboxType is '{inbox_type}', expected 'important-first'"
+            f"inboxType is '{inbox_type}', expected 'important_first'"
         )
 
     if errors:
@@ -31,5 +31,5 @@ def verify(server_url: str) -> tuple[bool, str]:
 
     return True, (
         "Promotions, Updates, and Forums categories are disabled and inbox "
-        "type is 'important-first'."
+        "type is 'important_first'."
     )

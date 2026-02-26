@@ -23,9 +23,10 @@ def filter_tasks(
     difficulty: str | None = None,
 ) -> list[dict]:
     if task_id:
-        return [t for t in tasks if t["id"] == task_id]
+        ids = [s.strip() for s in task_id.split(",")]
+        return [t for t in tasks if t["id"] in ids]
     if difficulty:
-        return [t for t in tasks if t["difficulty"] == difficulty]
+        return [t for t in tasks if t.get("difficulty") == difficulty]
     return tasks
 
 
@@ -72,7 +73,7 @@ async def run_task(
 
     task_result = {
         "task_id": task_id,
-        "difficulty": task["difficulty"],
+        "difficulty": task.get("difficulty", ""),
         "instruction": task["instruction"],
         "passed": passed,
         "verifier_message": verifier_message,

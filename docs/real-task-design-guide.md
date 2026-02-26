@@ -38,12 +38,18 @@ A task can be "hard" even with few steps if the prerequisites are non-obvious.
 
 ### What Makes a Good Task
 
-| Quality | Example | Anti-example |
-|---------|---------|--------------|
-| Realistic intent | "Mute the #announcements channel" | "Change the muted field to true for channel ID 7" |
-| Appropriate brevity | "Add a label called 'urgent' with a red color" | "Navigate to settings, find labels, click new label, type urgent, select red, save" |
-| Unambiguous | "Archive the email from David about invoices" | "Archive that email" (which one?) |
-| Exercises real workflow | "Forward the budget report to Lisa" | "Forward the budget email titled 'Q1 budget estimation' to Lisa Chen" |
+| Quality| Example| Anti-example| Explanation| 
+| ----| ----| ----| ----| 
+| Express intent, not UI steps | Make the Marketing Plan private | Go to Settings and change the visibility dropdown | State the desired outcome, not the interaction | 
+| Allow brevity  in references | Delete Marcus's design update Lisa's brand related discussion emails | Move both the Design System Update email from Marcus Williams and the Brand Refresh Concepts email from Lisa Nakamura to trash | Real users won’t go into extensive detail | 
+| Be brief but unambiguous | Cancel the 3pm client call tomorrow | Cancel the meeting | Short is fine — but only if interpretation is unique | 
+| Avoid seed enumeration| Archive all completed tasks in the Sales project | Archive “Fix typo”, “Update logo”, and “Email vendor” | Use natural categories, not hardcoded item lists | 
+| Define the end state clearly| Reassign all of Jordan’s open tasks to Priya | Update Task A, Task B, and Task C to Priya | Describe the rule that determines scope | 
+| No implementation language| Switch the workspace currency to euros | Set currency_code to EUR | Never reference internal fields or schema | 
+| Avoid artificial constraints| Remove inactive users from the workspace | Delete exactly three inactive users | Real users don’t invent arbitrary numeric limits | 
+| Anchor contextual instructions| Prevent anyone from assigning new tasks to Alex Chen | Make sure no one assigns tasks to me | Context still requires explicit identity | 
+| Use natural scope definitions| Move all tasks labeled “Bug” into the QA project | Move Task 12, 18, and 27 into QA | Scope should be defined by meaningful properties | 
+| Avoid reversible/test phrasing| Mute the #announcements channel | Mute #announcements and then unmute it | Reflect a real goal, not a toggle test | 
 
 ## Agent Constraints
 

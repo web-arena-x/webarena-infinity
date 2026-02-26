@@ -1,0 +1,19 @@
+{
+  "task_id": "task_m2",
+  "difficulty": "medium",
+  "instruction": "Create a new label called 'Urgent' with a red background color.",
+  "passed": true,
+  "verifier_message": "Label 'Urgent' exists with type='user' and color={'background': '#cc3333', 'text': '#fff'}.",
+  "elapsed": 81.4,
+  "steps": 6,
+  "is_done": true,
+  "final_result": "I have successfully created a new label called 'Urgent' with a red background color. You can see it in the sidebar under the Labels section.\n\n[Simple judge: The agent claims to have created the label but provides no evidence or confirmation details (such as a screenshot or a specific success message from the application) to verify the action was actually completed.]",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

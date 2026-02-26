@@ -563,7 +563,17 @@ const App = {
                 break;
             }
 
-            // ---- Snooze ----
+            // ---- Snooze / Unsnooze ----
+            case 'unsnooze-email': {
+                const ids = selectedIds.length > 0 ? selectedIds : (currentId ? [currentId] : []);
+                if (ids.length === 0) return;
+                AppState.unsnoozeEmails(ids);
+                AppState.selectedEmailIds = new Set();
+                if (AppState.currentEmailId) App._advanceAfterAction();
+                Components.showToast('Conversation moved to Inbox');
+                break;
+            }
+
             case 'snooze-email': {
                 const ids = selectedIds.length > 0 ? selectedIds : (currentId ? [currentId] : []);
                 if (ids.length === 0) return;
@@ -1628,11 +1638,26 @@ const App = {
         items.push({ label: 'Mark as read', action: 'mark-read-selected' });
         items.push({ label: 'Mark as unread', action: 'mark-unread-selected' });
         items.push({ divider: true });
-        items.push({ label: 'Snooze', action: 'snooze-email' });
+        // Show Unsnooze if the first target email is snoozed
+        const _firstEmail = targetIds.length > 0 ? AppState.getEmailById(targetIds[0]) : null;
+        if (_firstEmail && _firstEmail.isSnoozed) {
+            items.push({ label: 'Unsnooze', action: 'unsnooze-email' });
+        } else {
+            items.push({ label: 'Snooze', action: 'snooze-email' });
+        }
         items.push({ label: 'Add label', action: 'label-email' });
         items.push({ label: 'Move to', action: 'move-to' });
         items.push({ divider: true });
         items.push({ label: 'Mute', action: 'mute-email' });
+
+        // Block sender — resolve sender from the first target email
+        if (targetIds.length > 0) {
+            const targetEmail = AppState.getEmailById(targetIds[0]);
+            if (targetEmail && targetEmail.from && targetEmail.from.email) {
+                items.push({ divider: true });
+                items.push({ label: `Block "${targetEmail.from.name || targetEmail.from.email}"`, action: 'block-sender', senderEmail: targetEmail.from.email });
+            }
+        }
 
         if (AppState.currentView === 'spam') {
             items.push({ label: 'Not spam', action: 'not-spam-selected' });
@@ -1647,7 +1672,8 @@ const App = {
             if (item.divider) {
                 body += '<div class="dropdown-divider"></div>';
             } else {
-                body += `<div class="dropdown-item" data-action="${item.action}" style="cursor:pointer">${Components.escapeHtml(item.label)}</div>`;
+                const extra = item.senderEmail ? ` data-sender-email="${Components.escapeAttr(item.senderEmail)}"` : '';
+                body += `<div class="dropdown-item" data-action="${item.action}"${extra} style="cursor:pointer">${Components.escapeHtml(item.label)}</div>`;
             }
         }
         body += '</div>';
@@ -1947,10 +1973,15 @@ const App = {
                 <span>Mark as ${isRead ? 'unread' : 'read'}</span>
             </div>
             <div class="context-menu-divider"></div>
-            <div class="context-menu-item" data-context-action="snooze">
+            ${email.isSnoozed
+                ? `<div class="context-menu-item" data-context-action="unsnooze">
+                <span class="context-menu-item-icon">${Components.toolbarIcon('snooze')}</span>
+                <span>Unsnooze</span>
+            </div>`
+                : `<div class="context-menu-item" data-context-action="snooze">
                 <span class="context-menu-item-icon">${Components.toolbarIcon('snooze')}</span>
                 <span>Snooze</span>
-            </div>
+            </div>`}
             <div class="context-menu-item" data-context-action="label">
                 <span class="context-menu-item-icon">${Components.toolbarIcon('label')}</span>
                 <span>Label as</span>
@@ -1962,6 +1993,11 @@ const App = {
             <div class="context-menu-item" data-context-action="mute">
                 <span class="context-menu-item-icon">${Components.toolbarIcon('archive')}</span>
                 <span>Mute</span>
+            </div>
+            <div class="context-menu-divider"></div>
+            <div class="context-menu-item" data-context-action="block-sender">
+                <span class="context-menu-item-icon">${Components.toolbarIcon('spam')}</span>
+                <span>Block "${Components.escapeHtml(email.from.name || email.from.email)}"</span>
             </div>
         `;
 
@@ -2042,6 +2078,10 @@ const App = {
                 App._snoozeTargetIds = [emailId];
                 Components.showModal('Snooze', Components.snoozePicker(), '');
                 break;
+            case 'unsnooze':
+                AppState.unsnoozeEmails([emailId]);
+                Components.showToast('Conversation moved to Inbox');
+                break;
             case 'label':
                 App.showLabelPicker([emailId]);
                 break;
@@ -2052,6 +2092,14 @@ const App = {
                 AppState.muteEmails([emailId]);
                 Components.showToast('Conversation muted');
                 break;
+            case 'block-sender': {
+                const ctxEmail = AppState.getEmailById(emailId);
+                if (ctxEmail && ctxEmail.from && ctxEmail.from.email) {
+                    AppState.blockSender(ctxEmail.from.email);
+                    Components.showToast(`Blocked ${ctxEmail.from.email}`);
+                }
+                break;
+            }
         }
     },
 
