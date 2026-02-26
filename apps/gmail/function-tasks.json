@@ -1,0 +1,152 @@
+[
+  {
+    "id": "task_1",
+    "instruction": "Mark the email 'Q1 Product Roadmap Review' from Sarah Chen as read.",
+    "verify": "function-tasks/task_1.py"
+  },
+  {
+    "id": "task_2",
+    "instruction": "Mark the email 'Monthly Financial Report - January 2026' from David Kim as unread.",
+    "verify": "function-tasks/task_2.py"
+  },
+  {
+    "id": "task_3",
+    "instruction": "Star the email 'Re: Platform Performance Issues' from Ryan Cooper.",
+    "verify": "function-tasks/task_3.py"
+  },
+  {
+    "id": "task_4",
+    "instruction": "Remove the star from the email 'API Integration Issue' from Priya Sharma.",
+    "verify": "function-tasks/task_4.py"
+  },
+  {
+    "id": "task_5",
+    "instruction": "Mark the email 'Office Renovation Plans' from Daniel Thompson as important.",
+    "verify": "function-tasks/task_5.py"
+  },
+  {
+    "id": "task_6",
+    "instruction": "Remove the important marker from the email 'Q1 Product Roadmap Review' from Sarah Chen.",
+    "verify": "function-tasks/task_6.py"
+  },
+  {
+    "id": "task_7",
+    "instruction": "Archive the email 'Volunteer Event: Spring Health Fair' from Ana Gutierrez.",
+    "verify": "function-tasks/task_7.py"
+  },
+  {
+    "id": "task_8",
+    "instruction": "Delete the email 'Design System Update v4.2' from Marcus Williams by moving it to Trash.",
+    "verify": "function-tasks/task_8.py"
+  },
+  {
+    "id": "task_9",
+    "instruction": "Report the email 'Your recommendations: Tech deals of the week' from Amazon as spam.",
+    "verify": "function-tasks/task_9.py"
+  },
+  {
+    "id": "task_10",
+    "instruction": "Snooze the email 'CI/CD Pipeline Migration Plan' from Nate Patel until March 1, 2026 at 8:00 AM.",
+    "verify": "function-tasks/task_10.py"
+  },
+  {
+    "id": "task_11",
+    "instruction": "Mute the conversation 'Quarterly Team Dinner' from Sarah Chen.",
+    "verify": "function-tasks/task_11.py"
+  },
+  {
+    "id": "task_12",
+    "instruction": "Apply the 'Finance' label to the email 'SaaS Platform Q1 Pricing Update' from Ryan Cooper.",
+    "verify": "function-tasks/task_12.py"
+  },
+  {
+    "id": "task_13",
+    "instruction": "Remove the 'Work' label from the email 'Office Renovation Plans' from Daniel Thompson.",
+    "verify": "function-tasks/task_13.py"
+  },
+  {
+    "id": "task_14",
+    "instruction": "Create a new label called 'Urgent'.",
+    "verify": "function-tasks/task_14.py"
+  },
+  {
+    "id": "task_15",
+    "instruction": "Create a new label called 'Deadlines' nested under the 'Work' label.",
+    "verify": "function-tasks/task_15.py"
+  },
+  {
+    "id": "task_16",
+    "instruction": "Rename the 'Receipts' label to 'Purchase Receipts'.",
+    "verify": "function-tasks/task_16.py"
+  },
+  {
+    "id": "task_17",
+    "instruction": "Delete the 'Education' label.",
+    "verify": "function-tasks/task_17.py"
+  },
+  {
+    "id": "task_18",
+    "instruction": "Compose and send a new email to sarah.chen@techcorp.io with the subject 'Meeting Follow-up' and body 'Thanks for the update on the project.'",
+    "verify": "function-tasks/task_18.py"
+  },
+  {
+    "id": "task_19",
+    "instruction": "Start composing an email to david.kim@financeplus.com with the subject 'Budget Discussion' and body 'Let us discuss the Q2 budget next week.' Save it as a draft without sending.",
+    "verify": "function-tasks/task_19.py"
+  },
+  {
+    "id": "task_20",
+    "instruction": "Create a new email filter with the From field set to 'noreply@medium.com'. Set the filter action to apply the 'Newsletters' label and to skip the inbox (archive it).",
+    "verify": "function-tasks/task_20.py"
+  },
+  {
+    "id": "task_21",
+    "instruction": "Delete the filter that matches emails from 'notifications@linkedin.com'.",
+    "verify": "function-tasks/task_21.py"
+  },
+  {
+    "id": "task_22",
+    "instruction": "Change the display theme to dark mode.",
+    "verify": "function-tasks/task_22.py"
+  },
+  {
+    "id": "task_23",
+    "instruction": "Change the display density to compact.",
+    "verify": "function-tasks/task_23.py"
+  },
+  {
+    "id": "task_24",
+    "instruction": "Turn off the conversation view setting.",
+    "verify": "function-tasks/task_24.py"
+  },
+  {
+    "id": "task_25",
+    "instruction": "Change the undo send cancellation period to 30 seconds.",
+    "verify": "function-tasks/task_25.py"
+  },
+  {
+    "id": "task_26",
+    "instruction": "Disable the Social category tab in the inbox.",
+    "verify": "function-tasks/task_26.py"
+  },
+  {
+    "id": "task_27",
+    "instruction": "Block the email address 'omar.ar@consulting.group'.",
+    "verify": "function-tasks/task_27.py"
+  },
+  {
+    "id": "task_28",
+    "instruction": "Unblock the email address 'spam@marketing-blast.com'.",
+    "verify": "function-tasks/task_28.py"
+  },
+  {
+    "id": "task_29",
+    "instruction": "Go to the Trash folder and move the email 'Congratulations! You won $10,000!' back to the Inbox.",
+    "verify": "function-tasks/task_29.py"
+  },
+  {
+    "id": "task_30",
+    "instruction": "Move the email 'Interview Request: Tech Innovation Panel' from Michelle Park to the Updates category.",
+    "verify": "function-tasks/task_30.py"
+  }
+]

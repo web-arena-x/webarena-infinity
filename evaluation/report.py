@@ -19,11 +19,12 @@ def generate_report(
 
     by_diff: dict[str, dict] = {}
     for r in results:
-        d = r["difficulty"]
-        by_diff.setdefault(d, {"total": 0, "passed": 0})
-        by_diff[d]["total"] += 1
-        if r["passed"]:
-            by_diff[d]["passed"] += 1
+        d = r.get("difficulty", "")
+        if d:
+            by_diff.setdefault(d, {"total": 0, "passed": 0})
+            by_diff[d]["total"] += 1
+            if r["passed"]:
+                by_diff[d]["passed"] += 1
 
     diff_summary_rows = []
     for d in ["easy", "medium", "hard"]:
@@ -44,7 +45,7 @@ def generate_report(
         task_rows.append(f"""
         <tr>
           <td><code>{escape(r['task_id'])}</code></td>
-          <td>{escape(r['difficulty'])}</td>
+          <td>{escape(r.get('difficulty', ''))}</td>
           <td><span class="badge {badge_cls}">{badge_text}</span></td>
           <td>{r['steps']}</td>
           <td>{r['elapsed']}s</td>
