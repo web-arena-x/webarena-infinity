@@ -1,0 +1,19 @@
+{
+  "task_id": "task_m9",
+  "difficulty": "medium",
+  "instruction": "Star the email 'Your tweet got 250 likes' from Twitter and mark it as important.",
+  "passed": false,
+  "verifier_message": "Email 'Your tweet got 250 likes': isStarred is False, expected True; isImportant is False, expected True; 'IMPORTANT' not in labels. Current labels: ['INBOX', 'CATEGORY_SOCIAL'].",
+  "elapsed": 49.6,
+  "steps": 6,
+  "is_done": true,
+  "final_result": "I have searched for the email 'Your tweet got 250 likes' from Twitter in both the inbox and the spam folder, but I was unable to find it. Therefore, I cannot star it or mark it as important. The task is impossible to complete.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

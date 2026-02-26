@@ -1,0 +1,17 @@
+{
+  "task_id": "task_m20",
+  "difficulty": "medium",
+  "instruction": "Compose and send an email to 'robert.singh@university.edu' with the subject 'Guest Lecture Confirmation' and the body 'Hi Robert, I would be happy to give the guest lecture on March 20th. Please send me the details. Thanks, Alex'.",
+  "passed": true,
+  "verifier_message": "Task completed successfully.",
+  "elapsed": 37.3,
+  "steps": 4,
+  "is_done": true,
+  "final_result": "Successfully composed and sent the email to robert.singh@university.edu with the subject 'Guest Lecture Confirmation' and the body 'Hi Robert, I would be happy to give the guest lecture on March 20th. Please send me the details. Thanks, Alex'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null
+  ]
+}

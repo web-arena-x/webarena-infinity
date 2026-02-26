@@ -1,0 +1,25 @@
+{
+  "task_id": "task_h1",
+  "difficulty": "hard",
+  "instruction": "Create a new email filter that matches emails from 'no-reply@coursera.org' with the subject containing 'certificate', and automatically applies the 'Education' label, marks them as read, and archives them.",
+  "passed": true,
+  "verifier_message": "Task completed successfully.",
+  "elapsed": 87.4,
+  "steps": 12,
+  "is_done": true,
+  "final_result": "I have successfully created the email filter as requested. The filter is now active and will automatically apply the 'Education' label, mark emails as read, and archive them for emails from 'no-reply@coursera.org' with the subject containing 'certificate'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

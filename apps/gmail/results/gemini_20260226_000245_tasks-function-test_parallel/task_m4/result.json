@@ -1,0 +1,18 @@
+{
+  "task_id": "task_m4",
+  "difficulty": "medium",
+  "instruction": "Apply the 'Meetings' label to the email 'Strategy Workshop Follow-up' from Omar Al-Rashid.",
+  "passed": true,
+  "verifier_message": "Task completed successfully.",
+  "elapsed": 45.8,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully applied the 'Meetings' label to the email 'Strategy Workshop Follow-up' from Omar Al-Rashid.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

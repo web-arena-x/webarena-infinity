@@ -1,0 +1,21 @@
+{
+  "task_id": "task_m17",
+  "difficulty": "medium",
+  "instruction": "Create a new label called 'Taxes' as a sub-label under the 'Finance' label.",
+  "passed": true,
+  "verifier_message": "Task completed successfully.",
+  "elapsed": 65.4,
+  "steps": 8,
+  "is_done": true,
+  "final_result": "Successfully created the 'Taxes' sub-label under the 'Finance' label.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "task_id": "task_m2",
+  "difficulty": "medium",
+  "instruction": "Create a new email filter that matches emails with the subject containing 'invoice' and automatically archives them.",
+  "passed": true,
+  "verifier_message": "Task completed successfully.",
+  "elapsed": 70.7,
+  "steps": 8,
+  "is_done": true,
+  "final_result": "Successfully created a new email filter that matches emails with the subject containing 'invoice' and automatically archives them.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}
