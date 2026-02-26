@@ -1,0 +1,18 @@
+{
+  "task_id": "task_e3",
+  "difficulty": "easy",
+  "instruction": "Trash the property listing email from Tom Bradley.",
+  "passed": true,
+  "verifier_message": "Email id=15 ('Property Listing: 45 Oak Avenue') is trashed.",
+  "elapsed": 104.5,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "I have successfully trashed the property listing email from Tom Bradley. I located the email in the inbox, selected it, clicked the delete button, and verified its presence in the Trash folder.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

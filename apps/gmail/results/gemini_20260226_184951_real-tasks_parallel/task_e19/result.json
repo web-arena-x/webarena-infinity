@@ -1,0 +1,19 @@
+{
+  "task_id": "task_e19",
+  "difficulty": "easy",
+  "instruction": "Unblock the sender annoying@daily-deals.biz.",
+  "passed": true,
+  "verifier_message": "Sender 'annoying@daily-deals.biz' has been unblocked.",
+  "elapsed": 68.1,
+  "steps": 6,
+  "is_done": true,
+  "final_result": "I have successfully unblocked the sender annoying@daily-deals.biz. I navigated to Settings > Filters and Blocked Addresses, removed the address from the blocked list, and saved the changes.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

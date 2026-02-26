@@ -1,0 +1,18 @@
+{
+  "task_id": "task_e12",
+  "difficulty": "easy",
+  "instruction": "Turn off hover actions.",
+  "passed": true,
+  "verifier_message": "Hover actions are disabled (hoverActions=False).",
+  "elapsed": 55.8,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "I have successfully turned off the hover actions in the settings. I navigated to the settings page, selected 'Disable hover actions' under the Hover Actions section, and saved the changes. The system confirmed that the settings were saved.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

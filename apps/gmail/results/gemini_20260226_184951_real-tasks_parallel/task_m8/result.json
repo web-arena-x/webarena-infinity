@@ -1,0 +1,21 @@
+{
+  "task_id": "task_m8",
+  "difficulty": "medium",
+  "instruction": "Disable the Social category tab in the inbox.",
+  "passed": true,
+  "verifier_message": "Social category tab is disabled (categoriesEnabled.social=false).",
+  "elapsed": 97.6,
+  "steps": 8,
+  "is_done": true,
+  "final_result": "The 'Social' category tab has been successfully disabled in the inbox. I have verified this by checking the inbox categories (where 'Social' is no longer visible) and confirming the setting in the Inbox configuration menu.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

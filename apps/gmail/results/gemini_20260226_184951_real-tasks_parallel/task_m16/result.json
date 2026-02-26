@@ -1,0 +1,18 @@
+{
+  "task_id": "task_m16",
+  "difficulty": "medium",
+  "instruction": "Empty the spam folder.",
+  "passed": true,
+  "verifier_message": "No spam emails remain. Spam folder is empty.",
+  "elapsed": 41.8,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "The spam folder has been successfully emptied. The page now shows 'Hooray, no spam here!' and 'Spam has been emptied'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

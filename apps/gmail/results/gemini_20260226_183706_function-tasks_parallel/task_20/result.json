@@ -1,0 +1,25 @@
+{
+  "task_id": "task_20",
+  "difficulty": "",
+  "instruction": "Create a new email filter with the From field set to 'noreply@medium.com'. Set the filter action to apply the 'Newsletters' label and to skip the inbox (archive it).",
+  "passed": true,
+  "verifier_message": "Filter created: from 'noreply@medium.com', apply Newsletters label, archive.",
+  "elapsed": 154.4,
+  "steps": 12,
+  "is_done": true,
+  "final_result": "I have successfully created the email filter as requested. \n\n**Filter Details:**\n- **From:** noreply@medium.com\n- **Actions:** Skip the Inbox (Archive it), Apply label 'Newsletters'\n\nYou can see the new filter listed in your 'Filters and Blocked Addresses' settings.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

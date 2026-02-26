@@ -1,0 +1,18 @@
+{
+  "task_id": "task_m11",
+  "difficulty": "medium",
+  "instruction": "Turn off the Send and Archive feature.",
+  "passed": true,
+  "verifier_message": "Send and Archive is disabled.",
+  "elapsed": 43.0,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "The 'Send and Archive' feature has been successfully disabled. I navigated to the settings, selected 'Hide \"Send & Archive\" button in reply', and saved the changes.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

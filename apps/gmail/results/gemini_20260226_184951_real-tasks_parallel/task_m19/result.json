@@ -1,0 +1,18 @@
+{
+  "task_id": "task_m19",
+  "difficulty": "medium",
+  "instruction": "Set auto-advance to go to the previous (older) conversation.",
+  "passed": true,
+  "verifier_message": "Auto-advance is set to 'older'.",
+  "elapsed": 57.0,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "I have successfully updated the auto-advance setting to 'Go to the previous (older) conversation' and saved the changes.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "task_id": "task_m6",
+  "difficulty": "medium",
+  "instruction": "Set up a filter for emails from david.kim@financeplus.com that automatically applies the Finance label.",
+  "passed": true,
+  "verifier_message": "Filter found: from='david.kim@financeplus.com' with action label='label_3' (Finance).",
+  "elapsed": 204.9,
+  "steps": 16,
+  "is_done": true,
+  "final_result": "I have successfully set up the filter. Emails from david.kim@financeplus.com will now automatically have the 'Finance' label applied. You can see the filter listed in Settings under 'Filters and Blocked Addresses'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

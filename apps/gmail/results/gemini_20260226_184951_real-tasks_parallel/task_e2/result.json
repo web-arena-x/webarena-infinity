@@ -1,0 +1,17 @@
+{
+  "task_id": "task_e2",
+  "difficulty": "easy",
+  "instruction": "Mark the conference speaker invitation from Sophie Laurent as read.",
+  "passed": true,
+  "verifier_message": "Email id=14 ('Bonjour! Conference Speaker Invitation') is marked as read.",
+  "elapsed": 59.5,
+  "steps": 4,
+  "is_done": true,
+  "final_result": "I have successfully marked the conference speaker invitation from Sophie Laurent as read. The web application confirmed the action with the message '1 conversation(s) marked as read'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null
+  ]
+}

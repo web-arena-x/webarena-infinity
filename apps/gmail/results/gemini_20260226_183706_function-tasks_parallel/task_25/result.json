@@ -1,0 +1,20 @@
+{
+  "task_id": "task_25",
+  "difficulty": "",
+  "instruction": "Change the undo send cancellation period to 30 seconds.",
+  "passed": true,
+  "verifier_message": "Undo send cancellation period changed to 30 seconds.",
+  "elapsed": 63.2,
+  "steps": 7,
+  "is_done": true,
+  "final_result": "I have successfully changed the undo send cancellation period to 30 seconds and saved the changes. The settings have been persisted as confirmed by the 'Settings saved' message on the page.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

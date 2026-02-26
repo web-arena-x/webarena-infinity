@@ -1,0 +1,26 @@
+{
+  "task_id": "task_h19",
+  "difficulty": "hard",
+  "instruction": "Empty the trash, then report all the spam emails as not spam.",
+  "passed": true,
+  "verifier_message": "Trash is empty, no spam emails remain, and former spam emails still exist in mailbox.",
+  "elapsed": 117.1,
+  "steps": 13,
+  "is_done": true,
+  "final_result": "I have successfully emptied the trash and reported all spam emails as not spam. \n\n1. **Empty Trash**: Navigated to the Trash folder and used the 'Empty Trash now' button. Verified the folder is empty.\n2. **Report Spam**: Navigated to the Spam folder, selected all 5 emails, and marked them as 'Not spam'. Verified the Spam folder is now empty.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

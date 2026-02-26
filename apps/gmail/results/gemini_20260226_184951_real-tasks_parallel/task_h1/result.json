@@ -1,0 +1,20 @@
+{
+  "task_id": "task_h1",
+  "difficulty": "hard",
+  "instruction": "Create a label called 'Q1 Priority' nested under Work, then apply it to Sarah Chen's Q1 Product Roadmap Review email.",
+  "passed": true,
+  "verifier_message": "Label 'Q1 Priority' (id=label_30) is nested under Work and applied to email id=1.",
+  "elapsed": 104.5,
+  "steps": 7,
+  "is_done": true,
+  "final_result": "I have successfully created the label 'Q1 Priority' nested under 'Work' and applied it to Sarah Chen's 'Q1 Product Roadmap Review' email as requested.\n\n[Simple judge: The agent's response reports success by repeating the task requirements but provides no evidence or confirmation details from the application (such as a success message or email metadata) to verify the actions were actually performed.]",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}
