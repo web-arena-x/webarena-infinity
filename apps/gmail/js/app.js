@@ -229,7 +229,7 @@ const App = {
             e.stopPropagation();
             const emailId = parseInt(starEl.dataset.emailId, 10);
             if (emailId) {
-                AppState.cycleStar(emailId);
+                AppState.toggleStar(emailId);
             }
             return;
         }
@@ -552,7 +552,7 @@ const App = {
             // ---- Star ----
             case 'star-email': {
                 const emailId = parseInt(el.dataset.emailId, 10);
-                if (emailId) AppState.cycleStar(emailId);
+                if (emailId) AppState.toggleStar(emailId);
                 break;
             }
 
@@ -2254,7 +2254,7 @@ const App = {
             case 's':
                 e.preventDefault();
                 if (AppState.currentEmailId) {
-                    AppState.cycleStar(AppState.currentEmailId);
+                    AppState.toggleStar(AppState.currentEmailId);
                 } else {
                     const selectedIds = Array.from(AppState.selectedEmailIds);
                     if (selectedIds.length > 0) {

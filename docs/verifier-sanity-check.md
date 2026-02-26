@@ -118,10 +118,10 @@ Use `concurrent.futures.ThreadPoolExecutor` or equivalent. Since each worker has
 ## CLI Conventions
 
 ```
-python3 sanity_check.py                      # All tasks, sequential
-python3 sanity_check.py --workers N          # N parallel environments
-python3 sanity_check.py --task-id <id>       # Single task (for debugging)
-python3 sanity_check.py --port <base>        # Custom base port
+python3 sanity_check_{real|function}.py                      # All tasks, sequential
+python3 sanity_check_{real|function}.py --workers N          # N parallel environments
+python3 sanity_check_{real|function}.py --task-id <id>       # Single task (for debugging)
+python3 sanity_check_{real|function}.py --port <base>        # Custom base port
 ```
 
 Single-task mode is critical for debugging — when a task fails, you need fast iteration.
