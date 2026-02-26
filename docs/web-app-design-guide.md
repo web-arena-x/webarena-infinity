@@ -64,33 +64,7 @@ All UI components **must be built using pure HTML, CSS, and JavaScript** to ensu
 </div>
 ```
 
-### 2. Rich & Authentic Data
-
-Mock pages must use **realistic, diverse data**, not placeholders. The goal is to reflect real-world complexity.
-
-#### Data Requirements
-- **Multiple options**: 5–10+ items per dropdown
-- **Varied data**: different formats, types, and statuses
-- **Metadata**: IDs, timestamps, descriptions, pricing
-- **Real-world patterns**: realistic naming conventions (e.g. `ami-0c02fb55b8d6c2f89`)
-- **Edge cases**: long names, special characters, uncommon states
-
-**Example**
-```javascript
-// ❌ Poor data
-const instances = ['t2.micro', 't2.small'];
-
-// ✅ Rich data
-const instances = [
-    { name: 't2.nano', vcpu: 1, memory: 0.5, price: 0.0058, freeTier: true },
-    { name: 't3.micro', vcpu: 2, memory: 1, price: 0.0104, freeTier: true },
-    { name: 't3.small', vcpu: 2, memory: 2, price: 0.0208, freeTier: false },
-    { name: 'm5.large', vcpu: 2, memory: 8, price: 0.096, freeTier: false }
-    // 5+, 10+, or more entries as needed
-];
-```
-
-### 3. Form Validation & Constraints
+### 2. Form Validation & Constraints
 
 Real-world applications enforce validation rules. Mock pages must implement realistic constraints.
 
@@ -132,7 +106,7 @@ function validateForm() {
 }
 ```
 
-### 4. Field Dependencies
+### 3. Field Dependencies
 
 Fields must update dynamically based on related selections.
 
@@ -175,7 +149,7 @@ function onOSChange(os) {
 }
 ```
 
-### 5. Real-Time Validation
+### 4. Real-Time Validation
 
 Validation should occur as users interact, not only on submit.
 
@@ -197,7 +171,7 @@ function updateSubmitButton() {
 }
 ```
 
-### 6. Visual Feedback
+### 5. Visual Feedback
 
 Provide immediate and clear feedback for all interactions.
 
@@ -222,7 +196,7 @@ Provide immediate and clear feedback for all interactions.
 <div class="success-box">✓ Success message</div>
 ```
 
-### 7. State Management
+### 6. State Management
 
 Maintain a centralized application state for complex interactions.
 
@@ -241,7 +215,7 @@ const appState = {
 };
 ```
 
-### 8. Accessibility & Testability
+### 7. Accessibility & Testability
 
 Design for both humans and automation tools.
 
@@ -261,7 +235,7 @@ Design for both humans and automation tools.
 </button>
 ```
 
-### 9. Modal Dialogs
+### 8. Modal Dialogs
 
 Use custom modals for confirmations, forms, and alerts.
 
@@ -281,7 +255,7 @@ Use custom modals for confirmations, forms, and alerts.
 </div>
 ```
 
-### 10. Data Persistence
+### 9. Data Persistence
 
 All application data **must persist across page reloads** using browser-local storage (`localStorage`). The application must not lose user-created or user-modified data on refresh, navigation, or tab closure.
 
@@ -353,13 +327,13 @@ function loadState() {
 }
 ```
 
-### 11. Structured Data Serialization
+### 10. Structured Data Serialization
 
 When state objects contain **nested references** (e.g., enum-like constants, configuration objects), the serialized (JSON) representation preserves the full structure. External consumers (verifiers, tests) must dereference to the primitive value — never compare structured fields against plain strings.
 
 See [task-design-guide.md § Verifier Conventions](task-design-guide.md#verifier-conventions) for the full explanation and examples.
 
-### 12. Implementation Checklist
+### 11. Implementation Checklist
 
 - [ ] Replace native UI elements with custom components  
 - [ ] Populate realistic, diverse data  
