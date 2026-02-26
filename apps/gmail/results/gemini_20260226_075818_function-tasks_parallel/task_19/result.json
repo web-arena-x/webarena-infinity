@@ -1,0 +1,20 @@
+{
+  "task_id": "task_19",
+  "difficulty": "",
+  "instruction": "Start composing an email to david.kim@financeplus.com with the subject 'Budget Discussion' and body 'Let us discuss the Q2 budget next week.' Save it as a draft without sending.",
+  "passed": true,
+  "verifier_message": "Draft email 'Budget Discussion' saved for david.kim@financeplus.com.",
+  "elapsed": 62.4,
+  "steps": 7,
+  "is_done": true,
+  "final_result": "I have successfully composed and saved the email draft as requested. \n\n**Draft Details:**\n- **Recipient:** david.kim@financeplus.com\n- **Subject:** Budget Discussion\n- **Body:** Let us discuss the Q2 budget next week.\n\nThe draft has been verified in the 'Drafts' folder.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

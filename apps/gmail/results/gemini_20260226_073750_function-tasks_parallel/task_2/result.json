@@ -1,0 +1,17 @@
+{
+  "task_id": "task_2",
+  "difficulty": "",
+  "instruction": "Mark the email 'Monthly Financial Report - January 2026' from David Kim as unread.",
+  "passed": true,
+  "verifier_message": "Email 'Monthly Financial Report - January 2026' is marked as unread.",
+  "elapsed": 25.5,
+  "steps": 4,
+  "is_done": true,
+  "final_result": "Successfully marked the email 'Monthly Financial Report - January 2026' from David Kim as unread.",
+  "errors": [
+    null,
+    null,
+    null,
+    null
+  ]
+}

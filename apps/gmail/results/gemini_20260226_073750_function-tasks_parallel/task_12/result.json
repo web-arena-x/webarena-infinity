@@ -1,0 +1,20 @@
+{
+  "task_id": "task_12",
+  "difficulty": "",
+  "instruction": "Apply the 'Finance' label to the email 'SaaS Platform Q1 Pricing Update' from Ryan Cooper.",
+  "passed": true,
+  "verifier_message": "Finance label applied to email 'SaaS Platform Q1 Pricing Update'.",
+  "elapsed": 36.4,
+  "steps": 7,
+  "is_done": true,
+  "final_result": "Successfully applied the 'Finance' label to the email 'SaaS Platform Q1 Pricing Update' from Ryan Cooper.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

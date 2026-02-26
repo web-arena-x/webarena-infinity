@@ -1,0 +1,20 @@
+{
+  "task_id": "task_29",
+  "difficulty": "",
+  "instruction": "Go to the Trash folder and move the email 'Congratulations! You won $10,000!' back to the Inbox.",
+  "passed": true,
+  "verifier_message": "Email 'Congratulations! You won $10,000!' moved from Trash to Inbox.",
+  "elapsed": 103.6,
+  "steps": 7,
+  "is_done": true,
+  "final_result": "I have successfully moved the email 'Congratulations! You won $10,000!' from the Trash folder back to the Inbox. I verified its presence in the Inbox after the move.\n\n[Simple judge: The agent claims to have moved the email and verified its presence in the Inbox, but provides no evidence or specific details from the page (such as the sender, timestamp, or a description of the Inbox state) to verify that the action was actually completed.]",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

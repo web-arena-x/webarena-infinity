@@ -1,0 +1,19 @@
+{
+  "task_id": "task_26",
+  "difficulty": "",
+  "instruction": "Disable the Social category tab in the inbox.",
+  "passed": true,
+  "verifier_message": "Social category tab has been disabled.",
+  "elapsed": 61.0,
+  "steps": 6,
+  "is_done": true,
+  "final_result": "The 'Social' category tab has been successfully disabled. I navigated to Settings > Inbox, unchecked the 'Social' category, and saved the changes. Verification of the inbox shows only Primary, Promotions, Updates, and Forums tabs remain.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

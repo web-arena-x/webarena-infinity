@@ -1,0 +1,18 @@
+{
+  "task_id": "task_28",
+  "difficulty": "",
+  "instruction": "Unblock the email address 'spam@marketing-blast.com'.",
+  "passed": true,
+  "verifier_message": "Email address 'spam@marketing-blast.com' has been unblocked.",
+  "elapsed": 23.0,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully unblocked the email address 'spam@marketing-blast.com'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "task_8",
+  "difficulty": "",
+  "instruction": "Delete the email 'Design System Update v4.2' from Marcus Williams by moving it to Trash.",
+  "passed": true,
+  "verifier_message": "Email 'Design System Update v4.2' has been moved to Trash.",
+  "elapsed": 19.4,
+  "steps": 4,
+  "is_done": true,
+  "final_result": "Successfully deleted the email 'Design System Update v4.2' from Marcus Williams by moving it to Trash.",
+  "errors": [
+    null,
+    null,
+    null,
+    null
+  ]
+}
