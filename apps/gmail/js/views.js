@@ -1138,6 +1138,24 @@ const Views = {
             html += '</div>';
         }
 
+        // Separator + categories
+        if (AppState.settings.categoriesEnabled) {
+            const categories = [
+                { id: 'primary', label: 'Primary' },
+                { id: 'social', label: 'Social' },
+                { id: 'promotions', label: 'Promotions' },
+                { id: 'updates', label: 'Updates' },
+                { id: 'forums', label: 'Forums' },
+            ];
+            html += '<div class="context-menu-divider"></div>';
+            for (const cat of categories) {
+                html += `<div class="context-menu-item" data-action="move-to-category" data-category="${Components.escapeAttr(cat.id)}" data-testid="move-to-category-${Components.escapeAttr(cat.id)}">`;
+                html += `<span class="context-menu-item-icon">${Components.navIcon('inbox')}</span>`;
+                html += `<span>${Components.escapeHtml(cat.label)}</span>`;
+                html += '</div>';
+            }
+        }
+
         // Separator + user labels
         const userLabels = AppState.getUserLabels();
         if (userLabels.length > 0) {
@@ -1178,6 +1196,21 @@ const Views = {
             html += `<div class="context-menu-item" data-action="unmute-selected"><span class="context-menu-item-icon">${Components.toolbarIcon('markRead')}</span><span>Unmute</span></div>`;
         } else {
             html += `<div class="context-menu-item" data-action="mute-selected"><span class="context-menu-item-icon">${Components.toolbarIcon('archive')}</span><span>Mute</span></div>`;
+        }
+        // Block sender (available when a single email is selected or open)
+        const blockEmailId = selectedIds.length === 1 ? selectedIds[0] : AppState.currentEmailId;
+        if (blockEmailId) {
+            const blockEmail = AppState.getEmailById(blockEmailId);
+            if (blockEmail) {
+                const senderAddr = blockEmail.from.email;
+                const alreadyBlocked = AppState.blockedSenders.some(b => b.email === senderAddr);
+                html += '<div class="context-menu-divider"></div>';
+                if (alreadyBlocked) {
+                    html += `<div class="context-menu-item" data-action="unblock-sender" data-sender-email="${Components.escapeAttr(senderAddr)}" data-testid="more-unblock-sender"><span class="context-menu-item-icon">${Components.toolbarIcon('spam')}</span><span>Unblock ${Components.escapeHtml(blockEmail.from.name)}</span></div>`;
+                } else {
+                    html += `<div class="context-menu-item" data-action="block-sender" data-sender-email="${Components.escapeAttr(senderAddr)}" data-testid="more-block-sender"><span class="context-menu-item-icon">${Components.toolbarIcon('spam')}</span><span>Block ${Components.escapeHtml(blockEmail.from.name)}</span></div>`;
+                }
+            }
         }
         html += '</div>';
         return html;
