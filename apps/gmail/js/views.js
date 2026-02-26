@@ -381,7 +381,11 @@ const Views = {
         } else {
             html += `<button class="toolbar-btn" data-action="mark-unread-email" data-email-id="${email.id}" title="Mark as unread">${Components.toolbarIcon('markUnread')}</button>`;
         }
-        html += `<button class="toolbar-btn" data-action="snooze-email" data-email-id="${email.id}" title="Snooze">${Components.toolbarIcon('snooze')}</button>`;
+        if (email.isSnoozed) {
+            html += `<button class="toolbar-btn" data-action="unsnooze-email" data-email-id="${email.id}" title="Unsnooze">${Components.toolbarIcon('snooze')}</button>`;
+        } else {
+            html += `<button class="toolbar-btn" data-action="snooze-email" data-email-id="${email.id}" title="Snooze">${Components.toolbarIcon('snooze')}</button>`;
+        }
         html += `<button class="toolbar-btn" data-action="label-selected" data-testid="detail-label-btn" title="Labels">${Components.toolbarIcon('label')}</button>`;
         html += `<button class="toolbar-btn" data-action="move-to-selected" data-testid="detail-move-btn" title="Move to">${Components.toolbarIcon('moveTo')}</button>`;
         html += '</div>';

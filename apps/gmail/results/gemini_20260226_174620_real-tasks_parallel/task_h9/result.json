@@ -1,0 +1,21 @@
+{
+  "task_id": "task_h9",
+  "difficulty": "hard",
+  "instruction": "Configure the multiple inbox: set section 1 to search 'is:important' with the name 'Priority', and section 2 to search 'label:Action Required' with the name 'Action Items'.",
+  "passed": true,
+  "verifier_message": "Multiple inbox configured: section 1 = 'is:important' / 'Priority', section 2 = 'label:Action Required' / 'Action Items'.",
+  "elapsed": 87.2,
+  "steps": 8,
+  "is_done": true,
+  "final_result": "The Multiple Inbox settings have been successfully configured. Section 1 is set to search 'is:important' with the name 'Priority', and Section 2 is set to search 'label:Action Required' with the name 'Action Items'. The changes have been saved.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

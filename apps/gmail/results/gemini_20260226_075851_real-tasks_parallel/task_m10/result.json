@@ -1,0 +1,19 @@
+{
+  "task_id": "task_m10",
+  "difficulty": "medium",
+  "instruction": "Delete the filter that handles GitHub notifications.",
+  "passed": true,
+  "verifier_message": "No filter with criteria.from containing 'notifications@github.com' found. GitHub notification filter has been deleted.",
+  "elapsed": 50.9,
+  "steps": 6,
+  "is_done": true,
+  "final_result": "The GitHub notifications filter (from notifications@github.com) has been successfully deleted from the 'Filters and Blocked Addresses' settings page.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

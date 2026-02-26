@@ -1,0 +1,18 @@
+{
+  "task_id": "task_h10",
+  "difficulty": "hard",
+  "instruction": "Remove all user labels from Priya Sharma's Sprint Retro Action Items email and add Waiting For Reply instead.",
+  "passed": true,
+  "verifier_message": "Email id=29 has Work and Projects labels removed, Waiting For Reply label added.",
+  "elapsed": 66.7,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "I have successfully updated the labels for Priya Sharma's 'Sprint Retro Action Items' email. The 'Work' and 'Projects' labels were removed, and the 'Waiting For Reply' label was added as requested.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

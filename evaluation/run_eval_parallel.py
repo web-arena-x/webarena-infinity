@@ -49,7 +49,7 @@ load_dotenv()
 
 MODELS = {
     "gpt": lambda: ChatOpenAI(model="gpt-4o"),
-    "gemini": lambda: ChatGoogle(model="gemini-2.0-flash"),
+    "gemini": lambda: ChatGoogle(model="gemini-3-flash-preview"),
     "claude": lambda: ChatAnthropic(model="claude-sonnet-4-5-20250929"),
 }
 
@@ -122,7 +122,7 @@ async def worker(
                 break
 
             task_id = task["id"]
-            diff = task["difficulty"]
+            diff = task.get("difficulty", "")
             dc = DIFF_COLOR.get(diff, "")
             task_dir = run_dir / task_id
             task_dir.mkdir(parents=True, exist_ok=True)
@@ -148,7 +148,7 @@ async def worker(
                 print(f"  {tag} {BOLD}{task_id}{RESET} {dc}{diff}{RESET}  {BG_YELLOW}{WHITE}{BOLD} TIME {RESET}")
                 result = {
                     "task_id": task_id,
-                    "difficulty": task["difficulty"],
+                    "difficulty": task.get("difficulty", ""),
                     "instruction": task["instruction"],
                     "passed": False,
                     "verifier_message": f"Timed out after {TASK_TIMEOUT}s",
@@ -164,7 +164,7 @@ async def worker(
                 print(f"  {tag} {BOLD}{task_id}{RESET} {dc}{diff}{RESET}  {BG_RED}{WHITE}{BOLD} ERR  {RESET} {DIM}{e}{RESET}")
                 result = {
                     "task_id": task_id,
-                    "difficulty": task["difficulty"],
+                    "difficulty": task.get("difficulty", ""),
                     "instruction": task["instruction"],
                     "passed": False,
                     "verifier_message": f"Agent crashed: {e}",
@@ -191,7 +191,7 @@ async def main():
         description="Parallel evaluation runner with worker pool"
     )
     parser.add_argument("--model", choices=MODELS.keys(), default="gpt")
-    parser.add_argument("--task-id", default=None, help="Run a single task (e.g. task_e1)")
+    parser.add_argument("--task-id", default=None, help="Run one or more tasks, comma-separated (e.g. task_e1 or task_3,task_4,task_6)")
     parser.add_argument("--difficulty", choices=["easy", "medium", "hard"], default=None)
     parser.add_argument("--max-steps", type=int, default=50)
     parser.add_argument("--use-vision", action="store_true", help="Enable vision for the agent")
@@ -278,11 +278,12 @@ async def main():
     passed = sum(1 for r in results if r["passed"])
     by_diff: dict[str, dict] = {}
     for r in results:
-        d = r["difficulty"]
-        by_diff.setdefault(d, {"total": 0, "passed": 0})
-        by_diff[d]["total"] += 1
-        if r["passed"]:
-            by_diff[d]["passed"] += 1
+        d = r.get("difficulty", "")
+        if d:
+            by_diff.setdefault(d, {"total": 0, "passed": 0})
+            by_diff[d]["total"] += 1
+            if r["passed"]:
+                by_diff[d]["passed"] += 1
 
     aggregate = {
         "model": args.model,

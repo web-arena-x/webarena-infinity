@@ -1,0 +1,18 @@
+{
+  "task_id": "task_e11",
+  "difficulty": "easy",
+  "instruction": "Trash the volunteer event email from Ana Gutierrez.",
+  "passed": true,
+  "verifier_message": "Email id=12 ('Volunteer Event: Spring Health Fair') is trashed.",
+  "elapsed": 50.5,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "I have successfully trashed the volunteer event email from Ana Gutierrez. I selected the email 'Volunteer Event: Spring Health Fair' in the Inbox, clicked the delete button, and verified its presence in the Trash folder.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

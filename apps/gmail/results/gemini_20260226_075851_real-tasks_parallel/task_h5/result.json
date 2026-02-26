@@ -1,0 +1,25 @@
+{
+  "task_id": "task_h5",
+  "difficulty": "hard",
+  "instruction": "Trash all promotional emails from Amazon, Nike, and REI.",
+  "passed": true,
+  "verifier_message": "All promotional emails from Amazon, Nike, and REI are trashed.",
+  "elapsed": 117.2,
+  "steps": 12,
+  "is_done": true,
+  "final_result": "I have successfully trashed all promotional emails from Amazon, Nike, and REI. \n\n- **Amazon**: Trashed 'Your recommendations: Tech deals of the week'. Verified that only non-promotional emails (Order confirmation and Billing statement) remain.\n- **Nike**: Trashed 'New Arrivals: Check out the latest Nike styles'. Verified no results remain.\n- **REI**: Trashed 'Garage Sale: Up to 50% off'. Verified no results remain.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

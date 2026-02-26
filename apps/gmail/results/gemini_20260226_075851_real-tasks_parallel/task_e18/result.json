@@ -1,0 +1,33 @@
+{
+  "task_id": "task_e18",
+  "difficulty": "easy",
+  "instruction": "Turn off keyboard shortcuts.",
+  "passed": true,
+  "verifier_message": "Keyboard shortcuts are disabled (keyboardShortcutsEnabled=False).",
+  "elapsed": 214.3,
+  "steps": 20,
+  "is_done": true,
+  "final_result": "I have successfully turned off the keyboard shortcuts in the settings. I verified that the 'setting-keyboard-shortcuts' checkbox is now unchecked and clicked 'Save Changes' to persist the setting.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

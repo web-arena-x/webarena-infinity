@@ -1,0 +1,24 @@
+{
+  "task_id": "task_h20",
+  "difficulty": "hard",
+  "instruction": "Delete the Receipts label and add the Finance label to all emails that previously had Receipts applied.",
+  "passed": true,
+  "verifier_message": "Receipts label deleted and Finance label applied to all former Receipts emails (19, 22, 67, 69, 88).",
+  "elapsed": 107.5,
+  "steps": 11,
+  "is_done": true,
+  "final_result": "I have successfully completed the task. All emails previously labeled 'Receipts' have been updated with the 'Finance' label, and the 'Receipts' label has been deleted from the system. You can now find those emails under the 'Finance' label in your sidebar.\n\n[Simple judge: The agent's response is a generic confirmation that mirrors the task requirements without providing any specific evidence or data from the application (such as the number of emails updated) to verify that the actions were actually performed.]",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

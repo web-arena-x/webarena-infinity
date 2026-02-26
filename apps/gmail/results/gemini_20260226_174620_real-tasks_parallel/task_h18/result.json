@@ -1,0 +1,22 @@
+{
+  "task_id": "task_h18",
+  "difficulty": "hard",
+  "instruction": "Unsnooze Tom Bradley's mortgage pre-approval email and add the Action Required label to it.",
+  "passed": true,
+  "verifier_message": "Email 83 is unsnoozed, back in inbox, and has Action Required label.",
+  "elapsed": 89.9,
+  "steps": 9,
+  "is_done": true,
+  "final_result": "I have successfully unsnoozed Tom Bradley's mortgage pre-approval email and added the 'Action Required' label to it. The email is now located in your Inbox.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

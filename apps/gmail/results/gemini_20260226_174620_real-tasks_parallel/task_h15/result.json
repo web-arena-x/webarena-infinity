@@ -1,0 +1,19 @@
+{
+  "task_id": "task_h15",
+  "difficulty": "hard",
+  "instruction": "Edit the Morning Brew filter to also archive matching messages and mark them as read.",
+  "passed": true,
+  "verifier_message": "Morning Brew filter (filter_2) now archives and marks as read.",
+  "elapsed": 60.5,
+  "steps": 6,
+  "is_done": true,
+  "final_result": "The 'Morning Brew' filter (crew@morningbrew.com) has been successfully updated to archive matching messages (Skip Inbox) and mark them as read. The filter now applies the following actions: Apply label 'Newsletters', Skip Inbox, Mark as read, and Never send to Spam.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

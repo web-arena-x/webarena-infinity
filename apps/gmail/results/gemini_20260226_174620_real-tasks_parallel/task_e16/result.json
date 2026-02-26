@@ -1,0 +1,14 @@
+{
+  "task_id": "task_e16",
+  "difficulty": "easy",
+  "instruction": "Unstar the contract review email from James O'Brien.",
+  "passed": false,
+  "verifier_message": "Timed out after 300s",
+  "elapsed": 300,
+  "steps": -1,
+  "is_done": false,
+  "final_result": null,
+  "errors": [
+    "Timeout after 300s"
+  ]
+}

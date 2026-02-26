@@ -1,0 +1,20 @@
+{
+  "task_id": "task_e13",
+  "difficulty": "easy",
+  "instruction": "The Crypto Gains email in spam isn't actually spam \u2014 move it back to the inbox.",
+  "passed": true,
+  "verifier_message": "Email id=93 ('Turn $100 into $100,000 with this coin!') is no longer spam and is in the inbox.",
+  "elapsed": 70.9,
+  "steps": 7,
+  "is_done": true,
+  "final_result": "The 'Crypto Gains' email has been successfully moved from Spam to the Inbox and is now visible in your Inbox folder.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

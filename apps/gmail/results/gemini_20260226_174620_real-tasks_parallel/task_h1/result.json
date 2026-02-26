@@ -1,0 +1,20 @@
+{
+  "task_id": "task_h1",
+  "difficulty": "hard",
+  "instruction": "Create a label called 'Q1 Priority' nested under Work, then apply it to Sarah Chen's Q1 Product Roadmap Review email.",
+  "passed": true,
+  "verifier_message": "Label 'Q1 Priority' (id=label_30) is nested under Work and applied to email id=1.",
+  "elapsed": 68.2,
+  "steps": 7,
+  "is_done": true,
+  "final_result": "I have successfully created the label 'Q1 Priority' nested under 'Work' and applied it to Sarah Chen's 'Q1 Product Roadmap Review' email. You can see the label applied to the email at the top of your inbox.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

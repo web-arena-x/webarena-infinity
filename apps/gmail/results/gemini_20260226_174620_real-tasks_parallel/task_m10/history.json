@@ -1,0 +1,431 @@
+{
+  "history": [
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Start",
+        "memory": null,
+        "next_goal": "Initial navigation",
+        "action": [
+          {
+            "navigate": {
+              "url": "http://localhost:9001",
+              "new_tab": false
+            }
+          }
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "long_term_memory": "Found initial url and automatically loaded it. Navigated to http://localhost:9001",
+          "extracted_content": "\ud83d\udd17 Navigated to http://localhost:9001",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [],
+        "screenshot_path": null,
+        "interacted_element": [
+          null
+        ],
+        "url": "http://localhost:9001",
+        "title": "Initial Actions"
+      },
+      "metadata": {
+        "step_start_time": 1772128336.6341205,
+        "step_end_time": 1772128336.6341207,
+        "step_number": 0,
+        "step_interval": null
+      },
+      "state_message": null
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "The agent was just initialized and navigated to the home page. Verdict: Success",
+        "memory": "Navigated to the home page of the mail application. Now looking for the settings to manage filters.",
+        "next_goal": "Click on the settings button to access filter management.",
+        "action": [
+          {
+            "click": {
+              "index": 41266
+            }
+          }
+        ],
+        "thinking": "The user wants to delete a filter that handles GitHub notifications. I need to navigate to the settings page to find the filters. I see a settings button (index 41266) in the browser state. I will click it and then look for a 'Filters' or 'Filters and Blocked Addresses' section.",
+        "current_plan_item": 0,
+        "plan_update": [
+          "Click on Settings button",
+          "Navigate to Filters and Blocked Addresses tab",
+          "Identify the GitHub notifications filter",
+          "Delete the GitHub notifications filter",
+          "Confirm deletion"
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button id=settingsBtn aria-label=Settings",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1856.0,
+            "click_y": 31.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://localhost:9001/",
+            "title": "localhost:9001",
+            "target_id": "E27A",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_069a0885-05fd-76de-8000-0d162109f212_1772128336/screenshots/step_1.png",
+        "interacted_element": [
+          {
+            "node_id": 41335,
+            "backend_node_id": 41266,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "settings-btn",
+              "id": "settingsBtn",
+              "data-action": "open-settings",
+              "data-testid": "settings-btn",
+              "aria-label": "Settings"
+            },
+            "x_path": "html/body/header/div[3]/button",
+            "element_hash": 7735993483881598861,
+            "stable_hash": 7735993483881598861,
+            "bounds": {
+              "x": 1836.0,
+              "y": 11.5,
+              "width": 40.0,
+              "height": 40.0
+            },
+            "ax_name": "Settings"
+          }
+        ],
+        "url": "http://localhost:9001/",
+        "title": "localhost:9001"
+      },
+      "metadata": {
+        "step_start_time": 1772128336.634188,
+        "step_end_time": 1772128342.500434,
+        "step_number": 1,
+        "step_interval": 2.384185791015625e-07
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://localhost:9001\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://localhost:9001. Your task: Delete the filter that handles GitHub notifications.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step1 maximum:500\nToday:2026-02-26</step_info>\n</agent_state>\n<browser_state>\n<page_stats>0 links, 726 interactive, 0 iframes, 1 shadow(open), 0 shadow(closed), 1100 total elements</page_stats>\nCurrent tab: E27A\nAvailable tabs:\nTab E27A: http://localhost:9001/ - localhost:9001\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n[41206]<button id=menuToggle aria-label=Main menu />\n<svg /> <!-- SVG content collapsed -->\nGmail\n[41248]<div id=searchBar />\n\t[41250]<button aria-label=Search />\n\t|SHADOW(open)|[41146]<input type=text id=searchInput placeholder=Search mail autocomplete=off />\n\t[41207]<button id=searchOptionsBtn aria-label=Show search options />\n[41266]<button id=settingsBtn aria-label=Settings />\n[41272]<div id=userAvatar />\n\t[41274]<span id=userInitials />\n\t\tAJ\n|scroll element|<nav id=sidebar /> (0.0 pages above, 0.1 pages below)\n\t[41286]<button id=composeBtn />\n\t\tCompose\n\t[41298]<div />\n\t\t[41299]<span />\n\t\t\t[41300]<svg /> <!-- SVG content collapsed -->\n\t\t[41302]<span />\n\t\t\tInbox\n\t\t[41304]<span />\n\t\t\t19\n\t[41306]<div />\n\t\t[41307]<span />\n\t\t\t[41308]<svg /> <!-- SVG content collapsed -->\n\t\t[41310]<span />\n\t\t\tStarred\n\t[41312]<div />\n\t\t[41313]<span />\n\t\t\t[41314]<svg /> <!-- SVG content collapsed -->\n\t\t[41316]<span />\n\t\t\tSnoozed\n\t[41318]<div />\n\t\t[41319]<span />\n\t\t\t[41320]<svg /> <!-- SVG content collapsed -->\n\t\t[41322]<span />\n\t\t\tSent\n\t[41324]<div />\n\t\t[41325]<span />\n\t\t\t[41326]<svg /> <!-- SVG content collapsed -->\n\t\t[41328]<span />\n\t\t\tDrafts\n\t\t[41330]<span />\n\t[41332]<div />\n\t\t[41333]<span />\n\t\t\t[41334]<svg /> <!-- SVG content collapsed -->\n\t\t[41336]<span />\n\t\t\tImportant\n\t[41338]<div />\n\t\t[41339]<span />\n\t\t\t[41340]<svg /> <!-- SVG content collapsed -->\n\t\t[41342]<span />\n\t\t\tAll Mail\n\t[41344]<div />\n\t\t[41345]<span />\n\t\t\t[41346]<svg /> <!-- SVG content collapsed -->\n\t\t[41348]<span />\n\t\t\tSpam\n\t\t[41350]<span />\n\t[41352]<div />\n\t\t[41353]<span />\n\t\t\t[41354]<svg /> <!-- SVG content collapsed -->\n\t\t[41356]<span />\n\t\t\tTrash\n\tLabels\n\t[41362]<button />\n\t[41364]<div />\n\t\t[41365]<span />\n\t\t[41366]<span />\n\t\t\tWork\n\t\t[41368]<span />\n\t\t\t12\n\t[41370]<div />\n\t\t[41371]<span />\n\t\t[41372]<span />\n\t\t\tProjects\n\t\t[41374]<span />\n\t[41376]<div />\n\t\t[41377]<span />\n\t\t[41378]<span />\n\t\t\tMeetings\n\t\t[41380]<span />\n\t[41382]<div />\n\t\t[41383]<span />\n\t\t[41384]<span />\n\t\t\tClients\n\t\t[41386]<span />\n\t[41388]<div />\n\t\t[41389]<span />\n\t\t[41390]<span />\n\t\t\tHR\n\t[41392]<div />\n\t\t[41393]<span />\n\t\t[41394]<span />\n\t\t\tPersonal\n\t[41396]<div />\n\t\t[41397]<span />\n\t\t[41398]<span />\n\t\t\tFamily\n\t[41400]<div />\n\t\t[41401]<span />\n\t\t[41402]<span />\n\t\t\tFriends\n\t[41404]<div />\n\t\t[41405]<span />\n\t\t[41406]<span />\n\t\t\tFinance\n\t[41408]<div />\n\t\t[41409]<span />\n\t\t[41410]<span />\n\t\t\tInvoices\n\t[41412]<div />\n\t\t[41413]<span />\n\t\t[41414]<span />\n\t\t\tBanking\n\t[41416]<div />\n\t\t[41417]<span />\n\t\t[41418]<span />\n\t\t\tTravel\n\t\t[41420]<span />\n\t[41422]<div />\n\t\t[41423]<span />\n\t\t[41424]<span />\n\t\t\tReceipts\n\t[41426]<div />\n\t\t[41427]<span />\n\t\t[41428]<span />\n\t\t\tNewsletters\n\t\t[41430]<span />\n\t[41432]<div />\n\t\t[41433]<span />\n\t\t[41434]<span />\n\t\t\tHealth\n\t[41436]<div />\n\t\t[41437]<span />\n\t\t[41438]<span />\n\t\t\tEducation\n\t[41440]<div />\n\t\t[41441]<span />\n\t\t[41442]<span />\n\t\t\tAction Required\n\t\t[41444]<span />\n\t[41446]<div />\n\t\t[41447]<span />\n\t\t[41448]<span />\n\t\t\tWaiting For Reply\n\t\t[41450]<span />\n\t[41452]<div />\n\t\t[41453]<span />\n\t\t[41454]<span />\n\t\t\tReference\n\t[41456]<div />\n\t\t[41457]<span />\n\t\t\t[41458]<svg /> <!-- SVG content collapsed -->\n\t\t[41460]<span />\n\t\t\tCreate new label\n[41472]<div />\n\t[41147]<input type=checkbox id=selectAllCheckbox checked=false />\n\t[41473]<button />\n[41475]<button title=Refresh />\n1-48 of 48\n|scroll element|<div id=contentWrapper /> (0.0 pages above, 1.0 pages below)\n\t[41496]<button />\n\t\tPrimary\n\t[41504]<button />\n\t\tSocial\n\t[41512]<button />\n\t\tPromotions\n\t[41520]<button />\n\t\tUpdates\n\t[41528]<button />\n\t\tForums\n\t[41537]<div />\n\t\t[41148]<input type=checkbox checked=false />\n\t\t[41538]<button />\n\t\t[41540]<button />\n\t\t[41542]<span />\n\t\t\tSarah Chen\n\t\t[41544]<div />\n\t\t\t[41545]<span />\n\t\t\t\tQ1 Product Roadmap Review\n\t\t\t[41547]<span />\n\t\t\t\t[41548]<span />\n\t\t\t\t\tWork\n\t\t\t\t[41550]<span />\n\t\t\t\t\tProjects\n\t\t\t[41552]<span />\n\t\t\t\tHi Alex, I've attached the updated Q1 product roadmap for your review. Please take a look before our meeting on Thursday.\n\t\t[41555]<span title=Has attachment />\n\t\t\t[41556]<svg /> <!-- SVG content collapsed -->\n\t\t[41558]<span />\n\t\t\tTue\n\t[41573]<div />\n\t\t[41149]<input type=checkbox checked=false />\n\t\t[41574]<button />\n\t\t[41576]<button />\n\t\t[41578]<span />\n\t\t\tPriya Sharma\n\t\t[41580]<div />\n\t\t\t[41581]<span />\n\t\t\t\tRe: API Integration Issue\n\t\t\t[41583]<span />\n\t\t\t\t[41584]<span />\n\t\t\t\t\tWork\n\t\t\t\t[41586]<span />\n\t\t\t\t\tProjects\n\t\t\t[41588]<span />\n\t\t\t\tI found the root cause. The timeout was set to 30s but the new endpoint needs at least 45s. I'll push a fix today.\n\t\t[41591]<span />\n\t\t\tTue\n\t[41606]<div />\n\t\t[41150]<input type=checkbox checked=false />\n\t\t[41607]<button />\n\t\t[41609]<button />\n\t\t[41611]<span />\n\t\t\tMorning Brew\n\t\t[41613]<div />\n\t\t\t[41614]<span />\n\t\t\t\tDaily Brew: Fed signals rate cuts\n\t\t\t[41616]<span />\n\t\t\t\t[41617]<span />\n\t\t\t\t\tNewsletters\n\t\t\t[41619]<span />\n\t\t\t\tFed Chair signals possible rate cuts in Q2. Tesla hits $300/share. Apple Vision Pro sales surge 200%.\n\t\t[41622]<span />\n\t\t\tTue\n\t[41637]<div />\n\t\t[41151]<input type=checkbox checked=false />\n\t\t[41638]<button />\n\t\t\t[41639]<span />\n\t\t[41641]<button />\n\t\t[41643]<span />\n\t\t\tPriya Sharma\n\t\t[41645]<div />\n\t\t\t[41646]<span />\n\t\t\t\tAPI Integration Issue\n\t\t\t[41648]<span />\n\t\t\t\t[41649]<span />\n\t\t\t\t\tWork\n\t\t\t\t[41651]<span />\n\t\t\t\t\tProjects\n\t\t\t[41653]<span />\n\t\t\t\tHey Alex, we're seeing intermittent failures on the payment gateway API. Getting 504 errors about 15% of the time.\n\t\t[41656]<span />\n\t\t\tMon\n\t[41671]<div />\n\t\t[41152]<input type=checkbox checked=false />\n\t\t[41672]<button />\n\t\t[41674]<button />\n\t\t[41676]<span />\n\t\t\tDavid Kim\n\t\t[41678]<div />\n\t\t\t[41679]<span />\n\t\t\t\tMonthly Financial Report - January 2026\n\t\t\t[41681]<span />\n\t\t\t\t[41682]<span />\n\t\t\t\t\tFinance\n\t\t\t\t[41684]<span />\n\t\t\t\t\tInvoices\n\t\t\t[41686]<span />\n\t\t\t\tPlease find attached the January financial summary. Revenue was up 12% MoM, with notable growth in enterprise segment.\n\t\t[41689]<span title=Has attachment />\n\t\t\t[41690]<svg /> <!-- SVG content collapsed -->\n\t\t[41692]<span />\n\t\t\tMon\n\t[41707]<div />\n\t\t[41153]<input type=checkbox checked=false />\n\t\t[41708]<button />\n\t\t[41710]<button />\n\t\t[41712]<span />\n\t\t\tMarcus Williams\n\t\t[41714]<div />\n\t\t\t[41715]<span />\n\t\t\t\tDesign System Update v4.2\n\t\t\t[41717]<span />\n\t\t\t\t[41718]<span />\n\t\t\t\t\tWork\n\t\t\t[41720]<span />\n\t\t\t\tThe new component library is ready for review. Key changes: updated color tokens, new navigation patterns, and improved responsive breakpoints.\n\t\t[41723]<span title=Has attachment />\n\t\t\t[41724]<svg /> <!-- SVG content collapsed -->\n\t\t[41726]<span />\n\t\t\tMon\n\t[41741]<div />\n\t\t[41154]<input type=checkbox checked=false />\n\t\t[41742]<button />\n\t\t\t[41743]<span />\n\t\t[41745]<button />\n\t\t[41747]<span />\n\t\t\tEmily Rodriguez\n\t\t[41749]<div />\n\t\t\t[41750]<span />\n\t\t\t\tPartnership Opportunity - Series B Company\n\t\t\t[41752]<span />\n\t\t\t\t[41753]<span />\n\t\t\t\t\tWork\n\t\t\t\t[41755]<span />\n\t\t\t\t\tClients\n\t\t\t\t[41757]<span />\n\t\t\t\t\tAction Required\n\t\t\t[41759]<span />\n\t\t\t\tAlex, I'd like to introduce you to a Series B company in the AI space. They're looking for integration partners and I think there's a great fit.\n\t\t[41762]<span />\n\t\t\tMon\n\t[41777]<div />\n\t\t[41155]<input type=checkbox checked=false />\n\t\t[41778]<button />\n\t\t[41780]<button />\n\t\t[41782]<span />\n\t\t\tKevin Zhao\n\t\t[41784]<div />\n\t\t\t[41785]<span />\n\t\t\t\tResearch Paper: Quantum Error Correction\n\t\t\t[41787]<span />\n\t\t\t\t[41788]<span />\n\t\t\t\t\tEducation\n\t\t\t\t[41790]<span />\n\t\t\t\t\tReference\n\t\t\t[41792]<span />\n\t\t\t\tOur team just published a new paper on quantum error correction codes. Thought you might find it interesting given our conversation last week.\n\t\t[41795]<span title=Has attachment />\n\t\t\t[41796]<svg /> <!-- SVG content collapsed -->\n\t\t[41798]<span />\n\t\t\tSun\n\t[41813]<div />\n\t\t[41156]<input type=checkbox checked=false />\n\t\t[41814]<button />\n\t\t[41816]<button />\n\t\t[41818]<span />\n\t\t\tNate Patel\n\t\t[41820]<div />\n\t\t\t[41821]<span />\n\t\t\t\tCI/CD Pipeline Migration Plan\n\t\t\t[41823]<span />\n\t\t\t\t[41824]<span />\n\t\t\t\t\tWork\n\t\t\t\t[41826]<span />\n\t\t\t\t\tProjects\n\t\t\t\t[41828]<span />\n\t\t\t\t\tAction Required\n\t\t\t[41830]<span />\n\t\t\t\tHere's the migration plan for moving our CI/CD from Jenkins to GitHub Actions. Estimated 3 weeks for full cutover.\n\t\t<svg /> <!-- SVG content collapsed -->\n\t\t[41837]<div />\n\t\t\t[41838]<button title=Archive />\n\t\t\t[41841]<button title=Delete />\n\t\t\t[41844]<button title=Mark as read />\n\t\t\t[41847]<button title=Snooze />\n\t[41850]<div />\n\t\t[41157]<input type=checkbox checked=false />\n\t\t[41851]<button />\n\t\t[41853]<button />\n\t\t[41855]<span />\n\t\t\tMaya Patel\n\t\t[41857]<div />\n\t\t\t[41858]<span />\n\t\t\t\tTeam Standup Notes - Feb 22\n\t\t\t[41860]<span />\n\t\t\t\t[41861]<span />\n\t\t\t\t\tWork\n\t\t\t\t[41863]<span />\n\t\t\t\t\tMeetings\n\t\t\t[41865]<span />\n\t\t\t\tQuick summary from today's standup: Backend team finishing auth refactor, Frontend starting dashboard redesign, QA blocked on staging env.\n\t\t[41868]<span />\n\t\t\tSun\n\t[41883]<div />\n\t\t[41158]<input type=checkbox checked=false />\n\t\t[41884]<button />\n\t\t\t[41885]<span />\n\t\t[41887]<button />\n\t\t[41889]<span />\n\t\t\tThe Pragmatic Engineer\n\t\t[41891]<div />\n\t\t\t[41892]<span />\n\t\t\t\tBig Tech hiring is back - what changed?\n\t\t\t[41894]<span />\n\t\t\t\t[41895]<span />\n\t\t\t\t\tNewsletters\n\t\t\t\t[41897]<span />\n\t\t\t\t\tReference\n\t\t\t[41899]<span />\n\t\t\t\tAfter 2 years of hiring freezes, FAANG companies are ramping up. Here's what's different this time.\n\t\t[41902]<span />\n\t\t\tSun\n\t[41917]<div />\n\t\t[41159]<input type=checkbox checked=false />\n\t\t[41918]<button />\n\t\t\t[41919]<span />\n\t\t[41921]<button />\n\t\t[41923]<span />\n\t\t\tJames O'Brien\n\t\t[41925]<div />\n\t\t\t[41926]<span />\n\t\t\t\tContract Review: Vendor Agreement\n\t\t\t[41928]<span />\n\t\t\t\t[41929]<span />\n\t\t\t\t\tWork\n\t\t\t\t[41931]<span />\n\t\t\t\t\tClients\n\t\t\t\t[41933]<span />\n\t\t\t\t\tAction Required\n\t\t\t[41935]<span />\n\t\t\t\tAlex, I've reviewed the vendor agreement. A few clauses need attention - see my redlined version attached. Let's discuss by end of week.\n\t\t[41938]<span title=Has attachment />\n\t\t\t[41939]<svg /> <!-- SVG content collapsed -->\n\t\t[41941]<span />\n\t\t\tSat\n\t[41956]<div />\n\t\t[41160]<input type=checkbox checked=false />\n\t\t[41957]<button />\n\t\t[41959]<button />\n\t\t[41961]<span />\n\t\t\tAna Gutierrez\n\t\t[41963]<div />\n\t\t\t[41964]<span />\n\t\t\t\tVolunteer Event: Spring Health Fair\n\t\t\t[41966]<span />\n\t\t\t\t[41967]<span />\n\t\t\t\t\tPersonal\n\t\t\t[41969]<span />\n\t\t\t\tWe're organizing a spring health fair on March 15th. Would you be interested in volunteering? We need help with registration and logistics.\n\t\t[41972]<span />\n\t\t\tSat\n\t[41987]<div />\n\t\t[41161]<input type=checkbox checked=false />\n\t\t[41988]<button />\n\t\t[41990]<button />\n\t\t[41992]<span />\n\t\t\tRyan Cooper\n\t\t[41994]<div />\n\t\t\t[41995]<span />\n\t\t\t\tRe: Platform Performance Issues\n\t\t\t[41997]<span />\n\t\t\t\t[41998]<span />\n\t\t\t\t\tWork\n\t\t\t\t[42000]<span />\n\t\t\t\t\tProjects\n\t\t\t[42002]<span />\n\t\t\t\tGood news - we identified the bottleneck. It was a missing database index on the analytics table. Response times are back to normal.\n\t\t[42005]<span />\n\t\t\tSat\n\t[42020]<div />\n\t\t[41162]<input type=checkbox checked=false />\n\t\t[42021]<button />\n\t\t[42023]<button />\n\t\t[42025]<span />\n\t\t\tTLDR Newsletter\n\t\t[42027]<div />\n\t\t\t[42028]<span />\n\t\t\t\tTLDR: GPT-5 benchmarks leaked\n\t\t\t[42030]<span />\n\t\t\t\t[42031]<span />\n\t\t\t\t\tNewsletters\n\t\t\t[42033]<span />\n\t\t\t\tGPT-5 benchmarks, Rust 2.0 announced, Docker alternatives, PostgreSQL 17 features.\n\t\t[42036]<span />\n\t\t\tSat\n\t[42051]<div />\n\t\t[41163]<input type=checkbox checked=false />\n\t\t[42052]<button />\n\t\t\t[42053]<span />\n\t\t[42055]<button />\n\t\t[42057]<span />\n\t\t\tSophie Laurent\n\t\t[42059]<div />\n\t\t\t[42060]<span />\n\t\t\t\tBonjour! Conference Speaker Invitation\n\t\t\t[42062]<span />\n\t\t\t\t[42063]<span />\n\t\t\t\t\tTravel\n\t\t\t\t[42065]<span />\n\t\t\t\t\tAction Required\n\t\t\t[42067]<span />\n\t\t\t\tWe'd love to have you speak at EuroDesign Summit 2026 in Paris. The theme is \"AI-Driven Design Systems.\" Travel and accommodation covered.\n\t\t[42070]<span />\n\t\t\tFri\n\t[42085]<div />\n\t\t[41164]<input type=checkbox checked=false />\n\t\t[42086]<button />\n\t\t[42088]<button />\n\t\t[42090]<span />\n\t\t\tTom Bradley\n\t\t[42092]<div />\n\t\t\t[42093]<span />\n\t\t\t\tProperty Listing: 45 Oak Avenue\n\t\t\t[42095]<span />\n\t\t\t\t[42096]<span />\n\t\t\t\t\tPersonal\n\t\t\t[42098]<span />\n\t\t\t\tNew listing matching your criteria - 3BR/2BA, 1,800 sqft, updated kitchen, large backyard. Open house this Saturday 1-4pm.\n\t\t[42101]<span />\n\t\t\tFri\n\t[42116]<div />\n\t\t[41165]<input type=checkbox checked=false />\n\t\t[42117]<button />\n\t\t[42119]<button />\n\t\t[42121]<span />\n\t\t\tMichelle Park\n\t\t[42123]<div />\n\t\t\t[42124]<span />\n\t\t\t\tInterview Request: Tech Innovation Panel\n\t\t\t[42126]<span />\n\t\t\t\t[42127]<span />\n\t\t\t\t\tWaiting For Reply\n\t\t\t[42129]<span />\n\t\t\t\tHi Alex, we're producing a segment on tech innovation in 2026. Would you be available for a 15-minute interview next week?\n\t\t[42132]<span />\n\t\t\tFri\n\t[42147]<div />\n\t\t[41166]<input type=checkbox checked=false />\n\t\t[42148]<button />\n\t\t[42150]<button />\n\t\t[42152]<span />\n\t\t\tDaniel Thompson\n\t\t[42154]<div />\n\t\t\t[42155]<span />\n\t\t\t\tOffice Renovation Plans\n\t\t\t[42157]<span />\n\t\t\t\t[42158]<span />\n\t\t\t\t\tWork\n\t\t\t[42160]<span />\n\t\t\t\tAttached are the revised floor plans for the office renovation. The open workspace area has been expanded per your feedback.\n\t\t[42163]<span title=Has attachment />\n\t\t\t[42164]<svg /> <!-- SVG content collapsed -->\n\t\t[42166]<span />\n\t\t\tFeb 19\n\t[42181]<div />\n\t\t[41167]<input type=checkbox checked=false />\n\t\t[42182]<button />\n\t\t[42184]<button />\n\t\t[42186]<span />\n\t\t\tSarah Chen\n\t\t[42188]<div />\n\t\t\t[42189]<span />\n\t\t\t\tRe: Quarterly Team Dinner\n\t\t\t[42191]<span />\n\t\t\t\t[42192]<span />\n\t\t\t\t\tWork\n\t\t\t[42194]<span />\n\t\t\t\tMarch 7th is perfect! I'll make the reservation for 8 people. Any dietary restrictions?\n\t\t[42197]<span />\n\t\t\tFeb 19\n\t[42212]<div />\n\t\t[41168]<input type=checkbox checked=false />\n\t\t[42213]<button />\n\t\t[42215]<button />\n\t\t[42217]<span />\n\t\t\tSarah Chen\n\t\t[42219]<div />\n\t\t\t[42220]<span />\n\t\t\t\tQuarterly Team Dinner\n\t\t\t[42222]<span />\n\t\t\t\t[42223]<span />\n\t\t\t\t\tWork\n\t\t\t\t[42225]<span />\n\t\t\t\t\tMeetings\n\t\t\t[42227]<span />\n\t\t\t\tHey everyone! Let's plan our Q1 team dinner. I'm thinking March 7th at Zafferano. Please reply with your availability.\n\t\t[42230]<span />\n\t\t\tFeb 19\n\t[42245]<div />\n\t\t[41169]<input type=checkbox checked=false />\n\t\t[42246]<button />\n\t\t[42248]<button />\n\t\t[42250]<span />\n\t\t\tBenedict Evans\n\t\t[42252]<div />\n\t\t\t[42253]<span />\n\t\t\t\tAI and the future of search\n\t\t\t[42255]<span />\n\t\t\t\t[42256]<span />\n\t\t\t\t\tNewsletters\n\t\t\t\t[42258]<span />\n\t\t\t\t\tReference\n\t\t\t[42260]<span />\n\t\t\t\tLong-form analysis of how AI is reshaping information retrieval and what it means for Google.\n\t\t[42263]<span />\n\t\t\tFeb 19\n\t[42278]<div />\n\t\t[41170]<input type=checkbox checked=false />\n\t\t[42279]<button />\n\t\t[42281]<button />\n\t\t[42283]<span />\n\t\t\tJennifer Wu\n\t\t[42285]<div />\n\t\t\t[42286]<span />\n\t\t\t\tRe: Collaboration Proposal\n\t\t\t[42288]<span />\n\t\t\t\t[42289]<span />\n\t\t\t\t\tWork\n\t\t\t\t[42291]<span />\n\t\t\t\t\tWaiting For Reply\n\t\t\t[42293]<span />\n\t\t\t\tAlex, this sounds promising. Let's set up a call with our research team. How does Thursday at 2pm PST work for you?\n\t\t[42296]<span />\n\t\t\tFeb 18\n\t[42311]<div />\n\t\t[41171]<input type=checkbox checked=false />\n\t\t[42312]<button />\n\t\t[42314]<button />\n\t\t[42316]<span />\n\t\t\tRobert Singh\n\t\t[42318]<div />\n\t\t\t[42319]<span />\n\t\t\t\tGuest Lecture Invitation - CS 401\n\t\t\t[42321]<span />\n\t\t\t\t[42322]<span />\n\t\t\t\t\tEducation\n\t\t\t[42324]<span />\n\t\t\t\tThe department would be honored if you could give a guest lecture on distributed systems. We have an opening on March 20th.\n\t\t[42327]<span />\n\t\t\tFeb 18\n\t[42342]<div />\n\t\t[41172]<input type=checkbox checked=false />\n\t\t[42343]<button />\n\t\t[42345]<button />\n\t\t[42347]<span />\n\t\t\tPriya Sharma\n\t\t[42349]<div />\n\t\t\t[42350]<span />\n\t\t\t\tCode Review Request: auth-service PR #42\n\t\t\t[42352]<span />\n\t\t\t\t[42353]<span />\n\t\t\t\t\tWork\n\t\t\t\t[42355]<span />\n\t\t\t\t\tProjects\n\t\t\t[42357]<span />\n\t\t\t\tHey Alex, can you review my PR for the OAuth2 PKCE implementation? It's about 400 lines.\n\t\t[42360]<span />\n\t\t\tFeb 18\n\t[42375]<div />\n\t\t[41173]<input type=checkbox checked=false />\n\t\t[42376]<button />\n\t\t[42378]<button />\n\t\t[42380]<span />\n\t\t\tRyan Cooper\n\t\t[42382]<div />\n\t\t\t[42383]<span />\n\t\t\t\tSaaS Platform Q1 Pricing Update\n\t\t\t[42385]<span />\n\t\t\t\t[42386]<span />\n\t\t\t\t\tWork\n\t\t\t[42388]<span />\n\t\t\t\tHeads up - we're adjusting enterprise tier pricing starting March 1st. Existing contracts unaffected.\n\t\t[42391]<span />\n\t\t\tFeb 17\n\t[42406]<div />\n\t\t[41174]<input type=checkbox checked=false />\n\t\t[42407]<button />\n\t\t[42409]<button />\n\t\t[42411]<span />\n\t\t\tRachel Foster\n\t\t[42413]<div />\n\t\t\t[42414]<span />\n\t\t\t\tDonation Receipt - Tax Year 2025\n\t\t\t[42416]<span />\n\t\t\t\t[42417]<span />\n\t\t\t\t\tFinance\n\t\t\t\t[42419]<span />\n\t\t\t\t\tReceipts\n\t\t\t[42421]<span />\n\t\t\t\tThank you for your generous contribution of $500 to NonprofitAid. Attached is your tax receipt for the 2025 fiscal year.\n\t\t[42424]<span title=Has attachment />\n\t\t\t[42425]<svg /> <!-- SVG content collapsed -->\n\t\t[42427]<span />\n\t\t\tFeb 17\n\t[42442]<div />\n\t\t[41175]<input type=checkbox checked=false />\n\t\t[42443]<button />\n\t\t[42445]<button />\n\t\t[42447]<span />\n\t\t\tOmar Al-Rashid\n\t\t[42449]<div />\n\t\t\t[42450]<span />\n\t\t\t\tStrategy Workshop Follow-up\n\t\t\t[42452]<span />\n\t\t\t\t[42453]<span />\n\t\t\t\t\tWork\n\t\t\t\t[42455]<span />\n\t\t\t\t\tMeetings\n\t\t\t[42457]<span />\n\t\t\t\tGreat workshop yesterday. Attached are the whiteboard photos and action items. Please review your assigned items by Friday.\n\t\t[42460]<span title=Has attachment />\n\t\t\t[42461]<svg /> <!-- SVG content collapsed -->\n\t\t[42463]<span />\n\t\t\tFeb 17\n\t[42478]<div />\n\t\t[41176]<input type=checkbox checked=false />\n\t\t[42479]<button />\n\t\t[42481]<button />\n\t\t[42483]<span />\n\t\t\tStratechery\n\t\t[42485]<div />\n\t\t\t[42486]<span />\n\t\t\t\tThe Great AI Unbundling\n\t\t\t[42488]<span />\n\t\t\t\t[42489]<span />\n\t\t\t\t\tNewsletters\n\t\t\t[42491]<span />\n\t\t\t\tHow AI is disrupting SaaS businesses by enabling customers to build their own tools.\n\t\t[42494]<span />\n\t\t\tFeb 17\n\t[42509]<div />\n\t\t[41177]<input type=checkbox checked=false />\n\t\t[42510]<button />\n\t\t[42512]<button />\n\t\t[42514]<span />\n\t\t\tHannah Brooks\n\t\t[42516]<div />\n\t\t\t[42517]<span />\n\t\t\t\tYour Workout Plan for March\n\t\t\t[42519]<span />\n\t\t\t\t[42520]<span />\n\t\t\t\t\tHealth\n\t\t\t\t[42522]<span />\n\t\t\t\t\tPersonal\n\t\t\t[42524]<span />\n\t\t\t\tHi Alex! I've customized your workout plan for March based on your progress. Let me know if you want any adjustments.\n\t\t[42527]<span title=Has attachment />\n\t\t\t[42528]<svg /> <!-- SVG content collapsed -->\n\t\t[42530]<span />\n\t\t\tFeb 16\n\t[42545]<div />\n\t\t[41178]<input type=checkbox checked=false />\n\t\t[42546]<button />\n\t\t[42548]<button />\n\t\t[42550]<span />\n\t\t\tKevin Zhao\n\t\t[42552]<div />\n\t\t\t[42553]<span />\n\t\t\t\tLab Tour Invitation\n\t\t\t[42555]<span />\n\t\t\t\t[42556]<span />\n\t\t\t\t\tPersonal\n\t\t\t[42558]<span />\n\t\t\t\tWe're hosting an open lab day on March 5th. Would love to show you our new quantum processor setup.\n\t\t[42561]<span />\n\t\t\tFeb 16\n\t[42576]<div />\n\t\t[41179]<input type=checkbox checked=false />\n\t\t[42577]<button />\n\t\t[42579]<button />\n\t\t[42581]<span />\n\t\t\tJennifer Wu\n\t\t[42583]<div />\n\t\t\t[42584]<span />\n\t\t\t\tBioMed Conference Recap\n\t\t\t[42586]<span />\n\t\t\t\t[42587]<span />\n\t\t\t\t\tEducation\n\t\t\t[42589]<span />\n\t\t\t\tGreat seeing you at the conference! Here are the slides from the panel we discussed.\n\t\t[42592]<span title=Has attachment />\n\t\t\t[42593]<svg /> <!-- SVG content collapsed -->\n\t\t[42595]<span />\n\t\t\tFeb 15\n\t[42610]<div />\n\t\t[41180]<input type=checkbox checked=false />\n\t\t[42611]<button />\n\t\t\t[42612]<span />\n\t\t[42614]<button />\n\t\t[42616]<span />\n\t\t\tLisa Nakamura\n\t\t[42618]<div />\n\t\t\t[42619]<span />\n\t\t\t\tBrand Refresh Concepts\n\t\t\t[42621]<span />\n\t\t\t\t[42622]<span />\n\t\t\t\t\tWork\n\t\t\t\t[42624]<span />\n\t\t\t\t\tClients\n\t\t\t[42626]<span />\n\t\t\t\tHere are three brand refresh concepts for review. Each explores a different direction. Let me know your thoughts.\n\t\t[42629]<span title=Has attachment />\n\t\t\t[42630]<svg /> <!-- SVG content collapsed -->\n\t\t[42632]<span />\n\t\t\tFeb 15\n\t[42647]<div />\n\t\t[41181]<input type=checkbox checked=false />\n\t\t[42648]<button />\n\t\t[42650]<button />\n\t\t[42652]<span />\n\t\t\tChris Evans\n\t\t[42654]<div />\n\t\t\t[42655]<span />\n\t\t\t\tSunday Game Tickets Available\n\t\t\t[42657]<span />\n\t\t\t\t[42658]<span />\n\t\t\t\t\tPersonal\n\t\t\t\t[42660]<span />\n\t\t\t\t\tFriends\n\t\t\t[42662]<span />\n\t\t\t\tHey Alex, my friend can't make it to the game this Sunday. Want his ticket? Section 108, Row 12. Face value $85.\n\t\t[42665]<span />\n\t\t\tFeb 14\n\t[42680]<div />\n\t\t[41182]<input type=checkbox checked=false />\n\t\t[42681]<button />\n\t\t[42683]<button />\n\t\t[42685]<span />\n\t\t\tDavid Kim\n\t\t[42687]<div />\n\t\t\t[42688]<span />\n\t\t\t\tTax Season Reminder: Documents Needed\n\t\t\t[42690]<span />\n\t\t\t\t[42691]<span />\n\t\t\t\t\tFinance\n\t\t\t\t[42693]<span />\n\t\t\t\t\tAction Required\n\t\t\t[42695]<span />\n\t\t\t\tFriendly reminder: we need your W-2 and 1099 forms by March 1st to prepare your 2025 tax return on time.\n\t\t[42698]<span />\n\t\t\tFeb 14\n\t[42713]<div />\n\t\t[41183]<input type=checkbox checked=false />\n\t\t[42714]<button />\n\t\t[42716]<button />\n\t\t[42718]<span />\n\t\t\tMaya Patel\n\t\t[42720]<div />\n\t\t\t[42721]<span />\n\t\t\t\tPerformance Review Self-Assessment Due\n\t\t\t[42723]<span />\n\t\t\t\t[42724]<span />\n\t\t\t\t\tWork\n\t\t\t\t[42726]<span />\n\t\t\t\t\tHR\n\t\t\t\t[42728]<span />\n\t\t\t\t\tAction Required\n\t\t\t[42730]<span />\n\t\t\t\tReminder: please submit your self-assessment by end of day Friday. Template link in the HR portal.\n\t\t[42733]<span />\n\t\t\tFeb 14\n\t[42748]<div />\n\t\t[41184]<input type=checkbox checked=false />\n\t\t[42749]<button />\n\t\t\t[42750]<span />\n\t\t[42752]<button />\n\t\t[42754]<span />\n\t\t\tSarah Chen\n\t\t[42756]<div />\n\t\t\t[42757]<span />\n\t\t\t\tURGENT: Production database issue\n\t\t\t[42759]<span />\n\t\t\t\t[42760]<span />\n\t\t\t\t\tWork\n\t\t\t\t[42762]<span />\n\t\t\t\t\tAction Required\n\t\t\t[42764]<span />\n\t\t\t\tDatabase connections maxing out. Need immediate attention. I'm pulling in the on-call team.\n\t\t[42767]<span />\n\t\t\tFeb 14\n\t[42782]<div />\n\t\t[41185]<input type=checkbox checked=false />\n\t\t[42783]<button />\n\t\t[42785]<button />\n\t\t[42787]<span />\n\t\t\tPriya Sharma\n\t\t[42789]<div />\n\t\t\t[42790]<span />\n\t\t\t\tSprint Retro Action Items\n\t\t\t[42792]<span />\n\t\t\t\t[42793]<span />\n\t\t\t\t\tWork\n\t\t\t\t[42795]<span />\n\t\t\t\t\tProjects\n\t\t\t[42797]<span />\n\t\t\t\tFrom our retro: 1) Improve code review turnaround, 2) Set up automated E2E tests, 3) Reduce meeting overhead. Owners assigned.\n\t\t[42800]<span />\n\t\t\tFeb 13\n\t[42815]<div />\n\t\t[41186]<input type=checkbox checked=false />\n\t\t[42816]<button />\n\t\t[42818]<button />\n\t\t[42820]<span />\n\t\t\tDaniel Thompson\n\t\t[42822]<div />\n\t\t\t[42823]<span />\n\t\t\t\tPermit Application Status\n\t\t\t[42825]<span />\n\t\t\t\tGood news - the city approved our renovation permit. Construction can begin March 10th.\n\t\t[42828]<span />\n\t\t\tFeb 13\n\t[42843]<div />\n\t\t[41187]<input type=checkbox checked=false />\n\t\t[42844]<button />\n\t\t[42846]<button />\n\t\t[42848]<span />\n\t\t\tEmily Rodriguez\n\t\t[42850]<div />\n\t\t\t[42851]<span />\n\t\t\t\tVC Meetup Next Thursday\n\t\t\t[42853]<span />\n\t\t\t\t[42854]<span />\n\t\t\t\t\tPersonal\n\t\t\t[42856]<span />\n\t\t\t\tThere's a VC networking event at The Grand Hotel on Feb 20th, 6-9pm. Great opportunity to meet Series A/B investors. Want to go?\n\t\t[42859]<span />\n\t\t\tFeb 13\n\t[42874]<div />\n\t\t[41188]<input type=checkbox checked=false />\n\t\t[42875]<button />\n\t\t\t[42876]<span />\n\t\t[42878]<button />\n\t\t[42880]<span />\n\t\t\tKevin Zhao\n\t\t[42882]<div />\n\t\t\t[42883]<span />\n\t\t\t\tInteresting paper on LLM optimization\n\t\t\t[42885]<span />\n\t\t\t\t[42886]<span />\n\t\t\t\t\tEducation\n\t\t\t\t[42888]<span />\n\t\t\t\t\tReference\n\t\t\t[42890]<span />\n\t\t\t\tFound this paper on efficient LLM inference. The pruning technique is fascinating.\n\t\t[42893]<span />\n\t\t\tFeb 12\n\t[42908]<div />\n\t\t[41189]<input type=checkbox checked=false />\n\t\t[42909]<button />\n\t\t[42911]<button />\n\t\t[42913]<span />\n\t\t\tJames O'Brien\n\t\t[42915]<div />\n\t\t\t[42916]<span />\n\t\t\t\tAnnual Retainer Renewal\n\t\t\t[42918]<span />\n\t\t\t\t[42919]<span />\n\t\t\t\t\tFinance\n\t\t\t[42921]<span />\n\t\t\t\tAlex, our retainer agreement is up for renewal in March. Let's schedule a call to discuss terms.\n\t\t[42924]<span />\n\t\t\tJan 28\n\t[42939]<div />\n\t\t[41190]<input type=checkbox checked=false />\n\t\t[42940]<button />\n\t\t[42942]<button />\n\t\t[42944]<span />\n\t\t\tOmar Al-Rashid\n\t\t[42946]<div />\n\t\t\t[42947]<span />\n\t\t\t\tDigital Transformation Assessment\n\t\t\t[42949]<span />\n\t\t\t\t[42950]<span />\n\t\t\t\t\tWork\n\t\t\t\t[42952]<span />\n\t\t\t\t\tReference\n\t\t\t[42954]<span />\n\t\t\t\tAttached is our initial assessment of your digital transformation readiness. Executive summary on page 3.\n\t\t[42957]<span title=Has attachment />\n\t\t\t[42958]<svg /> <!-- SVG content collapsed -->\n\t\t[42960]<span />\n\t\t\tJan 25\n\t[42975]<div />\n\t\t[41191]<input type=checkbox checked=false />\n\t\t[42976]<button />\n\t\t[42978]<button />\n\t\t[42980]<span />\n\t\t\tMorning Brew\n\t\t[42982]<div />\n\t\t\t[42983]<span />\n\t\t\t\tDaily Brew: Tech IPOs heat up\n\t\t\t[42985]<span />\n\t\t\t\t[42986]<span />\n\t\t\t\t\tNewsletters\n\t\t\t[42988]<span />\n\t\t\t\tThree tech companies filed S-1s this week. The IPO market is back in full swing.\n\t\t[42991]<span />\n\t\t\tJan 24\n\t[43006]<div />\n\t\t[41192]<input type=checkbox checked=false />\n\t\t[43007]<button />\n\t\t[43009]<button />\n\t\t[43011]<span />\n\t\t\tRachel Foster\n\t\t[43013]<div />\n\t\t\t[43014]<span />\n\t\t\t\tVolunteer Appreciation Dinner\n\t\t\t[43016]<span />\n\t\t\t\t[43017]<span />\n\t\t\t\t\tPersonal\n\t\t\t[43019]<span />\n\t\t\t\tYou're invited to our annual volunteer appreciation dinner on Feb 8th. RSVP by Jan 31.\n\t\t[43022]<span />\n\t\t\tJan 20\n\t[43037]<div />\n\t\t[41193]<input type=checkbox checked=false />\n\t\t[43038]<button />\n\t\t\t[43039]<span />\n\t\t[43041]<button />\n\t\t[43043]<span />\n\t\t\tDavid Kim\n\t\t[43045]<div />\n\t\t\t[43046]<span />\n\t\t\t\tYear-End Financial Summary 2025\n\t\t\t[43048]<span />\n\t\t\t\t[43049]<span />\n\t\t\t\t\tFinance\n\t\t\t\t[43051]<span />\n\t\t\t\t\tReference\n\t\t\t[43053]<span />\n\t\t\t\tAttached: your 2025 financial summary with investment returns, tax estimates, and 2026 planning recommendations.\n\t\t[43056]<span title=Has attachment />\n\t\t\t[43057]<svg /> <!-- SVG content collapsed -->\n\t\t[43059]<span />\n\t\t\tJan 18\n\t[43074]<div />\n\t\t[41194]<input type=checkbox checked=false />\n\t\t[43075]<button />\n\t\t[43077]<button />\n\t\t[43079]<span />\n\t\t\tLisa Nakamura\n\t\t[43081]<div />\n\t\t\t[43082]<span />\n\t\t\t\tPortfolio Website Mockups\n\t\t\t[43084]<span />\n\t\t\t\t[43085]<span />\n\t\t\t\t\tPersonal\n\t\t\t[43087]<span />\n\t\t\t\tThree mockup options for your personal portfolio site. Modern, minimal, or creative direction?\n\t\t[43090]<span title=Has attachment />\n\t\t\t[43091]<svg /> <!-- SVG content collapsed -->\n\t\t[43093]<span />\n\t\t\tJan 17\n\t[43108]<div />\n\t\t[41195]<input type=checkbox checked=false />\n\t\t[43109]<button />\n\t\t[43111]<button />\n\t\t[43113]<span />\n\t\t\tHannah Brooks\n\t\t[43115]<div />\n\t\t\t[43116]<span />\n\t\t\t\tFebruary Fitness Challenge\n\t\t\t[43118]<span />\n\t\t\t\t[43119]<span />\n\t\t\t\t\tHealth\n\t\t\t[43121]<span />\n\t\t\t\tJoin our 28-day fitness challenge! Daily workouts, nutrition tips, and weekly check-ins. Starts Feb 1.\n\t\t[43124]<span />\n\t\t\tJan 15\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "The 'Settings' button was clicked successfully, and I am now on the Settings page. Verdict: Success",
+        "memory": "I am currently in the Settings menu of the mail application. I need to find and delete the filter for GitHub notifications. My next step is to open the 'Filters and Blocked Addresses' tab.",
+        "next_goal": "Click on the 'Filters and Blocked Addresses' button to view the list of filters.",
+        "action": [
+          {
+            "click": {
+              "index": 43426
+            }
+          }
+        ],
+        "thinking": "I have successfully navigated to the Settings page. The next step in my plan is to access the 'Filters and Blocked Addresses' tab to find the GitHub notifications filter. I can see the button for this tab in the browser state with index 43426. Once I click this, I will look for the specific filter mentioned in the user request.",
+        "current_plan_item": 1,
+        "plan_update": [
+          "Click on Settings button",
+          "Navigate to Filters and Blocked Addresses tab",
+          "Identify the GitHub notifications filter",
+          "Delete the GitHub notifications filter",
+          "Confirm deletion"
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"Filters and Blocked Addresses\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 621.875,
+            "click_y": 215.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://localhost:9001/#/settings",
+            "title": "Gmail",
+            "target_id": "E27A",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_069a0885-05fd-76de-8000-0d162109f212_1772128336/screenshots/step_2.png",
+        "interacted_element": [
+          {
+            "node_id": 43553,
+            "backend_node_id": 43426,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "settings-tab",
+              "data-settings-tab": "filters",
+              "data-testid": "settings-tab-filters"
+            },
+            "x_path": "html/body/main/div[2]/div/div[1]/button[4]",
+            "element_hash": 1660006497780563990,
+            "stable_hash": 1660006497780563990,
+            "bounds": {
+              "x": 508.15625,
+              "y": 193.0,
+              "width": 227.4375,
+              "height": 45.0
+            },
+            "ax_name": "Filters and Blocked Addresses"
+          }
+        ],
+        "url": "http://localhost:9001/#/settings",
+        "title": "Gmail"
+      },
+      "metadata": {
+        "step_start_time": 1772128342.5462005,
+        "step_end_time": 1772128351.2806864,
+        "step_number": 2,
+        "step_interval": 5.866245985031128
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://localhost:9001\n<step>\nThe agent was just initialized and navigated to the home page. Verdict: Success\nNavigated to the home page of the mail application. Now looking for the settings to manage filters.\nClick on the settings button to access filter management.\nResult\nClicked button id=settingsBtn aria-label=Settings\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://localhost:9001. Your task: Delete the filter that handles GitHub notifications.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Click on Settings button\n[ ] 1: Navigate to Filters and Blocked Addresses tab\n[ ] 2: Identify the GitHub notifications filter\n[ ] 3: Delete the GitHub notifications filter\n[ ] 4: Confirm deletion\n</plan>\n<step_info>Step2 maximum:500\nToday:2026-02-26</step_info>\n</agent_state>\n<browser_state>\n<page_stats>0 links, 165 interactive, 0 iframes, 1 shadow(open), 0 shadow(closed), 373 total elements</page_stats>\nCurrent tab: E27A\nAvailable tabs:\nTab E27A: http://localhost:9001/#/settings - Gmail\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n[41206]<button id=menuToggle aria-label=Main menu />\n<svg /> <!-- SVG content collapsed -->\nGmail\n[41248]<div id=searchBar />\n\t[41250]<button aria-label=Search />\n\t|SHADOW(open)|[41146]<input type=text id=searchInput placeholder=Search mail autocomplete=off />\n\t[41207]<button id=searchOptionsBtn aria-label=Show search options />\n[41266]<button id=settingsBtn aria-label=Settings />\n[41272]<div id=userAvatar />\n\t[41274]<span id=userInitials />\n\t\tAJ\n|scroll element|<nav id=sidebar /> (0.0 pages above, 0.1 pages below)\n\t[41286]<button id=composeBtn />\n\t\tCompose\n\t*[43298]<div />\n\t\t*[43299]<span />\n\t\t\t*[43300]<svg /> <!-- SVG content collapsed -->\n\t\t*[43302]<span />\n\t\t\tInbox\n\t\t*[43303]<span />\n\t\t\t19\n\t*[43304]<div />\n\t\t*[43305]<span />\n\t\t\t*[43306]<svg /> <!-- SVG content collapsed -->\n\t\t*[43308]<span />\n\t\t\tStarred\n\t*[43309]<div />\n\t\t*[43310]<span />\n\t\t\t*[43311]<svg /> <!-- SVG content collapsed -->\n\t\t*[43313]<span />\n\t\t\tSnoozed\n\t*[43314]<div />\n\t\t*[43315]<span />\n\t\t\t*[43316]<svg /> <!-- SVG content collapsed -->\n\t\t*[43318]<span />\n\t\t\tSent\n\t*[43319]<div />\n\t\t*[43320]<span />\n\t\t\t*[43321]<svg /> <!-- SVG content collapsed -->\n\t\t*[43323]<span />\n\t\t\tDrafts\n\t\t*[43324]<span />\n\t*[43325]<div />\n\t\t*[43326]<span />\n\t\t\t*[43327]<svg /> <!-- SVG content collapsed -->\n\t\t*[43329]<span />\n\t\t\tImportant\n\t*[43330]<div />\n\t\t*[43331]<span />\n\t\t\t*[43332]<svg /> <!-- SVG content collapsed -->\n\t\t*[43334]<span />\n\t\t\tAll Mail\n\t*[43335]<div />\n\t\t*[43336]<span />\n\t\t\t*[43337]<svg /> <!-- SVG content collapsed -->\n\t\t*[43339]<span />\n\t\t\tSpam\n\t\t*[43340]<span />\n\t*[43341]<div />\n\t\t*[43342]<span />\n\t\t\t*[43343]<svg /> <!-- SVG content collapsed -->\n\t\t*[43345]<span />\n\t\t\tTrash\n\tLabels\n\t*[43349]<button />\n\t*[43350]<div />\n\t\t*[43351]<span />\n\t\t*[43352]<span />\n\t\t\tWork\n\t\t*[43353]<span />\n\t\t\t12\n\t*[43354]<div />\n\t\t*[43355]<span />\n\t\t*[43356]<span />\n\t\t\tProjects\n\t\t*[43357]<span />\n\t*[43358]<div />\n\t\t*[43359]<span />\n\t\t*[43360]<span />\n\t\t\tMeetings\n\t\t*[43361]<span />\n\t*[43362]<div />\n\t\t*[43363]<span />\n\t\t*[43364]<span />\n\t\t\tClients\n\t\t*[43365]<span />\n\t*[43366]<div />\n\t\t*[43367]<span />\n\t\t*[43368]<span />\n\t\t\tHR\n\t*[43369]<div />\n\t\t*[43370]<span />\n\t\t*[43371]<span />\n\t\t\tPersonal\n\t*[43372]<div />\n\t\t*[43373]<span />\n\t\t*[43374]<span />\n\t\t\tFamily\n\t*[43375]<div />\n\t\t*[43376]<span />\n\t\t*[43377]<span />\n\t\t\tFriends\n\t*[43378]<div />\n\t\t*[43379]<span />\n\t\t*[43380]<span />\n\t\t\tFinance\n\t*[43381]<div />\n\t\t*[43382]<span />\n\t\t*[43383]<span />\n\t\t\tInvoices\n\t*[43384]<div />\n\t\t*[43385]<span />\n\t\t*[43386]<span />\n\t\t\tBanking\n\t*[43387]<div />\n\t\t*[43388]<span />\n\t\t*[43389]<span />\n\t\t\tTravel\n\t\t*[43390]<span />\n\t*[43391]<div />\n\t\t*[43392]<span />\n\t\t*[43393]<span />\n\t\t\tReceipts\n\t*[43394]<div />\n\t\t*[43395]<span />\n\t\t*[43396]<span />\n\t\t\tNewsletters\n\t\t*[43397]<span />\n\t*[43398]<div />\n\t\t*[43399]<span />\n\t\t*[43400]<span />\n\t\t\tHealth\n\t*[43401]<div />\n\t\t*[43402]<span />\n\t\t*[43403]<span />\n\t\t\tEducation\n\t*[43404]<div />\n\t\t*[43405]<span />\n\t\t*[43406]<span />\n\t\t\tAction Required\n\t\t*[43407]<span />\n\t*[43408]<div />\n\t\t*[43409]<span />\n\t\t*[43410]<span />\n\t\t\tWaiting For Reply\n\t\t*[43411]<span />\n\t*[43412]<div />\n\t\t*[43413]<span />\n\t\t*[43414]<span />\n\t\t\tReference\n\t*[43415]<div />\n\t\t*[43416]<span />\n\t\t\t*[43417]<svg /> <!-- SVG content collapsed -->\n\t\t*[43419]<span />\n\t\t\tCreate new label\n|scroll element|<div id=contentWrapper /> (0.0 pages above, 1.6 pages below)\n\tSettings\n\t*[43423]<button />\n\t\tGeneral\n\t*[43424]<button />\n\t\tLabels\n\t*[43425]<button />\n\t\tInbox\n\t*[43426]<button />\n\t\tFilters and Blocked Addresses\n\tLanguage\n\tGmail display language\n\t*[43433]<div />\n\t\tEnglish (US)\n\t\t*[43434]<span />\n\tTheme\n\tTheme\n\t*[43466]<div />\n\t\tDefault\n\t\t*[43467]<span />\n\tPhone number\n\tPhone number\n\tNot set. Used for account recovery.\n\tDefault reply behavior\n\tWhen replying to a message\n\t*[43487]<label />\n\t\t*[43488]<input type=radio name=reply-behavior value=reply checked=true />\n\t\tReply\n\t*[43489]<label />\n\t\t*[43490]<input type=radio name=reply-behavior value=reply_all checked=false />\n\t\tReply all\n\tUndo Send\n\tSend cancellation period\n\t*[43497]<div />\n\t\t5 seconds\n\t\t*[43498]<span />\n\tConversation View\n\tGroup emails into conversations\n\t*[43514]<label />\n\t\t*[43515]<input type=radio name=conversationView value=on checked=true />\n\t\tConversation view on\n\t*[43516]<label />\n\t\t*[43517]<input type=radio name=conversationView value=off checked=false />\n\t\tConversation view off\n\tDensity\n\tDisplay density\n\t*[43524]<label />\n\t\t*[43525]<input type=radio name=density value=default checked=true />\n\t\tDefault\n\t*[43526]<label />\n\t\t*[43527]<input type=radio name=density value=comfortable checked=false />\n\t\tComfortable\n\t*[43528]<label />\n\t\t*[43529]<input type=radio name=density value=compact checked=false />\n\t\tCompact\n\tSend and Archive\n\tShow \"Send & Archive\" button in reply\n\t*[43536]<label />\n\t\t*[43537]<input type=radio name=sendAndArchive value=on checked=true />\n\t\tShow \"Send & Archive\" button in reply\n\t*[43538]<label />\n\t\t*[43539]<input type=radio name=sendAndArchive value=off checked=false />\n\t\tHide \"Send & Archive\" button in reply\n\tHover Actions\n\tEnable hover actions\n\t*[43546]<label />\n\t\t*[43547]<input type=radio name=hoverActions value=on checked=true />\n\t\tEnable hover actions\n\t*[43548]<label />\n\t\t*[43549]<input type=radio name=hoverActions value=off checked=false />\n\t\tDisable hover actions\n\tNudges\n\tSuggest emails to reply to\n\tEmails you might have forgotten to respond to will appear at the top of your inbox\n\t*[43558]<span />\n\tSuggest emails to follow up on\n\tSent emails you might need to follow up on will appear at the top of your inbox\n\t*[43565]<span />\n\tAuto-advance\n\tAfter archiving or deleting a conversation\n\t*[43572]<label />\n\t\t*[43573]<input type=radio name=auto-advance value=newer checked=true />\n\t\tGo to the next (newer) conversation\n\t*[43574]<label />\n\t\t*[43575]<input type=radio name=auto-advance value=older checked=false />\n\t\tGo to the previous (older) conversation\n\t*[43576]<label />\n\t\t*[43577]<input type=radio name=auto-advance value=list checked=false />\n\t\tGo back to the threadlist\n\tKeyboard shortcuts\n\tKeyboard shortcuts\n\tEnable keyboard shortcuts for faster navigation\n\t*[43586]<span />\n\tDesktop Notifications\n\tEmail notifications\n\t*[43593]<label />\n\t\t*[43594]<input type=radio name=desktop-notifications value=off checked=true />\n\t\tMail notifications off\n\t*[43595]<label />\n\t\t*[43596]<input type=radio name=desktop-notifications value=important checked=false />\n\t\tImportant mail notifications on\n\t*[43597]<label />\n\t\t*[43598]<input type=radio name=desktop-notifications value=all checked=false />\n\t\tNew mail notifications on\n\tStars\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully navigated to the 'Filters and Blocked Addresses' tab and identified the GitHub notifications filter. Verdict: Success",
+        "memory": "I am on the Filters and Blocked Addresses page. I found the GitHub filter (From: notifications@github.com). I am about to click the delete link [43970].",
+        "next_goal": "Click the 'delete' link for the GitHub notifications filter.",
+        "action": [
+          {
+            "click": {
+              "index": 43970
+            }
+          }
+        ],
+        "thinking": "I have successfully navigated to the 'Filters and Blocked Addresses' tab. I can see the filter for GitHub notifications (From: notifications@github.com) at the top of the list. My next step is to click the 'delete' link associated with this filter. After clicking delete, I should check if a confirmation dialog appears.",
+        "current_plan_item": 3,
+        "plan_update": [
+          "Click on Settings button",
+          "Navigate to Filters and Blocked Addresses tab",
+          "Identify the GitHub notifications filter",
+          "Delete the GitHub notifications filter",
+          "Confirm deletion"
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked a \"delete\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1112.9765625,
+            "click_y": 363.25
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://localhost:9001/#/settings",
+            "title": "Gmail",
+            "target_id": "E27A",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_069a0885-05fd-76de-8000-0d162109f212_1772128336/screenshots/step_3.png",
+        "interacted_element": [
+          {
+            "node_id": 44241,
+            "backend_node_id": 43970,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "A",
+            "attributes": {
+              "data-action": "delete-filter",
+              "data-filter-id": "filter_1",
+              "data-testid": "delete-filter-filter_1"
+            },
+            "x_path": "html/body/main/div[2]/div/div[2]/div[2]/div[2]/a[2]",
+            "element_hash": 290911615014424213,
+            "stable_hash": 9514283651869200017,
+            "bounds": {
+              "x": 1093.953125,
+              "y": 353.5,
+              "width": 38.046875,
+              "height": 19.5
+            },
+            "ax_name": null
+          }
+        ],
+        "url": "http://localhost:9001/#/settings",
+        "title": "Gmail"
+      },
+      "metadata": {
+        "step_start_time": 1772128351.2825587,
+        "step_end_time": 1772128357.7562125,
+        "step_number": 3,
+        "step_interval": 8.734485864639282
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://localhost:9001\n<step>\nThe agent was just initialized and navigated to the home page. Verdict: Success\nNavigated to the home page of the mail application. Now looking for the settings to manage filters.\nClick on the settings button to access filter management.\nResult\nClicked button id=settingsBtn aria-label=Settings\n<step>\nThe 'Settings' button was clicked successfully, and I am now on the Settings page. Verdict: Success\nI am currently in the Settings menu of the mail application. I need to find and delete the filter for GitHub notifications. My next step is to open the 'Filters and Blocked Addresses' tab.\nClick on the 'Filters and Blocked Addresses' button to view the list of filters.\nResult\nClicked button \"Filters and Blocked Addresses\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://localhost:9001. Your task: Delete the filter that handles GitHub notifications.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Click on Settings button\n[ ] 1: Navigate to Filters and Blocked Addresses tab\n[ ] 2: Identify the GitHub notifications filter\n[ ] 3: Delete the GitHub notifications filter\n[ ] 4: Confirm deletion\n</plan>\n<step_info>Step3 maximum:500\nToday:2026-02-26</step_info>\n</agent_state>\n<browser_state>\n<page_stats>24 links, 154 interactive, 0 iframes, 1 shadow(open), 0 shadow(closed), 380 total elements</page_stats>\nCurrent tab: E27A\nAvailable tabs:\nTab E27A: http://localhost:9001/#/settings - Gmail\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n[41206]<button id=menuToggle aria-label=Main menu />\n<svg /> <!-- SVG content collapsed -->\nGmail\n[41248]<div id=searchBar />\n\t[41250]<button aria-label=Search />\n\t|SHADOW(open)|[41146]<input type=text id=searchInput placeholder=Search mail autocomplete=off />\n\t[41207]<button id=searchOptionsBtn aria-label=Show search options />\n[41266]<button id=settingsBtn aria-label=Settings />\n[41272]<div id=userAvatar />\n\t[41274]<span id=userInitials />\n\t\tAJ\n|scroll element|<nav id=sidebar /> (0.0 pages above, 0.1 pages below)\n\t[41286]<button id=composeBtn />\n\t\tCompose\n\t*[43831]<div />\n\t\t*[43832]<span />\n\t\t\t*[43833]<svg /> <!-- SVG content collapsed -->\n\t\t*[43835]<span />\n\t\t\tInbox\n\t\t*[43836]<span />\n\t\t\t19\n\t*[43837]<div />\n\t\t*[43838]<span />\n\t\t\t*[43839]<svg /> <!-- SVG content collapsed -->\n\t\t*[43841]<span />\n\t\t\tStarred\n\t*[43842]<div />\n\t\t*[43843]<span />\n\t\t\t*[43844]<svg /> <!-- SVG content collapsed -->\n\t\t*[43846]<span />\n\t\t\tSnoozed\n\t*[43847]<div />\n\t\t*[43848]<span />\n\t\t\t*[43849]<svg /> <!-- SVG content collapsed -->\n\t\t*[43851]<span />\n\t\t\tSent\n\t*[43852]<div />\n\t\t*[43853]<span />\n\t\t\t*[43854]<svg /> <!-- SVG content collapsed -->\n\t\t*[43856]<span />\n\t\t\tDrafts\n\t\t*[43857]<span />\n\t*[43858]<div />\n\t\t*[43859]<span />\n\t\t\t*[43860]<svg /> <!-- SVG content collapsed -->\n\t\t*[43862]<span />\n\t\t\tImportant\n\t*[43863]<div />\n\t\t*[43864]<span />\n\t\t\t*[43865]<svg /> <!-- SVG content collapsed -->\n\t\t*[43867]<span />\n\t\t\tAll Mail\n\t*[43868]<div />\n\t\t*[43869]<span />\n\t\t\t*[43870]<svg /> <!-- SVG content collapsed -->\n\t\t*[43872]<span />\n\t\t\tSpam\n\t\t*[43873]<span />\n\t*[43874]<div />\n\t\t*[43875]<span />\n\t\t\t*[43876]<svg /> <!-- SVG content collapsed -->\n\t\t*[43878]<span />\n\t\t\tTrash\n\tLabels\n\t*[43882]<button />\n\t*[43883]<div />\n\t\t*[43884]<span />\n\t\t*[43885]<span />\n\t\t\tWork\n\t\t*[43886]<span />\n\t\t\t12\n\t*[43887]<div />\n\t\t*[43888]<span />\n\t\t*[43889]<span />\n\t\t\tProjects\n\t\t*[43890]<span />\n\t*[43891]<div />\n\t\t*[43892]<span />\n\t\t*[43893]<span />\n\t\t\tMeetings\n\t\t*[43894]<span />\n\t*[43895]<div />\n\t\t*[43896]<span />\n\t\t*[43897]<span />\n\t\t\tClients\n\t\t*[43898]<span />\n\t*[43899]<div />\n\t\t*[43900]<span />\n\t\t*[43901]<span />\n\t\t\tHR\n\t*[43902]<div />\n\t\t*[43903]<span />\n\t\t*[43904]<span />\n\t\t\tPersonal\n\t*[43905]<div />\n\t\t*[43906]<span />\n\t\t*[43907]<span />\n\t\t\tFamily\n\t*[43908]<div />\n\t\t*[43909]<span />\n\t\t*[43910]<span />\n\t\t\tFriends\n\t*[43911]<div />\n\t\t*[43912]<span />\n\t\t*[43913]<span />\n\t\t\tFinance\n\t*[43914]<div />\n\t\t*[43915]<span />\n\t\t*[43916]<span />\n\t\t\tInvoices\n\t*[43917]<div />\n\t\t*[43918]<span />\n\t\t*[43919]<span />\n\t\t\tBanking\n\t*[43920]<div />\n\t\t*[43921]<span />\n\t\t*[43922]<span />\n\t\t\tTravel\n\t\t*[43923]<span />\n\t*[43924]<div />\n\t\t*[43925]<span />\n\t\t*[43926]<span />\n\t\t\tReceipts\n\t*[43927]<div />\n\t\t*[43928]<span />\n\t\t*[43929]<span />\n\t\t\tNewsletters\n\t\t*[43930]<span />\n\t*[43931]<div />\n\t\t*[43932]<span />\n\t\t*[43933]<span />\n\t\t\tHealth\n\t*[43934]<div />\n\t\t*[43935]<span />\n\t\t*[43936]<span />\n\t\t\tEducation\n\t*[43937]<div />\n\t\t*[43938]<span />\n\t\t*[43939]<span />\n\t\t\tAction Required\n\t\t*[43940]<span />\n\t*[43941]<div />\n\t\t*[43942]<span />\n\t\t*[43943]<span />\n\t\t\tWaiting For Reply\n\t\t*[43944]<span />\n\t*[43945]<div />\n\t\t*[43946]<span />\n\t\t*[43947]<span />\n\t\t\tReference\n\t*[43948]<div />\n\t\t*[43949]<span />\n\t\t\t*[43950]<svg /> <!-- SVG content collapsed -->\n\t\t*[43952]<span />\n\t\t\tCreate new label\n|scroll element|<div id=contentWrapper /> (0.0 pages above, 0.6 pages below)\n\tSettings\n\t*[43956]<button />\n\t\tGeneral\n\t*[43957]<button />\n\t\tLabels\n\t*[43958]<button />\n\t\tInbox\n\t*[43959]<button />\n\t\tFilters and Blocked Addresses\n\tFilters\n\t*[43962]<button />\n\t\tCreate a new filter\n\tThe following filters are applied to all incoming mail:\n\tMatches: From: notifications@github.com\n\tDo this: Apply label \"Work\", Never send to Spam\n\t*[43969]<a />\n\t\tedit\n\t*[43970]<a />\n\t\tdelete\n\tMatches: From: crew@morningbrew.com\n\tDo this: Apply label \"Newsletters\", Never send to Spam\n\t*[43976]<a />\n\t\tedit\n\t*[43977]<a />\n\t\tdelete\n\tMatches: Subject: invoice, Has the words: payment receipt\n\tDo this: Apply label \"Invoices\"\n\t*[43983]<a />\n\t\tedit\n\t*[43984]<a />\n\t\tdelete\n\tMatches: Has the words: unsubscribe\n\tDo this: Never mark as important, Categorize as promotions\n\t*[43990]<a />\n\t\tedit\n\t*[43991]<a />\n\t\tdelete\n\tMatches: From: sarah.chen@techcorp.io\n\tDo this: Apply label \"Work\", Never send to Spam, Always mark as important\n\t*[43997]<a />\n\t\tedit\n\t*[43998]<a />\n\t\tdelete\n\tMatches: Has attachment, Size greater than 10 MB\n\tDo this: Star it\n\t*[44004]<a />\n\t\tedit\n\t*[44005]<a />\n\t\tdelete\n\tMatches: From: no-reply@accounts.google.com, Subject: security\n\tDo this: Never send to Spam, Always mark as important\n\t*[44011]<a />\n\t\tedit\n\t*[44012]<a />\n\t\tdelete\n\tMatches: Has the words: meeting agenda standup\n\tDo this: Apply label \"Meetings\"\n\t*[44018]<a />\n\t\tedit\n\t*[44019]<a />\n\t\tdelete\n\tMatches: From: hr@techcorp.io\n\tDo this: Apply label \"HR\"\n\t*[44025]<a />\n\t\tedit\n\t*[44026]<a />\n\t\tdelete\n\tMatches: From: alerts@datadog.com, Has the words: alert critical\n\tDo this: Apply label \"Action Required\", Star it, Forward to nate.patel@devops.tools, Never send to Spam, Always mark as important\n\t*[44032]<a />\n\t\tedit\n\t*[44033]<a />\n\t\tdelete\n\tMatches: Has the words: confidential\n\tDo this: Apply label \"Work\", Always mark as important\n\t*[44039]<a />\n\t\tedit\n\t*[44040]<a />\n\t\tdelete\n\tMatches: From: notifications@linkedin.com\n\tDo this: Categorize as social\n\t*[44046]<a />\n\t\tedit\n\t*[44047]<a />\n\t\tdelete\n\tBlocked Addresses\n\tMessages from blocked addresses will be sent to Spam.\n\tspam@marketing-blast.com\n\tBlocked Nov 15, 2025\n\t*[44055]<button />\n\t\tunblock\n\tannoying@daily-deals.biz\n\tBlocked Dec 20, 2025\n\t*[44060]<button />\n\t\tunblock\n\tnoreply@fake-bank-alert.com\n\tBlocked Jan 10\n\t*[44065]<button />\n\t\tunblock\n\toffers@shadydeals.xyz\n\tBlocked Jan 25\n\t*[44070]<button />\n\t\tunblock\n\twinner@prize-notification.scam\n\tBlocked Feb 5\n\t*[44075]<button />\n\t\tunblock\n\t*[44077]<button />\n\t\tCancel\n\t*[44078]<button />\n\t\tSave Changes\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "The 'delete' link was clicked, and the confirmation modal 'Delete Filter' appeared as expected. Verdict: Success",
+        "memory": "I am at the final stage of deleting the GitHub notifications filter. The confirmation modal is open, and I'm about to confirm the deletion.",
+        "next_goal": "Click the 'Delete' button in the confirmation modal to permanently remove the filter.",
+        "action": [
+          {
+            "click": {
+              "index": 44206
+            }
+          }
+        ],
+        "thinking": "I have successfully clicked the delete link for the GitHub filter. Now, a confirmation modal has appeared asking if I'm sure I want to delete the filter. I need to click the 'Delete' button with index 44206 to finalize the action. This aligns with the final step of my plan.",
+        "current_plan_item": 4,
+        "plan_update": [
+          "Click on Settings button",
+          "Navigate to Filters and Blocked Addresses tab",
+          "Identify the GitHub notifications filter",
+          "Delete the GitHub notifications filter",
+          "Confirm deletion"
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"Delete\" id=confirmActionBtn",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1089.265625,
+            "click_y": 599.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://localhost:9001/#/settings",
+            "title": "Gmail",
+            "target_id": "E27A",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_069a0885-05fd-76de-8000-0d162109f212_1772128336/screenshots/step_4.png",
+        "interacted_element": [
+          {
+            "node_id": 44999,
+            "backend_node_id": 44206,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "btn btn-danger",
+              "id": "confirmActionBtn"
+            },
+            "x_path": "html/body/div[2]/div/div[3]/button[2]",
+            "element_hash": 141146123736918503,
+            "stable_hash": 141146123736918503,
+            "bounds": {
+              "x": 1042.53125,
+              "y": 581.0,
+              "width": 93.46875,
+              "height": 37.0
+            },
+            "ax_name": "Delete"
+          }
+        ],
+        "url": "http://localhost:9001/#/settings",
+        "title": "Gmail"
+      },
+      "metadata": {
+        "step_start_time": 1772128357.758385,
+        "step_end_time": 1772128363.9623497,
+        "step_number": 4,
+        "step_interval": 6.473653793334961
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://localhost:9001\n<step>\nThe agent was just initialized and navigated to the home page. Verdict: Success\nNavigated to the home page of the mail application. Now looking for the settings to manage filters.\nClick on the settings button to access filter management.\nResult\nClicked button id=settingsBtn aria-label=Settings\n<step>\nThe 'Settings' button was clicked successfully, and I am now on the Settings page. Verdict: Success\nI am currently in the Settings menu of the mail application. I need to find and delete the filter for GitHub notifications. My next step is to open the 'Filters and Blocked Addresses' tab.\nClick on the 'Filters and Blocked Addresses' button to view the list of filters.\nResult\nClicked button \"Filters and Blocked Addresses\"\n<step>\nSuccessfully navigated to the 'Filters and Blocked Addresses' tab and identified the GitHub notifications filter. Verdict: Success\nI am on the Filters and Blocked Addresses page. I found the GitHub filter (From: notifications@github.com). I am about to click the delete link [43970].\nClick the 'delete' link for the GitHub notifications filter.\nResult\nClicked a \"delete\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://localhost:9001. Your task: Delete the filter that handles GitHub notifications.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Click on Settings button\n[ ] 1: Navigate to Filters and Blocked Addresses tab\n[ ] 2: Identify the GitHub notifications filter\n[ ] 3: Delete the GitHub notifications filter\n[ ] 4: Confirm deletion\n</plan>\n<step_info>Step4 maximum:500\nToday:2026-02-26</step_info>\n</agent_state>\n<browser_state>\n<page_stats>24 links, 18 interactive, 0 iframes, 1 shadow(open), 0 shadow(closed), 399 total elements</page_stats>\nCurrent tab: E27A\nAvailable tabs:\nTab E27A: http://localhost:9001/#/settings - Gmail\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n<svg /> <!-- SVG content collapsed -->\nGmail\nAJ\n|scroll element|<nav id=sidebar /> (0.0 pages above, 0.1 pages below)\n\tCompose\n\t<svg /> <!-- SVG content collapsed -->\n\tInbox\n\t19\n\t<svg /> <!-- SVG content collapsed -->\n\tStarred\n\t<svg /> <!-- SVG content collapsed -->\n\tSnoozed\n\t<svg /> <!-- SVG content collapsed -->\n\tSent\n\t<svg /> <!-- SVG content collapsed -->\n\tDrafts\n\t<svg /> <!-- SVG content collapsed -->\n\tImportant\n\t<svg /> <!-- SVG content collapsed -->\n\tAll Mail\n\t<svg /> <!-- SVG content collapsed -->\n\tSpam\n\t<svg /> <!-- SVG content collapsed -->\n\tTrash\n\tLabels\n\tWork\n\t12\n\tProjects\n\tMeetings\n\tClients\n\tHR\n\tPersonal\n\tFamily\n\tFriends\n\tFinance\n\tInvoices\n\tBanking\n\tTravel\n\tReceipts\n\tNewsletters\n\tHealth\n\tEducation\n\tAction Required\n\tWaiting For Reply\n\t[43945]<div />\n\t\t[43947]<span />\n\t\t\tReference\n\t[43948]<div />\n\t\t[43949]<span />\n\t\t\t[43950]<svg /> <!-- SVG content collapsed -->\n\t\t[43952]<span />\n\t\t\tCreate new label\n|scroll element|<div id=contentWrapper /> (0.0 pages above, 0.6 pages below)\n\tSettings\n\tGeneral\n\tLabels\n\tInbox\n\tFilters and Blocked Addresses\n\tFilters\n\tCreate a new filter\n\tThe following filters are applied to all incoming mail:\n\tMatches: From: notifications@github.com\n\tDo this: Apply label \"Work\", Never send to Spam\n\tedit\n\tdelete\n\tMatches: From: crew@morningbrew.com\n\tDo this: Apply label \"Newsletters\", Never send to Spam\n\tedit\n\tdelete\n\tMatches: Subject: invoice, Has the words: payment receipt\n\tDo this: Apply label \"Invoices\"\n\tedit\n\tdelete\n\tMatches: Has the words: unsubscribe\n\tDo this: Never mark as important, Categorize as promotions\n\tedit\n\tdelete\n\tMatches: From: sarah.chen@techcorp.io\n\tDo this: Apply label \"Work\", Never send to Spam, Always mark as important\n\tedit\n\tdelete\n\tMatches: Has attachment, Size greater than 10 MB\n\tDo this: Star it\n\tedit\n\tdelete\n\tMatches: From: no-reply@accounts.google.com, Subject: security\n\tDo this: Never send to Spam, Always mark as important\n\tedit\n\tdelete\n\tMatches: Has the words: meeting agenda standup\n\tDo this: Apply label \"Meetings\"\n\tedit\n\tdelete\n\tMatches: From: hr@techcorp.io\n\tDo this: Apply label \"HR\"\n\tedit\n\tdelete\n\tMatches: From: alerts@datadog.com, Has the words: alert critical\n\tDo this: Apply label \"Action Required\", Star it, Forward to nate.patel@devops.tools, Never send to Spam, Always mark as important\n\tedit\n\tdelete\n\tMatches: Has the words: confidential\n\tDo this: Apply label \"Work\", Always mark as important\n\tedit\n\tdelete\n\tMatches: From: notifications@linkedin.com\n\tDo this: Categorize as social\n\t[44046]<a />\n\t\tedit\n\t[44047]<a />\n\t\tdelete\n\tBlocked Addresses\n\tMessages from blocked addresses will be sent to Spam.\n\tspam@marketing-blast.com\n\tBlocked Nov 15, 2025\n\t[44055]<button />\n\t\tunblock\n\tannoying@daily-deals.biz\n\tBlocked Dec 20, 2025\n\t[44060]<button />\n\t\tunblock\n\tnoreply@fake-bank-alert.com\n\tBlocked Jan 10\n\t[44065]<button />\n\t\tunblock\n\toffers@shadydeals.xyz\n\tBlocked Jan 25\n\t[44070]<button />\n\t\tunblock\n\twinner@prize-notification.scam\n\tBlocked Feb 5\n\t[44075]<button />\n\t\tunblock\n\t[44077]<button />\n\t\tCancel\n\t[44078]<button />\n\t\tSave Changes\nDelete Filter\n*[43233]<button />\nAre you sure you want to delete this filter?\n*[44204]<button />\n\tCancel\n*[44206]<button id=confirmActionBtn />\n\tDelete\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "The 'Delete' button in the confirmation modal was clicked, and the filter was successfully removed. Verdict: Success",
+        "memory": "Successfully deleted the GitHub notifications filter from the mail application settings. Verified that the filter list no longer contains the 'notifications@github.com' entry and the 'Filter deleted' confirmation is visible.",
+        "next_goal": "Task completed. I will now signal completion.",
+        "action": [
+          {
+            "done": {
+              "text": "I have successfully deleted the filter for GitHub notifications. The filter matching 'From: notifications@github.com' has been removed from the 'Filters and Blocked Addresses' section in the settings.",
+              "success": true,
+              "files_to_display": []
+            }
+          }
+        ],
+        "thinking": "I have successfully deleted the GitHub notifications filter. I navigated to the Settings, then to the 'Filters and Blocked Addresses' tab, identified the filter matching 'From: notifications@github.com', clicked delete, and confirmed the action. The current page shows the message 'Filter deleted' and the filter is no longer present in the list. I have verified the list of remaining filters and confirmed the GitHub filter is gone.",
+        "current_plan_item": 4,
+        "plan_update": [
+          "Click on Settings button",
+          "Navigate to Filters and Blocked Addresses tab",
+          "Identify the GitHub notifications filter",
+          "Delete the GitHub notifications filter",
+          "Confirm deletion"
+        ]
+      },
+      "result": [
+        {
+          "is_done": true,
+          "success": true,
+          "judgement": {
+            "reasoning": "The agent successfully navigated to the web application, accessed the settings menu, and located the 'Filters and Blocked Addresses' section. It then identified the specific filter associated with GitHub notifications (matching 'From: notifications@github.com') and proceeded to delete it, followed by a confirmation step. The trajectory follows a logical path for the task, and the agent's final response confirms the specific details of the filter that was removed, indicating it correctly identified the target element in the DOM.",
+            "verdict": true,
+            "failure_reason": "",
+            "impossible_task": false,
+            "reached_captcha": false
+          },
+          "attachments": [],
+          "long_term_memory": "Task completed: True - I have successfully deleted the filter for GitHub notifications. The filter matching 'From: notifica - 100 more characters",
+          "extracted_content": "I have successfully deleted the filter for GitHub notifications. The filter matching 'From: notifications@github.com' has been removed from the 'Filters and Blocked Addresses' section in the settings.",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://localhost:9001/#/settings",
+            "title": "Gmail",
+            "target_id": "E27A",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_069a0885-05fd-76de-8000-0d162109f212_1772128336/screenshots/step_5.png",
+        "interacted_element": [
+          null
+        ],
+        "url": "http://localhost:9001/#/settings",
+        "title": "Gmail"
+      },
+      "metadata": {
+        "step_start_time": 1772128363.9688663,
+        "step_end_time": 1772128370.1567435,
+        "step_number": 5,
+        "step_interval": 6.203964710235596
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://localhost:9001\n<step>\nThe agent was just initialized and navigated to the home page. Verdict: Success\nNavigated to the home page of the mail application. Now looking for the settings to manage filters.\nClick on the settings button to access filter management.\nResult\nClicked button id=settingsBtn aria-label=Settings\n<step>\nThe 'Settings' button was clicked successfully, and I am now on the Settings page. Verdict: Success\nI am currently in the Settings menu of the mail application. I need to find and delete the filter for GitHub notifications. My next step is to open the 'Filters and Blocked Addresses' tab.\nClick on the 'Filters and Blocked Addresses' button to view the list of filters.\nResult\nClicked button \"Filters and Blocked Addresses\"\n<step>\nSuccessfully navigated to the 'Filters and Blocked Addresses' tab and identified the GitHub notifications filter. Verdict: Success\nI am on the Filters and Blocked Addresses page. I found the GitHub filter (From: notifications@github.com). I am about to click the delete link [43970].\nClick the 'delete' link for the GitHub notifications filter.\nResult\nClicked a \"delete\"\n<step>\nThe 'delete' link was clicked, and the confirmation modal 'Delete Filter' appeared as expected. Verdict: Success\nI am at the final stage of deleting the GitHub notifications filter. The confirmation modal is open, and I'm about to confirm the deletion.\nClick the 'Delete' button in the confirmation modal to permanently remove the filter.\nResult\nClicked button \"Delete\" id=confirmActionBtn\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://localhost:9001. Your task: Delete the filter that handles GitHub notifications.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Click on Settings button\n[ ] 1: Navigate to Filters and Blocked Addresses tab\n[ ] 2: Identify the GitHub notifications filter\n[ ] 3: Delete the GitHub notifications filter\n[ ] 4: Confirm deletion\n</plan>\n<step_info>Step5 maximum:500\nToday:2026-02-26</step_info>\n</agent_state>\n<browser_state>\n<page_stats>22 links, 149 interactive, 0 iframes, 1 shadow(open), 0 shadow(closed), 372 total elements</page_stats>\nCurrent tab: E27A\nAvailable tabs:\nTab E27A: http://localhost:9001/#/settings - Gmail\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n*[41206]<button id=menuToggle aria-label=Main menu />\n<svg /> <!-- SVG content collapsed -->\nGmail\n*[41248]<div id=searchBar />\n\t*[41250]<button aria-label=Search />\n\t|SHADOW(open)|*[41146]<input type=text id=searchInput placeholder=Search mail autocomplete=off />\n\t*[41207]<button id=searchOptionsBtn aria-label=Show search options />\n*[41266]<button id=settingsBtn aria-label=Settings />\n*[41272]<div id=userAvatar />\n\t*[41274]<span id=userInitials />\n\t\tAJ\n|scroll element|<nav id=sidebar /> (0.0 pages above, 0.1 pages below)\n\t*[41286]<button id=composeBtn />\n\t\tCompose\n\t*[44218]<div />\n\t\t*[44219]<span />\n\t\t\t*[44220]<svg /> <!-- SVG content collapsed -->\n\t\t*[44222]<span />\n\t\t\tInbox\n\t\t*[44223]<span />\n\t\t\t19\n\t*[44224]<div />\n\t\t*[44225]<span />\n\t\t\t*[44226]<svg /> <!-- SVG content collapsed -->\n\t\t*[44228]<span />\n\t\t\tStarred\n\t*[44229]<div />\n\t\t*[44230]<span />\n\t\t\t*[44231]<svg /> <!-- SVG content collapsed -->\n\t\t*[44233]<span />\n\t\t\tSnoozed\n\t*[44234]<div />\n\t\t*[44235]<span />\n\t\t\t*[44236]<svg /> <!-- SVG content collapsed -->\n\t\t*[44238]<span />\n\t\t\tSent\n\t*[44239]<div />\n\t\t*[44240]<span />\n\t\t\t*[44241]<svg /> <!-- SVG content collapsed -->\n\t\t*[44243]<span />\n\t\t\tDrafts\n\t\t*[44244]<span />\n\t*[44245]<div />\n\t\t*[44246]<span />\n\t\t\t*[44247]<svg /> <!-- SVG content collapsed -->\n\t\t*[44249]<span />\n\t\t\tImportant\n\t*[44250]<div />\n\t\t*[44251]<span />\n\t\t\t*[44252]<svg /> <!-- SVG content collapsed -->\n\t\t*[44254]<span />\n\t\t\tAll Mail\n\t*[44255]<div />\n\t\t*[44256]<span />\n\t\t\t*[44257]<svg /> <!-- SVG content collapsed -->\n\t\t*[44259]<span />\n\t\t\tSpam\n\t\t*[44260]<span />\n\t*[44261]<div />\n\t\t*[44262]<span />\n\t\t\t*[44263]<svg /> <!-- SVG content collapsed -->\n\t\t*[44265]<span />\n\t\t\tTrash\n\tLabels\n\t*[44269]<button />\n\t*[44270]<div />\n\t\t*[44271]<span />\n\t\t*[44272]<span />\n\t\t\tWork\n\t\t*[44273]<span />\n\t\t\t12\n\t*[44274]<div />\n\t\t*[44275]<span />\n\t\t*[44276]<span />\n\t\t\tProjects\n\t\t*[44277]<span />\n\t*[44278]<div />\n\t\t*[44279]<span />\n\t\t*[44280]<span />\n\t\t\tMeetings\n\t\t*[44281]<span />\n\t*[44282]<div />\n\t\t*[44283]<span />\n\t\t*[44284]<span />\n\t\t\tClients\n\t\t*[44285]<span />\n\t*[44286]<div />\n\t\t*[44287]<span />\n\t\t*[44288]<span />\n\t\t\tHR\n\t*[44289]<div />\n\t\t*[44290]<span />\n\t\t*[44291]<span />\n\t\t\tPersonal\n\t*[44292]<div />\n\t\t*[44293]<span />\n\t\t*[44294]<span />\n\t\t\tFamily\n\t*[44295]<div />\n\t\t*[44296]<span />\n\t\t*[44297]<span />\n\t\t\tFriends\n\t*[44298]<div />\n\t\t*[44299]<span />\n\t\t*[44300]<span />\n\t\t\tFinance\n\t*[44301]<div />\n\t\t*[44302]<span />\n\t\t*[44303]<span />\n\t\t\tInvoices\n\t*[44304]<div />\n\t\t*[44305]<span />\n\t\t*[44306]<span />\n\t\t\tBanking\n\t*[44307]<div />\n\t\t*[44308]<span />\n\t\t*[44309]<span />\n\t\t\tTravel\n\t\t*[44310]<span />\n\t*[44311]<div />\n\t\t*[44312]<span />\n\t\t*[44313]<span />\n\t\t\tReceipts\n\t*[44314]<div />\n\t\t*[44315]<span />\n\t\t*[44316]<span />\n\t\t\tNewsletters\n\t\t*[44317]<span />\n\t*[44318]<div />\n\t\t*[44319]<span />\n\t\t*[44320]<span />\n\t\t\tHealth\n\t*[44321]<div />\n\t\t*[44322]<span />\n\t\t*[44323]<span />\n\t\t\tEducation\n\t*[44324]<div />\n\t\t*[44325]<span />\n\t\t*[44326]<span />\n\t\t\tAction Required\n\t\t*[44327]<span />\n\t*[44328]<div />\n\t\tWaiting For Reply\n\t*[44332]<div />\n\t\t*[44333]<span />\n\t\t*[44334]<span />\n\t\t\tReference\n\t*[44335]<div />\n\t\t*[44336]<span />\n\t\t\t*[44337]<svg /> <!-- SVG content collapsed -->\n\t\t*[44339]<span />\n\t\t\tCreate new label\n|scroll element|<div id=contentWrapper /> (0.0 pages above, 0.5 pages below)\n\tSettings\n\t*[44343]<button />\n\t\tGeneral\n\t*[44344]<button />\n\t\tLabels\n\t*[44345]<button />\n\t\tInbox\n\t*[44346]<button />\n\t\tFilters and Blocked Addresses\n\tFilters\n\t*[44349]<button />\n\t\tCreate a new filter\n\tThe following filters are applied to all incoming mail:\n\tMatches: From: crew@morningbrew.com\n\tDo this: Apply label \"Newsletters\", Never send to Spam\n\t*[44356]<a />\n\t\tedit\n\t*[44357]<a />\n\t\tdelete\n\tMatches: Subject: invoice, Has the words: payment receipt\n\tDo this: Apply label \"Invoices\"\n\t*[44363]<a />\n\t\tedit\n\t*[44364]<a />\n\t\tdelete\n\tMatches: Has the words: unsubscribe\n\tDo this: Never mark as important, Categorize as promotions\n\t*[44370]<a />\n\t\tedit\n\t*[44371]<a />\n\t\tdelete\n\tMatches: From: sarah.chen@techcorp.io\n\tDo this: Apply label \"Work\", Never send to Spam, Always mark as important\n\t*[44377]<a />\n\t\tedit\n\t*[44378]<a />\n\t\tdelete\n\tMatches: Has attachment, Size greater than 10 MB\n\tDo this: Star it\n\t*[44384]<a />\n\t\tedit\n\t*[44385]<a />\n\t\tdelete\n\tMatches: From: no-reply@accounts.google.com, Subject: security\n\tDo this: Never send to Spam, Always mark as important\n\t*[44391]<a />\n\t\tedit\n\t*[44392]<a />\n\t\tdelete\n\tMatches: Has the words: meeting agenda standup\n\tDo this: Apply label \"Meetings\"\n\t*[44398]<a />\n\t\tedit\n\t*[44399]<a />\n\t\tdelete\n\tMatches: From: hr@techcorp.io\n\tDo this: Apply label \"HR\"\n\t*[44405]<a />\n\t\tedit\n\t*[44406]<a />\n\t\tdelete\n\tMatches: From: alerts@datadog.com, Has the words: alert critical\n\tDo this: Apply label \"Action Required\", Star it, Forward to nate.patel@devops.tools, Never send to Spam, Always mark as important\n\t*[44412]<a />\n\t\tedit\n\t*[44413]<a />\n\t\tdelete\n\tMatches: Has the words: confidential\n\tDo this: Apply label \"Work\", Always mark as important\n\t*[44419]<a />\n\t\tedit\n\t*[44420]<a />\n\t\tdelete\n\tMatches: From: notifications@linkedin.com\n\tDo this: Categorize as social\n\t*[44426]<a />\n\t\tedit\n\t*[44427]<a />\n\t\tdelete\n\tBlocked Addresses\n\tMessages from blocked addresses will be sent to Spam.\n\tspam@marketing-blast.com\n\tBlocked Nov 15, 2025\n\t*[44435]<button />\n\t\tunblock\n\tannoying@daily-deals.biz\n\tBlocked Dec 20, 2025\n\t*[44440]<button />\n\t\tunblock\n\tnoreply@fake-bank-alert.com\n\tBlocked Jan 10\n\t*[44445]<button />\n\t\tunblock\n\toffers@shadydeals.xyz\n\tBlocked Jan 25\n\t*[44450]<button />\n\t\tunblock\n\twinner@prize-notification.scam\n\tBlocked Feb 5\n\t*[44455]<button />\n\t\tunblock\n\t*[44457]<button />\n\t\tCancel\n\t*[44458]<button />\n\t\tSave Changes\nFilter deleted\n[End of page]\n</browser_state>\n"
+    }
+  ]
+}

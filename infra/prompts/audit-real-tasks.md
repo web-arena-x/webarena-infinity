@@ -1,1 +1,1 @@
-Audit the agent evaluation results inside `{evaluation_result_path}` following the guide at `./docs/evaluation-audit-guide.md.`
+Audit the agent evaluation results inside `{evaluation_result_path}` following the guide at `./docs/real-task-audit.md.`

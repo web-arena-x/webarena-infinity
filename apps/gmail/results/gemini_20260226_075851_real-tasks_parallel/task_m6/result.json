@@ -1,0 +1,33 @@
+{
+  "task_id": "task_m6",
+  "difficulty": "medium",
+  "instruction": "Set up a filter for emails from david.kim@financeplus.com that automatically applies the Finance label.",
+  "passed": true,
+  "verifier_message": "Filter found: from='david.kim@financeplus.com' with action label='label_3' (Finance).",
+  "elapsed": 286.7,
+  "steps": 20,
+  "is_done": true,
+  "final_result": "I have successfully set up the filter for emails from david.kim@financeplus.com. Incoming messages from this sender will now automatically have the 'Finance' label applied. You can verify this in Settings > Filters and Blocked Addresses.\n\n[Simple judge: The agent claims to have set up the filter but provides no evidence or confirmation from the website (such as a success message or a description of the filter appearing in the settings list) to verify that the action was actually performed.]",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

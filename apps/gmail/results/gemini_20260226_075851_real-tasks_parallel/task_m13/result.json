@@ -1,0 +1,17 @@
+{
+  "task_id": "task_m13",
+  "difficulty": "medium",
+  "instruction": "Archive the latest Morning Brew newsletter.",
+  "passed": true,
+  "verifier_message": "Email 77 (Morning Brew) is archived and removed from INBOX.",
+  "elapsed": 47.4,
+  "steps": 4,
+  "is_done": true,
+  "final_result": "The latest Morning Brew newsletter ('Daily Brew: Fed signals rate cuts') has been successfully archived.",
+  "errors": [
+    null,
+    null,
+    null,
+    null
+  ]
+}

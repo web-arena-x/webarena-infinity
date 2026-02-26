@@ -1,0 +1,26 @@
+{
+  "task_id": "task_h17",
+  "difficulty": "hard",
+  "instruction": "Archive all emails labeled Newsletters that are currently in the inbox.",
+  "passed": true,
+  "verifier_message": "All Newsletters emails from inbox have been archived.",
+  "elapsed": 234.4,
+  "steps": 13,
+  "is_done": true,
+  "final_result": "I have successfully archived all emails labeled 'Newsletters' that were in the inbox. I navigated to the 'Newsletters' label view, selected all 10 emails, and archived them. Verification in the inbox confirms that no emails with the 'Newsletters' label remain.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

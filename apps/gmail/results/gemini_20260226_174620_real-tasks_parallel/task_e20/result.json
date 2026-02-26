@@ -1,0 +1,20 @@
+{
+  "task_id": "task_e20",
+  "difficulty": "easy",
+  "instruction": "Set the maximum page size to 25 conversations.",
+  "passed": true,
+  "verifier_message": "Maximum page size is set to 25.",
+  "elapsed": 65.2,
+  "steps": 7,
+  "is_done": true,
+  "final_result": "I have successfully set the maximum page size to 25 conversations. The settings have been saved and confirmed by the application.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

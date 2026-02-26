@@ -1,0 +1,344 @@
+{
+  "history": [
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Start",
+        "memory": null,
+        "next_goal": "Initial navigation",
+        "action": [
+          {
+            "navigate": {
+              "url": "http://localhost:9001",
+              "new_tab": false
+            }
+          }
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "long_term_memory": "Found initial url and automatically loaded it. Navigated to http://localhost:9001",
+          "extracted_content": "\ud83d\udd17 Navigated to http://localhost:9001",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [],
+        "screenshot_path": null,
+        "interacted_element": [
+          null
+        ],
+        "url": "http://localhost:9001",
+        "title": "Initial Actions"
+      },
+      "metadata": {
+        "step_start_time": 1772093882.9834726,
+        "step_end_time": 1772093882.9834726,
+        "step_number": 0,
+        "step_interval": null
+      },
+      "state_message": null
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "The agent was initialized and navigated to the home page. Verdict: Success",
+        "memory": "I am on the main page of the mail application. I need to empty the spam folder. I have identified the Spam folder in the sidebar.",
+        "next_goal": "Click on the 'Spam' folder in the sidebar to view spam messages.",
+        "action": [
+          {
+            "click": {
+              "index": 61088
+            }
+          }
+        ],
+        "thinking": "The user wants to empty the spam folder. I am currently in the Inbox. I need to navigate to the 'Spam' folder first. Looking at the sidebar, the 'Spam' link is at index 61088 (div) or 61092 (span). I will click on the Spam folder to view its contents.",
+        "current_plan_item": 0,
+        "plan_update": [
+          "Navigate to the Spam folder",
+          "Select all messages in the Spam folder",
+          "Click the button to delete all spam messages permanently",
+          "Confirm the deletion if prompted"
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked div \"Spam\n5\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 123.0,
+            "click_y": 384.0
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://localhost:9001/",
+            "title": "localhost:9001",
+            "target_id": "96E9",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_069a001b-8b2f-7294-8000-fbe2cf24e137_1772093880/screenshots/step_1.png",
+        "interacted_element": [
+          {
+            "node_id": 74083,
+            "backend_node_id": 61088,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "DIV",
+            "attributes": {
+              "class": "nav-item",
+              "data-route": "spam",
+              "data-testid": "sidebar-spam"
+            },
+            "x_path": "html/body/nav/div[2]/div[1]/div[8]",
+            "element_hash": 101567119970501495,
+            "stable_hash": 11630782166038971250,
+            "bounds": {
+              "x": 0.0,
+              "y": 368.0,
+              "width": 246.0,
+              "height": 32.0
+            },
+            "ax_name": null
+          }
+        ],
+        "url": "http://localhost:9001/",
+        "title": "localhost:9001"
+      },
+      "metadata": {
+        "step_start_time": 1772093882.9835253,
+        "step_end_time": 1772093894.8322272,
+        "step_number": 1,
+        "step_interval": 0.0
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://localhost:9001\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://localhost:9001. Your task: Empty the spam folder.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step1 maximum:500\nToday:2026-02-26</step_info>\n</agent_state>\n<browser_state>\n<page_stats>0 links, 726 interactive, 0 iframes, 1 shadow(open), 0 shadow(closed), 1100 total elements</page_stats>\nCurrent tab: 96E9\nAvailable tabs:\nTab 96E9: http://localhost:9001/ - localhost:9001\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n[60950]<button id=menuToggle aria-label=Main menu />\n<svg /> <!-- SVG content collapsed -->\nGmail\n[60992]<div id=searchBar />\n\t[60994]<button aria-label=Search />\n\t|SHADOW(open)|[60888]<input type=text id=searchInput placeholder=Search mail autocomplete=off />\n\t[60951]<button id=searchOptionsBtn aria-label=Show search options />\n[61010]<button id=settingsBtn aria-label=Settings />\n[61016]<div id=userAvatar />\n\t[61018]<span id=userInitials />\n\t\tAJ\n|scroll element|<nav id=sidebar /> (0.0 pages above, 0.1 pages below)\n\t[61030]<button id=composeBtn />\n\t\tCompose\n\t[61042]<div />\n\t\t[61043]<span />\n\t\t\t[61044]<svg /> <!-- SVG content collapsed -->\n\t\t[61046]<span />\n\t\t\tInbox\n\t\t[61048]<span />\n\t\t\t19\n\t[61050]<div />\n\t\t[61051]<span />\n\t\t\t[61052]<svg /> <!-- SVG content collapsed -->\n\t\t[61054]<span />\n\t\t\tStarred\n\t[61056]<div />\n\t\t[61057]<span />\n\t\t\t[61058]<svg /> <!-- SVG content collapsed -->\n\t\t[61060]<span />\n\t\t\tSnoozed\n\t[61062]<div />\n\t\t[61063]<span />\n\t\t\t[61064]<svg /> <!-- SVG content collapsed -->\n\t\t[61066]<span />\n\t\t\tSent\n\t[61068]<div />\n\t\t[61069]<span />\n\t\t\t[61070]<svg /> <!-- SVG content collapsed -->\n\t\t[61072]<span />\n\t\t\tDrafts\n\t\t[61074]<span />\n\t[61076]<div />\n\t\t[61077]<span />\n\t\t\t[61078]<svg /> <!-- SVG content collapsed -->\n\t\t[61080]<span />\n\t\t\tImportant\n\t[61082]<div />\n\t\t[61083]<span />\n\t\t\t[61084]<svg /> <!-- SVG content collapsed -->\n\t\t[61086]<span />\n\t\t\tAll Mail\n\t[61088]<div />\n\t\t[61089]<span />\n\t\t\t[61090]<svg /> <!-- SVG content collapsed -->\n\t\t[61092]<span />\n\t\t\tSpam\n\t\t[61094]<span />\n\t[61096]<div />\n\t\t[61097]<span />\n\t\t\t[61098]<svg /> <!-- SVG content collapsed -->\n\t\t[61100]<span />\n\t\t\tTrash\n\tLabels\n\t[61106]<button />\n\t[61108]<div />\n\t\t[61109]<span />\n\t\t[61110]<span />\n\t\t\tWork\n\t\t[61112]<span />\n\t\t\t12\n\t[61114]<div />\n\t\t[61115]<span />\n\t\t[61116]<span />\n\t\t\tProjects\n\t\t[61118]<span />\n\t[61120]<div />\n\t\t[61121]<span />\n\t\t[61122]<span />\n\t\t\tMeetings\n\t\t[61124]<span />\n\t[61126]<div />\n\t\t[61127]<span />\n\t\t[61128]<span />\n\t\t\tClients\n\t\t[61130]<span />\n\t[61132]<div />\n\t\t[61133]<span />\n\t\t[61134]<span />\n\t\t\tHR\n\t[61136]<div />\n\t\t[61137]<span />\n\t\t[61138]<span />\n\t\t\tPersonal\n\t[61140]<div />\n\t\t[61141]<span />\n\t\t[61142]<span />\n\t\t\tFamily\n\t[61144]<div />\n\t\t[61145]<span />\n\t\t[61146]<span />\n\t\t\tFriends\n\t[61148]<div />\n\t\t[61149]<span />\n\t\t[61150]<span />\n\t\t\tFinance\n\t[61152]<div />\n\t\t[61153]<span />\n\t\t[61154]<span />\n\t\t\tInvoices\n\t[61156]<div />\n\t\t[61157]<span />\n\t\t[61158]<span />\n\t\t\tBanking\n\t[61160]<div />\n\t\t[61161]<span />\n\t\t[61162]<span />\n\t\t\tTravel\n\t\t[61164]<span />\n\t[61166]<div />\n\t\t[61167]<span />\n\t\t[61168]<span />\n\t\t\tReceipts\n\t[61170]<div />\n\t\t[61171]<span />\n\t\t[61172]<span />\n\t\t\tNewsletters\n\t\t[61174]<span />\n\t[61176]<div />\n\t\t[61177]<span />\n\t\t[61178]<span />\n\t\t\tHealth\n\t[61180]<div />\n\t\t[61181]<span />\n\t\t[61182]<span />\n\t\t\tEducation\n\t[61184]<div />\n\t\t[61185]<span />\n\t\t[61186]<span />\n\t\t\tAction Required\n\t\t[61188]<span />\n\t[61190]<div />\n\t\t[61191]<span />\n\t\t[61192]<span />\n\t\t\tWaiting For Reply\n\t\t[61194]<span />\n\t[61196]<div />\n\t\t[61197]<span />\n\t\t[61198]<span />\n\t\t\tReference\n\t[61200]<div />\n\t\t[61201]<span />\n\t\t\t[61202]<svg /> <!-- SVG content collapsed -->\n\t\t[61204]<span />\n\t\t\tCreate new label\n[61216]<div />\n\t[60889]<input type=checkbox id=selectAllCheckbox checked=false />\n\t[61217]<button />\n[61219]<button title=Refresh />\n1-48 of 48\n|scroll element|<div id=contentWrapper /> (0.0 pages above, 1.0 pages below)\n\t[61240]<button />\n\t\tPrimary\n\t[61248]<button />\n\t\tSocial\n\t[61256]<button />\n\t\tPromotions\n\t[61264]<button />\n\t\tUpdates\n\t[61272]<button />\n\t\tForums\n\t[61281]<div />\n\t\t[60890]<input type=checkbox checked=false />\n\t\t[61282]<button />\n\t\t[61284]<button />\n\t\t[61286]<span />\n\t\t\tSarah Chen\n\t\t[61288]<div />\n\t\t\t[61289]<span />\n\t\t\t\tQ1 Product Roadmap Review\n\t\t\t[61291]<span />\n\t\t\t\t[61292]<span />\n\t\t\t\t\tWork\n\t\t\t\t[61294]<span />\n\t\t\t\t\tProjects\n\t\t\t[61296]<span />\n\t\t\t\tHi Alex, I've attached the updated Q1 product roadmap for your review. Please take a look before our meeting on Thursday.\n\t\t<svg /> <!-- SVG content collapsed -->\n\t\t[61303]<div />\n\t\t\t[61304]<button title=Archive />\n\t\t\t[61307]<button title=Delete />\n\t\t\t[61310]<button title=Mark as read />\n\t\t\t[61313]<button title=Snooze />\n\t[61316]<div />\n\t\t[60891]<input type=checkbox checked=false />\n\t\t[61317]<button />\n\t\t[61319]<button />\n\t\t[61321]<span />\n\t\t\tPriya Sharma\n\t\t[61323]<div />\n\t\t\t[61324]<span />\n\t\t\t\tRe: API Integration Issue\n\t\t\t[61326]<span />\n\t\t\t\t[61327]<span />\n\t\t\t\t\tWork\n\t\t\t\t[61329]<span />\n\t\t\t\t\tProjects\n\t\t\t[61331]<span />\n\t\t\t\tI found the root cause. The timeout was set to 30s but the new endpoint needs at least 45s. I'll push a fix today.\n\t\t[61334]<span />\n\t\t\tYesterday\n\t[61349]<div />\n\t\t[60892]<input type=checkbox checked=false />\n\t\t[61350]<button />\n\t\t[61352]<button />\n\t\t[61354]<span />\n\t\t\tMorning Brew\n\t\t[61356]<div />\n\t\t\t[61357]<span />\n\t\t\t\tDaily Brew: Fed signals rate cuts\n\t\t\t[61359]<span />\n\t\t\t\t[61360]<span />\n\t\t\t\t\tNewsletters\n\t\t\t[61362]<span />\n\t\t\t\tFed Chair signals possible rate cuts in Q2. Tesla hits $300/share. Apple Vision Pro sales surge 200%.\n\t\t[61365]<span />\n\t\t\tTue\n\t[61380]<div />\n\t\t[60893]<input type=checkbox checked=false />\n\t\t[61381]<button />\n\t\t\t[61382]<span />\n\t\t[61384]<button />\n\t\t[61386]<span />\n\t\t\tPriya Sharma\n\t\t[61388]<div />\n\t\t\t[61389]<span />\n\t\t\t\tAPI Integration Issue\n\t\t\t[61391]<span />\n\t\t\t\t[61392]<span />\n\t\t\t\t\tWork\n\t\t\t\t[61394]<span />\n\t\t\t\t\tProjects\n\t\t\t[61396]<span />\n\t\t\t\tHey Alex, we're seeing intermittent failures on the payment gateway API. Getting 504 errors about 15% of the time.\n\t\t[61399]<span />\n\t\t\tMon\n\t[61414]<div />\n\t\t[60894]<input type=checkbox checked=false />\n\t\t[61415]<button />\n\t\t[61417]<button />\n\t\t[61419]<span />\n\t\t\tDavid Kim\n\t\t[61421]<div />\n\t\t\t[61422]<span />\n\t\t\t\tMonthly Financial Report - January 2026\n\t\t\t[61424]<span />\n\t\t\t\t[61425]<span />\n\t\t\t\t\tFinance\n\t\t\t\t[61427]<span />\n\t\t\t\t\tInvoices\n\t\t\t[61429]<span />\n\t\t\t\tPlease find attached the January financial summary. Revenue was up 12% MoM, with notable growth in enterprise segment.\n\t\t[61432]<span title=Has attachment />\n\t\t\t[61433]<svg /> <!-- SVG content collapsed -->\n\t\t[61435]<span />\n\t\t\tMon\n\t[61450]<div />\n\t\t[60895]<input type=checkbox checked=false />\n\t\t[61451]<button />\n\t\t[61453]<button />\n\t\t[61455]<span />\n\t\t\tMarcus Williams\n\t\t[61457]<div />\n\t\t\t[61458]<span />\n\t\t\t\tDesign System Update v4.2\n\t\t\t[61460]<span />\n\t\t\t\t[61461]<span />\n\t\t\t\t\tWork\n\t\t\t[61463]<span />\n\t\t\t\tThe new component library is ready for review. Key changes: updated color tokens, new navigation patterns, and improved responsive breakpoints.\n\t\t[61466]<span title=Has attachment />\n\t\t\t[61467]<svg /> <!-- SVG content collapsed -->\n\t\t[61469]<span />\n\t\t\tMon\n\t[61484]<div />\n\t\t[60896]<input type=checkbox checked=false />\n\t\t[61485]<button />\n\t\t\t[61486]<span />\n\t\t[61488]<button />\n\t\t[61490]<span />\n\t\t\tEmily Rodriguez\n\t\t[61492]<div />\n\t\t\t[61493]<span />\n\t\t\t\tPartnership Opportunity - Series B Company\n\t\t\t[61495]<span />\n\t\t\t\t[61496]<span />\n\t\t\t\t\tWork\n\t\t\t\t[61498]<span />\n\t\t\t\t\tClients\n\t\t\t\t[61500]<span />\n\t\t\t\t\tAction Required\n\t\t\t[61502]<span />\n\t\t\t\tAlex, I'd like to introduce you to a Series B company in the AI space. They're looking for integration partners and I think there's a great fit.\n\t\t[61505]<span />\n\t\t\tMon\n\t[61520]<div />\n\t\t[60897]<input type=checkbox checked=false />\n\t\t[61521]<button />\n\t\t[61523]<button />\n\t\t[61525]<span />\n\t\t\tKevin Zhao\n\t\t[61527]<div />\n\t\t\t[61528]<span />\n\t\t\t\tResearch Paper: Quantum Error Correction\n\t\t\t[61530]<span />\n\t\t\t\t[61531]<span />\n\t\t\t\t\tEducation\n\t\t\t\t[61533]<span />\n\t\t\t\t\tReference\n\t\t\t[61535]<span />\n\t\t\t\tOur team just published a new paper on quantum error correction codes. Thought you might find it interesting given our conversation last week.\n\t\t[61538]<span title=Has attachment />\n\t\t\t[61539]<svg /> <!-- SVG content collapsed -->\n\t\t[61541]<span />\n\t\t\tSun\n\t[61556]<div />\n\t\t[60898]<input type=checkbox checked=false />\n\t\t[61557]<button />\n\t\t[61559]<button />\n\t\t[61561]<span />\n\t\t\tNate Patel\n\t\t[61563]<div />\n\t\t\t[61564]<span />\n\t\t\t\tCI/CD Pipeline Migration Plan\n\t\t\t[61566]<span />\n\t\t\t\t[61567]<span />\n\t\t\t\t\tWork\n\t\t\t\t[61569]<span />\n\t\t\t\t\tProjects\n\t\t\t\t[61571]<span />\n\t\t\t\t\tAction Required\n\t\t\t[61573]<span />\n\t\t\t\tHere's the migration plan for moving our CI/CD from Jenkins to GitHub Actions. Estimated 3 weeks for full cutover.\n\t\t[61576]<span title=Has attachment />\n\t\t\t[61577]<svg /> <!-- SVG content collapsed -->\n\t\t[61579]<span />\n\t\t\tSun\n\t[61594]<div />\n\t\t[60899]<input type=checkbox checked=false />\n\t\t[61595]<button />\n\t\t[61597]<button />\n\t\t[61599]<span />\n\t\t\tMaya Patel\n\t\t[61601]<div />\n\t\t\t[61602]<span />\n\t\t\t\tTeam Standup Notes - Feb 22\n\t\t\t[61604]<span />\n\t\t\t\t[61605]<span />\n\t\t\t\t\tWork\n\t\t\t\t[61607]<span />\n\t\t\t\t\tMeetings\n\t\t\t[60948]<span />\n\t\t\t\tQuick summary from today's standup: Backend team finishing auth refactor, Frontend starting dashboard redesign, QA blocked on staging env.\n\t\t[61611]<span />\n\t\t\tSun\n\t[61626]<div />\n\t\t[60900]<input type=checkbox checked=false />\n\t\t[61627]<button />\n\t\t\t[61628]<span />\n\t\t[61630]<button />\n\t\t[61632]<span />\n\t\t\tThe Pragmatic Engineer\n\t\t[61634]<div />\n\t\t\t[61635]<span />\n\t\t\t\tBig Tech hiring is back - what changed?\n\t\t\t[61637]<span />\n\t\t\t\t[61638]<span />\n\t\t\t\t\tNewsletters\n\t\t\t\t[61640]<span />\n\t\t\t\t\tReference\n\t\t\t[61642]<span />\n\t\t\t\tAfter 2 years of hiring freezes, FAANG companies are ramping up. Here's what's different this time.\n\t\t[61645]<span />\n\t\t\tSun\n\t[61660]<div />\n\t\t[60901]<input type=checkbox checked=false />\n\t\t[61661]<button />\n\t\t\t[61662]<span />\n\t\t[61664]<button />\n\t\t[61666]<span />\n\t\t\tJames O'Brien\n\t\t[61668]<div />\n\t\t\t[61669]<span />\n\t\t\t\tContract Review: Vendor Agreement\n\t\t\t[61671]<span />\n\t\t\t\t[61672]<span />\n\t\t\t\t\tWork\n\t\t\t\t[61674]<span />\n\t\t\t\t\tClients\n\t\t\t\t[61676]<span />\n\t\t\t\t\tAction Required\n\t\t\t[61678]<span />\n\t\t\t\tAlex, I've reviewed the vendor agreement. A few clauses need attention - see my redlined version attached. Let's discuss by end of week.\n\t\t[61681]<span title=Has attachment />\n\t\t\t[61682]<svg /> <!-- SVG content collapsed -->\n\t\t[61684]<span />\n\t\t\tSat\n\t[61699]<div />\n\t\t[60902]<input type=checkbox checked=false />\n\t\t[61700]<button />\n\t\t[61702]<button />\n\t\t[61704]<span />\n\t\t\tAna Gutierrez\n\t\t[61706]<div />\n\t\t\t[61707]<span />\n\t\t\t\tVolunteer Event: Spring Health Fair\n\t\t\t[61709]<span />\n\t\t\t\t[61710]<span />\n\t\t\t\t\tPersonal\n\t\t\t[61712]<span />\n\t\t\t\tWe're organizing a spring health fair on March 15th. Would you be interested in volunteering? We need help with registration and logistics.\n\t\t[61715]<span />\n\t\t\tSat\n\t[61730]<div />\n\t\t[60903]<input type=checkbox checked=false />\n\t\t[61731]<button />\n\t\t[61733]<button />\n\t\t[61735]<span />\n\t\t\tRyan Cooper\n\t\t[61737]<div />\n\t\t\t[61738]<span />\n\t\t\t\tRe: Platform Performance Issues\n\t\t\t[61740]<span />\n\t\t\t\t[61741]<span />\n\t\t\t\t\tWork\n\t\t\t\t[61743]<span />\n\t\t\t\t\tProjects\n\t\t\t[61745]<span />\n\t\t\t\tGood news - we identified the bottleneck. It was a missing database index on the analytics table. Response times are back to normal.\n\t\t[61748]<span />\n\t\t\tSat\n\t[61763]<div />\n\t\t[60904]<input type=checkbox checked=false />\n\t\t[61764]<button />\n\t\t[61766]<button />\n\t\t[61768]<span />\n\t\t\tTLDR Newsletter\n\t\t[61770]<div />\n\t\t\t[61771]<span />\n\t\t\t\tTLDR: GPT-5 benchmarks leaked\n\t\t\t[61773]<span />\n\t\t\t\t[61774]<span />\n\t\t\t\t\tNewsletters\n\t\t\t[61776]<span />\n\t\t\t\tGPT-5 benchmarks, Rust 2.0 announced, Docker alternatives, PostgreSQL 17 features.\n\t\t[61779]<span />\n\t\t\tSat\n\t[61794]<div />\n\t\t[60905]<input type=checkbox checked=false />\n\t\t[61795]<button />\n\t\t\t[61796]<span />\n\t\t[61798]<button />\n\t\t[61800]<span />\n\t\t\tSophie Laurent\n\t\t[61802]<div />\n\t\t\t[61803]<span />\n\t\t\t\tBonjour! Conference Speaker Invitation\n\t\t\t[61805]<span />\n\t\t\t\t[61806]<span />\n\t\t\t\t\tTravel\n\t\t\t\t[61808]<span />\n\t\t\t\t\tAction Required\n\t\t\t[61810]<span />\n\t\t\t\tWe'd love to have you speak at EuroDesign Summit 2026 in Paris. The theme is \"AI-Driven Design Systems.\" Travel and accommodation covered.\n\t\t[61813]<span />\n\t\t\tFri\n\t[61828]<div />\n\t\t[60906]<input type=checkbox checked=false />\n\t\t[61829]<button />\n\t\t[61831]<button />\n\t\t[61833]<span />\n\t\t\tTom Bradley\n\t\t[61835]<div />\n\t\t\t[61836]<span />\n\t\t\t\tProperty Listing: 45 Oak Avenue\n\t\t\t[61838]<span />\n\t\t\t\t[61839]<span />\n\t\t\t\t\tPersonal\n\t\t\t[61841]<span />\n\t\t\t\tNew listing matching your criteria - 3BR/2BA, 1,800 sqft, updated kitchen, large backyard. Open house this Saturday 1-4pm.\n\t\t[61844]<span />\n\t\t\tFri\n\t[61859]<div />\n\t\t[60907]<input type=checkbox checked=false />\n\t\t[61860]<button />\n\t\t[61862]<button />\n\t\t[61864]<span />\n\t\t\tMichelle Park\n\t\t[61866]<div />\n\t\t\t[61867]<span />\n\t\t\t\tInterview Request: Tech Innovation Panel\n\t\t\t[61869]<span />\n\t\t\t\t[61870]<span />\n\t\t\t\t\tWaiting For Reply\n\t\t\t[61872]<span />\n\t\t\t\tHi Alex, we're producing a segment on tech innovation in 2026. Would you be available for a 15-minute interview next week?\n\t\t[61875]<span />\n\t\t\tFri\n\t[61890]<div />\n\t\t[60908]<input type=checkbox checked=false />\n\t\t[61891]<button />\n\t\t[61893]<button />\n\t\t[61895]<span />\n\t\t\tDaniel Thompson\n\t\t[61897]<div />\n\t\t\t[61898]<span />\n\t\t\t\tOffice Renovation Plans\n\t\t\t[61900]<span />\n\t\t\t\t[61901]<span />\n\t\t\t\t\tWork\n\t\t\t[61903]<span />\n\t\t\t\tAttached are the revised floor plans for the office renovation. The open workspace area has been expanded per your feedback.\n\t\t[61906]<span title=Has attachment />\n\t\t\t[61907]<svg /> <!-- SVG content collapsed -->\n\t\t[61909]<span />\n\t\t\tThu\n\t[61924]<div />\n\t\t[60909]<input type=checkbox checked=false />\n\t\t[61925]<button />\n\t\t[61927]<button />\n\t\t[61929]<span />\n\t\t\tSarah Chen\n\t\t[61931]<div />\n\t\t\t[61932]<span />\n\t\t\t\tRe: Quarterly Team Dinner\n\t\t\t[61934]<span />\n\t\t\t\t[61935]<span />\n\t\t\t\t\tWork\n\t\t\t[61937]<span />\n\t\t\t\tMarch 7th is perfect! I'll make the reservation for 8 people. Any dietary restrictions?\n\t\t[61940]<span />\n\t\t\tThu\n\t[61955]<div />\n\t\t[60910]<input type=checkbox checked=false />\n\t\t[61956]<button />\n\t\t[61958]<button />\n\t\t[61960]<span />\n\t\t\tSarah Chen\n\t\t[61962]<div />\n\t\t\t[61963]<span />\n\t\t\t\tQuarterly Team Dinner\n\t\t\t[61965]<span />\n\t\t\t\t[61966]<span />\n\t\t\t\t\tWork\n\t\t\t\t[61968]<span />\n\t\t\t\t\tMeetings\n\t\t\t[60949]<span />\n\t\t\t\tHey everyone! Let's plan our Q1 team dinner. I'm thinking March 7th at Zafferano. Please reply with your availability.\n\t\t[61972]<span />\n\t\t\tThu\n\t[61987]<div />\n\t\t[60911]<input type=checkbox checked=false />\n\t\t[61988]<button />\n\t\t[61990]<button />\n\t\t[61992]<span />\n\t\t\tBenedict Evans\n\t\t[61994]<div />\n\t\t\t[61995]<span />\n\t\t\t\tAI and the future of search\n\t\t\t[61997]<span />\n\t\t\t\t[61998]<span />\n\t\t\t\t\tNewsletters\n\t\t\t\t[62000]<span />\n\t\t\t\t\tReference\n\t\t\t[62002]<span />\n\t\t\t\tLong-form analysis of how AI is reshaping information retrieval and what it means for Google.\n\t\t[62005]<span />\n\t\t\tFeb 19\n\t[62020]<div />\n\t\t[60912]<input type=checkbox checked=false />\n\t\t[62021]<button />\n\t\t[62023]<button />\n\t\t[62025]<span />\n\t\t\tJennifer Wu\n\t\t[62027]<div />\n\t\t\t[62028]<span />\n\t\t\t\tRe: Collaboration Proposal\n\t\t\t[62030]<span />\n\t\t\t\t[62031]<span />\n\t\t\t\t\tWork\n\t\t\t\t[62033]<span />\n\t\t\t\t\tWaiting For Reply\n\t\t\t[62035]<span />\n\t\t\t\tAlex, this sounds promising. Let's set up a call with our research team. How does Thursday at 2pm PST work for you?\n\t\t[62038]<span />\n\t\t\tFeb 18\n\t[62053]<div />\n\t\t[60913]<input type=checkbox checked=false />\n\t\t[62054]<button />\n\t\t[62056]<button />\n\t\t[62058]<span />\n\t\t\tRobert Singh\n\t\t[62060]<div />\n\t\t\t[62061]<span />\n\t\t\t\tGuest Lecture Invitation - CS 401\n\t\t\t[62063]<span />\n\t\t\t\t[62064]<span />\n\t\t\t\t\tEducation\n\t\t\t[62066]<span />\n\t\t\t\tThe department would be honored if you could give a guest lecture on distributed systems. We have an opening on March 20th.\n\t\t[62069]<span />\n\t\t\tFeb 18\n\t[62084]<div />\n\t\t[60914]<input type=checkbox checked=false />\n\t\t[62085]<button />\n\t\t[62087]<button />\n\t\t[62089]<span />\n\t\t\tPriya Sharma\n\t\t[62091]<div />\n\t\t\t[62092]<span />\n\t\t\t\tCode Review Request: auth-service PR #42\n\t\t\t[62094]<span />\n\t\t\t\t[62095]<span />\n\t\t\t\t\tWork\n\t\t\t\t[62097]<span />\n\t\t\t\t\tProjects\n\t\t\t[62099]<span />\n\t\t\t\tHey Alex, can you review my PR for the OAuth2 PKCE implementation? It's about 400 lines.\n\t\t[62102]<span />\n\t\t\tFeb 18\n\t[62117]<div />\n\t\t[60915]<input type=checkbox checked=false />\n\t\t[62118]<button />\n\t\t[62120]<button />\n\t\t[62122]<span />\n\t\t\tRyan Cooper\n\t\t[62124]<div />\n\t\t\t[62125]<span />\n\t\t\t\tSaaS Platform Q1 Pricing Update\n\t\t\t[62127]<span />\n\t\t\t\t[62128]<span />\n\t\t\t\t\tWork\n\t\t\t[62130]<span />\n\t\t\t\tHeads up - we're adjusting enterprise tier pricing starting March 1st. Existing contracts unaffected.\n\t\t[62133]<span />\n\t\t\tFeb 17\n\t[62148]<div />\n\t\t[60916]<input type=checkbox checked=false />\n\t\t[62149]<button />\n\t\t[62151]<button />\n\t\t[62153]<span />\n\t\t\tRachel Foster\n\t\t[62155]<div />\n\t\t\t[62156]<span />\n\t\t\t\tDonation Receipt - Tax Year 2025\n\t\t\t[62158]<span />\n\t\t\t\t[62159]<span />\n\t\t\t\t\tFinance\n\t\t\t\t[62161]<span />\n\t\t\t\t\tReceipts\n\t\t\t[62163]<span />\n\t\t\t\tThank you for your generous contribution of $500 to NonprofitAid. Attached is your tax receipt for the 2025 fiscal year.\n\t\t[62166]<span title=Has attachment />\n\t\t\t[62167]<svg /> <!-- SVG content collapsed -->\n\t\t[62169]<span />\n\t\t\tFeb 17\n\t[62184]<div />\n\t\t[60917]<input type=checkbox checked=false />\n\t\t[62185]<button />\n\t\t[62187]<button />\n\t\t[62189]<span />\n\t\t\tOmar Al-Rashid\n\t\t[62191]<div />\n\t\t\t[62192]<span />\n\t\t\t\tStrategy Workshop Follow-up\n\t\t\t[62194]<span />\n\t\t\t\t[62195]<span />\n\t\t\t\t\tWork\n\t\t\t\t[62197]<span />\n\t\t\t\t\tMeetings\n\t\t\t[62199]<span />\n\t\t\t\tGreat workshop yesterday. Attached are the whiteboard photos and action items. Please review your assigned items by Friday.\n\t\t[62202]<span title=Has attachment />\n\t\t\t[62203]<svg /> <!-- SVG content collapsed -->\n\t\t[62205]<span />\n\t\t\tFeb 17\n\t[62220]<div />\n\t\t[60918]<input type=checkbox checked=false />\n\t\t[62221]<button />\n\t\t[62223]<button />\n\t\t[62225]<span />\n\t\t\tStratechery\n\t\t[62227]<div />\n\t\t\t[62228]<span />\n\t\t\t\tThe Great AI Unbundling\n\t\t\t[62230]<span />\n\t\t\t\t[62231]<span />\n\t\t\t\t\tNewsletters\n\t\t\t[62233]<span />\n\t\t\t\tHow AI is disrupting SaaS businesses by enabling customers to build their own tools.\n\t\t[62236]<span />\n\t\t\tFeb 17\n\t[62251]<div />\n\t\t[60919]<input type=checkbox checked=false />\n\t\t[62252]<button />\n\t\t[62254]<button />\n\t\t[62256]<span />\n\t\t\tHannah Brooks\n\t\t[62258]<div />\n\t\t\t[62259]<span />\n\t\t\t\tYour Workout Plan for March\n\t\t\t[62261]<span />\n\t\t\t\t[62262]<span />\n\t\t\t\t\tHealth\n\t\t\t\t[62264]<span />\n\t\t\t\t\tPersonal\n\t\t\t[62266]<span />\n\t\t\t\tHi Alex! I've customized your workout plan for March based on your progress. Let me know if you want any adjustments.\n\t\t[62269]<span title=Has attachment />\n\t\t\t[62270]<svg /> <!-- SVG content collapsed -->\n\t\t[62272]<span />\n\t\t\tFeb 16\n\t[62287]<div />\n\t\t[60920]<input type=checkbox checked=false />\n\t\t[62288]<button />\n\t\t[62290]<button />\n\t\t[62292]<span />\n\t\t\tKevin Zhao\n\t\t[62294]<div />\n\t\t\t[62295]<span />\n\t\t\t\tLab Tour Invitation\n\t\t\t[62297]<span />\n\t\t\t\t[62298]<span />\n\t\t\t\t\tPersonal\n\t\t\t[62300]<span />\n\t\t\t\tWe're hosting an open lab day on March 5th. Would love to show you our new quantum processor setup.\n\t\t[62303]<span />\n\t\t\tFeb 16\n\t[62318]<div />\n\t\t[60921]<input type=checkbox checked=false />\n\t\t[62319]<button />\n\t\t[62321]<button />\n\t\t[62323]<span />\n\t\t\tJennifer Wu\n\t\t[62325]<div />\n\t\t\t[62326]<span />\n\t\t\t\tBioMed Conference Recap\n\t\t\t[62328]<span />\n\t\t\t\t[62329]<span />\n\t\t\t\t\tEducation\n\t\t\t[62331]<span />\n\t\t\t\tGreat seeing you at the conference! Here are the slides from the panel we discussed.\n\t\t[62334]<span title=Has attachment />\n\t\t\t[62335]<svg /> <!-- SVG content collapsed -->\n\t\t[62337]<span />\n\t\t\tFeb 15\n\t[62352]<div />\n\t\t[60922]<input type=checkbox checked=false />\n\t\t[62353]<button />\n\t\t\t[62354]<span />\n\t\t[62356]<button />\n\t\t[62358]<span />\n\t\t\tLisa Nakamura\n\t\t[62360]<div />\n\t\t\t[62361]<span />\n\t\t\t\tBrand Refresh Concepts\n\t\t\t[62363]<span />\n\t\t\t\t[62364]<span />\n\t\t\t\t\tWork\n\t\t\t\t[62366]<span />\n\t\t\t\t\tClients\n\t\t\t[62368]<span />\n\t\t\t\tHere are three brand refresh concepts for review. Each explores a different direction. Let me know your thoughts.\n\t\t[62371]<span title=Has attachment />\n\t\t\t[62372]<svg /> <!-- SVG content collapsed -->\n\t\t[62374]<span />\n\t\t\tFeb 15\n\t[62389]<div />\n\t\t[60923]<input type=checkbox checked=false />\n\t\t[62390]<button />\n\t\t[62392]<button />\n\t\t[62394]<span />\n\t\t\tChris Evans\n\t\t[62396]<div />\n\t\t\t[62397]<span />\n\t\t\t\tSunday Game Tickets Available\n\t\t\t[62399]<span />\n\t\t\t\t[62400]<span />\n\t\t\t\t\tPersonal\n\t\t\t\t[62402]<span />\n\t\t\t\t\tFriends\n\t\t\t[62404]<span />\n\t\t\t\tHey Alex, my friend can't make it to the game this Sunday. Want his ticket? Section 108, Row 12. Face value $85.\n\t\t[62407]<span />\n\t\t\tFeb 14\n\t[62422]<div />\n\t\t[60924]<input type=checkbox checked=false />\n\t\t[62423]<button />\n\t\t[62425]<button />\n\t\t[62427]<span />\n\t\t\tDavid Kim\n\t\t[62429]<div />\n\t\t\t[62430]<span />\n\t\t\t\tTax Season Reminder: Documents Needed\n\t\t\t[62432]<span />\n\t\t\t\t[62433]<span />\n\t\t\t\t\tFinance\n\t\t\t\t[62435]<span />\n\t\t\t\t\tAction Required\n\t\t\t[62437]<span />\n\t\t\t\tFriendly reminder: we need your W-2 and 1099 forms by March 1st to prepare your 2025 tax return on time.\n\t\t[62440]<span />\n\t\t\tFeb 14\n\t[62455]<div />\n\t\t[60925]<input type=checkbox checked=false />\n\t\t[62456]<button />\n\t\t[62458]<button />\n\t\t[62460]<span />\n\t\t\tMaya Patel\n\t\t[62462]<div />\n\t\t\t[62463]<span />\n\t\t\t\tPerformance Review Self-Assessment Due\n\t\t\t[62465]<span />\n\t\t\t\t[62466]<span />\n\t\t\t\t\tWork\n\t\t\t\t[62468]<span />\n\t\t\t\t\tHR\n\t\t\t\t[62470]<span />\n\t\t\t\t\tAction Required\n\t\t\t[62472]<span />\n\t\t\t\tReminder: please submit your self-assessment by end of day Friday. Template link in the HR portal.\n\t\t[62475]<span />\n\t\t\tFeb 14\n\t[62490]<div />\n\t\t[60926]<input type=checkbox checked=false />\n\t\t[62491]<button />\n\t\t\t[62492]<span />\n\t\t[62494]<button />\n\t\t[62496]<span />\n\t\t\tSarah Chen\n\t\t[62498]<div />\n\t\t\t[62499]<span />\n\t\t\t\tURGENT: Production database issue\n\t\t\t[62501]<span />\n\t\t\t\t[62502]<span />\n\t\t\t\t\tWork\n\t\t\t\t[62504]<span />\n\t\t\t\t\tAction Required\n\t\t\t[62506]<span />\n\t\t\t\tDatabase connections maxing out. Need immediate attention. I'm pulling in the on-call team.\n\t\t[62509]<span />\n\t\t\tFeb 14\n\t[62524]<div />\n\t\t[60927]<input type=checkbox checked=false />\n\t\t[62525]<button />\n\t\t[62527]<button />\n\t\t[62529]<span />\n\t\t\tPriya Sharma\n\t\t[62531]<div />\n\t\t\t[62532]<span />\n\t\t\t\tSprint Retro Action Items\n\t\t\t[62534]<span />\n\t\t\t\t[62535]<span />\n\t\t\t\t\tWork\n\t\t\t\t[62537]<span />\n\t\t\t\t\tProjects\n\t\t\t[62539]<span />\n\t\t\t\tFrom our retro: 1) Improve code review turnaround, 2) Set up automated E2E tests, 3) Reduce meeting overhead. Owners assigned.\n\t\t[62542]<span />\n\t\t\tFeb 13\n\t[62557]<div />\n\t\t[60928]<input type=checkbox checked=false />\n\t\t[62558]<button />\n\t\t[62560]<button />\n\t\t[62562]<span />\n\t\t\tDaniel Thompson\n\t\t[62564]<div />\n\t\t\t[62565]<span />\n\t\t\t\tPermit Application Status\n\t\t\t[62567]<span />\n\t\t\t\tGood news - the city approved our renovation permit. Construction can begin March 10th.\n\t\t[62570]<span />\n\t\t\tFeb 13\n\t[62585]<div />\n\t\t[60929]<input type=checkbox checked=false />\n\t\t[62586]<button />\n\t\t[62588]<button />\n\t\t[62590]<span />\n\t\t\tEmily Rodriguez\n\t\t[62592]<div />\n\t\t\t[62593]<span />\n\t\t\t\tVC Meetup Next Thursday\n\t\t\t[62595]<span />\n\t\t\t\t[62596]<span />\n\t\t\t\t\tPersonal\n\t\t\t[62598]<span />\n\t\t\t\tThere's a VC networking event at The Grand Hotel on Feb 20th, 6-9pm. Great opportunity to meet Series A/B investors. Want to go?\n\t\t[62601]<span />\n\t\t\tFeb 13\n\t[62616]<div />\n\t\t[60930]<input type=checkbox checked=false />\n\t\t[62617]<button />\n\t\t\t[62618]<span />\n\t\t[62620]<button />\n\t\t[62622]<span />\n\t\t\tKevin Zhao\n\t\t[62624]<div />\n\t\t\t[62625]<span />\n\t\t\t\tInteresting paper on LLM optimization\n\t\t\t[62627]<span />\n\t\t\t\t[62628]<span />\n\t\t\t\t\tEducation\n\t\t\t\t[62630]<span />\n\t\t\t\t\tReference\n\t\t\t[62632]<span />\n\t\t\t\tFound this paper on efficient LLM inference. The pruning technique is fascinating.\n\t\t[62635]<span />\n\t\t\tFeb 12\n\t[62650]<div />\n\t\t[60931]<input type=checkbox checked=false />\n\t\t[62651]<button />\n\t\t[62653]<button />\n\t\t[62655]<span />\n\t\t\tJames O'Brien\n\t\t[62657]<div />\n\t\t\t[62658]<span />\n\t\t\t\tAnnual Retainer Renewal\n\t\t\t[62660]<span />\n\t\t\t\t[62661]<span />\n\t\t\t\t\tFinance\n\t\t\t[62663]<span />\n\t\t\t\tAlex, our retainer agreement is up for renewal in March. Let's schedule a call to discuss terms.\n\t\t[62666]<span />\n\t\t\tJan 28\n\t[62681]<div />\n\t\t[60932]<input type=checkbox checked=false />\n\t\t[62682]<button />\n\t\t[62684]<button />\n\t\t[62686]<span />\n\t\t\tOmar Al-Rashid\n\t\t[62688]<div />\n\t\t\t[62689]<span />\n\t\t\t\tDigital Transformation Assessment\n\t\t\t[62691]<span />\n\t\t\t\t[62692]<span />\n\t\t\t\t\tWork\n\t\t\t\t[62694]<span />\n\t\t\t\t\tReference\n\t\t\t[62696]<span />\n\t\t\t\tAttached is our initial assessment of your digital transformation readiness. Executive summary on page 3.\n\t\t[62699]<span title=Has attachment />\n\t\t\t[62700]<svg /> <!-- SVG content collapsed -->\n\t\t[62702]<span />\n\t\t\tJan 25\n\t[62717]<div />\n\t\t[60933]<input type=checkbox checked=false />\n\t\t[62718]<button />\n\t\t[62720]<button />\n\t\t[62722]<span />\n\t\t\tMorning Brew\n\t\t[62724]<div />\n\t\t\t[62725]<span />\n\t\t\t\tDaily Brew: Tech IPOs heat up\n\t\t\t[62727]<span />\n\t\t\t\t[62728]<span />\n\t\t\t\t\tNewsletters\n\t\t\t[62730]<span />\n\t\t\t\tThree tech companies filed S-1s this week. The IPO market is back in full swing.\n\t\t[62733]<span />\n\t\t\tJan 24\n\t[62748]<div />\n\t\t[60934]<input type=checkbox checked=false />\n\t\t[62749]<button />\n\t\t[62751]<button />\n\t\t[62753]<span />\n\t\t\tRachel Foster\n\t\t[62755]<div />\n\t\t\t[62756]<span />\n\t\t\t\tVolunteer Appreciation Dinner\n\t\t\t[62758]<span />\n\t\t\t\t[62759]<span />\n\t\t\t\t\tPersonal\n\t\t\t[62761]<span />\n\t\t\t\tYou're invited to our annual volunteer appreciation dinner on Feb 8th. RSVP by Jan 31.\n\t\t[62764]<span />\n\t\t\tJan 20\n\t[62779]<div />\n\t\t[60935]<input type=checkbox checked=false />\n\t\t[62780]<button />\n\t\t\t[62781]<span />\n\t\t[62783]<button />\n\t\t[62785]<span />\n\t\t\tDavid Kim\n\t\t[62787]<div />\n\t\t\t[62788]<span />\n\t\t\t\tYear-End Financial Summary 2025\n\t\t\t[62790]<span />\n\t\t\t\t[62791]<span />\n\t\t\t\t\tFinance\n\t\t\t\t[62793]<span />\n\t\t\t\t\tReference\n\t\t\t[62795]<span />\n\t\t\t\tAttached: your 2025 financial summary with investment returns, tax estimates, and 2026 planning recommendations.\n\t\t[62798]<span title=Has attachment />\n\t\t\t[62799]<svg /> <!-- SVG content collapsed -->\n\t\t[62801]<span />\n\t\t\tJan 18\n\t[62816]<div />\n\t\t[60936]<input type=checkbox checked=false />\n\t\t[62817]<button />\n\t\t[62819]<button />\n\t\t[62821]<span />\n\t\t\tLisa Nakamura\n\t\t[62823]<div />\n\t\t\t[62824]<span />\n\t\t\t\tPortfolio Website Mockups\n\t\t\t[62826]<span />\n\t\t\t\t[62827]<span />\n\t\t\t\t\tPersonal\n\t\t\t[62829]<span />\n\t\t\t\tThree mockup options for your personal portfolio site. Modern, minimal, or creative direction?\n\t\t[62832]<span title=Has attachment />\n\t\t\t[62833]<svg /> <!-- SVG content collapsed -->\n\t\t[62835]<span />\n\t\t\tJan 17\n\t[62850]<div />\n\t\t[60937]<input type=checkbox checked=false />\n\t\t[62851]<button />\n\t\t[62853]<button />\n\t\t[62855]<span />\n\t\t\tHannah Brooks\n\t\t[62857]<div />\n\t\t\t[62858]<span />\n\t\t\t\tFebruary Fitness Challenge\n\t\t\t[62860]<span />\n\t\t\t\t[62861]<span />\n\t\t\t\t\tHealth\n\t\t\t[62863]<span />\n\t\t\t\tJoin our 28-day fitness challenge! Daily workouts, nutrition tips, and weekly check-ins. Starts Feb 1.\n\t\t[62866]<span />\n\t\t\tJan 15\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully navigated to the Spam folder. Verdict: Success",
+        "memory": "I am in the Spam folder and have identified the 'Delete all spam messages' button. There are 5 messages currently in spam.",
+        "next_goal": "Click the 'Delete all spam messages' button to empty the folder.",
+        "action": [
+          {
+            "click": {
+              "index": 63169
+            }
+          }
+        ],
+        "thinking": "I have successfully navigated to the Spam folder. I see a 'Delete all spam messages' button (index 63169). Clicking this button should fulfill the user request to empty the spam folder. I will update the plan to reflect that I am now performing the deletion.",
+        "current_plan_item": 2,
+        "plan_update": [
+          "Navigate to the Spam folder",
+          "Select all messages in the Spam folder",
+          "Click the button to delete all spam messages permanently",
+          "Confirm the deletion if prompted"
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"Delete all spam messages\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 446.3984375,
+            "click_y": 87.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://localhost:9001/#/spam",
+            "title": "Gmail",
+            "target_id": "96E9",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_069a001b-8b2f-7294-8000-fbe2cf24e137_1772093880/screenshots/step_2.png",
+        "interacted_element": [
+          {
+            "node_id": 76239,
+            "backend_node_id": 63169,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "btn btn-text",
+              "data-action": "empty-spam",
+              "data-testid": "empty-spam-btn",
+              "style": "font-size:13px"
+            },
+            "x_path": "html/body/main/div[1]/div[1]/button[2]",
+            "element_hash": 419894110315312052,
+            "stable_hash": 11949109156383781807,
+            "bounds": {
+              "x": 354.0,
+              "y": 70.5,
+              "width": 184.796875,
+              "height": 34.0
+            },
+            "ax_name": "Delete all spam messages"
+          }
+        ],
+        "url": "http://localhost:9001/#/spam",
+        "title": "Gmail"
+      },
+      "metadata": {
+        "step_start_time": 1772093894.8374496,
+        "step_end_time": 1772093913.366468,
+        "step_number": 2,
+        "step_interval": 11.84870195388794
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://localhost:9001\n<step>\nThe agent was initialized and navigated to the home page. Verdict: Success\nI am on the main page of the mail application. I need to empty the spam folder. I have identified the Spam folder in the sidebar.\nClick on the 'Spam' folder in the sidebar to view spam messages.\nResult\nClicked div \"Spam\n5\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://localhost:9001. Your task: Empty the spam folder.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Navigate to the Spam folder\n[ ] 1: Select all messages in the Spam folder\n[ ] 2: Click the button to delete all spam messages permanently\n[ ] 3: Confirm the deletion if prompted\n</plan>\n<step_info>Step2 maximum:500\nToday:2026-02-26</step_info>\n</agent_state>\n<browser_state>\n<page_stats>0 links, 169 interactive, 0 iframes, 1 shadow(open), 0 shadow(closed), 261 total elements</page_stats>\nCurrent tab: 96E9\nAvailable tabs:\nTab 96E9: http://localhost:9001/#/spam - Gmail\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n[60950]<button id=menuToggle aria-label=Main menu />\n<svg /> <!-- SVG content collapsed -->\nGmail\n[60992]<div id=searchBar />\n\t[60994]<button aria-label=Search />\n\t|SHADOW(open)|[60888]<input type=text id=searchInput placeholder=Search mail autocomplete=off />\n\t[60951]<button id=searchOptionsBtn aria-label=Show search options />\n[61010]<button id=settingsBtn aria-label=Settings />\n[61016]<div id=userAvatar />\n\t[61018]<span id=userInitials />\n\t\tAJ\n|scroll element|<nav id=sidebar /> (0.0 pages above, 0.1 pages below)\n\t[61030]<button id=composeBtn />\n\t\tCompose\n\t*[63040]<div />\n\t\t*[63041]<span />\n\t\t\t*[63042]<svg /> <!-- SVG content collapsed -->\n\t\t*[63044]<span />\n\t\t\tInbox\n\t\t*[63045]<span />\n\t\t\t19\n\t*[63046]<div />\n\t\t*[63047]<span />\n\t\t\t*[63048]<svg /> <!-- SVG content collapsed -->\n\t\t*[63050]<span />\n\t\t\tStarred\n\t*[63051]<div />\n\t\t*[63052]<span />\n\t\t\t*[63053]<svg /> <!-- SVG content collapsed -->\n\t\t*[63055]<span />\n\t\t\tSnoozed\n\t*[63056]<div />\n\t\t*[63057]<span />\n\t\t\t*[63058]<svg /> <!-- SVG content collapsed -->\n\t\t*[63060]<span />\n\t\t\tSent\n\t*[63061]<div />\n\t\t*[63062]<span />\n\t\t\t*[63063]<svg /> <!-- SVG content collapsed -->\n\t\t*[63065]<span />\n\t\t\tDrafts\n\t\t*[63066]<span />\n\t*[63067]<div />\n\t\t*[63068]<span />\n\t\t\t*[63069]<svg /> <!-- SVG content collapsed -->\n\t\t*[63071]<span />\n\t\t\tImportant\n\t*[63072]<div />\n\t\t*[63073]<span />\n\t\t\t*[63074]<svg /> <!-- SVG content collapsed -->\n\t\t*[63076]<span />\n\t\t\tAll Mail\n\t*[63077]<div />\n\t\t*[63078]<span />\n\t\t\t*[63079]<svg /> <!-- SVG content collapsed -->\n\t\t*[63081]<span />\n\t\t\tSpam\n\t\t*[63082]<span />\n\t*[63083]<div />\n\t\t*[63084]<span />\n\t\t\t*[63085]<svg /> <!-- SVG content collapsed -->\n\t\t*[63087]<span />\n\t\t\tTrash\n\tLabels\n\t*[63091]<button />\n\t*[63092]<div />\n\t\t*[63093]<span />\n\t\t*[63094]<span />\n\t\t\tWork\n\t\t*[63095]<span />\n\t\t\t12\n\t*[63096]<div />\n\t\t*[63097]<span />\n\t\t*[63098]<span />\n\t\t\tProjects\n\t\t*[63099]<span />\n\t*[63100]<div />\n\t\t*[63101]<span />\n\t\t*[63102]<span />\n\t\t\tMeetings\n\t\t*[63103]<span />\n\t*[63104]<div />\n\t\t*[63105]<span />\n\t\t*[63106]<span />\n\t\t\tClients\n\t\t*[63107]<span />\n\t*[63108]<div />\n\t\t*[63109]<span />\n\t\t*[63110]<span />\n\t\t\tHR\n\t*[63111]<div />\n\t\t*[63112]<span />\n\t\t*[63113]<span />\n\t\t\tPersonal\n\t*[63114]<div />\n\t\t*[63115]<span />\n\t\t*[63116]<span />\n\t\t\tFamily\n\t*[63117]<div />\n\t\t*[63118]<span />\n\t\t*[63119]<span />\n\t\t\tFriends\n\t*[63120]<div />\n\t\t*[63121]<span />\n\t\t*[63122]<span />\n\t\t\tFinance\n\t*[63123]<div />\n\t\t*[63124]<span />\n\t\t*[63125]<span />\n\t\t\tInvoices\n\t*[63126]<div />\n\t\t*[63127]<span />\n\t\t*[63128]<span />\n\t\t\tBanking\n\t*[63129]<div />\n\t\t*[63130]<span />\n\t\t*[63131]<span />\n\t\t\tTravel\n\t\t*[63132]<span />\n\t*[63133]<div />\n\t\t*[63134]<span />\n\t\t*[63135]<span />\n\t\t\tReceipts\n\t*[63136]<div />\n\t\t*[63137]<span />\n\t\t*[63138]<span />\n\t\t\tNewsletters\n\t\t*[63139]<span />\n\t*[63140]<div />\n\t\t*[63141]<span />\n\t\t*[63142]<span />\n\t\t\tHealth\n\t*[63143]<div />\n\t\t*[63144]<span />\n\t\t*[63145]<span />\n\t\t\tEducation\n\t*[63146]<div />\n\t\t*[63147]<span />\n\t\t*[63148]<span />\n\t\t\tAction Required\n\t\t*[63149]<span />\n\t*[63150]<div />\n\t\t*[63151]<span />\n\t\t*[63152]<span />\n\t\t\tWaiting For Reply\n\t\t*[63153]<span />\n\t*[63154]<div />\n\t\t*[63155]<span />\n\t\t*[63156]<span />\n\t\t\tReference\n\t*[63157]<div />\n\t\t*[63158]<span />\n\t\t\t*[63159]<svg /> <!-- SVG content collapsed -->\n\t\t*[63161]<span />\n\t\t\tCreate new label\n*[63163]<div />\n\t*[63164]<input type=checkbox id=selectAllCheckbox checked=false />\n\t*[63165]<button />\n*[63166]<button title=Refresh />\n*[63169]<button />\n\tDelete all spam messages\n*[63171]<span />\n\t1-5 of 5\n*[63180]<div />\n\t*[63181]<input type=checkbox checked=false />\n\t*[63182]<button />\n\t*[63183]<button />\n\t*[63184]<span />\n\t\tCrypto Gains\n\t*[63185]<div />\n\t\t*[63186]<span />\n\t\t\tTurn $100 into $100,000 with this coin!\n\t\t*[63187]<span />\n\t\t\tThe next Bitcoin is here. Invest now before it's too late. Guaranteed 1000x returns.\n\t*[63188]<span />\n\t\tSun\n*[63202]<div />\n\t*[63203]<input type=checkbox checked=false />\n\t*[63204]<button />\n\t*[63205]<button />\n\t*[63206]<span />\n\t\tWeight Loss Miracle\n\t*[63207]<div />\n\t\t*[63208]<span />\n\t\t\tLose 30 pounds in 30 days!\n\t\t*[63209]<span />\n\t\t\tRevolutionary new supplement burns fat while you sleep. No exercise needed!\n\t*[63210]<span />\n\t\tSat\n*[63224]<div />\n\t*[63225]<input type=checkbox checked=false />\n\t*[63226]<button />\n\t*[63227]<button />\n\t*[63228]<span />\n\t\tLottery Winner\n\t*[63229]<div />\n\t\t*[63230]<span />\n\t\t\tYour email won the EU Lottery!\n\t\t*[63231]<span />\n\t\t\tYour email address was selected in our annual draw. You've won EUR 750,000.\n\t*[63232]<span />\n\t\tFri\n*[63246]<div />\n\t*[63247]<input type=checkbox checked=false />\n\t*[63248]<button />\n\t*[63249]<button />\n\t*[63250]<span />\n\t\tAccount Alert\n\t*[63251]<div />\n\t\t*[63252]<span />\n\t\t\tUrgent: Verify your account now\n\t\t*[63253]<span />\n\t\t\tYour Bank of America account has been suspended. Click here to verify your identity.\n\t*[63254]<span />\n\t\tFeb 19\n*[63268]<div />\n\t*[63269]<input type=checkbox checked=false />\n\t*[63270]<button />\n\t*[63271]<button />\n\t*[63272]<span />\n\t\tFree Gift Cards\n\t*[63273]<div />\n\t\t*[63274]<span />\n\t\t\tClaim your $500 Amazon Gift Card\n\t\t*[63275]<span />\n\t\t\tYou've been selected to receive a $500 Amazon Gift Card. Complete a short survey to claim.\n\t*[63276]<span />\n\t\tFeb 18\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "The 'Delete all spam messages' button was clicked, and a confirmation modal appeared as expected. Verdict: Success",
+        "memory": "I am currently confirming the deletion of all spam messages. The confirmation modal is visible with a button 'Empty Spam now'.",
+        "next_goal": "Click the 'Empty Spam now' button to confirm and complete the task.",
+        "action": [
+          {
+            "click": {
+              "index": 63383
+            }
+          }
+        ],
+        "thinking": "After clicking 'Delete all spam messages', a confirmation dialog appeared. I need to click the 'Empty Spam now' button to finalize the process of emptying the spam folder. This aligns with step 3 of my plan.",
+        "current_plan_item": 3,
+        "plan_update": [
+          "Navigate to the Spam folder",
+          "Click 'Delete all spam messages'",
+          "Confirm the deletion in the modal"
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"Empty Spam now\" id=confirmActionBtn",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1144.2890625,
+            "click_y": 599.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://localhost:9001/#/spam",
+            "title": "Gmail",
+            "target_id": "96E9",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_069a001b-8b2f-7294-8000-fbe2cf24e137_1772093880/screenshots/step_3.png",
+        "interacted_element": [
+          {
+            "node_id": 76954,
+            "backend_node_id": 63383,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "btn btn-danger",
+              "id": "confirmActionBtn"
+            },
+            "x_path": "html/body/div[2]/div/div[3]/button[2]",
+            "element_hash": 2103253798006374616,
+            "stable_hash": 2103253798006374616,
+            "bounds": {
+              "x": 1061.359375,
+              "y": 581.0,
+              "width": 165.859375,
+              "height": 37.0
+            },
+            "ax_name": "Empty Spam now"
+          }
+        ],
+        "url": "http://localhost:9001/#/spam",
+        "title": "Gmail"
+      },
+      "metadata": {
+        "step_start_time": 1772093913.368389,
+        "step_end_time": 1772093919.1116471,
+        "step_number": 3,
+        "step_interval": 18.52901840209961
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://localhost:9001\n<step>\nThe agent was initialized and navigated to the home page. Verdict: Success\nI am on the main page of the mail application. I need to empty the spam folder. I have identified the Spam folder in the sidebar.\nClick on the 'Spam' folder in the sidebar to view spam messages.\nResult\nClicked div \"Spam\n5\"\n<step>\nSuccessfully navigated to the Spam folder. Verdict: Success\nI am in the Spam folder and have identified the 'Delete all spam messages' button. There are 5 messages currently in spam.\nClick the 'Delete all spam messages' button to empty the folder.\nResult\nClicked button \"Delete all spam messages\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://localhost:9001. Your task: Empty the spam folder.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Navigate to the Spam folder\n[ ] 1: Select all messages in the Spam folder\n[ ] 2: Click the button to delete all spam messages permanently\n[ ] 3: Confirm the deletion if prompted\n</plan>\n<step_info>Step3 maximum:500\nToday:2026-02-26</step_info>\n</agent_state>\n<browser_state>\n<page_stats>0 links, 9 interactive, 0 iframes, 1 shadow(open), 0 shadow(closed), 280 total elements</page_stats>\nCurrent tab: 96E9\nAvailable tabs:\nTab 96E9: http://localhost:9001/#/spam - Gmail\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n<svg /> <!-- SVG content collapsed -->\nGmail\nAJ\n|scroll element|<nav id=sidebar /> (0.0 pages above, 0.1 pages below)\n\tCompose\n\t<svg /> <!-- SVG content collapsed -->\n\tInbox\n\t19\n\t<svg /> <!-- SVG content collapsed -->\n\tStarred\n\t<svg /> <!-- SVG content collapsed -->\n\tSnoozed\n\t<svg /> <!-- SVG content collapsed -->\n\tSent\n\t<svg /> <!-- SVG content collapsed -->\n\tDrafts\n\t<svg /> <!-- SVG content collapsed -->\n\tImportant\n\t<svg /> <!-- SVG content collapsed -->\n\tAll Mail\n\t<svg /> <!-- SVG content collapsed -->\n\tSpam\n\t<svg /> <!-- SVG content collapsed -->\n\tTrash\n\tLabels\n\tWork\n\t12\n\tProjects\n\tMeetings\n\tClients\n\tHR\n\tPersonal\n\tFamily\n\tFriends\n\tFinance\n\tInvoices\n\tBanking\n\tTravel\n\tReceipts\n\tNewsletters\n\tHealth\n\tEducation\n\tAction Required\n\tWaiting For Reply\n\t[63154]<div />\n\t\t[63156]<span />\n\t\t\tReference\n\t[63157]<div />\n\t\t[63158]<span />\n\t\t\t[63159]<svg /> <!-- SVG content collapsed -->\n\t\t[63161]<span />\n\t\t\tCreate new label\nDelete all spam messages\n1-5 of 5\nCrypto Gains\nTurn $100 into $100,000 with this coin!\nThe next Bitcoin is here. Invest now before it's too late. Guaranteed 1000x returns.\nSun\nWeight Loss Miracle\nLose 30 pounds in 30 days!\nRevolutionary new supplement burns fat while you sleep. No exercise needed!\nSat\nLottery Winner\nYour email won the EU Lottery!\nYour email address was selected in our annual draw. You've won EUR 750,000.\nFri\nAccount Alert\nUrgent: Verify your account now\nYour Bank of America account has been suspended. Click here to verify your identity.\nFeb 19\nFree Gift Cards\nClaim your $500 Amazon Gift Card\nYou've been selected to receive a $500 Amazon Gift Card. Complete a short survey to claim.\nFeb 18\nEmpty Spam\n*[62975]<button />\nAll messages in Spam will be permanently deleted. This action cannot be undone.\n*[63381]<button />\n\tCancel\n*[63383]<button id=confirmActionBtn />\n\tEmpty Spam now\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "The 'Empty Spam now' button was clicked and the spam folder is now empty. Verdict: Success",
+        "memory": "The spam folder has been emptied. I confirmed the deletion in the modal and verified the 'Hooray, no spam here!' message is displayed.",
+        "next_goal": "Task is complete. I will call the done action.",
+        "action": [
+          {
+            "done": {
+              "text": "The spam folder has been successfully emptied. I navigated to the Spam folder, clicked 'Delete all spam messages', and confirmed the action. The folder now displays 'Hooray, no spam here!'.",
+              "success": true,
+              "files_to_display": []
+            }
+          }
+        ],
+        "thinking": "I have successfully navigated to the Spam folder, initiated the deletion of all spam messages, and confirmed the action in the modal. The current browser state shows 'Hooray, no spam here!' and a confirmation message 'Spam has been emptied'. The spam folder count in the sidebar has also disappeared, indicating it is empty. The task is complete.",
+        "current_plan_item": 2,
+        "plan_update": [
+          "Navigate to the Spam folder",
+          "Click 'Delete all spam messages'",
+          "Confirm the deletion in the modal"
+        ]
+      },
+      "result": [
+        {
+          "is_done": true,
+          "success": true,
+          "judgement": {
+            "reasoning": "The agent successfully completed the task of emptying the spam folder. It followed a logical sequence of actions: navigating to the web application, selecting the 'Spam' folder, clicking the 'Delete all spam messages' button, and confirming the action. The agent's final report confirms that the folder is now empty and displays the message 'Hooray, no spam here!', which indicates a successful outcome. All steps were executed efficiently without any errors or unnecessary actions.",
+            "verdict": true,
+            "failure_reason": "",
+            "impossible_task": false,
+            "reached_captcha": false
+          },
+          "attachments": [],
+          "long_term_memory": "Task completed: True - The spam folder has been successfully emptied. I navigated to the Spam folder, clicked 'Delete all s - 89 more characters",
+          "extracted_content": "The spam folder has been successfully emptied. I navigated to the Spam folder, clicked 'Delete all spam messages', and confirmed the action. The folder now displays 'Hooray, no spam here!'.",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://localhost:9001/#/spam",
+            "title": "Gmail",
+            "target_id": "96E9",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_069a001b-8b2f-7294-8000-fbe2cf24e137_1772093880/screenshots/step_4.png",
+        "interacted_element": [
+          null
+        ],
+        "url": "http://localhost:9001/#/spam",
+        "title": "Gmail"
+      },
+      "metadata": {
+        "step_start_time": 1772093919.11336,
+        "step_end_time": 1772093924.4399626,
+        "step_number": 4,
+        "step_interval": 5.743258237838745
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://localhost:9001\n<step>\nThe agent was initialized and navigated to the home page. Verdict: Success\nI am on the main page of the mail application. I need to empty the spam folder. I have identified the Spam folder in the sidebar.\nClick on the 'Spam' folder in the sidebar to view spam messages.\nResult\nClicked div \"Spam\n5\"\n<step>\nSuccessfully navigated to the Spam folder. Verdict: Success\nI am in the Spam folder and have identified the 'Delete all spam messages' button. There are 5 messages currently in spam.\nClick the 'Delete all spam messages' button to empty the folder.\nResult\nClicked button \"Delete all spam messages\"\n<step>\nThe 'Delete all spam messages' button was clicked, and a confirmation modal appeared as expected. Verdict: Success\nI am currently confirming the deletion of all spam messages. The confirmation modal is visible with a button 'Empty Spam now'.\nClick the 'Empty Spam now' button to confirm and complete the task.\nResult\nClicked button \"Empty Spam now\" id=confirmActionBtn\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://localhost:9001. Your task: Empty the spam folder.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Navigate to the Spam folder\n[ ] 1: Click 'Delete all spam messages'\n[ ] 2: Confirm the deletion in the modal\n</plan>\n<step_info>Step4 maximum:500\nToday:2026-02-26</step_info>\n</agent_state>\n<browser_state>\n<page_stats>0 links, 119 interactive, 0 iframes, 1 shadow(open), 0 shadow(closed), 207 total elements</page_stats>\nCurrent tab: 96E9\nAvailable tabs:\nTab 96E9: http://localhost:9001/#/spam - Gmail\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n*[60950]<button id=menuToggle aria-label=Main menu />\n<svg /> <!-- SVG content collapsed -->\nGmail\n*[60992]<div id=searchBar />\n\t*[60994]<button aria-label=Search />\n\t|SHADOW(open)|*[60888]<input type=text id=searchInput placeholder=Search mail autocomplete=off />\n\t*[60951]<button id=searchOptionsBtn aria-label=Show search options />\n*[61010]<button id=settingsBtn aria-label=Settings />\n*[61016]<div id=userAvatar />\n\t*[61018]<span id=userInitials />\n\t\tAJ\n|scroll element|<nav id=sidebar /> (0.0 pages above, 0.1 pages below)\n\t*[61030]<button id=composeBtn />\n\t\tCompose\n\t*[63395]<div />\n\t\t*[63396]<span />\n\t\t\t*[63397]<svg /> <!-- SVG content collapsed -->\n\t\t*[63399]<span />\n\t\t\tInbox\n\t\t*[63400]<span />\n\t\t\t19\n\t*[63401]<div />\n\t\t*[63402]<span />\n\t\t\t*[63403]<svg /> <!-- SVG content collapsed -->\n\t\t*[63405]<span />\n\t\t\tStarred\n\t*[63406]<div />\n\t\t*[63407]<span />\n\t\t\t*[63408]<svg /> <!-- SVG content collapsed -->\n\t\t*[63410]<span />\n\t\t\tSnoozed\n\t*[63411]<div />\n\t\t*[63412]<span />\n\t\t\t*[63413]<svg /> <!-- SVG content collapsed -->\n\t\t*[63415]<span />\n\t\t\tSent\n\t*[63416]<div />\n\t\t*[63417]<span />\n\t\t\t*[63418]<svg /> <!-- SVG content collapsed -->\n\t\t*[63420]<span />\n\t\t\tDrafts\n\t\t*[63421]<span />\n\t*[63422]<div />\n\t\t*[63423]<span />\n\t\t\t*[63424]<svg /> <!-- SVG content collapsed -->\n\t\t*[63426]<span />\n\t\t\tImportant\n\t*[63427]<div />\n\t\t*[63428]<span />\n\t\t\t*[63429]<svg /> <!-- SVG content collapsed -->\n\t\t*[63431]<span />\n\t\t\tAll Mail\n\t*[63432]<div />\n\t\t*[63433]<span />\n\t\t\t*[63434]<svg /> <!-- SVG content collapsed -->\n\t\t*[63436]<span />\n\t\t\tSpam\n\t*[63437]<div />\n\t\t*[63438]<span />\n\t\t\t*[63439]<svg /> <!-- SVG content collapsed -->\n\t\t*[63441]<span />\n\t\t\tTrash\n\tLabels\n\t*[63445]<button />\n\t*[63446]<div />\n\t\t*[63447]<span />\n\t\t*[63448]<span />\n\t\t\tWork\n\t\t*[63449]<span />\n\t\t\t12\n\t*[63450]<div />\n\t\t*[63451]<span />\n\t\t*[63452]<span />\n\t\t\tProjects\n\t\t*[63453]<span />\n\t*[63454]<div />\n\t\t*[63455]<span />\n\t\t*[63456]<span />\n\t\t\tMeetings\n\t\t*[63457]<span />\n\t*[63458]<div />\n\t\t*[63459]<span />\n\t\t*[63460]<span />\n\t\t\tClients\n\t\t*[63461]<span />\n\t*[63462]<div />\n\t\t*[63463]<span />\n\t\t*[63464]<span />\n\t\t\tHR\n\t*[63465]<div />\n\t\t*[63466]<span />\n\t\t*[63467]<span />\n\t\t\tPersonal\n\t*[63468]<div />\n\t\t*[63469]<span />\n\t\t*[63470]<span />\n\t\t\tFamily\n\t*[63471]<div />\n\t\t*[63472]<span />\n\t\t*[63473]<span />\n\t\t\tFriends\n\t*[63474]<div />\n\t\t*[63475]<span />\n\t\t*[63476]<span />\n\t\t\tFinance\n\t*[63477]<div />\n\t\t*[63478]<span />\n\t\t*[63479]<span />\n\t\t\tInvoices\n\t*[63480]<div />\n\t\t*[63481]<span />\n\t\t*[63482]<span />\n\t\t\tBanking\n\t*[63483]<div />\n\t\t*[63484]<span />\n\t\t*[63485]<span />\n\t\t\tTravel\n\t\t*[63486]<span />\n\t*[63487]<div />\n\t\t*[63488]<span />\n\t\t*[63489]<span />\n\t\t\tReceipts\n\t*[63490]<div />\n\t\t*[63491]<span />\n\t\t*[63492]<span />\n\t\t\tNewsletters\n\t\t*[63493]<span />\n\t*[63494]<div />\n\t\t*[63495]<span />\n\t\t*[63496]<span />\n\t\t\tHealth\n\t*[63497]<div />\n\t\t*[63498]<span />\n\t\t*[63499]<span />\n\t\t\tEducation\n\t*[63500]<div />\n\t\t*[63501]<span />\n\t\t*[63502]<span />\n\t\t\tAction Required\n\t\t*[63503]<span />\n\t*[63504]<div />\n\t\tWaiting For Reply\n\t*[63508]<div />\n\t\t*[63509]<span />\n\t\t*[63510]<span />\n\t\t\tReference\n\t*[63511]<div />\n\t\t*[63512]<span />\n\t\t\t*[63513]<svg /> <!-- SVG content collapsed -->\n\t\t*[63515]<span />\n\t\t\tCreate new label\n*[63517]<div />\n\t*[63518]<input type=checkbox id=selectAllCheckbox checked=false />\n\t*[63519]<button />\n*[63520]<button title=Refresh />\n*[63523]<button />\n\tDelete all spam messages\n<svg /> <!-- SVG content collapsed -->\nHooray, no spam here!\nSpam messages will be automatically deleted after 30 days.\nSpam has been emptied\n[End of page]\n</browser_state>\n"
+    }
+  ]
+}
