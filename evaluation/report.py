@@ -131,9 +131,26 @@ def generate_report(
 # ------------------------------------------------------------------
 
 
+def _find_task_dir(run_dir: Path, task_id: str) -> Path | None:
+    """Locate a task's result directory, supporting both flat and merged layouts."""
+    # Flat layout: run_dir/<task_id>/
+    candidate = run_dir / task_id
+    if candidate.exists():
+        return candidate
+    # Merged layout: run_dir/success/<task_id>/ or run_dir/fail/<task_id>/
+    for sub in ("success", "fail"):
+        candidate = run_dir / sub / task_id
+        if candidate.exists():
+            return candidate
+    return None
+
+
 def _build_details_html(run_dir: Path, r: dict) -> str:
     """Parse history.json and build expandable step-by-step HTML."""
-    history_file = run_dir / r["task_id"] / "history.json"
+    task_dir = _find_task_dir(run_dir, r["task_id"])
+    if task_dir is None:
+        return ""
+    history_file = task_dir / "history.json"
     if not history_file.exists():
         return ""
 
@@ -186,7 +203,7 @@ def _build_details_html(run_dir: Path, r: dict) -> str:
             parts.append(f"<br><em>Result:</em> {'; '.join(result_strs)}")
 
         # Embed screenshot as base64 inline image
-        ss_file = run_dir / r["task_id"] / "screenshots" / f"step_{i}.png"
+        ss_file = task_dir / "screenshots" / f"step_{i}.png"
         if ss_file.exists():
             b64 = base64.b64encode(ss_file.read_bytes()).decode()
             parts.append(
