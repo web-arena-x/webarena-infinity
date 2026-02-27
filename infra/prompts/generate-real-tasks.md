@@ -1,1 +1,1 @@
-Follow `docs/real-task-design-guide.md` to create 60 tasks (20 each difficulty level) for `apps/{app-name}`and follow `docs/verifier-sanity-check.md` to create sanity checks.
+Follow `docs/real-task-design-guide.md` to create 60 tasks (20 each difficulty level) for `apps/{app-name}` and follow `docs/verifier-sanity-check.md` to create sanity checks.
