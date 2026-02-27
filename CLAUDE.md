@@ -22,13 +22,6 @@ python evaluation/run_eval_parallel.py --model gemini --workers 8 \
     --env-host ec2-host --base-port 8001 --web-app apps/linear-account-settings
 ```
 
-### Docker
-
-```bash
-docker compose up                    # 4 gitlab + 4 linear instances
-docker compose up --scale gitlab=20  # scale up
-```
-
 ### Running an App Server Directly
 
 Servers use `SimpleHTTPRequestHandler` and serve files relative to CWD, so you must `cd` into the app directory first:
