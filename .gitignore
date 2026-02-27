@@ -12,11 +12,9 @@ wheels/
 # Environment variables
 .env
 
-# Run results (only ignore top-level evaluation results, not per-app results)
+# Run results (git add -f to promote specific results worth keeping)
+**/results/
 /evaluation/results/
-
-# HTML reports (large, regenerable via: python evaluation/regenerate_report.py <run_dir>)
-**/results/**/report.html
 .notes.md
 
 # Infra worker logs and temp files
