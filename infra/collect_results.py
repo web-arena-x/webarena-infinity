@@ -21,9 +21,11 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-sys.path.insert(0, os.path.dirname(__file__))
-
-from config import APPS_DIR, BRANCH_PREFIX, GIT_REMOTE, REPO_DIR
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_DIR = str(SCRIPT_DIR.parent)
+APPS_DIR = str(SCRIPT_DIR.parent / "apps")
+GIT_REMOTE = "origin"
+BRANCH_PREFIX = ""
 
 logging.basicConfig(
     level=logging.INFO,

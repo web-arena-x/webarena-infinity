@@ -39,20 +39,26 @@ cd apps/gmail && python3 server.py --port 8000
 
 ### AWS Pipeline
 
+Each environment runs as a self-contained pipeline on one EC2 instance (no SQS, no cross-machine coordination).
+
 ```bash
-# Launch infrastructure
-bash infra/setup/vpc_and_sg.sh
-bash infra/setup/seed_branches.sh
-bash infra/setup/launch_pipeline.sh 5
+# Launch one EC2 instance per environment in manifest
+bash infra/setup/launch.sh --manifest infra/env_manifest.jsonl --model gemini
 
-# Seed jobs
-python infra/orchestrator.py --seed-only --manifest infra/env_manifest.jsonl
+# SSH into each instance, then:
+#   claude login
+#   claude plugins install frontend-design
+#   nohup python infra/pipeline.py --app-name <env_id> --docs-path <docs> \
+#     --model gemini --workers 8 --push > /tmp/mirror-mirror-logs/pipeline.log 2>&1 &
 
-# On env generator EC2
-python infra/env_worker.py
+# Monitor progress
+bash infra/setup/monitor.sh
 
-# On agent tester EC2
-python infra/agent_worker.py
+# Collect results from all branches
+python infra/collect_results.py
+
+# Tear down
+bash infra/setup/teardown.sh --release-eips
 ```
 
 ### Package Management
@@ -63,13 +69,20 @@ Uses `uv` (not pip). Python >=3.12 required. The single dependency is `browser-u
 
 ### Pipeline Data Flow
 
+Each environment runs independently on one EC2 instance via `infra/pipeline.py`:
+
 ```
-orchestrator.py → GENERATE_QUEUE (SQS) → env_worker.py
-    generates app with Claude Code → sanity check → commit to env branch
-    → EVAL_QUEUE → agent_worker.py
-        runs browser agents → results.json + report.html → EVAL_DONE_QUEUE
-    → env_worker.py audits results → revises app (up to 3 iterations)
-    → PIPELINE_DONE_QUEUE → orchestrator.py monitors completion
+pipeline.py (one instance per environment)
+├─ Phase 1: Generate App (Claude CLI)
+│   └─ Writes app code + APP_DESCRIPTION.md
+├─ Phase 2: Function Tasks (up to 5 iterations)
+│   ├─ Generate function tasks (Claude CLI, once)
+│   ├─ Run sanity check
+│   └─ Loop: eval → audit failures → re-sanity-check → commit
+└─ Phase 3: Real Tasks (up to 5 iterations)
+    ├─ Generate real tasks (Claude CLI, once)
+    ├─ Run sanity check
+    └─ Loop: eval → audit failures → re-sanity-check → commit
 ```
 
 ### Environment Protocol (every app must follow)
@@ -110,11 +123,12 @@ Each `tasks/task_*.py` exports `verify(server_url: str) -> tuple[bool, str]`. Ve
 - Form validation with required fields and conditional requirements
 - Every value checked by a verifier must be achievable through the UI
 
-### Infrastructure Parallelism
+### Infrastructure
 
-- **Env generators:** 5 parallel workers per EC2 instance, each in a separate git worktree with isolated port range (worker 0: ports 8001-8008, worker 1: 8009-8016, etc.)
-- **File-based git locking** (`_git_lock`) prevents concurrent worktree operations
-- **tmux-based Claude invocation** — required because `claude --print` needs a PTY to produce stdout; workers run inside tmux sessions for both PTY and live observability (`tmux attach -t claude-W0`)
+- **One instance per environment** — each EC2 runs `pipeline.py` independently (m5.4xlarge, 16 vCPU, 64GB)
+- **Elastic IPs** — stable across stop/start for persistent `claude login` sessions
+- **Branch per environment** — commits at each checkpoint, push at end for results collection
+- **`.claudeignore`** — generated locally (not committed) to hide other apps from Claude context
 
 ### Reference Apps
 
@@ -156,3 +170,10 @@ When delegating large JS files to separate background agents:
 - `start_server()` auto-kills zombie processes on the target port before launching (`kill_port()` in `evaluation/server.py`)
 - `agent.setup()` polls for seed state (up to 10s) rather than using a fixed sleep, handling slow browser startups under parallel load
 - `GET /api/state` returns 404 until a browser PUTs state — this is by design, not a bug
+
+### Results Management
+
+- All `**/results/` directories are gitignored by default to keep diffs clean
+- To promote a specific result for version control: `git add -f apps/<app>/results/<dir>/`
+- Already-committed results remain tracked (gitignore only affects untracked files)
+- Multi-run eval (`--repetitions N`) nests output under one parent dir: `run1/`, `run2/`, ..., `merged/` (with `success/` + `fail/`)
