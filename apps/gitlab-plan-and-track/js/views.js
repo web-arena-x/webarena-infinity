@@ -184,6 +184,7 @@ const Views = {
         html += '<div class="detail-actions">';
         html += '<button class="btn btn-outline" data-action="edit-issue" data-id="'+issue.id+'" data-testid="edit-issue-btn">Edit</button>';
         html += '<button class="btn '+(issue.status === 'open' ? 'btn-secondary' : 'btn-primary')+'" data-action="toggle-issue-status" data-id="'+issue.id+'" data-testid="toggle-status-btn">'+(issue.status === 'open' ? 'Close issue' : 'Reopen issue')+'</button>';
+        html += '<button class="btn btn-danger" data-action="delete-issue" data-id="'+issue.id+'" data-testid="delete-issue-btn">Delete</button>';
         html += '</div></div>';
 
         html += '<div class="detail-layout">';
@@ -469,7 +470,7 @@ const Views = {
         html += Components.textarea('epic-description', epic ? epic.description : '', 'Describe the epic...', 'Description');
         // Labels
         html += '<div class="form-group"><label class="form-label">Labels</label><div class="checkbox-grid">';
-        AppState.labels.filter(l => l.type === 'group').forEach(l => {
+        AppState.labels.forEach(l => {
             const checked = epic && epic.labels.includes(l.id);
             html += '<label class="checkbox-item"><input type="checkbox" name="epic-labels" value="'+l.id+'"'+(checked ? ' checked' : '')+'> '+Components.labelBadge(l)+'</label>';
         });
@@ -790,6 +791,10 @@ const Views = {
         Components.labelColors.forEach(c => {
             html += Components.colorSwatch(c, label && label.color === c);
         });
+        html += '</div>';
+        html += '<div style="margin-top:8px;display:flex;align-items:center;gap:8px">';
+        html += '<input type="text" id="custom-color-input" class="form-control" placeholder="#hex color" value="'+(label ? Components.escapeAttr(label.color) : '')+'" style="width:120px;font-family:monospace" data-testid="custom-color-input">';
+        html += '<button type="button" class="btn btn-outline btn-sm" data-action="apply-custom-color" data-testid="apply-custom-color-btn">Apply</button>';
         html += '</div>';
         html += '<div class="color-preview" id="colorPreview" style="margin-top:8px">';
         html += Components.labelBadge({ id: 'preview', title: label ? label.title : 'Preview', color: label ? label.color : '#6c757d', textColor: label ? label.textColor : '#fff', scoped: label ? label.scoped : false });

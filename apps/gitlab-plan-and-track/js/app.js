@@ -66,6 +66,8 @@ const App = {
         } else if (view === 'edit-label') {
             AppState.currentView = 'edit-label';
             AppState.currentItemId = id;
+            const editLabel = AppState.getLabelById(id);
+            if (editLabel) this._selectedLabelColor = editLabel.color;
         } else if (view === 'new-cadence') {
             AppState.currentView = 'new-cadence';
             AppState.currentItemId = null;
@@ -226,6 +228,26 @@ const App = {
             case 'save-label':
                 this._saveLabel();
                 break;
+            case 'apply-custom-color': {
+                const inp = document.getElementById('custom-color-input');
+                if (inp) {
+                    const hex = inp.value.trim();
+                    if (/^#[0-9a-fA-F]{6}$/.test(hex)) {
+                        this._selectedLabelColor = hex;
+                        document.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
+                        const preview = document.getElementById('colorPreview');
+                        if (preview) {
+                            const title = document.getElementById('label-title');
+                            const titleVal = title ? title.value : 'Preview';
+                            const isScoped = titleVal.includes('::');
+                            preview.innerHTML = Components.labelBadge({ id: 'preview', title: titleVal || 'Preview', color: hex, textColor: '#fff', scoped: isScoped });
+                        }
+                    } else {
+                        Components.showToast('Enter a valid hex color (e.g. #ff5733)');
+                    }
+                }
+                break;
+            }
             case 'edit-label':
                 this.navigate('edit-label/' + el.dataset.id);
                 break;
@@ -455,6 +477,8 @@ const App = {
     _handleColorSelect(el) {
         const color = el.dataset.color;
         this._selectedLabelColor = color;
+        const customInput = document.getElementById('custom-color-input');
+        if (customInput) customInput.value = color;
         // Update preview
         document.querySelectorAll('.color-swatch').forEach(s => s.classList.toggle('selected', s.dataset.color === color));
         const preview = document.getElementById('colorPreview');
