@@ -1,0 +1,277 @@
+[
+  {
+    "id": "task_1",
+    "instruction": "Create a new issue with the title 'Implement user profile badges' and set the weight to 5.",
+    "verify": "function-tasks/task_1.py"
+  },
+  {
+    "id": "task_2",
+    "instruction": "Create a new issue titled 'Add mobile dark mode toggle' with the description 'Allow users to toggle dark mode on mobile devices'. Assign it to Marcus Johnson and Priya Patel, add the label 'type::feature', and set the milestone to 'v4.3 - Mobile Optimization'.",
+    "verify": "function-tasks/task_2.py"
+  },
+  {
+    "id": "task_3",
+    "instruction": "Create a new confidential issue titled 'Security audit: XSS in comment parser' and add the labels 'security' and 'priority::critical'.",
+    "verify": "function-tasks/task_3.py"
+  },
+  {
+    "id": "task_4",
+    "instruction": "Edit the issue 'Migrate user settings page to React' and change its title to 'Migrate user settings page to React and TypeScript'.",
+    "verify": "function-tasks/task_4.py"
+  },
+  {
+    "id": "task_5",
+    "instruction": "Close the issue 'Dashboard widget layout breaks at 1440px viewport'.",
+    "verify": "function-tasks/task_5.py"
+  },
+  {
+    "id": "task_6",
+    "instruction": "Reopen the closed issue 'Fix SQL injection vulnerability in search endpoint'.",
+    "verify": "function-tasks/task_6.py"
+  },
+  {
+    "id": "task_7",
+    "instruction": "Delete the issue 'Markdown preview renders incorrectly with nested code blocks'.",
+    "verify": "function-tasks/task_7.py"
+  },
+  {
+    "id": "task_8",
+    "instruction": "Add David Kim as an assignee to the issue 'Login page shows blank screen on Safari 17.2'.",
+    "verify": "function-tasks/task_8.py"
+  },
+  {
+    "id": "task_9",
+    "instruction": "Remove Alex Thompson from the assignees of the issue 'Migrate user settings page to React'.",
+    "verify": "function-tasks/task_9.py"
+  },
+  {
+    "id": "task_10",
+    "instruction": "Assign Chen Wei to the issue 'Implement CSRF token rotation', which currently has no assignees.",
+    "verify": "function-tasks/task_10.py"
+  },
+  {
+    "id": "task_11",
+    "instruction": "Add the 'security' label to the issue 'File upload fails silently for files > 50MB'.",
+    "verify": "function-tasks/task_11.py"
+  },
+  {
+    "id": "task_12",
+    "instruction": "Remove the 'UX' label from the issue 'Add dark mode support for the entire application'.",
+    "verify": "function-tasks/task_12.py"
+  },
+  {
+    "id": "task_13",
+    "instruction": "On the issue 'Upgrade vulnerable dependencies identified in audit', change the priority label from 'priority::high' to 'priority::critical'.",
+    "verify": "function-tasks/task_13.py"
+  },
+  {
+    "id": "task_14",
+    "instruction": "Set the milestone to 'v4.2 - Security Hardening' on the issue 'File upload fails silently for files > 50MB'.",
+    "verify": "function-tasks/task_14.py"
+  },
+  {
+    "id": "task_15",
+    "instruction": "Remove the milestone from the issue 'Update project README with new setup instructions'.",
+    "verify": "function-tasks/task_15.py"
+  },
+  {
+    "id": "task_16",
+    "instruction": "Set the iteration to 'Sprint 27' on the issue 'Dashboard widget layout breaks at 1440px viewport'.",
+    "verify": "function-tasks/task_16.py"
+  },
+  {
+    "id": "task_17",
+    "instruction": "Remove the iteration from the issue 'Analyze and optimize slow queries from APM logs'.",
+    "verify": "function-tasks/task_17.py"
+  },
+  {
+    "id": "task_18",
+    "instruction": "Set the epic to 'Performance Initiative' on the issue 'Implement lazy loading for images and avatars'.",
+    "verify": "function-tasks/task_18.py"
+  },
+  {
+    "id": "task_19",
+    "instruction": "Remove the epic from the issue 'Build component library documentation site'.",
+    "verify": "function-tasks/task_19.py"
+  },
+  {
+    "id": "task_20",
+    "instruction": "Change the health status to 'At risk' on the issue 'Implement GraphQL gateway for v3 API'.",
+    "verify": "function-tasks/task_20.py"
+  },
+  {
+    "id": "task_21",
+    "instruction": "Clear the health status from the issue 'Upgrade vulnerable dependencies identified in audit'.",
+    "verify": "function-tasks/task_21.py"
+  },
+  {
+    "id": "task_22",
+    "instruction": "Set the due date to '2026-05-01' on the issue 'File upload fails silently for files > 50MB'.",
+    "verify": "function-tasks/task_22.py"
+  },
+  {
+    "id": "task_23",
+    "instruction": "Clear the due date from the issue 'Email notifications sent with wrong timezone offset'.",
+    "verify": "function-tasks/task_23.py"
+  },
+  {
+    "id": "task_24",
+    "instruction": "Set the weight to 13 on the issue 'Add webhook support for issue state changes'.",
+    "verify": "function-tasks/task_24.py"
+  },
+  {
+    "id": "task_25",
+    "instruction": "Clear the weight from the issue 'Dashboard widget layout breaks at 1440px viewport'.",
+    "verify": "function-tasks/task_25.py"
+  },
+  {
+    "id": "task_26",
+    "instruction": "Set the time estimate to '4h' on the issue 'Fix dropdown menu position clipping at viewport edges'.",
+    "verify": "function-tasks/task_26.py"
+  },
+  {
+    "id": "task_27",
+    "instruction": "Remove the time estimate from the issue 'Implement lazy loading for images and avatars'.",
+    "verify": "function-tasks/task_27.py"
+  },
+  {
+    "id": "task_28",
+    "instruction": "Add a time log entry of '2h 30m' with the summary 'Initial investigation and research' to the issue 'Implement retry mechanism for failed API calls'.",
+    "verify": "function-tasks/task_28.py"
+  },
+  {
+    "id": "task_29",
+    "instruction": "Delete the time log entry 'Safari debugging and investigation' from the issue 'Login page shows blank screen on Safari 17.2'.",
+    "verify": "function-tasks/task_29.py"
+  },
+  {
+    "id": "task_30",
+    "instruction": "Create a new label called 'deployment' with the color #ff5733 and type 'Project'.",
+    "verify": "function-tasks/task_30.py"
+  },
+  {
+    "id": "task_31",
+    "instruction": "Create a new scoped label called 'environment::production' with the color #cc0000 and type 'Group'.",
+    "verify": "function-tasks/task_31.py"
+  },
+  {
+    "id": "task_32",
+    "instruction": "Edit the label 'good-first-issue' and change its title to 'beginner-friendly'.",
+    "verify": "function-tasks/task_32.py"
+  },
+  {
+    "id": "task_33",
+    "instruction": "Edit the label 'needs-discussion' and change its color to #0075ca.",
+    "verify": "function-tasks/task_33.py"
+  },
+  {
+    "id": "task_34",
+    "instruction": "Delete the label 'testing'.",
+    "verify": "function-tasks/task_34.py"
+  },
+  {
+    "id": "task_35",
+    "instruction": "Create a new milestone titled 'v4.4 - Internationalization' with start date '2026-07-16' and due date '2026-09-30'.",
+    "verify": "function-tasks/task_35.py"
+  },
+  {
+    "id": "task_36",
+    "instruction": "Edit the milestone 'Backlog' and change its description to 'Unscheduled items awaiting prioritization and scheduling.'",
+    "verify": "function-tasks/task_36.py"
+  },
+  {
+    "id": "task_37",
+    "instruction": "Close the milestone 'Q1 2026 Planning'.",
+    "verify": "function-tasks/task_37.py"
+  },
+  {
+    "id": "task_38",
+    "instruction": "Reopen the closed milestone 'v3.9 - Maintenance'.",
+    "verify": "function-tasks/task_38.py"
+  },
+  {
+    "id": "task_39",
+    "instruction": "Create a new epic titled 'CI/CD Pipeline Modernization' with the description 'Modernize the CI/CD pipeline with container-native builds and GitOps deployment' and add the label 'component::infrastructure'.",
+    "verify": "function-tasks/task_39.py"
+  },
+  {
+    "id": "task_40",
+    "instruction": "Create a new epic titled 'Search Performance' and set its parent epic to 'Performance Initiative'.",
+    "verify": "function-tasks/task_40.py"
+  },
+  {
+    "id": "task_41",
+    "instruction": "Edit the epic 'Documentation Overhaul' and change its title to 'Documentation Overhaul v2'.",
+    "verify": "function-tasks/task_41.py"
+  },
+  {
+    "id": "task_42",
+    "instruction": "Close the epic 'Mobile App v2'.",
+    "verify": "function-tasks/task_42.py"
+  },
+  {
+    "id": "task_43",
+    "instruction": "Reopen the closed epic 'Analytics Dashboard'.",
+    "verify": "function-tasks/task_43.py"
+  },
+  {
+    "id": "task_44",
+    "instruction": "Add the 'security' label to the epic 'Caching Layer Implementation'.",
+    "verify": "function-tasks/task_44.py"
+  },
+  {
+    "id": "task_45",
+    "instruction": "Remove the label 'component::frontend' from the epic 'Platform Redesign'.",
+    "verify": "function-tasks/task_45.py"
+  },
+  {
+    "id": "task_46",
+    "instruction": "Create a new iteration cadence titled 'Bug Fix Cadence' with automatic scheduling enabled, a duration of 1 week, and 4 upcoming iterations.",
+    "verify": "function-tasks/task_46.py"
+  },
+  {
+    "id": "task_47",
+    "instruction": "Edit the iteration cadence 'Sprint Cadence' and change its description to 'Bi-weekly development sprints for the engineering team. Updated for Q2 2026.'",
+    "verify": "function-tasks/task_47.py"
+  },
+  {
+    "id": "task_48",
+    "instruction": "Create a new iteration titled 'Release 4.0 GA' in the 'Release Cycle' cadence with start date '2026-03-01' and due date '2026-03-15'.",
+    "verify": "function-tasks/task_48.py"
+  },
+  {
+    "id": "task_49",
+    "instruction": "Mark the to-do item about issue 'Login page shows blank screen on Safari 17.2' (assigned by Marcus Johnson) as done.",
+    "verify": "function-tasks/task_49.py"
+  },
+  {
+    "id": "task_50",
+    "instruction": "Snooze the to-do item about issue 'Email notifications sent with wrong timezone offset' (mentioned by Fatima Al-Rashid).",
+    "verify": "function-tasks/task_50.py"
+  },
+  {
+    "id": "task_51",
+    "instruction": "Remove the snooze from the snoozed to-do item about issue 'Implement GraphQL gateway for v3 API'.",
+    "verify": "function-tasks/task_51.py"
+  },
+  {
+    "id": "task_52",
+    "instruction": "Restore the completed to-do item about issue 'Design new navigation header component' back to pending.",
+    "verify": "function-tasks/task_52.py"
+  },
+  {
+    "id": "task_53",
+    "instruction": "Mark all pending to-do items as done.",
+    "verify": "function-tasks/task_53.py"
+  },
+  {
+    "id": "task_54",
+    "instruction": "Create a new issue titled 'Implement API versioning documentation' with start date '2026-03-15' and due date '2026-04-15'.",
+    "verify": "function-tasks/task_54.py"
+  },
+  {
+    "id": "task_55",
+    "instruction": "On the issue 'Implement keyboard shortcuts for common actions', set the iteration to 'March 2026' and add the label 'needs-discussion'.",
+    "verify": "function-tasks/task_55.py"
+  }
+]
