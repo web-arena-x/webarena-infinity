@@ -24,7 +24,7 @@ Browse the subdirectories for history.json files from passed tasks to understand
    - Disambiguation: similar entities, must pick the right one
    - Non-obvious UI paths: actions behind context menus, nested pages
 
-   Weight toward medium (~40%) and hard (~50%), with a few easy (~10%) for regression.
+   **All generated tasks must be difficulty "hard".** The purpose of hardening is to challenge agents with tasks they cannot easily solve. Easy and medium tasks already have sufficient coverage from earlier phases.
 
 5. **Continue task IDs** from the highest existing ID number. Never reuse an existing task ID.
 
