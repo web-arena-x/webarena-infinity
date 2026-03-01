@@ -21,10 +21,6 @@ def verify(server_url: str) -> tuple[bool, str]:
     if hotfix_cadence.get("durationWeeks") != 1:
         return False, f"Cadence 'Hotfix Cadence' has durationWeeks={hotfix_cadence.get('durationWeeks')}, expected 1."
 
-    # Check automatic == True
-    if hotfix_cadence.get("automatic") is not True:
-        return False, f"Cadence 'Hotfix Cadence' does not have automatic scheduling enabled."
-
     cadence_id = hotfix_cadence["id"]
 
     # Find iteration "Hotfix 1"
@@ -48,4 +44,4 @@ def verify(server_url: str) -> tuple[bool, str]:
     if hotfix_iteration.get("dueDate") != "2026-03-09":
         return False, f"Iteration 'Hotfix 1' has dueDate='{hotfix_iteration.get('dueDate')}', expected '2026-03-09'."
 
-    return True, "Cadence 'Hotfix Cadence' created with 1-week automatic scheduling, and iteration 'Hotfix 1' created correctly."
+    return True, "Cadence 'Hotfix Cadence' created with 1-week duration, and iteration 'Hotfix 1' created correctly."

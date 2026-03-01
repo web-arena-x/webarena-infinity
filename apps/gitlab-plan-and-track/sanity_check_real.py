@@ -647,14 +647,14 @@ def solve_task_h3(state):
 
 
 def solve_task_h4(state):
-    """Create Hotfix Cadence with 1-week duration and automatic scheduling, then create Hotfix 1 iteration."""
+    """Create Hotfix Cadence with 1-week duration, then create Hotfix 1 iteration."""
     cid = next_cadence_id(state)
     cadence_id = f"cad_{cid}"
     state["iterationCadences"].append({
         "id": cadence_id,
         "title": "Hotfix Cadence",
         "description": "",
-        "automatic": True,
+        "automatic": False,
         "startDate": "2026-03-03",
         "durationWeeks": 1,
         "upcomingIterations": 1,
