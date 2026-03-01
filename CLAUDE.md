@@ -68,14 +68,25 @@ Each environment runs independently on one EC2 instance via `infra/pipeline.py`:
 pipeline.py (one instance per environment)
 ├─ Phase 1: Generate App (Claude CLI)
 │   └─ Writes app code + APP_DESCRIPTION.md
-├─ Phase 2: Function Tasks (up to 5 iterations)
-│   ├─ Generate function tasks (Claude CLI, once)
-│   ├─ Run sanity check
-│   └─ Loop: eval → audit failures → re-sanity-check → commit
-└─ Phase 3: Real Tasks (up to 5 iterations)
-    ├─ Generate real tasks (Claude CLI, once)
-    ├─ Run sanity check
-    └─ Loop: eval → audit failures → re-sanity-check → commit
+├─ Phase 2: Function Tasks
+│   ├─ 2a: Generate function tasks (Claude CLI, once)
+│   │   └─ Sanity check (fix if needed) → commit
+│   └─ 2b: Eval-Audit loop (up to max_iterations)
+│       └─ eval → audit failures (Claude) → sanity check → commit
+├─ Phase 3: Real Tasks
+│   ├─ 3a: Generate real tasks (Claude CLI, once)
+│   │   └─ Sanity check (fix if needed) → commit
+│   └─ 3b: Eval-Audit loop (up to max_iterations)
+│       └─ eval → audit failures (Claude) → sanity check → commit
+├─ Phase 4: Task Hardening (N rounds, --hardening-rounds)
+│   └─ Per round:
+│       ├─ 4a: Analyze agent behavior + generate harder tasks (Claude)
+│       │   └─ Reads history.json from results/, appends to tasks.json
+│       │   └─ Sanity check (fix if needed, revert if irrecoverable) → commit
+│       └─ 4b: Eval-Audit loop (new tasks only, via --task-id filter)
+│           └─ eval → audit failures (Claude) → sanity check → commit
+└─ Phase 5: Final Regression Eval
+    └─ Full-suite eval on function tasks + real tasks (no audit)
 ```
 
 ### Environment Protocol (every app must follow)
@@ -134,6 +145,7 @@ Each `tasks/task_*.py` exports `verify(server_url: str) -> tuple[bool, str]`. Ve
 - `docs/environment-protocol.md` — the API contract above in full detail
 - `docs/verifier-sanity-check.md` — automated sanity check authoring
 - `docs/evaluation-audit-guide.md` — how to audit and revise after eval
+- `docs/task-hardening-guide.md` — how to generate harder tasks from agent behavior
 
 ### Environment Manifest
 
