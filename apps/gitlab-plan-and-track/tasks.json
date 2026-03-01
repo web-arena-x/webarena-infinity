@@ -358,5 +358,125 @@
     "difficulty": "hard",
     "instruction": "Delete the 'blocked' label and create a new scoped label 'status::blocked' with red color (#b91c1c), then apply it to the user settings page migration issue.",
     "verify": "tasks/task_h20.py"
+  },
+  {
+    "id": "task_e21",
+    "difficulty": "easy",
+    "instruction": "Snooze the todo about the JavaScript bundle size issue until tomorrow morning.",
+    "verify": "tasks/task_e21.py"
+  },
+  {
+    "id": "task_e22",
+    "difficulty": "easy",
+    "instruction": "Add a time entry of 3 hours to the Content Security Policy headers issue with the summary 'Security audit review'.",
+    "verify": "tasks/task_e22.py"
+  },
+  {
+    "id": "task_m21",
+    "difficulty": "medium",
+    "instruction": "Find the open issue with the highest weight and change its health status to 'at risk'.",
+    "verify": "tasks/task_m21.py"
+  },
+  {
+    "id": "task_m22",
+    "difficulty": "medium",
+    "instruction": "Assign the CSRF token rotation issue to Sprint 26 and replace its priority label with priority::high.",
+    "verify": "tasks/task_m22.py"
+  },
+  {
+    "id": "task_m23",
+    "difficulty": "medium",
+    "instruction": "Add Chen Wei and Yuki Tanaka as assignees to the database connection pool issue.",
+    "verify": "tasks/task_m23.py"
+  },
+  {
+    "id": "task_m24",
+    "difficulty": "medium",
+    "instruction": "Create a child epic of 'Security Hardening' called 'Compliance Automation' and move the CSRF token rotation issue into it.",
+    "verify": "tasks/task_m24.py"
+  },
+  {
+    "id": "task_m25",
+    "difficulty": "medium",
+    "instruction": "Move the lazy loading images issue from its current milestone to v4.0 - Platform Redesign and assign it to Sprint 27.",
+    "verify": "tasks/task_m25.py"
+  },
+  {
+    "id": "task_m26",
+    "difficulty": "medium",
+    "instruction": "Add a time estimate of 1 day to the file upload bug and log 2 hours with the summary 'Reproducing the issue'.",
+    "verify": "tasks/task_m26.py"
+  },
+  {
+    "id": "task_m27",
+    "difficulty": "medium",
+    "instruction": "Change the description of the 'testing' label to 'Quality assurance and test automation' and change its color to #0e8a16.",
+    "verify": "tasks/task_m27.py"
+  },
+  {
+    "id": "task_m28",
+    "difficulty": "medium",
+    "instruction": "Create a new iteration called 'Release 4.0 GA' in the Release Cycle cadence starting March 1, 2026 and ending March 15, 2026.",
+    "verify": "tasks/task_m28.py"
+  },
+  {
+    "id": "task_h21",
+    "difficulty": "hard",
+    "instruction": "Set the health status to 'on track' for every open issue assigned to Sprint 27.",
+    "verify": "tasks/task_h21.py"
+  },
+  {
+    "id": "task_h22",
+    "difficulty": "hard",
+    "instruction": "Move all open issues that have no milestone to the Backlog milestone.",
+    "verify": "tasks/task_h22.py"
+  },
+  {
+    "id": "task_h23",
+    "difficulty": "hard",
+    "instruction": "Add the 'breaking-change' label to every open issue in the API v3 Migration epic.",
+    "verify": "tasks/task_h23.py"
+  },
+  {
+    "id": "task_h24",
+    "difficulty": "hard",
+    "instruction": "Create a new board called 'Component Board' with lists for each component label: frontend, backend, api, database, and infrastructure.",
+    "verify": "tasks/task_h24.py"
+  },
+  {
+    "id": "task_h25",
+    "difficulty": "hard",
+    "instruction": "For all open issues assigned to David Kim, set their health status to 'needs attention' and add the 'blocked' label.",
+    "verify": "tasks/task_h25.py"
+  },
+  {
+    "id": "task_h26",
+    "difficulty": "hard",
+    "instruction": "Create a new epic 'Q2 Planning' as a child of Platform Redesign, then move all open issues from Sprint 27 into it.",
+    "verify": "tasks/task_h26.py"
+  },
+  {
+    "id": "task_h27",
+    "difficulty": "hard",
+    "instruction": "Restore all done todos to pending and remove the snooze from all snoozed todos.",
+    "verify": "tasks/task_h27.py"
+  },
+  {
+    "id": "task_h28",
+    "difficulty": "hard",
+    "instruction": "Remove the 'UX' label from all issues and epics that have it.",
+    "verify": "tasks/task_h28.py"
+  },
+  {
+    "id": "task_h29",
+    "difficulty": "hard",
+    "instruction": "Set a due date of October 31, 2026 on every open issue in the v5.0 - Enterprise Edition milestone that doesn't already have one.",
+    "verify": "tasks/task_h29.py"
+  },
+  {
+    "id": "task_h30",
+    "difficulty": "hard",
+    "instruction": "Close all open issues in the v4.0 - Platform Redesign milestone that have the 'workflow::in-progress' label and replace it with 'workflow::done'.",
+    "verify": "tasks/task_h30.py"
   }
 ]
