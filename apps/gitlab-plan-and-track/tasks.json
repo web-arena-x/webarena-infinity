@@ -260,7 +260,7 @@
   {
     "id": "task_h4",
     "difficulty": "hard",
-    "instruction": "Create a new iteration cadence called 'Hotfix Cadence' with 1-week duration and automatic scheduling, then create an iteration 'Hotfix 1' in it starting March 3 and ending March 9, 2026.",
+    "instruction": "Create a new iteration cadence called 'Hotfix Cadence' with 1-week duration, then create an iteration 'Hotfix 1' in it starting March 3 and ending March 9, 2026.",
     "verify": "tasks/task_h4.py"
   },
   {

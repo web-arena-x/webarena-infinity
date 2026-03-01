@@ -77,6 +77,9 @@ const App = {
         } else if (view === 'new-iteration') {
             AppState.currentView = 'new-iteration';
             AppState.currentItemId = null;
+        } else if (view === 'new-board') {
+            AppState.currentView = 'new-board';
+            AppState.currentItemId = null;
         } else {
             AppState.currentView = 'issues';
             AppState.currentItemId = null;
@@ -220,6 +223,13 @@ const App = {
             case 'toggle-milestone-status':
                 AppState.toggleMilestoneStatus(el.dataset.id);
                 break;
+            case 'delete-milestone':
+                Components.confirmDanger('Are you sure you want to delete this milestone?', () => {
+                    AppState.deleteMilestone(el.dataset.id);
+                    this.navigate('milestones');
+                    Components.showToast('Milestone deleted');
+                });
+                break;
 
             // Label actions
             case 'new-label':
@@ -280,6 +290,27 @@ const App = {
             case 'switch-board':
                 AppState.currentBoardId = el.dataset.id;
                 this.render();
+                break;
+            case 'new-board':
+                this._pendingBoardLists = [];
+                this.navigate('new-board');
+                break;
+            case 'add-board-list':
+                this._addBoardListEntry();
+                break;
+            case 'remove-board-list-entry':
+                this._pendingBoardLists = (this._pendingBoardLists || []).filter((_, i) => i !== parseInt(el.dataset.index));
+                this._renderBoardListEntries();
+                break;
+            case 'save-board':
+                this._saveBoard();
+                break;
+            case 'delete-board':
+                Components.confirmDanger('Are you sure you want to delete this board?', () => {
+                    AppState.deleteBoard(el.dataset.id);
+                    Components.showToast('Board deleted');
+                    this.render();
+                });
                 break;
 
             // Todo actions
@@ -439,6 +470,10 @@ const App = {
             else AppState.filters.labels.push(labelId);
             AppState.currentPage = 1;
             this.render();
+        }
+        // Board form: update ref options when list type changes
+        if (e.target.id === 'board-list-type') {
+            this._updateBoardListRefOptions();
         }
     },
 
@@ -681,6 +716,60 @@ const App = {
         AppState.createIteration(data);
         Components.showToast('Iteration created');
         this.navigate('iterations');
+    },
+
+    // ---- Board form helpers ----
+    _addBoardListEntry() {
+        const typeEl = document.getElementById('board-list-type');
+        const refEl = document.getElementById('board-list-ref');
+        if (!typeEl || !refEl || !refEl.value) return;
+        const type = typeEl.value;
+        const refId = refEl.value;
+        if (!this._pendingBoardLists) this._pendingBoardLists = [];
+        const already = this._pendingBoardLists.some(l => l.type === type && ((type === 'label' && l.labelId === refId) || (type === 'milestone' && l.milestoneId === refId)));
+        if (already) { Components.showToast('List already added'); return; }
+        if (type === 'label') this._pendingBoardLists.push({ type: 'label', labelId: refId });
+        else this._pendingBoardLists.push({ type: 'milestone', milestoneId: refId });
+        this._renderBoardListEntries();
+    },
+
+    _renderBoardListEntries() {
+        const container = document.getElementById('boardListsContainer');
+        if (!container) return;
+        let html = '';
+        (this._pendingBoardLists || []).forEach((entry, i) => {
+            let name = '';
+            if (entry.type === 'label') { const l = AppState.getLabelById(entry.labelId); name = l ? l.title : entry.labelId; }
+            else { const m = AppState.getMilestoneById(entry.milestoneId); name = m ? m.title : entry.milestoneId; }
+            html += '<div class="board-list-entry" style="display:flex;align-items:center;gap:8px;padding:4px 0"><span class="badge">'+entry.type+'</span> '+Components.escapeHtml(name)+' <button type="button" class="btn btn-sm btn-danger" data-action="remove-board-list-entry" data-index="'+i+'">Remove</button></div>';
+        });
+        container.innerHTML = html;
+    },
+
+    _updateBoardListRefOptions() {
+        const typeEl = document.getElementById('board-list-type');
+        const refEl = document.getElementById('board-list-ref');
+        if (!typeEl || !refEl) return;
+        const type = typeEl.value;
+        let html = '';
+        if (type === 'label') {
+            AppState.labels.forEach(l => { html += '<option value="'+l.id+'">'+Components.escapeHtml(l.title)+'</option>'; });
+        } else {
+            AppState.milestones.forEach(m => { html += '<option value="'+m.id+'">'+Components.escapeHtml(m.title)+'</option>'; });
+        }
+        refEl.innerHTML = html;
+    },
+
+    _saveBoard() {
+        const nameEl = document.getElementById('board-name');
+        if (!nameEl || !nameEl.value.trim()) {
+            Components.showToast('Board name is required');
+            return;
+        }
+        const board = AppState.createBoard({ name: nameEl.value.trim(), lists: this._pendingBoardLists || [] });
+        AppState.currentBoardId = board.id;
+        Components.showToast('Board created');
+        this.navigate('boards');
     },
 
     // ---- Sidebar editors (modals) ----

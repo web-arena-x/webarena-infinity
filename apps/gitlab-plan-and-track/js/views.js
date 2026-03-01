@@ -51,6 +51,7 @@ const Views = {
             case 'new-cadence': return this.renderCadenceForm();
             case 'edit-cadence': return this.renderCadenceForm(AppState.currentItemId);
             case 'new-iteration': return this.renderIterationForm();
+            case 'new-board': return this.renderBoardForm();
             default: return this.renderIssueList();
         }
     },
@@ -543,6 +544,7 @@ const Views = {
         html += '<div class="detail-actions">';
         html += '<button class="btn btn-outline" data-action="edit-milestone" data-id="'+ms.id+'" data-testid="edit-milestone-btn">Edit</button>';
         html += '<button class="btn '+(ms.status === 'active' ? 'btn-secondary' : 'btn-primary')+'" data-action="toggle-milestone-status" data-id="'+ms.id+'" data-testid="toggle-ms-status-btn">'+(ms.status === 'active' ? 'Close' : 'Reopen')+'</button>';
+        html += '<button class="btn btn-danger" data-action="delete-milestone" data-id="'+ms.id+'" data-testid="delete-milestone-btn">Delete</button>';
         html += '</div></div>';
 
         html += '<div class="detail-layout"><div class="detail-main">';
@@ -820,7 +822,10 @@ const Views = {
         AppState.boards.forEach(b => {
             html += '<button class="board-tab'+(b.id === AppState.currentBoardId ? ' active' : '')+'" data-action="switch-board" data-id="'+b.id+'" data-testid="board-tab-'+b.id+'">'+Components.escapeHtml(b.name)+'</button>';
         });
-        html += '</div></div></div>';
+        html += '</div></div><div class="page-header-right">';
+        if (board) html += '<button class="btn btn-danger btn-sm" data-action="delete-board" data-id="'+board.id+'" data-testid="delete-board-btn">Delete board</button>';
+        html += '<button class="btn btn-primary" data-action="new-board" data-testid="new-board-btn">New board</button>';
+        html += '</div></div>';
 
         if (!board) {
             html += Components.emptyState('', 'No boards', 'Create a board to get started.');
@@ -868,6 +873,32 @@ const Views = {
         });
         if (issues.length > 20) html += '<div class="board-list-more">+'+(issues.length - 20)+' more</div>';
         html += '</div></div>';
+        return html;
+    },
+
+    // ---- Board Form ----
+    renderBoardForm() {
+        const labels = AppState.labels;
+        const milestones = AppState.milestones;
+        let html = '<div class="form-page">';
+        html += '<div class="breadcrumb"><a data-route="boards" class="breadcrumb-link">Boards</a> <span class="breadcrumb-sep">/</span> <span>New board</span></div>';
+        html += '<h1>New board</h1>';
+        html += '<form class="entity-form" id="boardForm" data-testid="board-form">';
+        html += Components.textInput('board-name', '', 'Board name', 'Board name *');
+        html += '<div class="form-group"><label class="form-label">Lists</label>';
+        html += '<p class="text-secondary">Add label or milestone lists to organize issues on this board.</p>';
+        html += '<div id="boardListsContainer"></div>';
+        html += '<div class="form-row" style="gap:8px;margin-top:8px">';
+        html += '<select id="board-list-type" class="form-select" style="width:auto"><option value="label">Label</option><option value="milestone">Milestone</option></select>';
+        html += '<select id="board-list-ref" class="form-select" style="flex:1">';
+        labels.forEach(l => { html += '<option value="'+l.id+'" data-type="label">'+Components.escapeHtml(l.title)+'</option>'; });
+        html += '</select>';
+        html += '<button type="button" class="btn btn-outline btn-sm" data-action="add-board-list" data-testid="add-board-list-btn">Add list</button>';
+        html += '</div></div>';
+        html += '<div class="form-actions">';
+        html += '<button type="button" class="btn btn-primary" data-action="save-board" data-testid="save-board-btn">Create board</button>';
+        html += '<button type="button" class="btn btn-secondary" data-action="cancel-form" data-route="boards">Cancel</button>';
+        html += '</div></form></div>';
         return html;
     },
 
