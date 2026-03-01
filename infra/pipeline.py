@@ -186,6 +186,7 @@ def run_eval(
     model: str,
     workers: int,
     repetitions: int,
+    resume: bool = False,
 ) -> Path | None:
     """Run evaluation/run_eval_parallel.py as a subprocess.
 
@@ -202,6 +203,13 @@ def run_eval(
         "--repetitions", str(repetitions),
         "--failed-only",
     ]
+
+    # If resuming, check for a partial results directory to resume into
+    if resume:
+        partial_dir = find_partial_results(app_dir, task_suite)
+        if partial_dir:
+            cmd.extend(["--resume-dir", str(partial_dir)])
+            log.info("Found partial results dir to resume: %s", partial_dir)
 
     log.info("Running eval: %s", " ".join(cmd))
     result = subprocess.run(cmd, capture_output=True, text=True, timeout=7200)
@@ -248,6 +256,36 @@ def find_latest_results(app_dir: str | Path, task_suite: str) -> Path | None:
         return None
 
     # Sort by modification time, return most recent
+    candidates.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+    return candidates[0]
+
+
+def find_partial_results(app_dir: str | Path, task_suite: str) -> Path | None:
+    """Find a results dir that has runN/ subdirs but no top-level results.json (partial eval)."""
+    results_dir = Path(app_dir) / "results"
+    if not results_dir.is_dir():
+        return None
+
+    suite_tag = f"_{task_suite}" if task_suite != "tasks" else ""
+
+    candidates = []
+    for d in results_dir.iterdir():
+        if not d.is_dir() or suite_tag not in d.name:
+            continue
+        # Must lack a top-level results.json (incomplete eval)
+        if (d / "results.json").exists():
+            continue
+        # Must have at least one runN/ subdir to be a multi-run eval
+        has_run_dir = any(
+            sub.is_dir() and sub.name.startswith("run") for sub in d.iterdir()
+        )
+        if has_run_dir:
+            candidates.append(d)
+
+    if not candidates:
+        return None
+
+    # Return most recent by modification time
     candidates.sort(key=lambda p: p.stat().st_mtime, reverse=True)
     return candidates[0]
 
@@ -699,7 +737,8 @@ def main() -> None:
                 save_state(args.app_name, "phase_2b", iteration=iteration, args=args)
 
                 results_dir = run_eval(
-                    app_dir, "function-tasks", args.model, args.workers, args.repetitions
+                    app_dir, "function-tasks", args.model, args.workers, args.repetitions,
+                    resume=(args.resume and iteration == start_iter),
                 )
                 results = parse_results(results_dir)
                 log.info(
@@ -789,7 +828,8 @@ def main() -> None:
                 save_state(args.app_name, "phase_3b", iteration=iteration, args=args)
 
                 results_dir = run_eval(
-                    app_dir, "tasks", args.model, args.workers, args.repetitions
+                    app_dir, "tasks", args.model, args.workers, args.repetitions,
+                    resume=(args.resume and iteration == start_iter),
                 )
                 results = parse_results(results_dir)
                 log.info(

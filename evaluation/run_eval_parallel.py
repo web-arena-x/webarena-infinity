@@ -182,6 +182,36 @@ def merge_repetition_results(
     return aggregate, report_path
 
 
+def find_incomplete_tasks(
+    run_dir: Path, expected_tasks: list[dict]
+) -> tuple[list[dict], list[dict]]:
+    """Analyze a partial run dir. Returns (remaining_tasks, completed_results).
+
+    - A task is complete if run_dir/task_id/result.json exists
+    - Incomplete task dirs (dir exists, no result.json) are deleted
+    """
+    completed_results: list[dict] = []
+    remaining_tasks: list[dict] = []
+
+    for task in expected_tasks:
+        task_id = task["id"]
+        task_dir = run_dir / task_id
+        result_file = task_dir / "result.json"
+
+        if result_file.exists():
+            # Task completed — load its result
+            with open(result_file) as f:
+                completed_results.append(json.load(f))
+        else:
+            # Task not completed — needs to be re-run
+            if task_dir.exists():
+                # Partial dir (agent was mid-execution) — clean up
+                shutil.rmtree(task_dir)
+            remaining_tasks.append(task)
+
+    return remaining_tasks, completed_results
+
+
 async def worker(
     worker_id: int,
     task_queue: asyncio.Queue,
@@ -326,6 +356,7 @@ async def run_single_eval(
     run_dir: Path,
     web_app_dir: str,
     run_label: str = "",
+    prior_results: list[dict] | None = None,
 ) -> tuple[list[dict], dict]:
     """Execute a single evaluation run. Returns (results, aggregate)."""
     num_workers = min(args.workers, len(tasks))
@@ -334,12 +365,14 @@ async def run_single_eval(
     timestamp = run_dir.name.split("_", 1)[-1] if "_" in run_dir.name else ""
 
     # Header
+    resuming = prior_results is not None
+    header_label = "  Resuming Evaluation" if resuming else "  Parallel Evaluation"
     print(f"\n{BOLD}{CYAN}{'=' * 60}{RESET}")
-    print(f"{BOLD}{CYAN}  Parallel Evaluation{run_label}{RESET}")
+    print(f"{BOLD}{CYAN}{header_label}{run_label}{RESET}")
     print(f"{BOLD}{CYAN}{'=' * 60}{RESET}")
     print(f"  {DIM}Model:{RESET}   {BOLD}{args.model}{RESET}")
     print(f"  {DIM}Suite:{RESET}   {BOLD}{args.task_suite}{RESET}")
-    print(f"  {DIM}Tasks:{RESET}   {BOLD}{len(tasks)}{RESET}")
+    print(f"  {DIM}Tasks:{RESET}   {BOLD}{len(tasks)}{RESET}" + (f" {DIM}({len(prior_results)} already done){RESET}" if resuming else ""))
     print(f"  {DIM}Workers:{RESET} {BOLD}{num_workers}{RESET}")
     print(f"  {DIM}Env:{RESET}     {BOLD}{args.env_host}:{args.base_port}-{port_hi}{RESET}")
     print(f"  {DIM}Vision:{RESET}  {BOLD}{'on' if args.use_vision else 'off'}{RESET}")
@@ -351,7 +384,7 @@ async def run_single_eval(
     for t in tasks:
         await task_queue.put(t)
 
-    results: list[dict] = []
+    results: list[dict] = list(prior_results) if prior_results else []
     results_lock = asyncio.Lock()
 
     # Launch workers with staggered startup to avoid overwhelming the system
@@ -464,6 +497,9 @@ async def main():
                         help="Cascading mode: run 2+ retries only tasks that failed "
                              "in the previous run. Without this flag, every run "
                              "executes the full task set.")
+    parser.add_argument("--resume-dir", default=None,
+                        help="Resume a partial evaluation into this existing directory. "
+                             "Detects completed tasks and only re-runs the remainder.")
     args = parser.parse_args()
 
     web_app_dir = str(Path(args.web_app).resolve())
@@ -478,12 +514,22 @@ async def main():
 
     # Single run (original behavior)
     if args.repetitions <= 1:
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        suite_tag = f"_{args.task_suite}" if args.task_suite != "tasks" else ""
-        run_dir = Path(output_dir) / f"{args.model}_{timestamp}{suite_tag}_parallel"
-        run_dir.mkdir(parents=True, exist_ok=True)
+        if args.resume_dir:
+            run_dir = Path(args.resume_dir)
+            remaining, prior = find_incomplete_tasks(run_dir, tasks)
+            if not remaining:
+                print(f"{GREEN}All tasks already completed in {run_dir}{RESET}")
+                return
+            results, _ = await run_single_eval(
+                remaining, args, run_dir, web_app_dir, prior_results=prior,
+            )
+        else:
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            suite_tag = f"_{args.task_suite}" if args.task_suite != "tasks" else ""
+            run_dir = Path(output_dir) / f"{args.model}_{timestamp}{suite_tag}_parallel"
+            run_dir.mkdir(parents=True, exist_ok=True)
+            results, _ = await run_single_eval(tasks, args, run_dir, web_app_dir)
 
-        results, _ = await run_single_eval(tasks, args, run_dir, web_app_dir)
         if not results:
             print(f"{RED}No tasks completed.{RESET}")
             sys.exit(1)
@@ -505,16 +551,23 @@ async def main():
     #   ├── merged/  (success/ + fail/)
     #   ├── results.json   (merged — top-level)
     #   └── report.html
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    suite_tag = f"_{args.task_suite}" if args.task_suite != "tasks" else ""
     num_workers = min(args.workers, len(tasks))
 
-    parent_dir = Path(output_dir) / f"{args.model}_{timestamp}{suite_tag}_parallel"
+    if args.resume_dir:
+        parent_dir = Path(args.resume_dir)
+        # Extract timestamp from dir name (format: {model}_{timestamp}_{suite}_parallel)
+        parts = parent_dir.name.split("_", 1)
+        timestamp = parts[1] if len(parts) > 1 else datetime.now().strftime("%Y%m%d_%H%M%S")
+    else:
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        suite_tag = f"_{args.task_suite}" if args.task_suite != "tasks" else ""
+        parent_dir = Path(output_dir) / f"{args.model}_{timestamp}{suite_tag}_parallel"
     parent_dir.mkdir(parents=True, exist_ok=True)
 
     mode_label = "cascading (failed-only)" if args.failed_only else "full repeat"
+    resume_label = " (resuming)" if args.resume_dir else ""
     print(f"\n{BOLD}{MAGENTA}{'=' * 60}{RESET}")
-    print(f"{BOLD}{MAGENTA}  Multi-Run Evaluation: {args.repetitions} rounds ({mode_label}){RESET}")
+    print(f"{BOLD}{MAGENTA}  Multi-Run Evaluation: {args.repetitions} rounds ({mode_label}){resume_label}{RESET}")
     print(f"  {DIM}Output:{RESET}  {parent_dir}")
     print(f"{BOLD}{MAGENTA}{'=' * 60}{RESET}")
 
@@ -528,13 +581,46 @@ async def main():
             break
 
         run_dir = parent_dir / f"run{rep}"
-        run_dir.mkdir(parents=True, exist_ok=True)
         run_dirs.append(run_dir)
 
-        results, _ = await run_single_eval(
-            current_tasks, args, run_dir, web_app_dir,
-            run_label=f" (run {rep}/{args.repetitions}, {len(current_tasks)} tasks)",
-        )
+        # Resume logic: check state of each runN/ directory
+        run_results_file = run_dir / "results.json"
+        if args.resume_dir and run_results_file.exists():
+            # Run is complete — load results and cascade failures
+            print(f"\n{GREEN}Run {rep}: already complete — loading results{RESET}")
+            with open(run_results_file) as f:
+                saved = json.load(f)
+            results = saved.get("tasks", [])
+
+            if args.failed_only:
+                failed_ids = {r["task_id"] for r in results if not r["passed"]}
+                current_tasks = [all_tasks_by_id[tid] for tid in failed_ids if tid in all_tasks_by_id]
+            continue
+
+        if args.resume_dir and run_dir.exists():
+            # Partial run — find what's done and resume the rest
+            remaining, prior = find_incomplete_tasks(run_dir, current_tasks)
+            if not remaining:
+                # All tasks done but results.json wasn't written — run will regenerate it
+                print(f"\n{GREEN}Run {rep}: all tasks done, regenerating results.json{RESET}")
+                results, _ = await run_single_eval(
+                    [], args, run_dir, web_app_dir,
+                    run_label=f" (run {rep}/{args.repetitions}, 0 tasks)",
+                    prior_results=prior,
+                )
+            else:
+                results, _ = await run_single_eval(
+                    remaining, args, run_dir, web_app_dir,
+                    run_label=f" (run {rep}/{args.repetitions}, {len(remaining)} remaining of {len(current_tasks)} tasks)",
+                    prior_results=prior,
+                )
+        else:
+            # Fresh run
+            run_dir.mkdir(parents=True, exist_ok=True)
+            results, _ = await run_single_eval(
+                current_tasks, args, run_dir, web_app_dir,
+                run_label=f" (run {rep}/{args.repetitions}, {len(current_tasks)} tasks)",
+            )
 
         if not results:
             print(f"{YELLOW}Run {rep}: no tasks completed, skipping.{RESET}")
