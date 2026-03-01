@@ -718,5 +718,125 @@
     "difficulty": "hard",
     "instruction": "Find the two open issues that have the highest amount of time already spent on them. Set their health status to 'needs attention' and add the 'needs-discussion' label to both.",
     "verify": "tasks/task_h80.py"
+  },
+  {
+    "id": "task_h81",
+    "difficulty": "hard",
+    "instruction": "Create a new scoped label called 'status::blocked' with color #b60205. Then create a new issue titled 'Resolve CDN provider outage' with that label, assigned to Luca Rossi, in the v4.1 - Performance milestone, with weight 5.",
+    "verify": "tasks/task_h81.py"
+  },
+  {
+    "id": "task_h82",
+    "difficulty": "hard",
+    "instruction": "The Security Hardening epic has one open issue with no assignees. Find it, assign Chen Wei to it, add the 'priority::high' label, and move it to Sprint 27.",
+    "verify": "tasks/task_h82.py"
+  },
+  {
+    "id": "task_h83",
+    "difficulty": "hard",
+    "instruction": "Move all open issues in the Database Optimization epic that are currently in Sprint 26 to Sprint 27 instead.",
+    "verify": "tasks/task_h83.py"
+  },
+  {
+    "id": "task_h84",
+    "difficulty": "hard",
+    "instruction": "Two issues in the Database Optimization epic are in the current sprint. For the one about analyzing slow queries, log 3 hours of time with summary 'Index optimization review'. For the one about keyset pagination, increase its weight to 8.",
+    "verify": "tasks/task_h84.py"
+  },
+  {
+    "id": "task_h85",
+    "difficulty": "hard",
+    "instruction": "Close the Q1 2026 Planning milestone and move all of its open issues to the v4.1 - Performance milestone.",
+    "verify": "tasks/task_h85.py"
+  },
+  {
+    "id": "task_h86",
+    "difficulty": "hard",
+    "instruction": "Create a new iteration called 'Release 4.0 GA' in the Release Cycle cadence, starting March 1 and ending March 15, 2026. Then assign the CSP headers issue and the vulnerable dependencies issue to this new iteration.",
+    "verify": "tasks/task_h86.py"
+  },
+  {
+    "id": "task_h87",
+    "difficulty": "hard",
+    "instruction": "Add the 'needs-discussion' label to every open issue that has both the 'type::bug' and 'priority::high' labels.",
+    "verify": "tasks/task_h87.py"
+  },
+  {
+    "id": "task_h88",
+    "difficulty": "hard",
+    "instruction": "Create a new epic called 'Developer Tooling' with the 'type::feature' label and description 'Tools and utilities to improve developer productivity'. Then add the keyboard shortcuts issue and the bulk operations issue to this epic.",
+    "verify": "tasks/task_h88.py"
+  },
+  {
+    "id": "task_h89",
+    "difficulty": "hard",
+    "instruction": "The todo about the GraphQL gateway review has been snoozed. Restore it to pending. Then go to that issue and log 2 hours of time with summary 'Schema optimization review'.",
+    "verify": "tasks/task_h89.py"
+  },
+  {
+    "id": "task_h90",
+    "difficulty": "hard",
+    "instruction": "Rename the 'blocked' label to 'on-hold', change its color to #e67e22, and update its description to 'Temporarily paused pending external input'. Then apply this label to the CSRF token rotation issue.",
+    "verify": "tasks/task_h90.py"
+  },
+  {
+    "id": "task_h91",
+    "difficulty": "hard",
+    "instruction": "Move the Caching Layer Implementation epic so it becomes a child of the Platform Redesign epic instead of Performance Initiative. Then set the health status of all its open issues to 'needs attention'.",
+    "verify": "tasks/task_h91.py"
+  },
+  {
+    "id": "task_h92",
+    "difficulty": "hard",
+    "instruction": "On the issue about migrating user settings to React, log 8 hours with summary 'Form validation and API integration testing'. Then set its health status to 'at risk' and change its weight to 13.",
+    "verify": "tasks/task_h92.py"
+  },
+  {
+    "id": "task_h93",
+    "difficulty": "hard",
+    "instruction": "Delete the Bug Triage board and create a new board called 'Severity Board' with two lists: one for the 'priority::critical' label and one for the 'priority::high' label.",
+    "verify": "tasks/task_h93.py"
+  },
+  {
+    "id": "task_h94",
+    "difficulty": "hard",
+    "instruction": "Find the open epic that was created most recently but has no issues assigned to it. Set its health status to 'needs attention' and change its start date to March 15, 2026.",
+    "verify": "tasks/task_h94.py"
+  },
+  {
+    "id": "task_h95",
+    "difficulty": "hard",
+    "instruction": "Find the two issues in Sprint 26 with the highest weight. Add the 'blocked' label to both of them.",
+    "verify": "tasks/task_h95.py"
+  },
+  {
+    "id": "task_h96",
+    "difficulty": "hard",
+    "instruction": "Create a new milestone called 'Hotfix 4.0.1' starting March 3 and ending March 10, 2026. Create a new iteration called 'Hotfix Sprint' in the Sprint Cadence starting March 3 and ending March 10, 2026. Then assign the Safari login bug and the email notification timezone issue to both the new milestone and new iteration.",
+    "verify": "tasks/task_h96.py"
+  },
+  {
+    "id": "task_h97",
+    "difficulty": "hard",
+    "instruction": "For all open issues in the API v3 Migration epic, replace the 'component::api' label with 'component::backend'.",
+    "verify": "tasks/task_h97.py"
+  },
+  {
+    "id": "task_h98",
+    "difficulty": "hard",
+    "instruction": "The two authentication-related issues — the one about 2FA with TOTP and the one about JWT migration — are both in the v5.0 Enterprise Edition milestone. Move them to the v4.2 - Security Hardening milestone instead and add the 'priority::high' label to both.",
+    "verify": "tasks/task_h98.py"
+  },
+  {
+    "id": "task_h99",
+    "difficulty": "hard",
+    "instruction": "Change the Release Cycle cadence to automatic with a duration of 4 weeks and 2 upcoming iterations. Then create a new iteration called 'Release 4.1 Alpha' in that cadence starting March 15 and ending April 11, 2026.",
+    "verify": "tasks/task_h99.py"
+  },
+  {
+    "id": "task_h100",
+    "difficulty": "hard",
+    "instruction": "Create a new label called 'in-review' with color #7b68ee. Create a new board called 'Review Board' with a list for that label. Then add the 'in-review' label to the GraphQL gateway issue and the dark mode issue.",
+    "verify": "tasks/task_h100.py"
   }
 ]

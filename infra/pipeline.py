@@ -1147,9 +1147,12 @@ def main() -> None:
                     f"Hardening round {round_num}: {args.app_name}",
                 )
 
-            # --- 4b: Eval new tasks (single run) ---
+            # --- 4b: Eval new tasks from this round only ---
+            # Use this round's new_ids (set in 4a), or fall back to all
+            # unaudited IDs when resuming directly into 4b.
+            round_ids = new_ids if not skip_4a else unaudited_ids
             task_id_filter = (
-                ",".join(sorted(unaudited_ids)) if unaudited_ids else None
+                ",".join(sorted(round_ids)) if round_ids else None
             )
             save_state(
                 args.app_name, "phase_4b",
@@ -1177,56 +1180,72 @@ def main() -> None:
                 and (round_num % args.audit_every == 0 or is_last_round)
             )
 
-            if is_audit_round and results_dir is not None and results["pass_rate"] < 100:
-                log.info(
-                    "Running audit on %d unaudited tasks (rounds since last audit)",
-                    len(unaudited_ids),
+            if is_audit_round and unaudited_ids:
+                # Eval ALL hardening tasks for audit baseline
+                audit_filter = ",".join(sorted(unaudited_ids))
+                results_dir = run_eval(
+                    app_dir, "tasks", args.model, args.workers,
+                    args.repetitions,
+                    task_id_filter=audit_filter,
                 )
-                for iteration in range(1, max_iterations + 1):
+                results = parse_results(results_dir)
+                log.info(
+                    "Audit baseline (all hardening tasks): %.1f%% (%d/%d)",
+                    results["pass_rate"],
+                    results["passed"],
+                    results["total"],
+                )
+
+                if results_dir is not None and results["pass_rate"] < 100:
                     log.info(
-                        "Phase 4b: Audit iteration %d/%d",
-                        iteration,
-                        max_iterations,
+                        "Running audit on %d hardening tasks",
+                        len(unaudited_ids),
                     )
-                    save_state(
-                        args.app_name, "phase_4b",
-                        iteration=round_num * 100 + iteration, args=args,
-                    )
-
-                    run_claude(
-                        "audit-real-tasks",
-                        cwd=REPO_DIR,
-                        timeout=3600,
-                        evaluation_result_path=str(results_dir),
-                    )
-
-                    if not detect_changes(app_dir):
+                    for iteration in range(1, max_iterations + 1):
                         log.info(
-                            "Audit made no changes — remaining failures are agent-side"
+                            "Phase 4b: Audit iteration %d/%d",
+                            iteration,
+                            max_iterations,
                         )
-                        break
+                        save_state(
+                            args.app_name, "phase_4b",
+                            iteration=round_num * 100 + iteration, args=args,
+                        )
 
-                    ok, output = run_sanity_check(app_dir, "real")
-                    commit_checkpoint(
-                        app_dir,
-                        f"Hardening audit iter {iteration} (after round {round_num}): {args.app_name}",
-                    )
+                        run_claude(
+                            "audit-real-tasks",
+                            cwd=REPO_DIR,
+                            timeout=3600,
+                            evaluation_result_path=str(results_dir),
+                        )
 
-                    # Re-eval to see if audit fixes helped
-                    results_dir = run_eval(
-                        app_dir, "tasks", args.model, args.workers,
-                        args.repetitions,
-                        task_id_filter=task_id_filter,
-                    )
-                    results = parse_results(results_dir)
-                    log.info(
-                        "Post-audit eval: %.1f%% (%d/%d)",
-                        results["pass_rate"],
-                        results["passed"],
-                        results["total"],
-                    )
-                    if results["pass_rate"] == 100:
-                        break
+                        if not detect_changes(app_dir):
+                            log.info(
+                                "Audit made no changes — remaining failures are agent-side"
+                            )
+                            break
+
+                        ok, output = run_sanity_check(app_dir, "real")
+                        commit_checkpoint(
+                            app_dir,
+                            f"Hardening audit iter {iteration} (after round {round_num}): {args.app_name}",
+                        )
+
+                        # Re-eval all hardening tasks
+                        results_dir = run_eval(
+                            app_dir, "tasks", args.model, args.workers,
+                            args.repetitions,
+                            task_id_filter=audit_filter,
+                        )
+                        results = parse_results(results_dir)
+                        log.info(
+                            "Post-audit eval: %.1f%% (%d/%d)",
+                            results["pass_rate"],
+                            results["passed"],
+                            results["total"],
+                        )
+                        if results["pass_rate"] == 100:
+                            break
 
                 unaudited_ids.clear()
 
@@ -1254,12 +1273,16 @@ def main() -> None:
         log.info("Phase 4: Skipped (--skip-hardening)")
 
     # ── Phase 5: Final Regression Eval ───────────────────────────────
+    # Always runs ALL tasks (function + real) regardless of skip flags.
+    # This is the final report covering the complete task suite.
 
     if not args.skip_hardening and should_run("phase_5"):
         log.info("Phase 5: Final regression eval (full suite)")
         save_state(args.app_name, "phase_5", args=args)
 
-        if not args.skip_function_tasks:
+        # Eval function tasks if they exist
+        func_tasks_file = app_dir / "function-tasks.json"
+        if func_tasks_file.exists():
             log.info("Phase 5: Evaluating function tasks")
             func_results_dir = run_eval(
                 app_dir, "function-tasks", args.model, args.workers,
@@ -1273,7 +1296,9 @@ def main() -> None:
                 func_results["total"],
             )
 
-        if not args.skip_real_tasks:
+        # Eval all real tasks (original + hardening)
+        tasks_file = app_dir / "tasks.json"
+        if tasks_file.exists():
             log.info("Phase 5: Evaluating real tasks (full suite)")
             real_results_dir = run_eval(
                 app_dir, "tasks", args.model, args.workers,

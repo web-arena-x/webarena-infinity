@@ -2000,6 +2000,400 @@ def solve_task_h80(state):
         issue["updatedAt"] = NOW
 
 
+def solve_task_h81(state):
+    """Create 'status::blocked' label and issue 'Resolve CDN provider outage'."""
+    lid = next_label_id(state)
+    label_id = f"lbl_{lid}"
+    state["labels"].append({
+        "id": label_id,
+        "title": "status::blocked",
+        "description": "",
+        "color": "#b60205",
+        "textColor": "#fff",
+        "type": "project",
+        "scoped": True,
+    })
+    luca = find_user_by_name(state, "Luca Rossi")
+    ms = find_milestone_by_title(state, "v4.1 - Performance")
+    iid = next_issue_id(state)
+    state["issues"].append({
+        "id": f"issue_{iid}",
+        "iid": iid,
+        "title": "Resolve CDN provider outage",
+        "description": "",
+        "status": "open",
+        "assignees": [luca["id"]],
+        "labels": [label_id],
+        "milestoneId": ms["id"],
+        "iterationId": None,
+        "epicId": None,
+        "weight": 5,
+        "dueDate": None,
+        "startDate": None,
+        "healthStatus": None,
+        "timeEstimate": 0,
+        "timeSpent": 0,
+        "confidential": False,
+        "authorId": state["currentUser"]["id"],
+        "createdAt": NOW,
+        "updatedAt": NOW,
+        "closedAt": None,
+        "taskIds": [],
+        "linkedIssueIds": [],
+    })
+
+
+def solve_task_h82(state):
+    """Assign Chen Wei to unassigned CSRF issue, add priority::high, move to Sprint 27."""
+    issue = find_issue_by_title(state, "Implement CSRF token rotation")
+    chen_wei = find_user_by_name(state, "Chen Wei")
+    issue["assignees"].append(chen_wei["id"])
+    high_label = find_label_by_title(state, "priority::high")
+    # Remove existing priority:: labels (scoped replacement)
+    priority_ids = {l["id"] for l in state["labels"] if l["title"].startswith("priority::")}
+    issue["labels"] = [l for l in issue["labels"] if l not in priority_ids]
+    issue["labels"].append(high_label["id"])
+    sprint27 = find_iteration_by_title(state, "Sprint 27")
+    issue["iterationId"] = sprint27["id"]
+    issue["updatedAt"] = NOW
+
+
+def solve_task_h83(state):
+    """Move Database Optimization issues from Sprint 26 to Sprint 27."""
+    db_epic = find_epic_by_title(state, "Database Optimization")
+    sprint26 = find_iteration_by_title(state, "Sprint 26")
+    sprint27 = find_iteration_by_title(state, "Sprint 27")
+    for issue in state["issues"]:
+        if (
+            issue["epicId"] == db_epic["id"]
+            and issue["status"] == "open"
+            and issue["iterationId"] == sprint26["id"]
+        ):
+            issue["iterationId"] = sprint27["id"]
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h84(state):
+    """Log 3h on slow queries issue; set weight 8 on keyset pagination issue."""
+    slow_issue = find_issue_by_title(state, "Analyze and optimize slow queries from APM logs")
+    tl_id = state.get("_nextTimelogId", 30)
+    state["_nextTimelogId"] = tl_id + 1
+    state["timelogs"].append({
+        "id": f"tl_{tl_id}",
+        "issueId": slow_issue["id"],
+        "userId": state["currentUser"]["id"],
+        "timeSpent": 10800,
+        "summary": "Index optimization review",
+        "spentAt": NOW,
+    })
+    slow_issue["timeSpent"] = slow_issue.get("timeSpent", 0) + 10800
+    slow_issue["updatedAt"] = NOW
+
+    keyset_issue = find_issue_by_title(state, "Optimize issue list query to use keyset pagination")
+    keyset_issue["weight"] = 8
+    keyset_issue["updatedAt"] = NOW
+
+
+def solve_task_h85(state):
+    """Close Q1 2026 Planning milestone; move its issues to v4.1 Performance."""
+    q1_ms = find_milestone_by_title(state, "Q1 2026 Planning")
+    q1_ms["status"] = "closed"
+    perf_ms = find_milestone_by_title(state, "v4.1 - Performance")
+    for issue in state["issues"]:
+        if issue["milestoneId"] == q1_ms["id"] and issue["status"] == "open":
+            issue["milestoneId"] = perf_ms["id"]
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h86(state):
+    """Create 'Release 4.0 GA' iteration in Release Cycle; assign CSP + vulnerable deps."""
+    rc_cadence = find_cadence_by_title(state, "Release Cycle")
+    iid = next_iteration_id(state)
+    iter_id = f"iter_{iid}"
+    state["iterations"].append({
+        "id": iter_id,
+        "title": "Release 4.0 GA",
+        "cadenceId": rc_cadence["id"],
+        "startDate": "2026-03-01",
+        "dueDate": "2026-03-15",
+        "status": "upcoming",
+        "createdAt": NOW,
+    })
+    for title in [
+        "Implement Content Security Policy headers",
+        "Upgrade vulnerable dependencies identified in audit",
+    ]:
+        issue = find_issue_by_title(state, title)
+        issue["iterationId"] = iter_id
+        issue["updatedAt"] = NOW
+
+
+def solve_task_h87(state):
+    """Add needs-discussion to all open issues with both type::bug and priority::high."""
+    bug_label = find_label_by_title(state, "type::bug")
+    high_label = find_label_by_title(state, "priority::high")
+    nd_label = find_label_by_title(state, "needs-discussion")
+    for issue in state["issues"]:
+        if (
+            issue["status"] == "open"
+            and bug_label["id"] in issue["labels"]
+            and high_label["id"] in issue["labels"]
+        ):
+            if nd_label["id"] not in issue["labels"]:
+                issue["labels"].append(nd_label["id"])
+                issue["updatedAt"] = NOW
+
+
+def solve_task_h88(state):
+    """Create 'Developer Tooling' epic; add keyboard shortcuts and bulk operations issues."""
+    feat_label = find_label_by_title(state, "type::feature")
+    iid = next_epic_iid(state)
+    epic_id = f"epic_{iid}"
+    state["epics"].append({
+        "id": epic_id,
+        "iid": iid,
+        "title": "Developer Tooling",
+        "description": "Tools and utilities to improve developer productivity",
+        "status": "open",
+        "startDate": None,
+        "dueDate": None,
+        "labels": [feat_label["id"]],
+        "healthStatus": None,
+        "authorId": state["currentUser"]["id"],
+        "confidential": False,
+        "parentEpicId": None,
+        "createdAt": NOW,
+        "updatedAt": NOW,
+    })
+    for title in [
+        "Implement keyboard shortcuts for common actions",
+        "Add bulk operations for issue management",
+    ]:
+        issue = find_issue_by_title(state, title)
+        issue["epicId"] = epic_id
+        issue["updatedAt"] = NOW
+
+
+def solve_task_h89(state):
+    """Restore snoozed GraphQL gateway todo; add 2h timelog."""
+    gql_issue = find_issue_by_title(state, "Implement GraphQL gateway for v3 API")
+    # Find the snoozed todo for this issue
+    for todo in state["todos"]:
+        if todo["targetId"] == gql_issue["id"] and todo["action"] == "review_requested":
+            todo["status"] = "pending"
+            todo["snoozedUntil"] = None
+            break
+    # Add timelog
+    tl_id = state.get("_nextTimelogId", 30)
+    state["_nextTimelogId"] = tl_id + 1
+    state["timelogs"].append({
+        "id": f"tl_{tl_id}",
+        "issueId": gql_issue["id"],
+        "userId": state["currentUser"]["id"],
+        "timeSpent": 7200,
+        "summary": "Schema optimization review",
+        "spentAt": NOW,
+    })
+    gql_issue["timeSpent"] = gql_issue.get("timeSpent", 0) + 7200
+    gql_issue["updatedAt"] = NOW
+
+
+def solve_task_h90(state):
+    """Rename 'blocked' to 'on-hold', change color, update description, apply to CSRF issue."""
+    blocked_label = find_label_by_title(state, "blocked")
+    blocked_label["title"] = "on-hold"
+    blocked_label["color"] = "#e67e22"
+    blocked_label["description"] = "Temporarily paused pending external input"
+    csrf_issue = find_issue_by_title(state, "Implement CSRF token rotation")
+    if blocked_label["id"] not in csrf_issue["labels"]:
+        csrf_issue["labels"].append(blocked_label["id"])
+        csrf_issue["updatedAt"] = NOW
+
+
+def solve_task_h91(state):
+    """Move Caching Layer epic under Platform Redesign; set issues health needs_attention."""
+    caching_epic = find_epic_by_title(state, "Caching Layer Implementation")
+    platform_epic = find_epic_by_title(state, "Platform Redesign")
+    caching_epic["parentEpicId"] = platform_epic["id"]
+    caching_epic["updatedAt"] = NOW
+    for issue in state["issues"]:
+        if issue["epicId"] == caching_epic["id"] and issue["status"] == "open":
+            issue["healthStatus"] = "needs_attention"
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h92(state):
+    """Log 8h on user settings migration; set health at_risk, weight 13."""
+    issue = find_issue_by_title(state, "Migrate user settings page to React")
+    tl_id = state.get("_nextTimelogId", 30)
+    state["_nextTimelogId"] = tl_id + 1
+    state["timelogs"].append({
+        "id": f"tl_{tl_id}",
+        "issueId": issue["id"],
+        "userId": state["currentUser"]["id"],
+        "timeSpent": 28800,
+        "summary": "Form validation and API integration testing",
+        "spentAt": NOW,
+    })
+    issue["timeSpent"] = issue.get("timeSpent", 0) + 28800
+    issue["healthStatus"] = "at_risk"
+    issue["weight"] = 13
+    issue["updatedAt"] = NOW
+
+
+def solve_task_h93(state):
+    """Delete Bug Triage board; create Severity Board with priority::critical and priority::high."""
+    state["boards"] = [b for b in state["boards"] if b["name"] != "Bug Triage"]
+    crit_label = find_label_by_title(state, "priority::critical")
+    high_label = find_label_by_title(state, "priority::high")
+    bid = next_board_id(state)
+    state["boards"].append({
+        "id": f"board_{bid}",
+        "name": "Severity Board",
+        "lists": [
+            {"id": f"list_{bid}_1", "type": "label", "labelId": crit_label["id"], "position": 0},
+            {"id": f"list_{bid}_2", "type": "label", "labelId": high_label["id"], "position": 1},
+        ],
+    })
+
+
+def solve_task_h94(state):
+    """Set health needs_attention and start date on Enterprise SSO epic."""
+    epic = find_epic_by_title(state, "Enterprise SSO Integration")
+    epic["healthStatus"] = "needs_attention"
+    epic["startDate"] = "2026-03-15"
+    epic["updatedAt"] = NOW
+
+
+def solve_task_h95(state):
+    """Add 'blocked' label to the two heaviest issues in Sprint 26 (weight 13)."""
+    blocked_label = find_label_by_title(state, "blocked")
+    for title in [
+        "Implement GraphQL gateway for v3 API",
+        "Add dark mode support for the entire application",
+    ]:
+        issue = find_issue_by_title(state, title)
+        if blocked_label["id"] not in issue["labels"]:
+            issue["labels"].append(blocked_label["id"])
+        issue["updatedAt"] = NOW
+
+
+def solve_task_h96(state):
+    """Create Hotfix 4.0.1 milestone + Hotfix Sprint iteration; assign 2 issues to both."""
+    mid = next_milestone_id(state)
+    ms_id = f"ms_{mid}"
+    state["milestones"].append({
+        "id": ms_id,
+        "title": "Hotfix 4.0.1",
+        "description": "",
+        "startDate": "2026-03-03",
+        "dueDate": "2026-03-10",
+        "status": "active",
+        "createdAt": NOW,
+    })
+    sprint_cad = find_cadence_by_title(state, "Sprint Cadence")
+    iid = next_iteration_id(state)
+    iter_id = f"iter_{iid}"
+    state["iterations"].append({
+        "id": iter_id,
+        "title": "Hotfix Sprint",
+        "cadenceId": sprint_cad["id"],
+        "startDate": "2026-03-03",
+        "dueDate": "2026-03-10",
+        "status": "upcoming",
+        "createdAt": NOW,
+    })
+    for title in [
+        "Login page shows blank screen on Safari 17.2",
+        "Email notifications sent with wrong timezone offset",
+    ]:
+        issue = find_issue_by_title(state, title)
+        issue["milestoneId"] = ms_id
+        issue["iterationId"] = iter_id
+        issue["updatedAt"] = NOW
+
+
+def solve_task_h97(state):
+    """Replace component::api with component::backend on API v3 Migration issues."""
+    api_epic = find_epic_by_title(state, "API v3 Migration")
+    api_label = find_label_by_title(state, "component::api")
+    backend_label = find_label_by_title(state, "component::backend")
+    component_ids = {l["id"] for l in state["labels"] if l["title"].startswith("component::")}
+    for issue in state["issues"]:
+        if issue["epicId"] == api_epic["id"] and issue["status"] == "open":
+            if api_label["id"] in issue["labels"]:
+                # Remove all component:: labels (scoped replacement)
+                issue["labels"] = [l for l in issue["labels"] if l not in component_ids]
+                issue["labels"].append(backend_label["id"])
+                issue["updatedAt"] = NOW
+
+
+def solve_task_h98(state):
+    """Move 2FA and JWT issues to v4.2 Security Hardening; add priority::high."""
+    sec_ms = find_milestone_by_title(state, "v4.2 - Security Hardening")
+    high_label = find_label_by_title(state, "priority::high")
+    priority_ids = {l["id"] for l in state["labels"] if l["title"].startswith("priority::")}
+    for title in [
+        "Implement two-factor authentication with TOTP",
+        "Migrate user authentication from sessions to JWT",
+    ]:
+        issue = find_issue_by_title(state, title)
+        issue["milestoneId"] = sec_ms["id"]
+        issue["labels"] = [l for l in issue["labels"] if l not in priority_ids]
+        if high_label["id"] not in issue["labels"]:
+            issue["labels"].append(high_label["id"])
+        issue["updatedAt"] = NOW
+
+
+def solve_task_h99(state):
+    """Update Release Cycle cadence to automatic; create Release 4.1 Alpha iteration."""
+    rc_cad = find_cadence_by_title(state, "Release Cycle")
+    rc_cad["automatic"] = True
+    rc_cad["durationWeeks"] = 4
+    rc_cad["upcomingIterations"] = 2
+    iid = next_iteration_id(state)
+    state["iterations"].append({
+        "id": f"iter_{iid}",
+        "title": "Release 4.1 Alpha",
+        "cadenceId": rc_cad["id"],
+        "startDate": "2026-03-15",
+        "dueDate": "2026-04-11",
+        "status": "upcoming",
+        "createdAt": NOW,
+    })
+
+
+def solve_task_h100(state):
+    """Create 'in-review' label, Review Board, and apply label to 2 issues."""
+    lid = next_label_id(state)
+    label_id = f"lbl_{lid}"
+    state["labels"].append({
+        "id": label_id,
+        "title": "in-review",
+        "description": "",
+        "color": "#7b68ee",
+        "textColor": "#fff",
+        "type": "project",
+        "scoped": False,
+    })
+    bid = next_board_id(state)
+    state["boards"].append({
+        "id": f"board_{bid}",
+        "name": "Review Board",
+        "lists": [
+            {"id": f"list_{bid}_1", "type": "label", "labelId": label_id, "position": 0},
+        ],
+    })
+    for title in [
+        "Implement GraphQL gateway for v3 API",
+        "Add dark mode support for the entire application",
+    ]:
+        issue = find_issue_by_title(state, title)
+        if label_id not in issue["labels"]:
+            issue["labels"].append(label_id)
+        issue["updatedAt"] = NOW
+
+
 # ── Solver registry ──────────────────────────────────────────────────
 
 SOLVERS = {
@@ -2123,6 +2517,26 @@ SOLVERS = {
     "task_h78": solve_task_h78,
     "task_h79": solve_task_h79,
     "task_h80": solve_task_h80,
+    "task_h81": solve_task_h81,
+    "task_h82": solve_task_h82,
+    "task_h83": solve_task_h83,
+    "task_h84": solve_task_h84,
+    "task_h85": solve_task_h85,
+    "task_h86": solve_task_h86,
+    "task_h87": solve_task_h87,
+    "task_h88": solve_task_h88,
+    "task_h89": solve_task_h89,
+    "task_h90": solve_task_h90,
+    "task_h91": solve_task_h91,
+    "task_h92": solve_task_h92,
+    "task_h93": solve_task_h93,
+    "task_h94": solve_task_h94,
+    "task_h95": solve_task_h95,
+    "task_h96": solve_task_h96,
+    "task_h97": solve_task_h97,
+    "task_h98": solve_task_h98,
+    "task_h99": solve_task_h99,
+    "task_h100": solve_task_h100,
 }
 
 
