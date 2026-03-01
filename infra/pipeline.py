@@ -23,6 +23,12 @@ Usage:
         --app-name gmail \\
         --docs-path apps/user-manuals/gmail/ \\
         --skip-generation --skip-function-tasks --model gemini
+
+    # Resume after a crash (picks up from saved state)
+    python infra/pipeline.py \\
+        --app-name gitlab-plan-and-track \\
+        --docs-path apps/user-manuals/gitlab/plan-and-track/ \\
+        --model gemini --workers 8 --resume
 """
 
 from __future__ import annotations
@@ -400,6 +406,83 @@ def git_push() -> None:
 
 
 # ---------------------------------------------------------------------------
+# Pipeline state persistence (for --resume)
+# ---------------------------------------------------------------------------
+
+PHASE_ORDER = {
+    "phase_1": 1,
+    "phase_2a": 2,
+    "phase_2b": 3,
+    "phase_3a": 4,
+    "phase_3b": 5,
+    "done": 6,
+}
+
+
+def _state_file_path(app_name: str) -> Path:
+    """Return path to the pipeline state file for an app."""
+    return REPO_DIR / "logs" / app_name / "pipeline_state.json"
+
+
+def save_state(
+    app_name: str,
+    step: str,
+    iteration: int = 0,
+    args: argparse.Namespace | None = None,
+) -> None:
+    """Write current pipeline state to disk.
+
+    Called BEFORE each major operation so that on crash + resume, we know
+    exactly where to pick up.
+    """
+    result = git("rev-parse", "HEAD")
+    last_good_commit = result.stdout.strip()
+
+    state = {
+        "step": step,
+        "iteration": iteration,
+        "last_good_commit": last_good_commit,
+        "app_name": app_name,
+        "timestamp": datetime.now().isoformat(timespec="seconds"),
+    }
+    if args is not None:
+        state["pipeline_args"] = {
+            "model": args.model,
+            "workers": args.workers,
+            "repetitions": args.repetitions,
+            "max_iterations": args.max_iterations,
+            "docs_path": args.docs_path,
+        }
+
+    path = _state_file_path(app_name)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w") as f:
+        json.dump(state, f, indent=2)
+    log.info("Saved pipeline state: step=%s, iteration=%d", step, iteration)
+
+
+def load_state(app_name: str) -> dict | None:
+    """Read pipeline state from disk. Returns None if missing or corrupt."""
+    path = _state_file_path(app_name)
+    if not path.exists():
+        return None
+    try:
+        with open(path) as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError) as e:
+        log.warning("Could not load state file %s: %s", path, e)
+        return None
+
+
+def clear_state(app_name: str) -> None:
+    """Delete the state file on successful completion."""
+    path = _state_file_path(app_name)
+    if path.exists():
+        path.unlink()
+        log.info("Cleared pipeline state file")
+
+
+# ---------------------------------------------------------------------------
 # Main pipeline
 # ---------------------------------------------------------------------------
 
@@ -467,6 +550,11 @@ def main() -> None:
         action="store_true",
         help="Push branch to remote after completion",
     )
+    parser.add_argument(
+        "--resume",
+        action="store_true",
+        help="Resume from last saved pipeline state (reads logs/{app}/pipeline_state.json)",
+    )
     args = parser.parse_args()
 
     # Set up logging
@@ -488,16 +576,59 @@ def main() -> None:
     log.info("  skip-real-tasks: %s", args.skip_real_tasks)
     log.info("  branch:          %s", args.branch or "(current)")
     log.info("  push:            %s", args.push)
+    log.info("  resume:          %s", args.resume)
     log.info("=" * 60)
 
     # Set up branch if specified
     if args.branch:
         setup_branch(args.branch)
 
+    # ── Resume handling ───────────────────────────────────────────────
+
+    resume_phase: str | None = None
+    resume_iter: int = 0
+
+    if args.resume:
+        state = load_state(args.app_name)
+        if state is None:
+            log.error("--resume specified but no state file found for %s", args.app_name)
+            sys.exit(1)
+
+        resume_phase = state["step"]
+        resume_iter = state.get("iteration", 0)
+        log.info(
+            "Resuming from step=%s, iteration=%d (last_good_commit=%s)",
+            resume_phase,
+            resume_iter,
+            state.get("last_good_commit", "unknown"),
+        )
+
+        # Warn if pipeline args differ from original run
+        saved_args = state.get("pipeline_args", {})
+        for key in ("model", "workers", "repetitions"):
+            saved_val = saved_args.get(key)
+            current_val = getattr(args, key, None)
+            if saved_val is not None and saved_val != current_val:
+                log.warning(
+                    "Arg mismatch: saved %s=%s, current %s=%s",
+                    key, saved_val, key, current_val,
+                )
+
+        # Discard any partial changes from the crashed run
+        log.info("Resetting working tree to HEAD")
+        git("reset", "--hard", "HEAD")
+
+    def should_run(phase: str) -> bool:
+        """Return True if this phase should run given resume state."""
+        if resume_phase is None:
+            return True
+        return PHASE_ORDER.get(phase, 0) >= PHASE_ORDER.get(resume_phase, 0)
+
     # ── Phase 1: Generate App ──────────────────────────────────────────
 
-    if not args.skip_generation:
+    if not args.skip_generation and should_run("phase_1"):
         log.info("Phase 1: Generating web app")
+        save_state(args.app_name, "phase_1", args=args)
         app_dir.mkdir(parents=True, exist_ok=True)
 
         rc, stdout, stderr = run_claude(
@@ -513,7 +644,10 @@ def main() -> None:
         commit_checkpoint(app_dir, f"Generate app: {args.app_name}")
         log.info("Phase 1 complete: app generated")
     else:
-        log.info("Phase 1: Skipped (--skip-generation)")
+        if args.skip_generation:
+            log.info("Phase 1: Skipped (--skip-generation)")
+        else:
+            log.info("Phase 1: Skipped (resuming past this phase)")
         if not app_dir.is_dir():
             log.error("App directory does not exist: %s", app_dir)
             sys.exit(1)
@@ -524,78 +658,85 @@ def main() -> None:
         log.info("Phase 2: Function task evaluation")
 
         # 2a: Generate function tasks (once)
-        log.info("Phase 2a: Generating function tasks")
-        rc, stdout, stderr = run_claude(
-            "generate-function-tests",
-            cwd=REPO_DIR,
-            timeout=3600,
-            **{"app-name": args.app_name},
-        )
-        if rc != 0:
-            log.error("Phase 2a FAILED: function task generation returned rc=%d", rc)
-            sys.exit(1)
-
-        ok, output = run_sanity_check(app_dir, "function")
-        if not ok:
-            log.info("Sanity check failed after function task generation — fixing")
-            run_claude(
-                "fix-sanity-check",
-                cwd=REPO_DIR,
-                timeout=1800,
-                output=output[-3000:],
-                variant="function",
-                **{"app-name": args.app_name},
-            )
-
-        commit_checkpoint(app_dir, f"Generate function tasks: {args.app_name}")
-
-        # 2b: Eval → Audit loop
-        for iteration in range(1, max_iterations + 1):
-            log.info(
-                "Phase 2b: Function task iteration %d/%d",
-                iteration,
-                max_iterations,
-            )
-
-            results_dir = run_eval(
-                app_dir, "function-tasks", args.model, args.workers, args.repetitions
-            )
-            results = parse_results(results_dir)
-            log.info(
-                "Function task pass rate: %.1f%% (%d/%d)",
-                results["pass_rate"],
-                results["passed"],
-                results["total"],
-            )
-
-            if results["pass_rate"] == 100:
-                log.info("All function tasks passed!")
-                break
-
-            if results_dir is None:
-                log.warning("No results directory — skipping audit")
-                break
-
-            log.info("Running audit on function task failures")
-            run_claude(
-                "audit-function-tests",
+        if should_run("phase_2a"):
+            log.info("Phase 2a: Generating function tasks")
+            save_state(args.app_name, "phase_2a", args=args)
+            rc, stdout, stderr = run_claude(
+                "generate-function-tests",
                 cwd=REPO_DIR,
                 timeout=3600,
-                evaluation_result_path=str(results_dir),
+                **{"app-name": args.app_name},
             )
+            if rc != 0:
+                log.error("Phase 2a FAILED: function task generation returned rc=%d", rc)
+                sys.exit(1)
 
-            if not detect_changes(app_dir):
-                log.info(
-                    "Audit made no changes — remaining failures are agent-side"
-                )
-                break
-
-            # Re-check sanity after audit changes
             ok, output = run_sanity_check(app_dir, "function")
-            commit_checkpoint(
-                app_dir,
-                f"Function task audit iter {iteration}: {args.app_name}",
-            )
+            if not ok:
+                log.info("Sanity check failed after function task generation — fixing")
+                run_claude(
+                    "fix-sanity-check",
+                    cwd=REPO_DIR,
+                    timeout=1800,
+                    output=output[-3000:],
+                    variant="function",
+                    **{"app-name": args.app_name},
+                )
+
+            commit_checkpoint(app_dir, f"Generate function tasks: {args.app_name}")
+        else:
+            log.info("Phase 2a: Skipped (resuming past this phase)")
+
+        # 2b: Eval → Audit loop
+        if should_run("phase_2b"):
+            start_iter = resume_iter if resume_phase == "phase_2b" else 1
+            for iteration in range(start_iter, max_iterations + 1):
+                log.info(
+                    "Phase 2b: Function task iteration %d/%d",
+                    iteration,
+                    max_iterations,
+                )
+                save_state(args.app_name, "phase_2b", iteration=iteration, args=args)
+
+                results_dir = run_eval(
+                    app_dir, "function-tasks", args.model, args.workers, args.repetitions
+                )
+                results = parse_results(results_dir)
+                log.info(
+                    "Function task pass rate: %.1f%% (%d/%d)",
+                    results["pass_rate"],
+                    results["passed"],
+                    results["total"],
+                )
+
+                if results["pass_rate"] == 100:
+                    log.info("All function tasks passed!")
+                    break
+
+                if results_dir is None:
+                    log.warning("No results directory — skipping audit")
+                    break
+
+                log.info("Running audit on function task failures")
+                run_claude(
+                    "audit-function-tests",
+                    cwd=REPO_DIR,
+                    timeout=3600,
+                    evaluation_result_path=str(results_dir),
+                )
+
+                if not detect_changes(app_dir):
+                    log.info(
+                        "Audit made no changes — remaining failures are agent-side"
+                    )
+                    break
+
+                # Re-check sanity after audit changes
+                ok, output = run_sanity_check(app_dir, "function")
+                commit_checkpoint(
+                    app_dir,
+                    f"Function task audit iter {iteration}: {args.app_name}",
+                )
 
         log.info("Phase 2 complete")
     else:
@@ -607,84 +748,94 @@ def main() -> None:
         log.info("Phase 3: Real task evaluation")
 
         # 3a: Generate real tasks (once)
-        log.info("Phase 3a: Generating real tasks")
-        rc, stdout, stderr = run_claude(
-            "generate-real-tasks",
-            cwd=REPO_DIR,
-            timeout=3600,
-            **{"app-name": args.app_name},
-        )
-        if rc != 0:
-            log.error("Phase 3a FAILED: real task generation returned rc=%d", rc)
-            sys.exit(1)
-
-        ok, output = run_sanity_check(app_dir, "real")
-        if not ok:
-            log.info("Sanity check failed after real task generation — fixing")
-            run_claude(
-                "fix-sanity-check",
-                cwd=REPO_DIR,
-                timeout=1800,
-                output=output[-3000:],
-                variant="real",
-                **{"app-name": args.app_name},
-            )
-
-        commit_checkpoint(app_dir, f"Generate real tasks: {args.app_name}")
-
-        # 3b: Eval → Audit loop
-        for iteration in range(1, max_iterations + 1):
-            log.info(
-                "Phase 3b: Real task iteration %d/%d",
-                iteration,
-                max_iterations,
-            )
-
-            results_dir = run_eval(
-                app_dir, "tasks", args.model, args.workers, args.repetitions
-            )
-            results = parse_results(results_dir)
-            log.info(
-                "Real task pass rate: %.1f%% (%d/%d)",
-                results["pass_rate"],
-                results["passed"],
-                results["total"],
-            )
-
-            if results["pass_rate"] == 100:
-                log.info("All real tasks passed!")
-                break
-
-            if results_dir is None:
-                log.warning("No results directory — skipping audit")
-                break
-
-            log.info("Running audit on real task failures")
-            run_claude(
-                "audit-real-tasks",
+        if should_run("phase_3a"):
+            log.info("Phase 3a: Generating real tasks")
+            save_state(args.app_name, "phase_3a", args=args)
+            rc, stdout, stderr = run_claude(
+                "generate-real-tasks",
                 cwd=REPO_DIR,
                 timeout=3600,
-                evaluation_result_path=str(results_dir),
+                **{"app-name": args.app_name},
             )
+            if rc != 0:
+                log.error("Phase 3a FAILED: real task generation returned rc=%d", rc)
+                sys.exit(1)
 
-            if not detect_changes(app_dir):
-                log.info(
-                    "Audit made no changes — remaining failures are agent-side"
-                )
-                break
-
-            # Re-check sanity after audit changes
             ok, output = run_sanity_check(app_dir, "real")
-            commit_checkpoint(
-                app_dir,
-                f"Real task audit iter {iteration}: {args.app_name}",
-            )
+            if not ok:
+                log.info("Sanity check failed after real task generation — fixing")
+                run_claude(
+                    "fix-sanity-check",
+                    cwd=REPO_DIR,
+                    timeout=1800,
+                    output=output[-3000:],
+                    variant="real",
+                    **{"app-name": args.app_name},
+                )
+
+            commit_checkpoint(app_dir, f"Generate real tasks: {args.app_name}")
+        else:
+            log.info("Phase 3a: Skipped (resuming past this phase)")
+
+        # 3b: Eval → Audit loop
+        if should_run("phase_3b"):
+            start_iter = resume_iter if resume_phase == "phase_3b" else 1
+            for iteration in range(start_iter, max_iterations + 1):
+                log.info(
+                    "Phase 3b: Real task iteration %d/%d",
+                    iteration,
+                    max_iterations,
+                )
+                save_state(args.app_name, "phase_3b", iteration=iteration, args=args)
+
+                results_dir = run_eval(
+                    app_dir, "tasks", args.model, args.workers, args.repetitions
+                )
+                results = parse_results(results_dir)
+                log.info(
+                    "Real task pass rate: %.1f%% (%d/%d)",
+                    results["pass_rate"],
+                    results["passed"],
+                    results["total"],
+                )
+
+                if results["pass_rate"] == 100:
+                    log.info("All real tasks passed!")
+                    break
+
+                if results_dir is None:
+                    log.warning("No results directory — skipping audit")
+                    break
+
+                log.info("Running audit on real task failures")
+                run_claude(
+                    "audit-real-tasks",
+                    cwd=REPO_DIR,
+                    timeout=3600,
+                    evaluation_result_path=str(results_dir),
+                )
+
+                if not detect_changes(app_dir):
+                    log.info(
+                        "Audit made no changes — remaining failures are agent-side"
+                    )
+                    break
+
+                # Re-check sanity after audit changes
+                ok, output = run_sanity_check(app_dir, "real")
+                commit_checkpoint(
+                    app_dir,
+                    f"Real task audit iter {iteration}: {args.app_name}",
+                )
 
         log.info("Phase 3 complete")
     else:
         log.info("Phase 3: Skipped (--skip-real-tasks)")
 
     # ── Done ───────────────────────────────────────────────────────────
+
+    save_state(args.app_name, "done", args=args)
+    clear_state(args.app_name)
 
     if args.push:
         git_push()
