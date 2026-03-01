@@ -1234,6 +1234,39 @@ def main() -> None:
     else:
         log.info("Phase 4: Skipped (--skip-hardening)")
 
+    # ── Final regression eval ─────────────────────────────────────────
+
+    if not args.skip_hardening:
+        log.info("Final regression eval: running full suite on both task types")
+
+        if not args.skip_function_tasks:
+            log.info("Final eval: function tasks")
+            func_results_dir = run_eval(
+                app_dir, "function-tasks", args.model, args.workers,
+                args.repetitions,
+            )
+            func_results = parse_results(func_results_dir)
+            log.info(
+                "Final function task pass rate: %.1f%% (%d/%d)",
+                func_results["pass_rate"],
+                func_results["passed"],
+                func_results["total"],
+            )
+
+        if not args.skip_real_tasks:
+            log.info("Final eval: real tasks (full suite)")
+            real_results_dir = run_eval(
+                app_dir, "tasks", args.model, args.workers,
+                args.repetitions,
+            )
+            real_results = parse_results(real_results_dir)
+            log.info(
+                "Final real task pass rate: %.1f%% (%d/%d)",
+                real_results["pass_rate"],
+                real_results["passed"],
+                real_results["total"],
+            )
+
     # ── Done ───────────────────────────────────────────────────────────
 
     save_state(args.app_name, "done", args=args)
