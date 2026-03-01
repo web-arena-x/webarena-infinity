@@ -553,28 +553,59 @@ def get_new_task_ids(tasks_file: Path, known_ids: set[str]) -> set[str]:
     return current_ids - known_ids
 
 
-def build_hardening_analysis(
-    results_dir: Path | None, tasks_file: Path
-) -> str:
+def _find_best_results_dir(app_dir: Path) -> Path | None:
+    """Find the results dir with the most tasks (i.e., a full-suite eval).
+
+    After hardening rounds, find_latest_results may return a narrow eval
+    that only covered new tasks.  This function picks the run with the
+    broadest coverage so the analysis reflects the full picture.
+    """
+    results_root = app_dir / "results"
+    if not results_root.is_dir():
+        return None
+
+    best: Path | None = None
+    best_count = 0
+    for d in results_root.iterdir():
+        if not d.is_dir():
+            continue
+        rfile = d / "results.json"
+        if not rfile.exists():
+            continue
+        try:
+            with open(rfile) as f:
+                data = json.load(f)
+            count = data.get("total", 0)
+            if count > best_count:
+                best_count = count
+                best = d
+        except (json.JSONDecodeError, OSError):
+            continue
+    return best
+
+
+def build_hardening_analysis(app_dir: Path) -> str:
     """Build a text summary of evaluation results for the hardening prompt.
 
-    Reads results.json for per-task metrics, computes per-difficulty pass rates,
-    and identifies easy wins vs hard failures. Includes the results_dir path so
-    Claude can read history.json files for behavioral analysis.
+    Finds the most comprehensive results dir (highest task count) so the
+    analysis reflects the full task suite, not just a narrow hardening eval.
+    Points Claude at the parent results/ directory so it can browse
+    history.json files across all eval runs.
     """
-    if results_dir is None:
+    results_root = app_dir / "results"
+    best_dir = _find_best_results_dir(app_dir)
+
+    if best_dir is None:
         return "No previous evaluation results available."
 
-    results_file = results_dir / "results.json"
-    if not results_file.exists():
-        return "No results.json found in the latest results directory."
-
+    results_file = best_dir / "results.json"
     with open(results_file) as f:
         data = json.load(f)
 
     lines = []
     lines.append(f"Overall pass rate: {data.get('pass_rate', 0)}%")
     lines.append(f"Total tasks: {data.get('total', 0)}, Passed: {data.get('passed', 0)}")
+    lines.append(f"(from eval run: {best_dir.name})")
     lines.append("")
 
     # Per-difficulty breakdown
@@ -617,7 +648,19 @@ def build_hardening_analysis(
             lines.extend(hard_fails[:30])
             lines.append("")
 
-    lines.append(f"Results directory (read history.json files here): {results_dir}")
+    # Point at the parent results/ dir so Claude can browse all runs
+    lines.append(f"Results directory (browse history.json across all runs): {results_root}")
+    lines.append("")
+    # List available run dirs for reference
+    run_dirs = sorted(
+        (d.name for d in results_root.iterdir() if d.is_dir()),
+        reverse=True,
+    )
+    if run_dirs:
+        lines.append("Available eval runs (newest first):")
+        for name in run_dirs[:10]:
+            lines.append(f"  {results_root / name}")
+
     return "\n".join(lines)
 
 
@@ -1034,18 +1077,16 @@ def main() -> None:
                 # Snapshot current task IDs before generation
                 known_ids = load_task_ids(app_dir / "tasks.json")
 
-                # Get latest results for context
-                results_dir = find_latest_results(app_dir, "tasks")
-                analysis = build_hardening_analysis(
-                    results_dir, app_dir / "tasks.json"
-                )
+                # Build analysis from most comprehensive eval results
+                analysis = build_hardening_analysis(app_dir)
+                results_root = app_dir / "results"
 
                 rc, stdout, stderr = run_claude(
                     "harden-tasks",
                     cwd=REPO_DIR,
                     timeout=3600,
                     hardening_analysis=analysis,
-                    results_path=str(results_dir) if results_dir else "none",
+                    results_path=str(results_root) if results_root.is_dir() else "none",
                     round_number=str(round_num),
                     tasks_per_round=str(args.tasks_per_round),
                     **{"app-name": args.app_name},
