@@ -159,24 +159,11 @@ To make tasks meaningfully challenging rather than artificially complex:
 
 ## Task ID Convention
 
-Continue numbering from the highest existing task ID. For example, if the current suite ends at `task_h24`, new tasks start at:
-- Easy: `task_e25`, `task_e26`, ...
-- Medium: `task_m25`, `task_m26`, ...
-- Hard: `task_h25`, `task_h26`, ...
-
-Use the same numeric suffix across difficulties within a round to keep IDs tidy, but this is a convention, not a requirement. The critical rule is: **never reuse an existing task ID**.
+Continue numbering from the highest existing hard task ID. For example, if the current suite ends at `task_h20`, new hardening tasks start at `task_h21`, `task_h22`, etc. **Never reuse an existing task ID.**
 
 ## Difficulty Distribution
 
-Weight new tasks toward harder difficulties:
-
-| Difficulty | Proportion | Rationale |
-|-----------|-----------|-----------|
-| Easy | ~10% | Regression coverage — ensure basic functionality still works |
-| Medium | ~40% | Sweet spot for measuring improvement |
-| Hard | ~50% | Primary target — these are what hardening is for |
-
-For a round of 20 tasks: ~2 easy, ~8 medium, ~10 hard.
+All hardening tasks must be difficulty **hard**. Easy and medium tasks already have sufficient coverage from the initial task generation phases. The purpose of hardening is to challenge agents with tasks they cannot easily solve.
 
 ## Quality Bar
 
