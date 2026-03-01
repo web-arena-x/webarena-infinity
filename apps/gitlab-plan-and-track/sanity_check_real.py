@@ -964,6 +964,305 @@ def solve_task_h20(state):
     issue["updatedAt"] = NOW
 
 
+# ── Hardening round 1 solve functions ─────────────────────────────────
+
+def solve_task_h21(state):
+    """Log 3h with summary 'Schema validation review' on GraphQL gateway issue; set health to needs_attention."""
+    issue = find_issue_by_title(state, "Implement GraphQL gateway for v3 API")
+    issue["healthStatus"] = "needs_attention"
+    issue["updatedAt"] = NOW
+    tl_id = state.get("_nextTimelogId", 30)
+    state["_nextTimelogId"] = tl_id + 1
+    state["timelogs"].append({
+        "id": f"tl_{tl_id}",
+        "issueId": issue["id"],
+        "userId": state["currentUser"]["id"],
+        "timeSpent": 10800,
+        "summary": "Schema validation review",
+        "spentAt": NOW,
+    })
+    issue["timeSpent"] = issue.get("timeSpent", 0) + 10800
+
+
+def solve_task_h22(state):
+    """Assign Chen Wei to the unassigned open issue in Security Hardening epic; set iteration to Sprint 27."""
+    issue = find_issue_by_title(state, "Implement CSRF token rotation")
+    chen = find_user_by_name(state, "Chen Wei")
+    sprint27 = find_iteration_by_title(state, "Sprint 27")
+    issue["assignees"] = [chen["id"]]
+    issue["iterationId"] = sprint27["id"]
+    issue["updatedAt"] = NOW
+
+
+def solve_task_h23(state):
+    """Create 'Security Overview' board with lists for priority::critical, priority::high, and security."""
+    lbl_crit = find_label_by_title(state, "priority::critical")
+    lbl_high = find_label_by_title(state, "priority::high")
+    lbl_sec = find_label_by_title(state, "security")
+    bid = next_board_id(state)
+    state["boards"].append({
+        "id": f"board_{bid}",
+        "name": "Security Overview",
+        "lists": [
+            {"id": f"list_{bid}_1", "type": "label", "labelId": lbl_crit["id"], "position": 0},
+            {"id": f"list_{bid}_2", "type": "label", "labelId": lbl_high["id"], "position": 1},
+            {"id": f"list_{bid}_3", "type": "label", "labelId": lbl_sec["id"], "position": 2},
+        ],
+    })
+
+
+def solve_task_h24(state):
+    """Delete all timelogs from user settings migration issue; set time estimate to 20h."""
+    issue = find_issue_by_title(state, "Migrate user settings page to React")
+    issue_id = issue["id"]
+    state["timelogs"] = [t for t in state["timelogs"] if t["issueId"] != issue_id]
+    issue["timeEstimate"] = 72000
+    issue["timeSpent"] = 0
+    issue["updatedAt"] = NOW
+
+
+def solve_task_h25(state):
+    """Set health status of Performance Initiative and both child epics to needs_attention."""
+    perf_epic = find_epic_by_title(state, "Performance Initiative")
+    perf_epic["healthStatus"] = "needs_attention"
+    perf_epic["updatedAt"] = NOW
+    for epic in state["epics"]:
+        if epic["parentEpicId"] == perf_epic["id"]:
+            epic["healthStatus"] = "needs_attention"
+            epic["updatedAt"] = NOW
+
+
+def solve_task_h26(state):
+    """Create 'Technical Debt Cleanup' epic under Platform Redesign; move technical-debt issues into it."""
+    platform_epic = find_epic_by_title(state, "Platform Redesign")
+    td_label = find_label_by_title(state, "technical-debt")
+    iid = next_epic_iid(state)
+    epic_id = f"epic_{iid}"
+    state["epics"].append({
+        "id": epic_id,
+        "iid": iid,
+        "title": "Technical Debt Cleanup",
+        "description": "",
+        "status": "open",
+        "startDate": None,
+        "dueDate": None,
+        "labels": [],
+        "healthStatus": None,
+        "authorId": state["currentUser"]["id"],
+        "confidential": False,
+        "parentEpicId": platform_epic["id"],
+        "createdAt": NOW,
+        "updatedAt": NOW,
+    })
+    for issue in state["issues"]:
+        if td_label["id"] in issue["labels"]:
+            issue["epicId"] = epic_id
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h27(state):
+    """Rename Monthly Planning to 'Bi-Weekly Planning' with 2-week duration."""
+    cad = find_cadence_by_title(state, "Monthly Planning")
+    cad["title"] = "Bi-Weekly Planning"
+    cad["durationWeeks"] = 2
+
+
+def solve_task_h28(state):
+    """Add 2h timelog 'Security review' to CSP headers issue; move from Sprint 26 to Sprint 28."""
+    issue = find_issue_by_title(state, "Implement Content Security Policy headers")
+    sprint28 = find_iteration_by_title(state, "Sprint 28")
+    issue["iterationId"] = sprint28["id"]
+    issue["updatedAt"] = NOW
+    tl_id = state.get("_nextTimelogId", 30)
+    state["_nextTimelogId"] = tl_id + 1
+    state["timelogs"].append({
+        "id": f"tl_{tl_id}",
+        "issueId": issue["id"],
+        "userId": state["currentUser"]["id"],
+        "timeSpent": 7200,
+        "summary": "Security review",
+        "spentAt": NOW,
+    })
+    issue["timeSpent"] = issue.get("timeSpent", 0) + 7200
+
+
+def solve_task_h29(state):
+    """Close all open type::bug issues in v4.1 - Performance milestone."""
+    ms = find_milestone_by_title(state, "v4.1 - Performance")
+    lbl_bug = find_label_by_title(state, "type::bug")
+    for issue in state["issues"]:
+        if (issue["milestoneId"] == ms["id"]
+                and lbl_bug["id"] in issue["labels"]
+                and issue["status"] == "open"):
+            issue["status"] = "closed"
+            issue["closedAt"] = NOW
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h30(state):
+    """Create 'Security Sprint' in Release Cycle; assign all open Security Hardening epic issues to it."""
+    release_cad = find_cadence_by_title(state, "Release Cycle")
+    iid = next_iteration_id(state)
+    iter_id = f"iter_{iid}"
+    state["iterations"].append({
+        "id": iter_id,
+        "title": "Security Sprint",
+        "cadenceId": release_cad["id"],
+        "startDate": "2026-03-03",
+        "dueDate": "2026-03-16",
+        "status": "upcoming",
+        "createdAt": NOW,
+    })
+    sec_epic = find_epic_by_title(state, "Security Hardening")
+    for issue in state["issues"]:
+        if issue["epicId"] == sec_epic["id"] and issue["status"] == "open":
+            issue["iterationId"] = iter_id
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h31(state):
+    """Make Enterprise SSO Integration a child of Security Hardening; set health to on_track."""
+    sso_epic = find_epic_by_title(state, "Enterprise SSO Integration")
+    sec_epic = find_epic_by_title(state, "Security Hardening")
+    sso_epic["parentEpicId"] = sec_epic["id"]
+    sso_epic["healthStatus"] = "on_track"
+    sso_epic["updatedAt"] = NOW
+
+
+def solve_task_h32(state):
+    """Assign Sarah Chen + Marcus Johnson to CSRF issue; set priority::high; move to Sprint 28."""
+    issue = find_issue_by_title(state, "Implement CSRF token rotation")
+    sarah = find_user_by_name(state, "Sarah Chen")
+    marcus = find_user_by_name(state, "Marcus Johnson")
+    sprint28 = find_iteration_by_title(state, "Sprint 28")
+    lbl_high = find_label_by_title(state, "priority::high")
+    # Add assignees
+    for uid in [sarah["id"], marcus["id"]]:
+        if uid not in issue["assignees"]:
+            issue["assignees"].append(uid)
+    # Replace scoped priority label
+    issue["labels"] = [l for l in issue["labels"]
+                       if not any(lab["title"].startswith("priority::") and lab["id"] == l
+                                  for lab in state["labels"])]
+    if lbl_high["id"] not in issue["labels"]:
+        issue["labels"].append(lbl_high["id"])
+    issue["iterationId"] = sprint28["id"]
+    issue["updatedAt"] = NOW
+
+
+def solve_task_h33(state):
+    """Delete Bug Triage board; create Team Workload with workflow::ready, in-progress, review lists."""
+    state["boards"] = [b for b in state["boards"] if b["name"] != "Bug Triage"]
+    lbl_ready = find_label_by_title(state, "workflow::ready")
+    lbl_ip = find_label_by_title(state, "workflow::in-progress")
+    lbl_review = find_label_by_title(state, "workflow::review")
+    bid = next_board_id(state)
+    state["boards"].append({
+        "id": f"board_{bid}",
+        "name": "Team Workload",
+        "lists": [
+            {"id": f"list_{bid}_1", "type": "label", "labelId": lbl_ready["id"], "position": 0},
+            {"id": f"list_{bid}_2", "type": "label", "labelId": lbl_ip["id"], "position": 1},
+            {"id": f"list_{bid}_3", "type": "label", "labelId": lbl_review["id"], "position": 2},
+        ],
+    })
+
+
+def solve_task_h34(state):
+    """Close both issues in Documentation Overhaul epic, remove milestones, close epic."""
+    epic = find_epic_by_title(state, "Documentation Overhaul")
+    for issue in state["issues"]:
+        if issue["epicId"] == epic["id"]:
+            issue["status"] = "closed"
+            issue["closedAt"] = NOW
+            issue["milestoneId"] = None
+            issue["updatedAt"] = NOW
+    epic["status"] = "closed"
+    epic["updatedAt"] = NOW
+
+
+def solve_task_h35(state):
+    """Rename 'performance' label to 'perf', color #0284c7, description 'Performance optimization work'."""
+    label = find_label_by_title(state, "performance")
+    label["title"] = "perf"
+    label["color"] = "#0284c7"
+    label["description"] = "Performance optimization work"
+
+
+def solve_task_h36(state):
+    """Reopen the two closed issues from Sprint 24 and move them to Sprint 28."""
+    sprint28 = find_iteration_by_title(state, "Sprint 28")
+    for title in [
+        "Implement sidebar navigation with collapsible sections",
+        "Create reusable modal dialog system",
+    ]:
+        issue = find_issue_by_title(state, title)
+        issue["status"] = "open"
+        issue["closedAt"] = None
+        issue["iterationId"] = sprint28["id"]
+        issue["updatedAt"] = NOW
+
+
+def solve_task_h37(state):
+    """Add accessibility label to every open issue in Frontend Modernization epic that lacks it."""
+    epic = find_epic_by_title(state, "Frontend Modernization")
+    acc_label = find_label_by_title(state, "accessibility")
+    for issue in state["issues"]:
+        if (issue["epicId"] == epic["id"]
+                and issue["status"] == "open"
+                and acc_label["id"] not in issue["labels"]):
+            issue["labels"].append(acc_label["id"])
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h38(state):
+    """Set weight 5 and priority::medium on open issues with no assignees, no milestone, no epic."""
+    lbl_med = find_label_by_title(state, "priority::medium")
+    for issue in state["issues"]:
+        if (issue["status"] == "open"
+                and len(issue["assignees"]) == 0
+                and issue["milestoneId"] is None
+                and issue["epicId"] is None):
+            issue["weight"] = 5
+            # Replace scoped priority label
+            issue["labels"] = [l for l in issue["labels"]
+                               if not any(lab["title"].startswith("priority::") and lab["id"] == l
+                                          for lab in state["labels"])]
+            if lbl_med["id"] not in issue["labels"]:
+                issue["labels"].append(lbl_med["id"])
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h39(state):
+    """Enable automatic scheduling on Release Cycle cadence: March 1, 4-week, 2 upcoming."""
+    cad = find_cadence_by_title(state, "Release Cycle")
+    cad["automatic"] = True
+    cad["startDate"] = "2026-03-01"
+    cad["durationWeeks"] = 4
+    cad["upcomingIterations"] = 2
+
+
+def solve_task_h40(state):
+    """Create 'needs-review' label with color #fbca04; apply to all open issues assigned to Marcus Johnson."""
+    marcus = find_user_by_name(state, "Marcus Johnson")
+    lid = next_label_id(state)
+    label_id = f"lbl_{lid}"
+    state["labels"].append({
+        "id": label_id,
+        "title": "needs-review",
+        "description": "",
+        "color": "#fbca04",
+        "textColor": "#333",
+        "type": "project",
+        "scoped": False,
+    })
+    for issue in state["issues"]:
+        if marcus["id"] in issue["assignees"] and issue["status"] == "open":
+            if label_id not in issue["labels"]:
+                issue["labels"].append(label_id)
+            issue["updatedAt"] = NOW
+
+
 # ── Solver registry ──────────────────────────────────────────────────
 
 SOLVERS = {
@@ -1027,6 +1326,26 @@ SOLVERS = {
     "task_h18": solve_task_h18,
     "task_h19": solve_task_h19,
     "task_h20": solve_task_h20,
+    "task_h21": solve_task_h21,
+    "task_h22": solve_task_h22,
+    "task_h23": solve_task_h23,
+    "task_h24": solve_task_h24,
+    "task_h25": solve_task_h25,
+    "task_h26": solve_task_h26,
+    "task_h27": solve_task_h27,
+    "task_h28": solve_task_h28,
+    "task_h29": solve_task_h29,
+    "task_h30": solve_task_h30,
+    "task_h31": solve_task_h31,
+    "task_h32": solve_task_h32,
+    "task_h33": solve_task_h33,
+    "task_h34": solve_task_h34,
+    "task_h35": solve_task_h35,
+    "task_h36": solve_task_h36,
+    "task_h37": solve_task_h37,
+    "task_h38": solve_task_h38,
+    "task_h39": solve_task_h39,
+    "task_h40": solve_task_h40,
 }
 
 

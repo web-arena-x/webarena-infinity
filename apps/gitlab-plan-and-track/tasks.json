@@ -358,5 +358,125 @@
     "difficulty": "hard",
     "instruction": "Delete the 'blocked' label and create a new scoped label 'status::blocked' with red color (#b91c1c), then apply it to the user settings page migration issue.",
     "verify": "tasks/task_h20.py"
+  },
+  {
+    "id": "task_h21",
+    "difficulty": "hard",
+    "instruction": "Log 3 hours of time with the summary 'Schema validation review' on the GraphQL gateway issue and change its health status to needs attention.",
+    "verify": "tasks/task_h21.py"
+  },
+  {
+    "id": "task_h22",
+    "difficulty": "hard",
+    "instruction": "Find the open issue in the Security Hardening epic that has no assignees, assign Chen Wei to it, and set its iteration to Sprint 27.",
+    "verify": "tasks/task_h22.py"
+  },
+  {
+    "id": "task_h23",
+    "difficulty": "hard",
+    "instruction": "Create a board called 'Security Overview' with lists for the priority::critical, priority::high, and security labels.",
+    "verify": "tasks/task_h23.py"
+  },
+  {
+    "id": "task_h24",
+    "difficulty": "hard",
+    "instruction": "Delete all time entries from the user settings page migration issue and set its time estimate to 20 hours.",
+    "verify": "tasks/task_h24.py"
+  },
+  {
+    "id": "task_h25",
+    "difficulty": "hard",
+    "instruction": "Set the health status of the Performance Initiative epic and both of its child epics to needs attention.",
+    "verify": "tasks/task_h25.py"
+  },
+  {
+    "id": "task_h26",
+    "difficulty": "hard",
+    "instruction": "Create a new epic called 'Technical Debt Cleanup' as a child of the Platform Redesign epic, then move all issues with the 'technical-debt' label into it.",
+    "verify": "tasks/task_h26.py"
+  },
+  {
+    "id": "task_h27",
+    "difficulty": "hard",
+    "instruction": "Edit the Monthly Planning cadence to use 2-week duration instead of 4-week and rename it to 'Bi-Weekly Planning'.",
+    "verify": "tasks/task_h27.py"
+  },
+  {
+    "id": "task_h28",
+    "difficulty": "hard",
+    "instruction": "Add a 2-hour time entry with summary 'Security review' to the CSP headers issue, then move it from Sprint 26 to Sprint 28.",
+    "verify": "tasks/task_h28.py"
+  },
+  {
+    "id": "task_h29",
+    "difficulty": "hard",
+    "instruction": "Close all open type::bug issues in the v4.1 - Performance milestone.",
+    "verify": "tasks/task_h29.py"
+  },
+  {
+    "id": "task_h30",
+    "difficulty": "hard",
+    "instruction": "Create a new iteration called 'Security Sprint' in the Release Cycle cadence starting March 3 and ending March 16, 2026, then assign all open issues from the Security Hardening epic to this iteration.",
+    "verify": "tasks/task_h30.py"
+  },
+  {
+    "id": "task_h31",
+    "difficulty": "hard",
+    "instruction": "Make the Enterprise SSO Integration epic a child of the Security Hardening epic and set its health status to on_track.",
+    "verify": "tasks/task_h31.py"
+  },
+  {
+    "id": "task_h32",
+    "difficulty": "hard",
+    "instruction": "Assign Sarah Chen and Marcus Johnson to the CSRF token rotation issue, set its priority to high, and move it to Sprint 28.",
+    "verify": "tasks/task_h32.py"
+  },
+  {
+    "id": "task_h33",
+    "difficulty": "hard",
+    "instruction": "Delete the Bug Triage board and create a new board called 'Team Workload' with lists for the workflow::ready, workflow::in-progress, and workflow::review labels.",
+    "verify": "tasks/task_h33.py"
+  },
+  {
+    "id": "task_h34",
+    "difficulty": "hard",
+    "instruction": "Close both issues in the Documentation Overhaul epic, remove their milestone assignments, and close the epic itself.",
+    "verify": "tasks/task_h34.py"
+  },
+  {
+    "id": "task_h35",
+    "difficulty": "hard",
+    "instruction": "Rename the 'performance' label to 'perf', change its color to blue (#0284c7), and update its description to 'Performance optimization work'.",
+    "verify": "tasks/task_h35.py"
+  },
+  {
+    "id": "task_h36",
+    "difficulty": "hard",
+    "instruction": "Reopen the two closed issues from Sprint 24 and move them to Sprint 28.",
+    "verify": "tasks/task_h36.py"
+  },
+  {
+    "id": "task_h37",
+    "difficulty": "hard",
+    "instruction": "Add the 'accessibility' label to every open issue in the Frontend Modernization epic that doesn't already have it.",
+    "verify": "tasks/task_h37.py"
+  },
+  {
+    "id": "task_h38",
+    "difficulty": "hard",
+    "instruction": "Set the weight to 5 and add the priority::medium label to every open issue that has no assignees, no milestone, and no epic.",
+    "verify": "tasks/task_h38.py"
+  },
+  {
+    "id": "task_h39",
+    "difficulty": "hard",
+    "instruction": "Edit the Release Cycle cadence to enable automatic scheduling starting March 1, 2026, with a 4-week duration and 2 upcoming iterations.",
+    "verify": "tasks/task_h39.py"
+  },
+  {
+    "id": "task_h40",
+    "difficulty": "hard",
+    "instruction": "Create a new label called 'needs-review' with the color #fbca04, then apply it to all open issues assigned to Marcus Johnson.",
+    "verify": "tasks/task_h40.py"
   }
 ]
