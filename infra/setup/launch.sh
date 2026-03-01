@@ -182,6 +182,22 @@ if [ -z "$PROFILE_EXISTS" ] || [ "$PROFILE_EXISTS" = "None" ]; then
   sleep 10
 fi
 
+# --- Attach S3 results upload policy to EC2 role ---
+S3_BUCKET="${MM_S3_BUCKET:-mirror-mirror-results}"
+echo "Attaching S3 results policy to $ROLE_NAME (bucket: $S3_BUCKET)"
+aws iam put-role-policy \
+  --role-name "$ROLE_NAME" \
+  --policy-name "mirror-mirror-s3-results" \
+  --policy-document "{
+    \"Version\": \"2012-10-17\",
+    \"Statement\": [{
+      \"Sid\": \"MirrorMirrorResultsUpload\",
+      \"Effect\": \"Allow\",
+      \"Action\": [\"s3:PutObject\", \"s3:GetObject\", \"s3:ListBucket\"],
+      \"Resource\": [\"arn:aws:s3:::${S3_BUCKET}\", \"arn:aws:s3:::${S3_BUCKET}/*\"]
+    }]
+  }" 2>/dev/null || echo "  WARNING: Could not attach S3 policy (role may not exist yet)"
+
 # --- Build user-data ---
 build_userdata() {
   local env_id="$1"
@@ -270,6 +286,7 @@ cat >> /home/ec2-user/.bashrc <<ENVVARS
 export GITHUB_TOKEN="${GITHUB_TOKEN}"
 export GOOGLE_API_KEY="${GOOGLE_API_KEY:-}"
 export OPENAI_API_KEY="${OPENAI_API_KEY:-}"
+export MM_S3_BUCKET="${S3_BUCKET}"
 ENVVARS
 
 # Create logs directory
@@ -294,6 +311,7 @@ echo "       --repetitions ${REPETITIONS} \\\\"
 echo "       --max-iterations ${MAX_ITERATIONS} \\\\"
 echo "       --branch ${env_id} \\\\"
 echo "       --push \\\\"
+echo "       --s3-bucket \\\$MM_S3_BUCKET \\\\"
 echo "       > /tmp/mirror-mirror-logs/pipeline.log 2>&1 &"
 USERDATA_EOF
 }

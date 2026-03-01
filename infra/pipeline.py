@@ -767,6 +767,11 @@ def main() -> None:
         default=0,
         help="Run audit-fix loop every N hardening rounds (default: 0 = no audit during hardening)",
     )
+    parser.add_argument(
+        "--s3-bucket",
+        default=os.environ.get("MM_S3_BUCKET"),
+        help="S3 bucket for results upload (default: MM_S3_BUCKET env var)",
+    )
     args = parser.parse_args()
 
     # Set up logging
@@ -792,6 +797,7 @@ def main() -> None:
     log.info("  target-pass-rate:%s", args.target_pass_rate or "disabled")
     log.info("  branch:          %s", args.branch or "(current)")
     log.info("  push:            %s", args.push)
+    log.info("  s3-bucket:       %s", args.s3_bucket or "(disabled)")
     log.info("  resume:          %s", args.resume)
     log.info("=" * 60)
 
@@ -1325,6 +1331,20 @@ def main() -> None:
 
     if args.push:
         git_push()
+
+    # ── Upload results to S3 ─────────────────────────────────────────
+    if args.s3_bucket:
+        log.info("Uploading results to S3 bucket: %s", args.s3_bucket)
+        # upload_results.py lives in the same directory as this script
+        sys.path.insert(0, str(SCRIPT_DIR))
+        from upload_results import upload_results as _upload_results
+        success = _upload_results(app_dir, args.s3_bucket, args.app_name)
+        if success:
+            region = os.environ.get("AWS_REGION", "us-east-1")
+            url = f"http://{args.s3_bucket}.s3-website-{region}.amazonaws.com/{args.app_name}/"
+            log.info("Results browsable at: %s", url)
+        else:
+            log.warning("S3 upload failed — results remain local only")
 
     log.info("=" * 60)
     log.info("Pipeline complete for: %s", args.app_name)
