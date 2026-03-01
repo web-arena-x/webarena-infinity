@@ -463,7 +463,8 @@ PHASE_ORDER = {
     "phase_3b": 5,
     "phase_4a": 6,
     "phase_4b": 7,
-    "done": 8,
+    "phase_5": 8,
+    "done": 9,
 }
 
 
@@ -1234,13 +1235,14 @@ def main() -> None:
     else:
         log.info("Phase 4: Skipped (--skip-hardening)")
 
-    # ── Final regression eval ─────────────────────────────────────────
+    # ── Phase 5: Final Regression Eval ───────────────────────────────
 
-    if not args.skip_hardening:
-        log.info("Final regression eval: running full suite on both task types")
+    if not args.skip_hardening and should_run("phase_5"):
+        log.info("Phase 5: Final regression eval (full suite)")
+        save_state(args.app_name, "phase_5", args=args)
 
         if not args.skip_function_tasks:
-            log.info("Final eval: function tasks")
+            log.info("Phase 5: Evaluating function tasks")
             func_results_dir = run_eval(
                 app_dir, "function-tasks", args.model, args.workers,
                 args.repetitions,
@@ -1254,7 +1256,7 @@ def main() -> None:
             )
 
         if not args.skip_real_tasks:
-            log.info("Final eval: real tasks (full suite)")
+            log.info("Phase 5: Evaluating real tasks (full suite)")
             real_results_dir = run_eval(
                 app_dir, "tasks", args.model, args.workers,
                 args.repetitions,
@@ -1266,6 +1268,12 @@ def main() -> None:
                 real_results["passed"],
                 real_results["total"],
             )
+
+        log.info("Phase 5 complete")
+    elif args.skip_hardening:
+        log.info("Phase 5: Skipped (--skip-hardening)")
+    else:
+        log.info("Phase 5: Skipped (resuming past this phase)")
 
     # ── Done ───────────────────────────────────────────────────────────
 
