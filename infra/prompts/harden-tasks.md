@@ -5,7 +5,7 @@ You are adding harder evaluation tasks to `apps/{app-name}`. This is hardening r
 {hardening_analysis}
 
 Results directory: `{results_path}`
-Read history.json files in the results directory for passed tasks to understand HOW agents solve them — their action sequences, navigation patterns, and reasoning.
+Browse the subdirectories for history.json files from passed tasks to understand HOW agents solve them — their action sequences, navigation patterns, and reasoning. Each eval run is a subdirectory containing per-task folders with history.json, result.json, and screenshots/.
 
 ## Instructions
 
@@ -13,7 +13,7 @@ Read history.json files in the results directory for passed tasks to understand 
 
 2. **Review existing tasks.** Read `apps/{app-name}/tasks.json` to see what's already covered. Do NOT modify existing tasks, verifiers, or solvers.
 
-3. **Analyze agent behavior.** Read history.json files from `{results_path}` for tasks that passed — especially those that passed easily (few steps, low elapsed time). Identify patterns the agent relies on and strategies it uses.
+3. **Analyze agent behavior.** Browse `{results_path}` for history.json files from tasks that passed — especially those that passed easily (few steps, low elapsed time). Identify patterns the agent relies on and strategies it uses.
 
 4. **Generate {tasks_per_round} new harder tasks.** Apply techniques from `docs/task-hardening-guide.md`:
    - Discovery: require finding info before acting
