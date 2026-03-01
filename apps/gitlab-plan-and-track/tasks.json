@@ -598,5 +598,125 @@
     "difficulty": "hard",
     "instruction": "Delete both the Sprint Board and the Bug Triage board. Then create a new board called 'Unified Workflow' with lists for the workflow::ready, workflow::in-progress, workflow::review, and workflow::done labels.",
     "verify": "tasks/task_h60.py"
+  },
+  {
+    "id": "task_h61",
+    "difficulty": "hard",
+    "instruction": "Snooze all pending todos that reference issues in the v4.0 - Platform Redesign milestone until March 10, 2026.",
+    "verify": "tasks/task_h61.py"
+  },
+  {
+    "id": "task_h62",
+    "difficulty": "hard",
+    "instruction": "Find all open issues in Sprint 26 whose health status is 'at risk' or 'needs attention'. Log 2 hours of time with summary 'Sprint risk review' on each and move them to Sprint 27.",
+    "verify": "tasks/task_h62.py"
+  },
+  {
+    "id": "task_h63",
+    "difficulty": "hard",
+    "instruction": "Move all open issues from the milestone whose description mentions 'security audit' to the milestone whose description mentions 'performance optimization'.",
+    "verify": "tasks/task_h63.py"
+  },
+  {
+    "id": "task_h64",
+    "difficulty": "hard",
+    "instruction": "For every open issue assigned to James O'Brien: if it has a milestone, set its health status to 'on track'. If it has no milestone, assign it to the Backlog milestone and add the 'needs-discussion' label.",
+    "verify": "tasks/task_h64.py"
+  },
+  {
+    "id": "task_h65",
+    "difficulty": "hard",
+    "instruction": "For all open issues with the 'performance' label: if the issue also has a 'component::database' label, set its priority to 'critical'. If it has 'component::frontend', set its priority to 'high'. For all others, set the priority to 'medium'.",
+    "verify": "tasks/task_h65.py"
+  },
+  {
+    "id": "task_h66",
+    "difficulty": "hard",
+    "instruction": "Find the iteration with the most open issues assigned to it. Create a new label called 'sprint-focus' with color #0891b2 and apply it to all open issues in that iteration.",
+    "verify": "tasks/task_h66.py"
+  },
+  {
+    "id": "task_h67",
+    "difficulty": "hard",
+    "instruction": "Delete all time entries from the GraphQL gateway issue, add a single new entry of 16 hours with summary 'Complete rewrite estimate', and set its time estimate to 40 hours.",
+    "verify": "tasks/task_h67.py"
+  },
+  {
+    "id": "task_h68",
+    "difficulty": "hard",
+    "instruction": "Log 1 hour of time with summary 'Architecture review' on every open issue that has a weight of 13 or higher.",
+    "verify": "tasks/task_h68.py"
+  },
+  {
+    "id": "task_h69",
+    "difficulty": "hard",
+    "instruction": "Restore all 'done' todos back to pending status, then snooze every todo that references an epic (not an issue) until March 15, 2026.",
+    "verify": "tasks/task_h69.py"
+  },
+  {
+    "id": "task_h70",
+    "difficulty": "hard",
+    "instruction": "Delete the board that uses milestone-based lists, then create a new board called 'Milestone Tracker' with lists for the three active milestones with the earliest start dates.",
+    "verify": "tasks/task_h70.py"
+  },
+  {
+    "id": "task_h71",
+    "difficulty": "hard",
+    "instruction": "For every open issue that has no assignees: if it has a milestone, add the 'needs-discussion' label. If it also has no milestone, assign it to the Backlog milestone and add the 'needs-discussion' label.",
+    "verify": "tasks/task_h71.py"
+  },
+  {
+    "id": "task_h72",
+    "difficulty": "hard",
+    "instruction": "Close all open issues that have the 'good-first-issue' label, but first add a time entry of 30 minutes with summary 'Resolved during onboarding' to each.",
+    "verify": "tasks/task_h72.py"
+  },
+  {
+    "id": "task_h73",
+    "difficulty": "hard",
+    "instruction": "Create a new iteration called 'Bug Fix Sprint' in the Sprint Cadence starting March 31, 2026 and ending April 13, 2026. Then move every open 'type::bug' issue that currently has no iteration into this new iteration.",
+    "verify": "tasks/task_h73.py"
+  },
+  {
+    "id": "task_h74",
+    "difficulty": "hard",
+    "instruction": "Reassign all of Chen Wei's open issues to Alex Thompson, except for issues in the v4.0 - Platform Redesign milestone \u2014 leave those unchanged.",
+    "verify": "tasks/task_h74.py"
+  },
+  {
+    "id": "task_h75",
+    "difficulty": "hard",
+    "instruction": "Find all open epics that currently have no issues assigned to them. For each, create a new issue titled 'Initial planning for [epic title]' with the 'type::task' label and assign it to Priya Patel.",
+    "verify": "tasks/task_h75.py"
+  },
+  {
+    "id": "task_h76",
+    "difficulty": "hard",
+    "instruction": "Make the Documentation Overhaul epic a child of the Platform Redesign epic, add the 'priority::high' label to both of its issues, and set the epic's health status to 'at risk'.",
+    "verify": "tasks/task_h76.py"
+  },
+  {
+    "id": "task_h77",
+    "difficulty": "hard",
+    "instruction": "Rename the 'UX' label to 'user-experience', change its type to 'group', and then add it to every open issue in the Frontend Modernization epic that doesn't already have it.",
+    "verify": "tasks/task_h77.py"
+  },
+  {
+    "id": "task_h78",
+    "difficulty": "hard",
+    "instruction": "Create a new milestone called 'Tech Debt Sprint' starting March 17 and ending March 28, 2026. Move all open issues with the 'technical-debt' label into it and set their health status to 'needs attention'.",
+    "verify": "tasks/task_h78.py"
+  },
+  {
+    "id": "task_h79",
+    "difficulty": "hard",
+    "instruction": "Set the time estimate to 24 hours on every open issue in the Frontend Modernization epic, then change the epic's health status to 'at risk'.",
+    "verify": "tasks/task_h79.py"
+  },
+  {
+    "id": "task_h80",
+    "difficulty": "hard",
+    "instruction": "Find the two open issues that have the highest amount of time already spent on them. Set their health status to 'needs attention' and add the 'needs-discussion' label to both.",
+    "verify": "tasks/task_h80.py"
   }
 ]
