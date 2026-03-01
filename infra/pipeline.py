@@ -187,8 +187,13 @@ def run_eval(
     workers: int,
     repetitions: int,
     resume: bool = False,
+    task_id_filter: str | None = None,
 ) -> Path | None:
     """Run evaluation/run_eval_parallel.py as a subprocess.
+
+    Args:
+        task_id_filter: Optional comma-separated task IDs to evaluate
+            (passed as --task-id to the eval runner).
 
     Returns the path to the results directory, or None on failure.
     """
@@ -203,6 +208,9 @@ def run_eval(
         "--repetitions", str(repetitions),
         "--failed-only",
     ]
+
+    if task_id_filter:
+        cmd.extend(["--task-id", task_id_filter])
 
     # If resuming, check for a partial results directory to resume into
     if resume:
@@ -453,7 +461,9 @@ PHASE_ORDER = {
     "phase_2b": 3,
     "phase_3a": 4,
     "phase_3b": 5,
-    "done": 6,
+    "phase_4a": 6,
+    "phase_4b": 7,
+    "done": 8,
 }
 
 
@@ -490,6 +500,9 @@ def save_state(
             "repetitions": args.repetitions,
             "max_iterations": args.max_iterations,
             "docs_path": args.docs_path,
+            "hardening_rounds": getattr(args, "hardening_rounds", 3),
+            "tasks_per_round": getattr(args, "tasks_per_round", 20),
+            "target_pass_rate": getattr(args, "target_pass_rate", None),
         }
 
     path = _state_file_path(app_name)
@@ -518,6 +531,94 @@ def clear_state(app_name: str) -> None:
     if path.exists():
         path.unlink()
         log.info("Cleared pipeline state file")
+
+
+# ---------------------------------------------------------------------------
+# Task hardening helpers
+# ---------------------------------------------------------------------------
+
+
+def load_task_ids(tasks_file: Path) -> set[str]:
+    """Read tasks.json and return the set of task IDs."""
+    if not tasks_file.exists():
+        return set()
+    with open(tasks_file) as f:
+        tasks = json.load(f)
+    return {t["id"] for t in tasks}
+
+
+def get_new_task_ids(tasks_file: Path, known_ids: set[str]) -> set[str]:
+    """Return task IDs in tasks_file that are not in known_ids."""
+    current_ids = load_task_ids(tasks_file)
+    return current_ids - known_ids
+
+
+def build_hardening_analysis(
+    results_dir: Path | None, tasks_file: Path
+) -> str:
+    """Build a text summary of evaluation results for the hardening prompt.
+
+    Reads results.json for per-task metrics, computes per-difficulty pass rates,
+    and identifies easy wins vs hard failures. Includes the results_dir path so
+    Claude can read history.json files for behavioral analysis.
+    """
+    if results_dir is None:
+        return "No previous evaluation results available."
+
+    results_file = results_dir / "results.json"
+    if not results_file.exists():
+        return "No results.json found in the latest results directory."
+
+    with open(results_file) as f:
+        data = json.load(f)
+
+    lines = []
+    lines.append(f"Overall pass rate: {data.get('pass_rate', 0)}%")
+    lines.append(f"Total tasks: {data.get('total', 0)}, Passed: {data.get('passed', 0)}")
+    lines.append("")
+
+    # Per-difficulty breakdown
+    by_diff = data.get("by_difficulty", {})
+    if by_diff:
+        lines.append("Per-difficulty pass rates:")
+        for diff in ["easy", "medium", "hard"]:
+            if diff in by_diff:
+                info = by_diff[diff]
+                total = info["total"]
+                passed = info["passed"]
+                pct = round(passed / total * 100, 1) if total else 0
+                lines.append(f"  {diff}: {passed}/{total} ({pct}%)")
+        lines.append("")
+
+    # Per-task details
+    task_results = data.get("tasks", [])
+    if task_results:
+        easy_wins = []
+        hard_fails = []
+        for t in task_results:
+            tid = t.get("task_id", "")
+            passed = t.get("passed", False)
+            steps = t.get("steps", -1)
+            elapsed = t.get("elapsed", 0)
+            diff = t.get("difficulty", "")
+            if passed and steps > 0 and steps <= 10:
+                easy_wins.append(f"  {tid} ({diff}): {steps} steps, {elapsed}s")
+            elif not passed:
+                msg = t.get("verifier_message", "")[:80]
+                hard_fails.append(f"  {tid} ({diff}): {msg}")
+
+        if easy_wins:
+            lines.append("Easy wins (passed in <=10 steps — agent found these trivial):")
+            lines.extend(easy_wins[:20])
+            lines.append("")
+
+        if hard_fails:
+            lines.append("Failures (agent could not solve these):")
+            lines.extend(hard_fails[:30])
+            lines.append("")
+
+    lines.append(f"Results directory (read history.json files here): {results_dir}")
+    return "\n".join(lines)
 
 
 # ---------------------------------------------------------------------------
@@ -593,6 +694,29 @@ def main() -> None:
         action="store_true",
         help="Resume from last saved pipeline state (reads logs/{app}/pipeline_state.json)",
     )
+    parser.add_argument(
+        "--skip-hardening",
+        action="store_true",
+        help="Skip Phase 4 (task hardening) entirely",
+    )
+    parser.add_argument(
+        "--hardening-rounds",
+        type=int,
+        default=3,
+        help="Number of hardening rounds (default: 3)",
+    )
+    parser.add_argument(
+        "--tasks-per-round",
+        type=int,
+        default=20,
+        help="Number of new tasks to generate per hardening round (default: 20)",
+    )
+    parser.add_argument(
+        "--target-pass-rate",
+        type=float,
+        default=None,
+        help="Optional: stop hardening if overall pass rate drops to this %% (default: disabled)",
+    )
     args = parser.parse_args()
 
     # Set up logging
@@ -612,6 +736,10 @@ def main() -> None:
     log.info("  skip-generation: %s", args.skip_generation)
     log.info("  skip-func-tasks: %s", args.skip_function_tasks)
     log.info("  skip-real-tasks: %s", args.skip_real_tasks)
+    log.info("  skip-hardening:  %s", args.skip_hardening)
+    log.info("  hardening-rounds:%d", args.hardening_rounds)
+    log.info("  tasks-per-round: %d", args.tasks_per_round)
+    log.info("  target-pass-rate:%s", args.target_pass_rate or "disabled")
     log.info("  branch:          %s", args.branch or "(current)")
     log.info("  push:            %s", args.push)
     log.info("  resume:          %s", args.resume)
@@ -871,6 +999,199 @@ def main() -> None:
         log.info("Phase 3 complete")
     else:
         log.info("Phase 3: Skipped (--skip-real-tasks)")
+
+    # ── Phase 4: Task Hardening ───────────────────────────────────────
+
+    if not args.skip_hardening:
+        log.info("Phase 4: Task hardening (%d rounds)", args.hardening_rounds)
+
+        # Determine starting round on resume
+        hardening_start_round = 1
+        hardening_start_audit_iter = 1
+        if resume_phase in ("phase_4a", "phase_4b"):
+            # iteration is encoded as round * 100 + audit_iter
+            hardening_start_round = max(1, resume_iter // 100)
+            hardening_start_audit_iter = resume_iter % 100 or 1
+
+        for round_num in range(hardening_start_round, args.hardening_rounds + 1):
+            log.info(
+                "Phase 4: Hardening round %d/%d",
+                round_num,
+                args.hardening_rounds,
+            )
+
+            # --- 4a: Analyze + Generate ---
+            skip_4a = (
+                resume_phase == "phase_4b"
+                and round_num == hardening_start_round
+            )
+            if not skip_4a:
+                save_state(
+                    args.app_name, "phase_4a",
+                    iteration=round_num * 100, args=args,
+                )
+
+                # Snapshot current task IDs before generation
+                known_ids = load_task_ids(app_dir / "tasks.json")
+
+                # Get latest results for context
+                results_dir = find_latest_results(app_dir, "tasks")
+                analysis = build_hardening_analysis(
+                    results_dir, app_dir / "tasks.json"
+                )
+
+                rc, stdout, stderr = run_claude(
+                    "harden-tasks",
+                    cwd=REPO_DIR,
+                    timeout=3600,
+                    hardening_analysis=analysis,
+                    results_path=str(results_dir) if results_dir else "none",
+                    round_number=str(round_num),
+                    tasks_per_round=str(args.tasks_per_round),
+                    **{"app-name": args.app_name},
+                )
+                if rc != 0:
+                    log.error(
+                        "Phase 4a FAILED: task hardening generation returned rc=%d",
+                        rc,
+                    )
+                    break
+
+                # Identify newly added task IDs
+                new_ids = get_new_task_ids(app_dir / "tasks.json", known_ids)
+                if not new_ids:
+                    log.info("No new tasks generated — stopping hardening")
+                    break
+
+                log.info("Generated %d new tasks: %s", len(new_ids), sorted(new_ids))
+
+                # Sanity check
+                ok, output = run_sanity_check(app_dir, "real")
+                if not ok:
+                    log.info("Sanity check failed after hardening generation — fixing")
+                    run_claude(
+                        "fix-sanity-check",
+                        cwd=REPO_DIR,
+                        timeout=1800,
+                        output=output[-3000:],
+                        variant="real",
+                        **{"app-name": args.app_name},
+                    )
+                    ok2, _ = run_sanity_check(app_dir, "real")
+                    if not ok2:
+                        log.error(
+                            "Sanity check still failing after fix — reverting round %d",
+                            round_num,
+                        )
+                        git("checkout", "--", str(app_dir))
+                        break
+
+                commit_checkpoint(
+                    app_dir,
+                    f"Hardening round {round_num}: {args.app_name}",
+                )
+            else:
+                # Resuming into phase_4b — recompute new_ids from last commit
+                log.info(
+                    "Phase 4a: Skipped (resuming into phase_4b, round %d)",
+                    round_num,
+                )
+                # We need the known_ids from before this round's generation.
+                # Since 4a already committed, all current IDs are "known" from
+                # git's perspective, but we need the new ones for eval filtering.
+                # Read the commit message to find what was added, or just eval
+                # all tasks in this round.  Safest: re-read and eval all tasks.
+                new_ids = None  # Will skip task_id_filter → eval all tasks
+
+            # --- 4b: Eval-Audit loop (new tasks only) ---
+            task_id_filter = (
+                ",".join(sorted(new_ids)) if new_ids else None
+            )
+            start_iter = (
+                hardening_start_audit_iter
+                if resume_phase == "phase_4b" and round_num == hardening_start_round
+                else 1
+            )
+
+            for iteration in range(start_iter, max_iterations + 1):
+                log.info(
+                    "Phase 4b: Round %d, audit iteration %d/%d",
+                    round_num,
+                    iteration,
+                    max_iterations,
+                )
+                save_state(
+                    args.app_name, "phase_4b",
+                    iteration=round_num * 100 + iteration, args=args,
+                )
+
+                results_dir = run_eval(
+                    app_dir, "tasks", args.model, args.workers,
+                    args.repetitions,
+                    resume=(args.resume and iteration == start_iter
+                            and round_num == hardening_start_round),
+                    task_id_filter=task_id_filter,
+                )
+                results = parse_results(results_dir)
+                log.info(
+                    "Hardening round %d eval: %.1f%% (%d/%d)",
+                    round_num,
+                    results["pass_rate"],
+                    results["passed"],
+                    results["total"],
+                )
+
+                if results["pass_rate"] == 100:
+                    log.info("All new tasks pass — moving to next round")
+                    break
+
+                if results_dir is None:
+                    log.warning("No results directory — skipping audit")
+                    break
+
+                log.info("Running audit on hardening round %d failures", round_num)
+                run_claude(
+                    "audit-real-tasks",
+                    cwd=REPO_DIR,
+                    timeout=3600,
+                    evaluation_result_path=str(results_dir),
+                )
+
+                if not detect_changes(app_dir):
+                    log.info(
+                        "Audit made no changes — remaining failures are agent-side"
+                    )
+                    break
+
+                # Re-check sanity after audit changes
+                ok, output = run_sanity_check(app_dir, "real")
+                commit_checkpoint(
+                    app_dir,
+                    f"Hardening round {round_num} audit iter {iteration}: {args.app_name}",
+                )
+
+            # Optional: check overall pass rate with full suite eval
+            if args.target_pass_rate is not None:
+                log.info("Running full suite eval to check overall pass rate")
+                full_results_dir = run_eval(
+                    app_dir, "tasks", args.model, args.workers,
+                    args.repetitions,
+                )
+                full_results = parse_results(full_results_dir)
+                log.info(
+                    "Full suite pass rate: %.1f%%", full_results["pass_rate"]
+                )
+                if full_results["pass_rate"] <= args.target_pass_rate:
+                    log.info(
+                        "Target pass rate reached (%.1f%% <= %.1f%%) — stopping hardening",
+                        full_results["pass_rate"],
+                        args.target_pass_rate,
+                    )
+                    break
+
+        log.info("Phase 4 complete")
+    else:
+        log.info("Phase 4: Skipped (--skip-hardening)")
 
     # ── Done ───────────────────────────────────────────────────────────
 
