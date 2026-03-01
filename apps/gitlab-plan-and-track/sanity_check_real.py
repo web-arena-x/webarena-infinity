@@ -1263,6 +1263,381 @@ def solve_task_h40(state):
             issue["updatedAt"] = NOW
 
 
+# ── Hardening round 2 solve functions ─────────────────────────────────
+
+def solve_task_h41(state):
+    """For open issues in v4.2: if confidential -> at_risk; if not -> make confidential + needs_attention."""
+    ms = find_milestone_by_title(state, "v4.2 - Security Hardening")
+    for issue in state["issues"]:
+        if issue["milestoneId"] == ms["id"] and issue["status"] == "open":
+            if issue["confidential"]:
+                issue["healthStatus"] = "at_risk"
+            else:
+                issue["confidential"] = True
+                issue["healthStatus"] = "needs_attention"
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h42(state):
+    """Find at_risk epic (Security Hardening), create milestone, move its open issues."""
+    sec_epic = find_epic_by_title(state, "Security Hardening")
+    mid = next_milestone_id(state)
+    ms_id = f"ms_{mid}"
+    state["milestones"].append({
+        "id": ms_id,
+        "title": "Risk Mitigation Sprint",
+        "description": "",
+        "startDate": "2026-03-03",
+        "dueDate": "2026-03-14",
+        "status": "active",
+        "createdAt": NOW,
+    })
+    for issue in state["issues"]:
+        if issue["epicId"] == sec_epic["id"] and issue["status"] == "open":
+            issue["milestoneId"] = ms_id
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h43(state):
+    """Assign highest-weight open issue to Sprint 27 and add needs-discussion."""
+    issue = find_issue_by_title(state, "Build real-time collaborative editing for issue descriptions")
+    sprint27 = find_iteration_by_title(state, "Sprint 27")
+    nd_label = find_label_by_title(state, "needs-discussion")
+    issue["iterationId"] = sprint27["id"]
+    if nd_label["id"] not in issue["labels"]:
+        issue["labels"].append(nd_label["id"])
+    issue["updatedAt"] = NOW
+
+
+def solve_task_h44(state):
+    """Create review::pending label; apply to all open issues with workflow::ready."""
+    ready_label = find_label_by_title(state, "workflow::ready")
+    lid = next_label_id(state)
+    label_id = f"lbl_{lid}"
+    state["labels"].append({
+        "id": label_id,
+        "title": "review::pending",
+        "description": "",
+        "color": "#7b68ee",
+        "textColor": "#fff",
+        "type": "project",
+        "scoped": True,
+    })
+    for issue in state["issues"]:
+        if issue["status"] == "open" and ready_label["id"] in issue["labels"]:
+            if label_id not in issue["labels"]:
+                issue["labels"].append(label_id)
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h45(state):
+    """Close the Platform Redesign child epic with fewer open issues (API v3 Migration)."""
+    api_epic = find_epic_by_title(state, "API v3 Migration")
+    api_epic["status"] = "closed"
+    api_epic["updatedAt"] = NOW
+
+
+def solve_task_h46(state):
+    """Move open issues with no epic and no milestone to Backlog + Documentation Overhaul."""
+    backlog = find_milestone_by_title(state, "Backlog")
+    doc_epic = find_epic_by_title(state, "Documentation Overhaul")
+    for issue in state["issues"]:
+        if (issue["status"] == "open"
+                and issue["epicId"] is None
+                and issue["milestoneId"] is None):
+            issue["milestoneId"] = backlog["id"]
+            issue["epicId"] = doc_epic["id"]
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h47(state):
+    """Create Patch Release iteration in Release Cycle; assign open security issues with no iteration."""
+    release_cad = find_cadence_by_title(state, "Release Cycle")
+    iid = next_iteration_id(state)
+    iter_id = f"iter_{iid}"
+    state["iterations"].append({
+        "id": iter_id,
+        "title": "Patch Release",
+        "cadenceId": release_cad["id"],
+        "startDate": "2026-03-17",
+        "dueDate": "2026-03-28",
+        "status": "upcoming",
+        "createdAt": NOW,
+    })
+    sec_label = find_label_by_title(state, "security")
+    for issue in state["issues"]:
+        if (issue["status"] == "open"
+                and sec_label["id"] in issue["labels"]
+                and issue.get("iterationId") is None):
+            issue["iterationId"] = iter_id
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h48(state):
+    """Add breaking-change and remove workflow labels from API v3 Migration epic issues."""
+    api_epic = find_epic_by_title(state, "API v3 Migration")
+    bc_label = find_label_by_title(state, "breaking-change")
+    workflow_ids = {l["id"] for l in state["labels"] if l["title"].startswith("workflow::")}
+    for issue in state["issues"]:
+        if issue["epicId"] == api_epic["id"] and issue["status"] == "open":
+            issue["labels"] = [l for l in issue["labels"] if l not in workflow_ids]
+            if bc_label["id"] not in issue["labels"]:
+                issue["labels"].append(bc_label["id"])
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h49(state):
+    """Create two issues in Mobile App v2 epic assigned to Priya Patel."""
+    mobile_epic = find_epic_by_title(state, "Mobile App v2")
+    priya = find_user_by_name(state, "Priya Patel")
+    design_label = find_label_by_title(state, "design-needed")
+    task_label = find_label_by_title(state, "type::task")
+
+    iid1 = next_issue_id(state)
+    state["issues"].append({
+        "id": f"issue_{iid1}",
+        "iid": iid1,
+        "title": "Mobile app wireframes",
+        "description": "",
+        "status": "open",
+        "assignees": [priya["id"]],
+        "labels": [design_label["id"]],
+        "milestoneId": None,
+        "iterationId": None,
+        "epicId": mobile_epic["id"],
+        "weight": 5,
+        "dueDate": None,
+        "startDate": None,
+        "healthStatus": None,
+        "timeEstimate": 0,
+        "timeSpent": 0,
+        "confidential": False,
+        "authorId": state["currentUser"]["id"],
+        "createdAt": NOW,
+        "updatedAt": NOW,
+        "closedAt": None,
+        "taskIds": [],
+        "linkedIssueIds": [],
+    })
+
+    iid2 = next_issue_id(state)
+    state["issues"].append({
+        "id": f"issue_{iid2}",
+        "iid": iid2,
+        "title": "React Native project scaffolding",
+        "description": "",
+        "status": "open",
+        "assignees": [priya["id"]],
+        "labels": [task_label["id"]],
+        "milestoneId": None,
+        "iterationId": None,
+        "epicId": mobile_epic["id"],
+        "weight": 3,
+        "dueDate": None,
+        "startDate": None,
+        "healthStatus": None,
+        "timeEstimate": 0,
+        "timeSpent": 0,
+        "confidential": False,
+        "authorId": state["currentUser"]["id"],
+        "createdAt": NOW,
+        "updatedAt": NOW,
+        "closedAt": None,
+        "taskIds": [],
+        "linkedIssueIds": [],
+    })
+
+
+def solve_task_h50(state):
+    """Log 1h 'Sprint planning review' on Oliver Schmidt's open issues; set health to on_track."""
+    oliver = find_user_by_name(state, "Oliver Schmidt")
+    for issue in state["issues"]:
+        if issue["status"] == "open" and oliver["id"] in issue["assignees"]:
+            issue["healthStatus"] = "on_track"
+            issue["updatedAt"] = NOW
+            tl_id = state.get("_nextTimelogId", 30)
+            state["_nextTimelogId"] = tl_id + 1
+            state["timelogs"].append({
+                "id": f"tl_{tl_id}",
+                "issueId": issue["id"],
+                "userId": state["currentUser"]["id"],
+                "timeSpent": 3600,
+                "summary": "Sprint planning review",
+                "spentAt": NOW,
+            })
+            issue["timeSpent"] = issue.get("timeSpent", 0) + 3600
+
+
+def solve_task_h51(state):
+    """Close open type::documentation issues and remove milestones."""
+    doc_label = find_label_by_title(state, "type::documentation")
+    for issue in state["issues"]:
+        if issue["status"] == "open" and doc_label["id"] in issue["labels"]:
+            issue["status"] = "closed"
+            issue["closedAt"] = NOW
+            issue["milestoneId"] = None
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h52(state):
+    """Create Performance Tracker board; add priority::high to performance issues in v4.1."""
+    lbl_crit = find_label_by_title(state, "priority::critical")
+    lbl_high = find_label_by_title(state, "priority::high")
+    lbl_med = find_label_by_title(state, "priority::medium")
+    bid = next_board_id(state)
+    state["boards"].append({
+        "id": f"board_{bid}",
+        "name": "Performance Tracker",
+        "lists": [
+            {"id": f"list_{bid}_1", "type": "label", "labelId": lbl_crit["id"], "position": 0},
+            {"id": f"list_{bid}_2", "type": "label", "labelId": lbl_high["id"], "position": 1},
+            {"id": f"list_{bid}_3", "type": "label", "labelId": lbl_med["id"], "position": 2},
+        ],
+    })
+    ms_v41 = find_milestone_by_title(state, "v4.1 - Performance")
+    perf_label = find_label_by_title(state, "performance")
+    for issue in state["issues"]:
+        if (issue["milestoneId"] == ms_v41["id"]
+                and issue["status"] == "open"
+                and perf_label["id"] in issue["labels"]):
+            # Replace existing priority:: scoped labels
+            issue["labels"] = [l for l in issue["labels"]
+                               if not any(lab["title"].startswith("priority::") and lab["id"] == l
+                                          for lab in state["labels"])]
+            if lbl_high["id"] not in issue["labels"]:
+                issue["labels"].append(lbl_high["id"])
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h53(state):
+    """Set health and label on top-level epic with latest due date (Mobile App v2)."""
+    mobile_epic = find_epic_by_title(state, "Mobile App v2")
+    nd_label = find_label_by_title(state, "needs-discussion")
+    mobile_epic["healthStatus"] = "needs_attention"
+    if nd_label["id"] not in mobile_epic["labels"]:
+        mobile_epic["labels"].append(nd_label["id"])
+    mobile_epic["updatedAt"] = NOW
+
+
+def solve_task_h54(state):
+    """Replace labels on Performance Initiative; set child epics to at_risk."""
+    perf_epic = find_epic_by_title(state, "Performance Initiative")
+    lbl_high = find_label_by_title(state, "priority::high")
+    lbl_nd = find_label_by_title(state, "needs-discussion")
+    perf_epic["labels"] = [lbl_high["id"], lbl_nd["id"]]
+    perf_epic["updatedAt"] = NOW
+    for epic in state["epics"]:
+        if epic["parentEpicId"] == perf_epic["id"]:
+            epic["healthStatus"] = "at_risk"
+            epic["updatedAt"] = NOW
+
+
+def solve_task_h55(state):
+    """Update security label color/description; set weight 13 on Security Hardening epic issues with it."""
+    sec_label = find_label_by_title(state, "security")
+    sec_label["color"] = "#000000"
+    sec_label["description"] = "Critical security work"
+    sec_epic = find_epic_by_title(state, "Security Hardening")
+    for issue in state["issues"]:
+        if (issue["epicId"] == sec_epic["id"]
+                and issue["status"] == "open"
+                and sec_label["id"] in issue["labels"]):
+            issue["weight"] = 13
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h56(state):
+    """Reassign Aisha's v4.0 open issues to Nina; set iteration to Sprint 28."""
+    aisha = find_user_by_name(state, "Aisha Mohammed")
+    nina = find_user_by_name(state, "Nina Kowalski")
+    ms_v40 = find_milestone_by_title(state, "v4.0 - Platform Redesign")
+    sprint28 = find_iteration_by_title(state, "Sprint 28")
+    for issue in state["issues"]:
+        if (issue["status"] == "open"
+                and issue["milestoneId"] == ms_v40["id"]
+                and aisha["id"] in issue["assignees"]):
+            issue["assignees"] = [a for a in issue["assignees"] if a != aisha["id"]]
+            if nina["id"] not in issue["assignees"]:
+                issue["assignees"].append(nina["id"])
+            issue["iterationId"] = sprint28["id"]
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h57(state):
+    """Create sprint-carry-over label; apply to Sprint 26 at-risk/needs-attention issues; move to Sprint 27."""
+    lid = next_label_id(state)
+    label_id = f"lbl_{lid}"
+    state["labels"].append({
+        "id": label_id,
+        "title": "sprint-carry-over",
+        "description": "",
+        "color": "#f97316",
+        "textColor": "#fff",
+        "type": "project",
+        "scoped": False,
+    })
+    sprint26 = find_iteration_by_title(state, "Sprint 26")
+    sprint27 = find_iteration_by_title(state, "Sprint 27")
+    for issue in state["issues"]:
+        if (issue["status"] == "open"
+                and issue["iterationId"] == sprint26["id"]
+                and issue.get("healthStatus") in ("needs_attention", "at_risk")):
+            if label_id not in issue["labels"]:
+                issue["labels"].append(label_id)
+            issue["iterationId"] = sprint27["id"]
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h58(state):
+    """DB Optimization (more issues) -> weight 13; Caching Layer (fewer) -> close all."""
+    db_epic = find_epic_by_title(state, "Database Optimization")
+    cache_epic = find_epic_by_title(state, "Caching Layer Implementation")
+    for issue in state["issues"]:
+        if issue["epicId"] == db_epic["id"]:
+            issue["weight"] = 13
+            issue["updatedAt"] = NOW
+    for issue in state["issues"]:
+        if issue["epicId"] == cache_epic["id"] and issue["status"] == "open":
+            issue["status"] = "closed"
+            issue["closedAt"] = NOW
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h59(state):
+    """Sprint 26 issues with due date before March 2 -> at_risk + move to Sprint 27."""
+    sprint27 = find_iteration_by_title(state, "Sprint 27")
+    sprint26 = find_iteration_by_title(state, "Sprint 26")
+    for issue in state["issues"]:
+        if (issue["status"] == "open"
+                and issue["iterationId"] == sprint26["id"]
+                and issue.get("dueDate") is not None
+                and issue["dueDate"] < "2026-03-02"):
+            issue["healthStatus"] = "at_risk"
+            issue["iterationId"] = sprint27["id"]
+            issue["updatedAt"] = NOW
+
+
+def solve_task_h60(state):
+    """Delete Sprint Board and Bug Triage; create Unified Workflow board with 4 workflow lists."""
+    state["boards"] = [b for b in state["boards"]
+                       if b["name"] not in ("Sprint Board", "Bug Triage")]
+    lbl_ready = find_label_by_title(state, "workflow::ready")
+    lbl_ip = find_label_by_title(state, "workflow::in-progress")
+    lbl_review = find_label_by_title(state, "workflow::review")
+    lbl_done = find_label_by_title(state, "workflow::done")
+    bid = next_board_id(state)
+    state["boards"].append({
+        "id": f"board_{bid}",
+        "name": "Unified Workflow",
+        "lists": [
+            {"id": f"list_{bid}_1", "type": "label", "labelId": lbl_ready["id"], "position": 0},
+            {"id": f"list_{bid}_2", "type": "label", "labelId": lbl_ip["id"], "position": 1},
+            {"id": f"list_{bid}_3", "type": "label", "labelId": lbl_review["id"], "position": 2},
+            {"id": f"list_{bid}_4", "type": "label", "labelId": lbl_done["id"], "position": 3},
+        ],
+    })
+
+
 # ── Solver registry ──────────────────────────────────────────────────
 
 SOLVERS = {
@@ -1346,6 +1721,26 @@ SOLVERS = {
     "task_h38": solve_task_h38,
     "task_h39": solve_task_h39,
     "task_h40": solve_task_h40,
+    "task_h41": solve_task_h41,
+    "task_h42": solve_task_h42,
+    "task_h43": solve_task_h43,
+    "task_h44": solve_task_h44,
+    "task_h45": solve_task_h45,
+    "task_h46": solve_task_h46,
+    "task_h47": solve_task_h47,
+    "task_h48": solve_task_h48,
+    "task_h49": solve_task_h49,
+    "task_h50": solve_task_h50,
+    "task_h51": solve_task_h51,
+    "task_h52": solve_task_h52,
+    "task_h53": solve_task_h53,
+    "task_h54": solve_task_h54,
+    "task_h55": solve_task_h55,
+    "task_h56": solve_task_h56,
+    "task_h57": solve_task_h57,
+    "task_h58": solve_task_h58,
+    "task_h59": solve_task_h59,
+    "task_h60": solve_task_h60,
 }
 
 

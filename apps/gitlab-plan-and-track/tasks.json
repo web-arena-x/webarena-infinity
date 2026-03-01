@@ -478,5 +478,125 @@
     "difficulty": "hard",
     "instruction": "Create a new label called 'needs-review' with the color #fbca04, then apply it to all open issues assigned to Marcus Johnson.",
     "verify": "tasks/task_h40.py"
+  },
+  {
+    "id": "task_h41",
+    "difficulty": "hard",
+    "instruction": "For every open issue in the v4.2 - Security Hardening milestone: if it is already confidential, set its health status to 'at risk'. If it is not confidential, make it confidential and set its health status to 'needs attention'.",
+    "verify": "tasks/task_h41.py"
+  },
+  {
+    "id": "task_h42",
+    "difficulty": "hard",
+    "instruction": "Find the epic whose health status is 'at risk', create a new milestone called 'Risk Mitigation Sprint' starting March 3 and ending March 14, 2026, and move all of that epic's open issues into this new milestone.",
+    "verify": "tasks/task_h42.py"
+  },
+  {
+    "id": "task_h43",
+    "difficulty": "hard",
+    "instruction": "The open issue with the highest weight in the project currently has no iteration. Assign it to Sprint 27 and add the 'needs-discussion' label.",
+    "verify": "tasks/task_h43.py"
+  },
+  {
+    "id": "task_h44",
+    "difficulty": "hard",
+    "instruction": "Create a new scoped label 'review::pending' with purple color (#7b68ee), then apply it to every open issue that currently has the 'workflow::ready' label.",
+    "verify": "tasks/task_h44.py"
+  },
+  {
+    "id": "task_h45",
+    "difficulty": "hard",
+    "instruction": "The Platform Redesign epic has two child epics. Close the one that has fewer open issues.",
+    "verify": "tasks/task_h45.py"
+  },
+  {
+    "id": "task_h46",
+    "difficulty": "hard",
+    "instruction": "Move all open issues that have no epic and no milestone to the Backlog milestone and add them to the Documentation Overhaul epic.",
+    "verify": "tasks/task_h46.py"
+  },
+  {
+    "id": "task_h47",
+    "difficulty": "hard",
+    "instruction": "Find the iteration cadence that does not use automatic scheduling. Create a new iteration called 'Patch Release' in it starting March 17 and ending March 28, 2026, then assign all open issues with the 'security' label that currently have no iteration to this new iteration.",
+    "verify": "tasks/task_h47.py"
+  },
+  {
+    "id": "task_h48",
+    "difficulty": "hard",
+    "instruction": "Add the 'breaking-change' label to every open issue in the API v3 Migration epic and remove any existing workflow-scoped labels from those issues.",
+    "verify": "tasks/task_h48.py"
+  },
+  {
+    "id": "task_h49",
+    "difficulty": "hard",
+    "instruction": "The Mobile App v2 epic has no issues yet. Create two new issues for it: 'Mobile app wireframes' with the 'design-needed' label and weight 5, and 'React Native project scaffolding' with the 'type::task' label and weight 3. Assign both to Priya Patel.",
+    "verify": "tasks/task_h49.py"
+  },
+  {
+    "id": "task_h50",
+    "difficulty": "hard",
+    "instruction": "Log 1 hour of time with the summary 'Sprint planning review' on every open issue assigned to Oliver Schmidt and set each of those issues' health status to 'on track'.",
+    "verify": "tasks/task_h50.py"
+  },
+  {
+    "id": "task_h51",
+    "difficulty": "hard",
+    "instruction": "Close every open issue with the 'type::documentation' label and remove their milestone assignments.",
+    "verify": "tasks/task_h51.py"
+  },
+  {
+    "id": "task_h52",
+    "difficulty": "hard",
+    "instruction": "Create a new board called 'Performance Tracker' with lists for the priority::critical, priority::high, and priority::medium labels. Then add the 'priority::high' label to every open issue in the v4.1 milestone that has the 'performance' label.",
+    "verify": "tasks/task_h52.py"
+  },
+  {
+    "id": "task_h53",
+    "difficulty": "hard",
+    "instruction": "Among the top-level epics (those without a parent), find the one with the latest due date. Set its health status to 'needs attention' and add the 'needs-discussion' label.",
+    "verify": "tasks/task_h53.py"
+  },
+  {
+    "id": "task_h54",
+    "difficulty": "hard",
+    "instruction": "Remove all labels from the Performance Initiative epic and replace them with 'priority::high' and 'needs-discussion'. Then set the health status of both its child epics to 'at risk'.",
+    "verify": "tasks/task_h54.py"
+  },
+  {
+    "id": "task_h55",
+    "difficulty": "hard",
+    "instruction": "Change the color of the 'security' label to black (#000000) and update its description to 'Critical security work'. Then set the weight to 13 on every open issue in the Security Hardening epic that has this label.",
+    "verify": "tasks/task_h55.py"
+  },
+  {
+    "id": "task_h56",
+    "difficulty": "hard",
+    "instruction": "Reassign all of Aisha Mohammed's open issues in the v4.0 - Platform Redesign milestone to Nina Kowalski, and change their iteration to Sprint 28.",
+    "verify": "tasks/task_h56.py"
+  },
+  {
+    "id": "task_h57",
+    "difficulty": "hard",
+    "instruction": "Create a new label 'sprint-carry-over' with orange color (#f97316), then apply it to every open issue in Sprint 26 whose health status is 'needs attention' or 'at risk'. Also move those issues from Sprint 26 to Sprint 27.",
+    "verify": "tasks/task_h57.py"
+  },
+  {
+    "id": "task_h58",
+    "difficulty": "hard",
+    "instruction": "The Performance Initiative epic has two child epics. For the child epic with more open issues, set the weight of every issue in it to 13. For the other child epic, close all its open issues.",
+    "verify": "tasks/task_h58.py"
+  },
+  {
+    "id": "task_h59",
+    "difficulty": "hard",
+    "instruction": "Find all open issues in Sprint 26 whose due date is before March 2, 2026. Set their health status to 'at risk' and move them to Sprint 27.",
+    "verify": "tasks/task_h59.py"
+  },
+  {
+    "id": "task_h60",
+    "difficulty": "hard",
+    "instruction": "Delete both the Sprint Board and the Bug Triage board. Then create a new board called 'Unified Workflow' with lists for the workflow::ready, workflow::in-progress, workflow::review, and workflow::done labels.",
+    "verify": "tasks/task_h60.py"
   }
 ]
