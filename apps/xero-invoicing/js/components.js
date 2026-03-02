@@ -134,7 +134,7 @@ const Components = {
 
   modal(id, title, bodyHtml, footerHtml) {
     let html = '<div class="modal-backdrop" id="' + id + '-backdrop" data-action="close-modal" data-modal-id="' + id + '">';
-    html += '<div class="modal" id="' + id + '" onclick="event.stopPropagation()">';
+    html += '<div class="modal" id="' + id + '">';
     html += '<div class="modal-header"><h3>' + Components.escapeHtml(title) + '</h3>';
     html += '<button class="modal-close" data-action="close-modal" data-modal-id="' + id + '">&times;</button></div>';
     html += '<div class="modal-body">' + bodyHtml + '</div>';

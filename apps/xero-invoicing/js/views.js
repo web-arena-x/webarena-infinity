@@ -139,6 +139,7 @@ const Views = {
       html += Components.button('Edit', 'edit-invoice', 'secondary', ' data-id="' + inv.id + '"');
       html += Components.button('Approve', 'approve-invoice', 'primary', ' data-id="' + inv.id + '"');
     } else if (inv.status === 'awaiting_payment') {
+      html += Components.button('Edit', 'edit-invoice', 'secondary', ' data-id="' + inv.id + '"');
       html += Components.button('Add Payment', 'show-add-payment', 'primary', ' data-id="' + inv.id + '"');
       html += Components.button('Send', 'send-invoice', 'secondary', ' data-id="' + inv.id + '"');
       html += Components.button('Void', 'void-invoice', 'danger', ' data-id="' + inv.id + '"');
@@ -391,6 +392,8 @@ const Views = {
       html += Components.button('Mark as Declined', 'decline-quote', 'danger', ' data-id="' + quo.id + '"');
     } else if (quo.status === 'accepted' && !quo.isInvoiced) {
       html += Components.button('Create Invoice', 'invoice-from-quote', 'primary', ' data-id="' + quo.id + '"');
+    } else if (quo.status === 'declined') {
+      html += Components.button('Delete', 'delete-quote', 'danger', ' data-id="' + quo.id + '"');
     }
     if (quo.status !== 'deleted') {
       html += Components.button('Copy', 'copy-quote', 'secondary', ' data-id="' + quo.id + '"');
@@ -783,8 +786,8 @@ const Views = {
     const name = isEdit ? theme.name : '';
     const pt = isEdit ? theme.paymentTerms : '';
     const tc = isEdit ? theme.termsAndConditions : '';
-    const showTax = isEdit ? theme.showTaxNumber : true;
-    const showAdv = isEdit ? theme.showPaymentAdvice : true;
+    const showTax = isEdit ? theme.showTaxNumber : false;
+    const showAdv = isEdit ? theme.showPaymentAdvice : false;
 
     let html = '<div class="page-header"><h1>' + Components.escapeHtml(title) + '</h1></div>';
     html += '<div class="form-card">';

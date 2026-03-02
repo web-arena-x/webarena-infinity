@@ -95,6 +95,8 @@ const App = {
   },
 
   navigate(route) {
+    AppState.searchResults = null;
+    AppState.searchQuery = '';
     window.location.hash = '#/' + route;
   },
 
@@ -247,6 +249,10 @@ const App = {
     // Actions
     const actionEl = target.closest('[data-action]');
     if (actionEl) {
+      // Don't close modal from clicks inside the modal that bubble to backdrop
+      if (actionEl.dataset.action === 'close-modal' && actionEl.classList.contains('modal-backdrop') && target.closest('.modal')) {
+        return;
+      }
       e.preventDefault();
       App.handleAction(actionEl.dataset.action, actionEl);
       return;
@@ -268,7 +274,7 @@ const App = {
       case 'view-invoice': App.navigate('invoices/' + id); break;
       case 'view-quote': App.navigate('quotes/' + id); break;
       case 'view-credit-note': App.navigate('credit-notes/' + id); break;
-      case 'view-repeating': App.navigate('repeating-invoices/' + id); break;
+      case 'view-repeating': App.navigate('repeating-invoices/edit/' + id); break;
 
       case 'edit-invoice': App.navigate('invoices/edit/' + id); break;
       case 'edit-quote': App.navigate('quotes/edit/' + id); break;
