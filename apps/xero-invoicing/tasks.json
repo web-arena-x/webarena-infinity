@@ -1,1 +1,22 @@
-[]
+[
+  {"id": "task_h21", "difficulty": "hard", "instruction": "Fully pay the overdue invoice with the earliest due date.", "verify": "tasks/task_h21.py"},
+  {"id": "task_h22", "difficulty": "hard", "instruction": "Accept the Redback Mining Supplies quote and then convert it into an invoice.", "verify": "tasks/task_h22.py"},
+  {"id": "task_h23", "difficulty": "hard", "instruction": "Record a full payment on the CloudNine Analytics invoice that was due first.", "verify": "tasks/task_h23.py"},
+  {"id": "task_h24", "difficulty": "hard", "instruction": "Approve the Pacific Freight Lines credit note and immediately allocate all of it against their outstanding invoice.", "verify": "tasks/task_h24.py"},
+  {"id": "task_h25", "difficulty": "hard", "instruction": "Copy the most expensive paid invoice to create a new draft.", "verify": "tasks/task_h25.py"},
+  {"id": "task_h26", "difficulty": "hard", "instruction": "Create a quote for Metro Fabrication Works covering an initial setup fee and 20 USB-C cables, then send it.", "verify": "tasks/task_h26.py"},
+  {"id": "task_h27", "difficulty": "hard", "instruction": "Make sure every overdue invoice reminder includes the invoice PDF attachment. Update any that don't.", "verify": "tasks/task_h27.py"},
+  {"id": "task_h28", "difficulty": "hard", "instruction": "Set up a fortnightly repeating invoice for Outback Adventures Tourism for 3 hours of UI/UX design at $165/hour, starting May 2026, saved as approved.", "verify": "tasks/task_h28.py"},
+  {"id": "task_h29", "difficulty": "hard", "instruction": "Edit the TechVault Solutions invoice with the highest total: change the branding theme to Retail and set the title to 'Q1 2026 Major Project'.", "verify": "tasks/task_h29.py"},
+  {"id": "task_h30", "difficulty": "hard", "instruction": "Create an invoice for Harbour City Plumbing for a security audit and 16 hours of development. Use the Professional Services template and approve it right away.", "verify": "tasks/task_h30.py"},
+  {"id": "task_h31", "difficulty": "hard", "instruction": "Invoice Summit Health Group for 20 hours of development and 2 days of project management. Apply a 15% discount on the development hours.", "verify": "tasks/task_h31.py"},
+  {"id": "task_h32", "difficulty": "hard", "instruction": "Create a new branding theme called 'Government' that shows the tax number but hides payment advice, with payment terms 'Net 45 days from invoice date' and terms 'Subject to government procurement regulations.' Then make it the default theme.", "verify": "tasks/task_h32.py"},
+  {"id": "task_h33", "difficulty": "hard", "instruction": "Send a quote for 10 hours of consulting to the client who has the single highest-value awaiting-payment invoice.", "verify": "tasks/task_h33.py"},
+  {"id": "task_h34", "difficulty": "hard", "instruction": "Change the Cascade Software Solutions repeating invoice to bill fortnightly and use the Professional Services branding theme.", "verify": "tasks/task_h34.py"},
+  {"id": "task_h35", "difficulty": "hard", "instruction": "Create a credit note for CloudNine Analytics for 5 hours of development at the standard rate, approve it, and apply it against their smaller invoice.", "verify": "tasks/task_h35.py"},
+  {"id": "task_h36", "difficulty": "hard", "instruction": "Submit all draft invoices for approval.", "verify": "tasks/task_h36.py"},
+  {"id": "task_h37", "difficulty": "hard", "instruction": "Edit the Murray River Winery invoice: switch it from tax-inclusive to tax-exclusive pricing and change the branding theme from Retail to Professional Services.", "verify": "tasks/task_h37.py"},
+  {"id": "task_h38", "difficulty": "hard", "instruction": "Create an invoice for Northern Territory Power Corp for a data migration and initial setup fee, approve it, and send it.", "verify": "tasks/task_h38.py"},
+  {"id": "task_h39", "difficulty": "hard", "instruction": "Invoice Atlas Engineering for 3 hours of UI/UX design and 10 USB-C cables. Track the design work under the Victoria region and Sales department.", "verify": "tasks/task_h39.py"},
+  {"id": "task_h40", "difficulty": "hard", "instruction": "Add an invoice reminder for 3 days before the due date with subject 'Friendly reminder: Invoice {InvoiceNumber} due in 3 days'. Include both the PDF and detail summary, and make sure it's turned on.", "verify": "tasks/task_h40.py"}
+]
