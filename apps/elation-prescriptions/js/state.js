@@ -100,6 +100,7 @@ const AppState = {
         } else {
             this._loadSeedData();
         }
+        this.notify();
     },
 
     _loadSeedData() {
