@@ -1,1 +1,362 @@
-[]
+[
+  {
+    "id": "task_e1",
+    "difficulty": "easy",
+    "instruction": "Close the Patterson bus accident case.",
+    "verify": "tasks/task_e1.py"
+  },
+  {
+    "id": "task_e2",
+    "difficulty": "easy",
+    "instruction": "Reopen the Russo v. Lyft rideshare accident matter.",
+    "verify": "tasks/task_e2.py"
+  },
+  {
+    "id": "task_e3",
+    "difficulty": "easy",
+    "instruction": "Mark the Johnson v. Whole Foods hip fracture case as pending.",
+    "verify": "tasks/task_e3.py"
+  },
+  {
+    "id": "task_e4",
+    "difficulty": "easy",
+    "instruction": "Turn off budget threshold notifications.",
+    "verify": "tasks/task_e4.py"
+  },
+  {
+    "id": "task_e5",
+    "difficulty": "easy",
+    "instruction": "Change the matter numbering separator to a period.",
+    "verify": "tasks/task_e5.py"
+  },
+  {
+    "id": "task_e6",
+    "difficulty": "easy",
+    "instruction": "Set the Criminal Defense - Misdemeanor template as the default matter template.",
+    "verify": "tasks/task_e6.py"
+  },
+  {
+    "id": "task_e7",
+    "difficulty": "easy",
+    "instruction": "Delete the Estate Planning - Comprehensive matter template.",
+    "verify": "tasks/task_e7.py"
+  },
+  {
+    "id": "task_e8",
+    "difficulty": "easy",
+    "instruction": "Rename the Corporate/Business practice area to Business Law.",
+    "verify": "tasks/task_e8.py"
+  },
+  {
+    "id": "task_e9",
+    "difficulty": "easy",
+    "instruction": "Move the Dimitriou dog bite matter to the Investigation stage.",
+    "verify": "tasks/task_e9.py"
+  },
+  {
+    "id": "task_e10",
+    "difficulty": "easy",
+    "instruction": "Disable matter deletion notifications.",
+    "verify": "tasks/task_e10.py"
+  },
+  {
+    "id": "task_e11",
+    "difficulty": "easy",
+    "instruction": "Change the matter number padding to 6 digits.",
+    "verify": "tasks/task_e11.py"
+  },
+  {
+    "id": "task_e12",
+    "difficulty": "easy",
+    "instruction": "Delete the Closing stage from the Real Estate practice area.",
+    "verify": "tasks/task_e12.py"
+  },
+  {
+    "id": "task_e13",
+    "difficulty": "easy",
+    "instruction": "Delete the Mills motorcycle collision matter.",
+    "verify": "tasks/task_e13.py"
+  },
+  {
+    "id": "task_e14",
+    "difficulty": "easy",
+    "instruction": "Recover the Smith consultation matter from the recovery bin.",
+    "verify": "tasks/task_e14.py"
+  },
+  {
+    "id": "task_e15",
+    "difficulty": "easy",
+    "instruction": "Add a new stage called Appeals to Criminal Defense.",
+    "verify": "tasks/task_e15.py"
+  },
+  {
+    "id": "task_e16",
+    "difficulty": "easy",
+    "instruction": "Change the firm's default template to Personal Injury - Slip and Fall.",
+    "verify": "tasks/task_e16.py"
+  },
+  {
+    "id": "task_e17",
+    "difficulty": "easy",
+    "instruction": "Switch the deduction order on the Washington workplace crush injury case to fees first.",
+    "verify": "tasks/task_e17.py"
+  },
+  {
+    "id": "task_e18",
+    "difficulty": "easy",
+    "instruction": "Change the currency on the Patterson bus accident case to British Pounds.",
+    "verify": "tasks/task_e18.py"
+  },
+  {
+    "id": "task_e19",
+    "difficulty": "easy",
+    "instruction": "Reassign the DeLuca felony DUI case to Robert Jackson.",
+    "verify": "tasks/task_e19.py"
+  },
+  {
+    "id": "task_e20",
+    "difficulty": "easy",
+    "instruction": "Rename the Intake stage under Personal Injury to Case Intake.",
+    "verify": "tasks/task_e20.py"
+  },
+  {
+    "id": "task_m1",
+    "difficulty": "medium",
+    "instruction": "Create a new practice area called Civil Rights with three stages: Investigation, Filing, and Resolution.",
+    "verify": "tasks/task_m1.py"
+  },
+  {
+    "id": "task_m2",
+    "difficulty": "medium",
+    "instruction": "Add a $50,000 general damage for pain and suffering to the Johnson v. Whole Foods hip fracture case.",
+    "verify": "tasks/task_m2.py"
+  },
+  {
+    "id": "task_m3",
+    "difficulty": "medium",
+    "instruction": "Change the responsible attorney on the McCarthy pedestrian case to Marcus Williams and move the matter to the Litigation stage.",
+    "verify": "tasks/task_m3.py"
+  },
+  {
+    "id": "task_m4",
+    "difficulty": "medium",
+    "instruction": "Create a new matter template called Immigration - Work Visa with the Immigration practice area and hourly billing.",
+    "verify": "tasks/task_m4.py"
+  },
+  {
+    "id": "task_m5",
+    "difficulty": "medium",
+    "instruction": "Add a $250,000 settlement recovery from State Farm Insurance to the Patterson bus accident case.",
+    "verify": "tasks/task_m5.py"
+  },
+  {
+    "id": "task_m6",
+    "difficulty": "medium",
+    "instruction": "Restrict the Johnson v. Whole Foods matter permissions to only the Litigation Team group.",
+    "verify": "tasks/task_m6.py"
+  },
+  {
+    "id": "task_m7",
+    "difficulty": "medium",
+    "instruction": "Update the matter numbering to use a slash separator and 6-digit padding.",
+    "verify": "tasks/task_m7.py"
+  },
+  {
+    "id": "task_m8",
+    "difficulty": "medium",
+    "instruction": "Add a $15,000 non-medical lien from CalComp Workers Compensation to the Patterson bus accident settlement.",
+    "verify": "tasks/task_m8.py"
+  },
+  {
+    "id": "task_m9",
+    "difficulty": "medium",
+    "instruction": "Add Dr. Michael Reeves Chiropractic as a medical provider on the Johnson v. Whole Foods case for post-surgical pain management.",
+    "verify": "tasks/task_m9.py"
+  },
+  {
+    "id": "task_m10",
+    "difficulty": "medium",
+    "instruction": "Close the Baptiste contested divorce case and set its stage to Trial/Resolution.",
+    "verify": "tasks/task_m10.py"
+  },
+  {
+    "id": "task_m11",
+    "difficulty": "medium",
+    "instruction": "Remove all damages from the Russo v. Lyft rideshare accident case.",
+    "verify": "tasks/task_m11.py"
+  },
+  {
+    "id": "task_m12",
+    "difficulty": "medium",
+    "instruction": "Set the Court Case Number to SM-2025-PI-4421 and the Judge Assigned to Hon. Patricia Chen on the Doyle scaffolding fall case.",
+    "verify": "tasks/task_m12.py"
+  },
+  {
+    "id": "task_m13",
+    "difficulty": "medium",
+    "instruction": "Create a new Real Estate matter for Robert O'Malley about a rental property dispute, with Rachel Goldstein as responsible attorney and flat rate billing.",
+    "verify": "tasks/task_m13.py"
+  },
+  {
+    "id": "task_m14",
+    "difficulty": "medium",
+    "instruction": "Add a 33.33% contingency legal fee to the Okafor burn injury case settlement.",
+    "verify": "tasks/task_m14.py"
+  },
+  {
+    "id": "task_m15",
+    "difficulty": "medium",
+    "instruction": "Block Priya Sharma from the Blackwell divorce matter and restrict its permissions to the Family Law Division group only.",
+    "verify": "tasks/task_m15.py"
+  },
+  {
+    "id": "task_m16",
+    "difficulty": "medium",
+    "instruction": "Add State Farm Insurance - Liens as an Insurance Adjuster related contact on the Doyle scaffolding fall case.",
+    "verify": "tasks/task_m16.py"
+  },
+  {
+    "id": "task_m17",
+    "difficulty": "medium",
+    "instruction": "Change the Vertex Technologies Series B matter's currency to British Pounds and increase its budget to $100,000.",
+    "verify": "tasks/task_m17.py"
+  },
+  {
+    "id": "task_m18",
+    "difficulty": "medium",
+    "instruction": "Add a $200,000 special damage for lost future earnings to the Sullivan-Wright surgical error case.",
+    "verify": "tasks/task_m18.py"
+  },
+  {
+    "id": "task_m19",
+    "difficulty": "medium",
+    "instruction": "Delete the Plea Negotiation stage from Criminal Defense and rename Pre-Trial to Pre-Trial/Plea.",
+    "verify": "tasks/task_m19.py"
+  },
+  {
+    "id": "task_m20",
+    "difficulty": "medium",
+    "instruction": "Add a $5,000 outstanding balance owed to Pacific Physical Therapy Center on the Patterson bus accident settlement.",
+    "verify": "tasks/task_m20.py"
+  },
+  {
+    "id": "task_h1",
+    "difficulty": "hard",
+    "instruction": "Close all open Personal Injury matters that are currently in the Demand stage.",
+    "verify": "tasks/task_h1.py"
+  },
+  {
+    "id": "task_h2",
+    "difficulty": "hard",
+    "instruction": "Create a new Personal Injury matter for Aisha Johnson involving a second slip and fall at a restaurant, assign Marcus Williams as responsible attorney with a 40% contingency fee, and add a $15,000 emergency room damage.",
+    "verify": "tasks/task_h2.py"
+  },
+  {
+    "id": "task_h3",
+    "difficulty": "hard",
+    "instruction": "Find the Personal Injury matter with the highest budget and change its responsible attorney to Diana Reyes.",
+    "verify": "tasks/task_h3.py"
+  },
+  {
+    "id": "task_h4",
+    "difficulty": "hard",
+    "instruction": "Set up the Johnson v. Whole Foods settlement: add a $208,650 recovery from Hartford Insurance, a 33.33% contingency legal fee, and a non-medical lien of $14,500 from UCSF Medical Center.",
+    "verify": "tasks/task_h4.py"
+  },
+  {
+    "id": "task_h5",
+    "difficulty": "hard",
+    "instruction": "Create a new practice area called Appellate Law with stages Notice of Appeal, Briefing, Oral Argument, and Decision, then create a matter template for it called Appellate Practice - Standard with hourly billing.",
+    "verify": "tasks/task_h5.py"
+  },
+  {
+    "id": "task_h6",
+    "difficulty": "hard",
+    "instruction": "Transfer all of Priya Sharma's matters to Kevin Nakamura by changing the responsible attorney.",
+    "verify": "tasks/task_h6.py"
+  },
+  {
+    "id": "task_h7",
+    "difficulty": "hard",
+    "instruction": "Move all Criminal Defense matters at the Arraignment stage to the Pre-Trial stage.",
+    "verify": "tasks/task_h7.py"
+  },
+  {
+    "id": "task_h8",
+    "difficulty": "hard",
+    "instruction": "Update the matter numbering to use prefix MLG, slash separator, and 6-digit padding, then create a new matter for client Andrew Kim for a startup formation.",
+    "verify": "tasks/task_h8.py"
+  },
+  {
+    "id": "task_h9",
+    "difficulty": "hard",
+    "instruction": "For the Okafor burn injury case, add a $35,000 damage for future reconstructive surgery, a 40% legal fee to the settlement, and an $8,000 outstanding balance to the settlement.",
+    "verify": "tasks/task_h9.py"
+  },
+  {
+    "id": "task_h10",
+    "difficulty": "hard",
+    "instruction": "Close all pending Family Law matters and move all open Family Law matters in the Consultation stage to Filing.",
+    "verify": "tasks/task_h10.py"
+  },
+  {
+    "id": "task_h11",
+    "difficulty": "hard",
+    "instruction": "Set up the McCarthy pedestrian case settlement: add a $150,000 recovery from the City of San Francisco, a 33.33% contingency legal fee, and a $25,000 outstanding balance owed to Bay Area Orthopedic Associates.",
+    "verify": "tasks/task_h11.py"
+  },
+  {
+    "id": "task_h12",
+    "difficulty": "hard",
+    "instruction": "Reassign all of Robert Jackson's open Personal Injury matters to Marcus Williams.",
+    "verify": "tasks/task_h12.py"
+  },
+  {
+    "id": "task_h13",
+    "difficulty": "hard",
+    "instruction": "Create two new matters: a Family Law case for Jerome Baptiste with Diana Reyes as attorney and hourly billing, and a Criminal Defense case for Richard Hernandez with Robert Jackson as attorney and flat rate billing.",
+    "verify": "tasks/task_h13.py"
+  },
+  {
+    "id": "task_h14",
+    "difficulty": "hard",
+    "instruction": "Find Frank DeLuca's criminal case at the Arraignment stage, change it to flat rate billing at $15,000, and move it to the Pre-Trial stage.",
+    "verify": "tasks/task_h14.py"
+  },
+  {
+    "id": "task_h15",
+    "difficulty": "hard",
+    "instruction": "Add UCSF Medical Center and Meridian Radiology Associates as medical providers on the McCarthy pedestrian case.",
+    "verify": "tasks/task_h15.py"
+  },
+  {
+    "id": "task_h16",
+    "difficulty": "hard",
+    "instruction": "Delete the Personal Injury - Slip and Fall template and create a replacement called Personal Injury - Premises Liability with contingency billing and the Personal Injury practice area.",
+    "verify": "tasks/task_h16.py"
+  },
+  {
+    "id": "task_h17",
+    "difficulty": "hard",
+    "instruction": "On the Washington workplace injury case, update the contingency fee to 35%, add a $120,000 recovery from CalComp Workers Compensation to the settlement, and move it to the Settlement/Trial stage.",
+    "verify": "tasks/task_h17.py"
+  },
+  {
+    "id": "task_h18",
+    "difficulty": "hard",
+    "instruction": "Create a new practice area called Appellate Practice with stages Notice of Appeal, Brief Writing, and Oral Argument, then move the Hernandez armed robbery case to use this new practice area.",
+    "verify": "tasks/task_h18.py"
+  },
+  {
+    "id": "task_h19",
+    "difficulty": "hard",
+    "instruction": "Add three damages to the Brennan hotel slip-and-fall case: $8,500 for the emergency room visit, $12,000 for wrist surgery, and $45,000 for pain and suffering.",
+    "verify": "tasks/task_h19.py"
+  },
+  {
+    "id": "task_h20",
+    "difficulty": "hard",
+    "instruction": "Set up the Fitzgerald medical malpractice settlement: add a $375,000 recovery, a 40% contingency legal fee, a $20,000 health insurance subrogation lien, and a $5,000 outstanding balance for follow-up care.",
+    "verify": "tasks/task_h20.py"
+  }
+]
