@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopify — Dynamic Checkout</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="top-bar" id="topBar" data-testid="top-bar">
+        <div class="top-bar-left">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" width="28" height="28">
+                    <path d="M15.337 3.418c-.17-.058-.338.004-.396.142-.05.118-1.09 2.11-1.09 2.11s-1.42-.394-1.563-.434c-.058-.016-.112-.024-.162-.024-.77 0-1.152.964-1.152.964L9.79 9.996l5.49 1.194.85-4.6s-.002-.006-.003-.01l-.79-3.162zM17.894 4.096a.172.172 0 00-.11-.004l-.016.006c-.068.024-.134.09-.172.196l-.698 3.776 1.98.43-.19-1.03-.794-3.374z" fill="#95BF47"/>
+                    <path d="M17.894 4.096l-.794 3.374-.19 1.03-1.98-.43.698-3.776c.038-.106.104-.172.172-.196l.016-.006a.172.172 0 01.078.004M6 20l4-11 2.5.54" fill="none" stroke="#5E8E3E" stroke-width="0.5"/>
+                    <path d="M15.337 3.418l.79 3.162.003.01-.85 4.6L9.79 9.996l1.184-3.82s.382-.964 1.152-.964c.05 0 .104.008.162.024.143.04 1.563.434 1.563.434s1.04-1.992 1.09-2.11c.058-.138.226-.2.396-.142z" fill="#5E8E3E"/>
+                </svg>
+                <span class="logo-text">Shopify</span>
+            </div>
+            <div class="store-name" id="storeName" data-testid="store-name">Urban Thread Co.</div>
+        </div>
+        <div class="top-bar-right">
+            <div class="user-avatar" data-testid="user-avatar">
+                <span>MR</span>
+            </div>
+        </div>
+    </header>
+
+    <nav class="sidebar" id="sidebar" data-testid="sidebar">
+        <div class="sidebar-nav" id="sidebarNav"></div>
+    </nav>
+
+    <main class="main-content" id="mainContent" data-testid="main-content">
+        <div class="content-wrapper" id="contentWrapper"></div>
+    </main>
+
+    <div id="modalContainer"></div>
+
+    <div class="toast-container" id="toastContainer" style="display:none"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/views.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
