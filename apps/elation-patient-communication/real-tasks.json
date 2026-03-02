@@ -1,0 +1,362 @@
+[
+  {
+    "id": "task_e1",
+    "difficulty": "easy",
+    "instruction": "Check Emily Thompson's message about dizziness when standing up.",
+    "verify": "real-tasks/task_e1.py"
+  },
+  {
+    "id": "task_e2",
+    "difficulty": "easy",
+    "instruction": "Dismiss the reminder about Aisha Patel's prenatal checkup tomorrow.",
+    "verify": "real-tasks/task_e2.py"
+  },
+  {
+    "id": "task_e3",
+    "difficulty": "easy",
+    "instruction": "Tag James Rodriguez as a VIP patient.",
+    "verify": "real-tasks/task_e3.py"
+  },
+  {
+    "id": "task_e4",
+    "difficulty": "easy",
+    "instruction": "Emily Thompson isn't a new patient anymore — remove that tag from her profile.",
+    "verify": "real-tasks/task_e4.py"
+  },
+  {
+    "id": "task_e5",
+    "difficulty": "easy",
+    "instruction": "Cancel Sophia Nguyen's upcoming telehealth appointment for her thyroid check-up.",
+    "verify": "real-tasks/task_e5.py"
+  },
+  {
+    "id": "task_e6",
+    "difficulty": "easy",
+    "instruction": "Close out the conversation with Howard Blackwell about his pacemaker check.",
+    "verify": "real-tasks/task_e6.py"
+  },
+  {
+    "id": "task_e7",
+    "difficulty": "easy",
+    "instruction": "Delete the unsent draft letter to Martha Reeves-Whitfield.",
+    "verify": "real-tasks/task_e7.py"
+  },
+  {
+    "id": "task_e8",
+    "difficulty": "easy",
+    "instruction": "Turn off the setting that automatically invites patients to Passport when they book through the website.",
+    "verify": "real-tasks/task_e8.py"
+  },
+  {
+    "id": "task_e9",
+    "difficulty": "easy",
+    "instruction": "Disable the waiting room audio notification for video visits.",
+    "verify": "real-tasks/task_e9.py"
+  },
+  {
+    "id": "task_e10",
+    "difficulty": "easy",
+    "instruction": "Remove the billing code for online digital E/M services lasting 21 or more minutes (99423).",
+    "verify": "real-tasks/task_e10.py"
+  },
+  {
+    "id": "task_e11",
+    "difficulty": "easy",
+    "instruction": "Read Priya Sharma's message asking about her medical records.",
+    "verify": "real-tasks/task_e11.py"
+  },
+  {
+    "id": "task_e12",
+    "difficulty": "easy",
+    "instruction": "Acknowledge the reminder about Marcus Johnson's Passport invitation — he still hasn't registered.",
+    "verify": "real-tasks/task_e12.py"
+  },
+  {
+    "id": "task_e13",
+    "difficulty": "easy",
+    "instruction": "Flag Janet Okonkwo as a high-risk patient.",
+    "verify": "real-tasks/task_e13.py"
+  },
+  {
+    "id": "task_e14",
+    "difficulty": "easy",
+    "instruction": "We closed the East Bay Clinic — remove it from our practice locations.",
+    "verify": "real-tasks/task_e14.py"
+  },
+  {
+    "id": "task_e15",
+    "difficulty": "easy",
+    "instruction": "Dr. Kim won't be doing telehealth visits anymore. Deactivate his virtual visit capability.",
+    "verify": "real-tasks/task_e15.py"
+  },
+  {
+    "id": "task_e16",
+    "difficulty": "easy",
+    "instruction": "Change my unread letter notification timeframe to 72 hours.",
+    "verify": "real-tasks/task_e16.py"
+  },
+  {
+    "id": "task_e17",
+    "difficulty": "easy",
+    "instruction": "Disable patient messaging for the whole practice.",
+    "verify": "real-tasks/task_e17.py"
+  },
+  {
+    "id": "task_e18",
+    "difficulty": "easy",
+    "instruction": "Check Andrew McIntyre's message about his acid reflux getting worse.",
+    "verify": "real-tasks/task_e18.py"
+  },
+  {
+    "id": "task_e19",
+    "difficulty": "easy",
+    "instruction": "Set my default Passport sharing level to the highest option — Level 4, the expanded clinical profile.",
+    "verify": "real-tasks/task_e19.py"
+  },
+  {
+    "id": "task_e20",
+    "difficulty": "easy",
+    "instruction": "Dismiss the appointment reminder for Martha Reeves-Whitfield's wellness visit follow-up.",
+    "verify": "real-tasks/task_e20.py"
+  },
+  {
+    "id": "task_m1",
+    "difficulty": "medium",
+    "instruction": "Anthony Petrov hasn't been set up on Passport yet. Send him an invitation.",
+    "verify": "real-tasks/task_m1.py"
+  },
+  {
+    "id": "task_m2",
+    "difficulty": "medium",
+    "instruction": "James Rodriguez asked whether his Lisinopril should be refilled too. Reply and let him know you'll send the refill along with his Metformin.",
+    "verify": "real-tasks/task_m2.py"
+  },
+  {
+    "id": "task_m3",
+    "difficulty": "medium",
+    "instruction": "Schedule an in-person appointment for Emily Thompson with me on March 15, 2026 at 2:00 PM for her annual physical.",
+    "verify": "real-tasks/task_m3.py"
+  },
+  {
+    "id": "task_m4",
+    "difficulty": "medium",
+    "instruction": "Helen Matsumoto's son is managing her care and needs full access. Upgrade her Passport sharing to the most comprehensive level.",
+    "verify": "real-tasks/task_m4.py"
+  },
+  {
+    "id": "task_m5",
+    "difficulty": "medium",
+    "instruction": "Add our new location: South Bay Clinic at 850 Stevens Creek Blvd, San Jose, CA 95128. It's a standard office visit location, POS code 11.",
+    "verify": "real-tasks/task_m5.py"
+  },
+  {
+    "id": "task_m6",
+    "difficulty": "medium",
+    "instruction": "We need a billing code for high-complexity established patient visits. Add CPT code 99215 with description \"Office visit, established patient, high complexity\".",
+    "verify": "real-tasks/task_m6.py"
+  },
+  {
+    "id": "task_m7",
+    "difficulty": "medium",
+    "instruction": "There's a draft letter to Martha Reeves-Whitfield about her wellness visit. Go ahead and send it.",
+    "verify": "real-tasks/task_m7.py"
+  },
+  {
+    "id": "task_m8",
+    "difficulty": "medium",
+    "instruction": "Set up telehealth for Jessica Okafor. Her Zoom link is https://zoom.us/j/1234567890.",
+    "verify": "real-tasks/task_m8.py"
+  },
+  {
+    "id": "task_m9",
+    "difficulty": "medium",
+    "instruction": "Raymond Copeland needs to be tagged for both chronic care management and diabetes management.",
+    "verify": "real-tasks/task_m9.py"
+  },
+  {
+    "id": "task_m10",
+    "difficulty": "medium",
+    "instruction": "Prescription refill messages for Dr. Torres should also go to the Clinical Team. Update his routing.",
+    "verify": "real-tasks/task_m10.py"
+  },
+  {
+    "id": "task_m11",
+    "difficulty": "medium",
+    "instruction": "Send David Park a letter with the subject \"Annual Flu Vaccine Reminder\" letting him know it's time to schedule his flu shot.",
+    "verify": "real-tasks/task_m11.py"
+  },
+  {
+    "id": "task_m12",
+    "difficulty": "medium",
+    "instruction": "Invite Brian Murphy to Passport with sharing level 3 so he can view his clinical profile.",
+    "verify": "real-tasks/task_m12.py"
+  },
+  {
+    "id": "task_m13",
+    "difficulty": "medium",
+    "instruction": "Cancel Rachel Steinberg's upcoming medication review appointment.",
+    "verify": "real-tasks/task_m13.py"
+  },
+  {
+    "id": "task_m14",
+    "difficulty": "medium",
+    "instruction": "Change the video visit chat to host-only mode and disable screen sharing for patients.",
+    "verify": "real-tasks/task_m14.py"
+  },
+  {
+    "id": "task_m15",
+    "difficulty": "medium",
+    "instruction": "Patricia O'Brien is leaving the practice. Revoke her Passport access.",
+    "verify": "real-tasks/task_m15.py"
+  },
+  {
+    "id": "task_m16",
+    "difficulty": "medium",
+    "instruction": "Read Janet Okonkwo's message about her blood sugar being high and flag her as high risk.",
+    "verify": "real-tasks/task_m16.py"
+  },
+  {
+    "id": "task_m17",
+    "difficulty": "medium",
+    "instruction": "The billing question from Kevin Adebayo has been resolved. Close out that conversation.",
+    "verify": "real-tasks/task_m17.py"
+  },
+  {
+    "id": "task_m18",
+    "difficulty": "medium",
+    "instruction": "Andrew McIntyre wants a telehealth visit to discuss his reflux. Schedule a virtual appointment with Dr. Torres on March 20, 2026 at 3:00 PM for acid reflux follow-up.",
+    "verify": "real-tasks/task_m18.py"
+  },
+  {
+    "id": "task_m19",
+    "difficulty": "medium",
+    "instruction": "Nancy Yamamoto's tags are out of date — remove both the \"Geriatric\" and \"Chronic Care\" tags from her profile.",
+    "verify": "real-tasks/task_m19.py"
+  },
+  {
+    "id": "task_m20",
+    "difficulty": "medium",
+    "instruction": "Update Dr. Kim's settings: change his default Passport sharing to level 3 and his notification timeframe to 24 hours.",
+    "verify": "real-tasks/task_m20.py"
+  },
+  {
+    "id": "task_h1",
+    "difficulty": "hard",
+    "instruction": "Several of Dr. Kim's patients haven't been set up on Passport. Invite all of his patients who haven't been invited yet.",
+    "verify": "real-tasks/task_h1.py"
+  },
+  {
+    "id": "task_h2",
+    "difficulty": "hard",
+    "instruction": "Mark all unread patient messages as read.",
+    "verify": "real-tasks/task_h2.py"
+  },
+  {
+    "id": "task_h3",
+    "difficulty": "hard",
+    "instruction": "Clear out all pending reminders — acknowledge every one of them.",
+    "verify": "real-tasks/task_h3.py"
+  },
+  {
+    "id": "task_h4",
+    "difficulty": "hard",
+    "instruction": "Cancel all virtual appointments scheduled for March.",
+    "verify": "real-tasks/task_h4.py"
+  },
+  {
+    "id": "task_h5",
+    "difficulty": "hard",
+    "instruction": "Read the messages from Janet Okonkwo and Christine Lee, then end both of their conversations.",
+    "verify": "real-tasks/task_h5.py"
+  },
+  {
+    "id": "task_h6",
+    "difficulty": "hard",
+    "instruction": "I want the Clinical Team group to receive a copy of every message category for my account. Add them to all my routing categories.",
+    "verify": "real-tasks/task_h6.py"
+  },
+  {
+    "id": "task_h7",
+    "difficulty": "hard",
+    "instruction": "Remove all three telephone E/M billing codes — the ones starting with 9944.",
+    "verify": "real-tasks/task_h7.py"
+  },
+  {
+    "id": "task_h8",
+    "difficulty": "hard",
+    "instruction": "Send a bulk letter to all patients tagged \"Diabetes Management\" reminding them to schedule their annual A1C screening. Use subject \"Annual A1C Screening Reminder\" and description \"A1C screening outreach\".",
+    "verify": "real-tasks/task_h8.py"
+  },
+  {
+    "id": "task_h9",
+    "difficulty": "hard",
+    "instruction": "Medical Records Requests should also be handled by the Clinical Team, not just Front Desk. Update the routing for all providers to include the Clinical Team group.",
+    "verify": "real-tasks/task_h9.py"
+  },
+  {
+    "id": "task_h10",
+    "difficulty": "hard",
+    "instruction": "Enable telehealth for both Jessica Okafor and Amanda Wright. Use \"Join your telehealth visit: https://zoom.us/j/okafor123\" for Dr. Okafor and \"Join your telehealth visit: https://zoom.us/j/wright456\" for Dr. Wright.",
+    "verify": "real-tasks/task_h10.py"
+  },
+  {
+    "id": "task_h11",
+    "difficulty": "hard",
+    "instruction": "Two patients have unread appointment requests — Sophia Nguyen and Susan Cho. Reply to both letting them know their requests have been received and will be scheduled.",
+    "verify": "real-tasks/task_h11.py"
+  },
+  {
+    "id": "task_h12",
+    "difficulty": "hard",
+    "instruction": "Close out all open conversations with patients assigned to Dr. Torres.",
+    "verify": "real-tasks/task_h12.py"
+  },
+  {
+    "id": "task_h13",
+    "difficulty": "hard",
+    "instruction": "Victor Santos and Craig Bennet both have insurance issues. Tag them both as \"Insurance Pending\" and then invite them to Passport.",
+    "verify": "real-tasks/task_h13.py"
+  },
+  {
+    "id": "task_h14",
+    "difficulty": "hard",
+    "instruction": "Replace the online digital E/M codes (99421, 99422, 99423) with a single new telehealth code: 99458 \"Prolonged telehealth service, 15 min\".",
+    "verify": "real-tasks/task_h14.py"
+  },
+  {
+    "id": "task_h15",
+    "difficulty": "hard",
+    "instruction": "Go through all unread messages from my patients and mark them as read. I'm Dr. Sarah Chen.",
+    "verify": "real-tasks/task_h15.py"
+  },
+  {
+    "id": "task_h16",
+    "difficulty": "hard",
+    "instruction": "Helen Matsumoto's son needs full access to her records. Upgrade her Passport sharing to level 4, and send her a letter with subject \"Updated Passport Sharing Level\" letting her know about the change.",
+    "verify": "real-tasks/task_h16.py"
+  },
+  {
+    "id": "task_h17",
+    "difficulty": "hard",
+    "instruction": "Robert Washington is transferring to another practice. Disable his Passport account and remove all tags from his profile.",
+    "verify": "real-tasks/task_h17.py"
+  },
+  {
+    "id": "task_h18",
+    "difficulty": "hard",
+    "instruction": "Schedule two appointments with me: Emily Thompson for her annual physical on March 15 at 2:00 PM (in-person), and Priya Sharma for a migraine follow-up on March 18 at 10:00 AM (in-person).",
+    "verify": "real-tasks/task_h18.py"
+  },
+  {
+    "id": "task_h19",
+    "difficulty": "hard",
+    "instruction": "Remove the Telehealth practice location and add a new one: \"West SF Urgent Care\" at \"2100 Geary Blvd, San Francisco, CA 94115\" with POS code 20 and description \"Urgent Care Facility\".",
+    "verify": "real-tasks/task_h19.py"
+  },
+  {
+    "id": "task_h20",
+    "difficulty": "hard",
+    "instruction": "Several patients were invited to Passport but never registered. Resend the invitation to all of them.",
+    "verify": "real-tasks/task_h20.py"
+  }
+]
