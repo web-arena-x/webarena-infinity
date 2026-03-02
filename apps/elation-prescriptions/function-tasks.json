@@ -1,0 +1,282 @@
+[
+  {
+    "id": "task_1",
+    "instruction": "Approve the pending refill request for Lisinopril 10mg tablet.",
+    "verify": "function-tasks/task_1.py"
+  },
+  {
+    "id": "task_2",
+    "instruction": "Deny the pending refill request for Atorvastatin 20mg tablet with the reason \"Patient needs lipid panel before renewal\".",
+    "verify": "function-tasks/task_2.py"
+  },
+  {
+    "id": "task_3",
+    "instruction": "Approve the pending refill request for Gabapentin 300mg capsule with a modified sig of \"Take 1 capsule by mouth twice daily\".",
+    "verify": "function-tasks/task_3.py"
+  },
+  {
+    "id": "task_4",
+    "instruction": "Approve the pending refill request for Omeprazole 20mg capsule.",
+    "verify": "function-tasks/task_4.py"
+  },
+  {
+    "id": "task_5",
+    "instruction": "Deny the pending refill request for Sertraline 50mg tablet with the reason \"Requires follow-up appointment\".",
+    "verify": "function-tasks/task_5.py"
+  },
+  {
+    "id": "task_6",
+    "instruction": "Approve the pending refill request for Metoprolol Succinate ER 50mg tablet with modified refills set to 3.",
+    "verify": "function-tasks/task_6.py"
+  },
+  {
+    "id": "task_7",
+    "instruction": "Approve the pending change request for the Atorvastatin to Rosuvastatin therapeutic substitution.",
+    "verify": "function-tasks/task_7.py"
+  },
+  {
+    "id": "task_8",
+    "instruction": "Deny the pending change request for Gabapentin 300mg capsule sig clarification with the reason \"Current sig is correct as written\".",
+    "verify": "function-tasks/task_8.py"
+  },
+  {
+    "id": "task_9",
+    "instruction": "Remove the Latex allergy from the patient's allergy list.",
+    "verify": "function-tasks/task_9.py"
+  },
+  {
+    "id": "task_10",
+    "instruction": "Remove the Codeine allergy from the patient's allergy list.",
+    "verify": "function-tasks/task_10.py"
+  },
+  {
+    "id": "task_11",
+    "instruction": "Add a new drug allergy for \"Ibuprofen\" with reaction \"Stomach upset, GI bleeding\" and severity \"Moderate\".",
+    "verify": "function-tasks/task_11.py"
+  },
+  {
+    "id": "task_12",
+    "instruction": "Add a new environmental allergy for \"Bee stings\" with reaction \"Swelling, anaphylaxis\" and severity \"Severe\".",
+    "verify": "function-tasks/task_12.py"
+  },
+  {
+    "id": "task_13",
+    "instruction": "Change Montelukast 10mg tablet from permanent Rx to temporary classification.",
+    "verify": "function-tasks/task_13.py"
+  },
+  {
+    "id": "task_14",
+    "instruction": "Change Amoxicillin 500mg capsule from temporary to permanent Rx classification.",
+    "verify": "function-tasks/task_14.py"
+  },
+  {
+    "id": "task_15",
+    "instruction": "Change Prednisone 10mg tablet from temporary to permanent Rx classification.",
+    "verify": "function-tasks/task_15.py"
+  },
+  {
+    "id": "task_16",
+    "instruction": "Discontinue Omeprazole 20mg capsule with the reason \"I want to discontinue this medication\" and details \"Switching to famotidine\".",
+    "verify": "function-tasks/task_16.py"
+  },
+  {
+    "id": "task_17",
+    "instruction": "Discontinue Amlodipine 5mg tablet with the reason \"I want to discontinue this medication\" and send a cancel request to the pharmacy.",
+    "verify": "function-tasks/task_17.py"
+  },
+  {
+    "id": "task_18",
+    "instruction": "Discontinue Montelukast 10mg tablet with the reason \"Patient stopped taking medication\".",
+    "verify": "function-tasks/task_18.py"
+  },
+  {
+    "id": "task_19",
+    "instruction": "Discontinue the Ciprofloxacin 500mg tablet (a temporary medication) with the reason \"I want to discontinue this medication\".",
+    "verify": "function-tasks/task_19.py"
+  },
+  {
+    "id": "task_20",
+    "instruction": "Discontinue Gabapentin 300mg capsule with the reason \"I want to discontinue this medication\" and send a cancel request to the pharmacy.",
+    "verify": "function-tasks/task_20.py"
+  },
+  {
+    "id": "task_21",
+    "instruction": "Change the drug-to-drug interaction alert level to \"Major only\" in the Drug Decision Support settings.",
+    "verify": "function-tasks/task_21.py"
+  },
+  {
+    "id": "task_22",
+    "instruction": "Disable the drug-to-allergy checking feature in the Drug Decision Support settings.",
+    "verify": "function-tasks/task_22.py"
+  },
+  {
+    "id": "task_23",
+    "instruction": "Change the drug-to-drug interaction alert level to \"Major and Moderate\" in the Drug Decision Support settings.",
+    "verify": "function-tasks/task_23.py"
+  },
+  {
+    "id": "task_24",
+    "instruction": "Disable the \"Auto-populate last pharmacy\" preference in Settings.",
+    "verify": "function-tasks/task_24.py"
+  },
+  {
+    "id": "task_25",
+    "instruction": "Disable the \"Show cost estimates\" preference in Settings.",
+    "verify": "function-tasks/task_25.py"
+  },
+  {
+    "id": "task_26",
+    "instruction": "Disable the \"Show formulary data\" preference in Settings.",
+    "verify": "function-tasks/task_26.py"
+  },
+  {
+    "id": "task_27",
+    "instruction": "Change the default pharmacy to Walgreens #7892 in Settings.",
+    "verify": "function-tasks/task_27.py"
+  },
+  {
+    "id": "task_28",
+    "instruction": "Delete the Rx template for \"Prednisone 10mg tablet (taper)\".",
+    "verify": "function-tasks/task_28.py"
+  },
+  {
+    "id": "task_29",
+    "instruction": "Delete the Rx template for \"Azithromycin 250mg tablet (Z-Pack)\".",
+    "verify": "function-tasks/task_29.py"
+  },
+  {
+    "id": "task_30",
+    "instruction": "Add a new Rx template for Levothyroxine 50mcg tablet with sig \"Take 1 tablet by mouth once daily on empty stomach\", quantity 30, unit tablets, refills 5, and days supply 30.",
+    "verify": "function-tasks/task_30.py"
+  },
+  {
+    "id": "task_31",
+    "instruction": "Edit the Rx template for Lisinopril 10mg tablet to change its sig to \"Take 1 tablet by mouth once daily in the morning\".",
+    "verify": "function-tasks/task_31.py"
+  },
+  {
+    "id": "task_32",
+    "instruction": "Edit the Rx template for Metformin 500mg tablet to change its quantity to 90.",
+    "verify": "function-tasks/task_32.py"
+  },
+  {
+    "id": "task_33",
+    "instruction": "Delete the custom sig \"Inject subcutaneously once weekly\".",
+    "verify": "function-tasks/task_33.py"
+  },
+  {
+    "id": "task_34",
+    "instruction": "Add a new custom sig \"Take 2 capsules by mouth once daily with breakfast\" in the oral category.",
+    "verify": "function-tasks/task_34.py"
+  },
+  {
+    "id": "task_35",
+    "instruction": "Add a new custom sig \"Apply 1 patch to skin every 72 hours\" in the topical category.",
+    "verify": "function-tasks/task_35.py"
+  },
+  {
+    "id": "task_36",
+    "instruction": "Edit the sublingual custom sig \"Dissolve 1 tablet under the tongue as needed\" to read \"Dissolve 1 tablet under the tongue every 5 minutes as needed, max 3 doses\".",
+    "verify": "function-tasks/task_36.py"
+  },
+  {
+    "id": "task_37",
+    "instruction": "Delete the custom sig \"Instill 1 drop in affected eye(s) twice daily\".",
+    "verify": "function-tasks/task_37.py"
+  },
+  {
+    "id": "task_38",
+    "instruction": "Prescribe Levothyroxine 50mcg tablet to CVS Pharmacy #4521 with sig \"Take 1 tablet by mouth once daily on empty stomach\", quantity 30, refills 5, and days supply 30 as a permanent Rx.",
+    "verify": "function-tasks/task_38.py"
+  },
+  {
+    "id": "task_39",
+    "instruction": "Prescribe Cyclobenzaprine 10mg tablet with sig \"Take 1 tablet by mouth three times daily as needed for muscle spasm\", quantity 30, refills 0, days supply 10, as a temporary medication.",
+    "verify": "function-tasks/task_39.py"
+  },
+  {
+    "id": "task_40",
+    "instruction": "Prescribe Famotidine 20mg tablet with \"Dispense as Written\" enabled, sig \"Take 1 tablet by mouth twice daily\", quantity 60, refills 3, days supply 30, to CVS Pharmacy #4521.",
+    "verify": "function-tasks/task_40.py"
+  },
+  {
+    "id": "task_41",
+    "instruction": "Prescribe Albuterol 90mcg/actuation inhaler with sig \"Inhale 1-2 puffs every 4-6 hours as needed\", quantity 1, unit inhalers, refills 2, days supply 30, to CVS Pharmacy #4521. Add the diagnosis \"Mild intermittent asthma\" (J45.20).",
+    "verify": "function-tasks/task_41.py"
+  },
+  {
+    "id": "task_42",
+    "instruction": "Prescribe Doxycycline 100mg capsule as a temporary medication with sig \"Take 1 capsule by mouth twice daily for 14 days\", quantity 28, refills 0, days supply 14, to Walgreens #7892.",
+    "verify": "function-tasks/task_42.py"
+  },
+  {
+    "id": "task_43",
+    "instruction": "Prescribe Ondansetron 4mg tablet as a temporary medication with sig \"Take 1 tablet by mouth every 8 hours as needed for nausea\", quantity 12, refills 0, days supply 4. Include instructions to pharmacy: \"Patient is post-surgical, urgent fill requested\".",
+    "verify": "function-tasks/task_43.py"
+  },
+  {
+    "id": "task_44",
+    "instruction": "Prescribe Amlodipine 10mg tablet to the patient's preferred pharmacy with sig \"Take 1 tablet by mouth once daily\", quantity 30, refills 3, days supply 30. Add the diagnosis \"Essential hypertension\" (I10).",
+    "verify": "function-tasks/task_44.py"
+  },
+  {
+    "id": "task_45",
+    "instruction": "Prescribe Escitalopram 10mg tablet to Alto Pharmacy with sig \"Take 1 tablet by mouth once daily in the morning\", quantity 30, refills 5, days supply 30 as a permanent Rx.",
+    "verify": "function-tasks/task_45.py"
+  },
+  {
+    "id": "task_46",
+    "instruction": "Document Glucosamine 1500mg tablet as an OTC medication the patient is currently taking, with sig \"Take 1 tablet by mouth once daily\".",
+    "verify": "function-tasks/task_46.py"
+  },
+  {
+    "id": "task_47",
+    "instruction": "Document Probiotics capsule as an OTC medication the patient is currently taking, with sig \"Take 1 capsule by mouth once daily with food\".",
+    "verify": "function-tasks/task_47.py"
+  },
+  {
+    "id": "task_48",
+    "instruction": "Complete a medication reconciliation without making any changes to the medication list.",
+    "verify": "function-tasks/task_48.py"
+  },
+  {
+    "id": "task_49",
+    "instruction": "Perform a medication reconciliation and discontinue Aspirin 81mg tablet (low-dose) during the reconciliation process.",
+    "verify": "function-tasks/task_49.py"
+  },
+  {
+    "id": "task_50",
+    "instruction": "Use the bulk refill feature to refill both Lisinopril 10mg tablet and Metformin 500mg tablet at the same time.",
+    "verify": "function-tasks/task_50.py"
+  },
+  {
+    "id": "task_51",
+    "instruction": "Navigate to the Rx Requests view and approve the refill request that includes urgent pharmacy notes about the patient running low on medication.",
+    "verify": "function-tasks/task_51.py"
+  },
+  {
+    "id": "task_52",
+    "instruction": "In Settings, change the default pharmacy to the UCSF hospital pharmacy.",
+    "verify": "function-tasks/task_52.py"
+  },
+  {
+    "id": "task_53",
+    "instruction": "Discontinue the only active controlled substance on the patient's medication list. Use the reason \"I want to discontinue this medication\" and send a cancel request to the pharmacy.",
+    "verify": "function-tasks/task_53.py"
+  },
+  {
+    "id": "task_54",
+    "instruction": "Approve the change request that proposes a therapeutic substitution (not the sig clarification request).",
+    "verify": "function-tasks/task_54.py"
+  },
+  {
+    "id": "task_55",
+    "instruction": "Discontinue Sertraline 50mg tablet with the reason \"I want to discontinue this medication\" and send a cancel request to the pharmacy.",
+    "verify": "function-tasks/task_55.py"
+  },
+  {
+    "id": "task_56",
+    "instruction": "Approve the refill request for Metoprolol Succinate ER 50mg tablet with a modification to change the sig to \"Take 1 tablet by mouth once daily in the morning\".",
+    "verify": "function-tasks/task_56.py"
+  }
+]
