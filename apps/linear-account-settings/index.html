@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear - Account Settings</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <header class="top-bar">
+        <div class="top-bar-left">
+            <div class="logo">
+                <svg width="20" height="20" viewBox="0 0 100 100" fill="none">
+                    <path d="M2.04 58.01a48.138 48.138 0 0 1-1.12-7.46l50.57 50.57a48.138 48.138 0 0 1-7.46-1.12L2.04 58.01ZM.39 45.17a49.346 49.346 0 0 0 .28 5.71L51.1 6.45a49.55 49.55 0 0 1 5.71.28L.39 45.17Zm60.74-37.06L3.67 65.57a48.417 48.417 0 0 0 2.45 6.25l61.26-61.26a48.417 48.417 0 0 0-6.25-2.45Zm10.08 4.69L8.81 75.2a48.258 48.258 0 0 0 3.78 5.04l63.66-63.66a48.258 48.258 0 0 0-5.04-3.78ZM80.06 17.4 14.32 83.14a48.163 48.163 0 0 0 4.83 4.04L87.71 22.62a48.62 48.62 0 0 0-7.65-5.22Zm-58.15 74.6c1.72 1.26 3.55 2.38 5.47 3.36L93.57 29.17a48.12 48.12 0 0 0-3.36-5.47L21.91 92Zm9.46 4.81a48.022 48.022 0 0 0 6.72 2.07L97.3 39.67a48.07 48.07 0 0 0-2.07-6.72L31.37 96.81Zm11.08 2.67a48.296 48.296 0 0 0 8.63.52l49.4-49.4c.15-2.9.06-5.79-.26-8.63L42.45 99.48Zm13.27.13L99.61 55.72c-.3-2.15-.75-4.27-1.35-6.33L55.93 97.72c2.06.6 4.18 1.05 6.33 1.35l-6.54.54Z" fill="#5E6AD2"/>
+                </svg>
+                <span class="logo-text">Linear</span>
+            </div>
+            <div class="breadcrumb">
+                <span class="breadcrumb-item">Settings</span>
+                <span class="breadcrumb-sep">/</span>
+                <span class="breadcrumb-item">Account</span>
+            </div>
+        </div>
+        <div class="top-bar-right">
+            <div id="headerAvatar" class="header-avatar"></div>
+            <span id="headerUserName" class="header-user-name"></span>
+        </div>
+    </header>
+
+    <!-- Layout -->
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebarNav"></nav>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent"></main>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay" style="display:none">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <button class="modal-close" data-action="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer" id="modalFooter"></div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer" style="display:none"></div>
+
+    <!-- Scripts (order matters) -->
+    <script src="js/data.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/views.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

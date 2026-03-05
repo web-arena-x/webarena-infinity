@@ -1,0 +1,302 @@
+[
+  {
+    "id": "task_1",
+    "instruction": "Change your full name to 'Alex Chen'.",
+    "verify": "function-tasks/task_1.py"
+  },
+  {
+    "id": "task_2",
+    "instruction": "Change your username to 'achen'.",
+    "verify": "function-tasks/task_2.py"
+  },
+  {
+    "id": "task_3",
+    "instruction": "Change your email address to 'alex.chen@acmetech.io'.",
+    "verify": "function-tasks/task_3.py"
+  },
+  {
+    "id": "task_4",
+    "instruction": "Disconnect your Google connected account.",
+    "verify": "function-tasks/task_4.py"
+  },
+  {
+    "id": "task_5",
+    "instruction": "Disconnect your GitHub connected account.",
+    "verify": "function-tasks/task_5.py"
+  },
+  {
+    "id": "task_6",
+    "instruction": "Disconnect your Slack connected account.",
+    "verify": "function-tasks/task_6.py"
+  },
+  {
+    "id": "task_7",
+    "instruction": "Disconnect your Figma connected account.",
+    "verify": "function-tasks/task_7.py"
+  },
+  {
+    "id": "task_8",
+    "instruction": "Leave the 'Side Project Labs' workspace.",
+    "verify": "function-tasks/task_8.py"
+  },
+  {
+    "id": "task_9",
+    "instruction": "Change the default home view to 'All issues' in Preferences.",
+    "verify": "function-tasks/task_9.py"
+  },
+  {
+    "id": "task_10",
+    "instruction": "Change the default home view to 'Inbox' in Preferences.",
+    "verify": "function-tasks/task_10.py"
+  },
+  {
+    "id": "task_11",
+    "instruction": "Change the default home view to 'My Issues' in Preferences.",
+    "verify": "function-tasks/task_11.py"
+  },
+  {
+    "id": "task_12",
+    "instruction": "Change the default home view to 'Favorited Views' in Preferences.",
+    "verify": "function-tasks/task_12.py"
+  },
+  {
+    "id": "task_13",
+    "instruction": "Disable the 'Display full names' toggle in Preferences.",
+    "verify": "function-tasks/task_13.py"
+  },
+  {
+    "id": "task_14",
+    "instruction": "Change the first day of the week to 'Sunday' in Preferences.",
+    "verify": "function-tasks/task_14.py"
+  },
+  {
+    "id": "task_15",
+    "instruction": "Disable the 'Convert text emoticons into emojis' toggle in Preferences.",
+    "verify": "function-tasks/task_15.py"
+  },
+  {
+    "id": "task_16",
+    "instruction": "Change the theme to 'Light' in Preferences.",
+    "verify": "function-tasks/task_16.py"
+  },
+  {
+    "id": "task_17",
+    "instruction": "Change the theme to 'Dark' in Preferences.",
+    "verify": "function-tasks/task_17.py"
+  },
+  {
+    "id": "task_18",
+    "instruction": "Change the font size to 'Small' in Preferences.",
+    "verify": "function-tasks/task_18.py"
+  },
+  {
+    "id": "task_19",
+    "instruction": "Change the font size to 'Large' in Preferences.",
+    "verify": "function-tasks/task_19.py"
+  },
+  {
+    "id": "task_20",
+    "instruction": "Enable the 'Use pointer cursor' toggle in Preferences.",
+    "verify": "function-tasks/task_20.py"
+  },
+  {
+    "id": "task_21",
+    "instruction": "Disable the 'Open Linear URLs in desktop app' toggle in Preferences.",
+    "verify": "function-tasks/task_21.py"
+  },
+  {
+    "id": "task_22",
+    "instruction": "Disable the 'Show notification badge' toggle in Preferences.",
+    "verify": "function-tasks/task_22.py"
+  },
+  {
+    "id": "task_23",
+    "instruction": "Disable the 'Enable spell check' toggle in Preferences.",
+    "verify": "function-tasks/task_23.py"
+  },
+  {
+    "id": "task_24",
+    "instruction": "Enable the 'Auto-assign issues you create to yourself' toggle in Preferences.",
+    "verify": "function-tasks/task_24.py"
+  },
+  {
+    "id": "task_25",
+    "instruction": "Enable the 'Auto-assign issues on started status' toggle in Preferences.",
+    "verify": "function-tasks/task_25.py"
+  },
+  {
+    "id": "task_26",
+    "instruction": "Change the git attachment format to 'Title and repository' in Preferences.",
+    "verify": "function-tasks/task_26.py"
+  },
+  {
+    "id": "task_27",
+    "instruction": "Disable the 'On git branch copy, move issue to started status' toggle in Preferences.",
+    "verify": "function-tasks/task_27.py"
+  },
+  {
+    "id": "task_28",
+    "instruction": "Disable the 'On git branch copy, auto-assign to yourself' toggle in Preferences.",
+    "verify": "function-tasks/task_28.py"
+  },
+  {
+    "id": "task_29",
+    "instruction": "Disable the Desktop notification channel in Notifications settings.",
+    "verify": "function-tasks/task_29.py"
+  },
+  {
+    "id": "task_30",
+    "instruction": "Enable 'Project updates' notifications for the Desktop channel.",
+    "verify": "function-tasks/task_30.py"
+  },
+  {
+    "id": "task_31",
+    "instruction": "Enable 'Cycle updates' notifications for the Desktop channel.",
+    "verify": "function-tasks/task_31.py"
+  },
+  {
+    "id": "task_32",
+    "instruction": "Disable 'SLA breach warnings' notifications for the Desktop channel.",
+    "verify": "function-tasks/task_32.py"
+  },
+  {
+    "id": "task_33",
+    "instruction": "Enable 'Status changes on subscribed issues' notifications for the Mobile channel.",
+    "verify": "function-tasks/task_33.py"
+  },
+  {
+    "id": "task_34",
+    "instruction": "Disable 'Issue assigned to you' notifications for the Mobile channel.",
+    "verify": "function-tasks/task_34.py"
+  },
+  {
+    "id": "task_35",
+    "instruction": "Enable 'Cycle updates' notifications for the Email channel.",
+    "verify": "function-tasks/task_35.py"
+  },
+  {
+    "id": "task_36",
+    "instruction": "Disable 'Project updates' notifications for the Email channel.",
+    "verify": "function-tasks/task_36.py"
+  },
+  {
+    "id": "task_37",
+    "instruction": "Enable the 'Issue assigned to you' notification for the Slack channel.",
+    "verify": "function-tasks/task_37.py"
+  },
+  {
+    "id": "task_38",
+    "instruction": "Disable the Email notification channel entirely in Notifications settings.",
+    "verify": "function-tasks/task_38.py"
+  },
+  {
+    "id": "task_39",
+    "instruction": "Disable the 'Send immediately for urgent issues' toggle in the Email digest delivery section of Notifications.",
+    "verify": "function-tasks/task_39.py"
+  },
+  {
+    "id": "task_40",
+    "instruction": "Disable the 'Delay low priority outside work hours' toggle in the Email digest delivery section of Notifications.",
+    "verify": "function-tasks/task_40.py"
+  },
+  {
+    "id": "task_41",
+    "instruction": "Disable the 'Changelogs' toggle in the Communication preferences section of Notifications.",
+    "verify": "function-tasks/task_41.py"
+  },
+  {
+    "id": "task_42",
+    "instruction": "Disable the 'DPA updates' toggle in the Communication preferences section of Notifications.",
+    "verify": "function-tasks/task_42.py"
+  },
+  {
+    "id": "task_43",
+    "instruction": "Disable the 'Product announcements' toggle in the Communication preferences section of Notifications.",
+    "verify": "function-tasks/task_43.py"
+  },
+  {
+    "id": "task_44",
+    "instruction": "Enable the 'Tips and tutorials' toggle in the Communication preferences section of Notifications.",
+    "verify": "function-tasks/task_44.py"
+  },
+  {
+    "id": "task_45",
+    "instruction": "Enable the 'Community updates' toggle in the Communication preferences section of Notifications.",
+    "verify": "function-tasks/task_45.py"
+  },
+  {
+    "id": "task_46",
+    "instruction": "Revoke the session for the 'iPhone 15 Pro' device in Security & Access.",
+    "verify": "function-tasks/task_46.py"
+  },
+  {
+    "id": "task_47",
+    "instruction": "Revoke the session for the 'Windows Desktop' device in Security & Access.",
+    "verify": "function-tasks/task_47.py"
+  },
+  {
+    "id": "task_48",
+    "instruction": "Revoke all sessions except the current session in Security & Access.",
+    "verify": "function-tasks/task_48.py"
+  },
+  {
+    "id": "task_49",
+    "instruction": "Add a new passkey named 'Windows Hello' in Security & Access.",
+    "verify": "function-tasks/task_49.py"
+  },
+  {
+    "id": "task_50",
+    "instruction": "Rename the passkey 'MacBook Pro Touch ID' to 'Work Laptop Touch ID' in Security & Access.",
+    "verify": "function-tasks/task_50.py"
+  },
+  {
+    "id": "task_51",
+    "instruction": "Remove the passkey named 'YubiKey 5C NFC' in Security & Access.",
+    "verify": "function-tasks/task_51.py"
+  },
+  {
+    "id": "task_52",
+    "instruction": "Add a new passkey named 'iPad Face ID' in Security & Access.",
+    "verify": "function-tasks/task_52.py"
+  },
+  {
+    "id": "task_53",
+    "instruction": "Create a new API key with the label 'Data Export Script' in Security & Access.",
+    "verify": "function-tasks/task_53.py"
+  },
+  {
+    "id": "task_54",
+    "instruction": "Revoke the API key labeled 'Staging Environment' in Security & Access.",
+    "verify": "function-tasks/task_54.py"
+  },
+  {
+    "id": "task_55",
+    "instruction": "Revoke the API key labeled 'Personal Scripts' in Security & Access.",
+    "verify": "function-tasks/task_55.py"
+  },
+  {
+    "id": "task_56",
+    "instruction": "Revoke access for the 'Loom' authorized application in Security & Access.",
+    "verify": "function-tasks/task_56.py"
+  },
+  {
+    "id": "task_57",
+    "instruction": "Revoke access for the 'Statuspage' authorized application in Security & Access.",
+    "verify": "function-tasks/task_57.py"
+  },
+  {
+    "id": "task_58",
+    "instruction": "Revoke access for the 'Zapier' authorized application in Security & Access.",
+    "verify": "function-tasks/task_58.py"
+  },
+  {
+    "id": "task_59",
+    "instruction": "Change the first day of the week to 'Saturday' in Preferences.",
+    "verify": "function-tasks/task_59.py"
+  },
+  {
+    "id": "task_60",
+    "instruction": "Disconnect your GitLab connected account.",
+    "verify": "function-tasks/task_60.py"
+  }
+]
