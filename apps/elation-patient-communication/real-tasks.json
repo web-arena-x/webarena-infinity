@@ -358,5 +358,125 @@
     "difficulty": "hard",
     "instruction": "Several patients were invited to Passport but never registered. Resend the invitation to all of them.",
     "verify": "real-tasks/task_h20.py"
+  },
+  {
+    "id": "task_h21",
+    "difficulty": "hard",
+    "instruction": "Reply to Raymond Copeland's message about increased thirst and urination — advise him to come in for blood work. Then schedule a virtual appointment for him with Dr. Kim on March 25, 2026 at 11:00 AM for 'Blood sugar evaluation'.",
+    "verify": "real-tasks/task_h21.py"
+  },
+  {
+    "id": "task_h22",
+    "difficulty": "hard",
+    "instruction": "Helen Matsumoto's son wrote to us worried about her increased forgetfulness. Read the message, add 'High Risk' to her profile, and reply reassuring them you'll evaluate her at her upcoming appointment.",
+    "verify": "real-tasks/task_h22.py"
+  },
+  {
+    "id": "task_h23",
+    "difficulty": "hard",
+    "instruction": "The patient who sent a referral request about a retired allergist needs a response. Reply letting them know you'll find a new allergist. Also tag that patient as 'VIP'.",
+    "verify": "real-tasks/task_h23.py"
+  },
+  {
+    "id": "task_h24",
+    "difficulty": "hard",
+    "instruction": "Janet Okonkwo's blood sugar is dangerously high. Cancel her current virtual appointment, schedule a new in-person visit with me on March 10, 2026 at 9:00 AM for 'Urgent diabetes management', and reply to her message about the rescheduling.",
+    "verify": "real-tasks/task_h24.py"
+  },
+  {
+    "id": "task_h25",
+    "difficulty": "hard",
+    "instruction": "Cancel all of my upcoming in-person appointments — I'll be out of the office. Keep any virtual visits as-is.",
+    "verify": "real-tasks/task_h25.py"
+  },
+  {
+    "id": "task_h26",
+    "difficulty": "hard",
+    "instruction": "Look at Dr. Torres's message routing. For any category where he's the sole recipient, add the Front Desk group as a backup.",
+    "verify": "real-tasks/task_h26.py"
+  },
+  {
+    "id": "task_h27",
+    "difficulty": "hard",
+    "instruction": "Send Deborah Takahashi a letter with subject 'Passport Access Update' letting her know about the upgrade. Then change her Passport sharing to level 4 and tag her as 'Chronic Care'.",
+    "verify": "real-tasks/task_h27.py"
+  },
+  {
+    "id": "task_h28",
+    "difficulty": "hard",
+    "instruction": "The patient with a pacemaker has an upcoming virtual appointment. He needs to be seen in person instead. Cancel his virtual visit and schedule a new in-person appointment with the same provider on March 22, 2026 at 2:00 PM for 'CHF management review'.",
+    "verify": "real-tasks/task_h28.py"
+  },
+  {
+    "id": "task_h29",
+    "difficulty": "hard",
+    "instruction": "In message routing settings, apply Dr. Chen's routing configuration to all other providers.",
+    "verify": "real-tasks/task_h29.py"
+  },
+  {
+    "id": "task_h30",
+    "difficulty": "hard",
+    "instruction": "Reply to Priya Sharma's medical records request explaining the process, then sign off the conversation.",
+    "verify": "real-tasks/task_h30.py"
+  },
+  {
+    "id": "task_h31",
+    "difficulty": "hard",
+    "instruction": "Remove the 'New Patient' tag from everyone who still has it — they've all been here long enough.",
+    "verify": "real-tasks/task_h31.py"
+  },
+  {
+    "id": "task_h32",
+    "difficulty": "hard",
+    "instruction": "Reply to Maria Gonzalez's questions about diet and Metformin. Also acknowledge the unread alert reminder about her lab results letter.",
+    "verify": "real-tasks/task_h32.py"
+  },
+  {
+    "id": "task_h33",
+    "difficulty": "hard",
+    "instruction": "Send a new letter to Christine Lee with subject 'Sleep Concerns Follow-up' advising her to keep a sleep diary, with replies disabled. Then go to Reminders and acknowledge the unread alert about Catherine Morales's thyroid update.",
+    "verify": "real-tasks/task_h33.py"
+  },
+  {
+    "id": "task_h34",
+    "difficulty": "hard",
+    "instruction": "Tag every patient who has an upcoming virtual appointment as 'Telehealth Preferred', unless they already have that tag.",
+    "verify": "real-tasks/task_h34.py"
+  },
+  {
+    "id": "task_h35",
+    "difficulty": "hard",
+    "instruction": "Update Dr. Chen's virtual visit instructions to 'Join your virtual visit at https://zoom.us/j/newlink123. Please ensure your camera is working.' Then change the video chat mode to 'Everyone in Waiting Room'.",
+    "verify": "real-tasks/task_h35.py"
+  },
+  {
+    "id": "task_h36",
+    "difficulty": "hard",
+    "instruction": "Two patients sent unread appointment requests. Read both messages, then for the one with chronic urticaria, reply to her and schedule a virtual appointment with Dr. Okafor on March 14, 2026 at 10:00 AM for 'Urticaria evaluation'.",
+    "verify": "real-tasks/task_h36.py"
+  },
+  {
+    "id": "task_h37",
+    "difficulty": "hard",
+    "instruction": "Enable telehealth for Amanda Wright with instructions 'Join at https://zoom.us/j/wright789'. Then schedule a virtual appointment for Sophia Nguyen with Amanda Wright on March 20, 2026 at 3:00 PM for 'Thyroid follow-up'.",
+    "verify": "real-tasks/task_h37.py"
+  },
+  {
+    "id": "task_h38",
+    "difficulty": "hard",
+    "instruction": "Send Passport invitations to all patients who have never been invited. There should be about six of them across various providers.",
+    "verify": "real-tasks/task_h38.py"
+  },
+  {
+    "id": "task_h39",
+    "difficulty": "hard",
+    "instruction": "Read the unread messages from Christine Lee and Diane Foster-Hutchinson. Reply to both with helpful responses, then sign off both conversations.",
+    "verify": "real-tasks/task_h39.py"
+  },
+  {
+    "id": "task_h40",
+    "difficulty": "hard",
+    "instruction": "Add CPT codes '99458' ('Prolonged telehealth service, 15 min') and '99459' ('Prolonged telehealth service, additional 15 min'). Also add a new practice location called 'Fremont Clinic' at '39500 Paseo Padre Pkwy, Fremont, CA 94538' with POS code 11 and description 'Office'.",
+    "verify": "real-tasks/task_h40.py"
   }
 ]

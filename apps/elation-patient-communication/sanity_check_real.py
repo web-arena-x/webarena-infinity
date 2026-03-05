@@ -775,6 +775,465 @@ def solve_task_h20(state):
         patient["invitationCode"] = new_code
 
 
+# ---- Hardening Round 1 (h21-h40) ----
+
+def solve_task_h21(state):
+    """Reply to Raymond Copeland about thirst/urination, schedule virtual appt."""
+    state["patientLetters"].append({
+        "id": next_letter_id(state),
+        "patientId": "pat_35",
+        "conversationId": "conv_34",
+        "direction": "to_patient",
+        "subject": "Re: General Question",
+        "body": "Raymond, your symptoms of increased thirst and urination may indicate a change in blood sugar control. Please come in for fasting blood work so we can evaluate.",
+        "category": None,
+        "senderId": "prov_1",
+        "senderType": "provider",
+        "attachments": [],
+        "postDate": None,
+        "sentAt": TIMESTAMP,
+        "readAt": None,
+        "isRead": False,
+        "isDraft": False,
+        "conversationState": "open",
+        "doNotAllowResponse": False,
+        "unreadAlertTimeframe": "none",
+        "printHeader": "default",
+    })
+    state["appointments"].append({
+        "id": next_appointment_id(state),
+        "patientId": "pat_35",
+        "providerId": "prov_4",
+        "date": "2026-03-25T11:00:00Z",
+        "place": "virtual",
+        "status": "scheduled",
+        "virtualVisitInstructions": "Join at https://zoom.us/j/5029384716?pwd=ghi789",
+        "reason": "Blood sugar evaluation",
+    })
+
+
+def solve_task_h22(state):
+    """Read Helen Matsumoto's message, add High Risk tag, reply."""
+    letter = find_letter(state, "ltr_10")
+    letter["isRead"] = True
+    letter["readAt"] = TIMESTAMP
+    patient = find_entity(state["patients"], id="pat_10")
+    if "High Risk" not in patient["tags"]:
+        patient["tags"].append("High Risk")
+    state["patientLetters"].append({
+        "id": next_letter_id(state),
+        "patientId": "pat_10",
+        "conversationId": "conv_7",
+        "direction": "to_patient",
+        "subject": "Re: General Question",
+        "body": "Dear Ken, thank you for letting us know. Increased forgetfulness can occur with Alzheimer's progression. We'll evaluate her at the upcoming appointment.",
+        "category": None,
+        "senderId": "prov_1",
+        "senderType": "provider",
+        "attachments": [],
+        "postDate": None,
+        "sentAt": TIMESTAMP,
+        "readAt": None,
+        "isRead": False,
+        "isDraft": False,
+        "conversationState": "open",
+        "doNotAllowResponse": False,
+        "unreadAlertTimeframe": "none",
+        "printHeader": "default",
+    })
+
+
+def solve_task_h23(state):
+    """Reply to Diane Foster-Hutchinson's referral request, tag as VIP."""
+    state["patientLetters"].append({
+        "id": next_letter_id(state),
+        "patientId": "pat_16",
+        "conversationId": "conv_10",
+        "direction": "to_patient",
+        "subject": "Re: Referral Request",
+        "body": "Hi Diane, I'll find a new allergist for you in the SF area who specializes in bee venom allergy testing.",
+        "category": None,
+        "senderId": "prov_1",
+        "senderType": "provider",
+        "attachments": [],
+        "postDate": None,
+        "sentAt": TIMESTAMP,
+        "readAt": None,
+        "isRead": False,
+        "isDraft": False,
+        "conversationState": "open",
+        "doNotAllowResponse": False,
+        "unreadAlertTimeframe": "none",
+        "printHeader": "default",
+    })
+    patient = find_entity(state["patients"], id="pat_16")
+    if "VIP" not in patient["tags"]:
+        patient["tags"].append("VIP")
+
+
+def solve_task_h24(state):
+    """Cancel Janet's virtual appt, schedule in-person, reply to message."""
+    appt = find_appointment(state, "appt_13")
+    appt["status"] = "cancelled"
+    state["appointments"].append({
+        "id": next_appointment_id(state),
+        "patientId": "pat_30",
+        "providerId": "prov_1",
+        "date": "2026-03-10T09:00:00Z",
+        "place": "in_person",
+        "status": "scheduled",
+        "virtualVisitInstructions": None,
+        "reason": "Urgent diabetes management",
+    })
+    state["patientLetters"].append({
+        "id": next_letter_id(state),
+        "patientId": "pat_30",
+        "conversationId": "conv_14",
+        "direction": "to_patient",
+        "subject": "Re: General Question",
+        "body": "Janet, your blood sugar readings are concerning. I've cancelled your virtual visit and rescheduled you for an in-person appointment on March 10.",
+        "category": None,
+        "senderId": "prov_1",
+        "senderType": "provider",
+        "attachments": [],
+        "postDate": None,
+        "sentAt": TIMESTAMP,
+        "readAt": None,
+        "isRead": False,
+        "isDraft": False,
+        "conversationState": "open",
+        "doNotAllowResponse": False,
+        "unreadAlertTimeframe": "none",
+        "printHeader": "default",
+    })
+
+
+def solve_task_h25(state):
+    """Cancel all Dr. Chen in-person upcoming appointments, keep virtual."""
+    for appt_id in ["appt_1", "appt_4", "appt_7", "appt_11", "appt_12"]:
+        appt = find_appointment(state, appt_id)
+        appt["status"] = "cancelled"
+
+
+def solve_task_h26(state):
+    """Add Front Desk to Dr. Torres categories where he's sole recipient."""
+    sole_categories = [
+        "Prescription Refill", "Test Results", "Referral Request", "Other",
+    ]
+    for cat in sole_categories:
+        routing = state["messageRouting"]["prov_2"].get(cat, [])
+        if "ug_1" not in routing:
+            routing.append("ug_1")
+        state["messageRouting"]["prov_2"][cat] = routing
+
+
+def solve_task_h27(state):
+    """Send letter to Deborah Takahashi, upgrade sharing to 4, add Chronic Care."""
+    conv_id = next_conversation_id(state)
+    state["patientLetters"].append({
+        "id": next_letter_id(state),
+        "patientId": "pat_50",
+        "conversationId": conv_id,
+        "direction": "to_patient",
+        "subject": "Passport Access Update",
+        "body": "Dear Mrs. Takahashi, we're upgrading your Passport access to the most comprehensive level.",
+        "category": None,
+        "senderId": "prov_1",
+        "senderType": "provider",
+        "attachments": [],
+        "postDate": None,
+        "sentAt": TIMESTAMP,
+        "readAt": None,
+        "isRead": False,
+        "isDraft": False,
+        "conversationState": "open",
+        "doNotAllowResponse": False,
+        "unreadAlertTimeframe": "none",
+        "printHeader": "default",
+    })
+    patient = find_entity(state["patients"], id="pat_50")
+    patient["passportSharingLevel"] = 4
+    if "Chronic Care" not in patient["tags"]:
+        patient["tags"].append("Chronic Care")
+
+
+def solve_task_h28(state):
+    """Cancel Howard Blackwell's virtual appt, schedule in-person."""
+    appt = find_appointment(state, "appt_9")
+    appt["status"] = "cancelled"
+    state["appointments"].append({
+        "id": next_appointment_id(state),
+        "patientId": "pat_27",
+        "providerId": "prov_4",
+        "date": "2026-03-22T14:00:00Z",
+        "place": "in_person",
+        "status": "scheduled",
+        "virtualVisitInstructions": None,
+        "reason": "CHF management review",
+    })
+
+
+def solve_task_h29(state):
+    """Apply Dr. Chen's routing to all other providers."""
+    import copy
+    chen_routing = state["messageRouting"]["prov_1"]
+    for prov_id in ["prov_2", "prov_3", "prov_4", "prov_5"]:
+        state["messageRouting"][prov_id] = copy.deepcopy(chen_routing)
+
+
+def solve_task_h30(state):
+    """Reply to Priya Sharma's records request, sign off conversation."""
+    state["patientLetters"].append({
+        "id": next_letter_id(state),
+        "patientId": "pat_32",
+        "conversationId": "conv_13",
+        "direction": "to_patient",
+        "subject": "Re: Medical Records Request",
+        "body": "Hi Priya, please fill out the records release form. Processing takes 5-7 business days.",
+        "category": None,
+        "senderId": "prov_1",
+        "senderType": "provider",
+        "attachments": [],
+        "postDate": None,
+        "sentAt": TIMESTAMP,
+        "readAt": None,
+        "isRead": False,
+        "isDraft": False,
+        "conversationState": "ended",
+        "doNotAllowResponse": False,
+        "unreadAlertTimeframe": "none",
+        "printHeader": "default",
+    })
+    for letter in state["patientLetters"]:
+        if letter["conversationId"] == "conv_13":
+            letter["conversationState"] = "ended"
+
+
+def solve_task_h31(state):
+    """Remove 'New Patient' tag from all patients."""
+    for pid in ["pat_2", "pat_5", "pat_9", "pat_31", "pat_42"]:
+        patient = find_entity(state["patients"], id=pid)
+        patient["tags"] = [t for t in patient["tags"] if t != "New Patient"]
+
+
+def solve_task_h32(state):
+    """Reply to Maria Gonzalez conversation, acknowledge rem_1."""
+    state["patientLetters"].append({
+        "id": next_letter_id(state),
+        "patientId": "pat_14",
+        "conversationId": "conv_9",
+        "direction": "to_patient",
+        "subject": "Re: General Question",
+        "body": "Maria, great job on the daily walks! We'll discuss diet and Metformin at your upcoming appointment.",
+        "category": None,
+        "senderId": "prov_1",
+        "senderType": "provider",
+        "attachments": [],
+        "postDate": None,
+        "sentAt": TIMESTAMP,
+        "readAt": None,
+        "isRead": False,
+        "isDraft": False,
+        "conversationState": "open",
+        "doNotAllowResponse": False,
+        "unreadAlertTimeframe": "none",
+        "printHeader": "default",
+    })
+    reminder = find_reminder(state, "rem_1")
+    reminder["acknowledged"] = True
+
+
+def solve_task_h33(state):
+    """Send no-reply letter to Christine Lee, acknowledge rem_6."""
+    conv_id = next_conversation_id(state)
+    state["patientLetters"].append({
+        "id": next_letter_id(state),
+        "patientId": "pat_22",
+        "conversationId": conv_id,
+        "direction": "to_patient",
+        "subject": "Sleep Concerns Follow-up",
+        "body": "Christine, please start keeping a sleep diary for the next 2 weeks.",
+        "category": None,
+        "senderId": "prov_1",
+        "senderType": "provider",
+        "attachments": [],
+        "postDate": None,
+        "sentAt": TIMESTAMP,
+        "readAt": None,
+        "isRead": False,
+        "isDraft": False,
+        "conversationState": "open",
+        "doNotAllowResponse": True,
+        "unreadAlertTimeframe": "none",
+        "printHeader": "default",
+    })
+    reminder = find_reminder(state, "rem_6")
+    reminder["acknowledged"] = True
+
+
+def solve_task_h34(state):
+    """Tag virtual-appointment patients as 'Telehealth Preferred'."""
+    for pid in ["pat_27", "pat_30"]:
+        patient = find_entity(state["patients"], id=pid)
+        if "Telehealth Preferred" not in patient["tags"]:
+            patient["tags"].append("Telehealth Preferred")
+
+
+def solve_task_h35(state):
+    """Update Dr. Chen telehealth instructions and video chat mode."""
+    provider = find_provider(state, "prov_1")
+    provider["virtualVisitInstructions"] = (
+        "Join your virtual visit at https://zoom.us/j/newlink123. "
+        "Please ensure your camera is working."
+    )
+    state["practiceSettings"]["videoSettings"]["chatMode"] = "everyone_in_waiting_room"
+
+
+def solve_task_h36(state):
+    """Read both appt requests, reply to Susan Cho, schedule virtual appt."""
+    find_letter(state, "ltr_6")["isRead"] = True
+    find_letter(state, "ltr_6")["readAt"] = TIMESTAMP
+    find_letter(state, "ltr_39")["isRead"] = True
+    find_letter(state, "ltr_39")["readAt"] = TIMESTAMP
+    state["patientLetters"].append({
+        "id": next_letter_id(state),
+        "patientId": "pat_40",
+        "conversationId": "conv_28",
+        "direction": "to_patient",
+        "subject": "Re: Appointment Request",
+        "body": "Susan, I'll schedule a telehealth visit to evaluate your urticaria flare.",
+        "category": None,
+        "senderId": "prov_1",
+        "senderType": "provider",
+        "attachments": [],
+        "postDate": None,
+        "sentAt": TIMESTAMP,
+        "readAt": None,
+        "isRead": False,
+        "isDraft": False,
+        "conversationState": "open",
+        "doNotAllowResponse": False,
+        "unreadAlertTimeframe": "none",
+        "printHeader": "default",
+    })
+    state["appointments"].append({
+        "id": next_appointment_id(state),
+        "patientId": "pat_40",
+        "providerId": "prov_3",
+        "date": "2026-03-14T10:00:00Z",
+        "place": "virtual",
+        "status": "scheduled",
+        "virtualVisitInstructions": "Join at https://zoom.us/j/3948271605?pwd=jkl012",
+        "reason": "Urticaria evaluation",
+    })
+
+
+def solve_task_h37(state):
+    """Enable telehealth for Amanda Wright, schedule virtual appt for Sophia."""
+    provider = find_provider(state, "prov_5")
+    provider["virtualVisitActivated"] = True
+    provider["virtualVisitInstructions"] = "Join at https://zoom.us/j/wright789"
+    state["appointments"].append({
+        "id": next_appointment_id(state),
+        "patientId": "pat_4",
+        "providerId": "prov_5",
+        "date": "2026-03-20T15:00:00Z",
+        "place": "virtual",
+        "status": "scheduled",
+        "virtualVisitInstructions": "Join at https://zoom.us/j/wright789",
+        "reason": "Thyroid follow-up",
+    })
+
+
+def solve_task_h38(state):
+    """Invite all uninvited patients to Passport."""
+    uninvited = [
+        ("pat_9", "9999961"),
+        ("pat_15", "9999962"),
+        ("pat_23", "9999963"),
+        ("pat_31", "9999964"),
+        ("pat_37", "9999965"),
+        ("pat_42", "9999966"),
+    ]
+    for pid, code in uninvited:
+        patient = find_entity(state["patients"], id=pid)
+        patient["passportStatus"] = "invited"
+        patient["invitedAt"] = TIMESTAMP
+        patient["invitationCode"] = code
+
+
+def solve_task_h39(state):
+    """Read, reply, sign off conversations for Christine Lee & Diane F-H."""
+    find_letter(state, "ltr_29")["isRead"] = True
+    find_letter(state, "ltr_29")["readAt"] = TIMESTAMP
+    find_letter(state, "ltr_15")["isRead"] = True
+    find_letter(state, "ltr_15")["readAt"] = TIMESTAMP
+    state["patientLetters"].append({
+        "id": next_letter_id(state),
+        "patientId": "pat_22",
+        "conversationId": "conv_21",
+        "direction": "to_patient",
+        "subject": "Re: General Question",
+        "body": "Christine, let's try adjusting your Trazodone dose. I'll also refer you to our sleep specialist.",
+        "category": None,
+        "senderId": "prov_1",
+        "senderType": "provider",
+        "attachments": [],
+        "postDate": None,
+        "sentAt": TIMESTAMP,
+        "readAt": None,
+        "isRead": False,
+        "isDraft": False,
+        "conversationState": "ended",
+        "doNotAllowResponse": False,
+        "unreadAlertTimeframe": "none",
+        "printHeader": "default",
+    })
+    state["patientLetters"].append({
+        "id": next_letter_id(state),
+        "patientId": "pat_16",
+        "conversationId": "conv_10",
+        "direction": "to_patient",
+        "subject": "Re: Referral Request",
+        "body": "Diane, I'll find a new allergist who specializes in venom allergy testing.",
+        "category": None,
+        "senderId": "prov_1",
+        "senderType": "provider",
+        "attachments": [],
+        "postDate": None,
+        "sentAt": TIMESTAMP,
+        "readAt": None,
+        "isRead": False,
+        "isDraft": False,
+        "conversationState": "ended",
+        "doNotAllowResponse": False,
+        "unreadAlertTimeframe": "none",
+        "printHeader": "default",
+    })
+    for letter in state["patientLetters"]:
+        if letter["conversationId"] in ("conv_21", "conv_10"):
+            letter["conversationState"] = "ended"
+
+
+def solve_task_h40(state):
+    """Add two CPT codes and Fremont Clinic location."""
+    state["practiceSettings"]["cptCodes"].append({
+        "code": "99458",
+        "description": "Prolonged telehealth service, 15 min",
+    })
+    state["practiceSettings"]["cptCodes"].append({
+        "code": "99459",
+        "description": "Prolonged telehealth service, additional 15 min",
+    })
+    state["practiceSettings"]["practiceLocations"].append({
+        "id": next_location_id(state),
+        "name": "Fremont Clinic",
+        "address": "39500 Paseo Padre Pkwy, Fremont, CA 94538",
+        "posCode": "11",
+        "posDescription": "Office",
+    })
+
+
 SOLVERS = {
     "task_e1": solve_task_e1,
     "task_e2": solve_task_e2,
@@ -836,6 +1295,26 @@ SOLVERS = {
     "task_h18": solve_task_h18,
     "task_h19": solve_task_h19,
     "task_h20": solve_task_h20,
+    "task_h21": solve_task_h21,
+    "task_h22": solve_task_h22,
+    "task_h23": solve_task_h23,
+    "task_h24": solve_task_h24,
+    "task_h25": solve_task_h25,
+    "task_h26": solve_task_h26,
+    "task_h27": solve_task_h27,
+    "task_h28": solve_task_h28,
+    "task_h29": solve_task_h29,
+    "task_h30": solve_task_h30,
+    "task_h31": solve_task_h31,
+    "task_h32": solve_task_h32,
+    "task_h33": solve_task_h33,
+    "task_h34": solve_task_h34,
+    "task_h35": solve_task_h35,
+    "task_h36": solve_task_h36,
+    "task_h37": solve_task_h37,
+    "task_h38": solve_task_h38,
+    "task_h39": solve_task_h39,
+    "task_h40": solve_task_h40,
 }
 
 
