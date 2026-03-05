@@ -561,6 +561,186 @@ def solve_task_h20(state):
     state["settings"]["reportPercentile"] = "p95"
 
 
+# ---- Hardening round 1 tasks ----
+
+def solve_task_h21(state):
+    """Disable worst INP app (Hotjar, 110ms) and resolve JS execution rec."""
+    disable_app(find_app_containing(state, "Hotjar"))
+    find_rec_by_title(state, "Reduce JavaScript execution on product pages")["status"] = "resolved"
+
+
+def solve_task_h22(state):
+    """Deactivate all-pages advertising tags, keep checkout-only, remove inactive."""
+    find_tag_by_name(state, "Meta Pixel")["status"] = "inactive"
+    find_tag_by_name(state, "TikTok Pixel")["status"] = "inactive"
+    for name in ["Pinterest Tag", "Snapchat Pixel", "Lucky Orange"]:
+        remove_tag_by_name(state, name)
+
+
+def solve_task_h23(state):
+    """Publish Prestige (most total sections: 51), set home to Horizon's 12."""
+    publish_theme(state, "Prestige")
+    find_theme_by_name(state, "Prestige")["sectionsPerPage"]["home"] = 12
+
+
+def solve_task_h24(state):
+    """Disable apps with LCP >= 250 and INP >= 40."""
+    for fragment in ["Recharge", "Privy", "Hotjar", "Klaviyo", "TikTok"]:
+        disable_app(find_app_containing(state, fragment))
+
+
+def solve_task_h25(state):
+    """Disable moderate-impact apps with 2+ scripts, remove product-pages tag."""
+    for name in ["Klaviyo: Email Marketing & SMS", "Google Analytics (GA4)",
+                  "Meta Pixel & Conversions API", "Yotpo Loyalty & Rewards",
+                  "Bold Product Options", "TikTok Channel"]:
+        disable_app(find_app_by_name(state, name))
+    remove_tag_by_name(state, "Affirm Messaging")
+
+
+def solve_task_h26(state):
+    """Set Prestige collection to Dawn's product (6), blog to 4."""
+    prestige = find_theme_by_name(state, "Prestige")
+    prestige["sectionsPerPage"]["collection"] = 6
+    prestige["sectionsPerPage"]["blog"] = 4
+
+
+def solve_task_h27(state):
+    """Disable non-Shopify storefront apps, turn off comparison."""
+    non_shopify = [
+        "Klaviyo", "Judge.me", "Google Analytics", "Meta Pixel",
+        "Recharge", "Privy", "Yotpo", "Hotjar", "Bold Product",
+        "TikTok", "Back in Stock"
+    ]
+    for fragment in non_shopify:
+        disable_app(find_app_containing(state, fragment))
+    state["settings"]["comparisonEnabled"] = False
+
+
+def solve_task_h28(state):
+    """Disable analytics apps, remove matching tags."""
+    for name in ["Google Analytics (GA4)", "Meta Pixel & Conversions API",
+                  "Hotjar Heatmaps & Recordings"]:
+        disable_app(find_app_by_name(state, name))
+    for tag in ["Google Analytics 4", "Meta Pixel", "Hotjar Tracking"]:
+        remove_tag_by_name(state, tag)
+
+
+def solve_task_h29(state):
+    """Horizon (more recent update): product -2. Dawn (older): blog +2."""
+    find_theme_by_name(state, "Horizon - Outdoors")["sectionsPerPage"]["product"] = 6
+    find_theme_by_name(state, "Dawn (backup)")["sectionsPerPage"]["blog"] = 6
+
+
+def solve_task_h30(state):
+    """Remove all-pages tags except GA4, disable Privy, resolve banner rec."""
+    for name in ["Meta Pixel", "TikTok Pixel", "Hotjar Tracking", "Pinterest Tag",
+                  "Snapchat Pixel", "Microsoft Clarity", "Lucky Orange"]:
+        remove_tag_by_name(state, name)
+    disable_app(find_app_containing(state, "Privy"))
+    find_rec_by_title(state, "Reserve space for Privy pop-up banner")["status"] = "resolved"
+
+
+def solve_task_h31(state):
+    """Set Horizon home to half of Prestige's (18/2=9)."""
+    find_theme_by_name(state, "Horizon - Outdoors")["sectionsPerPage"]["home"] = 9
+
+
+def solve_task_h32(state):
+    """Remove Yotpo/Bold, resolve medium recs, deactivate Clarity."""
+    remove_app_by_name(state, "Yotpo Loyalty & Rewards")
+    remove_app_by_name(state, "Bold Product Options")
+    for title in [
+        "Reduce JavaScript execution on product pages",
+        "Set explicit dimensions for product images",
+        "Evaluate Privy pop-up timing",
+        "Reduce homepage sections",
+    ]:
+        find_rec_by_title(state, title)["status"] = "resolved"
+    find_tag_by_name(state, "Microsoft Clarity")["status"] = "inactive"
+
+
+def solve_task_h33(state):
+    """Reduce Horizon home to 8, resolve homepage rec."""
+    find_theme_by_name(state, "Horizon - Outdoors")["sectionsPerPage"]["home"] = 8
+    find_rec_by_title(state, "Reduce homepage sections")["status"] = "resolved"
+
+
+def solve_task_h34(state):
+    """Remove marketing apps, remove tags, dismiss Privy recs."""
+    for fragment in ["Klaviyo", "Privy", "Back in Stock"]:
+        remove_app_containing(state, fragment)
+    remove_tag_by_name(state, "TikTok Pixel")
+    remove_tag_by_name(state, "Meta Pixel")
+    find_rec_by_title(state, "Evaluate Privy pop-up timing")["status"] = "dismissed"
+    find_rec_by_title(state, "Reserve space for Privy pop-up banner")["status"] = "dismissed"
+
+
+def solve_task_h35(state):
+    """Reduce all Prestige sections by 3."""
+    prestige = find_theme_by_name(state, "Prestige")
+    prestige["sectionsPerPage"]["home"] = 15
+    prestige["sectionsPerPage"]["product"] = 9
+    prestige["sectionsPerPage"]["collection"] = 6
+    prestige["sectionsPerPage"]["cart"] = 2
+    prestige["sectionsPerPage"]["blog"] = 4
+
+
+def solve_task_h36(state):
+    """Deactivate analytics tags, disable analytics apps, P90 weekly."""
+    for name in ["Google Analytics 4", "Hotjar Tracking", "Microsoft Clarity"]:
+        find_tag_by_name(state, name)["status"] = "inactive"
+    for name in ["Google Analytics (GA4)", "Meta Pixel & Conversions API",
+                  "Hotjar Heatmaps & Recordings"]:
+        disable_app(find_app_by_name(state, name))
+    state["settings"]["reportPercentile"] = "p90"
+    state["settings"]["dateGrouping"] = "weekly"
+
+
+def solve_task_h37(state):
+    """Dawn: home=10, cart=5. Prestige: home=15, cart=8."""
+    dawn = find_theme_by_name(state, "Dawn (backup)")
+    dawn["sectionsPerPage"]["home"] = 10
+    dawn["sectionsPerPage"]["cart"] = 5
+    prestige = find_theme_by_name(state, "Prestige")
+    prestige["sectionsPerPage"]["home"] = 15
+    prestige["sectionsPerPage"]["cart"] = 8
+
+
+def solve_task_h38(state):
+    """Comprehensive audit prep."""
+    for fragment in ["Recharge", "Privy", "Hotjar"]:
+        disable_app(find_app_containing(state, fragment))
+    for name in ["Pinterest Tag", "Snapchat Pixel", "Lucky Orange"]:
+        remove_tag_by_name(state, name)
+    for title in [
+        "Reduce the impact of third-party scripts",
+        "Optimize large hero images on homepage",
+        "Reserve space for Privy pop-up banner",
+    ]:
+        find_rec_by_title(state, title)["status"] = "resolved"
+    state["settings"]["dateRange"] = "last_30_days"
+    state["settings"]["deviceFilter"] = "mobile"
+    state["settings"]["reportPercentile"] = "p95"
+    state["settings"]["comparisonEnabled"] = False
+
+
+def solve_task_h39(state):
+    """Publish Dawn (fewest sections: 26), enable animations, home=12."""
+    publish_theme(state, "Dawn (backup)")
+    dawn = find_theme_by_name(state, "Dawn (backup)")
+    dawn["hasAnimations"] = True
+    dawn["sectionsPerPage"]["home"] = 12
+
+
+def solve_task_h40(state):
+    """Disable non-analytics 2+ script apps, remove Affirm, INP threshold 100."""
+    for fragment in ["Klaviyo", "Recharge", "Privy", "Yotpo", "Bold Product", "TikTok"]:
+        disable_app(find_app_containing(state, fragment))
+    remove_tag_by_name(state, "Affirm Messaging")
+    state["settings"]["performanceAlerts"]["inpThreshold"] = 100
+
+
 # ---------------------------------------------------------------------------
 # Solver registry
 # ---------------------------------------------------------------------------
@@ -626,6 +806,26 @@ SOLVERS = {
     "task_h18": solve_task_h18,
     "task_h19": solve_task_h19,
     "task_h20": solve_task_h20,
+    "task_h21": solve_task_h21,
+    "task_h22": solve_task_h22,
+    "task_h23": solve_task_h23,
+    "task_h24": solve_task_h24,
+    "task_h25": solve_task_h25,
+    "task_h26": solve_task_h26,
+    "task_h27": solve_task_h27,
+    "task_h28": solve_task_h28,
+    "task_h29": solve_task_h29,
+    "task_h30": solve_task_h30,
+    "task_h31": solve_task_h31,
+    "task_h32": solve_task_h32,
+    "task_h33": solve_task_h33,
+    "task_h34": solve_task_h34,
+    "task_h35": solve_task_h35,
+    "task_h36": solve_task_h36,
+    "task_h37": solve_task_h37,
+    "task_h38": solve_task_h38,
+    "task_h39": solve_task_h39,
+    "task_h40": solve_task_h40,
 }
 
 # ---------------------------------------------------------------------------
