@@ -214,6 +214,17 @@ const App = {
             return;
         }
 
+        // Dropdown item selection (must be checked before dropdown trigger)
+        const ddItem = target.closest('.dropdown-item[data-value]');
+        if (ddItem) {
+            const ddId = ddItem.dataset.dropdownId;
+            const value = ddItem.dataset.value;
+            App.handleDropdownSelect(ddId, value);
+            // Close menu
+            ddItem.closest('.dropdown-menu')?.classList.remove('open');
+            return;
+        }
+
         // Dropdown trigger
         const ddTrigger = target.closest('[data-dropdown]');
         if (ddTrigger) {
@@ -224,17 +235,6 @@ const App = {
                 document.querySelectorAll('.dropdown-menu.open').forEach(m => m.classList.remove('open'));
                 if (!wasOpen) menu.classList.add('open');
             }
-            return;
-        }
-
-        // Dropdown item selection
-        const ddItem = target.closest('.dropdown-item[data-value]');
-        if (ddItem) {
-            const ddId = ddItem.dataset.dropdownId;
-            const value = ddItem.dataset.value;
-            App.handleDropdownSelect(ddId, value);
-            // Close menu
-            ddItem.closest('.dropdown-menu')?.classList.remove('open');
             return;
         }
 
