@@ -2,28 +2,28 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that a Passport invitation has been sent to Anthony Petrov."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
     patients = state.get("patients", [])
     patient = None
-    for p in patients:
-        if p.get("firstName") == "Anthony" and p.get("lastName") == "Petrov":
-            patient = p
+    for pat in patients:
+        if pat.get("firstName") == "Anthony" and pat.get("lastName") == "Petrov":
+            patient = pat
             break
 
     if patient is None:
-        return False, "Patient Anthony Petrov not found."
+        return False, "Patient Anthony Petrov not found"
 
-    if patient.get("passportStatus") != "invited":
-        return False, f"Anthony Petrov's passport status is '{patient.get('passportStatus')}', expected 'invited'."
+    passport_status = patient.get("passportStatus")
+    if passport_status != "invited":
+        return False, f"Anthony Petrov passportStatus is '{passport_status}', expected 'invited'"
 
-    if patient.get("invitedAt") is None:
-        return False, "Anthony Petrov's invitedAt is not set."
+    invited_at = patient.get("invitedAt")
+    if invited_at is None:
+        return False, "Anthony Petrov invitedAt is None, expected a timestamp"
 
-    if patient.get("invitationCode") is None:
-        return False, "Anthony Petrov's invitationCode is not set."
-
-    return True, "Anthony Petrov has been invited to Passport."
+    return True, "Passport invitation has been sent to Anthony Petrov"

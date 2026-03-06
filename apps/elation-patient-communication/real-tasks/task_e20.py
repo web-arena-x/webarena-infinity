@@ -2,17 +2,24 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that Dr. Chen's clinical profile sharing default is changed to Level 3."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    reminders = state.get("reminders", [])
-    for reminder in reminders:
-        if reminder.get("id") == "rem_5":
-            if reminder.get("acknowledged") is True:
-                return True, "Martha Reeves-Whitfield's appointment reminder has been acknowledged."
-            else:
-                return False, f"Reminder rem_5 found but acknowledged is {reminder.get('acknowledged')}, expected True."
+    providers = state.get("providers", [])
+    provider = None
+    for prov in providers:
+        if prov.get("firstName") == "Sarah" and prov.get("lastName") == "Chen":
+            provider = prov
+            break
 
-    return False, "Reminder with id 'rem_5' not found in reminders."
+    if provider is None:
+        return False, "Provider Dr. Sarah Chen not found"
+
+    sharing_default = provider.get("sharingDefault")
+    if sharing_default != 3:
+        return False, f"Dr. Chen's sharingDefault is {sharing_default}, expected 3"
+
+    return True, "Dr. Chen's clinical profile sharing default is set to Level 3"

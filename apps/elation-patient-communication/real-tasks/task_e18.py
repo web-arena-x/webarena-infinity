@@ -2,17 +2,23 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that the unread alert reminder about Maria Gonzalez's lab results is acknowledged."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    letters = state.get("patientLetters", [])
-    for letter in letters:
-        if letter.get("id") == "ltr_23":
-            if letter.get("isRead") is True:
-                return True, "Andrew McIntyre's message has been marked as read."
-            else:
-                return False, f"Letter ltr_23 found but isRead is {letter.get('isRead')}, expected True."
+    reminders = state.get("reminders", [])
+    reminder = None
+    for rem in reminders:
+        if rem.get("id") == "rem_1":
+            reminder = rem
+            break
 
-    return False, "Letter with id 'ltr_23' not found in patientLetters."
+    if reminder is None:
+        return False, "Reminder rem_1 (unread alert for Maria Gonzalez's lab results) not found"
+
+    if not reminder.get("acknowledged"):
+        return False, f"Reminder rem_1 acknowledged is {reminder.get('acknowledged')}, expected True"
+
+    return True, "Unread alert reminder about Maria Gonzalez's lab results (rem_1) is acknowledged"

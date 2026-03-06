@@ -2,21 +2,17 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that the waiting room audio notification for telehealth is disabled."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    providers = state.get("providers", [])
-    for provider in providers:
-        if provider.get("id") == "prov_1":
-            sharing_default = provider.get("sharingDefault")
-            if sharing_default == 4:
-                return True, "Default Passport sharing level set to Level 4."
-            else:
-                return False, (
-                    f"Provider prov_1 found but sharingDefault is "
-                    f"{sharing_default}, expected 4."
-                )
+    practice_settings = state.get("practiceSettings", {})
+    video_settings = practice_settings.get("videoSettings", {})
+    audio_notification = video_settings.get("waitingRoomAudioNotification")
 
-    return False, "Provider with id 'prov_1' not found in providers."
+    if audio_notification is not False:
+        return False, f"practiceSettings.videoSettings.waitingRoomAudioNotification is {audio_notification}, expected False"
+
+    return True, "Waiting room audio notification for telehealth is disabled"

@@ -2,33 +2,49 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify all virtual March 2026 appointments are cancelled and Dr. Kim's virtual visits are deactivated."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    practice_settings = state.get("practiceSettings", {})
-    cpt_codes = practice_settings.get("cptCodes", [])
+    appointments = state.get("appointments", [])
 
-    telephone_codes = {"99441", "99442", "99443"}
+    # Virtual appointments in March 2026:
+    # appt_2, appt_6, appt_9, appt_13, appt_14
+    virtual_march_ids = {"appt_2", "appt_6", "appt_9", "appt_13", "appt_14"}
 
-    # Check that no telephone E/M codes remain
-    remaining_telephone = []
-    for entry in cpt_codes:
-        code = str(entry.get("code", ""))
-        if code in telephone_codes:
-            remaining_telephone.append(code)
+    not_cancelled = []
+    for appt in appointments:
+        if appt.get("id") in virtual_march_ids:
+            if appt.get("status") != "cancelled":
+                not_cancelled.append(
+                    f"{appt.get('id')} (status='{appt.get('status')}')"
+                )
 
-    if remaining_telephone:
+    if not_cancelled:
         return False, (
-            f"Telephone E/M codes still present: {', '.join(remaining_telephone)}."
+            f"The following virtual March 2026 appointments are not cancelled: "
+            f"{', '.join(not_cancelled)}"
         )
 
-    # Check that other CPT codes still exist (originally 13, minus 3 = 10, at least 8)
-    if len(cpt_codes) < 8:
+    # Check Dr. Kim (prov_4) virtual visits deactivated
+    providers = state.get("providers", [])
+    dr_kim = None
+    for prov in providers:
+        if prov.get("id") == "prov_4":
+            dr_kim = prov
+            break
+
+    if dr_kim is None:
+        return False, "Provider prov_4 (Dr. Kim) not found"
+
+    if dr_kim.get("virtualVisitActivated") is not False:
         return False, (
-            f"Only {len(cpt_codes)} CPT codes remain, expected at least 8. "
-            f"Other codes may have been incorrectly removed."
+            f"Dr. Kim's virtualVisitActivated is {dr_kim.get('virtualVisitActivated')}, "
+            f"expected False"
         )
 
-    return True, "All telephone E/M billing codes have been removed."
+    return True, (
+        "All virtual March 2026 appointments cancelled and Dr. Kim's virtual visits deactivated"
+    )

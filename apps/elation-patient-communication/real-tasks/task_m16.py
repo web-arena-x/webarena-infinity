@@ -2,38 +2,40 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that a virtual appointment has been scheduled for Andrew McIntyre with Dr. Torres on March 20, 2026."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    # Check letter ltr_20 is read
-    letters = state.get("patientLetters", [])
-    letter = None
-    for l in letters:
-        if l.get("id") == "ltr_20":
-            letter = l
-            break
-
-    if letter is None:
-        return False, "Letter ltr_20 not found."
-
-    if letter.get("isRead") is not True:
-        return False, "Letter ltr_20 (Janet Okonkwo's message) is not marked as read."
-
-    # Check patient pat_30 has High Risk tag
+    # Find Andrew McIntyre's patient ID
     patients = state.get("patients", [])
-    patient = None
-    for p in patients:
-        if p.get("id") == "pat_30":
-            patient = p
+    patient_id = None
+    for pat in patients:
+        if pat.get("firstName") == "Andrew" and pat.get("lastName") == "McIntyre":
+            patient_id = pat.get("id")
             break
 
-    if patient is None:
-        return False, "Patient pat_30 (Janet Okonkwo) not found."
+    if patient_id is None:
+        return False, "Patient Andrew McIntyre not found"
 
-    tags = patient.get("tags", [])
-    if "High Risk" not in tags:
-        return False, f"'High Risk' tag not found on Janet Okonkwo. Current tags: {tags}."
+    # Find the matching appointment
+    appointments = state.get("appointments", [])
+    matching = None
+    for appt in appointments:
+        if (appt.get("patientId") == patient_id
+                and appt.get("providerId") == "prov_2"
+                and appt.get("place") == "virtual"
+                and appt.get("status") == "scheduled"):
+            date_str = appt.get("date", "")
+            if "2026-03-20" in date_str:
+                matching = appt
+                break
 
-    return True, "Janet Okonkwo's message marked as read and tagged as High Risk."
+    if matching is None:
+        return False, (
+            "No scheduled virtual appointment found for Andrew McIntyre with Dr. Torres (prov_2) "
+            "on 2026-03-20"
+        )
+
+    return True, "Virtual appointment scheduled for Andrew McIntyre with Dr. Torres on March 20, 2026"

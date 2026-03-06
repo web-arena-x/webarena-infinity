@@ -2,18 +2,17 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that CPT code 99201 has been removed from the billing codes list."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    patients = state.get("patients", [])
-    for patient in patients:
-        if patient.get("id") == "pat_30":
-            tags = patient.get("tags", [])
-            if "High Risk" in tags:
-                return True, "Janet Okonkwo has been tagged as High Risk."
-            else:
-                return False, f"Patient pat_30 found but tags are {tags}, expected 'High Risk' to be present."
+    practice_settings = state.get("practiceSettings", {})
+    cpt_codes = practice_settings.get("cptCodes", [])
 
-    return False, "Patient with id 'pat_30' not found in patients."
+    for cpt in cpt_codes:
+        if cpt.get("code") == "99201":
+            return False, "CPT code 99201 still exists in practiceSettings.cptCodes"
+
+    return True, "CPT code 99201 has been removed from the billing codes list"

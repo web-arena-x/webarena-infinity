@@ -2,15 +2,15 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that the draft letter to Martha Reeves-Whitfield (ltr_35) has been deleted."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    practice_settings = state.get("practiceSettings", {})
-    auto_invite = practice_settings.get("bookingSiteAutoInvite")
+    letters = state.get("patientLetters", [])
+    for ltr in letters:
+        if ltr.get("id") == "ltr_35":
+            return False, "Letter ltr_35 (draft to Martha Reeves-Whitfield) still exists in patientLetters"
 
-    if auto_invite is False:
-        return True, "Booking site auto-invite has been disabled."
-    else:
-        return False, f"bookingSiteAutoInvite is {auto_invite}, expected False."
+    return True, "Draft letter to Martha Reeves-Whitfield (ltr_35) has been deleted"

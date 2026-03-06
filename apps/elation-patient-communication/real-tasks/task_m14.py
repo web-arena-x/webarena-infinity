@@ -2,19 +2,25 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that Clinical Team (ug_2) has been added to Dr. Chen's Test Results routing."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    video_settings = state.get("practiceSettings", {}).get("videoSettings", {})
+    message_routing = state.get("messageRouting", {})
+    prov1_routing = message_routing.get("prov_1")
+    if prov1_routing is None:
+        return False, "No message routing found for prov_1 (Dr. Chen)"
 
-    chat_mode = video_settings.get("chatMode")
-    if chat_mode != "host_only":
-        return False, f"Chat mode is '{chat_mode}', expected 'host_only'."
+    test_results_routing = prov1_routing.get("Test Results")
+    if test_results_routing is None:
+        return False, "No 'Test Results' routing found for Dr. Chen (prov_1)"
 
-    screen_sharing = video_settings.get("screenSharingPatients")
-    if screen_sharing is not False:
-        return False, f"Screen sharing for patients is {screen_sharing}, expected False."
+    if "ug_2" not in test_results_routing:
+        return False, (
+            f"'ug_2' (Clinical Team) not found in Dr. Chen's Test Results routing. "
+            f"Current routing: {test_results_routing}"
+        )
 
-    return True, "Video settings updated: chat mode set to host only, screen sharing disabled."
+    return True, "Clinical Team (ug_2) has been added to Dr. Chen's Test Results message routing"

@@ -2,35 +2,28 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that all unacknowledged reminders have been acknowledged."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    message_routing = state.get("messageRouting", {})
-    clinical_team_id = "ug_2"
-    category = "Medical Records Request"
-    provider_ids = ["prov_1", "prov_2", "prov_3", "prov_4", "prov_5"]
+    reminders = state.get("reminders", [])
 
-    for prov_id in provider_ids:
-        prov_routing = message_routing.get(prov_id, {})
-        category_data = prov_routing.get(category)
-
-        if category_data is None:
-            return False, (
-                f"Category '{category}' not found in routing for {prov_id}."
+    # In seed data, rem_3 is already acknowledged.
+    # All others (rem_1, rem_2, rem_4, rem_5, rem_6, rem_7, rem_8, rem_9, rem_10)
+    # should now be acknowledged.
+    not_acknowledged = []
+    for rem in reminders:
+        if not rem.get("acknowledged"):
+            not_acknowledged.append(
+                f"{rem.get('id')} ({rem.get('description', 'no description')[:60]})"
             )
 
-        recipients = (
-            category_data
-            if isinstance(category_data, list)
-            else category_data.get("recipients", [])
+    if not_acknowledged:
+        return False, (
+            f"The following reminders are still not acknowledged: "
+            f"{'; '.join(not_acknowledged)}"
         )
 
-        if clinical_team_id not in recipients:
-            return False, (
-                f"Clinical Team ({clinical_team_id}) not found in "
-                f"'{category}' recipients for {prov_id}."
-            )
-
-    return True, "Clinical Team added to Medical Records Request routing for all providers."
+    return True, "All reminders in the system have been acknowledged"

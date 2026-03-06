@@ -2,16 +2,16 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that the auto-invite to Passport after online booking is disabled."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
     practice_settings = state.get("practiceSettings", {})
-    cpt_codes = practice_settings.get("cptCodes", [])
+    auto_invite = practice_settings.get("bookingSiteAutoInvite")
 
-    for entry in cpt_codes:
-        if entry.get("code") == "99423":
-            return False, "CPT code 99423 still exists in practiceSettings.cptCodes."
+    if auto_invite is not False:
+        return False, f"practiceSettings.bookingSiteAutoInvite is {auto_invite}, expected False"
 
-    return True, "CPT code 99423 has been removed."
+    return True, "Auto-invite to Passport after online booking is disabled"

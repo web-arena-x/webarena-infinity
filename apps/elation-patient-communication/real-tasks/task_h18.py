@@ -2,45 +2,49 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify Dr. Kim's uninvited patients were invited and auto-invite is disabled."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    appointments = state.get("appointments", [])
+    patients = state.get("patients", [])
 
-    # Check appointment for Emily Thompson (pat_2)
-    emily_appts = [
-        a for a in appointments
-        if a.get("patientId") == "pat_2"
-        and a.get("providerId") == "prov_1"
-        and a.get("place") == "in_person"
-        and "2026-03-15" in (a.get("date") or "")
-        and "14:00" in (a.get("date") or "")
-        and a.get("status") == "scheduled"
-    ]
+    # Dr. Kim (prov_4) uninvited patients: pat_15, pat_23, pat_31
+    target_ids = {"pat_15", "pat_23", "pat_31"}
+    expected_names = {
+        "pat_15": "Brian Murphy",
+        "pat_23": "Victor Santos",
+        "pat_31": "Craig Bennet"
+    }
 
-    if not emily_appts:
+    not_invited = []
+    for pat in patients:
+        pid = pat.get("id")
+        if pid in target_ids:
+            status = pat.get("passportStatus")
+            if status != "invited":
+                not_invited.append(
+                    f"{expected_names[pid]} ({pid}) status='{status}'"
+                )
+
+    if not_invited:
         return False, (
-            "No matching appointment found for Emily Thompson (pat_2) with "
-            "prov_1, in_person, 2026-03-15 at 14:00, status scheduled."
+            f"The following Dr. Kim patients are not invited: {', '.join(not_invited)}"
         )
 
-    # Check appointment for Priya Sharma (pat_32)
-    priya_appts = [
-        a for a in appointments
-        if a.get("patientId") == "pat_32"
-        and a.get("providerId") == "prov_1"
-        and a.get("place") == "in_person"
-        and "2026-03-18" in (a.get("date") or "")
-        and "10:00" in (a.get("date") or "")
-        and a.get("status") == "scheduled"
-    ]
+    # Check auto-invite is disabled
+    practice_settings = state.get("practiceSettings")
+    if practice_settings is None:
+        return False, "practiceSettings not found in state"
 
-    if not priya_appts:
+    auto_invite = practice_settings.get("bookingSiteAutoInvite")
+    if auto_invite is not False:
         return False, (
-            "No matching appointment found for Priya Sharma (pat_32) with "
-            "prov_1, in_person, 2026-03-18 at 10:00, status scheduled."
+            f"bookingSiteAutoInvite is {auto_invite}, expected False"
         )
 
-    return True, "Appointments scheduled for Emily Thompson and Priya Sharma."
+    return True, (
+        "All Dr. Kim's uninvited patients have been invited to Passport "
+        "and auto-invite setting is disabled"
+    )

@@ -2,22 +2,24 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that the 'New Patient' tag has been removed from Emily Thompson."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    letters = state.get("patientLetters", [])
-    conv_letters = [l for l in letters if l.get("conversationId") == "conv_24"]
+    patients = state.get("patients", [])
+    patient = None
+    for pat in patients:
+        if pat.get("firstName") == "Emily" and pat.get("lastName") == "Thompson":
+            patient = pat
+            break
 
-    if not conv_letters:
-        return False, "No letters found with conversationId 'conv_24' in patientLetters."
+    if patient is None:
+        return False, "Patient Emily Thompson not found"
 
-    for letter in conv_letters:
-        if letter.get("conversationState") != "ended":
-            return False, (
-                f"Letter '{letter.get('id')}' in conversation conv_24 has "
-                f"conversationState '{letter.get('conversationState')}', expected 'ended'."
-            )
+    tags = patient.get("tags", [])
+    if "New Patient" in tags:
+        return False, f"'New Patient' tag still present in Emily Thompson's tags: {tags}"
 
-    return True, "Conversation with Howard Blackwell has been ended."
+    return True, "'New Patient' tag has been removed from Emily Thompson's profile"

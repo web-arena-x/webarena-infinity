@@ -2,26 +2,38 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that an emergency contact has been added for Kevin Adebayo."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    appointments = state.get("appointments", [])
-    matching = None
-    for appt in appointments:
-        if (
-            appt.get("patientId") == "pat_29"
-            and appt.get("providerId") == "prov_2"
-            and appt.get("place") == "virtual"
-            and "2026-03-20" in str(appt.get("date", ""))
-            and "15:00" in str(appt.get("date", ""))
-            and appt.get("status") == "scheduled"
-        ):
-            matching = appt
+    patients = state.get("patients", [])
+    patient = None
+    for pat in patients:
+        if pat.get("firstName") == "Kevin" and pat.get("lastName") == "Adebayo":
+            patient = pat
             break
 
-    if matching is None:
-        return False, "No matching virtual appointment found for Andrew McIntyre (pat_29) on March 20, 2026 at 15:00 with provider prov_2."
+    if patient is None:
+        return False, "Patient Kevin Adebayo not found"
 
-    return True, "Virtual appointment scheduled for Andrew McIntyre on March 20, 2026."
+    ec = patient.get("emergencyContact")
+    if ec is None:
+        return False, "Kevin Adebayo has no emergency contact set"
+
+    ec_name = ec.get("name", "")
+    if ec_name != "Grace Adebayo":
+        return False, f"Emergency contact name is '{ec_name}', expected 'Grace Adebayo'"
+
+    ec_phone = ec.get("phone", "")
+    if ec_phone != "(650) 555-1122":
+        return False, f"Emergency contact phone is '{ec_phone}', expected '(650) 555-1122'"
+
+    ec_relationship = (ec.get("relationship") or "").lower()
+    if ec_relationship != "wife":
+        return False, (
+            f"Emergency contact relationship is '{ec.get('relationship')}', expected 'Wife'"
+        )
+
+    return True, "Emergency contact Grace Adebayo added for Kevin Adebayo"

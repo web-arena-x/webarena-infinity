@@ -2,40 +2,43 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that Billing Question messages are routed to Front Desk for all providers."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    appointments = state.get("appointments", [])
-    appt_map = {a["id"]: a for a in appointments}
+    message_routing = state.get("messageRouting", {})
 
-    # Virtual March appointments that should be cancelled
-    virtual_march_ids = ["appt_2", "appt_6", "appt_9", "appt_13", "appt_14"]
+    provider_ids = ["prov_1", "prov_2", "prov_3", "prov_4", "prov_5"]
+    provider_names = {
+        "prov_1": "Dr. Chen",
+        "prov_2": "Dr. Torres",
+        "prov_3": "Jessica Okafor",
+        "prov_4": "Dr. Kim",
+        "prov_5": "Amanda Wright"
+    }
 
-    for appt_id in virtual_march_ids:
-        appt = appt_map.get(appt_id)
-        if appt is None:
-            return False, f"Appointment {appt_id} not found in state."
-        if appt.get("status") != "cancelled":
-            return False, (
-                f"Appointment {appt_id} status is '{appt.get('status')}', "
-                f"expected 'cancelled'."
+    missing = []
+    for prov_id in provider_ids:
+        prov_routing = message_routing.get(prov_id)
+        if prov_routing is None:
+            missing.append(f"{provider_names[prov_id]} ({prov_id}) - no routing found")
+            continue
+
+        billing_routing = prov_routing.get("Billing Question")
+        if billing_routing is None:
+            missing.append(f"{provider_names[prov_id]} ({prov_id}) - no 'Billing Question' category")
+            continue
+
+        if "ug_1" not in billing_routing:
+            missing.append(
+                f"{provider_names[prov_id]} ({prov_id}) - 'ug_1' (Front Desk) not in routing: {billing_routing}"
             )
 
-    # In-person March appointments that should NOT be cancelled
-    in_person_march_ids = [
-        "appt_1", "appt_3", "appt_4", "appt_5",
-        "appt_7", "appt_10", "appt_11", "appt_12",
-    ]
+    if missing:
+        return False, (
+            f"Billing Question not routed to Front Desk (ug_1) for: {'; '.join(missing)}"
+        )
 
-    for appt_id in in_person_march_ids:
-        appt = appt_map.get(appt_id)
-        if appt is None:
-            continue  # May not exist, skip
-        if appt.get("status") == "cancelled":
-            return False, (
-                f"In-person appointment {appt_id} was incorrectly cancelled."
-            )
-
-    return True, "All 5 virtual March appointments have been cancelled."
+    return True, "Billing Question messages are routed to Front Desk (ug_1) for all 5 providers"

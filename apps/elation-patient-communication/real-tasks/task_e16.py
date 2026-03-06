@@ -2,21 +2,17 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that the video chat mode is changed to Host Only."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    providers = state.get("providers", [])
-    for provider in providers:
-        if provider.get("id") == "prov_1":
-            timeframe = provider.get("notificationTimeframe")
-            if timeframe == "72_hours":
-                return True, "Notification timeframe updated to 72 hours."
-            else:
-                return False, (
-                    f"Provider prov_1 found but notificationTimeframe is "
-                    f"'{timeframe}', expected '72_hours'."
-                )
+    practice_settings = state.get("practiceSettings", {})
+    video_settings = practice_settings.get("videoSettings", {})
+    chat_mode = video_settings.get("chatMode")
 
-    return False, "Provider with id 'prov_1' not found in providers."
+    if chat_mode != "host_only":
+        return False, f"practiceSettings.videoSettings.chatMode is '{chat_mode}', expected 'host_only'"
+
+    return True, "Video chat mode is set to Host Only"

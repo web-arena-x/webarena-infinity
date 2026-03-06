@@ -2,28 +2,35 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that a new practice location 'South Bay Clinic' has been added."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    appointments = state.get("appointments", [])
-    target_patient_id = "pat_2"
+    practice_settings = state.get("practiceSettings")
+    if practice_settings is None:
+        return False, "practiceSettings not found in state"
 
-    matching = None
-    for appt in appointments:
-        if (
-            appt.get("patientId") == target_patient_id
-            and appt.get("providerId") == "prov_1"
-            and appt.get("place") == "in_person"
-            and "2026-03-15" in str(appt.get("date", ""))
-            and "14:00" in str(appt.get("date", ""))
-            and appt.get("status") == "scheduled"
-        ):
-            matching = appt
+    locations = practice_settings.get("practiceLocations", [])
+    location = None
+    for loc in locations:
+        if loc.get("name") == "South Bay Clinic":
+            location = loc
             break
 
-    if matching is None:
-        return False, "No matching appointment found for Emily Thompson on March 15, 2026 at 2:00 PM with provider prov_1 in person."
+    if location is None:
+        return False, (
+            f"No practice location named 'South Bay Clinic' found. "
+            f"Existing locations: {[loc.get('name') for loc in locations]}"
+        )
 
-    return True, "Appointment scheduled for Emily Thompson on March 15, 2026 at 2:00 PM."
+    address = location.get("address", "")
+    if "789 Stevens Creek" not in address:
+        return False, f"South Bay Clinic address is '{address}', expected it to contain '789 Stevens Creek'"
+
+    pos_code = str(location.get("posCode", ""))
+    if pos_code != "11":
+        return False, f"South Bay Clinic posCode is '{pos_code}', expected '11'"
+
+    return True, "Practice location 'South Bay Clinic' at 789 Stevens Creek with POS code 11 has been added"

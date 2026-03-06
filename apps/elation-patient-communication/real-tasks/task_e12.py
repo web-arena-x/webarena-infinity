@@ -2,17 +2,17 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that East Bay Clinic has been removed from practice locations."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    reminders = state.get("reminders", [])
-    for reminder in reminders:
-        if reminder.get("id") == "rem_7":
-            if reminder.get("acknowledged") is True:
-                return True, "Marcus Johnson's Passport reminder has been acknowledged."
-            else:
-                return False, f"Reminder rem_7 found but acknowledged is {reminder.get('acknowledged')}, expected True."
+    practice_settings = state.get("practiceSettings", {})
+    locations = practice_settings.get("practiceLocations", [])
 
-    return False, "Reminder with id 'rem_7' not found in reminders."
+    for loc in locations:
+        if loc.get("name") == "East Bay Clinic":
+            return False, "East Bay Clinic still exists in practiceSettings.practiceLocations"
+
+    return True, "East Bay Clinic has been removed from practice locations"

@@ -2,25 +2,32 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that the Main Office practice location has been renamed to 'SF Main Office'."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    letters = state.get("patientLetters", [])
-    matching = None
-    for l in letters:
-        if (
-            l.get("patientId") == "pat_7"
-            and l.get("direction") == "to_patient"
-            and l.get("subject") == "Annual Flu Vaccine Reminder"
-            and l.get("isDraft") is False
-            and l.get("sentAt") is not None
-        ):
-            matching = l
-            break
+    practice_settings = state.get("practiceSettings")
+    if practice_settings is None:
+        return False, "practiceSettings not found in state"
 
-    if matching is None:
-        return False, "No sent letter found to David Park (pat_7) with subject 'Annual Flu Vaccine Reminder'."
+    locations = practice_settings.get("practiceLocations", [])
+    location_names = [loc.get("name") for loc in locations]
 
-    return True, "Letter sent to David Park with subject 'Annual Flu Vaccine Reminder'."
+    found_new = "SF Main Office" in location_names
+    found_old = "Main Office" in location_names
+
+    if not found_new:
+        return False, (
+            f"No practice location named 'SF Main Office' found. "
+            f"Existing locations: {location_names}"
+        )
+
+    if found_old:
+        return False, (
+            f"Old location name 'Main Office' still exists. "
+            f"Existing locations: {location_names}"
+        )
+
+    return True, "Practice location 'Main Office' has been renamed to 'SF Main Office'"

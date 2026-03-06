@@ -2,19 +2,24 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that David Park has been opted out of SMS messaging."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    letters = state.get("patientLetters", [])
-    conv_letters = [l for l in letters if l.get("conversationId") == "conv_8"]
+    patients = state.get("patients", [])
+    patient = None
+    for pat in patients:
+        if pat.get("firstName") == "David" and pat.get("lastName") == "Park":
+            patient = pat
+            break
 
-    if not conv_letters:
-        return False, "No letters found for conversation conv_8."
+    if patient is None:
+        return False, "Patient David Park not found"
 
-    for l in conv_letters:
-        if l.get("conversationState") != "ended":
-            return False, f"Letter {l.get('id')} in conv_8 has conversationState '{l.get('conversationState')}', expected 'ended'."
+    sms_status = patient.get("smsOptInStatus")
+    if sms_status != "opted_out":
+        return False, f"David Park smsOptInStatus is '{sms_status}', expected 'opted_out'"
 
-    return True, "Billing conversation with Kevin Adebayo has been ended."
+    return True, "David Park has been opted out of SMS messaging"

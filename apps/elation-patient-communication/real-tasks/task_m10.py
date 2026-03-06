@@ -2,16 +2,25 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that Front Desk (ug_1) has been removed from Dr. Torres's General Question routing."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
     message_routing = state.get("messageRouting", {})
-    prov_2_routing = message_routing.get("prov_2", {})
-    prescription_refill = prov_2_routing.get("Prescription Refill", [])
+    prov2_routing = message_routing.get("prov_2")
+    if prov2_routing is None:
+        return False, "No message routing found for prov_2 (Dr. Torres)"
 
-    if "ug_2" not in prescription_refill:
-        return False, f"'ug_2' (Clinical Team) not found in Dr. Torres's Prescription Refill routing. Current routing: {prescription_refill}."
+    general_question_routing = prov2_routing.get("General Question")
+    if general_question_routing is None:
+        return False, "No 'General Question' routing found for Dr. Torres (prov_2)"
 
-    return True, "Clinical Team added to Dr. Torres's Prescription Refill routing."
+    if "ug_1" in general_question_routing:
+        return False, (
+            f"'ug_1' (Front Desk) is still in Dr. Torres's General Question routing. "
+            f"Current routing: {general_question_routing}"
+        )
+
+    return True, "Front Desk (ug_1) has been removed from Dr. Torres's General Question message routing"

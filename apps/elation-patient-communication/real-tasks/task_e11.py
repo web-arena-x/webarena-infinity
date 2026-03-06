@@ -2,17 +2,23 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that the passport invitation reminder for Marcus Johnson is acknowledged."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    letters = state.get("patientLetters", [])
-    for letter in letters:
-        if letter.get("id") == "ltr_19":
-            if letter.get("isRead") is True:
-                return True, "Priya Sharma's message has been marked as read."
-            else:
-                return False, f"Letter ltr_19 found but isRead is {letter.get('isRead')}, expected True."
+    reminders = state.get("reminders", [])
+    reminder = None
+    for rem in reminders:
+        if rem.get("id") == "rem_7":
+            reminder = rem
+            break
 
-    return False, "Letter with id 'ltr_19' not found in patientLetters."
+    if reminder is None:
+        return False, "Reminder rem_7 (passport invitation for Marcus Johnson) not found"
+
+    if not reminder.get("acknowledged"):
+        return False, f"Reminder rem_7 acknowledged is {reminder.get('acknowledged')}, expected True"
+
+    return True, "Passport invitation reminder for Marcus Johnson (rem_7) is acknowledged"

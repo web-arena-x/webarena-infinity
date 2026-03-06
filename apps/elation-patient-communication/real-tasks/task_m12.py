@@ -2,28 +2,31 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that Stephanie Rivera's Passport account has been disabled."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
     patients = state.get("patients", [])
     patient = None
-    for p in patients:
-        if p.get("firstName") == "Brian" and p.get("lastName") == "Murphy":
-            patient = p
+    for pat in patients:
+        if pat.get("firstName") == "Stephanie" and pat.get("lastName") == "Rivera":
+            patient = pat
             break
 
     if patient is None:
-        return False, "Patient Brian Murphy not found."
+        return False, "Patient Stephanie Rivera not found"
 
-    if patient.get("passportStatus") != "invited":
-        return False, f"Brian Murphy's passport status is '{patient.get('passportStatus')}', expected 'invited'."
+    disabled = patient.get("passportAccountDisabled")
+    if disabled is not True:
+        return False, f"Stephanie Rivera passportAccountDisabled is {disabled}, expected True"
 
-    if patient.get("passportSharingLevel") != 3:
-        return False, f"Brian Murphy's sharing level is {patient.get('passportSharingLevel')}, expected 3."
+    passport_status = patient.get("passportStatus")
+    if passport_status != "not_invited":
+        return False, (
+            f"Stephanie Rivera passportStatus is '{passport_status}', expected 'not_invited' "
+            f"after disabling the account"
+        )
 
-    if patient.get("invitationCode") is None:
-        return False, "Brian Murphy's invitationCode is not set."
-
-    return True, "Brian Murphy invited to Passport with sharing level 3."
+    return True, "Stephanie Rivera's Passport account has been disabled"

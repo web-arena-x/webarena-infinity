@@ -2,46 +2,41 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify Megan Burke and Craig Bennet have 'Insurance Pending' tag and Passport invitations."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    practice_settings = state.get("practiceSettings", {})
-    locations = practice_settings.get("practiceLocations", [])
+    patients = state.get("patients", [])
 
-    # Check "Telehealth" location is removed
-    telehealth_locations = [
-        loc for loc in locations
-        if loc.get("name") == "Telehealth"
-    ]
+    target_patients = {
+        "pat_42": "Megan Burke",
+        "pat_31": "Craig Bennet"
+    }
 
-    if telehealth_locations:
-        return False, "Telehealth location still exists in practice locations."
+    errors = []
+    for pat in patients:
+        pid = pat.get("id")
+        if pid in target_patients:
+            name = target_patients[pid]
+            tags = pat.get("tags", [])
 
-    # Check "West SF Urgent Care" exists with correct address and posCode
-    west_sf = next(
-        (
-            loc for loc in locations
-            if loc.get("name") == "West SF Urgent Care"
-        ),
-        None,
+            # Check Insurance Pending tag
+            if "Insurance Pending" not in tags:
+                errors.append(f"{name} ({pid}) missing 'Insurance Pending' tag (current tags: {tags})")
+
+            # Check Passport invitation
+            status = pat.get("passportStatus")
+            if status != "invited":
+                errors.append(f"{name} ({pid}) passportStatus is '{status}', expected 'invited'")
+            elif pat.get("invitedAt") is None:
+                errors.append(f"{name} ({pid}) invitedAt is None, expected a timestamp")
+
+    if errors:
+        return False, "; ".join(errors)
+
+    return True, (
+        "Megan Burke and Craig Bennet both have 'Insurance Pending' tag "
+        "and Passport invitations sent"
     )
-
-    if west_sf is None:
-        return False, "West SF Urgent Care location not found in practice locations."
-
-    address = west_sf.get("address", "") or ""
-    if "2100 Geary" not in address:
-        return False, (
-            f"West SF Urgent Care address is '{address}', "
-            f"expected it to contain '2100 Geary'."
-        )
-
-    pos_code = str(west_sf.get("posCode", ""))
-    if pos_code != "20":
-        return False, (
-            f"West SF Urgent Care posCode is '{pos_code}', expected '20'."
-        )
-
-    return True, "Telehealth location removed and West SF Urgent Care added."

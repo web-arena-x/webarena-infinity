@@ -2,53 +2,38 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that all geriatric patients have the 'Chronic Care' tag."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    letters = state.get("patientLetters", [])
+    patients = state.get("patients", [])
 
-    # Seed data: conv_4 has only ltr_6 (from_patient), conv_28 has only ltr_39 (from_patient)
-    seed_letter_ids = {"ltr_6", "ltr_39"}
+    # Geriatric patients (those tagged "Geriatric" in seed data):
+    # pat_3, pat_10, pat_19, pat_24, pat_27, pat_33, pat_36, pat_43, pat_47, pat_50
+    geriatric_ids = {
+        "pat_3", "pat_10", "pat_19", "pat_24", "pat_27",
+        "pat_33", "pat_36", "pat_43", "pat_47", "pat_50"
+    }
 
-    # Check conv_4 (Sophia Nguyen) - should have a new to_patient letter
-    conv_4_replies = [
-        l for l in letters
-        if l.get("conversationId") == "conv_4"
-        and l.get("direction") == "to_patient"
-        and l.get("id") not in seed_letter_ids
-    ]
+    missing_chronic_care = []
+    for pat in patients:
+        pid = pat.get("id")
+        if pid in geriatric_ids:
+            tags = pat.get("tags", [])
+            if "Geriatric" not in tags:
+                # Patient lost their Geriatric tag - something went wrong
+                name = f"{pat.get('firstName', '')} {pat.get('lastName', '')}"
+                missing_chronic_care.append(f"{name} ({pid}) - 'Geriatric' tag missing")
+            elif "Chronic Care" not in tags:
+                name = f"{pat.get('firstName', '')} {pat.get('lastName', '')}"
+                missing_chronic_care.append(f"{name} ({pid})")
 
-    if not conv_4_replies:
+    if missing_chronic_care:
         return False, (
-            "No reply found in conv_4 (Sophia Nguyen). "
-            "Expected a new to_patient letter."
+            f"The following geriatric patients are missing 'Chronic Care' tag: "
+            f"{', '.join(missing_chronic_care)}"
         )
 
-    for reply in conv_4_replies:
-        if reply.get("isDraft") is True:
-            return False, (
-                f"Reply {reply.get('id')} in conv_4 is still a draft, expected sent."
-            )
-
-    # Check conv_28 (Susan Cho) - should have a new to_patient letter
-    conv_28_replies = [
-        l for l in letters
-        if l.get("conversationId") == "conv_28"
-        and l.get("direction") == "to_patient"
-    ]
-
-    if not conv_28_replies:
-        return False, (
-            "No reply found in conv_28 (Susan Cho). "
-            "Expected a new to_patient letter."
-        )
-
-    for reply in conv_28_replies:
-        if reply.get("isDraft") is True:
-            return False, (
-                f"Reply {reply.get('id')} in conv_28 is still a draft, expected sent."
-            )
-
-    return True, "Replies sent to both Sophia Nguyen and Susan Cho."
+    return True, "All geriatric patients now have the 'Chronic Care' tag"

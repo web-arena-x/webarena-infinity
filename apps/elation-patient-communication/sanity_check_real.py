@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Sanity check for Elation Patient Communication real-task verifiers.
+Sanity check for Elation Patient Communication real tasks.
 
 For each task, directly applies the expected end-state (bypassing the agent),
 then runs the verifier and asserts it passes.
@@ -8,7 +8,7 @@ then runs the verifier and asserts it passes.
 Usage:
     python3 sanity_check_real.py                     # All tasks, sequential
     python3 sanity_check_real.py --workers N          # N parallel environments
-    python3 sanity_check_real.py --task-id task_e5    # Single task
+    python3 sanity_check_real.py --task-id task_e1    # Single task
     python3 sanity_check_real.py --port 9000          # Custom base port
 """
 import argparse
@@ -85,6 +85,10 @@ def find_provider(state, provider_id):
     return find_entity(state["providers"], id=provider_id)
 
 
+def find_provider_by_name(state, first, last):
+    return find_entity(state["providers"], firstName=first, lastName=last)
+
+
 def find_letter(state, letter_id):
     return find_entity(state["patientLetters"], id=letter_id)
 
@@ -93,8 +97,11 @@ def find_reminder(state, reminder_id):
     return find_entity(state["reminders"], id=reminder_id)
 
 
-def find_appointment(state, appt_id):
-    return find_entity(state["appointments"], id=appt_id)
+def find_location_by_name(state, name):
+    for loc in state["practiceSettings"]["practiceLocations"]:
+        if loc["name"] == name:
+            return loc
+    raise ValueError(f"Location not found: {name!r}")
 
 
 def next_letter_id(state):
@@ -127,6 +134,32 @@ def next_location_id(state):
     return f"loc_{lid}"
 
 
+def make_letter(state, patient_id, conversation_id, subject, body, **overrides):
+    letter = {
+        "id": next_letter_id(state),
+        "patientId": patient_id,
+        "conversationId": conversation_id,
+        "direction": "to_patient",
+        "subject": subject,
+        "body": body,
+        "category": None,
+        "senderId": "prov_1",
+        "senderType": "provider",
+        "attachments": [],
+        "postDate": None,
+        "sentAt": TIMESTAMP,
+        "readAt": None,
+        "isRead": False,
+        "isDraft": False,
+        "conversationState": "open",
+        "doNotAllowResponse": False,
+        "unreadAlertTimeframe": "none",
+        "printHeader": "default",
+    }
+    letter.update(overrides)
+    return letter
+
+
 TIMESTAMP = "2026-03-02T12:00:00Z"
 
 MESSAGE_CATEGORIES = [
@@ -138,385 +171,409 @@ MESSAGE_CATEGORIES = [
 
 # ── solve functions ──────────────────────────────────────────────────
 
-# ---- Easy ----
+# ── Easy tasks ───────────────────────────────────────────────────────
 
 def solve_task_e1(state):
-    """Mark Emily Thompson's dizziness message as read."""
-    letter = find_letter(state, "ltr_4")
+    """Mark Janet Okonkwo's blood sugar message as read."""
+    letter = find_letter(state, "ltr_20")
     letter["isRead"] = True
     letter["readAt"] = TIMESTAMP
 
 
 def solve_task_e2(state):
-    """Acknowledge Aisha Patel's appointment reminder."""
-    reminder = find_reminder(state, "rem_4")
+    """Acknowledge James Rodriguez's appointment reminder."""
+    reminder = find_reminder(state, "rem_10")
     reminder["acknowledged"] = True
 
 
 def solve_task_e3(state):
-    """Tag James Rodriguez as VIP."""
-    patient = find_entity(state["patients"], id="pat_1")
+    """Cancel Sophia Nguyen's thyroid check-up appointment."""
+    appt = find_entity(state["appointments"], id="appt_2")
+    appt["status"] = "cancelled"
+
+
+def solve_task_e4(state):
+    """Turn off patient messaging."""
+    state["practiceSettings"]["allowPatientMessaging"] = False
+
+
+def solve_task_e5(state):
+    """Add VIP tag to David Park."""
+    patient = find_patient_by_name(state, "David", "Park")
     if "VIP" not in patient["tags"]:
         patient["tags"].append("VIP")
 
 
-def solve_task_e4(state):
+def solve_task_e6(state):
     """Remove 'New Patient' tag from Emily Thompson."""
-    patient = find_entity(state["patients"], id="pat_2")
+    patient = find_patient_by_name(state, "Emily", "Thompson")
     patient["tags"] = [t for t in patient["tags"] if t != "New Patient"]
 
 
-def solve_task_e5(state):
-    """Cancel Sophia Nguyen's telehealth appointment."""
-    appt = find_appointment(state, "appt_2")
-    appt["status"] = "cancelled"
-
-
-def solve_task_e6(state):
-    """End conversation with Howard Blackwell about pacemaker."""
-    for letter in state["patientLetters"]:
-        if letter["conversationId"] == "conv_24":
-            letter["conversationState"] = "ended"
-
-
 def solve_task_e7(state):
+    """Deactivate virtual visits for Dr. Torres."""
+    provider = find_provider(state, "prov_2")
+    provider["virtualVisitActivated"] = False
+
+
+def solve_task_e8(state):
     """Delete the draft letter to Martha Reeves-Whitfield."""
     state["patientLetters"] = [l for l in state["patientLetters"] if l["id"] != "ltr_35"]
 
 
-def solve_task_e8(state):
-    """Turn off booking site auto-invite."""
-    state["practiceSettings"]["bookingSiteAutoInvite"] = False
-
-
 def solve_task_e9(state):
-    """Disable waiting room audio notification."""
-    state["practiceSettings"]["videoSettings"]["waitingRoomAudioNotification"] = False
+    """Change Dr. Chen's notification timeframe to 72 hours."""
+    provider = find_provider(state, "prov_1")
+    provider["notificationTimeframe"] = "72_hours"
 
 
 def solve_task_e10(state):
-    """Remove CPT code 99423."""
-    state["practiceSettings"]["cptCodes"] = [
-        c for c in state["practiceSettings"]["cptCodes"]
-        if c["code"] != "99423"
-    ]
+    """Disable booking site auto-invite."""
+    state["practiceSettings"]["bookingSiteAutoInvite"] = False
 
 
 def solve_task_e11(state):
-    """Mark Priya Sharma's medical records message as read."""
-    letter = find_letter(state, "ltr_19")
-    letter["isRead"] = True
-    letter["readAt"] = TIMESTAMP
-
-
-def solve_task_e12(state):
-    """Acknowledge Marcus Johnson's Passport reminder."""
+    """Acknowledge Marcus Johnson's passport invitation reminder."""
     reminder = find_reminder(state, "rem_7")
     reminder["acknowledged"] = True
 
 
-def solve_task_e13(state):
-    """Add 'High Risk' tag to Janet Okonkwo."""
-    patient = find_entity(state["patients"], id="pat_30")
-    if "High Risk" not in patient["tags"]:
-        patient["tags"].append("High Risk")
-
-
-def solve_task_e14(state):
-    """Remove East Bay Clinic location."""
+def solve_task_e12(state):
+    """Remove East Bay Clinic."""
     state["practiceSettings"]["practiceLocations"] = [
         loc for loc in state["practiceSettings"]["practiceLocations"]
         if loc["name"] != "East Bay Clinic"
     ]
 
 
+def solve_task_e13(state):
+    """Remove CPT code 99201."""
+    state["practiceSettings"]["cptCodes"] = [
+        c for c in state["practiceSettings"]["cptCodes"]
+        if c["code"] != "99201"
+    ]
+
+
+def solve_task_e14(state):
+    """Turn off screen sharing for patients."""
+    state["practiceSettings"]["videoSettings"]["screenSharingPatients"] = False
+
+
 def solve_task_e15(state):
-    """Deactivate telehealth for Dr. Kim."""
-    provider = find_provider(state, "prov_4")
-    provider["virtualVisitActivated"] = False
+    """Cancel Dennis Volkov's blood pressure appointment."""
+    appt = find_entity(state["appointments"], id="appt_15")
+    appt["status"] = "cancelled"
 
 
 def solve_task_e16(state):
-    """Change notification timeframe to 72 hours."""
-    provider = find_provider(state, "prov_1")
-    provider["notificationTimeframe"] = "72_hours"
+    """Change video chat mode to host only."""
+    state["practiceSettings"]["videoSettings"]["chatMode"] = "host_only"
 
 
 def solve_task_e17(state):
-    """Disable patient messaging."""
-    state["practiceSettings"]["allowPatientMessaging"] = False
+    """Send the draft letter to Martha Reeves-Whitfield."""
+    letter = find_letter(state, "ltr_35")
+    letter["isDraft"] = False
+    letter["sentAt"] = TIMESTAMP
 
 
 def solve_task_e18(state):
-    """Mark Andrew McIntyre's acid reflux message as read."""
-    letter = find_letter(state, "ltr_23")
-    letter["isRead"] = True
-    letter["readAt"] = TIMESTAMP
-
-
-def solve_task_e19(state):
-    """Set sharing default to level 4."""
-    provider = find_provider(state, "prov_1")
-    provider["sharingDefault"] = 4
-
-
-def solve_task_e20(state):
-    """Acknowledge Martha Reeves-Whitfield's appointment reminder."""
-    reminder = find_reminder(state, "rem_5")
+    """Acknowledge Maria Gonzalez's unread alert reminder."""
+    reminder = find_reminder(state, "rem_1")
     reminder["acknowledged"] = True
 
 
-# ---- Medium ----
+def solve_task_e19(state):
+    """Disable waiting room audio notification."""
+    state["practiceSettings"]["videoSettings"]["waitingRoomAudioNotification"] = False
+
+
+def solve_task_e20(state):
+    """Change Dr. Chen's sharing default to 3."""
+    provider = find_provider(state, "prov_1")
+    provider["sharingDefault"] = 3
+
+
+# ── Medium tasks ─────────────────────────────────────────────────────
 
 def solve_task_m1(state):
-    """Invite Anthony Petrov to Passport."""
-    patient = find_entity(state["patients"], id="pat_9")
+    """Send Passport invitation to Anthony Petrov."""
+    patient = find_patient_by_name(state, "Anthony", "Petrov")
     patient["passportStatus"] = "invited"
     patient["invitedAt"] = TIMESTAMP
     patient["invitationCode"] = "9999999"
 
 
 def solve_task_m2(state):
-    """Reply to James Rodriguez about Lisinopril."""
-    state["patientLetters"].append({
-        "id": next_letter_id(state),
-        "patientId": "pat_1",
-        "conversationId": "conv_1",
-        "direction": "to_patient",
-        "subject": "Re: Prescription Refill",
-        "body": "Yes, I will also send a refill for your Lisinopril along with your Metformin.",
-        "category": None,
-        "senderId": "prov_1",
-        "senderType": "provider",
-        "attachments": [],
-        "postDate": None,
-        "sentAt": TIMESTAMP,
-        "readAt": None,
-        "isRead": False,
-        "isDraft": False,
-        "conversationState": "open",
-        "doNotAllowResponse": False,
-        "unreadAlertTimeframe": "none",
-        "printHeader": "default",
-    })
+    """End conversation with Aisha Patel (conv_22)."""
+    for letter in state["patientLetters"]:
+        if letter["conversationId"] == "conv_22":
+            letter["conversationState"] = "ended"
 
 
 def solve_task_m3(state):
-    """Schedule in-person appointment for Emily Thompson."""
-    state["appointments"].append({
-        "id": next_appointment_id(state),
-        "patientId": "pat_2",
-        "providerId": "prov_1",
-        "date": "2026-03-15T14:00:00Z",
-        "place": "in_person",
-        "status": "scheduled",
-        "virtualVisitInstructions": None,
-        "reason": "Annual physical",
-    })
-
-
-def solve_task_m4(state):
-    """Upgrade Helen Matsumoto's sharing to level 4."""
-    patient = find_entity(state["patients"], id="pat_10")
-    patient["passportSharingLevel"] = 4
-
-
-def solve_task_m5(state):
     """Add South Bay Clinic location."""
     state["practiceSettings"]["practiceLocations"].append({
         "id": next_location_id(state),
         "name": "South Bay Clinic",
-        "address": "850 Stevens Creek Blvd, San Jose, CA 95128",
+        "address": "789 Stevens Creek Blvd, San Jose, CA 95128",
         "posCode": "11",
         "posDescription": "Office",
     })
 
 
+def solve_task_m4(state):
+    """Add Nurses to Dr. Kim's Prescription Refill routing."""
+    routing = state["messageRouting"]["prov_4"]["Prescription Refill"]
+    if "ug_3" not in routing:
+        routing.append("ug_3")
+
+
+def solve_task_m5(state):
+    """Resend Passport invitation to William Chang."""
+    patient = find_patient_by_name(state, "William", "Chang")
+    patient["invitedAt"] = TIMESTAMP
+    patient["invitationCode"] = "8888888"
+
+
 def solve_task_m6(state):
-    """Add CPT code 99215."""
-    state["practiceSettings"]["cptCodes"].append({
-        "code": "99215",
-        "description": "Office visit, established patient, high complexity",
-    })
+    """Update Brian Murphy's email."""
+    patient = find_patient_by_name(state, "Brian", "Murphy")
+    patient["email"] = "brian.murphy@gmail.com"
 
 
 def solve_task_m7(state):
-    """Send the draft to Martha Reeves-Whitfield."""
-    letter = find_letter(state, "ltr_35")
-    letter["isDraft"] = False
-    letter["sentAt"] = TIMESTAMP
+    """Activate virtual visits for Jessica Okafor."""
+    provider = find_provider(state, "prov_3")
+    provider["virtualVisitActivated"] = True
+    provider["virtualVisitInstructions"] = "Join your telehealth visit at https://zoom.us/j/1234567890. Please test your camera and microphone beforehand."
 
 
 def solve_task_m8(state):
-    """Enable telehealth for Jessica Okafor."""
-    provider = find_provider(state, "prov_3")
-    provider["virtualVisitActivated"] = True
-    provider["virtualVisitInstructions"] = (
-        "Join your virtual visit at https://zoom.us/j/1234567890. "
-        "Please have your insurance card ready."
-    )
-
-
-def solve_task_m9(state):
-    """Tag Raymond Copeland with Chronic Care and Diabetes Management."""
-    patient = find_entity(state["patients"], id="pat_35")
-    for tag in ["Chronic Care", "Diabetes Management"]:
-        if tag not in patient["tags"]:
-            patient["tags"].append(tag)
-
-
-def solve_task_m10(state):
-    """Add Clinical Team to Torres Prescription Refill routing."""
-    routing = state["messageRouting"]["prov_2"]["Prescription Refill"]
-    if "ug_2" not in routing:
-        routing.append("ug_2")
-
-
-def solve_task_m11(state):
-    """Send letter to David Park about flu vaccine."""
-    conv_id = next_conversation_id(state)
-    state["patientLetters"].append({
-        "id": next_letter_id(state),
-        "patientId": "pat_7",
-        "conversationId": conv_id,
-        "direction": "to_patient",
-        "subject": "Annual Flu Vaccine Reminder",
-        "body": "Hi David, it's time to schedule your annual flu shot.",
-        "category": None,
-        "senderId": "prov_1",
-        "senderType": "provider",
-        "attachments": [],
-        "postDate": None,
-        "sentAt": TIMESTAMP,
-        "readAt": None,
-        "isRead": False,
-        "isDraft": False,
-        "conversationState": "open",
-        "doNotAllowResponse": False,
-        "unreadAlertTimeframe": "none",
-        "printHeader": "default",
+    """Add CPT code 99205."""
+    state["practiceSettings"]["cptCodes"].append({
+        "code": "99205",
+        "description": "Office visit, new patient, high complexity",
     })
 
 
+def solve_task_m9(state):
+    """Schedule in-person appointment for Emily Thompson."""
+    patient = find_patient_by_name(state, "Emily", "Thompson")
+    state["appointments"].append({
+        "id": next_appointment_id(state),
+        "patientId": patient["id"],
+        "providerId": "prov_1",
+        "date": "2026-03-15T10:00:00Z",
+        "place": "in_person",
+        "status": "scheduled",
+        "virtualVisitInstructions": None,
+        "reason": "General check-up",
+    })
+
+
+def solve_task_m10(state):
+    """Remove Front Desk from Dr. Torres's General Question routing."""
+    routing = state["messageRouting"]["prov_2"]
+    routing["General Question"] = [r for r in routing["General Question"] if r != "ug_1"]
+
+
+def solve_task_m11(state):
+    """Rename Main Office to SF Main Office."""
+    loc = find_location_by_name(state, "Main Office")
+    loc["name"] = "SF Main Office"
+
+
 def solve_task_m12(state):
-    """Invite Brian Murphy to Passport with sharing level 3."""
-    patient = find_entity(state["patients"], id="pat_15")
-    patient["passportStatus"] = "invited"
-    patient["passportSharingLevel"] = 3
-    patient["invitedAt"] = TIMESTAMP
-    patient["invitationCode"] = "9999998"
-
-
-def solve_task_m13(state):
-    """Cancel Rachel Steinberg's appointment."""
-    appt = find_appointment(state, "appt_10")
-    appt["status"] = "cancelled"
-
-
-def solve_task_m14(state):
-    """Change chat mode to host_only and disable screen sharing."""
-    state["practiceSettings"]["videoSettings"]["chatMode"] = "host_only"
-    state["practiceSettings"]["videoSettings"]["screenSharingPatients"] = False
-
-
-def solve_task_m15(state):
-    """Disable Patricia O'Brien's Passport."""
-    patient = find_entity(state["patients"], id="pat_8")
+    """Disable Stephanie Rivera's Passport."""
+    patient = find_patient_by_name(state, "Stephanie", "Rivera")
     patient["passportAccountDisabled"] = True
     patient["passportStatus"] = "not_invited"
 
 
+def solve_task_m13(state):
+    """Change Helen Matsumoto's sharing level to 1."""
+    patient = find_patient_by_name(state, "Helen", "Matsumoto")
+    patient["passportSharingLevel"] = 1
+
+
+def solve_task_m14(state):
+    """Add Clinical Team to Dr. Chen's Test Results routing."""
+    routing = state["messageRouting"]["prov_1"]["Test Results"]
+    if "ug_2" not in routing:
+        routing.append("ug_2")
+
+
+def solve_task_m15(state):
+    """Send letter to David Park about spirometry, no reply allowed."""
+    conv_id = next_conversation_id(state)
+    letter = make_letter(
+        state, "pat_7", conv_id,
+        "Spirometry Test Scheduling",
+        "Hi David, please schedule your next spirometry test at your earliest convenience.",
+        doNotAllowResponse=True,
+    )
+    state["patientLetters"].append(letter)
+
+
 def solve_task_m16(state):
-    """Read Janet Okonkwo's message and tag her as high risk."""
-    letter = find_letter(state, "ltr_20")
-    letter["isRead"] = True
-    letter["readAt"] = TIMESTAMP
-    patient = find_entity(state["patients"], id="pat_30")
-    if "High Risk" not in patient["tags"]:
-        patient["tags"].append("High Risk")
-
-
-def solve_task_m17(state):
-    """End Kevin Adebayo billing conversation."""
-    for letter in state["patientLetters"]:
-        if letter["conversationId"] == "conv_8":
-            letter["conversationState"] = "ended"
-
-
-def solve_task_m18(state):
     """Schedule virtual appointment for Andrew McIntyre."""
+    patient = find_patient_by_name(state, "Andrew", "McIntyre")
     state["appointments"].append({
         "id": next_appointment_id(state),
-        "patientId": "pat_29",
+        "patientId": patient["id"],
         "providerId": "prov_2",
         "date": "2026-03-20T15:00:00Z",
         "place": "virtual",
         "status": "scheduled",
         "virtualVisitInstructions": "Join at https://zoom.us/j/7261048395?pwd=def456",
-        "reason": "Acid reflux follow-up",
+        "reason": "GI follow-up",
     })
 
 
+def solve_task_m17(state):
+    """Opt David Park out of SMS."""
+    patient = find_patient_by_name(state, "David", "Park")
+    patient["smsOptInStatus"] = "opted_out"
+
+
+def solve_task_m18(state):
+    """Add emergency contact for Kevin Adebayo."""
+    patient = find_patient_by_name(state, "Kevin", "Adebayo")
+    patient["emergencyContact"] = {
+        "name": "Grace Adebayo",
+        "phone": "(650) 555-1122",
+        "relationship": "Wife",
+    }
+
+
 def solve_task_m19(state):
-    """Remove Geriatric and Chronic Care tags from Nancy Yamamoto."""
-    patient = find_entity(state["patients"], id="pat_24")
-    patient["tags"] = [t for t in patient["tags"] if t not in ("Geriatric", "Chronic Care")]
+    """End Maria Gonzalez's lab results conversation (conv_9)."""
+    for letter in state["patientLetters"]:
+        if letter["conversationId"] == "conv_9":
+            letter["conversationState"] = "ended"
 
 
 def solve_task_m20(state):
-    """Update Dr. Kim's sharing to level 3 and notification to 24 hours."""
-    provider = find_provider(state, "prov_4")
-    provider["sharingDefault"] = 3
-    provider["notificationTimeframe"] = "24_hours"
+    """Change James Rodriguez's sharing level to 4."""
+    patient = find_patient_by_name(state, "James", "Rodriguez")
+    patient["passportSharingLevel"] = 4
 
 
-# ---- Hard ----
+# ── Hard tasks ───────────────────────────────────────────────────────
 
 def solve_task_h1(state):
-    """Invite all Dr. Kim's uninvited patients to Passport."""
-    # Dr. Kim = prov_4, uninvited: pat_15, pat_23, pat_31
-    for pid, code in [("pat_15", "9999991"), ("pat_23", "9999992"), ("pat_31", "9999993")]:
-        patient = find_entity(state["patients"], id=pid)
-        patient["passportStatus"] = "invited"
-        patient["invitedAt"] = TIMESTAMP
-        patient["invitationCode"] = code
+    """Tag Dr. Chen's diabetes patients as High Risk."""
+    for patient in state["patients"]:
+        if patient["assignedProviderId"] != "prov_1":
+            continue
+        profile = patient.get("clinicalProfile", {})
+        problems = profile.get("problemList", [])
+        has_diabetes = any("diabetes" in p.lower() for p in problems)
+        if has_diabetes and "High Risk" not in patient["tags"]:
+            patient["tags"].append("High Risk")
 
 
 def solve_task_h2(state):
-    """Mark all unread patient messages as read."""
-    for letter in state["patientLetters"]:
-        if letter["direction"] == "from_patient" and not letter.get("isDraft", False):
-            if not letter["isRead"]:
-                letter["isRead"] = True
-                letter["readAt"] = TIMESTAMP
+    """Reply to Christine Lee and end conversation."""
+    letter = make_letter(
+        state, "pat_22", "conv_21",
+        "Re: General Question",
+        "Hi Christine, I understand the insomnia is affecting you. Let's try increasing your Trazodone to 100mg at bedtime. If that doesn't help after a week, we can explore other options.",
+        conversationState="ended",
+    )
+    state["patientLetters"].append(letter)
+    for l in state["patientLetters"]:
+        if l["conversationId"] == "conv_21":
+            l["conversationState"] = "ended"
 
 
 def solve_task_h3(state):
-    """Acknowledge all pending reminders."""
+    """Send Passport invitations to Dr. Kim's uninvited patients."""
+    for patient in state["patients"]:
+        if patient["assignedProviderId"] == "prov_4" and patient["passportStatus"] == "not_invited":
+            patient["passportStatus"] = "invited"
+            patient["invitedAt"] = TIMESTAMP
+            patient["invitationCode"] = "9999990"
+
+
+def solve_task_h4(state):
+    """Route Billing Question to Front Desk for all providers."""
+    for prov in state["providers"]:
+        pid = prov["id"]
+        if pid not in state["messageRouting"]:
+            state["messageRouting"][pid] = {}
+        routing = state["messageRouting"][pid].get("Billing Question", [])
+        if "ug_1" not in routing:
+            routing.append("ug_1")
+        state["messageRouting"][pid]["Billing Question"] = routing
+
+
+def solve_task_h5(state):
+    """Read Raymond Copeland's message and reply."""
+    letter = find_letter(state, "ltr_46")
+    letter["isRead"] = True
+    letter["readAt"] = TIMESTAMP
+    reply = make_letter(
+        state, "pat_35", "conv_34",
+        "Re: General Question",
+        "Hi Raymond, increased thirst and urination can indicate your blood sugar needs better control. Please come in for an updated A1C test. In the meantime, continue your current medications and monitor your blood sugar closely.",
+    )
+    state["patientLetters"].append(reply)
+
+
+def solve_task_h6(state):
+    """Send message to Helen Matsumoto about cognitive assessment."""
+    # Reply to conv_7 (Ken wrote on behalf of Helen)
+    reply = make_letter(
+        state, "pat_10", "conv_7",
+        "Re: General Question",
+        "Dear Ken, thank you for reaching out about your mother. The increased forgetfulness and difficulty recognizing family members warrants an evaluation. Her cognitive assessment follow-up is scheduled for March 6th. Please bring her in at 11 AM.",
+    )
+    state["patientLetters"].append(reply)
+
+
+def solve_task_h7(state):
+    """Cancel all virtual March 2026 appointments and deactivate Dr. Kim's virtual visits."""
+    for appt in state["appointments"]:
+        if (appt["place"] == "virtual"
+            and appt["status"] == "scheduled"
+            and appt["date"].startswith("2026-03")):
+            appt["status"] = "cancelled"
+    provider = find_provider(state, "prov_4")
+    provider["virtualVisitActivated"] = False
+
+
+def solve_task_h8(state):
+    """Reply to Barbara Andersen and mark all unread inbox messages as read."""
+    # Mark ltr_47 as read
+    ltr_47 = find_letter(state, "ltr_47")
+    ltr_47["isRead"] = True
+    ltr_47["readAt"] = TIMESTAMP
+    # Reply
+    reply = make_letter(
+        state, "pat_38", "conv_35",
+        "Re: Test Results",
+        "Hi Barbara, your lab results are in. Your B12 level has improved to normal range and your iron is trending up. Continue your current supplements and we'll recheck in 3 months.",
+    )
+    state["patientLetters"].append(reply)
+    # Mark all remaining unread from-patient messages as read
+    unread_ids = ["ltr_4", "ltr_6", "ltr_10", "ltr_15", "ltr_19", "ltr_20",
+                  "ltr_23", "ltr_24", "ltr_29", "ltr_39", "ltr_46"]
+    for l in state["patientLetters"]:
+        if l["id"] in unread_ids and not l["isRead"]:
+            l["isRead"] = True
+            l["readAt"] = TIMESTAMP
+
+
+def solve_task_h9(state):
+    """Acknowledge all unacknowledged reminders."""
     for reminder in state["reminders"]:
         reminder["acknowledged"] = True
 
 
-def solve_task_h4(state):
-    """Cancel all virtual March appointments."""
-    for appt_id in ["appt_2", "appt_6", "appt_9", "appt_13", "appt_14"]:
-        appt = find_appointment(state, appt_id)
-        appt["status"] = "cancelled"
-
-
-def solve_task_h5(state):
-    """Read messages from Janet/Christine and end their conversations."""
-    find_letter(state, "ltr_20")["isRead"] = True
-    find_letter(state, "ltr_20")["readAt"] = TIMESTAMP
-    find_letter(state, "ltr_29")["isRead"] = True
-    find_letter(state, "ltr_29")["readAt"] = TIMESTAMP
-    for letter in state["patientLetters"]:
-        if letter["conversationId"] in ("conv_14", "conv_21"):
-            letter["conversationState"] = "ended"
-
-
-def solve_task_h6(state):
-    """Add Clinical Team to all routing categories for Dr. Chen."""
+def solve_task_h10(state):
+    """Add Clinical Team to all Dr. Chen's message routing categories."""
     for category in MESSAGE_CATEGORIES:
         routing = state["messageRouting"]["prov_1"].get(category, [])
         if "ug_2" not in routing:
@@ -524,38 +581,118 @@ def solve_task_h6(state):
         state["messageRouting"]["prov_1"][category] = routing
 
 
-def solve_task_h7(state):
-    """Remove telephone E/M codes (99441, 99442, 99443)."""
-    codes_to_remove = {"99441", "99442", "99443"}
-    state["practiceSettings"]["cptCodes"] = [
-        c for c in state["practiceSettings"]["cptCodes"]
-        if c["code"] not in codes_to_remove
+def solve_task_h11(state):
+    """Add Chronic Care tag to geriatric patients who lack it."""
+    for patient in state["patients"]:
+        if "Geriatric" in patient["tags"] and "Chronic Care" not in patient["tags"]:
+            patient["tags"].append("Chronic Care")
+
+
+def solve_task_h12(state):
+    """Reply to all unread patient messages."""
+    unread_convs = {
+        "conv_2": "pat_2",
+        "conv_4": "pat_4",
+        "conv_7": "pat_10",
+        "conv_10": "pat_16",
+        "conv_13": "pat_32",
+        "conv_14": "pat_30",
+        "conv_16": "pat_29",
+        "conv_17": "pat_50",
+        "conv_21": "pat_22",
+        "conv_28": "pat_40",
+        "conv_34": "pat_35",
+        "conv_35": "pat_38",
+    }
+    for conv_id, pat_id in unread_convs.items():
+        # Get the original subject from the conversation
+        orig = None
+        for l in state["patientLetters"]:
+            if l["conversationId"] == conv_id:
+                orig = l
+                break
+        subject = f"Re: {orig['subject']}" if orig else "Re: Your Message"
+        reply = make_letter(
+            state, pat_id, conv_id,
+            subject,
+            "Thank you for your message. I will review your concern and get back to you shortly.",
+        )
+        state["patientLetters"].append(reply)
+
+
+def solve_task_h13(state):
+    """End open conversations inactive before Feb 25, 2026."""
+    # Identify open conversations with last activity before 2026-02-25
+    cutoff = "2026-02-25T00:00:00Z"
+    conversations = {}
+    for l in state["patientLetters"]:
+        cid = l["conversationId"]
+        if cid not in conversations:
+            conversations[cid] = {"letters": [], "all_ended": True, "max_date": ""}
+        conversations[cid]["letters"].append(l)
+        if l.get("conversationState") != "ended":
+            conversations[cid]["all_ended"] = False
+        sent = l.get("sentAt") or ""
+        if sent > conversations[cid]["max_date"]:
+            conversations[cid]["max_date"] = sent
+
+    for cid, info in conversations.items():
+        if info["all_ended"]:
+            continue
+        if info["max_date"] and info["max_date"] < cutoff:
+            for l in info["letters"]:
+                l["conversationState"] = "ended"
+
+
+def solve_task_h14(state):
+    """Change Dr. Torres's notification to none and remove from Dr. Chen's General Question routing."""
+    provider = find_provider(state, "prov_2")
+    provider["notificationTimeframe"] = "none"
+    routing = state["messageRouting"]["prov_1"]["General Question"]
+    state["messageRouting"]["prov_1"]["General Question"] = [
+        r for r in routing if r != "prov_2"
     ]
 
 
-def solve_task_h8(state):
-    """Send bulk letter to Diabetes Management patients."""
-    target_ids = ["pat_1", "pat_11", "pat_30", "pat_35"]
+def solve_task_h15(state):
+    """Reply to Diane Foster-Hutchinson's referral request and end conversation."""
+    reply = make_letter(
+        state, "pat_16", "conv_10",
+        "Re: Referral Request",
+        "Hi Diane, I've prepared a referral to Dr. Lisa Park, an excellent allergist in SF who specializes in venom allergies. Her office will contact you to schedule an appointment.",
+        conversationState="ended",
+    )
+    state["patientLetters"].append(reply)
+    for l in state["patientLetters"]:
+        if l["conversationId"] == "conv_10":
+            l["conversationState"] = "ended"
+
+
+def solve_task_h16(state):
+    """Send bulk letter to all Geriatric patients about wellness visit."""
+    geriatric_ids = [
+        p["id"] for p in state["patients"] if "Geriatric" in p["tags"]
+    ]
     bulk_id = next_bulk_letter_id(state)
     state["bulkLetters"].append({
         "id": bulk_id,
-        "description": "A1C screening outreach",
-        "subject": "Annual A1C Screening Reminder",
-        "body": "Please schedule your annual A1C screening at your earliest convenience.",
+        "description": "Annual Wellness Visit Reminder for Geriatric Patients",
+        "subject": "Schedule Your Annual Wellness Visit",
+        "body": "Dear patient, please schedule your annual wellness visit at your earliest convenience. Regular check-ups are important for maintaining your health.",
         "sentAt": TIMESTAMP,
         "sentBy": "prov_1",
-        "targetCount": len(target_ids),
-        "allowResponse": False,
+        "targetCount": len(geriatric_ids),
+        "allowResponse": True,
     })
     conv_id = next_conversation_id(state)
-    for pat_id in target_ids:
+    for pat_id in geriatric_ids:
         state["patientLetters"].append({
             "id": next_letter_id(state),
             "patientId": pat_id,
             "conversationId": f"{conv_id}_{pat_id}",
             "direction": "to_patient",
-            "subject": "Annual A1C Screening Reminder",
-            "body": "Please schedule your annual A1C screening at your earliest convenience.",
+            "subject": "Schedule Your Annual Wellness Visit",
+            "body": "Dear patient, please schedule your annual wellness visit at your earliest convenience. Regular check-ups are important for maintaining your health.",
             "category": None,
             "senderId": "prov_1",
             "senderType": "provider",
@@ -565,672 +702,64 @@ def solve_task_h8(state):
             "readAt": None,
             "isRead": False,
             "isDraft": False,
-            "conversationState": "ended",
-            "doNotAllowResponse": True,
+            "conversationState": "open",
+            "doNotAllowResponse": False,
             "unreadAlertTimeframe": "none",
             "printHeader": "default",
         })
 
 
-def solve_task_h9(state):
-    """Add Clinical Team to Medical Records Request routing for all providers."""
-    for prov_id in ["prov_1", "prov_2", "prov_3", "prov_4", "prov_5"]:
-        routing = state["messageRouting"].get(prov_id, {})
-        cat_routing = routing.get("Medical Records Request", [])
-        if "ug_2" not in cat_routing:
-            cat_routing.append("ug_2")
-        routing["Medical Records Request"] = cat_routing
-        state["messageRouting"][prov_id] = routing
-
-
-def solve_task_h10(state):
-    """Enable telehealth for Jessica Okafor and Amanda Wright."""
-    prov3 = find_provider(state, "prov_3")
-    prov3["virtualVisitActivated"] = True
-    prov3["virtualVisitInstructions"] = "Join your telehealth visit: https://zoom.us/j/okafor123"
-    prov5 = find_provider(state, "prov_5")
-    prov5["virtualVisitActivated"] = True
-    prov5["virtualVisitInstructions"] = "Join your telehealth visit: https://zoom.us/j/wright456"
-
-
-def solve_task_h11(state):
-    """Reply to both unread appointment requests (Sophia Nguyen and Susan Cho)."""
-    # Reply to conv_4 (Sophia Nguyen)
-    state["patientLetters"].append({
-        "id": next_letter_id(state),
-        "patientId": "pat_4",
-        "conversationId": "conv_4",
-        "direction": "to_patient",
-        "subject": "Re: Appointment Request",
-        "body": "Your appointment request has been received and will be scheduled.",
-        "category": None,
-        "senderId": "prov_1",
-        "senderType": "provider",
-        "attachments": [],
-        "postDate": None,
-        "sentAt": TIMESTAMP,
-        "readAt": None,
-        "isRead": False,
-        "isDraft": False,
-        "conversationState": "open",
-        "doNotAllowResponse": False,
-        "unreadAlertTimeframe": "none",
-        "printHeader": "default",
-    })
-    # Reply to conv_28 (Susan Cho)
-    state["patientLetters"].append({
-        "id": next_letter_id(state),
-        "patientId": "pat_40",
-        "conversationId": "conv_28",
-        "direction": "to_patient",
-        "subject": "Re: Appointment Request",
-        "body": "Your appointment request has been received and will be scheduled.",
-        "category": None,
-        "senderId": "prov_1",
-        "senderType": "provider",
-        "attachments": [],
-        "postDate": None,
-        "sentAt": TIMESTAMP,
-        "readAt": None,
-        "isRead": False,
-        "isDraft": False,
-        "conversationState": "open",
-        "doNotAllowResponse": False,
-        "unreadAlertTimeframe": "none",
-        "printHeader": "default",
-    })
-
-
-def solve_task_h12(state):
-    """End all open conversations with Dr. Torres's patients."""
-    # Open conversations: conv_16 (Andrew McIntyre), conv_26 (Russell Keane)
-    for letter in state["patientLetters"]:
-        if letter["conversationId"] in ("conv_16", "conv_26"):
-            letter["conversationState"] = "ended"
-
-
-def solve_task_h13(state):
-    """Tag Victor Santos and Craig Bennet as Insurance Pending, invite to Passport."""
-    for pid, code in [("pat_23", "9999994"), ("pat_31", "9999995")]:
-        patient = find_entity(state["patients"], id=pid)
-        if "Insurance Pending" not in patient["tags"]:
-            patient["tags"].append("Insurance Pending")
-        patient["passportStatus"] = "invited"
-        patient["invitedAt"] = TIMESTAMP
-        patient["invitationCode"] = code
-
-
-def solve_task_h14(state):
-    """Remove 99421-99423, add 99458."""
-    codes_to_remove = {"99421", "99422", "99423"}
-    state["practiceSettings"]["cptCodes"] = [
-        c for c in state["practiceSettings"]["cptCodes"]
-        if c["code"] not in codes_to_remove
-    ]
-    state["practiceSettings"]["cptCodes"].append({
-        "code": "99458",
-        "description": "Prolonged telehealth service, 15 min",
-    })
-
-
-def solve_task_h15(state):
-    """Mark all unread messages from Dr. Chen's patients as read."""
-    # Unread from prov_1 patients: ltr_4,6,10,15,19,20,24,29,47
-    prov1_unread = {"ltr_4", "ltr_6", "ltr_10", "ltr_15", "ltr_19",
-                    "ltr_20", "ltr_24", "ltr_29", "ltr_47"}
-    for letter in state["patientLetters"]:
-        if letter["id"] in prov1_unread:
-            letter["isRead"] = True
-            letter["readAt"] = TIMESTAMP
-
-
-def solve_task_h16(state):
-    """Upgrade Helen Matsumoto sharing to 4 and send notification letter."""
-    patient = find_entity(state["patients"], id="pat_10")
-    patient["passportSharingLevel"] = 4
-    conv_id = next_conversation_id(state)
-    state["patientLetters"].append({
-        "id": next_letter_id(state),
-        "patientId": "pat_10",
-        "conversationId": conv_id,
-        "direction": "to_patient",
-        "subject": "Updated Passport Sharing Level",
-        "body": "Your Passport sharing level has been updated to the most comprehensive level.",
-        "category": None,
-        "senderId": "prov_1",
-        "senderType": "provider",
-        "attachments": [],
-        "postDate": None,
-        "sentAt": TIMESTAMP,
-        "readAt": None,
-        "isRead": False,
-        "isDraft": False,
-        "conversationState": "open",
-        "doNotAllowResponse": False,
-        "unreadAlertTimeframe": "none",
-        "printHeader": "default",
-    })
-
-
 def solve_task_h17(state):
-    """Disable Robert Washington's Passport and remove all tags."""
-    patient = find_entity(state["patients"], id="pat_3")
-    patient["passportAccountDisabled"] = True
-    patient["passportStatus"] = "not_invited"
-    patient["tags"] = []
-
-
-def solve_task_h18(state):
-    """Schedule two appointments: Emily Thompson and Priya Sharma."""
-    state["appointments"].append({
-        "id": next_appointment_id(state),
-        "patientId": "pat_2",
-        "providerId": "prov_1",
-        "date": "2026-03-15T14:00:00Z",
-        "place": "in_person",
-        "status": "scheduled",
-        "virtualVisitInstructions": None,
-        "reason": "Annual physical",
-    })
-    state["appointments"].append({
-        "id": next_appointment_id(state),
-        "patientId": "pat_32",
-        "providerId": "prov_1",
-        "date": "2026-03-18T10:00:00Z",
-        "place": "in_person",
-        "status": "scheduled",
-        "virtualVisitInstructions": None,
-        "reason": "Migraine follow-up",
-    })
-
-
-def solve_task_h19(state):
-    """Remove Telehealth location, add West SF Urgent Care."""
-    state["practiceSettings"]["practiceLocations"] = [
-        loc for loc in state["practiceSettings"]["practiceLocations"]
-        if loc["name"] != "Telehealth"
-    ]
-    state["practiceSettings"]["practiceLocations"].append({
-        "id": next_location_id(state),
-        "name": "West SF Urgent Care",
-        "address": "2100 Geary Blvd, San Francisco, CA 94115",
-        "posCode": "20",
-        "posDescription": "Urgent Care Facility",
-    })
-
-
-def solve_task_h20(state):
-    """Resend invitations to all invited-but-not-registered patients."""
-    invited_not_registered = {
-        "pat_5": "8888881",
-        "pat_13": "8888882",
-        "pat_21": "8888883",
-        "pat_28": "8888884",
-        "pat_39": "8888885",
-        "pat_48": "8888886",
-    }
-    for pid, new_code in invited_not_registered.items():
-        patient = find_entity(state["patients"], id=pid)
-        patient["invitedAt"] = TIMESTAMP
-        patient["invitationCode"] = new_code
-
-
-# ---- Hardening Round 1 (h21-h40) ----
-
-def solve_task_h21(state):
-    """Reply to Raymond Copeland about thirst/urination, schedule virtual appt."""
-    state["patientLetters"].append({
-        "id": next_letter_id(state),
-        "patientId": "pat_35",
-        "conversationId": "conv_34",
-        "direction": "to_patient",
-        "subject": "Re: General Question",
-        "body": "Raymond, your symptoms of increased thirst and urination may indicate a change in blood sugar control. Please come in for fasting blood work so we can evaluate.",
-        "category": None,
-        "senderId": "prov_1",
-        "senderType": "provider",
-        "attachments": [],
-        "postDate": None,
-        "sentAt": TIMESTAMP,
-        "readAt": None,
-        "isRead": False,
-        "isDraft": False,
-        "conversationState": "open",
-        "doNotAllowResponse": False,
-        "unreadAlertTimeframe": "none",
-        "printHeader": "default",
-    })
-    state["appointments"].append({
-        "id": next_appointment_id(state),
-        "patientId": "pat_35",
-        "providerId": "prov_4",
-        "date": "2026-03-25T11:00:00Z",
-        "place": "virtual",
-        "status": "scheduled",
-        "virtualVisitInstructions": "Join at https://zoom.us/j/5029384716?pwd=ghi789",
-        "reason": "Blood sugar evaluation",
-    })
-
-
-def solve_task_h22(state):
-    """Read Helen Matsumoto's message, add High Risk tag, reply."""
-    letter = find_letter(state, "ltr_10")
-    letter["isRead"] = True
-    letter["readAt"] = TIMESTAMP
-    patient = find_entity(state["patients"], id="pat_10")
-    if "High Risk" not in patient["tags"]:
-        patient["tags"].append("High Risk")
-    state["patientLetters"].append({
-        "id": next_letter_id(state),
-        "patientId": "pat_10",
-        "conversationId": "conv_7",
-        "direction": "to_patient",
-        "subject": "Re: General Question",
-        "body": "Dear Ken, thank you for letting us know. Increased forgetfulness can occur with Alzheimer's progression. We'll evaluate her at the upcoming appointment.",
-        "category": None,
-        "senderId": "prov_1",
-        "senderType": "provider",
-        "attachments": [],
-        "postDate": None,
-        "sentAt": TIMESTAMP,
-        "readAt": None,
-        "isRead": False,
-        "isDraft": False,
-        "conversationState": "open",
-        "doNotAllowResponse": False,
-        "unreadAlertTimeframe": "none",
-        "printHeader": "default",
-    })
-
-
-def solve_task_h23(state):
-    """Reply to Diane Foster-Hutchinson's referral request, tag as VIP."""
-    state["patientLetters"].append({
-        "id": next_letter_id(state),
-        "patientId": "pat_16",
-        "conversationId": "conv_10",
-        "direction": "to_patient",
-        "subject": "Re: Referral Request",
-        "body": "Hi Diane, I'll find a new allergist for you in the SF area who specializes in bee venom allergy testing.",
-        "category": None,
-        "senderId": "prov_1",
-        "senderType": "provider",
-        "attachments": [],
-        "postDate": None,
-        "sentAt": TIMESTAMP,
-        "readAt": None,
-        "isRead": False,
-        "isDraft": False,
-        "conversationState": "open",
-        "doNotAllowResponse": False,
-        "unreadAlertTimeframe": "none",
-        "printHeader": "default",
-    })
-    patient = find_entity(state["patients"], id="pat_16")
-    if "VIP" not in patient["tags"]:
-        patient["tags"].append("VIP")
-
-
-def solve_task_h24(state):
-    """Cancel Janet's virtual appt, schedule in-person, reply to message."""
-    appt = find_appointment(state, "appt_13")
-    appt["status"] = "cancelled"
-    state["appointments"].append({
-        "id": next_appointment_id(state),
-        "patientId": "pat_30",
-        "providerId": "prov_1",
-        "date": "2026-03-10T09:00:00Z",
-        "place": "in_person",
-        "status": "scheduled",
-        "virtualVisitInstructions": None,
-        "reason": "Urgent diabetes management",
-    })
-    state["patientLetters"].append({
-        "id": next_letter_id(state),
-        "patientId": "pat_30",
-        "conversationId": "conv_14",
-        "direction": "to_patient",
-        "subject": "Re: General Question",
-        "body": "Janet, your blood sugar readings are concerning. I've cancelled your virtual visit and rescheduled you for an in-person appointment on March 10.",
-        "category": None,
-        "senderId": "prov_1",
-        "senderType": "provider",
-        "attachments": [],
-        "postDate": None,
-        "sentAt": TIMESTAMP,
-        "readAt": None,
-        "isRead": False,
-        "isDraft": False,
-        "conversationState": "open",
-        "doNotAllowResponse": False,
-        "unreadAlertTimeframe": "none",
-        "printHeader": "default",
-    })
-
-
-def solve_task_h25(state):
-    """Cancel all Dr. Chen in-person upcoming appointments, keep virtual."""
-    for appt_id in ["appt_1", "appt_4", "appt_7", "appt_11", "appt_12"]:
-        appt = find_appointment(state, appt_id)
-        appt["status"] = "cancelled"
-
-
-def solve_task_h26(state):
-    """Add Front Desk to Dr. Torres categories where he's sole recipient."""
-    sole_categories = [
-        "Prescription Refill", "Test Results", "Referral Request", "Other",
-    ]
-    for cat in sole_categories:
-        routing = state["messageRouting"]["prov_2"].get(cat, [])
-        if "ug_1" not in routing:
-            routing.append("ug_1")
-        state["messageRouting"]["prov_2"][cat] = routing
-
-
-def solve_task_h27(state):
-    """Send letter to Deborah Takahashi, upgrade sharing to 4, add Chronic Care."""
-    conv_id = next_conversation_id(state)
-    state["patientLetters"].append({
-        "id": next_letter_id(state),
-        "patientId": "pat_50",
-        "conversationId": conv_id,
-        "direction": "to_patient",
-        "subject": "Passport Access Update",
-        "body": "Dear Mrs. Takahashi, we're upgrading your Passport access to the most comprehensive level.",
-        "category": None,
-        "senderId": "prov_1",
-        "senderType": "provider",
-        "attachments": [],
-        "postDate": None,
-        "sentAt": TIMESTAMP,
-        "readAt": None,
-        "isRead": False,
-        "isDraft": False,
-        "conversationState": "open",
-        "doNotAllowResponse": False,
-        "unreadAlertTimeframe": "none",
-        "printHeader": "default",
-    })
-    patient = find_entity(state["patients"], id="pat_50")
-    patient["passportSharingLevel"] = 4
-    if "Chronic Care" not in patient["tags"]:
-        patient["tags"].append("Chronic Care")
-
-
-def solve_task_h28(state):
-    """Cancel Howard Blackwell's virtual appt, schedule in-person."""
-    appt = find_appointment(state, "appt_9")
-    appt["status"] = "cancelled"
+    """Reply to Howard Blackwell about gardening and schedule virtual follow-up."""
+    reply = make_letter(
+        state, "pat_27", "conv_24",
+        "Re: General Question",
+        "Mr. Blackwell, light gardening should be fine this spring. Start slowly and avoid heavy lifting. Stop if you feel short of breath or have any chest discomfort.",
+    )
+    state["patientLetters"].append(reply)
     state["appointments"].append({
         "id": next_appointment_id(state),
         "patientId": "pat_27",
         "providerId": "prov_4",
-        "date": "2026-03-22T14:00:00Z",
-        "place": "in_person",
-        "status": "scheduled",
-        "virtualVisitInstructions": None,
-        "reason": "CHF management review",
-    })
-
-
-def solve_task_h29(state):
-    """Apply Dr. Chen's routing to all other providers."""
-    import copy
-    chen_routing = state["messageRouting"]["prov_1"]
-    for prov_id in ["prov_2", "prov_3", "prov_4", "prov_5"]:
-        state["messageRouting"][prov_id] = copy.deepcopy(chen_routing)
-
-
-def solve_task_h30(state):
-    """Reply to Priya Sharma's records request, sign off conversation."""
-    state["patientLetters"].append({
-        "id": next_letter_id(state),
-        "patientId": "pat_32",
-        "conversationId": "conv_13",
-        "direction": "to_patient",
-        "subject": "Re: Medical Records Request",
-        "body": "Hi Priya, please fill out the records release form. Processing takes 5-7 business days.",
-        "category": None,
-        "senderId": "prov_1",
-        "senderType": "provider",
-        "attachments": [],
-        "postDate": None,
-        "sentAt": TIMESTAMP,
-        "readAt": None,
-        "isRead": False,
-        "isDraft": False,
-        "conversationState": "ended",
-        "doNotAllowResponse": False,
-        "unreadAlertTimeframe": "none",
-        "printHeader": "default",
-    })
-    for letter in state["patientLetters"]:
-        if letter["conversationId"] == "conv_13":
-            letter["conversationState"] = "ended"
-
-
-def solve_task_h31(state):
-    """Remove 'New Patient' tag from all patients."""
-    for pid in ["pat_2", "pat_5", "pat_9", "pat_31", "pat_42"]:
-        patient = find_entity(state["patients"], id=pid)
-        patient["tags"] = [t for t in patient["tags"] if t != "New Patient"]
-
-
-def solve_task_h32(state):
-    """Reply to Maria Gonzalez conversation, acknowledge rem_1."""
-    state["patientLetters"].append({
-        "id": next_letter_id(state),
-        "patientId": "pat_14",
-        "conversationId": "conv_9",
-        "direction": "to_patient",
-        "subject": "Re: General Question",
-        "body": "Maria, great job on the daily walks! We'll discuss diet and Metformin at your upcoming appointment.",
-        "category": None,
-        "senderId": "prov_1",
-        "senderType": "provider",
-        "attachments": [],
-        "postDate": None,
-        "sentAt": TIMESTAMP,
-        "readAt": None,
-        "isRead": False,
-        "isDraft": False,
-        "conversationState": "open",
-        "doNotAllowResponse": False,
-        "unreadAlertTimeframe": "none",
-        "printHeader": "default",
-    })
-    reminder = find_reminder(state, "rem_1")
-    reminder["acknowledged"] = True
-
-
-def solve_task_h33(state):
-    """Send no-reply letter to Christine Lee, acknowledge rem_6."""
-    conv_id = next_conversation_id(state)
-    state["patientLetters"].append({
-        "id": next_letter_id(state),
-        "patientId": "pat_22",
-        "conversationId": conv_id,
-        "direction": "to_patient",
-        "subject": "Sleep Concerns Follow-up",
-        "body": "Christine, please start keeping a sleep diary for the next 2 weeks.",
-        "category": None,
-        "senderId": "prov_1",
-        "senderType": "provider",
-        "attachments": [],
-        "postDate": None,
-        "sentAt": TIMESTAMP,
-        "readAt": None,
-        "isRead": False,
-        "isDraft": False,
-        "conversationState": "open",
-        "doNotAllowResponse": True,
-        "unreadAlertTimeframe": "none",
-        "printHeader": "default",
-    })
-    reminder = find_reminder(state, "rem_6")
-    reminder["acknowledged"] = True
-
-
-def solve_task_h34(state):
-    """Tag virtual-appointment patients as 'Telehealth Preferred'."""
-    for pid in ["pat_27", "pat_30"]:
-        patient = find_entity(state["patients"], id=pid)
-        if "Telehealth Preferred" not in patient["tags"]:
-            patient["tags"].append("Telehealth Preferred")
-
-
-def solve_task_h35(state):
-    """Update Dr. Chen telehealth instructions and video chat mode."""
-    provider = find_provider(state, "prov_1")
-    provider["virtualVisitInstructions"] = (
-        "Join your virtual visit at https://zoom.us/j/newlink123. "
-        "Please ensure your camera is working."
-    )
-    state["practiceSettings"]["videoSettings"]["chatMode"] = "everyone_in_waiting_room"
-
-
-def solve_task_h36(state):
-    """Read both appt requests, reply to Susan Cho, schedule virtual appt."""
-    find_letter(state, "ltr_6")["isRead"] = True
-    find_letter(state, "ltr_6")["readAt"] = TIMESTAMP
-    find_letter(state, "ltr_39")["isRead"] = True
-    find_letter(state, "ltr_39")["readAt"] = TIMESTAMP
-    state["patientLetters"].append({
-        "id": next_letter_id(state),
-        "patientId": "pat_40",
-        "conversationId": "conv_28",
-        "direction": "to_patient",
-        "subject": "Re: Appointment Request",
-        "body": "Susan, I'll schedule a telehealth visit to evaluate your urticaria flare.",
-        "category": None,
-        "senderId": "prov_1",
-        "senderType": "provider",
-        "attachments": [],
-        "postDate": None,
-        "sentAt": TIMESTAMP,
-        "readAt": None,
-        "isRead": False,
-        "isDraft": False,
-        "conversationState": "open",
-        "doNotAllowResponse": False,
-        "unreadAlertTimeframe": "none",
-        "printHeader": "default",
-    })
-    state["appointments"].append({
-        "id": next_appointment_id(state),
-        "patientId": "pat_40",
-        "providerId": "prov_3",
-        "date": "2026-03-14T10:00:00Z",
+        "date": "2026-04-01T14:00:00Z",
         "place": "virtual",
         "status": "scheduled",
-        "virtualVisitInstructions": "Join at https://zoom.us/j/3948271605?pwd=jkl012",
-        "reason": "Urticaria evaluation",
+        "virtualVisitInstructions": "Join at https://zoom.us/j/5029384716?pwd=ghi789",
+        "reason": "CHF follow-up",
     })
 
 
-def solve_task_h37(state):
-    """Enable telehealth for Amanda Wright, schedule virtual appt for Sophia."""
-    provider = find_provider(state, "prov_5")
-    provider["virtualVisitActivated"] = True
-    provider["virtualVisitInstructions"] = "Join at https://zoom.us/j/wright789"
-    state["appointments"].append({
-        "id": next_appointment_id(state),
-        "patientId": "pat_4",
-        "providerId": "prov_5",
-        "date": "2026-03-20T15:00:00Z",
-        "place": "virtual",
-        "status": "scheduled",
-        "virtualVisitInstructions": "Join at https://zoom.us/j/wright789",
-        "reason": "Thyroid follow-up",
-    })
+def solve_task_h18(state):
+    """Invite Dr. Kim's uninvited patients to Passport and disable auto-invite."""
+    for patient in state["patients"]:
+        if patient["assignedProviderId"] == "prov_4" and patient["passportStatus"] == "not_invited":
+            patient["passportStatus"] = "invited"
+            patient["invitedAt"] = TIMESTAMP
+            patient["invitationCode"] = "9999990"
+    state["practiceSettings"]["bookingSiteAutoInvite"] = False
 
 
-def solve_task_h38(state):
-    """Invite all uninvited patients to Passport."""
-    uninvited = [
-        ("pat_9", "9999961"),
-        ("pat_15", "9999962"),
-        ("pat_23", "9999963"),
-        ("pat_31", "9999964"),
-        ("pat_37", "9999965"),
-        ("pat_42", "9999966"),
-    ]
-    for pid, code in uninvited:
-        patient = find_entity(state["patients"], id=pid)
+def solve_task_h19(state):
+    """Add Insurance Pending tag and send Passport invitations to Megan Burke and Craig Bennet."""
+    for name in [("Megan", "Burke"), ("Craig", "Bennet")]:
+        patient = find_patient_by_name(state, name[0], name[1])
+        if "Insurance Pending" not in patient["tags"]:
+            patient["tags"].append("Insurance Pending")
         patient["passportStatus"] = "invited"
         patient["invitedAt"] = TIMESTAMP
-        patient["invitationCode"] = code
+        patient["invitationCode"] = "9999990"
 
 
-def solve_task_h39(state):
-    """Read, reply, sign off conversations for Christine Lee & Diane F-H."""
-    find_letter(state, "ltr_29")["isRead"] = True
-    find_letter(state, "ltr_29")["readAt"] = TIMESTAMP
-    find_letter(state, "ltr_15")["isRead"] = True
-    find_letter(state, "ltr_15")["readAt"] = TIMESTAMP
-    state["patientLetters"].append({
-        "id": next_letter_id(state),
-        "patientId": "pat_22",
-        "conversationId": "conv_21",
-        "direction": "to_patient",
-        "subject": "Re: General Question",
-        "body": "Christine, let's try adjusting your Trazodone dose. I'll also refer you to our sleep specialist.",
-        "category": None,
-        "senderId": "prov_1",
-        "senderType": "provider",
-        "attachments": [],
-        "postDate": None,
-        "sentAt": TIMESTAMP,
-        "readAt": None,
-        "isRead": False,
-        "isDraft": False,
-        "conversationState": "ended",
-        "doNotAllowResponse": False,
-        "unreadAlertTimeframe": "none",
-        "printHeader": "default",
-    })
-    state["patientLetters"].append({
-        "id": next_letter_id(state),
-        "patientId": "pat_16",
-        "conversationId": "conv_10",
-        "direction": "to_patient",
-        "subject": "Re: Referral Request",
-        "body": "Diane, I'll find a new allergist who specializes in venom allergy testing.",
-        "category": None,
-        "senderId": "prov_1",
-        "senderType": "provider",
-        "attachments": [],
-        "postDate": None,
-        "sentAt": TIMESTAMP,
-        "readAt": None,
-        "isRead": False,
-        "isDraft": False,
-        "conversationState": "ended",
-        "doNotAllowResponse": False,
-        "unreadAlertTimeframe": "none",
-        "printHeader": "default",
-    })
-    for letter in state["patientLetters"]:
-        if letter["conversationId"] in ("conv_21", "conv_10"):
-            letter["conversationState"] = "ended"
-
-
-def solve_task_h40(state):
-    """Add two CPT codes and Fremont Clinic location."""
+def solve_task_h20(state):
+    """Remove telephone E/M CPT codes and add 99205."""
+    telephone_codes = {"99441", "99442", "99443"}
+    state["practiceSettings"]["cptCodes"] = [
+        c for c in state["practiceSettings"]["cptCodes"]
+        if c["code"] not in telephone_codes
+    ]
     state["practiceSettings"]["cptCodes"].append({
-        "code": "99458",
-        "description": "Prolonged telehealth service, 15 min",
-    })
-    state["practiceSettings"]["cptCodes"].append({
-        "code": "99459",
-        "description": "Prolonged telehealth service, additional 15 min",
-    })
-    state["practiceSettings"]["practiceLocations"].append({
-        "id": next_location_id(state),
-        "name": "Fremont Clinic",
-        "address": "39500 Paseo Padre Pkwy, Fremont, CA 94538",
-        "posCode": "11",
-        "posDescription": "Office",
+        "code": "99205",
+        "description": "Office visit, new patient, high complexity",
     })
 
 
@@ -1295,26 +824,6 @@ SOLVERS = {
     "task_h18": solve_task_h18,
     "task_h19": solve_task_h19,
     "task_h20": solve_task_h20,
-    "task_h21": solve_task_h21,
-    "task_h22": solve_task_h22,
-    "task_h23": solve_task_h23,
-    "task_h24": solve_task_h24,
-    "task_h25": solve_task_h25,
-    "task_h26": solve_task_h26,
-    "task_h27": solve_task_h27,
-    "task_h28": solve_task_h28,
-    "task_h29": solve_task_h29,
-    "task_h30": solve_task_h30,
-    "task_h31": solve_task_h31,
-    "task_h32": solve_task_h32,
-    "task_h33": solve_task_h33,
-    "task_h34": solve_task_h34,
-    "task_h35": solve_task_h35,
-    "task_h36": solve_task_h36,
-    "task_h37": solve_task_h37,
-    "task_h38": solve_task_h38,
-    "task_h39": solve_task_h39,
-    "task_h40": solve_task_h40,
 }
 
 
@@ -1342,16 +851,16 @@ def seed_server(server_url, seed_state):
         raise RuntimeError(f"Failed to seed server: HTTP {resp.status_code}")
 
 
-def find_free_port(start=9500):
+def find_free_port(start=9000):
     port = start
-    while port < start + 100:
+    while port < start + 200:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             try:
                 s.bind(("", port))
                 return port
             except OSError:
                 port += 1
-    raise RuntimeError(f"No free port found in range {start}-{start+100}")
+    raise RuntimeError(f"No free port found in range {start}-{start+200}")
 
 
 def start_server(port):
@@ -1402,23 +911,19 @@ def run_single_task(task, server_url):
         return task_id, False, f"No solver defined for {task_id}"
 
     try:
-        # 1. Reset to seed state
         resp = requests.post(f"{server_url}/api/reset")
         if resp.status_code != 200:
             return task_id, False, f"Reset failed: HTTP {resp.status_code}"
 
         time.sleep(0.3)
 
-        # 2. Read seed state
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
             return task_id, False, f"Could not read state after reset: HTTP {resp.status_code}"
         state = resp.json()
 
-        # 3. Apply the solve function
         solver(state)
 
-        # 4. Write solved state back
         resp = requests.put(
             f"{server_url}/api/state",
             json=state,
@@ -1427,7 +932,6 @@ def run_single_task(task, server_url):
         if resp.status_code != 200:
             return task_id, False, f"Could not write state: HTTP {resp.status_code}"
 
-        # 5. Run the verifier
         verify_fn = load_verifier(task["verify"])
         passed, message = verify_fn(server_url)
         return task_id, passed, message
@@ -1486,7 +990,7 @@ def main():
     parser = argparse.ArgumentParser(description="Elation Patient Communication real-task sanity check")
     parser.add_argument("--task-id", type=str, help="Run a single task by ID")
     parser.add_argument("--workers", type=int, default=1, help="Number of parallel workers")
-    parser.add_argument("--port", type=int, default=9500, help="Base port for servers")
+    parser.add_argument("--port", type=int, default=9600, help="Base port for servers")
     args = parser.parse_args()
 
     tasks = load_tasks()
@@ -1506,7 +1010,6 @@ def main():
     else:
         results = run_tasks_parallel(tasks, args.workers, args.port, seed_state)
 
-    # Summary
     passed = sum(1 for _, p, _ in results if p)
     total = len(results)
     failed = [tid for tid, p, _ in results if not p]

@@ -2,46 +2,41 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that Clinical Team (ug_2) is in all of Dr. Chen's message routing categories."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    providers = state.get("providers", [])
-    provider_map = {p["id"]: p for p in providers}
+    message_routing = state.get("messageRouting", {})
+    prov1_routing = message_routing.get("prov_1")
 
-    # Jessica Okafor (prov_3)
-    prov_3 = provider_map.get("prov_3")
-    if prov_3 is None:
-        return False, "Provider prov_3 (Jessica Okafor) not found in state."
+    if prov1_routing is None:
+        return False, "No message routing found for prov_1 (Dr. Chen)"
 
-    if prov_3.get("virtualVisitActivated") is not True:
+    categories = [
+        "General Question",
+        "Prescription Refill",
+        "Appointment Request",
+        "Test Results",
+        "Billing Question",
+        "Referral Request",
+        "Medical Records Request",
+        "Other"
+    ]
+
+    missing = []
+    for cat in categories:
+        routing = prov1_routing.get(cat)
+        if routing is None:
+            missing.append(f"'{cat}' - category not found")
+        elif "ug_2" not in routing:
+            missing.append(f"'{cat}' - current routing: {routing}")
+
+    if missing:
         return False, (
-            "Jessica Okafor (prov_3) virtualVisitActivated is not True."
+            f"Clinical Team (ug_2) is missing from Dr. Chen's routing for: "
+            f"{'; '.join(missing)}"
         )
 
-    instructions_3 = prov_3.get("virtualVisitInstructions", "") or ""
-    if "zoom.us/j/okafor123" not in instructions_3:
-        return False, (
-            "Jessica Okafor (prov_3) instructions do not contain "
-            "'zoom.us/j/okafor123'."
-        )
-
-    # Amanda Wright (prov_5)
-    prov_5 = provider_map.get("prov_5")
-    if prov_5 is None:
-        return False, "Provider prov_5 (Amanda Wright) not found in state."
-
-    if prov_5.get("virtualVisitActivated") is not True:
-        return False, (
-            "Amanda Wright (prov_5) virtualVisitActivated is not True."
-        )
-
-    instructions_5 = prov_5.get("virtualVisitInstructions", "") or ""
-    if "zoom.us/j/wright456" not in instructions_5:
-        return False, (
-            "Amanda Wright (prov_5) instructions do not contain "
-            "'zoom.us/j/wright456'."
-        )
-
-    return True, "Telehealth activated for Jessica Okafor and Amanda Wright."
+    return True, "Clinical Team (ug_2) is included in all 8 of Dr. Chen's message routing categories"

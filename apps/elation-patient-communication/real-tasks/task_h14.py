@@ -2,39 +2,48 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify Dr. Torres's notification is set to 'Do not notify me' and he's removed from Dr. Chen's General Question routing."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    practice_settings = state.get("practiceSettings", {})
-    cpt_codes = practice_settings.get("cptCodes", [])
+    # Check Dr. Torres (prov_2) notification timeframe
+    providers = state.get("providers", [])
+    dr_torres = None
+    for prov in providers:
+        if prov.get("id") == "prov_2":
+            dr_torres = prov
+            break
 
-    codes_to_remove = {"99421", "99422", "99423"}
-    code_to_add = "99458"
+    if dr_torres is None:
+        return False, "Provider prov_2 (Dr. Torres) not found"
 
-    # Check removed codes are gone
-    remaining_removed = []
-    for entry in cpt_codes:
-        code = str(entry.get("code", ""))
-        if code in codes_to_remove:
-            remaining_removed.append(code)
-
-    if remaining_removed:
+    timeframe = dr_torres.get("notificationTimeframe")
+    if timeframe != "none":
         return False, (
-            f"Online digital E/M codes still present: {', '.join(remaining_removed)}."
+            f"Dr. Torres's notificationTimeframe is '{timeframe}', expected 'none' "
+            f"(Do not notify me)"
         )
 
-    # Check 99458 was added
-    code_values = [str(entry.get("code", "")) for entry in cpt_codes]
-    if code_to_add not in code_values:
-        return False, f"CPT code {code_to_add} was not added."
+    # Check Dr. Chen's General Question routing does NOT contain prov_2
+    message_routing = state.get("messageRouting", {})
+    prov1_routing = message_routing.get("prov_1")
 
-    # Check at least 10 codes remain (13 - 3 + 1 = 11, but allow some margin)
-    if len(cpt_codes) < 10:
+    if prov1_routing is None:
+        return False, "No message routing found for prov_1 (Dr. Chen)"
+
+    general_routing = prov1_routing.get("General Question")
+    if general_routing is None:
+        return False, "No 'General Question' routing found for Dr. Chen"
+
+    if "prov_2" in general_routing:
         return False, (
-            f"Only {len(cpt_codes)} CPT codes remain, expected at least 10. "
-            f"Other codes may have been incorrectly removed."
+            f"Dr. Torres (prov_2) is still in Dr. Chen's General Question routing: "
+            f"{general_routing}"
         )
 
-    return True, "Online digital E/M codes replaced with telehealth code 99458."
+    return True, (
+        "Dr. Torres's notifications set to 'Do not notify me' and "
+        "removed from Dr. Chen's General Question routing"
+    )

@@ -2,18 +2,24 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Verify that Sophia Nguyen's thyroid check-up appointment is cancelled."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
-        return False, "Could not retrieve application state."
+        return False, f"Failed to fetch state: HTTP {resp.status_code}"
     state = resp.json()
 
-    patients = state.get("patients", [])
-    for patient in patients:
-        if patient.get("id") == "pat_1":
-            tags = patient.get("tags", [])
-            if "VIP" in tags:
-                return True, "James Rodriguez has been tagged as VIP."
-            else:
-                return False, f"Patient pat_1 found but tags are {tags}, expected 'VIP' to be present."
+    appointments = state.get("appointments", [])
+    appointment = None
+    for appt in appointments:
+        if appt.get("id") == "appt_2":
+            appointment = appt
+            break
 
-    return False, "Patient with id 'pat_1' not found in patients."
+    if appointment is None:
+        return False, "Appointment appt_2 (Sophia Nguyen's thyroid check-up) not found"
+
+    status = appointment.get("status", "")
+    if status != "cancelled":
+        return False, f"Appointment appt_2 status is '{status}', expected 'cancelled'"
+
+    return True, "Sophia Nguyen's thyroid check-up appointment (appt_2) is cancelled"
