@@ -19,6 +19,10 @@
 
 set -euo pipefail
 
+# --- Load .env if present ---
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+set -a && source "$REPO_ROOT/.env" && set +a
+
 # --- Defaults ---
 MANIFEST="infra/env_manifest.jsonl"
 INSTANCE_TYPE="m5.4xlarge"
@@ -365,6 +369,14 @@ NOTE_EOF
   fi
 }
 
+# --- AWS CLI v1 vs v2 compatibility ---
+# CLI v1 requires manual base64 encoding of --user-data; CLI v2 auto-encodes.
+if aws --version 2>&1 | grep -q "^aws-cli/1\."; then
+  maybe_base64() { base64; }
+else
+  maybe_base64() { cat; }
+fi
+
 # --- Launch instances ---
 echo ""
 echo "=== Launching $NUM_ENVS instance(s) ==="
@@ -383,7 +395,7 @@ for entry in "${ENVS[@]}"; do
     --security-group-ids "$SG_ID" \
     --iam-instance-profile Name="$ROLE_NAME" \
     --block-device-mappings '[{"DeviceName":"/dev/xvda","Ebs":{"VolumeSize":50}}]' \
-    --user-data "$(build_userdata "$env_id" "$docs_path" | base64)" \
+    --user-data "$(build_userdata "$env_id" "$docs_path" | maybe_base64)" \
     --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=mm-pipeline-${env_id}},{Key=Project,Value=mirror-mirror},{Key=Role,Value=pipeline},{Key=EnvId,Value=${env_id}}]" \
     --query 'Instances[0].InstanceId' --output text --region "$REGION")
 

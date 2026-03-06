@@ -64,9 +64,11 @@ KEY_PAIR="${KEY_PAIR_NAME:-}"
 REGION="${AWS_REGION:-us-east-1}"
 
 # --- Check if all pipelines in current batch are done ---
+# Reports status of every instance and returns 0 only when none are still running.
 check_batch_done() {
   local launch_file="$1"
   source "$launch_file"
+  local any_running=0
 
   for INST_ID in $INSTANCE_IDS; do
     INFO=$(aws ec2 describe-instances --instance-ids "$INST_ID" \
@@ -78,12 +80,14 @@ check_batch_done() {
 
     # Instance not running — treat as done (terminated/stopped)
     if [ "$STATE" != "running" ]; then
+      echo "    $ENV_ID: instance $STATE"
       continue
     fi
 
     if [ "$IP" = "None" ] || [ -z "$IP" ]; then
       echo "    $ENV_ID: no public IP"
-      return 1
+      any_running=1
+      continue
     fi
 
     # Check if pipeline process is still running
@@ -94,22 +98,39 @@ check_batch_done() {
       2>/dev/null || echo "unreachable")
 
     if [ "$PIPELINE_RUNNING" = "yes" ]; then
-      # Get current status for display
       STATUS=$(ssh -i "$HOME/.ssh/${KEY_PAIR}.pem" \
         -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ConnectTimeout=5 -o BatchMode=yes \
         "ec2-user@${IP}" \
         'grep -E "(Phase|pass rate|complete|iteration)" /tmp/mirror-mirror-logs/pipeline.log 2>/dev/null | tail -1 | sed "s/^[0-9-]* [0-9:]* \[pipeline\] //"' \
         2>/dev/null || echo "unknown")
       echo "    $ENV_ID: running — $STATUS"
-      return 1
+      any_running=1
     elif [ "$PIPELINE_RUNNING" = "unreachable" ]; then
       echo "    $ENV_ID: SSH unreachable"
-      return 1
+      any_running=1
+    else
+      # Pipeline not running — check if it completed successfully or crashed
+      OUTCOME=$(ssh -i "$HOME/.ssh/${KEY_PAIR}.pem" \
+        -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ConnectTimeout=5 -o BatchMode=yes \
+        "ec2-user@${IP}" \
+        'grep -c "Pipeline complete for:" /tmp/mirror-mirror-logs/pipeline.log 2>/dev/null || echo 0' \
+        2>/dev/null || echo "0")
+
+      if [ "$OUTCOME" = "0" ]; then
+        FAIL_MSG=$(ssh -i "$HOME/.ssh/${KEY_PAIR}.pem" \
+          -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ConnectTimeout=5 -o BatchMode=yes \
+          "ec2-user@${IP}" \
+          'grep -E "FAILED|Error|Traceback" /tmp/mirror-mirror-logs/pipeline.log 2>/dev/null | tail -1 | sed "s/^[0-9-]* [0-9:]* \[pipeline\] //"' \
+          2>/dev/null || echo "unknown error")
+        echo "    $ENV_ID: CRASHED — ${FAIL_MSG:-(no log)}"
+        BATCH_HAD_FAILURES=1
+      else
+        echo "    $ENV_ID: done"
+      fi
     fi
-    # pipeline not running = done
   done
 
-  return 0  # all done
+  return $any_running
 }
 
 # --- Run batches ---
@@ -149,25 +170,31 @@ for (( batch=0; batch<NUM_BATCHES; batch++ )); do
   echo "=== Waiting for batch $batch_num to complete (polling every ${POLL_INTERVAL}s) ==="
   echo ""
 
+  BATCH_HAD_FAILURES=0
   while true; do
+    BATCH_HAD_FAILURES=0
     if check_batch_done "$LAUNCH_FILE"; then
       echo ""
-      echo "  Batch $batch_num complete!"
+      if [ "$BATCH_HAD_FAILURES" -gt 0 ]; then
+        echo "  Batch $batch_num finished (some pipelines FAILED — check logs above)"
+      else
+        echo "  Batch $batch_num complete!"
+      fi
       break
     fi
     echo "  --- sleeping ${POLL_INTERVAL}s ($(date -u +%H:%M:%S)) ---"
     sleep "$POLL_INTERVAL"
   done
 
-  # Tear down this batch (keep EIPs released, keep SG/IAM for reuse)
-  echo ""
-  echo "=== Tearing down batch $batch_num ==="
-  bash infra/setup/teardown.sh --release-eips
+  # # Tear down this batch (keep EIPs released, keep SG/IAM for reuse)
+  # echo ""
+  # echo "=== Tearing down batch $batch_num ==="
+  # bash infra/setup/teardown.sh --release-eips
 
-  # Cleanup temp files
-  rm -f "$BATCH_MANIFEST"
-  rm -f "$LAUNCH_FILE"
-
+  # # Cleanup temp files
+  # rm -f "$BATCH_MANIFEST"
+  # rm -f "$LAUNCH_FILE"
+# 
   echo ""
   if [ "$batch_num" -lt "$NUM_BATCHES" ]; then
     echo "Moving to next batch..."
