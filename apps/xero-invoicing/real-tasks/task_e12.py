@@ -7,9 +7,13 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    settings = state.get("invoiceSettings", {})
+    reminders = state.get("invoiceReminders", [])
 
-    if settings.get("showTaxColumn") is not False:
-        return False, f"showTaxColumn is {settings.get('showTaxColumn')}, expected False."
+    reminder = next((r for r in reminders if r.get("timing") == "before" and r.get("days") == 7), None)
+    if reminder is None:
+        return False, "7-day advance reminder (timing='before', days=7) not found."
 
-    return True, "Tax column hidden successfully."
+    if reminder.get("enabled") is not False:
+        return False, f"Expected 7-day advance reminder to be disabled (enabled=False), got enabled={reminder.get('enabled')}."
+
+    return True, "7-day advance reminder has been disabled successfully."

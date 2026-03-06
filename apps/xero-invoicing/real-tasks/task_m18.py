@@ -7,12 +7,10 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    rem = next((r for r in state["invoiceReminders"] if r["timing"] == "after" and r["days"] == 1), None)
-    if not rem:
-        return False, "1-day overdue reminder not found."
 
-    expected = "Payment Required - {InvoiceNumber}"
-    if rem["subject"] != expected:
-        return False, f"Subject is '{rem['subject']}', expected '{expected}'."
+    settings = state.get("invoiceSettings", {})
+    prefix = settings.get("creditNotePrefix", "")
+    if prefix != "CR-":
+        return False, f"Credit note prefix is '{prefix}', expected 'CR-'."
 
-    return True, "1-day overdue reminder subject updated."
+    return True, "Credit note prefix changed to 'CR-'."

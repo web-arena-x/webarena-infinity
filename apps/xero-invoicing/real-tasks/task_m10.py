@@ -7,8 +7,23 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    theme = next((t for t in state["brandingThemes"] if t["name"] == "Modern Minimalist"), None)
-    if not theme:
-        return False, "Branding theme 'Modern Minimalist' not found."
 
-    return True, "Branding theme 'Modern Minimalist' created successfully."
+    quotes = state.get("quotes", [])
+    qu = None
+    for q in quotes:
+        if q.get("number") == "QU-0025":
+            qu = q
+            break
+
+    if qu is None:
+        return False, "Quote QU-0025 not found."
+
+    status = qu.get("status", "")
+    if status != "sent":
+        return False, f"Quote QU-0025 status is '{status}', expected 'sent'."
+
+    sent_at = qu.get("sentAt")
+    if sent_at is None:
+        return False, "Quote QU-0025 sentAt is None, expected a timestamp."
+
+    return True, "Quote QU-0025 (Fresh Start Catering) has been sent."

@@ -7,26 +7,45 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    contact = next((c for c in state["contacts"] if c["name"] == "Wellington & Partners Accounting"), None)
-    if not contact:
-        return False, "Contact Wellington & Partners not found."
 
-    new_inv = next((i for i in state["invoices"]
-                    if i["contactId"] == contact["id"]
-                    and i["number"] != "INV-0066"
-                    and i["currency"] == "USD"), None)
+    # Find Wellington & Partners contact
+    contact = next((c for c in state.get("contacts", []) if "Wellington" in c.get("name", "")), None)
+    if contact is None:
+        return False, "Wellington & Partners contact not found."
 
-    if not new_inv:
-        return False, "No new USD invoice found for Wellington & Partners."
+    contact_id = contact.get("id")
 
-    consult_line = next((li for li in new_inv["lineItems"] if li.get("itemId") == "item_002"), None)
-    if not consult_line:
-        return False, "No consulting line item found."
+    # Find a new invoice for Wellington in NZD
+    invoices = state.get("invoices", [])
+    # Exclude known existing invoices for Wellington (INV-0066)
+    new_invoice = next(
+        (inv for inv in invoices
+         if inv.get("contactId") == contact_id
+         and inv.get("currency") == "NZD"
+         and inv.get("number") != "INV-0066"),
+        None
+    )
 
-    if consult_line["quantity"] != 12:
-        return False, f"Consulting hours is {consult_line['quantity']}, expected 12."
+    if new_invoice is None:
+        return False, "No new NZD invoice found for Wellington & Partners."
 
-    if abs(consult_line["unitPrice"] - 250.00) > 0.01:
-        return False, f"Consulting rate is {consult_line['unitPrice']}, expected 250.00."
+    # Check line item: qty=16, unitPrice ~250
+    line_items = new_invoice.get("lineItems", [])
+    consulting_line = next(
+        (li for li in line_items
+         if abs(li.get("quantity", 0) - 16) < 0.01
+         and abs(li.get("unitPrice", 0) - 250.00) < 1.00),
+        None
+    )
+    if consulting_line is None:
+        return False, "No line item found with quantity=16 and unitPrice~$250."
 
-    return True, f"Invoice {new_inv['number']} created for Wellington & Partners in USD."
+    # Check status is awaiting_payment (sent invoice)
+    if new_invoice.get("status") != "awaiting_payment":
+        return False, f"Expected invoice status 'awaiting_payment', got '{new_invoice.get('status')}'."
+
+    # Check sentAt is not None
+    if not new_invoice.get("sentAt"):
+        return False, "Invoice has not been sent (sentAt is null)."
+
+    return True, f"Invoice {new_invoice.get('number')} created for Wellington & Partners in NZD with 16 hours consulting, and sent."

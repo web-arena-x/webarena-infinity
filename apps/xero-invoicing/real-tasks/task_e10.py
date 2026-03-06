@@ -7,15 +7,10 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    prof = next((t for t in state["brandingThemes"] if t["id"] == "theme_professional"), None)
-    if not prof:
-        return False, "Professional Services theme not found."
+    themes = state.get("brandingThemes", [])
 
-    if not prof["isDefault"]:
-        return False, "Professional Services theme is not set as default."
+    simple = next((t for t in themes if t.get("id") == "theme_simple" or t.get("name") == "Simple Clean"), None)
+    if simple is not None:
+        return False, "Simple Clean branding theme still exists in state."
 
-    others = [t for t in state["brandingThemes"] if t["id"] != "theme_professional" and t["isDefault"]]
-    if others:
-        return False, f"Other theme(s) are also marked as default: {[t['name'] for t in others]}"
-
-    return True, "Professional Services is the default branding theme."
+    return True, "Simple Clean branding theme has been deleted successfully."

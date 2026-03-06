@@ -7,22 +7,29 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    contact = next((c for c in state["contacts"] if c["name"] == "Bright Spark Electrical"), None)
-    if not contact:
-        return False, "Contact Bright Spark Electrical not found."
 
-    ri = next((r for r in state["repeatingInvoices"]
-               if r["contactId"] == contact["id"]), None)
+    # Find Bright Spark Electrical contact
+    contact = next((c for c in state.get("contacts", []) if "Bright Spark" in c.get("name", "")), None)
+    if contact is None:
+        return False, "Bright Spark Electrical contact not found."
 
-    if not ri:
+    contact_id = contact.get("id")
+
+    # Find a new repeating invoice for Bright Spark
+    repeating_invoices = state.get("repeatingInvoices", [])
+    new_ri = next(
+        (ri for ri in repeating_invoices if ri.get("contactId") == contact_id),
+        None
+    )
+
+    if new_ri is None:
         return False, "No repeating invoice found for Bright Spark Electrical."
 
-    if ri["frequency"] != "monthly":
-        return False, f"Frequency is '{ri['frequency']}', expected 'monthly'."
+    if new_ri.get("frequency") != "monthly":
+        return False, f"Expected frequency 'monthly', got '{new_ri.get('frequency')}'."
 
-    hosting_line = next((li for li in ri.get("lineItems", [])
-                         if li.get("itemId") == "item_004"), None)
-    if not hosting_line:
-        return False, "No hosting line item found in repeating invoice."
+    line_items = new_ri.get("lineItems", [])
+    if len(line_items) == 0:
+        return False, "Repeating invoice has no line items."
 
-    return True, "Monthly hosting repeating invoice created for Bright Spark Electrical."
+    return True, f"Monthly repeating invoice created for Bright Spark Electrical with {len(line_items)} line item(s)."

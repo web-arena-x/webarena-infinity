@@ -7,23 +7,20 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    contact = next((c for c in state["contacts"] if c["name"] == "Sapphire Bay Resort"), None)
-    if not contact:
-        return False, "Contact Sapphire Bay Resort not found."
+    reminders = state.get("invoiceReminders", [])
 
-    new_inv = next((i for i in state["invoices"]
-                    if i["contactId"] == contact["id"]
-                    and i["number"] != "INV-0054"
-                    and any(li.get("itemId") == "item_006" for li in i.get("lineItems", []))), None)
+    # Check exactly 1 reminder exists with timing='before'
+    before_reminders = [r for r in reminders if r.get("timing") == "before"]
+    if len(before_reminders) != 1:
+        return False, f"Expected exactly 1 reminder with timing='before', found {len(before_reminders)}."
 
-    if not new_inv:
-        return False, "No new invoice with training found for Sapphire Bay Resort."
+    # Check no reminders with timing='after' exist
+    after_reminders = [r for r in reminders if r.get("timing") == "after"]
+    if len(after_reminders) > 0:
+        return False, f"Expected 0 reminders with timing='after', found {len(after_reminders)}."
 
-    training_line = next((li for li in new_inv["lineItems"] if li.get("itemId") == "item_006"), None)
-    if training_line["quantity"] != 3:
-        return False, f"Training days is {training_line['quantity']}, expected 3."
+    # Check total is exactly 1
+    if len(reminders) != 1:
+        return False, f"Expected exactly 1 total reminder, found {len(reminders)}."
 
-    if abs(training_line["unitPrice"] - 2200.00) > 0.01:
-        return False, f"Training rate is {training_line['unitPrice']}, expected 2200.00."
-
-    return True, f"Invoice {new_inv['number']} created for Sapphire Bay Resort with 3 training days."
+    return True, "All overdue reminders deleted. Only the before-due-date reminder remains."

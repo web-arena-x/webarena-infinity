@@ -7,14 +7,11 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    inv = next((i for i in state["invoices"] if i["number"] == "INV-0057"), None)
-    if not inv:
-        return False, "Invoice INV-0057 not found."
+    invoice = next((inv for inv in state.get("invoices", []) if inv.get("number") == "INV-0060"), None)
+    if invoice is None:
+        return False, "Invoice INV-0060 not found."
 
-    if inv["status"] != "awaiting_payment":
-        return False, f"Invoice INV-0057 status is '{inv['status']}', expected 'awaiting_payment'."
+    if invoice.get("status") != "awaiting_approval":
+        return False, f"Expected invoice INV-0060 status to be 'awaiting_approval', got '{invoice.get('status')}'."
 
-    if not inv.get("sentAt"):
-        return False, "Invoice INV-0057 has not been marked as sent (sentAt is null)."
-
-    return True, "Invoice INV-0057 marked as sent."
+    return True, "Invoice INV-0060 (Redback Mining Supplies) has been submitted for approval successfully."

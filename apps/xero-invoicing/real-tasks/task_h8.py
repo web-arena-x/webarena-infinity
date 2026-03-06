@@ -7,25 +7,39 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    contact = next((c for c in state["contacts"] if c["name"] == "Southern Cross Veterinary"), None)
-    if not contact:
-        return False, "Contact Southern Cross Veterinary not found."
 
-    new_quo = next((q for q in state["quotes"]
-                    if q["contactId"] == contact["id"]), None)
+    # Find TechVault Solutions contact
+    contact = next((c for c in state.get("contacts", []) if "TechVault" in c.get("name", "")), None)
+    if contact is None:
+        return False, "TechVault Solutions contact not found."
 
-    if not new_quo:
-        return False, "No quote found for Southern Cross Veterinary."
+    contact_id = contact.get("id")
 
-    consult_line = next((li for li in new_quo.get("lineItems", [])
-                         if li.get("itemId") == "item_002"), None)
-    if not consult_line:
-        return False, "No consulting line item found in quote."
+    # Find a new credit note for TechVault (exclude existing CN-0010)
+    credit_notes = state.get("creditNotes", [])
+    new_cn = next(
+        (cn for cn in credit_notes
+         if cn.get("contactId") == contact_id
+         and cn.get("number") != "CN-0010"),
+        None
+    )
 
-    if consult_line["quantity"] != 8:
-        return False, f"Consulting quantity is {consult_line['quantity']}, expected 8."
+    if new_cn is None:
+        return False, "No new credit note found for TechVault Solutions."
 
-    if abs(consult_line["unitPrice"] - 250.00) > 0.01:
-        return False, f"Consulting rate is {consult_line['unitPrice']}, expected 250.00."
+    # Check line item: qty=5, unitPrice ~185
+    line_items = new_cn.get("lineItems", [])
+    matching_line = next(
+        (li for li in line_items
+         if abs(li.get("quantity", 0) - 5) < 0.01
+         and abs(li.get("unitPrice", 0) - 185.00) < 1.00),
+        None
+    )
+    if matching_line is None:
+        return False, "No line item found with quantity=5 and unitPrice~$185."
 
-    return True, f"Quote {new_quo['number']} created for Southern Cross Veterinary."
+    # Check status is awaiting_payment (approved)
+    if new_cn.get("status") != "awaiting_payment":
+        return False, f"Expected credit note status 'awaiting_payment', got '{new_cn.get('status')}'."
+
+    return True, f"Credit note {new_cn.get('number')} created for TechVault Solutions (5 hrs @ $185), approved."

@@ -7,13 +7,24 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    rem = next((r for r in state["invoiceReminders"]
-                if r["timing"] == "after" and r["days"] == 21), None)
 
-    if not rem:
-        return False, "21-day overdue reminder not found."
+    invoice = next((inv for inv in state.get("invoices", []) if inv.get("number") == "INV-0052"), None)
+    if invoice is None:
+        return False, "Invoice INV-0052 not found."
 
-    if not rem.get("enabled", False):
-        return False, "21-day overdue reminder is not enabled."
+    # Check payment of ~$5,000
+    payments = invoice.get("payments", [])
+    payment_5k = next((p for p in payments if abs(p.get("amount", 0) - 5000.00) < 1.00), None)
+    if payment_5k is None:
+        return False, "No payment of ~$5,000 found on INV-0052."
 
-    return True, "21-day overdue reminder added and enabled."
+    # Check amountDue ~22324 (27324 - 5000)
+    expected_due = 27324.00 - 5000.00
+    if abs(invoice.get("amountDue", 0) - expected_due) > 1.00:
+        return False, f"Expected amountDue ~${expected_due:.2f}, got ${invoice.get('amountDue', 0)}."
+
+    # Check title
+    if invoice.get("title") != "March 2026 Development Sprint":
+        return False, f"Expected title 'March 2026 Development Sprint', got '{invoice.get('title')}'."
+
+    return True, "INV-0052: $5,000 partial payment recorded and title set to 'March 2026 Development Sprint'."

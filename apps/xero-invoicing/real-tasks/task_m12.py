@@ -7,11 +7,10 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    ri = next((r for r in state["repeatingInvoices"] if r["id"] == "rep_003"), None)
-    if not ri:
-        return False, "Repeating invoice rep_003 not found."
 
-    if ri["reference"] != "Cascade monthly license":
-        return False, f"Reference is '{ri['reference']}', expected 'Cascade monthly license'."
+    reminders = state.get("invoiceReminders", [])
+    for r in reminders:
+        if r.get("timing") == "after" and r.get("days") == 14:
+            return False, "14-day overdue reminder still exists."
 
-    return True, "Cascade Software repeating invoice reference updated."
+    return True, "14-day overdue reminder has been deleted."

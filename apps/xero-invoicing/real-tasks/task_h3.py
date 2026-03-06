@@ -7,20 +7,38 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    contact = next((c for c in state["contacts"] if c["name"] == "Greenfield Organics"), None)
-    if not contact:
-        return False, "Contact Greenfield Organics not found."
 
-    new_cn = next((cn for cn in state["creditNotes"]
-                   if cn["contactId"] == contact["id"]
-                   and cn["number"] not in ["CN-0008", "CN-0009", "CN-0010", "CN-0011", "CN-0012"]), None)
+    # Find CN-0012 (CloudNine credit note)
+    cn = next((c for c in state.get("creditNotes", []) if c.get("number") == "CN-0012"), None)
+    if cn is None:
+        return False, "Credit note CN-0012 not found."
 
-    if not new_cn:
-        return False, "No new credit note found for Greenfield Organics."
+    # Check CN-0012 has allocation to INV-0047
+    allocations = cn.get("allocations", [])
+    alloc_to_inv047 = next(
+        (a for a in allocations if a.get("invoiceNumber") == "INV-0047" or a.get("invoiceId") == "inv_006"),
+        None
+    )
+    if alloc_to_inv047 is None:
+        return False, "CN-0012 has no allocation to INV-0047."
 
-    has_100_line = any(abs(li["unitPrice"] - 100.00) < 0.01 and li["quantity"] == 1
-                       for li in new_cn.get("lineItems", []))
-    if not has_100_line:
-        return False, "Credit note does not contain a $100 line item."
+    if abs(alloc_to_inv047.get("amount", 0) - 2035.00) > 1.00:
+        return False, f"Expected allocation amount ~$2,035, got ${alloc_to_inv047.get('amount', 0)}."
 
-    return True, f"Credit note {new_cn['number']} created for Greenfield Organics."
+    # Check CN status is paid and remainingCredit ~0
+    if cn.get("status") != "paid":
+        return False, f"Expected CN-0012 status 'paid', got '{cn.get('status')}'."
+
+    if abs(cn.get("remainingCredit", 9999)) > 1.00:
+        return False, f"Expected CN-0012 remainingCredit ~0, got {cn.get('remainingCredit')}."
+
+    # Check INV-0047 amountDue reduced by 2035
+    inv = next((i for i in state.get("invoices", []) if i.get("number") == "INV-0047"), None)
+    if inv is None:
+        return False, "Invoice INV-0047 not found."
+
+    expected_due = 18652.70 - 2035.00
+    if abs(inv.get("amountDue", 0) - expected_due) > 1.00:
+        return False, f"Expected INV-0047 amountDue ~${expected_due:.2f}, got ${inv.get('amountDue', 0)}."
+
+    return True, "CN-0012 allocated to INV-0047 for $2,035 successfully."

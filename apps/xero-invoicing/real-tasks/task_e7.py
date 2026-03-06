@@ -7,11 +7,11 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    cn = next((c for c in state["creditNotes"] if c["number"] == "CN-0011"), None)
-    if not cn:
-        return False, "Credit note CN-0011 not found."
+    quote = next((q for q in state.get("quotes", []) if q.get("number") == "QU-0026"), None)
+    if quote is None:
+        return False, "Quote QU-0026 not found in state (may have been fully removed)."
 
-    if cn["status"] != "awaiting_payment":
-        return False, f"Credit note CN-0011 status is '{cn['status']}', expected 'awaiting_payment'."
+    if quote.get("status") != "deleted":
+        return False, f"Expected quote QU-0026 status to be 'deleted', got '{quote.get('status')}'."
 
-    return True, "Credit note CN-0011 approved successfully."
+    return True, "Quote QU-0026 (Horizon Media) has been deleted successfully."

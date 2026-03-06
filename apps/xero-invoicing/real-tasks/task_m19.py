@@ -7,17 +7,19 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    inv = next((i for i in state["invoices"] if i["number"] == "INV-0045"), None)
-    if not inv:
-        return False, "Invoice INV-0045 not found."
 
-    if inv["payments"]:
-        return False, f"Invoice INV-0045 still has {len(inv['payments'])} payment(s)."
+    repeating = state.get("repeatingInvoices", [])
+    rep = None
+    for r in repeating:
+        if r.get("id") == "rep_003":
+            rep = r
+            break
 
-    if inv["amountPaid"] != 0:
-        return False, f"Invoice INV-0045 amountPaid is {inv['amountPaid']}, expected 0."
+    if rep is None:
+        return False, "Repeating invoice rep_003 (Cascade Software) not found."
 
-    if abs(inv["amountDue"] - inv["total"]) > 0.01:
-        return False, f"Invoice INV-0045 amountDue ({inv['amountDue']}) does not match total ({inv['total']})."
+    reference = rep.get("reference", "")
+    if reference != "CSS-LIC-MONTHLY":
+        return False, f"Repeating invoice rep_003 reference is '{reference}', expected 'CSS-LIC-MONTHLY'."
 
-    return True, "Partial payment on INV-0045 reversed."
+    return True, "Cascade Software repeating invoice reference updated to 'CSS-LIC-MONTHLY'."

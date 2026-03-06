@@ -7,17 +7,19 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    src = next((q for q in state["quotes"] if q["number"] == "QU-0024"), None)
-    if not src:
-        return False, "Original quote QU-0024 not found."
 
-    copies = [q for q in state["quotes"]
-              if q["contactId"] == src["contactId"]
-              and q["status"] == "draft"
-              and q["number"] != "QU-0024"
-              and abs(q["total"] - src["total"]) < 0.01]
+    invoices = state.get("invoices", [])
+    inv = None
+    for i in invoices:
+        if i.get("number") == "INV-0056":
+            inv = i
+            break
 
-    if not copies:
-        return False, "No draft copy of QU-0024 found for Atlas Engineering."
+    if inv is None:
+        return False, "Invoice INV-0056 not found."
 
-    return True, f"Quote QU-0024 duplicated as {copies[0]['number']}."
+    title = inv.get("title", "")
+    if title != "Q1 Digital Campaign Work":
+        return False, f"Invoice INV-0056 title is '{title}', expected 'Q1 Digital Campaign Work'."
+
+    return True, "Invoice INV-0056 title set to 'Q1 Digital Campaign Work'."

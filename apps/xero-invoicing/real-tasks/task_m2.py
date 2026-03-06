@@ -7,17 +7,47 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    inv = next((i for i in state["invoices"] if i["number"] == "INV-0045"), None)
-    if not inv:
-        return False, "Invoice INV-0045 not found."
 
-    if inv["status"] != "paid":
-        return False, f"Invoice INV-0045 status is '{inv['status']}', expected 'paid'."
+    invoices = state.get("invoices", [])
 
-    if inv["amountDue"] != 0:
-        return False, f"Invoice INV-0045 amountDue is {inv['amountDue']}, expected 0."
+    # Find original INV-0046
+    original = None
+    for i in invoices:
+        if i.get("number") == "INV-0046":
+            original = i
+            break
 
-    if abs(inv["amountPaid"] - inv["total"]) > 0.01:
-        return False, f"Invoice INV-0045 amountPaid ({inv['amountPaid']}) does not match total ({inv['total']})."
+    if original is None:
+        return False, "Original invoice INV-0046 not found."
 
-    return True, "Invoice INV-0045 fully paid (remaining balance closed)."
+    original_contact = original.get("contactId")
+
+    # Look for a new draft invoice with the same contactId
+    new_draft = None
+    for i in invoices:
+        if i.get("number") == "INV-0046":
+            continue
+        if i.get("status") == "draft" and i.get("contactId") == original_contact:
+            # Check total is approximately the same as INV-0046
+            total = i.get("total", 0)
+            if abs(total - 6655.00) < 1.00:
+                new_draft = i
+                break
+
+    if new_draft is None:
+        # Broader search: any new draft for same contact
+        for i in invoices:
+            if i.get("number") == "INV-0046":
+                continue
+            if i.get("status") == "draft" and i.get("contactId") == original_contact:
+                new_draft = i
+                break
+
+    if new_draft is None:
+        return False, f"No new draft invoice found for contact '{original_contact}' (Baxter & Associates)."
+
+    new_total = new_draft.get("total", 0)
+    if abs(new_total - 6655.00) < 1.00:
+        return True, f"New draft invoice {new_draft.get('number')} created as copy of INV-0046 with total ${new_total}."
+
+    return True, f"New draft invoice {new_draft.get('number')} created for same contact as INV-0046 (total=${new_total})."

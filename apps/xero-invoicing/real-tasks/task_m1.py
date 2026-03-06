@@ -7,17 +7,35 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    inv = next((i for i in state["invoices"] if i["number"] == "INV-0053"), None)
-    if not inv:
+
+    invoices = state.get("invoices", [])
+    inv = None
+    for i in invoices:
+        if i.get("number") == "INV-0053":
+            inv = i
+            break
+
+    if inv is None:
         return False, "Invoice INV-0053 not found."
 
-    if inv["status"] != "paid":
-        return False, f"Invoice INV-0053 status is '{inv['status']}', expected 'paid'."
+    if inv.get("status") != "paid":
+        return False, f"Invoice INV-0053 status is '{inv.get('status')}', expected 'paid'."
 
-    if inv["amountDue"] != 0:
-        return False, f"Invoice INV-0053 amountDue is {inv['amountDue']}, expected 0."
+    amount_due = inv.get("amountDue", -1)
+    if amount_due != 0:
+        return False, f"Invoice INV-0053 amountDue is {amount_due}, expected 0."
 
-    if abs(inv["amountPaid"] - 823.90) > 0.01:
-        return False, f"Invoice INV-0053 amountPaid is {inv['amountPaid']}, expected 823.90."
+    payments = inv.get("payments", [])
+    if not payments:
+        return False, "Invoice INV-0053 has no payments recorded."
 
-    return True, "Invoice INV-0053 fully paid."
+    found_payment = False
+    for p in payments:
+        if abs(p.get("amount", 0) - 823.90) < 0.10:
+            found_payment = True
+            break
+
+    if not found_payment:
+        return False, f"No payment of approximately $823.90 found on INV-0053. Payments: {payments}"
+
+    return True, "Invoice INV-0053 is fully paid with payment of $823.90."

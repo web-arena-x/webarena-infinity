@@ -7,18 +7,22 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    inv = next((i for i in state["invoices"] if i["number"] == "INV-0052"), None)
-    if not inv:
-        return False, "Invoice INV-0052 not found."
+    settings = state.get("invoiceSettings", {})
 
-    if not inv.get("payments"):
-        return False, "No payments recorded on INV-0052."
+    # Check invoice prefix
+    if settings.get("invoicePrefix") != "DEMO-":
+        return False, f"Expected invoicePrefix 'DEMO-', got '{settings.get('invoicePrefix')}'."
 
-    total_paid = sum(p["amount"] for p in inv["payments"])
-    if abs(total_paid - 5000.00) > 0.01 and not any(abs(p["amount"] - 5000.00) < 0.01 for p in inv["payments"]):
-        return False, f"No $5,000 payment found. Total paid: {total_paid}."
+    # Check next number
+    if settings.get("invoiceNextNumber") != 100:
+        return False, f"Expected invoiceNextNumber 100, got {settings.get('invoiceNextNumber')}."
 
-    if inv["status"] == "paid":
-        return False, "Invoice should not be fully paid (it was a partial payment)."
+    # Check default due date: 14 days after invoice date
+    due_date = settings.get("defaultDueDate", {})
+    if due_date.get("type") != "daysAfterInvoice":
+        return False, f"Expected defaultDueDate type 'daysAfterInvoice', got '{due_date.get('type')}'."
 
-    return True, f"$5,000 partial payment recorded on INV-0052."
+    if due_date.get("days") != 14:
+        return False, f"Expected defaultDueDate days=14, got {due_date.get('days')}."
+
+    return True, "Invoice settings updated: prefix='DEMO-', next number=100, due date=14 days after invoice."

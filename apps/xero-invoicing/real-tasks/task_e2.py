@@ -7,11 +7,14 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    inv = next((i for i in state["invoices"] if i["number"] == "INV-0059"), None)
-    if not inv:
-        return False, "Invoice INV-0059 not found."
+    invoice = next((inv for inv in state.get("invoices", []) if inv.get("number") == "INV-0054"), None)
+    if invoice is None:
+        return False, "Invoice INV-0054 not found."
 
-    if inv["status"] != "deleted":
-        return False, f"Invoice INV-0059 status is '{inv['status']}', expected 'deleted'."
+    if invoice.get("status") != "voided":
+        return False, f"Expected invoice INV-0054 status to be 'voided', got '{invoice.get('status')}'."
 
-    return True, "Invoice INV-0059 deleted successfully."
+    if invoice.get("amountDue", -1) != 0:
+        return False, f"Expected invoice INV-0054 amountDue to be 0, got {invoice.get('amountDue')}."
+
+    return True, "Invoice INV-0054 (Sapphire Bay Resort) has been voided successfully."

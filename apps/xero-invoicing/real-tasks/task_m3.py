@@ -7,21 +7,22 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    src = next((i for i in state["invoices"] if i["number"] == "INV-0046"), None)
-    if not src:
-        return False, "Original invoice INV-0046 not found."
 
-    copies = [i for i in state["invoices"]
-              if i["contactId"] == src["contactId"]
-              and i["status"] == "draft"
-              and i["number"] != "INV-0046"
-              and abs(i["total"] - src["total"]) < 0.01]
+    invoices = state.get("invoices", [])
+    inv = None
+    for i in invoices:
+        if i.get("number") == "INV-0045":
+            inv = i
+            break
 
-    if not copies:
-        return False, "No draft copy of INV-0046 found for the same contact."
+    if inv is None:
+        return False, "Invoice INV-0045 not found."
 
-    copy = copies[0]
-    if copy["amountPaid"] != 0:
-        return False, f"Copy has amountPaid={copy['amountPaid']}, expected 0."
+    if inv.get("status") != "paid":
+        return False, f"Invoice INV-0045 status is '{inv.get('status')}', expected 'paid'."
 
-    return True, f"Invoice INV-0046 copied successfully as {copy['number']}."
+    amount_due = inv.get("amountDue", -1)
+    if amount_due != 0:
+        return False, f"Invoice INV-0045 amountDue is {amount_due}, expected 0."
+
+    return True, "Invoice INV-0045 (Pinnacle Construction) is fully paid with amountDue=0."

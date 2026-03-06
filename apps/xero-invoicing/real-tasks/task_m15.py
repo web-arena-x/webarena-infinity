@@ -7,14 +7,31 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    quo = next((q for q in state["quotes"] if q["number"] == "QU-0025"), None)
-    if not quo:
-        return False, "Quote QU-0025 not found."
 
-    if quo["status"] != "sent":
-        return False, f"Quote QU-0025 status is '{quo['status']}', expected 'sent'."
+    quotes = state.get("quotes", [])
 
-    if not quo.get("sentAt"):
-        return False, "Quote QU-0025 sentAt is null."
+    # Find original QU-0025
+    original = None
+    for q in quotes:
+        if q.get("number") == "QU-0025":
+            original = q
+            break
 
-    return True, "Quote QU-0025 sent successfully."
+    if original is None:
+        return False, "Original quote QU-0025 not found."
+
+    original_contact = original.get("contactId")
+
+    # Look for a new draft quote with same contactId
+    new_draft = None
+    for q in quotes:
+        if q.get("number") == "QU-0025":
+            continue
+        if q.get("status") == "draft" and q.get("contactId") == original_contact:
+            new_draft = q
+            break
+
+    if new_draft is None:
+        return False, f"No new draft quote found for contact '{original_contact}' (Fresh Start Catering)."
+
+    return True, f"New draft quote {new_draft.get('number')} created as copy of QU-0025 for Fresh Start Catering."

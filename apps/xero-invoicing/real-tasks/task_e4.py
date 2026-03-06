@@ -7,11 +7,14 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    quo = next((q for q in state["quotes"] if q["number"] == "QU-0023"), None)
-    if not quo:
-        return False, "Quote QU-0023 not found."
+    invoice = next((inv for inv in state.get("invoices", []) if inv.get("number") == "INV-0057"), None)
+    if invoice is None:
+        return False, "Invoice INV-0057 not found."
 
-    if quo["status"] != "accepted":
-        return False, f"Quote QU-0023 status is '{quo['status']}', expected 'accepted'."
+    if invoice.get("status") != "awaiting_payment":
+        return False, f"Expected invoice INV-0057 status to be 'awaiting_payment', got '{invoice.get('status')}'."
 
-    return True, "Quote QU-0023 accepted successfully."
+    if not invoice.get("sentAt"):
+        return False, "Expected invoice INV-0057 sentAt to be set (not None/empty), but it is not."
+
+    return True, "Invoice INV-0057 (Stellar Education Services) has been marked as sent successfully."

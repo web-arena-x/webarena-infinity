@@ -7,11 +7,15 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    inv = next((i for i in state["invoices"] if i["number"] == "INV-0058"), None)
-    if not inv:
-        return False, "Invoice INV-0058 not found."
 
-    if inv["reference"] != "MRW-WEB-MARCH":
-        return False, f"Reference is '{inv['reference']}', expected 'MRW-WEB-MARCH'."
+    reminders = state.get("invoiceReminders", [])
+    found = False
+    for r in reminders:
+        if r.get("timing") == "after" and r.get("days") == 21:
+            found = True
+            break
 
-    return True, "Reference 'MRW-WEB-MARCH' added to INV-0058."
+    if not found:
+        return False, f"No reminder found with timing='after' and days=21. Current reminders: {reminders}"
+
+    return True, "Reminder for 21 days after due date has been created."

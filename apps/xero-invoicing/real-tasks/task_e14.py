@@ -9,7 +9,8 @@ def verify(server_url: str) -> tuple[bool, str]:
     state = resp.json()
     settings = state.get("invoiceSettings", {})
 
-    if settings.get("showDiscountColumn") is not False:
-        return False, f"showDiscountColumn is {settings.get('showDiscountColumn')}, expected False."
+    tax_mode = settings.get("defaultTaxMode")
+    if tax_mode != "inclusive":
+        return False, f"Expected defaultTaxMode to be 'inclusive', got '{tax_mode}'."
 
-    return True, "Discount column hidden successfully."
+    return True, "Default tax mode has been switched to inclusive."

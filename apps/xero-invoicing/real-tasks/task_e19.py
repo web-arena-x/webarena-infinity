@@ -7,8 +7,10 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    rem = next((r for r in state["invoiceReminders"] if r["timing"] == "after" and r["days"] == 14), None)
-    if rem is not None:
-        return False, "14-day overdue reminder still exists."
+    repeating = state.get("repeatingInvoices", [])
 
-    return True, "14-day overdue reminder deleted successfully."
+    summit = next((ri for ri in repeating if ri.get("id") == "rep_005"), None)
+    if summit is not None:
+        return False, f"Repeating invoice rep_005 (Summit Health Group) still exists in repeatingInvoices (status: {summit.get('status')})."
+
+    return True, "Repeating invoice rep_005 (Summit Health Group) has been deleted successfully."

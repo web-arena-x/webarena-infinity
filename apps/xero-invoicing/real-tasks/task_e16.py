@@ -7,8 +7,10 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    ri = next((r for r in state["repeatingInvoices"] if r["id"] == "rep_005"), None)
-    if ri is not None:
-        return False, "Summit Health Group repeating invoice (rep_005) still exists."
+    settings = state.get("invoiceSettings", {})
 
-    return True, "Summit Health Group repeating invoice deleted successfully."
+    prefix = settings.get("invoicePrefix")
+    if prefix != "TAX-":
+        return False, f"Expected invoicePrefix to be 'TAX-', got '{prefix}'."
+
+    return True, "Invoice prefix has been changed to 'TAX-' successfully."

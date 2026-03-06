@@ -7,8 +7,13 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    simple = next((t for t in state["brandingThemes"] if t["id"] == "theme_simple"), None)
-    if simple is not None:
-        return False, "Simple Clean theme still exists."
+    themes = state.get("brandingThemes", [])
 
-    return True, "Simple Clean branding theme removed successfully."
+    standard = next((t for t in themes if t.get("name") == "Standard" or t.get("id") == "theme_standard"), None)
+    if standard is None:
+        return False, "Standard branding theme not found."
+
+    if standard.get("showTaxNumber") is not False:
+        return False, f"Expected Standard theme showTaxNumber to be False, got {standard.get('showTaxNumber')}."
+
+    return True, "Tax number display has been turned off on the Standard theme."

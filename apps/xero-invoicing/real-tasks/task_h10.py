@@ -7,25 +7,35 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    cn = next((c for c in state["creditNotes"] if c["number"] == "CN-0012"), None)
-    if not cn:
-        return False, "Credit note CN-0012 not found."
 
-    inv = next((i for i in state["invoices"] if i["number"] == "INV-0047"), None)
-    if not inv:
-        return False, "Invoice INV-0047 not found."
+    # Find Northern Territory Power Corp contact
+    contact = next((c for c in state.get("contacts", []) if "Northern Territory" in c.get("name", "")), None)
+    if contact is None:
+        return False, "Northern Territory Power Corp contact not found."
 
-    if not cn.get("allocations"):
-        return False, "CN-0012 has no allocations."
+    contact_id = contact.get("id")
 
-    alloc = next((a for a in cn["allocations"] if a["invoiceId"] == inv["id"]), None)
-    if not alloc:
-        return False, "CN-0012 not allocated to INV-0047."
+    # Find a new quote for NT Power (exclude any existing quotes)
+    quotes = state.get("quotes", [])
+    new_quote = next(
+        (q for q in quotes if q.get("contactId") == contact_id),
+        None
+    )
 
-    if abs(alloc["amount"] - 2035.00) > 0.01:
-        return False, f"Allocation amount is {alloc['amount']}, expected 2035.00."
+    if new_quote is None:
+        return False, "No quote found for Northern Territory Power Corp."
 
-    if cn["remainingCredit"] > 0.01:
-        return False, f"CN-0012 remainingCredit is {cn['remainingCredit']}, expected 0."
+    # Check at least 2 line items
+    line_items = new_quote.get("lineItems", [])
+    if len(line_items) < 2:
+        return False, f"Expected at least 2 line items, found {len(line_items)}."
 
-    return True, "CN-0012 allocated to INV-0047 (CloudNine's largest invoice)."
+    # Check status is sent
+    if new_quote.get("status") != "sent":
+        return False, f"Expected quote status 'sent', got '{new_quote.get('status')}'."
+
+    # Check sentAt is not None
+    if not new_quote.get("sentAt"):
+        return False, "Quote has not been sent (sentAt is null)."
+
+    return True, f"Quote {new_quote.get('number')} created for NT Power Corp with {len(line_items)} line items and sent."

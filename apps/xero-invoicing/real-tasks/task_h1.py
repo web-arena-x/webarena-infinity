@@ -7,26 +7,29 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    contact = next((c for c in state["contacts"] if c["name"] == "TechVault Solutions Pty Ltd"), None)
-    if not contact:
-        return False, "Contact TechVault Solutions not found."
 
-    new_inv = next((i for i in state["invoices"]
-                    if i["contactId"] == contact["id"]
-                    and i["number"] not in ["INV-0043", "INV-0055"]
-                    and any(li.get("itemId") == "item_001" for li in i.get("lineItems", []))), None)
+    # Find the Pinnacle Construction quote QU-0022
+    quote = next((q for q in state.get("quotes", []) if q.get("number") == "QU-0022"), None)
+    if quote is None:
+        return False, "Quote QU-0022 not found."
 
-    if not new_inv:
-        return False, "No new invoice with dev hours found for TechVault."
+    if not quote.get("isInvoiced"):
+        return False, "Quote QU-0022 has not been marked as invoiced."
 
-    dev_line = next((li for li in new_inv["lineItems"] if li.get("itemId") == "item_001"), None)
-    if not dev_line:
-        return False, "No dev-hour line item found."
+    quote_contact_id = quote.get("contactId")
 
-    if dev_line["quantity"] != 10:
-        return False, f"Dev hours quantity is {dev_line['quantity']}, expected 10."
+    # Find a new invoice with the same contactId and total matching ~52360
+    invoices = state.get("invoices", [])
+    matching_invoice = next(
+        (inv for inv in invoices
+         if inv.get("contactId") == quote_contact_id
+         and abs(inv.get("total", 0) - 52360.00) < 1.00
+         and inv.get("number") != "INV-0042"
+         and inv.get("number") != "INV-0045"),
+        None
+    )
 
-    if abs(dev_line["unitPrice"] - 185.00) > 0.01:
-        return False, f"Dev hours unit price is {dev_line['unitPrice']}, expected 185.00."
+    if matching_invoice is None:
+        return False, f"No new invoice found for contact '{quote_contact_id}' with total ~$52,360."
 
-    return True, f"Invoice {new_inv['number']} created for TechVault with 10 dev hours."
+    return True, f"Invoice {matching_invoice.get('number')} created from quote QU-0022 successfully."

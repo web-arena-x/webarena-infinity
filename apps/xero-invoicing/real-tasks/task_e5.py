@@ -7,11 +7,11 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    quo = next((q for q in state["quotes"] if q["number"] == "QU-0028"), None)
-    if not quo:
-        return False, "Quote QU-0028 not found."
+    quote = next((q for q in state.get("quotes", []) if q.get("number") == "QU-0023"), None)
+    if quote is None:
+        return False, "Quote QU-0023 not found."
 
-    if quo["status"] != "declined":
-        return False, f"Quote QU-0028 status is '{quo['status']}', expected 'declined'."
+    if quote.get("status") != "accepted":
+        return False, f"Expected quote QU-0023 status to be 'accepted', got '{quote.get('status')}'."
 
-    return True, "Quote QU-0028 declined successfully."
+    return True, "Quote QU-0023 (Redback Mining Supplies) has been accepted successfully."

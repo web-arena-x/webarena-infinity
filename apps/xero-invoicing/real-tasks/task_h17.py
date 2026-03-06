@@ -7,22 +7,22 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    contact = next((c for c in state["contacts"] if c["name"] == "Outback Adventures Tourism"), None)
-    if not contact:
-        return False, "Contact Outback Adventures Tourism not found."
+    themes = state.get("brandingThemes", [])
 
-    new_inv = next((i for i in state["invoices"]
-                    if i["contactId"] == contact["id"]
-                    and i["number"] != "INV-0065"), None)
+    # Find 'Government' theme
+    gov_theme = next((t for t in themes if t.get("name") == "Government"), None)
+    if gov_theme is None:
+        return False, "Branding theme 'Government' not found."
 
-    if not new_inv:
-        return False, "No new invoice found for Outback Adventures Tourism."
+    if gov_theme.get("showPaymentAdvice") is not False:
+        return False, f"Expected showPaymentAdvice=False on Government theme, got {gov_theme.get('showPaymentAdvice')}."
 
-    item_ids = [li.get("itemId") for li in new_inv.get("lineItems", [])]
-    if "item_009" not in item_ids:
-        return False, "Invoice missing security audit line item."
+    if gov_theme.get("isDefault") is not True:
+        return False, "Government theme is not set as default."
 
-    if "item_010" not in item_ids:
-        return False, "Invoice missing data migration line item."
+    # Check all other themes are not default
+    other_defaults = [t.get("name") for t in themes if t.get("name") != "Government" and t.get("isDefault") is True]
+    if other_defaults:
+        return False, f"Other themes still marked as default: {', '.join(other_defaults)}."
 
-    return True, f"Invoice {new_inv['number']} created for Outback Adventures with audit and migration."
+    return True, "Government branding theme created with payment advice disabled and set as default."

@@ -7,11 +7,11 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    rem = next((r for r in state["invoiceReminders"] if r["timing"] == "after" and r["days"] == 30), None)
-    if not rem:
-        return False, "30-day overdue reminder not found."
+    credit_note = next((cn for cn in state.get("creditNotes", []) if cn.get("number") == "CN-0011"), None)
+    if credit_note is None:
+        return False, "Credit note CN-0011 not found."
 
-    if not rem["enabled"]:
-        return False, "30-day overdue reminder is not enabled."
+    if credit_note.get("status") != "awaiting_payment":
+        return False, f"Expected credit note CN-0011 status to be 'awaiting_payment', got '{credit_note.get('status')}'."
 
-    return True, "30-day overdue reminder enabled successfully."
+    return True, "Credit note CN-0011 (Pacific Freight Lines) has been approved successfully."

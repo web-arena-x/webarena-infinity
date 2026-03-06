@@ -7,11 +7,19 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    ri = next((r for r in state["repeatingInvoices"] if r["id"] == "rep_002"), None)
-    if not ri:
-        return False, "Repeating invoice rep_002 not found."
 
-    if ri["frequency"] != "quarterly":
-        return False, f"Frequency is '{ri['frequency']}', expected 'quarterly'."
+    themes = state.get("brandingThemes", [])
+    found = None
+    for t in themes:
+        if t.get("name", "").lower() == "corporate executive":
+            found = t
+            break
 
-    return True, "CloudNine Analytics repeating invoice changed to quarterly."
+    if found is None:
+        return False, "Branding theme 'Corporate Executive' not found."
+
+    payment_terms = found.get("paymentTerms", "")
+    if "net 14" not in payment_terms.lower():
+        return False, f"Theme 'Corporate Executive' paymentTerms is '{payment_terms}', expected to contain 'Net 14 days'."
+
+    return True, "Branding theme 'Corporate Executive' created with payment terms 'Net 14 days'."

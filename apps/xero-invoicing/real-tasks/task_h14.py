@@ -7,25 +7,24 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    contact = next((c for c in state["contacts"] if c["name"] == "Harbour City Plumbing"), None)
-    if not contact:
-        return False, "Contact Harbour City Plumbing not found."
 
-    ri = next((r for r in state["repeatingInvoices"]
-               if r["contactId"] == contact["id"]), None)
+    invoice = next((inv for inv in state.get("invoices", []) if inv.get("number") == "INV-0057"), None)
+    if invoice is None:
+        return False, "Invoice INV-0057 not found."
 
-    if not ri:
-        return False, "No repeating invoice found for Harbour City Plumbing."
+    if invoice.get("status") != "paid":
+        return False, f"Expected INV-0057 status 'paid', got '{invoice.get('status')}'."
 
-    if ri["frequency"] != "monthly":
-        return False, f"Frequency is '{ri['frequency']}', expected 'monthly'."
+    if abs(invoice.get("amountDue", 9999)) > 0.01:
+        return False, f"Expected amountDue=0, got {invoice.get('amountDue')}."
 
-    if ri["saveAs"] != "approved_for_sending":
-        return False, f"saveAs is '{ri['saveAs']}', expected 'approved_for_sending'."
+    if not invoice.get("sentAt"):
+        return False, "INV-0057 has not been sent (sentAt is null)."
 
-    hosting_line = next((li for li in ri.get("lineItems", [])
-                         if li.get("itemId") == "item_004"), None)
-    if not hosting_line:
-        return False, "No hosting line item found."
+    # Check has payment ~6600
+    payments = invoice.get("payments", [])
+    payment_6600 = next((p for p in payments if abs(p.get("amount", 0) - 6600.00) < 1.00), None)
+    if payment_6600 is None:
+        return False, "No payment of ~$6,600 found on INV-0057."
 
-    return True, "Monthly auto-sent hosting repeating invoice created for Harbour City Plumbing."
+    return True, "INV-0057 (Stellar Education) approved, sent, and fully paid ($6,600)."

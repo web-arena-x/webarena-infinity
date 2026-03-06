@@ -7,11 +7,22 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    rem = next((r for r in state["invoiceReminders"] if r["timing"] == "before" and r["days"] == 7), None)
-    if not rem:
-        return False, "7-day before-due reminder not found."
+    themes = state.get("brandingThemes", [])
+    if not themes:
+        return False, "No branding themes found in state."
 
-    if rem["enabled"]:
-        return False, "7-day before-due reminder is still enabled."
+    professional = next((t for t in themes if t.get("name") == "Professional Services"), None)
+    if professional is None:
+        professional = next((t for t in themes if t.get("id") == "theme_professional"), None)
+    if professional is None:
+        return False, "Professional Services branding theme not found."
 
-    return True, "7-day before-due reminder disabled successfully."
+    if not professional.get("isDefault"):
+        return False, "Professional Services theme is not set as default."
+
+    others_with_default = [t for t in themes if t.get("id") != professional.get("id") and t.get("isDefault")]
+    if others_with_default:
+        names = ", ".join(t.get("name", t.get("id")) for t in others_with_default)
+        return False, f"Other themes still have isDefault=True: {names}."
+
+    return True, "Professional Services is now the default branding theme."

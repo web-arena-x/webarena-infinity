@@ -7,11 +7,9 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    theme = next((t for t in state["brandingThemes"] if t["id"] == "theme_standard"), None)
-    if not theme:
-        return False, "Standard theme not found."
+    settings = state.get("invoiceSettings", {})
 
-    if theme.get("showTaxNumber") is not False:
-        return False, f"Standard theme showTaxNumber is {theme.get('showTaxNumber')}, expected False."
+    if settings.get("showItemCode") is not False:
+        return False, f"Expected showItemCode to be False, got {settings.get('showItemCode')}."
 
-    return True, "ABN hidden on Standard template."
+    return True, "Item code column has been hidden successfully."

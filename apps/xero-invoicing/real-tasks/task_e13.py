@@ -7,9 +7,13 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    settings = state.get("invoiceSettings", {})
+    reminders = state.get("invoiceReminders", [])
 
-    if settings.get("defaultTaxMode") != "inclusive":
-        return False, f"defaultTaxMode is '{settings.get('defaultTaxMode')}', expected 'inclusive'."
+    reminder = next((r for r in reminders if r.get("timing") == "after" and r.get("days") == 30), None)
+    if reminder is None:
+        return False, "30-day overdue reminder (timing='after', days=30) not found."
 
-    return True, "Default tax mode set to inclusive."
+    if reminder.get("enabled") is not True:
+        return False, f"Expected 30-day overdue reminder to be enabled (enabled=True), got enabled={reminder.get('enabled')}."
+
+    return True, "30-day overdue reminder has been enabled successfully."

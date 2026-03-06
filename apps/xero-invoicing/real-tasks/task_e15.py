@@ -9,7 +9,7 @@ def verify(server_url: str) -> tuple[bool, str]:
     state = resp.json()
     settings = state.get("invoiceSettings", {})
 
-    if settings.get("showItemCode") is not False:
-        return False, f"showItemCode is {settings.get('showItemCode')}, expected False."
+    if settings.get("showDiscountColumn") is not False:
+        return False, f"Expected showDiscountColumn to be False, got {settings.get('showDiscountColumn')}."
 
-    return True, "Item codes hidden successfully."
+    return True, "Discount column has been hidden successfully."

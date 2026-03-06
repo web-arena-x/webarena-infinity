@@ -7,25 +7,29 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    contact = next((c for c in state["contacts"] if c["name"] == "Southern Cross Veterinary"), None)
-    if not contact:
-        return False, "Contact Southern Cross Veterinary not found."
 
-    ri = next((r for r in state["repeatingInvoices"]
-               if r["contactId"] == contact["id"]), None)
+    # Find the Alpha Logistics quote QU-0029
+    quote = next((q for q in state.get("quotes", []) if q.get("number") == "QU-0029"), None)
+    if quote is None:
+        return False, "Quote QU-0029 not found."
 
-    if not ri:
-        return False, "No repeating invoice found for Southern Cross Veterinary."
+    if not quote.get("isInvoiced"):
+        return False, "Quote QU-0029 has not been marked as invoiced."
 
-    if ri["frequency"] != "quarterly":
-        return False, f"Frequency is '{ri['frequency']}', expected 'quarterly'."
+    quote_contact_id = quote.get("contactId")
 
-    if ri["saveAs"] != "approved":
-        return False, f"saveAs is '{ri['saveAs']}', expected 'approved'."
+    # Find a new invoice with the same contactId and total matching ~17600
+    invoices = state.get("invoices", [])
+    # Exclude known existing invoices for Alpha Logistics (INV-0050)
+    matching_invoice = next(
+        (inv for inv in invoices
+         if inv.get("contactId") == quote_contact_id
+         and abs(inv.get("total", 0) - 17600.00) < 1.00
+         and inv.get("number") != "INV-0050"),
+        None
+    )
 
-    support_line = next((li for li in ri.get("lineItems", [])
-                         if li.get("itemId") == "item_005"), None)
-    if not support_line:
-        return False, "No technical support line item found in repeating invoice."
+    if matching_invoice is None:
+        return False, f"No new invoice found for contact '{quote_contact_id}' with total ~$17,600."
 
-    return True, "Quarterly auto-approved repeating invoice created for Southern Cross Veterinary."
+    return True, f"Invoice {matching_invoice.get('number')} created from quote QU-0029 successfully."

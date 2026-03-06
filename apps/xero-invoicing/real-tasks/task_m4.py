@@ -7,20 +7,36 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    quo = next((q for q in state["quotes"] if q["number"] == "QU-0022"), None)
-    if not quo:
-        return False, "Quote QU-0022 not found."
 
-    if not quo.get("isInvoiced"):
-        return False, "Quote QU-0022 is not marked as invoiced."
+    invoices = state.get("invoices", [])
 
-    new_inv = next((i for i in state["invoices"]
-                    if i["contactId"] == quo["contactId"]
-                    and i["status"] == "draft"
-                    and abs(i["total"] - quo["total"]) < 0.01
-                    and i["number"] not in ["INV-0042", "INV-0045"]), None)
+    # Find Atlas Engineering Consultants contact id
+    contacts = state.get("contacts", [])
+    atlas_id = None
+    for c in contacts:
+        if "atlas" in c.get("name", "").lower() and "engineering" in c.get("name", "").lower():
+            atlas_id = c.get("id")
+            break
 
-    if not new_inv:
-        return False, "No new draft invoice found for Pinnacle Construction matching quote total."
+    if atlas_id is None:
+        return False, "Atlas Engineering Consultants contact not found in state."
 
-    return True, f"Quote QU-0022 converted to invoice {new_inv['number']}."
+    # Look for a new invoice for Atlas Engineering with matching line item
+    matching_invoice = None
+    for inv in invoices:
+        if inv.get("contactId") != atlas_id:
+            continue
+        line_items = inv.get("lineItems", [])
+        for li in line_items:
+            qty = li.get("quantity", 0)
+            price = li.get("unitPrice", 0)
+            if qty == 20 and abs(price - 185.00) < 1.00:
+                matching_invoice = inv
+                break
+        if matching_invoice:
+            break
+
+    if matching_invoice is None:
+        return False, "No invoice found for Atlas Engineering Consultants with 20 hours at $185/hr."
+
+    return True, f"New invoice {matching_invoice.get('number')} created for Atlas Engineering with 20 hours at $185/hr."

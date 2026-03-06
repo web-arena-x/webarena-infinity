@@ -7,11 +7,19 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    theme = next((t for t in state["brandingThemes"] if t["id"] == "theme_retail"), None)
-    if not theme:
-        return False, "Retail theme not found."
 
-    if theme["name"] != "Retail Premium":
-        return False, f"Theme name is '{theme['name']}', expected 'Retail Premium'."
+    themes = state.get("brandingThemes", [])
+    theme = None
+    for t in themes:
+        if t.get("id") == "theme_retail":
+            theme = t
+            break
 
-    return True, "Retail theme renamed to 'Retail Premium'."
+    if theme is None:
+        return False, "Branding theme with id 'theme_retail' not found."
+
+    name = theme.get("name", "")
+    if name != "Retail Premium":
+        return False, f"Theme 'theme_retail' name is '{name}', expected 'Retail Premium'."
+
+    return True, "Retail branding theme renamed to 'Retail Premium'."

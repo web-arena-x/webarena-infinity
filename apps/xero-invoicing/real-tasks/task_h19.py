@@ -7,25 +7,24 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-    contact = next((c for c in state["contacts"] if c["name"] == "Atlas Engineering Consultants"), None)
-    if not contact:
-        return False, "Contact Atlas Engineering Consultants not found."
 
-    new_inv = next((i for i in state["invoices"]
-                    if i["contactId"] == contact["id"]
-                    and any(li.get("itemId") == "item_003" for li in i.get("lineItems", []))), None)
+    invoice = next((inv for inv in state.get("invoices", []) if inv.get("number") == "INV-0060"), None)
+    if invoice is None:
+        return False, "Invoice INV-0060 not found."
 
-    if not new_inv:
-        return False, "No new invoice with PM days found for Atlas Engineering."
+    # Should be awaiting_payment (approved + partial payment)
+    if invoice.get("status") != "awaiting_payment":
+        return False, f"Expected INV-0060 status 'awaiting_payment', got '{invoice.get('status')}'."
 
-    if new_inv["brandingThemeId"] != "theme_professional":
-        return False, f"Branding theme is '{new_inv['brandingThemeId']}', expected 'theme_professional'."
+    # Check has payment ~$1,000
+    payments = invoice.get("payments", [])
+    payment_1k = next((p for p in payments if abs(p.get("amount", 0) - 1000.00) < 1.00), None)
+    if payment_1k is None:
+        return False, "No payment of ~$1,000 found on INV-0060."
 
-    pm_line = next((li for li in new_inv["lineItems"] if li.get("itemId") == "item_003"), None)
-    if pm_line["quantity"] != 5:
-        return False, f"PM days is {pm_line['quantity']}, expected 5."
+    # Check amountDue ~2450 (3450 - 1000)
+    expected_due = 3450.00 - 1000.00
+    if abs(invoice.get("amountDue", 0) - expected_due) > 1.00:
+        return False, f"Expected amountDue ~${expected_due:.2f}, got ${invoice.get('amountDue', 0)}."
 
-    if abs(pm_line["unitPrice"] - 1400.00) > 0.01:
-        return False, f"PM rate is {pm_line['unitPrice']}, expected 1400.00."
-
-    return True, f"Invoice {new_inv['number']} created for Atlas Engineering with Professional Services template."
+    return True, "INV-0060 (Redback Mining) approved with $1,000 partial payment, amountDue ~$2,450."
