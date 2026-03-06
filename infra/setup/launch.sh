@@ -403,30 +403,52 @@ for entry in "${ENVS[@]}"; do
   INSTANCE_IDS="$INSTANCE_IDS $INST_ID"
 done
 
-# --- Allocate Elastic IPs and associate ---
+# --- Assign Elastic IPs from pool (or allocate new ones) ---
 echo ""
-echo "=== Allocating Elastic IPs ==="
+echo "=== Assigning Elastic IPs ==="
 echo "  Waiting for instances to enter running state..."
 for INST_ID in $INSTANCE_IDS; do
   aws ec2 wait instance-running --instance-ids "$INST_ID" --region "$REGION"
 done
 
+# Build list of unassociated pool EIPs (tagged Project=mirror-mirror, not attached)
+POOL_EIPS=$(aws ec2 describe-addresses \
+  --filters "Name=tag:Project,Values=mirror-mirror" \
+  --query 'Addresses[?AssociationId==null].AllocationId' \
+  --output text --region "$REGION" 2>/dev/null || true)
+POOL_ARRAY=($POOL_EIPS)
+POOL_IDX=0
+
+echo "  Pool has ${#POOL_ARRAY[@]} unassociated EIP(s)"
+
 for INST_ID in $INSTANCE_IDS; do
   ENV_ID=$(aws ec2 describe-instances --instance-ids "$INST_ID" \
     --query 'Reservations[0].Instances[0].Tags[?Key==`EnvId`].Value | [0]' --output text --region "$REGION")
 
-  # Allocate an Elastic IP
-  EIP_JSON=$(aws ec2 allocate-address --domain vpc \
-    --tag-specifications "ResourceType=elastic-ip,Tags=[{Key=Name,Value=mm-eip-${ENV_ID}},{Key=Project,Value=mirror-mirror},{Key=EnvId,Value=${ENV_ID}}]" \
-    --region "$REGION")
-  ALLOC_ID=$(echo "$EIP_JSON" | python3 -c "import sys,json; print(json.load(sys.stdin)['AllocationId'])")
-  EIP=$(echo "$EIP_JSON" | python3 -c "import sys,json; print(json.load(sys.stdin)['PublicIp'])")
+  if [ $POOL_IDX -lt ${#POOL_ARRAY[@]} ]; then
+    # Reuse an existing pool EIP
+    ALLOC_ID="${POOL_ARRAY[$POOL_IDX]}"
+    EIP=$(aws ec2 describe-addresses --allocation-ids "$ALLOC_ID" \
+      --query 'Addresses[0].PublicIp' --output text --region "$REGION")
+    POOL_IDX=$((POOL_IDX + 1))
+    echo "  $ENV_ID → $EIP (reused from pool: $ALLOC_ID)"
+  else
+    # Pool exhausted — allocate a new EIP
+    EIP_JSON=$(aws ec2 allocate-address --domain vpc \
+      --tag-specifications "ResourceType=elastic-ip,Tags=[{Key=Name,Value=mm-eip-${ENV_ID}},{Key=Project,Value=mirror-mirror}]" \
+      --region "$REGION")
+    ALLOC_ID=$(echo "$EIP_JSON" | python3 -c "import sys,json; print(json.load(sys.stdin)['AllocationId'])")
+    EIP=$(echo "$EIP_JSON" | python3 -c "import sys,json; print(json.load(sys.stdin)['PublicIp'])")
+    echo "  $ENV_ID → $EIP (new allocation: $ALLOC_ID)"
+  fi
 
-  # Associate with instance
+  # Tag with current EnvId and associate
+  aws ec2 create-tags --resources "$ALLOC_ID" \
+    --tags "Key=Name,Value=mm-eip-${ENV_ID}" "Key=EnvId,Value=${ENV_ID}" \
+    --region "$REGION"
   aws ec2 associate-address --instance-id "$INST_ID" --allocation-id "$ALLOC_ID" \
     --region "$REGION" > /dev/null
 
-  echo "  $ENV_ID → $EIP (eip: $ALLOC_ID)"
   EIP_ALLOC_IDS="$EIP_ALLOC_IDS $ALLOC_ID"
 done
 
@@ -486,8 +508,8 @@ else
 fi
 
 echo ""
-echo "NOTE: Elastic IPs are stable across stop/start cycles."
-echo "      To release them during teardown, run:"
+echo "NOTE: EIPs are pooled and reused across launches to preserve Claude auth."
+echo "      Default teardown returns EIPs to pool. To permanently release:"
 echo "        bash infra/setup/teardown.sh --release-eips"
 echo ""
 echo "Monitor progress:"

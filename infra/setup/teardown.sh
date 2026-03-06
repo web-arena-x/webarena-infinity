@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-# Terminate pipeline EC2 instances and optionally release Elastic IPs.
+# Terminate pipeline EC2 instances. EIPs return to the pool for reuse.
 #
 # Finds all instances tagged Project=mirror-mirror and terminates them.
+# EIPs are disassociated but kept in the pool so Claude auth sessions persist.
 #
 # Usage:
-#   bash infra/setup/teardown.sh                   # terminate instances (keep EIPs + SG)
-#   bash infra/setup/teardown.sh --release-eips    # also release Elastic IPs
+#   bash infra/setup/teardown.sh                   # terminate instances (EIPs return to pool)
+#   bash infra/setup/teardown.sh --release-eips    # terminate + release EIPs (destroys Claude auth)
 #   bash infra/setup/teardown.sh --all             # terminate + release EIPs + delete SG + IAM role
 
 set -euo pipefail
@@ -48,23 +49,41 @@ else
   echo "  No instances found."
 fi
 
-# --- Release Elastic IPs ---
-if $RELEASE_EIPS; then
-  echo ""
-  echo "=== Releasing Elastic IPs ==="
-  EIP_IDS=$(aws ec2 describe-addresses \
-    --filters "Name=tag:Project,Values=mirror-mirror" \
-    --query 'Addresses[].AllocationId' --output text --region "$REGION")
-  if [ -n "$EIP_IDS" ]; then
-    for eip in $EIP_IDS; do
-      IP=$(aws ec2 describe-addresses --allocation-ids "$eip" \
-        --query 'Addresses[0].PublicIp' --output text --region "$REGION")
-      aws ec2 release-address --allocation-id "$eip" --region "$REGION" 2>/dev/null && \
-        echo "  Released: $IP ($eip)" || echo "  Failed to release: $eip"
-    done
+# --- Disassociate Elastic IPs (return to pool) ---
+echo ""
+EIP_JSON=$(aws ec2 describe-addresses \
+  --filters "Name=tag:Project,Values=mirror-mirror" \
+  --query 'Addresses[].[AllocationId,PublicIp,AssociationId]' \
+  --output json --region "$REGION" 2>/dev/null || echo "[]")
+EIP_COUNT=$(echo "$EIP_JSON" | python3 -c "import sys,json; print(len(json.load(sys.stdin)))")
+
+if [ "$EIP_COUNT" -gt 0 ]; then
+  if $RELEASE_EIPS; then
+    echo "=== Releasing Elastic IPs (WARNING: Claude auth sessions will be lost) ==="
   else
-    echo "  No Elastic IPs found."
+    echo "=== Returning Elastic IPs to pool ==="
   fi
+
+  echo "$EIP_JSON" | python3 -c "
+import sys, json
+for alloc_id, ip, assoc_id in json.load(sys.stdin):
+    print(f'{alloc_id} {ip} {assoc_id or \"none\"}')
+" | while read -r ALLOC_ID IP ASSOC_ID; do
+    if [ "$ASSOC_ID" != "none" ]; then
+      aws ec2 disassociate-address --association-id "$ASSOC_ID" --region "$REGION" 2>/dev/null
+      echo "  Disassociated: $IP ($ALLOC_ID)"
+    fi
+    if $RELEASE_EIPS; then
+      aws ec2 release-address --allocation-id "$ALLOC_ID" --region "$REGION" 2>/dev/null && \
+        echo "  Released: $IP ($ALLOC_ID)" || echo "  Failed to release: $ALLOC_ID"
+    fi
+  done
+
+  if ! $RELEASE_EIPS; then
+    echo "  $EIP_COUNT EIP(s) retained in pool (use --release-eips to destroy)"
+  fi
+else
+  echo "=== No Elastic IPs found ==="
 fi
 
 # --- Full cleanup ---
@@ -92,7 +111,7 @@ fi
 
 if ! $DELETE_ALL; then
   echo ""
-  echo "Security group and IAM role preserved (re-use on next run)."
+  echo "Security group, IAM role, and EIP pool preserved (re-use on next run)."
   echo "To delete everything: bash infra/setup/teardown.sh --all"
 fi
 
