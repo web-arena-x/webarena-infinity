@@ -56,7 +56,7 @@ bash infra/setup/teardown.sh --release-eips
 
 ### Package Management
 
-Uses `uv` (not pip). Python >=3.12 required. The single dependency is `browser-use>=0.11.9`. Shared venv lives at `~/mirror-mirror/.venv` — run `uv sync` from the repo root, then `uv pip install playwright && uv run python -m playwright install chromium`.
+Uses `uv` (not pip). Python >=3.12 required. The single dependency is `browser-use>=0.11.9`. Shared venv lives at `~/mirror-mirror/.venv`. Run `bash setup.sh` from the repo root to install everything (Python deps, Playwright Chromium, and OS-level browser dependencies).
 
 ## Architecture
 
