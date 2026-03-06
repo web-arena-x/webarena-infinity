@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that drug-to-drug interaction alerts are set to show only major interactions."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,19 +10,24 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    # Navigate to settings.drugDecisionSupport.drugToDrugLevel
-    settings = state.get("settings", {})
-    drug_decision_support = settings.get("drugDecisionSupport", {})
+    # Check Montelukast is NOT in permanentRxMeds
+    permanent_rx_meds = state.get("permanentRxMeds", [])
+    for med in permanent_rx_meds:
+        if med.get("medicationName") == "Montelukast 10mg tablet":
+            return False, "Montelukast 10mg tablet still present in permanentRxMeds"
 
-    if "drugToDrugLevel" not in drug_decision_support:
-        return False, "settings.drugDecisionSupport.drugToDrugLevel field not found in state"
+    # Check Montelukast IS in temporaryMeds
+    temporary_meds = state.get("temporaryMeds", [])
+    montelukast_temp = None
+    for med in temporary_meds:
+        if med.get("medicationName") == "Montelukast 10mg tablet":
+            montelukast_temp = med
+            break
 
-    drug_to_drug_level = drug_decision_support.get("drugToDrugLevel")
+    if montelukast_temp is None:
+        return False, "Montelukast 10mg tablet not found in temporaryMeds"
 
-    if drug_to_drug_level != "major_only":
-        return False, (
-            f"settings.drugDecisionSupport.drugToDrugLevel is '{drug_to_drug_level}', "
-            f"expected 'major_only'"
-        )
+    if montelukast_temp.get("classification") != "temporary":
+        return False, f"Montelukast classification is '{montelukast_temp.get('classification')}', expected 'temporary'"
 
-    return True, "Drug-to-drug interaction alerts set to 'major_only' successfully."
+    return True, "Montelukast 10mg tablet marked as temporary medication successfully"

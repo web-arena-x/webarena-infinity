@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that drug-to-allergy alerts have been turned off in settings."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,20 +10,24 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    # Navigate to settings.drugDecisionSupport.drugToAllergyEnabled
-    settings = state.get("settings", {})
-    drug_decision_support = settings.get("drugDecisionSupport", {})
+    # Check Melatonin is NOT in permanentOtcMeds
+    permanent_otc_meds = state.get("permanentOtcMeds", [])
+    for med in permanent_otc_meds:
+        if med.get("medicationName") == "Melatonin 3mg tablet":
+            return False, "Melatonin 3mg tablet still present in permanentOtcMeds"
 
-    if "drugToAllergyEnabled" not in drug_decision_support:
-        return False, "settings.drugDecisionSupport.drugToAllergyEnabled field not found in state"
+    # Check Melatonin IS in discontinuedMeds
+    discontinued_meds = state.get("discontinuedMeds", [])
+    melatonin_discontinued = None
+    for med in discontinued_meds:
+        if med.get("medicationName") == "Melatonin 3mg tablet":
+            melatonin_discontinued = med
+            break
 
-    drug_to_allergy_enabled = drug_decision_support.get("drugToAllergyEnabled")
+    if melatonin_discontinued is None:
+        return False, "Melatonin 3mg tablet not found in discontinuedMeds"
 
-    if drug_to_allergy_enabled is not False:
-        return False, (
-            f"settings.drugDecisionSupport.drugToAllergyEnabled is "
-            f"'{drug_to_allergy_enabled}' (type: {type(drug_to_allergy_enabled).__name__}), "
-            f"expected false"
-        )
+    if melatonin_discontinued.get("status") != "discontinued":
+        return False, f"Melatonin discontinued entry status is '{melatonin_discontinued.get('status')}', expected 'discontinued'"
 
-    return True, "Drug-to-allergy alerts successfully turned off (drugToAllergyEnabled=false)."
+    return True, "Melatonin 3mg tablet discontinued successfully"

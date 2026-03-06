@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that a med rec was run (lastReconciledDate changed) with no medication list changes."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,46 +10,37 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    current_patient = state.get("currentPatient", {})
-    seed_reconciled_date = "2026-01-15T14:30:00Z"
-
-    # Check lastReconciledDate has changed from seed value
-    last_reconciled = current_patient.get("lastReconciledDate")
-    if last_reconciled is None:
-        return False, "currentPatient.lastReconciledDate is not set"
-
-    if last_reconciled == seed_reconciled_date:
-        return False, (
-            f"currentPatient.lastReconciledDate is still the seed value '{seed_reconciled_date}'. "
-            f"Expected it to be updated after running a med rec."
-        )
-
-    # Check medication lists remain unchanged
+    # Check permanentRxMeds for Famotidine 20mg
     permanent_rx_meds = state.get("permanentRxMeds", [])
-    permanent_otc_meds = state.get("permanentOtcMeds", [])
-    temporary_meds = state.get("temporaryMeds", [])
+    famotidine_med = None
+    for med in permanent_rx_meds:
+        name = med.get("medicationName", "").lower()
+        if "famotidine" in name and "20mg" in name:
+            famotidine_med = med
+            break
 
-    if len(permanent_rx_meds) != 11:
-        return False, (
-            f"permanentRxMeds count is {len(permanent_rx_meds)}, expected 11 (no changes). "
-            f"Med rec should not have modified the medication lists."
-        )
+    if famotidine_med is None:
+        return False, "No medication containing 'Famotidine' and '20mg' found in permanentRxMeds"
 
-    if len(permanent_otc_meds) != 6:
-        return False, (
-            f"permanentOtcMeds count is {len(permanent_otc_meds)}, expected 6 (no changes). "
-            f"Med rec should not have modified the medication lists."
-        )
+    # Check qty == 30
+    qty = famotidine_med.get("qty")
+    if qty != 30:
+        return False, f"Famotidine qty is {qty}, expected 30"
 
-    if len(temporary_meds) != 3:
-        return False, (
-            f"temporaryMeds count is {len(temporary_meds)}, expected 3 (no changes). "
-            f"Med rec should not have modified the medication lists."
-        )
+    # Check refills == 3 or refillsRemaining == 3
+    refills = famotidine_med.get("refills")
+    refills_remaining = famotidine_med.get("refillsRemaining")
+    if refills != 3 and refills_remaining != 3:
+        return False, f"Famotidine refills is {refills} and refillsRemaining is {refills_remaining}, expected one of them to be 3"
 
-    return True, (
-        f"Med rec completed successfully with no medication changes. "
-        f"lastReconciledDate updated from '{seed_reconciled_date}' to '{last_reconciled}'. "
-        f"permanentRxMeds={len(permanent_rx_meds)}, permanentOtcMeds={len(permanent_otc_meds)}, "
-        f"temporaryMeds={len(temporary_meds)}"
+    # Check pharmacy is CVS #4521 (pharm_001)
+    pharmacy_id = famotidine_med.get("pharmacyId", "")
+    pharmacy_name = famotidine_med.get("pharmacyName", "")
+    is_cvs = (
+        pharmacy_id == "pharm_001"
+        or ("cvs" in pharmacy_name.lower() and "4521" in pharmacy_name)
     )
+    if not is_cvs:
+        return False, f"Famotidine pharmacy is '{pharmacy_name}' ({pharmacy_id}), expected CVS #4521 (pharm_001)"
+
+    return True, "Famotidine 20mg prescribed with qty 30, 3 refills, sent to CVS #4521"

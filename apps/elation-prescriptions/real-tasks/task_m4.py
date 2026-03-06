@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that the Metoprolol refill was approved with directions changed to once daily in the morning."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,74 +10,36 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    errors = []
-
-    # Find the Metoprolol refill request
-    refill_requests = state.get("refillRequests", [])
-    metoprolol_refill = None
-    for rr in refill_requests:
-        med_name = rr.get("medicationName", "")
-        if "metoprolol" in med_name.lower():
-            metoprolol_refill = rr
+    # Check rxTemplates for Doxycycline 100mg
+    rx_templates = state.get("rxTemplates", [])
+    doxy_template = None
+    for tpl in rx_templates:
+        name = tpl.get("medicationName", "").lower()
+        if "doxycycline" in name and "100mg" in name:
+            doxy_template = tpl
             break
 
-    if metoprolol_refill is None:
-        return False, "No refill request found for Metoprolol."
+    if doxy_template is None:
+        return False, "No Rx template containing 'Doxycycline' and '100mg' found in rxTemplates"
 
-    # Check status is approved
-    status = metoprolol_refill.get("status")
-    if status != "approved":
-        errors.append(f"Refill request status is '{status}', expected 'approved'")
+    # Check qty == 14
+    qty = doxy_template.get("qty")
+    if qty != 14:
+        return False, f"Doxycycline template qty is {qty}, expected 14"
 
-    # Check processedBy is set
-    processed_by = metoprolol_refill.get("processedBy")
-    if not processed_by:
-        errors.append("Refill request processedBy is not set")
+    # Check refills == 0
+    refills = doxy_template.get("refills")
+    if refills != 0:
+        return False, f"Doxycycline template refills is {refills}, expected 0"
 
-    # Check modifications.sig contains "morning"
-    modifications = metoprolol_refill.get("modifications", {})
-    if not modifications:
-        errors.append("Refill request has no modifications recorded")
-    else:
-        mod_sig = modifications.get("sig", "")
-        if "morning" not in mod_sig.lower():
-            errors.append(
-                f"Refill modifications sig is '{mod_sig}', expected it to contain 'morning'"
-            )
+    # Check daysSupply == 7
+    days_supply = doxy_template.get("daysSupply")
+    if days_supply != 7:
+        return False, f"Doxycycline template daysSupply is {days_supply}, expected 7"
 
-    # Find the Metoprolol medication in permanentRxMeds
-    permanent_rx_meds = state.get("permanentRxMeds", [])
-    metoprolol_med = None
-    for med in permanent_rx_meds:
-        med_name = med.get("medicationName", "")
-        if "metoprolol" in med_name.lower():
-            metoprolol_med = med
-            break
+    # Check sig contains BID / twice daily / two times
+    sig = doxy_template.get("sig", "").lower()
+    if not ("twice daily" in sig or "bid" in sig or "two times" in sig):
+        return False, f"Doxycycline template sig is '{doxy_template.get('sig')}', expected it to contain 'twice daily', 'BID', or 'two times'"
 
-    if metoprolol_med is None:
-        errors.append("Metoprolol not found in permanentRxMeds")
-    else:
-        # Check sig updated to contain "morning"
-        actual_sig = metoprolol_med.get("sig", "")
-        if "morning" not in actual_sig.lower():
-            errors.append(
-                f"Metoprolol medication sig is '{actual_sig}', expected it to contain 'morning'"
-            )
-
-        # Check lastPrescribedDate updated from seed value "2025-11-20"
-        last_prescribed = metoprolol_med.get("lastPrescribedDate")
-        if last_prescribed == "2025-11-20":
-            errors.append(
-                "lastPrescribedDate is still the seed value '2025-11-20', expected it to be updated"
-            )
-        if not last_prescribed:
-            errors.append("lastPrescribedDate is not set on Metoprolol in permanentRxMeds")
-
-    if errors:
-        return False, f"Metoprolol refill approval issues: {'; '.join(errors)}"
-
-    return True, (
-        f"Metoprolol refill approved with morning directions. "
-        f"Refill status='approved', processedBy='{processed_by}', "
-        f"sig updated to contain 'morning', lastPrescribedDate updated."
-    )
+    return True, "Doxycycline 100mg Rx template created with correct sig, qty 14, 0 refills, 7 days supply"

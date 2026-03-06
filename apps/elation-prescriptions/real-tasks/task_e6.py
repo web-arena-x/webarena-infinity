@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that the Codeine allergy was removed from the patient's allergies."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,23 +10,12 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    # Get allergies from currentPatient
-    current_patient = state.get("currentPatient", {})
-    allergies = current_patient.get("allergies", [])
+    # Check drug interaction alerts set to major only
+    settings = state.get("settings", {})
+    drug_decision_support = settings.get("drugDecisionSupport", {})
+    drug_to_drug_level = drug_decision_support.get("drugToDrugLevel")
 
-    # Check that no allergy with allergen='Codeine' exists
-    for allergy in allergies:
-        if allergy.get("allergen") == "Codeine":
-            return False, "Codeine allergy still exists in currentPatient.allergies"
+    if drug_to_drug_level != "major_only":
+        return False, f"settings.drugDecisionSupport.drugToDrugLevel is '{drug_to_drug_level}', expected 'major_only'"
 
-    # Verify we didn't lose all allergies (seed had 4, should now have 3)
-    if len(allergies) < 3:
-        return False, (
-            f"Expected at least 3 remaining allergies after removing Codeine, "
-            f"but found {len(allergies)}. Other allergies may have been accidentally removed."
-        )
-
-    return True, (
-        f"Codeine allergy removed successfully. "
-        f"{len(allergies)} allergies remain in currentPatient.allergies."
-    )
+    return True, "Drug interaction alerts set to 'major_only' successfully"

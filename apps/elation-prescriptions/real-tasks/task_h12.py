@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that default pharmacy was switched to UCSF Medical Center Pharmacy."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,46 +10,44 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    # Find the UCSF pharmacy ID by looking up pharmacies by name
-    pharmacies = state.get("pharmacies", [])
-    ucsf_pharmacy = None
-    for pharm in pharmacies:
-        name = (pharm.get("name") or "").lower()
-        if "ucsf" in name:
-            ucsf_pharmacy = pharm
+    rx_templates = state.get("rxTemplates", [])
+
+    # Check Doxycycline 100mg template exists
+    doxycycline_tpl = None
+    for tpl in rx_templates:
+        name = tpl.get("medicationName", "").lower()
+        if "doxycycline" in name and "100mg" in name:
+            doxycycline_tpl = tpl
             break
 
-    if ucsf_pharmacy is None:
-        return False, (
-            "Could not find a pharmacy with 'UCSF' in its name in the pharmacies list. "
-            f"Available pharmacies: {[p.get('name') for p in pharmacies]}"
-        )
+    if doxycycline_tpl is None:
+        return False, "No Doxycycline 100mg template found in rxTemplates"
 
-    ucsf_id = ucsf_pharmacy.get("id")
+    if doxycycline_tpl.get("qty") != 20:
+        return False, f"Doxycycline template qty is {doxycycline_tpl.get('qty')}, expected 20"
 
-    # Check settings.defaultPharmacyId
-    settings = state.get("settings", {})
-    default_pharmacy_id = settings.get("defaultPharmacyId")
+    if doxycycline_tpl.get("refills") != 0:
+        return False, f"Doxycycline template refills is {doxycycline_tpl.get('refills')}, expected 0"
 
-    if default_pharmacy_id == "pharm_001":
-        return False, (
-            f"Default pharmacy is still 'pharm_001' (seed value). "
-            f"Expected it to be changed to '{ucsf_id}' ({ucsf_pharmacy.get('name')})."
-        )
+    # Check Cephalexin 500mg template exists
+    cephalexin_tpl = None
+    for tpl in rx_templates:
+        name = tpl.get("medicationName", "").lower()
+        if "cephalexin" in name and "500mg" in name:
+            cephalexin_tpl = tpl
+            break
 
-    if default_pharmacy_id != ucsf_id:
-        # Try to find the name of the current default pharmacy for a better error message
-        current_name = None
-        for pharm in pharmacies:
-            if pharm.get("id") == default_pharmacy_id:
-                current_name = pharm.get("name")
-                break
-        return False, (
-            f"Default pharmacy is '{default_pharmacy_id}' ('{current_name}'), "
-            f"expected '{ucsf_id}' ({ucsf_pharmacy.get('name')})."
-        )
+    if cephalexin_tpl is None:
+        return False, "No Cephalexin 500mg template found in rxTemplates"
 
-    return True, (
-        f"Default pharmacy successfully changed to '{ucsf_pharmacy.get('name')}' "
-        f"(id='{ucsf_id}')."
-    )
+    if cephalexin_tpl.get("qty") != 21:
+        return False, f"Cephalexin template qty is {cephalexin_tpl.get('qty')}, expected 21"
+
+    if cephalexin_tpl.get("refills") != 0:
+        return False, f"Cephalexin template refills is {cephalexin_tpl.get('refills')}, expected 0"
+
+    # Check total template count is 14 (was 12, added 2)
+    if len(rx_templates) != 14:
+        return False, f"rxTemplates count is {len(rx_templates)}, expected 14 (was 12, added 2)"
+
+    return True, "2 new Rx templates created: Doxycycline 100mg (qty 20, 0 refills) and Cephalexin 500mg (qty 21, 0 refills)"

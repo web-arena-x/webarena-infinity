@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that Escitalopram 10mg was prescribed via Alto Pharmacy with 5 refills and 30-day supply."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,55 +10,52 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    permanent_rx_meds = state.get("permanentRxMeds", [])
-    errors = []
+    change_requests = state.get("changeRequests", [])
 
-    # Find Escitalopram 10mg entry in permanentRxMeds
-    escitalopram_med = None
-    for med in permanent_rx_meds:
-        med_name = med.get("medicationName", "")
-        if "Escitalopram" in med_name and "10mg" in med_name:
-            escitalopram_med = med
+    # Find Atorvastatin change request (cr_001)
+    cr_001 = None
+    for cr in change_requests:
+        if cr.get("id") == "cr_001" or cr.get("originalMedication") == "Atorvastatin 20mg tablet":
+            cr_001 = cr
             break
 
-    # Fallback: search by name only
-    if escitalopram_med is None:
-        for med in permanent_rx_meds:
-            if "Escitalopram" in med.get("medicationName", ""):
-                escitalopram_med = med
-                break
+    if cr_001 is None:
+        return False, "Atorvastatin change request (cr_001) not found in changeRequests"
 
-    if escitalopram_med is None:
-        return False, "No medication containing 'Escitalopram' found in permanentRxMeds"
+    if cr_001.get("status") != "denied":
+        return False, f"Atorvastatin change request status is '{cr_001.get('status')}', expected 'denied'"
 
-    med_name = escitalopram_med.get("medicationName", "")
+    deny_reason = cr_001.get("denyReason", "")
+    if not deny_reason:
+        return False, "Atorvastatin change request denyReason is empty, expected a reason for denial"
 
-    # Check pharmacyName contains Alto
-    pharmacy_name = escitalopram_med.get("pharmacyName", "")
-    if "Alto" not in pharmacy_name:
-        errors.append(
-            f"Escitalopram pharmacyName is '{pharmacy_name}', expected it to contain 'Alto'"
-        )
+    if not cr_001.get("processedBy"):
+        return False, "Atorvastatin change request processedBy is not set"
 
-    # Check refills is 5
-    refills = escitalopram_med.get("refills")
-    if refills != 5:
-        errors.append(
-            f"Escitalopram refills is {refills}, expected 5"
-        )
+    if not cr_001.get("processedDate"):
+        return False, "Atorvastatin change request processedDate is not set"
 
-    # Check daysSupply is 30
-    days_supply = escitalopram_med.get("daysSupply")
-    if days_supply != 30:
-        errors.append(
-            f"Escitalopram daysSupply is {days_supply}, expected 30"
-        )
+    # Find Gabapentin change request (cr_002)
+    cr_002 = None
+    for cr in change_requests:
+        if cr.get("id") == "cr_002" or (cr.get("originalMedication") == "Gabapentin 300mg capsule" and cr != cr_001):
+            cr_002 = cr
+            break
 
-    if errors:
-        return False, "Failures: " + "; ".join(errors)
+    if cr_002 is None:
+        return False, "Gabapentin change request (cr_002) not found in changeRequests"
 
-    return True, (
-        f"Escitalopram 10mg prescribed successfully via Alto Pharmacy. "
-        f"Medication: '{med_name}', pharmacy: '{pharmacy_name}', "
-        f"refills={refills}, daysSupply={days_supply}."
-    )
+    if cr_002.get("status") != "denied":
+        return False, f"Gabapentin change request status is '{cr_002.get('status')}', expected 'denied'"
+
+    deny_reason_2 = cr_002.get("denyReason", "")
+    if not deny_reason_2:
+        return False, "Gabapentin change request denyReason is empty, expected a reason for denial"
+
+    if not cr_002.get("processedBy"):
+        return False, "Gabapentin change request processedBy is not set"
+
+    if not cr_002.get("processedDate"):
+        return False, "Gabapentin change request processedDate is not set"
+
+    return True, "Both change requests denied with reasons, processedBy, and processedDate set"

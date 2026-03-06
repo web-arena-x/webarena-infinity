@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that the injectable sig shortcut has been deleted."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,24 +10,15 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    custom_sigs = state.get("customSigs", [])
-    target_text = "Inject subcutaneously once weekly"
+    # Check that Codeine allergy has been removed
+    current_patient = state.get("currentPatient", {})
+    allergies = current_patient.get("allergies", [])
 
-    for sig in custom_sigs:
-        if sig.get("text") == target_text:
-            return False, (
-                f"Custom sig with text '{target_text}' still exists "
-                f"(id='{sig.get('id')}'), expected it to be deleted"
-            )
+    for allergy in allergies:
+        if allergy.get("allergen") == "Codeine":
+            return False, "Codeine allergy still present in currentPatient.allergies"
 
-    sig_count = len(custom_sigs)
-    if sig_count != 23:
-        return False, (
-            f"Expected 23 custom sigs after deletion (seed had 24), "
-            f"but found {sig_count}"
-        )
+    if len(allergies) != 3:
+        return False, f"Expected 3 allergies after removing Codeine, found {len(allergies)}"
 
-    return True, (
-        f"Injectable sig shortcut '{target_text}' successfully deleted. "
-        f"Custom sigs count is now {sig_count}."
-    )
+    return True, "Codeine allergy removed successfully; 3 allergies remain"

@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that Montelukast was discontinued because the patient stopped taking it."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,41 +10,28 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    errors = []
+    # Find the Lisinopril refill request
+    refill_requests = state.get("refillRequests", [])
+    lisinopril_refill = None
+    for req in refill_requests:
+        if req.get("medicationName") == "Lisinopril 10mg tablet":
+            lisinopril_refill = req
+            break
 
-    # Check that Montelukast is NOT in permanentRxMeds
-    permanent_rx_meds = state.get("permanentRxMeds", [])
-    montelukast_active = [
-        m for m in permanent_rx_meds
-        if "montelukast" in m.get("medicationName", "").lower()
-    ]
-    if montelukast_active:
-        errors.append("Montelukast is still in permanentRxMeds; expected it to be discontinued")
+    if lisinopril_refill is None:
+        return False, "Lisinopril 10mg tablet refill request not found in refillRequests"
 
-    # Check that Montelukast IS in discontinuedMeds
-    discontinued_meds = state.get("discontinuedMeds", [])
-    montelukast_disc = [
-        m for m in discontinued_meds
-        if "montelukast" in m.get("medicationName", "").lower()
-    ]
-    if not montelukast_disc:
-        errors.append("Montelukast not found in discontinuedMeds")
-    else:
-        med = montelukast_disc[0]
+    if lisinopril_refill.get("status") != "denied":
+        return False, f"Lisinopril refill status is '{lisinopril_refill.get('status')}', expected 'denied'"
 
-        # Check discontinueReason contains "patient stopped" (case insensitive)
-        disc_reason = med.get("discontinueReason", "")
-        if "patient stopped" not in disc_reason.lower():
-            errors.append(
-                f"Montelukast discontinueReason is '{disc_reason}', "
-                "expected it to contain 'patient stopped' (case insensitive)"
-            )
+    if not lisinopril_refill.get("processedBy"):
+        return False, "Lisinopril refill processedBy is not set"
 
-    if errors:
-        return False, f"Montelukast discontinuation issues: {'; '.join(errors)}"
+    if not lisinopril_refill.get("processedDate"):
+        return False, "Lisinopril refill processedDate is not set"
 
-    return True, (
-        "Montelukast successfully discontinued. "
-        "Removed from permanentRxMeds, added to discontinuedMeds with "
-        f"discontinueReason containing 'patient stopped'."
-    )
+    deny_reason = lisinopril_refill.get("denyReason", "")
+    if not deny_reason:
+        return False, "Lisinopril refill denyReason is empty or not set"
+
+    return True, "Lisinopril refill denied successfully with reason provided"

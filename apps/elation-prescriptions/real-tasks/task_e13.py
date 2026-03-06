@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that formulary data display has been turned off."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,15 +10,15 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    settings = state.get("settings", {})
-    show_formulary = settings.get("showFormularyData")
+    # Check custom sig "Take 2 tablets by mouth once daily" has been deleted
+    custom_sigs = state.get("customSigs", [])
+    target_text = "Take 2 tablets by mouth once daily"
 
-    if show_formulary is None:
-        return False, "settings.showFormularyData is not present in state"
+    for sig in custom_sigs:
+        if sig.get("text") == target_text:
+            return False, f"Custom sig '{target_text}' still present in customSigs"
 
-    if show_formulary is not False:
-        return False, (
-            f"settings.showFormularyData is {show_formulary!r}, expected false"
-        )
+    if len(custom_sigs) != 23:
+        return False, f"Expected 23 custom sigs after deletion, found {len(custom_sigs)}"
 
-    return True, "Formulary data display successfully turned off (showFormularyData=false)."
+    return True, "Custom sig 'Take 2 tablets by mouth once daily' deleted successfully; 23 sigs remain"

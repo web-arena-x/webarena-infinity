@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that the Gabapentin sig clarification change request was denied."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,48 +10,38 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    change_requests = state.get("changeRequests", [])
-    target_med = "Gabapentin 300mg capsule"
-
-    # Find the change request by medicationName
-    cr = None
-    for req in change_requests:
-        if req.get("medicationName") == target_med:
-            cr = req
+    # Find the Metoprolol Succinate refill request
+    refill_requests = state.get("refillRequests", [])
+    metoprolol_refill = None
+    for req in refill_requests:
+        if req.get("medicationName") == "Metoprolol Succinate ER 50mg tablet":
+            metoprolol_refill = req
             break
 
-    if cr is None:
-        return False, (
-            f"No change request found with medicationName='{target_med}'"
-        )
+    if metoprolol_refill is None:
+        return False, "Metoprolol Succinate ER 50mg tablet refill request not found in refillRequests"
 
-    # Check status is denied
-    status = cr.get("status")
-    if status != "denied":
-        return False, (
-            f"Change request status is '{status}', expected 'denied'"
-        )
+    if metoprolol_refill.get("status") != "approved":
+        return False, f"Metoprolol refill status is '{metoprolol_refill.get('status')}', expected 'approved'"
 
-    # Check processedBy is set
-    processed_by = cr.get("processedBy")
-    if not processed_by:
-        return False, "Change request processedBy is not set"
+    if not metoprolol_refill.get("processedBy"):
+        return False, "Metoprolol refill processedBy is not set"
 
-    # Check processedDate is set
-    processed_date = cr.get("processedDate")
-    if not processed_date:
-        return False, "Change request processedDate is not set"
+    if not metoprolol_refill.get("processedDate"):
+        return False, "Metoprolol refill processedDate is not set"
 
-    # Check denyReason is set and non-empty
-    deny_reason = cr.get("denyReason")
-    if not deny_reason or not str(deny_reason).strip():
-        return False, (
-            f"Change request denyReason is not set or empty "
-            f"(denyReason={deny_reason!r})"
-        )
+    # Check that the permanent Rx med has an updated lastPrescribedDate
+    permanent_rx_meds = state.get("permanentRxMeds", [])
+    metoprolol_med = None
+    for med in permanent_rx_meds:
+        if med.get("medicationName") == "Metoprolol Succinate ER 50mg tablet":
+            metoprolol_med = med
+            break
 
-    return True, (
-        f"Gabapentin sig clarification change request denied successfully. "
-        f"status='denied', processedBy='{processed_by}', "
-        f"processedDate='{processed_date}', denyReason='{deny_reason}'."
-    )
+    if metoprolol_med is None:
+        return False, "Metoprolol Succinate ER 50mg tablet not found in permanentRxMeds"
+
+    if metoprolol_med.get("lastPrescribedDate") == "2025-11-20":
+        return False, "Metoprolol lastPrescribedDate is still the old value '2025-11-20'; expected it to be updated"
+
+    return True, "Metoprolol Succinate refill request approved successfully with updated prescription date"

@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that Albuterol inhaler was prescribed to CVS with diagnosis J45.20."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,52 +10,43 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
+    # Check Atorvastatin substitution change request is approved
+    change_requests = state.get("changeRequests", [])
+    atorvastatin_cr = None
+    for cr in change_requests:
+        if cr.get("originalMedication") == "Atorvastatin 20mg tablet" or cr.get("id") == "cr_001":
+            atorvastatin_cr = cr
+            break
+
+    if atorvastatin_cr is None:
+        return False, "Atorvastatin change request (cr_001) not found in changeRequests"
+
+    if atorvastatin_cr.get("status") != "approved":
+        return False, f"Atorvastatin change request status is '{atorvastatin_cr.get('status')}', expected 'approved'"
+
+    # Check Rosuvastatin 10mg exists in permanentRxMeds
     permanent_rx_meds = state.get("permanentRxMeds", [])
-    errors = []
-
-    # Find Albuterol entry in permanentRxMeds
-    albuterol_med = None
+    rosuvastatin = None
     for med in permanent_rx_meds:
-        if "Albuterol" in med.get("medicationName", ""):
-            albuterol_med = med
+        name = med.get("medicationName", "").lower()
+        if "rosuvastatin" in name and "10mg" in name:
+            rosuvastatin = med
             break
 
-    if albuterol_med is None:
-        return False, "No medication containing 'Albuterol' found in permanentRxMeds"
+    if rosuvastatin is None:
+        return False, "No Rosuvastatin 10mg medication found in permanentRxMeds"
 
-    # Check pharmacy contains CVS
-    pharmacy_name = albuterol_med.get("pharmacyName", "")
-    if "CVS" not in pharmacy_name:
-        errors.append(
-            f"Albuterol pharmacyName is '{pharmacy_name}', expected it to contain 'CVS'"
-        )
+    qty = rosuvastatin.get("qty")
+    if qty != 30:
+        return False, f"Rosuvastatin qty is {qty}, expected 30"
 
-    # Check diagnosis array has entry with code J45.20
-    diagnosis = albuterol_med.get("diagnosis", [])
-    has_asthma_dx = False
-    for dx in diagnosis:
-        if dx.get("code") == "J45.20":
-            has_asthma_dx = True
-            break
+    refills = rosuvastatin.get("refills", rosuvastatin.get("refillsRemaining"))
+    if refills != 5:
+        return False, f"Rosuvastatin refills/refillsRemaining is {refills}, expected 5"
 
-    if not has_asthma_dx:
-        dx_codes = [dx.get("code", "") for dx in diagnosis]
-        errors.append(
-            f"Albuterol diagnosis does not include code 'J45.20'. Found codes: {dx_codes}"
-        )
+    pharmacy_id = rosuvastatin.get("pharmacyId", "")
+    pharmacy_name = rosuvastatin.get("pharmacyName", "")
+    if pharmacy_id != "pharm_001" and "cvs" not in pharmacy_name.lower():
+        return False, f"Rosuvastatin pharmacy is '{pharmacy_name}' ({pharmacy_id}), expected CVS Pharmacy #4521 (pharm_001)"
 
-    # Check unit is inhalers
-    unit = albuterol_med.get("unit", "")
-    if unit.lower() != "inhalers":
-        errors.append(
-            f"Albuterol unit is '{unit}', expected 'inhalers'"
-        )
-
-    if errors:
-        return False, "Failures: " + "; ".join(errors)
-
-    return True, (
-        f"Albuterol inhaler prescribed successfully. "
-        f"Pharmacy: '{pharmacy_name}', diagnosis includes J45.20, "
-        f"unit='{unit}'."
-    )
+    return True, "Atorvastatin substitution approved and Rosuvastatin 10mg prescribed: qty 30, 5 refills, CVS #4521"

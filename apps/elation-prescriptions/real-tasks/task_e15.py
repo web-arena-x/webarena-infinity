@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that the eye drop sig shortcut has been removed."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,24 +10,38 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    custom_sigs = state.get("customSigs", [])
-    target_text = "Instill 1 drop in affected eye(s) twice daily"
+    # Find the Sertraline refill request
+    refill_requests = state.get("refillRequests", [])
+    sertraline_refill = None
+    for req in refill_requests:
+        if req.get("medicationName") == "Sertraline 50mg tablet":
+            sertraline_refill = req
+            break
 
-    for sig in custom_sigs:
-        if sig.get("text") == target_text:
-            return False, (
-                f"Custom sig with text '{target_text}' still exists "
-                f"(id='{sig.get('id')}'), expected it to be removed"
-            )
+    if sertraline_refill is None:
+        return False, "Sertraline 50mg tablet refill request not found in refillRequests"
 
-    sig_count = len(custom_sigs)
-    if sig_count != 23:
-        return False, (
-            f"Expected 23 custom sigs after removal (seed had 24), "
-            f"but found {sig_count}"
-        )
+    if sertraline_refill.get("status") != "approved":
+        return False, f"Sertraline refill status is '{sertraline_refill.get('status')}', expected 'approved'"
 
-    return True, (
-        f"Eye drop sig shortcut '{target_text}' successfully removed. "
-        f"Custom sigs count is now {sig_count}."
-    )
+    if not sertraline_refill.get("processedBy"):
+        return False, "Sertraline refill processedBy is not set"
+
+    if not sertraline_refill.get("processedDate"):
+        return False, "Sertraline refill processedDate is not set"
+
+    # Check that the permanent Rx med has an updated lastPrescribedDate
+    permanent_rx_meds = state.get("permanentRxMeds", [])
+    sertraline_med = None
+    for med in permanent_rx_meds:
+        if med.get("medicationName") == "Sertraline 50mg tablet":
+            sertraline_med = med
+            break
+
+    if sertraline_med is None:
+        return False, "Sertraline 50mg tablet not found in permanentRxMeds"
+
+    if sertraline_med.get("lastPrescribedDate") == "2026-01-05":
+        return False, "Sertraline lastPrescribedDate is still the old value '2026-01-05'; expected it to be updated"
+
+    return True, "Sertraline refill request approved successfully with updated prescription date"

@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that bee stings was added as a severe environmental allergy."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,58 +10,58 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    current_patient = state.get("currentPatient", {})
-    allergies = current_patient.get("allergies", [])
+    permanent_rx_meds = state.get("permanentRxMeds", [])
+    discontinued_meds = state.get("discontinuedMeds", [])
+    perm_names = [m.get("medicationName", "") for m in permanent_rx_meds]
 
-    # Find bee allergy (case-insensitive)
-    bee_allergy = None
-    for allergy in allergies:
-        allergen = (allergy.get("allergen") or "").lower()
-        if "bee" in allergen:
-            bee_allergy = allergy
+    # Check Losartan 50mg is discontinued
+    losartan_name = "Losartan 50mg tablet"
+    if losartan_name in perm_names:
+        return False, f"'{losartan_name}' still found in permanentRxMeds, expected it to be discontinued"
+
+    losartan_disc = None
+    for med in discontinued_meds:
+        if med.get("medicationName") == losartan_name:
+            losartan_disc = med
+            break
+    if losartan_disc is None:
+        return False, f"'{losartan_name}' not found in discontinuedMeds"
+
+    # Check Amlodipine 5mg is discontinued
+    amlodipine_name = "Amlodipine 5mg tablet"
+    if amlodipine_name in perm_names:
+        return False, f"'{amlodipine_name}' still found in permanentRxMeds, expected it to be discontinued"
+
+    amlodipine_disc = None
+    for med in discontinued_meds:
+        if med.get("medicationName") == amlodipine_name:
+            amlodipine_disc = med
+            break
+    if amlodipine_disc is None:
+        return False, f"'{amlodipine_name}' not found in discontinuedMeds"
+
+    # Check Valsartan 160mg prescribed
+    valsartan = None
+    for med in permanent_rx_meds:
+        name = med.get("medicationName", "").lower()
+        if "valsartan" in name and "160mg" in name:
+            valsartan = med
             break
 
-    if bee_allergy is None:
-        allergen_names = [a.get("allergen", "") for a in allergies]
-        return False, (
-            f"No allergy containing 'bee' found in currentPatient.allergies. "
-            f"Current allergens: {allergen_names}"
-        )
+    if valsartan is None:
+        return False, "No Valsartan 160mg medication found in permanentRxMeds"
 
-    # Check severity is Severe (case-insensitive)
-    severity = (bee_allergy.get("severity") or "").lower()
-    if severity != "severe":
-        return False, (
-            f"Bee allergy severity is '{bee_allergy.get('severity')}', expected 'Severe'."
-        )
+    qty = valsartan.get("qty")
+    if qty != 30:
+        return False, f"Valsartan qty is {qty}, expected 30"
 
-    # Check type is environmental (case-insensitive)
-    allergy_type = (bee_allergy.get("type") or "").lower()
-    if allergy_type != "environmental":
-        return False, (
-            f"Bee allergy type is '{bee_allergy.get('type')}', expected 'environmental'."
-        )
+    refills = valsartan.get("refills", valsartan.get("refillsRemaining"))
+    if refills != 3:
+        return False, f"Valsartan refills/refillsRemaining is {refills}, expected 3"
 
-    # Check reaction mentions swelling or anaphylaxis (case-insensitive)
-    reaction = (bee_allergy.get("reaction") or "").lower()
-    reaction_keywords = ["swelling", "anaphylaxis", "anaphylactic"]
-    has_reaction = any(kw in reaction for kw in reaction_keywords)
-    if not has_reaction:
-        return False, (
-            f"Bee allergy reaction does not mention 'swelling' or 'anaphylaxis'. "
-            f"reaction='{bee_allergy.get('reaction')}'"
-        )
+    pharmacy_id = valsartan.get("pharmacyId", "")
+    pharmacy_name = valsartan.get("pharmacyName", "")
+    if pharmacy_id != "pharm_001" and "cvs" not in pharmacy_name.lower():
+        return False, f"Valsartan pharmacy is '{pharmacy_name}' ({pharmacy_id}), expected CVS Pharmacy #4521 (pharm_001)"
 
-    # Verify count increased from seed (4 -> 5)
-    if len(allergies) < 5:
-        return False, (
-            f"Expected at least 5 allergies after adding bee stings "
-            f"(seed had 4), but found {len(allergies)}."
-        )
-
-    return True, (
-        f"Bee sting allergy added successfully. "
-        f"allergen='{bee_allergy.get('allergen')}', severity='{bee_allergy.get('severity')}', "
-        f"type='{bee_allergy.get('type')}', reaction='{bee_allergy.get('reaction')}', "
-        f"total allergies: {len(allergies)}."
-    )
+    return True, "Losartan and Amlodipine discontinued, Valsartan 160mg prescribed: qty 30, 3 refills, CVS #4521"

@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that the sublingual sig was updated from the old text to the new longer text."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,36 +10,26 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    custom_sigs = state.get("customSigs", [])
+    # Check Ciprofloxacin is NOT in temporaryMeds
+    temporary_meds = state.get("temporaryMeds", [])
+    for med in temporary_meds:
+        if med.get("medicationName") == "Ciprofloxacin 500mg tablet":
+            return False, "Ciprofloxacin 500mg tablet is still in temporaryMeds; expected it to be moved to permanentRxMeds"
 
-    old_text = "Dissolve 1 tablet under the tongue as needed"
-    new_text = "Dissolve 1 tablet under the tongue every 5 minutes as needed, max 3 doses"
-
-    # Check the old text no longer exists
-    for sig in custom_sigs:
-        sig_text = (sig.get("text") or "").strip()
-        if sig_text.lower() == old_text.lower():
-            return False, (
-                f"Old sublingual sig text still exists: '{sig_text}'. "
-                f"Expected it to be updated to: '{new_text}'"
-            )
-
-    # Check the new text exists
-    matching_sig = None
-    for sig in custom_sigs:
-        sig_text = (sig.get("text") or "").strip()
-        if sig_text.lower() == new_text.lower():
-            matching_sig = sig
+    # Check Ciprofloxacin IS in permanentRxMeds
+    permanent_rx_meds = state.get("permanentRxMeds", [])
+    cipro_med = None
+    for med in permanent_rx_meds:
+        if med.get("medicationName") == "Ciprofloxacin 500mg tablet":
+            cipro_med = med
             break
 
-    if matching_sig is None:
-        sig_texts = [s.get("text", "") for s in custom_sigs]
-        return False, (
-            f"New sublingual sig text '{new_text}' not found. "
-            f"Current sigs: {sig_texts}"
-        )
+    if cipro_med is None:
+        return False, "Ciprofloxacin 500mg tablet not found in permanentRxMeds"
 
-    return True, (
-        f"Sublingual sig updated successfully. "
-        f"text='{matching_sig.get('text')}', category='{matching_sig.get('category')}'"
-    )
+    # Check classification is permanent_rx
+    classification = cipro_med.get("classification", "")
+    if classification != "permanent_rx":
+        return False, f"Ciprofloxacin classification is '{classification}', expected 'permanent_rx'"
+
+    return True, "Ciprofloxacin moved from temporary to permanent Rx successfully"

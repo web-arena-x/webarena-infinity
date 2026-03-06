@@ -1,482 +1,64 @@
 [
-  {
-    "id": "task_e1",
-    "difficulty": "easy",
-    "instruction": "Approve the Lisinopril refill from CVS.",
-    "verify": "real-tasks/task_e1.py"
-  },
-  {
-    "id": "task_e2",
-    "difficulty": "easy",
-    "instruction": "Approve the Omeprazole refill request.",
-    "verify": "real-tasks/task_e2.py"
-  },
-  {
-    "id": "task_e3",
-    "difficulty": "easy",
-    "instruction": "Approve the Sertraline refill from Walgreens.",
-    "verify": "real-tasks/task_e3.py"
-  },
-  {
-    "id": "task_e4",
-    "difficulty": "easy",
-    "instruction": "Deny the Atorvastatin refill — the patient needs lab work first.",
-    "verify": "real-tasks/task_e4.py"
-  },
-  {
-    "id": "task_e5",
-    "difficulty": "easy",
-    "instruction": "Get rid of the latex allergy, it was entered in error.",
-    "verify": "real-tasks/task_e5.py"
-  },
-  {
-    "id": "task_e6",
-    "difficulty": "easy",
-    "instruction": "Remove the codeine allergy from the patient's chart.",
-    "verify": "real-tasks/task_e6.py"
-  },
-  {
-    "id": "task_e7",
-    "difficulty": "easy",
-    "instruction": "Remove the Prednisone taper from my Rx templates.",
-    "verify": "real-tasks/task_e7.py"
-  },
-  {
-    "id": "task_e8",
-    "difficulty": "easy",
-    "instruction": "Delete the Azithromycin Z-Pack template.",
-    "verify": "real-tasks/task_e8.py"
-  },
-  {
-    "id": "task_e9",
-    "difficulty": "easy",
-    "instruction": "Turn off drug-allergy alerts.",
-    "verify": "real-tasks/task_e9.py"
-  },
-  {
-    "id": "task_e10",
-    "difficulty": "easy",
-    "instruction": "Only show major drug interaction alerts.",
-    "verify": "real-tasks/task_e10.py"
-  },
-  {
-    "id": "task_e11",
-    "difficulty": "easy",
-    "instruction": "Stop auto-filling the last used pharmacy.",
-    "verify": "real-tasks/task_e11.py"
-  },
-  {
-    "id": "task_e12",
-    "difficulty": "easy",
-    "instruction": "Hide cost estimates in prescribing.",
-    "verify": "real-tasks/task_e12.py"
-  },
-  {
-    "id": "task_e13",
-    "difficulty": "easy",
-    "instruction": "Turn off the formulary info display.",
-    "verify": "real-tasks/task_e13.py"
-  },
-  {
-    "id": "task_e14",
-    "difficulty": "easy",
-    "instruction": "Delete the injectable sig shortcut.",
-    "verify": "real-tasks/task_e14.py"
-  },
-  {
-    "id": "task_e15",
-    "difficulty": "easy",
-    "instruction": "Remove the eye drop sig from my shortcuts.",
-    "verify": "real-tasks/task_e15.py"
-  },
-  {
-    "id": "task_e16",
-    "difficulty": "easy",
-    "instruction": "Make the Amoxicillin a permanent Rx instead of temporary.",
-    "verify": "real-tasks/task_e16.py"
-  },
-  {
-    "id": "task_e17",
-    "difficulty": "easy",
-    "instruction": "Move Montelukast to temporary medications.",
-    "verify": "real-tasks/task_e17.py"
-  },
-  {
-    "id": "task_e18",
-    "difficulty": "easy",
-    "instruction": "Reclassify the Prednisone taper as a permanent Rx.",
-    "verify": "real-tasks/task_e18.py"
-  },
-  {
-    "id": "task_e19",
-    "difficulty": "easy",
-    "instruction": "Approve the pharmacy's request to switch from Atorvastatin to Rosuvastatin.",
-    "verify": "real-tasks/task_e19.py"
-  },
-  {
-    "id": "task_e20",
-    "difficulty": "easy",
-    "instruction": "Deny the Gabapentin sig clarification — the current directions are correct.",
-    "verify": "real-tasks/task_e20.py"
-  },
-  {
-    "id": "task_m1",
-    "difficulty": "medium",
-    "instruction": "Approve the Gabapentin refill but reduce the dosing to twice daily.",
-    "verify": "real-tasks/task_m1.py"
-  },
-  {
-    "id": "task_m2",
-    "difficulty": "medium",
-    "instruction": "Approve the Metoprolol refill and give the patient 3 refills.",
-    "verify": "real-tasks/task_m2.py"
-  },
-  {
-    "id": "task_m3",
-    "difficulty": "medium",
-    "instruction": "Deny the Sertraline refill — the patient needs a follow-up appointment before renewal.",
-    "verify": "real-tasks/task_m3.py"
-  },
-  {
-    "id": "task_m4",
-    "difficulty": "medium",
-    "instruction": "Approve the Metoprolol refill but change the directions to once daily in the morning.",
-    "verify": "real-tasks/task_m4.py"
-  },
-  {
-    "id": "task_m5",
-    "difficulty": "medium",
-    "instruction": "Discontinue the Omeprazole — we're switching James to famotidine.",
-    "verify": "real-tasks/task_m5.py"
-  },
-  {
-    "id": "task_m6",
-    "difficulty": "medium",
-    "instruction": "Stop the Amlodipine and have the pharmacy cancel any remaining fills.",
-    "verify": "real-tasks/task_m6.py"
-  },
-  {
-    "id": "task_m7",
-    "difficulty": "medium",
-    "instruction": "Discontinue Montelukast — the patient stopped taking it on his own.",
-    "verify": "real-tasks/task_m7.py"
-  },
-  {
-    "id": "task_m8",
-    "difficulty": "medium",
-    "instruction": "Discontinue the Ciprofloxacin — treatment course is complete.",
-    "verify": "real-tasks/task_m8.py"
-  },
-  {
-    "id": "task_m9",
-    "difficulty": "medium",
-    "instruction": "Start James on Levothyroxine 50mcg daily, send it to CVS Pharmacy.",
-    "verify": "real-tasks/task_m9.py"
-  },
-  {
-    "id": "task_m10",
-    "difficulty": "medium",
-    "instruction": "Write a temp script for Cyclobenzaprine 10mg three times daily as needed for his back spasm, 30 count.",
-    "verify": "real-tasks/task_m10.py"
-  },
-  {
-    "id": "task_m11",
-    "difficulty": "medium",
-    "instruction": "Prescribe Famotidine 20mg twice daily to CVS, 60 tabs with 3 refills, dispense as written.",
-    "verify": "real-tasks/task_m11.py"
-  },
-  {
-    "id": "task_m12",
-    "difficulty": "medium",
-    "instruction": "Add Ibuprofen as a drug allergy — James gets stomach upset and GI bleeding, moderate severity.",
-    "verify": "real-tasks/task_m12.py"
-  },
-  {
-    "id": "task_m13",
-    "difficulty": "medium",
-    "instruction": "Set up a template for Levothyroxine 50mcg: once daily on empty stomach, 30 tabs, 5 refills, 30-day supply.",
-    "verify": "real-tasks/task_m13.py"
-  },
-  {
-    "id": "task_m14",
-    "difficulty": "medium",
-    "instruction": "Update the Metformin template to dispense 90 tablets instead.",
-    "verify": "real-tasks/task_m14.py"
-  },
-  {
-    "id": "task_m15",
-    "difficulty": "medium",
-    "instruction": "Make Walgreens on Mission Street our default pharmacy.",
-    "verify": "real-tasks/task_m15.py"
-  },
-  {
-    "id": "task_m16",
-    "difficulty": "medium",
-    "instruction": "Create a sig shortcut: \"Take 2 capsules by mouth once daily with breakfast\" under the oral category.",
-    "verify": "real-tasks/task_m16.py"
-  },
-  {
-    "id": "task_m17",
-    "difficulty": "medium",
-    "instruction": "Add a patch sig shortcut: \"Apply 1 patch to skin every 72 hours\" in the topical category.",
-    "verify": "real-tasks/task_m17.py"
-  },
-  {
-    "id": "task_m18",
-    "difficulty": "medium",
-    "instruction": "Update the sublingual sig to read \"Dissolve 1 tablet under the tongue every 5 minutes as needed, max 3 doses\".",
-    "verify": "real-tasks/task_m18.py"
-  },
-  {
-    "id": "task_m19",
-    "difficulty": "medium",
-    "instruction": "Document that James takes glucosamine — it's an OTC, once daily.",
-    "verify": "real-tasks/task_m19.py"
-  },
-  {
-    "id": "task_m20",
-    "difficulty": "medium",
-    "instruction": "Run a med rec on James — everything looks current, no changes needed.",
-    "verify": "real-tasks/task_m20.py"
-  },
-  {
-    "id": "task_h1",
-    "difficulty": "hard",
-    "instruction": "Process the pending refill requests: approve Lisinopril and Omeprazole, but deny the Atorvastatin because he needs a lipid panel first.",
-    "verify": "real-tasks/task_h1.py"
-  },
-  {
-    "id": "task_h2",
-    "difficulty": "hard",
-    "instruction": "Discontinue the Sertraline and make sure the pharmacy cancels whatever they have on file.",
-    "verify": "real-tasks/task_h2.py"
-  },
-  {
-    "id": "task_h3",
-    "difficulty": "hard",
-    "instruction": "Run a medication reconciliation — everything looks good except the low-dose Aspirin, discontinue that one.",
-    "verify": "real-tasks/task_h3.py"
-  },
-  {
-    "id": "task_h4",
-    "difficulty": "hard",
-    "instruction": "Renew James's Lisinopril and Metformin together using the bulk refill.",
-    "verify": "real-tasks/task_h4.py"
-  },
-  {
-    "id": "task_h5",
-    "difficulty": "hard",
-    "instruction": "Write James an Albuterol inhaler for his mild intermittent asthma. Send it to his usual CVS and attach the asthma diagnosis.",
-    "verify": "real-tasks/task_h5.py"
-  },
-  {
-    "id": "task_h6",
-    "difficulty": "hard",
-    "instruction": "Start a 2-week course of Doxycycline 100mg twice daily — it's a temp script, fill at Walgreens.",
-    "verify": "real-tasks/task_h6.py"
-  },
-  {
-    "id": "task_h7",
-    "difficulty": "hard",
-    "instruction": "Write for Ondansetron 4mg every 8 hours PRN nausea, temp script, 12 tabs for 4 days. Tell the pharmacy it's urgent, post-surgical.",
-    "verify": "real-tasks/task_h7.py"
-  },
-  {
-    "id": "task_h8",
-    "difficulty": "hard",
-    "instruction": "Prescribe Amlodipine 10mg daily for James's hypertension, send it to his preferred pharmacy.",
-    "verify": "real-tasks/task_h8.py"
-  },
-  {
-    "id": "task_h9",
-    "difficulty": "hard",
-    "instruction": "Start James on Escitalopram 10mg daily via Alto Pharmacy — 5 refills, 30-day supply.",
-    "verify": "real-tasks/task_h9.py"
-  },
-  {
-    "id": "task_h10",
-    "difficulty": "hard",
-    "instruction": "Find the controlled substance on James's med list and discontinue it. Have the pharmacy cancel remaining fills.",
-    "verify": "real-tasks/task_h10.py"
-  },
-  {
-    "id": "task_h11",
-    "difficulty": "hard",
-    "instruction": "There's a refill request with a note about the patient running low — go ahead and approve that one.",
-    "verify": "real-tasks/task_h11.py"
-  },
-  {
-    "id": "task_h12",
-    "difficulty": "hard",
-    "instruction": "Switch the default pharmacy to the UCSF hospital pharmacy.",
-    "verify": "real-tasks/task_h12.py"
-  },
-  {
-    "id": "task_h13",
-    "difficulty": "hard",
-    "instruction": "Approve the change request that proposes swapping to a different medication — not the one asking about sig wording.",
-    "verify": "real-tasks/task_h13.py"
-  },
-  {
-    "id": "task_h14",
-    "difficulty": "hard",
-    "instruction": "Document that James takes a daily probiotic — it's over the counter, once daily with food.",
-    "verify": "real-tasks/task_h14.py"
-  },
-  {
-    "id": "task_h15",
-    "difficulty": "hard",
-    "instruction": "Add bee stings as a severe environmental allergy — James had swelling and anaphylaxis.",
-    "verify": "real-tasks/task_h15.py"
-  },
-  {
-    "id": "task_h16",
-    "difficulty": "hard",
-    "instruction": "Update the Lisinopril 10mg template so the sig says to take it in the morning.",
-    "verify": "real-tasks/task_h16.py"
-  },
-  {
-    "id": "task_h17",
-    "difficulty": "hard",
-    "instruction": "Discontinue the Omeprazole — we're switching to famotidine — and write a new script for Famotidine 20mg BID, 60 count, 3 refills, send to CVS.",
-    "verify": "real-tasks/task_h17.py"
-  },
-  {
-    "id": "task_h18",
-    "difficulty": "hard",
-    "instruction": "Approve the Gabapentin refill with the dose reduced to twice daily, then deny the Gabapentin sig clarification change request since we just updated the directions.",
-    "verify": "real-tasks/task_h18.py"
-  },
-  {
-    "id": "task_h19",
-    "difficulty": "hard",
-    "instruction": "Tighten up the drug alert settings: show only major and moderate interaction alerts, and turn off allergy cross-checking.",
-    "verify": "real-tasks/task_h19.py"
-  },
-  {
-    "id": "task_h20",
-    "difficulty": "hard",
-    "instruction": "Approve all pending CVS refill requests except the Atorvastatin — deny that one, patient needs a lipid panel.",
-    "verify": "real-tasks/task_h20.py"
-  },
-  {
-    "id": "task_h21",
-    "difficulty": "hard",
-    "instruction": "The pharmacy wants to switch James's Atorvastatin to Rosuvastatin — approve that change request, then discontinue the Atorvastatin from his active med list since it's being replaced.",
-    "verify": "real-tasks/task_h21.py"
-  },
-  {
-    "id": "task_h22",
-    "difficulty": "hard",
-    "instruction": "Go through the pending CVS refill requests. Approve any where the medication still has refills remaining on the original script. For the one that's out of refills, deny it — a new prescription is required.",
-    "verify": "real-tasks/task_h22.py"
-  },
-  {
-    "id": "task_h23",
-    "difficulty": "hard",
-    "instruction": "James is on a blood pressure medication that was prescribed by another provider. Discontinue it — we're consolidating his BP management under one prescriber.",
-    "verify": "real-tasks/task_h23.py"
-  },
-  {
-    "id": "task_h24",
-    "difficulty": "hard",
-    "instruction": "The Ciprofloxacin course is finished. Discontinue it, then switch the default pharmacy to the one where it was being filled.",
-    "verify": "real-tasks/task_h24.py"
-  },
-  {
-    "id": "task_h25",
-    "difficulty": "hard",
-    "instruction": "Approve both pending pharmacy change requests — the statin substitution and the sig clarification are both fine.",
-    "verify": "real-tasks/task_h25.py"
-  },
-  {
-    "id": "task_h26",
-    "difficulty": "hard",
-    "instruction": "James's GERD medication is running low on refills. Approve its pending refill but bump the refills to 5 this time.",
-    "verify": "real-tasks/task_h26.py"
-  },
-  {
-    "id": "task_h27",
-    "difficulty": "hard",
-    "instruction": "Remove the Codeine and Latex allergies — both were entered in error. Then add Tramadol as a moderate drug allergy with reaction 'nausea and dizziness'.",
-    "verify": "real-tasks/task_h27.py"
-  },
-  {
-    "id": "task_h28",
-    "difficulty": "hard",
-    "instruction": "James says he stopped taking his sleep supplement. Find the OTC he takes at bedtime for sleep and discontinue it.",
-    "verify": "real-tasks/task_h28.py"
-  },
-  {
-    "id": "task_h29",
-    "difficulty": "hard",
-    "instruction": "Delete all the custom sig shortcuts in the PRN category — we don't use those anymore.",
-    "verify": "real-tasks/task_h29.py"
-  },
-  {
-    "id": "task_h30",
-    "difficulty": "hard",
-    "instruction": "Discontinue the Amlodipine 5mg and send a cancel to the pharmacy, then prescribe Amlodipine 10mg daily to the same pharmacy — 30 tabs, 3 refills, with the hypertension diagnosis attached.",
-    "verify": "real-tasks/task_h30.py"
-  },
-  {
-    "id": "task_h31",
-    "difficulty": "hard",
-    "instruction": "Find the medication on James's permanent Rx list that has 'dispense as written' checked and reclassify it as temporary.",
-    "verify": "real-tasks/task_h31.py"
-  },
-  {
-    "id": "task_h32",
-    "difficulty": "hard",
-    "instruction": "James's insurance PBM is Express Scripts. Set the default pharmacy to the Express Scripts mail order pharmacy.",
-    "verify": "real-tasks/task_h32.py"
-  },
-  {
-    "id": "task_h33",
-    "difficulty": "hard",
-    "instruction": "Approve the Sertraline refill from Walgreens and the Metoprolol refill from CVS. Deny the Atorvastatin — he needs labs first. Leave the rest pending.",
-    "verify": "real-tasks/task_h33.py"
-  },
-  {
-    "id": "task_h34",
-    "difficulty": "hard",
-    "instruction": "The patient wants to switch from Sertraline to Escitalopram. Discontinue the Sertraline, then prescribe Escitalopram 10mg once daily in the morning, 30 tabs, 5 refills — send it to the same pharmacy the Sertraline was at.",
-    "verify": "real-tasks/task_h34.py"
-  },
-  {
-    "id": "task_h35",
-    "difficulty": "hard",
-    "instruction": "James's secondary pharmacy is noted in his patient info. Make that his new default pharmacy in settings.",
-    "verify": "real-tasks/task_h35.py"
-  },
-  {
-    "id": "task_h36",
-    "difficulty": "hard",
-    "instruction": "Create an Rx template from James's current Gabapentin prescription — copy the drug name, sig, qty, unit, refills, and days supply from his active medication.",
-    "verify": "real-tasks/task_h36.py"
-  },
-  {
-    "id": "task_h37",
-    "difficulty": "hard",
-    "instruction": "Run a medication reconciliation. The two temporary medications whose treatment duration has expired should be discontinued. The remaining temp med is still within its course — leave it alone.",
-    "verify": "real-tasks/task_h37.py"
-  },
-  {
-    "id": "task_h38",
-    "difficulty": "hard",
-    "instruction": "Tighten up the alert settings: only show major drug interaction alerts, turn off allergy cross-checking, and delete all the inhalation sig shortcuts while you're in settings.",
-    "verify": "real-tasks/task_h38.py"
-  },
-  {
-    "id": "task_h39",
-    "difficulty": "hard",
-    "instruction": "Write James a Metformin 1000mg script — twice daily with meals, 60 tablets, 5 refills, 30-day supply. Send it to his preferred pharmacy and attach the diabetes diagnosis.",
-    "verify": "real-tasks/task_h39.py"
-  },
-  {
-    "id": "task_h40",
-    "difficulty": "hard",
-    "instruction": "Add a new Rx template for Doxycycline 100mg: twice daily for 14 days, 28 capsules, no refills, 14-day supply. Then create a matching custom sig shortcut under the oral category.",
-    "verify": "real-tasks/task_h40.py"
-  }
+  {"id": "task_e1", "difficulty": "easy", "instruction": "Approve the pending Gabapentin refill request.", "verify": "real-tasks/task_e1.py"},
+  {"id": "task_e2", "difficulty": "easy", "instruction": "Deny the Omeprazole refill request.", "verify": "real-tasks/task_e2.py"},
+  {"id": "task_e3", "difficulty": "easy", "instruction": "Approve the pharmacy's request to substitute Rosuvastatin for Atorvastatin.", "verify": "real-tasks/task_e3.py"},
+  {"id": "task_e4", "difficulty": "easy", "instruction": "Remove the Latex allergy from the patient's chart.", "verify": "real-tasks/task_e4.py"},
+  {"id": "task_e5", "difficulty": "easy", "instruction": "Turn off drug-to-allergy alerts.", "verify": "real-tasks/task_e5.py"},
+  {"id": "task_e6", "difficulty": "easy", "instruction": "Set drug interaction alerts to show Major alerts only.", "verify": "real-tasks/task_e6.py"},
+  {"id": "task_e7", "difficulty": "easy", "instruction": "Disable the cost estimates setting.", "verify": "real-tasks/task_e7.py"},
+  {"id": "task_e8", "difficulty": "easy", "instruction": "Delete the Prednisone taper Rx template.", "verify": "real-tasks/task_e8.py"},
+  {"id": "task_e9", "difficulty": "easy", "instruction": "Discontinue the patient's Melatonin.", "verify": "real-tasks/task_e9.py"},
+  {"id": "task_e10", "difficulty": "easy", "instruction": "Mark Montelukast as a temporary medication.", "verify": "real-tasks/task_e10.py"},
+  {"id": "task_e11", "difficulty": "easy", "instruction": "Change the default pharmacy to Walgreens #7892.", "verify": "real-tasks/task_e11.py"},
+  {"id": "task_e12", "difficulty": "easy", "instruction": "Turn off auto-populate last used pharmacy.", "verify": "real-tasks/task_e12.py"},
+  {"id": "task_e13", "difficulty": "easy", "instruction": "Delete the custom sig 'Take 2 tablets by mouth once daily'.", "verify": "real-tasks/task_e13.py"},
+  {"id": "task_e14", "difficulty": "easy", "instruction": "Remove the Codeine allergy.", "verify": "real-tasks/task_e14.py"},
+  {"id": "task_e15", "difficulty": "easy", "instruction": "Approve the pending Sertraline refill.", "verify": "real-tasks/task_e15.py"},
+  {"id": "task_e16", "difficulty": "easy", "instruction": "Turn off the formulary information display.", "verify": "real-tasks/task_e16.py"},
+  {"id": "task_e17", "difficulty": "easy", "instruction": "Delete the Azithromycin Z-Pack Rx template.", "verify": "real-tasks/task_e17.py"},
+  {"id": "task_e18", "difficulty": "easy", "instruction": "Deny the pharmacy's Gabapentin sig clarification request.", "verify": "real-tasks/task_e18.py"},
+  {"id": "task_e19", "difficulty": "easy", "instruction": "Set the Amoxicillin to a permanent medication.", "verify": "real-tasks/task_e19.py"},
+  {"id": "task_e20", "difficulty": "easy", "instruction": "Approve the Metoprolol Succinate refill request.", "verify": "real-tasks/task_e20.py"},
+
+  {"id": "task_m1", "difficulty": "medium", "instruction": "Add an Ibuprofen allergy for the patient \u2014 the reaction is GI bleeding, and the severity is Moderate.", "verify": "real-tasks/task_m1.py"},
+  {"id": "task_m2", "difficulty": "medium", "instruction": "Document that the patient takes Glucosamine 1500mg tablet once daily as an OTC supplement.", "verify": "real-tasks/task_m2.py"},
+  {"id": "task_m3", "difficulty": "medium", "instruction": "Discontinue the Amoxicillin and send a cancellation request to the pharmacy.", "verify": "real-tasks/task_m3.py"},
+  {"id": "task_m4", "difficulty": "medium", "instruction": "Create an Rx template for Doxycycline 100mg capsule: take 1 capsule twice daily, qty 14, 0 refills, 7 days supply.", "verify": "real-tasks/task_m4.py"},
+  {"id": "task_m5", "difficulty": "medium", "instruction": "Add a new custom sig under the oral category: 'Take 2 capsules by mouth once daily with food'.", "verify": "real-tasks/task_m5.py"},
+  {"id": "task_m6", "difficulty": "medium", "instruction": "Approve the Gabapentin refill request but change the sig to 'Take 1 capsule by mouth twice daily'.", "verify": "real-tasks/task_m6.py"},
+  {"id": "task_m7", "difficulty": "medium", "instruction": "Deny the Lisinopril refill request \u2014 the patient needs a follow-up blood pressure check first.", "verify": "real-tasks/task_m7.py"},
+  {"id": "task_m8", "difficulty": "medium", "instruction": "Discontinue the Losartan \u2014 it was discontinued by another prescriber.", "verify": "real-tasks/task_m8.py"},
+  {"id": "task_m9", "difficulty": "medium", "instruction": "Prescribe Levothyroxine 50mcg tablet, once daily on empty stomach, qty 30, 5 refills, send to the patient's preferred pharmacy.", "verify": "real-tasks/task_m9.py"},
+  {"id": "task_m10", "difficulty": "medium", "instruction": "Update the Metformin 1000mg Rx template: change the quantity to 90 and days supply to 45.", "verify": "real-tasks/task_m10.py"},
+  {"id": "task_m11", "difficulty": "medium", "instruction": "Add a Shellfish allergy for the patient \u2014 reaction is hives and swelling, severity Severe, and type is food.", "verify": "real-tasks/task_m11.py"},
+  {"id": "task_m12", "difficulty": "medium", "instruction": "Deny the Atorvastatin refill \u2014 the patient needs an updated lipid panel before renewal.", "verify": "real-tasks/task_m12.py"},
+  {"id": "task_m13", "difficulty": "medium", "instruction": "Prescribe Ondansetron 4mg tablet as needed for nausea, qty 12, classify as temporary.", "verify": "real-tasks/task_m13.py"},
+  {"id": "task_m14", "difficulty": "medium", "instruction": "Discontinue the Prednisone taper \u2014 the patient completed the course.", "verify": "real-tasks/task_m14.py"},
+  {"id": "task_m15", "difficulty": "medium", "instruction": "Approve the Metoprolol Succinate refill and change the refills to 5.", "verify": "real-tasks/task_m15.py"},
+  {"id": "task_m16", "difficulty": "medium", "instruction": "Change drug interaction alerts to Major and Moderate only, and disable Show Cost Estimates.", "verify": "real-tasks/task_m16.py"},
+  {"id": "task_m17", "difficulty": "medium", "instruction": "Add a custom sig in the topical category: 'Apply to affected area three times daily'.", "verify": "real-tasks/task_m17.py"},
+  {"id": "task_m18", "difficulty": "medium", "instruction": "Move the Ciprofloxacin from temporary to permanent Rx.", "verify": "real-tasks/task_m18.py"},
+  {"id": "task_m19", "difficulty": "medium", "instruction": "Update the Amlodipine 5mg Rx template \u2014 change the sig to 'Take 1 tablet by mouth twice daily'.", "verify": "real-tasks/task_m19.py"},
+  {"id": "task_m20", "difficulty": "medium", "instruction": "Prescribe Famotidine 20mg tablet for GERD \u2014 once daily before dinner, qty 30, 3 refills, send to CVS #4521.", "verify": "real-tasks/task_m20.py"},
+
+  {"id": "task_h1", "difficulty": "hard", "instruction": "Approve all pending refill requests for this patient.", "verify": "real-tasks/task_h1.py"},
+  {"id": "task_h2", "difficulty": "hard", "instruction": "Prescribe Buspirone 10mg for the patient's anxiety \u2014 once daily in the morning, qty 30, 5 refills. Send it to the same pharmacy that fills his Sertraline.", "verify": "real-tasks/task_h2.py"},
+  {"id": "task_h3", "difficulty": "hard", "instruction": "Discontinue all of the patient's temporary medications \u2014 he's completed those courses.", "verify": "real-tasks/task_h3.py"},
+  {"id": "task_h4", "difficulty": "hard", "instruction": "Run a medication reconciliation and mark the Calcium+D3 supplement for discontinuation during the review.", "verify": "real-tasks/task_h4.py"},
+  {"id": "task_h5", "difficulty": "hard", "instruction": "Approve the pharmacy's Atorvastatin-to-Rosuvastatin substitution, then prescribe Rosuvastatin 10mg tablet at bedtime for hyperlipidemia \u2014 qty 30, 5 refills, send to CVS #4521.", "verify": "real-tasks/task_h5.py"},
+  {"id": "task_h6", "difficulty": "hard", "instruction": "Move the Ciprofloxacin to permanent Rx, then refill it \u2014 qty 14, 0 refills \u2014 at Rite Aid.", "verify": "real-tasks/task_h6.py"},
+  {"id": "task_h7", "difficulty": "hard", "instruction": "Process all pending pharmacy requests: approve the refills for Lisinopril, Atorvastatin, Omeprazole, Sertraline, and Metoprolol; deny the Gabapentin refill because the patient needs an appointment; approve the Atorvastatin substitution; and deny the Gabapentin clarification.", "verify": "real-tasks/task_h7.py"},
+  {"id": "task_h8", "difficulty": "hard", "instruction": "Prescribe an Albuterol 90mcg/actuation inhaler for the patient's asthma \u2014 1-2 puffs every 4-6 hours as needed, qty 1, 1 refill, classify as permanent, send to UCSF Medical Center Pharmacy.", "verify": "real-tasks/task_h8.py"},
+  {"id": "task_h9", "difficulty": "hard", "instruction": "Deny both pending change requests \u2014 for the Atorvastatin substitution, explain that the current medication is working well; for the Gabapentin clarification, confirm the current sig is correct.", "verify": "real-tasks/task_h9.py"},
+  {"id": "task_h10", "difficulty": "hard", "instruction": "Discontinue the Alprazolam and send a cancellation to the pharmacy. Note that the patient is transitioning to non-benzodiazepine anxiety management.", "verify": "real-tasks/task_h10.py"},
+  {"id": "task_h11", "difficulty": "hard", "instruction": "Delete the Lisinopril 20mg, Metformin 1000mg, Atorvastatin 40mg, and Azithromycin Z-Pack Rx templates.", "verify": "real-tasks/task_h11.py"},
+  {"id": "task_h12", "difficulty": "hard", "instruction": "Create Rx templates for both Doxycycline 100mg capsule (twice daily for 10 days, qty 20, 0 refills) and Cephalexin 500mg capsule (three times daily for 7 days, qty 21, 0 refills).", "verify": "real-tasks/task_h12.py"},
+  {"id": "task_h13", "difficulty": "hard", "instruction": "Approve the Sertraline refill, then prescribe an increased dose \u2014 Sertraline 100mg tablet, once daily in the morning, qty 30, 5 refills \u2014 to the same Walgreens pharmacy.", "verify": "real-tasks/task_h13.py"},
+  {"id": "task_h14", "difficulty": "hard", "instruction": "Change the default pharmacy to Walgreens #7892, prescribe a Gabapentin 300mg refill there (qty 90, 3 refills, 30 days supply), and turn off auto-populate last used pharmacy.", "verify": "real-tasks/task_h14.py"},
+  {"id": "task_h15", "difficulty": "hard", "instruction": "Discontinue both Losartan and Amlodipine, then prescribe Valsartan 160mg tablet once daily for hypertension \u2014 qty 30, 3 refills, send to CVS #4521.", "verify": "real-tasks/task_h15.py"},
+  {"id": "task_h16", "difficulty": "hard", "instruction": "Approve the Lisinopril and Atorvastatin refills, deny the Gabapentin refill because the patient needs an appointment, and approve the Sertraline refill.", "verify": "real-tasks/task_h16.py"},
+  {"id": "task_h17", "difficulty": "hard", "instruction": "Add a Peanut allergy (anaphylaxis reaction, Severe, food type), then prescribe Doxycycline 100mg capsule twice daily for 10 days as a temporary medication to CVS #4521.", "verify": "real-tasks/task_h17.py"},
+  {"id": "task_h18", "difficulty": "hard", "instruction": "Delete both Lisinopril Rx templates and create a new Losartan 50mg tablet template \u2014 once daily, qty 30, 3 refills, 30 days supply.", "verify": "real-tasks/task_h18.py"},
+  {"id": "task_h19", "difficulty": "hard", "instruction": "Discontinue the Omeprazole and prescribe Famotidine 20mg tablet twice daily as a replacement for GERD \u2014 qty 60, 3 refills, send to CVS #4521.", "verify": "real-tasks/task_h19.py"},
+  {"id": "task_h20", "difficulty": "hard", "instruction": "Complete a medication reconciliation \u2014 mark both the Centrum Silver multivitamin and the Melatonin for discontinuation during the review.", "verify": "real-tasks/task_h20.py"}
 ]

@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that a daily probiotic OTC entry was added to permanentOtcMeds."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,50 +10,35 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    permanent_otc_meds = state.get("permanentOtcMeds", [])
+    settings = state.get("settings", {})
 
-    # Find a probiotic entry (case-insensitive)
-    probiotic_med = None
-    for med in permanent_otc_meds:
-        med_name = (med.get("medicationName") or "").lower()
-        if "probiotic" in med_name:
-            probiotic_med = med
-            break
+    # Check default pharmacy changed to Walgreens #7892
+    default_pharmacy = settings.get("defaultPharmacyId", "")
+    if default_pharmacy != "pharm_003":
+        return False, f"settings.defaultPharmacyId is '{default_pharmacy}', expected 'pharm_003' (Walgreens #7892)"
 
-    if probiotic_med is None:
-        med_names = [m.get("medicationName", "") for m in permanent_otc_meds]
-        return False, (
-            f"No medication containing 'Probiotic' found in permanentOtcMeds. "
-            f"Current OTC meds: {med_names}"
-        )
+    # Check auto-populate is off
+    auto_populate = settings.get("autoPopulateLastPharmacy")
+    if auto_populate is not False:
+        return False, f"settings.autoPopulateLastPharmacy is {auto_populate}, expected false"
 
-    # Check classification is permanent_otc
-    classification = probiotic_med.get("classification")
-    if classification != "permanent_otc":
-        return False, (
-            f"Probiotic classification is '{classification}', expected 'permanent_otc'."
-        )
+    # Check a Gabapentin entry exists at Walgreens with qty 90 and refills 3
+    permanent_rx_meds = state.get("permanentRxMeds", [])
+    gabapentin_walgreens = None
+    for med in permanent_rx_meds:
+        name = med.get("medicationName", "").lower()
+        if "gabapentin" not in name:
+            continue
+        pharmacy_id = med.get("pharmacyId", "")
+        pharmacy_name = med.get("pharmacyName", "")
+        if pharmacy_id == "pharm_003" or "walgreens" in pharmacy_name.lower():
+            if med.get("qty") == 90:
+                refills = med.get("refills", med.get("refillsRemaining"))
+                if refills == 3:
+                    gabapentin_walgreens = med
+                    break
 
-    # Check sig mentions daily or food (case-insensitive)
-    sig = (probiotic_med.get("sig") or "").lower()
-    daily_keywords = ["daily", "once a day", "every day", "food", "qd", "once daily"]
-    has_daily = any(kw in sig for kw in daily_keywords)
-    if not has_daily:
-        return False, (
-            f"Probiotic sig does not mention 'daily' or 'food'. "
-            f"sig='{probiotic_med.get('sig')}'"
-        )
+    if gabapentin_walgreens is None:
+        return False, "No Gabapentin entry found in permanentRxMeds at Walgreens (pharm_003) with qty 90 and 3 refills"
 
-    # Verify count increased from seed (6 -> 7)
-    if len(permanent_otc_meds) < 7:
-        return False, (
-            f"Expected at least 7 permanentOtcMeds after adding Probiotic "
-            f"(seed had 6), but found {len(permanent_otc_meds)}."
-        )
-
-    return True, (
-        f"Probiotic OTC medication added successfully. "
-        f"medicationName='{probiotic_med.get('medicationName')}', "
-        f"classification='{classification}', sig='{probiotic_med.get('sig')}', "
-        f"total OTC meds: {len(permanent_otc_meds)}."
-    )
+    return True, "Default pharmacy set to Walgreens, auto-populate disabled, Gabapentin 300mg prescribed at Walgreens with qty 90 and 3 refills"

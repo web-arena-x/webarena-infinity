@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that Ibuprofen was added as a drug allergy with stomach upset/GI bleeding, moderate severity."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,55 +10,28 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    current_patient = state.get("currentPatient", {})
-    allergies = current_patient.get("allergies", [])
-
-    # Seed has 4 allergies; should now be 5
-    if len(allergies) < 5:
-        return False, (
-            f"Expected at least 5 allergies (seed had 4, should have added 1). "
-            f"Found {len(allergies)} allergies."
-        )
-
-    # Find Ibuprofen allergy (case-insensitive)
-    ibuprofen_allergy = None
-    for allergy in allergies:
-        allergen = (allergy.get("allergen") or "").lower()
-        if "ibuprofen" in allergen:
-            ibuprofen_allergy = allergy
+    # Find the Atorvastatin refill request
+    refill_requests = state.get("refillRequests", [])
+    atorvastatin_refill = None
+    for req in refill_requests:
+        if req.get("medicationName") == "Atorvastatin 20mg tablet":
+            atorvastatin_refill = req
             break
 
-    if ibuprofen_allergy is None:
-        allergen_names = [a.get("allergen", "") for a in allergies]
-        return False, (
-            f"No allergy with allergen containing 'Ibuprofen' found. "
-            f"Current allergens: {allergen_names}"
-        )
+    if atorvastatin_refill is None:
+        return False, "Atorvastatin 20mg tablet refill request not found in refillRequests"
 
-    # Check type = drug
-    allergy_type = (ibuprofen_allergy.get("type") or "").lower()
-    if allergy_type != "drug":
-        return False, f"Ibuprofen allergy type is '{ibuprofen_allergy.get('type')}', expected 'drug'"
+    if atorvastatin_refill.get("status") != "denied":
+        return False, f"Atorvastatin refill status is '{atorvastatin_refill.get('status')}', expected 'denied'"
 
-    # Check severity = Moderate (case-insensitive)
-    severity = (ibuprofen_allergy.get("severity") or "").lower()
-    if severity != "moderate":
-        return False, f"Ibuprofen allergy severity is '{ibuprofen_allergy.get('severity')}', expected 'Moderate'"
+    if not atorvastatin_refill.get("processedBy"):
+        return False, "Atorvastatin refill processedBy is not set"
 
-    # Check reaction mentions stomach or GI
-    reaction = (ibuprofen_allergy.get("reaction") or "").lower()
-    gi_keywords = ["stomach", "gi", "gastrointestinal", "bleeding", "gastric"]
-    has_gi = any(kw in reaction for kw in gi_keywords)
-    if not has_gi:
-        return False, (
-            f"Ibuprofen allergy reaction does not mention stomach/GI issues. "
-            f"reaction='{ibuprofen_allergy.get('reaction')}'"
-        )
+    if not atorvastatin_refill.get("processedDate"):
+        return False, "Atorvastatin refill processedDate is not set"
 
-    return True, (
-        f"Ibuprofen drug allergy added successfully. "
-        f"severity='{ibuprofen_allergy.get('severity')}', "
-        f"type='{ibuprofen_allergy.get('type')}', "
-        f"reaction='{ibuprofen_allergy.get('reaction')}', "
-        f"total allergies={len(allergies)}"
-    )
+    deny_reason = atorvastatin_refill.get("denyReason", "")
+    if not deny_reason:
+        return False, "Atorvastatin refill denyReason is empty or not set"
+
+    return True, "Atorvastatin refill denied successfully with reason provided"

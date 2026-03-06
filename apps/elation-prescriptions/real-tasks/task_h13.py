@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that the medication swap change request was approved and the sig clarification remains pending."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,58 +10,35 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    change_requests = state.get("changeRequests", [])
+    # Check Sertraline refill request is approved
+    refill_requests = state.get("refillRequests", [])
+    sertraline_refill = None
+    for req in refill_requests:
+        if req.get("id") == "rr_007" or req.get("medicationName") == "Sertraline 50mg tablet":
+            sertraline_refill = req
+            break
 
-    # Identify the swap request: originalMedication != requestedMedication
-    swap_request = None
-    clarification_request = None
+    if sertraline_refill is None:
+        return False, "Sertraline refill request (rr_007) not found in refillRequests"
 
-    for cr in change_requests:
-        original = (cr.get("originalMedication") or "").lower().strip()
-        requested = (cr.get("requestedMedication") or "").lower().strip()
-        if original and requested and original != requested:
-            swap_request = cr
-        elif original and requested and original == requested:
-            clarification_request = cr
+    if sertraline_refill.get("status") != "approved":
+        return False, f"Sertraline refill status is '{sertraline_refill.get('status')}', expected 'approved'"
 
-    if swap_request is None:
-        return False, (
-            "Could not find a change request where originalMedication differs from requestedMedication. "
-            f"Change requests: {[(cr.get('id'), cr.get('originalMedication'), cr.get('requestedMedication')) for cr in change_requests]}"
-        )
+    # Check Sertraline 100mg exists in permanentRxMeds
+    permanent_rx_meds = state.get("permanentRxMeds", [])
+    sertraline_100 = None
+    for med in permanent_rx_meds:
+        name = med.get("medicationName", "").lower()
+        if "sertraline" in name and "100mg" in name:
+            sertraline_100 = med
+            break
 
-    # Check swap request is approved
-    swap_status = swap_request.get("status")
-    if swap_status != "approved":
-        return False, (
-            f"Medication swap change request (id='{swap_request.get('id')}', "
-            f"{swap_request.get('originalMedication')} -> {swap_request.get('requestedMedication')}) "
-            f"status is '{swap_status}', expected 'approved'."
-        )
+    if sertraline_100 is None:
+        return False, "No Sertraline 100mg medication found in permanentRxMeds"
 
-    # Check processedBy is set
-    processed_by = swap_request.get("processedBy")
-    if not processed_by:
-        return False, "Medication swap change request processedBy is not set."
+    pharmacy_id = sertraline_100.get("pharmacyId", "")
+    pharmacy_name = sertraline_100.get("pharmacyName", "")
+    if pharmacy_id != "pharm_003" and "walgreens" not in pharmacy_name.lower():
+        return False, f"Sertraline 100mg pharmacy is '{pharmacy_name}' ({pharmacy_id}), expected Walgreens #7892 (pharm_003)"
 
-    # Check processedDate is set
-    processed_date = swap_request.get("processedDate")
-    if not processed_date:
-        return False, "Medication swap change request processedDate is not set."
-
-    # Check the clarification request is still pending
-    if clarification_request is not None:
-        clar_status = clarification_request.get("status")
-        if clar_status != "pending":
-            return False, (
-                f"Sig clarification change request (id='{clarification_request.get('id')}') "
-                f"status is '{clar_status}', expected it to remain 'pending'. "
-                f"Only the medication swap should have been approved."
-            )
-
-    return True, (
-        f"Medication swap change request approved successfully. "
-        f"id='{swap_request.get('id')}', "
-        f"{swap_request.get('originalMedication')} -> {swap_request.get('requestedMedication')}, "
-        f"processedBy='{processed_by}', processedDate='{processed_date}'."
-    )
+    return True, "Sertraline refill approved and Sertraline 100mg prescribed at Walgreens"

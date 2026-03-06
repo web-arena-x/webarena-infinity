@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that Sertraline was discontinued and a pharmacy cancel script was created."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -12,54 +11,28 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, f"Error fetching state: {e}"
 
     permanent_rx_meds = state.get("permanentRxMeds", [])
-    discontinued_meds = state.get("discontinuedMeds", [])
-    canceled_scripts = state.get("canceledScripts", [])
-    errors = []
 
-    # Check Sertraline is NOT in permanentRxMeds
+    buspirone = None
     for med in permanent_rx_meds:
-        if "Sertraline" in med.get("medicationName", ""):
-            errors.append(
-                f"Sertraline still found in permanentRxMeds: '{med.get('medicationName')}'"
-            )
+        name = med.get("medicationName", "").lower()
+        if "buspirone" in name and "10mg" in name:
+            buspirone = med
             break
 
-    # Check Sertraline IS in discontinuedMeds with status="discontinued"
-    sertraline_discontinued = None
-    for med in discontinued_meds:
-        if "Sertraline" in med.get("medicationName", ""):
-            sertraline_discontinued = med
-            break
+    if buspirone is None:
+        return False, "No Buspirone 10mg medication found in permanentRxMeds"
 
-    if sertraline_discontinued is None:
-        errors.append("Sertraline not found in discontinuedMeds")
-    else:
-        if sertraline_discontinued.get("status") != "discontinued":
-            errors.append(
-                f"Sertraline in discontinuedMeds has status '{sertraline_discontinued.get('status')}', "
-                f"expected 'discontinued'"
-            )
+    qty = buspirone.get("qty")
+    if qty != 30:
+        return False, f"Buspirone qty is {qty}, expected 30"
 
-    # Check canceledScripts has new entry for Sertraline (seed has 2, now should be 3+)
-    sertraline_cancels = [
-        cs for cs in canceled_scripts
-        if "Sertraline" in cs.get("medicationName", "")
-    ]
+    refills = buspirone.get("refills", buspirone.get("refillsRemaining"))
+    if refills != 5:
+        return False, f"Buspirone refills/refillsRemaining is {refills}, expected 5"
 
-    if len(canceled_scripts) < 3:
-        errors.append(
-            f"canceledScripts has {len(canceled_scripts)} entries, expected at least 3 "
-            f"(seed had 2, plus new Sertraline cancel)"
-        )
+    pharmacy_id = buspirone.get("pharmacyId", "")
+    pharmacy_name = buspirone.get("pharmacyName", "")
+    if pharmacy_id != "pharm_003" and "walgreens" not in pharmacy_name.lower():
+        return False, f"Buspirone pharmacy is '{pharmacy_name}' ({pharmacy_id}), expected Walgreens #7892 (pharm_003)"
 
-    if len(sertraline_cancels) == 0:
-        errors.append("No canceled script found for Sertraline in canceledScripts")
-
-    if errors:
-        return False, "Failures: " + "; ".join(errors)
-
-    return True, (
-        "Sertraline discontinued successfully. "
-        f"Removed from permanentRxMeds, added to discontinuedMeds (status='discontinued'), "
-        f"and pharmacy cancel script created ({len(canceled_scripts)} total canceled scripts)."
-    )
+    return True, "Buspirone 10mg prescribed correctly: qty 30, 5 refills, at Walgreens #7892"

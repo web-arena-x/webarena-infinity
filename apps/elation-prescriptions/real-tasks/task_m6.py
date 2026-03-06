@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that Amlodipine was discontinued and a pharmacy cancel was sent."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,53 +10,48 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    errors = []
-    med_name_fragment = "amlodipine"
-    dose_fragment = "5mg"
+    # Check Gabapentin refill request is approved
+    refill_requests = state.get("refillRequests", [])
+    gabapentin_refill = None
+    for req in refill_requests:
+        if req.get("medicationName") == "Gabapentin 300mg capsule":
+            gabapentin_refill = req
+            break
 
-    # Check that Amlodipine 5mg is NOT in permanentRxMeds
+    if gabapentin_refill is None:
+        return False, "Gabapentin 300mg capsule refill request not found in refillRequests"
+
+    if gabapentin_refill.get("status") != "approved":
+        return False, f"Gabapentin refill status is '{gabapentin_refill.get('status')}', expected 'approved'"
+
+    if not gabapentin_refill.get("processedBy"):
+        return False, "Gabapentin refill processedBy is not set"
+
+    if not gabapentin_refill.get("processedDate"):
+        return False, "Gabapentin refill processedDate is not set"
+
+    # Check modifications has sig containing "twice daily"
+    modifications = gabapentin_refill.get("modifications", {})
+    if not modifications:
+        return False, "Gabapentin refill has no modifications recorded"
+
+    mod_sig = modifications.get("sig", "")
+    if "twice daily" not in mod_sig.lower():
+        return False, f"Gabapentin refill modification sig is '{mod_sig}', expected it to contain 'twice daily'"
+
+    # Check permanentRxMeds Gabapentin sig was updated to contain "twice daily"
     permanent_rx_meds = state.get("permanentRxMeds", [])
-    amlodipine_active = [
-        m for m in permanent_rx_meds
-        if med_name_fragment in m.get("medicationName", "").lower()
-        and dose_fragment in m.get("medicationName", "").lower()
-    ]
-    if amlodipine_active:
-        errors.append("Amlodipine 5mg is still in permanentRxMeds; expected it to be discontinued")
+    gabapentin_med = None
+    for med in permanent_rx_meds:
+        if med.get("medicationName") == "Gabapentin 300mg capsule":
+            gabapentin_med = med
+            break
 
-    # Check that Amlodipine 5mg IS in discontinuedMeds
-    discontinued_meds = state.get("discontinuedMeds", [])
-    amlodipine_disc = [
-        m for m in discontinued_meds
-        if med_name_fragment in m.get("medicationName", "").lower()
-        and dose_fragment in m.get("medicationName", "").lower()
-    ]
-    if not amlodipine_disc:
-        errors.append("Amlodipine 5mg not found in discontinuedMeds")
+    if gabapentin_med is None:
+        return False, "Gabapentin 300mg capsule not found in permanentRxMeds"
 
-    # Check canceledScripts has a new entry for Amlodipine (seed has 2, should be 3)
-    canceled_scripts = state.get("canceledScripts", [])
-    amlodipine_canceled = [
-        c for c in canceled_scripts
-        if med_name_fragment in c.get("medicationName", "").lower()
-        and dose_fragment in c.get("medicationName", "").lower()
-    ]
-    if not amlodipine_canceled:
-        errors.append(
-            "No canceled script found for Amlodipine 5mg in canceledScripts; "
-            "expected a cancel request to be sent to the pharmacy"
-        )
+    med_sig = gabapentin_med.get("sig", "")
+    if "twice daily" not in med_sig.lower():
+        return False, f"Gabapentin in permanentRxMeds has sig '{med_sig}', expected it to contain 'twice daily'"
 
-    if len(canceled_scripts) < 3:
-        errors.append(
-            f"Expected at least 3 canceledScripts (seed had 2), found {len(canceled_scripts)}"
-        )
-
-    if errors:
-        return False, f"Amlodipine discontinuation issues: {'; '.join(errors)}"
-
-    return True, (
-        "Amlodipine 5mg successfully discontinued and pharmacy cancel sent. "
-        "Removed from permanentRxMeds, added to discontinuedMeds, "
-        "and a new entry created in canceledScripts."
-    )
+    return True, "Gabapentin refill approved with sig changed to twice daily"

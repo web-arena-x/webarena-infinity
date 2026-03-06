@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that the default pharmacy was changed to Walgreens #7892 on Mission St."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,50 +10,48 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    pharmacies = state.get("pharmacies", [])
-    settings = state.get("settings", {})
-
-    # Look up Walgreens #7892 by name in the pharmacies list
-    walgreens_pharmacy = None
-    for pharm in pharmacies:
-        name = (pharm.get("name") or "").lower()
-        if "walgreens" in name and "7892" in name:
-            walgreens_pharmacy = pharm
+    # Check Metoprolol refill request is approved
+    refill_requests = state.get("refillRequests", [])
+    metoprolol_refill = None
+    for req in refill_requests:
+        if req.get("medicationName") == "Metoprolol Succinate ER 50mg tablet":
+            metoprolol_refill = req
             break
 
-    if walgreens_pharmacy is None:
-        pharm_names = [p.get("name", "") for p in pharmacies]
-        return False, (
-            f"Could not find Walgreens #7892 in pharmacies list. "
-            f"Available pharmacies: {pharm_names}"
-        )
+    if metoprolol_refill is None:
+        return False, "Metoprolol Succinate ER 50mg tablet refill request not found in refillRequests"
 
-    # Verify it's the one on Mission St
-    address = (walgreens_pharmacy.get("address") or "").lower()
-    if "mission" not in address:
-        return False, (
-            f"Found Walgreens #7892 but its address is '{walgreens_pharmacy.get('address')}', "
-            f"expected it to be on Mission St"
-        )
+    if metoprolol_refill.get("status") != "approved":
+        return False, f"Metoprolol refill status is '{metoprolol_refill.get('status')}', expected 'approved'"
 
-    walgreens_id = walgreens_pharmacy.get("id")
+    if not metoprolol_refill.get("processedBy"):
+        return False, "Metoprolol refill processedBy is not set"
 
-    # Check that settings.defaultPharmacyId matches
-    default_pharmacy_id = settings.get("defaultPharmacyId")
-    if default_pharmacy_id == "pharm_001":
-        return False, (
-            f"settings.defaultPharmacyId is still 'pharm_001' (CVS Pharmacy #4521). "
-            f"Expected it to be changed to '{walgreens_id}' (Walgreens #7892)"
-        )
+    if not metoprolol_refill.get("processedDate"):
+        return False, "Metoprolol refill processedDate is not set"
 
-    if default_pharmacy_id != walgreens_id:
-        return False, (
-            f"settings.defaultPharmacyId is '{default_pharmacy_id}', "
-            f"expected '{walgreens_id}' (Walgreens #7892 at {walgreens_pharmacy.get('address')})"
-        )
+    # Check modifications has refills == 5
+    modifications = metoprolol_refill.get("modifications", {})
+    if not modifications:
+        return False, "Metoprolol refill has no modifications recorded"
 
-    return True, (
-        f"Default pharmacy changed to Walgreens #7892 successfully. "
-        f"defaultPharmacyId='{default_pharmacy_id}', "
-        f"pharmacy='{walgreens_pharmacy.get('name')}' at {walgreens_pharmacy.get('address')}"
-    )
+    mod_refills = modifications.get("refills")
+    if mod_refills != 5:
+        return False, f"Metoprolol refill modification refills is {mod_refills}, expected 5"
+
+    # Check permanentRxMeds Metoprolol has refillsRemaining == 5
+    permanent_rx_meds = state.get("permanentRxMeds", [])
+    metoprolol_med = None
+    for med in permanent_rx_meds:
+        if med.get("medicationName") == "Metoprolol Succinate ER 50mg tablet":
+            metoprolol_med = med
+            break
+
+    if metoprolol_med is None:
+        return False, "Metoprolol Succinate ER 50mg tablet not found in permanentRxMeds"
+
+    refills_remaining = metoprolol_med.get("refillsRemaining")
+    if refills_remaining != 5:
+        return False, f"Metoprolol in permanentRxMeds has refillsRemaining {refills_remaining}, expected 5"
+
+    return True, "Metoprolol refill approved with refills changed to 5"

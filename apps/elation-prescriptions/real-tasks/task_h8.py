@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that Amlodipine 10mg was prescribed for hypertension to the preferred pharmacy."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -12,56 +11,32 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, f"Error fetching state: {e}"
 
     permanent_rx_meds = state.get("permanentRxMeds", [])
-    current_patient = state.get("currentPatient", {})
-    errors = []
 
-    # Get the patient's preferred pharmacy ID
-    preferred_pharmacy_id = current_patient.get("preferredPharmacyId", "")
-    if not preferred_pharmacy_id:
-        errors.append("currentPatient.preferredPharmacyId is not set")
-
-    # Find Amlodipine 10mg entry in permanentRxMeds
-    amlodipine_10_med = None
+    albuterol = None
     for med in permanent_rx_meds:
-        med_name = med.get("medicationName", "")
-        if "Amlodipine" in med_name and "10mg" in med_name:
-            amlodipine_10_med = med
+        name = med.get("medicationName", "").lower()
+        if "albuterol" in name:
+            albuterol = med
             break
 
-    if amlodipine_10_med is None:
-        return False, (
-            "No medication containing 'Amlodipine' and '10mg' found in permanentRxMeds. "
-            "Note: seed has Amlodipine 5mg (prx_006); a new 10mg entry should have been created."
-        )
+    if albuterol is None:
+        return False, "No Albuterol medication found in permanentRxMeds"
 
-    # Check pharmacyId matches preferred pharmacy
-    med_pharmacy_id = amlodipine_10_med.get("pharmacyId", "")
-    if preferred_pharmacy_id and med_pharmacy_id != preferred_pharmacy_id:
-        errors.append(
-            f"Amlodipine 10mg pharmacyId is '{med_pharmacy_id}', "
-            f"expected '{preferred_pharmacy_id}' (patient's preferredPharmacyId)"
-        )
+    qty = albuterol.get("qty")
+    if qty != 1:
+        return False, f"Albuterol qty is {qty}, expected 1"
 
-    # Check diagnosis contains entry with code I10
-    diagnosis = amlodipine_10_med.get("diagnosis", [])
-    has_hypertension_dx = False
-    for dx in diagnosis:
-        if dx.get("code") == "I10":
-            has_hypertension_dx = True
-            break
+    refills = albuterol.get("refills", albuterol.get("refillsRemaining"))
+    if refills != 1:
+        return False, f"Albuterol refills/refillsRemaining is {refills}, expected 1"
 
-    if not has_hypertension_dx:
-        dx_codes = [dx.get("code", "") for dx in diagnosis]
-        errors.append(
-            f"Amlodipine 10mg diagnosis does not include code 'I10' (hypertension). "
-            f"Found codes: {dx_codes}"
-        )
+    pharmacy_id = albuterol.get("pharmacyId", "")
+    pharmacy_name = albuterol.get("pharmacyName", "")
+    if pharmacy_id != "pharm_012" and "ucsf" not in pharmacy_name.lower():
+        return False, f"Albuterol pharmacy is '{pharmacy_name}' ({pharmacy_id}), expected UCSF Medical Center Pharmacy (pharm_012)"
 
-    if errors:
-        return False, "Failures: " + "; ".join(errors)
+    classification = albuterol.get("classification", "")
+    if classification != "permanent_rx":
+        return False, f"Albuterol classification is '{classification}', expected 'permanent_rx'"
 
-    return True, (
-        f"Amlodipine 10mg prescribed for hypertension to preferred pharmacy successfully. "
-        f"pharmacyId='{med_pharmacy_id}' matches preferredPharmacyId='{preferred_pharmacy_id}', "
-        f"diagnosis includes I10."
-    )
+    return True, "Albuterol 90mcg inhaler prescribed correctly: qty 1, 1 refill, permanent, UCSF pharmacy"

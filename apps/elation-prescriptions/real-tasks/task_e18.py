@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that Prednisone 10mg tablet was reclassified from temporary to permanent Rx."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,39 +10,28 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    med_name = "Prednisone 10mg tablet"
-
-    # Check that it is no longer in temporaryMeds
-    temporary_meds = state.get("temporaryMeds", [])
-    for med in temporary_meds:
-        if med.get("medicationName") == med_name:
-            return False, (
-                f"'{med_name}' is still present in temporaryMeds, "
-                f"expected it to be moved to permanentRxMeds"
-            )
-
-    # Check that it is now in permanentRxMeds
-    permanent_rx_meds = state.get("permanentRxMeds", [])
-    prednisone = None
-    for med in permanent_rx_meds:
-        if med.get("medicationName") == med_name:
-            prednisone = med
+    # Find the Gabapentin sig clarification change request
+    change_requests = state.get("changeRequests", [])
+    gabapentin_request = None
+    for req in change_requests:
+        if req.get("medicationName") == "Gabapentin 300mg capsule":
+            gabapentin_request = req
             break
 
-    if prednisone is None:
-        return False, (
-            f"'{med_name}' was not found in permanentRxMeds"
-        )
+    if gabapentin_request is None:
+        return False, "Change request for medicationName 'Gabapentin 300mg capsule' not found in changeRequests"
 
-    # Check classification is permanent_rx
-    classification = prednisone.get("classification")
-    if classification != "permanent_rx":
-        return False, (
-            f"'{med_name}' classification is '{classification}', "
-            f"expected 'permanent_rx'"
-        )
+    if gabapentin_request.get("status") != "denied":
+        return False, f"Gabapentin change request status is '{gabapentin_request.get('status')}', expected 'denied'"
 
-    return True, (
-        f"'{med_name}' successfully reclassified from temporary to permanent Rx "
-        f"(classification='{classification}')."
-    )
+    if not gabapentin_request.get("processedBy"):
+        return False, "Gabapentin change request processedBy is not set"
+
+    if not gabapentin_request.get("processedDate"):
+        return False, "Gabapentin change request processedDate is not set"
+
+    deny_reason = gabapentin_request.get("denyReason", "")
+    if not deny_reason or not str(deny_reason).strip():
+        return False, "Gabapentin change request denyReason is not set or is empty"
+
+    return True, "Gabapentin sig clarification change request denied successfully with reason provided"

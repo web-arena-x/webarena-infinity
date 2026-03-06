@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that the Sertraline refill was denied with a follow-up reason."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,49 +10,37 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    errors = []
+    # Check Amoxicillin is NOT in temporaryMeds
+    temporary_meds = state.get("temporaryMeds", [])
+    for med in temporary_meds:
+        if med.get("medicationName") == "Amoxicillin 500mg capsule":
+            return False, "Amoxicillin 500mg capsule is still in temporaryMeds; expected it to be removed"
 
-    # Find the Sertraline refill request
-    refill_requests = state.get("refillRequests", [])
-    sertraline_refill = None
-    for rr in refill_requests:
-        med_name = rr.get("medicationName", "")
-        if "sertraline" in med_name.lower():
-            sertraline_refill = rr
+    # Check Amoxicillin IS in discontinuedMeds with status "discontinued"
+    discontinued_meds = state.get("discontinuedMeds", [])
+    amox_discontinued = None
+    for med in discontinued_meds:
+        if med.get("medicationName") == "Amoxicillin 500mg capsule":
+            amox_discontinued = med
             break
 
-    if sertraline_refill is None:
-        return False, "No refill request found for Sertraline."
+    if amox_discontinued is None:
+        return False, "Amoxicillin 500mg capsule not found in discontinuedMeds"
 
-    # Check status is denied
-    status = sertraline_refill.get("status")
-    if status != "denied":
-        errors.append(f"Refill request status is '{status}', expected 'denied'")
+    if amox_discontinued.get("status") != "discontinued":
+        return False, f"Amoxicillin in discontinuedMeds has status '{amox_discontinued.get('status')}', expected 'discontinued'"
 
-    # Check processedBy is set
-    processed_by = sertraline_refill.get("processedBy")
-    if not processed_by:
-        errors.append("Refill request processedBy is not set")
+    # Check canceledScripts contains a new entry for Amoxicillin
+    # Seed only has 2 canceled scripts: Azithromycin 250mg (cxl_001) and Lisinopril 20mg (cxl_002)
+    canceled_scripts = state.get("canceledScripts", [])
+    seed_canceled_ids = {"cxl_001", "cxl_002"}
+    amox_canceled = None
+    for script in canceled_scripts:
+        if script.get("medicationName") == "Amoxicillin 500mg capsule":
+            amox_canceled = script
+            break
 
-    # Check processedDate is set
-    processed_date = sertraline_refill.get("processedDate")
-    if not processed_date:
-        errors.append("Refill request processedDate is not set")
+    if amox_canceled is None:
+        return False, "No canceled script found for Amoxicillin 500mg capsule in canceledScripts"
 
-    # Check denyReason is set and mentions follow-up
-    deny_reason = sertraline_refill.get("denyReason", "")
-    if not deny_reason:
-        errors.append("Refill request denyReason is not set")
-    elif "follow" not in deny_reason.lower() and "appointment" not in deny_reason.lower():
-        errors.append(
-            f"denyReason is '{deny_reason}', expected it to mention follow-up or appointment"
-        )
-
-    if errors:
-        return False, f"Sertraline refill denial issues: {'; '.join(errors)}"
-
-    return True, (
-        f"Sertraline refill denied successfully. "
-        f"Status='denied', processedBy='{processed_by}', "
-        f"denyReason='{deny_reason}'."
-    )
+    return True, "Amoxicillin discontinued and cancellation sent to pharmacy successfully"

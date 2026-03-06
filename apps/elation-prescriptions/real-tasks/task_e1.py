@@ -2,7 +2,6 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
-    """Verify that the pending refill request for Lisinopril 10mg tablet was approved."""
     try:
         resp = requests.get(f"{server_url}/api/state")
         if resp.status_code != 200:
@@ -11,52 +10,38 @@ def verify(server_url: str) -> tuple[bool, str]:
     except Exception as e:
         return False, f"Error fetching state: {e}"
 
-    # Check refillRequests for Lisinopril 10mg tablet
+    # Find the Gabapentin refill request
     refill_requests = state.get("refillRequests", [])
-    lisinopril_refill = None
-    for rr in refill_requests:
-        if rr.get("medicationName") == "Lisinopril 10mg tablet":
-            lisinopril_refill = rr
+    gabapentin_refill = None
+    for req in refill_requests:
+        if req.get("medicationName") == "Gabapentin 300mg capsule":
+            gabapentin_refill = req
             break
 
-    if lisinopril_refill is None:
-        return False, "No refill request found with medicationName='Lisinopril 10mg tablet'"
+    if gabapentin_refill is None:
+        return False, "Gabapentin 300mg capsule refill request not found in refillRequests"
 
-    # Check status is approved
-    status = lisinopril_refill.get("status")
-    if status != "approved":
-        return False, f"Refill request status is '{status}', expected 'approved'"
+    if gabapentin_refill.get("status") != "approved":
+        return False, f"Gabapentin refill status is '{gabapentin_refill.get('status')}', expected 'approved'"
 
-    # Check processedBy is set
-    processed_by = lisinopril_refill.get("processedBy")
-    if not processed_by:
-        return False, "Refill request processedBy is not set"
+    if not gabapentin_refill.get("processedBy"):
+        return False, "Gabapentin refill processedBy is not set"
 
-    # Check processedDate is set
-    processed_date = lisinopril_refill.get("processedDate")
-    if not processed_date:
-        return False, "Refill request processedDate is not set"
+    if not gabapentin_refill.get("processedDate"):
+        return False, "Gabapentin refill processedDate is not set"
 
-    # Check linked medication in permanentRxMeds has updated lastPrescribedDate
+    # Check that the permanent Rx med has an updated lastPrescribedDate
     permanent_rx_meds = state.get("permanentRxMeds", [])
-    lisinopril_med = None
+    gabapentin_med = None
     for med in permanent_rx_meds:
-        if med.get("medicationName") == "Lisinopril 10mg tablet":
-            lisinopril_med = med
+        if med.get("medicationName") == "Gabapentin 300mg capsule":
+            gabapentin_med = med
             break
 
-    if lisinopril_med is None:
-        return False, "No medication found with medicationName='Lisinopril 10mg tablet' in permanentRxMeds"
+    if gabapentin_med is None:
+        return False, "Gabapentin 300mg capsule not found in permanentRxMeds"
 
-    last_prescribed = lisinopril_med.get("lastPrescribedDate")
-    if last_prescribed == "2025-12-15":
-        return False, "lastPrescribedDate is still the seed value '2025-12-15', expected it to be updated after approval"
+    if gabapentin_med.get("lastPrescribedDate") == "2025-09-15":
+        return False, "Gabapentin lastPrescribedDate is still the old value '2025-09-15'; expected it to be updated"
 
-    if not last_prescribed:
-        return False, "lastPrescribedDate is not set on Lisinopril 10mg tablet in permanentRxMeds"
-
-    return True, (
-        f"Lisinopril 10mg tablet refill request approved successfully. "
-        f"processedBy='{processed_by}', processedDate='{processed_date}', "
-        f"lastPrescribedDate updated to '{last_prescribed}'"
-    )
+    return True, "Gabapentin refill request approved successfully with updated prescription date"
