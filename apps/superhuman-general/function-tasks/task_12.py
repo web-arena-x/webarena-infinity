@@ -5,10 +5,15 @@ def verify(server_url: str) -> tuple[bool, str]:
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
+
     state = resp.json()
-    email = next((e for e in state["emails"] if "Inheritance Notification" in e["subject"] and "4.5M" in e["subject"]), None)
-    if not email:
-        return False, "Email 'URGENT: Inheritance Notification' not found."
-    if email["isSpam"]:
-        return False, "Email is still marked as spam."
-    return True, "Email unmarked as spam."
+    labels = state.get("labels", [])
+
+    design_label = next((l for l in labels if l["name"] == "Design"), None)
+    if design_label is None:
+        return False, "No label named 'Design' found in state."
+
+    if design_label.get("type") != "user":
+        return False, f"Label 'Design' exists but has type '{design_label.get('type')}' instead of 'user'."
+
+    return True, "Label 'Design' created successfully with type 'user'."

@@ -5,15 +5,29 @@ def verify(server_url: str) -> tuple[bool, str]:
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
+
     state = resp.json()
-    drafts = [e for e in state["emails"] if e["subject"] == "Integration Discussion" and e.get("isDraft")]
-    if not drafts:
-        return False, "Draft 'Integration Discussion' not found."
-    draft = drafts[0]
-    to_emails = [t["email"] for t in draft.get("to", [])]
-    if "kevin.zhao@quantumlab.tech" not in to_emails:
-        return False, f"Draft not addressed to kevin.zhao@quantumlab.tech. To: {to_emails}"
-    body = draft.get("body", "")
-    if "quantum" not in body.lower() or "integration" not in body.lower() or "prototype" not in body.lower():
-        return False, f"Draft body does not match expected content."
-    return True, "Draft saved with correct recipient, subject and body."
+    emails = state.get("emails", [])
+    settings = state.get("settings", {})
+
+    # Find the newsletter email
+    email = next(
+        (e for e in emails
+         if "Today's Briefing" in e.get("subject", "")
+         and "AI Startup Funding" in e.get("subject", "")),
+        None,
+    )
+    if email is None:
+        return False, "Could not find email 'Today's Briefing: AI Startup Funding Hits Record $12B in Q1'."
+
+    if email.get("isDone") is not True:
+        return False, f"Newsletter email is not marked as done. isDone={email.get('isDone')}"
+
+    blocked_senders = settings.get("blockedSenders", [])
+    if "newsletter@theinformation.com" not in blocked_senders:
+        return False, (
+            f"'newsletter@theinformation.com' not found in blockedSenders. "
+            f"Current blockedSenders: {blocked_senders}"
+        )
+
+    return True, "Unsubscribed from newsletter@theinformation.com and email marked as done."

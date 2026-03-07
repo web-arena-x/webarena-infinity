@@ -15,11 +15,13 @@ import argparse
 import importlib.util
 import json
 import os
+import signal
 import socket
 import subprocess
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from copy import deepcopy
 from pathlib import Path
 
 import requests
@@ -34,6 +36,7 @@ const vm = require('vm');
 const code = fs.readFileSync(process.argv[1], 'utf8');
 vm.runInThisContext(code);
 
+// Replicate what AppState._loadSeedData() does
 const state = {
     _seedVersion: SEED_DATA_VERSION,
     emails: JSON.parse(JSON.stringify(EMAILS)),
@@ -47,7 +50,7 @@ const state = {
     currentUser: JSON.parse(JSON.stringify(CURRENT_USER)),
     recentOpens: JSON.parse(JSON.stringify(RECENT_OPENS)),
     bookingPages: JSON.parse(JSON.stringify(BOOKING_PAGES)),
-    _nextEmailId: EMAILS.length > 0 ? Math.max(...EMAILS.map(e => e.id)) + 1 : 200,
+    _nextEmailId: Math.max(...EMAILS.map(e => e.id)) + 1,
     _nextLabelId: 30,
     _nextSnippetId: 30,
     _nextEventId: 30,
@@ -59,9 +62,18 @@ process.stdout.write(JSON.stringify(state));
 """
 
 
-# -- helpers ------------------------------------------------------------------
+# ── helpers ──────────────────────────────────────────────────────────
+
+def find_entity(entities, **kwargs):
+    """Find an entity by attribute match. Raises if not found."""
+    for e in entities:
+        if all(e.get(k) == v for k, v in kwargs.items()):
+            return e
+    raise ValueError(f"Entity not found: {kwargs}")
+
 
 def find_email_by_subject(state, subject):
+    """Find an email by subject."""
     for e in state["emails"]:
         if e["subject"] == subject:
             return e
@@ -69,20 +81,15 @@ def find_email_by_subject(state, subject):
 
 
 def find_email_by_subject_and_sender(state, subject, sender_email):
+    """Find an email by subject and sender email."""
     for e in state["emails"]:
         if e["subject"] == subject and e["from"]["email"] == sender_email:
             return e
     raise ValueError(f"Email not found: subject={subject!r}, from={sender_email!r}")
 
 
-def find_email_by_subject_contains(state, substring):
-    for e in state["emails"]:
-        if substring in e["subject"]:
-            return e
-    raise ValueError(f"Email not found containing: {substring!r}")
-
-
 def find_label_by_name(state, name):
+    """Find a label by name."""
     for l in state["labels"]:
         if l["name"] == name:
             return l
@@ -90,146 +97,151 @@ def find_label_by_name(state, name):
 
 
 def find_snippet_by_name(state, name):
+    """Find a snippet by name."""
     for s in state["snippets"]:
         if s["name"] == name:
             return s
     raise ValueError(f"Snippet not found: {name!r}")
 
 
-def find_event_by_title(state, title):
-    for e in state["calendarEvents"]:
-        if e["title"] == title:
-            return e
-    raise ValueError(f"Event not found: {title!r}")
-
-
-def find_booking_page_by_title(state, title):
-    for b in state["bookingPages"]:
-        if b["title"] == title:
-            return b
-    raise ValueError(f"Booking page not found: {title!r}")
-
-
 def find_auto_label_by_name(state, name):
-    for a in state["autoLabels"]:
-        if a["name"] == name:
-            return a
+    """Find an auto label by name."""
+    for al in state["autoLabels"]:
+        if al["name"] == name:
+            return al
     raise ValueError(f"Auto label not found: {name!r}")
 
 
 def find_split_by_name(state, name):
+    """Find a split by name."""
     for s in state["splits"]:
         if s["name"] == name:
             return s
     raise ValueError(f"Split not found: {name!r}")
 
 
-# -- solve functions ----------------------------------------------------------
+def find_booking_page_by_title(state, title):
+    """Find a booking page by title."""
+    for bp in state["bookingPages"]:
+        if bp["title"] == title:
+            return bp
+    raise ValueError(f"Booking page not found: {title!r}")
+
+
+# ── solve functions ──────────────────────────────────────────────────
 
 def solve_task_1(state):
     """Mark email 'Q2 Product Roadmap - Final Review' as read."""
-    email = find_email_by_subject_and_sender(state, "Q2 Product Roadmap - Final Review", "sarah.chen@acmecorp.com")
+    email = find_email_by_subject(state, "Q2 Product Roadmap - Final Review")
     email["isRead"] = True
 
 
 def solve_task_2(state):
     """Mark email 'Re: Infrastructure Migration Plan' as unread."""
-    email = find_email_by_subject_and_sender(state, "Re: Infrastructure Migration Plan", "tom.bradley@acmecorp.com")
+    email = find_email_by_subject_and_sender(
+        state, "Re: Infrastructure Migration Plan", "tom.bradley@acmecorp.com"
+    )
     email["isRead"] = False
 
 
 def solve_task_3(state):
     """Star email 'Partnership Opportunity - FinancePlus x Acme'."""
-    email = find_email_by_subject_and_sender(state, "Partnership Opportunity - FinancePlus x Acme", "david.kim@financeplus.com")
+    email = find_email_by_subject(state, "Partnership Opportunity - FinancePlus x Acme")
     email["isStarred"] = True
 
 
 def solve_task_4(state):
     """Unstar email 'FY2026 Budget Summary'."""
-    email = find_email_by_subject_and_sender(state, "FY2026 Budget Summary", "priya.sharma@acmecorp.com")
+    email = find_email_by_subject_and_sender(
+        state, "FY2026 Budget Summary", "priya.sharma@acmecorp.com"
+    )
     email["isStarred"] = False
 
 
 def solve_task_5(state):
-    """Mark Done email 'Global Health Initiative - Sponsorship Request'."""
-    email = find_email_by_subject_and_sender(state, "Global Health Initiative - Sponsorship Request", "ana.g@globalhealth.org")
+    """Mark email 'Budget Approval Needed - Marketing Campaign' as done."""
+    email = find_email_by_subject(state, "Budget Approval Needed - Marketing Campaign")
     email["isDone"] = True
     email["isRead"] = True
     email["remindAt"] = None
 
 
 def solve_task_6(state):
-    """Move email 'Re: Q1 Sales Numbers' from Done back to Inbox."""
-    email = find_email_by_subject_and_sender(state, "Re: Q1 Sales Numbers", "sarah.chen@acmecorp.com")
-    email["isDone"] = False
-
-
-def solve_task_7(state):
-    """Set reminder on email 'Quantum Computing Integration Prototype' for tomorrow."""
-    email = find_email_by_subject_and_sender(state, "Quantum Computing Integration Prototype", "kevin.zhao@quantumlab.tech")
-    email["remindAt"] = "2026-03-08T09:00:00.000Z"
-    email["isRead"] = True
-
-
-def solve_task_8(state):
-    """Clear reminder on email 'Patent Filing Deadline - April 15'."""
-    email = find_email_by_subject_and_sender(state, "Patent Filing Deadline - April 15", "james.obrien@legalwise.com")
-    email["remindAt"] = None
-
-
-def solve_task_9(state):
-    """Move email 'Logistics Update - Office Equipment Delivery' to Trash."""
-    email = find_email_by_subject_and_sender(state, "Logistics Update - Office Equipment Delivery", "carlos.m@logisticspro.net")
+    """Move email 'Re: Series B Term Sheet Discussion' to Trash."""
+    email = find_email_by_subject_and_sender(
+        state, "Re: Series B Term Sheet Discussion", "emily.r@venturelabs.co"
+    )
     email["isTrashed"] = True
     email["isDone"] = False
     email["remindAt"] = None
 
 
-def solve_task_10(state):
-    """Restore email 'Complete Your Survey - Win a $500 Gift Card' from Trash."""
-    email = find_email_by_subject_contains(state, "Complete Your Survey")
-    email["isTrashed"] = False
-
-
-def solve_task_11(state):
-    """Mark email about AI Startup Funding as spam."""
-    email = find_email_by_subject_contains(state, "AI Startup Funding Hits Record")
+def solve_task_7(state):
+    """Mark email 'Global Health Initiative - Sponsorship Request' as spam."""
+    email = find_email_by_subject(state, "Global Health Initiative - Sponsorship Request")
     email["isSpam"] = True
     email["isDone"] = False
     email["remindAt"] = None
 
 
+def solve_task_8(state):
+    """Set a reminder on 'Quantum Computing Integration Prototype' for March 8."""
+    email = find_email_by_subject(state, "Quantum Computing Integration Prototype")
+    email["remindAt"] = "2026-03-08T09:00:00.000Z"
+    email["isRead"] = True
+
+
+def solve_task_9(state):
+    """Clear the reminder on 'Patent Filing Deadline - April 15'."""
+    email = find_email_by_subject_and_sender(
+        state, "Patent Filing Deadline - April 15", "james.obrien@legalwise.com"
+    )
+    email["remindAt"] = None
+
+
+def solve_task_10(state):
+    """Apply the 'Urgent' label to 'Database Performance Report - March'."""
+    email = find_email_by_subject_and_sender(
+        state, "Database Performance Report - March", "tom.bradley@acmecorp.com"
+    )
+    urgent_label = find_label_by_name(state, "Urgent")
+    if urgent_label["id"] not in email["labels"]:
+        email["labels"].append(urgent_label["id"])
+
+
+def solve_task_11(state):
+    """Remove 'Engineering' label from 'Re: Sprint 23 Retrospective Notes'."""
+    email = find_email_by_subject_and_sender(
+        state, "Re: Sprint 23 Retrospective Notes", "nate.patel@acmecorp.com"
+    )
+    eng_label = find_label_by_name(state, "Engineering")
+    email["labels"] = [l for l in email["labels"] if l != eng_label["id"]]
+
+
 def solve_task_12(state):
-    """Unmark email 'URGENT: Inheritance Notification' as spam."""
-    email = find_email_by_subject_contains(state, "Inheritance Notification")
-    email["isSpam"] = False
+    """Create a new label named 'Design' with blue color."""
+    next_id = state.get("_nextLabelId", 30)
+    new_label = {
+        "id": f"label_{next_id}",
+        "name": "Design",
+        "type": "user",
+        "color": "#2196F3",
+    }
+    state["labels"].append(new_label)
+    state["_nextLabelId"] = next_id + 1
 
 
 def solve_task_13(state):
-    """Add 'Urgent' label to email 'Budget Approval Needed - Marketing Campaign'."""
-    email = find_email_by_subject_and_sender(state, "Budget Approval Needed - Marketing Campaign", "priya.sharma@acmecorp.com")
-    urgent = find_label_by_name(state, "Urgent")
-    if urgent["id"] not in email["labels"]:
-        email["labels"].append(urgent["id"])
+    """Delete the 'Receipts' label and remove from all emails."""
+    receipts_label = find_label_by_name(state, "Receipts")
+    label_id = receipts_label["id"]
+    for email in state["emails"]:
+        email["labels"] = [l for l in email["labels"] if l != label_id]
+    state["labels"] = [l for l in state["labels"] if l["id"] != label_id]
 
 
 def solve_task_14(state):
-    """Remove 'Work' label from email 'Q2 Product Roadmap - Final Review'."""
-    email = find_email_by_subject_and_sender(state, "Q2 Product Roadmap - Final Review", "sarah.chen@acmecorp.com")
-    work = find_label_by_name(state, "Work")
-    email["labels"] = [l for l in email["labels"] if l != work["id"]]
-
-
-def solve_task_15(state):
-    """Add 'Finance' label to email 'Partnership Opportunity - FinancePlus x Acme'."""
-    email = find_email_by_subject_and_sender(state, "Partnership Opportunity - FinancePlus x Acme", "david.kim@financeplus.com")
-    finance = find_label_by_name(state, "Finance")
-    if finance["id"] not in email["labels"]:
-        email["labels"].append(finance["id"])
-
-
-def solve_task_16(state):
-    """Send email to marcus.w@designhub.io."""
+    """Send email to sarah.chen@acmecorp.com with subject 'Team Sync'."""
     next_id = state.get("_nextEmailId", 200)
     new_email = {
         "id": next_id,
@@ -238,12 +250,87 @@ def solve_task_16(state):
             "name": state["currentUser"]["name"],
             "email": state["currentUser"]["email"],
         },
-        "to": [{"name": "Marcus Williams", "email": "marcus.w@designhub.io"}],
+        "to": [{"name": "Sarah Chen", "email": "sarah.chen@acmecorp.com"}],
         "cc": [],
         "bcc": [],
-        "subject": "Design Review Follow-up",
-        "snippet": "Thanks for the design review. The new components look great.",
-        "body": "Thanks for the design review. The new components look great.",
+        "subject": "Team Sync",
+        "snippet": "Let's schedule a sync this week.",
+        "body": "Let's schedule a sync this week.",
+        "date": "2026-03-07T12:00:00.000Z",
+        "isRead": True,
+        "isStarred": False,
+        "isDone": False,
+        "isTrashed": False,
+        "isSpam": False,
+        "isDraft": False,
+        "labels": [],
+        "hasAttachments": False,
+        "attachments": [],
+        "splitCategory": "important",
+        "remindAt": None,
+        "readReceipt": {"opened": False},
+        "autoLabel": None,
+        "replyDraftingTeammate": None,
+        "threadMessages": None,
+    }
+    state["emails"].insert(0, new_email)
+    state["_nextEmailId"] = next_id + 1
+
+
+def solve_task_15(state):
+    """Reply to 'Partnership Opportunity - FinancePlus x Acme' from David Kim."""
+    next_id = state.get("_nextEmailId", 200)
+    new_email = {
+        "id": next_id,
+        "threadId": f"thread_{next_id + 1}",
+        "from": {
+            "name": state["currentUser"]["name"],
+            "email": state["currentUser"]["email"],
+        },
+        "to": [{"name": "David Kim", "email": "david.kim@financeplus.com"}],
+        "cc": [],
+        "bcc": [],
+        "subject": "Re: Partnership Opportunity - FinancePlus x Acme",
+        "snippet": "Let's set up a call next week.",
+        "body": "Let's set up a call next week.\n\nBest,\nAlex Morgan\nVP of Product, Acme Corp",
+        "date": "2026-03-07T12:00:00.000Z",
+        "isRead": True,
+        "isStarred": False,
+        "isDone": False,
+        "isTrashed": False,
+        "isSpam": False,
+        "isDraft": False,
+        "labels": [],
+        "hasAttachments": False,
+        "attachments": [],
+        "splitCategory": "important",
+        "remindAt": None,
+        "readReceipt": {"opened": False},
+        "autoLabel": None,
+        "replyDraftingTeammate": None,
+        "threadMessages": None,
+    }
+    state["emails"].insert(0, new_email)
+    state["_nextEmailId"] = next_id + 1
+
+
+def solve_task_16(state):
+    """Forward 'Quantum Computing Integration Prototype' to nate.patel@acmecorp.com."""
+    next_id = state.get("_nextEmailId", 200)
+    original = find_email_by_subject(state, "Quantum Computing Integration Prototype")
+    new_email = {
+        "id": next_id,
+        "threadId": f"thread_{next_id + 1}",
+        "from": {
+            "name": state["currentUser"]["name"],
+            "email": state["currentUser"]["email"],
+        },
+        "to": [{"name": "Nate Patel", "email": "nate.patel@acmecorp.com"}],
+        "cc": [],
+        "bcc": [],
+        "subject": "Fwd: Quantum Computing Integration Prototype",
+        "snippet": original["snippet"][:100],
+        "body": f"\n\n---------- Forwarded message ----------\nFrom: {original['from']['name']} <{original['from']['email']}>\nSubject: {original['subject']}\n\n{original.get('body', original['snippet'])}",
         "date": "2026-03-07T12:00:00.000Z",
         "isRead": True,
         "isStarred": False,
@@ -266,91 +353,35 @@ def solve_task_16(state):
 
 
 def solve_task_17(state):
-    """Save draft to kevin.zhao@quantumlab.tech."""
-    next_id = state.get("_nextEmailId", 200)
-    new_draft = {
-        "id": next_id,
-        "threadId": f"thread_{next_id + 1}",
-        "from": {
-            "name": state["currentUser"]["name"],
-            "email": state["currentUser"]["email"],
-        },
-        "to": [{"name": "Kevin Zhao", "email": "kevin.zhao@quantumlab.tech"}],
-        "cc": [],
-        "bcc": [],
-        "subject": "Integration Discussion",
-        "snippet": "Let us discuss the quantum integration prototype.",
-        "body": "Let us discuss the quantum integration prototype.",
-        "date": "2026-03-07T12:00:00.000Z",
-        "isRead": True,
-        "isStarred": False,
-        "isDone": False,
-        "isTrashed": False,
-        "isSpam": False,
-        "isDraft": True,
-        "labels": [],
-        "hasAttachments": False,
-        "attachments": [],
-        "splitCategory": "important",
-        "remindAt": None,
-        "readReceipt": None,
-        "autoLabel": None,
-        "replyDraftingTeammate": None,
-        "threadMessages": None,
-    }
-    state["emails"].insert(0, new_draft)
-    state["_nextEmailId"] = next_id + 1
-
-
-def solve_task_18(state):
-    """Unsubscribe from notifications@github.com."""
-    email = find_email_by_subject_contains(state, "Memory leak in WebSocket")
+    """Unsubscribe from the sender of 'Today's Briefing: AI Startup Funding...'"""
+    email = find_email_by_subject_and_sender(
+        state,
+        "Today's Briefing: AI Startup Funding Hits Record $12B in Q1",
+        "newsletter@theinformation.com",
+    )
     email["isDone"] = True
     email["isRead"] = True
     if "blockedSenders" not in state["settings"]:
         state["settings"]["blockedSenders"] = []
-    if "notifications@github.com" not in state["settings"]["blockedSenders"]:
-        state["settings"]["blockedSenders"].append("notifications@github.com")
+    if "newsletter@theinformation.com" not in state["settings"]["blockedSenders"]:
+        state["settings"]["blockedSenders"].append("newsletter@theinformation.com")
+
+
+def solve_task_18(state):
+    """Restore trashed email 'Complete Your Survey - Win a $500 Gift Card' to inbox."""
+    email = find_email_by_subject(state, "Complete Your Survey - Win a $500 Gift Card")
+    email["isTrashed"] = False
 
 
 def solve_task_19(state):
-    """Mark Done email 'EuroDesign Conference - Speaker Invitation'."""
-    email = find_email_by_subject_and_sender(state, "EuroDesign Conference - Speaker Invitation", "sophie.l@eurodesign.fr")
-    email["isDone"] = True
-    email["isRead"] = True
-    email["remindAt"] = None
-
-
-def solve_task_20(state):
-    """Create label 'Partnerships' with color '#FF5722'."""
-    next_id = state.get("_nextLabelId", 30)
-    new_label = {
-        "id": f"label_{next_id}",
-        "name": "Partnerships",
-        "type": "user",
-        "color": "#FF5722",
-    }
-    state["labels"].append(new_label)
-    state["_nextLabelId"] = next_id + 1
-
-
-def solve_task_21(state):
-    """Delete label 'Receipts' and remove from all emails."""
-    label_id = "label_13"
-    state["labels"] = [l for l in state["labels"] if l["id"] != label_id]
-    for email in state["emails"]:
-        email["labels"] = [l for l in email["labels"] if l != label_id]
-
-
-def solve_task_22(state):
-    """Create snippet 'Project Update'."""
+    """Create snippet 'Project Update', shared, with variables."""
     next_id = state.get("_nextSnippetId", 30)
     new_snippet = {
         "id": f"snip_{next_id}",
         "name": "Project Update",
-        "body": "Hi {first_name}, here is the latest update on {project_name}. Please review and let me know your thoughts.",
+        "body": "Hi {first_name}, here is the latest update on {project_name}. Let me know if you have questions.",
         "variables": ["first_name", "project_name"],
-        "isShared": False,
+        "isShared": True,
         "author": state["currentUser"]["name"],
         "authorId": state["currentUser"]["id"],
         "createdAt": "2026-03-07T12:00:00.000Z",
@@ -360,33 +391,33 @@ def solve_task_22(state):
     state["_nextSnippetId"] = next_id + 1
 
 
-def solve_task_23(state):
+def solve_task_20(state):
+    """Edit snippet 'Meeting Follow-up' → rename to 'Post-Meeting Summary'."""
+    snippet = find_snippet_by_name(state, "Meeting Follow-up")
+    snippet["name"] = "Post-Meeting Summary"
+
+
+def solve_task_21(state):
     """Delete snippet 'Decline Politely'."""
     state["snippets"] = [s for s in state["snippets"] if s["name"] != "Decline Politely"]
 
 
-def solve_task_24(state):
-    """Toggle sharing on for snippet 'Scheduling Request'."""
-    snippet = find_snippet_by_name(state, "Scheduling Request")
+def solve_task_22(state):
+    """Toggle sharing of snippet 'Out of Office' to shared."""
+    snippet = find_snippet_by_name(state, "Out of Office")
     snippet["isShared"] = True
 
 
-def solve_task_25(state):
-    """Toggle sharing off for snippet '[Sales] Product Demo'."""
-    snippet = find_snippet_by_name(state, "[Sales] Product Demo")
-    snippet["isShared"] = False
-
-
-def solve_task_26(state):
-    """Create calendar event 'Team Lunch'."""
+def solve_task_23(state):
+    """Create calendar event 'Design Workshop' on March 10."""
     next_id = state.get("_nextEventId", 30)
     new_event = {
         "id": f"evt_{next_id}",
-        "title": "Team Lunch",
+        "title": "Design Workshop",
         "date": "2026-03-10",
-        "startTime": "12:00",
-        "endTime": "13:00",
-        "location": "Cafe Gratitude",
+        "startTime": "10:00",
+        "endTime": "12:00",
+        "location": "Zoom",
         "description": "",
         "attendees": [],
         "meetingLink": None,
@@ -400,21 +431,20 @@ def solve_task_26(state):
     state["_nextEventId"] = next_id + 1
 
 
-def solve_task_27(state):
-    """Delete calendar event 'Yoga Class'."""
-    state["calendarEvents"] = [e for e in state["calendarEvents"] if not (e["title"] == "Yoga Class" and e["date"] == "2026-03-07")]
-
-
-def solve_task_28(state):
-    """Create booking page 'Strategy Session'."""
+def solve_task_24(state):
+    """Create booking page 'Strategy Session', 60 min, Google Meet."""
     next_id = state.get("_nextBookingPageId", 10)
     new_bp = {
         "id": f"bp_{next_id}",
         "title": "Strategy Session",
         "duration": 60,
-        "location": "Zoom",
+        "location": "Google Meet",
         "description": "",
-        "availability": {"days": ["Mon", "Tue", "Wed", "Thu", "Fri"], "startTime": "09:00", "endTime": "17:00"},
+        "availability": {
+            "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+            "startTime": "09:00",
+            "endTime": "17:00",
+        },
         "link": "https://cal.superhuman.com/alex.morgan/strategy-session",
         "isActive": True,
     }
@@ -422,54 +452,157 @@ def solve_task_28(state):
     state["_nextBookingPageId"] = next_id + 1
 
 
-def solve_task_29(state):
+def solve_task_25(state):
     """Toggle booking page 'Quick Sync' to active."""
     bp = find_booking_page_by_title(state, "Quick Sync")
     bp["isActive"] = True
 
 
-def solve_task_30(state):
+def solve_task_26(state):
     """Delete booking page 'Product Demo'."""
-    state["bookingPages"] = [b for b in state["bookingPages"] if b["title"] != "Product Demo"]
+    state["bookingPages"] = [
+        bp for bp in state["bookingPages"] if bp["title"] != "Product Demo"
+    ]
+
+
+def solve_task_27(state):
+    """Change theme to dark."""
+    state["settings"]["theme"] = "dark"
+
+
+def solve_task_28(state):
+    """Disable desktop notifications."""
+    state["settings"]["notifications"]["desktop"] = False
+
+
+def solve_task_29(state):
+    """Disable sound notifications."""
+    state["settings"]["notifications"]["sound"] = False
+
+
+def solve_task_30(state):
+    """Turn off Instant Reply."""
+    state["settings"]["instantReply"]["enabled"] = False
 
 
 def solve_task_31(state):
-    """Create auto label 'Engineering Alerts'."""
+    """Disable Smart Send."""
+    state["settings"]["smartSend"]["enabled"] = False
+
+
+def solve_task_32(state):
+    """Turn off Read Receipts."""
+    state["settings"]["readReceipts"]["enabled"] = False
+
+
+def solve_task_33(state):
+    """Disable Team Read Statuses."""
+    state["settings"]["readReceipts"]["teamSharing"] = False
+
+
+def solve_task_34(state):
+    """Turn off Auto Reminders."""
+    state["settings"]["autoReminders"]["enabled"] = False
+
+
+def solve_task_35(state):
+    """Change Auto Reminder mode to 'external'."""
+    state["settings"]["autoReminders"]["mode"] = "external"
+
+
+def solve_task_36(state):
+    """Disable Auto Drafts."""
+    state["settings"]["autoDrafts"]["enabled"] = False
+
+
+def solve_task_37(state):
+    """Change Auto Draft type to 'scheduling'."""
+    state["settings"]["autoDrafts"]["type"] = "scheduling"
+
+
+def solve_task_38(state):
+    """Change swipe left to 'trash'."""
+    state["settings"]["swipeLeft"] = "trash"
+
+
+def solve_task_39(state):
+    """Change swipe right to 'star'."""
+    state["settings"]["swipeRight"] = "star"
+
+
+def solve_task_40(state):
+    """Change meeting link provider to 'google-meet'."""
+    state["settings"]["meetingLink"]["provider"] = "google-meet"
+
+
+def solve_task_41(state):
+    """Disable auto-add meeting link."""
+    state["settings"]["meetingLink"]["autoAdd"] = False
+
+
+def solve_task_42(state):
+    """Disable keyboard shortcuts."""
+    state["settings"]["keyboard"]["shortcuts"] = False
+
+
+def solve_task_43(state):
+    """Disable Auto Archive."""
+    state["settings"]["autoArchive"]["enabled"] = False
+
+
+def solve_task_44(state):
+    """Disable calendar alerts."""
+    state["settings"]["notifications"]["calendarAlerts"] = False
+
+
+def solve_task_45(state):
+    """Change calendar alert timing to 30 minutes."""
+    state["settings"]["notifications"]["alertMinutes"] = 30
+
+
+def solve_task_46(state):
+    """Turn off Ask AI."""
+    state["settings"]["askAi"]["enabled"] = False
+
+
+def solve_task_47(state):
+    """Change email signature."""
+    state["settings"]["signature"] = "Regards,\nAlex Morgan\nVP of Product"
+
+
+def solve_task_48(state):
+    """Create custom Auto Label 'Design Review' with from '@designhub.io'."""
     next_id = state.get("_nextAutoLabelId", 20)
     new_al = {
         "id": f"al_{next_id}",
-        "name": "Engineering Alerts",
+        "name": "Design Review",
         "type": "custom",
         "enabled": True,
-        "criteria": {"from": "@sentry.io"},
+        "criteria": {"from": "@designhub.io"},
     }
     state["autoLabels"].append(new_al)
     state["_nextAutoLabelId"] = next_id + 1
 
 
-def solve_task_32(state):
-    """Enable auto label 'Shipping Update'."""
-    al = find_auto_label_by_name(state, "Shipping Update")
-    al["enabled"] = True
-
-
-def solve_task_33(state):
-    """Disable auto label 'Team Update'."""
+def solve_task_49(state):
+    """Disable Auto Label 'Team Update'."""
     al = find_auto_label_by_name(state, "Team Update")
     al["enabled"] = False
 
 
-def solve_task_34(state):
-    """Delete auto label 'Support Ticket'."""
-    state["autoLabels"] = [a for a in state["autoLabels"] if a["name"] != "Support Ticket"]
+def solve_task_50(state):
+    """Delete Auto Label 'Support Ticket'."""
+    state["autoLabels"] = [
+        al for al in state["autoLabels"] if al["name"] != "Support Ticket"
+    ]
 
 
-def solve_task_35(state):
-    """Create split 'Investors' based on auto label 'Investor'."""
+def solve_task_51(state):
+    """Create split 'Investor Updates' based on Auto Label 'Investor'."""
     next_id = state.get("_nextSplitId", 20)
     new_split = {
         "id": f"split_{next_id}",
-        "name": "Investors",
+        "name": "Investor Updates",
         "position": len(state["splits"]),
         "isDefault": False,
         "criteria": {"autoLabel": "Investor"},
@@ -478,101 +611,128 @@ def solve_task_35(state):
     state["_nextSplitId"] = next_id + 1
 
 
-def solve_task_36(state):
-    """Delete split 'Feeds'."""
+def solve_task_52(state):
+    """Delete the 'Feeds' custom split."""
     state["splits"] = [s for s in state["splits"] if s["name"] != "Feeds"]
 
 
-# -- Settings toggle solvers --
-
-def solve_task_37(state):
-    state["settings"]["notifications"]["desktop"] = False
-
-def solve_task_38(state):
-    state["settings"]["notifications"]["sound"] = False
-
-def solve_task_39(state):
-    state["settings"]["instantReply"]["enabled"] = False
-
-def solve_task_40(state):
-    state["settings"]["smartSend"]["enabled"] = False
-
-def solve_task_41(state):
-    state["settings"]["readReceipts"]["enabled"] = False
-
-def solve_task_42(state):
-    state["settings"]["readReceipts"]["teamSharing"] = False
-
-def solve_task_43(state):
-    state["settings"]["autoDrafts"]["ccTeammate"] = True
-
-def solve_task_44(state):
-    state["settings"]["notifications"]["calendarAlerts"] = False
-
-def solve_task_45(state):
-    state["settings"]["meetingLink"]["autoAdd"] = False
-
-def solve_task_46(state):
-    state["settings"]["keyboard"]["shortcuts"] = False
-
-def solve_task_47(state):
-    state["settings"]["autoArchive"]["enabled"] = False
-
-def solve_task_48(state):
-    state["settings"]["autoReminders"]["enabled"] = False
-
-def solve_task_49(state):
-    state["settings"]["autoDrafts"]["enabled"] = False
-
-def solve_task_50(state):
-    state["settings"]["askAi"]["enabled"] = False
-
-
-# -- Settings dropdown solvers --
-
-def solve_task_51(state):
-    state["settings"]["theme"] = "dark"
-
-def solve_task_52(state):
-    state["settings"]["swipeLeft"] = "trash"
-
 def solve_task_53(state):
-    state["settings"]["swipeRight"] = "star"
+    """Send email to marcus.w@designhub.io with CC sarah.chen@acmecorp.com."""
+    next_id = state.get("_nextEmailId", 200)
+    new_email = {
+        "id": next_id,
+        "threadId": f"thread_{next_id + 1}",
+        "from": {
+            "name": state["currentUser"]["name"],
+            "email": state["currentUser"]["email"],
+        },
+        "to": [{"name": "Marcus Williams", "email": "marcus.w@designhub.io"}],
+        "cc": [{"name": "Sarah Chen", "email": "sarah.chen@acmecorp.com"}],
+        "bcc": [],
+        "subject": "Design Review Feedback",
+        "snippet": "Great work on the new designs.",
+        "body": "Great work on the new designs.",
+        "date": "2026-03-07T12:00:00.000Z",
+        "isRead": True,
+        "isStarred": False,
+        "isDone": False,
+        "isTrashed": False,
+        "isSpam": False,
+        "isDraft": False,
+        "labels": [],
+        "hasAttachments": False,
+        "attachments": [],
+        "splitCategory": "important",
+        "remindAt": None,
+        "readReceipt": {"opened": False},
+        "autoLabel": None,
+        "replyDraftingTeammate": None,
+        "threadMessages": None,
+    }
+    state["emails"].insert(0, new_email)
+    state["_nextEmailId"] = next_id + 1
+
 
 def solve_task_54(state):
-    state["settings"]["autoReminders"]["defaultTime"] = "14:00"
+    """Apply both 'Work' and 'Urgent' labels to 'Accessibility Audit Results'."""
+    email = find_email_by_subject_and_sender(
+        state, "Accessibility Audit Results", "maya.patel@acmecorp.com"
+    )
+    work_label = find_label_by_name(state, "Work")
+    urgent_label = find_label_by_name(state, "Urgent")
+    for lid in [work_label["id"], urgent_label["id"]]:
+        if lid not in email["labels"]:
+            email["labels"].append(lid)
+
 
 def solve_task_55(state):
-    state["settings"]["notifications"]["alertMinutes"] = 30
+    """Clear reminder on 'Re: Payment Terms Discussion' from David Kim."""
+    email = find_email_by_subject_and_sender(
+        state, "Re: Payment Terms Discussion", "david.kim@financeplus.com"
+    )
+    email["remindAt"] = None
+
 
 def solve_task_56(state):
-    state["settings"]["meetingLink"]["provider"] = "google-meet"
+    """Enable Auto Label 'Shipping Update'."""
+    al = find_auto_label_by_name(state, "Shipping Update")
+    al["enabled"] = True
+
 
 def solve_task_57(state):
-    state["settings"]["timezone"] = "America/Los_Angeles"
+    """Create calendar event 'Lunch Meeting' on March 9."""
+    next_id = state.get("_nextEventId", 30)
+    new_event = {
+        "id": f"evt_{next_id}",
+        "title": "Lunch Meeting",
+        "date": "2026-03-09",
+        "startTime": "12:00",
+        "endTime": "13:00",
+        "location": "Blue Bottle Coffee",
+        "description": "",
+        "attendees": ["marcus.w@designhub.io"],
+        "meetingLink": None,
+        "isAllDay": False,
+        "calendarId": "work",
+        "organizer": state["currentUser"]["email"],
+        "status": "confirmed",
+        "color": "#6C4FF7",
+    }
+    state["calendarEvents"].append(new_event)
+    state["_nextEventId"] = next_id + 1
+
 
 def solve_task_58(state):
+    """Change primary timezone to Pacific Time."""
+    state["settings"]["timezone"] = "America/Los_Angeles"
+
+
+def solve_task_59(state):
+    """Change secondary timezone to None."""
     state["settings"]["secondaryTimezone"] = ""
 
 
-# -- Settings radio solvers --
-
-def solve_task_59(state):
-    state["settings"]["autoReminders"]["mode"] = "external"
-
 def solve_task_60(state):
-    state["settings"]["autoDrafts"]["type"] = "scheduling"
+    """Toggle booking page 'Chat with Alex' to inactive."""
+    bp = find_booking_page_by_title(state, "Chat with Alex")
+    bp["isActive"] = False
 
 
-SOLVERS = {f"task_{i}": globals()[f"solve_task_{i}"] for i in range(1, 61)}
+# ── solver registry ──────────────────────────────────────────────────
+
+SOLVERS = {
+    f"task_{i}": globals()[f"solve_task_{i}"]
+    for i in range(1, 61)
+}
 
 
-# -- server management -------------------------------------------------------
+# ── infrastructure ──────────────────────────────────────────────────
 
 def generate_seed_state():
-    data_js = str(APP_DIR / "js" / "data.js")
+    """Evaluate data.js through Node.js to get the seed state as Python dict."""
+    data_js_path = APP_DIR / "js" / "data.js"
     result = subprocess.run(
-        ["node", "-e", _SEED_STATE_JS, data_js],
+        ["node", "-e", _SEED_STATE_JS, str(data_js_path)],
         capture_output=True,
         text=True,
     )
@@ -582,6 +742,7 @@ def generate_seed_state():
 
 
 def seed_server(server_url, seed_state):
+    """PUT the seed state to the server to establish the baseline."""
     resp = requests.put(
         f"{server_url}/api/state",
         json=seed_state,
@@ -591,19 +752,21 @@ def seed_server(server_url, seed_state):
         raise RuntimeError(f"Failed to seed server: HTTP {resp.status_code}")
 
 
-def find_free_port(start=9500):
+def find_free_port(start=9000):
+    """Find a free port starting from `start`."""
     port = start
-    while port < start + 200:
+    while port < start + 100:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             try:
                 s.bind(("", port))
                 return port
             except OSError:
                 port += 1
-    raise RuntimeError(f"No free port found in range {start}-{start+200}")
+    raise RuntimeError(f"No free port found in range {start}-{start+100}")
 
 
 def start_server(port):
+    """Start the Superhuman server on the given port."""
     proc = subprocess.Popen(
         [sys.executable, "server.py", "--port", str(port)],
         cwd=str(APP_DIR),
@@ -621,6 +784,7 @@ def start_server(port):
 
 
 def stop_server(proc):
+    """Stop the server process."""
     if proc and proc.poll() is None:
         proc.terminate()
         try:
@@ -629,14 +793,16 @@ def stop_server(proc):
             proc.kill()
 
 
-# -- task runner --------------------------------------------------------------
+# ── task runner ──────────────────────────────────────────────────────
 
 def load_tasks():
+    """Load task definitions from function-tasks.json."""
     with open(TASKS_FILE) as f:
         return json.load(f)
 
 
 def load_verifier(verify_path):
+    """Dynamically load a verifier module."""
     full_path = APP_DIR / verify_path
     spec = importlib.util.spec_from_file_location("verifier", str(full_path))
     module = importlib.util.module_from_spec(spec)
@@ -645,6 +811,7 @@ def load_verifier(verify_path):
 
 
 def run_single_task(task, server_url):
+    """Reset → solve → verify for a single task."""
     task_id = task["id"]
     solver = SOLVERS.get(task_id)
     if not solver:
@@ -686,6 +853,7 @@ def run_single_task(task, server_url):
 
 
 def run_tasks_sequential(tasks, port, seed_state):
+    """Run all tasks sequentially on a single server."""
     proc = start_server(port)
     server_url = f"http://localhost:{port}"
     results = []
@@ -702,6 +870,7 @@ def run_tasks_sequential(tasks, port, seed_state):
 
 
 def run_tasks_parallel(tasks, workers, base_port, seed_state):
+    """Run tasks in parallel across multiple server instances."""
     results = []
 
     def worker_fn(task, port):
@@ -729,10 +898,10 @@ def run_tasks_parallel(tasks, workers, base_port, seed_state):
     return results
 
 
-# -- main ---------------------------------------------------------------------
+# ── main ─────────────────────────────────────────────────────────────
 
 def main():
-    parser = argparse.ArgumentParser(description="Superhuman Mail function-task sanity check")
+    parser = argparse.ArgumentParser(description="Superhuman function-task sanity check")
     parser.add_argument("--task-id", type=str, help="Run a single task by ID")
     parser.add_argument("--workers", type=int, default=1, help="Number of parallel workers")
     parser.add_argument("--port", type=int, default=9500, help="Base port for servers")

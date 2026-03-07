@@ -16,287 +16,287 @@
   },
   {
     "id": "task_4",
-    "instruction": "Unstar the email 'FY2026 Budget Summary' from Priya Sharma. You can find it in the Starred section.",
+    "instruction": "Remove the star from the email 'FY2026 Budget Summary' from Priya Sharma.",
     "verify": "function-tasks/task_4.py"
   },
   {
     "id": "task_5",
-    "instruction": "Mark the email 'Global Health Initiative - Sponsorship Request' from Ana Gutierrez as Done (archive it).",
+    "instruction": "Mark the email 'Budget Approval Needed - Marketing Campaign' from Priya Sharma as done (archive it).",
     "verify": "function-tasks/task_5.py"
   },
   {
     "id": "task_6",
-    "instruction": "Move the email 'Re: Q1 Sales Numbers' from Sarah Chen from Done back to the Inbox.",
+    "instruction": "Move the email 'Re: Series B Term Sheet Discussion' from Emily Rodriguez to Trash.",
     "verify": "function-tasks/task_6.py"
   },
   {
     "id": "task_7",
-    "instruction": "Set a reminder on the email 'Quantum Computing Integration Prototype' from Kevin Zhao for tomorrow (March 8, 2026) morning.",
+    "instruction": "Mark the email 'Global Health Initiative - Sponsorship Request' from Ana Gutierrez as spam.",
     "verify": "function-tasks/task_7.py"
   },
   {
     "id": "task_8",
-    "instruction": "Clear the reminder on the email 'Patent Filing Deadline - April 15' from James O'Brien. You can find it in the Reminders section.",
+    "instruction": "Set a reminder on the email 'Quantum Computing Integration Prototype' from Kevin Zhao for tomorrow (March 8, 2026).",
     "verify": "function-tasks/task_8.py"
   },
   {
     "id": "task_9",
-    "instruction": "Move the email 'Logistics Update - Office Equipment Delivery' from Carlos Mendez to Trash.",
+    "instruction": "Clear the reminder on the email 'Patent Filing Deadline - April 15' from James O'Brien.",
     "verify": "function-tasks/task_9.py"
   },
   {
     "id": "task_10",
-    "instruction": "Restore the email 'Complete Your Survey - Win a $500 Gift Card' from Trash back to the Inbox.",
+    "instruction": "Apply the 'Urgent' label to the email 'Database Performance Report - March' from Tom Bradley.",
     "verify": "function-tasks/task_10.py"
   },
   {
     "id": "task_11",
-    "instruction": "Mark the email 'Today's Briefing: AI Startup Funding Hits Record $12B in Q1' from The Information as spam.",
+    "instruction": "Remove the 'Engineering' label from the email 'Re: Sprint 23 Retrospective Notes' from Nate Patel.",
     "verify": "function-tasks/task_11.py"
   },
   {
     "id": "task_12",
-    "instruction": "Mark the email 'URGENT: Inheritance Notification - $4.5M USD' as not spam. You can find it in the Spam folder.",
+    "instruction": "Create a new label named 'Design' with blue color (#2196F3).",
     "verify": "function-tasks/task_12.py"
   },
   {
     "id": "task_13",
-    "instruction": "Add the 'Urgent' label to the email 'Budget Approval Needed - Marketing Campaign' from Priya Sharma.",
+    "instruction": "Delete the 'Receipts' label.",
     "verify": "function-tasks/task_13.py"
   },
   {
     "id": "task_14",
-    "instruction": "Remove the 'Work' label from the email 'Q2 Product Roadmap - Final Review' from Sarah Chen.",
+    "instruction": "Compose and send a new email to sarah.chen@acmecorp.com with the subject 'Team Sync' and body 'Let's schedule a sync this week.'",
     "verify": "function-tasks/task_14.py"
   },
   {
     "id": "task_15",
-    "instruction": "Add the 'Finance' label to the email 'Partnership Opportunity - FinancePlus x Acme' from David Kim.",
+    "instruction": "Reply to the email 'Partnership Opportunity - FinancePlus x Acme' from David Kim. The reply body should contain 'Let's set up a call next week.'",
     "verify": "function-tasks/task_15.py"
   },
   {
     "id": "task_16",
-    "instruction": "Compose and send a new email to marcus.w@designhub.io with the subject 'Design Review Follow-up' and body 'Thanks for the design review. The new components look great.'",
+    "instruction": "Forward the email 'Quantum Computing Integration Prototype' from Kevin Zhao to nate.patel@acmecorp.com.",
     "verify": "function-tasks/task_16.py"
   },
   {
     "id": "task_17",
-    "instruction": "Compose an email to kevin.zhao@quantumlab.tech with the subject 'Integration Discussion' and body 'Let us discuss the quantum integration prototype.' Save it as a draft without sending.",
+    "instruction": "Unsubscribe from the sender of the email 'Today's Briefing: AI Startup Funding Hits Record $12B in Q1' from The Information.",
     "verify": "function-tasks/task_17.py"
   },
   {
     "id": "task_18",
-    "instruction": "Unsubscribe from the sender of the email '[acme/platform] Issue #923: Memory leak in WebSocket handler' from GitHub notifications.",
+    "instruction": "Move the trashed email 'Complete Your Survey - Win a $500 Gift Card' back to Inbox.",
     "verify": "function-tasks/task_18.py"
   },
   {
     "id": "task_19",
-    "instruction": "Mark the email 'EuroDesign Conference - Speaker Invitation' from Sophie Laurent as Done.",
+    "instruction": "Create a new snippet named 'Project Update' with the body 'Hi {first_name}, here is the latest update on {project_name}. Let me know if you have questions.' and share it with the team.",
     "verify": "function-tasks/task_19.py"
   },
   {
     "id": "task_20",
-    "instruction": "Create a new label called 'Partnerships' with the color orange (#FF5722).",
+    "instruction": "Edit the snippet 'Meeting Follow-up' and change its name to 'Post-Meeting Summary'.",
     "verify": "function-tasks/task_20.py"
   },
   {
     "id": "task_21",
-    "instruction": "Delete the 'Receipts' label.",
+    "instruction": "Delete the snippet 'Decline Politely'.",
     "verify": "function-tasks/task_21.py"
   },
   {
     "id": "task_22",
-    "instruction": "Create a new snippet named 'Project Update' with body 'Hi {first_name}, here is the latest update on {project_name}. Please review and let me know your thoughts.'",
+    "instruction": "Toggle the sharing setting of the snippet 'Out of Office' to make it shared with the team.",
     "verify": "function-tasks/task_22.py"
   },
   {
     "id": "task_23",
-    "instruction": "Delete the snippet named 'Decline Politely'.",
+    "instruction": "Create a new calendar event titled 'Design Workshop' on March 10, 2026 from 10:00 to 12:00 at 'Zoom'.",
     "verify": "function-tasks/task_23.py"
   },
   {
     "id": "task_24",
-    "instruction": "Make the snippet 'Scheduling Request' shared with the team by toggling its sharing setting on.",
+    "instruction": "Create a new booking page titled 'Strategy Session' with a 60-minute duration and Google Meet as the location.",
     "verify": "function-tasks/task_24.py"
   },
   {
     "id": "task_25",
-    "instruction": "Make the snippet '[Sales] Product Demo' private by toggling its sharing setting off.",
+    "instruction": "Toggle the booking page 'Quick Sync' to make it active.",
     "verify": "function-tasks/task_25.py"
   },
   {
     "id": "task_26",
-    "instruction": "Create a new calendar event titled 'Team Lunch' on March 10, 2026 from 12:00 PM to 1:00 PM at 'Cafe Gratitude'.",
+    "instruction": "Delete the booking page 'Product Demo'.",
     "verify": "function-tasks/task_26.py"
   },
   {
     "id": "task_27",
-    "instruction": "Delete the calendar event 'Yoga Class' scheduled for March 7, 2026.",
+    "instruction": "Change the theme setting from Light to Dark.",
     "verify": "function-tasks/task_27.py"
   },
   {
     "id": "task_28",
-    "instruction": "Create a new booking page titled 'Strategy Session' with a 60-minute duration at Zoom.",
+    "instruction": "Disable desktop notifications in settings.",
     "verify": "function-tasks/task_28.py"
   },
   {
     "id": "task_29",
-    "instruction": "Toggle the 'Quick Sync' booking page to active.",
+    "instruction": "Disable sound notifications in settings.",
     "verify": "function-tasks/task_29.py"
   },
   {
     "id": "task_30",
-    "instruction": "Delete the 'Product Demo' booking page.",
+    "instruction": "Turn off the Instant Reply feature in settings.",
     "verify": "function-tasks/task_30.py"
   },
   {
     "id": "task_31",
-    "instruction": "Create a new custom auto label called 'Engineering Alerts' with from criteria '@sentry.io'.",
+    "instruction": "Disable the Smart Send feature in settings.",
     "verify": "function-tasks/task_31.py"
   },
   {
     "id": "task_32",
-    "instruction": "Enable the 'Shipping Update' auto label (it is currently disabled).",
+    "instruction": "Turn off the Read Receipts feature in settings.",
     "verify": "function-tasks/task_32.py"
   },
   {
     "id": "task_33",
-    "instruction": "Disable the 'Team Update' auto label.",
+    "instruction": "Disable the Team Read Statuses setting.",
     "verify": "function-tasks/task_33.py"
   },
   {
     "id": "task_34",
-    "instruction": "Delete the 'Support Ticket' auto label.",
+    "instruction": "Turn off Auto Reminders in settings.",
     "verify": "function-tasks/task_34.py"
   },
   {
     "id": "task_35",
-    "instruction": "Create a new inbox split called 'Investors' based on the auto label 'Investor'.",
+    "instruction": "Change the Auto Reminder mode from 'AI-detected' to 'All external'.",
     "verify": "function-tasks/task_35.py"
   },
   {
     "id": "task_36",
-    "instruction": "Delete the 'Feeds' inbox split.",
+    "instruction": "Disable Auto Drafts in settings.",
     "verify": "function-tasks/task_36.py"
   },
   {
     "id": "task_37",
-    "instruction": "Disable desktop notifications in Settings.",
+    "instruction": "Change the Auto Draft type from 'Follow-up' to 'Scheduling'.",
     "verify": "function-tasks/task_37.py"
   },
   {
     "id": "task_38",
-    "instruction": "Disable sound notifications in Settings.",
+    "instruction": "Change the swipe left action from 'Mark Done' to 'Trash'.",
     "verify": "function-tasks/task_38.py"
   },
   {
     "id": "task_39",
-    "instruction": "Disable the Instant Reply feature in Settings.",
+    "instruction": "Change the swipe right action from 'Remind Me' to 'Star'.",
     "verify": "function-tasks/task_39.py"
   },
   {
     "id": "task_40",
-    "instruction": "Disable the Smart Send feature in Settings.",
+    "instruction": "Change the meeting link provider from 'Zoom' to 'Google Meet'.",
     "verify": "function-tasks/task_40.py"
   },
   {
     "id": "task_41",
-    "instruction": "Disable read receipts in Settings.",
+    "instruction": "Disable the auto-add meeting link setting.",
     "verify": "function-tasks/task_41.py"
   },
   {
     "id": "task_42",
-    "instruction": "Disable team read statuses sharing in the Read Statuses settings.",
+    "instruction": "Disable keyboard shortcuts in settings.",
     "verify": "function-tasks/task_42.py"
   },
   {
     "id": "task_43",
-    "instruction": "Enable the 'Cc teammate' option for auto drafts in Settings.",
+    "instruction": "Disable the Auto Archive feature in settings.",
     "verify": "function-tasks/task_43.py"
   },
   {
     "id": "task_44",
-    "instruction": "Disable calendar alerts in Settings.",
+    "instruction": "Disable calendar alerts in settings.",
     "verify": "function-tasks/task_44.py"
   },
   {
     "id": "task_45",
-    "instruction": "Disable auto-add meeting links in the Calendar settings.",
+    "instruction": "Change the calendar alert timing to 30 minutes before.",
     "verify": "function-tasks/task_45.py"
   },
   {
     "id": "task_46",
-    "instruction": "Disable keyboard shortcuts in Settings.",
+    "instruction": "Turn off the Ask AI feature in settings.",
     "verify": "function-tasks/task_46.py"
   },
   {
     "id": "task_47",
-    "instruction": "Disable auto archive in Settings.",
+    "instruction": "Change the email signature to 'Regards,\\nAlex Morgan\\nVP of Product'.",
     "verify": "function-tasks/task_47.py"
   },
   {
     "id": "task_48",
-    "instruction": "Disable auto reminders in Settings.",
+    "instruction": "Create a new custom Auto Label named 'Design Review' with from criteria '@designhub.io'.",
     "verify": "function-tasks/task_48.py"
   },
   {
     "id": "task_49",
-    "instruction": "Disable auto drafts in Settings.",
+    "instruction": "Disable the Auto Label 'Team Update'.",
     "verify": "function-tasks/task_49.py"
   },
   {
     "id": "task_50",
-    "instruction": "Disable the Ask AI feature in Settings.",
+    "instruction": "Delete the custom Auto Label 'Support Ticket'.",
     "verify": "function-tasks/task_50.py"
   },
   {
     "id": "task_51",
-    "instruction": "Change the theme to Dark in Settings.",
+    "instruction": "Create a new split in the inbox called 'Investor Updates' based on the Auto Label 'Investor'.",
     "verify": "function-tasks/task_51.py"
   },
   {
     "id": "task_52",
-    "instruction": "Change the swipe left action to Trash in Settings.",
+    "instruction": "Delete the 'Feeds' custom split from the inbox.",
     "verify": "function-tasks/task_52.py"
   },
   {
     "id": "task_53",
-    "instruction": "Change the swipe right action to Star in Settings.",
+    "instruction": "Send a new email to marcus.w@designhub.io with the subject 'Design Review Feedback' and CC sarah.chen@acmecorp.com. The body should contain 'Great work on the new designs.'",
     "verify": "function-tasks/task_53.py"
   },
   {
     "id": "task_54",
-    "instruction": "Change the auto reminder default time to 2:00 PM in the Reminders settings.",
+    "instruction": "Apply both the 'Work' and 'Urgent' labels to the email 'Accessibility Audit Results' from Maya Patel.",
     "verify": "function-tasks/task_54.py"
   },
   {
     "id": "task_55",
-    "instruction": "Change the calendar alert time to 30 minutes before in Settings.",
+    "instruction": "Move the email 'Re: Payment Terms Discussion' from David Kim (currently in Reminders) back to Inbox by clearing its reminder.",
     "verify": "function-tasks/task_55.py"
   },
   {
     "id": "task_56",
-    "instruction": "Change the meeting link provider to Google Meet in the Calendar settings.",
+    "instruction": "Enable the Auto Label 'Shipping Update' (which is currently disabled).",
     "verify": "function-tasks/task_56.py"
   },
   {
     "id": "task_57",
-    "instruction": "Change the primary timezone to Pacific Time (PT) in Settings.",
+    "instruction": "Create a calendar event titled 'Lunch Meeting' on March 9, 2026 from 12:00 to 13:00 at 'Blue Bottle Coffee' with attendee marcus.w@designhub.io.",
     "verify": "function-tasks/task_57.py"
   },
   {
     "id": "task_58",
-    "instruction": "Set the secondary timezone to None in Settings.",
+    "instruction": "Change the primary timezone setting to Pacific Time (America/Los_Angeles).",
     "verify": "function-tasks/task_58.py"
   },
   {
     "id": "task_59",
-    "instruction": "Change the auto reminder mode to 'All external emails' in the Reminders settings.",
+    "instruction": "Change the secondary timezone to 'None'.",
     "verify": "function-tasks/task_59.py"
   },
   {
     "id": "task_60",
-    "instruction": "Change the auto draft type to 'Scheduling' in Settings.",
+    "instruction": "Toggle the booking page 'Chat with Alex' to make it inactive.",
     "verify": "function-tasks/task_60.py"
   }
 ]

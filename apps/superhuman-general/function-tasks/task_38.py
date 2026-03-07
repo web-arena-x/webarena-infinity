@@ -5,10 +5,11 @@ def verify(server_url: str) -> tuple[bool, str]:
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
+
     state = resp.json()
-    settings = state.get("settings", {})
-    section = settings.get("notifications", {})
-    val = section.get("sound")
-    if val is not False:
-        return False, f"Sound notifications: expected False, got {val}"
-    return True, "Sound notifications: False."
+    settings = state["settings"]
+
+    swipe_left = settings.get("swipeLeft")
+    if swipe_left == "trash":
+        return True, "Swipe left action changed to 'Trash'."
+    return False, f"Swipe left action is '{swipe_left}', expected 'trash'."

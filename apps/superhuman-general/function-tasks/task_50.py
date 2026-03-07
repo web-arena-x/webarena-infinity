@@ -5,10 +5,12 @@ def verify(server_url: str) -> tuple[bool, str]:
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
+
     state = resp.json()
-    settings = state.get("settings", {})
-    section = settings.get("askAi", {})
-    val = section.get("enabled")
-    if val is not False:
-        return False, f"Ask AI: expected False, got {val}"
-    return True, "Ask AI: False."
+    auto_labels = state.get("autoLabels", [])
+
+    for al in auto_labels:
+        if al.get("name") == "Support Ticket":
+            return False, "Auto Label 'Support Ticket' still exists; it should have been deleted."
+
+    return True, "Custom Auto Label 'Support Ticket' has been deleted."
