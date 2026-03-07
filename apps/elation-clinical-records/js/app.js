@@ -214,6 +214,26 @@ const App = {
                 this.render();
                 break;
             }
+            case 'show-add-billing':
+                AppState.activeModal = 'add-billing';
+                AppState.modalData = { noteId: AppState.modalData?.id };
+                this.render();
+                break;
+            case 'save-billing-item': {
+                const cpt = document.getElementById('billing-cpt')?.value?.trim();
+                const desc = document.getElementById('billing-description')?.value?.trim();
+                if (!cpt || !desc) {
+                    AppState.showToast('CPT code and description are required');
+                    break;
+                }
+                const billingNoteId = AppState.modalData?.noteId;
+                AppState.addBillingItemToNote(billingNoteId, { cptCode: cpt, description: desc });
+                const updBillingNote = AppState.visitNotes.find(n => n.id === billingNoteId);
+                AppState.activeModal = 'view-note';
+                AppState.modalData = updBillingNote ? { ...updBillingNote } : null;
+                this.render();
+                break;
+            }
             case 'remove-billing': {
                 const billingIdx = parseInt(el.dataset.billingIdx);
                 AppState.removeBillingItemFromNote(el.dataset.noteId, billingIdx);
@@ -561,7 +581,9 @@ const App = {
             program: this._dropdownValues['vax-program'] || 'Not VFC Eligible',
             fundedBy: this._dropdownValues['vax-funded-by'] || 'Private',
             reason: document.getElementById('vax-reason')?.value?.trim() || '',
-            notes: document.getElementById('vax-notes')?.value?.trim() || ''
+            notes: document.getElementById('vax-notes')?.value?.trim() || '',
+            isInjectable: !!document.querySelector('[data-toggle-id="vax-is-injectable"]')?.classList.contains('active'),
+            notSendToRegistry: !!document.querySelector('[data-toggle-id="vax-not-send-registry"]')?.classList.contains('active')
         };
         AppState.addVaccination(AppState.selectedPatientId, data);
         AppState.showToast('Vaccination recorded');

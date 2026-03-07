@@ -534,6 +534,7 @@ const Views = {
             case 'new-visit-note': return this.renderNewVisitNoteModal();
             case 'view-note': return this.renderViewNoteModal();
             case 'add-block': return this.renderAddBlockModal();
+            case 'add-billing': return this.renderAddBillingModal();
             case 'new-template': return this.renderNewTemplateModal();
             case 'edit-template': return this.renderEditTemplateModal();
             case 'add-category': return this.renderAddCategoryModal();
@@ -711,6 +712,14 @@ const Views = {
             <div class="form-group">
                 <label>Notes</label>
                 <textarea class="form-textarea" id="vax-notes" rows="2">${Components.esc(data.notes || '')}</textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group flex-1">
+                    ${Components.toggle('vax-is-injectable', data.isInjectable || false, 'Is Injectable')}
+                </div>
+                <div class="form-group flex-1">
+                    ${Components.toggle('vax-not-send-registry', data.notSendToRegistry || false, 'Do Not Send to Registry')}
+                </div>
             </div>`;
         const footer = `
             ${Components.button('Cancel', 'close-modal', 'ghost')}
@@ -872,6 +881,7 @@ const Views = {
             ${billingHtml}
             ${isDraft ? `<div class="add-block-bar">
                 ${Components.button('+ Add Block', 'show-add-block', 'ghost')}
+                ${Components.button('+ Add Billing Item', 'show-add-billing', 'ghost')}
             </div>` : ''}`;
         const footer = isDraft
             ? `${Components.button('Close', 'close-modal', 'ghost')} ${Components.button('Save Draft', 'save-note-draft', 'secondary')} ${Components.button('Sign Note', 'sign-visit-note', 'primary')}`
@@ -892,6 +902,23 @@ const Views = {
         const body = `<div class="block-options-list">${blockItems}</div>`;
         const footer = Components.button('Cancel', 'close-modal', 'ghost');
         return Components.modal('add-block', 'Add Block to Note', body, footer);
+    },
+
+    renderAddBillingModal() {
+        const noteId = AppState.modalData?.noteId;
+        const body = `
+            <div class="form-group">
+                <label>CPT Code <span class="required">*</span></label>
+                <input type="text" class="form-input" id="billing-cpt" placeholder="e.g. 99213">
+            </div>
+            <div class="form-group">
+                <label>Description <span class="required">*</span></label>
+                <input type="text" class="form-input" id="billing-description" placeholder="e.g. Office visit, established, low complexity">
+            </div>`;
+        const footer = `
+            ${Components.button('Cancel', 'close-modal', 'ghost')}
+            ${Components.button('Add Billing Item', 'save-billing-item', 'primary')}`;
+        return Components.modal('add-billing', 'Add Billing Item', body, footer);
     },
 
     renderNewTemplateModal() {
