@@ -1,0 +1,277 @@
+[
+  {
+    "id": "task_1",
+    "instruction": "Create a new feed post with the content 'Looking for advice on product management interview prep! Any tips appreciated.'",
+    "verify": "function-tasks/task_1.py"
+  },
+  {
+    "id": "task_2",
+    "instruction": "Like the feed post by Kevin O'Brien that starts with 'After 6 months of preparation'.",
+    "verify": "function-tasks/task_2.py"
+  },
+  {
+    "id": "task_3",
+    "instruction": "Bookmark the feed post by Aisha Mohammed about attending the NSBE conference.",
+    "verify": "function-tasks/task_3.py"
+  },
+  {
+    "id": "task_4",
+    "instruction": "Remove the bookmark from the saved post by Jessica Park about getting a return offer from Meta.",
+    "verify": "function-tasks/task_4.py"
+  },
+  {
+    "id": "task_5",
+    "instruction": "Add a comment saying 'Great tips, thanks for sharing!' to the Google post about expanding their Summer 2026 internship program.",
+    "verify": "function-tasks/task_5.py"
+  },
+  {
+    "id": "task_6",
+    "instruction": "Add an anonymous comment saying 'How selective is the application process?' to the McKinsey post about their campus presentation at Stanford.",
+    "verify": "function-tasks/task_6.py"
+  },
+  {
+    "id": "task_7",
+    "instruction": "Create a new feed post with the content 'Anyone interested in forming a study group for system design?' and set the audience to 'People at your school'.",
+    "verify": "function-tasks/task_7.py"
+  },
+  {
+    "id": "task_8",
+    "instruction": "Follow Amazon on Handshake.",
+    "verify": "function-tasks/task_8.py"
+  },
+  {
+    "id": "task_9",
+    "instruction": "Unfollow Google on Handshake.",
+    "verify": "function-tasks/task_9.py"
+  },
+  {
+    "id": "task_10",
+    "instruction": "Follow JPMorgan Chase on Handshake.",
+    "verify": "function-tasks/task_10.py"
+  },
+  {
+    "id": "task_11",
+    "instruction": "Follow Deloitte on Handshake.",
+    "verify": "function-tasks/task_11.py"
+  },
+  {
+    "id": "task_12",
+    "instruction": "Save the 'Software Engineering Intern, Summer 2026' job at Google.",
+    "verify": "function-tasks/task_12.py"
+  },
+  {
+    "id": "task_13",
+    "instruction": "Unsave the 'Investment Banking Summer Analyst' job at JPMorgan Chase.",
+    "verify": "function-tasks/task_13.py"
+  },
+  {
+    "id": "task_14",
+    "instruction": "Save the 'Full-Stack Engineer (Early Stage)' job at Startup Grind Labs.",
+    "verify": "function-tasks/task_14.py"
+  },
+  {
+    "id": "task_15",
+    "instruction": "Save the 'Technical Solutions Engineer' full-time job at Epic Systems.",
+    "verify": "function-tasks/task_15.py"
+  },
+  {
+    "id": "task_16",
+    "instruction": "RSVP to the 'Stanford Spring Career Fair 2026' event.",
+    "verify": "function-tasks/task_16.py"
+  },
+  {
+    "id": "task_17",
+    "instruction": "RSVP to the 'AI/ML Careers at Meta - Virtual Info Session' event.",
+    "verify": "function-tasks/task_17.py"
+  },
+  {
+    "id": "task_18",
+    "instruction": "RSVP to the 'Resume Workshop: Making Your Resume Stand Out' event.",
+    "verify": "function-tasks/task_18.py"
+  },
+  {
+    "id": "task_19",
+    "instruction": "RSVP to the 'Anthropic Research Talk: AI Alignment' event.",
+    "verify": "function-tasks/task_19.py"
+  },
+  {
+    "id": "task_20",
+    "instruction": "Mark the message from Google with subject 'You're a top match for Software Engineering Intern!' as read.",
+    "verify": "function-tasks/task_20.py"
+  },
+  {
+    "id": "task_21",
+    "instruction": "Mark all messages as read.",
+    "verify": "function-tasks/task_21.py"
+  },
+  {
+    "id": "task_22",
+    "instruction": "Mark the message from Stripe with subject 'Backend Engineer Intern - We think you'd be great' as read.",
+    "verify": "function-tasks/task_22.py"
+  },
+  {
+    "id": "task_23",
+    "instruction": "Schedule a new career center appointment with category 'Career Counseling', type 'General Career Advising', on March 10, 2026 at 9:00 AM, medium 'In Person', with details 'Need guidance on choosing between tech and consulting career paths.'",
+    "verify": "function-tasks/task_23.py"
+  },
+  {
+    "id": "task_24",
+    "instruction": "Cancel the upcoming 'Mock Interview - Technical' appointment with David Kim.",
+    "verify": "function-tasks/task_24.py"
+  },
+  {
+    "id": "task_25",
+    "instruction": "Cancel the upcoming 'Case Interview Prep' appointment with James Chen.",
+    "verify": "function-tasks/task_25.py"
+  },
+  {
+    "id": "task_26",
+    "instruction": "Add a comment saying 'Could we also review my cover letter during our session?' to the approved Resume Review appointment with Michael Okafor.",
+    "verify": "function-tasks/task_26.py"
+  },
+  {
+    "id": "task_27",
+    "instruction": "Schedule a new career center appointment with category 'Interview Preparation', type 'Mock Interview - Behavioral', staff member 'David Kim', on March 11, 2026 at 10:00 AM, medium 'Virtual on Handshake', with details 'Preparing for Amazon behavioral interviews.'",
+    "verify": "function-tasks/task_27.py"
+  },
+  {
+    "id": "task_28",
+    "instruction": "Submit a new question in the Q&A community: 'What are the best tech companies for new grad software engineers in 2026?'",
+    "verify": "function-tasks/task_28.py"
+  },
+  {
+    "id": "task_29",
+    "instruction": "Submit a fully visible answer to the question 'What is the timeline for summer 2027 internship recruiting in finance?' with the text 'Most bulge bracket banks start recruiting in August-September of the previous year. Start networking early!'",
+    "verify": "function-tasks/task_29.py"
+  },
+  {
+    "id": "task_30",
+    "instruction": "Submit a semi-anonymous answer to the question 'What are the best resources for learning system design for interviews?' with the text 'I also recommend watching mock system design interviews on YouTube. Seeing others think through problems helps a lot.'",
+    "verify": "function-tasks/task_30.py"
+  },
+  {
+    "id": "task_31",
+    "instruction": "Mark the answer by Jordan Taylor about salary negotiation tips as helpful.",
+    "verify": "function-tasks/task_31.py"
+  },
+  {
+    "id": "task_32",
+    "instruction": "Mark the answer by Tyler Wong about the Google SWE internship interview process as helpful.",
+    "verify": "function-tasks/task_32.py"
+  },
+  {
+    "id": "task_33",
+    "instruction": "Submit a new question in the Q&A community: 'How do you balance coursework with internship applications during junior year?'",
+    "verify": "function-tasks/task_33.py"
+  },
+  {
+    "id": "task_34",
+    "instruction": "Update your profile bio to 'Aspiring product manager and engineer. Passionate about building AI products that make a difference.'",
+    "verify": "function-tasks/task_34.py"
+  },
+  {
+    "id": "task_35",
+    "instruction": "Update your phone number to '(650) 555-9999'.",
+    "verify": "function-tasks/task_35.py"
+  },
+  {
+    "id": "task_36",
+    "instruction": "Change your profile visibility to 'Employers'.",
+    "verify": "function-tasks/task_36.py"
+  },
+  {
+    "id": "task_37",
+    "instruction": "Change your profile visibility to 'Private'.",
+    "verify": "function-tasks/task_37.py"
+  },
+  {
+    "id": "task_38",
+    "instruction": "Update your LinkedIn URL to 'linkedin.com/in/maya-chen-stanford'.",
+    "verify": "function-tasks/task_38.py"
+  },
+  {
+    "id": "task_39",
+    "instruction": "Update your website URL to 'mayachen.io'.",
+    "verify": "function-tasks/task_39.py"
+  },
+  {
+    "id": "task_40",
+    "instruction": "Add 'Full-time' to your job type preferences in Career Interests.",
+    "verify": "function-tasks/task_40.py"
+  },
+  {
+    "id": "task_41",
+    "instruction": "Remove 'Part-time' from your job type preferences in Career Interests.",
+    "verify": "function-tasks/task_41.py"
+  },
+  {
+    "id": "task_42",
+    "instruction": "Add 'Job' to your 'How can Handshake help?' preferences in Career Interests.",
+    "verify": "function-tasks/task_42.py"
+  },
+  {
+    "id": "task_43",
+    "instruction": "Remove 'Events' from your 'How can Handshake help?' preferences in Career Interests.",
+    "verify": "function-tasks/task_43.py"
+  },
+  {
+    "id": "task_44",
+    "instruction": "Add 'Gap year' to your post-graduation plans in Career Interests.",
+    "verify": "function-tasks/task_44.py"
+  },
+  {
+    "id": "task_45",
+    "instruction": "Remove 'Grad school' from your post-graduation plans in Career Interests.",
+    "verify": "function-tasks/task_45.py"
+  },
+  {
+    "id": "task_46",
+    "instruction": "Add 'Frontend Developer' to your preferred job roles in Career Interests.",
+    "verify": "function-tasks/task_46.py"
+  },
+  {
+    "id": "task_47",
+    "instruction": "Remove 'UX Designer' from your preferred job roles in Career Interests.",
+    "verify": "function-tasks/task_47.py"
+  },
+  {
+    "id": "task_48",
+    "instruction": "Add 'Chicago, IL' to your preferred locations in Career Interests.",
+    "verify": "function-tasks/task_48.py"
+  },
+  {
+    "id": "task_49",
+    "instruction": "Remove 'Austin, TX' from your preferred locations in Career Interests.",
+    "verify": "function-tasks/task_49.py"
+  },
+  {
+    "id": "task_50",
+    "instruction": "Change your career community to 'Business & Finance' in Career Interests.",
+    "verify": "function-tasks/task_50.py"
+  },
+  {
+    "id": "task_51",
+    "instruction": "Change your expected graduation date to 'December 2026' in Career Interests.",
+    "verify": "function-tasks/task_51.py"
+  },
+  {
+    "id": "task_52",
+    "instruction": "Add 'Cybersecurity' to your preferred industries in Career Interests.",
+    "verify": "function-tasks/task_52.py"
+  },
+  {
+    "id": "task_53",
+    "instruction": "Remove 'Finance' from your preferred industries in Career Interests.",
+    "verify": "function-tasks/task_53.py"
+  },
+  {
+    "id": "task_54",
+    "instruction": "Add 'Marketing' to your preferred job functions in Career Interests.",
+    "verify": "function-tasks/task_54.py"
+  },
+  {
+    "id": "task_55",
+    "instruction": "Remove 'Design' from your preferred job functions in Career Interests.",
+    "verify": "function-tasks/task_55.py"
+  }
+]
