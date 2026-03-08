@@ -2253,6 +2253,368 @@ def solve_task_h120(state):
     })
 
 
+# === HARDENING ROUND 2 ===
+
+def solve_task_h121(state):
+    """Change profile visibility to Employers + save Anthropic jobs (AI safety testimonial)."""
+    state["currentUser"]["profileVisibility"] = "Employers"
+    user = state["currentUser"]
+    for jid in ["job_12", "job_29"]:
+        if jid not in user["savedJobIds"]:
+            user["savedJobIds"].append(jid)
+
+
+def solve_task_h122(state):
+    """Employers with exactly 1 active job: save if followed, follow if not."""
+    user = state["currentUser"]
+    # Count active jobs per employer
+    active_count = {}
+    for job in state["jobs"]:
+        if job.get("status") == "active":
+            eid = job["employerId"]
+            active_count[eid] = active_count.get(eid, 0) + 1
+
+    # Find the single active job for employers with exactly 1
+    single_job = {}
+    for job in state["jobs"]:
+        if job.get("status") == "active":
+            eid = job["employerId"]
+            if active_count.get(eid) == 1:
+                single_job[eid] = job["id"]
+
+    seed_followed = set(user["followedEmployerIds"])
+    for eid, jid in single_job.items():
+        if eid in seed_followed:
+            if jid not in user["savedJobIds"]:
+                user["savedJobIds"].append(jid)
+        else:
+            user["followedEmployerIds"].append(eid)
+            emp = find_employer(state, eid)
+            emp["followCount"] = emp["followCount"] + 1
+
+
+def solve_task_h123(state):
+    """Google identified via 'grew more' testimonial. Save job_02 + comment on post_01."""
+    user = state["currentUser"]
+    if "job_02" not in user["savedJobIds"]:
+        user["savedJobIds"].append("job_02")
+    post = find_post(state, "post_01")
+    comment_id = "cmt_" + str(state["_nextCommentId"])
+    state["_nextCommentId"] += 1
+    post["comments"].append({
+        "id": comment_id,
+        "authorName": user["fullName"],
+        "authorSchool": user["school"],
+        "authorAvatarColor": user["avatarColor"],
+        "text": "Excited about the expanded internship program! The alumni testimonials are really inspiring.",
+        "createdAt": "2026-03-08T12:00:00Z",
+        "isAnonymous": False,
+    })
+
+
+def solve_task_h124(state):
+    """Cancel appt_02 (interview coach), schedule new behavioral, comment on appt_01."""
+    appt_02 = find_appointment(state, "appt_02")
+    appt_02["status"] = "cancelled"
+
+    appt_id = "appt_" + str(state["_nextAppointmentId"]).zfill(2)
+    state["_nextAppointmentId"] += 1
+    state["appointments"].append({
+        "id": appt_id,
+        "category": "Interview Preparation",
+        "type": "Mock Interview - Behavioral",
+        "staffId": None,
+        "staffName": None,
+        "date": "2026-03-19",
+        "time": "3:00 PM",
+        "duration": 30,
+        "medium": "Virtual on Handshake",
+        "location": None,
+        "status": "requested",
+        "details": "",
+        "comments": [],
+        "createdAt": "2026-03-08T12:00:00Z",
+    })
+
+    appt_01 = find_appointment(state, "appt_01")
+    appt_01["comments"].append({
+        "author": state["currentUser"]["fullName"],
+        "text": "Could we also go over some portfolio tips during our session?",
+        "createdAt": "2026-03-08T12:00:00Z",
+    })
+
+
+def solve_task_h125(state):
+    """Salesforce identified via Futureforce message. RSVP evt_10, follow, save job_17."""
+    evt = find_event(state, "evt_10")
+    evt["rsvped"] = True
+    evt["rsvpCount"] = evt["rsvpCount"] + 1
+
+    user = state["currentUser"]
+    if "emp_19" not in user["followedEmployerIds"]:
+        user["followedEmployerIds"].append("emp_19")
+        emp = find_employer(state, "emp_19")
+        emp["followCount"] = emp["followCount"] + 1
+
+    if "job_17" not in user["savedJobIds"]:
+        user["savedJobIds"].append("job_17")
+
+
+def solve_task_h126(state):
+    """Read msg_01 (most recent unread). RSVP evt_04 (Google). Save Google active jobs."""
+    msg = find_message(state, "msg_01")
+    msg["isRead"] = True
+
+    evt = find_event(state, "evt_04")
+    evt["rsvped"] = True
+    evt["rsvpCount"] = evt["rsvpCount"] + 1
+
+    user = state["currentUser"]
+    for jid in ["job_01", "job_02", "job_22"]:
+        if jid not in user["savedJobIds"]:
+            user["savedJobIds"].append(jid)
+
+
+def solve_task_h127(state):
+    """McKinsey (consulting + upcoming event). RSVP evt_01, save job_05."""
+    evt = find_event(state, "evt_01")
+    evt["rsvped"] = True
+    evt["rsvpCount"] = evt["rsvpCount"] + 1
+
+    user = state["currentUser"]
+    if "job_05" not in user["savedJobIds"]:
+        user["savedJobIds"].append("job_05")
+
+
+def solve_task_h128(state):
+    """Kevin O'Brien: FAANG post + system design Q&A. Mark ans_09 helpful, like post_08."""
+    q = find_question(state, "qa_06")
+    ans = find_entity(q["answers"], id="ans_09")
+    ans["helpful"] = ans["helpful"] + 1
+
+    post = find_post(state, "post_08")
+    post["likes"] = post["likes"] + 1
+
+
+def solve_task_h129(state):
+    """Startup Grind Labs (fewest followers). Follow, save job_21, add Full-time."""
+    user = state["currentUser"]
+    if "emp_20" not in user["followedEmployerIds"]:
+        user["followedEmployerIds"].append("emp_20")
+        emp = find_employer(state, "emp_20")
+        emp["followCount"] = emp["followCount"] + 1
+
+    if "job_21" not in user["savedJobIds"]:
+        user["savedJobIds"].append("job_21")
+
+    ci = user["careerInterests"]
+    if "Full-time" not in ci["jobTypes"]:
+        ci["jobTypes"].append("Full-time")
+
+
+def solve_task_h130(state):
+    """Create school post about resume + mark helpful salary negotiation answers."""
+    post_id = "post_" + str(state["_nextPostId"])
+    state["_nextPostId"] += 1
+    state["feedPosts"].insert(0, {
+        "id": post_id,
+        "authorType": "student",
+        "authorId": state["currentUser"]["id"],
+        "authorName": state["currentUser"]["fullName"],
+        "authorSchool": state["currentUser"]["school"],
+        "authorAvatarColor": state["currentUser"]["avatarColor"],
+        "content": "Quick resume formatting tips: keep it to one page, use consistent fonts, quantify your achievements, and tailor it to each position!",
+        "audience": "school",
+        "likes": 0,
+        "comments": [],
+        "hasImage": False,
+        "hasVideo": False,
+        "createdAt": "2026-03-08T12:00:00Z",
+        "bookmarked": False,
+    })
+
+    q = find_question(state, "qa_05")
+    for ans_id in ["ans_07", "ans_08"]:
+        ans = find_entity(q["answers"], id=ans_id)
+        ans["helpful"] = ans["helpful"] + 1
+
+
+def solve_task_h131(state):
+    """Answer qa_10 (unanswered, finance timelines) + follow both Finance employers."""
+    q = find_question(state, "qa_10")
+    ans_id = "ans_" + str(state["_nextAnswerId"]).zfill(2)
+    state["_nextAnswerId"] += 1
+    q["answers"].append({
+        "id": ans_id,
+        "authorName": "Maya Chen",
+        "authorSchool": state["currentUser"]["school"],
+        "authorMajor": state["currentUser"]["major"],
+        "authorGradYear": state["currentUser"]["graduationYear"],
+        "authorAvatarColor": state["currentUser"]["avatarColor"],
+        "text": "Finance recruiting for summer 2027 typically kicks off in August-September 2026. Start networking early and attend info sessions!",
+        "visibility": "full",
+        "status": "pending",
+        "createdAt": "2026-03-08T12:00:00Z",
+        "helpful": 0,
+    })
+
+    user = state["currentUser"]
+    for emp_id in ["emp_02", "emp_06"]:
+        if emp_id not in user["followedEmployerIds"]:
+            user["followedEmployerIds"].append(emp_id)
+            emp = find_employer(state, emp_id)
+            emp["followCount"] = emp["followCount"] + 1
+
+
+def solve_task_h132(state):
+    """Like student posts with >=3 comments (post_08, post_14). Bookmark most-liked employer post (post_01)."""
+    for post_id in ["post_08", "post_14"]:
+        post = find_post(state, post_id)
+        post["likes"] = post["likes"] + 1
+
+    post_01 = find_post(state, "post_01")
+    post_01["bookmarked"] = True
+    user = state["currentUser"]
+    if "post_01" not in user["savedPostIds"]:
+        user["savedPostIds"].append("post_01")
+
+
+def solve_task_h133(state):
+    """Save highest-paid (job_12, $60/hr) + lowest-paid (job_30, $38/hr) internships. Follow Salesforce."""
+    user = state["currentUser"]
+    for jid in ["job_12", "job_30"]:
+        if jid not in user["savedJobIds"]:
+            user["savedJobIds"].append(jid)
+
+    if "emp_19" not in user["followedEmployerIds"]:
+        user["followedEmployerIds"].append("emp_19")
+        emp = find_employer(state, "emp_19")
+        emp["followCount"] = emp["followCount"] + 1
+
+
+def solve_task_h134(state):
+    """Read unread top-match messages. Save most recently posted internship from each sender."""
+    for msg_id in ["msg_01", "msg_03", "msg_08"]:
+        msg = find_message(state, msg_id)
+        msg["isRead"] = True
+
+    user = state["currentUser"]
+    # Google → job_22 (Feb 23), Meta → job_26 (Feb 26), Apple → job_25 (Mar 1)
+    for jid in ["job_22", "job_26", "job_25"]:
+        if jid not in user["savedJobIds"]:
+            user["savedJobIds"].append(jid)
+
+
+def solve_task_h135(state):
+    """Spotify (Media & Entertainment). Save job_15, follow, RSVP evt_07."""
+    user = state["currentUser"]
+    if "job_15" not in user["savedJobIds"]:
+        user["savedJobIds"].append("job_15")
+
+    if "emp_13" not in user["followedEmployerIds"]:
+        user["followedEmployerIds"].append("emp_13")
+        emp = find_employer(state, "emp_13")
+        emp["followCount"] = emp["followCount"] + 1
+
+    evt = find_event(state, "evt_07")
+    evt["rsvped"] = True
+    evt["rsvpCount"] = evt["rsvpCount"] + 1
+
+
+def solve_task_h136(state):
+    """Follow-up of earliest completed appt (appt_07: Major Exploration, Maria Rodriguez)."""
+    appt_id = "appt_" + str(state["_nextAppointmentId"]).zfill(2)
+    state["_nextAppointmentId"] += 1
+    state["appointments"].append({
+        "id": appt_id,
+        "category": "Career Counseling",
+        "type": "Major Exploration",
+        "staffId": "staff_03",
+        "staffName": "Maria Rodriguez",
+        "date": "2026-03-28",
+        "time": "9:00 AM",
+        "duration": 30,
+        "medium": "In Person",
+        "location": "Career Center",
+        "status": "requested",
+        "details": "",
+        "comments": [],
+        "createdAt": "2026-03-08T12:00:00Z",
+    })
+
+
+def solve_task_h137(state):
+    """Morehouse Q&A → Apple Pathways → read msg_08. Bookmark Aisha's post (post_06)."""
+    msg = find_message(state, "msg_08")
+    msg["isRead"] = True
+
+    post = find_post(state, "post_06")
+    post["bookmarked"] = True
+    user = state["currentUser"]
+    if "post_06" not in user["savedPostIds"]:
+        user["savedPostIds"].append("post_06")
+
+
+def solve_task_h138(state):
+    """JPMorgan (closed job with most applicants: job_03, 5210). Follow + bookmark post_15."""
+    user = state["currentUser"]
+    if "emp_02" not in user["followedEmployerIds"]:
+        user["followedEmployerIds"].append("emp_02")
+        emp = find_employer(state, "emp_02")
+        emp["followCount"] = emp["followCount"] + 1
+
+    post = find_post(state, "post_15")
+    post["bookmarked"] = True
+    if "post_15" not in user["savedPostIds"]:
+        user["savedPostIds"].append("post_15")
+
+
+def solve_task_h139(state):
+    """Career interests: remove UX Designer, add DevOps/Cloud, community=Engineering. Save Anthropic jobs."""
+    ci = state["currentUser"]["careerInterests"]
+    ci["roles"] = [r for r in ci["roles"] if r != "UX Designer"]
+    for role in ["DevOps Engineer", "Cloud Engineer"]:
+        if role not in ci["roles"]:
+            ci["roles"].append(role)
+    ci["careerCommunity"] = "Engineering"
+
+    user = state["currentUser"]
+    for jid in ["job_12", "job_29"]:
+        if jid not in user["savedJobIds"]:
+            user["savedJobIds"].append(jid)
+
+
+def solve_task_h140(state):
+    """Add Fellowship/Volunteering to postGrad. Save TFA job_20. Schedule career change guidance."""
+    ci = state["currentUser"]["careerInterests"]
+    for plan in ["Fellowship", "Volunteering"]:
+        if plan not in ci["postGraduation"]:
+            ci["postGraduation"].append(plan)
+
+    user = state["currentUser"]
+    if "job_20" not in user["savedJobIds"]:
+        user["savedJobIds"].append("job_20")
+
+    appt_id = "appt_" + str(state["_nextAppointmentId"]).zfill(2)
+    state["_nextAppointmentId"] += 1
+    state["appointments"].append({
+        "id": appt_id,
+        "category": "Career Counseling",
+        "type": "Career Change Guidance",
+        "staffId": None,
+        "staffName": None,
+        "date": "2026-03-20",
+        "time": "10:00 AM",
+        "duration": 30,
+        "medium": "Virtual on Handshake",
+        "location": None,
+        "status": "requested",
+        "details": "",
+        "comments": [],
+        "createdAt": "2026-03-08T12:00:00Z",
+    })
+
+
 # -- solver registry ----------------------------------------------------------
 
 SOLVERS = {
@@ -2416,6 +2778,26 @@ SOLVERS = {
     "task_h118": solve_task_h118,
     "task_h119": solve_task_h119,
     "task_h120": solve_task_h120,
+    "task_h121": solve_task_h121,
+    "task_h122": solve_task_h122,
+    "task_h123": solve_task_h123,
+    "task_h124": solve_task_h124,
+    "task_h125": solve_task_h125,
+    "task_h126": solve_task_h126,
+    "task_h127": solve_task_h127,
+    "task_h128": solve_task_h128,
+    "task_h129": solve_task_h129,
+    "task_h130": solve_task_h130,
+    "task_h131": solve_task_h131,
+    "task_h132": solve_task_h132,
+    "task_h133": solve_task_h133,
+    "task_h134": solve_task_h134,
+    "task_h135": solve_task_h135,
+    "task_h136": solve_task_h136,
+    "task_h137": solve_task_h137,
+    "task_h138": solve_task_h138,
+    "task_h139": solve_task_h139,
+    "task_h140": solve_task_h140,
 }
 
 

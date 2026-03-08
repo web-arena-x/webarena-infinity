@@ -958,5 +958,125 @@
     "difficulty": "hard",
     "instruction": "You have two requested appointments. Cancel the one scheduled further in the future, and add a comment to the earlier one asking to discuss interview frameworks.",
     "verify": "real-tasks/task_h120.py"
+  },
+  {
+    "id": "task_h121",
+    "difficulty": "hard",
+    "instruction": "Check your profile visibility. If it's set to 'Community', change it to 'Employers'. Then find the employer whose testimonial mentions 'AI safety' and save both their active jobs.",
+    "verify": "real-tasks/task_h121.py"
+  },
+  {
+    "id": "task_h122",
+    "difficulty": "hard",
+    "instruction": "Find all employers with exactly one active job listing. For those you currently follow, save their job. For those you don't follow, follow them instead.",
+    "verify": "real-tasks/task_h122.py"
+  },
+  {
+    "id": "task_h123",
+    "difficulty": "hard",
+    "instruction": "An employer's alumni said they 'grew more in my first year than I expected'. Save their active job with the most applicants and comment on their feed post about the expanded internship program.",
+    "verify": "real-tasks/task_h123.py"
+  },
+  {
+    "id": "task_h124",
+    "difficulty": "hard",
+    "instruction": "Cancel your requested appointment with the interview coach. Schedule a new mock behavioral interview for March 19, 2026 at 3:00 PM, virtually. Also add a comment to your approved appointment asking about portfolio tips.",
+    "verify": "real-tasks/task_h124.py"
+  },
+  {
+    "id": "task_h125",
+    "difficulty": "hard",
+    "instruction": "You received a message about a 'Futureforce' program. RSVP to that employer's upcoming event, follow them, and save their active software engineering position.",
+    "verify": "real-tasks/task_h125.py"
+  },
+  {
+    "id": "task_h126",
+    "difficulty": "hard",
+    "instruction": "Read your most recent unread message. RSVP to that sender's upcoming event and save all their active jobs you haven't already saved.",
+    "verify": "real-tasks/task_h126.py"
+  },
+  {
+    "id": "task_h127",
+    "difficulty": "hard",
+    "instruction": "Three employers are in the Consulting industry, but only one hosts an upcoming event. RSVP to that event and save that employer's active job.",
+    "verify": "real-tasks/task_h127.py"
+  },
+  {
+    "id": "task_h128",
+    "difficulty": "hard",
+    "instruction": "The student who posted a FAANG interview study plan in the feed also answered a Q&A question about system design resources. Mark that Q&A answer as helpful and like their feed post.",
+    "verify": "real-tasks/task_h128.py"
+  },
+  {
+    "id": "task_h129",
+    "difficulty": "hard",
+    "instruction": "Find the employer with the fewest followers on Handshake. Follow them, save their active job, and add 'Full-time' to your preferred job types in career interests.",
+    "verify": "real-tasks/task_h129.py"
+  },
+  {
+    "id": "task_h130",
+    "difficulty": "hard",
+    "instruction": "Create a feed post for 'People at your school' sharing advice about resume formatting. Then mark as helpful every answer on the Q&A question about salary negotiation.",
+    "verify": "real-tasks/task_h130.py"
+  },
+  {
+    "id": "task_h131",
+    "difficulty": "hard",
+    "instruction": "The only unanswered Q&A question is about finance recruiting timelines. Answer it with your advice, then follow both employers in the Finance industry.",
+    "verify": "real-tasks/task_h131.py"
+  },
+  {
+    "id": "task_h132",
+    "difficulty": "hard",
+    "instruction": "Find all student posts in the feed with at least 3 comments. Like each of them. Then bookmark the most-liked employer post in the feed.",
+    "verify": "real-tasks/task_h132.py"
+  },
+  {
+    "id": "task_h133",
+    "difficulty": "hard",
+    "instruction": "Save the highest-paid and lowest-paid active internships by hourly rate. Follow the employer offering the lowest-paid one if you don't already follow them.",
+    "verify": "real-tasks/task_h133.py"
+  },
+  {
+    "id": "task_h134",
+    "difficulty": "hard",
+    "instruction": "Read all your unread top-match messages. For each sender, save their most recently posted active internship.",
+    "verify": "real-tasks/task_h134.py"
+  },
+  {
+    "id": "task_h135",
+    "difficulty": "hard",
+    "instruction": "Find the only employer in the 'Media & Entertainment' industry. Save their active job, follow them, and RSVP to the upcoming virtual career fair.",
+    "verify": "real-tasks/task_h135.py"
+  },
+  {
+    "id": "task_h136",
+    "difficulty": "hard",
+    "instruction": "Your earliest completed appointment was a specific type. Schedule a follow-up appointment of the same category and type with the same staff member, for March 28, 2026 at 9:00 AM, in person.",
+    "verify": "real-tasks/task_h136.py"
+  },
+  {
+    "id": "task_h137",
+    "difficulty": "hard",
+    "instruction": "Find the Q&A question asked by a student from Morehouse College. The answer mentions several diversity programs, one of which matches the subject of an unread message you received. Read that message and bookmark the feed post by the student who answered the Q&A question.",
+    "verify": "real-tasks/task_h137.py"
+  },
+  {
+    "id": "task_h138",
+    "difficulty": "hard",
+    "instruction": "Three employers have closed job listings. Follow the one whose closed job received the most applicants, and bookmark their feed post.",
+    "verify": "real-tasks/task_h138.py"
+  },
+  {
+    "id": "task_h139",
+    "difficulty": "hard",
+    "instruction": "Update your career interests: remove 'UX Designer' from your roles, add 'DevOps Engineer' and 'Cloud Engineer'. Change your career community to 'Engineering'. Then save both active jobs from the only employer in the Artificial Intelligence industry.",
+    "verify": "real-tasks/task_h139.py"
+  },
+  {
+    "id": "task_h140",
+    "difficulty": "hard",
+    "instruction": "Add 'Fellowship' and 'Volunteering' to your post-graduation plans. Find the only Nonprofit employer on Handshake, save their active job, and schedule a career change guidance appointment for March 20, 2026 at 10:00 AM, virtually.",
+    "verify": "real-tasks/task_h140.py"
   }
 ]
