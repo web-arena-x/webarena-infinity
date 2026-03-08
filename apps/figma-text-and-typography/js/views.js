@@ -98,7 +98,7 @@ const Views = {
                     <svg width="14" height="14" viewBox="0 0 14 14"><text x="2" y="12" font-size="12" fill="currentColor">T</text></svg>
                 </div>
                 <div class="layer-info">
-                    <div class="layer-name">${Components._escapeHtml(layer.name)}</div>
+                    <div class="layer-name${isSelected ? ' renameable' : ''}"${isSelected ? ' data-action="renameLayerPrompt"' : ''}>${Components._escapeHtml(layer.name)}</div>
                     <div class="layer-meta">
                         ${layer.fontFamily} ${layer.fontStyle} &middot; ${layer.fontSize}px
                         ${style ? ` &middot; <span class="style-tag">${style.name}</span>` : ''}
@@ -801,6 +801,14 @@ const Views = {
                 <label class="modal-label">Font size</label>
                 <input type="number" class="modal-input" id="modal-edit-style-size"
                     value="${style.fontSize}" min="1" max="1000">
+            </div>
+            <div class="modal-field">
+                <label class="modal-label">Line height</label>
+                <div class="compound-input">
+                    <input type="number" class="modal-input" id="modal-edit-style-line-height"
+                        value="${style.lineHeight.value === 'auto' ? '' : style.lineHeight.value}" min="0" max="500" step="1">
+                    ${Components.dropdown('dd-edit-style-lh-unit', style.lineHeight.unit === 'auto' ? 'px' : style.lineHeight.unit, LINE_HEIGHT_UNITS, 'unit-dropdown')}
+                </div>
             </div>
             <div class="modal-field">
                 <label class="modal-label">Letter case</label>

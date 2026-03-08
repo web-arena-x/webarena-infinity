@@ -183,6 +183,15 @@ const App = {
                         const decoDd = document.getElementById('dd-edit-style-decoration');
                         if (decoDd) updates.textDecoration = decoDd.dataset.value;
 
+                        const lhEl = document.getElementById('modal-edit-style-line-height');
+                        const lhUnitDd = document.getElementById('dd-edit-style-lh-unit');
+                        if (lhEl && lhEl.value !== '') {
+                            updates.lineHeight = {
+                                value: parseFloat(lhEl.value),
+                                unit: lhUnitDd ? lhUnitDd.dataset.value : 'px'
+                            };
+                        }
+
                         AppState.updateTextStyle(AppState.modalData.styleId, updates);
                         AppState.activeModal = null;
                         AppState.modalData = null;
