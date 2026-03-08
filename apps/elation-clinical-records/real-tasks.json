@@ -478,5 +478,125 @@
     "difficulty": "hard",
     "instruction": "Add the tag 'Needs-Visit' to every patient who currently has no visit notes in the system.",
     "verify": "real-tasks/task_h40.py"
+  },
+  {
+    "id": "task_h41",
+    "difficulty": "hard",
+    "instruction": "Find the patient with the highest recorded BMI across all vitals in the system. Add the tag 'Weight-Management' to their chart and add a new problem 'Obesity, unspecified' with ICD-10 code E66.09 to their problem list.",
+    "verify": "real-tasks/task_h41.py"
+  },
+  {
+    "id": "task_h42",
+    "difficulty": "hard",
+    "instruction": "Create a follow-up visit note for the patient whose most recent visit note was categorized as an Urgent Visit. Use the Follow-Up category and the Hypertension Follow-Up template, then sign the note.",
+    "verify": "real-tasks/task_h42.py"
+  },
+  {
+    "id": "task_h43",
+    "difficulty": "hard",
+    "instruction": "Add the tag 'Vaccinated' to every patient who has at least one vaccination record in their chart. Add the tag 'No-Vaccines' to every patient who has no vaccination records at all.",
+    "verify": "real-tasks/task_h43.py"
+  },
+  {
+    "id": "task_h44",
+    "difficulty": "hard",
+    "instruction": "Look up which template is assigned to the Flu Shot appointment type, then create a visit note for Aaliyah Washington using that template and the Vaccination Only category.",
+    "verify": "real-tasks/task_h44.py"
+  },
+  {
+    "id": "task_h45",
+    "difficulty": "hard",
+    "instruction": "Find the only patient in the system who has a draft visit note. Add a Social History block and a Follow Up block to that draft, add billing code 99215 with description 'Office visit, established, high complexity', then sign the note.",
+    "verify": "real-tasks/task_h45.py"
+  },
+  {
+    "id": "task_h46",
+    "difficulty": "hard",
+    "instruction": "Add the tag 'Active-Plan' to every patient who has at least one active care plan in the system.",
+    "verify": "real-tasks/task_h46.py"
+  },
+  {
+    "id": "task_h47",
+    "difficulty": "hard",
+    "instruction": "Disable MIPS tracking on the current default visit note category, then create a new category called 'Quality Metrics' with MIPS tracking enabled, and configure the Annual Exam appointment type to use this new category.",
+    "verify": "real-tasks/task_h47.py"
+  },
+  {
+    "id": "task_h48",
+    "difficulty": "hard",
+    "instruction": "Find the patient born in the 1940s who has Medicare insurance, then record a Pneumococcal 20-valent (PCV20) vaccine for them: manufactured by Pfizer, intramuscular in the left deltoid, dose 1, with a 5-year recall, funded by Medicare.",
+    "verify": "real-tasks/task_h48.py"
+  },
+  {
+    "id": "task_h49",
+    "difficulty": "hard",
+    "instruction": "Two patients in the system share the same ICD-10 code E11.65 for Type 2 Diabetes. For the one whose diabetes problem is currently Active, add the tag 'DM-Review-Urgent'. For the one whose diabetes is Controlled, add the tag 'DM-Review-Routine'.",
+    "verify": "real-tasks/task_h49.py"
+  },
+  {
+    "id": "task_h50",
+    "difficulty": "hard",
+    "instruction": "Create a new template called 'Comprehensive Visit' with HPI, Review of Systems, Physical Exam, and Assessment sections. Add billing code 99215 with description 'Office visit, established, high complexity'. Then set the Urgent Same-Day appointment type to use this new template with the H&P Note (Single Column) format.",
+    "verify": "real-tasks/task_h50.py"
+  },
+  {
+    "id": "task_h51",
+    "difficulty": "hard",
+    "instruction": "Find the patient with the lowest oxygen saturation recorded in their vitals. Create a visit note for that patient using the E* Problem-Focused Visit template, add an HPI block and an Assessment & Plan block, then sign the note.",
+    "verify": "real-tasks/task_h51.py"
+  },
+  {
+    "id": "task_h52",
+    "difficulty": "hard",
+    "instruction": "Add the document tag 'Provider-Reviewed' to every visit note template that was created by the current logged-in provider. Do not modify templates created by other providers.",
+    "verify": "real-tasks/task_h52.py"
+  },
+  {
+    "id": "task_h53",
+    "difficulty": "hard",
+    "instruction": "Add the tag 'Frequent-Visitor' to every patient who has two or more signed visit notes in the system.",
+    "verify": "real-tasks/task_h53.py"
+  },
+  {
+    "id": "task_h54",
+    "difficulty": "hard",
+    "instruction": "Find the patient who has the most vaccination records in the system and create a visit note for them using the Vaccination Only category and the COVID-19 Vaccine Visit template.",
+    "verify": "real-tasks/task_h54.py"
+  },
+  {
+    "id": "task_h55",
+    "difficulty": "hard",
+    "instruction": "Resolve every problem across all patients in the system that currently has a status of Controlled.",
+    "verify": "real-tasks/task_h55.py"
+  },
+  {
+    "id": "task_h56",
+    "difficulty": "hard",
+    "instruction": "Find the only template that has a Place of Service (POS) value of '02', duplicate it, and rename the copy to 'Virtual Care Standard'. Then assign the duplicate to the Telehealth Visit appointment type.",
+    "verify": "real-tasks/task_h56.py"
+  },
+  {
+    "id": "task_h57",
+    "difficulty": "hard",
+    "instruction": "Create a visit note category called 'Mental Health Visit' with MIPS tracking enabled. Then create a visit note for Emily Nakamura using that category and the Telehealth Follow-Up template, add an HPI block and a Psychological Status block, add billing code 99214 with description 'Office visit, established, moderate complexity', and sign the note.",
+    "verify": "real-tasks/task_h57.py"
+  },
+  {
+    "id": "task_h58",
+    "difficulty": "hard",
+    "instruction": "Find every patient over age 65 who has no influenza vaccine in their vaccination records and add the tag 'Flu-Overdue' to their chart.",
+    "verify": "real-tasks/task_h58.py"
+  },
+  {
+    "id": "task_h59",
+    "difficulty": "hard",
+    "instruction": "Find the template with billing code 99395, then create a visit note for the youngest adult patient (18 or older) using that template and the Annual Exam category.",
+    "verify": "real-tasks/task_h59.py"
+  },
+  {
+    "id": "task_h60",
+    "difficulty": "hard",
+    "instruction": "Add the tag 'Recent-Diagnosis' to every patient who has at least one problem with a diagnosis date in 2024 or later.",
+    "verify": "real-tasks/task_h60.py"
   }
 ]
