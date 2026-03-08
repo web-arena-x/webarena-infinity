@@ -1213,13 +1213,199 @@ def solve_task_h80(state):
     state["walletPreferences"]["currencyConversionOption"] = "card_issuer"
 
 
+# ---- HARDENING ROUND 4 ----
+
+def solve_task_h81(state):
+    """Withdraw Nike plan remaining ($141.75) from savings, convert $70 to EUR."""
+    # Nike plan has 3 unpaid payments at $47.25 each = $141.75
+    withdraw_from_savings(state, 141.75)
+    convert_currency(state, "USD", "EUR", 70)
+
+
+def solve_task_h82(state):
+    """Switch autopay to full (seed is minimum), pay $250 on credit."""
+    state["paypalCredit"]["autopayAmount"] = "full"
+    make_credit_payment(state, 250)
+
+
+def solve_task_h83(state):
+    """Remove expired/pending cards, set earliest-last-used remaining card as preferred."""
+    # Remove expired (Discover 6221) and pending (Visa 8834)
+    state["cards"] = [
+        c for c in state["cards"]
+        if c.get("status") not in ("expired", "pending_confirmation")
+    ]
+    # Earliest last used among remaining: AmEx 3001 (2026-01-15)
+    for c in state["cards"]:
+        c["isPreferred"] = False
+    card = find_card(state, "3001")
+    card["isPreferred"] = True
+    state["walletPreferences"]["preferredPaymentMethod"] = card["id"]
+    state["currentUser"]["preferredPaymentMethodId"] = card["id"]
+
+
+def solve_task_h84(state):
+    """Buy $10 of Solana (matches largest historical redemption of $10)."""
+    # Largest redemption: rwd_008 = 1000 pts = $10.00
+    buy_crypto(state, "SOL", 10)
+
+
+def solve_task_h85(state):
+    """Remove Citibank 1104 (most recently added confirmed instant-transfer bank)."""
+    state["bankAccounts"] = [b for b in state["bankAccounts"] if b["lastFour"] != "1104"]
+
+
+def solve_task_h86(state):
+    """Deposit $359 (5% of positive-return crypto value) into savings."""
+    # Positive return: BTC $3066.89 + ETH $3018.47 + LTC $515.28 + BCH $343.97 + LINK $234.38
+    # Total = $7178.99, 5% = $358.95, rounded = $359
+    deposit_to_savings(state, 359)
+
+
+def solve_task_h87(state):
+    """Redeem 1250 points ($12.50) for balance, deposit $12.50 to savings."""
+    # Smallest non-zero gift card balance: Starbucks gc_002 = $12.50
+    redeem_rewards(state, 1250, "balance")
+    deposit_to_savings(state, 12.50)
+
+
+def solve_task_h88(state):
+    """Sell all PYUSD, pay $200 on credit, set ATM limit to $600."""
+    pyusd = find_crypto(state, "PYUSD")
+    sell_amount = round(pyusd["quantity"] * pyusd["currentPrice"] * 100) / 100
+    sell_crypto(state, "PYUSD", sell_amount)
+    make_credit_payment(state, 200)
+    state["paypalDebitCard"]["dailyATMLimit"] = 600
+
+
+def solve_task_h89(state):
+    """Convert $500 to JPY (balance > $2500), set cashback to Fuel."""
+    # USD = $2847.63 > $2500, so convert directly
+    convert_currency(state, "USD", "JPY", 500)
+    state["paypalDebitCard"]["cashBackCategory"] = "Fuel"
+
+
+def solve_task_h90(state):
+    """Save available offers with maxCashback >= $15, unsave saved fixed-type offers."""
+    # Step 1: Save available offers with maxCashback >= 15
+    for offer in state["offers"]:
+        if offer.get("status") == "available" and offer.get("maxCashback", 0) >= 15:
+            offer["status"] = "saved"
+            offer["savedAt"] = now_iso()
+    # Step 2: Unsave saved offers with fixed cashback type
+    for offer in state["offers"]:
+        if offer.get("status") == "saved" and offer.get("cashbackType") == "fixed":
+            offer["status"] = "available"
+            offer["savedAt"] = None
+
+
+def solve_task_h91(state):
+    """Convert $283.99 (total remaining Pay in 4 payments) to GBP."""
+    # Nordstrom: $71.12 + $71.12 = $142.24
+    # Nike: $47.25 * 3 = $141.75
+    # Total = $283.99
+    convert_currency(state, "USD", "GBP", 283.99)
+
+
+def solve_task_h92(state):
+    """Withdraw $2000 from savings, buy $500 BTC, buy $500 ETH, pay $500 credit."""
+    withdraw_from_savings(state, 2000)
+    buy_crypto(state, "BTC", 500)
+    buy_crypto(state, "ETH", 500)
+    make_credit_payment(state, 500)
+
+
+def solve_task_h93(state):
+    """Remove savings-type banks, set Citibank 1104 (lowest last four checking) as backup."""
+    state["bankAccounts"] = [
+        b for b in state["bankAccounts"]
+        if b.get("accountType") != "savings"
+    ]
+    # Set Citibank 1104 as backup
+    for c in state["cards"]:
+        c["isBackup"] = False
+    bank = find_bank(state, "1104")
+    state["walletPreferences"]["backupPaymentMethod"] = bank["id"]
+    state["currentUser"]["backupPaymentMethodId"] = bank["id"]
+
+
+def solve_task_h94(state):
+    """Sell $200 ETH (highest total cost), convert $100 to EUR, deposit $100 to savings."""
+    sell_crypto(state, "ETH", 200)
+    convert_currency(state, "USD", "EUR", 100)
+    deposit_to_savings(state, 100)
+
+
+def solve_task_h95(state):
+    """Enable only security+crypto alerts, disable rest. Cashback Apparel, limit $4000."""
+    notifs = state["walletPreferences"]["emailNotifications"]
+    notifs["payments"] = False
+    notifs["transfers"] = False
+    notifs["securityAlerts"] = True
+    notifs["promotions"] = False
+    notifs["cryptoAlerts"] = True
+    notifs["rewardsUpdates"] = False
+    notifs["weeklyDigest"] = False
+    state["paypalDebitCard"]["cashBackCategory"] = "Apparel"
+    state["paypalDebitCard"]["dailySpendingLimit"] = 4000
+
+
+def solve_task_h96(state):
+    """Send $50 Target gift card to Marcus Williams (matches highest-amount gc)."""
+    purchase_gift_card(
+        state, "Target", 50,
+        "marcus.williams@email.com", "Marcus Williams", "Another one for you!"
+    )
+
+
+def solve_task_h97(state):
+    """Add CHF, convert $400, set card issuer, set AmEx preferred, disable weekly digest."""
+    state["balances"].append({"currency": "CHF", "amount": 0, "isPrimary": False})
+    convert_currency(state, "USD", "CHF", 400)
+    state["walletPreferences"]["currencyConversionOption"] = "card_issuer"
+    for c in state["cards"]:
+        c["isPreferred"] = False
+    card = find_card(state, "3001")
+    card["isPreferred"] = True
+    state["walletPreferences"]["preferredPaymentMethod"] = card["id"]
+    state["currentUser"]["preferredPaymentMethodId"] = card["id"]
+    state["walletPreferences"]["emailNotifications"]["weeklyDigest"] = False
+
+
+def solve_task_h98(state):
+    """Pay $311 (25% of credit balance rounded) and redeem 1000 rewards for balance."""
+    import math
+    payment = round(state["paypalCredit"]["currentBalance"] * 0.25)
+    make_credit_payment(state, payment)
+    redeem_rewards(state, 1000, "balance")
+
+
+def solve_task_h99(state):
+    """Remove non-instant-transfer banks, add $100 from each remaining confirmed checking."""
+    state["bankAccounts"] = [
+        b for b in state["bankAccounts"]
+        if b.get("instantTransferEligible")
+    ]
+    # Remaining confirmed checking: Chase 6742, Citibank 1104
+    # (Wells Fargo 5518 is pending, not confirmed)
+    add_money(state, 100, "6742")
+    add_money(state, 100, "1104")
+
+
+def solve_task_h100(state):
+    """Sell $300 BTC (portfolio > $7000), set spending limit to $2500."""
+    # Crypto total: $7428.99 > $7000
+    sell_crypto(state, "BTC", 300)
+    state["paypalDebitCard"]["dailySpendingLimit"] = 2500
+
+
 # ---------------------------------------------------------------------------
 # Solver registry
 # ---------------------------------------------------------------------------
 
 SOLVERS = {}
 for _prefix in ("e", "m", "h"):
-    for _i in range(1, 81):
+    for _i in range(1, 101):
         _task_id = f"task_{_prefix}{_i}"
         _fn_name = f"solve_{_task_id}"
         if _fn_name in globals():
