@@ -358,5 +358,125 @@
     "difficulty": "hard",
     "instruction": "Record a Hepatitis A vaccine for Priya Sharma from Merck, lot number HA-7721, subcutaneously in the left upper arm, dose 1, with a 6-month recall, funded by insurance.",
     "verify": "real-tasks/task_h20.py"
+  },
+  {
+    "id": "task_h21",
+    "difficulty": "hard",
+    "instruction": "Add the tag 'BP-Alert' to every patient whose most recent recorded vitals show a systolic blood pressure of 130 or higher.",
+    "verify": "real-tasks/task_h21.py"
+  },
+  {
+    "id": "task_h22",
+    "difficulty": "hard",
+    "instruction": "Create a visit note with the Telehealth category for the only patient who has a declined vaccination record in the system.",
+    "verify": "real-tasks/task_h22.py"
+  },
+  {
+    "id": "task_h23",
+    "difficulty": "hard",
+    "instruction": "Find the template assigned to the Annual Exam appointment type, duplicate it, and rename the duplicate to 'Modified Annual Wellness'.",
+    "verify": "real-tasks/task_h23.py"
+  },
+  {
+    "id": "task_h24",
+    "difficulty": "hard",
+    "instruction": "Record a historical influenza vaccine for Dr. Aisha Patel's patient who was born in 2015.",
+    "verify": "real-tasks/task_h24.py"
+  },
+  {
+    "id": "task_h25",
+    "difficulty": "hard",
+    "instruction": "Look up the billing code on the Pre-Operative Evaluation template and add it as a new billing item to David Kowalski's draft visit note.",
+    "verify": "real-tasks/task_h25.py"
+  },
+  {
+    "id": "task_h26",
+    "difficulty": "hard",
+    "instruction": "Create a new visit note category called 'Geriatric Care' with MIPS tracking enabled, then create a visit note for Helen Zhao using that new category and the E* Annual Wellness Visit template, and sign the note.",
+    "verify": "real-tasks/task_h26.py"
+  },
+  {
+    "id": "task_h27",
+    "difficulty": "hard",
+    "instruction": "Find the patient who has the most problems on their problem list, then resolve all of that patient's problems that currently have 'Controlled' status.",
+    "verify": "real-tasks/task_h27.py"
+  },
+  {
+    "id": "task_h28",
+    "difficulty": "hard",
+    "instruction": "For every appointment type that currently has no template assigned, set its template to E* Problem-Focused Visit.",
+    "verify": "real-tasks/task_h28.py"
+  },
+  {
+    "id": "task_h29",
+    "difficulty": "hard",
+    "instruction": "Add the tag 'Multi-Condition' to every patient who has 4 or more active problems on their problem list.",
+    "verify": "real-tasks/task_h29.py"
+  },
+  {
+    "id": "task_h30",
+    "difficulty": "hard",
+    "instruction": "Change the default visit note format to H&P Note (Single Column), then create a visit note for Emily Nakamura using the Follow-Up category, add an HPI block to the note, and sign it.",
+    "verify": "real-tasks/task_h30.py"
+  },
+  {
+    "id": "task_h31",
+    "difficulty": "hard",
+    "instruction": "Remove the 'Diabetes-Management' tag from every patient who has it, then add the tag 'Diabetes-Active' only to those patients among them whose diabetes problem currently has 'Active' status.",
+    "verify": "real-tasks/task_h31.py"
+  },
+  {
+    "id": "task_h32",
+    "difficulty": "hard",
+    "instruction": "Create a new template called 'COPD Management' with an HPI section and billing code 99214, then create a visit note for Thomas Bergstrom using that new template.",
+    "verify": "real-tasks/task_h32.py"
+  },
+  {
+    "id": "task_h33",
+    "difficulty": "hard",
+    "instruction": "Add the tag 'Respiratory-Alert' to every patient who has an active problem with an ICD-10 code that starts with the letter J.",
+    "verify": "real-tasks/task_h33.py"
+  },
+  {
+    "id": "task_h34",
+    "difficulty": "hard",
+    "instruction": "Add the tag 'Care-Coordination' to every patient who has at least one signed visit note with the 'Chronic-Care' document tag.",
+    "verify": "real-tasks/task_h34.py"
+  },
+  {
+    "id": "task_h35",
+    "difficulty": "hard",
+    "instruction": "Record full vitals for James Fitzgerald: BP 122/76, heart rate 68, temperature 98.4 F, SpO2 99%, weight 180 lbs, height 72 inches, pain level 0. Then create a visit note for him using the E* Problem-Focused Visit template and the Office Visit category.",
+    "verify": "real-tasks/task_h35.py"
+  },
+  {
+    "id": "task_h36",
+    "difficulty": "hard",
+    "instruction": "Find the oldest patient in the system who has Medicare insurance and add the tag 'Geriatric-Screening' to their chart.",
+    "verify": "real-tasks/task_h36.py"
+  },
+  {
+    "id": "task_h37",
+    "difficulty": "hard",
+    "instruction": "Mark all of William O'Brien's active problems as 'Controlled', add the tag 'Stable' to his chart, and remove the 'CHF' tag.",
+    "verify": "real-tasks/task_h37.py"
+  },
+  {
+    "id": "task_h38",
+    "difficulty": "hard",
+    "instruction": "Configure the Procedure appointment type: set its template to the same one used by Office Visit, set its category to match Follow-Up's category, and change its format to H&P Note (Single Column).",
+    "verify": "real-tasks/task_h38.py"
+  },
+  {
+    "id": "task_h39",
+    "difficulty": "hard",
+    "instruction": "Add 'Acute Bronchitis' with ICD-10 code J20.9 to Sofia Rodriguez-Martinez's problem list, then create a visit note for her using the E* Problem-Focused Visit template, and sign the note.",
+    "verify": "real-tasks/task_h39.py"
+  },
+  {
+    "id": "task_h40",
+    "difficulty": "hard",
+    "instruction": "Add the tag 'Needs-Visit' to every patient who currently has no visit notes in the system.",
+    "verify": "real-tasks/task_h40.py"
   }
 ]

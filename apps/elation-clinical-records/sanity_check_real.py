@@ -1129,11 +1129,448 @@ def solve_task_h20(state):
     state["_nextVaxId"] = next_id + 1
 
 
+# ── HARDENING ROUND 1 solve functions ────────────────────────────────
+
+def solve_task_h21(state):
+    """Add 'BP-Alert' to patients whose most recent vitals have systolic >= 130."""
+    # Find most recent vitals per patient
+    patient_vitals = {}
+    for v in state["vitals"]:
+        pid = v["patientId"]
+        if pid not in patient_vitals or v["date"] > patient_vitals[pid]["date"]:
+            patient_vitals[pid] = v
+    for pid, v in patient_vitals.items():
+        bp = v.get("bloodPressureSystolic")
+        if bp is not None and bp >= 130:
+            patient = next(p for p in state["patients"] if p["id"] == pid)
+            if "BP-Alert" not in patient["tags"]:
+                patient["tags"].append("BP-Alert")
+                patient["tags"].sort(key=lambda t: (not t.startswith("*"), t))
+
+
+def solve_task_h22(state):
+    """Create visit note with Telehealth category for patient with declined vax."""
+    # Find the patient with a declined vaccination
+    declined_pid = None
+    for vax in state["vaccinations"]:
+        if vax.get("recordType") == "Declined":
+            declined_pid = vax["patientId"]
+            break
+    next_id = state.get("_nextNoteId", 100)
+    note = {
+        "id": f"note_{next_id:03d}",
+        "patientId": declined_pid,
+        "providerId": state["currentProvider"]["id"],
+        "format": state["currentProvider"]["defaultNoteFormat"],
+        "category": "cat_002",
+        "templateUsed": "",
+        "date": "2026-03-08T10:00:00Z",
+        "status": "draft",
+        "signedAt": "",
+        "reason": "",
+        "blocks": [],
+        "billingItems": [],
+        "documentTags": [],
+    }
+    state["visitNotes"].append(note)
+    state["_nextNoteId"] = next_id + 1
+
+
+def solve_task_h23(state):
+    """Duplicate the template assigned to Annual Exam appointment, rename copy."""
+    apt = find_appointment_type(state, "Annual Exam")
+    tmpl_id = apt["noteTemplate"]
+    orig = next(t for t in state["visitNoteTemplates"] if t["id"] == tmpl_id)
+    next_id = state.get("_nextTemplateId", 100)
+    copy = deepcopy(orig)
+    copy["id"] = f"tmpl_{next_id:03d}"
+    copy["name"] = "Modified Annual Wellness"
+    copy["createdAt"] = "2026-03-08T10:00:00Z"
+    state["visitNoteTemplates"].append(copy)
+    state["_nextTemplateId"] = next_id + 1
+
+
+def solve_task_h24(state):
+    """Record historical influenza vaccine for Washington (Patel's patient born 2015)."""
+    patient = find_patient(state, lastName="Washington")
+    next_id = state.get("_nextVaxId", 100)
+    vax = {
+        "id": f"vax_{next_id:03d}",
+        "patientId": patient["id"],
+        "vaccineName": "Influenza (IIV4) Standard",
+        "cvx": "185",
+        "ndc": "",
+        "manufacturer": "",
+        "lotNumber": "",
+        "expirationDate": "",
+        "doseAmount": "",
+        "doseUnits": "",
+        "seriesNumber": "",
+        "method": "Intramuscular",
+        "site": "Left Deltoid",
+        "givenOn": "2025-01-15T00:00:00Z",
+        "orderedBy": "",
+        "givenBy": "",
+        "recordType": "Historical",
+        "visDate": "",
+        "recall": "",
+        "reason": "",
+        "notes": "",
+        "program": "",
+        "fundedBy": "",
+        "source": "Historical",
+        "status": "completed",
+    }
+    state["vaccinations"].append(vax)
+    state["_nextVaxId"] = next_id + 1
+
+
+def solve_task_h25(state):
+    """Add Pre-Op Evaluation template's billing code (99215) to Kowalski's draft."""
+    note = find_note(state, "note_012")
+    note["billingItems"].append({
+        "cptCode": "99215",
+        "description": "Office visit, established, high complexity",
+    })
+
+
+def solve_task_h26(state):
+    """Create 'Geriatric Care' category with MIPS, create note for Zhao with it + template, sign."""
+    # Create category
+    next_cat_id = state.get("_nextCategoryId", 100)
+    max_sort = max(c["sortOrder"] for c in state["visitNoteCategories"])
+    cat_id = f"cat_{next_cat_id:03d}"
+    cat = {
+        "id": cat_id,
+        "name": "Geriatric Care",
+        "countForMIPS": True,
+        "isDefault": False,
+        "sortOrder": max_sort + 1,
+    }
+    state["visitNoteCategories"].append(cat)
+    state["_nextCategoryId"] = next_cat_id + 1
+
+    # Create note for Zhao
+    patient = find_patient(state, lastName="Zhao")
+    tmpl = find_template(state, "E* Annual Wellness Visit")
+    next_note_id = state.get("_nextNoteId", 100)
+    blocks = []
+    for section in ["hpi", "ros", "pe", "assessment"]:
+        if tmpl.get("content", {}).get(section):
+            blocks.append({"type": section, "content": tmpl["content"][section]})
+    note = {
+        "id": f"note_{next_note_id:03d}",
+        "patientId": patient["id"],
+        "providerId": state["currentProvider"]["id"],
+        "format": state["currentProvider"]["defaultNoteFormat"],
+        "category": cat_id,
+        "templateUsed": tmpl["id"],
+        "date": "2026-03-08T10:00:00Z",
+        "status": "signed",
+        "signedAt": "2026-03-08T10:05:00Z",
+        "reason": "",
+        "blocks": blocks,
+        "billingItems": deepcopy(tmpl.get("billingItems", [])),
+        "documentTags": list(tmpl.get("documentTags", [])),
+    }
+    state["visitNotes"].append(note)
+    state["_nextNoteId"] = next_note_id + 1
+
+
+def solve_task_h27(state):
+    """Resolve all 'Controlled' problems for Henderson (most problems: 6)."""
+    patient = find_patient(state, lastName="Henderson")
+    for prob in state["problems"]:
+        if prob["patientId"] == patient["id"] and prob["status"] == "Controlled":
+            prob["status"] = "Resolved"
+            prob["resolvedDate"] = "2026-03-08"
+
+
+def solve_task_h28(state):
+    """Set template to tmpl_002 for all appointment types with no template."""
+    for apt in state["appointmentTypes"]:
+        if not apt.get("noteTemplate"):
+            apt["noteTemplate"] = "tmpl_002"
+
+
+def solve_task_h29(state):
+    """Add 'Multi-Condition' to patients with 4+ active problems."""
+    active_counts = {}
+    for prob in state["problems"]:
+        if prob["status"] == "Active":
+            pid = prob["patientId"]
+            active_counts[pid] = active_counts.get(pid, 0) + 1
+    for patient in state["patients"]:
+        if active_counts.get(patient["id"], 0) >= 4:
+            if "Multi-Condition" not in patient["tags"]:
+                patient["tags"].append("Multi-Condition")
+                patient["tags"].sort(key=lambda t: (not t.startswith("*"), t))
+
+
+def solve_task_h30(state):
+    """Change default format to hp_single, create note for Nakamura, add HPI, sign."""
+    state["providerPreferences"]["defaultNoteFormat"] = "hp_single"
+    patient = find_patient(state, lastName="Nakamura")
+    next_id = state.get("_nextNoteId", 100)
+    note = {
+        "id": f"note_{next_id:03d}",
+        "patientId": patient["id"],
+        "providerId": state["currentProvider"]["id"],
+        "format": "hp_single",
+        "category": "cat_005",
+        "templateUsed": "",
+        "date": "2026-03-08T10:00:00Z",
+        "status": "signed",
+        "signedAt": "2026-03-08T10:05:00Z",
+        "reason": "",
+        "blocks": [
+            {"type": "hpi", "content": "Follow-up visit for anxiety management."},
+        ],
+        "billingItems": [],
+        "documentTags": [],
+    }
+    state["visitNotes"].append(note)
+    state["_nextNoteId"] = next_id + 1
+
+
+def solve_task_h31(state):
+    """Remove 'Diabetes-Management' from all, add 'Diabetes-Active' where diabetes is Active."""
+    # Henderson has tag + active diabetes, Bergstrom has tag + controlled diabetes
+    for patient in state["patients"]:
+        if "Diabetes-Management" in patient["tags"]:
+            patient["tags"] = [t for t in patient["tags"] if t != "Diabetes-Management"]
+            # Check if this patient has an active diabetes problem
+            has_active_diabetes = any(
+                p["patientId"] == patient["id"]
+                and p["status"] == "Active"
+                and "diabetes" in p["title"].lower()
+                for p in state["problems"]
+            )
+            if has_active_diabetes and "Diabetes-Active" not in patient["tags"]:
+                patient["tags"].append("Diabetes-Active")
+            patient["tags"].sort(key=lambda t: (not t.startswith("*"), t))
+
+
+def solve_task_h32(state):
+    """Create 'COPD Management' template with HPI + billing 99214, create note for Bergstrom."""
+    next_tmpl_id = state.get("_nextTemplateId", 100)
+    tmpl_id = f"tmpl_{next_tmpl_id:03d}"
+    tmpl = {
+        "id": tmpl_id,
+        "name": "COPD Management",
+        "createdBy": state["currentProvider"]["id"],
+        "content": {
+            "hpi": "Patient presents for COPD management follow-up.",
+        },
+        "billingItems": [
+            {"cptCode": "99214", "description": "Office visit, established, moderate complexity"}
+        ],
+        "pos": "",
+        "billingNotes": "",
+        "documentTags": [],
+        "createdAt": "2026-03-08T10:00:00Z",
+    }
+    state["visitNoteTemplates"].append(tmpl)
+    state["_nextTemplateId"] = next_tmpl_id + 1
+
+    # Create note for Bergstrom using template
+    patient = find_patient(state, lastName="Bergstrom")
+    next_note_id = state.get("_nextNoteId", 100)
+    note = {
+        "id": f"note_{next_note_id:03d}",
+        "patientId": patient["id"],
+        "providerId": state["currentProvider"]["id"],
+        "format": state["currentProvider"]["defaultNoteFormat"],
+        "category": state["currentProvider"]["defaultCategory"],
+        "templateUsed": tmpl_id,
+        "date": "2026-03-08T10:00:00Z",
+        "status": "draft",
+        "signedAt": "",
+        "reason": "",
+        "blocks": [
+            {"type": "hpi", "content": tmpl["content"]["hpi"]},
+        ],
+        "billingItems": deepcopy(tmpl["billingItems"]),
+        "documentTags": [],
+    }
+    state["visitNotes"].append(note)
+    state["_nextNoteId"] = next_note_id + 1
+
+
+def solve_task_h33(state):
+    """Add 'Respiratory-Alert' to patients with active problems whose ICD-10 starts with J."""
+    target_pids = set()
+    for prob in state["problems"]:
+        if prob["status"] == "Active" and prob.get("icd10", "").startswith("J"):
+            target_pids.add(prob["patientId"])
+    for patient in state["patients"]:
+        if patient["id"] in target_pids:
+            if "Respiratory-Alert" not in patient["tags"]:
+                patient["tags"].append("Respiratory-Alert")
+                patient["tags"].sort(key=lambda t: (not t.startswith("*"), t))
+
+
+def solve_task_h34(state):
+    """Add 'Care-Coordination' to patients with signed notes tagged 'Chronic-Care'."""
+    target_pids = set()
+    for note in state["visitNotes"]:
+        if note.get("status") == "signed" and "Chronic-Care" in note.get("documentTags", []):
+            target_pids.add(note["patientId"])
+    for patient in state["patients"]:
+        if patient["id"] in target_pids:
+            if "Care-Coordination" not in patient["tags"]:
+                patient["tags"].append("Care-Coordination")
+                patient["tags"].sort(key=lambda t: (not t.startswith("*"), t))
+
+
+def solve_task_h35(state):
+    """Record full vitals for Fitzgerald + create note with template and category."""
+    patient = find_patient(state, lastName="Fitzgerald")
+
+    # Add vitals
+    next_vit_id = state.get("_nextVitalId", 100)
+    vital = {
+        "id": f"vit_{next_vit_id:03d}",
+        "patientId": patient["id"],
+        "noteId": "",
+        "date": "2026-03-08T10:00:00Z",
+        "bloodPressureSystolic": 122,
+        "bloodPressureDiastolic": 76,
+        "heartRate": 68,
+        "respiratoryRate": None,
+        "temperature": 98.4,
+        "temperatureUnit": "F",
+        "oxygenSaturation": 99,
+        "weight": 180,
+        "weightUnit": "lbs",
+        "height": 72,
+        "heightUnit": "in",
+        "bmi": None,
+        "painLevel": 0,
+    }
+    state["vitals"].append(vital)
+    state["_nextVitalId"] = next_vit_id + 1
+
+    # Create note
+    tmpl = find_template(state, "E* Problem-Focused Visit")
+    next_note_id = state.get("_nextNoteId", 100)
+    blocks = []
+    for section in ["hpi", "ros", "pe", "assessment"]:
+        if tmpl.get("content", {}).get(section):
+            blocks.append({"type": section, "content": tmpl["content"][section]})
+    note = {
+        "id": f"note_{next_note_id:03d}",
+        "patientId": patient["id"],
+        "providerId": state["currentProvider"]["id"],
+        "format": state["currentProvider"]["defaultNoteFormat"],
+        "category": "cat_001",
+        "templateUsed": tmpl["id"],
+        "date": "2026-03-08T10:00:00Z",
+        "status": "draft",
+        "signedAt": "",
+        "reason": "",
+        "blocks": blocks,
+        "billingItems": deepcopy(tmpl.get("billingItems", [])),
+        "documentTags": list(tmpl.get("documentTags", [])),
+    }
+    state["visitNotes"].append(note)
+    state["_nextNoteId"] = next_note_id + 1
+
+
+def solve_task_h36(state):
+    """Add 'Geriatric-Screening' to O'Brien (oldest Medicare patient)."""
+    patient = find_patient(state, lastName="O'Brien")
+    if "Geriatric-Screening" not in patient["tags"]:
+        patient["tags"].append("Geriatric-Screening")
+        patient["tags"].sort(key=lambda t: (not t.startswith("*"), t))
+
+
+def solve_task_h37(state):
+    """Mark all O'Brien's active problems as Controlled, add 'Stable', remove 'CHF'."""
+    patient = find_patient(state, lastName="O'Brien")
+    for prob in state["problems"]:
+        if prob["patientId"] == patient["id"] and prob["status"] == "Active":
+            prob["status"] = "Controlled"
+    patient["tags"] = [t for t in patient["tags"] if t != "CHF"]
+    if "Stable" not in patient["tags"]:
+        patient["tags"].append("Stable")
+    patient["tags"].sort(key=lambda t: (not t.startswith("*"), t))
+
+
+def solve_task_h38(state):
+    """Configure Procedure: template from Office Visit, category from Follow-Up, format hp_single."""
+    office = find_appointment_type(state, "Office Visit")
+    followup = find_appointment_type(state, "Follow-Up")
+    procedure = find_appointment_type(state, "Procedure")
+    procedure["noteTemplate"] = office["noteTemplate"]
+    procedure["noteCategory"] = followup["noteCategory"]
+    procedure["noteFormat"] = "hp_single"
+
+
+def solve_task_h39(state):
+    """Add Acute Bronchitis (J20.9) to Rodriguez-Martinez, create note with template, sign."""
+    patient = find_patient(state, lastName="Rodriguez-Martinez")
+
+    # Add problem
+    next_prob_id = state.get("_nextProblemId", 100)
+    existing = [p for p in state["problems"] if p["patientId"] == patient["id"]]
+    problem = {
+        "id": f"prob_{next_prob_id:03d}",
+        "patientId": patient["id"],
+        "title": "Acute Bronchitis",
+        "icd10": "J20.9",
+        "icd9": "",
+        "snomed": "",
+        "dxDate": "2026-03-08",
+        "status": "Active",
+        "synopsis": "",
+        "resolvedDate": "",
+        "sortOrder": len(existing),
+    }
+    state["problems"].append(problem)
+    state["_nextProblemId"] = next_prob_id + 1
+
+    # Create note with E* Problem-Focused Visit template
+    tmpl = find_template(state, "E* Problem-Focused Visit")
+    next_note_id = state.get("_nextNoteId", 100)
+    blocks = []
+    for section in ["hpi", "ros", "pe", "assessment"]:
+        if tmpl.get("content", {}).get(section):
+            blocks.append({"type": section, "content": tmpl["content"][section]})
+    note = {
+        "id": f"note_{next_note_id:03d}",
+        "patientId": patient["id"],
+        "providerId": state["currentProvider"]["id"],
+        "format": state["currentProvider"]["defaultNoteFormat"],
+        "category": state["currentProvider"]["defaultCategory"],
+        "templateUsed": tmpl["id"],
+        "date": "2026-03-08T10:00:00Z",
+        "status": "signed",
+        "signedAt": "2026-03-08T10:05:00Z",
+        "reason": "",
+        "blocks": blocks,
+        "billingItems": deepcopy(tmpl.get("billingItems", [])),
+        "documentTags": list(tmpl.get("documentTags", [])),
+    }
+    state["visitNotes"].append(note)
+    state["_nextNoteId"] = next_note_id + 1
+
+
+def solve_task_h40(state):
+    """Add 'Needs-Visit' to patients with no visit notes."""
+    patients_with_notes = {n["patientId"] for n in state["visitNotes"]}
+    for patient in state["patients"]:
+        if patient["id"] not in patients_with_notes:
+            if "Needs-Visit" not in patient["tags"]:
+                patient["tags"].append("Needs-Visit")
+                patient["tags"].sort(key=lambda t: (not t.startswith("*"), t))
+
+
 # ── solver registry ──────────────────────────────────────────────────
 
 SOLVERS = {}
-for _prefix in ["e", "m", "h"]:
-    for _i in range(1, 21):
+for _prefix, _max in [("e", 20), ("m", 20), ("h", 40)]:
+    for _i in range(1, _max + 1):
         _key = f"task_{_prefix}{_i}"
         _fn = f"solve_task_{_prefix}{_i}"
         if _fn in globals():
