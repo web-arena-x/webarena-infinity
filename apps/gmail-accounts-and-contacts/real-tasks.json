@@ -1,1 +1,362 @@
-[]
+[
+  {
+    "id": "task_e1",
+    "difficulty": "easy",
+    "instruction": "Star James O'Brien.",
+    "verify": "real-tasks/task_e1.py"
+  },
+  {
+    "id": "task_e2",
+    "difficulty": "easy",
+    "instruction": "Turn off auto-save contacts.",
+    "verify": "real-tasks/task_e2.py"
+  },
+  {
+    "id": "task_e3",
+    "difficulty": "easy",
+    "instruction": "Remove the expired delegate.",
+    "verify": "real-tasks/task_e3.py"
+  },
+  {
+    "id": "task_e4",
+    "difficulty": "easy",
+    "instruction": "Disable activity tracking.",
+    "verify": "real-tasks/task_e4.py"
+  },
+  {
+    "id": "task_e5",
+    "difficulty": "easy",
+    "instruction": "Unlink YouTube.",
+    "verify": "real-tasks/task_e5.py"
+  },
+  {
+    "id": "task_e6",
+    "difficulty": "easy",
+    "instruction": "Delete the contact Diana Castillo.",
+    "verify": "real-tasks/task_e6.py"
+  },
+  {
+    "id": "task_e7",
+    "difficulty": "easy",
+    "instruction": "Dismiss the CloudNine merge suggestion.",
+    "verify": "real-tasks/task_e7.py"
+  },
+  {
+    "id": "task_e8",
+    "difficulty": "easy",
+    "instruction": "Turn on contact changes notifications.",
+    "verify": "real-tasks/task_e8.py"
+  },
+  {
+    "id": "task_e9",
+    "difficulty": "easy",
+    "instruction": "Switch your two-factor method to SMS.",
+    "verify": "real-tasks/task_e9.py"
+  },
+  {
+    "id": "task_e10",
+    "difficulty": "easy",
+    "instruction": "Unstar Emily Rodriguez.",
+    "verify": "real-tasks/task_e10.py"
+  },
+  {
+    "id": "task_e11",
+    "difficulty": "easy",
+    "instruction": "Delete the College Alumni label.",
+    "verify": "real-tasks/task_e11.py"
+  },
+  {
+    "id": "task_e12",
+    "difficulty": "easy",
+    "instruction": "Remove AWS Billing from your other contacts.",
+    "verify": "real-tasks/task_e12.py"
+  },
+  {
+    "id": "task_e13",
+    "difficulty": "easy",
+    "instruction": "Link Google Ads.",
+    "verify": "real-tasks/task_e13.py"
+  },
+  {
+    "id": "task_e14",
+    "difficulty": "easy",
+    "instruction": "Turn off calendar sync.",
+    "verify": "real-tasks/task_e14.py"
+  },
+  {
+    "id": "task_e15",
+    "difficulty": "easy",
+    "instruction": "Make your phone number visible to everyone.",
+    "verify": "real-tasks/task_e15.py"
+  },
+  {
+    "id": "task_e16",
+    "difficulty": "easy",
+    "instruction": "Change the contact sort order to last name.",
+    "verify": "real-tasks/task_e16.py"
+  },
+  {
+    "id": "task_e17",
+    "difficulty": "easy",
+    "instruction": "Turn off linked service update notifications.",
+    "verify": "real-tasks/task_e17.py"
+  },
+  {
+    "id": "task_e18",
+    "difficulty": "easy",
+    "instruction": "Disable two-factor authentication.",
+    "verify": "real-tasks/task_e18.py"
+  },
+  {
+    "id": "task_e19",
+    "difficulty": "easy",
+    "instruction": "Remove Stripe Notifications from your other contacts.",
+    "verify": "real-tasks/task_e19.py"
+  },
+  {
+    "id": "task_e20",
+    "difficulty": "easy",
+    "instruction": "Rename the Emergency label to 'Urgent'.",
+    "verify": "real-tasks/task_e20.py"
+  },
+  {
+    "id": "task_m1",
+    "difficulty": "medium",
+    "instruction": "Update your profile name to 'Alexander Johnson' and change the recovery email to 'alex.secure@proton.me'.",
+    "verify": "real-tasks/task_m1.py"
+  },
+  {
+    "id": "task_m2",
+    "difficulty": "medium",
+    "instruction": "Create a new contact named Jordan Wells with email jordan.wells@wellsfargo.com and company Wells Fargo.",
+    "verify": "real-tasks/task_m2.py"
+  },
+  {
+    "id": "task_m3",
+    "difficulty": "medium",
+    "instruction": "Add a delegate with email ops@techcorp.io and name 'TechCorp Ops'.",
+    "verify": "real-tasks/task_m3.py"
+  },
+  {
+    "id": "task_m4",
+    "difficulty": "medium",
+    "instruction": "Rename the 'Gym Buddies' label to 'Fitness' and change its color to blue (#4285F4).",
+    "verify": "real-tasks/task_m4.py"
+  },
+  {
+    "id": "task_m5",
+    "difficulty": "medium",
+    "instruction": "Move Jason Blake from other contacts to your main contacts.",
+    "verify": "real-tasks/task_m5.py"
+  },
+  {
+    "id": "task_m6",
+    "difficulty": "medium",
+    "instruction": "Turn off all four notification types.",
+    "verify": "real-tasks/task_m6.py"
+  },
+  {
+    "id": "task_m7",
+    "difficulty": "medium",
+    "instruction": "Remove the pending and expired delegates.",
+    "verify": "real-tasks/task_m7.py"
+  },
+  {
+    "id": "task_m8",
+    "difficulty": "medium",
+    "instruction": "Create a new label called 'Project Alpha' and assign it to Sarah Chen.",
+    "verify": "real-tasks/task_m8.py"
+  },
+  {
+    "id": "task_m9",
+    "difficulty": "medium",
+    "instruction": "Update Tom Bradley's email to 'tom@newrealty.com' and change his job title to 'Senior Agent'.",
+    "verify": "real-tasks/task_m9.py"
+  },
+  {
+    "id": "task_m10",
+    "difficulty": "medium",
+    "instruction": "Merge the EuroDesign duplicate contacts.",
+    "verify": "real-tasks/task_m10.py"
+  },
+  {
+    "id": "task_m11",
+    "difficulty": "medium",
+    "instruction": "Sort contacts by last name and set the display order to last name first.",
+    "verify": "real-tasks/task_m11.py"
+  },
+  {
+    "id": "task_m12",
+    "difficulty": "medium",
+    "instruction": "Unlink both Google Maps and Chrome.",
+    "verify": "real-tasks/task_m12.py"
+  },
+  {
+    "id": "task_m13",
+    "difficulty": "medium",
+    "instruction": "Set your profile photo visibility and email visibility both to 'Nobody'.",
+    "verify": "real-tasks/task_m13.py"
+  },
+  {
+    "id": "task_m14",
+    "difficulty": "medium",
+    "instruction": "Delete both Dr. Patricia Nguyen and Mike Chen.",
+    "verify": "real-tasks/task_m14.py"
+  },
+  {
+    "id": "task_m15",
+    "difficulty": "medium",
+    "instruction": "Star Ben Walker and Tony Russo.",
+    "verify": "real-tasks/task_m15.py"
+  },
+  {
+    "id": "task_m16",
+    "difficulty": "medium",
+    "instruction": "Update Sarah Chen's company to 'TechCorp Global' and her job title to 'SVP of Product'.",
+    "verify": "real-tasks/task_m16.py"
+  },
+  {
+    "id": "task_m17",
+    "difficulty": "medium",
+    "instruction": "Disable auto-save contacts and turn off the 'Show contact info on emails' setting.",
+    "verify": "real-tasks/task_m17.py"
+  },
+  {
+    "id": "task_m18",
+    "difficulty": "medium",
+    "instruction": "Move Tina Marshall to your main contacts and delete the Chloe Bennett other contact.",
+    "verify": "real-tasks/task_m18.py"
+  },
+  {
+    "id": "task_m19",
+    "difficulty": "medium",
+    "instruction": "Create a new label called 'Investors' with the orange color (#FF5722) and add it to Emily Rodriguez.",
+    "verify": "real-tasks/task_m19.py"
+  },
+  {
+    "id": "task_m20",
+    "difficulty": "medium",
+    "instruction": "Switch to security key for two-factor authentication and turn off remember password.",
+    "verify": "real-tasks/task_m20.py"
+  },
+  {
+    "id": "task_h1",
+    "difficulty": "hard",
+    "instruction": "Remove all non-active delegates and add a new delegate with email 'backup@admin.com' and name 'Backup Admin'.",
+    "verify": "real-tasks/task_h1.py"
+  },
+  {
+    "id": "task_h2",
+    "difficulty": "hard",
+    "instruction": "Invert all Google service link states — unlink the currently linked services and link the currently unlinked ones.",
+    "verify": "real-tasks/task_h2.py"
+  },
+  {
+    "id": "task_h3",
+    "difficulty": "hard",
+    "instruction": "Delete all contacts who work at TechCorp.",
+    "verify": "real-tasks/task_h3.py"
+  },
+  {
+    "id": "task_h4",
+    "difficulty": "hard",
+    "instruction": "Make sure all Family-labeled contacts have both the Emergency and Friends labels.",
+    "verify": "real-tasks/task_h4.py"
+  },
+  {
+    "id": "task_h5",
+    "difficulty": "hard",
+    "instruction": "Create a new label called 'Collaborators' and add it to all contacts who work at CloudNine or DesignHub.",
+    "verify": "real-tasks/task_h5.py"
+  },
+  {
+    "id": "task_h6",
+    "difficulty": "hard",
+    "instruction": "Set all three visibility options to 'Nobody', disable activity tracking, and turn off all four notification types.",
+    "verify": "real-tasks/task_h6.py"
+  },
+  {
+    "id": "task_h7",
+    "difficulty": "hard",
+    "instruction": "Delete all auto-saved contacts that use no-reply or do-not-reply email addresses.",
+    "verify": "real-tasks/task_h7.py"
+  },
+  {
+    "id": "task_h8",
+    "difficulty": "hard",
+    "instruction": "Delete all contacts labeled 'Vendors' and then delete the Vendors label.",
+    "verify": "real-tasks/task_h8.py"
+  },
+  {
+    "id": "task_h9",
+    "difficulty": "hard",
+    "instruction": "Unstar all currently starred contacts except those labeled 'Family'.",
+    "verify": "real-tasks/task_h9.py"
+  },
+  {
+    "id": "task_h10",
+    "difficulty": "hard",
+    "instruction": "Create a new label called 'Tech' and add it to all contacts who work at a company with 'Tech' in the name.",
+    "verify": "real-tasks/task_h10.py"
+  },
+  {
+    "id": "task_h11",
+    "difficulty": "hard",
+    "instruction": "Set up maximum account security: switch the two-factor method to security key, turn off remember password and auto sign-in, set all three visibility options to 'Nobody', and disable activity tracking.",
+    "verify": "real-tasks/task_h11.py"
+  },
+  {
+    "id": "task_h12",
+    "difficulty": "hard",
+    "instruction": "Merge the CloudNine duplicate contacts, dismiss the EuroDesign merge suggestion, and remove the pending delegate.",
+    "verify": "real-tasks/task_h12.py"
+  },
+  {
+    "id": "task_h13",
+    "difficulty": "hard",
+    "instruction": "For the EuroDesign contacts Sophie Laurent and Elena Volkov, remove the Work label and add the VIP Clients label.",
+    "verify": "real-tasks/task_h13.py"
+  },
+  {
+    "id": "task_h14",
+    "difficulty": "hard",
+    "instruction": "Delete all contacts who are based outside the United States.",
+    "verify": "real-tasks/task_h14.py"
+  },
+  {
+    "id": "task_h15",
+    "difficulty": "hard",
+    "instruction": "Delete the Book Club and Gym Buddies labels, and add the Friends label to all contacts who had either of those labels but don't already have Friends.",
+    "verify": "real-tasks/task_h15.py"
+  },
+  {
+    "id": "task_h16",
+    "difficulty": "hard",
+    "instruction": "Unstar all currently starred contacts, then star only James O'Brien and David Kim.",
+    "verify": "real-tasks/task_h16.py"
+  },
+  {
+    "id": "task_h17",
+    "difficulty": "hard",
+    "instruction": "Remove all delegates, turn off delegate activity notifications, and unlink all currently linked Google services.",
+    "verify": "real-tasks/task_h17.py"
+  },
+  {
+    "id": "task_h18",
+    "difficulty": "hard",
+    "instruction": "Star all contacts who are labeled 'Friends' but don't have the 'Work' label.",
+    "verify": "real-tasks/task_h18.py"
+  },
+  {
+    "id": "task_h19",
+    "difficulty": "hard",
+    "instruction": "Turn off all sync settings, uncheck the Google Sync transition acknowledgment, disable all four notification types, and turn off activity tracking.",
+    "verify": "real-tasks/task_h19.py"
+  },
+  {
+    "id": "task_h20",
+    "difficulty": "hard",
+    "instruction": "Move all individual people from your other contacts to your main contacts — keep only the automated service and company accounts.",
+    "verify": "real-tasks/task_h20.py"
+  }
+]
