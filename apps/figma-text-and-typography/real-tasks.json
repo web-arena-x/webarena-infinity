@@ -60,5 +60,26 @@
   {"id": "task_h17", "difficulty": "hard", "instruction": "Add 12 pixels of paragraph spacing to every layer that uses a list format.", "verify": "real-tasks/task_h17.py"},
   {"id": "task_h18", "difficulty": "hard", "instruction": "Create a text style named 'Heading/H4' with Inter Semi Bold at 20px and 28px line height, then apply it to the Release Notes Header.", "verify": "real-tasks/task_h18.py"},
   {"id": "task_h19", "difficulty": "hard", "instruction": "Change all auto-width layers to auto-height with a width of 400.", "verify": "real-tasks/task_h19.py"},
-  {"id": "task_h20", "difficulty": "hard", "instruction": "On the Code Sample layer, turn off all OpenType features except standard ligatures and kerning.", "verify": "real-tasks/task_h20.py"}
+  {"id": "task_h20", "difficulty": "hard", "instruction": "On the Code Sample layer, turn off all OpenType features except standard ligatures and kerning.", "verify": "real-tasks/task_h20.py"},
+
+  {"id": "task_h21", "difficulty": "hard", "instruction": "Create a new text style called 'Quote/Block' with Playfair Display Regular at 18px and a line height of 28px, then apply it to the Indented Quote layer.", "verify": "real-tasks/task_h21.py"},
+  {"id": "task_h22", "difficulty": "hard", "instruction": "Swap the list formats on all layers that use lists: change every bulleted list to numbered and every numbered list to bulleted.", "verify": "real-tasks/task_h22.py"},
+  {"id": "task_h23", "difficulty": "hard", "instruction": "Lock the text layer that contains the most hyperlinks.", "verify": "real-tasks/task_h23.py"},
+  {"id": "task_h24", "difficulty": "hard", "instruction": "Duplicate the Call to Action layer, rename the copy to 'Secondary CTA', change its font to DM Sans Regular, and remove the uppercase letter case.", "verify": "real-tasks/task_h24.py"},
+  {"id": "task_h25", "difficulty": "hard", "instruction": "Add a paragraph indent of 24 to every text layer that currently has paragraph spacing greater than zero.", "verify": "real-tasks/task_h25.py"},
+  {"id": "task_h26", "difficulty": "hard", "instruction": "Enable the fractions OpenType feature on both text layers that use Montserrat.", "verify": "real-tasks/task_h26.py"},
+  {"id": "task_h27", "difficulty": "hard", "instruction": "Switch all auto-height text layers to fixed resizing with a height of 200, keeping their current widths.", "verify": "real-tasks/task_h27.py"},
+  {"id": "task_h28", "difficulty": "hard", "instruction": "Find the text layer with the smallest font size, duplicate it, and set the duplicate's font size to 24.", "verify": "real-tasks/task_h28.py"},
+  {"id": "task_h29", "difficulty": "hard", "instruction": "Turn on vertical trim for every text layer that has a text style applied.", "verify": "real-tasks/task_h29.py"},
+  {"id": "task_h30", "difficulty": "hard", "instruction": "Delete every text style that is not currently used by any text layer.", "verify": "real-tasks/task_h30.py"},
+  {"id": "task_h31", "difficulty": "hard", "instruction": "Underline every text layer whose content mentions 'Figma'.", "verify": "real-tasks/task_h31.py"},
+  {"id": "task_h32", "difficulty": "hard", "instruction": "Apply the Body/Regular style to the Strikethrough Example, then change its text decoration to underline.", "verify": "real-tasks/task_h32.py"},
+  {"id": "task_h33", "difficulty": "hard", "instruction": "Change the letter case of the only layer using Playfair Display to capitalize.", "verify": "real-tasks/task_h33.py"},
+  {"id": "task_h34", "difficulty": "hard", "instruction": "Swap the alignment of center-aligned and right-aligned layers: set all center-aligned layers to right-aligned, and all right-aligned layers to center-aligned.", "verify": "real-tasks/task_h34.py"},
+  {"id": "task_h35", "difficulty": "hard", "instruction": "Set the default font family to Playfair Display and the default font size to 24 in settings, then create a new text layer with the text 'Hero Title'.", "verify": "real-tasks/task_h35.py"},
+  {"id": "task_h36", "difficulty": "hard", "instruction": "Enable oldstyle figures on every text layer that uses the Inter font.", "verify": "real-tasks/task_h36.py"},
+  {"id": "task_h37", "difficulty": "hard", "instruction": "Remove all links from every text layer that uses auto-width resizing.", "verify": "real-tasks/task_h37.py"},
+  {"id": "task_h38", "difficulty": "hard", "instruction": "Create a new text layer with the text 'Navigation Menu', set it to Montserrat Medium at 14px with small-caps letter case, and enable the smcp OpenType feature.", "verify": "real-tasks/task_h38.py"},
+  {"id": "task_h39", "difficulty": "hard", "instruction": "Disable vertical trim on every layer that has it enabled, and disable hanging punctuation on every layer that has it enabled.", "verify": "real-tasks/task_h39.py"},
+  {"id": "task_h40", "difficulty": "hard", "instruction": "Rename the text layer that uses DM Sans to 'New Features' and change its font to Open Sans Bold.", "verify": "real-tasks/task_h40.py"}
 ]

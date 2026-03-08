@@ -625,6 +625,273 @@ def solve_task_h20(state):
     features["kern"] = True
 
 
+# -- solve functions (hardening round 1) -----------------------------------
+
+def solve_task_h21(state):
+    """Create 'Quote/Block' style with Playfair Display Regular 18px/28px, apply to Indented Quote."""
+    next_id = state.get("_nextTextStyleId", 100)
+    style = {
+        "id": f"ts_{str(next_id).zfill(3)}",
+        "name": "Quote/Block",
+        "fontFamily": "Playfair Display",
+        "fontStyle": "Regular",
+        "fontSize": 18,
+        "lineHeight": {"value": 28, "unit": "px"},
+        "letterSpacing": {"value": 0, "unit": "em"},
+        "paragraphSpacing": 0,
+        "paragraphIndent": 0,
+        "textDecoration": "none",
+        "letterCase": "none",
+        "listStyle": "none",
+        "openTypeFeatures": {"liga": True, "kern": True},
+        "description": "",
+        "createdAt": NOW,
+        "updatedAt": NOW,
+    }
+    state["textStyles"].append(style)
+    state["_nextTextStyleId"] = next_id + 1
+
+    layer = find_layer(state, "Indented Quote")
+    apply_style_to_layer(layer, style)
+
+
+def solve_task_h22(state):
+    """Swap list formats: bulleted→numbered, numbered→bulleted."""
+    for layer in state["textLayers"]:
+        if layer["listStyle"] == "bulleted":
+            layer["listStyle"] = "numbered"
+        elif layer["listStyle"] == "numbered":
+            layer["listStyle"] = "bulleted"
+
+
+def solve_task_h23(state):
+    """Lock the text layer with the most hyperlinks."""
+    # Copyright Notice has 2 links (most)
+    find_layer(state, "Copyright Notice")["locked"] = True
+
+
+def solve_task_h24(state):
+    """Duplicate Call to Action, rename to 'Secondary CTA', DM Sans Regular, remove uppercase."""
+    original = find_layer(state, "Call to Action")
+    next_id = state.get("_nextTextLayerId", 100)
+    dup = deepcopy(original)
+    dup["id"] = f"tl_{str(next_id).zfill(3)}"
+    dup["name"] = "Secondary CTA"
+    dup["fontFamily"] = "DM Sans"
+    dup["fontStyle"] = "Regular"
+    dup["letterCase"] = "none"
+    # DM Sans is variable: wght (100-1000, default 400), opsz (9-40, default 14)
+    dup["variableAxes"] = {"wght": 400, "opsz": 14}
+    dup["y"] = original["y"] + 40
+    dup["createdAt"] = NOW
+    dup["updatedAt"] = NOW
+    state["textLayers"].append(dup)
+    state["_nextTextLayerId"] = next_id + 1
+
+
+def solve_task_h25(state):
+    """Add paragraph indent of 24 to every layer with paragraph spacing > 0."""
+    for layer in state["textLayers"]:
+        if layer.get("paragraphSpacing", 0) > 0:
+            layer["paragraphIndent"] = 24
+
+
+def solve_task_h26(state):
+    """Enable fractions on both Montserrat layers."""
+    for layer in state["textLayers"]:
+        if layer["fontFamily"] == "Montserrat":
+            layer["openTypeFeatures"]["frac"] = True
+
+
+def solve_task_h27(state):
+    """Switch all auto-height layers to fixed with height=200, keep widths."""
+    for layer in state["textLayers"]:
+        if layer["resizing"] == "auto-height":
+            layer["resizing"] = "fixed"
+            layer["height"] = 200
+            # width is already set for auto-height layers
+
+
+def solve_task_h28(state):
+    """Find layer with smallest font size, duplicate it, set duplicate's size to 24."""
+    smallest = min(state["textLayers"], key=lambda l: l["fontSize"])
+    next_id = state.get("_nextTextLayerId", 100)
+    dup = deepcopy(smallest)
+    dup["id"] = f"tl_{str(next_id).zfill(3)}"
+    dup["name"] = f"{smallest['name']} (copy)"
+    dup["fontSize"] = 24
+    dup["y"] = smallest["y"] + 40
+    dup["createdAt"] = NOW
+    dup["updatedAt"] = NOW
+    state["textLayers"].append(dup)
+    state["_nextTextLayerId"] = next_id + 1
+
+
+def solve_task_h29(state):
+    """Turn on vertical trim for every layer with a text style applied."""
+    for layer in state["textLayers"]:
+        if layer.get("textStyleId"):
+            layer["verticalTrim"] = True
+
+
+def solve_task_h30(state):
+    """Delete every text style not used by any layer."""
+    used_ids = {l.get("textStyleId") for l in state["textLayers"] if l.get("textStyleId")}
+    state["textStyles"] = [s for s in state["textStyles"] if s["id"] in used_ids]
+
+
+def solve_task_h31(state):
+    """Underline every layer whose content mentions 'Figma'."""
+    for layer in state["textLayers"]:
+        if "Figma" in layer.get("content", ""):
+            layer["textDecoration"] = "underline"
+
+
+def solve_task_h32(state):
+    """Apply Body/Regular to Strikethrough Example, then set decoration to underline."""
+    layer = find_layer(state, "Strikethrough Example")
+    style = find_style(state, "Body/Regular")
+    apply_style_to_layer(layer, style)
+    layer["textDecoration"] = "underline"
+
+
+def solve_task_h33(state):
+    """Change letter case of the only Playfair Display layer to capitalize."""
+    find_layer(state, "Indented Quote")["letterCase"] = "capitalize"
+
+
+def solve_task_h34(state):
+    """Swap center-aligned and right-aligned layers."""
+    for layer in state["textLayers"]:
+        if layer["horizontalAlign"] == "center":
+            layer["horizontalAlign"] = "right"
+        elif layer["horizontalAlign"] == "right":
+            layer["horizontalAlign"] = "center"
+
+
+def solve_task_h35(state):
+    """Set defaults to Playfair Display/24, then create 'Hero Title' layer."""
+    state["preferences"]["defaultFontFamily"] = "Playfair Display"
+    state["preferences"]["defaultFontSize"] = 24
+    next_id = state.get("_nextTextLayerId", 100)
+    prefs = state["preferences"]
+    layer = {
+        "id": f"tl_{str(next_id).zfill(3)}",
+        "name": "Hero Title",
+        "content": "Hero Title",
+        "fontFamily": "Playfair Display",
+        "fontStyle": prefs["defaultFontStyle"],
+        "fontSize": 24,
+        "lineHeight": deepcopy(prefs["defaultLineHeight"]),
+        "letterSpacing": deepcopy(prefs["defaultLetterSpacing"]),
+        "paragraphSpacing": 0,
+        "paragraphIndent": 0,
+        "horizontalAlign": prefs["defaultHorizontalAlign"],
+        "verticalAlign": "top",
+        "textDecoration": "none",
+        "letterCase": "none",
+        "textDirection": prefs["defaultTextDirection"],
+        "resizing": "auto-width",
+        "truncation": {"enabled": False, "maxLines": None},
+        "listStyle": "none",
+        "listSpacing": 0,
+        "hangingPunctuation": False,
+        "hangingList": False,
+        "verticalTrim": False,
+        "links": [],
+        "openTypeFeatures": {"liga": True, "kern": True},
+        "textStyleId": None,
+        "variableAxes": {},
+        "width": None,
+        "height": None,
+        "x": 40,
+        "y": 40 + len(state["textLayers"]) * 40,
+        "locked": False,
+        "visible": True,
+        "createdAt": NOW,
+        "updatedAt": NOW,
+    }
+    state["textLayers"].append(layer)
+    state["_nextTextLayerId"] = next_id + 1
+
+
+def solve_task_h36(state):
+    """Enable oldstyle figures on every Inter layer."""
+    for layer in state["textLayers"]:
+        if layer["fontFamily"] == "Inter":
+            layer["openTypeFeatures"]["onum"] = True
+
+
+def solve_task_h37(state):
+    """Remove all links from every auto-width layer."""
+    for layer in state["textLayers"]:
+        if layer["resizing"] == "auto-width":
+            layer["links"] = []
+
+
+def solve_task_h38(state):
+    """Create 'Navigation Menu' layer: Montserrat Medium 14px, small-caps, smcp."""
+    next_id = state.get("_nextTextLayerId", 100)
+    prefs = state["preferences"]
+    layer = {
+        "id": f"tl_{str(next_id).zfill(3)}",
+        "name": "Navigation Menu",
+        "content": "Navigation Menu",
+        "fontFamily": "Montserrat",
+        "fontStyle": "Medium",
+        "fontSize": 14,
+        "lineHeight": deepcopy(prefs["defaultLineHeight"]),
+        "letterSpacing": deepcopy(prefs["defaultLetterSpacing"]),
+        "paragraphSpacing": 0,
+        "paragraphIndent": 0,
+        "horizontalAlign": prefs["defaultHorizontalAlign"],
+        "verticalAlign": "top",
+        "textDecoration": "none",
+        "letterCase": "small-caps",
+        "textDirection": prefs["defaultTextDirection"],
+        "resizing": "auto-width",
+        "truncation": {"enabled": False, "maxLines": None},
+        "listStyle": "none",
+        "listSpacing": 0,
+        "hangingPunctuation": False,
+        "hangingList": False,
+        "verticalTrim": False,
+        "links": [],
+        "openTypeFeatures": {"liga": True, "kern": True, "smcp": True},
+        "textStyleId": None,
+        "variableAxes": {},
+        "width": None,
+        "height": None,
+        "x": 40,
+        "y": 40 + len(state["textLayers"]) * 40,
+        "locked": False,
+        "visible": True,
+        "createdAt": NOW,
+        "updatedAt": NOW,
+    }
+    state["textLayers"].append(layer)
+    state["_nextTextLayerId"] = next_id + 1
+
+
+def solve_task_h39(state):
+    """Disable vertical trim and hanging punctuation on layers that have them."""
+    for layer in state["textLayers"]:
+        if layer.get("verticalTrim") is True:
+            layer["verticalTrim"] = False
+        if layer.get("hangingPunctuation") is True:
+            layer["hangingPunctuation"] = False
+
+
+def solve_task_h40(state):
+    """Rename the DM Sans layer to 'New Features', change font to Open Sans Bold."""
+    layer = find_layer(state, "Release Notes Header")
+    layer["name"] = "New Features"
+    layer["fontFamily"] = "Open Sans"
+    layer["fontStyle"] = "Bold"
+    # Open Sans is variable: wght (300-800, default 400)
+    layer["variableAxes"] = {"wght": 400}
+
+
 # -- solver registry --------------------------------------------------------
 
 SOLVERS = {
@@ -688,6 +955,26 @@ SOLVERS = {
     "task_h18": solve_task_h18,
     "task_h19": solve_task_h19,
     "task_h20": solve_task_h20,
+    "task_h21": solve_task_h21,
+    "task_h22": solve_task_h22,
+    "task_h23": solve_task_h23,
+    "task_h24": solve_task_h24,
+    "task_h25": solve_task_h25,
+    "task_h26": solve_task_h26,
+    "task_h27": solve_task_h27,
+    "task_h28": solve_task_h28,
+    "task_h29": solve_task_h29,
+    "task_h30": solve_task_h30,
+    "task_h31": solve_task_h31,
+    "task_h32": solve_task_h32,
+    "task_h33": solve_task_h33,
+    "task_h34": solve_task_h34,
+    "task_h35": solve_task_h35,
+    "task_h36": solve_task_h36,
+    "task_h37": solve_task_h37,
+    "task_h38": solve_task_h38,
+    "task_h39": solve_task_h39,
+    "task_h40": solve_task_h40,
 }
 
 
