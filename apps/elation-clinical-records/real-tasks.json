@@ -598,5 +598,125 @@
     "difficulty": "hard",
     "instruction": "Add the tag 'Recent-Diagnosis' to every patient who has at least one problem with a diagnosis date in 2024 or later.",
     "verify": "real-tasks/task_h60.py"
+  },
+  {
+    "id": "task_h61",
+    "difficulty": "hard",
+    "instruction": "Add the tag 'External-Review' to every patient whose primary provider is not the currently logged-in provider and who has at least one active problem on their chart.",
+    "verify": "real-tasks/task_h61.py"
+  },
+  {
+    "id": "task_h62",
+    "difficulty": "hard",
+    "instruction": "Look up which template is assigned to the COVID Vaccine appointment type. Remove all its existing document tags and replace them with the single tag 'COVID-Protocol'. Then also assign that same template to the Urgent Same-Day appointment type.",
+    "verify": "real-tasks/task_h62.py"
+  },
+  {
+    "id": "task_h63",
+    "difficulty": "hard",
+    "instruction": "Find all patients who share the same ICD-10 code as David Kowalski's anxiety diagnosis. For each of those patients (including Kowalski), create a visit note using the Telehealth category, and sign it.",
+    "verify": "real-tasks/task_h63.py"
+  },
+  {
+    "id": "task_h64",
+    "difficulty": "hard",
+    "instruction": "Find the only female patient who has exactly three active problems. Record a historical influenza vaccine for her and add the tag 'Flu-Historical' to her chart.",
+    "verify": "real-tasks/task_h64.py"
+  },
+  {
+    "id": "task_h65",
+    "difficulty": "hard",
+    "instruction": "For each patient who has both Active and Controlled problems on their chart, add the tag 'Mixed-Status'. For patients who have active problems but none with Controlled status, add the tag 'All-Active' instead.",
+    "verify": "real-tasks/task_h65.py"
+  },
+  {
+    "id": "task_h66",
+    "difficulty": "hard",
+    "instruction": "Create a new template called 'Anxiety Management' with HPI and Assessment sections, and billing code 99213 with description 'Office visit, established, low complexity'. Then create a visit note for Emily Nakamura using that new template and the Telehealth category, add a Psychological Status block to the note, and sign it.",
+    "verify": "real-tasks/task_h66.py"
+  },
+  {
+    "id": "task_h67",
+    "difficulty": "hard",
+    "instruction": "Find the patient who received the most recent vaccination in the system (by the date it was given). Add the tag 'Recent-Immunization' to their chart, then create a visit note for them using the Follow-Up category and the Hypertension Follow-Up template, and sign the note.",
+    "verify": "real-tasks/task_h67.py"
+  },
+  {
+    "id": "task_h68",
+    "difficulty": "hard",
+    "instruction": "For every appointment type that currently uses the Complete H&P Note format, change its format to H&P Note (Single Column). Leave all other appointment types unchanged.",
+    "verify": "real-tasks/task_h68.py"
+  },
+  {
+    "id": "task_h69",
+    "difficulty": "hard",
+    "instruction": "Find the patient with the highest recorded heart rate across all vitals in the system and add the tag 'Tachycardia-Screen' to their chart. Then find the patient with the highest recorded pain level and add the tag 'Pain-Management' to theirs.",
+    "verify": "real-tasks/task_h69.py"
+  },
+  {
+    "id": "task_h70",
+    "difficulty": "hard",
+    "instruction": "Add the tag 'Cardio-Review' to every patient who has at least one active problem with an ICD-10 code starting with 'I'. Add the tag 'Metabolic-Review' to every patient with at least one active problem whose ICD-10 code starts with 'E'. A patient may receive both tags.",
+    "verify": "real-tasks/task_h70.py"
+  },
+  {
+    "id": "task_h71",
+    "difficulty": "hard",
+    "instruction": "Duplicate the Diabetes Management template and rename the copy to 'Diabetes Annual Review'. Add billing code 99395 with description 'Preventive visit, established, 40-64 years' to the duplicate. Then create a visit note for Robert Henderson using the duplicate template and the Annual Exam category.",
+    "verify": "real-tasks/task_h71.py"
+  },
+  {
+    "id": "task_h72",
+    "difficulty": "hard",
+    "instruction": "Find every patient who has no vaccination records and no vitals recorded in the system. For each, add both the tags 'Needs-Vitals' and 'Needs-Immunization' to their chart.",
+    "verify": "real-tasks/task_h72.py"
+  },
+  {
+    "id": "task_h73",
+    "difficulty": "hard",
+    "instruction": "Change the default visit note format to Pre-Op H&P, create a new category called 'Pre-Surgical Screening' with MIPS tracking enabled, and configure the Procedure appointment type to use that new category and the Pre-Operative Evaluation template.",
+    "verify": "real-tasks/task_h73.py"
+  },
+  {
+    "id": "task_h74",
+    "difficulty": "hard",
+    "instruction": "Find the template that is used by the most visit notes in the system. Duplicate it and rename the copy to 'High-Volume Visit'. Then assign the duplicate to the Follow-Up appointment type.",
+    "verify": "real-tasks/task_h74.py"
+  },
+  {
+    "id": "task_h75",
+    "difficulty": "hard",
+    "instruction": "Find every patient who has a problem with the word 'Pain' in its title. Add the tag 'Pain-Protocol' to each of them, then create a visit note for each using the E* Problem-Focused Visit template and the Office Visit category.",
+    "verify": "real-tasks/task_h75.py"
+  },
+  {
+    "id": "task_h76",
+    "difficulty": "hard",
+    "instruction": "Delete every visit note template that was not created by the currently logged-in provider.",
+    "verify": "real-tasks/task_h76.py"
+  },
+  {
+    "id": "task_h77",
+    "difficulty": "hard",
+    "instruction": "Find every signed visit note in the system that has billing code 99215. Add the tag 'High-Complexity-Visit' to each patient who has such a note. Then find the template that also has billing code 99215 and add the document tag 'High-Complexity' to it.",
+    "verify": "real-tasks/task_h77.py"
+  },
+  {
+    "id": "task_h78",
+    "difficulty": "hard",
+    "instruction": "Find the patient with the lowest recorded oxygen saturation who also has at least one care plan in the system. Add the tag 'Respiratory-Priority' to their chart, then create a visit note for them using the E* Problem-Focused Visit template and the Urgent Visit category, add an HPI block and an Assessment block, and sign the note.",
+    "verify": "real-tasks/task_h78.py"
+  },
+  {
+    "id": "task_h79",
+    "difficulty": "hard",
+    "instruction": "Create a new category called 'Comprehensive Review' with MIPS tracking enabled. Create a new template called 'Full Review' with HPI, ROS, Physical Exam, and Assessment sections, and billing code 99215 with description 'Office visit, established, high complexity'. Then configure the Annual Exam appointment type to use the new template and new category. Finally, create a visit note for Helen Zhao using the new template and new category, and sign it.",
+    "verify": "real-tasks/task_h79.py"
+  },
+  {
+    "id": "task_h80",
+    "difficulty": "hard",
+    "instruction": "Find every patient who has signed visit notes in more than one category. Add the tag 'Multi-Visit-Type' to each. For patients who have signed visit notes in only one category, add the tag 'Single-Visit-Type'.",
+    "verify": "real-tasks/task_h80.py"
   }
 ]
