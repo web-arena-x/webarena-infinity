@@ -598,5 +598,125 @@
     "difficulty": "hard",
     "instruction": "Check which providers have their notification timeframe set to 48 hours. Add each of those providers as a direct recipient in Dr. Torres's Referral Request message routing.",
     "verify": "real-tasks/task_h60.py"
+  },
+  {
+    "id": "task_h61",
+    "difficulty": "hard",
+    "instruction": "Find every patient who has Penicillin listed as an allergy in their clinical profile. Add the 'High Risk' tag to any of them who don't already have it.",
+    "verify": "real-tasks/task_h61.py"
+  },
+  {
+    "id": "task_h62",
+    "difficulty": "hard",
+    "instruction": "Remove the Front Desk group from the Appointment Request message routing for every provider. Then add the All Providers group to the Other message routing for every provider.",
+    "verify": "real-tasks/task_h62.py"
+  },
+  {
+    "id": "task_h63",
+    "difficulty": "hard",
+    "instruction": "Check the visit summaries to find the patient whose BNP level improved. Reply to their most recent message confirming they can resume light activity, then update their emergency contact's phone number to (650) 555-0001.",
+    "verify": "real-tasks/task_h63.py"
+  },
+  {
+    "id": "task_h64",
+    "difficulty": "hard",
+    "instruction": "For each patient tagged 'Chronic Care', check their Passport sharing level. If it's below 3, upgrade it to 3. If it's already 3 or above, add the 'VIP' tag to their profile if they don't have it yet.",
+    "verify": "real-tasks/task_h64.py"
+  },
+  {
+    "id": "task_h65",
+    "difficulty": "hard",
+    "instruction": "Find the patient who mentioned experiencing withdrawal effects in a message. Schedule an in-person appointment for them with their assigned provider on March 25, 2026 at 9:00 AM for a medication review.",
+    "verify": "real-tasks/task_h65.py"
+  },
+  {
+    "id": "task_h66",
+    "difficulty": "hard",
+    "instruction": "For every provider who has virtual visits activated, change their notification timeframe to 72 hours. For providers who don't have virtual visits activated, change their timeframe to 1 week.",
+    "verify": "real-tasks/task_h66.py"
+  },
+  {
+    "id": "task_h67",
+    "difficulty": "hard",
+    "instruction": "Reply to Frank DeLuca's follow-up question about his Tamsulosin, then end the conversation and acknowledge the unread alert reminder about his PSA test results.",
+    "verify": "real-tasks/task_h67.py"
+  },
+  {
+    "id": "task_h68",
+    "difficulty": "hard",
+    "instruction": "Remove the 'New Patient' tag from every patient who has already registered for Passport. Only patients who haven't completed Passport registration should keep the tag.",
+    "verify": "real-tasks/task_h68.py"
+  },
+  {
+    "id": "task_h69",
+    "difficulty": "hard",
+    "instruction": "Find the two patients tagged 'Spanish Speaking'. Send each of them a separate letter about an upcoming practice survey. For whichever one has a Passport sharing level below 3, upgrade it to 3.",
+    "verify": "real-tasks/task_h69.py"
+  },
+  {
+    "id": "task_h70",
+    "difficulty": "hard",
+    "instruction": "Reply to the patient who asked about their calcium supplement causing stomach upset, recommending calcium citrate instead. Then schedule an in-person follow-up with Dr. Chen on April 5, 2026 at 10:00 AM for a supplement review.",
+    "verify": "real-tasks/task_h70.py"
+  },
+  {
+    "id": "task_h71",
+    "difficulty": "hard",
+    "instruction": "Send a bulk letter to all patients assigned to the nurse practitioner about a schedule change at the practice. Then change that provider's notification timeframe to 48 hours.",
+    "verify": "real-tasks/task_h71.py"
+  },
+  {
+    "id": "task_h72",
+    "difficulty": "hard",
+    "instruction": "The patient with a history of TIA needs extra monitoring. Update their Passport sharing level to Level 4 and add both 'Telehealth Preferred' and 'Chronic Care' to their profile.",
+    "verify": "real-tasks/task_h72.py"
+  },
+  {
+    "id": "task_h73",
+    "difficulty": "hard",
+    "instruction": "Find all patients with appointments scheduled between March 3 and March 5, 2026. Send each of them a separate reminder letter about their upcoming appointment. Don't allow responses on any of the letters.",
+    "verify": "real-tasks/task_h73.py"
+  },
+  {
+    "id": "task_h74",
+    "difficulty": "hard",
+    "instruction": "Update Dr. Torres's message routing: add the Clinical Team group to every category, and remove the Front Desk group from every category where it currently appears.",
+    "verify": "real-tasks/task_h74.py"
+  },
+  {
+    "id": "task_h75",
+    "difficulty": "hard",
+    "instruction": "Find the patient whose MRI brain scan came back normal in 2025. Change their Passport sharing level to Level 3 and add the 'High Risk' tag to their profile.",
+    "verify": "real-tasks/task_h75.py"
+  },
+  {
+    "id": "task_h76",
+    "difficulty": "hard",
+    "instruction": "Look through the reminders and find all patients with appointment reminders. For each of those patients, update their Passport sharing level to Level 3 if it's currently below 3.",
+    "verify": "real-tasks/task_h76.py"
+  },
+  {
+    "id": "task_h77",
+    "difficulty": "hard",
+    "instruction": "Activate virtual visits for the physician assistant with instructions 'Join at https://meet.bayareafamilymed.com/wright'. Then add that provider to Dr. Kim's Test Results and Referral Request message routing.",
+    "verify": "real-tasks/task_h77.py"
+  },
+  {
+    "id": "task_h78",
+    "difficulty": "hard",
+    "instruction": "Find the message from a patient's family member about increased forgetfulness and trouble recognizing relatives. Reply to it, add the 'High Risk' tag to that patient's profile, and change their Passport sharing level to Level 4.",
+    "verify": "real-tasks/task_h78.py"
+  },
+  {
+    "id": "task_h79",
+    "difficulty": "hard",
+    "instruction": "Remove all online digital E/M billing codes (99421, 99422, 99423) from the billing codes list. Then add two new codes: 99024 for 'Post-operative follow-up, no charge' and 99050 for 'Services after office hours'.",
+    "verify": "real-tasks/task_h79.py"
+  },
+  {
+    "id": "task_h80",
+    "difficulty": "hard",
+    "instruction": "The patient who had CABG surgery needs a care coordination update. Send them a message about scheduling a cardiac rehab evaluation, add 'Telehealth Preferred' to their profile, and update their emergency contact phone to (510) 555-9999.",
+    "verify": "real-tasks/task_h80.py"
   }
 ]
