@@ -843,6 +843,317 @@ def solve_task_h20(state):
     state["matters"].append(matter)
 
 
+# HARDENING ROUND 1
+
+def solve_task_h21(state):
+    """Add $100,000 Punitive Damages to the open PI case with the largest total damages."""
+    pa = find_practice_area(state, "Personal Injury")
+    best_matter = None
+    best_total = -1
+    for m in state["matters"]:
+        if m["practiceAreaId"] == pa["id"] and m["status"] == "Open":
+            total = sum(d["amount"] for d in m.get("damages", []))
+            if total > best_total:
+                best_total = total
+                best_matter = m
+    best_matter["damages"].append({
+        "id": "dmg_" + str(gen_id(state, "damage")).zfill(3),
+        "description": "Punitive Damages",
+        "type": "Punitive Damages",
+        "category": "Other",
+        "amount": 100000,
+        "createdAt": "2026-03-07T00:00:00Z",
+        "createdBy": state["currentUser"]["id"],
+    })
+
+
+def solve_task_h22(state):
+    """Rodriguez: responsible = TechNova's responsible, originating = TechNova's originating."""
+    technova = find_matter(state, "TechNova Solutions")
+    rodriguez = find_matter(state, "Rodriguez v. Premier Auto")
+    rodriguez["responsibleAttorneyId"] = technova["responsibleAttorneyId"]
+    rodriguez["originatingAttorneyId"] = technova["originatingAttorneyId"]
+
+
+def solve_task_h23(state):
+    """Close all Chen's open matters, put all Osei's open matters on hold."""
+    chen = find_user_by_name(state, "James Chen")
+    osei = find_user_by_name(state, "Michael Osei")
+    for m in state["matters"]:
+        if m["responsibleAttorneyId"] == chen["id"] and m["status"] == "Open":
+            m["status"] = "Closed"
+            if not m.get("closedDate"):
+                m["closedDate"] = "2026-03-07T00:00:00Z"
+        elif m["responsibleAttorneyId"] == osei["id"] and m["status"] == "Open":
+            m["status"] = "Pending"
+            if not m.get("pendingDate"):
+                m["pendingDate"] = "2026-03-07T00:00:00Z"
+
+
+def solve_task_h24(state):
+    """Rodriguez: find provider with billStatus Incomplete, set Received, add bill."""
+    m = find_matter(state, "Rodriguez v. Premier Auto")
+    provider = None
+    for p in m["medicalProviders"]:
+        if p.get("billStatus") == "Incomplete":
+            provider = p
+            break
+    provider["billStatus"] = "Received"
+    provider["medicalBills"].append({
+        "id": "mb_" + str(gen_id(state, "medBill")).zfill(3),
+        "fileName": "Final_Invoice.pdf",
+        "billDate": "",
+        "receivedDate": "",
+        "billAmount": 2800,
+        "adjustment": 0,
+        "payers": [],
+        "balanceOwed": 0,
+        "balanceIsLien": False,
+        "balanceIsOutstanding": False,
+        "comments": [],
+    })
+
+
+def solve_task_h25(state):
+    """Rodriguez: set recordStatus Complete for diagnostic imaging provider (con_020)."""
+    m = find_matter(state, "Rodriguez v. Premier Auto")
+    c = find_contact_by_name(state, "Advanced Imaging Associates")
+    p = find_provider(m, c["id"])
+    p["recordStatus"] = "Complete"
+
+
+def solve_task_h26(state):
+    """Rodriguez: add 5% referral fee on Premier Auto legal fee to Carlos Espinoza."""
+    m = find_matter(state, "Rodriguez v. Premier Auto")
+    premier = find_contact_by_name(state, "Premier Auto Dealers")
+    espinoza = find_contact_by_name(state, "Carlos Espinoza")
+    rec = next(r for r in m["settlement"]["recoveries"] if r["sourceContactId"] == premier["id"])
+    lf = next(f for f in m["settlement"]["legalFees"] if f["recoveryId"] == rec["id"])
+    lf["referralFees"].append({"recipientId": espinoza["id"], "rate": 5})
+
+
+def solve_task_h27(state):
+    """Disable Workers Comp, move Kowalski to PI Demand Letter, hourly billing."""
+    wc = find_practice_area(state, "Workers Compensation")
+    wc["enabled"] = False
+    pi = find_practice_area(state, "Personal Injury")
+    m = find_matter(state, "Kowalski")
+    m["practiceAreaId"] = pi["id"]
+    stages = state["matterStages"].get(pi["id"], [])
+    demand = next(s for s in stages if s["name"] == "Demand Letter")
+    m["matterStageId"] = demand["id"]
+    m["billingPreference"]["billingMethod"] = "hourly"
+
+
+def solve_task_h28(state):
+    """Rodriguez: delete all General damages, add consolidated $250k Pain and Suffering."""
+    m = find_matter(state, "Rodriguez v. Premier Auto")
+    m["damages"] = [d for d in m["damages"] if d.get("category") != "General"]
+    m["damages"].append({
+        "id": "dmg_" + str(gen_id(state, "damage")).zfill(3),
+        "description": "Consolidated general damages",
+        "type": "Pain and Suffering",
+        "category": "General",
+        "amount": 250000,
+        "createdAt": "2026-03-07T00:00:00Z",
+        "createdBy": state["currentUser"]["id"],
+    })
+
+
+def solve_task_h29(state):
+    """Assign paralegal with most open matters as responsible staff on Singh case."""
+    paralegals = [u for u in state["firmUsers"] if u["role"] == "Paralegal"]
+    counts = {}
+    for u in paralegals:
+        counts[u["id"]] = sum(
+            1 for m in state["matters"]
+            if m.get("responsibleStaffId") == u["id"] and m["status"] == "Open"
+        )
+    best_id = max(counts, key=counts.get)
+    m = find_matter(state, "Singh Family Trust")
+    m["responsibleStaffId"] = best_id
+
+
+def solve_task_h30(state):
+    """Foster: add $100k State Farm recovery + legal fee (Osei, 40%, 10% discount)."""
+    m = find_matter(state, "Foster v. City of Evanston")
+    sf = find_contact_by_name(state, "State Farm Insurance")
+    osei = find_user_by_name(state, "Michael Osei")
+    rec_id = "rec_" + str(gen_id(state, "recovery")).zfill(3)
+    m["settlement"]["recoveries"].append({
+        "id": rec_id,
+        "sourceContactId": sf["id"],
+        "amount": 100000,
+        "createdAt": "2026-03-07T00:00:00Z",
+    })
+    m["settlement"]["legalFees"].append({
+        "id": "lf_" + str(gen_id(state, "legalFee")).zfill(3),
+        "recoveryId": rec_id,
+        "recipientId": osei["id"],
+        "rate": 40,
+        "discount": 10,
+        "referralFees": [],
+        "createdAt": "2026-03-07T00:00:00Z",
+    })
+
+
+def solve_task_h31(state):
+    """Rodriguez: Dr. Reeves — set last treatment date 2026-02-28, mark complete."""
+    m = find_matter(state, "Rodriguez v. Premier Auto")
+    c = find_contact_by_name(state, "Dr. Amanda Reeves")
+    p = find_provider(m, c["id"])
+    p["treatmentLastDate"] = "2026-02-28"
+    p["treatmentComplete"] = True
+
+
+def solve_task_h32(state):
+    """Create Civil Litigation PA, add Pre-Trial and Trial stages, create template."""
+    pa_id = "pa_" + str(gen_id(state, "practiceArea")).zfill(3)
+    state["practiceAreas"].append({
+        "id": pa_id, "name": "Civil Litigation", "enabled": True, "isPrimary": False,
+    })
+    stages = []
+    for i, name in enumerate(["Pre-Trial", "Trial"]):
+        stg_id = "stg_" + str(gen_id(state, "stage")).zfill(3)
+        stages.append({"id": stg_id, "name": name, "order": i})
+    state["matterStages"][pa_id] = stages
+    tmpl_id = "tmpl_" + str(gen_id(state, "template")).zfill(3)
+    state["matterTemplates"].append({
+        "id": tmpl_id, "name": "Civil Litigation - Standard", "isDefault": False,
+        "practiceAreaId": pa_id, "status": "Open", "billingMethod": "hourly",
+        "description": "", "responsibleAttorneyId": None, "originatingAttorneyId": None,
+        "responsibleStaffId": None, "location": "", "isBillable": True,
+        "contingencyRate": None, "contingencyRecipientId": None,
+        "flatFeeAmount": None, "flatFeeRecipientId": None,
+        "deductionOrder": "fees_first", "taskLists": [], "documentFolders": [],
+        "customFields": [],
+        "createdAt": "2026-03-07T00:00:00Z", "updatedAt": "2026-03-07T00:00:00Z",
+    })
+
+
+def solve_task_h33(state):
+    """Rodriguez: remove payers from bills that have them, recalc balance owed."""
+    m = find_matter(state, "Rodriguez v. Premier Auto")
+    for p in m["medicalProviders"]:
+        for b in p["medicalBills"]:
+            if b.get("payers"):
+                b["payers"] = []
+                b["balanceOwed"] = b["billAmount"] - b.get("adjustment", 0)
+
+
+def solve_task_h34(state):
+    """Rodriguez: add comment to every bill that has payers."""
+    m = find_matter(state, "Rodriguez v. Premier Auto")
+    for p in m["medicalProviders"]:
+        for b in p["medicalBills"]:
+            if b.get("payers"):
+                b["comments"].append({
+                    "id": "cmt_" + str(gen_id(state, "comment")).zfill(3),
+                    "text": "Bill verified and approved",
+                    "userId": state["currentUser"]["id"],
+                    "timestamp": "2026-03-07T00:00:00Z",
+                })
+
+
+def solve_task_h35(state):
+    """Nguyen (DuPage+Pending): location → Cook County, staff → Rodriguez's staff."""
+    rodriguez = find_matter(state, "Rodriguez v. Premier Auto")
+    nguyen = find_matter(state, "Nguyen - Divorce")
+    nguyen["location"] = "Cook County Circuit Court"
+    nguyen["responsibleStaffId"] = rodriguez["responsibleStaffId"]
+
+
+def solve_task_h36(state):
+    """Cruz: add AIA provider, record status Requested, add Cervical_MRI_Cruz.pdf."""
+    m = find_matter(state, "Cruz v. Metro Transit")
+    aia = find_contact_by_name(state, "Advanced Imaging Associates")
+    mp_id = "mp_" + str(gen_id(state, "medProvider")).zfill(3)
+    mr_id = "mr_" + str(gen_id(state, "medRecord")).zfill(3)
+    m["medicalProviders"].append({
+        "id": mp_id,
+        "contactId": aia["id"],
+        "description": "MRI cervical spine evaluation",
+        "treatmentFirstDate": None,
+        "treatmentLastDate": None,
+        "treatmentComplete": False,
+        "recordRequestDate": "2026-03-01",
+        "recordFollowUpDate": None,
+        "recordStatus": "Requested",
+        "billRequestDate": None,
+        "billFollowUpDate": None,
+        "billStatus": "Not yet requested",
+        "medicalRecords": [{
+            "id": mr_id,
+            "fileName": "Cervical_MRI_Cruz.pdf",
+            "receivedDate": "2026-03-15",
+            "startDate": "",
+            "endDate": "",
+            "comments": [],
+        }],
+        "medicalBills": [],
+    })
+
+
+def solve_task_h37(state):
+    """Harris: contingency 40%, add Disfigurement $10k, move to Demand Letter."""
+    m = find_matter(state, "Harris v. ABC Construction")
+    m["billingPreference"]["contingencyRate"] = 40
+    m["damages"].append({
+        "id": "dmg_" + str(gen_id(state, "damage")).zfill(3),
+        "description": "Disfigurement",
+        "type": "Disfigurement",
+        "category": "General",
+        "amount": 10000,
+        "createdAt": "2026-03-07T00:00:00Z",
+        "createdBy": state["currentUser"]["id"],
+    })
+    pa = find_practice_area(state, "Personal Injury")
+    stages = state["matterStages"].get(pa["id"], [])
+    demand = next(s for s in stages if s["name"] == "Demand Letter")
+    m["matterStageId"] = demand["id"]
+
+
+def solve_task_h38(state):
+    """Rodriguez: comment on first record of provider with highest total bill amount."""
+    m = find_matter(state, "Rodriguez v. Premier Auto")
+    best_provider = None
+    best_total = -1
+    for p in m["medicalProviders"]:
+        total = sum(b["billAmount"] for b in p.get("medicalBills", []))
+        if total > best_total:
+            best_total = total
+            best_provider = p
+    first_record = best_provider["medicalRecords"][0]
+    first_record["comments"].append({
+        "id": "cmt_" + str(gen_id(state, "comment")).zfill(3),
+        "text": "Flagged for settlement review",
+        "userId": state["currentUser"]["id"],
+        "timestamp": "2026-03-07T00:00:00Z",
+    })
+
+
+def solve_task_h39(state):
+    """Rename PI Auto Accident template, hourly, not default, David Kim as attorney."""
+    tmpl = find_template(state, "Personal Injury - Auto Accident")
+    tmpl["name"] = "Personal Injury - General"
+    tmpl["billingMethod"] = "hourly"
+    tmpl["isDefault"] = False
+    tmpl["responsibleAttorneyId"] = find_user_by_name(state, "David Kim")["id"]
+
+
+def solve_task_h40(state):
+    """Rodriguez: CPTC balance as lien, AIA not outstanding, NM adjustment $10k."""
+    m = find_matter(state, "Rodriguez v. Premier Auto")
+    for p in m["medicalProviders"]:
+        for b in p["medicalBills"]:
+            if b["fileName"] == "CPTC_Bill_Full.pdf":
+                b["balanceIsLien"] = True
+            elif b["fileName"] == "AIA_Invoice_Aug.pdf":
+                b["balanceIsOutstanding"] = False
+            elif b["fileName"] == "NM_Hospital_Bill.pdf":
+                b["adjustment"] = 10000
+
+
 SOLVERS = {}
 for _name, _fn in list(globals().items()):
     if _name.startswith("solve_task_"):
