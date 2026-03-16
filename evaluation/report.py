@@ -3,6 +3,7 @@
 import base64
 import json
 from html import escape
+from io import BytesIO
 from pathlib import Path
 
 
@@ -127,6 +128,149 @@ def generate_report(
 
 
 # ------------------------------------------------------------------
+# Coordinate overlay drawing
+# ------------------------------------------------------------------
+
+
+def _draw_action_overlay(image_bytes: bytes, actions: list[dict]) -> bytes:
+    """Draw coordinate markers onto a screenshot image.
+
+    Draws directly onto the image using PIL:
+      - click/double_click: crosshair + circle
+      - type: crosshair + text label
+      - scroll: arrow indicating direction
+      - drag: line from source to destination
+      - hover: small circle
+
+    Returns the modified image as PNG bytes.
+    """
+    from PIL import Image, ImageDraw, ImageFont
+
+    img = Image.open(BytesIO(image_bytes)).convert("RGBA")
+    # Create a transparent overlay to draw on
+    overlay = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    draw = ImageDraw.Draw(overlay)
+
+    # Try to load a font; fall back to default
+    try:
+        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 14)
+    except (OSError, IOError):
+        font = ImageFont.load_default()
+
+    # Colors
+    CLICK_COLOR = (255, 50, 50, 200)       # red
+    TYPE_COLOR = (50, 150, 255, 200)        # blue
+    SCROLL_COLOR = (50, 200, 50, 200)       # green
+    DRAG_COLOR = (255, 165, 0, 200)         # orange
+    HOVER_COLOR = (180, 100, 255, 200)      # purple
+    LABEL_BG = (0, 0, 0, 160)              # dark background for text
+
+    for i, action in enumerate(actions):
+        kind = action.get("type", "")
+        x = action.get("x")
+        y = action.get("y")
+
+        if kind in ("click", "double_click") and x is not None and y is not None:
+            r = 12 if kind == "double_click" else 8
+            # Crosshair
+            draw.line([(x - 15, y), (x + 15, y)], fill=CLICK_COLOR, width=2)
+            draw.line([(x, y - 15), (x, y + 15)], fill=CLICK_COLOR, width=2)
+            # Circle
+            draw.ellipse(
+                [(x - r, y - r), (x + r, y + r)],
+                outline=CLICK_COLOR, width=2,
+            )
+            # Label
+            label = "dblclick" if kind == "double_click" else "click"
+            if action.get("button") == "right":
+                label = "right-click"
+            _draw_label(draw, x + 14, y - 10, label, CLICK_COLOR, LABEL_BG, font)
+
+        elif kind == "type" and x is not None and y is not None:
+            # Crosshair at click target
+            draw.line([(x - 12, y), (x + 12, y)], fill=TYPE_COLOR, width=2)
+            draw.line([(x, y - 12), (x, y + 12)], fill=TYPE_COLOR, width=2)
+            draw.ellipse([(x - 6, y - 6), (x + 6, y + 6)], outline=TYPE_COLOR, width=2)
+            # Show typed text
+            text = action.get("text", "")
+            display_text = text[:30] + ("..." if len(text) > 30 else "")
+            label = f'type: "{display_text}"'
+            _draw_label(draw, x + 10, y - 10, label, TYPE_COLOR, LABEL_BG, font)
+
+        elif kind == "type":
+            # Type without coordinates (just keyboard input)
+            text = action.get("text", "")
+            display_text = text[:30] + ("..." if len(text) > 30 else "")
+            label = f'type: "{display_text}"'
+            _draw_label(draw, 10, 10 + i * 22, label, TYPE_COLOR, LABEL_BG, font)
+
+        elif kind == "scroll" and x is not None and y is not None:
+            direction = action.get("direction", "down")
+            amount = action.get("amount", 3)
+            # Arrow showing scroll direction
+            arrow_len = min(40, amount * 12)
+            dx, dy = {"up": (0, -arrow_len), "down": (0, arrow_len),
+                       "left": (-arrow_len, 0), "right": (arrow_len, 0)}.get(direction, (0, arrow_len))
+            ex, ey = x + dx, y + dy
+            draw.line([(x, y), (ex, ey)], fill=SCROLL_COLOR, width=3)
+            # Arrowhead
+            _draw_arrowhead(draw, x, y, ex, ey, SCROLL_COLOR)
+            _draw_label(draw, x + 10, y - 18, f"scroll {direction}", SCROLL_COLOR, LABEL_BG, font)
+
+        elif kind == "drag":
+            dx, dy = action.get("dest_x", x), action.get("dest_y", y)
+            if x is not None and y is not None and dx is not None and dy is not None:
+                # Line from source to destination
+                draw.line([(x, y), (dx, dy)], fill=DRAG_COLOR, width=3)
+                # Source circle
+                draw.ellipse([(x - 6, y - 6), (x + 6, y + 6)], fill=DRAG_COLOR)
+                # Arrowhead at destination
+                _draw_arrowhead(draw, x, y, dx, dy, DRAG_COLOR)
+                _draw_label(draw, x + 10, y - 10, "drag", DRAG_COLOR, LABEL_BG, font)
+
+        elif kind == "hover" and x is not None and y is not None:
+            draw.ellipse([(x - 8, y - 8), (x + 8, y + 8)], outline=HOVER_COLOR, width=2)
+            _draw_label(draw, x + 10, y - 10, "hover", HOVER_COLOR, LABEL_BG, font)
+
+        elif kind == "key":
+            keys = action.get("keys", "")
+            _draw_label(draw, 10, 10 + i * 22, f"key: {keys}", TYPE_COLOR, LABEL_BG, font)
+
+    # Composite overlay onto original image
+    result = Image.alpha_composite(img, overlay)
+    result = result.convert("RGB")
+
+    buf = BytesIO()
+    result.save(buf, format="PNG")
+    return buf.getvalue()
+
+
+def _draw_label(draw, x, y, text, color, bg_color, font):
+    """Draw a text label with a dark background at (x, y)."""
+    bbox = draw.textbbox((x, y), text, font=font)
+    pad = 3
+    draw.rectangle(
+        [bbox[0] - pad, bbox[1] - pad, bbox[2] + pad, bbox[3] + pad],
+        fill=bg_color,
+    )
+    draw.text((x, y), text, fill=color, font=font)
+
+
+def _draw_arrowhead(draw, x1, y1, x2, y2, color, size=10):
+    """Draw a small arrowhead at (x2, y2) pointing away from (x1, y1)."""
+    import math
+    angle = math.atan2(y2 - y1, x2 - x1)
+    a1 = angle + math.pi * 0.8
+    a2 = angle - math.pi * 0.8
+    points = [
+        (x2, y2),
+        (x2 + size * math.cos(a1), y2 + size * math.sin(a1)),
+        (x2 + size * math.cos(a2), y2 + size * math.sin(a2)),
+    ]
+    draw.polygon(points, fill=color)
+
+
+# ------------------------------------------------------------------
 # Helpers
 # ------------------------------------------------------------------
 
@@ -203,9 +347,17 @@ def _build_details_html(run_dir: Path, r: dict) -> str:
             parts.append(f"<br><em>Result:</em> {'; '.join(result_strs)}")
 
         # Embed screenshot as base64 inline image
+        # If coordinate data is present, draw action overlays on the screenshot
         ss_file = task_dir / "screenshots" / f"step_{i}.png"
         if ss_file.exists():
-            b64 = base64.b64encode(ss_file.read_bytes()).decode()
+            image_bytes = ss_file.read_bytes()
+
+            # Draw coordinate overlay if vision agent data is present
+            coordinates = step.get("coordinates")
+            if coordinates and isinstance(coordinates, list):
+                image_bytes = _draw_action_overlay(image_bytes, coordinates)
+
+            b64 = base64.b64encode(image_bytes).decode()
             parts.append(
                 f"<br><img class='screenshot' src='data:image/png;base64,{b64}' "
                 f"alt='Step {i + 1} screenshot'>"

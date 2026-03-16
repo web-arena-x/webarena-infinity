@@ -38,10 +38,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from dotenv import load_dotenv
 
-from browser_use.llm.anthropic.chat import ChatAnthropic
-from browser_use.llm.google.chat import ChatGoogle
-from browser_use.llm.openai.chat import ChatOpenAI
-
 from agents import BrowserUseAgent
 from report import generate_report
 from server import start_server, stop_server, wait_for_server
@@ -54,10 +50,42 @@ from tasks import (
 
 load_dotenv()
 
-MODELS = {
-    "gpt": lambda: ChatOpenAI(model="gpt-4o"),
-    "gemini": lambda: ChatGoogle(model="gemini-3-flash-preview"),
-    "claude": lambda: ChatAnthropic(model="claude-sonnet-4-5-20250929"),
+
+def _make_browser_use_agent(llm_factory, *, use_vision, max_steps, timeout, headless, **_kw):
+    """Create a BrowserUseAgent with a browser-use LLM adapter."""
+    llm = llm_factory()
+    return BrowserUseAgent(
+        llm, use_vision=use_vision, max_steps=max_steps, timeout=timeout, headless=headless,
+    )
+
+
+def _make_gemini_cu_agent(*, max_steps, timeout, headless, **_kw):
+    from vision_agents import GeminiComputerUseAgent
+    return GeminiComputerUseAgent(max_steps=max_steps, timeout=timeout, headless=headless)
+
+
+def _make_claude_cu_agent(*, max_steps, timeout, headless, **_kw):
+    from vision_agents import ClaudeComputerUseAgent
+    return ClaudeComputerUseAgent(max_steps=max_steps, timeout=timeout, headless=headless)
+
+
+def _make_kimi_agent(*, max_steps, timeout, headless, **_kw):
+    from vision_agents import KimiVisionAgent
+    return KimiVisionAgent(max_steps=max_steps, timeout=timeout, headless=headless)
+
+
+# Agent factories: each returns an AgentRunner given common kwargs.
+# Browser-use models use partial application over their LLM factory.
+AGENT_FACTORIES = {
+    "gpt": lambda **kw: _make_browser_use_agent(
+        lambda: __import__("browser_use.llm.openai.chat", fromlist=["ChatOpenAI"]).ChatOpenAI(model="gpt-4o"), **kw),
+    "gemini": lambda **kw: _make_browser_use_agent(
+        lambda: __import__("browser_use.llm.google.chat", fromlist=["ChatGoogle"]).ChatGoogle(model="gemini-3-flash-preview"), **kw),
+    "claude": lambda **kw: _make_browser_use_agent(
+        lambda: __import__("browser_use.llm.anthropic.chat", fromlist=["ChatAnthropic"]).ChatAnthropic(model="claude-sonnet-4-5-20250929"), **kw),
+    "gemini-cu": lambda **kw: _make_gemini_cu_agent(**kw),
+    "claude-cu": lambda **kw: _make_claude_cu_agent(**kw),
+    "kimi": lambda **kw: _make_kimi_agent(**kw),
 }
 
 # --- ANSI colors ---
@@ -218,7 +246,7 @@ async def worker(
     results: list,
     results_lock: asyncio.Lock,
     *,
-    model_factory,
+    agent_factory,
     web_app_dir: str,
     run_dir: Path,
     env_host: str,
@@ -245,12 +273,11 @@ async def worker(
             print(f"  {tag} {RED}Server failed to start on port {port}{RESET}")
             return
 
-    llm = model_factory()
-    agent = BrowserUseAgent(
-        llm,
+    agent = agent_factory(
         use_vision=use_vision,
         max_steps=max_steps,
         timeout=TASK_TIMEOUT,
+        headless=True,
     )
 
     try:
@@ -349,7 +376,7 @@ async def worker(
                 results.append(result)
 
             # Restart browser if the previous task left it in a bad state
-            if needs_restart and not task_queue.empty():
+            if needs_restart and not task_queue.empty() and hasattr(agent, "restart_session"):
                 print(f"  {tag} {YELLOW}Restarting browser session after error...{RESET}")
                 try:
                     await agent.restart_session()
@@ -411,7 +438,7 @@ async def run_single_eval(
             task_queue=task_queue,
             results=results,
             results_lock=results_lock,
-            model_factory=MODELS[args.model],
+            agent_factory=AGENT_FACTORIES[args.model],
             web_app_dir=web_app_dir,
             run_dir=run_dir,
             env_host=args.env_host,
@@ -485,7 +512,7 @@ async def main():
     parser = argparse.ArgumentParser(
         description="Parallel evaluation runner with worker pool"
     )
-    parser.add_argument("--model", choices=MODELS.keys(), default="gpt")
+    parser.add_argument("--model", choices=AGENT_FACTORIES.keys(), default="gpt")
     parser.add_argument("--task-id", default=None, help="Run one or more tasks, comma-separated (e.g. task_e1 or task_3,task_4,task_6)")
     parser.add_argument("--difficulty", choices=["easy", "medium", "hard"], default=None)
     parser.add_argument("--max-steps", type=int, default=50)
