@@ -432,6 +432,10 @@ class GeminiComputerUseAgent(VisionAgentBase):
                 errors.append(f"API error at step {step}: {e}")
                 break
 
+            if not response.candidates:
+                errors.append(f"Empty response at step {step} (likely safety-blocked)")
+                break
+
             candidate = response.candidates[0]
             contents.append(candidate.content)
 
@@ -474,10 +478,13 @@ class GeminiComputerUseAgent(VisionAgentBase):
                     except Exception as e:
                         errors.append(f"Action error at step {step}: {e}")
 
+                fr_fields = {"url": self._page.url}
+                if fc.args and "safety_decision" in fc.args:
+                    fr_fields["safety_acknowledgement"] = "true"
                 self._pending_response_parts.append(
                     types.Part.from_function_response(
                         name=fc.name,
-                        response={"url": self._page.url},
+                        response=fr_fields,
                     )
                 )
 
