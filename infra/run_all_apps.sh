@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 # Run real-tasks evaluation across all apps sequentially for a given model.
+# Default: 3 repetitions with failed-only cascade (same as pipeline phase 5).
 #
 # Usage:
 #   bash infra/run_all_apps.sh --model gemini-pro --workers 8
 #   bash infra/run_all_apps.sh --model kimi --workers 4 --tag full-sweep
+#   bash infra/run_all_apps.sh --model claude --workers 8 --repetitions 1  # single run
 
 set -euo pipefail
 
@@ -13,15 +15,17 @@ cd "$REPO_ROOT"
 # --- Defaults ---
 MODEL=""
 WORKERS=8
+REPETITIONS=3
 TAG=""
 EXTRA_ARGS=""
 
 # --- Parse args ---
 while [[ $# -gt 0 ]]; do
     case "$1" in
-        --model)   MODEL="$2"; shift 2 ;;
-        --workers) WORKERS="$2"; shift 2 ;;
-        --tag)     TAG="$2"; shift 2 ;;
+        --model)       MODEL="$2"; shift 2 ;;
+        --workers)     WORKERS="$2"; shift 2 ;;
+        --repetitions) REPETITIONS="$2"; shift 2 ;;
+        --tag)         TAG="$2"; shift 2 ;;
         *)         EXTRA_ARGS="$EXTRA_ARGS $1"; shift ;;
     esac
 done
@@ -43,8 +47,9 @@ echo "============================================================"
 echo "  All-Apps Evaluation"
 echo "============================================================"
 echo "  Model:   $MODEL"
-echo "  Workers: $WORKERS"
-echo "  Tag:     ${TAG:-<none>}"
+echo "  Workers:     $WORKERS"
+echo "  Repetitions: $REPETITIONS (failed-only cascade)"
+echo "  Tag:         ${TAG:-<none>}"
 echo "  Apps:    ${#APPS[@]}"
 for app in "${APPS[@]}"; do
     echo "    - $(basename "$app")"
@@ -82,6 +87,8 @@ for app in "${APPS[@]}"; do
         --workers "$WORKERS" \
         --web-app "$app" \
         --task-suite real-tasks \
+        --repetitions "$REPETITIONS" \
+        --failed-only \
         $TAG_ARG \
         $EXTRA_ARGS; then
         PASSED=$((PASSED + 1))
