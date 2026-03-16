@@ -1,0 +1,327 @@
+[
+  {
+    "id": "task_1",
+    "instruction": "Create a new text layer with the content 'Hello World'.",
+    "verify": "function-tasks/task_1.py"
+  },
+  {
+    "id": "task_2",
+    "instruction": "Delete the text layer named 'Strikethrough Example'.",
+    "verify": "function-tasks/task_2.py"
+  },
+  {
+    "id": "task_3",
+    "instruction": "Duplicate the text layer named 'Page Title'.",
+    "verify": "function-tasks/task_3.py"
+  },
+  {
+    "id": "task_4",
+    "instruction": "Rename the text layer 'Body Text' to 'Main Body Copy'.",
+    "verify": "function-tasks/task_4.py"
+  },
+  {
+    "id": "task_5",
+    "instruction": "Hide the text layer named 'Copyright Notice' by toggling its visibility off.",
+    "verify": "function-tasks/task_5.py"
+  },
+  {
+    "id": "task_6",
+    "instruction": "Lock the text layer named 'Page Title'.",
+    "verify": "function-tasks/task_6.py"
+  },
+  {
+    "id": "task_7",
+    "instruction": "Select the 'Section Header' text layer and change its font family to 'Roboto'.",
+    "verify": "function-tasks/task_7.py"
+  },
+  {
+    "id": "task_8",
+    "instruction": "Select the 'Page Title' text layer and change its font style to 'Extra Bold'.",
+    "verify": "function-tasks/task_8.py"
+  },
+  {
+    "id": "task_9",
+    "instruction": "Select the 'Body Text' text layer and change its font size to 18.",
+    "verify": "function-tasks/task_9.py"
+  },
+  {
+    "id": "task_10",
+    "instruction": "Select the 'Page Title' text layer and set its line height to 64 px.",
+    "verify": "function-tasks/task_10.py"
+  },
+  {
+    "id": "task_11",
+    "instruction": "Select the 'Body Text' text layer and change its line height unit from '%' to 'px'. Set the line height value to 24.",
+    "verify": "function-tasks/task_11.py"
+  },
+  {
+    "id": "task_12",
+    "instruction": "Select the 'Section Header' text layer and set its letter spacing to 0.05 em.",
+    "verify": "function-tasks/task_12.py"
+  },
+  {
+    "id": "task_13",
+    "instruction": "Select the 'Code Sample' text layer and change its letter spacing unit to 'px' with a value of 1.",
+    "verify": "function-tasks/task_13.py"
+  },
+  {
+    "id": "task_14",
+    "instruction": "Select the 'Body Text' text layer and change its horizontal alignment to 'justify'.",
+    "verify": "function-tasks/task_14.py"
+  },
+  {
+    "id": "task_15",
+    "instruction": "Select the 'Page Title' text layer and change its horizontal alignment to 'center'.",
+    "verify": "function-tasks/task_15.py"
+  },
+  {
+    "id": "task_16",
+    "instruction": "Select the 'Call to Action' text layer and change its vertical alignment to 'bottom'.",
+    "verify": "function-tasks/task_16.py"
+  },
+  {
+    "id": "task_17",
+    "instruction": "Select the 'Body Text' text layer and change its resizing mode to 'fixed'. Then set its width to 600 and height to 300.",
+    "verify": "function-tasks/task_17.py"
+  },
+  {
+    "id": "task_18",
+    "instruction": "Select the 'Truncated Preview' text layer and change its resizing mode to 'auto-width'.",
+    "verify": "function-tasks/task_18.py"
+  },
+  {
+    "id": "task_19",
+    "instruction": "Select the 'Body Text' text layer and set its text decoration to 'underline'.",
+    "verify": "function-tasks/task_19.py"
+  },
+  {
+    "id": "task_20",
+    "instruction": "Select the 'Strikethrough Example' text layer and change its text decoration to 'none' (remove the strikethrough).",
+    "verify": "function-tasks/task_20.py"
+  },
+  {
+    "id": "task_21",
+    "instruction": "Select the 'Page Title' text layer and change its letter case to 'uppercase'.",
+    "verify": "function-tasks/task_21.py"
+  },
+  {
+    "id": "task_22",
+    "instruction": "Select the 'Small Caps Header' text layer and change its letter case to 'lowercase'.",
+    "verify": "function-tasks/task_22.py"
+  },
+  {
+    "id": "task_23",
+    "instruction": "Select the 'Body Text' text layer and change its text direction to 'RTL'.",
+    "verify": "function-tasks/task_23.py"
+  },
+  {
+    "id": "task_24",
+    "instruction": "Select the 'Arabic Welcome' text layer and change its text direction to 'LTR'.",
+    "verify": "function-tasks/task_24.py"
+  },
+  {
+    "id": "task_25",
+    "instruction": "Select the 'Body Text' text layer and set its paragraph spacing to 24.",
+    "verify": "function-tasks/task_25.py"
+  },
+  {
+    "id": "task_26",
+    "instruction": "Select the 'Body Text' text layer and set its paragraph indent to 32.",
+    "verify": "function-tasks/task_26.py"
+  },
+  {
+    "id": "task_27",
+    "instruction": "Select the 'Body Text' text layer and enable hanging punctuation.",
+    "verify": "function-tasks/task_27.py"
+  },
+  {
+    "id": "task_28",
+    "instruction": "Select the 'Feature List' text layer and change its list style to 'numbered'.",
+    "verify": "function-tasks/task_28.py"
+  },
+  {
+    "id": "task_29",
+    "instruction": "Select the 'Step Instructions' text layer and change its list style to 'bulleted'.",
+    "verify": "function-tasks/task_29.py"
+  },
+  {
+    "id": "task_30",
+    "instruction": "Select the 'Feature List' text layer and set its list spacing to 8.",
+    "verify": "function-tasks/task_30.py"
+  },
+  {
+    "id": "task_31",
+    "instruction": "Select the 'Pricing Tiers' text layer and enable the hanging list option.",
+    "verify": "function-tasks/task_31.py"
+  },
+  {
+    "id": "task_32",
+    "instruction": "Select the 'Body Text' text layer and enable text truncation with a max lines value of 5.",
+    "verify": "function-tasks/task_32.py"
+  },
+  {
+    "id": "task_33",
+    "instruction": "Select the 'Truncated Preview' text layer and disable text truncation.",
+    "verify": "function-tasks/task_33.py"
+  },
+  {
+    "id": "task_34",
+    "instruction": "Select the 'Truncated Preview' text layer and change its truncation max lines to 5.",
+    "verify": "function-tasks/task_34.py"
+  },
+  {
+    "id": "task_35",
+    "instruction": "Select the 'Page Title' text layer and enable vertical trim.",
+    "verify": "function-tasks/task_35.py"
+  },
+  {
+    "id": "task_36",
+    "instruction": "Select the 'Variable Font Demo' text layer and disable vertical trim.",
+    "verify": "function-tasks/task_36.py"
+  },
+  {
+    "id": "task_37",
+    "instruction": "Select the 'Page Title' text layer and disable the 'calt' (Contextual Alternates) OpenType feature.",
+    "verify": "function-tasks/task_37.py"
+  },
+  {
+    "id": "task_38",
+    "instruction": "Select the 'Code Sample' text layer and disable the 'zero' (Slashed Zero) OpenType feature.",
+    "verify": "function-tasks/task_38.py"
+  },
+  {
+    "id": "task_39",
+    "instruction": "Select the 'Page Title' text layer and enable the 'ss01' (Stylistic Set 1) OpenType feature.",
+    "verify": "function-tasks/task_39.py"
+  },
+  {
+    "id": "task_40",
+    "instruction": "Select the 'Variable Font Demo' text layer and change its Weight (wght) variable axis to 700.",
+    "verify": "function-tasks/task_40.py"
+  },
+  {
+    "id": "task_41",
+    "instruction": "Select the 'Variable Font Demo' text layer and change its Slant (slnt) variable axis to -10.",
+    "verify": "function-tasks/task_41.py"
+  },
+  {
+    "id": "task_42",
+    "instruction": "Create a new text style named 'Heading/H4' with the description 'Quaternary heading'.",
+    "verify": "function-tasks/task_42.py"
+  },
+  {
+    "id": "task_43",
+    "instruction": "Delete the text style named 'Heading/Display'.",
+    "verify": "function-tasks/task_43.py"
+  },
+  {
+    "id": "task_44",
+    "instruction": "Edit the 'Body/Regular' text style and change its font size to 18.",
+    "verify": "function-tasks/task_44.py"
+  },
+  {
+    "id": "task_45",
+    "instruction": "Select the 'Feature List' text layer and apply the 'Body/Small' text style to it.",
+    "verify": "function-tasks/task_45.py"
+  },
+  {
+    "id": "task_46",
+    "instruction": "Select the 'Page Title' text layer and detach its current text style.",
+    "verify": "function-tasks/task_46.py"
+  },
+  {
+    "id": "task_47",
+    "instruction": "Select the 'Indented Quote' text layer and change its font family to 'Georgia'.",
+    "verify": "function-tasks/task_47.py"
+  },
+  {
+    "id": "task_48",
+    "instruction": "Turn off smart quotes in the Settings panel.",
+    "verify": "function-tasks/task_48.py"
+  },
+  {
+    "id": "task_49",
+    "instruction": "Turn off smart symbols in the Settings panel.",
+    "verify": "function-tasks/task_49.py"
+  },
+  {
+    "id": "task_50",
+    "instruction": "Change the default font family to 'Roboto' in the Settings panel.",
+    "verify": "function-tasks/task_50.py"
+  },
+  {
+    "id": "task_51",
+    "instruction": "Change the default font size to 14 in the Settings panel.",
+    "verify": "function-tasks/task_51.py"
+  },
+  {
+    "id": "task_52",
+    "instruction": "Change the default alignment to 'Center' in the Settings panel.",
+    "verify": "function-tasks/task_52.py"
+  },
+  {
+    "id": "task_53",
+    "instruction": "Change the default text direction to 'Right to Left' in the Settings panel.",
+    "verify": "function-tasks/task_53.py"
+  },
+  {
+    "id": "task_54",
+    "instruction": "Change the spelling language to 'French' in the Settings panel.",
+    "verify": "function-tasks/task_54.py"
+  },
+  {
+    "id": "task_55",
+    "instruction": "Disable snap to grid in the Settings panel.",
+    "verify": "function-tasks/task_55.py"
+  },
+  {
+    "id": "task_56",
+    "instruction": "Disable the 'Show font preview' setting in the Settings panel.",
+    "verify": "function-tasks/task_56.py"
+  },
+  {
+    "id": "task_57",
+    "instruction": "Change the nudge amount to 4 in the Settings panel.",
+    "verify": "function-tasks/task_57.py"
+  },
+  {
+    "id": "task_58",
+    "instruction": "Change the big nudge amount to 20 in the Settings panel.",
+    "verify": "function-tasks/task_58.py"
+  },
+  {
+    "id": "task_59",
+    "instruction": "Select the 'Call to Action' text layer and change its width to 320.",
+    "verify": "function-tasks/task_59.py"
+  },
+  {
+    "id": "task_60",
+    "instruction": "Select the 'Call to Action' text layer and change its height to 72.",
+    "verify": "function-tasks/task_60.py"
+  },
+  {
+    "id": "task_61",
+    "instruction": "Select the 'Feature List' text layer and disable the hanging list option.",
+    "verify": "function-tasks/task_61.py"
+  },
+  {
+    "id": "task_62",
+    "instruction": "Select the 'Indented Quote' text layer and disable hanging punctuation.",
+    "verify": "function-tasks/task_62.py"
+  },
+  {
+    "id": "task_63",
+    "instruction": "Change the default font style to 'Bold' in the Settings panel.",
+    "verify": "function-tasks/task_63.py"
+  },
+  {
+    "id": "task_64",
+    "instruction": "Select the 'Step Instructions' text layer and set its list spacing to 10.",
+    "verify": "function-tasks/task_64.py"
+  },
+  {
+    "id": "task_65",
+    "instruction": "Select the 'Pricing Tiers' text layer and change its list style to 'bulleted'.",
+    "verify": "function-tasks/task_65.py"
+  }
+]
