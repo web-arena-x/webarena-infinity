@@ -27,6 +27,48 @@ from agents import AgentResult
 
 
 # ---------------------------------------------------------------------------
+# Rate-limit retry helper
+# ---------------------------------------------------------------------------
+
+def _is_rate_limit(exc: Exception) -> bool:
+    """Return True if the exception indicates a rate-limit / quota error."""
+    s = str(exc).lower()
+    return "429" in s or "resource_exhausted" in s or ("rate" in s and "limit" in s)
+
+
+def _retry_api_call(fn, *, max_retries: int = 5, base_delay: float = 10.0):
+    """Call *fn()* with exponential backoff on rate-limit errors.
+
+    Non-rate-limit exceptions are raised immediately.
+    """
+    for attempt in range(max_retries + 1):
+        try:
+            return fn()
+        except Exception as e:
+            if _is_rate_limit(e) and attempt < max_retries:
+                delay = base_delay * (2 ** attempt)
+                time.sleep(delay)
+                continue
+            raise
+
+
+async def _async_retry_api_call(fn, *, max_retries: int = 5, base_delay: float = 10.0):
+    """Async version — *fn()* should return a coroutine or plain value."""
+    for attempt in range(max_retries + 1):
+        try:
+            result = fn()
+            if asyncio.iscoroutine(result):
+                result = await result
+            return result
+        except Exception as e:
+            if _is_rate_limit(e) and attempt < max_retries:
+                delay = base_delay * (2 ** attempt)
+                await asyncio.sleep(delay)
+                continue
+            raise
+
+
+# ---------------------------------------------------------------------------
 # Shared Playwright infrastructure
 # ---------------------------------------------------------------------------
 
@@ -423,11 +465,11 @@ class GeminiComputerUseAgent(VisionAgentBase):
                 )
 
             try:
-                response = client.models.generate_content(
+                response = _retry_api_call(lambda: client.models.generate_content(
                     model=self.MODEL,
                     contents=contents,
                     config=config,
-                )
+                ))
             except Exception as e:
                 errors.append(f"API error at step {step}: {e}")
                 break
@@ -666,13 +708,13 @@ class ClaudeComputerUseAgent(VisionAgentBase):
                 messages.append({"role": "user", "content": self._pending_tool_results})
 
             try:
-                response = client.beta.messages.create(
+                response = _retry_api_call(lambda: client.beta.messages.create(
                     model=self.MODEL,
                     max_tokens=4096,
                     tools=tools,
                     messages=messages,
                     betas=[self.BETA_FLAG],
-                )
+                ))
             except Exception as e:
                 errors.append(f"API error at step {step}: {e}")
                 break
@@ -1103,7 +1145,7 @@ class KimiVisionAgent(VisionAgentBase):
 
             # Call API
             try:
-                response = self._call_api(messages)
+                response = _retry_api_call(lambda: self._call_api(messages))
             except Exception as e:
                 errors.append(f"API error at step {step}: {e}")
                 break
