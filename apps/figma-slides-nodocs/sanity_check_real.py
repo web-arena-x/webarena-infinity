@@ -1249,6 +1249,365 @@ def solve_task_h40(state):
             p["updatedAt"] = NOW
 
 
+# ─── Hardening round 2 (h41–h60) ─────────────────────────────────────────────
+
+def solve_task_h41(state):
+    """Archive the presentation with the most comments."""
+    from collections import Counter
+    counts = Counter(c["presentationId"] for c in state["comments"])
+    most_pid = counts.most_common(1)[0][0]  # pres_001
+    p = find_pres_by_id(state, most_pid)
+    p["status"] = "archived"
+    p["updatedAt"] = NOW
+
+
+def solve_task_h42(state):
+    """Team-vis: starred→org, not starred→private."""
+    for p in state["presentations"]:
+        if p["shareSettings"]["visibility"] == "team":
+            if p["starred"]:
+                p["shareSettings"]["visibility"] = "organization"
+            else:
+                p["shareSettings"]["visibility"] = "private"
+            p["updatedAt"] = NOW
+
+
+def solve_task_h43(state):
+    """Delete comments on James O'Brien's presentations, set private, disable editing."""
+    james_id = "user_004"
+    james_pres = {p["id"] for p in state["presentations"] if p["createdBy"] == james_id}
+    state["comments"] = [c for c in state["comments"]
+                         if c["presentationId"] not in james_pres]
+    for p in state["presentations"]:
+        if p["id"] in james_pres:
+            p["shareSettings"]["visibility"] = "private"
+            p["shareSettings"]["allowEditing"] = False
+            p["updatedAt"] = NOW
+
+
+def solve_task_h44(state):
+    """Sunset theme: star the draft, archive the published."""
+    for p in state["presentations"]:
+        if p["theme"] == "sunset":
+            if p["status"] == "draft":
+                p["starred"] = True
+            elif p["status"] == "published":
+                p["status"] = "archived"
+            p["updatedAt"] = NOW
+
+
+def solve_task_h45(state):
+    """Oldest-updated presentation: share with Marcus+Anika, set team vis."""
+    # pres_012 has the oldest updatedAt (2026-01-25)
+    p = find_pres(state, "Q4 2025 Revenue Analysis")
+    for uid in ["user_002", "user_003"]:
+        if uid not in p["shareSettings"]["sharedWith"]:
+            p["shareSettings"]["sharedWith"].append(uid)
+    p["shareSettings"]["visibility"] = "team"
+    p["updatedAt"] = NOW
+
+
+def solve_task_h46(state):
+    """Private-vis: has comments→team vis, no comments→delete."""
+    comment_pres = {c["presentationId"] for c in state["comments"]}
+    to_delete = set()
+    for p in state["presentations"]:
+        if p["shareSettings"]["visibility"] == "private":
+            if p["id"] in comment_pres:
+                p["shareSettings"]["visibility"] = "team"
+                p["updatedAt"] = NOW
+            else:
+                to_delete.add(p["id"])
+    state["presentations"] = [p for p in state["presentations"]
+                              if p["id"] not in to_delete]
+    state["slides"] = [s for s in state["slides"]
+                       if s["presentationId"] not in to_delete]
+
+
+def solve_task_h47(state):
+    """Share Revenue Analysis with Roadmap users, resolve Revenue comments."""
+    roadmap = find_pres(state, "Q1 2026 Product Roadmap")
+    revenue = find_pres(state, "Q4 2025 Revenue Analysis")
+
+    for uid in roadmap["shareSettings"]["sharedWith"]:
+        if uid not in revenue["shareSettings"]["sharedWith"]:
+            revenue["shareSettings"]["sharedWith"].append(uid)
+
+    for c in state["comments"]:
+        if c["presentationId"] == revenue["id"]:
+            c["resolved"] = True
+    revenue["updatedAt"] = NOW
+
+
+def solve_task_h48(state):
+    """Elena's non-created access: add Priya, disable editing."""
+    elena_id = "user_008"
+    priya_id = "user_006"
+    for p in state["presentations"]:
+        ss = p["shareSettings"]
+        if elena_id in ss["sharedWith"] and p["createdBy"] != elena_id:
+            if priya_id not in ss["sharedWith"]:
+                ss["sharedWith"].append(priya_id)
+            ss["allowEditing"] = False
+            p["updatedAt"] = NOW
+
+
+def solve_task_h49(state):
+    """Presentations with exactly 2 comments: resolve all, star."""
+    from collections import Counter
+    counts = Counter(c["presentationId"] for c in state["comments"])
+    two_pres = {pid for pid, cnt in counts.items() if cnt == 2}
+
+    for c in state["comments"]:
+        if c["presentationId"] in two_pres:
+            c["resolved"] = True
+
+    for p in state["presentations"]:
+        if p["id"] in two_pres:
+            p["starred"] = True
+            p["updatedAt"] = NOW
+
+
+def solve_task_h50(state):
+    """Archive unstarred published presentation with fewest shared users."""
+    candidates = [
+        p for p in state["presentations"]
+        if p["status"] == "published" and not p["starred"]
+    ]
+    fewest = min(candidates, key=lambda p: len(p["shareSettings"]["sharedWith"]))
+    fewest["status"] = "archived"
+    fewest["updatedAt"] = NOW
+
+
+def solve_task_h51(state):
+    """Merge shared users of Marketing Campaign and Accessibility Audit."""
+    campaign = find_pres(state, "Marketing Campaign: Design Without Limits")
+    audit = find_pres(state, "Accessibility Audit Results")
+
+    union = set(campaign["shareSettings"]["sharedWith"]) | set(audit["shareSettings"]["sharedWith"])
+    union_list = sorted(union)
+
+    campaign["shareSettings"]["sharedWith"] = list(union_list)
+    audit["shareSettings"]["sharedWith"] = list(union_list)
+    campaign["updatedAt"] = NOW
+    audit["updatedAt"] = NOW
+
+
+def solve_task_h52(state):
+    """Anika's fewest-slides pres: star, share with All-Hands users."""
+    anika_id = "user_003"
+    anika_pres = [p for p in state["presentations"] if p["createdBy"] == anika_id]
+    fewest = min(anika_pres, key=lambda p: p["slideCount"])  # pres_018
+
+    all_hands = find_pres(state, "Annual Company All-Hands 2026")
+    for uid in all_hands["shareSettings"]["sharedWith"]:
+        if uid not in fewest["shareSettings"]["sharedWith"]:
+            fewest["shareSettings"]["sharedWith"].append(uid)
+    fewest["starred"] = True
+    fewest["updatedAt"] = NOW
+
+
+def solve_task_h53(state):
+    """Analysis-tagged: resolve comments, team vis, add Elena."""
+    elena_id = "user_008"
+    for p in state["presentations"]:
+        if "analysis" in p.get("tags", []):
+            p["shareSettings"]["visibility"] = "team"
+            if elena_id not in p["shareSettings"]["sharedWith"]:
+                p["shareSettings"]["sharedWith"].append(elena_id)
+            p["updatedAt"] = NOW
+
+            for c in state["comments"]:
+                if c["presentationId"] == p["id"]:
+                    c["resolved"] = True
+
+
+def solve_task_h54(state):
+    """No-comments presentation: publish, team vis, enable comments+editing."""
+    comment_pres = {c["presentationId"] for c in state["comments"]}
+    for p in state["presentations"]:
+        if p["id"] not in comment_pres:
+            p["status"] = "published"
+            p["shareSettings"]["visibility"] = "team"
+            p["shareSettings"]["allowComments"] = True
+            p["shareSettings"]["allowEditing"] = True
+            p["updatedAt"] = NOW
+
+
+def solve_task_h55(state):
+    """Presentations with both resolved+unresolved: delete resolved, star."""
+    from collections import defaultdict
+    pres_resolved = defaultdict(list)
+    pres_unresolved = defaultdict(list)
+    for c in state["comments"]:
+        if c["resolved"]:
+            pres_resolved[c["presentationId"]].append(c["id"])
+        else:
+            pres_unresolved[c["presentationId"]].append(c["id"])
+
+    mixed_pres = set(pres_resolved.keys()) & set(pres_unresolved.keys())
+    to_delete = set()
+    for pid in mixed_pres:
+        to_delete.update(pres_resolved[pid])
+
+    state["comments"] = [c for c in state["comments"] if c["id"] not in to_delete]
+
+    for p in state["presentations"]:
+        if p["id"] in mixed_pres:
+            p["starred"] = True
+            p["updatedAt"] = NOW
+
+
+def solve_task_h56(state):
+    """Proposals: more shared→archive, fewer→publish+team+add Marcus."""
+    proposals = [p for p in state["presentations"] if "proposal" in p.get("tags", [])]
+    proposals.sort(key=lambda p: len(p["shareSettings"]["sharedWith"]))
+    fewer, more = proposals[0], proposals[-1]
+
+    more["status"] = "archived"
+    more["updatedAt"] = NOW
+
+    fewer["status"] = "published"
+    fewer["shareSettings"]["visibility"] = "team"
+    if "user_002" not in fewer["shareSettings"]["sharedWith"]:
+        fewer["shareSettings"]["sharedWith"].append("user_002")
+    fewer["updatedAt"] = NOW
+
+
+def solve_task_h57(state):
+    """Duplicate the All-Hands, remove all shared users except Sarah Chen."""
+    original = find_pres(state, "Annual Company All-Hands 2026")
+
+    pid = next_pres_id(state)
+    sid = next_slide_id(state)
+    eid = next_elem_id(state)
+
+    state["presentations"].append({
+        "id": pid,
+        "title": f"Copy of {original['title']}",
+        "description": original["description"],
+        "createdAt": NOW,
+        "updatedAt": NOW,
+        "createdBy": "user_001",
+        "theme": original["theme"],
+        "tags": list(original["tags"]),
+        "starred": False,
+        "status": original["status"],
+        "slideCount": 1,
+        "shareSettings": {
+            "visibility": original["shareSettings"]["visibility"],
+            "allowComments": original["shareSettings"]["allowComments"],
+            "allowEditing": original["shareSettings"]["allowEditing"],
+            "shareLink": "",
+            "embedLink": "",
+            "sharedWith": ["user_001"]
+        }
+    })
+    state["slides"].append({
+        "id": sid, "presentationId": pid, "order": 0, "layout": "title",
+        "backgroundColor": "#ffffff",
+        "transition": {"type": "none", "duration": 500},
+        "speakerNotes": "",
+        "elements": [{
+            "id": eid, "type": "text", "x": 80, "y": 180, "width": 800, "height": 70,
+            "rotation": 0, "opacity": 1, "locked": False,
+            "content": f"Copy of {original['title']}",
+            "shapeType": None, "fill": None, "stroke": None, "strokeWidth": 0,
+            "cornerRadius": 0, "imageUrl": None, "imagePlaceholder": None,
+            "style": {"fontFamily": "Inter", "fontSize": 48, "fontWeight": "bold",
+                       "color": "#1a1a2e", "textAlign": "center", "italic": False,
+                       "underline": False, "lineHeight": 1.2, "letterSpacing": -1,
+                       "listType": "none"},
+            "animation": {"type": "none", "duration": 300, "delay": 0, "order": 0}
+        }]
+    })
+
+
+def solve_task_h58(state):
+    """Sarah's presentations: toggle David Kim in/out of shared users."""
+    sarah_id = "user_001"
+    david_id = "user_007"
+    for p in state["presentations"]:
+        if p["createdBy"] == sarah_id:
+            sw = p["shareSettings"]["sharedWith"]
+            if david_id in sw:
+                sw.remove(david_id)
+            else:
+                sw.append(david_id)
+            p["updatedAt"] = NOW
+
+
+def solve_task_h59(state):
+    """Most-unresolved-comments pres: org vis, enable editing, add Yuki+David."""
+    from collections import Counter
+    unresolved_counts = Counter(
+        c["presentationId"] for c in state["comments"] if not c["resolved"]
+    )
+    most_pid = unresolved_counts.most_common(1)[0][0]  # pres_001
+    p = find_pres_by_id(state, most_pid)
+    p["shareSettings"]["visibility"] = "organization"
+    p["shareSettings"]["allowEditing"] = True
+    for uid in ["user_005", "user_007"]:
+        if uid not in p["shareSettings"]["sharedWith"]:
+            p["shareSettings"]["sharedWith"].append(uid)
+    p["updatedAt"] = NOW
+
+
+def solve_task_h60(state):
+    """Create 'Cross-Team Status Update', share with All-Hands commenters."""
+    all_hands = find_pres(state, "Annual Company All-Hands 2026")
+    commenter_ids = set()
+    for c in state["comments"]:
+        if c["presentationId"] == all_hands["id"]:
+            commenter_ids.add(c["authorId"])
+
+    shared = sorted(commenter_ids | {"user_001"})
+
+    pid = next_pres_id(state)
+    sid = next_slide_id(state)
+    eid = next_elem_id(state)
+
+    state["presentations"].append({
+        "id": pid,
+        "title": "Cross-Team Status Update",
+        "description": "",
+        "createdAt": NOW,
+        "updatedAt": NOW,
+        "createdBy": "user_001",
+        "theme": "minimal",
+        "tags": ["status", "update"],
+        "starred": False,
+        "status": "draft",
+        "slideCount": 1,
+        "shareSettings": {
+            "visibility": "private",
+            "allowComments": True,
+            "allowEditing": False,
+            "shareLink": "",
+            "embedLink": "",
+            "sharedWith": shared
+        }
+    })
+    state["slides"].append({
+        "id": sid, "presentationId": pid, "order": 0, "layout": "title",
+        "backgroundColor": "#ffffff",
+        "transition": {"type": "none", "duration": 500},
+        "speakerNotes": "",
+        "elements": [{
+            "id": eid, "type": "text", "x": 80, "y": 180, "width": 800, "height": 70,
+            "rotation": 0, "opacity": 1, "locked": False,
+            "content": "Cross-Team Status Update",
+            "shapeType": None, "fill": None, "stroke": None, "strokeWidth": 0,
+            "cornerRadius": 0, "imageUrl": None, "imagePlaceholder": None,
+            "style": {"fontFamily": "Inter", "fontSize": 48, "fontWeight": "bold",
+                       "color": "#1a1a2e", "textAlign": "center", "italic": False,
+                       "underline": False, "lineHeight": 1.2, "letterSpacing": -1,
+                       "listType": "none"},
+            "animation": {"type": "none", "duration": 300, "delay": 0, "order": 0}
+        }]
+    })
+
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # Solver registry
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -1334,6 +1693,26 @@ SOLVERS = {
     "task_h38": solve_task_h38,
     "task_h39": solve_task_h39,
     "task_h40": solve_task_h40,
+    "task_h41": solve_task_h41,
+    "task_h42": solve_task_h42,
+    "task_h43": solve_task_h43,
+    "task_h44": solve_task_h44,
+    "task_h45": solve_task_h45,
+    "task_h46": solve_task_h46,
+    "task_h47": solve_task_h47,
+    "task_h48": solve_task_h48,
+    "task_h49": solve_task_h49,
+    "task_h50": solve_task_h50,
+    "task_h51": solve_task_h51,
+    "task_h52": solve_task_h52,
+    "task_h53": solve_task_h53,
+    "task_h54": solve_task_h54,
+    "task_h55": solve_task_h55,
+    "task_h56": solve_task_h56,
+    "task_h57": solve_task_h57,
+    "task_h58": solve_task_h58,
+    "task_h59": solve_task_h59,
+    "task_h60": solve_task_h60,
 }
 
 
