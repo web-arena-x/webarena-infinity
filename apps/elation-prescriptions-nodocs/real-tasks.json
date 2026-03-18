@@ -284,439 +284,79 @@
   {
     "id": "task_h8",
     "difficulty": "hard",
-    "instruction": "David Kowalski's depression is improving. Reduce his Escitalopram dosage to 5mg and change his Metformin ER frequency to twice daily.",
+    "instruction": "Process all of Margaret Chen's pending refill requests: approve the Atorvastatin, deny the Metformin (needs lab work), and deny the Sertraline (changed therapy).",
     "verify": "real-tasks/task_h8.py"
   },
   {
     "id": "task_h9",
     "difficulty": "hard",
-    "instruction": "Prescribe Cyclobenzaprine 10mg three times daily for Margaret's muscle spasms — 30 tablets, 10 days supply, no refills, send to CVS. Also increase her Gabapentin dosage to 400mg.",
+    "instruction": "Margaret is transitioning from Gabapentin to Pregabalin. Discontinue her Gabapentin and prescribe Pregabalin 75mg twice daily — 60 capsules, 30 days supply, 1 refill, send to CVS.",
     "verify": "real-tasks/task_h9.py"
   },
   {
     "id": "task_h10",
     "difficulty": "hard",
-    "instruction": "Process all of Margaret Chen's pending refill requests: approve the Atorvastatin, deny the Metformin (needs lab work), and deny the Sertraline (changed therapy).",
+    "instruction": "Switch to the patient who has a documented severe allergy to Metformin. Prescribe Sitagliptin 100mg once daily — 30 tablets, 30 days supply, 5 refills, send to UCSF Medical Center Pharmacy.",
     "verify": "real-tasks/task_h10.py"
   },
   {
     "id": "task_h11",
     "difficulty": "hard",
-    "instruction": "Start Robert Fitzgerald on Dulaglutide 0.75mg weekly — subcutaneous, quantity 4, 28 days supply, 2 refills, send to UCSF Medical Center Pharmacy. Also increase his Carvedilol to 25mg.",
+    "instruction": "Review Margaret Chen's active medications. Renew every prescription that has fewer than 3 refills remaining — give each one 5 refills.",
     "verify": "real-tasks/task_h11.py"
   },
   {
     "id": "task_h12",
     "difficulty": "hard",
-    "instruction": "In settings: show brand names first instead of generic, set the default pharmacy to Alto Pharmacy, and remove both Pantoprazole and Atorvastatin from the favorites.",
+    "instruction": "Switch to Aisha Rahman and prescribe Amlodipine 5mg once daily — 30 tablets, 30 days, 5 refills, send to Walgreens. Then switch to Jessica Morales and discontinue her antibiotic — the cellulitis has resolved.",
     "verify": "real-tasks/task_h12.py"
   },
   {
     "id": "task_h13",
     "difficulty": "hard",
-    "instruction": "Prescribe a Methylprednisolone dose pack for David Kowalski — follow dose pack instructions, quantity 1, 7 days supply, no refills, send to Rite Aid. Also put his Escitalopram on hold while on the steroid.",
+    "instruction": "Configure settings: default pharmacy to Costco Pharmacy, default days supply 90, default refills 3, and disable the allergy review requirement. Then prescribe Omeprazole 20mg once daily before breakfast for Margaret — 30 capsules, 30 days, 2 refills, send to Costco.",
     "verify": "real-tasks/task_h13.py"
   },
   {
     "id": "task_h14",
     "difficulty": "hard",
-    "instruction": "Margaret is transitioning from Gabapentin to Pregabalin. Discontinue her Gabapentin and prescribe Pregabalin 75mg twice daily — 60 capsules, 30 days supply, 1 refill, send to CVS.",
+    "instruction": "Deny Margaret's pending Metformin refill — she needs new lab work. Then discontinue her current Metformin prescription and start her on Metformin ER 500mg once daily with dinner instead — 30 tablets, 30 days supply, 5 refills, send to CVS.",
     "verify": "real-tasks/task_h14.py"
   },
   {
     "id": "task_h15",
     "difficulty": "hard",
-    "instruction": "Switch to William Thornton. Renew his Valsartan with 5 refills and his Insulin Glargine with 3 refills.",
+    "instruction": "Margaret has two active prescriptions under prior authorization. Place the one filled at the specialty pharmacy on hold, and renew the other with 3 refills.",
     "verify": "real-tasks/task_h15.py"
   },
   {
     "id": "task_h16",
     "difficulty": "hard",
-    "instruction": "Prescribe Fluticasone nasal spray (2 sprays each nostril daily, quantity 1, 30 days, 2 refills) and Montelukast 10mg once daily in the evening (30 tablets, 30 days, 5 refills) for Aisha Rahman. Send both to Walgreens.",
+    "instruction": "Robert Fitzgerald has two medications prescribed by the cardiologist. Switch to him and put both on hold — he's being admitted for cardiac monitoring.",
     "verify": "real-tasks/task_h16.py"
   },
   {
     "id": "task_h17",
     "difficulty": "hard",
-    "instruction": "Handle the urgent Pantoprazole situation for Margaret: modify-and-approve the refill with note 'Stepped down to 20mg per protocol', then discontinue her current Pantoprazole 40mg prescription.",
+    "instruction": "Process all pending refill requests across all patients: approve every urgent request and deny every routine one — the practice is implementing a mandatory follow-up policy.",
     "verify": "real-tasks/task_h17.py"
   },
   {
     "id": "task_h18",
     "difficulty": "hard",
-    "instruction": "Set up David Kowalski on Advair Diskus 250/50mcg — inhale 1 puff twice daily, quantity 1, 30 days supply, 2 refills, send to Rite Aid. Then approve his pending Metoprolol refill.",
+    "instruction": "Margaret started two prescriptions in November 2025. Discontinue the one from her primary care doctor — she's being referred to GI. Double the quantity on the cardiologist's prescription.",
     "verify": "real-tasks/task_h18.py"
   },
   {
     "id": "task_h19",
     "difficulty": "hard",
-    "instruction": "Robert Fitzgerald's heart failure regimen needs updating. Increase his Spironolactone dosage to 50mg, change his Carvedilol quantity to 90, and prescribe Furosemide 20mg once daily — 30 tablets, 30 days, 5 refills, send to UCSF Medical Center Pharmacy.",
+    "instruction": "Review Margaret's active prescriptions. Renew every one with exactly 1 refill remaining — give them 5 refills. Renew every one with exactly 2 refills remaining — give them 3 refills.",
     "verify": "real-tasks/task_h19.py"
   },
   {
     "id": "task_h20",
     "difficulty": "hard",
-    "instruction": "Cancel Margaret's Albuterol inhaler, put her Flonase on hold pending seasonal review, and renew her Atorvastatin with 3 refills.",
-    "verify": "real-tasks/task_h20.py"
-  },
-  {
-    "id": "task_h21",
-    "difficulty": "hard",
-    "instruction": "Margaret's thyroid medication needs a dose adjustment — increase the dosage to 88mcg and update the directions to 'Take 1 tablet by mouth once daily on an empty stomach, 60 minutes before breakfast'.",
-    "verify": "real-tasks/task_h21.py"
-  },
-  {
-    "id": "task_h22",
-    "difficulty": "hard",
-    "instruction": "Switch to the patient who has a documented severe allergy to Metformin. Prescribe Sitagliptin 100mg once daily — 30 tablets, 30 days supply, 5 refills, send to UCSF Medical Center Pharmacy.",
-    "verify": "real-tasks/task_h22.py"
-  },
-  {
-    "id": "task_h23",
-    "difficulty": "hard",
-    "instruction": "Margaret has a medication that was originally prescribed by the cardiologist. Renew it with 3 refills, and also increase her Amlodipine dosage to 10mg.",
-    "verify": "real-tasks/task_h23.py"
-  },
-  {
-    "id": "task_h24",
-    "difficulty": "hard",
-    "instruction": "Review Margaret Chen's active medications. Renew every prescription that has fewer than 3 refills remaining — give each one 5 refills.",
-    "verify": "real-tasks/task_h24.py"
-  },
-  {
-    "id": "task_h25",
-    "difficulty": "hard",
-    "instruction": "David Kowalski and Aisha Rahman are both on Escitalopram. Increase David's dosage to 20mg and Aisha's to 10mg.",
-    "verify": "real-tasks/task_h25.py"
-  },
-  {
-    "id": "task_h26",
-    "difficulty": "hard",
-    "instruction": "In settings, set the default pharmacy to Safeway Pharmacy, set default refills to 5, and disable the signature requirement. Then remove Sertraline and Levothyroxine from the favorites.",
-    "verify": "real-tasks/task_h26.py"
-  },
-  {
-    "id": "task_h27",
-    "difficulty": "hard",
-    "instruction": "Margaret's on-hold diuretic has been cleared by her lab results — resume it. Also modify-and-approve her urgent refill request with the note 'Dose verified, approved per protocol'.",
-    "verify": "real-tasks/task_h27.py"
-  },
-  {
-    "id": "task_h28",
-    "difficulty": "hard",
-    "instruction": "Switch to William Thornton. Start him on Rosuvastatin 10mg once daily at bedtime — 90 tablets, 90 days supply, 3 refills, send to Kaiser. Also approve his urgent Furosemide refill.",
-    "verify": "real-tasks/task_h28.py"
-  },
-  {
-    "id": "task_h29",
-    "difficulty": "hard",
-    "instruction": "Margaret needs a macrolide antibiotic. Clarithromycin would interact with her statin, so prescribe Azithromycin 250mg instead — two tablets on day 1, then one daily for 4 more days. Quantity 6, no refills, send to CVS.",
-    "verify": "real-tasks/task_h29.py"
-  },
-  {
-    "id": "task_h30",
-    "difficulty": "hard",
-    "instruction": "Switch to Aisha Rahman and prescribe Amlodipine 5mg once daily — 30 tablets, 30 days, 5 refills, send to Walgreens. Then switch to Jessica Morales and discontinue her antibiotic — the cellulitis has resolved.",
-    "verify": "real-tasks/task_h30.py"
-  },
-  {
-    "id": "task_h31",
-    "difficulty": "hard",
-    "instruction": "William Thornton has one medication under prior authorization. Increase its dosage to 30 units and renew it with 5 refills. Also increase his Furosemide quantity to 60.",
-    "verify": "real-tasks/task_h31.py"
-  },
-  {
-    "id": "task_h32",
-    "difficulty": "hard",
-    "instruction": "Three patients are on SSRIs. Increase Aisha Rahman's Escitalopram to 10mg, put David Kowalski's Escitalopram on hold, and change Margaret Chen's Sertraline frequency to twice daily.",
-    "verify": "real-tasks/task_h32.py"
-  },
-  {
-    "id": "task_h33",
-    "difficulty": "hard",
-    "instruction": "In settings, remove the NSAID and the corticosteroid from the favorites. Add Clopidogrel and Rosuvastatin to the favorites instead. Set the print format to compact.",
-    "verify": "real-tasks/task_h33.py"
-  },
-  {
-    "id": "task_h34",
-    "difficulty": "hard",
-    "instruction": "Switch to David Kowalski and prescribe Apixaban 5mg twice daily — 60 tablets, 30 days supply, 5 refills, dispense as written, with prior authorization number PA-2026-DK-001. Send to Rite Aid.",
-    "verify": "real-tasks/task_h34.py"
-  },
-  {
-    "id": "task_h35",
-    "difficulty": "hard",
-    "instruction": "Put Margaret's nasal spray on hold for seasonal review, reduce her Metformin dosage to 500mg, and approve her pending Atorvastatin refill.",
-    "verify": "real-tasks/task_h35.py"
-  },
-  {
-    "id": "task_h36",
-    "difficulty": "hard",
-    "instruction": "The patient with an ACE inhibitor allergy needs an additional blood pressure medication. Switch to him and prescribe Amlodipine 10mg once daily — 30 tablets, 30 days supply, 5 refills, send to Kaiser.",
-    "verify": "real-tasks/task_h36.py"
-  },
-  {
-    "id": "task_h37",
-    "difficulty": "hard",
-    "instruction": "Configure settings: default pharmacy to Costco Pharmacy, default days supply 90, default refills 3, and disable the allergy review requirement. Then prescribe Omeprazole 20mg once daily before breakfast for Margaret — 30 capsules, 30 days, 2 refills, send to Costco.",
-    "verify": "real-tasks/task_h37.py"
-  },
-  {
-    "id": "task_h38",
-    "difficulty": "hard",
-    "instruction": "Deny Margaret's pending Metformin refill — she needs new lab work. Then discontinue her current Metformin prescription and start her on Metformin ER 500mg once daily with dinner instead — 30 tablets, 30 days supply, 5 refills, send to CVS.",
-    "verify": "real-tasks/task_h38.py"
-  },
-  {
-    "id": "task_h39",
-    "difficulty": "hard",
-    "instruction": "Switch to Robert Fitzgerald. Increase his Jardiance dosage to 25mg, renew his Carvedilol with 5 refills, and increase his Spironolactone quantity to 60.",
-    "verify": "real-tasks/task_h39.py"
-  },
-  {
-    "id": "task_h40",
-    "difficulty": "hard",
-    "instruction": "Margaret's blood thinner has a prior authorization on file. Increase its quantity to 90. Also deny her pending Sertraline refill — the therapy has been changed.",
-    "verify": "real-tasks/task_h40.py"
-  },
-  {
-    "id": "task_h41",
-    "difficulty": "hard",
-    "instruction": "The patient allergic to NSAIDs needs his beta blocker dose doubled to 100mg and his statin quantity changed to 90. Switch to him and make both changes.",
-    "verify": "real-tasks/task_h41.py"
-  },
-  {
-    "id": "task_h42",
-    "difficulty": "hard",
-    "instruction": "Margaret has two active prescriptions under prior authorization. Place the one filled at the specialty pharmacy on hold, and renew the other with 3 refills.",
-    "verify": "real-tasks/task_h42.py"
-  },
-  {
-    "id": "task_h43",
-    "difficulty": "hard",
-    "instruction": "Process all of Margaret's pending refill requests: approve the urgent one and deny every routine one — she needs to schedule a follow-up appointment.",
-    "verify": "real-tasks/task_h43.py"
-  },
-  {
-    "id": "task_h44",
-    "difficulty": "hard",
-    "instruction": "Switch to William Thornton. Approve his urgent refill request and modify-and-approve his routine one with the note 'Dose increase to 320mg per cardiology'.",
-    "verify": "real-tasks/task_h44.py"
-  },
-  {
-    "id": "task_h45",
-    "difficulty": "hard",
-    "instruction": "The patient with no known drug allergies is on a low-dose SSRI. Switch to her, double the dosage to 10mg, and change the quantity to 60.",
-    "verify": "real-tasks/task_h45.py"
-  },
-  {
-    "id": "task_h46",
-    "difficulty": "hard",
-    "instruction": "Margaret has one active prescription flagged as 'dispense as written'. Increase its quantity to 90 and change the days supply to 90.",
-    "verify": "real-tasks/task_h46.py"
-  },
-  {
-    "id": "task_h47",
-    "difficulty": "hard",
-    "instruction": "The patient with an Erythromycin allergy has finished her antibiotic course. Switch to her, discontinue the antibiotic, and increase her antidepressant dosage to 40mg.",
-    "verify": "real-tasks/task_h47.py"
-  },
-  {
-    "id": "task_h48",
-    "difficulty": "hard",
-    "instruction": "Robert Fitzgerald has two medications prescribed by the cardiologist. Switch to him and put both on hold — he's being admitted for cardiac monitoring.",
-    "verify": "real-tasks/task_h48.py"
-  },
-  {
-    "id": "task_h49",
-    "difficulty": "hard",
-    "instruction": "Margaret has medications prescribed by both Dr. Reyes and Dr. Okafor. Discontinue the one from Dr. Reyes — she's having adverse effects. Renew the one from Dr. Okafor with 11 refills.",
-    "verify": "real-tasks/task_h49.py"
-  },
-  {
-    "id": "task_h50",
-    "difficulty": "hard",
-    "instruction": "In settings, remove both antibiotics from the favorites list and add Duloxetine and Pregabalin instead. Also set the default pharmacy to Amazon Pharmacy and disable electronic prescribing.",
-    "verify": "real-tasks/task_h50.py"
-  },
-  {
-    "id": "task_h51",
-    "difficulty": "hard",
-    "instruction": "David Kowalski and William Thornton both take blood pressure medications. Switch to David and change his Metoprolol to twice daily, then switch to William and increase his Valsartan quantity to 60.",
-    "verify": "real-tasks/task_h51.py"
-  },
-  {
-    "id": "task_h52",
-    "difficulty": "hard",
-    "instruction": "Clean up Margaret's medication list: resume her on-hold diuretic, cancel her Albuterol inhaler, and change her Metformin to once daily with a quantity of 30.",
-    "verify": "real-tasks/task_h52.py"
-  },
-  {
-    "id": "task_h53",
-    "difficulty": "hard",
-    "instruction": "Two patients take Atorvastatin at different doses. Renew the lower-dose prescription with 5 refills, and change the higher-dose prescription's quantity to 90.",
-    "verify": "real-tasks/task_h53.py"
-  },
-  {
-    "id": "task_h54",
-    "difficulty": "hard",
-    "instruction": "Switch to Robert Fitzgerald. Increase the dosage of his diabetes medication to 25mg, change his beta blocker to once daily, and increase his potassium-sparing diuretic quantity to 60.",
-    "verify": "real-tasks/task_h54.py"
-  },
-  {
-    "id": "task_h55",
-    "difficulty": "hard",
-    "instruction": "Put Margaret's Gabapentin and her nasal spray both on hold, then approve her pending Atorvastatin refill request.",
-    "verify": "real-tasks/task_h55.py"
-  },
-  {
-    "id": "task_h56",
-    "difficulty": "hard",
-    "instruction": "In settings, switch to showing brand names first, set default refills to 5, and disable the signature requirement. Then switch to Jessica Morales and renew her Fluoxetine with 5 refills.",
-    "verify": "real-tasks/task_h56.py"
-  },
-  {
-    "id": "task_h57",
-    "difficulty": "hard",
-    "instruction": "Margaret takes an SSRI and a blood thinner. Change the SSRI frequency to twice daily, increase the blood thinner's quantity to 90, and deny the pending Sertraline refill — the therapy has changed.",
-    "verify": "real-tasks/task_h57.py"
-  },
-  {
-    "id": "task_h58",
-    "difficulty": "hard",
-    "instruction": "Switch to the patient with a documented Latex allergy. Renew his ARB with 5 refills, increase his insulin to 30 units, and change his diuretic quantity to 60.",
-    "verify": "real-tasks/task_h58.py"
-  },
-  {
-    "id": "task_h59",
-    "difficulty": "hard",
-    "instruction": "Margaret's acid reflux medication has a pending urgent refill request. Deny the refill citing 'Pending GI consult', then put the prescription itself on hold.",
-    "verify": "real-tasks/task_h59.py"
-  },
-  {
-    "id": "task_h60",
-    "difficulty": "hard",
-    "instruction": "Deny Margaret's pending Metformin refill — she needs new lab work. Then switch to David Kowalski and put his Metformin on hold. Finally, switch to Robert Fitzgerald and increase his Jardiance dosage to 25mg.",
-    "verify": "real-tasks/task_h60.py"
-  },
-  {
-    "id": "task_h61",
-    "difficulty": "hard",
-    "instruction": "Margaret has an active prescription filled at a specialty pharmacy. Put it on hold pending prior-auth review. Also set the default pharmacy to Capsule Pharmacy SF and default refills to 5 in settings.",
-    "verify": "real-tasks/task_h61.py"
-  },
-  {
-    "id": "task_h62",
-    "difficulty": "hard",
-    "instruction": "Process all pending refill requests across all patients: approve every urgent request and deny every routine one — the practice is implementing a mandatory follow-up policy.",
-    "verify": "real-tasks/task_h62.py"
-  },
-  {
-    "id": "task_h63",
-    "difficulty": "hard",
-    "instruction": "Switch to the patient with a severe Aspirin allergy and increase his statin dosage to 80mg. Then switch to the patient with no known drug allergies and prescribe Amlodipine 5mg once daily — 30 tablets, 30 days, 5 refills, send to Walgreens.",
-    "verify": "real-tasks/task_h63.py"
-  },
-  {
-    "id": "task_h64",
-    "difficulty": "hard",
-    "instruction": "Margaret started two prescriptions in November 2025. Discontinue the one from her primary care doctor — she's being referred to GI. Double the quantity on the cardiologist's prescription.",
-    "verify": "real-tasks/task_h64.py"
-  },
-  {
-    "id": "task_h65",
-    "difficulty": "hard",
-    "instruction": "Margaret has one prescription currently on hold. Resume it, then increase its quantity to 60 and change its frequency to twice daily.",
-    "verify": "real-tasks/task_h65.py"
-  },
-  {
-    "id": "task_h66",
-    "difficulty": "hard",
-    "instruction": "Switch to the patient whose prescriptions are filled at Kaiser Permanente. Increase his ARB dosage to 320mg, approve his urgent refill, and deny his routine refill — he's overdue for follow-up.",
-    "verify": "real-tasks/task_h66.py"
-  },
-  {
-    "id": "task_h67",
-    "difficulty": "hard",
-    "instruction": "Find the drug in Margaret's history that was discontinued due to an allergic reaction and remove it from the formulary favorites. Also remove the other antibiotic from the favorites list.",
-    "verify": "real-tasks/task_h67.py"
-  },
-  {
-    "id": "task_h68",
-    "difficulty": "hard",
-    "instruction": "Two patients share a Medicare Part D insurance plan. Approve the urgent refill for the older patient and deny the routine Atorvastatin refill for the younger patient — she needs updated bloodwork.",
-    "verify": "real-tasks/task_h68.py"
-  },
-  {
-    "id": "task_h69",
-    "difficulty": "hard",
-    "instruction": "Reconfigure prescribing defaults: set pharmacy to Optum Specialty, days supply to 90, refills to 5, print format to detailed, disable signature requirement, and show brand names first. Remove both antibiotics from the formulary favorites and add Duloxetine and Fluoxetine instead.",
-    "verify": "real-tasks/task_h69.py"
-  },
-  {
-    "id": "task_h70",
-    "difficulty": "hard",
-    "instruction": "Review Margaret's active prescriptions. Renew every one with exactly 1 refill remaining — give them 5 refills. Renew every one with exactly 2 refills remaining — give them 3 refills.",
-    "verify": "real-tasks/task_h70.py"
-  },
-  {
-    "id": "task_h71",
-    "difficulty": "hard",
-    "instruction": "Discontinue Robert Fitzgerald's diabetes medication — he developed a UTI. Put William Thornton's insulin on hold pending dose review. Then approve Margaret Chen's urgent Pantoprazole refill.",
-    "verify": "real-tasks/task_h71.py"
-  },
-  {
-    "id": "task_h72",
-    "difficulty": "hard",
-    "instruction": "Margaret Chen and David Kowalski both take Metformin in different formulations. Discontinue Margaret's immediate-release Metformin and put David's extended-release version on hold — both need updated A1C results.",
-    "verify": "real-tasks/task_h72.py"
-  },
-  {
-    "id": "task_h73",
-    "difficulty": "hard",
-    "instruction": "Find all of Margaret's active prescriptions written by providers other than Dr. Mitchell. Renew the family medicine doctor's prescription with 6 refills, put the internal medicine specialist's on hold, and increase the cardiologist's prescription quantity to 120.",
-    "verify": "real-tasks/task_h73.py"
-  },
-  {
-    "id": "task_h74",
-    "difficulty": "hard",
-    "instruction": "Increase Margaret's Amlodipine to 10mg and her Atorvastatin quantity to 90. Then approve her urgent Pantoprazole refill and modify-and-approve her routine Atorvastatin refill with the note 'Dose appropriate, 90-day supply approved'.",
-    "verify": "real-tasks/task_h74.py"
-  },
-  {
-    "id": "task_h75",
-    "difficulty": "hard",
     "instruction": "Four patients are on SSRIs. Renew David Kowalski's Escitalopram with 5 refills, increase Aisha Rahman's Escitalopram to 10mg, discontinue Margaret Chen's Sertraline — she's switching to an SNRI, and increase Jessica Morales's Fluoxetine to 40mg.",
-    "verify": "real-tasks/task_h75.py"
-  },
-  {
-    "id": "task_h76",
-    "difficulty": "hard",
-    "instruction": "Two patients take beta blockers — David Kowalski's Metoprolol and Robert Fitzgerald's Carvedilol. Increase David's quantity to 90 and Robert's dosage to 25mg. Then set the default refills to 3 and disable auto-check drug interactions in settings.",
-    "verify": "real-tasks/task_h76.py"
-  },
-  {
-    "id": "task_h77",
-    "difficulty": "hard",
-    "instruction": "Margaret's PPI needs to switch. Discontinue her Pantoprazole and prescribe Esomeprazole 20mg once daily before breakfast — 30 capsules, 30 days, 2 refills, send to CVS. Also set the print format to compact.",
-    "verify": "real-tasks/task_h77.py"
-  },
-  {
-    "id": "task_h78",
-    "difficulty": "hard",
-    "instruction": "Adjust medications for three patients: increase David Kowalski's Metoprolol quantity to 90, change Margaret Chen's Sertraline frequency to twice daily, and put Robert Fitzgerald's Carvedilol on hold — he's scheduled for a procedure.",
-    "verify": "real-tasks/task_h78.py"
-  },
-  {
-    "id": "task_h79",
-    "difficulty": "hard",
-    "instruction": "Margaret has one urgent refill request where she ran out of medication. Modify-and-approve it with the note 'Bridging until next visit'. Deny all her other pending refills — she needs to come in for review.",
-    "verify": "real-tasks/task_h79.py"
-  },
-  {
-    "id": "task_h80",
-    "difficulty": "hard",
-    "instruction": "Prescribe Rosuvastatin 10mg once daily at bedtime for David Kowalski — 90 tablets, 90 days, 3 refills, send to Rite Aid. Then prescribe Amlodipine 5mg once daily for William Thornton — 30 tablets, 30 days, 5 refills, send to Kaiser.",
-    "verify": "real-tasks/task_h80.py"
+    "verify": "real-tasks/task_h20.py"
   }
 ]

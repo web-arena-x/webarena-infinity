@@ -7,39 +7,54 @@ def verify(server_url: str) -> tuple[bool, str]:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-
-    # Check current patient is David Kowalski
-    if state.get("currentPatientId") != "pat_002":
-        return False, f"Expected currentPatientId 'pat_002' (David Kowalski), got '{state.get('currentPatientId')}'."
-
-    prescriptions = state.get("prescriptions", [])
+    refill_requests = state.get("refillRequests", [])
     errors = []
 
-    # Check rx_018 (Escitalopram) dosage contains "5"
-    rx_018 = None
-    for rx in prescriptions:
-        if rx.get("id") == "rx_018":
-            rx_018 = rx
+    # Check rr_001 (Atorvastatin) is approved
+    rr_001 = None
+    for rr in refill_requests:
+        if rr.get("id") == "rr_001":
+            rr_001 = rr
             break
 
-    if rx_018 is None:
-        errors.append("Prescription rx_018 (Escitalopram) not found.")
-    elif "5" not in str(rx_018.get("dosage", "")):
-        errors.append(f"Expected rx_018 (Escitalopram) dosage to contain '5', got '{rx_018.get('dosage')}'.")
+    if rr_001 is None:
+        errors.append("Refill request rr_001 (Atorvastatin) not found.")
+    elif rr_001.get("status") != "approved":
+        errors.append(f"Expected rr_001 (Atorvastatin) status 'approved', got '{rr_001.get('status')}'.")
 
-    # Check rx_019 (Metformin ER) frequency is "Twice daily"
-    rx_019 = None
-    for rx in prescriptions:
-        if rx.get("id") == "rx_019":
-            rx_019 = rx
+    # Check rr_002 (Metformin) is denied with reason containing "lab"
+    rr_002 = None
+    for rr in refill_requests:
+        if rr.get("id") == "rr_002":
+            rr_002 = rr
             break
 
-    if rx_019 is None:
-        errors.append("Prescription rx_019 (Metformin ER) not found.")
-    elif rx_019.get("frequency") != "Twice daily":
-        errors.append(f"Expected rx_019 (Metformin ER) frequency 'Twice daily', got '{rx_019.get('frequency')}'.")
+    if rr_002 is None:
+        errors.append("Refill request rr_002 (Metformin) not found.")
+    else:
+        if rr_002.get("status") != "denied":
+            errors.append(f"Expected rr_002 (Metformin) status 'denied', got '{rr_002.get('status')}'.")
+        deny_reason = str(rr_002.get("denyReason", ""))
+        if "lab" not in deny_reason.lower():
+            errors.append(f"Expected rr_002 denyReason to contain 'lab', got '{deny_reason}'.")
+
+    # Check rr_011 (Sertraline) is denied with reason containing "changed"
+    rr_011 = None
+    for rr in refill_requests:
+        if rr.get("id") == "rr_011":
+            rr_011 = rr
+            break
+
+    if rr_011 is None:
+        errors.append("Refill request rr_011 (Sertraline) not found.")
+    else:
+        if rr_011.get("status") != "denied":
+            errors.append(f"Expected rr_011 (Sertraline) status 'denied', got '{rr_011.get('status')}'.")
+        deny_reason = str(rr_011.get("denyReason", ""))
+        if "changed" not in deny_reason.lower():
+            errors.append(f"Expected rr_011 denyReason to contain 'changed', got '{deny_reason}'.")
 
     if errors:
         return False, " ".join(errors)
 
-    return True, "Escitalopram reduced to 5mg and Metformin ER changed to twice daily for David Kowalski."
+    return True, "All Margaret's refill requests processed: Atorvastatin approved, Metformin and Sertraline denied."

@@ -2,65 +2,33 @@ import requests
 
 
 def verify(server_url: str) -> tuple[bool, str]:
+    """Robert's cardiologist-prescribed medications: both on hold."""
     resp = requests.get(f"{server_url}/api/state")
     if resp.status_code != 200:
         return False, "Could not retrieve application state."
 
     state = resp.json()
-
-    # Check current patient is Aisha Rahman
-    if state.get("currentPatientId") != "pat_003":
-        return False, f"Expected currentPatientId 'pat_003' (Aisha Rahman), got '{state.get('currentPatientId')}'."
-
-    prescriptions = state.get("prescriptions", [])
-    seed_ids = {f"rx_{str(i).zfill(3)}" for i in range(1, 31)}
     errors = []
 
-    # Find new Fluticasone prescription for pat_003
-    flut_matches = [
-        rx for rx in prescriptions
-        if rx["id"] not in seed_ids
-        and rx.get("patientId") == "pat_003"
-        and "fluticasone" in rx.get("drugName", "").lower()
-    ]
+    if state.get("currentPatientId") != "pat_006":
+        errors.append(f"Expected currentPatientId 'pat_006' (Robert Fitzgerald), got '{state.get('currentPatientId')}'.")
 
-    if not flut_matches:
-        errors.append("No new Fluticasone nasal spray prescription found for Aisha Rahman (pat_003).")
+    # rx_028 Carvedilol (prescribed by prov_006 Tanaka) -> on-hold
+    rx_028 = next((r for r in state["prescriptions"] if r["id"] == "rx_028"), None)
+    if not rx_028:
+        errors.append("Prescription rx_028 (Carvedilol) not found.")
     else:
-        flut = flut_matches[0]
-        if flut.get("quantity") != 1:
-            errors.append(f"Fluticasone: expected quantity 1, got {flut.get('quantity')}.")
-        if flut.get("daysSupply") != 30:
-            errors.append(f"Fluticasone: expected daysSupply 30, got {flut.get('daysSupply')}.")
-        if flut.get("refillsTotal") != 2:
-            errors.append(f"Fluticasone: expected refillsTotal 2, got {flut.get('refillsTotal')}.")
-        if flut.get("pharmacyId") != "pharm_002":
-            errors.append(f"Fluticasone: expected pharmacyId 'pharm_002' (Walgreens), got '{flut.get('pharmacyId')}'.")
+        if rx_028.get("status") != "on-hold":
+            errors.append(f"Expected rx_028 (Carvedilol) status 'on-hold', got '{rx_028.get('status')}'.")
 
-    # Find new Montelukast prescription for pat_003
-    mont_matches = [
-        rx for rx in prescriptions
-        if rx["id"] not in seed_ids
-        and rx.get("patientId") == "pat_003"
-        and "montelukast" in rx.get("drugName", "").lower()
-    ]
-
-    if not mont_matches:
-        errors.append("No new Montelukast prescription found for Aisha Rahman (pat_003).")
+    # rx_029 Spironolactone (prescribed by prov_006 Tanaka) -> on-hold
+    rx_029 = next((r for r in state["prescriptions"] if r["id"] == "rx_029"), None)
+    if not rx_029:
+        errors.append("Prescription rx_029 (Spironolactone) not found.")
     else:
-        mont = mont_matches[0]
-        if "10mg" not in mont.get("formStrength", "").lower().replace(" ", ""):
-            errors.append(f"Montelukast: expected formStrength to contain '10mg', got '{mont.get('formStrength')}'.")
-        if mont.get("quantity") != 30:
-            errors.append(f"Montelukast: expected quantity 30, got {mont.get('quantity')}.")
-        if mont.get("daysSupply") != 30:
-            errors.append(f"Montelukast: expected daysSupply 30, got {mont.get('daysSupply')}.")
-        if mont.get("refillsTotal") != 5:
-            errors.append(f"Montelukast: expected refillsTotal 5, got {mont.get('refillsTotal')}.")
-        if mont.get("pharmacyId") != "pharm_002":
-            errors.append(f"Montelukast: expected pharmacyId 'pharm_002' (Walgreens), got '{mont.get('pharmacyId')}'.")
+        if rx_029.get("status") != "on-hold":
+            errors.append(f"Expected rx_029 (Spironolactone) status 'on-hold', got '{rx_029.get('status')}'.")
 
     if errors:
         return False, " ".join(errors)
-
-    return True, "Fluticasone nasal spray and Montelukast 10mg prescribed correctly for Aisha Rahman, sent to Walgreens."
+    return True, "Robert's Carvedilol and Spironolactone (cardiologist-prescribed) both placed on hold."
