@@ -1,0 +1,402 @@
+[
+  {
+    "id": "task_1",
+    "instruction": "Create a new contact with first name 'Maria', last name 'Lopez', and email 'maria.lopez@example.com'.",
+    "verify": "function-tasks/task_1.py"
+  },
+  {
+    "id": "task_2",
+    "instruction": "Create a new contact with first name 'John', last name 'Doe', email 'john.doe@example.com', phone '+1 (555) 999-0001', company 'Acme Corp', job title 'CEO', address '123 Main St, Springfield, IL 62701', birthday '1990-01-15', and notes 'Test contact with all fields'.",
+    "verify": "function-tasks/task_2.py"
+  },
+  {
+    "id": "task_3",
+    "instruction": "Create a new contact with only the email address 'minimal@example.com' (leave all other fields empty).",
+    "verify": "function-tasks/task_3.py"
+  },
+  {
+    "id": "task_4",
+    "instruction": "Create a new contact with first name 'Alex', last name 'Demo', email 'alex.demo@techcorp.io', and assign this contact to the 'Work' label.",
+    "verify": "function-tasks/task_4.py"
+  },
+  {
+    "id": "task_5",
+    "instruction": "Create a new contact with first name 'Jane', last name 'Test', email 'jane.test@gmail.com', and assign this contact to both the 'Family' and 'Friends' labels.",
+    "verify": "function-tasks/task_5.py"
+  },
+  {
+    "id": "task_6",
+    "instruction": "Edit the contact David Chen and change his email address to 'david.chen.updated@gmail.com'.",
+    "verify": "function-tasks/task_6.py"
+  },
+  {
+    "id": "task_7",
+    "instruction": "Edit the contact Alex Martinez and change his company to 'TechCorp Inc' and his job title to 'Senior Frontend Engineer'.",
+    "verify": "function-tasks/task_7.py"
+  },
+  {
+    "id": "task_8",
+    "instruction": "Edit the contact Amy Chen-Wu and change her phone number to '+1 (510) 555-9999'.",
+    "verify": "function-tasks/task_8.py"
+  },
+  {
+    "id": "task_9",
+    "instruction": "Edit the contact Tom O'Brien and change his address to '123 New Street, San Francisco, CA 94100'.",
+    "verify": "function-tasks/task_9.py"
+  },
+  {
+    "id": "task_10",
+    "instruction": "Edit the contact Mei Zhang and change her birthday to '1992-07-15'.",
+    "verify": "function-tasks/task_10.py"
+  },
+  {
+    "id": "task_11",
+    "instruction": "Edit the contact Lisa Kim and change her notes to 'Design system owner - working on v2 redesign'.",
+    "verify": "function-tasks/task_11.py"
+  },
+  {
+    "id": "task_12",
+    "instruction": "Edit the contact Nina Patel and add her to the 'VIP' label (she should keep her existing labels as well).",
+    "verify": "function-tasks/task_12.py"
+  },
+  {
+    "id": "task_13",
+    "instruction": "Edit the contact Marcus Johnson and remove him from the 'Engineering Team' label (he should keep his other labels).",
+    "verify": "function-tasks/task_13.py"
+  },
+  {
+    "id": "task_14",
+    "instruction": "Delete the contact Emma Thompson.",
+    "verify": "function-tasks/task_14.py"
+  },
+  {
+    "id": "task_15",
+    "instruction": "Delete the contact Timothy Buchanan.",
+    "verify": "function-tasks/task_15.py"
+  },
+  {
+    "id": "task_16",
+    "instruction": "Star the contact Alex Martinez (he is currently not starred).",
+    "verify": "function-tasks/task_16.py"
+  },
+  {
+    "id": "task_17",
+    "instruction": "Unstar the contact David Chen (he is currently starred).",
+    "verify": "function-tasks/task_17.py"
+  },
+  {
+    "id": "task_18",
+    "instruction": "Star the contact Hannah Cohen.",
+    "verify": "function-tasks/task_18.py"
+  },
+  {
+    "id": "task_19",
+    "instruction": "Create a new label called 'Project Alpha'.",
+    "verify": "function-tasks/task_19.py"
+  },
+  {
+    "id": "task_20",
+    "instruction": "Create a new label called 'Emergency Contacts'.",
+    "verify": "function-tasks/task_20.py"
+  },
+  {
+    "id": "task_21",
+    "instruction": "Rename the 'Book Club' label to 'Reading Circle'.",
+    "verify": "function-tasks/task_21.py"
+  },
+  {
+    "id": "task_22",
+    "instruction": "Delete the 'College Alumni' label.",
+    "verify": "function-tasks/task_22.py"
+  },
+  {
+    "id": "task_23",
+    "instruction": "Remove Ben Watkins from the 'Friends' label.",
+    "verify": "function-tasks/task_23.py"
+  },
+  {
+    "id": "task_24",
+    "instruction": "Rename the 'Vendors' label to 'Technology Partners'.",
+    "verify": "function-tasks/task_24.py"
+  },
+  {
+    "id": "task_25",
+    "instruction": "Delete the 'Conference Contacts' label.",
+    "verify": "function-tasks/task_25.py"
+  },
+  {
+    "id": "task_26",
+    "instruction": "In the Other Contacts section, add the contact 'jason.recruiter@linkedin.com' to your main contacts list.",
+    "verify": "function-tasks/task_26.py"
+  },
+  {
+    "id": "task_27",
+    "instruction": "In the Other Contacts section, delete the other contact with email 'noreply@github.com'.",
+    "verify": "function-tasks/task_27.py"
+  },
+  {
+    "id": "task_28",
+    "instruction": "In the Other Contacts section, add the contact 'mike.sales@hubspot.com' to your main contacts list.",
+    "verify": "function-tasks/task_28.py"
+  },
+  {
+    "id": "task_29",
+    "instruction": "In the Other Contacts section, delete the other contact with email 'alex@doordash-driver.com'.",
+    "verify": "function-tasks/task_29.py"
+  },
+  {
+    "id": "task_30",
+    "instruction": "In Account settings, change your name to first name 'Sarah' and last name 'Chen-Williams'.",
+    "verify": "function-tasks/task_30.py"
+  },
+  {
+    "id": "task_31",
+    "instruction": "In Account settings, change your first name to 'Sara' (keep the last name as 'Chen').",
+    "verify": "function-tasks/task_31.py"
+  },
+  {
+    "id": "task_32",
+    "instruction": "In Account settings, change your recovery email to 'sarah.backup@protonmail.com'.",
+    "verify": "function-tasks/task_32.py"
+  },
+  {
+    "id": "task_33",
+    "instruction": "In Account settings, change your recovery phone to '+1 (650) 555-0000'.",
+    "verify": "function-tasks/task_33.py"
+  },
+  {
+    "id": "task_34",
+    "instruction": "In Account settings, disable 2-Step Verification (it is currently enabled).",
+    "verify": "function-tasks/task_34.py"
+  },
+  {
+    "id": "task_35",
+    "instruction": "In Account settings, generate a new app password with the name 'Calendar Sync App'.",
+    "verify": "function-tasks/task_35.py"
+  },
+  {
+    "id": "task_36",
+    "instruction": "In Account settings, revoke the app password named 'Outlook Desktop'.",
+    "verify": "function-tasks/task_36.py"
+  },
+  {
+    "id": "task_37",
+    "instruction": "In Account settings, revoke the app password named 'Thunderbird on MacBook'.",
+    "verify": "function-tasks/task_37.py"
+  },
+  {
+    "id": "task_38",
+    "instruction": "In the Send Mail As settings, add a new email address with name 'Sarah Chen (Personal)', email 'sarah.personal@gmail.com', SMTP server 'smtp.gmail.com', port '587', username 'sarah.personal@gmail.com', and SSL enabled.",
+    "verify": "function-tasks/task_38.py"
+  },
+  {
+    "id": "task_39",
+    "instruction": "In the Send Mail As settings, edit the alias 'support@techcorp.io' and change its display name to 'TechCorp Support'.",
+    "verify": "function-tasks/task_39.py"
+  },
+  {
+    "id": "task_40",
+    "instruction": "In the Send Mail As settings, remove the email address 'schen@alumni.stanford.edu'.",
+    "verify": "function-tasks/task_40.py"
+  },
+  {
+    "id": "task_41",
+    "instruction": "In the Send Mail As settings, set the email address 'support@techcorp.io' as the default 'From' address.",
+    "verify": "function-tasks/task_41.py"
+  },
+  {
+    "id": "task_42",
+    "instruction": "In the Send Mail As settings, change the reply-from behavior to 'Reply from the same address the message was sent to'.",
+    "verify": "function-tasks/task_42.py"
+  },
+  {
+    "id": "task_43",
+    "instruction": "In the Send Mail As settings, add a new email address with name 'Test Alias', email 'test@example.com', SMTP server 'smtp.example.com', port '25', username 'test', and SSL disabled.",
+    "verify": "function-tasks/task_43.py"
+  },
+  {
+    "id": "task_44",
+    "instruction": "In the Send Mail As settings, remove the email address 'sarah@chen-family.org'.",
+    "verify": "function-tasks/task_44.py"
+  },
+  {
+    "id": "task_45",
+    "instruction": "In Delegation settings, add a new delegate with email 'david.park@techcorp.io' and name 'David Park'.",
+    "verify": "function-tasks/task_45.py"
+  },
+  {
+    "id": "task_46",
+    "instruction": "In Delegation settings, remove the delegate Alex Martinez.",
+    "verify": "function-tasks/task_46.py"
+  },
+  {
+    "id": "task_47",
+    "instruction": "In Delegation settings, remove the delegate James Wu.",
+    "verify": "function-tasks/task_47.py"
+  },
+  {
+    "id": "task_48",
+    "instruction": "In Delegation settings, add a new delegate with email 'jennifer.walsh@techcorp.io' and name 'Jennifer Walsh'.",
+    "verify": "function-tasks/task_48.py"
+  },
+  {
+    "id": "task_49",
+    "instruction": "In Import/Export settings, add a new mail import account with email 'sarah@personal-blog.com', POP3 server 'pop.personal-blog.com', port '995', username 'sarah', label 'blog', SSL enabled, and leave a copy on the server enabled.",
+    "verify": "function-tasks/task_49.py"
+  },
+  {
+    "id": "task_50",
+    "instruction": "In Import/Export settings, remove the import account 'sarah@old-startup.com'.",
+    "verify": "function-tasks/task_50.py"
+  },
+  {
+    "id": "task_51",
+    "instruction": "In Import/Export settings, remove the import account 'sarahchen.personal@gmail.com'.",
+    "verify": "function-tasks/task_51.py"
+  },
+  {
+    "id": "task_52",
+    "instruction": "In Import/Export settings, add a new mail import account with email 'archive@company.com', POP3 server 'pop.company.com', port '110', username 'archive', label 'company-archive', SSL disabled, and leave a copy on the server disabled.",
+    "verify": "function-tasks/task_52.py"
+  },
+  {
+    "id": "task_53",
+    "instruction": "Delete the contact Jessica Singh (she is currently starred and belongs to Vendors and VIP labels).",
+    "verify": "function-tasks/task_53.py"
+  },
+  {
+    "id": "task_54",
+    "instruction": "Delete the 'Investors' label. Verify that the contacts who were in that label still exist but no longer belong to it.",
+    "verify": "function-tasks/task_54.py"
+  },
+  {
+    "id": "task_55",
+    "instruction": "Edit the contact Natalie Dubois and add her to the 'Work' and 'VIP' labels (she currently has no labels).",
+    "verify": "function-tasks/task_55.py"
+  },
+  {
+    "id": "task_56",
+    "instruction": "Create a new contact with only the first name 'TestContact' (leave last name and email empty).",
+    "verify": "function-tasks/task_56.py"
+  },
+  {
+    "id": "task_57",
+    "instruction": "Edit the contact Rachel Park: change her email to 'rachel.park.personal@gmail.com' and set her notes to 'CS professor at Stanford - ML collaboration'.",
+    "verify": "function-tasks/task_57.py"
+  },
+  {
+    "id": "task_58",
+    "instruction": "Edit the contact Tom O'Brien and clear his birthday field (set it to empty).",
+    "verify": "function-tasks/task_58.py"
+  },
+  {
+    "id": "task_59",
+    "instruction": "Star the contact Olivia Grant and add her to the 'VIP' label (she should keep her existing 'Book Club' label).",
+    "verify": "function-tasks/task_59.py"
+  },
+  {
+    "id": "task_60",
+    "instruction": "Delete the contact Derek Hoffman.",
+    "verify": "function-tasks/task_60.py"
+  },
+  {
+    "id": "task_61",
+    "instruction": "Create a new label called 'Priority Contacts'.",
+    "verify": "function-tasks/task_61.py"
+  },
+  {
+    "id": "task_62",
+    "instruction": "Delete the 'Friends' label.",
+    "verify": "function-tasks/task_62.py"
+  },
+  {
+    "id": "task_63",
+    "instruction": "In the Send Mail As settings, edit the alias 'support@techcorp.io' and change its SMTP port to '465' and username to 'support-admin@techcorp.io'.",
+    "verify": "function-tasks/task_63.py"
+  },
+  {
+    "id": "task_64",
+    "instruction": "In Delegation settings, remove all three delegates (James Wu, Priya Sharma, and Alex Martinez).",
+    "verify": "function-tasks/task_64.py"
+  },
+  {
+    "id": "task_65",
+    "instruction": "In Account settings, generate two new app passwords: 'Spark Mac Client' and 'K-9 Mail Android'.",
+    "verify": "function-tasks/task_65.py"
+  },
+  {
+    "id": "task_66",
+    "instruction": "In Account settings, revoke all existing app passwords (Thunderbird on MacBook, Mail on iPhone, and Outlook Desktop).",
+    "verify": "function-tasks/task_66.py"
+  },
+  {
+    "id": "task_67",
+    "instruction": "In Account settings, change your recovery email to 'sarah.chen.recovery@outlook.com' and recovery phone to '+1 (510) 555-0100'.",
+    "verify": "function-tasks/task_67.py"
+  },
+  {
+    "id": "task_68",
+    "instruction": "In Account settings, change your first name to 'S.' (keep the last name as 'Chen').",
+    "verify": "function-tasks/task_68.py"
+  },
+  {
+    "id": "task_69",
+    "instruction": "In the Other Contacts section, delete the other contact with email 'meetingbot@calendly.com'.",
+    "verify": "function-tasks/task_69.py"
+  },
+  {
+    "id": "task_70",
+    "instruction": "In the Other Contacts section, delete the other contact with email 'receipts@uber.com'.",
+    "verify": "function-tasks/task_70.py"
+  },
+  {
+    "id": "task_71",
+    "instruction": "In the Other Contacts section, add the contact 'billing@aws.amazon.com' to your main contacts list.",
+    "verify": "function-tasks/task_71.py"
+  },
+  {
+    "id": "task_72",
+    "instruction": "Edit the contact Kevin Chen and change his company to 'Google' and his job title to 'Senior Product Manager'.",
+    "verify": "function-tasks/task_72.py"
+  },
+  {
+    "id": "task_73",
+    "instruction": "Create a new contact with first name 'Multi', last name 'Label', email 'multi.label@test.com', and assign this contact to the 'Work', 'Engineering Team', and 'VIP' labels.",
+    "verify": "function-tasks/task_73.py"
+  },
+  {
+    "id": "task_74",
+    "instruction": "In the Send Mail As settings, edit the alias 'sarah@chen-family.org' and change its display name to 'Sarah (Family)'.",
+    "verify": "function-tasks/task_74.py"
+  },
+  {
+    "id": "task_75",
+    "instruction": "Delete the contact Henry Wright.",
+    "verify": "function-tasks/task_75.py"
+  },
+  {
+    "id": "task_76",
+    "instruction": "Edit the contact Ben Watkins and change his company to 'Watkins Photography' and his job title to 'Professional Photographer'.",
+    "verify": "function-tasks/task_76.py"
+  },
+  {
+    "id": "task_77",
+    "instruction": "Edit the contact Marcus Johnson and add him to the 'Investors' label (he should keep his existing Work, Engineering Team, and VIP labels).",
+    "verify": "function-tasks/task_77.py"
+  },
+  {
+    "id": "task_78",
+    "instruction": "Edit the contact Natalie Dubois and change her phone to '+33 7 99 88 77 66' and her company to 'DesignStudio Paris'.",
+    "verify": "function-tasks/task_78.py"
+  },
+  {
+    "id": "task_79",
+    "instruction": "In Import/Export settings, add a new mail import account with email 'sarah@consulting.dev', POP3 server 'pop.consulting.dev', port '110', username 'sarah.consulting', label 'consulting-work', SSL disabled, and leave a copy on the server disabled.",
+    "verify": "function-tasks/task_79.py"
+  },
+  {
+    "id": "task_80",
+    "instruction": "Edit the contact Sophia Andersson and add her to the 'Engineering Team' and 'Conference Contacts' labels (she should keep her existing 'Work' label).",
+    "verify": "function-tasks/task_80.py"
+  }
+]

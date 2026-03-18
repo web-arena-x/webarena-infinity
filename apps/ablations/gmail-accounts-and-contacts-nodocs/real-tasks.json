@@ -1,0 +1,482 @@
+[
+  {
+    "id": "task_e1",
+    "difficulty": "easy",
+    "instruction": "Star Mei Zhang in your contacts.",
+    "verify": "real-tasks/task_e1.py"
+  },
+  {
+    "id": "task_e2",
+    "difficulty": "easy",
+    "instruction": "Remove the star from Jake Morrison's contact.",
+    "verify": "real-tasks/task_e2.py"
+  },
+  {
+    "id": "task_e3",
+    "difficulty": "easy",
+    "instruction": "Delete the contact Penny Crawford.",
+    "verify": "real-tasks/task_e3.py"
+  },
+  {
+    "id": "task_e4",
+    "difficulty": "easy",
+    "instruction": "Rename the Book Club label to Reading Group.",
+    "verify": "real-tasks/task_e4.py"
+  },
+  {
+    "id": "task_e5",
+    "difficulty": "easy",
+    "instruction": "Turn off 2-Step Verification on the account.",
+    "verify": "real-tasks/task_e5.py"
+  },
+  {
+    "id": "task_e6",
+    "difficulty": "easy",
+    "instruction": "Revoke the app password for Mail on iPhone.",
+    "verify": "real-tasks/task_e6.py"
+  },
+  {
+    "id": "task_e7",
+    "difficulty": "easy",
+    "instruction": "Remove the delegate Alex Martinez.",
+    "verify": "real-tasks/task_e7.py"
+  },
+  {
+    "id": "task_e8",
+    "difficulty": "easy",
+    "instruction": "Delete the Stanford alumni email alias.",
+    "verify": "real-tasks/task_e8.py"
+  },
+  {
+    "id": "task_e9",
+    "difficulty": "easy",
+    "instruction": "Set the reply-from behavior so replies always come from the same address the message was sent to.",
+    "verify": "real-tasks/task_e9.py"
+  },
+  {
+    "id": "task_e10",
+    "difficulty": "easy",
+    "instruction": "Remove the error-state POP3 import account for the old startup email.",
+    "verify": "real-tasks/task_e10.py"
+  },
+  {
+    "id": "task_e11",
+    "difficulty": "easy",
+    "instruction": "Delete the GitHub notifications entry from Other Contacts.",
+    "verify": "real-tasks/task_e11.py"
+  },
+  {
+    "id": "task_e12",
+    "difficulty": "easy",
+    "instruction": "Update the account recovery phone number to +1 (650) 555-0300.",
+    "verify": "real-tasks/task_e12.py"
+  },
+  {
+    "id": "task_e13",
+    "difficulty": "easy",
+    "instruction": "Create a new contact label called Mentors.",
+    "verify": "real-tasks/task_e13.py"
+  },
+  {
+    "id": "task_e14",
+    "difficulty": "easy",
+    "instruction": "Make the support@techcorp.io alias the default sending address.",
+    "verify": "real-tasks/task_e14.py"
+  },
+  {
+    "id": "task_e15",
+    "difficulty": "easy",
+    "instruction": "Delete the Investors label.",
+    "verify": "real-tasks/task_e15.py"
+  },
+  {
+    "id": "task_e16",
+    "difficulty": "easy",
+    "instruction": "Remove Tom O'Brien from the Engineering Team label.",
+    "verify": "real-tasks/task_e16.py"
+  },
+  {
+    "id": "task_e17",
+    "difficulty": "easy",
+    "instruction": "Delete the other contact for Slack notifications.",
+    "verify": "real-tasks/task_e17.py"
+  },
+  {
+    "id": "task_e18",
+    "difficulty": "easy",
+    "instruction": "Change the account last name to Chen-Williams.",
+    "verify": "real-tasks/task_e18.py"
+  },
+  {
+    "id": "task_e19",
+    "difficulty": "easy",
+    "instruction": "Remove the family email alias (chen-family.org).",
+    "verify": "real-tasks/task_e19.py"
+  },
+  {
+    "id": "task_e20",
+    "difficulty": "easy",
+    "instruction": "Star Olivia Grant.",
+    "verify": "real-tasks/task_e20.py"
+  },
+  {
+    "id": "task_m1",
+    "difficulty": "medium",
+    "instruction": "Add a new contact for our new marketing hire: Taylor Morgan, taylor.morgan@techcorp.io, Marketing Manager at TechCorp, phone +1 (415) 555-3500. Put them in the Work label.",
+    "verify": "real-tasks/task_m1.py"
+  },
+  {
+    "id": "task_m2",
+    "difficulty": "medium",
+    "instruction": "Update Priya Sharma's job title to VP of Engineering and add her to the VIP label.",
+    "verify": "real-tasks/task_m2.py"
+  },
+  {
+    "id": "task_m3",
+    "difficulty": "medium",
+    "instruction": "Promote the LinkedIn recruiter from Other Contacts to the main contact list.",
+    "verify": "real-tasks/task_m3.py"
+  },
+  {
+    "id": "task_m4",
+    "difficulty": "medium",
+    "instruction": "Set up a new email alias: use the name Sarah Chen (Personal), email sarah.personal@protonmail.com, SMTP server smtp.protonmail.com, port 587, username sarah.personal@protonmail.com, with SSL enabled.",
+    "verify": "real-tasks/task_m4.py"
+  },
+  {
+    "id": "task_m5",
+    "difficulty": "medium",
+    "instruction": "Add david.park@techcorp.io as a new email delegate with the name David Park.",
+    "verify": "real-tasks/task_m5.py"
+  },
+  {
+    "id": "task_m6",
+    "difficulty": "medium",
+    "instruction": "Update the display name on the support@techcorp.io alias to TechCorp Support Team.",
+    "verify": "real-tasks/task_m6.py"
+  },
+  {
+    "id": "task_m7",
+    "difficulty": "medium",
+    "instruction": "Generate a new app password called Spark Email Client.",
+    "verify": "real-tasks/task_m7.py"
+  },
+  {
+    "id": "task_m8",
+    "difficulty": "medium",
+    "instruction": "Move Natalie Dubois into the Work and Friends labels.",
+    "verify": "real-tasks/task_m8.py"
+  },
+  {
+    "id": "task_m9",
+    "difficulty": "medium",
+    "instruction": "Add a POP3 import for sarah@side-project.io: server pop.side-project.io, port 995, username sarah, SSL on, leave copies on server, label incoming mail as side-project.",
+    "verify": "real-tasks/task_m9.py"
+  },
+  {
+    "id": "task_m10",
+    "difficulty": "medium",
+    "instruction": "Update Alex Martinez's phone to +1 (415) 555-1100 and add a birthday of 1994-01-20.",
+    "verify": "real-tasks/task_m10.py"
+  },
+  {
+    "id": "task_m11",
+    "difficulty": "medium",
+    "instruction": "Update the account recovery email to sarah.backup@protonmail.com and change the recovery phone to +1 (510) 555-0199.",
+    "verify": "real-tasks/task_m11.py"
+  },
+  {
+    "id": "task_m12",
+    "difficulty": "medium",
+    "instruction": "Create a new contact label called Open Source and add Philip Okonkwo and Damian Kowalczyk to it.",
+    "verify": "real-tasks/task_m12.py"
+  },
+  {
+    "id": "task_m13",
+    "difficulty": "medium",
+    "instruction": "Update Kevin Chen's company to Google and job title to Senior Product Manager.",
+    "verify": "real-tasks/task_m13.py"
+  },
+  {
+    "id": "task_m14",
+    "difficulty": "medium",
+    "instruction": "Remove both the Thunderbird and Outlook app passwords.",
+    "verify": "real-tasks/task_m14.py"
+  },
+  {
+    "id": "task_m15",
+    "difficulty": "medium",
+    "instruction": "Add the HubSpot sales contact from Other Contacts to the main contacts list.",
+    "verify": "real-tasks/task_m15.py"
+  },
+  {
+    "id": "task_m16",
+    "difficulty": "medium",
+    "instruction": "Add a new contact: first name Elena, last name Vasquez, email elena.vasquez@greentech.io, company GreenTech Solutions, job title Sustainability Director. Assign her to the Conference Contacts label.",
+    "verify": "real-tasks/task_m16.py"
+  },
+  {
+    "id": "task_m17",
+    "difficulty": "medium",
+    "instruction": "Rename the Vendors label to Technology Partners and rename the Conference Contacts label to Industry Network.",
+    "verify": "real-tasks/task_m17.py"
+  },
+  {
+    "id": "task_m18",
+    "difficulty": "medium",
+    "instruction": "Remove James Wu's delegate access and add jennifer.walsh@techcorp.io as a new delegate with the name Jennifer Walsh.",
+    "verify": "real-tasks/task_m18.py"
+  },
+  {
+    "id": "task_m19",
+    "difficulty": "medium",
+    "instruction": "Update Hannah Cohen's email to hannah.cohen@gmail.com and remove her from the Work label.",
+    "verify": "real-tasks/task_m19.py"
+  },
+  {
+    "id": "task_m20",
+    "difficulty": "medium",
+    "instruction": "Delete the Zoom no-reply and the Calendly meeting bot entries from Other Contacts.",
+    "verify": "real-tasks/task_m20.py"
+  },
+  {
+    "id": "task_h1",
+    "difficulty": "hard",
+    "instruction": "Star all contacts in the Investors label who aren't already starred.",
+    "verify": "real-tasks/task_h1.py"
+  },
+  {
+    "id": "task_h2",
+    "difficulty": "hard",
+    "instruction": "Create a new label called Leadership Team and add every TechCorp contact whose job title contains VP, Head, or CFO to it.",
+    "verify": "real-tasks/task_h2.py"
+  },
+  {
+    "id": "task_h3",
+    "difficulty": "hard",
+    "instruction": "Remove all contacts who work at TechCorp from the Conference Contacts label.",
+    "verify": "real-tasks/task_h3.py"
+  },
+  {
+    "id": "task_h4",
+    "difficulty": "hard",
+    "instruction": "Our intern Kira Volkov has been promoted: update her job title to Junior Backend Engineer, add her to the VIP label, and star her contact.",
+    "verify": "real-tasks/task_h4.py"
+  },
+  {
+    "id": "task_h5",
+    "difficulty": "hard",
+    "instruction": "Delete all other contacts that are automated services (ones with 'noreply' or 'no-reply' in their email address).",
+    "verify": "real-tasks/task_h5.py"
+  },
+  {
+    "id": "task_h6",
+    "difficulty": "hard",
+    "instruction": "Add everyone from the Book Club label to the Friends label as well, if they aren't already in Friends.",
+    "verify": "real-tasks/task_h6.py"
+  },
+  {
+    "id": "task_h7",
+    "difficulty": "hard",
+    "instruction": "Security audit: disable 2-Step Verification, revoke all existing app passwords, and remove the family email alias.",
+    "verify": "real-tasks/task_h7.py"
+  },
+  {
+    "id": "task_h8",
+    "difficulty": "hard",
+    "instruction": "Create a new contact for Patricia Nguyen (patricia.nguyen@techcorp.io, phone +1 (415) 555-4000, company TechCorp, job title Chief of Staff). Add her to the Work and VIP labels and star her.",
+    "verify": "real-tasks/task_h8.py"
+  },
+  {
+    "id": "task_h9",
+    "difficulty": "hard",
+    "instruction": "Add all contacts labeled Engineering Team to the Work label if they aren't already in it.",
+    "verify": "real-tasks/task_h9.py"
+  },
+  {
+    "id": "task_h10",
+    "difficulty": "hard",
+    "instruction": "Clean up delegation: remove all existing delegates and add two new ones \u2014 jennifer.walsh@techcorp.io (Jennifer Walsh) and david.park@techcorp.io (David Park).",
+    "verify": "real-tasks/task_h10.py"
+  },
+  {
+    "id": "task_h11",
+    "difficulty": "hard",
+    "instruction": "Remove all contacts who don't have an email address assigned to any label from every label they belong to, making them ungrouped. Actually \u2014 scratch that. Remove all contacts that currently have no label from the contact list entirely.",
+    "verify": "real-tasks/task_h11.py"
+  },
+  {
+    "id": "task_h12",
+    "difficulty": "hard",
+    "instruction": "Set up email forwarding properly: add a new alias for notifications@techcorp.io (name: TechCorp Notifications, SMTP server smtp.techcorp.io, port 587, username notifications@techcorp.io, SSL on), then make it the default sending address and set replies to always use the same address messages were sent to.",
+    "verify": "real-tasks/task_h12.py"
+  },
+  {
+    "id": "task_h13",
+    "difficulty": "hard",
+    "instruction": "Delete the College Alumni label and unstar everyone who was in it (but don't unstar people who are also in other labels that should stay starred like VIP or Investors).",
+    "verify": "real-tasks/task_h13.py"
+  },
+  {
+    "id": "task_h14",
+    "difficulty": "hard",
+    "instruction": "Promote all Other Contacts that have had more than 50 interactions to the main contacts list.",
+    "verify": "real-tasks/task_h14.py"
+  },
+  {
+    "id": "task_h15",
+    "difficulty": "hard",
+    "instruction": "Create two new labels: Advisors and Board. Move all contacts from the Investors label into the Advisors label, and move Derek Hoffman and Victoria Blackwell into the Board label as well.",
+    "verify": "real-tasks/task_h15.py"
+  },
+  {
+    "id": "task_h16",
+    "difficulty": "hard",
+    "instruction": "Update the account name to S. Chen, change the recovery email to s.chen.recovery@gmail.com, and change the support alias display name to S. Chen (Support).",
+    "verify": "real-tasks/task_h16.py"
+  },
+  {
+    "id": "task_h17",
+    "difficulty": "hard",
+    "instruction": "Remove all non-primary, non-default email aliases and set replies to always come from the default address.",
+    "verify": "real-tasks/task_h17.py"
+  },
+  {
+    "id": "task_h18",
+    "difficulty": "hard",
+    "instruction": "Create a new label called Swedish Contacts and add every contact who has a +46 phone number to it.",
+    "verify": "real-tasks/task_h18.py"
+  },
+  {
+    "id": "task_h19",
+    "difficulty": "hard",
+    "instruction": "Add a new POP3 import for sarah@consulting-gig.com (server pop.consulting-gig.com, port 110, username sarah, SSL off, don't leave on server, label as consulting). Also remove the existing errored import account.",
+    "verify": "real-tasks/task_h19.py"
+  },
+  {
+    "id": "task_h20",
+    "difficulty": "hard",
+    "instruction": "Remove every contact from the VIP label who doesn't work at TechCorp, then add Priya Sharma and James Wu to VIP.",
+    "verify": "real-tasks/task_h20.py"
+  },
+  {
+    "id": "task_h21",
+    "difficulty": "hard",
+    "instruction": "Our Stockholm office just hired a Backend Engineer who appears in the company directory but hasn't been added to contacts yet. Look them up in the directory, create a contact for them with their directory information, and assign them to the Work and Engineering Team labels.",
+    "verify": "real-tasks/task_h21.py"
+  },
+  {
+    "id": "task_h22",
+    "difficulty": "hard",
+    "instruction": "The contact at Sequoia Capital is leaving the firm to become an independent advisor. Update their company to 'Independent Advisor', remove them from the Investors label, unstar them, and create a new label called 'Former Investors' to put them in.",
+    "verify": "real-tasks/task_h22.py"
+  },
+  {
+    "id": "task_h23",
+    "difficulty": "hard",
+    "instruction": "Remove every contact with a Japanese phone number (country code +81) from the Conference Contacts label.",
+    "verify": "real-tasks/task_h23.py"
+  },
+  {
+    "id": "task_h24",
+    "difficulty": "hard",
+    "instruction": "There are two contacts with the last name Petrova. Delete the one who works in the food delivery industry.",
+    "verify": "real-tasks/task_h24.py"
+  },
+  {
+    "id": "task_h25",
+    "difficulty": "hard",
+    "instruction": "Promote the TechCorp IT helpdesk from Other Contacts to the main contact list, then add the new contact to the Work label.",
+    "verify": "real-tasks/task_h25.py"
+  },
+  {
+    "id": "task_h26",
+    "difficulty": "hard",
+    "instruction": "Our personal email has changed from the old Gmail address to sarah.chen.new@protonmail.com. Update the account recovery email to the new address, remove the existing POP3 import for the old personal Gmail, and add a new POP3 import for sarah.chen.new@protonmail.com (server pop.protonmail.com, port 993, username sarah.chen.new, SSL on, leave copies on server, label as personal).",
+    "verify": "real-tasks/task_h26.py"
+  },
+  {
+    "id": "task_h27",
+    "difficulty": "hard",
+    "instruction": "Unstar all contacts in the Family label except the youngest family member based on their birthday.",
+    "verify": "real-tasks/task_h27.py"
+  },
+  {
+    "id": "task_h28",
+    "difficulty": "hard",
+    "instruction": "Find all TechCorp employees in the company directory who are NOT in the Engineering or Design departments and who don't already have a contact entry. Add each one as a new contact with their directory information and assign them to the Work label.",
+    "verify": "real-tasks/task_h28.py"
+  },
+  {
+    "id": "task_h29",
+    "difficulty": "hard",
+    "instruction": "Revoke all existing app passwords and generate three new ones: 'Work Laptop', 'Home Desktop', and 'Tablet'.",
+    "verify": "real-tasks/task_h29.py"
+  },
+  {
+    "id": "task_h30",
+    "difficulty": "hard",
+    "instruction": "There are two contacts with the last name Zhao who both work at ByteDance. Star the one who handles data privacy and add them to the VIP label. Remove the one who handles infrastructure from the Conference Contacts label.",
+    "verify": "real-tasks/task_h30.py"
+  },
+  {
+    "id": "task_h31",
+    "difficulty": "hard",
+    "instruction": "Create a new label called 'Key Contacts' and add every contact who is both starred and belongs to at least two other labels.",
+    "verify": "real-tasks/task_h31.py"
+  },
+  {
+    "id": "task_h32",
+    "difficulty": "hard",
+    "instruction": "Find the TechCorp contact who serves as CFO. Add a note to their contact saying 'Executive sponsor for Q2 initiative', star them, and add them to the Family label.",
+    "verify": "real-tasks/task_h32.py"
+  },
+  {
+    "id": "task_h33",
+    "difficulty": "hard",
+    "instruction": "Make the support@techcorp.io alias the default sending address, change the reply behavior to always use the same address messages were sent to, and add TechCorp's HR Business Partner from your contacts as a new delegate.",
+    "verify": "real-tasks/task_h33.py"
+  },
+  {
+    "id": "task_h34",
+    "difficulty": "hard",
+    "instruction": "Create a new label called 'Finance Network' and add all contacts from the Investors label to it. Then also add any contact whose job title contains CFO, Finance, or Banking to that label.",
+    "verify": "real-tasks/task_h34.py"
+  },
+  {
+    "id": "task_h35",
+    "difficulty": "hard",
+    "instruction": "Delete every email alias that uses an external SMTP server (i.e., one not hosted at techcorp.io), then set the reply behavior to always reply from the default address.",
+    "verify": "real-tasks/task_h35.py"
+  },
+  {
+    "id": "task_h36",
+    "difficulty": "hard",
+    "instruction": "Find the TechCorp HR Business Partner in your contacts. Update their job title to 'Head of People Operations', add them to the VIP label, and star them.",
+    "verify": "real-tasks/task_h36.py"
+  },
+  {
+    "id": "task_h37",
+    "difficulty": "hard",
+    "instruction": "Set up a new email alias for marketing@techcorp.io (name: TechCorp Marketing, SMTP server smtp.techcorp.io, port 587, username marketing@techcorp.io, SSL on). Make it the default sending address. Then look up the Marketing Director in the company directory and add them as a delegate.",
+    "verify": "real-tasks/task_h37.py"
+  },
+  {
+    "id": "task_h38",
+    "difficulty": "hard",
+    "instruction": "Remove all delegates who have active status and keep only the pending ones. Then add two new delegates: elaine.cho@techcorp.io (Elaine Cho) and brian.foster@techcorp.io (Brian Foster).",
+    "verify": "real-tasks/task_h38.py"
+  },
+  {
+    "id": "task_h39",
+    "difficulty": "hard",
+    "instruction": "Look up the company directory to find all TechCorp employees who report directly to the CEO. For each one who already has a contact in your address book, make sure they are in the VIP label and starred.",
+    "verify": "real-tasks/task_h39.py"
+  },
+  {
+    "id": "task_h40",
+    "difficulty": "hard",
+    "instruction": "Reorganize the Vendors label to keep only cloud infrastructure contacts: those who work at AWS, Cloudflare, Snowflake, Datadog, MongoDB, HashiCorp, or Elastic. Remove everyone else from the Vendors label and star all remaining vendor contacts.",
+    "verify": "real-tasks/task_h40.py"
+  }
+]

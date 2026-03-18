@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail — Accounts &amp; Contacts</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <header class="top-bar" id="topBar">
+        <div class="top-bar-left">
+            <div class="logo" data-testid="gmail-logo">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="#EA4335" d="M1 5.64L12 13.64L23 5.64V18.36C23 19.27 22.27 20 21.36 20H2.64C1.73 20 1 19.27 1 18.36V5.64Z"/>
+                    <path fill="#34A853" d="M23 5.64L12 13.64L1 5.64V5.64C1 4.34 2.34 3.55 3.45 4.27L12 10L20.55 4.27C21.66 3.55 23 4.34 23 5.64Z"/>
+                    <path fill="#4285F4" d="M23 5.64V8L12 16L1 8V5.64L12 13.64L23 5.64Z" opacity="0.8"/>
+                    <path fill="#FBBC04" d="M1 5.64L1 8L12 16L23 8V5.64L12 13.64L1 5.64Z" opacity="0.6"/>
+                </svg>
+                <span class="logo-text">Accounts &amp; Contacts</span>
+            </div>
+        </div>
+        <div class="top-bar-center">
+        </div>
+        <div class="top-bar-right">
+            <div class="user-avatar-top" id="userAvatarTop" data-testid="user-avatar">
+                <span id="userInitials">SC</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar" data-testid="sidebar">
+        <div class="sidebar-nav" id="sidebarNav">
+            <!-- Populated by JS -->
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent" data-testid="main-content">
+        <div class="content-wrapper" id="contentWrapper">
+            <!-- Populated by JS -->
+        </div>
+    </main>
+
+    <!-- Generic Modal -->
+    <div class="modal-overlay" id="modalOverlay" style="display:none">
+        <div class="modal" id="modalContainer">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <button class="modal-close" data-action="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer" id="modalFooter"></div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/views.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
