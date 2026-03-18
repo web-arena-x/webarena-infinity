@@ -36,24 +36,14 @@ def _is_rate_limit(exc: Exception) -> bool:
     return "429" in s or "resource_exhausted" in s or ("rate" in s and "limit" in s)
 
 
-def _retry_api_call(fn, *, max_retries: int = 5, base_delay: float = 10.0):
+async def _async_retry_api_call(fn, *, max_retries: int = 3, base_delay: float = 5.0):
     """Call *fn()* with exponential backoff on rate-limit errors.
 
-    Non-rate-limit exceptions are raised immediately.
+    *fn()* may be a sync callable (run in a thread) or return a coroutine.
+    Uses ``asyncio.sleep`` so that ``asyncio.wait_for`` can cancel retries.
+
+    Defaults: 3 retries with backoff 5 / 10 / 20 s (35 s worst-case).
     """
-    for attempt in range(max_retries + 1):
-        try:
-            return fn()
-        except Exception as e:
-            if _is_rate_limit(e) and attempt < max_retries:
-                delay = base_delay * (2 ** attempt)
-                time.sleep(delay)
-                continue
-            raise
-
-
-async def _async_retry_api_call(fn, *, max_retries: int = 5, base_delay: float = 10.0):
-    """Async version — *fn()* should return a coroutine or plain value."""
     for attempt in range(max_retries + 1):
         try:
             result = fn()
@@ -68,12 +58,16 @@ async def _async_retry_api_call(fn, *, max_retries: int = 5, base_delay: float =
             raise
 
 
-def _retry_step_api_call(fn, *, max_retries: int = 2, base_delay: float = 2.0):
+async def _async_retry_step_api_call(fn, *, max_retries: int = 1, base_delay: float = 3.0):
     """Retry *fn()* on ANY transient error, with short backoff.
 
     Wraps the outer API call for a single step.  Rate-limit errors are
-    already handled by the inner ``_retry_api_call``, so this catches
+    already handled by the inner ``_async_retry_api_call``, so this catches
     transient server errors (500, timeout, network blip).
+
+    Uses ``asyncio.sleep`` so that ``asyncio.wait_for`` can cancel retries.
+
+    Defaults: 1 retry after 3 s (single quick retry for network blips).
 
     Returns ``(result, None)`` on success, or ``(None, error_string)``
     after exhausting retries.
@@ -81,12 +75,15 @@ def _retry_step_api_call(fn, *, max_retries: int = 2, base_delay: float = 2.0):
     last_error = None
     for attempt in range(max_retries + 1):
         try:
-            return fn(), None
+            result = fn()
+            if asyncio.iscoroutine(result):
+                result = await result
+            return result, None
         except Exception as e:
             last_error = e
             if attempt < max_retries:
                 delay = base_delay * (2 ** attempt)
-                time.sleep(delay)
+                await asyncio.sleep(delay)
     return None, f"API error after {max_retries + 1} attempts: {last_error}"
 
 
@@ -435,7 +432,7 @@ class VisionAgentBase:
             self._prepare_step(step, screenshot)
 
             # --- LLM call with step-level retry ---
-            response, api_err = _retry_step_api_call(
+            response, api_err = await _async_retry_step_api_call(
                 lambda: self._call_llm_inner()
             )
             if api_err:
@@ -508,9 +505,9 @@ class VisionAgentBase:
         """Build / update messages for this turn."""
         raise NotImplementedError
 
-    def _call_llm_inner(self):
+    async def _call_llm_inner(self):
         """Make the LLM API call.  Should include rate-limit retry
-        (``_retry_api_call``).  Returns the raw API response object."""
+        (``_async_retry_api_call``).  Returns the raw API response object."""
         raise NotImplementedError
 
     def _parse_response(self, response) -> StepResult:
@@ -674,9 +671,10 @@ class GeminiComputerUseAgent(VisionAgentBase):
             ]
             self._contents.append(types.Content(role="user", parts=parts))
 
-    def _call_llm_inner(self):
+    async def _call_llm_inner(self):
         client = self._get_client()
-        return _retry_api_call(lambda: client.models.generate_content(
+        return await _async_retry_api_call(lambda: asyncio.to_thread(
+            client.models.generate_content,
             model=self.MODEL,
             contents=self._contents,
             config=self._gemini_config,
@@ -891,9 +889,10 @@ class ClaudeComputerUseAgent(VisionAgentBase):
             ]
             self._messages.append({"role": "user", "content": list(self._pending_tool_results)})
 
-    def _call_llm_inner(self):
+    async def _call_llm_inner(self):
         client = self._get_client()
-        return _retry_api_call(lambda: client.beta.messages.create(
+        return await _async_retry_api_call(lambda: asyncio.to_thread(
+            client.beta.messages.create,
             model=self.MODEL,
             max_tokens=4096,
             tools=self._claude_tools,
@@ -1032,12 +1031,13 @@ class KimiVisionAgent(VisionAgentBase):
 
     # -- API call ------------------------------------------------------------
 
-    def _call_api(self, messages: list[dict]) -> dict:
+    async def _call_api(self, messages: list[dict]) -> dict:
         client = self._get_client()
 
-        for attempt in range(5):
+        for attempt in range(3):
             try:
-                response = client.chat.completions.create(
+                response = await asyncio.to_thread(
+                    client.chat.completions.create,
                     model=self.MODEL,
                     messages=messages,
                     max_tokens=4096,
@@ -1051,17 +1051,17 @@ class KimiVisionAgent(VisionAgentBase):
                         "content": msg.content or "",
                         "reasoning_content": getattr(msg, "reasoning_content", "") or "",
                     }
-                if attempt < 4:
-                    time.sleep(5)
+                if attempt < 2:
+                    await asyncio.sleep(3)
                     continue
                 raise RuntimeError("Kimi API did not finish properly")
             except Exception as e:
-                if attempt < 4 and "timeout" in str(e).lower():
-                    time.sleep(5)
+                if attempt < 2 and "timeout" in str(e).lower():
+                    await asyncio.sleep(3)
                     continue
-                if attempt >= 4:
+                if attempt >= 2:
                     raise
-                time.sleep(5)
+                await asyncio.sleep(3)
 
         raise RuntimeError("Kimi API max retries exceeded")
 
@@ -1321,8 +1321,8 @@ class KimiVisionAgent(VisionAgentBase):
 
         self._current_messages = messages
 
-    def _call_llm_inner(self):
-        return _retry_api_call(lambda: self._call_api(self._current_messages))
+    async def _call_llm_inner(self):
+        return await _async_retry_api_call(lambda: self._call_api(self._current_messages))
 
     def _parse_response(self, response) -> StepResult:
         full_content = response.get("content", "").strip()
@@ -1680,9 +1680,10 @@ class Qwen35VLAgent(VisionAgentBase):
 
         self._current_messages = messages
 
-    def _call_llm_inner(self):
+    async def _call_llm_inner(self):
         client = self._get_client()
-        return _retry_api_call(lambda: client.chat.completions.create(
+        return await _async_retry_api_call(lambda: asyncio.to_thread(
+            client.chat.completions.create,
             model=self.MODEL,
             messages=self._current_messages,
             max_tokens=32768,

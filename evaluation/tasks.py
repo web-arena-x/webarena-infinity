@@ -9,7 +9,7 @@ import requests
 
 from agents import AgentResult
 
-TASK_TIMEOUT = 300  # seconds per task wall-clock limit
+TASK_TIMEOUT = 600  # seconds per task wall-clock limit
 
 
 def load_tasks(web_app_dir: str, task_suite: str = "real-tasks") -> list[dict]:
