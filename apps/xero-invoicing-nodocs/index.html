@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xero — Invoicing</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <header class="top-bar" id="topBar">
+        <div class="top-bar-left">
+            <div class="logo" data-testid="xero-logo">
+                <svg width="28" height="28" viewBox="0 0 28 28">
+                    <circle cx="14" cy="14" r="14" fill="#13B5EA"/>
+                    <path d="M8 8l4.5 5.5L8 19h2.5l3-3.7L16.5 19H19l-4.5-5.5L19 8h-2.5l-3 3.7L10.5 8H8z" fill="white"/>
+                </svg>
+                <span class="logo-text">Invoicing</span>
+            </div>
+        </div>
+        <div class="top-bar-center">
+            <span class="org-name" data-testid="org-name">Kiwi Consulting Ltd</span>
+        </div>
+        <div class="top-bar-right">
+            <div class="user-avatar-top" id="userAvatarTop" data-testid="user-avatar" style="background:#0078c8">
+                <span>KC</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar" data-testid="sidebar">
+        <div class="sidebar-nav" id="sidebarNav">
+            <!-- Populated by JS -->
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent" data-testid="main-content">
+        <div class="content-wrapper" id="contentWrapper">
+            <!-- Populated by JS -->
+        </div>
+    </main>
+
+    <!-- Generic Modal -->
+    <div class="modal-overlay" id="modalOverlay" style="display:none">
+        <div class="modal" id="modalContainer">
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <button class="modal-close" data-action="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer" id="modalFooter"></div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="js/data.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/views.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
