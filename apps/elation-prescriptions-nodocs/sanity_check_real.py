@@ -799,6 +799,154 @@ def solve_task_h40(state):
     deny_rr(state, "rr_011", "Changed therapy")
 
 
+# ── solve functions: HARDENING ROUND 2 ─────────────────────────────
+
+def solve_task_h41(state):
+    """NSAID allergy patient (David): beta blocker 100mg, statin qty 90."""
+    state["currentPatientId"] = "pat_002"
+    modify_rx(state, "rx_016", {"dosage": "100mg"})
+    modify_rx(state, "rx_017", {"quantity": 90})
+
+
+def solve_task_h42(state):
+    """Margaret's two prior-auth rxs: hold specialty (Semaglutide), renew other (Apixaban) with 3."""
+    hold_rx(state, "rx_030", "Prior auth review")
+    renew_rx(state, "rx_014", 3)
+
+
+def solve_task_h43(state):
+    """Process Margaret's pending refills: approve urgent (rr_003), deny routine (rr_001, rr_002, rr_011)."""
+    approve_rr(state, "rr_003")
+    deny_rr(state, "rr_001", "Need appointment - overdue for follow-up")
+    deny_rr(state, "rr_002", "Need appointment - overdue for follow-up")
+    deny_rr(state, "rr_011", "Need appointment - overdue for follow-up")
+
+
+def solve_task_h44(state):
+    """William: approve urgent refill (rr_010), modify-approve routine (rr_007)."""
+    state["currentPatientId"] = "pat_004"
+    approve_rr(state, "rr_010")
+    modify_approve_rr(state, "rr_007", "Dose increase to 320mg per cardiology")
+
+
+def solve_task_h45(state):
+    """NKDA patient (Aisha): Escitalopram dosage to 10mg, quantity to 60."""
+    state["currentPatientId"] = "pat_003"
+    modify_rx(state, "rx_021", {"dosage": "10mg", "quantity": 60})
+
+
+def solve_task_h46(state):
+    """Margaret's DAW rx (Levothyroxine): quantity 90, days supply 90."""
+    modify_rx(state, "rx_004", {"quantity": 90, "daysSupply": 90})
+
+
+def solve_task_h47(state):
+    """Erythromycin allergy patient (Jessica): discontinue antibiotic, increase SSRI to 40mg."""
+    state["currentPatientId"] = "pat_005"
+    discontinue_rx(state, "rx_025", "Course completed")
+    modify_rx(state, "rx_026", {"dosage": "40mg"})
+
+
+def solve_task_h48(state):
+    """Robert: hold both cardiologist-prescribed meds (Carvedilol, Spironolactone)."""
+    state["currentPatientId"] = "pat_006"
+    hold_rx(state, "rx_028", "Admitted for cardiac monitoring")
+    hold_rx(state, "rx_029", "Admitted for cardiac monitoring")
+
+
+def solve_task_h49(state):
+    """Discontinue Dr. Reyes's rx (Gabapentin), renew Dr. Okafor's (Levothyroxine) with 11."""
+    discontinue_rx(state, "rx_007", "Adverse effects")
+    renew_rx(state, "rx_004", 11)
+
+
+def solve_task_h50(state):
+    """Remove antibiotics from favorites, add Duloxetine+Pregabalin, Amazon Pharmacy, disable eRx."""
+    favs = state["settings"]["favoritesDrugIds"]
+    if "drug_025" in favs:
+        favs.remove("drug_025")
+    if "drug_028" in favs:
+        favs.remove("drug_028")
+    if "drug_035" not in favs:
+        favs.append("drug_035")
+    if "drug_037" not in favs:
+        favs.append("drug_037")
+    state["settings"]["defaultPharmacy"] = "pharm_013"
+    state["settings"]["eRxEnabled"] = False
+
+
+def solve_task_h51(state):
+    """David's Metoprolol to twice daily, William's Valsartan qty to 60."""
+    modify_rx(state, "rx_016", {"frequency": "Twice daily"})
+    modify_rx(state, "rx_022", {"quantity": 60})
+
+
+def solve_task_h52(state):
+    """Margaret: resume HCTZ, cancel Albuterol, Metformin to once daily qty 30."""
+    resume_rx(state, "rx_012")
+    cancel_rx(state, "rx_006")
+    modify_rx(state, "rx_003", {"frequency": "Once daily", "quantity": 30})
+
+
+def solve_task_h53(state):
+    """Two Atorvastatin patients: renew lower-dose (Margaret 20mg) with 5, higher-dose (David 40mg) qty 90."""
+    renew_rx(state, "rx_001", 5)
+    modify_rx(state, "rx_017", {"quantity": 90})
+
+
+def solve_task_h54(state):
+    """Robert: diabetes med (Empagliflozin) 25mg, beta blocker (Carvedilol) once daily, diuretic (Spironolactone) qty 60."""
+    state["currentPatientId"] = "pat_006"
+    modify_rx(state, "rx_027", {"dosage": "25mg"})
+    modify_rx(state, "rx_028", {"frequency": "Once daily"})
+    modify_rx(state, "rx_029", {"quantity": 60})
+
+
+def solve_task_h55(state):
+    """Hold Gabapentin + nasal spray, approve Atorvastatin refill."""
+    hold_rx(state, "rx_007", "Placed on hold")
+    hold_rx(state, "rx_008", "Placed on hold")
+    approve_rr(state, "rr_001")
+
+
+def solve_task_h56(state):
+    """Settings: brand first, 5 refills, no sig. Switch to Jessica, renew Fluoxetine with 5."""
+    state["settings"]["showGenericFirst"] = False
+    state["settings"]["defaultRefills"] = 5
+    state["settings"]["signatureRequired"] = False
+    state["currentPatientId"] = "pat_005"
+    renew_rx(state, "rx_026", 5)
+
+
+def solve_task_h57(state):
+    """Margaret: SSRI (Sertraline) freq twice daily, blood thinner (Apixaban) qty 90, deny Sertraline refill."""
+    modify_rx(state, "rx_013", {"frequency": "Twice daily"})
+    modify_rx(state, "rx_014", {"quantity": 90})
+    deny_rr(state, "rr_011", "Changed therapy")
+
+
+def solve_task_h58(state):
+    """Latex allergy patient (William): renew Valsartan 5, insulin 30 units, Furosemide qty 60."""
+    state["currentPatientId"] = "pat_004"
+    renew_rx(state, "rx_022", 5)
+    modify_rx(state, "rx_023", {"dosage": "30 units"})
+    modify_rx(state, "rx_024", {"quantity": 60})
+
+
+def solve_task_h59(state):
+    """Margaret's Pantoprazole: deny urgent refill, hold prescription."""
+    deny_rr(state, "rr_003", "Pending GI consult")
+    hold_rx(state, "rx_005", "Pending GI consult")
+
+
+def solve_task_h60(state):
+    """Deny Margaret's Metformin refill, hold David's Metformin, increase Robert's Jardiance to 25mg."""
+    deny_rr(state, "rr_002", "Need lab work before renewal")
+    hold_rx(state, "rx_019", "Pending lab results")
+    state["currentPatientId"] = "pat_006"
+    modify_rx(state, "rx_027", {"dosage": "25mg"})
+
+
 SOLVERS = {
     "task_e1": solve_task_e1, "task_e2": solve_task_e2, "task_e3": solve_task_e3,
     "task_e4": solve_task_e4, "task_e5": solve_task_e5, "task_e6": solve_task_e6,
@@ -828,6 +976,13 @@ SOLVERS = {
     "task_h33": solve_task_h33, "task_h34": solve_task_h34, "task_h35": solve_task_h35,
     "task_h36": solve_task_h36, "task_h37": solve_task_h37, "task_h38": solve_task_h38,
     "task_h39": solve_task_h39, "task_h40": solve_task_h40,
+    "task_h41": solve_task_h41, "task_h42": solve_task_h42, "task_h43": solve_task_h43,
+    "task_h44": solve_task_h44, "task_h45": solve_task_h45, "task_h46": solve_task_h46,
+    "task_h47": solve_task_h47, "task_h48": solve_task_h48, "task_h49": solve_task_h49,
+    "task_h50": solve_task_h50, "task_h51": solve_task_h51, "task_h52": solve_task_h52,
+    "task_h53": solve_task_h53, "task_h54": solve_task_h54, "task_h55": solve_task_h55,
+    "task_h56": solve_task_h56, "task_h57": solve_task_h57, "task_h58": solve_task_h58,
+    "task_h59": solve_task_h59, "task_h60": solve_task_h60,
 }
 
 
