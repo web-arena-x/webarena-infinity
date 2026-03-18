@@ -1680,21 +1680,45 @@ class Qwen35VLAgent(VisionAgentBase):
 
         self._current_messages = messages
 
-    async def _call_llm_inner(self):
+    async def _call_api(self, messages: list[dict]) -> dict:
         client = self._get_client()
-        return await _async_retry_api_call(lambda: asyncio.to_thread(
-            client.chat.completions.create,
-            model=self.MODEL,
-            messages=self._current_messages,
-            max_tokens=32768,
-            top_p=0.9,
-            temperature=0.0,
-        ))
+
+        for attempt in range(3):
+            try:
+                response = await asyncio.to_thread(
+                    client.chat.completions.create,
+                    model=self.MODEL,
+                    messages=messages,
+                    max_tokens=32768,
+                    top_p=0.9,
+                    temperature=0.0,
+                )
+                choice = response.choices[0]
+                if choice.finish_reason == "stop":
+                    msg = choice.message
+                    return {
+                        "content": msg.content or "",
+                    }
+                if attempt < 2:
+                    await asyncio.sleep(3)
+                    continue
+                raise RuntimeError("Qwen API did not finish properly")
+            except Exception as e:
+                if attempt < 2 and "timeout" in str(e).lower():
+                    await asyncio.sleep(3)
+                    continue
+                if attempt >= 2:
+                    raise
+                await asyncio.sleep(3)
+
+        raise RuntimeError("Qwen API max retries exceeded")
+
+    async def _call_llm_inner(self):
+        return await _async_retry_api_call(lambda: self._call_api(self._current_messages))
 
     def _parse_response(self, response) -> StepResult:
         # Extract text content from response
-        choice = response.choices[0]
-        content = choice.message.content or ""
+        content = response.get("content", "")
         if isinstance(content, list):
             content = "".join(
                 p.get("text", "") if isinstance(p, dict) else getattr(p, "text", "")
