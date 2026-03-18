@@ -19,7 +19,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 APP_DIR = os.path.dirname(os.path.abspath(__file__))
 TASKS_FILE = os.path.join(APP_DIR, "real-tasks.json")
-NUM_TASKS = 80
+NUM_TASKS = 100
 
 
 # ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -1061,10 +1061,323 @@ def solve_task_h40(state):
             issue["labelIds"].append(11)
 
 
+# ─── Solver Functions — Hard (Hardening Round 2) ────────────────────────────
+
+def solve_task_h41(state):
+    """Create milestone 'Emergency Fixes', move Sprint 6 critical issues into it."""
+    nid = get_next_id(state, "milestones")
+    state["milestones"].append({
+        "id": nid,
+        "title": "Emergency Fixes",
+        "description": "",
+        "startDate": None,
+        "dueDate": "2026-04-15",
+        "status": "active",
+    })
+    for issue_id in [11, 33, 41]:
+        issue = find_issue(state, issue_id)
+        issue["milestoneId"] = nid
+
+
+def solve_task_h42(state):
+    """Create 'Backlog Bug Sweep' epic with bug+frontend Backlog children, close them."""
+    children = [i["id"] for i in state["issues"]
+                if i["status"] == "open" and i["milestoneId"] == 6
+                and 1 in i["labelIds"] and 8 in i["labelIds"]]
+    nid = get_next_id(state, "epics")
+    state["epics"].append({
+        "id": nid,
+        "title": "Backlog Bug Sweep",
+        "description": "",
+        "status": "open",
+        "startDate": None,
+        "dueDate": None,
+        "labels": [1],
+        "authorId": state["currentUserId"],
+        "confidential": False,
+        "childIssueIds": children,
+        "childEpicIds": [],
+        "createdAt": "2026-03-18T00:00:00Z",
+        "updatedAt": "2026-03-18T00:00:00Z",
+    })
+    for issue_id in children:
+        issue = find_issue(state, issue_id)
+        issue["status"] = "closed"
+        issue["closedAt"] = "2026-03-18T00:00:00Z"
+
+
+def solve_task_h43(state):
+    """Blocks from #77 to #102 (shared author quick-action issues), both priority::high."""
+    issue77 = find_issue(state, 77)
+    issue102 = find_issue(state, 102)
+    if not any(r["issueId"] == 102 for r in issue77["relatedIssues"]):
+        issue77["relatedIssues"].append({"issueId": 102, "type": "blocks"})
+    if not any(r["issueId"] == 77 for r in issue102["relatedIssues"]):
+        issue102["relatedIssues"].append({"issueId": 77, "type": "is_blocked_by"})
+    # #77: priority low (14) → high (12)
+    issue77["labelIds"] = [l for l in issue77["labelIds"] if l not in (11, 13, 14)]
+    if 12 not in issue77["labelIds"]:
+        issue77["labelIds"].append(12)
+    # #102: priority medium (13) → high (12)
+    issue102["labelIds"] = [l for l in issue102["labelIds"] if l not in (11, 13, 14)]
+    if 12 not in issue102["labelIds"]:
+        issue102["labelIds"].append(12)
+
+
+def solve_task_h44(state):
+    """Remove closed children from Accessibility epic; medium→high for #22, #55."""
+    epic = find_epic_containing(state, "Accessibility Compliance")
+    epic["childIssueIds"] = [i for i in epic["childIssueIds"] if i not in (24, 56)]
+    for issue_id in [22, 55]:
+        issue = find_issue(state, issue_id)
+        issue["labelIds"] = [l for l in issue["labelIds"] if l != 13]
+        if 12 not in issue["labelIds"]:
+            issue["labelIds"].append(12)
+
+
+def solve_task_h45(state):
+    """Create 'needs-triage' label, add board list, apply to #41 and #35."""
+    nid = get_next_id(state, "labels")
+    state["labels"].append({
+        "id": nid,
+        "name": "needs-triage",
+        "description": "",
+        "color": "#9b59b6",
+        "textColor": "#fff",
+        "scoped": False,
+    })
+    board = find_board(state, "Development Board")
+    closed_idx = next((i for i, l in enumerate(board["lists"]) if l["type"] == "closed"), len(board["lists"]))
+    list_id = get_next_id(state, "boardLists")
+    board["lists"].insert(closed_idx, {
+        "id": list_id,
+        "type": "label",
+        "title": "needs-triage",
+        "position": closed_idx,
+        "labelId": nid,
+    })
+    for i, lst in enumerate(board["lists"]):
+        lst["position"] = i
+    for issue_id in [41, 35]:
+        issue = find_issue(state, issue_id)
+        if nid not in issue["labelIds"]:
+            issue["labelIds"].append(nid)
+
+
+def solve_task_h46(state):
+    """Create 'Document session management best practices' issue referencing #4."""
+    nid = get_next_id(state, "issues")
+    state["issues"].append({
+        "id": nid,
+        "title": "Document session management best practices",
+        "description": "",
+        "type": "issue",
+        "status": "open",
+        "authorId": state["currentUserId"],
+        "assigneeIds": [4],       # Jun Nakamura (same as #4)
+        "labelIds": [3],          # documentation
+        "milestoneId": 3,         # v2.0 (same as #4)
+        "iterationId": None,
+        "weight": None,
+        "dueDate": None,
+        "confidential": False,
+        "timeEstimate": 0,
+        "timeSpent": 0,
+        "createdAt": "2026-03-18T00:00:00Z",
+        "updatedAt": "2026-03-18T00:00:00Z",
+        "closedAt": None,
+        "relatedIssues": [{"issueId": 4, "type": "related_to"}],
+    })
+    issue4 = find_issue(state, 4)
+    if not any(r["issueId"] == nid for r in issue4["relatedIssues"]):
+        issue4["relatedIssues"].append({"issueId": nid, "type": "related_to"})
+
+
+def solve_task_h47(state):
+    """Close Priya's performance issues with weight>=8 (#11,#12,#49), log 8h each."""
+    for issue_id in [11, 12, 49]:
+        issue = find_issue(state, issue_id)
+        issue["status"] = "closed"
+        issue["closedAt"] = "2026-03-18T00:00:00Z"
+        issue["timeSpent"] = issue["timeSpent"] + 28800
+
+
+def solve_task_h48(state):
+    """Find blocker of #2 (#1), log 20h, change priority high→critical."""
+    issue1 = find_issue(state, 1)
+    issue1["timeSpent"] = issue1["timeSpent"] + 72000
+    issue1["labelIds"] = [l for l in issue1["labelIds"] if l != 12]
+    if 11 not in issue1["labelIds"]:
+        issue1["labelIds"].append(11)
+
+
+def solve_task_h49(state):
+    """Update Backlog description, close issues with weight ≤ 1."""
+    backlog = find_milestone(state, "Backlog")
+    backlog["description"] = "Deferred work \u2014 not scheduled for active development"
+    for issue_id in [72, 120, 127, 129]:
+        issue = find_issue(state, issue_id)
+        issue["status"] = "closed"
+        issue["closedAt"] = "2026-03-18T00:00:00Z"
+
+
+def solve_task_h50(state):
+    """Create 'release-blocker' label + 'v2.0.1 — Hotfix' milestone, apply to #33/#41."""
+    label_id = get_next_id(state, "labels")
+    state["labels"].append({
+        "id": label_id,
+        "name": "release-blocker",
+        "description": "",
+        "color": "#cc0000",
+        "textColor": "#fff",
+        "scoped": False,
+    })
+    ms_id = get_next_id(state, "milestones")
+    state["milestones"].append({
+        "id": ms_id,
+        "title": "v2.0.1 \u2014 Hotfix",
+        "description": "",
+        "startDate": None,
+        "dueDate": "2026-04-10",
+        "status": "active",
+    })
+    for issue_id in [33, 41]:
+        issue = find_issue(state, issue_id)
+        if label_id not in issue["labelIds"]:
+            issue["labelIds"].append(label_id)
+        issue["milestoneId"] = ms_id
+
+
+def solve_task_h51(state):
+    """Emily's bugs without iteration → Design Cycle 5, priority medium."""
+    for issue_id in [37, 67, 72, 110, 120]:
+        issue = find_issue(state, issue_id)
+        issue["iterationId"] = 13  # Design Cycle 5
+        issue["labelIds"] = [l for l in issue["labelIds"] if l not in (11, 12, 14)]
+        if 13 not in issue["labelIds"]:
+            issue["labelIds"].append(13)
+
+
+def solve_task_h52(state):
+    """Move CI/CD high-priority children (#19,#21,#53) to Search epic, Sprint 7."""
+    moved = [19, 21, 53]
+    cicd = find_epic_containing(state, "CI/CD Pipeline")
+    cicd["childIssueIds"] = [i for i in cicd["childIssueIds"] if i not in moved]
+    search = find_epic_containing(state, "Search Infrastructure")
+    for iid in moved:
+        if iid not in search["childIssueIds"]:
+            search["childIssueIds"].append(iid)
+    for iid in moved:
+        issue = find_issue(state, iid)
+        issue["iterationId"] = 7
+
+
+def solve_task_h53(state):
+    """Close Backlog milestone, move feature+backend issues to v2.1."""
+    backlog = find_milestone(state, "Backlog")
+    backlog["status"] = "closed"
+    for issue_id in [68, 105, 112]:
+        issue = find_issue(state, issue_id)
+        issue["milestoneId"] = 4
+
+
+def solve_task_h54(state):
+    """Set weight 13 for v2.0 critical issues (#11,#33,#41) — discovered via #12's relation."""
+    for issue_id in [11, 33, 41]:
+        issue = find_issue(state, issue_id)
+        issue["weight"] = 13
+
+
+def solve_task_h55(state):
+    """Log 8h time spent on Tom's v2.1 issues."""
+    for issue_id in [19, 20, 21, 42, 50, 53]:
+        issue = find_issue(state, issue_id)
+        issue["timeSpent"] = issue["timeSpent"] + 28800
+
+
+def solve_task_h56(state):
+    """Swap tech-debt→performance on devops+tech-debt issues (#42,#54), weight=8."""
+    for issue_id in [42, 54]:
+        issue = find_issue(state, issue_id)
+        issue["labelIds"] = [l for l in issue["labelIds"] if l != 10]
+        if 4 not in issue["labelIds"]:
+            issue["labelIds"].append(4)
+        issue["weight"] = 8
+
+
+def solve_task_h57(state):
+    """#46: non-confidential, milestone→v2.0, assign David Kim, blocks #2."""
+    issue46 = find_issue(state, 46)
+    issue46["confidential"] = False
+    issue46["milestoneId"] = 3
+    if 11 not in issue46["assigneeIds"]:
+        issue46["assigneeIds"].append(11)
+    if not any(r["issueId"] == 2 for r in issue46["relatedIssues"]):
+        issue46["relatedIssues"].append({"issueId": 2, "type": "blocks"})
+    issue2 = find_issue(state, 2)
+    if not any(r["issueId"] == 46 for r in issue2["relatedIssues"]):
+        issue2["relatedIssues"].append({"issueId": 46, "type": "is_blocked_by"})
+
+
+def solve_task_h58(state):
+    """Close API v3 Migration epic + children, remove breaking-change labels."""
+    epic = find_epic(state, "API v3 Migration")
+    epic["status"] = "closed"
+    for issue_id in [7, 8, 9, 10, 47, 48]:
+        issue = find_issue(state, issue_id)
+        issue["status"] = "closed"
+        issue["closedAt"] = "2026-03-18T00:00:00Z"
+        issue["labelIds"] = [l for l in issue["labelIds"] if l != 20]
+
+
+def solve_task_h59(state):
+    """Relationship chain #22→#55→#23, all priority::high."""
+    issue22 = find_issue(state, 22)
+    issue55 = find_issue(state, 55)
+    issue23 = find_issue(state, 23)
+    # #22 blocks #55
+    if not any(r["issueId"] == 55 for r in issue22["relatedIssues"]):
+        issue22["relatedIssues"].append({"issueId": 55, "type": "blocks"})
+    if not any(r["issueId"] == 22 for r in issue55["relatedIssues"]):
+        issue55["relatedIssues"].append({"issueId": 22, "type": "is_blocked_by"})
+    # #55 blocks #23
+    if not any(r["issueId"] == 23 for r in issue55["relatedIssues"]):
+        issue55["relatedIssues"].append({"issueId": 23, "type": "blocks"})
+    if not any(r["issueId"] == 55 for r in issue23["relatedIssues"]):
+        issue23["relatedIssues"].append({"issueId": 55, "type": "is_blocked_by"})
+    # All three → priority::high (12)
+    for issue in [issue22, issue55, issue23]:
+        issue["labelIds"] = [l for l in issue["labelIds"] if l not in (11, 13, 14)]
+        if 12 not in issue["labelIds"]:
+            issue["labelIds"].append(12)
+
+
+def solve_task_h60(state):
+    """Remove #48 from API v3 epic, create 'API Documentation' epic with #43 and #48."""
+    api_epic = find_epic(state, "API v3 Migration")
+    api_epic["childIssueIds"] = [i for i in api_epic["childIssueIds"] if i != 48]
+    nid = get_next_id(state, "epics")
+    state["epics"].append({
+        "id": nid,
+        "title": "API Documentation",
+        "description": "",
+        "status": "open",
+        "startDate": None,
+        "dueDate": None,
+        "labels": [3],  # documentation
+        "authorId": state["currentUserId"],
+        "confidential": False,
+        "childIssueIds": [43, 48],
+        "childEpicIds": [],
+        "createdAt": "2026-03-18T00:00:00Z",
+        "updatedAt": "2026-03-18T00:00:00Z",
+    })
+
+
 # ─── Solver Registry ──────────────────────────────────────────────────────────
 
 SOLVERS = {}
-for _difficulty, _prefix, _count in [("easy", "e", 20), ("medium", "m", 20), ("hard", "h", 40)]:
+for _difficulty, _prefix, _count in [("easy", "e", 20), ("medium", "m", 20), ("hard", "h", 60)]:
     for _i in range(1, _count + 1):
         _task_id = f"task_{_prefix}{_i}"
         _fn_name = f"solve_task_{_prefix}{_i}"
