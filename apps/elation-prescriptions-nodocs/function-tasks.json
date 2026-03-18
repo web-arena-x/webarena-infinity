@@ -1,0 +1,277 @@
+[
+  {
+    "id": "task_1",
+    "instruction": "Prescribe Ibuprofen (Motrin) 400mg Tablet for the current patient Margaret Chen. Set frequency to 'Twice daily', route to 'Oral', quantity to 60, days supply to 30, refills to 2. Use the sig 'Take 1 tablet by mouth every 6-8 hours as needed with food'. Send to CVS Pharmacy #4521.",
+    "verify": "function-tasks/task_1.py"
+  },
+  {
+    "id": "task_2",
+    "instruction": "Prescribe Omeprazole (Prilosec) 20mg Capsule, Delayed Release for Margaret Chen. Set frequency to 'Once daily', route to 'Oral', quantity to 30, days supply to 30, 0 refills. Sig: 'Take 1 capsule by mouth once daily before breakfast'. Enable Dispense As Written (DAW). Send to CVS Pharmacy #4521.",
+    "verify": "function-tasks/task_2.py"
+  },
+  {
+    "id": "task_3",
+    "instruction": "Prescribe Rosuvastatin (Crestor) 10mg Tablet for Margaret Chen. Set frequency to 'Once daily', route to 'Oral', quantity to 30, days supply to 30, 2 refills. Sig: 'Take 1 tablet by mouth once daily'. Enable prior authorization and enter PA number 'PA-2026-99999'. Send to CVS Pharmacy #4521.",
+    "verify": "function-tasks/task_3.py"
+  },
+  {
+    "id": "task_4",
+    "instruction": "Prescribe Montelukast (Singulair) 10mg Tablet for Margaret Chen. Set frequency to 'Once daily', route to 'Oral', quantity to 30, days supply to 30, 5 refills. Sig: 'Take 1 tablet by mouth once daily in the evening'. Send to Alto Pharmacy (mail-order).",
+    "verify": "function-tasks/task_4.py"
+  },
+  {
+    "id": "task_5",
+    "instruction": "Switch to patient David Kowalski using the patient selector, then prescribe Cephalexin (Keflex) 500mg Capsule. Set frequency to 'Four times daily', route to 'Oral', quantity to 28, days supply to 7, 0 refills. Sig: 'Take 1 capsule by mouth four times daily for 7 days'. Send to Rite Aid #5612.",
+    "verify": "function-tasks/task_5.py"
+  },
+  {
+    "id": "task_6",
+    "instruction": "Prescribe Dulaglutide (Trulicity) 1.5mg/0.5mL Solution for Injection for Margaret Chen. Set frequency to 'Once weekly', route to 'Subcutaneous', quantity to 4, days supply to 28, 2 refills. Sig: 'Inject 1.5mg subcutaneously once weekly'. Send to BioPlus Specialty Pharmacy.",
+    "verify": "function-tasks/task_6.py"
+  },
+  {
+    "id": "task_7",
+    "instruction": "Prescribe Diltiazem (Cardizem) 120mg Capsule, Extended Release for Margaret Chen. Set frequency to 'Once daily', route to 'Oral', quantity to 30, days supply to 30, 5 refills. Sig: 'Take 1 capsule by mouth once daily'. Send to CVS Pharmacy #4521.",
+    "verify": "function-tasks/task_7.py"
+  },
+  {
+    "id": "task_8",
+    "instruction": "Prescribe Pregabalin (Lyrica) 75mg Capsule for Margaret Chen. Set frequency to 'Twice daily', route to 'Oral', quantity to 60, days supply to 30, 1 refill. Sig: 'Take 1 capsule by mouth twice daily'. Send to CVS Pharmacy #4521.",
+    "verify": "function-tasks/task_8.py"
+  },
+  {
+    "id": "task_9",
+    "instruction": "Discontinue Margaret Chen's Pantoprazole (Protonix) 40mg Tablet, Delayed Release prescription with the reason 'No longer clinically indicated'.",
+    "verify": "function-tasks/task_9.py"
+  },
+  {
+    "id": "task_10",
+    "instruction": "Place Margaret Chen's Amlodipine (Norvasc) 5mg Tablet prescription on hold with the reason 'Hypotension noted, monitoring BP'.",
+    "verify": "function-tasks/task_10.py"
+  },
+  {
+    "id": "task_11",
+    "instruction": "Resume Margaret Chen's Hydrochlorothiazide 25mg Tablet prescription that is currently on hold.",
+    "verify": "function-tasks/task_11.py"
+  },
+  {
+    "id": "task_12",
+    "instruction": "Cancel Margaret Chen's Albuterol (Ventolin HFA) inhaler prescription.",
+    "verify": "function-tasks/task_12.py"
+  },
+  {
+    "id": "task_13",
+    "instruction": "Renew Margaret Chen's Atorvastatin (Lipitor) 20mg Tablet prescription with 5 refills.",
+    "verify": "function-tasks/task_13.py"
+  },
+  {
+    "id": "task_14",
+    "instruction": "Renew Margaret Chen's Gabapentin (Neurontin) 300mg Capsule prescription with 3 refills.",
+    "verify": "function-tasks/task_14.py"
+  },
+  {
+    "id": "task_15",
+    "instruction": "Discontinue Margaret Chen's Sertraline (Zoloft) 50mg Tablet prescription with the reason 'Patient request - tapering off'.",
+    "verify": "function-tasks/task_15.py"
+  },
+  {
+    "id": "task_16",
+    "instruction": "Place Margaret Chen's Levothyroxine (Synthroid) 75mcg Tablet prescription on hold with the reason 'Pending TSH results'.",
+    "verify": "function-tasks/task_16.py"
+  },
+  {
+    "id": "task_17",
+    "instruction": "Cancel Margaret Chen's Lisinopril 10mg Tablet prescription.",
+    "verify": "function-tasks/task_17.py"
+  },
+  {
+    "id": "task_18",
+    "instruction": "Switch to patient William Thornton, then discontinue his Furosemide (Lasix) 40mg Tablet prescription with the reason 'Resolved peripheral edema'.",
+    "verify": "function-tasks/task_18.py"
+  },
+  {
+    "id": "task_19",
+    "instruction": "Modify Margaret Chen's Atorvastatin (Lipitor) prescription: change the dosage to '40mg'.",
+    "verify": "function-tasks/task_19.py"
+  },
+  {
+    "id": "task_20",
+    "instruction": "Modify Margaret Chen's Gabapentin (Neurontin) 300mg prescription: change the frequency to 'Twice daily'.",
+    "verify": "function-tasks/task_20.py"
+  },
+  {
+    "id": "task_21",
+    "instruction": "Modify Margaret Chen's Metformin (Glucophage) 1000mg prescription: change the directions (sig) to 'Take 1 tablet by mouth twice daily with meals'.",
+    "verify": "function-tasks/task_21.py"
+  },
+  {
+    "id": "task_22",
+    "instruction": "Modify Margaret Chen's Amlodipine (Norvasc) 5mg prescription: change the quantity to 90.",
+    "verify": "function-tasks/task_22.py"
+  },
+  {
+    "id": "task_23",
+    "instruction": "Modify Margaret Chen's Sertraline (Zoloft) 50mg prescription: change the dosage to '100mg'.",
+    "verify": "function-tasks/task_23.py"
+  },
+  {
+    "id": "task_24",
+    "instruction": "Switch to patient Robert Fitzgerald, then modify his Carvedilol (Coreg) 12.5mg prescription: change the dosage to '25mg'.",
+    "verify": "function-tasks/task_24.py"
+  },
+  {
+    "id": "task_25",
+    "instruction": "Approve the pending refill request for Margaret Chen's Atorvastatin 20mg Tablet from CVS Pharmacy #4521.",
+    "verify": "function-tasks/task_25.py"
+  },
+  {
+    "id": "task_26",
+    "instruction": "Deny the pending refill request for Margaret Chen's Metformin 1000mg Tablet from CVS Pharmacy #4521. Select the deny reason 'Need lab work before renewal'.",
+    "verify": "function-tasks/task_26.py"
+  },
+  {
+    "id": "task_27",
+    "instruction": "Modify and approve the pending urgent refill request for Margaret Chen's Pantoprazole 40mg Tablet. Enter the modification details: 'Changed to 20mg from 40mg per clinical review'.",
+    "verify": "function-tasks/task_27.py"
+  },
+  {
+    "id": "task_28",
+    "instruction": "Approve the pending refill request for David Kowalski's Metoprolol Succinate ER 50mg Tablet from Rite Aid #5612.",
+    "verify": "function-tasks/task_28.py"
+  },
+  {
+    "id": "task_29",
+    "instruction": "Deny the pending refill request for William Thornton's Valsartan 160mg Tablet from Kaiser Permanente Pharmacy. Select the deny reason 'Need appointment - overdue for follow-up'.",
+    "verify": "function-tasks/task_29.py"
+  },
+  {
+    "id": "task_30",
+    "instruction": "Approve the pending urgent refill request for William Thornton's Furosemide 40mg Tablet from Kaiser Permanente Pharmacy.",
+    "verify": "function-tasks/task_30.py"
+  },
+  {
+    "id": "task_31",
+    "instruction": "Deny the pending refill request for Margaret Chen's Sertraline 50mg Tablet from CVS Pharmacy #4521. Select the deny reason 'Changed therapy'.",
+    "verify": "function-tasks/task_31.py"
+  },
+  {
+    "id": "task_32",
+    "instruction": "Switch the current patient to David Kowalski using the patient selector in the top bar.",
+    "verify": "function-tasks/task_32.py"
+  },
+  {
+    "id": "task_33",
+    "instruction": "Switch the current patient to William Thornton using the patient selector in the top bar.",
+    "verify": "function-tasks/task_33.py"
+  },
+  {
+    "id": "task_34",
+    "instruction": "Switch the current patient to Aisha Rahman using the patient selector in the top bar.",
+    "verify": "function-tasks/task_34.py"
+  },
+  {
+    "id": "task_35",
+    "instruction": "Navigate to Settings and change the default pharmacy to 'Walgreens #7893', then save the settings.",
+    "verify": "function-tasks/task_35.py"
+  },
+  {
+    "id": "task_36",
+    "instruction": "Navigate to Settings and change the default days supply to 90, then save the settings.",
+    "verify": "function-tasks/task_36.py"
+  },
+  {
+    "id": "task_37",
+    "instruction": "Navigate to Settings and change the default refills to 3, then save the settings.",
+    "verify": "function-tasks/task_37.py"
+  },
+  {
+    "id": "task_38",
+    "instruction": "Navigate to Settings, disable the 'Enable E-Prescribing' toggle, then save the settings.",
+    "verify": "function-tasks/task_38.py"
+  },
+  {
+    "id": "task_39",
+    "instruction": "Navigate to Settings, disable the 'Auto-Check Drug Interactions' toggle, then save the settings.",
+    "verify": "function-tasks/task_39.py"
+  },
+  {
+    "id": "task_40",
+    "instruction": "Navigate to Settings, disable the 'Require Allergy Review' toggle, then save the settings.",
+    "verify": "function-tasks/task_40.py"
+  },
+  {
+    "id": "task_41",
+    "instruction": "Navigate to Settings, disable the 'Require Signature' toggle, then save the settings.",
+    "verify": "function-tasks/task_41.py"
+  },
+  {
+    "id": "task_42",
+    "instruction": "Navigate to Settings and change the print format to 'detailed', then save the settings.",
+    "verify": "function-tasks/task_42.py"
+  },
+  {
+    "id": "task_43",
+    "instruction": "Navigate to Settings and change the print format to 'compact', then save the settings.",
+    "verify": "function-tasks/task_43.py"
+  },
+  {
+    "id": "task_44",
+    "instruction": "Navigate to Settings, disable the 'Show Generic Name First' toggle, then save the settings.",
+    "verify": "function-tasks/task_44.py"
+  },
+  {
+    "id": "task_45",
+    "instruction": "Navigate to Settings and remove Atorvastatin (Lipitor) from the favorites/formulary list.",
+    "verify": "function-tasks/task_45.py"
+  },
+  {
+    "id": "task_46",
+    "instruction": "Navigate to Settings and remove Azithromycin (Zithromax) from the favorites/formulary list.",
+    "verify": "function-tasks/task_46.py"
+  },
+  {
+    "id": "task_47",
+    "instruction": "Switch to patient David Kowalski, navigate to his Metoprolol Succinate ER (Toprol-XL) 50mg prescription detail, and add Metoprolol Succinate ER to your favorites.",
+    "verify": "function-tasks/task_47.py"
+  },
+  {
+    "id": "task_48",
+    "instruction": "Navigate to Margaret Chen's Apixaban (Eliquis) 5mg prescription detail and add Apixaban to your favorites.",
+    "verify": "function-tasks/task_48.py"
+  },
+  {
+    "id": "task_49",
+    "instruction": "Navigate to Settings and remove Pantoprazole (Protonix) from the favorites/formulary list.",
+    "verify": "function-tasks/task_49.py"
+  },
+  {
+    "id": "task_50",
+    "instruction": "Switch to patient Aisha Rahman, then discontinue her Escitalopram (Lexapro) 5mg prescription with the reason 'Course completed, patient doing well'.",
+    "verify": "function-tasks/task_50.py"
+  },
+  {
+    "id": "task_51",
+    "instruction": "Switch to patient William Thornton and renew his Insulin Glargine (Lantus) prescription with 5 refills.",
+    "verify": "function-tasks/task_51.py"
+  },
+  {
+    "id": "task_52",
+    "instruction": "Switch to patient Jessica Morales and place her Cephalexin (Keflex) 500mg prescription on hold with the reason 'GI intolerance reported'.",
+    "verify": "function-tasks/task_52.py"
+  },
+  {
+    "id": "task_53",
+    "instruction": "Navigate to Settings, change the default pharmacy to 'Express Scripts Mail Pharmacy' and the default days supply to 90, then save the settings.",
+    "verify": "function-tasks/task_53.py"
+  },
+  {
+    "id": "task_54",
+    "instruction": "Switch to patient Robert Fitzgerald and modify his Spironolactone (Aldactone) 25mg prescription: change the quantity to 60.",
+    "verify": "function-tasks/task_54.py"
+  },
+  {
+    "id": "task_55",
+    "instruction": "Modify Margaret Chen's Apixaban (Eliquis) 5mg prescription: change the directions (sig) to 'Take 1 tablet by mouth twice daily with food'.",
+    "verify": "function-tasks/task_55.py"
+  }
+]
