@@ -1,1220 +1,1483 @@
-/* ============================================================
-   GitLab Plan & Track — View Renderers
-   ============================================================ */
+// GitLab Plan & Track — View Renderers
+const Views = (() => {
+    const C = Components;
 
-const Views = {
+    // ─── Issues List View ─────────────────────────────────────────
+    function issuesList() {
+        const ui = AppState.getUI();
+        const { issues, total, page, totalPages } = AppState.getPagedIssues();
+        const state = AppState.getState();
 
-    // ── Sidebar ────────────────────────────────────────────
-    renderSidebar() {
-        const s = AppState.currentSection;
-        return `
-            <div class="sidebar-section">
-                <div class="sidebar-header">Plan</div>
-                <a class="sidebar-link${s === 'issues' ? ' active' : ''}" data-action="navigate" data-section="issues">
-                    <span class="sidebar-icon">&#9673;</span> Issues
-                </a>
-                <a class="sidebar-link${s === 'boards' ? ' active' : ''}" data-action="navigate" data-section="boards">
-                    <span class="sidebar-icon">&#9638;</span> Boards
-                </a>
-                <a class="sidebar-link${s === 'milestones' ? ' active' : ''}" data-action="navigate" data-section="milestones">
-                    <span class="sidebar-icon">&#9872;</span> Milestones
-                </a>
-                <a class="sidebar-link${s === 'iterations' ? ' active' : ''}" data-action="navigate" data-section="iterations">
-                    <span class="sidebar-icon">&#8634;</span> Iterations
-                </a>
-                <a class="sidebar-link${s === 'epics' ? ' active' : ''}" data-action="navigate" data-section="epics">
-                    <span class="sidebar-icon">&#9733;</span> Epics
-                </a>
-                <a class="sidebar-link${s === 'roadmap' ? ' active' : ''}" data-action="navigate" data-section="roadmap">
-                    <span class="sidebar-icon">&#9776;</span> Roadmap
-                </a>
+        // Counts
+        const openCount = state.issues.filter(i => i.status === 'open').length;
+        const closedCount = state.issues.filter(i => i.status === 'closed').length;
+
+        let html = `<div class="view-header">
+            <h1>Issues</h1>
+            <button class="btn btn-primary" data-action="new-issue">New issue</button>
+        </div>`;
+
+        // Filter bar
+        html += `<div class="filter-bar">
+            <div class="filter-status-tabs">
+                <button class="filter-tab${ui.issueFilters.status === 'open' ? ' active' : ''}" data-action="filter-status" data-status="open">\u25CB Open <span class="count">${openCount}</span></button>
+                <button class="filter-tab${ui.issueFilters.status === 'closed' ? ' active' : ''}" data-action="filter-status" data-status="closed">\u25CF Closed <span class="count">${closedCount}</span></button>
+                <button class="filter-tab${ui.issueFilters.status === 'all' ? ' active' : ''}" data-action="filter-status" data-status="all">All <span class="count">${state.issues.length}</span></button>
             </div>
-            <div class="sidebar-section">
-                <div class="sidebar-header">Manage</div>
-                <a class="sidebar-link${s === 'labels' ? ' active' : ''}" data-action="navigate" data-section="labels">
-                    <span class="sidebar-icon">&#9903;</span> Labels
-                </a>
+            <div class="filter-search">
+                <input type="text" class="search-input" id="issue-search" placeholder="Search issues..." value="${C._esc(ui.issueFilters.search)}" data-action="search-issues" />
             </div>
-            <div class="sidebar-section">
-                <div class="sidebar-header">User</div>
-                <a class="sidebar-link${s === 'notifications' ? ' active' : ''}" data-action="navigate" data-section="notifications">
-                    <span class="sidebar-icon">&#128276;</span> Notifications
-                    ${AppState.notificationFeed.filter(n => !n.read).length > 0 ? `<span class="sidebar-badge">${AppState.notificationFeed.filter(n => !n.read).length}</span>` : ''}
-                </a>
-            </div>
-        `;
-    },
+        </div>`;
 
-    // ── Content Router ─────────────────────────────────────
-    renderContent() {
-        switch (AppState.currentSection) {
-            case 'issues':
-                if (AppState.currentView === 'detail' && AppState.selectedIssueId) return this.renderIssueDetail();
-                if (AppState.currentView === 'create') return this.renderIssueCreate();
-                return this.renderIssuesList();
-            case 'boards': return this.renderBoards();
-            case 'milestones':
-                if (AppState.currentView === 'detail' && AppState.selectedMilestoneId) return this.renderMilestoneDetail();
-                return this.renderMilestonesList();
-            case 'iterations':
-                if (AppState.currentView === 'detail' && AppState.selectedIterationId) return this.renderIterationDetail();
-                return this.renderIterationsList();
-            case 'epics':
-                if (AppState.currentView === 'detail' && AppState.selectedEpicId) return this.renderEpicDetail();
-                return this.renderEpicsList();
-            case 'roadmap': return this.renderRoadmap();
-            case 'labels': return this.renderLabels();
-            case 'notifications': return this.renderNotifications();
-            default: return this.renderIssuesList();
-        }
-    },
-
-    // ════════════════════════════════════════════════════════
-    //  ISSUES LIST
-    // ════════════════════════════════════════════════════════
-    renderIssuesList() {
-        const f = AppState.issueFilters;
-        const { issues, total, page, totalPages } = AppState.getPaginatedIssues();
-        const userOpts = AppState.users.filter(u => u.state === 'active').map(u => ({ value: String(u.id), label: u.name }));
-        const labelOpts = AppState.labels.map(l => ({ value: String(l.id), label: l.name, color: l.color }));
-        const msOpts = [{ value: '', label: 'Any Milestone' }, ...AppState.milestones.map(m => ({ value: String(m.id), label: m.title }))];
-        const iterOpts = [{ value: '', label: 'Any Iteration' }, ...AppState.iterations.map(i => ({ value: String(i.id), label: i.title }))];
-        const sortOpts = SORT_OPTIONS.map(s => ({ value: s.value, label: s.label }));
-        const typeOpts = [{ value: '', label: 'All Types' }, ...ISSUE_TYPES.map(t => ({ value: t.value, label: t.label }))];
-
-        const hasSelection = AppState.selectedIssueIds.length > 0;
-
-        return `
-            <div class="page-header">
-                <div class="page-header-top">
-                    <h1>Issues</h1>
-                    <button class="btn btn-primary" data-action="createIssue">New issue</button>
-                </div>
-                ${Components.breadcrumb([{ label: 'Project', section: 'issues' }, { label: 'Issues' }])}
-            </div>
-
-            <div class="issues-toolbar">
-                <div class="status-tabs">
-                    <button class="status-tab${f.status === 'opened' ? ' active' : ''}" data-action="filterStatus" data-status="opened">
-                        Open <span class="count">${AppState.issues.filter(i => i.state === 'opened').length}</span>
-                    </button>
-                    <button class="status-tab${f.status === 'closed' ? ' active' : ''}" data-action="filterStatus" data-status="closed">
-                        Closed <span class="count">${AppState.issues.filter(i => i.state === 'closed').length}</span>
-                    </button>
-                    <button class="status-tab${f.status === 'all' ? ' active' : ''}" data-action="filterStatus" data-status="all">
-                        All <span class="count">${AppState.issues.length}</span>
-                    </button>
-                </div>
-                ${Components.searchInput('issueSearch', f.search, 'Search issues...')}
-            </div>
-
-            <div class="filter-bar">
-                <div class="filter-group">
-                    ${Components.dropdown('filterAuthor', [{ value: '', label: 'Author' }, ...userOpts], f.authorId ? String(f.authorId) : '', { small: true })}
-                    ${Components.dropdown('filterAssignee', [{ value: '', label: 'Assignee' }, ...userOpts], f.assigneeId ? String(f.assigneeId) : '', { small: true })}
-                    ${Components.multiSelectDropdown('filterLabels', labelOpts, f.labelIds.map(String), { placeholder: 'Labels', searchable: true })}
-                    ${Components.dropdown('filterMilestone', msOpts, f.milestoneId ? String(f.milestoneId) : '', { small: true })}
-                    ${Components.dropdown('filterType', typeOpts, f.type || '', { small: true })}
-                </div>
-                <div class="filter-group">
-                    ${Components.dropdown('sortIssues', sortOpts, f.sort, { small: true })}
-                </div>
-            </div>
-
-            ${hasSelection ? `
-                <div class="bulk-actions-bar">
-                    <span>${AppState.selectedIssueIds.length} selected</span>
-                    <button class="btn btn-sm" data-action="bulkClose">Close</button>
-                    <button class="btn btn-sm" data-action="bulkReopen">Reopen</button>
-                    ${Components.dropdown('bulkAssignee', [{ value: '', label: 'Assign...' }, ...userOpts], '', { small: true })}
-                    ${Components.dropdown('bulkLabel', [{ value: '', label: 'Label...' }, ...labelOpts], '', { small: true })}
-                    ${Components.dropdown('bulkMilestone', msOpts, '', { small: true })}
-                    <button class="btn btn-sm btn-link" data-action="clearSelection">Clear</button>
-                </div>
-            ` : ''}
-
-            ${issues.length === 0 ? Components.emptyState('No issues found', 'Try adjusting your filters or create a new issue.', '<button class="btn btn-primary" data-action="createIssue">New issue</button>') : `
-                <div class="issues-list">
-                    <div class="issues-list-header">
-                        <label class="custom-checkbox issue-checkbox-all">
-                            <input type="checkbox" id="selectAllIssues" ${AppState.selectedIssueIds.length === issues.length && issues.length > 0 ? 'checked' : ''}>
-                            <span class="checkbox-mark"></span>
-                        </label>
-                        <span class="issues-list-col col-title">Title</span>
-                        <span class="issues-list-col col-meta">Assignee</span>
-                        <span class="issues-list-col col-meta">Milestone</span>
-                        <span class="issues-list-col col-date">Updated</span>
-                    </div>
-                    ${issues.map(issue => this._issueRow(issue)).join('')}
-                </div>
-                ${Components.pagination(page, totalPages, total)}
-            `}
-        `;
-    },
-
-    _issueRow(issue) {
-        const author = AppState.getUserById(issue.authorId);
-        const assignees = issue.assignees.map(id => AppState.getUserById(id)).filter(Boolean);
-        const labels = issue.labels.map(id => AppState.getLabelById(id)).filter(Boolean);
-        const milestone = issue.milestoneId ? AppState.getMilestoneById(issue.milestoneId) : null;
-        const isSelected = AppState.selectedIssueIds.includes(issue.id);
-
-        return `
-            <div class="issue-row${isSelected ? ' selected' : ''}${issue.confidential ? ' confidential' : ''}" data-issue-id="${issue.id}">
-                <label class="custom-checkbox issue-checkbox">
-                    <input type="checkbox" data-action="toggleIssueSelect" data-issue-id="${issue.id}" ${isSelected ? 'checked' : ''}>
-                    <span class="checkbox-mark"></span>
-                </label>
-                <div class="issue-row-main">
-                    <div class="issue-row-title-line">
-                        ${Components.priorityIcon(issue.labels)}
-                        ${issue.confidential ? '<span class="confidential-icon" title="Confidential">&#128274;</span>' : ''}
-                        <a class="issue-title-link" data-action="viewIssue" data-issue-id="${issue.id}">${Components.escapeHtml(issue.title)}</a>
-                        <span class="issue-iid">#${issue.iid}</span>
-                        ${labels.slice(0, 4).map(l => Components.labelChip(l)).join('')}
-                        ${labels.length > 4 ? `<span class="label-more">+${labels.length - 4}</span>` : ''}
-                    </div>
-                    <div class="issue-row-meta">
-                        ${Components.typeBadge(issue.type)}
-                        <span>opened ${Components.timeAgo(issue.createdAt)} by ${Components.escapeHtml(author ? author.name : 'Unknown')}</span>
-                        ${issue.weight ? `<span class="issue-weight" title="Weight: ${issue.weight}">&#9878; ${issue.weight}</span>` : ''}
-                        ${issue.dueDate ? `<span class="issue-due${new Date(issue.dueDate) < new Date() && issue.state === 'opened' ? ' overdue' : ''}" title="Due: ${issue.dueDate}">&#128197; ${Components.formatDate(issue.dueDate)}</span>` : ''}
-                        ${issue.upvotes > 0 ? `<span class="issue-votes">&#128077; ${issue.upvotes}</span>` : ''}
-                        ${(issue.timeEstimate || issue.timeSpent) ? `<span class="issue-time">&#9201; ${Components.formatDuration(issue.timeSpent || 0)}</span>` : ''}
-                    </div>
-                </div>
-                <div class="issue-row-assignees">
-                    ${assignees.length > 0 ? assignees.slice(0, 3).map(u => Components.avatar(u, 24)).join('') : '<span class="text-muted">-</span>'}
-                </div>
-                <div class="issue-row-milestone">
-                    ${milestone ? `<span class="milestone-ref" title="${Components.escapeAttr(milestone.title)}">&#9872; ${Components.escapeHtml(milestone.title)}</span>` : '<span class="text-muted">-</span>'}
-                </div>
-                <div class="issue-row-date">
-                    ${Components.timeAgo(issue.updatedAt)}
-                </div>
-            </div>
-        `;
-    },
-
-    // ════════════════════════════════════════════════════════
-    //  ISSUE DETAIL
-    // ════════════════════════════════════════════════════════
-    renderIssueDetail() {
-        const issue = AppState.getIssueById(AppState.selectedIssueId);
-        if (!issue) return Components.emptyState('Issue not found', 'This issue may have been deleted.');
-
-        const author = AppState.getUserById(issue.authorId);
-        const assignees = issue.assignees.map(id => AppState.getUserById(id)).filter(Boolean);
-        const labels = issue.labels.map(id => AppState.getLabelById(id)).filter(Boolean);
-        const milestone = issue.milestoneId ? AppState.getMilestoneById(issue.milestoneId) : null;
-        const iteration = issue.iterationId ? AppState.getIterationById(issue.iterationId) : null;
-        const epic = issue.epicId ? AppState.getEpicById(issue.epicId) : null;
-
-        const userOpts = AppState.users.filter(u => u.state === 'active').map(u => ({ value: String(u.id), label: u.name }));
-        const labelOpts = AppState.labels.map(l => ({ value: String(l.id), label: l.name, color: l.color }));
-        const msOpts = [{ value: '', label: 'No milestone' }, ...AppState.milestones.filter(m => m.state === 'active').map(m => ({ value: String(m.id), label: m.title }))];
-        const iterOpts = [{ value: '', label: 'No iteration' }, ...AppState.iterations.filter(i => i.state !== 'closed').map(i => ({ value: String(i.id), label: i.title }))];
-        const epicOpts = [{ value: '', label: 'No epic' }, ...AppState.epics.filter(e => e.state === 'opened').map(e => ({ value: String(e.id), label: e.title }))];
-
-        return `
-            <div class="page-header">
-                ${Components.breadcrumb([
-                    { label: 'Project', section: 'issues' },
-                    { label: 'Issues', section: 'issues' },
-                    { label: `#${issue.iid}` }
-                ])}
-            </div>
-
-            <div class="issue-detail-layout">
-                <div class="issue-detail-main">
-                    <div class="issue-detail-header">
-                        <div class="issue-title-row">
-                            <h1 class="issue-detail-title" id="issueTitle" contenteditable="true" data-issue-id="${issue.id}">${Components.escapeHtml(issue.title)}</h1>
-                            <button class="btn btn-sm btn-secondary" data-action="saveIssueTitle" data-issue-id="${issue.id}" style="display:none" id="saveTitleBtn">Save</button>
-                        </div>
-                        <div class="issue-detail-meta">
-                            ${Components.stateBadge(issue.state)}
-                            ${Components.typeBadge(issue.type)}
-                            ${issue.confidential ? '<span class="badge badge-warning">Confidential</span>' : ''}
-                            <span>Opened ${Components.timeAgo(issue.createdAt)} by ${Components.avatar(author, 20)} ${Components.escapeHtml(author ? author.name : 'Unknown')}</span>
-                        </div>
-                    </div>
-
-                    <div class="issue-description">
-                        <div class="description-content" id="descriptionContent">
-                            ${issue.description ? Components.renderMarkdown(issue.description) : '<p class="text-muted">No description provided.</p>'}
-                        </div>
-                        <button class="btn btn-sm btn-link" data-action="editDescription" data-issue-id="${issue.id}" id="editDescBtn">Edit</button>
-                        <div class="description-editor" id="descriptionEditor" style="display:none">
-                            <textarea class="form-textarea" id="descriptionTextarea" rows="10">${Components.escapeHtml(issue.description || '')}</textarea>
-                            <div class="description-editor-actions">
-                                <button class="btn btn-sm btn-primary" data-action="saveDescription" data-issue-id="${issue.id}">Save</button>
-                                <button class="btn btn-sm btn-secondary" data-action="cancelEditDescription">Cancel</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    ${this._renderRelatedIssues(issue)}
-                    ${this._renderTimeTracking(issue)}
-                    ${this._renderActivityFeed(issue)}
-                    ${this._renderCommentBox(issue)}
-                </div>
-
-                <div class="issue-detail-sidebar">
-                    <div class="sidebar-field">
-                        <label class="sidebar-label">Assignees</label>
-                        ${Components.multiSelectDropdown('issueAssignees', userOpts, issue.assignees.map(String), { placeholder: 'Select assignees', searchable: true })}
-                        <div class="sidebar-value">
-                            ${assignees.length > 0 ? assignees.map(u => `<div class="assignee-item">${Components.avatar(u, 24)} ${Components.escapeHtml(u.name)}</div>`).join('') : '<span class="text-muted">None</span>'}
-                        </div>
-                    </div>
-
-                    <div class="sidebar-field">
-                        <label class="sidebar-label">Labels</label>
-                        ${Components.multiSelectDropdown('issueLabels', labelOpts, issue.labels.map(String), { placeholder: 'Select labels', searchable: true })}
-                        <div class="sidebar-value label-list">
-                            ${labels.length > 0 ? labels.map(l => Components.labelChip(l)).join('') : '<span class="text-muted">None</span>'}
-                        </div>
-                    </div>
-
-                    <div class="sidebar-field">
-                        <label class="sidebar-label">Milestone</label>
-                        ${Components.dropdown('issueMilestone', msOpts, issue.milestoneId ? String(issue.milestoneId) : '', { small: true, searchable: true })}
-                    </div>
-
-                    <div class="sidebar-field">
-                        <label class="sidebar-label">Iteration</label>
-                        ${Components.dropdown('issueIteration', iterOpts, issue.iterationId ? String(issue.iterationId) : '', { small: true })}
-                    </div>
-
-                    <div class="sidebar-field">
-                        <label class="sidebar-label">Epic</label>
-                        ${Components.dropdown('issueEpic', epicOpts, issue.epicId ? String(issue.epicId) : '', { small: true, searchable: true })}
-                    </div>
-
-                    <div class="sidebar-field">
-                        <label class="sidebar-label">Weight</label>
-                        <input type="number" class="form-input form-input-sm" id="issueWeight" value="${issue.weight || ''}" min="0" max="99" placeholder="None" data-issue-id="${issue.id}">
-                    </div>
-
-                    <div class="sidebar-field">
-                        <label class="sidebar-label">Due date</label>
-                        ${Components.dateInput('issueDueDate', issue.dueDate)}
-                    </div>
-
-                    <div class="sidebar-field">
-                        <label class="sidebar-label">Confidential</label>
-                        ${Components.toggle('issueConfidential', issue.confidential)}
-                    </div>
-
-                    <div class="sidebar-field">
-                        <label class="sidebar-label">Notifications</label>
-                        ${Components.toggle('issueSubscribed', issue.subscribed)}
-                        <span class="sidebar-hint">${issue.subscribed ? 'Subscribed' : 'Not subscribed'}</span>
-                    </div>
-
-                    <div class="sidebar-actions">
-                        ${issue.state === 'opened'
-                            ? `<button class="btn btn-warning btn-block" data-action="closeIssue" data-issue-id="${issue.id}">Close issue</button>`
-                            : `<button class="btn btn-success btn-block" data-action="reopenIssue" data-issue-id="${issue.id}">Reopen issue</button>`
-                        }
-                    </div>
-                </div>
-            </div>
-        `;
-    },
-
-    _renderRelatedIssues(issue) {
-        if (issue.relatedIssues.length === 0) return '';
-        const linkLabels = { blocks: 'Blocks', is_blocked_by: 'Is blocked by', relates_to: 'Related to' };
-        return `
-            <div class="related-issues-section">
-                <h3>Related Issues</h3>
-                <div class="related-issues-list">
-                    ${issue.relatedIssues.map(r => {
-                        const related = AppState.getIssueById(r.issueId);
-                        if (!related) return '';
-                        return `<div class="related-issue-item">
-                            <span class="related-link-type">${linkLabels[r.linkType] || r.linkType}</span>
-                            ${Components.stateBadge(related.state)}
-                            <a class="related-issue-link" data-action="viewIssue" data-issue-id="${related.id}">#${related.iid} ${Components.escapeHtml(related.title)}</a>
-                            <button class="btn btn-icon btn-sm" data-action="removeRelatedIssue" data-issue-id="${issue.id}" data-related-id="${related.id}" title="Remove">&times;</button>
-                        </div>`;
-                    }).join('')}
-                </div>
-                <button class="btn btn-sm btn-link" data-action="addRelatedIssue" data-issue-id="${issue.id}">+ Add related issue</button>
-            </div>
-        `;
-    },
-
-    _renderTimeTracking(issue) {
-        return `
-            <div class="time-tracking-section">
-                <h3>Time Tracking</h3>
-                ${Components.timeTrackingBar(issue.timeEstimate, issue.timeSpent)}
-                <div class="time-tracking-actions">
-                    <button class="btn btn-sm btn-link" data-action="setEstimate" data-issue-id="${issue.id}">Set estimate</button>
-                    <button class="btn btn-sm btn-link" data-action="logTime" data-issue-id="${issue.id}">Log time</button>
-                </div>
-            </div>
-        `;
-    },
-
-    _renderActivityFeed(issue) {
-        const activities = (issue.activities || []).slice().sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-        return `
-            <div class="activity-feed">
-                <h3>Activity <span class="count">${activities.length}</span></h3>
-                ${activities.length === 0 ? '<p class="text-muted">No activity yet.</p>' : ''}
-                ${activities.map(a => {
-                    const actor = AppState.getUserById(a.authorId);
-                    const isComment = a.type === 'comment';
-                    return `
-                        <div class="activity-item ${isComment ? 'activity-comment' : 'activity-event'}">
-                            <div class="activity-avatar">${Components.avatar(actor, 28)}</div>
-                            <div class="activity-body">
-                                <div class="activity-header">
-                                    <strong>${Components.escapeHtml(actor ? actor.name : 'Unknown')}</strong>
-                                    ${isComment ? 'commented' : ''}
-                                    <span class="activity-time">${Components.timeAgo(a.createdAt)}</span>
-                                </div>
-                                <div class="activity-content">
-                                    ${isComment ? Components.renderMarkdown(a.content) : `<span class="activity-event-text">${Components.escapeHtml(a.content)}</span>`}
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                }).join('')}
-            </div>
-        `;
-    },
-
-    _renderCommentBox(issue) {
-        return `
-            <div class="comment-box">
-                <div class="comment-box-header">
-                    ${Components.avatar(AppState.currentUser, 32)}
-                    <span>Write a comment...</span>
-                </div>
-                <textarea class="form-textarea" id="commentTextarea" rows="4" placeholder="Write a comment or use slash commands (/assign, /label, /close, /weight, /due, /estimate, /spend)..."></textarea>
-                <div class="comment-box-hint">
-                    Supports: /assign @user, /label ~name, /milestone %title, /close, /reopen, /weight N, /due YYYY-MM-DD, /estimate Nh, /spend NhMm
-                </div>
-                <div class="comment-box-actions">
-                    <button class="btn btn-primary" data-action="submitComment" data-issue-id="${issue.id}">Comment</button>
-                </div>
-            </div>
-        `;
-    },
-
-    // ════════════════════════════════════════════════════════
-    //  ISSUE CREATE
-    // ════════════════════════════════════════════════════════
-    renderIssueCreate() {
-        const userOpts = AppState.users.filter(u => u.state === 'active').map(u => ({ value: String(u.id), label: u.name }));
-        const labelOpts = AppState.labels.map(l => ({ value: String(l.id), label: l.name, color: l.color }));
-        const msOpts = [{ value: '', label: 'No milestone' }, ...AppState.milestones.filter(m => m.state === 'active').map(m => ({ value: String(m.id), label: m.title }))];
-        const iterOpts = [{ value: '', label: 'No iteration' }, ...AppState.iterations.filter(i => i.state !== 'closed').map(i => ({ value: String(i.id), label: i.title }))];
-        const epicOpts = [{ value: '', label: 'No epic' }, ...AppState.epics.filter(e => e.state === 'opened').map(e => ({ value: String(e.id), label: e.title }))];
-        const typeOpts = ISSUE_TYPES.map(t => ({ value: t.value, label: t.label }));
-        const templateOpts = [{ value: '', label: 'No template' }, ...AppState.issueTemplates.map(t => ({ value: String(t.id), label: t.name }))];
-
-        return `
-            <div class="page-header">
-                ${Components.breadcrumb([
-                    { label: 'Project', section: 'issues' },
-                    { label: 'Issues', section: 'issues' },
-                    { label: 'New Issue' }
-                ])}
-                <h1>New Issue</h1>
-            </div>
-
-            <div class="issue-create-form">
-                <div class="issue-create-main">
-                    ${Components.formField('newIssueType', 'Type', Components.dropdown('newIssueType', typeOpts, 'issue'))}
-                    ${Components.formField('newIssueTemplate', 'Template', Components.dropdown('newIssueTemplate', templateOpts, ''))}
-                    ${Components.formField('newIssueTitle', 'Title', Components.textInput('newIssueTitle', '', { placeholder: 'Enter issue title' }), { required: true })}
-                    ${Components.formField('newIssueDescription', 'Description', Components.textarea('newIssueDescription', '', { placeholder: 'Describe the issue using Markdown...', rows: 10 }))}
-
-                    <div class="form-row">
-                        ${Components.formField('newIssueAssignees', 'Assignees', Components.multiSelectDropdown('newIssueAssignees', userOpts, [], { placeholder: 'Select assignees', searchable: true }))}
-                        ${Components.formField('newIssueLabels', 'Labels', Components.multiSelectDropdown('newIssueLabels', labelOpts, [], { placeholder: 'Select labels', searchable: true }))}
-                    </div>
-
-                    <div class="form-row">
-                        ${Components.formField('newIssueMilestone', 'Milestone', Components.dropdown('newIssueMilestone', msOpts, '', { searchable: true }))}
-                        ${Components.formField('newIssueIteration', 'Iteration', Components.dropdown('newIssueIteration', iterOpts, ''))}
-                    </div>
-
-                    <div class="form-row">
-                        ${Components.formField('newIssueEpic', 'Epic', Components.dropdown('newIssueEpic', epicOpts, '', { searchable: true }))}
-                        ${Components.formField('newIssueWeight', 'Weight', Components.numberInput('newIssueWeight', null, { min: 0, max: 99, placeholder: 'None' }))}
-                    </div>
-
-                    <div class="form-row">
-                        ${Components.formField('newIssueDueDate', 'Due date', Components.dateInput('newIssueDueDate', ''))}
-                        ${Components.formField('newIssueConfidential', 'Confidential', Components.checkbox('newIssueConfidentialCheck', 'This issue is confidential', false))}
-                    </div>
-
-                    <div class="form-actions">
-                        <button class="btn btn-secondary" data-action="cancelCreate">Cancel</button>
-                        <button class="btn btn-primary" data-action="submitNewIssue" id="submitNewIssueBtn">Create issue</button>
-                    </div>
-                </div>
-            </div>
-        `;
-    },
-
-    // ════════════════════════════════════════════════════════
-    //  BOARDS (KANBAN)
-    // ════════════════════════════════════════════════════════
-    renderBoards() {
-        const boards = AppState.boards;
-        const selectedBoard = AppState.selectedBoardId ? AppState.getBoardById(AppState.selectedBoardId) : boards[0];
-        if (!selectedBoard) return Components.emptyState('No boards', 'Create a board to organize your issues.');
-
-        if (AppState.selectedBoardId === null && boards.length > 0) {
-            AppState.selectedBoardId = boards[0].id;
-        }
-
-        const boardOpts = boards.map(b => ({ value: String(b.id), label: b.name }));
-        const bf = AppState.boardFilters;
-
-        // Get issues for each list
-        let boardIssues = AppState.issues.filter(i => {
-            if (bf.assigneeId && !i.assignees.includes(bf.assigneeId)) return false;
-            if (bf.milestoneId && i.milestoneId !== bf.milestoneId) return false;
-            if (bf.labelIds.length > 0 && !bf.labelIds.every(lid => i.labels.includes(lid))) return false;
-            return true;
+        // Advanced filters row
+        html += `<div class="filter-row">`;
+        html += C.dropdown({
+            id: 'filter-author', label: null, value: ui.issueFilters.authorId,
+            options: [{ value: null, label: 'Any author' }, ...state.users.map(u => ({ value: u.id, label: u.name, avatar: u }))],
+            placeholder: 'Author', searchable: true, className: 'filter-dropdown'
         });
-
-        return `
-            <div class="page-header">
-                <div class="page-header-top">
-                    <h1>Boards</h1>
-                    <div class="board-controls">
-                        ${Components.dropdown('boardSelect', boardOpts, String(selectedBoard.id), { small: true })}
-                    </div>
-                </div>
-            </div>
-
-            <div class="board-container" data-board-id="${selectedBoard.id}">
-                ${selectedBoard.lists.map(list => {
-                    const listIssues = this._getIssuesForList(list, boardIssues, selectedBoard);
-                    return `
-                        <div class="board-list" data-list-id="${list.id}" data-list-type="${list.type}">
-                            <div class="board-list-header">
-                                <span class="board-list-title">${Components.escapeHtml(list.title)}</span>
-                                <span class="board-list-count">${listIssues.length}</span>
-                                ${list.type === 'label' ? `<button class="btn btn-icon btn-sm board-list-remove" data-action="removeBoardList" data-list-id="${list.id}" data-board-id="${selectedBoard.id}" title="Remove list">&times;</button>` : ''}
-                            </div>
-                            <div class="board-list-body" data-list-id="${list.id}" data-board-id="${selectedBoard.id}">
-                                ${listIssues.map(issue => this._boardCard(issue)).join('')}
-                            </div>
-                            ${list.type !== 'closed' ? `<button class="btn btn-sm btn-link board-add-issue" data-action="createIssueFromBoard" data-list-id="${list.id}" data-board-id="${selectedBoard.id}">+ New issue</button>` : ''}
-                        </div>
-                    `;
-                }).join('')}
-                <div class="board-list board-list-add">
-                    <button class="btn btn-sm btn-link" data-action="addBoardList" data-board-id="${selectedBoard.id}">+ Add list</button>
-                </div>
-            </div>
-        `;
-    },
-
-    _getIssuesForList(list, allIssues, board) {
-        if (list.type === 'closed') {
-            return allIssues.filter(i => i.state === 'closed');
-        }
-        if (list.type === 'backlog') {
-            // Open issues not in any label-based list
-            const labelListIds = board.lists.filter(l => l.type === 'label' && l.labelId).map(l => l.labelId);
-            return allIssues.filter(i => i.state === 'opened' && !i.labels.some(lid => labelListIds.includes(lid)));
-        }
-        if (list.type === 'label' && list.labelId) {
-            return allIssues.filter(i => i.state === 'opened' && i.labels.includes(list.labelId));
-        }
-        return [];
-    },
-
-    _boardCard(issue) {
-        const assignees = issue.assignees.map(id => AppState.getUserById(id)).filter(Boolean);
-        const labels = issue.labels.map(id => AppState.getLabelById(id)).filter(Boolean);
-        return `
-            <div class="board-card" draggable="true" data-issue-id="${issue.id}">
-                <div class="board-card-title">
-                    <a data-action="viewIssue" data-issue-id="${issue.id}">${Components.escapeHtml(issue.title)}</a>
-                    <span class="issue-iid">#${issue.iid}</span>
-                </div>
-                <div class="board-card-labels">
-                    ${labels.slice(0, 3).map(l => Components.labelChip(l)).join('')}
-                </div>
-                <div class="board-card-footer">
-                    <div class="board-card-assignees">
-                        ${assignees.slice(0, 2).map(u => Components.avatar(u, 20)).join('')}
-                    </div>
-                    ${issue.weight ? `<span class="issue-weight-sm">&#9878; ${issue.weight}</span>` : ''}
-                </div>
-            </div>
-        `;
-    },
-
-    // ════════════════════════════════════════════════════════
-    //  MILESTONES
-    // ════════════════════════════════════════════════════════
-    renderMilestonesList() {
-        const active = AppState.milestones.filter(m => m.state === 'active');
-        const closed = AppState.milestones.filter(m => m.state === 'closed');
-
-        return `
-            <div class="page-header">
-                <div class="page-header-top">
-                    <h1>Milestones</h1>
-                    <button class="btn btn-primary" data-action="createMilestone">New milestone</button>
-                </div>
-            </div>
-
-            ${Components.tabs('milestoneTabs', [
-                { key: 'active', label: 'Active', count: active.length },
-                { key: 'closed', label: 'Closed', count: closed.length }
-            ], AppState._milestoneTab || 'active')}
-
-            <div class="milestones-list">
-                ${(AppState._milestoneTab === 'closed' ? closed : active).map(m => {
-                    const progress = AppState.getMilestoneProgress(m.id);
-                    return `
-                        <div class="milestone-item" data-milestone-id="${m.id}">
-                            <div class="milestone-item-header">
-                                <a class="milestone-title-link" data-action="viewMilestone" data-milestone-id="${m.id}">
-                                    &#9872; ${Components.escapeHtml(m.title)}
-                                </a>
-                                <div class="milestone-actions">
-                                    <button class="btn btn-sm btn-link" data-action="editMilestone" data-milestone-id="${m.id}">Edit</button>
-                                    ${m.state === 'active'
-                                        ? `<button class="btn btn-sm btn-link" data-action="closeMilestone" data-milestone-id="${m.id}">Close</button>`
-                                        : `<button class="btn btn-sm btn-link" data-action="activateMilestone" data-milestone-id="${m.id}">Reopen</button>`
-                                    }
-                                    <button class="btn btn-sm btn-link btn-danger-link" data-action="deleteMilestone" data-milestone-id="${m.id}">Delete</button>
-                                </div>
-                            </div>
-                            <div class="milestone-item-meta">
-                                ${m.startDate ? `<span>Start: ${Components.formatDate(m.startDate)}</span>` : ''}
-                                ${m.dueDate ? `<span>Due: ${Components.formatDate(m.dueDate)}</span>` : '<span>No due date</span>'}
-                            </div>
-                            ${m.description ? `<p class="milestone-desc">${Components.escapeHtml(m.description)}</p>` : ''}
-                            <div class="milestone-progress">
-                                ${Components.progressBar(progress.percentage)}
-                                <span class="milestone-progress-text">${progress.closed} closed / ${progress.open} open</span>
-                            </div>
-                        </div>
-                    `;
-                }).join('')}
-                ${((AppState._milestoneTab === 'closed' ? closed : active).length === 0) ? Components.emptyState('No milestones', 'Create a milestone to track progress.') : ''}
-            </div>
-        `;
-    },
-
-    renderMilestoneDetail() {
-        const ms = AppState.getMilestoneById(AppState.selectedMilestoneId);
-        if (!ms) return Components.emptyState('Milestone not found', '');
-        const progress = AppState.getMilestoneProgress(ms.id);
-        const issues = AppState.getIssuesForMilestone(ms.id);
-        const openIssues = issues.filter(i => i.state === 'opened');
-        const closedIssues = issues.filter(i => i.state === 'closed');
-
-        return `
-            <div class="page-header">
-                ${Components.breadcrumb([
-                    { label: 'Project', section: 'issues' },
-                    { label: 'Milestones', section: 'milestones' },
-                    { label: ms.title }
-                ])}
-                <h1>&#9872; ${Components.escapeHtml(ms.title)}</h1>
-                <div class="milestone-detail-meta">
-                    ${Components.badge(ms.state, ms.state === 'active' ? 'success' : 'default')}
-                    ${ms.startDate ? `<span>Start: ${Components.formatDate(ms.startDate)}</span>` : ''}
-                    ${ms.dueDate ? `<span>Due: ${Components.formatDate(ms.dueDate)}</span>` : ''}
-                </div>
-            </div>
-
-            ${ms.description ? `<div class="milestone-description">${Components.renderMarkdown(ms.description)}</div>` : ''}
-
-            <div class="milestone-progress-detail">
-                ${Components.progressBar(progress.percentage)}
-                <div class="milestone-stats">
-                    <span>${progress.percentage}% complete</span>
-                    <span>${progress.closed} closed</span>
-                    <span>${progress.open} open</span>
-                    <span>${progress.total} total</span>
-                </div>
-            </div>
-
-            ${Components.tabs('milestoneIssueTabs', [
-                { key: 'open', label: 'Open', count: openIssues.length },
-                { key: 'closed', label: 'Closed', count: closedIssues.length }
-            ], AppState._milestoneIssueTab || 'open')}
-
-            <div class="issues-list compact">
-                ${(AppState._milestoneIssueTab === 'closed' ? closedIssues : openIssues).map(i => this._issueRow(i)).join('')}
-                ${((AppState._milestoneIssueTab === 'closed' ? closedIssues : openIssues).length === 0) ? '<p class="text-muted pad">No issues.</p>' : ''}
-            </div>
-        `;
-    },
-
-    // ════════════════════════════════════════════════════════
-    //  ITERATIONS
-    // ════════════════════════════════════════════════════════
-    renderIterationsList() {
-        const cadences = AppState.iterationCadences;
-
-        return `
-            <div class="page-header">
-                <div class="page-header-top">
-                    <h1>Iterations</h1>
-                    <button class="btn btn-primary" data-action="createIteration">New iteration</button>
-                </div>
-            </div>
-
-            ${cadences.map(c => {
-                const iters = AppState.iterations.filter(i => i.cadenceId === c.id);
-                return `
-                    <div class="cadence-section">
-                        <div class="cadence-header">
-                            <h2>${Components.escapeHtml(c.title)}</h2>
-                            <span class="text-muted">${Components.escapeHtml(c.description || '')} &middot; ${c.durationWeeks}-week cycles</span>
-                        </div>
-                        <div class="iterations-list">
-                            ${iters.map(it => {
-                                const progress = AppState.getIterationProgress(it.id);
-                                const stateClass = it.state === 'current' ? 'badge-success' : it.state === 'upcoming' ? 'badge-info' : 'badge-default';
-                                return `
-                                    <div class="iteration-item" data-iteration-id="${it.id}">
-                                        <div class="iteration-item-header">
-                                            <a class="iteration-title-link" data-action="viewIteration" data-iteration-id="${it.id}">
-                                                ${Components.escapeHtml(it.title)}
-                                            </a>
-                                            <span class="badge ${stateClass}">${it.state}</span>
-                                        </div>
-                                        <div class="iteration-item-meta">
-                                            <span>${Components.formatDate(it.startDate)} — ${Components.formatDate(it.endDate)}</span>
-                                            <span>${progress.total} issues</span>
-                                            <span>${progress.totalWeight} weight</span>
-                                        </div>
-                                        ${Components.progressBar(progress.percentage, { size: 'small' })}
-                                    </div>
-                                `;
-                            }).join('')}
-                            ${iters.length === 0 ? '<p class="text-muted">No iterations in this cadence.</p>' : ''}
-                        </div>
-                    </div>
-                `;
-            }).join('')}
-        `;
-    },
-
-    renderIterationDetail() {
-        const it = AppState.getIterationById(AppState.selectedIterationId);
-        if (!it) return Components.emptyState('Iteration not found', '');
-        const cadence = AppState.getCadenceById(it.cadenceId);
-        const progress = AppState.getIterationProgress(it.id);
-        const issues = AppState.getIssuesForIteration(it.id);
-        const openIssues = issues.filter(i => i.state === 'opened');
-        const closedIssues = issues.filter(i => i.state === 'closed');
-        const stateClass = it.state === 'current' ? 'badge-success' : it.state === 'upcoming' ? 'badge-info' : 'badge-default';
-
-        return `
-            <div class="page-header">
-                ${Components.breadcrumb([
-                    { label: 'Project', section: 'issues' },
-                    { label: 'Iterations', section: 'iterations' },
-                    { label: it.title }
-                ])}
-                <h1>${Components.escapeHtml(it.title)}</h1>
-                <div class="iteration-detail-meta">
-                    <span class="badge ${stateClass}">${it.state}</span>
-                    ${cadence ? `<span>${Components.escapeHtml(cadence.title)}</span>` : ''}
-                    <span>${Components.formatDate(it.startDate)} — ${Components.formatDate(it.endDate)}</span>
-                </div>
-            </div>
-
-            <div class="iteration-stats-row">
-                <div class="stat-card"><div class="stat-value">${progress.total}</div><div class="stat-label">Total Issues</div></div>
-                <div class="stat-card"><div class="stat-value">${progress.closed}</div><div class="stat-label">Completed</div></div>
-                <div class="stat-card"><div class="stat-value">${progress.open}</div><div class="stat-label">Remaining</div></div>
-                <div class="stat-card"><div class="stat-value">${progress.totalWeight}</div><div class="stat-label">Total Weight</div></div>
-                <div class="stat-card"><div class="stat-value">${progress.percentage}%</div><div class="stat-label">Complete</div></div>
-            </div>
-
-            ${Components.progressBar(progress.percentage)}
-
-            <div class="burndown-placeholder">
-                <div class="burndown-chart">
-                    <div class="burndown-label">Burndown Chart</div>
-                    <div class="burndown-visual">
-                        ${this._renderSimpleBurndown(it, issues)}
-                    </div>
-                </div>
-            </div>
-
-            ${Components.tabs('iterationIssueTabs', [
-                { key: 'open', label: 'Open', count: openIssues.length },
-                { key: 'closed', label: 'Closed', count: closedIssues.length }
-            ], AppState._iterationIssueTab || 'open')}
-
-            <div class="issues-list compact">
-                ${(AppState._iterationIssueTab === 'closed' ? closedIssues : openIssues).map(i => this._issueRow(i)).join('')}
-                ${((AppState._iterationIssueTab === 'closed' ? closedIssues : openIssues).length === 0) ? '<p class="text-muted pad">No issues.</p>' : ''}
-            </div>
-        `;
-    },
-
-    _renderSimpleBurndown(iteration, issues) {
-        const start = new Date(iteration.startDate);
-        const end = new Date(iteration.endDate);
-        const totalDays = Math.ceil((end - start) / 86400000);
-        const totalWeight = issues.reduce((s, i) => s + (i.weight || 1), 0);
-
-        // Simple SVG burndown
-        const width = 600;
-        const height = 200;
-        const padding = 40;
-
-        // Ideal line
-        const idealLine = `M${padding},${padding} L${width - padding},${height - padding}`;
-
-        // Calculate actual burndown points
-        let points = [`${padding},${padding}`];
-        let remaining = totalWeight;
-        const closedIssues = issues.filter(i => i.state === 'closed' && i.closedAt).sort((a, b) => new Date(a.closedAt) - new Date(b.closedAt));
-
-        closedIssues.forEach(issue => {
-            const closedDate = new Date(issue.closedAt);
-            const dayIndex = Math.max(0, Math.ceil((closedDate - start) / 86400000));
-            const x = padding + (dayIndex / totalDays) * (width - 2 * padding);
-            remaining -= (issue.weight || 1);
-            const y = padding + ((totalWeight - remaining) / totalWeight) * (height - 2 * padding);
-            points.push(`${x},${height - y + padding}`);
+        html += C.dropdown({
+            id: 'filter-assignee', label: null, value: ui.issueFilters.assigneeId,
+            options: [{ value: null, label: 'Any assignee' }, ...state.users.map(u => ({ value: u.id, label: u.name, avatar: u }))],
+            placeholder: 'Assignee', searchable: true, className: 'filter-dropdown'
         });
+        html += C.dropdown({
+            id: 'filter-label', label: null, value: ui.issueFilters.labelIds,
+            options: state.labels.map(l => ({ value: l.id, label: l.name, color: l.color })),
+            placeholder: 'Label', searchable: true, multi: true, className: 'filter-dropdown'
+        });
+        html += C.dropdown({
+            id: 'filter-milestone', label: null, value: ui.issueFilters.milestoneId,
+            options: [{ value: null, label: 'Any milestone' }, ...state.milestones.map(m => ({ value: m.id, label: m.title }))],
+            placeholder: 'Milestone', searchable: true, className: 'filter-dropdown'
+        });
+        html += C.dropdown({
+            id: 'filter-sort', label: null, value: ui.issueFilters.sort,
+            options: [
+                { value: 'created_desc', label: 'Newest' },
+                { value: 'created_asc', label: 'Oldest' },
+                { value: 'updated_desc', label: 'Recently updated' },
+                { value: 'updated_asc', label: 'Least recently updated' },
+                { value: 'due_date_asc', label: 'Due date (earliest)' },
+                { value: 'due_date_desc', label: 'Due date (latest)' },
+                { value: 'priority_desc', label: 'Priority (highest)' },
+                { value: 'priority_asc', label: 'Priority (lowest)' },
+                { value: 'weight_desc', label: 'Weight (highest)' },
+                { value: 'weight_asc', label: 'Weight (lowest)' },
+            ],
+            placeholder: 'Sort', className: 'filter-dropdown'
+        });
+        html += `</div>`;
 
-        // Extend to today
-        const today = new Date();
-        const todayIndex = Math.max(0, Math.ceil((today - start) / 86400000));
-        const todayX = Math.min(width - padding, padding + (todayIndex / totalDays) * (width - 2 * padding));
-        const todayY = padding + ((totalWeight - remaining) / totalWeight) * (height - 2 * padding);
-        points.push(`${todayX},${height - todayY + padding}`);
+        // Bulk actions bar (hidden by default, shown when checkboxes selected)
+        html += `<div class="bulk-actions-bar" id="bulk-actions-bar" style="display:none">
+            <span class="bulk-selected-count" id="bulk-count">0 selected</span>
+            <button class="btn btn-sm" data-action="bulk-close">Close</button>
+            <button class="btn btn-sm" data-action="bulk-assign">Assign</button>
+            <button class="btn btn-sm" data-action="bulk-label">Label</button>
+            <button class="btn btn-sm" data-action="bulk-milestone">Milestone</button>
+        </div>`;
 
-        return `
-            <svg width="${width}" height="${height}" class="burndown-svg">
-                <line x1="${padding}" y1="${padding}" x2="${width - padding}" y2="${height - padding}" stroke="#ddd" stroke-width="2" stroke-dasharray="5,5"/>
-                <polyline points="${points.join(' ')}" fill="none" stroke="#3498db" stroke-width="2"/>
-                <text x="${padding}" y="${height - 5}" font-size="11" fill="#999">${Components.formatDate(iteration.startDate)}</text>
-                <text x="${width - padding - 60}" y="${height - 5}" font-size="11" fill="#999">${Components.formatDate(iteration.endDate)}</text>
-                <text x="${padding - 5}" y="${padding - 5}" font-size="11" fill="#999">${totalWeight}</text>
-                <text x="${padding - 5}" y="${height - padding + 15}" font-size="11" fill="#999">0</text>
-            </svg>
-        `;
-    },
-
-    // ════════════════════════════════════════════════════════
-    //  EPICS
-    // ════════════════════════════════════════════════════════
-    renderEpicsList() {
-        const opened = AppState.epics.filter(e => e.state === 'opened');
-        const closed = AppState.epics.filter(e => e.state === 'closed');
-        const topLevel = (AppState._epicTab === 'closed' ? closed : opened).filter(e => !e.parentEpicId);
-
-        return `
-            <div class="page-header">
-                <div class="page-header-top">
-                    <h1>Epics</h1>
-                    <button class="btn btn-primary" data-action="createEpic">New epic</button>
-                </div>
-            </div>
-
-            ${Components.tabs('epicTabs', [
-                { key: 'opened', label: 'Open', count: opened.length },
-                { key: 'closed', label: 'Closed', count: closed.length }
-            ], AppState._epicTab || 'opened')}
-
-            <div class="epics-list">
-                ${topLevel.map(epic => this._epicItem(epic, 0)).join('')}
-                ${topLevel.length === 0 ? Components.emptyState('No epics', 'Create an epic to group related issues.') : ''}
-            </div>
-        `;
-    },
-
-    _epicItem(epic, depth) {
-        const progress = AppState.getEpicProgress(epic.id);
-        const labels = epic.labels.map(id => AppState.getLabelById(id)).filter(Boolean);
-        const childEpics = AppState.getChildEpics(epic.id);
-
-        return `
-            <div class="epic-item" style="margin-left:${depth * 24}px" data-epic-id="${epic.id}">
-                <div class="epic-item-header">
-                    <a class="epic-title-link" data-action="viewEpic" data-epic-id="${epic.id}">
-                        ${epic.confidential ? '<span class="confidential-icon">&#128274;</span>' : ''}
-                        ${Components.escapeHtml(epic.title)}
-                    </a>
-                    ${Components.stateBadge(epic.state)}
-                    ${labels.map(l => Components.labelChip(l)).join('')}
-                </div>
-                <div class="epic-item-meta">
-                    ${epic.startDate ? `<span>${Components.formatDate(epic.startDate)}</span>` : ''}
-                    ${epic.startDate && epic.dueDate ? '<span>—</span>' : ''}
-                    ${epic.dueDate ? `<span>${Components.formatDate(epic.dueDate)}</span>` : ''}
-                    <span>${progress.total} issues</span>
-                    ${progress.childEpicsCount > 0 ? `<span>${progress.childEpicsCount} child epics</span>` : ''}
-                </div>
-                ${Components.progressBar(progress.percentage, { size: 'small' })}
-            </div>
-            ${childEpics.map(child => this._epicItem(child, depth + 1)).join('')}
-        `;
-    },
-
-    renderEpicDetail() {
-        const epic = AppState.getEpicById(AppState.selectedEpicId);
-        if (!epic) return Components.emptyState('Epic not found', '');
-        const progress = AppState.getEpicProgress(epic.id);
-        const issues = AppState.getIssuesForEpic(epic.id);
-        const childEpics = AppState.getChildEpics(epic.id);
-        const labels = epic.labels.map(id => AppState.getLabelById(id)).filter(Boolean);
-        const author = AppState.getUserById(epic.authorId);
-        const parentEpic = epic.parentEpicId ? AppState.getEpicById(epic.parentEpicId) : null;
-
-        return `
-            <div class="page-header">
-                ${Components.breadcrumb([
-                    { label: 'Project', section: 'issues' },
-                    { label: 'Epics', section: 'epics' },
-                    { label: epic.title }
-                ])}
-                <h1>${epic.confidential ? '<span class="confidential-icon">&#128274;</span> ' : ''}${Components.escapeHtml(epic.title)}</h1>
-                <div class="epic-detail-meta">
-                    ${Components.stateBadge(epic.state)}
-                    <span>Created ${Components.timeAgo(epic.createdAt)} by ${Components.escapeHtml(author ? author.name : 'Unknown')}</span>
-                    ${parentEpic ? `<span>Parent: <a data-action="viewEpic" data-epic-id="${parentEpic.id}">${Components.escapeHtml(parentEpic.title)}</a></span>` : ''}
-                </div>
-            </div>
-
-            <div class="epic-detail-layout">
-                <div class="epic-detail-main">
-                    ${epic.description ? `<div class="epic-description">${Components.renderMarkdown(epic.description)}</div>` : ''}
-
-                    <div class="epic-progress-section">
-                        <h3>Progress</h3>
-                        ${Components.progressBar(progress.percentage)}
-                        <div class="milestone-stats">
-                            <span>${progress.percentage}% complete</span>
-                            <span>${progress.closed} closed</span>
-                            <span>${progress.open} open</span>
-                        </div>
-                    </div>
-
-                    ${epic.startDate && epic.dueDate ? `
-                        <div class="epic-roadmap-bar">
-                            <h3>Timeline</h3>
-                            <div class="roadmap-single-bar">
-                                <span class="roadmap-date">${Components.formatDate(epic.startDate)}</span>
-                                <div class="roadmap-bar-track">
-                                    <div class="roadmap-bar-fill" style="width:${this._getTimelineProgress(epic.startDate, epic.dueDate)}%"></div>
-                                </div>
-                                <span class="roadmap-date">${Components.formatDate(epic.dueDate)}</span>
-                            </div>
-                        </div>
-                    ` : ''}
-
-                    ${childEpics.length > 0 ? `
-                        <div class="epic-children-section">
-                            <h3>Child Epics (${childEpics.length})</h3>
-                            ${childEpics.map(child => this._epicItem(child, 0)).join('')}
-                        </div>
-                    ` : ''}
-
-                    <div class="epic-issues-section">
-                        <h3>Issues (${issues.length})</h3>
-                        <div class="issues-list compact">
-                            ${issues.map(i => this._issueRow(i)).join('')}
-                            ${issues.length === 0 ? '<p class="text-muted">No issues assigned to this epic.</p>' : ''}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="epic-detail-sidebar">
-                    <div class="sidebar-field">
-                        <label class="sidebar-label">Labels</label>
-                        <div class="sidebar-value label-list">
-                            ${labels.length > 0 ? labels.map(l => Components.labelChip(l)).join('') : '<span class="text-muted">None</span>'}
-                        </div>
-                    </div>
-                    <div class="sidebar-field">
-                        <label class="sidebar-label">Start date</label>
-                        <span>${epic.startDate ? Components.formatDate(epic.startDate) : 'None'}</span>
-                    </div>
-                    <div class="sidebar-field">
-                        <label class="sidebar-label">Due date</label>
-                        <span>${epic.dueDate ? Components.formatDate(epic.dueDate) : 'None'}</span>
-                    </div>
-                    <div class="sidebar-field">
-                        <label class="sidebar-label">Confidential</label>
-                        <span>${epic.confidential ? 'Yes' : 'No'}</span>
-                    </div>
-                    <div class="sidebar-actions">
-                        ${epic.state === 'opened'
-                            ? `<button class="btn btn-warning btn-block" data-action="closeEpic" data-epic-id="${epic.id}">Close epic</button>`
-                            : `<button class="btn btn-success btn-block" data-action="reopenEpic" data-epic-id="${epic.id}">Reopen epic</button>`
-                        }
-                    </div>
-                </div>
-            </div>
-        `;
-    },
-
-    _getTimelineProgress(startDate, dueDate) {
-        const now = new Date();
-        const start = new Date(startDate);
-        const end = new Date(dueDate);
-        if (now <= start) return 0;
-        if (now >= end) return 100;
-        return Math.round(((now - start) / (end - start)) * 100);
-    },
-
-    // ════════════════════════════════════════════════════════
-    //  ROADMAP
-    // ════════════════════════════════════════════════════════
-    renderRoadmap() {
-        const epics = AppState.epics.filter(e => e.startDate && e.dueDate);
-        const milestones = AppState.milestones.filter(m => m.startDate && m.dueDate);
-
-        // Determine time range
-        const allDates = [...epics.flatMap(e => [new Date(e.startDate), new Date(e.dueDate)]), ...milestones.flatMap(m => [new Date(m.startDate), new Date(m.dueDate)])];
-        if (allDates.length === 0) return Components.emptyState('No roadmap data', 'Add start and due dates to epics to see them on the roadmap.');
-
-        const minDate = new Date(Math.min(...allDates));
-        const maxDate = new Date(Math.max(...allDates));
-        // Add padding
-        minDate.setDate(minDate.getDate() - 14);
-        maxDate.setDate(maxDate.getDate() + 14);
-        const totalDays = Math.ceil((maxDate - minDate) / 86400000);
-
-        // Generate month headers
-        const months = [];
-        const d = new Date(minDate.getFullYear(), minDate.getMonth(), 1);
-        while (d <= maxDate) {
-            const monthStart = new Date(d);
-            const leftPct = Math.max(0, ((monthStart - minDate) / (maxDate - minDate)) * 100);
-            months.push({ label: d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }), leftPct });
-            d.setMonth(d.getMonth() + 1);
+        if (issues.length === 0) {
+            html += C.emptyState('No issues match your filters.', 'New issue', 'data-action="new-issue"');
+        } else {
+            html += `<table class="issues-table">
+                <thead>
+                    <tr>
+                        <th class="th-checkbox"><input type="checkbox" id="select-all-issues" data-action="select-all-issues" /></th>
+                        <th>Title</th>
+                        <th>Status</th>
+                        <th>Assignee</th>
+                        <th>Milestone</th>
+                        <th>Weight</th>
+                        <th>Due date</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
+                <tbody>`;
+            issues.forEach(issue => { html += C.issueRow(issue); });
+            html += `</tbody></table>`;
+            html += C.pagination(page, totalPages, total);
         }
 
-        // Today marker
-        const todayPct = ((new Date() - minDate) / (maxDate - minDate)) * 100;
+        return html;
+    }
 
-        return `
-            <div class="page-header">
-                <h1>Roadmap</h1>
-            </div>
+    // ─── Issue Detail View ────────────────────────────────────────
+    function issueDetail() {
+        const ui = AppState.getUI();
+        const issue = AppState.getIssue(ui.currentIssueId);
+        if (!issue) return `<div class="error-box">Issue not found</div>`;
 
-            <div class="roadmap-container">
-                <div class="roadmap-header">
-                    ${months.map(m => `<div class="roadmap-month" style="left:${m.leftPct}%">${m.label}</div>`).join('')}
-                </div>
-                <div class="roadmap-today" style="left:${todayPct}%"><span class="roadmap-today-label">Today</span></div>
+        const state = AppState.getState();
+        const author = AppState.getUser(issue.authorId);
+        const milestone = issue.milestoneId ? AppState.getMilestone(issue.milestoneId) : null;
+        const iteration = issue.iterationId ? AppState.getIteration(issue.iterationId) : null;
+        const comments = AppState.getComments(issue.id);
+        const activities = AppState.getActivity(issue.id);
+        const isSubscribed = AppState.isSubscribed(issue.id);
 
-                <div class="roadmap-section">
-                    <h3>Epics</h3>
-                    ${epics.map(epic => {
-                        const start = new Date(epic.startDate);
-                        const end = new Date(epic.dueDate);
-                        const leftPct = ((start - minDate) / (maxDate - minDate)) * 100;
-                        const widthPct = ((end - start) / (maxDate - minDate)) * 100;
-                        const progress = AppState.getEpicProgress(epic.id);
-                        return `
-                            <div class="roadmap-row">
-                                <div class="roadmap-row-label">
-                                    <a data-action="viewEpic" data-epic-id="${epic.id}">${Components.escapeHtml(epic.title)}</a>
-                                </div>
-                                <div class="roadmap-row-bar">
-                                    <div class="roadmap-bar" style="left:${leftPct}%;width:${widthPct}%" title="${Components.escapeAttr(epic.title)} (${Components.formatDate(epic.startDate)} - ${Components.formatDate(epic.dueDate)})">
-                                        <div class="roadmap-bar-progress" style="width:${progress.percentage}%"></div>
-                                        <span class="roadmap-bar-label">${progress.percentage}%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                    }).join('')}
-                </div>
+        let html = `<div class="issue-detail">`;
 
-                <div class="roadmap-section">
-                    <h3>Milestones</h3>
-                    ${milestones.map(ms => {
-                        const start = new Date(ms.startDate);
-                        const end = new Date(ms.dueDate);
-                        const leftPct = ((start - minDate) / (maxDate - minDate)) * 100;
-                        const widthPct = ((end - start) / (maxDate - minDate)) * 100;
-                        const progress = AppState.getMilestoneProgress(ms.id);
-                        return `
-                            <div class="roadmap-row">
-                                <div class="roadmap-row-label">
-                                    <a data-action="viewMilestone" data-milestone-id="${ms.id}">&#9872; ${Components.escapeHtml(ms.title)}</a>
-                                </div>
-                                <div class="roadmap-row-bar">
-                                    <div class="roadmap-bar roadmap-bar-milestone" style="left:${leftPct}%;width:${widthPct}%">
-                                        <div class="roadmap-bar-progress" style="width:${progress.percentage}%"></div>
-                                        <span class="roadmap-bar-label">${progress.percentage}%</span>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                    }).join('')}
-                </div>
-            </div>
-        `;
-    },
+        // Breadcrumb
+        html += `<div class="breadcrumb">
+            <a data-action="navigate" data-view="issues">Issues</a> &raquo;
+            <span>#${issue.id}</span>
+        </div>`;
 
-    // ════════════════════════════════════════════════════════
-    //  LABELS
-    // ════════════════════════════════════════════════════════
-    renderLabels() {
-        const labels = AppState.labels;
-        const scopedGroups = {};
-        const unscopedLabels = [];
+        // Header
+        html += `<div class="issue-detail-header">
+            <div class="issue-detail-title-row">
+                ${C.issueTypeBadge(issue.type)}
+                ${issue.confidential ? '<span class="confidential-icon" title="Confidential">&#128274;</span>' : ''}`;
 
-        labels.forEach(l => {
-            if (l.scoped) {
-                const scope = l.name.split('::')[0];
-                if (!scopedGroups[scope]) scopedGroups[scope] = [];
-                scopedGroups[scope].push(l);
+        if (ui.editingIssueTitle) {
+            html += `<input type="text" class="issue-title-edit" id="issue-title-input" value="${C._esc(issue.title)}" data-action="save-issue-title" />
+                     <button class="btn btn-sm btn-primary" data-action="confirm-issue-title">Save</button>
+                     <button class="btn btn-sm" data-action="cancel-issue-title">Cancel</button>`;
+        } else {
+            html += `<h1 class="issue-detail-title" data-action="edit-issue-title">${C._esc(issue.title)} <span class="issue-id-lg">#${issue.id}</span></h1>`;
+        }
+        html += `</div>`;
+        html += `<div class="issue-detail-meta">
+            ${C.statusBadge(issue.status)}
+            <span>Opened ${C._timeAgo(issue.createdAt)} by ${author ? C._esc(author.name) : 'Unknown'}</span>
+            ${issue.closedAt ? `<span> \u2022 Closed ${C._timeAgo(issue.closedAt)}</span>` : ''}
+        </div>`;
+        html += `</div>`;
+
+        // Main content + sidebar layout
+        html += `<div class="issue-detail-layout">`;
+
+        // Main content
+        html += `<div class="issue-detail-main">`;
+
+        // Description
+        html += `<div class="issue-description-section">
+            <h3>Description</h3>`;
+        if (ui.editingIssueDescription) {
+            html += `<textarea class="description-editor" id="description-editor" rows="10">${C._esc(issue.description)}</textarea>
+                     <div class="editor-actions">
+                         <button class="btn btn-primary btn-sm" data-action="save-issue-description">Save</button>
+                         <button class="btn btn-sm" data-action="cancel-issue-description">Cancel</button>
+                     </div>`;
+        } else {
+            html += `<div class="issue-description" data-action="edit-issue-description">${issue.description ? C.renderMarkdown(issue.description) : '<span class="text-muted">No description provided. Click to add one.</span>'}</div>`;
+        }
+        html += `</div>`;
+
+        // Related issues
+        if (issue.relatedIssues.length > 0) {
+            html += `<div class="related-issues-section">
+                <h3>Related issues</h3>
+                <div class="related-issues-list">`;
+            issue.relatedIssues.forEach(rel => {
+                const related = AppState.getIssue(rel.issueId);
+                if (!related) return;
+                const typeLabel = rel.type === 'blocks' ? 'blocks' : rel.type === 'is_blocked_by' ? 'is blocked by' : 'related to';
+                html += `<div class="related-issue-item">
+                    <span class="related-type">${typeLabel}</span>
+                    <span class="related-issue-link" data-action="view-issue" data-issue-id="${related.id}">
+                        ${C.statusBadge(related.status)} #${related.id} ${C._esc(related.title)}
+                    </span>
+                    <button class="btn-icon" data-action="remove-related-issue" data-issue-id="${issue.id}" data-related-id="${related.id}" title="Remove">&times;</button>
+                </div>`;
+            });
+            html += `</div></div>`;
+        }
+
+        // Activity / Comments
+        html += `<div class="activity-section">
+            <h3>Activity</h3>
+            <div class="activity-list">`;
+
+        // Merge comments and activity, sort by date
+        const allActivity = [];
+        comments.forEach(c => allActivity.push({ ...c, _type: 'comment', _date: c.createdAt }));
+        activities.forEach(a => allActivity.push({ ...a, _type: 'activity', _date: a.createdAt }));
+        allActivity.sort((a, b) => a._date.localeCompare(b._date));
+
+        allActivity.forEach(item => {
+            if (item._type === 'comment') {
+                const commentAuthor = AppState.getUser(item.authorId);
+                html += `<div class="comment-item" id="comment-${item.id}">
+                    <div class="comment-header">
+                        ${C.avatar(commentAuthor, 28)}
+                        <span class="comment-author">${commentAuthor ? C._esc(commentAuthor.name) : 'Unknown'}</span>
+                        <span class="comment-date">${C._timeAgo(item.createdAt)}</span>
+                        ${item.updatedAt !== item.createdAt ? '<span class="comment-edited">(edited)</span>' : ''}
+                    </div>
+                    <div class="comment-body">${C.renderMarkdown(item.body)}</div>
+                </div>`;
             } else {
-                unscopedLabels.push(l);
+                html += _renderActivityItem(item);
             }
         });
 
-        return `
-            <div class="page-header">
-                <div class="page-header-top">
-                    <h1>Labels</h1>
-                    <button class="btn btn-primary" data-action="createLabel">New label</button>
+        html += `</div>`;
+
+        // Comment form
+        html += `<div class="comment-form">
+            <h4>Add a comment</h4>
+            <textarea class="comment-editor" id="comment-editor" rows="4" placeholder="Write a comment... Use /assign, /label, /close, /weight, /estimate, /spend for quick actions"></textarea>
+            <div class="comment-form-actions">
+                <button class="btn btn-primary" data-action="submit-comment" data-issue-id="${issue.id}">Comment</button>
+                ${issue.status === 'open'
+                    ? `<button class="btn btn-danger" data-action="close-issue" data-issue-id="${issue.id}">Close issue</button>`
+                    : `<button class="btn btn-success" data-action="reopen-issue" data-issue-id="${issue.id}">Reopen issue</button>`}
+            </div>
+        </div>`;
+
+        html += `</div>`; // end main
+
+        // Sidebar
+        html += `<div class="issue-detail-sidebar">`;
+
+        // Assignees
+        html += C.sidebarSection('Assignees',
+            C.dropdown({
+                id: 'sidebar-assignees', value: issue.assigneeIds,
+                options: state.users.map(u => ({ value: u.id, label: u.name, avatar: u })),
+                placeholder: 'Select assignees', searchable: true, multi: true, className: 'sidebar-dropdown'
+            })
+        );
+
+        // Labels
+        html += C.sidebarSection('Labels',
+            `<div class="sidebar-labels">${C.labelBadges(issue.labelIds, true, 'issue-detail')}</div>` +
+            C.dropdown({
+                id: 'sidebar-labels', value: issue.labelIds,
+                options: state.labels.map(l => ({ value: l.id, label: l.name, color: l.color })),
+                placeholder: 'Select labels', searchable: true, multi: true, className: 'sidebar-dropdown'
+            })
+        );
+
+        // Milestone
+        html += C.sidebarSection('Milestone',
+            C.dropdown({
+                id: 'sidebar-milestone', value: issue.milestoneId,
+                options: [{ value: null, label: 'No milestone' }, ...state.milestones.filter(m => m.status === 'active').map(m => ({ value: m.id, label: m.title }))],
+                placeholder: 'Select milestone', className: 'sidebar-dropdown'
+            })
+        );
+
+        // Iteration
+        html += C.sidebarSection('Iteration',
+            C.dropdown({
+                id: 'sidebar-iteration', value: issue.iterationId,
+                options: [{ value: null, label: 'No iteration' }, ...state.iterations.filter(i => i.status === 'current' || i.status === 'upcoming').map(i => ({ value: i.id, label: i.title }))],
+                placeholder: 'Select iteration', className: 'sidebar-dropdown'
+            })
+        );
+
+        // Weight
+        html += C.sidebarSection('Weight',
+            `<input type="number" class="weight-input" id="sidebar-weight" value="${issue.weight || ''}" min="0" max="99" placeholder="Enter weight" data-action="change-weight" data-issue-id="${issue.id}" />`
+        );
+
+        // Due date
+        html += C.sidebarSection('Due date',
+            C.datePicker({ id: 'sidebar-due-date', value: issue.dueDate, placeholder: 'YYYY-MM-DD' })
+        );
+
+        // Confidential
+        html += C.sidebarSection('Confidential',
+            `<label class="toggle-label">
+                <input type="checkbox" class="toggle-input" id="sidebar-confidential" ${issue.confidential ? 'checked' : ''} data-action="toggle-confidential" data-issue-id="${issue.id}" />
+                <span class="toggle-switch"></span>
+                <span>This issue is confidential</span>
+            </label>`
+        );
+
+        // Time tracking
+        html += C.sidebarSection('Time tracking',
+            C.timeTrackingBar(issue.timeEstimate, issue.timeSpent) +
+            `<div class="time-tracking-inputs">
+                <div class="time-input-group">
+                    <label>Estimate</label>
+                    <input type="text" class="time-input" id="sidebar-estimate" placeholder="e.g. 4h 30m" data-action="set-estimate" data-issue-id="${issue.id}" />
+                </div>
+                <div class="time-input-group">
+                    <label>Spend</label>
+                    <input type="text" class="time-input" id="sidebar-spend" placeholder="e.g. 2h" data-action="add-spent" data-issue-id="${issue.id}" />
+                </div>
+            </div>`
+        );
+
+        // Subscription
+        html += C.sidebarSection('Notifications',
+            `<button class="btn btn-sm btn-block" data-action="toggle-subscription" data-issue-id="${issue.id}">
+                ${isSubscribed ? '\u2713 Subscribed' : 'Subscribe'}
+            </button>`
+        );
+
+        html += `</div>`; // end sidebar
+        html += `</div>`; // end layout
+        html += `</div>`; // end issue-detail
+
+        return html;
+    }
+
+    function _renderActivityItem(item) {
+        const user = AppState.getUser(item.userId);
+        const userName = user ? C._esc(user.name) : 'Unknown';
+        let description = '';
+
+        switch (item.action) {
+            case 'created_issue': description = 'created this issue'; break;
+            case 'closed_issue': description = 'closed this issue'; break;
+            case 'reopened_issue': description = 'reopened this issue'; break;
+            case 'assigned': {
+                const assignee = AppState.getUser(item.detail?.assigneeId);
+                description = `assigned ${assignee ? C._esc(assignee.name) : 'someone'}`;
+                break;
+            }
+            case 'unassigned': {
+                const assignee = AppState.getUser(item.detail?.assigneeId);
+                description = `unassigned ${assignee ? C._esc(assignee.name) : 'someone'}`;
+                break;
+            }
+            case 'added_label': {
+                const label = AppState.getLabel(item.detail?.labelId);
+                description = `added label ${label ? C.labelBadge(label) : 'unknown'}`;
+                break;
+            }
+            case 'removed_label': {
+                const label = AppState.getLabel(item.detail?.labelId);
+                description = `removed label ${label ? C.labelBadge(label) : 'unknown'}`;
+                break;
+            }
+            case 'changed_label': {
+                const added = AppState.getLabel(item.detail?.added);
+                const removed = AppState.getLabel(item.detail?.removed);
+                description = `changed label from ${removed ? C.labelBadge(removed) : '?'} to ${added ? C.labelBadge(added) : '?'}`;
+                break;
+            }
+            case 'changed_milestone': {
+                const from = item.detail?.from ? AppState.getMilestone(item.detail.from) : null;
+                const to = item.detail?.to ? AppState.getMilestone(item.detail.to) : null;
+                description = `changed milestone from ${from ? C._esc(from.title) : 'none'} to ${to ? C._esc(to.title) : 'none'}`;
+                break;
+            }
+            case 'changed_iteration': {
+                const from = item.detail?.from ? AppState.getIteration(item.detail.from) : null;
+                const to = item.detail?.to ? AppState.getIteration(item.detail.to) : null;
+                description = `changed iteration from ${from ? C._esc(from.title) : 'none'} to ${to ? C._esc(to.title) : 'none'}`;
+                break;
+            }
+            default: description = item.action.replace(/_/g, ' ');
+        }
+
+        return `<div class="activity-item">
+            <span class="activity-dot"></span>
+            <span class="activity-text">${userName} ${description}</span>
+            <span class="activity-date">${C._timeAgo(item.createdAt)}</span>
+        </div>`;
+    }
+
+    // ─── New Issue Form ───────────────────────────────────────────
+    function newIssueForm() {
+        const state = AppState.getState();
+
+        let html = `<div class="view-header">
+            <h1>New issue</h1>
+        </div>`;
+
+        html += `<div class="new-issue-layout">`;
+        html += `<div class="new-issue-main">`;
+
+        // Template selection
+        html += `<div class="form-group">
+            <label class="field-label">Template</label>`;
+        html += C.dropdown({
+            id: 'issue-template', value: null,
+            options: [{ value: null, label: 'No template' }, ...state.issueTemplates.map(t => ({ value: t.id, label: t.name }))],
+            placeholder: 'Select template', className: 'form-dropdown'
+        });
+        html += `</div>`;
+
+        // Type
+        html += `<div class="form-group">
+            <label class="field-label">Type</label>`;
+        html += C.dropdown({
+            id: 'issue-type', value: 'issue',
+            options: [
+                { value: 'issue', label: 'Issue' },
+                { value: 'incident', label: 'Incident' },
+                { value: 'task', label: 'Task' },
+            ],
+            placeholder: 'Select type', className: 'form-dropdown'
+        });
+        html += `</div>`;
+
+        // Title
+        html += `<div class="form-group">
+            <label class="field-label required">Title</label>
+            <input type="text" class="form-input" id="new-issue-title" placeholder="Enter issue title" required />
+            <div class="field-error" id="title-error" style="display:none">Title is required</div>
+        </div>`;
+
+        // Description
+        html += `<div class="form-group">
+            <label class="field-label">Description</label>
+            <textarea class="form-textarea" id="new-issue-description" rows="10" placeholder="Describe the issue... Supports Markdown"></textarea>
+        </div>`;
+
+        html += `</div>`; // end main
+
+        // Sidebar fields
+        html += `<div class="new-issue-sidebar">`;
+
+        html += `<div class="form-group">
+            <label class="field-label">Assignees</label>`;
+        html += C.dropdown({
+            id: 'new-issue-assignees', value: [],
+            options: state.users.map(u => ({ value: u.id, label: u.name, avatar: u })),
+            placeholder: 'Select assignees', searchable: true, multi: true, className: 'form-dropdown'
+        });
+        html += `</div>`;
+
+        html += `<div class="form-group">
+            <label class="field-label">Labels</label>`;
+        html += C.dropdown({
+            id: 'new-issue-labels', value: [],
+            options: state.labels.map(l => ({ value: l.id, label: l.name, color: l.color })),
+            placeholder: 'Select labels', searchable: true, multi: true, className: 'form-dropdown'
+        });
+        html += `</div>`;
+
+        html += `<div class="form-group">
+            <label class="field-label">Milestone</label>`;
+        html += C.dropdown({
+            id: 'new-issue-milestone', value: null,
+            options: [{ value: null, label: 'No milestone' }, ...state.milestones.filter(m => m.status === 'active').map(m => ({ value: m.id, label: m.title }))],
+            placeholder: 'Select milestone', className: 'form-dropdown'
+        });
+        html += `</div>`;
+
+        html += `<div class="form-group">
+            <label class="field-label">Iteration</label>`;
+        html += C.dropdown({
+            id: 'new-issue-iteration', value: null,
+            options: [{ value: null, label: 'No iteration' }, ...state.iterations.filter(i => i.status === 'current' || i.status === 'upcoming').map(i => ({ value: i.id, label: i.title }))],
+            placeholder: 'Select iteration', className: 'form-dropdown'
+        });
+        html += `</div>`;
+
+        html += `<div class="form-group">
+            <label class="field-label">Weight</label>
+            <input type="number" class="form-input" id="new-issue-weight" min="0" max="99" placeholder="Issue weight" />
+        </div>`;
+
+        html += `<div class="form-group">
+            <label class="field-label">Due date</label>`;
+        html += C.datePicker({ id: 'new-issue-due-date', placeholder: 'YYYY-MM-DD' });
+        html += `</div>`;
+
+        html += `<div class="form-group">
+            <label class="toggle-label">
+                <input type="checkbox" class="toggle-input" id="new-issue-confidential" />
+                <span class="toggle-switch"></span>
+                <span>Confidential</span>
+            </label>
+        </div>`;
+
+        html += `</div>`; // end sidebar
+
+        html += `</div>`; // end layout
+
+        // Submit buttons
+        html += `<div class="form-actions">
+            <button class="btn" data-action="navigate" data-view="issues">Cancel</button>
+            <button class="btn btn-primary" data-action="create-issue" id="create-issue-btn">Create issue</button>
+        </div>`;
+
+        return html;
+    }
+
+    // ─── Labels Management View ───────────────────────────────────
+    function labelsView() {
+        const state = AppState.getState();
+        const scopedLabels = state.labels.filter(l => l.scoped);
+        const regularLabels = state.labels.filter(l => !l.scoped);
+
+        let html = `<div class="view-header">
+            <h1>Labels</h1>
+            <button class="btn btn-primary" data-action="new-label">New label</button>
+        </div>`;
+
+        // Scoped labels section
+        if (scopedLabels.length > 0) {
+            html += `<h3 class="section-heading">Scoped labels</h3>`;
+            html += `<div class="labels-list">`;
+            scopedLabels.forEach(label => {
+                const issueCount = state.issues.filter(i => i.labelIds.includes(label.id)).length;
+                html += _labelRow(label, issueCount);
+            });
+            html += `</div>`;
+        }
+
+        // Regular labels section
+        html += `<h3 class="section-heading">Labels</h3>`;
+        html += `<div class="labels-list">`;
+        regularLabels.forEach(label => {
+            const issueCount = state.issues.filter(i => i.labelIds.includes(label.id)).length;
+            html += _labelRow(label, issueCount);
+        });
+        html += `</div>`;
+
+        return html;
+    }
+
+    function _labelRow(label, issueCount) {
+        return `<div class="label-row" data-label-id="${label.id}">
+            <div class="label-row-info">
+                ${C.labelBadge(label)}
+                <span class="label-description">${C._esc(label.description)}</span>
+            </div>
+            <div class="label-row-meta">
+                <span class="label-issue-count">${issueCount} issue${issueCount !== 1 ? 's' : ''}</span>
+                <button class="btn btn-sm" data-action="edit-label" data-label-id="${label.id}">Edit</button>
+                <button class="btn btn-sm btn-danger" data-action="delete-label" data-label-id="${label.id}">Delete</button>
+            </div>
+        </div>`;
+    }
+
+    // ─── Milestones View ──────────────────────────────────────────
+    function milestonesView() {
+        const state = AppState.getState();
+        const activeMilestones = state.milestones.filter(m => m.status === 'active');
+        const closedMilestones = state.milestones.filter(m => m.status === 'closed');
+
+        let html = `<div class="view-header">
+            <h1>Milestones</h1>
+            <button class="btn btn-primary" data-action="new-milestone">New milestone</button>
+        </div>`;
+
+        html += C.tabs([
+            { id: 'active', label: 'Active', count: activeMilestones.length },
+            { id: 'closed', label: 'Closed', count: closedMilestones.length },
+        ], AppState.getUI()._milestonesTab || 'active');
+
+        const milestones = (AppState.getUI()._milestonesTab || 'active') === 'active' ? activeMilestones : closedMilestones;
+
+        if (milestones.length === 0) {
+            html += C.emptyState('No milestones found.', 'New milestone', 'data-action="new-milestone"');
+        } else {
+            milestones.forEach(ms => {
+                const stats = AppState.getMilestoneStats(ms.id);
+                html += `<div class="milestone-card" data-action="view-milestone" data-milestone-id="${ms.id}">
+                    <div class="milestone-card-header">
+                        <h3>${C._esc(ms.title)}</h3>
+                        <span class="milestone-dates">${ms.startDate ? C._formatDate(ms.startDate) : ''} ${ms.startDate || ms.dueDate ? '\u2013' : ''} ${ms.dueDate ? C._formatDate(ms.dueDate) : 'No due date'}</span>
+                    </div>
+                    <p class="milestone-description">${C._esc(ms.description)}</p>
+                    ${C.progressBar(stats.percent)}
+                    <div class="milestone-stats">
+                        <span class="text-success">${stats.closed} closed</span>
+                        <span class="text-muted">${stats.open} open</span>
+                    </div>
+                </div>`;
+            });
+        }
+
+        return html;
+    }
+
+    // ─── Milestone Detail View ────────────────────────────────────
+    function milestoneDetail() {
+        const ui = AppState.getUI();
+        const ms = AppState.getMilestone(ui.currentMilestoneId);
+        if (!ms) return '<div class="error-box">Milestone not found</div>';
+
+        const stats = AppState.getMilestoneStats(ms.id);
+        const issues = AppState.getState().issues.filter(i => i.milestoneId === ms.id);
+        const openIssues = issues.filter(i => i.status === 'open');
+        const closedIssues = issues.filter(i => i.status === 'closed');
+
+        let html = `<div class="breadcrumb">
+            <a data-action="navigate" data-view="milestones">Milestones</a> &raquo;
+            <span>${C._esc(ms.title)}</span>
+        </div>`;
+
+        html += `<div class="view-header">
+            <h1>${C._esc(ms.title)}</h1>
+            <div class="header-actions">
+                <button class="btn btn-sm" data-action="edit-milestone" data-milestone-id="${ms.id}">Edit</button>
+                ${ms.status === 'active'
+                    ? `<button class="btn btn-sm btn-warning" data-action="close-milestone" data-milestone-id="${ms.id}">Close milestone</button>`
+                    : `<button class="btn btn-sm btn-success" data-action="reopen-milestone" data-milestone-id="${ms.id}">Reopen milestone</button>`}
+                <button class="btn btn-sm btn-danger" data-action="delete-milestone" data-milestone-id="${ms.id}">Delete</button>
+            </div>
+        </div>`;
+
+        if (ms.description) html += `<p class="milestone-description-detail">${C._esc(ms.description)}</p>`;
+
+        html += `<div class="milestone-meta">
+            <span>Start: ${ms.startDate ? C._formatDate(ms.startDate) : 'N/A'}</span>
+            <span>Due: ${ms.dueDate ? C._formatDate(ms.dueDate) : 'N/A'}</span>
+        </div>`;
+
+        html += C.progressBar(stats.percent);
+        html += `<div class="milestone-stats"><span class="text-success">${stats.closed} closed</span> \u2022 <span class="text-muted">${stats.open} open</span> \u2022 <span>${stats.total} total</span></div>`;
+
+        // Time tracking summary
+        const totalEstimate = issues.reduce((s, i) => s + (i.timeEstimate || 0), 0);
+        const totalSpent = issues.reduce((s, i) => s + (i.timeSpent || 0), 0);
+        if (totalEstimate > 0 || totalSpent > 0) {
+            html += `<div class="milestone-time-summary">
+                <h3>Time tracking</h3>
+                ${C.timeTrackingBar(totalEstimate, totalSpent)}
+            </div>`;
+        }
+
+        // Issues list
+        html += `<h3 class="section-heading">Open issues (${openIssues.length})</h3>`;
+        if (openIssues.length > 0) {
+            html += `<table class="issues-table"><tbody>`;
+            openIssues.forEach(i => { html += C.issueRow(i); });
+            html += `</tbody></table>`;
+        }
+
+        html += `<h3 class="section-heading">Closed issues (${closedIssues.length})</h3>`;
+        if (closedIssues.length > 0) {
+            html += `<table class="issues-table"><tbody>`;
+            closedIssues.forEach(i => { html += C.issueRow(i); });
+            html += `</tbody></table>`;
+        }
+
+        return html;
+    }
+
+    // ─── Boards View ──────────────────────────────────────────────
+    function boardsView() {
+        const ui = AppState.getUI();
+        const board = AppState.getBoard(ui.currentBoardId);
+        if (!board) return '<div class="error-box">Board not found</div>';
+
+        const boardIssues = AppState.getBoardIssues(board.id);
+        const state = AppState.getState();
+
+        let html = `<div class="view-header board-header">
+            <h1>${C._esc(board.name)}</h1>
+            <div class="board-filters">`;
+        html += C.dropdown({
+            id: 'board-filter-assignee', value: ui.boardFilters.assigneeId,
+            options: [{ value: null, label: 'Any assignee' }, ...state.users.map(u => ({ value: u.id, label: u.name, avatar: u }))],
+            placeholder: 'Assignee', searchable: true, className: 'filter-dropdown'
+        });
+        html += C.dropdown({
+            id: 'board-filter-milestone', value: ui.boardFilters.milestoneId,
+            options: [{ value: null, label: 'Any milestone' }, ...state.milestones.map(m => ({ value: m.id, label: m.title }))],
+            placeholder: 'Milestone', className: 'filter-dropdown'
+        });
+        html += `</div></div>`;
+
+        html += `<div class="board-container">`;
+        board.lists.forEach(list => {
+            const issues = boardIssues[list.id] || [];
+            html += `<div class="board-column" data-list-id="${list.id}" data-board-id="${board.id}">
+                <div class="board-column-header">
+                    <span class="board-column-title">${C._esc(list.title)}</span>
+                    <span class="board-column-count">${issues.length}</span>
+                    ${list.type === 'label' ? `<button class="btn-icon board-column-remove" data-action="remove-board-list" data-board-id="${board.id}" data-list-id="${list.id}" title="Remove list">&times;</button>` : ''}
+                </div>
+                <div class="board-column-body" data-list-id="${list.id}" data-board-id="${board.id}">`;
+            issues.slice(0, 20).forEach(issue => {
+                html += C.issueCard(issue);
+            });
+            if (issues.length > 20) {
+                html += `<div class="board-more">+ ${issues.length - 20} more</div>`;
+            }
+            if (list.type !== 'closed') {
+                html += `<button class="board-add-issue" data-action="board-new-issue" data-list-id="${list.id}" data-board-id="${board.id}">+ New issue</button>`;
+            }
+            html += `</div></div>`;
+        });
+
+        // Add list button
+        html += `<div class="board-column board-add-column">
+            <button class="btn board-add-list-btn" data-action="add-board-list" data-board-id="${board.id}">+ Add list</button>
+        </div>`;
+
+        html += `</div>`;
+
+        return html;
+    }
+
+    // ─── Iterations View ──────────────────────────────────────────
+    function iterationsView() {
+        const state = AppState.getState();
+        const cadences = state.iterationCadences;
+
+        let html = `<div class="view-header">
+            <h1>Iterations</h1>
+            <button class="btn btn-primary" data-action="new-iteration">New iteration</button>
+        </div>`;
+
+        cadences.forEach(cadence => {
+            const iters = state.iterations.filter(i => i.cadenceId === cadence.id);
+            html += `<div class="cadence-section">
+                <h2 class="cadence-title">${C._esc(cadence.title)} <span class="text-muted">(${cadence.durationWeeks}-week${cadence.durationWeeks > 1 ? 's' : ''})</span></h2>
+                <p class="cadence-description">${C._esc(cadence.description)}</p>`;
+
+            const currentIter = iters.find(i => i.status === 'current');
+            const upcomingIters = iters.filter(i => i.status === 'upcoming');
+            const closedIters = iters.filter(i => i.status === 'closed');
+
+            if (currentIter) {
+                const stats = AppState.getIterationStats(currentIter.id);
+                html += `<div class="iteration-card current" data-action="view-iteration" data-iteration-id="${currentIter.id}">
+                    <div class="iteration-card-badge">Current</div>
+                    <h3>${C._esc(currentIter.title)}</h3>
+                    <div class="iteration-dates">${C._formatDate(currentIter.startDate)} \u2013 ${C._formatDate(currentIter.endDate)}</div>
+                    ${C.progressBar(stats.percent)}
+                    <div class="iteration-stats">${stats.closed}/${stats.total} issues \u2022 ${stats.closedWeight}/${stats.totalWeight} weight</div>
+                </div>`;
+            }
+
+            if (upcomingIters.length > 0) {
+                html += `<h4>Upcoming</h4>`;
+                upcomingIters.forEach(iter => {
+                    const stats = AppState.getIterationStats(iter.id);
+                    html += `<div class="iteration-card upcoming" data-action="view-iteration" data-iteration-id="${iter.id}">
+                        <h3>${C._esc(iter.title)}</h3>
+                        <div class="iteration-dates">${C._formatDate(iter.startDate)} \u2013 ${C._formatDate(iter.endDate)}</div>
+                        <div class="iteration-stats">${stats.total} issues \u2022 ${stats.totalWeight} weight</div>
+                    </div>`;
+                });
+            }
+
+            if (closedIters.length > 0) {
+                html += `<h4>Closed (${closedIters.length})</h4>`;
+                closedIters.forEach(iter => {
+                    const stats = AppState.getIterationStats(iter.id);
+                    html += `<div class="iteration-card closed" data-action="view-iteration" data-iteration-id="${iter.id}">
+                        <h3>${C._esc(iter.title)}</h3>
+                        <div class="iteration-dates">${C._formatDate(iter.startDate)} \u2013 ${C._formatDate(iter.endDate)}</div>
+                        ${C.progressBar(stats.percent)}
+                        <div class="iteration-stats">${stats.closed}/${stats.total} issues \u2022 ${stats.closedWeight}/${stats.totalWeight} weight</div>
+                    </div>`;
+                });
+            }
+
+            html += `</div>`;
+        });
+
+        return html;
+    }
+
+    // ─── Iteration Detail View ────────────────────────────────────
+    function iterationDetail() {
+        const ui = AppState.getUI();
+        const iter = AppState.getIteration(ui.currentIterationId);
+        if (!iter) return '<div class="error-box">Iteration not found</div>';
+
+        const cadence = AppState.getState().iterationCadences.find(c => c.id === iter.cadenceId);
+        const stats = AppState.getIterationStats(iter.id);
+        const issues = AppState.getState().issues.filter(i => i.iterationId === iter.id);
+        const openIssues = issues.filter(i => i.status === 'open');
+        const closedIssues = issues.filter(i => i.status === 'closed');
+
+        let html = `<div class="breadcrumb">
+            <a data-action="navigate" data-view="iterations">Iterations</a> &raquo;
+            <span>${C._esc(iter.title)}</span>
+        </div>`;
+
+        html += `<div class="view-header">
+            <h1>${C._esc(iter.title)}</h1>
+            <div class="header-actions">
+                <span class="iteration-status-badge ${iter.status}">${iter.status}</span>
+            </div>
+        </div>`;
+
+        if (cadence) html += `<p class="text-muted">Cadence: ${C._esc(cadence.title)}</p>`;
+        html += `<div class="iteration-meta">
+            <span>${C._formatDate(iter.startDate)} \u2013 ${C._formatDate(iter.endDate)}</span>
+        </div>`;
+
+        html += C.progressBar(stats.percent);
+        html += `<div class="iteration-detail-stats">
+            <div class="stat-box"><div class="stat-value">${stats.total}</div><div class="stat-label">Total issues</div></div>
+            <div class="stat-box"><div class="stat-value">${stats.closed}</div><div class="stat-label">Completed</div></div>
+            <div class="stat-box"><div class="stat-value">${stats.open}</div><div class="stat-label">Open</div></div>
+            <div class="stat-box"><div class="stat-value">${stats.totalWeight}</div><div class="stat-label">Total weight</div></div>
+            <div class="stat-box"><div class="stat-value">${stats.closedWeight}</div><div class="stat-label">Completed weight</div></div>
+        </div>`;
+
+        // Burndown placeholder
+        html += `<div class="burndown-chart">
+            <h3>Burndown</h3>
+            <div class="burndown-placeholder">
+                <div class="burndown-bar" style="width:${100 - stats.percent}%;background:#e24329"></div>
+                <div class="burndown-bar" style="width:${stats.percent}%;background:#1aaa55"></div>
+            </div>
+            <div class="burndown-legend">
+                <span class="legend-item"><span class="legend-dot" style="background:#e24329"></span> Remaining</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#1aaa55"></span> Completed</span>
+            </div>
+        </div>`;
+
+        // Issues
+        html += `<h3 class="section-heading">Open issues (${openIssues.length})</h3>`;
+        if (openIssues.length > 0) {
+            html += `<table class="issues-table"><tbody>`;
+            openIssues.forEach(i => { html += C.issueRow(i); });
+            html += `</tbody></table>`;
+        }
+
+        html += `<h3 class="section-heading">Closed issues (${closedIssues.length})</h3>`;
+        if (closedIssues.length > 0) {
+            html += `<table class="issues-table"><tbody>`;
+            closedIssues.forEach(i => { html += C.issueRow(i); });
+            html += `</tbody></table>`;
+        }
+
+        return html;
+    }
+
+    // ─── Epics View ───────────────────────────────────────────────
+    function epicsView() {
+        const state = AppState.getState();
+        const ui = AppState.getUI();
+
+        let filtered = state.epics.slice();
+        if (ui.epicFilters.status === 'open') filtered = filtered.filter(e => e.status === 'open');
+        else if (ui.epicFilters.status === 'closed') filtered = filtered.filter(e => e.status === 'closed');
+        if (ui.epicFilters.search) {
+            const s = ui.epicFilters.search.toLowerCase();
+            filtered = filtered.filter(e => e.title.toLowerCase().includes(s));
+        }
+
+        const openCount = state.epics.filter(e => e.status === 'open').length;
+        const closedCount = state.epics.filter(e => e.status === 'closed').length;
+
+        let html = `<div class="view-header">
+            <h1>Epics</h1>
+            <button class="btn btn-primary" data-action="new-epic">New epic</button>
+        </div>`;
+
+        html += `<div class="filter-bar">
+            <div class="filter-status-tabs">
+                <button class="filter-tab${ui.epicFilters.status === 'open' ? ' active' : ''}" data-action="filter-epics-status" data-status="open">\u25CB Open <span class="count">${openCount}</span></button>
+                <button class="filter-tab${ui.epicFilters.status === 'closed' ? ' active' : ''}" data-action="filter-epics-status" data-status="closed">\u25CF Closed <span class="count">${closedCount}</span></button>
+                <button class="filter-tab${ui.epicFilters.status === 'all' ? ' active' : ''}" data-action="filter-epics-status" data-status="all">All <span class="count">${state.epics.length}</span></button>
+            </div>
+            <div class="filter-search">
+                <input type="text" class="search-input" id="epic-search" placeholder="Search epics..." value="${C._esc(ui.epicFilters.search)}" data-action="search-epics" />
+            </div>
+        </div>`;
+
+        if (filtered.length === 0) {
+            html += C.emptyState('No epics found.', 'New epic', 'data-action="new-epic"');
+        } else {
+            filtered.forEach(epic => {
+                const stats = AppState.getEpicStats(epic.id);
+                const author = AppState.getUser(epic.authorId);
+                html += `<div class="epic-card" data-action="view-epic" data-epic-id="${epic.id}">
+                    <div class="epic-card-header">
+                        ${epic.confidential ? '<span class="confidential-icon">&#128274;</span>' : ''}
+                        <h3>${C._esc(epic.title)}</h3>
+                        ${C.statusBadge(epic.status)}
+                    </div>
+                    <p class="epic-card-description">${C._esc((epic.description || '').substring(0, 200))}${(epic.description || '').length > 200 ? '...' : ''}</p>
+                    <div class="epic-card-meta">
+                        ${C.progressBar(stats.percent)}
+                        <span>${stats.closed}/${stats.total} issues</span>
+                        <span>${epic.startDate ? C._formatDate(epic.startDate) : ''} ${epic.startDate || epic.dueDate ? '\u2013' : ''} ${epic.dueDate ? C._formatDate(epic.dueDate) : ''}</span>
+                        <span>by ${author ? C._esc(author.name) : 'Unknown'}</span>
+                    </div>
+                    <div class="epic-card-labels">${C.labelBadges(epic.labels || [])}</div>
+                </div>`;
+            });
+        }
+
+        return html;
+    }
+
+    // ─── Epic Detail View ─────────────────────────────────────────
+    function epicDetail() {
+        const ui = AppState.getUI();
+        const epic = AppState.getEpic(ui.currentEpicId);
+        if (!epic) return '<div class="error-box">Epic not found</div>';
+
+        const stats = AppState.getEpicStats(epic.id);
+        const author = AppState.getUser(epic.authorId);
+        const childIssues = epic.childIssueIds.map(id => AppState.getIssue(id)).filter(Boolean);
+        const state = AppState.getState();
+
+        let html = `<div class="breadcrumb">
+            <a data-action="navigate" data-view="epics">Epics</a> &raquo;
+            <span>${C._esc(epic.title)}</span>
+        </div>`;
+
+        html += `<div class="view-header">
+            <div>
+                <h1>${epic.confidential ? '<span class="confidential-icon">&#128274;</span>' : ''} ${C._esc(epic.title)}</h1>
+                <div class="issue-detail-meta">
+                    ${C.statusBadge(epic.status)}
+                    <span>Created ${C._timeAgo(epic.createdAt)} by ${author ? C._esc(author.name) : 'Unknown'}</span>
                 </div>
             </div>
-
-            ${Object.keys(scopedGroups).length > 0 ? `
-                <div class="label-section">
-                    <h3>Scoped Labels</h3>
-                    ${Object.entries(scopedGroups).map(([scope, scopeLabels]) => `
-                        <div class="label-group">
-                            <div class="label-group-header">${Components.escapeHtml(scope)}::</div>
-                            ${scopeLabels.map(l => this._labelRow(l)).join('')}
-                        </div>
-                    `).join('')}
-                </div>
-            ` : ''}
-
-            <div class="label-section">
-                <h3>Labels</h3>
-                ${unscopedLabels.map(l => this._labelRow(l)).join('')}
-                ${unscopedLabels.length === 0 ? '<p class="text-muted">No labels.</p>' : ''}
+            <div class="header-actions">
+                ${epic.status === 'open'
+                    ? `<button class="btn btn-warning" data-action="close-epic" data-epic-id="${epic.id}">Close epic</button>`
+                    : `<button class="btn btn-success" data-action="reopen-epic" data-epic-id="${epic.id}">Reopen epic</button>`}
             </div>
-        `;
-    },
+        </div>`;
 
-    _labelRow(label) {
-        const issueCount = AppState.issues.filter(i => i.labels.includes(label.id)).length;
-        return `
-            <div class="label-row" data-label-id="${label.id}">
-                <div class="label-row-main">
-                    ${Components.labelChip(label)}
-                    <span class="label-description">${Components.escapeHtml(label.description || '')}</span>
+        html += `<div class="epic-detail-layout">`;
+        html += `<div class="epic-detail-main">`;
+
+        // Description
+        if (epic.description) {
+            html += `<div class="epic-description-section">
+                <h3>Description</h3>
+                <div class="epic-description">${C.renderMarkdown(epic.description)}</div>
+            </div>`;
+        }
+
+        // Progress
+        html += `<div class="epic-progress-section">
+            <h3>Progress</h3>
+            ${C.progressBar(stats.percent)}
+            <div class="epic-stats">${stats.closed} of ${stats.total} issues completed</div>
+        </div>`;
+
+        // Roadmap bar
+        if (epic.startDate && epic.dueDate) {
+            html += `<div class="epic-roadmap-bar">
+                <h3>Timeline</h3>
+                <div class="roadmap-single-bar">
+                    <span class="roadmap-date">${C._formatDate(epic.startDate)}</span>
+                    <div class="roadmap-bar-visual">
+                        <div class="roadmap-bar-fill" style="width:${_epicTimelinePercent(epic)}%"></div>
+                    </div>
+                    <span class="roadmap-date">${C._formatDate(epic.dueDate)}</span>
                 </div>
-                <div class="label-row-meta">
-                    <span class="label-issue-count">${issueCount} issues</span>
-                    <button class="btn btn-sm btn-link" data-action="editLabel" data-label-id="${label.id}">Edit</button>
-                    <button class="btn btn-sm btn-link btn-danger-link" data-action="deleteLabel" data-label-id="${label.id}">Delete</button>
+            </div>`;
+        }
+
+        // Child issues
+        html += `<div class="epic-children-section">
+            <h3>Child issues (${childIssues.length})</h3>`;
+        if (childIssues.length > 0) {
+            html += `<table class="issues-table"><tbody>`;
+            childIssues.forEach(i => { html += C.issueRow(i); });
+            html += `</tbody></table>`;
+        } else {
+            html += `<p class="text-muted">No child issues.</p>`;
+        }
+
+        // Add child issue
+        html += `<div class="add-child-section">`;
+        html += C.dropdown({
+            id: 'add-child-issue', value: null,
+            options: state.issues.filter(i => !epic.childIssueIds.includes(i.id) && i.status === 'open')
+                .slice(0, 30).map(i => ({ value: i.id, label: `#${i.id} ${i.title}` })),
+            placeholder: 'Add child issue...', searchable: true, className: 'inline-dropdown'
+        });
+        html += `</div>`;
+
+        html += `</div>`;
+
+        html += `</div>`; // end main
+
+        // Sidebar
+        html += `<div class="epic-detail-sidebar">`;
+        html += C.sidebarSection('Labels',
+            C.labelBadges(epic.labels || []) || '<span class="text-muted">None</span>'
+        );
+        html += C.sidebarSection('Start date',
+            `<span>${epic.startDate ? C._formatDate(epic.startDate) : 'Not set'}</span>`
+        );
+        html += C.sidebarSection('Due date',
+            `<span>${epic.dueDate ? C._formatDate(epic.dueDate) : 'Not set'}</span>`
+        );
+        html += C.sidebarSection('Confidential',
+            `<span>${epic.confidential ? 'Yes' : 'No'}</span>`
+        );
+        html += `</div>`;
+
+        html += `</div>`; // end layout
+
+        return html;
+    }
+
+    function _epicTimelinePercent(epic) {
+        const start = new Date(epic.startDate).getTime();
+        const end = new Date(epic.dueDate).getTime();
+        const now = Date.now();
+        if (now <= start) return 0;
+        if (now >= end) return 100;
+        return Math.round(((now - start) / (end - start)) * 100);
+    }
+
+    // ─── Roadmap View ─────────────────────────────────────────────
+    function roadmapView() {
+        const state = AppState.getState();
+        const ui = AppState.getUI();
+        const epics = state.epics.filter(e => e.startDate && e.dueDate && e.status === 'open');
+
+        let html = `<div class="view-header">
+            <h1>Roadmap</h1>
+            <div class="roadmap-controls">`;
+        html += C.dropdown({
+            id: 'roadmap-zoom', value: ui.roadmapZoom,
+            options: [
+                { value: 'weeks', label: 'Weeks' },
+                { value: 'months', label: 'Months' },
+                { value: 'quarters', label: 'Quarters' },
+            ],
+            placeholder: 'Zoom', className: 'filter-dropdown'
+        });
+        html += `</div></div>`;
+
+        if (epics.length === 0) {
+            html += C.emptyState('No epics with dates to display on the roadmap.');
+            return html;
+        }
+
+        // Calculate timeline range
+        const allDates = epics.flatMap(e => [new Date(e.startDate), new Date(e.dueDate)]);
+        const minDate = new Date(Math.min(...allDates));
+        const maxDate = new Date(Math.max(...allDates));
+        // Add some padding
+        minDate.setDate(minDate.getDate() - 14);
+        maxDate.setDate(maxDate.getDate() + 14);
+
+        const totalDays = Math.ceil((maxDate - minDate) / (1000 * 60 * 60 * 24));
+
+        // Month headers
+        html += `<div class="roadmap-timeline">`;
+        html += `<div class="roadmap-header">`;
+        html += `<div class="roadmap-label-col">Epic</div>`;
+        html += `<div class="roadmap-bars-col">`;
+
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        let current = new Date(minDate);
+        while (current <= maxDate) {
+            const daysInMonth = new Date(current.getFullYear(), current.getMonth() + 1, 0).getDate();
+            const monthStart = new Date(current.getFullYear(), current.getMonth(), 1);
+            const startOffset = Math.max(0, Math.ceil((monthStart - minDate) / (1000 * 60 * 60 * 24)));
+            const width = (daysInMonth / totalDays) * 100;
+            html += `<div class="roadmap-month" style="left:${(startOffset / totalDays) * 100}%;width:${width}%">${months[current.getMonth()]} ${current.getFullYear()}</div>`;
+            current.setMonth(current.getMonth() + 1);
+        }
+        html += `</div></div>`;
+
+        // Epic bars
+        epics.forEach(epic => {
+            const start = new Date(epic.startDate);
+            const end = new Date(epic.dueDate);
+            const startOffset = Math.max(0, (start - minDate) / (1000 * 60 * 60 * 24));
+            const duration = Math.max(1, (end - start) / (1000 * 60 * 60 * 24));
+            const left = (startOffset / totalDays) * 100;
+            const width = (duration / totalDays) * 100;
+            const stats = AppState.getEpicStats(epic.id);
+
+            html += `<div class="roadmap-row">
+                <div class="roadmap-label-col">
+                    <span class="roadmap-epic-label" data-action="view-epic" data-epic-id="${epic.id}">${C._esc(epic.title)}</span>
                 </div>
+                <div class="roadmap-bars-col">
+                    <div class="roadmap-bar" style="left:${left}%;width:${width}%" title="${C._esc(epic.title)}: ${C._formatDate(epic.startDate)} – ${C._formatDate(epic.dueDate)}">
+                        <div class="roadmap-bar-progress" style="width:${stats.percent}%"></div>
+                        <span class="roadmap-bar-label">${C._esc(epic.title)}</span>
+                    </div>
+                </div>
+            </div>`;
+        });
+
+        // Today marker
+        const todayOffset = (Date.now() - minDate.getTime()) / (1000 * 60 * 60 * 24);
+        if (todayOffset >= 0 && todayOffset <= totalDays) {
+            html += `<div class="roadmap-today" style="left:calc(200px + ${(todayOffset / totalDays) * (100)}% * (100% - 200px) / 100%)"></div>`;
+        }
+
+        html += `</div>`;
+        return html;
+    }
+
+    // ─── Notifications View ───────────────────────────────────────
+    function notificationsView() {
+        const state = AppState.getState();
+        const notifications = state.notifications.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+        const unreadCount = notifications.filter(n => !n.read).length;
+
+        let html = `<div class="view-header">
+            <h1>Notifications</h1>
+            <div class="header-actions">
+                ${unreadCount > 0 ? `<button class="btn btn-sm" data-action="mark-all-read">Mark all as read</button>` : ''}
             </div>
-        `;
-    },
+        </div>`;
 
-    // ════════════════════════════════════════════════════════
-    //  NOTIFICATIONS
-    // ════════════════════════════════════════════════════════
-    renderNotifications() {
-        const feed = AppState.notificationFeed;
-        const settings = AppState.notificationSettings;
-        const unread = feed.filter(n => !n.read);
-        const levelOpts = [
-            { value: 'global', label: 'Global' },
-            { value: 'watch', label: 'Watch' },
-            { value: 'participating', label: 'On mention / participating' },
-            { value: 'disabled', label: 'Disabled' }
+        // Settings
+        html += `<div class="notification-settings">
+            <h3>Notification preferences</h3>`;
+        html += C.dropdown({
+            id: 'notification-level', value: state.notificationSettings.level,
+            options: [
+                { value: 'global', label: 'Global' },
+                { value: 'watch', label: 'Watch' },
+                { value: 'on_mention', label: 'On mention' },
+                { value: 'disabled', label: 'Disabled' },
+            ],
+            placeholder: 'Notification level', className: 'notification-dropdown'
+        });
+        html += `</div>`;
+
+        if (notifications.length === 0) {
+            html += C.emptyState('No notifications yet.');
+        } else {
+            html += `<div class="notifications-list">`;
+            notifications.forEach(n => {
+                const icon = _notificationIcon(n.type);
+                html += `<div class="notification-item${n.read ? '' : ' unread'}" data-action="notification-click" data-notification-id="${n.id}" data-issue-id="${n.issueId}">
+                    <span class="notification-icon">${icon}</span>
+                    <div class="notification-content">
+                        <span class="notification-message">${C._esc(n.message)}</span>
+                        <span class="notification-time">${C._timeAgo(n.createdAt)}</span>
+                    </div>
+                    ${!n.read ? `<button class="btn-icon notification-mark-read" data-action="mark-read" data-notification-id="${n.id}" title="Mark as read">\u2713</button>` : ''}
+                </div>`;
+            });
+            html += `</div>`;
+        }
+
+        return html;
+    }
+
+    function _notificationIcon(type) {
+        const icons = {
+            assigned: '\u2192',
+            mentioned: '@',
+            comment: '\u{1F4AC}',
+            status_change: '\u25CB',
+            label_change: '\u{1F3F7}',
+            milestone_change: '\u{1F3AF}',
+        };
+        return icons[type] || '\u2022';
+    }
+
+    // ─── Time Tracking Report View ────────────────────────────────
+    function timeTrackingView() {
+        const state = AppState.getState();
+
+        let html = `<div class="view-header">
+            <h1>Time tracking</h1>
+        </div>`;
+
+        // Summary stats
+        const totalEstimate = state.issues.reduce((s, i) => s + (i.timeEstimate || 0), 0);
+        const totalSpent = state.issues.reduce((s, i) => s + (i.timeSpent || 0), 0);
+        const remaining = Math.max(0, totalEstimate - totalSpent);
+
+        html += `<div class="time-summary-cards">
+            <div class="stat-box"><div class="stat-value">${AppState.formatTime(totalEstimate)}</div><div class="stat-label">Total estimated</div></div>
+            <div class="stat-box"><div class="stat-value">${AppState.formatTime(totalSpent)}</div><div class="stat-label">Total spent</div></div>
+            <div class="stat-box"><div class="stat-value">${AppState.formatTime(remaining)}</div><div class="stat-label">Remaining</div></div>
+        </div>`;
+
+        // Per milestone
+        html += `<h3 class="section-heading">By milestone</h3>`;
+        state.milestones.filter(m => m.status === 'active').forEach(ms => {
+            const issues = state.issues.filter(i => i.milestoneId === ms.id);
+            const est = issues.reduce((s, i) => s + (i.timeEstimate || 0), 0);
+            const spent = issues.reduce((s, i) => s + (i.timeSpent || 0), 0);
+            if (est > 0 || spent > 0) {
+                html += `<div class="time-tracking-row">
+                    <span class="time-tracking-label">${C._esc(ms.title)}</span>
+                    ${C.timeTrackingBar(est, spent)}
+                </div>`;
+            }
+        });
+
+        // Per label (top 10 with time data)
+        html += `<h3 class="section-heading">By label</h3>`;
+        state.labels.filter(l => !l.scoped).forEach(label => {
+            const issues = state.issues.filter(i => i.labelIds.includes(label.id));
+            const est = issues.reduce((s, i) => s + (i.timeEstimate || 0), 0);
+            const spent = issues.reduce((s, i) => s + (i.timeSpent || 0), 0);
+            if (est > 0 || spent > 0) {
+                html += `<div class="time-tracking-row">
+                    <span class="time-tracking-label">${C.labelBadge(label)}</span>
+                    ${C.timeTrackingBar(est, spent)}
+                </div>`;
+            }
+        });
+
+        return html;
+    }
+
+    // ─── Sidebar Navigation ───────────────────────────────────────
+    function sidebar() {
+        const ui = AppState.getUI();
+        const state = AppState.getState();
+        const openCount = state.issues.filter(i => i.status === 'open').length;
+        const unreadNotifs = state.notifications.filter(n => !n.read).length;
+
+        const items = [
+            { id: 'issues', label: 'Issues', icon: '\u25CB', count: openCount },
+            { id: 'boards', label: 'Boards', icon: '\u2630' },
+            { id: 'labels', label: 'Labels', icon: '\u{1F3F7}' },
+            { id: 'milestones', label: 'Milestones', icon: '\u{1F3AF}' },
+            { id: 'iterations', label: 'Iterations', icon: '\u{1F504}' },
+            { id: 'epics', label: 'Epics', icon: '\u{1F4DC}' },
+            { id: 'roadmap', label: 'Roadmap', icon: '\u{1F5FA}' },
+            { id: 'time-tracking', label: 'Time tracking', icon: '\u23F1' },
+            { id: 'notifications', label: 'Notifications', icon: '\u{1F514}', count: unreadNotifs || null },
         ];
 
-        return `
-            <div class="page-header">
-                <div class="page-header-top">
-                    <h1>Notifications</h1>
-                    ${unread.length > 0 ? `<button class="btn btn-secondary" data-action="markAllRead">Mark all as read</button>` : ''}
+        let html = `<div class="sidebar-nav">`;
+        html += `<div class="sidebar-header">
+            <span class="sidebar-project-name">${C._esc(state.project.name)}</span>
+            <span class="sidebar-project-path">${C._esc(state.project.path)}</span>
+        </div>`;
+        html += `<div class="sidebar-section-label">Plan</div>`;
+        items.forEach(item => {
+            const active = ui.currentView === item.id || (ui.currentView === 'issue-detail' && item.id === 'issues') ||
+                (ui.currentView === 'new-issue' && item.id === 'issues') ||
+                (ui.currentView === 'milestone-detail' && item.id === 'milestones') ||
+                (ui.currentView === 'iteration-detail' && item.id === 'iterations') ||
+                (ui.currentView === 'epic-detail' && item.id === 'epics');
+            html += `<a class="sidebar-item${active ? ' active' : ''}" data-action="navigate" data-view="${item.id}">
+                <span class="sidebar-icon">${item.icon}</span>
+                <span class="sidebar-label">${item.label}</span>
+                ${item.count ? `<span class="sidebar-count">${item.count}</span>` : ''}
+            </a>`;
+        });
+        html += `</div>`;
+        return html;
+    }
+
+    // ─── Modal Forms ──────────────────────────────────────────────
+    function labelFormModal(label = null) {
+        const title = label ? 'Edit label' : 'New label';
+        const body = `<div class="form-group">
+                <label class="field-label required">Name</label>
+                <input type="text" class="form-input" id="label-name" value="${label ? C._esc(label.name) : ''}" placeholder="e.g. bug, priority::high" />
+            </div>
+            <div class="form-group">
+                <label class="field-label">Description</label>
+                <input type="text" class="form-input" id="label-description" value="${label ? C._esc(label.description) : ''}" placeholder="Label description" />
+            </div>
+            <div class="form-group">
+                <label class="field-label">Color</label>
+                ${C.colorPicker('label-color', label ? label.color : '#428bca')}
+            </div>`;
+
+        const actionLabel = label ? 'Save changes' : 'Create label';
+        const action = label ? 'save-label' : 'create-label-confirm';
+        const footer = `<button class="btn" data-action="close-modal" data-modal="label-form-modal">Cancel</button>
+                        <button class="btn btn-primary" data-action="${action}" ${label ? `data-label-id="${label.id}"` : ''} id="label-submit-btn">${actionLabel}</button>`;
+
+        return C.modal({ id: 'label-form-modal', title, body, footer });
+    }
+
+    function milestoneFormModal(ms = null) {
+        const title = ms ? 'Edit milestone' : 'New milestone';
+        const body = `<div class="form-group">
+                <label class="field-label required">Title</label>
+                <input type="text" class="form-input" id="milestone-title" value="${ms ? C._esc(ms.title) : ''}" placeholder="e.g. v2.0" />
+            </div>
+            <div class="form-group">
+                <label class="field-label">Description</label>
+                <textarea class="form-textarea" id="milestone-description" rows="3" placeholder="Milestone description">${ms ? C._esc(ms.description) : ''}</textarea>
+            </div>
+            <div class="form-group-row">
+                <div class="form-group">
+                    <label class="field-label">Start date</label>
+                    ${C.datePicker({ id: 'milestone-start-date', value: ms ? ms.startDate : '' })}
+                </div>
+                <div class="form-group">
+                    <label class="field-label">Due date</label>
+                    ${C.datePicker({ id: 'milestone-due-date', value: ms ? ms.dueDate : '' })}
+                </div>
+            </div>`;
+
+        const actionLabel = ms ? 'Save changes' : 'Create milestone';
+        const action = ms ? 'save-milestone' : 'create-milestone-confirm';
+        const footer = `<button class="btn" data-action="close-modal" data-modal="milestone-form-modal">Cancel</button>
+                        <button class="btn btn-primary" data-action="${action}" ${ms ? `data-milestone-id="${ms.id}"` : ''} id="milestone-submit-btn">${actionLabel}</button>`;
+
+        return C.modal({ id: 'milestone-form-modal', title, body, footer });
+    }
+
+    function iterationFormModal() {
+        const state = AppState.getState();
+        const body = `<div class="form-group">
+                <label class="field-label required">Cadence</label>
+                ${C.dropdown({
+                    id: 'iteration-cadence', value: state.iterationCadences[0]?.id,
+                    options: state.iterationCadences.map(c => ({ value: c.id, label: c.title })),
+                    className: 'form-dropdown'
+                })}
+            </div>
+            <div class="form-group">
+                <label class="field-label required">Title</label>
+                <input type="text" class="form-input" id="iteration-title" placeholder="e.g. Sprint 9" />
+            </div>
+            <div class="form-group-row">
+                <div class="form-group">
+                    <label class="field-label required">Start date</label>
+                    ${C.datePicker({ id: 'iteration-start-date' })}
+                </div>
+                <div class="form-group">
+                    <label class="field-label required">End date</label>
+                    ${C.datePicker({ id: 'iteration-end-date' })}
+                </div>
+            </div>`;
+
+        const footer = `<button class="btn" data-action="close-modal" data-modal="iteration-form-modal">Cancel</button>
+                        <button class="btn btn-primary" data-action="create-iteration-confirm" id="iteration-submit-btn">Create iteration</button>`;
+
+        return C.modal({ id: 'iteration-form-modal', title: 'New iteration', body, footer });
+    }
+
+    function epicFormModal() {
+        const state = AppState.getState();
+        const body = `<div class="form-group">
+                <label class="field-label required">Title</label>
+                <input type="text" class="form-input" id="epic-title" placeholder="Epic title" />
+            </div>
+            <div class="form-group">
+                <label class="field-label">Description</label>
+                <textarea class="form-textarea" id="epic-description" rows="5" placeholder="Epic description... Supports Markdown"></textarea>
+            </div>
+            <div class="form-group-row">
+                <div class="form-group">
+                    <label class="field-label">Start date</label>
+                    ${C.datePicker({ id: 'epic-start-date' })}
+                </div>
+                <div class="form-group">
+                    <label class="field-label">Due date</label>
+                    ${C.datePicker({ id: 'epic-due-date' })}
                 </div>
             </div>
+            <div class="form-group">
+                <label class="field-label">Labels</label>
+                ${C.dropdown({
+                    id: 'epic-labels', value: [],
+                    options: state.labels.map(l => ({ value: l.id, label: l.name, color: l.color })),
+                    placeholder: 'Select labels', searchable: true, multi: true, className: 'form-dropdown'
+                })}
+            </div>
+            <div class="form-group">
+                <label class="toggle-label">
+                    <input type="checkbox" class="toggle-input" id="epic-confidential" />
+                    <span class="toggle-switch"></span>
+                    <span>Confidential</span>
+                </label>
+            </div>`;
 
-            ${Components.tabs('notifTabs', [
-                { key: 'feed', label: 'Feed', count: unread.length },
-                { key: 'settings', label: 'Settings' }
-            ], AppState._notifTab || 'feed')}
+        const footer = `<button class="btn" data-action="close-modal" data-modal="epic-form-modal">Cancel</button>
+                        <button class="btn btn-primary" data-action="create-epic-confirm" id="epic-submit-btn">Create epic</button>`;
 
-            ${(AppState._notifTab || 'feed') === 'feed' ? `
-                <div class="notification-feed">
-                    ${feed.length === 0 ? Components.emptyState('No notifications', 'You\'re all caught up!') : ''}
-                    ${feed.map(n => {
-                        const actor = AppState.getUserById(n.actorId);
-                        return `
-                            <div class="notification-item${n.read ? '' : ' unread'}" data-notif-id="${n.id}">
-                                <div class="notification-avatar">${Components.avatar(actor, 32)}</div>
-                                <div class="notification-body">
-                                    <div class="notification-message">${Components.escapeHtml(n.message)}</div>
-                                    <div class="notification-time">${Components.timeAgo(n.createdAt)}</div>
-                                </div>
-                                ${!n.read ? `<button class="btn btn-sm btn-link" data-action="markRead" data-notif-id="${n.id}">Mark read</button>` : ''}
-                            </div>
-                        `;
-                    }).join('')}
-                </div>
-            ` : `
-                <div class="notification-settings">
-                    <div class="setting-row">
-                        <div class="setting-info">
-                            <label class="setting-label">Notification level</label>
-                            <p class="setting-desc">Choose when to receive notifications for this project.</p>
-                        </div>
-                        ${Components.dropdown('notifLevel', levelOpts, settings.level)}
-                    </div>
-
-                    <h3>Email Notifications</h3>
-                    <div class="setting-row">
-                        <div class="setting-info"><label class="setting-label">New issues</label></div>
-                        ${Components.toggle('notifNewIssue', settings.email.newIssue)}
-                    </div>
-                    <div class="setting-row">
-                        <div class="setting-info"><label class="setting-label">Reassigned issues</label></div>
-                        ${Components.toggle('notifReassigned', settings.email.reassignedIssue)}
-                    </div>
-                    <div class="setting-row">
-                        <div class="setting-info"><label class="setting-label">Closed issues</label></div>
-                        ${Components.toggle('notifClosed', settings.email.closedIssue)}
-                    </div>
-                    <div class="setting-row">
-                        <div class="setting-info"><label class="setting-label">New comments</label></div>
-                        ${Components.toggle('notifComment', settings.email.newComment)}
-                    </div>
-                    <div class="setting-row">
-                        <div class="setting-info"><label class="setting-label">Mentioned</label></div>
-                        ${Components.toggle('notifMentioned', settings.email.mentioned)}
-                    </div>
-                    <div class="setting-row">
-                        <div class="setting-info"><label class="setting-label">Milestone changes</label></div>
-                        ${Components.toggle('notifMilestone', settings.email.milestoneChanged)}
-                    </div>
-                </div>
-            `}
-        `;
+        return C.modal({ id: 'epic-form-modal', title: 'New epic', body, footer });
     }
-};
+
+    function addBoardListModal(boardId) {
+        const state = AppState.getState();
+        const board = AppState.getBoard(boardId);
+        const usedLabelIds = board ? board.lists.filter(l => l.labelId).map(l => l.labelId) : [];
+        const availableLabels = state.labels.filter(l => !usedLabelIds.includes(l.id));
+
+        const body = `<div class="form-group">
+            <label class="field-label">Select a label for the new list</label>
+            ${C.dropdown({
+                id: 'board-list-label', value: null,
+                options: availableLabels.map(l => ({ value: l.id, label: l.name, color: l.color })),
+                placeholder: 'Select label', searchable: true, className: 'form-dropdown'
+            })}
+        </div>`;
+
+        const footer = `<button class="btn" data-action="close-modal" data-modal="add-board-list-modal">Cancel</button>
+                        <button class="btn btn-primary" data-action="confirm-add-board-list" data-board-id="${boardId}" id="board-list-submit-btn">Add list</button>`;
+
+        return C.modal({ id: 'add-board-list-modal', title: 'Add list', body, footer });
+    }
+
+    function bulkActionModal(type) {
+        const state = AppState.getState();
+        let body = '';
+        let title = '';
+        let action = '';
+
+        if (type === 'assign') {
+            title = 'Assign issues';
+            action = 'confirm-bulk-assign';
+            body = C.dropdown({
+                id: 'bulk-assignee', value: null,
+                options: state.users.map(u => ({ value: u.id, label: u.name, avatar: u })),
+                placeholder: 'Select assignee', searchable: true, className: 'form-dropdown'
+            });
+        } else if (type === 'label') {
+            title = 'Add label';
+            action = 'confirm-bulk-label';
+            body = C.dropdown({
+                id: 'bulk-label', value: null,
+                options: state.labels.map(l => ({ value: l.id, label: l.name, color: l.color })),
+                placeholder: 'Select label', searchable: true, className: 'form-dropdown'
+            });
+        } else if (type === 'milestone') {
+            title = 'Set milestone';
+            action = 'confirm-bulk-milestone';
+            body = C.dropdown({
+                id: 'bulk-milestone', value: null,
+                options: [{ value: null, label: 'No milestone' }, ...state.milestones.filter(m => m.status === 'active').map(m => ({ value: m.id, label: m.title }))],
+                placeholder: 'Select milestone', className: 'form-dropdown'
+            });
+        }
+
+        const footer = `<button class="btn" data-action="close-modal" data-modal="bulk-action-modal">Cancel</button>
+                        <button class="btn btn-primary" data-action="${action}" id="bulk-action-submit">Apply</button>`;
+
+        return C.modal({ id: 'bulk-action-modal', title, body, footer });
+    }
+
+    function relatedIssueModal(issueId) {
+        const state = AppState.getState();
+        const issue = AppState.getIssue(issueId);
+        const existingRelated = issue ? issue.relatedIssues.map(r => r.issueId) : [];
+
+        const body = `<div class="form-group">
+            <label class="field-label">Relationship type</label>
+            ${C.dropdown({
+                id: 'related-type', value: 'related_to',
+                options: [
+                    { value: 'related_to', label: 'Related to' },
+                    { value: 'blocks', label: 'Blocks' },
+                    { value: 'is_blocked_by', label: 'Is blocked by' },
+                ],
+                className: 'form-dropdown'
+            })}
+        </div>
+        <div class="form-group">
+            <label class="field-label">Issue</label>
+            ${C.dropdown({
+                id: 'related-issue', value: null,
+                options: state.issues.filter(i => i.id !== issueId && !existingRelated.includes(i.id))
+                    .slice(0, 50).map(i => ({ value: i.id, label: `#${i.id} ${i.title}` })),
+                placeholder: 'Select issue', searchable: true, className: 'form-dropdown'
+            })}
+        </div>`;
+
+        const footer = `<button class="btn" data-action="close-modal" data-modal="related-issue-modal">Cancel</button>
+                        <button class="btn btn-primary" data-action="confirm-add-related" data-issue-id="${issueId}">Add relation</button>`;
+
+        return C.modal({ id: 'related-issue-modal', title: 'Add related issue', body, footer });
+    }
+
+    return {
+        issuesList, issueDetail, newIssueForm,
+        labelsView, milestonesView, milestoneDetail,
+        boardsView, iterationsView, iterationDetail,
+        epicsView, epicDetail,
+        roadmapView, notificationsView, timeTrackingView,
+        sidebar,
+        labelFormModal, milestoneFormModal, iterationFormModal,
+        epicFormModal, addBoardListModal, bulkActionModal,
+        relatedIssueModal,
+    };
+})();

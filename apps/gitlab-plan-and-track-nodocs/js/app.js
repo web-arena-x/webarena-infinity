@@ -1,1016 +1,982 @@
-/* ============================================================
-   GitLab Plan & Track — Application Router & Event Handlers
-   ============================================================ */
+// GitLab Plan & Track — Application Controller
+const App = (() => {
+    const C = Components;
 
-const App = {
-    init() {
+    // ─── Selected issue IDs for bulk actions ──────────────────────
+    let selectedIssueIds = new Set();
+
+    // ─── Dropdown state tracking ──────────────────────────────────
+    let _dropdownValues = {};
+
+    function init() {
         AppState.init();
-        AppState.subscribe(() => this.render());
-        this.render();
+        render();
         AppState.notify(); // Push initial state to server
+        _setupGlobalListeners();
+    }
 
-        // SSE listener for reset
-        const es = new EventSource('/api/events');
-        es.onmessage = (e) => {
-            if (e.data === 'reset') {
-                AppState.resetToSeedData();
-                this.render();
-            }
-        };
-    },
+    function render() {
+        const ui = AppState.getUI();
 
-    render() {
-        const sidebar = document.getElementById('sidebarNav');
-        const content = document.getElementById('contentWrapper');
-        if (sidebar) sidebar.innerHTML = Views.renderSidebar();
-        if (content) content.innerHTML = Views.renderContent();
-        this.attachHandlers();
-    },
+        // Sidebar
+        document.getElementById('sidebar').innerHTML = Views.sidebar();
 
-    navigate(section, view, params) {
-        AppState.currentSection = section;
-        AppState.currentView = view || 'list';
-        if (params) {
-            if (params.issueId !== undefined) AppState.selectedIssueId = params.issueId;
-            if (params.milestoneId !== undefined) AppState.selectedMilestoneId = params.milestoneId;
-            if (params.epicId !== undefined) AppState.selectedEpicId = params.epicId;
-            if (params.iterationId !== undefined) AppState.selectedIterationId = params.iterationId;
-            if (params.boardId !== undefined) AppState.selectedBoardId = params.boardId;
+        // Main content
+        const main = document.getElementById('main-content');
+        switch (ui.currentView) {
+            case 'issues': main.innerHTML = Views.issuesList(); break;
+            case 'issue-detail': main.innerHTML = Views.issueDetail(); break;
+            case 'new-issue': main.innerHTML = Views.newIssueForm(); break;
+            case 'labels': main.innerHTML = Views.labelsView(); break;
+            case 'milestones': main.innerHTML = Views.milestonesView(); break;
+            case 'milestone-detail': main.innerHTML = Views.milestoneDetail(); break;
+            case 'boards': main.innerHTML = Views.boardsView(); _setupBoardDragDrop(); break;
+            case 'iterations': main.innerHTML = Views.iterationsView(); break;
+            case 'iteration-detail': main.innerHTML = Views.iterationDetail(); break;
+            case 'epics': main.innerHTML = Views.epicsView(); break;
+            case 'epic-detail': main.innerHTML = Views.epicDetail(); break;
+            case 'roadmap': main.innerHTML = Views.roadmapView(); break;
+            case 'notifications': main.innerHTML = Views.notificationsView(); break;
+            case 'time-tracking': main.innerHTML = Views.timeTrackingView(); break;
+            default: main.innerHTML = Views.issuesList();
         }
-        AppState.issuesPage = 1;
-        AppState.selectedIssueIds = [];
-        this.render();
-        // Scroll to top
-        const main = document.querySelector('.main-content');
-        if (main) main.scrollTop = 0;
-    },
 
-    attachHandlers() {
-        const content = document.getElementById('contentWrapper');
-        if (!content) return;
+        // Modals
+        const modalContainer = document.getElementById('modal-container');
+        if (ui.modalOpen) {
+            modalContainer.innerHTML = ui.modalOpen;
+            modalContainer.style.display = 'block';
+        } else {
+            modalContainer.innerHTML = '';
+            modalContainer.style.display = 'none';
+        }
 
-        content.onclick = (e) => this.handleClick(e);
-        content.onchange = (e) => this.handleChange(e);
-        content.oninput = (e) => this.handleInput(e);
+        renderToast();
+    }
 
-        // Handle dropdown-change custom events
-        content.addEventListener('dropdown-change', (e) => this.handleDropdownChange(e));
+    function renderToast() {
+        const ui = AppState.getUI();
+        const toastContainer = document.getElementById('toast-container');
+        if (toastContainer) {
+            toastContainer.innerHTML = ui.toastMessage ? C.toast(ui.toastMessage, ui.toastType) : '';
+        }
+    }
 
-        // Drag and drop for boards
-        this._setupBoardDragDrop();
-    },
+    // ─── Global Event Delegation ──────────────────────────────────
+    function _setupGlobalListeners() {
+        document.addEventListener('click', _handleClick);
+        document.addEventListener('input', _handleInput);
+        document.addEventListener('change', _handleChange);
+        document.addEventListener('keydown', _handleKeydown);
 
-    // ── Click Handler ──────────────────────────────────────
-    handleClick(e) {
-        const action = e.target.closest('[data-action]');
-        if (!action) return;
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.custom-dropdown')) {
+                document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('open'));
+            }
+        }, true);
+    }
 
-        const act = action.dataset.action;
+    function _handleClick(e) {
+        const target = e.target.closest('[data-action]');
+        if (!target) return;
 
-        switch (act) {
-            // Navigation
-            case 'navigate': {
-                const section = action.dataset.section;
-                const params = action.dataset.params ? JSON.parse(action.dataset.params) : {};
-                this.navigate(section, 'list', params);
+        const action = target.dataset.action;
+
+        switch (action) {
+            // ─── Navigation ───────────────────────────────────────
+            case 'navigate': _navigate(target.dataset.view); break;
+
+            // ─── Issue List ───────────────────────────────────────
+            case 'view-issue': {
+                const id = parseInt(target.dataset.issueId || target.closest('[data-issue-id]')?.dataset.issueId);
+                if (id) { _navigate('issue-detail', { issueId: id }); }
+                break;
+            }
+            case 'new-issue': _navigate('new-issue'); break;
+            case 'filter-status': {
+                AppState.getUI().issueFilters.status = target.dataset.status;
+                AppState.getUI().issueListPage = 1;
+                render();
+                break;
+            }
+            case 'page': {
+                const p = parseInt(target.dataset.page);
+                if (p >= 1) { AppState.getUI().issueListPage = p; render(); }
+                break;
+            }
+            case 'select-all-issues': {
+                const checked = target.checked;
+                document.querySelectorAll('.issue-checkbox').forEach(cb => { cb.checked = checked; });
+                _updateBulkSelection();
                 break;
             }
 
-            // Issue actions
-            case 'createIssue':
-                this.navigate('issues', 'create');
+            // ─── Bulk actions ─────────────────────────────────────
+            case 'bulk-close': {
+                if (selectedIssueIds.size > 0) {
+                    AppState.bulkCloseIssues([...selectedIssueIds]);
+                    selectedIssueIds.clear();
+                    AppState.showToast(`Closed ${selectedIssueIds.size || 'selected'} issues`, 'success');
+                    render();
+                }
                 break;
-
-            case 'viewIssue': {
-                const issueId = parseInt(action.dataset.issueId);
-                this.navigate('issues', 'detail', { issueId });
+            }
+            case 'bulk-assign': _showBulkModal('assign'); break;
+            case 'bulk-label': _showBulkModal('label'); break;
+            case 'bulk-milestone': _showBulkModal('milestone'); break;
+            case 'confirm-bulk-assign': {
+                const assigneeId = _dropdownValues['bulk-assignee'];
+                if (assigneeId) {
+                    AppState.bulkAssignIssues([...selectedIssueIds], assigneeId);
+                    _closeModal();
+                    selectedIssueIds.clear();
+                    AppState.showToast('Issues assigned', 'success');
+                    render();
+                }
+                break;
+            }
+            case 'confirm-bulk-label': {
+                const labelId = _dropdownValues['bulk-label'];
+                if (labelId) {
+                    AppState.bulkLabelIssues([...selectedIssueIds], labelId);
+                    _closeModal();
+                    selectedIssueIds.clear();
+                    AppState.showToast('Label applied', 'success');
+                    render();
+                }
+                break;
+            }
+            case 'confirm-bulk-milestone': {
+                const milestoneId = _dropdownValues['bulk-milestone'];
+                AppState.bulkSetMilestone([...selectedIssueIds], milestoneId);
+                _closeModal();
+                selectedIssueIds.clear();
+                AppState.showToast('Milestone set', 'success');
+                render();
                 break;
             }
 
-            case 'closeIssue': {
-                const id = parseInt(action.dataset.issueId);
+            // ─── Issue Detail ─────────────────────────────────────
+            case 'edit-issue-title':
+                AppState.getUI().editingIssueTitle = true;
+                render();
+                document.getElementById('issue-title-input')?.focus();
+                break;
+            case 'confirm-issue-title': {
+                const input = document.getElementById('issue-title-input');
+                if (input && input.value.trim()) {
+                    AppState.updateIssue(AppState.getUI().currentIssueId, { title: input.value.trim() });
+                    AppState.getUI().editingIssueTitle = false;
+                    render();
+                }
+                break;
+            }
+            case 'cancel-issue-title':
+                AppState.getUI().editingIssueTitle = false;
+                render();
+                break;
+            case 'edit-issue-description':
+                AppState.getUI().editingIssueDescription = true;
+                render();
+                break;
+            case 'save-issue-description': {
+                const editor = document.getElementById('description-editor');
+                if (editor) {
+                    AppState.updateIssue(AppState.getUI().currentIssueId, { description: editor.value });
+                    AppState.getUI().editingIssueDescription = false;
+                    render();
+                }
+                break;
+            }
+            case 'cancel-issue-description':
+                AppState.getUI().editingIssueDescription = false;
+                render();
+                break;
+            case 'close-issue': {
+                const id = parseInt(target.dataset.issueId);
                 AppState.closeIssue(id);
-                this.render();
-                Components.showToast('Issue closed', 'success');
+                AppState.showToast('Issue closed', 'success');
+                render();
                 break;
             }
-
-            case 'reopenIssue': {
-                const id = parseInt(action.dataset.issueId);
+            case 'reopen-issue': {
+                const id = parseInt(target.dataset.issueId);
                 AppState.reopenIssue(id);
-                this.render();
-                Components.showToast('Issue reopened', 'success');
+                AppState.showToast('Issue reopened', 'success');
+                render();
                 break;
             }
-
-            case 'saveIssueTitle': {
-                const titleEl = document.getElementById('issueTitle');
-                if (titleEl) {
-                    const newTitle = titleEl.textContent.trim();
-                    if (newTitle) {
-                        AppState.updateIssue(AppState.selectedIssueId, { title: newTitle });
-                        Components.showToast('Title updated', 'success');
-                    }
+            case 'submit-comment': {
+                const editor = document.getElementById('comment-editor');
+                if (editor && editor.value.trim()) {
+                    AppState.addComment(parseInt(target.dataset.issueId), editor.value.trim());
+                    AppState.showToast('Comment added', 'success');
+                    render();
+                }
+                break;
+            }
+            case 'toggle-subscription': {
+                const issueId = parseInt(target.dataset.issueId);
+                const now = AppState.toggleSubscription(issueId);
+                AppState.showToast(now ? 'Subscribed to notifications' : 'Unsubscribed from notifications', 'info');
+                render();
+                break;
+            }
+            case 'remove-related-issue': {
+                AppState.removeRelatedIssue(parseInt(target.dataset.issueId), parseInt(target.dataset.relatedId));
+                render();
+                break;
+            }
+            case 'add-related-issue': {
+                AppState.getUI().modalOpen = Views.relatedIssueModal(AppState.getUI().currentIssueId);
+                render();
+                break;
+            }
+            case 'confirm-add-related': {
+                const type = _dropdownValues['related-type'] || 'related_to';
+                const relatedId = _dropdownValues['related-issue'];
+                if (relatedId) {
+                    AppState.addRelatedIssue(parseInt(target.dataset.issueId), relatedId, type);
+                    _closeModal();
+                    AppState.showToast('Related issue added', 'success');
+                    render();
                 }
                 break;
             }
 
-            case 'editDescription': {
-                const content = document.getElementById('descriptionContent');
-                const editor = document.getElementById('descriptionEditor');
-                const btn = document.getElementById('editDescBtn');
-                if (content) content.style.display = 'none';
-                if (editor) editor.style.display = 'block';
-                if (btn) btn.style.display = 'none';
+            // ─── Issue Sidebar ────────────────────────────────────
+            case 'remove-label': {
+                const labelId = parseInt(target.dataset.labelId);
+                const issue = AppState.getIssue(AppState.getUI().currentIssueId);
+                if (issue) {
+                    AppState.updateIssue(issue.id, { labelIds: issue.labelIds.filter(id => id !== labelId) });
+                    render();
+                }
+                e.stopPropagation();
                 break;
             }
 
-            case 'saveDescription': {
-                const textarea = document.getElementById('descriptionTextarea');
-                if (textarea) {
-                    AppState.updateIssue(AppState.selectedIssueId, { description: textarea.value });
-                    this.render();
-                    Components.showToast('Description updated', 'success');
+            // ─── Create Issue ─────────────────────────────────────
+            case 'create-issue': _createIssue(); break;
+
+            // ─── Dropdowns ────────────────────────────────────────
+            case 'toggle-dropdown': _toggleDropdown(target.dataset.dropdown); e.stopPropagation(); break;
+            case 'select-dropdown-item': _selectDropdownItem(target); e.stopPropagation(); break;
+            case 'clear-date': {
+                const picker = target.dataset.picker;
+                const input = document.getElementById(picker + '-input');
+                if (input) input.value = '';
+                _handleDateChange(picker, '');
+                break;
+            }
+
+            // ─── Labels ──────────────────────────────────────────
+            case 'new-label':
+                AppState.getUI().modalOpen = Views.labelFormModal();
+                render();
+                break;
+            case 'edit-label': {
+                const label = AppState.getLabel(parseInt(target.dataset.labelId));
+                AppState.getUI().modalOpen = Views.labelFormModal(label);
+                render();
+                break;
+            }
+            case 'delete-label': {
+                if (confirm('Delete this label?')) {
+                    AppState.deleteLabel(parseInt(target.dataset.labelId));
+                    AppState.showToast('Label deleted', 'success');
+                    render();
                 }
                 break;
             }
-
-            case 'cancelEditDescription': {
-                this.render();
+            case 'create-label-confirm': _createLabel(); break;
+            case 'save-label': _saveLabel(parseInt(target.dataset.labelId)); break;
+            case 'select-color': {
+                const color = target.dataset.color;
+                const picker = target.dataset.picker;
+                document.querySelectorAll(`#${picker} .color-swatch-btn`).forEach(b => b.classList.remove('selected'));
+                target.classList.add('selected');
+                const colorInput = document.getElementById(picker + '-input');
+                if (colorInput) colorInput.value = color;
                 break;
             }
 
-            case 'submitComment': {
-                const issueId = parseInt(action.dataset.issueId);
-                const textarea = document.getElementById('commentTextarea');
-                if (textarea && textarea.value.trim()) {
-                    const text = textarea.value.trim();
-                    // Process quick actions
-                    const remaining = AppState.processQuickActions(issueId, text);
-                    // Add remaining text as comment
-                    if (remaining) {
-                        AppState.addComment(issueId, remaining);
-                    }
-                    this.render();
-                    Components.showToast('Comment added', 'success');
+            // ─── Milestones ───────────────────────────────────────
+            case 'new-milestone':
+                AppState.getUI().modalOpen = Views.milestoneFormModal();
+                render();
+                break;
+            case 'view-milestone':
+                _navigate('milestone-detail', { milestoneId: parseInt(target.dataset.milestoneId) });
+                break;
+            case 'edit-milestone': {
+                const ms = AppState.getMilestone(parseInt(target.dataset.milestoneId));
+                AppState.getUI().modalOpen = Views.milestoneFormModal(ms);
+                render();
+                break;
+            }
+            case 'close-milestone':
+                AppState.closeMilestone(parseInt(target.dataset.milestoneId));
+                AppState.showToast('Milestone closed', 'success');
+                render();
+                break;
+            case 'reopen-milestone':
+                AppState.reopenMilestone(parseInt(target.dataset.milestoneId));
+                AppState.showToast('Milestone reopened', 'success');
+                render();
+                break;
+            case 'delete-milestone':
+                AppState.deleteMilestone(parseInt(target.dataset.milestoneId));
+                AppState.showToast('Milestone deleted', 'success');
+                _navigate('milestones');
+                break;
+            case 'create-milestone-confirm': _createMilestone(); break;
+            case 'save-milestone': _saveMilestone(parseInt(target.dataset.milestoneId)); break;
+            case 'switch-tab': {
+                AppState.getUI()._milestonesTab = target.dataset.tab;
+                render();
+                break;
+            }
+
+            // ─── Boards ──────────────────────────────────────────
+            case 'add-board-list': {
+                AppState.getUI().modalOpen = Views.addBoardListModal(parseInt(target.dataset.boardId));
+                render();
+                break;
+            }
+            case 'confirm-add-board-list': {
+                const labelId = _dropdownValues['board-list-label'];
+                if (labelId) {
+                    AppState.addBoardList(parseInt(target.dataset.boardId), labelId);
+                    _closeModal();
+                    render();
                 }
                 break;
             }
-
-            case 'submitNewIssue': {
-                this._handleCreateIssue();
+            case 'remove-board-list': {
+                AppState.removeBoardList(parseInt(target.dataset.boardId), parseInt(target.dataset.listId));
+                render();
+                e.stopPropagation();
+                break;
+            }
+            case 'board-new-issue': {
+                _navigate('new-issue');
                 break;
             }
 
-            case 'cancelCreate':
-                this.navigate('issues', 'list');
+            // ─── Iterations ───────────────────────────────────────
+            case 'new-iteration':
+                AppState.getUI().modalOpen = Views.iterationFormModal();
+                render();
                 break;
-
-            // Bulk actions
-            case 'toggleIssueSelect': {
-                const issueId = parseInt(action.dataset.issueId);
-                const idx = AppState.selectedIssueIds.indexOf(issueId);
-                if (idx >= 0) AppState.selectedIssueIds.splice(idx, 1);
-                else AppState.selectedIssueIds.push(issueId);
-                this.render();
+            case 'view-iteration':
+                _navigate('iteration-detail', { iterationId: parseInt(target.dataset.iterationId) });
                 break;
-            }
+            case 'create-iteration-confirm': _createIteration(); break;
 
-            case 'clearSelection':
-                AppState.selectedIssueIds = [];
-                this.render();
+            // ─── Epics ────────────────────────────────────────────
+            case 'new-epic':
+                AppState.getUI().modalOpen = Views.epicFormModal();
+                render();
                 break;
-
-            case 'bulkClose':
-                AppState.bulkUpdateIssues(AppState.selectedIssueIds, { state: 'closed' });
-                this.render();
-                Components.showToast(`${AppState.selectedIssueIds.length} issues closed`, 'success');
+            case 'view-epic':
+                _navigate('epic-detail', { epicId: parseInt(target.dataset.epicId) });
                 break;
-
-            case 'bulkReopen':
-                AppState.bulkUpdateIssues(AppState.selectedIssueIds, { state: 'opened' });
-                this.render();
-                Components.showToast('Issues reopened', 'success');
+            case 'close-epic':
+                AppState.closeEpic(parseInt(target.dataset.epicId));
+                AppState.showToast('Epic closed', 'success');
+                render();
                 break;
-
-            // Filter status
-            case 'filterStatus': {
-                AppState.issueFilters.status = action.dataset.status;
-                AppState.issuesPage = 1;
-                this.render();
+            case 'reopen-epic':
+                AppState.reopenEpic(parseInt(target.dataset.epicId));
+                AppState.showToast('Epic reopened', 'success');
+                render();
+                break;
+            case 'create-epic-confirm': _createEpic(); break;
+            case 'filter-epics-status': {
+                AppState.getUI().epicFilters.status = target.dataset.status;
+                render();
                 break;
             }
 
-            // Related issues
-            case 'removeRelatedIssue': {
-                const issueId = parseInt(action.dataset.issueId);
-                const relatedId = parseInt(action.dataset.relatedId);
-                AppState.removeRelatedIssue(issueId, relatedId);
-                this.render();
+            // ─── Notifications ────────────────────────────────────
+            case 'mark-read':
+                AppState.markNotificationRead(parseInt(target.dataset.notificationId));
+                render();
+                e.stopPropagation();
                 break;
-            }
-
-            case 'addRelatedIssue': {
-                const issueId = parseInt(action.dataset.issueId);
-                this._showAddRelatedIssueModal(issueId);
-                break;
-            }
-
-            // Time tracking
-            case 'setEstimate': {
-                this._showTimeEstimateModal(parseInt(action.dataset.issueId));
-                break;
-            }
-
-            case 'logTime': {
-                this._showLogTimeModal(parseInt(action.dataset.issueId));
-                break;
-            }
-
-            // Milestones
-            case 'viewMilestone': {
-                const id = parseInt(action.dataset.milestoneId);
-                this.navigate('milestones', 'detail', { milestoneId: id });
-                break;
-            }
-
-            case 'createMilestone':
-                this._showCreateMilestoneModal();
-                break;
-
-            case 'editMilestone': {
-                const id = parseInt(action.dataset.milestoneId);
-                this._showEditMilestoneModal(id);
-                break;
-            }
-
-            case 'closeMilestone': {
-                const id = parseInt(action.dataset.milestoneId);
-                AppState.closeMilestone(id);
-                this.render();
-                Components.showToast('Milestone closed', 'success');
-                break;
-            }
-
-            case 'activateMilestone': {
-                const id = parseInt(action.dataset.milestoneId);
-                AppState.activateMilestone(id);
-                this.render();
-                Components.showToast('Milestone reopened', 'success');
-                break;
-            }
-
-            case 'deleteMilestone': {
-                const id = parseInt(action.dataset.milestoneId);
-                const ms = AppState.getMilestoneById(id);
-                Components.confirm('Delete Milestone', `Are you sure you want to delete "${ms ? ms.title : ''}"? Issues will be unassigned from this milestone.`, () => {
-                    AppState.deleteMilestone(id);
-                    this.render();
-                    Components.showToast('Milestone deleted', 'success');
-                });
-                break;
-            }
-
-            // Iterations
-            case 'viewIteration': {
-                const id = parseInt(action.dataset.iterationId);
-                this.navigate('iterations', 'detail', { iterationId: id });
-                break;
-            }
-
-            case 'createIteration':
-                this._showCreateIterationModal();
-                break;
-
-            // Epics
-            case 'viewEpic': {
-                const id = parseInt(action.dataset.epicId);
-                this.navigate('epics', 'detail', { epicId: id });
-                break;
-            }
-
-            case 'createEpic':
-                this._showCreateEpicModal();
-                break;
-
-            case 'closeEpic': {
-                const id = parseInt(action.dataset.epicId);
-                AppState.closeEpic(id);
-                this.render();
-                Components.showToast('Epic closed', 'success');
-                break;
-            }
-
-            case 'reopenEpic': {
-                const id = parseInt(action.dataset.epicId);
-                AppState.reopenEpic(id);
-                this.render();
-                Components.showToast('Epic reopened', 'success');
-                break;
-            }
-
-            // Labels
-            case 'createLabel':
-                this._showCreateLabelModal();
-                break;
-
-            case 'editLabel': {
-                const id = parseInt(action.dataset.labelId);
-                this._showEditLabelModal(id);
-                break;
-            }
-
-            case 'deleteLabel': {
-                const id = parseInt(action.dataset.labelId);
-                const label = AppState.getLabelById(id);
-                Components.confirm('Delete Label', `Are you sure you want to delete "${label ? label.name : ''}"? It will be removed from all issues.`, () => {
-                    AppState.deleteLabel(id);
-                    this.render();
-                    Components.showToast('Label deleted', 'success');
-                });
-                break;
-            }
-
-            // Board actions
-            case 'addBoardList': {
-                const boardId = parseInt(action.dataset.boardId);
-                this._showAddBoardListModal(boardId);
-                break;
-            }
-
-            case 'removeBoardList': {
-                const boardId = parseInt(action.dataset.boardId);
-                const listId = parseInt(action.dataset.listId);
-                AppState.removeBoardList(boardId, listId);
-                this.render();
-                break;
-            }
-
-            case 'createIssueFromBoard': {
-                this.navigate('issues', 'create');
-                break;
-            }
-
-            // Notifications
-            case 'markRead': {
-                const notifId = parseInt(action.dataset.notifId);
-                AppState.markNotificationRead(notifId);
-                this.render();
-                break;
-            }
-
-            case 'markAllRead':
+            case 'mark-all-read':
                 AppState.markAllNotificationsRead();
-                this.render();
-                Components.showToast('All notifications marked as read', 'success');
+                render();
                 break;
-
-            // Modal actions
-            case 'closeModal':
-                Components.closeModal();
+            case 'notification-click': {
+                const notifId = parseInt(target.dataset.notificationId);
+                const issueId = parseInt(target.dataset.issueId);
+                AppState.markNotificationRead(notifId);
+                if (issueId) _navigate('issue-detail', { issueId });
                 break;
-
-            case 'confirmAction':
-                if (window._pendingConfirmAction) {
-                    window._pendingConfirmAction();
-                    window._pendingConfirmAction = null;
-                }
-                Components.closeModal();
-                break;
-
-            case 'submitModal':
-                this._handleModalSubmit();
-                break;
-
-            // Pagination
-            default:
-                break;
-        }
-
-        // Pagination click
-        const pageBtn = e.target.closest('[data-page]');
-        if (pageBtn && !pageBtn.disabled) {
-            AppState.issuesPage = parseInt(pageBtn.dataset.page);
-            this.render();
-        }
-
-        // Tab click
-        const tabBtn = e.target.closest('[data-tab]');
-        if (tabBtn) {
-            const tabGroup = tabBtn.dataset.tabGroup;
-            const tabKey = tabBtn.dataset.tab;
-            if (tabGroup === 'milestoneTabs') { AppState._milestoneTab = tabKey; this.render(); }
-            else if (tabGroup === 'milestoneIssueTabs') { AppState._milestoneIssueTab = tabKey; this.render(); }
-            else if (tabGroup === 'iterationIssueTabs') { AppState._iterationIssueTab = tabKey; this.render(); }
-            else if (tabGroup === 'epicTabs') { AppState._epicTab = tabKey; this.render(); }
-            else if (tabGroup === 'notifTabs') { AppState._notifTab = tabKey; this.render(); }
-        }
-
-        // Select all issues checkbox
-        if (e.target.id === 'selectAllIssues') {
-            const { issues } = AppState.getPaginatedIssues();
-            if (e.target.checked) {
-                AppState.selectedIssueIds = issues.map(i => i.id);
-            } else {
-                AppState.selectedIssueIds = [];
             }
-            this.render();
-        }
-    },
 
-    // ── Change Handler ─────────────────────────────────────
-    handleChange(e) {
+            // ─── Modal ───────────────────────────────────────────
+            case 'close-modal':
+            case 'close-modal-overlay':
+                if (action === 'close-modal-overlay' && e.target !== target) break;
+                _closeModal();
+                break;
+        }
+    }
+
+    function _handleInput(e) {
         const target = e.target;
 
-        // Issue sidebar toggles
-        if (target.id === 'issueConfidential') {
-            AppState.updateIssue(AppState.selectedIssueId, { confidential: target.checked });
-            this.render();
-        }
-        if (target.id === 'issueSubscribed') {
-            const issue = AppState.getIssueById(AppState.selectedIssueId);
-            if (issue) { issue.subscribed = target.checked; AppState.notify(); this.render(); }
-        }
-
-        // Weight
-        if (target.id === 'issueWeight') {
-            const val = target.value === '' ? null : parseInt(target.value);
-            AppState.updateIssue(AppState.selectedIssueId, { weight: val });
-        }
-
-        // Due date
-        if (target.id === 'issueDueDate') {
-            const val = target.value.match(/^\d{4}-\d{2}-\d{2}$/) ? target.value : null;
-            AppState.updateIssue(AppState.selectedIssueId, { dueDate: val });
-        }
-
-        // Notification settings toggles
-        if (target.id === 'notifNewIssue') {
-            AppState.notificationSettings.email.newIssue = target.checked;
-            AppState.notify();
-        }
-        if (target.id === 'notifReassigned') {
-            AppState.notificationSettings.email.reassignedIssue = target.checked;
-            AppState.notify();
-        }
-        if (target.id === 'notifClosed') {
-            AppState.notificationSettings.email.closedIssue = target.checked;
-            AppState.notify();
-        }
-        if (target.id === 'notifComment') {
-            AppState.notificationSettings.email.newComment = target.checked;
-            AppState.notify();
-        }
-        if (target.id === 'notifMentioned') {
-            AppState.notificationSettings.email.mentioned = target.checked;
-            AppState.notify();
-        }
-        if (target.id === 'notifMilestone') {
-            AppState.notificationSettings.email.milestoneChanged = target.checked;
-            AppState.notify();
-        }
-    },
-
-    // ── Input Handler ──────────────────────────────────────
-    handleInput(e) {
-        const target = e.target;
-
-        // Issue search
-        if (target.id === 'issueSearch') {
-            AppState.issueFilters.search = target.value;
-            AppState.issuesPage = 1;
-            this.render();
-            // Re-focus and restore cursor
-            const newInput = document.getElementById('issueSearch');
-            if (newInput) {
-                newInput.focus();
-                newInput.setSelectionRange(target.value.length, target.value.length);
-            }
-        }
-
-        // Title editing
-        if (target.id === 'issueTitle') {
-            const saveBtn = document.getElementById('saveTitleBtn');
-            if (saveBtn) saveBtn.style.display = 'inline-block';
-        }
-    },
-
-    // ── Dropdown Change Handler ────────────────────────────
-    handleDropdownChange(e) {
-        const { id, value, values } = e.detail;
-
-        // Issue list filters
-        if (id === 'filterAuthor') {
-            AppState.issueFilters.authorId = value ? parseInt(value) : null;
-            AppState.issuesPage = 1;
-            this.render();
-        }
-        if (id === 'filterAssignee') {
-            AppState.issueFilters.assigneeId = value ? parseInt(value) : null;
-            AppState.issuesPage = 1;
-            this.render();
-        }
-        if (id === 'filterLabels') {
-            AppState.issueFilters.labelIds = (values || []).map(v => parseInt(v));
-            AppState.issuesPage = 1;
-            this.render();
-        }
-        if (id === 'filterMilestone') {
-            AppState.issueFilters.milestoneId = value ? parseInt(value) : null;
-            AppState.issuesPage = 1;
-            this.render();
-        }
-        if (id === 'filterType') {
-            AppState.issueFilters.type = value || null;
-            AppState.issuesPage = 1;
-            this.render();
-        }
-        if (id === 'sortIssues') {
-            AppState.issueFilters.sort = value;
-            this.render();
-        }
-
-        // Bulk action dropdowns
-        if (id === 'bulkAssignee' && value) {
-            AppState.bulkUpdateIssues(AppState.selectedIssueIds, { assigneeId: parseInt(value) });
-            this.render();
-            Components.showToast('Assignee updated', 'success');
-        }
-        if (id === 'bulkLabel' && value) {
-            AppState.bulkUpdateIssues(AppState.selectedIssueIds, { labelId: parseInt(value) });
-            this.render();
-            Components.showToast('Label added', 'success');
-        }
-        if (id === 'bulkMilestone') {
-            AppState.bulkUpdateIssues(AppState.selectedIssueIds, { milestoneId: value ? parseInt(value) : null });
-            this.render();
-            Components.showToast('Milestone updated', 'success');
-        }
-
-        // Issue detail sidebar
-        if (id === 'issueAssignees') {
-            AppState.updateIssue(AppState.selectedIssueId, { assignees: (values || []).map(v => parseInt(v)) });
-            this.render();
-        }
-        if (id === 'issueLabels') {
-            AppState.updateIssue(AppState.selectedIssueId, { labels: (values || []).map(v => parseInt(v)) });
-            this.render();
-        }
-        if (id === 'issueMilestone') {
-            AppState.updateIssue(AppState.selectedIssueId, { milestoneId: value ? parseInt(value) : null });
-            this.render();
-        }
-        if (id === 'issueIteration') {
-            AppState.updateIssue(AppState.selectedIssueId, { iterationId: value ? parseInt(value) : null });
-            this.render();
-        }
-        if (id === 'issueEpic') {
-            AppState.updateIssue(AppState.selectedIssueId, { epicId: value ? parseInt(value) : null });
-            this.render();
-        }
-
-        // Board selector
-        if (id === 'boardSelect') {
-            AppState.selectedBoardId = parseInt(value);
-            this.render();
-        }
-
-        // Notification level
-        if (id === 'notifLevel') {
-            AppState.notificationSettings.level = value;
-            AppState.notify();
-        }
-
-        // Template selection
-        if (id === 'newIssueTemplate' && value) {
-            const template = AppState.issueTemplates.find(t => t.id === parseInt(value));
-            if (template) {
-                const textarea = document.getElementById('newIssueDescription');
-                if (textarea) textarea.value = template.content;
-            }
-        }
-    },
-
-    // ── Issue Creation ─────────────────────────────────────
-    _handleCreateIssue() {
-        const titleInput = document.getElementById('newIssueTitle');
-        const descInput = document.getElementById('newIssueDescription');
-
-        if (!titleInput || !titleInput.value.trim()) {
-            Components.showToast('Title is required', 'error');
+        // Search issues
+        if (target.id === 'issue-search') {
+            AppState.getUI().issueFilters.search = target.value;
+            AppState.getUI().issueListPage = 1;
+            _debounceRender();
             return;
         }
 
-        const typeDd = document.getElementById('newIssueType');
-        const msDd = document.getElementById('newIssueMilestone');
-        const iterDd = document.getElementById('newIssueIteration');
-        const epicDd = document.getElementById('newIssueEpic');
-        const weightInput = document.getElementById('newIssueWeight');
-        const dueDateInput = document.getElementById('newIssueDueDate');
-        const confCheck = document.getElementById('newIssueConfidentialCheck');
+        // Search epics
+        if (target.id === 'epic-search') {
+            AppState.getUI().epicFilters.search = target.value;
+            _debounceRender();
+            return;
+        }
 
-        // Get multi-select values
-        const assigneeDd = document.getElementById('newIssueAssignees');
-        const labelDd = document.getElementById('newIssueLabels');
+        // Dropdown search filter
+        if (target.classList.contains('dropdown-search-input')) {
+            const dropdownId = target.dataset.dropdown;
+            const menu = document.getElementById(dropdownId + '-menu');
+            if (!menu) return;
+            const searchVal = target.value.toLowerCase();
+            menu.querySelectorAll('.dropdown-item').forEach(item => {
+                const label = (item.dataset.label || '').toLowerCase();
+                item.style.display = label.includes(searchVal) ? '' : 'none';
+            });
+            return;
+        }
 
-        const assignees = assigneeDd ? Array.from(assigneeDd.querySelectorAll('.dropdown-item.selected')).map(i => parseInt(i.dataset.value)) : [];
-        const labels = labelDd ? Array.from(labelDd.querySelectorAll('.dropdown-item.selected')).map(i => parseInt(i.dataset.value)) : [];
+        // Color input
+        if (target.classList.contains('color-input')) {
+            const color = target.value;
+            if (/^#[0-9a-fA-F]{6}$/.test(color)) {
+                const picker = target.dataset.picker;
+                document.querySelectorAll(`#${picker} .color-swatch-btn`).forEach(b => b.classList.remove('selected'));
+            }
+        }
+    }
 
-        const issue = AppState.createIssue({
-            title: titleInput.value.trim(),
-            description: descInput ? descInput.value : '',
-            type: typeDd ? typeDd.dataset.value || 'issue' : 'issue',
-            assignees: assignees,
-            labels: labels,
-            milestoneId: msDd && msDd.dataset.value ? parseInt(msDd.dataset.value) : null,
-            iterationId: iterDd && iterDd.dataset.value ? parseInt(iterDd.dataset.value) : null,
-            epicId: epicDd && epicDd.dataset.value ? parseInt(epicDd.dataset.value) : null,
-            weight: weightInput && weightInput.value ? parseInt(weightInput.value) : null,
-            dueDate: dueDateInput && dueDateInput.value.match(/^\d{4}-\d{2}-\d{2}$/) ? dueDateInput.value : null,
-            confidential: confCheck ? confCheck.checked : false
+    function _handleChange(e) {
+        const target = e.target;
+
+        // Issue checkbox
+        if (target.classList.contains('issue-checkbox')) {
+            _updateBulkSelection();
+            return;
+        }
+
+        // Weight input
+        if (target.id === 'sidebar-weight') {
+            const issueId = parseInt(target.dataset.issueId);
+            const weight = target.value ? parseInt(target.value) : null;
+            AppState.updateIssue(issueId, { weight });
+            return;
+        }
+
+        // Confidential toggle
+        if (target.id === 'sidebar-confidential') {
+            const issueId = parseInt(target.dataset.issueId);
+            AppState.updateIssue(issueId, { confidential: target.checked });
+            return;
+        }
+
+        // Date input
+        if (target.classList.contains('date-input')) {
+            const picker = target.dataset.picker;
+            _handleDateChange(picker, target.value);
+            return;
+        }
+    }
+
+    function _handleKeydown(e) {
+        // Save issue title on Enter
+        if (e.key === 'Enter' && e.target.id === 'issue-title-input') {
+            e.preventDefault();
+            document.querySelector('[data-action="confirm-issue-title"]')?.click();
+        }
+
+        // Submit comment on Ctrl+Enter
+        if (e.key === 'Enter' && e.ctrlKey && e.target.id === 'comment-editor') {
+            document.querySelector('[data-action="submit-comment"]')?.click();
+        }
+
+        // Time input enter handlers
+        if (e.key === 'Enter' && e.target.id === 'sidebar-estimate') {
+            _handleTimeEstimate(e.target);
+        }
+        if (e.key === 'Enter' && e.target.id === 'sidebar-spend') {
+            _handleTimeSpend(e.target);
+        }
+
+        // Escape to close modal
+        if (e.key === 'Escape' && AppState.getUI().modalOpen) {
+            _closeModal();
+        }
+    }
+
+    // ─── Date change handler ──────────────────────────────────────
+    function _handleDateChange(picker, value) {
+        const ui = AppState.getUI();
+        if (picker === 'sidebar-due-date') {
+            AppState.updateIssue(ui.currentIssueId, { dueDate: value || null });
+        }
+    }
+
+    // ─── Time tracking handlers ───────────────────────────────────
+    function _handleTimeEstimate(input) {
+        const seconds = _parseTimeInput(input.value);
+        if (seconds !== null) {
+            AppState.setTimeEstimate(AppState.getUI().currentIssueId, seconds);
+            input.value = '';
+            AppState.showToast('Time estimate updated', 'success');
+            render();
+        }
+    }
+
+    function _handleTimeSpend(input) {
+        const seconds = _parseTimeInput(input.value);
+        if (seconds !== null && seconds > 0) {
+            AppState.addTimeSpent(AppState.getUI().currentIssueId, seconds);
+            input.value = '';
+            AppState.showToast('Time logged', 'success');
+            render();
+        }
+    }
+
+    function _parseTimeInput(value) {
+        if (!value) return null;
+        const match = value.match(/^(\d+)h(?:\s*(\d+)m)?$/);
+        if (match) {
+            return parseInt(match[1]) * 3600 + (parseInt(match[2] || '0')) * 60;
+        }
+        const matchM = value.match(/^(\d+)m$/);
+        if (matchM) return parseInt(matchM[1]) * 60;
+        return null;
+    }
+
+    // ─── Dropdown Logic ───────────────────────────────────────────
+    function _toggleDropdown(dropdownId) {
+        const menu = document.getElementById(dropdownId + '-menu');
+        if (!menu) return;
+
+        // Close all other dropdowns first
+        document.querySelectorAll('.dropdown-menu.open').forEach(m => {
+            if (m.id !== dropdownId + '-menu') m.classList.remove('open');
         });
 
-        Components.showToast(`Issue #${issue.iid} created`, 'success');
-        this.navigate('issues', 'detail', { issueId: issue.id });
-    },
+        menu.classList.toggle('open');
 
-    // ── Modal Creators ─────────────────────────────────────
-    _showCreateMilestoneModal() {
-        AppState.activeModal = 'createMilestone';
-        Components.showModal('New Milestone', `
-            ${Components.formField('modalMsTitle', 'Title', Components.textInput('modalMsTitle', '', { placeholder: 'Milestone title' }), { required: true })}
-            ${Components.formField('modalMsDesc', 'Description', Components.textarea('modalMsDesc', '', { placeholder: 'Description', rows: 3 }))}
-            ${Components.formField('modalMsStart', 'Start date', Components.dateInput('modalMsStart', ''))}
-            ${Components.formField('modalMsDue', 'Due date', Components.dateInput('modalMsDue', ''))}
-        `, `
-            <button class="btn btn-secondary" data-action="closeModal">Cancel</button>
-            <button class="btn btn-primary" data-action="submitModal">Create milestone</button>
-        `);
-    },
+        // Focus search input if present
+        if (menu.classList.contains('open')) {
+            const searchInput = menu.querySelector('.dropdown-search-input');
+            if (searchInput) setTimeout(() => searchInput.focus(), 0);
+        }
+    }
 
-    _showEditMilestoneModal(id) {
-        const ms = AppState.getMilestoneById(id);
-        if (!ms) return;
-        AppState.activeModal = 'editMilestone';
-        AppState.modalData = { milestoneId: id };
-        Components.showModal('Edit Milestone', `
-            ${Components.formField('modalMsTitle', 'Title', Components.textInput('modalMsTitle', ms.title, { placeholder: 'Milestone title' }), { required: true })}
-            ${Components.formField('modalMsDesc', 'Description', Components.textarea('modalMsDesc', ms.description || '', { placeholder: 'Description', rows: 3 }))}
-            ${Components.formField('modalMsStart', 'Start date', Components.dateInput('modalMsStart', ms.startDate || ''))}
-            ${Components.formField('modalMsDue', 'Due date', Components.dateInput('modalMsDue', ms.dueDate || ''))}
-        `, `
-            <button class="btn btn-secondary" data-action="closeModal">Cancel</button>
-            <button class="btn btn-primary" data-action="submitModal">Save</button>
-        `);
-    },
+    function _selectDropdownItem(target) {
+        const dropdownId = target.dataset.dropdown;
+        const value = target.dataset.value;
+        const el = document.getElementById(dropdownId);
+        const isMulti = el?.dataset.multi === 'true';
 
-    _showCreateIterationModal() {
-        AppState.activeModal = 'createIteration';
-        const cadenceOpts = AppState.iterationCadences.map(c => ({ value: String(c.id), label: c.title }));
-        Components.showModal('New Iteration', `
-            ${Components.formField('modalIterCadence', 'Cadence', Components.dropdown('modalIterCadence', cadenceOpts, cadenceOpts[0]?.value || ''))}
-            ${Components.formField('modalIterTitle', 'Title', Components.textInput('modalIterTitle', '', { placeholder: 'Iteration title' }), { required: true })}
-            ${Components.formField('modalIterStart', 'Start date', Components.dateInput('modalIterStart', ''), { required: true })}
-            ${Components.formField('modalIterEnd', 'End date', Components.dateInput('modalIterEnd', ''), { required: true })}
-        `, `
-            <button class="btn btn-secondary" data-action="closeModal">Cancel</button>
-            <button class="btn btn-primary" data-action="submitModal">Create iteration</button>
-        `);
-    },
+        // Parse value
+        let parsedValue = value;
+        if (value === 'null' || value === '') parsedValue = null;
+        else if (!isNaN(value)) parsedValue = parseInt(value);
 
-    _showCreateEpicModal() {
-        AppState.activeModal = 'createEpic';
-        const labelOpts = AppState.labels.map(l => ({ value: String(l.id), label: l.name, color: l.color }));
-        const parentOpts = [{ value: '', label: 'No parent' }, ...AppState.epics.filter(e => e.state === 'opened').map(e => ({ value: String(e.id), label: e.title }))];
-        Components.showModal('New Epic', `
-            ${Components.formField('modalEpicTitle', 'Title', Components.textInput('modalEpicTitle', '', { placeholder: 'Epic title' }), { required: true })}
-            ${Components.formField('modalEpicDesc', 'Description', Components.textarea('modalEpicDesc', '', { placeholder: 'Description', rows: 4 }))}
-            ${Components.formField('modalEpicLabels', 'Labels', Components.multiSelectDropdown('modalEpicLabels', labelOpts, [], { placeholder: 'Select labels', searchable: true }))}
-            ${Components.formField('modalEpicParent', 'Parent Epic', Components.dropdown('modalEpicParent', parentOpts, ''))}
-            <div class="form-row">
-                ${Components.formField('modalEpicStart', 'Start date', Components.dateInput('modalEpicStart', ''))}
-                ${Components.formField('modalEpicDue', 'Due date', Components.dateInput('modalEpicDue', ''))}
-            </div>
-            ${Components.formField('modalEpicConf', 'Confidential', Components.checkbox('modalEpicConfCheck', 'This epic is confidential', false))}
-        `, `
-            <button class="btn btn-secondary" data-action="closeModal">Cancel</button>
-            <button class="btn btn-primary" data-action="submitModal">Create epic</button>
-        `);
-    },
-
-    _showCreateLabelModal() {
-        AppState.activeModal = 'createLabel';
-        Components.showModal('New Label', `
-            ${Components.formField('modalLabelName', 'Name', Components.textInput('modalLabelName', '', { placeholder: 'Label name (e.g., bug or priority::high)' }), { required: true })}
-            ${Components.formField('modalLabelDesc', 'Description', Components.textInput('modalLabelDesc', '', { placeholder: 'Description' }))}
-            ${Components.formField('modalLabelColor', 'Color', Components.colorPicker('modalLabelColor', '#428bca'))}
-        `, `
-            <button class="btn btn-secondary" data-action="closeModal">Cancel</button>
-            <button class="btn btn-primary" data-action="submitModal">Create label</button>
-        `);
-    },
-
-    _showEditLabelModal(id) {
-        const label = AppState.getLabelById(id);
-        if (!label) return;
-        AppState.activeModal = 'editLabel';
-        AppState.modalData = { labelId: id };
-        Components.showModal('Edit Label', `
-            ${Components.formField('modalLabelName', 'Name', Components.textInput('modalLabelName', label.name, { placeholder: 'Label name' }), { required: true })}
-            ${Components.formField('modalLabelDesc', 'Description', Components.textInput('modalLabelDesc', label.description || '', { placeholder: 'Description' }))}
-            ${Components.formField('modalLabelColor', 'Color', Components.colorPicker('modalLabelColor', label.color))}
-        `, `
-            <button class="btn btn-secondary" data-action="closeModal">Cancel</button>
-            <button class="btn btn-primary" data-action="submitModal">Save</button>
-        `);
-    },
-
-    _showAddBoardListModal(boardId) {
-        AppState.activeModal = 'addBoardList';
-        AppState.modalData = { boardId };
-        const board = AppState.getBoardById(boardId);
-        const existingLabelIds = board ? board.lists.filter(l => l.labelId).map(l => l.labelId) : [];
-        const labelOpts = AppState.labels.filter(l => !existingLabelIds.includes(l.id)).map(l => ({ value: String(l.id), label: l.name, color: l.color }));
-        Components.showModal('Add List', `
-            <p>Select a label to create a new board list:</p>
-            ${Components.dropdown('modalBoardLabel', labelOpts, '', { searchable: true })}
-        `, `
-            <button class="btn btn-secondary" data-action="closeModal">Cancel</button>
-            <button class="btn btn-primary" data-action="submitModal">Add list</button>
-        `);
-    },
-
-    _showAddRelatedIssueModal(issueId) {
-        AppState.activeModal = 'addRelatedIssue';
-        AppState.modalData = { issueId };
-        const currentIssue = AppState.getIssueById(issueId);
-        const existingIds = [issueId, ...(currentIssue ? currentIssue.relatedIssues.map(r => r.issueId) : [])];
-        const issueOpts = AppState.issues.filter(i => !existingIds.includes(i.id)).map(i => ({ value: String(i.id), label: `#${i.iid} ${i.title}` }));
-        const linkTypeOpts = [
-            { value: 'relates_to', label: 'Related to' },
-            { value: 'blocks', label: 'Blocks' },
-            { value: 'is_blocked_by', label: 'Is blocked by' }
-        ];
-        Components.showModal('Add Related Issue', `
-            ${Components.formField('modalRelatedIssue', 'Issue', Components.dropdown('modalRelatedIssue', issueOpts, '', { searchable: true }))}
-            ${Components.formField('modalLinkType', 'Relationship', Components.dropdown('modalLinkType', linkTypeOpts, 'relates_to'))}
-        `, `
-            <button class="btn btn-secondary" data-action="closeModal">Cancel</button>
-            <button class="btn btn-primary" data-action="submitModal">Add</button>
-        `);
-    },
-
-    _showTimeEstimateModal(issueId) {
-        AppState.activeModal = 'setEstimate';
-        AppState.modalData = { issueId };
-        const issue = AppState.getIssueById(issueId);
-        const currentHours = issue && issue.timeEstimate ? Math.floor(issue.timeEstimate / 3600) : '';
-        const currentMins = issue && issue.timeEstimate ? Math.floor((issue.timeEstimate % 3600) / 60) : '';
-        Components.showModal('Set Time Estimate', `
-            <div class="form-row">
-                ${Components.formField('modalEstHours', 'Hours', Components.numberInput('modalEstHours', currentHours, { min: 0, placeholder: '0' }))}
-                ${Components.formField('modalEstMins', 'Minutes', Components.numberInput('modalEstMins', currentMins, { min: 0, max: 59, placeholder: '0' }))}
-            </div>
-        `, `
-            <button class="btn btn-secondary" data-action="closeModal">Cancel</button>
-            <button class="btn btn-primary" data-action="submitModal">Set estimate</button>
-        `);
-    },
-
-    _showLogTimeModal(issueId) {
-        AppState.activeModal = 'logTime';
-        AppState.modalData = { issueId };
-        Components.showModal('Log Time', `
-            <div class="form-row">
-                ${Components.formField('modalLogHours', 'Hours', Components.numberInput('modalLogHours', '', { min: 0, placeholder: '0' }))}
-                ${Components.formField('modalLogMins', 'Minutes', Components.numberInput('modalLogMins', '', { min: 0, max: 59, placeholder: '0' }))}
-            </div>
-        `, `
-            <button class="btn btn-secondary" data-action="closeModal">Cancel</button>
-            <button class="btn btn-primary" data-action="submitModal">Log time</button>
-        `);
-    },
-
-    // ── Modal Submit Handler ───────────────────────────────
-    _handleModalSubmit() {
-        const modal = AppState.activeModal;
-
-        switch (modal) {
-            case 'createMilestone': {
-                const title = document.getElementById('modalMsTitle')?.value?.trim();
-                if (!title) { Components.showToast('Title is required', 'error'); return; }
-                AppState.createMilestone({
-                    title,
-                    description: document.getElementById('modalMsDesc')?.value || '',
-                    startDate: document.getElementById('modalMsStart')?.value || null,
-                    dueDate: document.getElementById('modalMsDue')?.value || null
+        if (isMulti) {
+            if (!_dropdownValues[dropdownId]) _dropdownValues[dropdownId] = [];
+            const arr = _dropdownValues[dropdownId];
+            const idx = arr.indexOf(parsedValue);
+            if (idx > -1) {
+                arr.splice(idx, 1);
+                target.classList.remove('selected');
+                target.querySelector('.dropdown-check').innerHTML = '';
+            } else {
+                arr.push(parsedValue);
+                target.classList.add('selected');
+                target.querySelector('.dropdown-check').innerHTML = '&#10003;';
+            }
+            // Update trigger display
+            const trigger = document.querySelector(`#${dropdownId} .dropdown-value`);
+            if (trigger) {
+                const labels = arr.map(v => {
+                    const item = document.querySelector(`#${dropdownId}-menu [data-value="${v}"]`);
+                    return item ? item.dataset.label : v;
                 });
-                Components.closeModal();
-                this.render();
-                Components.showToast('Milestone created', 'success');
+                trigger.textContent = labels.length > 0 ? labels.join(', ') : el.querySelector('.dropdown-trigger')?.textContent || 'Select...';
+            }
+        } else {
+            _dropdownValues[dropdownId] = parsedValue;
+            // Update selected state
+            const menu = document.getElementById(dropdownId + '-menu');
+            menu.querySelectorAll('.dropdown-item').forEach(item => {
+                item.classList.remove('selected');
+                item.querySelector('.dropdown-check').innerHTML = '';
+            });
+            target.classList.add('selected');
+            target.querySelector('.dropdown-check').innerHTML = '&#10003;';
+            // Update trigger
+            const trigger = document.querySelector(`#${dropdownId} .dropdown-value`);
+            if (trigger) trigger.textContent = target.dataset.label;
+            // Close dropdown
+            menu.classList.remove('open');
+        }
+
+        // Handle specific dropdown side effects
+        _handleDropdownChange(dropdownId, isMulti ? _dropdownValues[dropdownId] : parsedValue);
+    }
+
+    function _handleDropdownChange(dropdownId, value) {
+        const ui = AppState.getUI();
+
+        switch (dropdownId) {
+            // Issue list filters
+            case 'filter-author':
+                ui.issueFilters.authorId = value;
+                ui.issueListPage = 1;
+                render();
+                break;
+            case 'filter-assignee':
+                ui.issueFilters.assigneeId = value;
+                ui.issueListPage = 1;
+                render();
+                break;
+            case 'filter-label':
+                ui.issueFilters.labelIds = value || [];
+                ui.issueListPage = 1;
+                render();
+                break;
+            case 'filter-milestone':
+                ui.issueFilters.milestoneId = value;
+                ui.issueListPage = 1;
+                render();
+                break;
+            case 'filter-sort':
+                ui.issueFilters.sort = value;
+                ui.issueListPage = 1;
+                render();
+                break;
+
+            // Issue detail sidebar
+            case 'sidebar-assignees':
+                AppState.updateIssue(ui.currentIssueId, { assigneeIds: value || [] });
+                render();
+                break;
+            case 'sidebar-labels': {
+                // Handle scoped labels
+                let newLabels = value || [];
+                const scopedGroups = {};
+                newLabels.forEach(lid => {
+                    const label = AppState.getLabel(lid);
+                    if (label && label.scoped) {
+                        const scope = label.name.split('::')[0];
+                        if (!scopedGroups[scope]) scopedGroups[scope] = [];
+                        scopedGroups[scope].push(lid);
+                    }
+                });
+                // Keep only last of each scoped group
+                Object.values(scopedGroups).forEach(group => {
+                    if (group.length > 1) {
+                        const keep = group[group.length - 1];
+                        newLabels = newLabels.filter(lid => !group.includes(lid) || lid === keep);
+                    }
+                });
+                AppState.updateIssue(ui.currentIssueId, { labelIds: newLabels });
+                render();
                 break;
             }
-
-            case 'editMilestone': {
-                const title = document.getElementById('modalMsTitle')?.value?.trim();
-                if (!title) { Components.showToast('Title is required', 'error'); return; }
-                AppState.updateMilestone(AppState.modalData.milestoneId, {
-                    title,
-                    description: document.getElementById('modalMsDesc')?.value || '',
-                    startDate: document.getElementById('modalMsStart')?.value || null,
-                    dueDate: document.getElementById('modalMsDue')?.value || null
-                });
-                Components.closeModal();
-                this.render();
-                Components.showToast('Milestone updated', 'success');
+            case 'sidebar-milestone':
+                AppState.updateIssue(ui.currentIssueId, { milestoneId: value });
+                render();
                 break;
-            }
+            case 'sidebar-iteration':
+                AppState.updateIssue(ui.currentIssueId, { iterationId: value });
+                render();
+                break;
 
-            case 'createIteration': {
-                const title = document.getElementById('modalIterTitle')?.value?.trim();
-                const startDate = document.getElementById('modalIterStart')?.value;
-                const endDate = document.getElementById('modalIterEnd')?.value;
-                const cadenceDd = document.getElementById('modalIterCadence');
-                if (!title || !startDate || !endDate) {
-                    Components.showToast('All fields are required', 'error');
-                    return;
+            // Board filters
+            case 'board-filter-assignee':
+                ui.boardFilters.assigneeId = value;
+                render();
+                break;
+            case 'board-filter-milestone':
+                ui.boardFilters.milestoneId = value;
+                render();
+                break;
+
+            // Notification settings
+            case 'notification-level':
+                AppState.updateNotificationSettings({ level: value });
+                break;
+
+            // Roadmap zoom
+            case 'roadmap-zoom':
+                ui.roadmapZoom = value;
+                render();
+                break;
+
+            // Issue template
+            case 'issue-template': {
+                if (value) {
+                    const template = AppState.getState().issueTemplates.find(t => t.id === value);
+                    if (template) {
+                        const desc = document.getElementById('new-issue-description');
+                        if (desc) desc.value = template.content;
+                    }
                 }
-                AppState.createIteration({
-                    cadenceId: cadenceDd ? parseInt(cadenceDd.dataset.value) : 1,
-                    title, startDate, endDate
-                });
-                Components.closeModal();
-                this.render();
-                Components.showToast('Iteration created', 'success');
                 break;
             }
 
-            case 'createEpic': {
-                const title = document.getElementById('modalEpicTitle')?.value?.trim();
-                if (!title) { Components.showToast('Title is required', 'error'); return; }
-                const labelDd = document.getElementById('modalEpicLabels');
-                const labels = labelDd ? Array.from(labelDd.querySelectorAll('.dropdown-item.selected')).map(i => parseInt(i.dataset.value)) : [];
-                const parentDd = document.getElementById('modalEpicParent');
-                AppState.createEpic({
-                    title,
-                    description: document.getElementById('modalEpicDesc')?.value || '',
-                    labels,
-                    parentEpicId: parentDd && parentDd.dataset.value ? parseInt(parentDd.dataset.value) : null,
-                    startDate: document.getElementById('modalEpicStart')?.value || null,
-                    dueDate: document.getElementById('modalEpicDue')?.value || null,
-                    confidential: document.getElementById('modalEpicConfCheck')?.checked || false
-                });
-                Components.closeModal();
-                this.render();
-                Components.showToast('Epic created', 'success');
-                break;
-            }
-
-            case 'createLabel': {
-                const name = document.getElementById('modalLabelName')?.value?.trim();
-                if (!name) { Components.showToast('Name is required', 'error'); return; }
-                const colorInput = document.getElementById('modalLabelColor-hex');
-                const color = colorInput?.value || '#428bca';
-                AppState.createLabel({
-                    name,
-                    description: document.getElementById('modalLabelDesc')?.value || '',
-                    color
-                });
-                Components.closeModal();
-                this.render();
-                Components.showToast('Label created', 'success');
-                break;
-            }
-
-            case 'editLabel': {
-                const name = document.getElementById('modalLabelName')?.value?.trim();
-                if (!name) { Components.showToast('Name is required', 'error'); return; }
-                const colorInput = document.getElementById('modalLabelColor-hex');
-                const color = colorInput?.value || '#428bca';
-                AppState.updateLabel(AppState.modalData.labelId, {
-                    name,
-                    description: document.getElementById('modalLabelDesc')?.value || '',
-                    color
-                });
-                Components.closeModal();
-                this.render();
-                Components.showToast('Label updated', 'success');
-                break;
-            }
-
-            case 'addBoardList': {
-                const dd = document.getElementById('modalBoardLabel');
-                if (!dd || !dd.dataset.value) { Components.showToast('Select a label', 'error'); return; }
-                AppState.addBoardList(AppState.modalData.boardId, parseInt(dd.dataset.value));
-                Components.closeModal();
-                this.render();
-                break;
-            }
-
-            case 'addRelatedIssue': {
-                const issueDd = document.getElementById('modalRelatedIssue');
-                const typeDd = document.getElementById('modalLinkType');
-                if (!issueDd || !issueDd.dataset.value) { Components.showToast('Select an issue', 'error'); return; }
-                AppState.addRelatedIssue(
-                    AppState.modalData.issueId,
-                    parseInt(issueDd.dataset.value),
-                    typeDd?.dataset.value || 'relates_to'
-                );
-                Components.closeModal();
-                this.render();
-                Components.showToast('Related issue added', 'success');
-                break;
-            }
-
-            case 'setEstimate': {
-                const hours = parseInt(document.getElementById('modalEstHours')?.value || '0');
-                const mins = parseInt(document.getElementById('modalEstMins')?.value || '0');
-                const totalSeconds = hours * 3600 + mins * 60;
-                AppState.setTimeEstimate(AppState.modalData.issueId, totalSeconds > 0 ? totalSeconds : null);
-                Components.closeModal();
-                this.render();
-                Components.showToast('Estimate updated', 'success');
-                break;
-            }
-
-            case 'logTime': {
-                const hours = parseInt(document.getElementById('modalLogHours')?.value || '0');
-                const mins = parseInt(document.getElementById('modalLogMins')?.value || '0');
-                const totalSeconds = hours * 3600 + mins * 60;
-                if (totalSeconds <= 0) { Components.showToast('Enter time to log', 'error'); return; }
-                AppState.logTimeSpent(AppState.modalData.issueId, totalSeconds);
-                Components.closeModal();
-                this.render();
-                Components.showToast('Time logged', 'success');
+            // Add child issue to epic
+            case 'add-child-issue': {
+                if (value && ui.currentEpicId) {
+                    AppState.addChildIssueToEpic(ui.currentEpicId, value);
+                    AppState.showToast('Child issue added', 'success');
+                    render();
+                }
                 break;
             }
         }
-    },
+    }
 
-    // ── Board Drag & Drop ──────────────────────────────────
-    _setupBoardDragDrop() {
+    // ─── Navigation ───────────────────────────────────────────────
+    function _navigate(view, params = {}) {
+        const ui = AppState.getUI();
+        ui.currentView = view;
+        ui.editingIssueTitle = false;
+        ui.editingIssueDescription = false;
+        selectedIssueIds.clear();
+        _dropdownValues = {};
+
+        if (params.issueId) ui.currentIssueId = params.issueId;
+        if (params.milestoneId) ui.currentMilestoneId = params.milestoneId;
+        if (params.epicId) ui.currentEpicId = params.epicId;
+        if (params.iterationId) ui.currentIterationId = params.iterationId;
+
+        window.scrollTo(0, 0);
+        render();
+    }
+
+    // ─── Create Issue ─────────────────────────────────────────────
+    function _createIssue() {
+        const title = document.getElementById('new-issue-title')?.value?.trim();
+        if (!title) {
+            document.getElementById('title-error').style.display = 'block';
+            document.getElementById('new-issue-title').classList.add('field-error');
+            return;
+        }
+
+        const description = document.getElementById('new-issue-description')?.value || '';
+        const type = _dropdownValues['issue-type'] || 'issue';
+        const assigneeIds = _dropdownValues['new-issue-assignees'] || [];
+        const labelIds = _dropdownValues['new-issue-labels'] || [];
+        const milestoneId = _dropdownValues['new-issue-milestone'] || null;
+        const iterationId = _dropdownValues['new-issue-iteration'] || null;
+        const weight = parseInt(document.getElementById('new-issue-weight')?.value) || null;
+        const dueDate = document.getElementById('new-issue-due-date-input')?.value || null;
+        const confidential = document.getElementById('new-issue-confidential')?.checked || false;
+
+        const issue = AppState.createIssue({
+            title, description, type, assigneeIds, labelIds,
+            milestoneId, iterationId, weight, dueDate, confidential
+        });
+
+        AppState.showToast(`Issue #${issue.id} created`, 'success');
+        _navigate('issue-detail', { issueId: issue.id });
+    }
+
+    // ─── Create Label ─────────────────────────────────────────────
+    function _createLabel() {
+        const name = document.getElementById('label-name')?.value?.trim();
+        const description = document.getElementById('label-description')?.value?.trim() || '';
+        const colorInput = document.getElementById('label-color-input');
+        const selectedBtn = document.querySelector('#label-color .color-swatch-btn.selected');
+        const color = selectedBtn ? selectedBtn.dataset.color : (colorInput?.value || '#428bca');
+
+        if (!name) return;
+        AppState.createLabel({ name, description, color });
+        _closeModal();
+        AppState.showToast('Label created', 'success');
+        render();
+    }
+
+    function _saveLabel(id) {
+        const name = document.getElementById('label-name')?.value?.trim();
+        const description = document.getElementById('label-description')?.value?.trim() || '';
+        const colorInput = document.getElementById('label-color-input');
+        const selectedBtn = document.querySelector('#label-color .color-swatch-btn.selected');
+        const color = selectedBtn ? selectedBtn.dataset.color : (colorInput?.value || '#428bca');
+
+        if (!name) return;
+        AppState.updateLabel(id, { name, description, color });
+        _closeModal();
+        AppState.showToast('Label updated', 'success');
+        render();
+    }
+
+    // ─── Create Milestone ─────────────────────────────────────────
+    function _createMilestone() {
+        const title = document.getElementById('milestone-title')?.value?.trim();
+        if (!title) return;
+        const description = document.getElementById('milestone-description')?.value?.trim() || '';
+        const startDate = document.getElementById('milestone-start-date-input')?.value || null;
+        const dueDate = document.getElementById('milestone-due-date-input')?.value || null;
+
+        AppState.createMilestone({ title, description, startDate, dueDate });
+        _closeModal();
+        AppState.showToast('Milestone created', 'success');
+        render();
+    }
+
+    function _saveMilestone(id) {
+        const title = document.getElementById('milestone-title')?.value?.trim();
+        if (!title) return;
+        const description = document.getElementById('milestone-description')?.value?.trim() || '';
+        const startDate = document.getElementById('milestone-start-date-input')?.value || null;
+        const dueDate = document.getElementById('milestone-due-date-input')?.value || null;
+
+        AppState.updateMilestone(id, { title, description, startDate, dueDate });
+        _closeModal();
+        AppState.showToast('Milestone updated', 'success');
+        render();
+    }
+
+    // ─── Create Iteration ─────────────────────────────────────────
+    function _createIteration() {
+        const cadenceId = _dropdownValues['iteration-cadence'];
+        const title = document.getElementById('iteration-title')?.value?.trim();
+        const startDate = document.getElementById('iteration-start-date-input')?.value;
+        const endDate = document.getElementById('iteration-end-date-input')?.value;
+
+        if (!title || !startDate || !endDate) return;
+
+        AppState.createIteration({ cadenceId, title, startDate, endDate });
+        _closeModal();
+        AppState.showToast('Iteration created', 'success');
+        render();
+    }
+
+    // ─── Create Epic ──────────────────────────────────────────────
+    function _createEpic() {
+        const title = document.getElementById('epic-title')?.value?.trim();
+        if (!title) return;
+        const description = document.getElementById('epic-description')?.value || '';
+        const startDate = document.getElementById('epic-start-date-input')?.value || null;
+        const dueDate = document.getElementById('epic-due-date-input')?.value || null;
+        const labels = _dropdownValues['epic-labels'] || [];
+        const confidential = document.getElementById('epic-confidential')?.checked || false;
+
+        const epic = AppState.createEpic({ title, description, startDate, dueDate, labels, confidential });
+        _closeModal();
+        AppState.showToast(`Epic created`, 'success');
+        _navigate('epic-detail', { epicId: epic.id });
+    }
+
+    // ─── Board Drag & Drop ────────────────────────────────────────
+    function _setupBoardDragDrop() {
+        const columns = document.querySelectorAll('.board-column-body');
         const cards = document.querySelectorAll('.board-card');
-        const listBodies = document.querySelectorAll('.board-list-body');
 
         cards.forEach(card => {
             card.addEventListener('dragstart', (e) => {
                 e.dataTransfer.setData('text/plain', card.dataset.issueId);
                 card.classList.add('dragging');
-                const parentList = card.closest('.board-list');
-                if (parentList) {
-                    e.dataTransfer.setData('source-list-id', parentList.querySelector('.board-list-body').dataset.listId);
-                }
+                e.dataTransfer.effectAllowed = 'move';
             });
             card.addEventListener('dragend', () => {
                 card.classList.remove('dragging');
-                document.querySelectorAll('.board-list-body').forEach(b => b.classList.remove('drag-over'));
             });
         });
 
-        listBodies.forEach(body => {
-            body.addEventListener('dragover', (e) => {
+        columns.forEach(col => {
+            col.addEventListener('dragover', (e) => {
                 e.preventDefault();
-                body.classList.add('drag-over');
+                e.dataTransfer.dropEffect = 'move';
+                col.classList.add('drag-over');
             });
-            body.addEventListener('dragleave', () => {
-                body.classList.remove('drag-over');
+            col.addEventListener('dragleave', () => {
+                col.classList.remove('drag-over');
             });
-            body.addEventListener('drop', (e) => {
+            col.addEventListener('drop', (e) => {
                 e.preventDefault();
-                body.classList.remove('drag-over');
+                col.classList.remove('drag-over');
                 const issueId = parseInt(e.dataTransfer.getData('text/plain'));
-                const sourceListId = parseInt(e.dataTransfer.getData('source-list-id'));
-                const targetListId = parseInt(body.dataset.listId);
-                const boardId = parseInt(body.dataset.boardId);
-                if (sourceListId !== targetListId) {
-                    AppState.moveIssueOnBoard(issueId, sourceListId, targetListId, boardId);
-                    this.render();
+                const toListId = parseInt(col.dataset.listId);
+                const boardId = parseInt(col.dataset.boardId);
+
+                // Find the source list
+                const issue = AppState.getIssue(issueId);
+                if (!issue) return;
+                const board = AppState.getBoard(boardId);
+                if (!board) return;
+
+                // Determine source list
+                let fromListId = null;
+                const boardIssues = AppState.getBoardIssues(boardId);
+                for (const [listId, issues] of Object.entries(boardIssues)) {
+                    if (issues.find(i => i.id === issueId)) {
+                        fromListId = parseInt(listId);
+                        break;
+                    }
+                }
+
+                if (fromListId !== null && fromListId !== toListId) {
+                    AppState.moveIssueOnBoard(issueId, fromListId, toListId, boardId);
+                    render();
                 }
             });
         });
     }
-};
 
-// ── Sidebar click handler (outside content wrapper) ────────
-document.addEventListener('click', function(e) {
-    const navLink = e.target.closest('.sidebar-link[data-action="navigate"]');
-    if (navLink) {
-        App.navigate(navLink.dataset.section, 'list');
+    // ─── Bulk Selection ───────────────────────────────────────────
+    function _updateBulkSelection() {
+        selectedIssueIds.clear();
+        document.querySelectorAll('.issue-checkbox:checked').forEach(cb => {
+            selectedIssueIds.add(parseInt(cb.dataset.issueId));
+        });
+        const bar = document.getElementById('bulk-actions-bar');
+        const count = document.getElementById('bulk-count');
+        if (bar) {
+            bar.style.display = selectedIssueIds.size > 0 ? 'flex' : 'none';
+        }
+        if (count) {
+            count.textContent = `${selectedIssueIds.size} selected`;
+        }
     }
 
-    // Sidebar toggle
-    if (e.target.closest('.sidebar-toggle')) {
-        const sidebar = document.querySelector('.sidebar');
-        if (sidebar) sidebar.classList.toggle('collapsed');
+    function _showBulkModal(type) {
+        AppState.getUI().modalOpen = Views.bulkActionModal(type);
+        render();
     }
 
-    // Reset data button
-    if (e.target.closest('[data-action="resetData"]')) {
-        AppState.resetToSeedData();
-        App.render();
-        Components.showToast('Data reset to initial state', 'info');
+    // ─── Modal helpers ────────────────────────────────────────────
+    function _closeModal() {
+        AppState.getUI().modalOpen = null;
+        render();
     }
-});
 
-// ── Initialize on load ─────────────────────────────────────
-document.addEventListener('DOMContentLoaded', () => App.init());
+    // ─── Debounce ─────────────────────────────────────────────────
+    let _renderTimer = null;
+    function _debounceRender() {
+        clearTimeout(_renderTimer);
+        _renderTimer = setTimeout(render, 200);
+    }
+
+    return { init, render, renderToast };
+})();
+
+// ─── Boot ─────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', App.init);

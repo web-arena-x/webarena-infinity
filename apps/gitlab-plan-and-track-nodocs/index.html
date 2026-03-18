@@ -8,58 +8,14 @@
 </head>
 <body>
     <div id="app">
-        <!-- Top Bar -->
-        <header class="top-bar">
-            <div class="top-bar-left">
-                <button class="sidebar-toggle" title="Toggle sidebar">&#9776;</button>
-                <div class="logo">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 2L2 19.5h20L12 2z" fill="#e24329"/>
-                        <path d="M12 2L8.5 12.5H15.5L12 2z" fill="#fc6d26"/>
-                        <path d="M8.5 12.5L2 19.5h6.5L8.5 12.5z" fill="#fca326"/>
-                        <path d="M15.5 12.5L22 19.5h-6.5L15.5 12.5z" fill="#fca326"/>
-                        <path d="M8.5 19.5h7L12 24l-3.5-4.5z" fill="#e24329"/>
-                    </svg>
-                    <span class="logo-text">GitLab</span>
-                </div>
-                <nav class="breadcrumb-nav" id="breadcrumbNav">
-                    <span class="breadcrumb-project">AcmeCorp / platform</span>
-                </nav>
-            </div>
-            <div class="top-bar-right">
-                <div class="user-menu" id="userMenu">
-                    <span class="avatar avatar-sm" id="userAvatar" title="Sarah Chen">SC</span>
-                </div>
-            </div>
-        </header>
-
-        <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar">
-            <nav class="sidebar-nav" id="sidebarNav">
-                <!-- Rendered by Views.renderSidebar() -->
-            </nav>
-            <div class="sidebar-footer">
-                <button class="btn btn-sm btn-link sidebar-reset" data-action="resetData">Reset data</button>
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <div id="contentWrapper">
-                <!-- Rendered by Views.renderContent() -->
-            </div>
+        <nav id="sidebar" class="sidebar"></nav>
+        <main id="main-content" class="main-content">
+            <div class="loading">Loading...</div>
         </main>
-
-        <!-- Modal Container -->
-        <div class="modal-overlay" id="modalOverlay">
-            <div class="modal" id="modalContainer"></div>
-        </div>
-
-        <!-- Toast Container -->
-        <div class="toast-container" id="toastContainer"></div>
     </div>
+    <div id="modal-container"></div>
+    <div id="toast-container" class="toast-container"></div>
 
-    <!-- Scripts in dependency order -->
     <script src="js/data.js"></script>
     <script src="js/state.js"></script>
     <script src="js/components.js"></script>

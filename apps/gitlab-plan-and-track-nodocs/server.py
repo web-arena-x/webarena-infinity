@@ -98,18 +98,14 @@ class AppHandler(http.server.SimpleHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-Type', 'application/json')
         self.end_headers()
-        self.wfile.write(json.dumps({
-            'status': 'ok',
-            'action': 'reset',
-            'seed_restored': _seed_state is not None,
-            'clients_notified': len(_clients)
-        }).encode())
+        self.wfile.write(b'{"status":"reset"}')
 
     def _handle_sse(self):
         self.send_response(200)
         self.send_header('Content-Type', 'text/event-stream')
         self.send_header('Cache-Control', 'no-cache')
         self.send_header('Connection', 'keep-alive')
+        self.send_header('Access-Control-Allow-Origin', '*')
         self.end_headers()
 
         q = queue.Queue()

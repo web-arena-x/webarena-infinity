@@ -1,804 +1,463 @@
-/* ============================================================
-   GitLab Plan & Track — Seed Data
-   ============================================================ */
-
+// GitLab Plan & Track — Seed Data
+// SEED_DATA_VERSION must be bumped whenever seed data changes
 const SEED_DATA_VERSION = 1;
 
-// ── Users ──────────────────────────────────────────────────
-const CURRENT_USER = {
-    id: 1,
-    username: 'schen',
-    name: 'Sarah Chen',
-    email: 'sarah.chen@acmecorp.io',
-    avatar: null,
-    role: 'Owner',
-    state: 'active'
-};
+const SeedData = (() => {
 
-const USERS = [
-    { id: 1, username: 'schen', name: 'Sarah Chen', email: 'sarah.chen@acmecorp.io', avatar: null, role: 'Owner', state: 'active' },
-    { id: 2, username: 'mjohnson', name: 'Marcus Johnson', email: 'marcus.j@acmecorp.io', avatar: null, role: 'Maintainer', state: 'active' },
-    { id: 3, username: 'ppatel', name: 'Priya Patel', email: 'priya.patel@acmecorp.io', avatar: null, role: 'Developer', state: 'active' },
-    { id: 4, username: 'akim', name: 'Alex Kim', email: 'alex.kim@acmecorp.io', avatar: null, role: 'Developer', state: 'active' },
-    { id: 5, username: 'jwilliams', name: 'Jordan Williams', email: 'jordan.w@acmecorp.io', avatar: null, role: 'Developer', state: 'active' },
-    { id: 6, username: 'erodriguez', name: 'Elena Rodriguez', email: 'elena.r@acmecorp.io', avatar: null, role: 'Maintainer', state: 'active' },
-    { id: 7, username: 'dthompson', name: 'David Thompson', email: 'david.t@acmecorp.io', avatar: null, role: 'Developer', state: 'active' },
-    { id: 8, username: 'lwang', name: 'Lisa Wang', email: 'lisa.wang@acmecorp.io', avatar: null, role: 'Reporter', state: 'active' },
-    { id: 9, username: 'ohassan', name: 'Omar Hassan', email: 'omar.h@acmecorp.io', avatar: null, role: 'Developer', state: 'active' },
-    { id: 10, username: 'rgreen', name: 'Rachel Green', email: 'rachel.g@acmecorp.io', avatar: null, role: 'Reporter', state: 'active' },
-    { id: 11, username: 'knakamura', name: 'Kai Nakamura', email: 'kai.n@acmecorp.io', avatar: null, role: 'Maintainer', state: 'active' },
-    { id: 12, username: 'smartin', name: 'Sophie Martin', email: 'sophie.m@acmecorp.io', avatar: null, role: 'Developer', state: 'blocked' }
+// ─── Users ────────────────────────────────────────────────────────
+const users = [
+    { id: 1, username: 'schen', name: 'Sarah Chen', email: 'sarah.chen@devtronics.io', avatar_color: '#e24329', role: 'Owner' },
+    { id: 2, username: 'mkowalski', name: 'Marek Kowalski', email: 'marek.kowalski@devtronics.io', avatar_color: '#fc6d26', role: 'Maintainer' },
+    { id: 3, username: 'agarcia', name: 'Ana Garcia', email: 'ana.garcia@devtronics.io', avatar_color: '#fca326', role: 'Maintainer' },
+    { id: 4, username: 'jnakamura', name: 'Jun Nakamura', email: 'jun.nakamura@devtronics.io', avatar_color: '#6b4fbb', role: 'Developer' },
+    { id: 5, username: 'priya_s', name: 'Priya Sharma', email: 'priya.sharma@devtronics.io', avatar_color: '#1aaa55', role: 'Developer' },
+    { id: 6, username: 'tomr', name: 'Tom Ramirez', email: 'tom.ramirez@devtronics.io', avatar_color: '#1f75cb', role: 'Developer' },
+    { id: 7, username: 'lwei', name: 'Li Wei', email: 'li.wei@devtronics.io', avatar_color: '#d9534f', role: 'Developer' },
+    { id: 8, username: 'emilyo', name: 'Emily Okonkwo', email: 'emily.okonkwo@devtronics.io', avatar_color: '#e44d2a', role: 'Developer' },
+    { id: 9, username: 'kfischer', name: 'Karl Fischer', email: 'karl.fischer@devtronics.io', avatar_color: '#2da160', role: 'Reporter' },
+    { id: 10, username: 'nataliem', name: 'Natalie Moreau', email: 'natalie.moreau@devtronics.io', avatar_color: '#9b59b6', role: 'Reporter' },
+    { id: 11, username: 'dkim', name: 'David Kim', email: 'david.kim@devtronics.io', avatar_color: '#3498db', role: 'Developer' },
+    { id: 12, username: 'rsingh', name: 'Ravi Singh', email: 'ravi.singh@devtronics.io', avatar_color: '#e67e22', role: 'Guest' },
 ];
 
-// ── Labels ─────────────────────────────────────────────────
-const LABELS = [
-    { id: 1, name: 'bug', description: 'Something is broken or not working as expected', color: '#d9534f', textColor: '#ffffff', scoped: false },
-    { id: 2, name: 'feature', description: 'New functionality or capability', color: '#428bca', textColor: '#ffffff', scoped: false },
-    { id: 3, name: 'enhancement', description: 'Improvement to existing functionality', color: '#5cb85c', textColor: '#ffffff', scoped: false },
-    { id: 4, name: 'documentation', description: 'Documentation updates or additions', color: '#f0ad4e', textColor: '#333333', scoped: false },
-    { id: 5, name: 'security', description: 'Security-related issue or improvement', color: '#d9534f', textColor: '#ffffff', scoped: false },
-    { id: 6, name: 'performance', description: 'Performance optimization or issue', color: '#9b59b6', textColor: '#ffffff', scoped: false },
-    { id: 7, name: 'infrastructure', description: 'Infrastructure and deployment related', color: '#95a5a6', textColor: '#ffffff', scoped: false },
-    { id: 8, name: 'needs-triage', description: 'Needs initial assessment and categorization', color: '#e67e22', textColor: '#ffffff', scoped: false },
-    { id: 9, name: 'ready-for-dev', description: 'Ready to be picked up for development', color: '#27ae60', textColor: '#ffffff', scoped: false },
-    { id: 10, name: 'tech-debt', description: 'Technical debt that needs addressing', color: '#8e44ad', textColor: '#ffffff', scoped: false },
-    { id: 11, name: 'priority::critical', description: 'Critical priority — must fix immediately', color: '#c0392b', textColor: '#ffffff', scoped: true },
-    { id: 12, name: 'priority::high', description: 'High priority — address this sprint', color: '#e74c3c', textColor: '#ffffff', scoped: true },
-    { id: 13, name: 'priority::medium', description: 'Medium priority — plan for next sprint', color: '#f39c12', textColor: '#333333', scoped: true },
-    { id: 14, name: 'priority::low', description: 'Low priority — address when possible', color: '#3498db', textColor: '#ffffff', scoped: true },
-    { id: 15, name: 'status::in-progress', description: 'Currently being worked on', color: '#2980b9', textColor: '#ffffff', scoped: true },
-    { id: 16, name: 'status::review', description: 'In code review or awaiting approval', color: '#8e44ad', textColor: '#ffffff', scoped: true },
-    { id: 17, name: 'status::blocked', description: 'Blocked by external dependency or issue', color: '#e74c3c', textColor: '#ffffff', scoped: true },
-    { id: 18, name: 'status::done', description: 'Completed and verified', color: '#27ae60', textColor: '#ffffff', scoped: true },
-    { id: 19, name: 'workflow::design', description: 'Requires design work before development', color: '#1abc9c', textColor: '#ffffff', scoped: true },
-    { id: 20, name: 'workflow::backend', description: 'Backend development work', color: '#2c3e50', textColor: '#ffffff', scoped: true },
-    { id: 21, name: 'workflow::frontend', description: 'Frontend development work', color: '#16a085', textColor: '#ffffff', scoped: true },
-    { id: 22, name: 'UX', description: 'User experience improvements', color: '#e91e63', textColor: '#ffffff', scoped: false },
-    { id: 23, name: 'regression', description: 'Previously working feature now broken', color: '#ff5722', textColor: '#ffffff', scoped: false },
-    { id: 24, name: 'breaking-change', description: 'Introduces a breaking API change', color: '#b71c1c', textColor: '#ffffff', scoped: false }
+const currentUserId = 1; // Sarah Chen is the logged-in user
+
+// ─── Labels ───────────────────────────────────────────────────────
+const labels = [
+    { id: 1, name: 'bug', description: 'Something is broken or not working as expected', color: '#d9534f', textColor: '#fff', scoped: false },
+    { id: 2, name: 'feature', description: 'New feature or enhancement request', color: '#428bca', textColor: '#fff', scoped: false },
+    { id: 3, name: 'documentation', description: 'Improvements or additions to documentation', color: '#f0ad4e', textColor: '#333', scoped: false },
+    { id: 4, name: 'performance', description: 'Performance improvements and optimizations', color: '#5cb85c', textColor: '#fff', scoped: false },
+    { id: 5, name: 'security', description: 'Security vulnerabilities or improvements', color: '#d9534f', textColor: '#fff', scoped: false },
+    { id: 6, name: 'UX', description: 'User experience improvements', color: '#9b59b6', textColor: '#fff', scoped: false },
+    { id: 7, name: 'backend', description: 'Backend/server-side changes', color: '#34495e', textColor: '#fff', scoped: false },
+    { id: 8, name: 'frontend', description: 'Frontend/client-side changes', color: '#1abc9c', textColor: '#fff', scoped: false },
+    { id: 9, name: 'devops', description: 'CI/CD and infrastructure changes', color: '#e67e22', textColor: '#fff', scoped: false },
+    { id: 10, name: 'tech-debt', description: 'Technical debt reduction', color: '#95a5a6', textColor: '#fff', scoped: false },
+    { id: 11, name: 'priority::critical', description: 'Must be resolved immediately', color: '#cc0000', textColor: '#fff', scoped: true },
+    { id: 12, name: 'priority::high', description: 'High priority item', color: '#e24329', textColor: '#fff', scoped: true },
+    { id: 13, name: 'priority::medium', description: 'Medium priority item', color: '#fc6d26', textColor: '#333', scoped: true },
+    { id: 14, name: 'priority::low', description: 'Low priority item', color: '#fca326', textColor: '#333', scoped: true },
+    { id: 15, name: 'status::to-do', description: 'Not yet started', color: '#e6e6e6', textColor: '#333', scoped: true },
+    { id: 16, name: 'status::in-progress', description: 'Currently being worked on', color: '#428bca', textColor: '#fff', scoped: true },
+    { id: 17, name: 'status::review', description: 'Awaiting code review', color: '#f0ad4e', textColor: '#333', scoped: true },
+    { id: 18, name: 'status::done', description: 'Work completed', color: '#5cb85c', textColor: '#fff', scoped: true },
+    { id: 19, name: 'needs-investigation', description: 'Requires further investigation before work can begin', color: '#7f8c8d', textColor: '#fff', scoped: false },
+    { id: 20, name: 'breaking-change', description: 'Introduces a breaking change', color: '#c0392b', textColor: '#fff', scoped: false },
 ];
 
-// ── Milestones ─────────────────────────────────────────────
-const MILESTONES = [
-    {
-        id: 1, title: 'v4.0 Release', description: 'Major release with authentication overhaul and new API endpoints.',
-        startDate: '2025-10-01', dueDate: '2025-12-15', state: 'closed', createdAt: '2025-09-15T10:00:00Z'
-    },
-    {
-        id: 2, title: 'v4.1 Patch', description: 'Bug fixes and security patches for v4.0.',
-        startDate: '2025-12-16', dueDate: '2026-01-31', state: 'closed', createdAt: '2025-12-10T14:30:00Z'
-    },
-    {
-        id: 3, title: 'v4.2 Release', description: 'Performance improvements and mobile responsiveness. Current active milestone.',
-        startDate: '2026-02-01', dueDate: '2026-04-15', state: 'active', createdAt: '2026-01-20T09:00:00Z'
-    },
-    {
-        id: 4, title: 'v4.3 Release', description: 'Dark mode, accessibility compliance, and CI/CD enhancements.',
-        startDate: '2026-04-16', dueDate: '2026-06-30', state: 'active', createdAt: '2026-02-01T11:00:00Z'
-    },
-    {
-        id: 5, title: 'v5.0 Major Release', description: 'Complete platform redesign with new architecture. Planning phase.',
-        startDate: '2026-07-01', dueDate: '2026-12-31', state: 'active', createdAt: '2026-01-05T08:00:00Z'
-    },
-    {
-        id: 6, title: 'Backlog', description: 'Unscheduled items for future consideration.',
-        startDate: null, dueDate: null, state: 'active', createdAt: '2025-06-01T10:00:00Z'
-    }
+// ─── Milestones ───────────────────────────────────────────────────
+const milestones = [
+    { id: 1, title: 'v1.0 — Foundation', description: 'Core platform features and initial release', startDate: '2025-09-01', dueDate: '2025-12-15', status: 'closed' },
+    { id: 2, title: 'v1.1 — Stability', description: 'Bug fixes and performance improvements post-launch', startDate: '2026-01-05', dueDate: '2026-02-14', status: 'closed' },
+    { id: 3, title: 'v2.0 — API Overhaul', description: 'Major API redesign with breaking changes and new endpoints', startDate: '2026-02-15', dueDate: '2026-04-30', status: 'active' },
+    { id: 4, title: 'v2.1 — Integrations', description: 'Third-party integrations and webhook system', startDate: '2026-05-01', dueDate: '2026-06-30', status: 'active' },
+    { id: 5, title: 'v3.0 — Enterprise', description: 'Enterprise features: SSO, audit logging, advanced RBAC', startDate: '2026-07-01', dueDate: '2026-10-31', status: 'active' },
+    { id: 6, title: 'Backlog', description: 'Unscheduled work items for future consideration', startDate: null, dueDate: null, status: 'active' },
+    { id: 7, title: 'v1.2 — Hotfixes', description: 'Critical production hotfixes', startDate: '2025-12-16', dueDate: '2026-01-04', status: 'closed' },
 ];
 
-// ── Iteration Cadences ─────────────────────────────────────
-const ITERATION_CADENCES = [
-    {
-        id: 1, title: 'Sprint Cycle', description: 'Two-week development sprints',
-        durationWeeks: 2, autoSchedule: true, createdAt: '2025-09-01T10:00:00Z'
-    },
-    {
-        id: 2, title: 'Monthly Planning', description: 'Monthly planning and review cycle',
-        durationWeeks: 4, autoSchedule: false, createdAt: '2025-09-01T10:00:00Z'
-    }
+// ─── Iteration Cadences ───────────────────────────────────────────
+const iterationCadences = [
+    { id: 1, title: 'Engineering Sprints', description: 'Two-week engineering sprints', durationWeeks: 2, autoSchedule: true, startDate: '2026-01-06' },
+    { id: 2, title: 'Design Cycles', description: 'Three-week design review cycles', durationWeeks: 3, autoSchedule: false, startDate: '2026-01-06' },
 ];
 
-const ITERATIONS = [
-    { id: 1, cadenceId: 1, title: 'Sprint 22', startDate: '2026-01-20', endDate: '2026-02-02', state: 'closed', createdAt: '2026-01-15T10:00:00Z' },
-    { id: 2, cadenceId: 1, title: 'Sprint 23', startDate: '2026-02-03', endDate: '2026-02-16', state: 'closed', createdAt: '2026-01-29T10:00:00Z' },
-    { id: 3, cadenceId: 1, title: 'Sprint 24', startDate: '2026-02-17', endDate: '2026-03-02', state: 'closed', createdAt: '2026-02-12T10:00:00Z' },
-    { id: 4, cadenceId: 1, title: 'Sprint 25', startDate: '2026-03-03', endDate: '2026-03-16', state: 'closed', createdAt: '2026-02-26T10:00:00Z' },
-    { id: 5, cadenceId: 1, title: 'Sprint 26', startDate: '2026-03-17', endDate: '2026-03-30', state: 'current', createdAt: '2026-03-12T10:00:00Z' },
-    { id: 6, cadenceId: 1, title: 'Sprint 27', startDate: '2026-03-31', endDate: '2026-04-13', state: 'upcoming', createdAt: '2026-03-12T10:00:00Z' },
-    { id: 7, cadenceId: 2, title: 'March 2026', startDate: '2026-03-01', endDate: '2026-03-31', state: 'current', createdAt: '2026-02-25T10:00:00Z' },
-    { id: 8, cadenceId: 2, title: 'April 2026', startDate: '2026-04-01', endDate: '2026-04-30', state: 'upcoming', createdAt: '2026-03-01T10:00:00Z' }
+const iterations = [
+    { id: 1, cadenceId: 1, title: 'Sprint 1', startDate: '2026-01-06', endDate: '2026-01-19', status: 'closed' },
+    { id: 2, cadenceId: 1, title: 'Sprint 2', startDate: '2026-01-20', endDate: '2026-02-02', status: 'closed' },
+    { id: 3, cadenceId: 1, title: 'Sprint 3', startDate: '2026-02-03', endDate: '2026-02-16', status: 'closed' },
+    { id: 4, cadenceId: 1, title: 'Sprint 4', startDate: '2026-02-17', endDate: '2026-03-02', status: 'closed' },
+    { id: 5, cadenceId: 1, title: 'Sprint 5', startDate: '2026-03-03', endDate: '2026-03-16', status: 'closed' },
+    { id: 6, cadenceId: 1, title: 'Sprint 6', startDate: '2026-03-17', endDate: '2026-03-30', status: 'current' },
+    { id: 7, cadenceId: 1, title: 'Sprint 7', startDate: '2026-03-31', endDate: '2026-04-13', status: 'upcoming' },
+    { id: 8, cadenceId: 1, title: 'Sprint 8', startDate: '2026-04-14', endDate: '2026-04-27', status: 'upcoming' },
+    { id: 9, cadenceId: 2, title: 'Design Cycle 1', startDate: '2026-01-06', endDate: '2026-01-26', status: 'closed' },
+    { id: 10, cadenceId: 2, title: 'Design Cycle 2', startDate: '2026-01-27', endDate: '2026-02-16', status: 'closed' },
+    { id: 11, cadenceId: 2, title: 'Design Cycle 3', startDate: '2026-02-17', endDate: '2026-03-09', status: 'closed' },
+    { id: 12, cadenceId: 2, title: 'Design Cycle 4', startDate: '2026-03-10', endDate: '2026-03-30', status: 'current' },
+    { id: 13, cadenceId: 2, title: 'Design Cycle 5', startDate: '2026-03-31', endDate: '2026-04-20', status: 'upcoming' },
 ];
 
-// ── Epics ──────────────────────────────────────────────────
-const EPICS = [
+// ─── Epics ────────────────────────────────────────────────────────
+const epics = [
     {
-        id: 1, title: 'User Authentication Overhaul', description: 'Complete rewrite of the authentication system to support OAuth 2.0, SAML, and MFA.\n\n## Goals\n- Migrate from legacy session-based auth to JWT tokens\n- Add support for SAML SSO\n- Implement TOTP-based MFA\n- Deprecate API v1 auth endpoints',
-        state: 'opened', authorId: 1, labels: [5, 12], confidential: false,
-        startDate: '2025-10-01', dueDate: '2026-04-30',
-        parentEpicId: null, createdAt: '2025-09-20T08:00:00Z', updatedAt: '2026-03-10T14:22:00Z'
+        id: 1, title: 'User Authentication Overhaul', description: 'Complete redesign of authentication system including OAuth2, SAML, and MFA support.',
+        status: 'open', startDate: '2026-02-15', dueDate: '2026-04-30', labels: [5, 12, 7],
+        authorId: 1, confidential: false, childIssueIds: [1, 2, 3, 4, 5, 45, 46], childEpicIds: [],
+        createdAt: '2026-01-20T10:00:00Z', updatedAt: '2026-03-15T14:30:00Z'
     },
     {
-        id: 2, title: 'API v3 Migration', description: 'Migrate all public API endpoints from v2 to v3. Includes breaking changes to response formats and new rate limiting.',
-        state: 'opened', authorId: 2, labels: [24, 12], confidential: false,
-        startDate: '2026-01-15', dueDate: '2026-06-30',
-        parentEpicId: null, createdAt: '2025-12-01T11:00:00Z', updatedAt: '2026-03-15T09:30:00Z'
+        id: 2, title: 'API v3 Migration', description: 'Migrate all API endpoints from v2 to v3 with new response format, pagination, and rate limiting.',
+        status: 'open', startDate: '2026-02-15', dueDate: '2026-04-30', labels: [7, 20, 12],
+        authorId: 2, confidential: false, childIssueIds: [6, 7, 8, 9, 10, 47, 48], childEpicIds: [],
+        createdAt: '2026-01-25T09:00:00Z', updatedAt: '2026-03-14T11:20:00Z'
     },
     {
-        id: 3, title: 'API v3 - Breaking Changes', description: 'Track and communicate all breaking changes in the v3 API migration.',
-        state: 'opened', authorId: 2, labels: [24, 4], confidential: false,
-        startDate: '2026-02-01', dueDate: '2026-05-31',
-        parentEpicId: 2, createdAt: '2026-01-10T14:00:00Z', updatedAt: '2026-03-12T16:00:00Z'
+        id: 3, title: 'Performance Optimization Phase 2', description: 'Database query optimization, caching layer improvements, and CDN configuration.',
+        status: 'open', startDate: '2026-03-01', dueDate: '2026-05-31', labels: [4, 13],
+        authorId: 3, confidential: false, childIssueIds: [11, 12, 13, 14, 49, 50], childEpicIds: [],
+        createdAt: '2026-02-10T08:30:00Z', updatedAt: '2026-03-12T16:45:00Z'
     },
     {
-        id: 4, title: 'Performance Optimization Q1', description: 'Q1 2026 performance targets: reduce p95 latency by 40%, optimize database queries, implement caching layer.',
-        state: 'closed', authorId: 6, labels: [6], confidential: false,
-        startDate: '2026-01-01', dueDate: '2026-03-31',
-        parentEpicId: null, createdAt: '2025-12-15T10:00:00Z', updatedAt: '2026-03-15T17:00:00Z'
+        id: 4, title: 'Mobile Responsive Redesign', description: 'Full responsive redesign of all pages for mobile and tablet viewports.',
+        status: 'open', startDate: '2026-03-15', dueDate: '2026-06-30', labels: [8, 6, 13],
+        authorId: 4, confidential: false, childIssueIds: [15, 16, 17, 18, 51, 52], childEpicIds: [],
+        createdAt: '2026-02-20T11:00:00Z', updatedAt: '2026-03-10T09:15:00Z'
     },
     {
-        id: 5, title: 'Mobile Responsive Redesign', description: 'Make all pages fully responsive for mobile and tablet viewports. Focus on navigation, tables, and forms.',
-        state: 'opened', authorId: 1, labels: [22, 21], confidential: false,
-        startDate: '2026-02-15', dueDate: '2026-05-31',
-        parentEpicId: null, createdAt: '2026-01-25T09:00:00Z', updatedAt: '2026-03-14T11:00:00Z'
+        id: 5, title: 'CI/CD Pipeline Modernization', description: 'Migrate from Jenkins to GitLab CI with parallel testing, artifact caching, and deployment automation.',
+        status: 'open', startDate: '2026-04-01', dueDate: '2026-06-15', labels: [9, 12],
+        authorId: 6, confidential: false, childIssueIds: [19, 20, 21, 53, 54], childEpicIds: [],
+        createdAt: '2026-03-01T10:00:00Z', updatedAt: '2026-03-15T13:00:00Z'
     },
     {
-        id: 6, title: 'CI/CD Pipeline Improvements', description: 'Reduce build times by 50%, add parallel test execution, implement canary deployments.',
-        state: 'opened', authorId: 11, labels: [7, 13], confidential: false,
-        startDate: '2026-03-01', dueDate: '2026-07-31',
-        parentEpicId: null, createdAt: '2026-02-10T13:00:00Z', updatedAt: '2026-03-16T10:00:00Z'
+        id: 6, title: 'Accessibility Compliance (WCAG 2.1 AA)', description: 'Ensure all user-facing pages meet WCAG 2.1 AA compliance standards.',
+        status: 'open', startDate: '2026-03-01', dueDate: '2026-05-15', labels: [6, 8, 13],
+        authorId: 8, confidential: false, childIssueIds: [22, 23, 24, 55, 56], childEpicIds: [],
+        createdAt: '2026-02-15T14:00:00Z', updatedAt: '2026-03-08T10:30:00Z'
     },
     {
-        id: 7, title: 'Documentation Revamp', description: 'Rewrite all public-facing documentation. Migrate from wiki to structured docs site with versioning.',
-        state: 'opened', authorId: 8, labels: [4], confidential: false,
-        startDate: '2026-03-15', dueDate: '2026-08-31',
-        parentEpicId: null, createdAt: '2026-02-20T15:00:00Z', updatedAt: '2026-03-10T09:00:00Z'
+        id: 7, title: 'Data Export & Reporting', description: 'Build comprehensive data export system with CSV, PDF, and scheduled report delivery.',
+        status: 'closed', startDate: '2025-10-01', dueDate: '2025-12-15', labels: [2, 7],
+        authorId: 1, confidential: false, childIssueIds: [25, 26, 27], childEpicIds: [],
+        createdAt: '2025-09-15T09:00:00Z', updatedAt: '2025-12-14T17:00:00Z'
     },
     {
-        id: 8, title: 'Security Audit Remediation', description: 'Address all findings from the Q4 2025 external security audit. 12 critical, 28 high, 45 medium findings.',
-        state: 'opened', authorId: 1, labels: [5, 11], confidential: true,
-        startDate: '2026-01-10', dueDate: '2026-04-30',
-        parentEpicId: null, createdAt: '2026-01-05T08:00:00Z', updatedAt: '2026-03-17T14:00:00Z'
+        id: 8, title: 'Enterprise SSO Integration', description: 'Support for SAML 2.0, OpenID Connect, and LDAP for enterprise single sign-on.',
+        status: 'open', startDate: '2026-07-01', dueDate: '2026-09-30', labels: [5, 2, 12],
+        authorId: 1, confidential: true, childIssueIds: [57, 58, 59], childEpicIds: [],
+        createdAt: '2026-03-01T08:00:00Z', updatedAt: '2026-03-10T12:00:00Z'
     },
     {
-        id: 9, title: 'Dark Mode Implementation', description: 'Add dark mode theme support across all pages. Must respect system preference and allow manual override.',
-        state: 'opened', authorId: 4, labels: [22, 21], confidential: false,
-        startDate: '2026-04-01', dueDate: '2026-06-15',
-        parentEpicId: null, createdAt: '2026-02-28T10:00:00Z', updatedAt: '2026-03-05T16:00:00Z'
+        id: 9, title: 'Search Infrastructure Upgrade', description: 'Migrate from basic SQL search to Elasticsearch for full-text search across all entities.',
+        status: 'open', startDate: '2026-05-01', dueDate: '2026-07-31', labels: [4, 7, 2],
+        authorId: 2, confidential: false, childIssueIds: [60, 61, 62], childEpicIds: [],
+        createdAt: '2026-02-28T15:00:00Z', updatedAt: '2026-03-12T11:00:00Z'
     },
     {
-        id: 10, title: 'Accessibility Compliance (WCAG 2.1 AA)', description: 'Achieve full WCAG 2.1 AA compliance across the platform. Includes screen reader support, keyboard navigation, and color contrast fixes.',
-        state: 'opened', authorId: 3, labels: [22, 13], confidential: false,
-        startDate: '2026-05-01', dueDate: '2026-09-30',
-        parentEpicId: null, createdAt: '2026-03-01T09:00:00Z', updatedAt: '2026-03-10T11:00:00Z'
+        id: 10, title: 'Notification System Revamp', description: 'Redesign notification system with real-time WebSocket delivery, digest emails, and granular preferences.',
+        status: 'open', startDate: '2026-04-15', dueDate: '2026-06-30', labels: [2, 8, 7],
+        authorId: 5, confidential: false, childIssueIds: [63, 64, 65], childEpicIds: [],
+        createdAt: '2026-03-05T09:30:00Z', updatedAt: '2026-03-14T16:00:00Z'
     },
-    {
-        id: 11, title: 'Data Export/Import Feature', description: 'Allow users to export and import project data in CSV, JSON, and XML formats.',
-        state: 'closed', authorId: 9, labels: [2], confidential: false,
-        startDate: '2025-08-01', dueDate: '2025-11-30',
-        parentEpicId: null, createdAt: '2025-07-15T10:00:00Z', updatedAt: '2025-11-28T17:00:00Z'
-    },
-    {
-        id: 12, title: 'Notification System Overhaul', description: 'Redesign notification delivery pipeline. Add email digest, Slack integration, and in-app notification center.',
-        state: 'opened', authorId: 6, labels: [2, 20], confidential: false,
-        startDate: '2026-04-15', dueDate: '2026-08-15',
-        parentEpicId: null, createdAt: '2026-03-05T14:00:00Z', updatedAt: '2026-03-15T10:00:00Z'
-    }
 ];
 
-// ── Issue Templates ────────────────────────────────────────
-const ISSUE_TEMPLATES = [
-    { id: 1, name: 'Bug Report', content: '## Summary\n\n## Steps to Reproduce\n1. \n2. \n3. \n\n## Expected Behavior\n\n## Actual Behavior\n\n## Environment\n- Browser: \n- OS: \n- Version: ' },
+// ─── Issue Templates ──────────────────────────────────────────────
+const issueTemplates = [
+    { id: 1, name: 'Bug Report', content: '## Summary\n\n## Steps to Reproduce\n1. \n2. \n3. \n\n## Expected Behavior\n\n## Actual Behavior\n\n## Environment\n- Browser: \n- OS: \n- Version: \n\n## Screenshots\n' },
     { id: 2, name: 'Feature Request', content: '## Problem Statement\n\n## Proposed Solution\n\n## Alternatives Considered\n\n## Additional Context\n' },
-    { id: 3, name: 'Task', content: '## Description\n\n## Acceptance Criteria\n- [ ] \n- [ ] \n\n## Dependencies\n' }
+    { id: 3, name: 'Task', content: '## Objective\n\n## Acceptance Criteria\n- [ ] \n- [ ] \n\n## Technical Notes\n' },
 ];
 
-// ── Boards ─────────────────────────────────────────────────
-const BOARDS = [
+// ─── Issues ───────────────────────────────────────────────────────
+// Helper to generate issues systematically
+function _ts(dateStr) { return dateStr; }
+
+const issues = [
+    // --- Epic 1: Auth Overhaul (issues 1-5, 45-46) ---
+    { id: 1, title: 'Implement OAuth2 authorization code flow', description: 'Add OAuth2 authorization code grant type with PKCE support for secure client authentication.\n\n## Acceptance Criteria\n- [ ] Authorization endpoint returns valid codes\n- [ ] Token exchange works with PKCE\n- [ ] Refresh token rotation implemented', type: 'issue', status: 'open', authorId: 1, assigneeIds: [4, 7], labelIds: [5, 7, 12, 16], milestoneId: 3, iterationId: 6, weight: 8, dueDate: '2026-04-01', confidential: false, timeEstimate: 28800, timeSpent: 14400, createdAt: '2026-02-16T09:00:00Z', updatedAt: '2026-03-15T14:30:00Z', closedAt: null, relatedIssues: [{ issueId: 2, type: 'blocks' }] },
+    { id: 2, title: 'Add SAML 2.0 identity provider support', description: 'Integrate SAML 2.0 for enterprise SSO. Must support both IdP-initiated and SP-initiated flows.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [4], labelIds: [5, 7, 12, 15], milestoneId: 3, iterationId: 7, weight: 13, dueDate: '2026-04-15', confidential: false, timeEstimate: 46800, timeSpent: 0, createdAt: '2026-02-16T09:30:00Z', updatedAt: '2026-03-10T11:00:00Z', closedAt: null, relatedIssues: [{ issueId: 1, type: 'is_blocked_by' }] },
+    { id: 3, title: 'Multi-factor authentication (TOTP + WebAuthn)', description: 'Implement MFA support using TOTP (Google Authenticator compatible) and WebAuthn/FIDO2 hardware keys.', type: 'issue', status: 'open', authorId: 2, assigneeIds: [7], labelIds: [5, 7, 13, 16], milestoneId: 3, iterationId: 6, weight: 8, dueDate: '2026-03-30', confidential: false, timeEstimate: 28800, timeSpent: 21600, createdAt: '2026-02-17T10:00:00Z', updatedAt: '2026-03-14T16:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 4, title: 'Session management and token revocation', description: 'Build session management dashboard showing active sessions, with ability to revoke individual sessions and force logout all devices.', type: 'issue', status: 'closed', authorId: 1, assigneeIds: [4], labelIds: [5, 7, 18], milestoneId: 3, iterationId: 4, weight: 5, dueDate: '2026-03-01', confidential: false, timeEstimate: 18000, timeSpent: 16200, createdAt: '2026-02-17T11:00:00Z', updatedAt: '2026-03-01T15:00:00Z', closedAt: '2026-03-01T15:00:00Z', relatedIssues: [] },
+    { id: 5, title: 'Password policy enforcement and strength meter', description: 'Implement configurable password policies (min length, complexity requirements) with real-time strength indicator.', type: 'issue', status: 'closed', authorId: 3, assigneeIds: [8], labelIds: [5, 8, 18], milestoneId: 3, iterationId: 3, weight: 3, dueDate: '2026-02-20', confidential: false, timeEstimate: 10800, timeSpent: 9000, createdAt: '2026-02-18T09:00:00Z', updatedAt: '2026-02-19T17:00:00Z', closedAt: '2026-02-19T17:00:00Z', relatedIssues: [] },
+
+    // --- Epic 2: API v3 Migration (issues 6-10, 47-48) ---
+    { id: 6, title: 'Design API v3 response envelope format', description: 'Define the standard JSON envelope for all v3 API responses including pagination metadata, rate limit headers, and error format.\n\n```json\n{\n  "data": {},\n  "meta": { "page": 1, "per_page": 20, "total": 142 },\n  "links": { "next": "...", "prev": "..." }\n}\n```', type: 'issue', status: 'closed', authorId: 2, assigneeIds: [2, 6], labelIds: [7, 20, 18], milestoneId: 3, iterationId: 4, weight: 5, dueDate: '2026-03-01', confidential: false, timeEstimate: 14400, timeSpent: 12600, createdAt: '2026-02-20T08:00:00Z', updatedAt: '2026-02-28T16:00:00Z', closedAt: '2026-02-28T16:00:00Z', relatedIssues: [{ issueId: 7, type: 'blocks' }, { issueId: 8, type: 'blocks' }] },
+    { id: 7, title: 'Migrate /users endpoints to v3', description: 'Migrate all user-related endpoints to v3 format. Includes list, get, create, update, delete, and search.', type: 'issue', status: 'open', authorId: 2, assigneeIds: [6], labelIds: [7, 20, 16], milestoneId: 3, iterationId: 6, weight: 8, dueDate: '2026-03-25', confidential: false, timeEstimate: 28800, timeSpent: 18000, createdAt: '2026-02-25T09:00:00Z', updatedAt: '2026-03-15T10:00:00Z', closedAt: null, relatedIssues: [{ issueId: 6, type: 'is_blocked_by' }] },
+    { id: 8, title: 'Migrate /projects endpoints to v3', description: 'Migrate project CRUD, membership, and settings endpoints to v3 with proper nested resource routing.', type: 'issue', status: 'open', authorId: 2, assigneeIds: [6, 11], labelIds: [7, 20, 15], milestoneId: 3, iterationId: 7, weight: 13, dueDate: '2026-04-10', confidential: false, timeEstimate: 46800, timeSpent: 0, createdAt: '2026-02-25T10:00:00Z', updatedAt: '2026-03-05T14:00:00Z', closedAt: null, relatedIssues: [{ issueId: 6, type: 'is_blocked_by' }] },
+    { id: 9, title: 'Implement API rate limiting per tier', description: 'Add rate limiting middleware with different limits per subscription tier (free: 60/min, pro: 300/min, enterprise: 1200/min).', type: 'issue', status: 'open', authorId: 3, assigneeIds: [7], labelIds: [7, 4, 13, 16], milestoneId: 3, iterationId: 6, weight: 5, dueDate: '2026-03-28', confidential: false, timeEstimate: 18000, timeSpent: 7200, createdAt: '2026-02-26T11:00:00Z', updatedAt: '2026-03-13T09:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 10, title: 'API v2 deprecation warnings and sunset headers', description: 'Add Sunset and Deprecation headers to all v2 endpoints. Log usage for migration tracking.', type: 'issue', status: 'open', authorId: 2, assigneeIds: [11], labelIds: [7, 20, 14], milestoneId: 3, iterationId: 8, weight: 3, dueDate: '2026-04-25', confidential: false, timeEstimate: 10800, timeSpent: 0, createdAt: '2026-02-27T08:30:00Z', updatedAt: '2026-03-05T11:00:00Z', closedAt: null, relatedIssues: [] },
+
+    // --- Epic 3: Performance (issues 11-14, 49-50) ---
+    { id: 11, title: 'Optimize N+1 queries in project listing', description: 'Profile and fix N+1 query patterns in the project listing endpoint. Currently generating 47 queries for a 20-item page.', type: 'issue', status: 'open', authorId: 3, assigneeIds: [5], labelIds: [4, 7, 11, 16], milestoneId: 3, iterationId: 6, weight: 8, dueDate: '2026-03-25', confidential: false, timeEstimate: 28800, timeSpent: 21600, createdAt: '2026-03-01T09:00:00Z', updatedAt: '2026-03-15T11:30:00Z', closedAt: null, relatedIssues: [] },
+    { id: 12, title: 'Implement Redis caching layer for API responses', description: 'Add Redis-based response caching with configurable TTLs per endpoint. Include cache invalidation on data mutations.', type: 'issue', status: 'open', authorId: 3, assigneeIds: [5, 11], labelIds: [4, 7, 13, 15], milestoneId: 3, iterationId: 7, weight: 13, dueDate: '2026-04-15', confidential: false, timeEstimate: 46800, timeSpent: 0, createdAt: '2026-03-01T10:00:00Z', updatedAt: '2026-03-08T14:00:00Z', closedAt: null, relatedIssues: [{ issueId: 11, type: 'related_to' }] },
+    { id: 13, title: 'CDN configuration for static assets', description: 'Configure CloudFront CDN for serving static assets (JS, CSS, images) with proper cache headers and invalidation.', type: 'issue', status: 'closed', authorId: 6, assigneeIds: [6], labelIds: [4, 9, 18], milestoneId: 3, iterationId: 5, weight: 5, dueDate: '2026-03-15', confidential: false, timeEstimate: 14400, timeSpent: 10800, createdAt: '2026-03-02T08:00:00Z', updatedAt: '2026-03-14T16:00:00Z', closedAt: '2026-03-14T16:00:00Z', relatedIssues: [] },
+    { id: 14, title: 'Database connection pooling optimization', description: 'Tune PgBouncer connection pool settings. Current peak: 200 connections, pool exhaustion during traffic spikes.', type: 'issue', status: 'open', authorId: 3, assigneeIds: [5], labelIds: [4, 7, 12, 16], milestoneId: 3, iterationId: 6, weight: 5, dueDate: '2026-03-28', confidential: false, timeEstimate: 18000, timeSpent: 10800, createdAt: '2026-03-02T09:00:00Z', updatedAt: '2026-03-15T10:00:00Z', closedAt: null, relatedIssues: [] },
+
+    // --- Epic 4: Mobile Responsive (issues 15-18, 51-52) ---
+    { id: 15, title: 'Responsive navigation menu and sidebar', description: 'Convert desktop sidebar navigation to mobile-friendly hamburger menu with slide-out drawer.', type: 'issue', status: 'open', authorId: 4, assigneeIds: [4, 8], labelIds: [8, 6, 13, 16], milestoneId: 4, iterationId: 6, weight: 8, dueDate: '2026-04-15', confidential: false, timeEstimate: 28800, timeSpent: 7200, createdAt: '2026-03-10T09:00:00Z', updatedAt: '2026-03-15T13:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 16, title: 'Mobile-optimized data tables', description: 'Implement responsive table patterns: card view on mobile, horizontal scroll on tablet, full table on desktop.', type: 'issue', status: 'open', authorId: 4, assigneeIds: [8], labelIds: [8, 6, 13, 15], milestoneId: 4, iterationId: 7, weight: 8, dueDate: '2026-04-30', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-10T10:00:00Z', updatedAt: '2026-03-10T10:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 17, title: 'Touch-friendly form controls', description: 'Increase tap targets to minimum 44px, add touch gestures for common actions (swipe to delete, pull to refresh).', type: 'issue', status: 'open', authorId: 8, assigneeIds: [8], labelIds: [8, 6, 14], milestoneId: 4, iterationId: 8, weight: 5, dueDate: '2026-05-15', confidential: false, timeEstimate: 18000, timeSpent: 0, createdAt: '2026-03-11T09:00:00Z', updatedAt: '2026-03-11T09:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 18, title: 'Mobile viewport meta and font scaling', description: 'Audit and fix viewport meta tags, font sizes, and line heights across all pages for mobile readability.', type: 'issue', status: 'closed', authorId: 4, assigneeIds: [4], labelIds: [8, 6, 18], milestoneId: 4, iterationId: 5, weight: 3, dueDate: '2026-03-15', confidential: false, timeEstimate: 7200, timeSpent: 5400, createdAt: '2026-03-12T08:00:00Z', updatedAt: '2026-03-14T11:00:00Z', closedAt: '2026-03-14T11:00:00Z', relatedIssues: [] },
+
+    // --- Epic 5: CI/CD (issues 19-21, 53-54) ---
+    { id: 19, title: 'GitLab CI pipeline configuration', description: 'Create `.gitlab-ci.yml` with stages: lint, test, build, deploy. Include parallel test execution and artifact caching.', type: 'issue', status: 'open', authorId: 6, assigneeIds: [6], labelIds: [9, 12, 15], milestoneId: 4, iterationId: 7, weight: 8, dueDate: '2026-04-15', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-05T10:00:00Z', updatedAt: '2026-03-10T09:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 20, title: 'Docker multi-stage build optimization', description: 'Optimize Docker builds with multi-stage builds to reduce image size from 1.2GB to under 200MB.', type: 'issue', status: 'open', authorId: 6, assigneeIds: [6], labelIds: [9, 4, 13, 15], milestoneId: 4, iterationId: 8, weight: 5, dueDate: '2026-04-25', confidential: false, timeEstimate: 18000, timeSpent: 0, createdAt: '2026-03-05T11:00:00Z', updatedAt: '2026-03-05T11:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 21, title: 'Automated deployment to staging environment', description: 'Set up automatic deployment to staging on merge to `develop` branch with rollback capability.', type: 'issue', status: 'open', authorId: 6, assigneeIds: [6, 11], labelIds: [9, 12, 15], milestoneId: 4, iterationId: 8, weight: 8, dueDate: '2026-04-30', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-06T09:00:00Z', updatedAt: '2026-03-06T09:00:00Z', closedAt: null, relatedIssues: [] },
+
+    // --- Epic 6: Accessibility (issues 22-24, 55-56) ---
+    { id: 22, title: 'Add ARIA labels and landmarks to all pages', description: 'Audit all pages for missing ARIA labels, roles, and landmark regions. Fix screen reader navigation order.', type: 'issue', status: 'open', authorId: 8, assigneeIds: [8], labelIds: [6, 8, 13, 16], milestoneId: 3, iterationId: 6, weight: 8, dueDate: '2026-03-30', confidential: false, timeEstimate: 28800, timeSpent: 14400, createdAt: '2026-03-01T11:00:00Z', updatedAt: '2026-03-15T15:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 23, title: 'Keyboard navigation for all interactive elements', description: 'Ensure all buttons, links, dropdowns, and modals are fully keyboard navigable with visible focus indicators.', type: 'issue', status: 'open', authorId: 8, assigneeIds: [8, 4], labelIds: [6, 8, 12, 15], milestoneId: 3, iterationId: 7, weight: 8, dueDate: '2026-04-10', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-02T09:00:00Z', updatedAt: '2026-03-08T11:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 24, title: 'Color contrast compliance audit', description: 'Check all text/background color combinations meet WCAG 2.1 AA contrast ratios (4.5:1 for normal text, 3:1 for large).', type: 'issue', status: 'closed', authorId: 10, assigneeIds: [8], labelIds: [6, 8, 18], milestoneId: 3, iterationId: 5, weight: 3, dueDate: '2026-03-10', confidential: false, timeEstimate: 10800, timeSpent: 9000, createdAt: '2026-03-03T10:00:00Z', updatedAt: '2026-03-09T14:00:00Z', closedAt: '2026-03-09T14:00:00Z', relatedIssues: [] },
+
+    // --- Epic 7: Data Export (closed) (issues 25-27) ---
+    { id: 25, title: 'CSV export for project data', description: 'Implement CSV export for issues, members, and activity data with configurable column selection.', type: 'issue', status: 'closed', authorId: 1, assigneeIds: [5], labelIds: [2, 7, 18], milestoneId: 1, iterationId: null, weight: 5, dueDate: '2025-11-15', confidential: false, timeEstimate: 18000, timeSpent: 14400, createdAt: '2025-10-01T09:00:00Z', updatedAt: '2025-11-14T16:00:00Z', closedAt: '2025-11-14T16:00:00Z', relatedIssues: [] },
+    { id: 26, title: 'PDF report generation', description: 'Generate PDF reports from project data using headless Chrome for rendering.', type: 'issue', status: 'closed', authorId: 1, assigneeIds: [5, 7], labelIds: [2, 7, 18], milestoneId: 1, iterationId: null, weight: 8, dueDate: '2025-12-01', confidential: false, timeEstimate: 28800, timeSpent: 25200, createdAt: '2025-10-15T10:00:00Z', updatedAt: '2025-11-30T17:00:00Z', closedAt: '2025-11-30T17:00:00Z', relatedIssues: [] },
+    { id: 27, title: 'Scheduled report delivery via email', description: 'Allow users to schedule recurring reports (daily, weekly, monthly) delivered via email.', type: 'issue', status: 'closed', authorId: 1, assigneeIds: [7], labelIds: [2, 7, 18], milestoneId: 1, iterationId: null, weight: 5, dueDate: '2025-12-15', confidential: false, timeEstimate: 18000, timeSpent: 16200, createdAt: '2025-11-01T08:00:00Z', updatedAt: '2025-12-14T15:00:00Z', closedAt: '2025-12-14T15:00:00Z', relatedIssues: [] },
+
+    // --- Standalone issues (bugs, features, misc) ---
+    { id: 28, title: 'Fix timezone handling in date displays', description: 'Dates are showing in UTC instead of user\'s local timezone. Affects issue dates, milestone dates, and activity timestamps.', type: 'issue', status: 'open', authorId: 9, assigneeIds: [4], labelIds: [1, 8, 12], milestoneId: 3, iterationId: 6, weight: 3, dueDate: '2026-03-25', confidential: false, timeEstimate: 10800, timeSpent: 3600, createdAt: '2026-03-10T14:00:00Z', updatedAt: '2026-03-14T09:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 29, title: 'User avatar upload fails for PNG files > 2MB', description: 'Avatar upload returns 413 for PNG files larger than 2MB. JPEG files of the same size work fine. Likely nginx config issue.', type: 'issue', status: 'open', authorId: 12, assigneeIds: [6], labelIds: [1, 7, 13], milestoneId: 6, iterationId: null, weight: 2, dueDate: null, confidential: false, timeEstimate: 7200, timeSpent: 0, createdAt: '2026-03-12T11:00:00Z', updatedAt: '2026-03-12T11:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 30, title: 'Add dark mode theme support', description: 'Implement system-aware dark mode with manual toggle. Needs CSS custom properties refactor first.', type: 'issue', status: 'open', authorId: 10, assigneeIds: [4, 8], labelIds: [2, 8, 6, 14], milestoneId: 6, iterationId: null, weight: 8, dueDate: null, confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-05T15:00:00Z', updatedAt: '2026-03-05T15:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 31, title: 'Dropdown menu clips behind modal overlay', description: 'When opening a dropdown inside a modal dialog, the dropdown menu renders behind the modal overlay due to z-index stacking.', type: 'issue', status: 'open', authorId: 9, assigneeIds: [8], labelIds: [1, 8, 13], milestoneId: 3, iterationId: 6, weight: 2, dueDate: '2026-03-22', confidential: false, timeEstimate: 3600, timeSpent: 1800, createdAt: '2026-03-11T10:00:00Z', updatedAt: '2026-03-15T08:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 32, title: 'Implement webhook delivery retry with exponential backoff', description: 'Failed webhook deliveries should retry up to 5 times with exponential backoff (1s, 2s, 4s, 8s, 16s).', type: 'issue', status: 'open', authorId: 2, assigneeIds: [7], labelIds: [2, 7, 13], milestoneId: 4, iterationId: 7, weight: 5, dueDate: '2026-04-10', confidential: false, timeEstimate: 18000, timeSpent: 0, createdAt: '2026-03-06T14:00:00Z', updatedAt: '2026-03-06T14:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 33, title: 'Memory leak in WebSocket connection handler', description: 'Long-running WebSocket connections accumulate memory. After 24h, each connection holds ~50MB of unreleased buffers.\n\n**Reproduction:** Connect 10 WebSocket clients, monitor RSS over 4 hours.', type: 'issue', status: 'open', authorId: 5, assigneeIds: [5], labelIds: [1, 7, 11], milestoneId: 3, iterationId: 6, weight: 8, dueDate: '2026-03-20', confidential: false, timeEstimate: 28800, timeSpent: 18000, createdAt: '2026-03-08T08:00:00Z', updatedAt: '2026-03-15T16:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 34, title: 'Add bulk issue import from CSV', description: 'Allow users to upload a CSV file to create multiple issues at once. Needs column mapping UI and validation.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [], labelIds: [2, 8, 14], milestoneId: 6, iterationId: null, weight: 8, dueDate: null, confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-02-20T09:00:00Z', updatedAt: '2026-02-20T09:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 35, title: 'Fix: search returns stale results after issue update', description: 'After updating an issue title or description, search still returns old content until the next full re-index (every 15 min).', type: 'issue', status: 'open', authorId: 9, assigneeIds: [5], labelIds: [1, 7, 12], milestoneId: 3, iterationId: 6, weight: 5, dueDate: '2026-03-22', confidential: false, timeEstimate: 14400, timeSpent: 7200, createdAt: '2026-03-09T10:00:00Z', updatedAt: '2026-03-14T14:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 36, title: 'Add project-level notification preferences', description: 'Allow users to customize notification preferences per project (all, participating, mentions, disabled).', type: 'issue', status: 'open', authorId: 10, assigneeIds: [4], labelIds: [2, 8, 13], milestoneId: 4, iterationId: 7, weight: 5, dueDate: '2026-04-15', confidential: false, timeEstimate: 18000, timeSpent: 0, createdAt: '2026-03-07T11:00:00Z', updatedAt: '2026-03-07T11:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 37, title: 'Markdown preview rendering inconsistency', description: 'Markdown preview in comment editor renders differently from saved comments. Table alignment and code block highlighting affected.', type: 'issue', status: 'open', authorId: 9, assigneeIds: [8], labelIds: [1, 8, 14], milestoneId: 6, iterationId: null, weight: 3, dueDate: null, confidential: false, timeEstimate: 10800, timeSpent: 0, createdAt: '2026-03-13T09:00:00Z', updatedAt: '2026-03-13T09:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 38, title: 'Implement issue templates at group level', description: 'Currently issue templates are project-level only. Need to support group-level templates that are inherited by all projects.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [4], labelIds: [2, 7, 13], milestoneId: 4, iterationId: null, weight: 5, dueDate: '2026-05-01', confidential: false, timeEstimate: 18000, timeSpent: 0, createdAt: '2026-03-04T10:00:00Z', updatedAt: '2026-03-04T10:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 39, title: 'Fix duplicate email notifications', description: 'Users subscribed to multiple labels on an issue receive one notification per label instead of a single aggregated notification.', type: 'issue', status: 'closed', authorId: 9, assigneeIds: [7], labelIds: [1, 7, 18], milestoneId: 2, iterationId: 3, weight: 3, dueDate: '2026-02-10', confidential: false, timeEstimate: 10800, timeSpent: 7200, createdAt: '2026-01-28T14:00:00Z', updatedAt: '2026-02-08T16:00:00Z', closedAt: '2026-02-08T16:00:00Z', relatedIssues: [] },
+    { id: 40, title: 'Add issue weight to board cards', description: 'Display issue weight badge on kanban board cards next to the assignee avatar.', type: 'issue', status: 'closed', authorId: 10, assigneeIds: [8], labelIds: [2, 8, 18], milestoneId: 2, iterationId: 3, weight: 2, dueDate: '2026-02-14', confidential: false, timeEstimate: 7200, timeSpent: 5400, createdAt: '2026-01-30T09:00:00Z', updatedAt: '2026-02-12T11:00:00Z', closedAt: '2026-02-12T11:00:00Z', relatedIssues: [] },
+    { id: 41, title: 'Investigate intermittent 502 errors on /api/issues', description: 'Sporadic 502 Bad Gateway errors on the issues API endpoint during peak hours (14:00-16:00 UTC). Occurs ~2% of requests.', type: 'incident', status: 'open', authorId: 5, assigneeIds: [5, 6], labelIds: [1, 7, 11, 19], milestoneId: 3, iterationId: 6, weight: 13, dueDate: '2026-03-20', confidential: false, timeEstimate: 36000, timeSpent: 25200, createdAt: '2026-03-07T15:00:00Z', updatedAt: '2026-03-15T17:00:00Z', closedAt: null, relatedIssues: [{ issueId: 33, type: 'related_to' }] },
+    { id: 42, title: 'Upgrade PostgreSQL from 14 to 16', description: 'Major version upgrade for PostgreSQL. Requires migration planning, testing, and scheduled maintenance window.', type: 'task', status: 'open', authorId: 6, assigneeIds: [6], labelIds: [9, 10, 13], milestoneId: 4, iterationId: 8, weight: 13, dueDate: '2026-04-30', confidential: false, timeEstimate: 46800, timeSpent: 0, createdAt: '2026-03-03T08:00:00Z', updatedAt: '2026-03-03T08:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 43, title: 'Write API v3 migration guide for external consumers', description: 'Create comprehensive migration guide documenting all breaking changes, new endpoints, and code examples for v2→v3.', type: 'task', status: 'open', authorId: 2, assigneeIds: [2], labelIds: [3, 7, 13], milestoneId: 3, iterationId: 7, weight: 5, dueDate: '2026-04-01', confidential: false, timeEstimate: 18000, timeSpent: 3600, createdAt: '2026-03-01T14:00:00Z', updatedAt: '2026-03-12T10:00:00Z', closedAt: null, relatedIssues: [{ issueId: 6, type: 'related_to' }] },
+    { id: 44, title: 'Update CI templates for Ruby 3.3', description: 'Update all CI pipeline templates to use Ruby 3.3 base image. Fix deprecation warnings.', type: 'task', status: 'closed', authorId: 6, assigneeIds: [6], labelIds: [9, 10, 18], milestoneId: 2, iterationId: 4, weight: 3, dueDate: '2026-03-01', confidential: false, timeEstimate: 7200, timeSpent: 5400, createdAt: '2026-02-15T09:00:00Z', updatedAt: '2026-02-28T15:00:00Z', closedAt: '2026-02-28T15:00:00Z', relatedIssues: [] },
+
+    // --- More Auth issues (45-46) ---
+    { id: 45, title: 'Implement account lockout after failed login attempts', description: 'Lock user account after 5 consecutive failed login attempts. Unlock after 30 minutes or manual admin intervention.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [7], labelIds: [5, 7, 13, 15], milestoneId: 3, iterationId: 7, weight: 5, dueDate: '2026-04-05', confidential: false, timeEstimate: 14400, timeSpent: 0, createdAt: '2026-03-08T10:00:00Z', updatedAt: '2026-03-08T10:00:00Z', closedAt: null, relatedIssues: [{ issueId: 3, type: 'related_to' }] },
+    { id: 46, title: 'Add login audit trail', description: 'Log all login attempts (success/failure) with IP address, user agent, and geolocation data. Expose in admin panel.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [4], labelIds: [5, 7, 14], milestoneId: 5, iterationId: null, weight: 5, dueDate: '2026-07-15', confidential: true, timeEstimate: 18000, timeSpent: 0, createdAt: '2026-03-09T09:00:00Z', updatedAt: '2026-03-09T09:00:00Z', closedAt: null, relatedIssues: [] },
+
+    // --- More API issues (47-48) ---
+    { id: 47, title: 'Migrate /issues endpoints to v3', description: 'Migrate issue CRUD, comments, labels, and bulk operations endpoints to v3 format.', type: 'issue', status: 'open', authorId: 2, assigneeIds: [6], labelIds: [7, 20, 13, 15], milestoneId: 3, iterationId: 8, weight: 13, dueDate: '2026-04-20', confidential: false, timeEstimate: 46800, timeSpent: 0, createdAt: '2026-03-04T09:00:00Z', updatedAt: '2026-03-04T09:00:00Z', closedAt: null, relatedIssues: [{ issueId: 6, type: 'is_blocked_by' }] },
+    { id: 48, title: 'API v3 OpenAPI spec generation', description: 'Auto-generate OpenAPI 3.0 spec from v3 endpoint definitions. Include request/response examples.', type: 'task', status: 'open', authorId: 2, assigneeIds: [11], labelIds: [3, 7, 14], milestoneId: 3, iterationId: 8, weight: 5, dueDate: '2026-04-25', confidential: false, timeEstimate: 14400, timeSpent: 0, createdAt: '2026-03-05T08:00:00Z', updatedAt: '2026-03-05T08:00:00Z', closedAt: null, relatedIssues: [] },
+
+    // --- More Performance issues (49-50) ---
+    { id: 49, title: 'Implement database query result pagination', description: 'Replace OFFSET pagination with keyset/cursor-based pagination for all list endpoints to improve performance on large datasets.', type: 'issue', status: 'open', authorId: 3, assigneeIds: [5], labelIds: [4, 7, 13, 15], milestoneId: 3, iterationId: 8, weight: 8, dueDate: '2026-04-20', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-06T10:00:00Z', updatedAt: '2026-03-06T10:00:00Z', closedAt: null, relatedIssues: [{ issueId: 11, type: 'related_to' }] },
+    { id: 50, title: 'Add application performance monitoring (APM)', description: 'Integrate Datadog APM for request tracing, error tracking, and performance dashboards.', type: 'task', status: 'open', authorId: 3, assigneeIds: [6], labelIds: [4, 9, 14], milestoneId: 4, iterationId: null, weight: 5, dueDate: '2026-05-15', confidential: false, timeEstimate: 18000, timeSpent: 0, createdAt: '2026-03-07T09:00:00Z', updatedAt: '2026-03-07T09:00:00Z', closedAt: null, relatedIssues: [] },
+
+    // --- More Mobile issues (51-52) ---
+    { id: 51, title: 'Responsive image handling and lazy loading', description: 'Implement responsive images with srcset and lazy loading for all user-uploaded images.', type: 'issue', status: 'open', authorId: 4, assigneeIds: [8], labelIds: [8, 4, 14], milestoneId: 4, iterationId: null, weight: 5, dueDate: '2026-05-30', confidential: false, timeEstimate: 14400, timeSpent: 0, createdAt: '2026-03-11T10:00:00Z', updatedAt: '2026-03-11T10:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 52, title: 'Progressive Web App (PWA) manifest and service worker', description: 'Add PWA manifest and basic service worker for offline access to recently viewed issues.', type: 'issue', status: 'open', authorId: 4, assigneeIds: [], labelIds: [2, 8, 14], milestoneId: 5, iterationId: null, weight: 8, dueDate: '2026-08-01', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-12T09:00:00Z', updatedAt: '2026-03-12T09:00:00Z', closedAt: null, relatedIssues: [] },
+
+    // --- More CI/CD issues (53-54) ---
+    { id: 53, title: 'Set up automated security scanning in CI', description: 'Integrate SAST, DAST, and dependency scanning into the CI pipeline. Block merges on critical findings.', type: 'issue', status: 'open', authorId: 6, assigneeIds: [6], labelIds: [9, 5, 12, 15], milestoneId: 4, iterationId: 8, weight: 8, dueDate: '2026-04-30', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-08T08:00:00Z', updatedAt: '2026-03-08T08:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 54, title: 'Infrastructure as Code with Terraform', description: 'Migrate infrastructure provisioning from manual scripts to Terraform modules. Cover VPC, RDS, ECS, and IAM.', type: 'issue', status: 'open', authorId: 6, assigneeIds: [], labelIds: [9, 10, 14], milestoneId: 5, iterationId: null, weight: 13, dueDate: '2026-08-15', confidential: false, timeEstimate: 46800, timeSpent: 0, createdAt: '2026-03-09T10:00:00Z', updatedAt: '2026-03-09T10:00:00Z', closedAt: null, relatedIssues: [] },
+
+    // --- More Accessibility issues (55-56) ---
+    { id: 55, title: 'Screen reader testing and fixes', description: 'Test all key workflows with NVDA and VoiceOver. Fix announcement order, live regions, and focus management.', type: 'issue', status: 'open', authorId: 8, assigneeIds: [8], labelIds: [6, 8, 13, 15], milestoneId: 3, iterationId: 7, weight: 8, dueDate: '2026-04-05', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-05T11:00:00Z', updatedAt: '2026-03-05T11:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 56, title: 'Add skip navigation links', description: 'Add "Skip to main content" and "Skip to navigation" links for keyboard users. Must be visible on focus.', type: 'issue', status: 'closed', authorId: 8, assigneeIds: [8], labelIds: [6, 8, 18], milestoneId: 3, iterationId: 5, weight: 2, dueDate: '2026-03-10', confidential: false, timeEstimate: 3600, timeSpent: 2700, createdAt: '2026-03-04T08:00:00Z', updatedAt: '2026-03-08T10:00:00Z', closedAt: '2026-03-08T10:00:00Z', relatedIssues: [] },
+
+    // --- Enterprise SSO (57-59) ---
+    { id: 57, title: 'SAML 2.0 SSO configuration UI', description: 'Build admin UI for configuring SAML 2.0 SSO: IdP metadata upload, attribute mapping, and test connection.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [], labelIds: [2, 5, 8, 12], milestoneId: 5, iterationId: null, weight: 8, dueDate: '2026-08-01', confidential: true, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-01T09:00:00Z', updatedAt: '2026-03-01T09:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 58, title: 'OpenID Connect provider integration', description: 'Implement OIDC provider support with automatic discovery via .well-known/openid-configuration.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [], labelIds: [2, 5, 7, 13], milestoneId: 5, iterationId: null, weight: 8, dueDate: '2026-08-15', confidential: true, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-02T09:00:00Z', updatedAt: '2026-03-02T09:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 59, title: 'LDAP directory sync for user provisioning', description: 'Sync user accounts from LDAP/Active Directory with scheduled sync and conflict resolution.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [], labelIds: [2, 5, 7, 14], milestoneId: 5, iterationId: null, weight: 13, dueDate: '2026-09-15', confidential: true, timeEstimate: 46800, timeSpent: 0, createdAt: '2026-03-03T09:00:00Z', updatedAt: '2026-03-03T09:00:00Z', closedAt: null, relatedIssues: [] },
+
+    // --- Search Infrastructure (60-62) ---
+    { id: 60, title: 'Set up Elasticsearch cluster', description: 'Deploy 3-node Elasticsearch cluster with proper index templates, mappings, and monitoring.', type: 'issue', status: 'open', authorId: 2, assigneeIds: [], labelIds: [7, 9, 12], milestoneId: 4, iterationId: null, weight: 8, dueDate: '2026-05-15', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-01T10:00:00Z', updatedAt: '2026-03-01T10:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 61, title: 'Index issues and comments in Elasticsearch', description: 'Build indexing pipeline for issues and comments with real-time sync via database triggers.', type: 'issue', status: 'open', authorId: 2, assigneeIds: [], labelIds: [7, 4, 13], milestoneId: 4, iterationId: null, weight: 8, dueDate: '2026-06-01', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-02T10:00:00Z', updatedAt: '2026-03-02T10:00:00Z', closedAt: null, relatedIssues: [{ issueId: 60, type: 'is_blocked_by' }] },
+    { id: 62, title: 'Full-text search UI with faceted filtering', description: 'Build search results page with faceted filters (type, status, author, date range) and result highlighting.', type: 'issue', status: 'open', authorId: 2, assigneeIds: [], labelIds: [8, 2, 13], milestoneId: 4, iterationId: null, weight: 8, dueDate: '2026-06-15', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-03T10:00:00Z', updatedAt: '2026-03-03T10:00:00Z', closedAt: null, relatedIssues: [{ issueId: 61, type: 'is_blocked_by' }] },
+
+    // --- Notification System (63-65) ---
+    { id: 63, title: 'WebSocket-based real-time notification delivery', description: 'Replace polling-based notification checks with WebSocket push notifications.', type: 'issue', status: 'open', authorId: 5, assigneeIds: [], labelIds: [2, 7, 12], milestoneId: 4, iterationId: null, weight: 8, dueDate: '2026-05-15', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-06T09:00:00Z', updatedAt: '2026-03-06T09:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 64, title: 'Email notification digest (daily/weekly summary)', description: 'Implement digest emails that aggregate notifications into daily or weekly summary emails.', type: 'issue', status: 'open', authorId: 5, assigneeIds: [], labelIds: [2, 7, 13], milestoneId: 4, iterationId: null, weight: 5, dueDate: '2026-06-01', confidential: false, timeEstimate: 18000, timeSpent: 0, createdAt: '2026-03-07T09:00:00Z', updatedAt: '2026-03-07T09:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 65, title: 'Granular notification preferences UI', description: 'Build preference UI for controlling notifications per event type (assigned, mentioned, commented, etc.).', type: 'issue', status: 'open', authorId: 5, assigneeIds: [], labelIds: [2, 8, 14], milestoneId: 4, iterationId: null, weight: 5, dueDate: '2026-06-15', confidential: false, timeEstimate: 14400, timeSpent: 0, createdAt: '2026-03-08T09:00:00Z', updatedAt: '2026-03-08T09:00:00Z', closedAt: null, relatedIssues: [] },
+
+    // --- Additional standalone issues (66-130) for volume ---
+    { id: 66, title: 'Add emoji reactions to issue comments', description: 'Allow users to add emoji reactions (thumbs up, thumbs down, heart, etc.) to issue comments and descriptions.', type: 'issue', status: 'open', authorId: 10, assigneeIds: [4], labelIds: [2, 8, 14], milestoneId: 6, iterationId: null, weight: 3, dueDate: null, confidential: false, timeEstimate: 10800, timeSpent: 0, createdAt: '2026-03-10T08:00:00Z', updatedAt: '2026-03-10T08:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 67, title: 'Fix: Issue count badge not updating on sidebar', description: 'The open issue count badge in the sidebar navigation does not update after closing or reopening an issue until page refresh.', type: 'issue', status: 'open', authorId: 9, assigneeIds: [8], labelIds: [1, 8, 14], milestoneId: 6, iterationId: null, weight: 2, dueDate: null, confidential: false, timeEstimate: 3600, timeSpent: 0, createdAt: '2026-03-14T09:00:00Z', updatedAt: '2026-03-14T09:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 68, title: 'Implement issue locking after closure', description: 'Add option to lock an issue after closure to prevent further comments. Admins can still unlock.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [], labelIds: [2, 7, 14], milestoneId: 6, iterationId: null, weight: 3, dueDate: null, confidential: false, timeEstimate: 7200, timeSpent: 0, createdAt: '2026-03-11T14:00:00Z', updatedAt: '2026-03-11T14:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 69, title: 'Fix: Milestone progress bar calculation includes deleted issues', description: 'Deleted issues are still counted in milestone completion percentage, showing incorrect progress.', type: 'issue', status: 'closed', authorId: 9, assigneeIds: [5], labelIds: [1, 7, 18], milestoneId: 2, iterationId: 3, weight: 2, dueDate: '2026-02-12', confidential: false, timeEstimate: 7200, timeSpent: 5400, createdAt: '2026-01-25T10:00:00Z', updatedAt: '2026-02-11T16:00:00Z', closedAt: '2026-02-11T16:00:00Z', relatedIssues: [] },
+    { id: 70, title: 'Add issue dependency graph visualization', description: 'Visualize issue dependencies (blocks/blocked-by) as a directed graph in the issue detail view.', type: 'issue', status: 'open', authorId: 10, assigneeIds: [], labelIds: [2, 8, 14], milestoneId: 6, iterationId: null, weight: 8, dueDate: null, confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-06T15:00:00Z', updatedAt: '2026-03-06T15:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 71, title: 'Implement custom fields for issues', description: 'Allow project admins to define custom fields (text, number, dropdown, date) that appear on issue forms.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [], labelIds: [2, 7, 8, 14], milestoneId: 5, iterationId: null, weight: 13, dueDate: '2026-09-01', confidential: false, timeEstimate: 46800, timeSpent: 0, createdAt: '2026-03-05T10:00:00Z', updatedAt: '2026-03-05T10:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 72, title: 'Fix: Label color picker does not save on first click', description: 'When creating a new label, clicking a color in the picker requires a second click to register. Event delegation issue.', type: 'issue', status: 'open', authorId: 9, assigneeIds: [8], labelIds: [1, 8, 14], milestoneId: 6, iterationId: null, weight: 1, dueDate: null, confidential: false, timeEstimate: 1800, timeSpent: 0, createdAt: '2026-03-15T10:00:00Z', updatedAt: '2026-03-15T10:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 73, title: 'Add time tracking summary to milestone view', description: 'Show aggregated time estimate vs. time spent on the milestone detail page with a visual comparison bar.', type: 'issue', status: 'open', authorId: 10, assigneeIds: [4], labelIds: [2, 8, 13], milestoneId: 3, iterationId: 7, weight: 3, dueDate: '2026-04-05', confidential: false, timeEstimate: 10800, timeSpent: 0, createdAt: '2026-03-07T14:00:00Z', updatedAt: '2026-03-07T14:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 74, title: 'Implement board column work-in-progress (WIP) limits', description: 'Allow setting WIP limits on board columns. Highlight column header in yellow/red when at/over limit.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [], labelIds: [2, 8, 13], milestoneId: 4, iterationId: null, weight: 5, dueDate: '2026-05-15', confidential: false, timeEstimate: 14400, timeSpent: 0, createdAt: '2026-03-04T14:00:00Z', updatedAt: '2026-03-04T14:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 75, title: 'Fix: Epic progress bar shows 100% when no child issues exist', description: 'An epic with zero child issues displays a full green progress bar instead of an empty state.', type: 'issue', status: 'closed', authorId: 9, assigneeIds: [8], labelIds: [1, 8, 18], milestoneId: 2, iterationId: 4, weight: 1, dueDate: '2026-02-28', confidential: false, timeEstimate: 1800, timeSpent: 1800, createdAt: '2026-02-20T09:00:00Z', updatedAt: '2026-02-27T14:00:00Z', closedAt: '2026-02-27T14:00:00Z', relatedIssues: [] },
+    { id: 76, title: 'Add iteration burndown chart', description: 'Implement burndown chart on iteration detail page showing ideal vs. actual issue closure trend over the sprint.', type: 'issue', status: 'open', authorId: 3, assigneeIds: [4], labelIds: [2, 8, 13], milestoneId: 3, iterationId: 7, weight: 5, dueDate: '2026-04-08', confidential: false, timeEstimate: 18000, timeSpent: 0, createdAt: '2026-03-08T11:00:00Z', updatedAt: '2026-03-08T11:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 77, title: 'Implement quick action /relate for linking issues', description: 'Add /relate #issue-number quick action to create related issue links from comments.', type: 'issue', status: 'open', authorId: 2, assigneeIds: [4], labelIds: [2, 8, 14], milestoneId: 6, iterationId: null, weight: 3, dueDate: null, confidential: false, timeEstimate: 7200, timeSpent: 0, createdAt: '2026-03-09T11:00:00Z', updatedAt: '2026-03-09T11:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 78, title: 'Fix: Drag-and-drop on board fails in Firefox', description: 'Board drag-and-drop uses a Chrome-specific drag API. Firefox shows ghost image but drops fail silently.', type: 'issue', status: 'open', authorId: 9, assigneeIds: [8], labelIds: [1, 8, 12], milestoneId: 3, iterationId: 6, weight: 3, dueDate: '2026-03-25', confidential: false, timeEstimate: 10800, timeSpent: 0, createdAt: '2026-03-13T15:00:00Z', updatedAt: '2026-03-13T15:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 79, title: 'Add support for issue checklists / task lists', description: 'Parse Markdown checklists in issue descriptions and display progress (e.g., "3 of 7 tasks completed").', type: 'issue', status: 'open', authorId: 10, assigneeIds: [4], labelIds: [2, 8, 13], milestoneId: 4, iterationId: null, weight: 5, dueDate: '2026-05-01', confidential: false, timeEstimate: 14400, timeSpent: 0, createdAt: '2026-03-07T10:00:00Z', updatedAt: '2026-03-07T10:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 80, title: 'Implement issue move between projects', description: 'Allow moving an issue from one project to another while preserving comments and activity history.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [], labelIds: [2, 7, 13], milestoneId: 4, iterationId: null, weight: 8, dueDate: '2026-05-15', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-06T08:00:00Z', updatedAt: '2026-03-06T08:00:00Z', closedAt: null, relatedIssues: [] },
+
+    // --- More closed issues for v1.0 and v1.1 milestones ---
+    { id: 81, title: 'Set up initial project structure', description: 'Create repository, configure linting, testing framework, and initial CI pipeline.', type: 'task', status: 'closed', authorId: 1, assigneeIds: [1], labelIds: [9, 18], milestoneId: 1, iterationId: null, weight: 3, dueDate: '2025-09-15', confidential: false, timeEstimate: 7200, timeSpent: 5400, createdAt: '2025-09-01T08:00:00Z', updatedAt: '2025-09-14T17:00:00Z', closedAt: '2025-09-14T17:00:00Z', relatedIssues: [] },
+    { id: 82, title: 'Design and implement database schema', description: 'Design PostgreSQL schema for users, projects, issues, labels, milestones with migrations.', type: 'task', status: 'closed', authorId: 1, assigneeIds: [2, 5], labelIds: [7, 18], milestoneId: 1, iterationId: null, weight: 8, dueDate: '2025-10-01', confidential: false, timeEstimate: 28800, timeSpent: 25200, createdAt: '2025-09-02T09:00:00Z', updatedAt: '2025-09-30T16:00:00Z', closedAt: '2025-09-30T16:00:00Z', relatedIssues: [] },
+    { id: 83, title: 'Implement user registration and login', description: 'Basic email/password registration, login, password reset with JWT tokens.', type: 'issue', status: 'closed', authorId: 1, assigneeIds: [4], labelIds: [5, 7, 18], milestoneId: 1, iterationId: null, weight: 8, dueDate: '2025-10-15', confidential: false, timeEstimate: 28800, timeSpent: 21600, createdAt: '2025-09-10T09:00:00Z', updatedAt: '2025-10-14T15:00:00Z', closedAt: '2025-10-14T15:00:00Z', relatedIssues: [] },
+    { id: 84, title: 'Build issue CRUD API', description: 'REST API for creating, reading, updating, and deleting issues with validation.', type: 'issue', status: 'closed', authorId: 2, assigneeIds: [6], labelIds: [7, 18], milestoneId: 1, iterationId: null, weight: 5, dueDate: '2025-10-20', confidential: false, timeEstimate: 18000, timeSpent: 14400, createdAt: '2025-09-15T10:00:00Z', updatedAt: '2025-10-19T16:00:00Z', closedAt: '2025-10-19T16:00:00Z', relatedIssues: [] },
+    { id: 85, title: 'Implement label management', description: 'CRUD for labels with color picker, scoped label support, and label assignment to issues.', type: 'issue', status: 'closed', authorId: 2, assigneeIds: [8], labelIds: [7, 8, 18], milestoneId: 1, iterationId: null, weight: 5, dueDate: '2025-11-01', confidential: false, timeEstimate: 18000, timeSpent: 16200, createdAt: '2025-10-01T09:00:00Z', updatedAt: '2025-10-31T14:00:00Z', closedAt: '2025-10-31T14:00:00Z', relatedIssues: [] },
+    { id: 86, title: 'Build milestone tracking', description: 'Milestone CRUD with progress tracking, issue assignment, and due date management.', type: 'issue', status: 'closed', authorId: 1, assigneeIds: [5], labelIds: [7, 8, 18], milestoneId: 1, iterationId: null, weight: 5, dueDate: '2025-11-15', confidential: false, timeEstimate: 18000, timeSpent: 14400, createdAt: '2025-10-10T09:00:00Z', updatedAt: '2025-11-14T15:00:00Z', closedAt: '2025-11-14T15:00:00Z', relatedIssues: [] },
+    { id: 87, title: 'Implement kanban board view', description: 'Drag-and-drop kanban board with configurable columns and issue cards.', type: 'issue', status: 'closed', authorId: 3, assigneeIds: [4, 8], labelIds: [8, 18], milestoneId: 1, iterationId: null, weight: 8, dueDate: '2025-12-01', confidential: false, timeEstimate: 28800, timeSpent: 25200, createdAt: '2025-10-20T09:00:00Z', updatedAt: '2025-11-30T16:00:00Z', closedAt: '2025-11-30T16:00:00Z', relatedIssues: [] },
+    { id: 88, title: 'Fix login redirect loop on expired JWT', description: 'Expired JWT tokens cause infinite redirect loop between login page and protected routes.', type: 'issue', status: 'closed', authorId: 9, assigneeIds: [4], labelIds: [1, 5, 18], milestoneId: 7, iterationId: null, weight: 3, dueDate: '2025-12-20', confidential: false, timeEstimate: 7200, timeSpent: 3600, createdAt: '2025-12-17T14:00:00Z', updatedAt: '2025-12-19T11:00:00Z', closedAt: '2025-12-19T11:00:00Z', relatedIssues: [] },
+    { id: 89, title: 'Fix data loss on concurrent issue edits', description: 'Two users editing the same issue simultaneously causes last-write-wins data loss. Need optimistic locking.', type: 'issue', status: 'closed', authorId: 5, assigneeIds: [5], labelIds: [1, 7, 11, 18], milestoneId: 7, iterationId: null, weight: 5, dueDate: '2026-01-02', confidential: false, timeEstimate: 14400, timeSpent: 10800, createdAt: '2025-12-18T09:00:00Z', updatedAt: '2026-01-02T15:00:00Z', closedAt: '2026-01-02T15:00:00Z', relatedIssues: [] },
+    { id: 90, title: 'Fix: Board drag-and-drop loses issue data', description: 'After dragging issue between board columns, the issue detail view shows stale data until refresh.', type: 'issue', status: 'closed', authorId: 9, assigneeIds: [8], labelIds: [1, 8, 18], milestoneId: 2, iterationId: 2, weight: 3, dueDate: '2026-01-25', confidential: false, timeEstimate: 7200, timeSpent: 5400, createdAt: '2026-01-15T11:00:00Z', updatedAt: '2026-01-24T14:00:00Z', closedAt: '2026-01-24T14:00:00Z', relatedIssues: [] },
+    { id: 91, title: 'Performance: Slow issue list with 500+ labels', description: 'Issue list page load time exceeds 5 seconds when a project has 500+ labels due to unindexed label queries.', type: 'issue', status: 'closed', authorId: 3, assigneeIds: [5], labelIds: [4, 7, 18], milestoneId: 2, iterationId: 2, weight: 5, dueDate: '2026-01-30', confidential: false, timeEstimate: 14400, timeSpent: 10800, createdAt: '2026-01-10T09:00:00Z', updatedAt: '2026-01-29T16:00:00Z', closedAt: '2026-01-29T16:00:00Z', relatedIssues: [] },
+    { id: 92, title: 'Add pagination to issue comments', description: 'Issue with 100+ comments loads all at once. Add paginated loading (20 per page) with "Load more" button.', type: 'issue', status: 'closed', authorId: 3, assigneeIds: [4], labelIds: [4, 8, 18], milestoneId: 2, iterationId: 2, weight: 3, dueDate: '2026-02-01', confidential: false, timeEstimate: 10800, timeSpent: 7200, createdAt: '2026-01-12T10:00:00Z', updatedAt: '2026-01-31T15:00:00Z', closedAt: '2026-01-31T15:00:00Z', relatedIssues: [] },
+    { id: 93, title: 'Implement issue search with filters', description: 'Full-text search across issue title and description with filter chips for status, label, assignee.', type: 'issue', status: 'closed', authorId: 1, assigneeIds: [4, 5], labelIds: [2, 8, 18], milestoneId: 2, iterationId: 3, weight: 8, dueDate: '2026-02-14', confidential: false, timeEstimate: 28800, timeSpent: 21600, createdAt: '2026-01-20T09:00:00Z', updatedAt: '2026-02-13T16:00:00Z', closedAt: '2026-02-13T16:00:00Z', relatedIssues: [] },
+
+    // --- More open issues for variety ---
+    { id: 94, title: 'Add @ mention autocomplete in comments', description: 'When typing @ in a comment, show autocomplete dropdown with team members filtered by typed text.', type: 'issue', status: 'open', authorId: 10, assigneeIds: [4], labelIds: [2, 8, 13], milestoneId: 4, iterationId: null, weight: 5, dueDate: '2026-05-15', confidential: false, timeEstimate: 14400, timeSpent: 0, createdAt: '2026-03-08T14:00:00Z', updatedAt: '2026-03-08T14:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 95, title: 'Implement issue status workflow automation', description: 'Auto-transition issue status based on events: MR opened → "in review", MR merged → "done".', type: 'issue', status: 'open', authorId: 2, assigneeIds: [], labelIds: [2, 7, 14], milestoneId: 5, iterationId: null, weight: 8, dueDate: '2026-08-01', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-04T11:00:00Z', updatedAt: '2026-03-04T11:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 96, title: 'Add keyboard shortcuts for common actions', description: 'Implement keyboard shortcuts: `g i` for issues, `g b` for boards, `n` for new issue, `?` for help.', type: 'issue', status: 'open', authorId: 10, assigneeIds: [4], labelIds: [6, 8, 14], milestoneId: 6, iterationId: null, weight: 3, dueDate: null, confidential: false, timeEstimate: 10800, timeSpent: 0, createdAt: '2026-03-07T13:00:00Z', updatedAt: '2026-03-07T13:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 97, title: 'Fix: Issue weight sum incorrect in milestone view when filtering', description: 'Filtering by label in milestone view still shows the total weight sum instead of the filtered sum.', type: 'issue', status: 'open', authorId: 9, assigneeIds: [5], labelIds: [1, 8, 14], milestoneId: 6, iterationId: null, weight: 2, dueDate: null, confidential: false, timeEstimate: 3600, timeSpent: 0, createdAt: '2026-03-15T11:00:00Z', updatedAt: '2026-03-15T11:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 98, title: 'Add confidential issue indicator to board cards', description: 'Confidential issues on the board should show a lock icon. Currently they look identical to regular issues.', type: 'issue', status: 'open', authorId: 10, assigneeIds: [8], labelIds: [2, 8, 14], milestoneId: 6, iterationId: null, weight: 2, dueDate: null, confidential: false, timeEstimate: 3600, timeSpent: 0, createdAt: '2026-03-13T10:00:00Z', updatedAt: '2026-03-13T10:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 99, title: 'Implement saved issue filter presets', description: 'Allow users to save frequently used filter combinations as named presets for quick access.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [], labelIds: [2, 8, 14], milestoneId: 4, iterationId: null, weight: 5, dueDate: '2026-06-01', confidential: false, timeEstimate: 14400, timeSpent: 0, createdAt: '2026-03-05T14:00:00Z', updatedAt: '2026-03-05T14:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 100, title: 'Add issue creation from email', description: 'Allow creating issues by sending an email to a project-specific email address. Parse subject as title, body as description.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [], labelIds: [2, 7, 14], milestoneId: 5, iterationId: null, weight: 8, dueDate: '2026-09-01', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-02T09:00:00Z', updatedAt: '2026-03-02T09:00:00Z', closedAt: null, relatedIssues: [] },
+
+    // --- Issues 101-130: More variety for realistic data volume ---
+    { id: 101, title: 'Fix: Iteration date overlap validation missing', description: 'Two iterations in the same cadence can be created with overlapping date ranges. Need server-side validation.', type: 'issue', status: 'open', authorId: 9, assigneeIds: [5], labelIds: [1, 7, 13], milestoneId: 3, iterationId: 6, weight: 3, dueDate: '2026-03-28', confidential: false, timeEstimate: 7200, timeSpent: 0, createdAt: '2026-03-14T08:00:00Z', updatedAt: '2026-03-14T08:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 102, title: 'Implement issue time tracking quick actions', description: 'Add /estimate and /spend quick actions for logging time directly from comments.', type: 'issue', status: 'open', authorId: 2, assigneeIds: [4], labelIds: [2, 8, 13], milestoneId: 3, iterationId: 7, weight: 3, dueDate: '2026-04-01', confidential: false, timeEstimate: 10800, timeSpent: 0, createdAt: '2026-03-10T11:00:00Z', updatedAt: '2026-03-10T11:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 103, title: 'Add Mermaid diagram rendering in Markdown', description: 'Support rendering Mermaid diagrams (flowcharts, sequence diagrams) in issue descriptions and comments.', type: 'issue', status: 'open', authorId: 10, assigneeIds: [], labelIds: [2, 8, 14], milestoneId: 6, iterationId: null, weight: 5, dueDate: null, confidential: false, timeEstimate: 14400, timeSpent: 0, createdAt: '2026-03-09T15:00:00Z', updatedAt: '2026-03-09T15:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 104, title: 'Fix: Scoped labels allow duplicate scope assignment', description: 'An issue can have both priority::high and priority::low assigned simultaneously. Scoped labels should be mutually exclusive.', type: 'issue', status: 'open', authorId: 9, assigneeIds: [7], labelIds: [1, 7, 12], milestoneId: 3, iterationId: 6, weight: 3, dueDate: '2026-03-22', confidential: false, timeEstimate: 7200, timeSpent: 3600, createdAt: '2026-03-12T14:00:00Z', updatedAt: '2026-03-15T09:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 105, title: 'Add issue RSS/Atom feed', description: 'Generate RSS/Atom feed for project issues. Allow filtering by label or milestone in the feed URL.', type: 'issue', status: 'open', authorId: 12, assigneeIds: [], labelIds: [2, 7, 14], milestoneId: 6, iterationId: null, weight: 3, dueDate: null, confidential: false, timeEstimate: 7200, timeSpent: 0, createdAt: '2026-03-08T16:00:00Z', updatedAt: '2026-03-08T16:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 106, title: 'Implement issue templates with variable substitution', description: 'Support {{variables}} in issue templates that get replaced on creation (e.g., {{current_date}}, {{author}}).', type: 'issue', status: 'open', authorId: 2, assigneeIds: [], labelIds: [2, 7, 14], milestoneId: 5, iterationId: null, weight: 5, dueDate: null, confidential: false, timeEstimate: 14400, timeSpent: 0, createdAt: '2026-03-06T11:00:00Z', updatedAt: '2026-03-06T11:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 107, title: 'Fix: Closing an issue does not update board column count', description: 'When closing an issue from the detail view, the board Closed column count does not increment until page refresh.', type: 'issue', status: 'closed', authorId: 9, assigneeIds: [8], labelIds: [1, 8, 18], milestoneId: 2, iterationId: 4, weight: 2, dueDate: '2026-03-01', confidential: false, timeEstimate: 3600, timeSpent: 2700, createdAt: '2026-02-22T10:00:00Z', updatedAt: '2026-02-28T14:00:00Z', closedAt: '2026-02-28T14:00:00Z', relatedIssues: [] },
+    { id: 108, title: 'Implement auto-close issues via commit message', description: 'Parse commit messages for "Closes #123" or "Fixes #456" patterns and auto-close referenced issues.', type: 'issue', status: 'open', authorId: 2, assigneeIds: [], labelIds: [2, 7, 9, 14], milestoneId: 5, iterationId: null, weight: 5, dueDate: null, confidential: false, timeEstimate: 14400, timeSpent: 0, createdAt: '2026-03-03T14:00:00Z', updatedAt: '2026-03-03T14:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 109, title: 'Add issue SLA tracking', description: 'Track time-to-first-response and time-to-resolution SLAs per priority level. Show countdown in issue detail.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [], labelIds: [2, 7, 14], milestoneId: 5, iterationId: null, weight: 8, dueDate: '2026-10-01', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-04T09:00:00Z', updatedAt: '2026-03-04T09:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 110, title: 'Fix: Date picker shows wrong month on timezone boundary', description: 'Date picker initialized near midnight UTC shows the previous month for UTC+ timezone users.', type: 'issue', status: 'open', authorId: 9, assigneeIds: [8], labelIds: [1, 8, 13], milestoneId: 6, iterationId: null, weight: 2, dueDate: null, confidential: false, timeEstimate: 5400, timeSpent: 0, createdAt: '2026-03-14T15:00:00Z', updatedAt: '2026-03-14T15:00:00Z', closedAt: null, relatedIssues: [] },
+
+    { id: 111, title: 'Implement cross-project issue search', description: 'Allow searching for issues across all projects the user has access to, not just the current project.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [], labelIds: [2, 7, 13], milestoneId: 4, iterationId: null, weight: 8, dueDate: '2026-06-01', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-03T11:00:00Z', updatedAt: '2026-03-03T11:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 112, title: 'Add bulk label management (merge, rename)', description: 'Allow admins to merge duplicate labels and rename labels across all issues in bulk.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [], labelIds: [2, 7, 14], milestoneId: 6, iterationId: null, weight: 5, dueDate: null, confidential: false, timeEstimate: 14400, timeSpent: 0, createdAt: '2026-03-05T09:00:00Z', updatedAt: '2026-03-05T09:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 113, title: 'Implement epic roadmap timeline view', description: 'Gantt-style timeline showing epic duration bars with drag-to-resize for adjusting dates.', type: 'issue', status: 'open', authorId: 3, assigneeIds: [4], labelIds: [2, 8, 12], milestoneId: 3, iterationId: 7, weight: 8, dueDate: '2026-04-10', confidential: false, timeEstimate: 28800, timeSpent: 3600, createdAt: '2026-03-06T09:00:00Z', updatedAt: '2026-03-14T10:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 114, title: 'Fix: Milestone due date not enforced on issue assignment', description: 'Issues with due dates after the milestone due date can be assigned without warning.', type: 'issue', status: 'open', authorId: 9, assigneeIds: [5], labelIds: [1, 7, 14], milestoneId: 6, iterationId: null, weight: 2, dueDate: null, confidential: false, timeEstimate: 5400, timeSpent: 0, createdAt: '2026-03-15T14:00:00Z', updatedAt: '2026-03-15T14:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 115, title: 'Add project activity feed', description: 'Show a unified activity feed on the project dashboard with all recent actions (issues, comments, merges).', type: 'issue', status: 'open', authorId: 10, assigneeIds: [4], labelIds: [2, 8, 13], milestoneId: 4, iterationId: null, weight: 5, dueDate: '2026-05-01', confidential: false, timeEstimate: 18000, timeSpent: 0, createdAt: '2026-03-07T08:00:00Z', updatedAt: '2026-03-07T08:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 116, title: 'Implement issue voting (thumbs up/down)', description: 'Add voting to issues for gauging community interest. Sort issues by vote count in issue list.', type: 'issue', status: 'open', authorId: 10, assigneeIds: [], labelIds: [2, 8, 14], milestoneId: 6, iterationId: null, weight: 3, dueDate: null, confidential: false, timeEstimate: 7200, timeSpent: 0, createdAt: '2026-03-11T09:00:00Z', updatedAt: '2026-03-11T09:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 117, title: 'Fix: Issue comment edit loses formatting', description: 'Editing a comment with code blocks or tables strips the formatting. Raw markdown is displayed instead.', type: 'issue', status: 'open', authorId: 9, assigneeIds: [4], labelIds: [1, 8, 13], milestoneId: 6, iterationId: null, weight: 3, dueDate: null, confidential: false, timeEstimate: 7200, timeSpent: 0, createdAt: '2026-03-12T09:00:00Z', updatedAt: '2026-03-12T09:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 118, title: 'Add issue description change history', description: 'Track and display edit history for issue descriptions. Show diff between versions.', type: 'issue', status: 'open', authorId: 10, assigneeIds: [], labelIds: [2, 7, 14], milestoneId: 5, iterationId: null, weight: 5, dueDate: null, confidential: false, timeEstimate: 14400, timeSpent: 0, createdAt: '2026-03-09T08:00:00Z', updatedAt: '2026-03-09T08:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 119, title: 'Implement nested epics (epic hierarchy)', description: 'Allow epics to contain child epics creating a tree structure. Show rollup progress from leaf epics.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [], labelIds: [2, 7, 8, 13], milestoneId: 5, iterationId: null, weight: 13, dueDate: '2026-09-15', confidential: false, timeEstimate: 46800, timeSpent: 0, createdAt: '2026-03-04T15:00:00Z', updatedAt: '2026-03-04T15:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 120, title: 'Fix: Board card labels overflow and overlap assignee avatar', description: 'When an issue has 4+ labels, the label chips on the board card overflow and hide the assignee avatar.', type: 'issue', status: 'open', authorId: 9, assigneeIds: [8], labelIds: [1, 8, 14], milestoneId: 6, iterationId: null, weight: 1, dueDate: null, confidential: false, timeEstimate: 1800, timeSpent: 0, createdAt: '2026-03-15T08:00:00Z', updatedAt: '2026-03-15T08:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 121, title: 'Add issue export to CSV', description: 'Export filtered issue list to CSV with configurable columns. Include all metadata fields.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [5], labelIds: [2, 7, 13], milestoneId: 4, iterationId: null, weight: 5, dueDate: '2026-05-15', confidential: false, timeEstimate: 14400, timeSpent: 0, createdAt: '2026-03-06T14:00:00Z', updatedAt: '2026-03-06T14:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 122, title: 'Implement issue cloning', description: 'Clone an issue with all its metadata (labels, milestone, assignees) into a new issue.', type: 'issue', status: 'open', authorId: 2, assigneeIds: [], labelIds: [2, 8, 14], milestoneId: 6, iterationId: null, weight: 3, dueDate: null, confidential: false, timeEstimate: 7200, timeSpent: 0, createdAt: '2026-03-07T15:00:00Z', updatedAt: '2026-03-07T15:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 123, title: 'Add relative due date support (e.g., "in 2 weeks")', description: 'Allow setting due dates using relative expressions like "tomorrow", "next Friday", "in 2 weeks" in addition to absolute dates.', type: 'issue', status: 'open', authorId: 10, assigneeIds: [4], labelIds: [2, 8, 14], milestoneId: 6, iterationId: null, weight: 3, dueDate: null, confidential: false, timeEstimate: 7200, timeSpent: 0, createdAt: '2026-03-10T14:00:00Z', updatedAt: '2026-03-10T14:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 124, title: 'Fix: Epic child issue reordering not persisted', description: 'Drag-reordering child issues within an epic reverts to original order after page refresh.', type: 'issue', status: 'open', authorId: 9, assigneeIds: [5], labelIds: [1, 7, 13], milestoneId: 6, iterationId: null, weight: 3, dueDate: null, confidential: false, timeEstimate: 7200, timeSpent: 0, createdAt: '2026-03-13T11:00:00Z', updatedAt: '2026-03-13T11:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 125, title: 'Add issue assignment notifications with context', description: 'When assigned to an issue, notification should include issue title, description preview, and who assigned it.', type: 'issue', status: 'open', authorId: 10, assigneeIds: [7], labelIds: [2, 7, 14], milestoneId: 4, iterationId: null, weight: 3, dueDate: '2026-05-01', confidential: false, timeEstimate: 7200, timeSpent: 0, createdAt: '2026-03-08T10:00:00Z', updatedAt: '2026-03-08T10:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 126, title: 'Implement iteration velocity tracking', description: 'Track completed story points per iteration to calculate team velocity. Show trend line in iteration list.', type: 'issue', status: 'open', authorId: 3, assigneeIds: [], labelIds: [2, 8, 13], milestoneId: 4, iterationId: null, weight: 5, dueDate: '2026-06-01', confidential: false, timeEstimate: 14400, timeSpent: 0, createdAt: '2026-03-09T09:00:00Z', updatedAt: '2026-03-09T09:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 127, title: 'Fix: Quick action /assign fails for usernames with dots', description: '/assign @j.nakamura fails to find user. Username with dots not matched by the autocomplete regex.', type: 'issue', status: 'open', authorId: 9, assigneeIds: [4], labelIds: [1, 8, 14], milestoneId: 6, iterationId: null, weight: 1, dueDate: null, confidential: false, timeEstimate: 1800, timeSpent: 0, createdAt: '2026-03-14T10:00:00Z', updatedAt: '2026-03-14T10:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 128, title: 'Add issue comment threading / replies', description: 'Support threaded replies to comments. Show reply count and expandable reply chain.', type: 'issue', status: 'open', authorId: 10, assigneeIds: [], labelIds: [2, 8, 13], milestoneId: 5, iterationId: null, weight: 8, dueDate: '2026-08-15', confidential: false, timeEstimate: 28800, timeSpent: 0, createdAt: '2026-03-06T10:00:00Z', updatedAt: '2026-03-06T10:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 129, title: 'Fix: Time tracking allows negative time spent', description: 'Entering a negative value in the time spent field is accepted and displayed as negative time.', type: 'issue', status: 'open', authorId: 9, assigneeIds: [7], labelIds: [1, 7, 14], milestoneId: 6, iterationId: null, weight: 1, dueDate: null, confidential: false, timeEstimate: 1800, timeSpent: 0, createdAt: '2026-03-15T13:00:00Z', updatedAt: '2026-03-15T13:00:00Z', closedAt: null, relatedIssues: [] },
+    { id: 130, title: 'Implement project-level issue board templates', description: 'Allow saving board configurations as templates that can be applied to other projects.', type: 'issue', status: 'open', authorId: 1, assigneeIds: [], labelIds: [2, 8, 14], milestoneId: 5, iterationId: null, weight: 5, dueDate: '2026-09-01', confidential: false, timeEstimate: 14400, timeSpent: 0, createdAt: '2026-03-04T16:00:00Z', updatedAt: '2026-03-04T16:00:00Z', closedAt: null, relatedIssues: [] },
+];
+
+// ─── Comments / Activity ──────────────────────────────────────────
+const comments = [
+    { id: 1, issueId: 1, authorId: 4, body: 'Started working on the PKCE implementation. Using RFC 7636 as reference. Should have initial PR up by end of week.', createdAt: '2026-03-01T10:00:00Z', updatedAt: '2026-03-01T10:00:00Z', type: 'comment' },
+    { id: 2, issueId: 1, authorId: 7, body: 'Make sure we handle the S256 code challenge method as well. Some providers require it.', createdAt: '2026-03-01T11:30:00Z', updatedAt: '2026-03-01T11:30:00Z', type: 'comment' },
+    { id: 3, issueId: 1, authorId: 1, body: 'Good point @lwei. Let\'s support both plain and S256 challenge methods per the spec.', createdAt: '2026-03-01T14:00:00Z', updatedAt: '2026-03-01T14:00:00Z', type: 'comment' },
+    { id: 4, issueId: 3, authorId: 7, body: 'TOTP implementation is done and tested. Moving on to WebAuthn/FIDO2 next. This part is trickier due to browser compatibility.', createdAt: '2026-03-10T09:00:00Z', updatedAt: '2026-03-10T09:00:00Z', type: 'comment' },
+    { id: 5, issueId: 3, authorId: 2, body: 'For WebAuthn, make sure to test with both platform authenticators (Touch ID, Windows Hello) and roaming authenticators (YubiKey).', createdAt: '2026-03-10T10:30:00Z', updatedAt: '2026-03-10T10:30:00Z', type: 'comment' },
+    { id: 6, issueId: 7, authorId: 6, body: 'First batch of user endpoints migrated. GET /api/v3/users now returns the new envelope format. PR #847 is up for review.', createdAt: '2026-03-12T15:00:00Z', updatedAt: '2026-03-12T15:00:00Z', type: 'comment' },
+    { id: 7, issueId: 7, authorId: 2, body: '/spend 5h', createdAt: '2026-03-12T16:00:00Z', updatedAt: '2026-03-12T16:00:00Z', type: 'comment' },
+    { id: 8, issueId: 11, authorId: 5, body: 'Found the root cause: the issue label loader does `SELECT * FROM labels WHERE id IN (...)` per issue instead of batching. Fixing with a preloader.', createdAt: '2026-03-12T10:00:00Z', updatedAt: '2026-03-12T10:00:00Z', type: 'comment' },
+    { id: 9, issueId: 11, authorId: 3, body: 'Great find. Let\'s also add a SQL query counter test to catch future N+1 regressions.', createdAt: '2026-03-12T11:00:00Z', updatedAt: '2026-03-12T11:00:00Z', type: 'comment' },
+    { id: 10, issueId: 33, authorId: 5, body: 'Profiling shows the leak is in the message buffer. Each message creates a new byte slice that\'s never freed if the client doesn\'t read fast enough. Implementing a ring buffer with max size.', createdAt: '2026-03-13T09:00:00Z', updatedAt: '2026-03-13T09:00:00Z', type: 'comment' },
+    { id: 11, issueId: 33, authorId: 6, body: 'We should also add a per-connection memory limit and force-disconnect clients that exceed it.', createdAt: '2026-03-13T10:00:00Z', updatedAt: '2026-03-13T10:00:00Z', type: 'comment' },
+    { id: 12, issueId: 41, authorId: 5, body: 'The 502s correlate with the memory leak in #33. When WebSocket connections consume too much memory, the process OOM-kills and nginx returns 502.', createdAt: '2026-03-14T09:00:00Z', updatedAt: '2026-03-14T09:00:00Z', type: 'comment' },
+    { id: 13, issueId: 41, authorId: 6, body: 'Added monitoring alerts for process memory usage > 80%. Should catch this earlier next time.', createdAt: '2026-03-14T14:00:00Z', updatedAt: '2026-03-14T14:00:00Z', type: 'comment' },
+    { id: 14, issueId: 28, authorId: 4, body: 'This is a frontend issue. We\'re using `new Date().toISOString()` which is always UTC. Need to format with Intl.DateTimeFormat using user\'s timezone.', createdAt: '2026-03-14T10:00:00Z', updatedAt: '2026-03-14T10:00:00Z', type: 'comment' },
+    { id: 15, issueId: 22, authorId: 8, body: 'Completed ARIA audit on the issue list and detail pages. Found 23 missing labels and 8 incorrect roles. PR #862 addresses all of them.', createdAt: '2026-03-13T16:00:00Z', updatedAt: '2026-03-13T16:00:00Z', type: 'comment' },
+    { id: 16, issueId: 14, authorId: 5, body: 'PgBouncer pool settings updated: default_pool_size=25, max_client_conn=400, reserve_pool_size=5. Testing under load now.', createdAt: '2026-03-14T11:00:00Z', updatedAt: '2026-03-14T11:00:00Z', type: 'comment' },
+    { id: 17, issueId: 9, authorId: 7, body: 'Rate limiter middleware implemented using token bucket algorithm. Using Redis for distributed rate limit state. PR #855 ready for review.', createdAt: '2026-03-12T14:00:00Z', updatedAt: '2026-03-12T14:00:00Z', type: 'comment' },
+    { id: 18, issueId: 15, authorId: 4, body: 'Mobile nav prototype looks good. Using CSS transforms for the slide-out animation for smooth 60fps performance.', createdAt: '2026-03-14T09:00:00Z', updatedAt: '2026-03-14T09:00:00Z', type: 'comment' },
+    { id: 19, issueId: 15, authorId: 8, body: 'Tested on iOS Safari and Android Chrome. The hamburger menu works well but the overlay backdrop filter causes a repaint on scroll. Let\'s use a solid color instead.', createdAt: '2026-03-14T15:00:00Z', updatedAt: '2026-03-14T15:00:00Z', type: 'comment' },
+    { id: 20, issueId: 35, authorId: 5, body: 'The search index is using a 15-minute background job. Switching to synchronous index updates on issue save for title and description changes.', createdAt: '2026-03-14T13:00:00Z', updatedAt: '2026-03-14T13:00:00Z', type: 'comment' },
+];
+
+// Activity log entries (system events, not user comments)
+const activityLog = [
+    { id: 1, issueId: 1, userId: 1, action: 'created_issue', detail: null, createdAt: '2026-02-16T09:00:00Z' },
+    { id: 2, issueId: 1, userId: 1, action: 'assigned', detail: { assigneeId: 4 }, createdAt: '2026-02-16T09:01:00Z' },
+    { id: 3, issueId: 1, userId: 1, action: 'assigned', detail: { assigneeId: 7 }, createdAt: '2026-02-16T09:01:00Z' },
+    { id: 4, issueId: 1, userId: 1, action: 'added_label', detail: { labelId: 5 }, createdAt: '2026-02-16T09:02:00Z' },
+    { id: 5, issueId: 1, userId: 1, action: 'added_label', detail: { labelId: 7 }, createdAt: '2026-02-16T09:02:00Z' },
+    { id: 6, issueId: 1, userId: 1, action: 'added_label', detail: { labelId: 12 }, createdAt: '2026-02-16T09:02:00Z' },
+    { id: 7, issueId: 1, userId: 2, action: 'changed_label', detail: { added: 16, removed: 15 }, createdAt: '2026-03-01T09:30:00Z' },
+    { id: 8, issueId: 4, userId: 4, action: 'closed_issue', detail: null, createdAt: '2026-03-01T15:00:00Z' },
+    { id: 9, issueId: 5, userId: 8, action: 'closed_issue', detail: null, createdAt: '2026-02-19T17:00:00Z' },
+    { id: 10, issueId: 6, userId: 2, action: 'closed_issue', detail: null, createdAt: '2026-02-28T16:00:00Z' },
+    { id: 11, issueId: 13, userId: 6, action: 'closed_issue', detail: null, createdAt: '2026-03-14T16:00:00Z' },
+    { id: 12, issueId: 24, userId: 8, action: 'closed_issue', detail: null, createdAt: '2026-03-09T14:00:00Z' },
+    { id: 13, issueId: 33, userId: 5, action: 'changed_label', detail: { added: 16, removed: 15 }, createdAt: '2026-03-10T08:00:00Z' },
+    { id: 14, issueId: 41, userId: 5, action: 'assigned', detail: { assigneeId: 6 }, createdAt: '2026-03-08T09:00:00Z' },
+    { id: 15, issueId: 11, userId: 3, action: 'changed_label', detail: { added: 16, removed: 15 }, createdAt: '2026-03-08T10:00:00Z' },
+];
+
+// ─── Board Configuration ──────────────────────────────────────────
+const boards = [
     {
-        id: 1, name: 'Development Board', createdAt: '2025-09-01T10:00:00Z',
+        id: 1,
+        name: 'Development Board',
         lists: [
-            { id: 1, type: 'backlog', title: 'Open', position: 0 },
-            { id: 2, type: 'label', labelId: 9, title: 'To Do', position: 1 },
-            { id: 3, type: 'label', labelId: 15, title: 'In Progress', position: 2 },
-            { id: 4, type: 'label', labelId: 16, title: 'Review', position: 3 },
-            { id: 5, type: 'closed', title: 'Done', position: 4 }
+            { id: 1, type: 'backlog', title: 'Open', position: 0, labelId: null },
+            { id: 2, type: 'label', title: 'To Do', position: 1, labelId: 15 },
+            { id: 3, type: 'label', title: 'In Progress', position: 2, labelId: 16 },
+            { id: 4, type: 'label', title: 'Review', position: 3, labelId: 17 },
+            { id: 5, type: 'label', title: 'Done', position: 4, labelId: 18 },
+            { id: 6, type: 'closed', title: 'Closed', position: 5, labelId: null },
         ]
     },
-    {
-        id: 2, name: 'Bug Triage Board', createdAt: '2025-11-15T14:00:00Z',
-        lists: [
-            { id: 6, type: 'backlog', title: 'Open', position: 0 },
-            { id: 7, type: 'label', labelId: 11, title: 'Critical', position: 1 },
-            { id: 8, type: 'label', labelId: 12, title: 'High', position: 2 },
-            { id: 9, type: 'label', labelId: 13, title: 'Medium', position: 3 },
-            { id: 10, type: 'label', labelId: 14, title: 'Low', position: 4 },
-            { id: 11, type: 'closed', title: 'Closed', position: 5 }
-        ]
-    }
 ];
 
-// ── Notification Settings ──────────────────────────────────
-const NOTIFICATION_SETTINGS = {
-    level: 'participating',
-    email: {
-        newIssue: true,
-        reassignedIssue: true,
-        closedIssue: false,
-        newComment: true,
-        mentioned: true,
-        milestoneChanged: false
+// ─── Notifications ────────────────────────────────────────────────
+const notifications = [
+    { id: 1, userId: 1, type: 'assigned', issueId: 1, actorId: 2, read: false, createdAt: '2026-03-15T14:30:00Z', message: 'Marek Kowalski updated issue #1' },
+    { id: 2, userId: 1, type: 'mentioned', issueId: 3, actorId: 7, read: false, createdAt: '2026-03-14T16:00:00Z', message: 'Li Wei mentioned you in a comment on issue #3' },
+    { id: 3, userId: 1, type: 'status_change', issueId: 13, actorId: 6, read: false, createdAt: '2026-03-14T16:00:00Z', message: 'Tom Ramirez closed issue #13' },
+    { id: 4, userId: 1, type: 'comment', issueId: 41, actorId: 5, read: true, createdAt: '2026-03-14T09:00:00Z', message: 'Priya Sharma commented on issue #41' },
+    { id: 5, userId: 1, type: 'assigned', issueId: 33, actorId: 5, read: true, createdAt: '2026-03-13T10:00:00Z', message: 'Priya Sharma assigned issue #33 to themselves' },
+    { id: 6, userId: 1, type: 'label_change', issueId: 11, actorId: 3, read: true, createdAt: '2026-03-12T10:00:00Z', message: 'Ana Garcia changed labels on issue #11' },
+    { id: 7, userId: 1, type: 'comment', issueId: 7, actorId: 6, read: true, createdAt: '2026-03-12T15:00:00Z', message: 'Tom Ramirez commented on issue #7' },
+    { id: 8, userId: 1, type: 'milestone_change', issueId: 22, actorId: 8, read: true, createdAt: '2026-03-11T11:00:00Z', message: 'Emily Okonkwo moved issue #22 to milestone v2.0' },
+    { id: 9, userId: 1, type: 'status_change', issueId: 56, actorId: 8, read: true, createdAt: '2026-03-08T10:00:00Z', message: 'Emily Okonkwo closed issue #56' },
+    { id: 10, userId: 1, type: 'assigned', issueId: 15, actorId: 4, read: true, createdAt: '2026-03-10T09:30:00Z', message: 'Jun Nakamura assigned you to issue #15' },
+    { id: 11, userId: 1, type: 'comment', issueId: 9, actorId: 7, read: true, createdAt: '2026-03-12T14:00:00Z', message: 'Li Wei commented on issue #9' },
+    { id: 12, userId: 1, type: 'status_change', issueId: 4, actorId: 4, read: true, createdAt: '2026-03-01T15:00:00Z', message: 'Jun Nakamura closed issue #4' },
+    { id: 13, userId: 1, type: 'comment', issueId: 1, actorId: 4, read: true, createdAt: '2026-03-01T10:00:00Z', message: 'Jun Nakamura commented on issue #1' },
+    { id: 14, userId: 1, type: 'assigned', issueId: 28, actorId: 9, read: true, createdAt: '2026-03-10T14:30:00Z', message: 'Karl Fischer assigned Jun Nakamura to issue #28' },
+    { id: 15, userId: 1, type: 'status_change', issueId: 24, actorId: 8, read: true, createdAt: '2026-03-09T14:00:00Z', message: 'Emily Okonkwo closed issue #24' },
+    { id: 16, userId: 1, type: 'comment', issueId: 14, actorId: 5, read: true, createdAt: '2026-03-14T11:00:00Z', message: 'Priya Sharma commented on issue #14' },
+    { id: 17, userId: 1, type: 'status_change', issueId: 18, actorId: 4, read: true, createdAt: '2026-03-14T11:00:00Z', message: 'Jun Nakamura closed issue #18' },
+    { id: 18, userId: 1, type: 'comment', issueId: 35, actorId: 5, read: true, createdAt: '2026-03-14T13:00:00Z', message: 'Priya Sharma commented on issue #35' },
+    { id: 19, userId: 1, type: 'assigned', issueId: 22, actorId: 8, read: true, createdAt: '2026-03-01T11:30:00Z', message: 'Emily Okonkwo assigned themselves to issue #22' },
+    { id: 20, userId: 1, type: 'comment', issueId: 15, actorId: 8, read: true, createdAt: '2026-03-14T15:00:00Z', message: 'Emily Okonkwo commented on issue #15' },
+];
+
+// ─── Notification Settings ────────────────────────────────────────
+const notificationSettings = {
+    level: 'watch', // global, watch, on_mention, disabled
+    email: true,
+    web: true,
+};
+
+// ─── Project Settings ─────────────────────────────────────────────
+const project = {
+    id: 1,
+    name: 'DevTronics Platform',
+    path: 'devtronics/platform',
+    description: 'Core platform for the DevTronics product suite',
+    visibility: 'private',
+    createdAt: '2025-08-15T10:00:00Z',
+};
+
+// ─── Return seed data ─────────────────────────────────────────────
+return {
+    SEED_DATA_VERSION,
+    users,
+    currentUserId,
+    labels,
+    milestones,
+    iterationCadences,
+    iterations,
+    epics,
+    issueTemplates,
+    issues,
+    comments,
+    activityLog,
+    boards,
+    notifications,
+    notificationSettings,
+    project,
+    _nextId: {
+        issues: 131,
+        comments: 21,
+        labels: 21,
+        milestones: 8,
+        iterations: 14,
+        epics: 11,
+        notifications: 21,
+        activityLog: 16,
+        boardLists: 7,
     }
 };
 
-const NOTIFICATION_FEED = [
-    { id: 1, type: 'assigned', issueId: 5, actorId: 2, message: 'Marcus Johnson assigned you to issue #105', read: false, createdAt: '2026-03-18T09:15:00Z' },
-    { id: 2, type: 'mentioned', issueId: 12, actorId: 3, message: 'Priya Patel mentioned you in a comment on #112', read: false, createdAt: '2026-03-18T08:30:00Z' },
-    { id: 3, type: 'status_change', issueId: 22, actorId: 6, message: 'Elena Rodriguez closed issue #122', read: false, createdAt: '2026-03-17T17:45:00Z' },
-    { id: 4, type: 'label_change', issueId: 8, actorId: 4, message: 'Alex Kim added label priority::critical to #108', read: true, createdAt: '2026-03-17T14:20:00Z' },
-    { id: 5, type: 'assigned', issueId: 15, actorId: 11, message: 'Kai Nakamura assigned you to issue #115', read: true, createdAt: '2026-03-17T11:00:00Z' },
-    { id: 6, type: 'mentioned', issueId: 30, actorId: 9, message: 'Omar Hassan mentioned you in #130', read: true, createdAt: '2026-03-16T16:30:00Z' },
-    { id: 7, type: 'new_comment', issueId: 3, actorId: 7, message: 'David Thompson commented on #103', read: true, createdAt: '2026-03-16T10:15:00Z' },
-    { id: 8, type: 'milestone_change', issueId: 18, actorId: 2, message: 'Marcus Johnson moved #118 to milestone v4.2 Release', read: true, createdAt: '2026-03-15T15:00:00Z' },
-    { id: 9, type: 'status_change', issueId: 42, actorId: 5, message: 'Jordan Williams reopened issue #142', read: true, createdAt: '2026-03-15T09:20:00Z' },
-    { id: 10, type: 'assigned', issueId: 55, actorId: 1, message: 'You assigned yourself to issue #155', read: true, createdAt: '2026-03-14T14:00:00Z' }
-];
-
-// ── Issues ─────────────────────────────────────────────────
-const ISSUES = [
-    // --- Active high-priority issues ---
-    {
-        id: 1, iid: 101, title: 'Login page returns 500 error when SAML provider is unavailable',
-        description: '## Summary\nWhen the configured SAML identity provider is down or unreachable, the login page throws a 500 error instead of gracefully falling back to username/password authentication.\n\n## Steps to Reproduce\n1. Configure SAML SSO with an IdP\n2. Take the IdP offline\n3. Navigate to /login\n4. Observe 500 error\n\n## Expected Behavior\nLogin page should show username/password form with a warning that SSO is unavailable.\n\n## Actual Behavior\n500 Internal Server Error',
-        state: 'opened', type: 'issue', authorId: 1, assignees: [2, 3], labels: [1, 5, 11],
-        milestoneId: 3, iterationId: 5, epicId: 1, weight: 5, dueDate: '2026-03-25',
-        confidential: false, timeEstimate: 28800, timeSpent: 14400,
-        createdAt: '2026-03-10T08:30:00Z', updatedAt: '2026-03-17T16:45:00Z',
-        closedAt: null, closedBy: null, upvotes: 12, downvotes: 0, subscribed: true,
-        relatedIssues: [{ issueId: 2, linkType: 'blocks' }, { issueId: 8, linkType: 'relates_to' }],
-        activities: [
-            { id: 1, type: 'comment', authorId: 2, content: 'I can reproduce this consistently. The SAML middleware doesn\'t have a timeout handler.', createdAt: '2026-03-10T10:15:00Z' },
-            { id: 2, type: 'label_add', authorId: 1, content: 'Added label ~"priority::critical"', createdAt: '2026-03-10T08:35:00Z' },
-            { id: 3, type: 'label_add', authorId: 1, content: 'Added label ~security', createdAt: '2026-03-10T08:35:00Z' },
-            { id: 4, type: 'assignment', authorId: 1, content: 'Assigned to @mjohnson and @ppatel', createdAt: '2026-03-10T09:00:00Z' },
-            { id: 5, type: 'comment', authorId: 3, content: 'Working on a fallback mechanism. PR incoming by EOD tomorrow.', createdAt: '2026-03-12T14:30:00Z' },
-            { id: 6, type: 'time_spent', authorId: 3, content: 'Added 4h of time spent', createdAt: '2026-03-15T17:00:00Z' }
-        ]
-    },
-    {
-        id: 2, iid: 102, title: 'OAuth token refresh fails silently after 30 days',
-        description: 'OAuth refresh tokens expire after 30 days but the client library doesn\'t handle the expiry gracefully. Users get logged out without warning.',
-        state: 'opened', type: 'issue', authorId: 2, assignees: [3], labels: [1, 5, 12],
-        milestoneId: 3, iterationId: 5, epicId: 1, weight: 4, dueDate: '2026-03-28',
-        confidential: false, timeEstimate: 21600, timeSpent: 7200,
-        createdAt: '2026-03-08T11:00:00Z', updatedAt: '2026-03-16T09:30:00Z',
-        closedAt: null, closedBy: null, upvotes: 8, downvotes: 0, subscribed: true,
-        relatedIssues: [{ issueId: 1, linkType: 'is_blocked_by' }],
-        activities: [
-            { id: 7, type: 'comment', authorId: 3, content: 'Need to add token refresh retry logic with exponential backoff.', createdAt: '2026-03-09T10:00:00Z' },
-            { id: 8, type: 'milestone_change', authorId: 2, content: 'Changed milestone to v4.2 Release', createdAt: '2026-03-08T11:05:00Z' }
-        ]
-    },
-    {
-        id: 3, iid: 103, title: 'Implement MFA enrollment flow for TOTP authenticators',
-        description: 'Add the ability for users to enroll in multi-factor authentication using TOTP apps (Google Authenticator, Authy, etc.).\n\n## Acceptance Criteria\n- [ ] QR code generation for secret key\n- [ ] Manual secret key entry option\n- [ ] Verification step with 6-digit code\n- [ ] Recovery codes generation (10 codes)\n- [ ] Backup codes download as text file',
-        state: 'opened', type: 'issue', authorId: 1, assignees: [4, 5], labels: [2, 5, 15],
-        milestoneId: 3, iterationId: 5, epicId: 1, weight: 8, dueDate: '2026-04-05',
-        confidential: false, timeEstimate: 57600, timeSpent: 28800,
-        createdAt: '2026-02-15T09:00:00Z', updatedAt: '2026-03-17T11:20:00Z',
-        closedAt: null, closedBy: null, upvotes: 15, downvotes: 0, subscribed: true,
-        relatedIssues: [{ issueId: 8, linkType: 'relates_to' }],
-        activities: [
-            { id: 9, type: 'comment', authorId: 4, content: 'QR code generation is done. Working on the verification step now.', createdAt: '2026-03-05T15:00:00Z' },
-            { id: 10, type: 'label_add', authorId: 1, content: 'Added label ~"status::in-progress"', createdAt: '2026-03-01T09:00:00Z' },
-            { id: 11, type: 'time_spent', authorId: 4, content: 'Added 8h of time spent', createdAt: '2026-03-10T17:00:00Z' }
-        ]
-    },
-    {
-        id: 4, iid: 104, title: 'Database query N+1 issue in project listing endpoint',
-        description: 'The `/api/v2/projects` endpoint makes N+1 queries when loading project members. With 200+ projects, response time exceeds 5 seconds.',
-        state: 'opened', type: 'issue', authorId: 6, assignees: [6], labels: [1, 6, 12, 20],
-        milestoneId: 3, iterationId: 5, epicId: 4, weight: 3, dueDate: '2026-03-22',
-        confidential: false, timeEstimate: 14400, timeSpent: 10800,
-        createdAt: '2026-03-01T14:00:00Z', updatedAt: '2026-03-17T10:00:00Z',
-        closedAt: null, closedBy: null, upvotes: 6, downvotes: 0, subscribed: false,
-        relatedIssues: [],
-        activities: [
-            { id: 12, type: 'comment', authorId: 6, content: 'Using eager loading reduced query count from 203 to 4. PR #847 is up.', createdAt: '2026-03-15T16:00:00Z' },
-            { id: 13, type: 'label_add', authorId: 6, content: 'Added label ~"status::review"', createdAt: '2026-03-15T16:05:00Z' }
-        ]
-    },
-    {
-        id: 5, iid: 105, title: 'Add responsive navigation menu for mobile viewports',
-        description: 'The main navigation menu is not usable on screens smaller than 768px. Implement a hamburger menu with slide-out drawer.',
-        state: 'opened', type: 'issue', authorId: 1, assignees: [7, 4], labels: [2, 22, 21, 13],
-        milestoneId: 4, iterationId: 6, epicId: 5, weight: 5, dueDate: '2026-04-20',
-        confidential: false, timeEstimate: 36000, timeSpent: 0,
-        createdAt: '2026-03-05T10:00:00Z', updatedAt: '2026-03-18T09:15:00Z',
-        closedAt: null, closedBy: null, upvotes: 4, downvotes: 0, subscribed: true,
-        relatedIssues: [{ issueId: 6, linkType: 'relates_to' }],
-        activities: [
-            { id: 14, type: 'assignment', authorId: 2, content: 'Assigned to @dthompson and @akim', createdAt: '2026-03-18T09:15:00Z' },
-            { id: 15, type: 'comment', authorId: 7, content: 'Starting wireframes this week.', createdAt: '2026-03-18T09:30:00Z' }
-        ]
-    },
-    {
-        id: 6, iid: 106, title: 'Table component overflows on screens below 1024px',
-        description: 'Data tables with more than 6 columns overflow horizontally without scroll indicator on medium screens.',
-        state: 'opened', type: 'issue', authorId: 8, assignees: [4], labels: [1, 22, 21, 13],
-        milestoneId: 4, iterationId: null, epicId: 5, weight: 2, dueDate: '2026-04-25',
-        confidential: false, timeEstimate: 7200, timeSpent: 0,
-        createdAt: '2026-03-12T11:30:00Z', updatedAt: '2026-03-12T11:30:00Z',
-        closedAt: null, closedBy: null, upvotes: 3, downvotes: 0, subscribed: false,
-        relatedIssues: [{ issueId: 5, linkType: 'relates_to' }],
-        activities: []
-    },
-    {
-        id: 7, iid: 107, title: 'Migrate /api/v2/users endpoints to v3 format',
-        description: 'Update the users API endpoints to use the v3 response format:\n- Snake case to camel case field names\n- Nested user profile object\n- Pagination via cursor instead of offset\n- Rate limit headers in response',
-        state: 'opened', type: 'issue', authorId: 2, assignees: [9], labels: [2, 24, 15],
-        milestoneId: 4, iterationId: 6, epicId: 2, weight: 5, dueDate: '2026-04-15',
-        confidential: false, timeEstimate: 43200, timeSpent: 21600,
-        createdAt: '2026-02-20T13:00:00Z', updatedAt: '2026-03-16T15:00:00Z',
-        closedAt: null, closedBy: null, upvotes: 2, downvotes: 0, subscribed: false,
-        relatedIssues: [{ issueId: 10, linkType: 'blocks' }],
-        activities: [
-            { id: 16, type: 'comment', authorId: 9, content: 'User listing endpoint migrated. Working on user detail and update endpoints now.', createdAt: '2026-03-10T11:00:00Z' },
-            { id: 17, type: 'label_add', authorId: 9, content: 'Added label ~"status::in-progress"', createdAt: '2026-03-05T09:00:00Z' }
-        ]
-    },
-    {
-        id: 8, iid: 108, title: 'XSS vulnerability in Markdown preview renderer',
-        description: 'The Markdown preview does not properly sanitize script tags in code blocks when using certain Unicode escape sequences.\n\n**Severity:** High\n**CVSS:** 7.1\n**Vector:** Network',
-        state: 'opened', type: 'incident', authorId: 11, assignees: [2, 11], labels: [5, 11, 23],
-        milestoneId: 3, iterationId: 5, epicId: 8, weight: 8, dueDate: '2026-03-20',
-        confidential: true, timeEstimate: 14400, timeSpent: 10800,
-        createdAt: '2026-03-14T07:00:00Z', updatedAt: '2026-03-17T18:00:00Z',
-        closedAt: null, closedBy: null, upvotes: 0, downvotes: 0, subscribed: true,
-        relatedIssues: [{ issueId: 1, linkType: 'relates_to' }, { issueId: 3, linkType: 'relates_to' }],
-        activities: [
-            { id: 18, type: 'comment', authorId: 11, content: 'Patched the HTML sanitizer. Need security team review before merge.', createdAt: '2026-03-15T16:00:00Z' },
-            { id: 19, type: 'label_add', authorId: 4, content: 'Added label ~"priority::critical"', createdAt: '2026-03-17T14:20:00Z' }
-        ]
-    },
-    {
-        id: 9, iid: 109, title: 'Add dark mode CSS custom properties',
-        description: 'Define CSS custom properties (variables) for all color tokens to support dark mode theming.\n\n## Tasks\n- [x] Audit existing color usage\n- [x] Define light mode variables\n- [ ] Define dark mode variables\n- [ ] Add theme toggle component\n- [ ] Test contrast ratios',
-        state: 'opened', type: 'issue', authorId: 4, assignees: [4], labels: [2, 21, 19],
-        milestoneId: 4, iterationId: null, epicId: 9, weight: 5, dueDate: '2026-05-01',
-        confidential: false, timeEstimate: 28800, timeSpent: 14400,
-        createdAt: '2026-03-01T10:00:00Z', updatedAt: '2026-03-14T16:00:00Z',
-        closedAt: null, closedBy: null, upvotes: 18, downvotes: 1, subscribed: false,
-        relatedIssues: [],
-        activities: [
-            { id: 20, type: 'comment', authorId: 4, content: 'Light mode variables are done. 147 color tokens defined. Starting dark mode mapping.', createdAt: '2026-03-14T16:00:00Z' }
-        ]
-    },
-    {
-        id: 10, iid: 110, title: 'Write API v3 migration guide for external consumers',
-        description: 'Create comprehensive migration guide for API consumers transitioning from v2 to v3. Include code examples in Python, JavaScript, Ruby, and Go.',
-        state: 'opened', type: 'task', authorId: 8, assignees: [8, 10], labels: [4, 13],
-        milestoneId: 4, iterationId: null, epicId: 3, weight: 3, dueDate: '2026-05-15',
-        confidential: false, timeEstimate: 21600, timeSpent: 3600,
-        createdAt: '2026-03-01T14:00:00Z', updatedAt: '2026-03-10T11:00:00Z',
-        closedAt: null, closedBy: null, upvotes: 5, downvotes: 0, subscribed: false,
-        relatedIssues: [{ issueId: 7, linkType: 'is_blocked_by' }],
-        activities: []
-    },
-    // --- Recently closed issues ---
-    {
-        id: 11, iid: 111, title: 'Fix timezone handling in scheduled reports',
-        description: 'Scheduled reports use server timezone instead of user\'s configured timezone. Reports generated at wrong times for non-UTC users.',
-        state: 'closed', type: 'issue', authorId: 10, assignees: [5], labels: [1, 12, 18],
-        milestoneId: 3, iterationId: 4, epicId: null, weight: 3, dueDate: '2026-03-15',
-        confidential: false, timeEstimate: 14400, timeSpent: 10800,
-        createdAt: '2026-02-28T09:00:00Z', updatedAt: '2026-03-14T17:00:00Z',
-        closedAt: '2026-03-14T17:00:00Z', closedBy: 5, upvotes: 4, downvotes: 0, subscribed: false,
-        relatedIssues: [],
-        activities: [
-            { id: 21, type: 'status_change', authorId: 5, content: 'Closed this issue', createdAt: '2026-03-14T17:00:00Z' },
-            { id: 22, type: 'comment', authorId: 5, content: 'Fixed in commit a4f8c2d. All date-time operations now use the user\'s timezone preference.', createdAt: '2026-03-14T16:55:00Z' }
-        ]
-    },
-    {
-        id: 12, iid: 112, title: 'Optimize Docker image size — reduce from 1.2GB to under 400MB',
-        description: 'Production Docker image is 1.2GB due to dev dependencies and unneeded build artifacts. Target: under 400MB using multi-stage builds.',
-        state: 'closed', type: 'issue', authorId: 11, assignees: [11], labels: [6, 7, 18],
-        milestoneId: 3, iterationId: 3, epicId: null, weight: 3, dueDate: '2026-03-01',
-        confidential: false, timeEstimate: 21600, timeSpent: 18000,
-        createdAt: '2026-02-10T10:00:00Z', updatedAt: '2026-03-18T08:30:00Z',
-        closedAt: '2026-02-28T16:00:00Z', closedBy: 11, upvotes: 7, downvotes: 0, subscribed: false,
-        relatedIssues: [],
-        activities: [
-            { id: 23, type: 'status_change', authorId: 11, content: 'Closed this issue', createdAt: '2026-02-28T16:00:00Z' },
-            { id: 24, type: 'comment', authorId: 11, content: 'Final image size: 347MB. Used multi-stage build with Alpine base.', createdAt: '2026-02-28T15:55:00Z' },
-            { id: 25, type: 'comment', authorId: 3, content: '@ppatel mentioned you in #112 — Great work on this optimization!', createdAt: '2026-03-18T08:30:00Z' }
-        ]
-    },
-    {
-        id: 13, iid: 113, title: 'Add Redis caching layer for session management',
-        description: 'Replace in-memory session store with Redis for horizontal scaling support. Must handle session serialization for complex user preference objects.',
-        state: 'closed', type: 'issue', authorId: 6, assignees: [6, 9], labels: [6, 7, 20, 18],
-        milestoneId: 2, iterationId: 2, epicId: 4, weight: 5, dueDate: '2026-02-15',
-        confidential: false, timeEstimate: 36000, timeSpent: 32400,
-        createdAt: '2026-01-15T11:00:00Z', updatedAt: '2026-02-14T18:00:00Z',
-        closedAt: '2026-02-14T18:00:00Z', closedBy: 6, upvotes: 9, downvotes: 0, subscribed: false,
-        relatedIssues: [],
-        activities: [
-            { id: 26, type: 'status_change', authorId: 6, content: 'Closed this issue', createdAt: '2026-02-14T18:00:00Z' }
-        ]
-    },
-    {
-        id: 14, iid: 114, title: 'Implement rate limiting for public API endpoints',
-        description: 'Add rate limiting:\n- Anonymous: 60 req/min\n- Authenticated: 600 req/min\n- Premium: 6000 req/min\n\nReturn `X-RateLimit-*` headers.',
-        state: 'closed', type: 'issue', authorId: 2, assignees: [2], labels: [5, 7, 18],
-        milestoneId: 2, iterationId: 1, epicId: null, weight: 4, dueDate: '2026-01-30',
-        confidential: false, timeEstimate: 28800, timeSpent: 25200,
-        createdAt: '2026-01-10T09:00:00Z', updatedAt: '2026-01-29T17:00:00Z',
-        closedAt: '2026-01-29T17:00:00Z', closedBy: 2, upvotes: 11, downvotes: 0, subscribed: false,
-        relatedIssues: [],
-        activities: [
-            { id: 27, type: 'status_change', authorId: 2, content: 'Closed this issue', createdAt: '2026-01-29T17:00:00Z' }
-        ]
-    },
-    {
-        id: 15, iid: 115, title: 'Parallel test execution in CI pipeline',
-        description: 'Split test suite across 4 parallel runners to reduce CI pipeline duration from 45 minutes to under 15 minutes.',
-        state: 'opened', type: 'issue', authorId: 11, assignees: [11, 1], labels: [3, 7, 15],
-        milestoneId: 4, iterationId: 5, epicId: 6, weight: 5, dueDate: '2026-04-01',
-        confidential: false, timeEstimate: 36000, timeSpent: 18000,
-        createdAt: '2026-02-25T10:00:00Z', updatedAt: '2026-03-17T11:00:00Z',
-        closedAt: null, closedBy: null, upvotes: 13, downvotes: 0, subscribed: true,
-        relatedIssues: [],
-        activities: [
-            { id: 28, type: 'comment', authorId: 11, content: 'Test splitting configuration done. Average pipeline now at 18 minutes. Optimizing further.', createdAt: '2026-03-15T14:00:00Z' }
-        ]
-    },
-    // --- More varied issues ---
-    {
-        id: 16, iid: 116, title: 'Form validation errors not announced to screen readers',
-        description: 'When form validation fails, error messages appear visually but are not announced by screen readers. Need to add aria-live regions and proper ARIA attributes.',
-        state: 'opened', type: 'issue', authorId: 3, assignees: [3], labels: [1, 22, 21, 13],
-        milestoneId: 5, iterationId: null, epicId: 10, weight: 3, dueDate: null,
-        confidential: false, timeEstimate: 14400, timeSpent: 0,
-        createdAt: '2026-03-10T09:00:00Z', updatedAt: '2026-03-10T09:00:00Z',
-        closedAt: null, closedBy: null, upvotes: 2, downvotes: 0, subscribed: false,
-        relatedIssues: [], activities: []
-    },
-    {
-        id: 17, iid: 117, title: 'Implement canary deployment strategy for production releases',
-        description: 'Set up canary deployments that route 5% of traffic to new version before full rollout. Integrate with monitoring to auto-rollback on error rate spike.',
-        state: 'opened', type: 'issue', authorId: 11, assignees: [], labels: [2, 7, 12],
-        milestoneId: 4, iterationId: null, epicId: 6, weight: 8, dueDate: '2026-05-15',
-        confidential: false, timeEstimate: 57600, timeSpent: 0,
-        createdAt: '2026-03-08T14:00:00Z', updatedAt: '2026-03-08T14:00:00Z',
-        closedAt: null, closedBy: null, upvotes: 6, downvotes: 0, subscribed: false,
-        relatedIssues: [], activities: []
-    },
-    {
-        id: 18, iid: 118, title: 'Refactor notification delivery to use message queue',
-        description: 'Current synchronous notification sending blocks request threads. Move to async processing with RabbitMQ or similar.',
-        state: 'opened', type: 'issue', authorId: 6, assignees: [6], labels: [3, 20, 10],
-        milestoneId: 4, iterationId: 6, epicId: 12, weight: 5, dueDate: '2026-05-01',
-        confidential: false, timeEstimate: 43200, timeSpent: 7200,
-        createdAt: '2026-03-05T11:00:00Z', updatedAt: '2026-03-16T14:00:00Z',
-        closedAt: null, closedBy: null, upvotes: 3, downvotes: 0, subscribed: false,
-        relatedIssues: [], activities: [
-            { id: 29, type: 'milestone_change', authorId: 2, content: 'Changed milestone to v4.2 Release', createdAt: '2026-03-15T15:00:00Z' }
-        ]
-    },
-    {
-        id: 19, iid: 119, title: 'CSV export generates corrupted files for records with commas in fields',
-        description: 'Exporting data to CSV does not properly escape fields containing commas, leading to column misalignment. Need to wrap fields in quotes.',
-        state: 'opened', type: 'issue', authorId: 10, assignees: [5], labels: [1, 14],
-        milestoneId: 6, iterationId: null, epicId: null, weight: 1, dueDate: null,
-        confidential: false, timeEstimate: 3600, timeSpent: 0,
-        createdAt: '2026-03-15T10:00:00Z', updatedAt: '2026-03-15T10:00:00Z',
-        closedAt: null, closedBy: null, upvotes: 1, downvotes: 0, subscribed: false,
-        relatedIssues: [], activities: []
-    },
-    {
-        id: 20, iid: 120, title: 'Add keyboard shortcuts for common actions (j/k navigation, e to edit)',
-        description: 'Implement Gmail-style keyboard shortcuts:\n- `j`/`k` to navigate up/down in lists\n- `e` to edit selected item\n- `c` to create new issue\n- `?` to show shortcut help\n- `Esc` to close modals/panels',
-        state: 'opened', type: 'issue', authorId: 4, assignees: [4], labels: [2, 22, 14],
-        milestoneId: 6, iterationId: null, epicId: null, weight: 3, dueDate: null,
-        confidential: false, timeEstimate: 21600, timeSpent: 0,
-        createdAt: '2026-03-07T16:00:00Z', updatedAt: '2026-03-07T16:00:00Z',
-        closedAt: null, closedBy: null, upvotes: 22, downvotes: 2, subscribed: false,
-        relatedIssues: [], activities: []
-    },
-    {
-        id: 21, iid: 121, title: 'Memory leak in WebSocket connection manager',
-        description: 'The WebSocket connection manager does not properly clean up event listeners when connections are closed, leading to memory growth over time. Production instances hit 4GB after 48 hours.',
-        state: 'opened', type: 'incident', authorId: 6, assignees: [6, 2], labels: [1, 6, 11],
-        milestoneId: 3, iterationId: 5, epicId: null, weight: 5, dueDate: '2026-03-21',
-        confidential: false, timeEstimate: 21600, timeSpent: 14400,
-        createdAt: '2026-03-13T06:00:00Z', updatedAt: '2026-03-17T12:00:00Z',
-        closedAt: null, closedBy: null, upvotes: 8, downvotes: 0, subscribed: true,
-        relatedIssues: [],
-        activities: [
-            { id: 30, type: 'comment', authorId: 6, content: 'Found the leak. WeakRef map for listeners should fix it. Testing now.', createdAt: '2026-03-16T10:00:00Z' },
-            { id: 31, type: 'label_add', authorId: 6, content: 'Added label ~"priority::critical"', createdAt: '2026-03-13T06:05:00Z' }
-        ]
-    },
-    {
-        id: 22, iid: 122, title: 'Upgrade PostgreSQL from 14 to 16',
-        description: 'Upgrade production PostgreSQL from 14.8 to 16.2. Includes testing logical replication, pg_dump compatibility, and extension support.\n\nBlocked until the Redis migration (#13) is complete to avoid concurrent infrastructure changes.',
-        state: 'closed', type: 'issue', authorId: 11, assignees: [11], labels: [7, 3, 18],
-        milestoneId: 3, iterationId: 4, epicId: null, weight: 5, dueDate: '2026-03-10',
-        confidential: false, timeEstimate: 28800, timeSpent: 36000,
-        createdAt: '2026-02-15T10:00:00Z', updatedAt: '2026-03-17T17:45:00Z',
-        closedAt: '2026-03-09T18:00:00Z', closedBy: 11, upvotes: 5, downvotes: 0, subscribed: false,
-        relatedIssues: [],
-        activities: [
-            { id: 32, type: 'comment', authorId: 6, content: 'Elena Rodriguez closed issue #122', createdAt: '2026-03-17T17:45:00Z' },
-            { id: 33, type: 'status_change', authorId: 11, content: 'Closed this issue', createdAt: '2026-03-09T18:00:00Z' }
-        ]
-    },
-    {
-        id: 23, iid: 123, title: 'Implement email digest notification option',
-        description: 'Allow users to receive a daily or weekly email digest instead of individual notification emails. Should aggregate by project.',
-        state: 'opened', type: 'issue', authorId: 8, assignees: [], labels: [2, 13],
-        milestoneId: null, iterationId: null, epicId: 12, weight: 5, dueDate: null,
-        confidential: false, timeEstimate: 36000, timeSpent: 0,
-        createdAt: '2026-03-06T15:00:00Z', updatedAt: '2026-03-06T15:00:00Z',
-        closedAt: null, closedBy: null, upvotes: 9, downvotes: 0, subscribed: false,
-        relatedIssues: [], activities: []
-    },
-    {
-        id: 24, iid: 124, title: 'Broken pagination on filtered issue lists',
-        description: 'When applying label or assignee filters to issue lists, the pagination component shows incorrect total count. Page 2+ returns unfiltered results.',
-        state: 'opened', type: 'issue', authorId: 10, assignees: [7], labels: [1, 21, 12],
-        milestoneId: 3, iterationId: 5, epicId: null, weight: 3, dueDate: '2026-03-25',
-        confidential: false, timeEstimate: 10800, timeSpent: 3600,
-        createdAt: '2026-03-11T14:00:00Z', updatedAt: '2026-03-16T09:00:00Z',
-        closedAt: null, closedBy: null, upvotes: 4, downvotes: 0, subscribed: false,
-        relatedIssues: [],
-        activities: [
-            { id: 34, type: 'comment', authorId: 7, content: 'The issue is in the SQL query builder — filter params are not passed to the count query.', createdAt: '2026-03-15T11:00:00Z' }
-        ]
-    },
-    {
-        id: 25, iid: 125, title: 'Add Slack integration for issue status change notifications',
-        description: 'Send Slack messages to configured channels when issue status changes (opened, closed, reopened). Support webhook and bot token methods.',
-        state: 'opened', type: 'issue', authorId: 9, assignees: [9], labels: [2, 20, 13],
-        milestoneId: null, iterationId: null, epicId: 12, weight: 5, dueDate: null,
-        confidential: false, timeEstimate: 28800, timeSpent: 0,
-        createdAt: '2026-03-02T10:00:00Z', updatedAt: '2026-03-02T10:00:00Z',
-        closedAt: null, closedBy: null, upvotes: 7, downvotes: 0, subscribed: false,
-        relatedIssues: [], activities: []
-    },
-    // --- Older closed issues ---
-    {
-        id: 26, iid: 126, title: 'Fix CORS configuration for staging environment',
-        description: 'CORS headers are not set correctly for the staging domain, breaking API calls from the staging frontend.',
-        state: 'closed', type: 'issue', authorId: 5, assignees: [5], labels: [1, 7, 18],
-        milestoneId: 2, iterationId: 2, epicId: null, weight: 2, dueDate: '2026-02-10',
-        confidential: false, timeEstimate: 7200, timeSpent: 5400,
-        createdAt: '2026-02-05T09:00:00Z', updatedAt: '2026-02-09T16:00:00Z',
-        closedAt: '2026-02-09T16:00:00Z', closedBy: 5, upvotes: 2, downvotes: 0, subscribed: false,
-        relatedIssues: [], activities: [{ id: 35, type: 'status_change', authorId: 5, content: 'Closed this issue', createdAt: '2026-02-09T16:00:00Z' }]
-    },
-    {
-        id: 27, iid: 127, title: 'Implement project data export in JSON format',
-        description: 'Allow project owners to export all project data (issues, milestones, labels, boards) as a JSON file.',
-        state: 'closed', type: 'issue', authorId: 9, assignees: [9], labels: [2, 20, 18],
-        milestoneId: 1, iterationId: null, epicId: 11, weight: 5, dueDate: '2025-11-30',
-        confidential: false, timeEstimate: 36000, timeSpent: 32400,
-        createdAt: '2025-10-15T10:00:00Z', updatedAt: '2025-11-28T17:00:00Z',
-        closedAt: '2025-11-28T17:00:00Z', closedBy: 9, upvotes: 4, downvotes: 0, subscribed: false,
-        relatedIssues: [], activities: [{ id: 36, type: 'status_change', authorId: 9, content: 'Closed this issue', createdAt: '2025-11-28T17:00:00Z' }]
-    },
-    {
-        id: 28, iid: 128, title: 'Add CSV import for bulk issue creation',
-        description: 'Support bulk creation of issues via CSV upload. Map columns to issue fields (title, description, assignee, labels, milestone).',
-        state: 'closed', type: 'issue', authorId: 8, assignees: [9, 5], labels: [2, 18],
-        milestoneId: 1, iterationId: null, epicId: 11, weight: 5, dueDate: '2025-11-15',
-        confidential: false, timeEstimate: 43200, timeSpent: 39600,
-        createdAt: '2025-10-01T11:00:00Z', updatedAt: '2025-11-14T16:00:00Z',
-        closedAt: '2025-11-14T16:00:00Z', closedBy: 9, upvotes: 6, downvotes: 0, subscribed: false,
-        relatedIssues: [], activities: [{ id: 37, type: 'status_change', authorId: 9, content: 'Closed this issue', createdAt: '2025-11-14T16:00:00Z' }]
-    },
-    {
-        id: 29, iid: 129, title: 'GraphQL schema validation fails on nested nullable types',
-        description: 'The GraphQL schema generator produces invalid schema definitions when a type has nested nullable fields within a non-nullable parent.',
-        state: 'opened', type: 'issue', authorId: 7, assignees: [7], labels: [1, 20, 12],
-        milestoneId: 3, iterationId: 5, epicId: 2, weight: 3, dueDate: '2026-03-28',
-        confidential: false, timeEstimate: 14400, timeSpent: 7200,
-        createdAt: '2026-03-09T13:00:00Z', updatedAt: '2026-03-15T10:00:00Z',
-        closedAt: null, closedBy: null, upvotes: 3, downvotes: 0, subscribed: false,
-        relatedIssues: [],
-        activities: [
-            { id: 38, type: 'comment', authorId: 7, content: 'Root cause found in the type resolver. Fix ready for review.', createdAt: '2026-03-15T10:00:00Z' }
-        ]
-    },
-    {
-        id: 30, iid: 130, title: 'Implement burndown chart for iteration view',
-        description: 'Add a burndown chart to the iteration detail page showing:\n- Ideal burndown line\n- Actual progress line\n- Added scope indicator\n- Daily data points',
-        state: 'opened', type: 'issue', authorId: 1, assignees: [4], labels: [2, 21, 13],
-        milestoneId: 4, iterationId: null, epicId: null, weight: 5, dueDate: '2026-04-30',
-        confidential: false, timeEstimate: 28800, timeSpent: 0,
-        createdAt: '2026-03-04T09:00:00Z', updatedAt: '2026-03-16T16:30:00Z',
-        closedAt: null, closedBy: null, upvotes: 11, downvotes: 0, subscribed: false,
-        relatedIssues: [],
-        activities: [
-            { id: 39, type: 'comment', authorId: 9, content: 'Omar Hassan mentioned you in #130', createdAt: '2026-03-16T16:30:00Z' }
-        ]
-    }
-];
-
-// Generate additional issues for realistic volume
-(function generateAdditionalIssues() {
-    const titles = [
-        'Update dependency versions for security patches',
-        'Add input validation for user registration form',
-        'Fix race condition in concurrent file uploads',
-        'Implement audit log for admin actions',
-        'Add support for custom fields on issues',
-        'Optimize front-end bundle size — target under 500KB',
-        'Fix incorrect sort order in milestone issue list',
-        'Add two-factor authentication backup via SMS',
-        'Implement project archiving functionality',
-        'Add real-time collaboration indicators (who is viewing)',
-        'Fix email notification formatting on Outlook clients',
-        'Create onboarding wizard for new project setup',
-        'Add support for issue templates with custom fields',
-        'Implement webhook retry logic with exponential backoff',
-        'Fix memory usage spike during large file diff generation',
-        'Add API endpoint for bulk label operations',
-        'Implement user activity heatmap on profile page',
-        'Fix timezone display inconsistency in activity feed',
-        'Add support for nested task lists in issue descriptions',
-        'Implement auto-assignment rules based on labels',
-        'Fix search indexing delay for newly created issues',
-        'Add merge request integration to issue sidebar',
-        'Implement custom notification rules per label',
-        'Fix API rate limiter not resetting on sliding window',
-        'Add project template cloning functionality',
-        'Implement issue weight auto-estimation using ML',
-        'Fix broken links in exported PDF reports',
-        'Add support for emoji reactions on comments',
-        'Implement board swimlanes by assignee',
-        'Fix incorrect character count in description editor',
-        'Add support for time tracking via slash commands',
-        'Implement label priority ordering',
-        'Fix SSO session not invalidating on password change',
-        'Add project-level notification preferences',
-        'Implement drag-and-drop file attachments',
-        'Fix flaky integration tests in CI pipeline',
-        'Add burnup chart alongside burndown',
-        'Implement cross-project issue search',
-        'Fix PostgreSQL connection pool exhaustion under load',
-        'Add support for relating merge requests to epics',
-        'Implement group-level issue analytics dashboard',
-        'Fix incorrect date parsing for DD/MM/YYYY format users',
-        'Add configurable auto-close rules for stale issues',
-        'Implement comment threading and replies',
-        'Fix CSS grid layout breaking in Safari 15',
-        'Add batch operations for iteration assignment',
-        'Implement read-only project mode for archived projects',
-        'Fix GraphQL subscription memory leak',
-        'Add support for custom dashboard widgets',
-        'Implement issue dependency graph visualization',
-        'Fix slow query in milestone progress calculation',
-        'Add API v3 endpoint for board management',
-        'Implement workspace-level label management',
-        'Fix Unicode normalization issues in search',
-        'Add support for confidential comments on public issues',
-        'Implement automated regression detection in CI',
-        'Fix websocket reconnection loop on network change',
-        'Add support for multiple assignee workflow rules',
-        'Implement label-based SLA tracking',
-        'Fix pagination cursor encoding for non-ASCII characters',
-        'Add health check endpoint for load balancer',
-        'Implement project forking with issue reference linking',
-        'Fix incorrect diff rendering for binary files',
-        'Add support for scheduled issue creation',
-        'Implement configurable issue numbering schemes',
-        'Fix localStorage quota exceeded error on large projects',
-        'Add keyboard navigation for board view',
-        'Implement epic roadmap PDF export',
-        'Fix time tracking widget not updating in real-time',
-        'Add integration tests for OAuth flow'
-    ];
-    const descriptions = [
-        'This needs investigation and implementation. See related tickets for context.',
-        'Reported by multiple users. Priority should be set based on impact assessment.',
-        'Follow up from the last sprint review. Needs design review before implementation.',
-        'Tech debt item identified during code review. Should be addressed before next release.',
-        'Customer-facing issue reported via support ticket #8472.',
-        'Performance regression identified in latest monitoring dashboard.',
-        'Compliance requirement from security team audit.',
-        'Feature request from product roadmap discussion.',
-        'Infrastructure improvement for better reliability.',
-        'UX improvement based on user research findings.'
-    ];
-    const states = ['opened', 'opened', 'opened', 'opened', 'opened', 'closed', 'closed', 'closed'];
-    const types = ['issue', 'issue', 'issue', 'issue', 'task', 'task', 'incident'];
-    const weights = [null, 1, 1, 2, 2, 3, 3, 3, 5, 5, 8];
-
-    let nextId = 31;
-    for (let i = 0; i < titles.length; i++) {
-        const state = states[i % states.length];
-        const authorId = (i % 11) + 1;
-        const numAssignees = Math.random() < 0.3 ? 0 : Math.random() < 0.7 ? 1 : 2;
-        const assignees = [];
-        for (let a = 0; a < numAssignees; a++) {
-            let aId = ((i + a * 3) % 11) + 1;
-            if (!assignees.includes(aId)) assignees.push(aId);
-        }
-        const numLabels = Math.floor(Math.random() * 3) + 1;
-        const labelSet = new Set();
-        for (let l = 0; l < numLabels; l++) {
-            labelSet.add(Math.floor(Math.random() * 24) + 1);
-        }
-        const milestoneId = Math.random() < 0.6 ? [3, 4, 5, 6][Math.floor(Math.random() * 4)] : null;
-        const iterationId = Math.random() < 0.4 ? [4, 5, 6][Math.floor(Math.random() * 3)] : null;
-        const epicId = Math.random() < 0.3 ? Math.floor(Math.random() * 12) + 1 : null;
-        const daysAgo = Math.floor(Math.random() * 90) + 1;
-        const createdDate = new Date(2026, 2, 18);
-        createdDate.setDate(createdDate.getDate() - daysAgo);
-        const updatedDate = new Date(createdDate);
-        updatedDate.setDate(updatedDate.getDate() + Math.floor(Math.random() * Math.min(daysAgo, 30)));
-        const closedAt = state === 'closed' ? updatedDate.toISOString() : null;
-        const closedBy = state === 'closed' ? assignees[0] || authorId : null;
-        const dueDate = Math.random() < 0.5 ? (() => {
-            const d = new Date(createdDate);
-            d.setDate(d.getDate() + Math.floor(Math.random() * 60) + 7);
-            return d.toISOString().split('T')[0];
-        })() : null;
-        const weight = weights[Math.floor(Math.random() * weights.length)];
-        const te = Math.random() < 0.4 ? (Math.floor(Math.random() * 10) + 1) * 3600 : null;
-        const ts = te && Math.random() < 0.6 ? Math.floor(te * Math.random()) : 0;
-
-        ISSUES.push({
-            id: nextId,
-            iid: 100 + nextId,
-            title: titles[i],
-            description: descriptions[i % descriptions.length],
-            state: state,
-            type: types[i % types.length],
-            authorId: authorId,
-            assignees: assignees,
-            labels: Array.from(labelSet),
-            milestoneId: milestoneId,
-            iterationId: iterationId,
-            epicId: epicId,
-            weight: weight,
-            dueDate: dueDate,
-            confidential: Math.random() < 0.05,
-            timeEstimate: te,
-            timeSpent: ts,
-            createdAt: createdDate.toISOString(),
-            updatedAt: updatedDate.toISOString(),
-            closedAt: closedAt,
-            closedBy: closedBy,
-            upvotes: Math.floor(Math.random() * 15),
-            downvotes: Math.floor(Math.random() * 3),
-            subscribed: Math.random() < 0.2,
-            relatedIssues: [],
-            activities: []
-        });
-        nextId++;
-    }
 })();
-
-// ── Sort Options ───────────────────────────────────────────
-const SORT_OPTIONS = [
-    { value: 'created_desc', label: 'Created date (newest)' },
-    { value: 'created_asc', label: 'Created date (oldest)' },
-    { value: 'updated_desc', label: 'Updated date (newest)' },
-    { value: 'updated_asc', label: 'Updated date (oldest)' },
-    { value: 'due_date_asc', label: 'Due date (soonest)' },
-    { value: 'due_date_desc', label: 'Due date (latest)' },
-    { value: 'priority_desc', label: 'Priority (highest)' },
-    { value: 'priority_asc', label: 'Priority (lowest)' },
-    { value: 'popularity_desc', label: 'Popularity (most)' },
-    { value: 'weight_desc', label: 'Weight (heaviest)' },
-    { value: 'weight_asc', label: 'Weight (lightest)' }
-];
-
-const ISSUE_TYPES = [
-    { value: 'issue', label: 'Issue' },
-    { value: 'incident', label: 'Incident' },
-    { value: 'task', label: 'Task' }
-];

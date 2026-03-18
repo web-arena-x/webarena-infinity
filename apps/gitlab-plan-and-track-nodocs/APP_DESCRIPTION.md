@@ -2,241 +2,274 @@
 
 ## Summary
 
-A faithful replica of GitLab's project planning and issue tracking features. The app covers the full "Plan and Track" workflow including issues, kanban boards, milestones, iterations (sprints), epics, roadmaps, labels, time tracking, quick actions (slash commands), and notifications. The app is scoped to a single project ("AcmeCorp / platform") with 12 team members.
+A faithful replica of GitLab's Plan and Track features — the project management and issue tracking capabilities of the GitLab DevOps platform. The app implements issue tracking, kanban boards, milestones, iterations (sprints), epics, roadmap visualization, time tracking, labels management, quick actions via slash commands, and a notification system. All within a single-page application with a GitLab-inspired sidebar navigation.
 
-## Main Sections / Pages
+The project context is "DevTronics Platform" — a fictional software product with 12 team members actively working across multiple milestones and epics.
 
-The app is a single-page application with sidebar navigation. Sections are:
+## Main Sections/Pages
 
-1. **Issues** (list, detail, create views)
-2. **Boards** (kanban view)
-3. **Milestones** (list, detail views)
-4. **Iterations** (list, detail views)
-5. **Epics** (list, detail views)
-6. **Roadmap** (timeline/Gantt view)
-7. **Labels** (management page)
-8. **Notifications** (feed and settings)
-
-## Navigation Structure
-
-- **Sidebar** (always visible, dark theme, left side):
-  - **Plan** section: Issues, Boards, Milestones, Iterations, Epics, Roadmap
-  - **Manage** section: Labels
-  - **User** section: Notifications (with unread badge count)
-- **Top bar**: GitLab logo, project breadcrumb ("AcmeCorp / platform"), user avatar
-- **Breadcrumbs** within content area for navigation context
-- Click sidebar link to navigate between sections
-- Click issue/milestone/iteration/epic titles to view detail pages
-- "Back" navigation via breadcrumb links
+1. **Issues List** — Paginated table of all issues with filtering, sorting, search, and bulk actions
+2. **Issue Detail** — Full issue view with description, metadata sidebar, comments, activity feed, and related issues
+3. **New Issue Form** — Issue creation form with all metadata fields and template selection
+4. **Labels** — Label management with create/edit/delete, color picker, scoped labels
+5. **Milestones** — Milestone list (active/closed tabs), milestone detail with issue breakdown and time tracking
+6. **Boards** — Kanban board with drag-and-drop, configurable label-based columns, board filtering
+7. **Iterations** — Sprint management organized by cadence, with burndown visualization
+8. **Epics** — Epic list with filtering, epic detail with child issues and timeline
+9. **Roadmap** — Gantt-style timeline view of epics with progress indicators
+10. **Time Tracking** — Report showing time estimates vs. time spent by milestone and label
+11. **Notifications** — Notification feed with read/unread status and notification level preferences
 
 ## Implemented Features and UI Interactions
 
-### Issues List
-- Table view with columns: checkbox, title (with labels, priority, type badges), assignee avatars, milestone, updated date
-- **Status tabs**: Open (count) / Closed (count) / All (count) — filters by issue state
-- **Search**: Text search by title, description, or issue number (IID)
-- **Filter bar**: Author dropdown, Assignee dropdown, Labels multi-select, Milestone dropdown, Type dropdown
-- **Sort dropdown**: Created date, Updated date, Due date, Priority, Popularity, Weight (asc/desc)
-- **Pagination**: 20 issues per page, showing "X–Y of Z" with page buttons
-- **Bulk selection**: Checkbox per row + select-all; bulk actions bar appears with: Close, Reopen, Assign, Label, Milestone
-- **Issue row displays**: Priority indicator, confidential icon, title link, IID, label chips (max 4 + overflow count), type badge, age, author, weight, due date (red if overdue), upvotes, time tracked
+### Issues
+- List view with columns: title, status, assignee(s), labels, milestone, weight, due date, created date
+- Filter by: status (open/closed/all), author, assignee, label (multi-select), milestone, sort order
+- Sort by: created date, updated date, due date, priority, weight (ascending/descending)
+- Full-text search across title, description, and issue number
+- Pagination (20 per page) with page navigation
+- Bulk actions: close, assign, add label, set milestone (via checkbox selection)
+- Issue types: issue, incident, task
+- Inline title editing (click to edit)
+- Description editing with Markdown support
+- Issue close/reopen
+- Comment system with Markdown rendering
+- Quick actions in comments: /close, /reopen, /assign, /unassign, /label, /unlabel, /milestone, /weight, /due, /estimate, /spend
+- Related issues (blocks, is blocked by, related to) — add/remove
+- Confidential issue toggle
+- Subscribe/unsubscribe to issue notifications
 
-### Issue Detail View
-- **Title**: Inline-editable (`contenteditable`), save button appears on edit
-- **Description**: Markdown-rendered content with edit button; editor is a textarea with save/cancel
-- **Sidebar metadata** (right column):
-  - **Assignees**: Multi-select searchable dropdown, shows avatar + name list
-  - **Labels**: Multi-select searchable dropdown with color swatches
-  - **Milestone**: Single-select dropdown (active milestones only)
-  - **Iteration**: Single-select dropdown (non-closed iterations)
-  - **Epic**: Single-select searchable dropdown (open epics)
-  - **Weight**: Numeric input (0–99)
-  - **Due date**: Text input (YYYY-MM-DD format)
-  - **Confidential**: Toggle switch
-  - **Notifications**: Toggle switch (subscribed/unsubscribed)
-- **Close / Reopen button** at bottom of sidebar
-- **Related Issues section**: Shows blocking/blocked-by/related-to links with issue titles; add/remove related issues via modal
-- **Time Tracking section**: Progress bar (spent vs estimated), "Set estimate" and "Log time" buttons open modals for hours/minutes input
-- **Activity Feed**: Chronological list of comments and events (status changes, label additions, assignments, time logs); comments shown in card style with markdown rendering
-- **Comment Box**: Textarea with slash command hints; supports quick actions
-
-### Issue Creation Form
-- **Type dropdown**: Issue, Incident, Task
-- **Template dropdown**: Bug Report, Feature Request, Task (pre-fills description)
-- **Title**: Required text input
-- **Description**: Textarea with markdown support
-- **Assignees**: Multi-select searchable dropdown
-- **Labels**: Multi-select searchable dropdown
-- **Milestone**: Single-select dropdown
-- **Iteration**: Single-select dropdown
-- **Epic**: Single-select searchable dropdown
-- **Weight**: Numeric input
-- **Due date**: Text input (YYYY-MM-DD)
-- **Confidential**: Checkbox
-- **Create / Cancel buttons**; validation requires title
-
-### Boards (Kanban)
-- **Board selector**: Dropdown to switch between boards (Development Board, Bug Triage Board)
-- **Columns**: Each board has ordered lists (backlog/Open, label-based lists, closed/Done)
-- **Issue cards**: Show title, IID, label chips, assignee avatars, weight
-- **Drag and drop**: Cards can be dragged between columns; moving updates issue labels and state
-- **Add list**: Button to add a new label-based list (via modal with label selector)
-- **Remove list**: X button on label-based list headers
-- **Create issue from board**: "+ New issue" button at bottom of each column
-
-### Milestones
-- **List view**: Active/Closed tabs with counts; each milestone shows title, dates, description, progress bar (% based on closed/open issues)
-- **Actions**: Edit (modal), Close/Reopen, Delete (confirmation modal)
-- **Create milestone**: Modal with title (required), description, start date, due date
-- **Detail view**: Full description, progress bar with stats, tabs for Open/Closed issues within milestone
-
-### Iterations
-- **Grouped by cadence**: "Sprint Cycle" (2-week) and "Monthly Planning" (4-week)
-- **Each iteration shows**: Title, state badge (current/upcoming/closed), date range, issue count, weight, progress bar
-- **Create iteration**: Modal with cadence selector, title, start/end dates
-- **Detail view**: Stats row (total issues, completed, remaining, total weight, % complete), progress bar, burndown chart (SVG), Open/Closed issue tabs
-
-### Epics
-- **List view**: Open/Closed tabs; epics displayed with hierarchy (child epics indented)
-- **Each epic shows**: Title, state badge, label chips, date range, issue count, child epics count, progress bar
-- **Create epic**: Modal with title, description, labels multi-select, parent epic dropdown, start/due dates, confidential checkbox
-- **Close/Reopen** epic from detail view
-- **Detail view**: Description (markdown), progress section, timeline bar (visual progress of start-to-due date), child epics list, issues list, sidebar with labels/dates/confidentiality
-
-### Roadmap
-- **Timeline view**: Horizontal bars showing epic and milestone durations
-- **Month headers**: Auto-generated across the time range
-- **Today marker**: Red vertical line
-- **Two sections**: Epics (with progress fill) and Milestones (green bars with progress)
-- **Bar labels**: Show completion percentage
-- **Clickable**: Bar labels link to epic/milestone detail views
-- Only epics/milestones with both start and due dates appear
+### Issue Detail Sidebar
+- Assignees — multi-select searchable dropdown
+- Labels — multi-select searchable dropdown with color swatches, removable chips, scoped label enforcement
+- Milestone — dropdown selection (active milestones only)
+- Iteration — dropdown selection (current/upcoming iterations only)
+- Weight — numeric input (0-99)
+- Due date — text input (YYYY-MM-DD) with clear button
+- Confidential — toggle switch
+- Time tracking — estimate/spent bar, input fields for adding time (e.g., "4h 30m")
+- Notifications — subscribe/unsubscribe button
 
 ### Labels Management
-- **Scoped labels**: Grouped by scope prefix (priority::, status::, workflow::)
-- **Unscoped labels**: Listed separately
-- **Each label shows**: Color chip, name, description, issue count
-- **Create label**: Modal with name input (supports scoped format "scope::name"), description, color picker (grid of 32 colors + hex input)
-- **Edit label**: Modal pre-populated with current values
-- **Delete label**: Confirmation modal (removes from all issues)
+- List of all labels grouped by scoped/regular
+- Each label shows: color badge, name, description, issue count
+- Create new label: name, description, color picker (20 preset colors + hex input)
+- Edit label (modal form)
+- Delete label (removes from all issues, epics, board lists)
+- Scoped labels (e.g., `priority::high`) displayed with `::` separator
+
+### Milestones
+- List view with active/closed tabs
+- Each milestone card shows: title, dates, description, progress bar, open/closed counts
+- Create milestone: title, description, start date, due date
+- Edit milestone (modal form)
+- Close/reopen milestone
+- Delete milestone (clears from all issues)
+- Milestone detail view: description, date range, progress bar, time tracking summary, open/closed issue lists
+
+### Boards (Kanban)
+- Default board: "Development Board" with columns: Open, To Do, In Progress, Review, Done, Closed
+- Drag-and-drop issues between columns
+- Moving to "Closed" column closes the issue
+- Moving from "Closed" reopens the issue
+- Label-based columns (moving adds/removes the label, handles scoped labels)
+- Board filtering by assignee and milestone
+- Add new label-based list (modal with label dropdown)
+- Remove label-based lists
+- Issue cards show: title, labels (non-status, max 3), issue number, weight, assignee avatars
+- "New issue" button per column
+- Confidential icon on cards
+
+### Iterations (Sprints)
+- Organized by cadence (e.g., "Engineering Sprints" 2-week, "Design Cycles" 3-week)
+- Each cadence section shows current, upcoming, and closed iterations
+- Current iteration highlighted with badge and left border
+- Each iteration card: title, date range, progress bar, issue/weight counts
+- Create iteration: cadence selection, title, start date, end date
+- Iteration detail view: status badge, cadence info, date range, progress, stats grid (total issues, completed, open, total weight, completed weight), burndown visualization, open/closed issue lists
+
+### Epics
+- List view with open/closed/all filter tabs and search
+- Each epic card: title, status badge, description preview, progress bar, issue counts, date range, author, labels
+- Create epic: title, description, start date, due date, labels, confidential toggle
+- Close/reopen epic
+- Epic detail view: description (Markdown), progress bar and stats, timeline visualization, child issues list with table, add child issue dropdown
+- Epic sidebar: labels, start date, due date, confidential status
+
+### Roadmap
+- Gantt-style horizontal timeline
+- Each epic displayed as a bar spanning start-to-due date
+- Bar shows progress fill based on completed child issues
+- Month column headers
+- Zoom level control (weeks/months/quarters dropdown)
+- Click epic label to navigate to epic detail
 
 ### Time Tracking
-- Available on issue detail view
-- **Set estimate**: Modal with hours + minutes inputs
-- **Log time**: Modal with hours + minutes inputs; adds time to cumulative spent
-- **Display**: Progress bar showing spent vs estimated; over-budget shown in red
-- **Via slash commands**: `/estimate Nh` and `/spend NhMm` in comment box
-
-### Quick Actions (Slash Commands)
-- Processed in the comment box when submitting a comment
-- Supported commands:
-  - `/assign @username` — adds assignee
-  - `/label ~"label name"` — adds label
-  - `/milestone %"milestone title"` — sets milestone
-  - `/close` — closes the issue
-  - `/reopen` — reopens the issue
-  - `/weight N` — sets weight
-  - `/due YYYY-MM-DD` — sets due date
-  - `/estimate Nh` or `/estimate NhMm` — sets time estimate
-  - `/spend Nh` or `/spend NhMm` — logs time spent
-- Slash commands are removed from the comment text; remaining text becomes a comment
-- Activity entries are created for each action
+- Summary cards: total estimated, total spent, remaining
+- Per-milestone breakdown with time tracking bars
+- Per-label breakdown with time tracking bars
+- Time displayed in human-readable format (e.g., "4h 30m")
 
 ### Notifications
-- **Feed tab**: List of notifications (assigned, mentioned, status changes, label changes, comments, milestone changes)
-- **Unread indicator**: Sidebar badge shows unread count; unread items highlighted in feed
-- **Mark read**: Individual or "Mark all as read" button
-- **Settings tab**:
-  - Notification level dropdown: Global, Watch, On mention/participating, Disabled
-  - Email notification toggles: New issues, Reassigned, Closed, New comments, Mentioned, Milestone changes
+- Notification feed sorted by date (newest first)
+- Unread notifications highlighted with blue background
+- Notification types: assigned, mentioned, comment, status change, label change, milestone change
+- Mark individual notification as read
+- Mark all as read
+- Click notification to navigate to the related issue
+- Notification level preference: global, watch, on mention, disabled
+
+### Quick Actions (Slash Commands)
+Supported in comment box:
+- `/close` — close the issue
+- `/reopen` — reopen the issue
+- `/assign @username` — assign user
+- `/unassign @username` — remove assignee
+- `/label ~labelname` — add label (handles scoped label replacement)
+- `/unlabel ~labelname` — remove label
+- `/milestone %title` — set milestone
+- `/weight N` — set weight
+- `/due YYYY-MM-DD` — set due date
+- `/estimate Xh[Ym]` — set time estimate
+- `/spend Xh[Ym]` — add time spent
 
 ## Data Model
 
-### Users (12 entities)
-- Fields: id, username, name, email, avatar, role (Owner/Maintainer/Developer/Reporter), state (active/blocked)
-- Current user: Sarah Chen (id: 1, Owner)
+### Users (12 users)
+Fields: id, username, name, email, avatar_color, role
+Roles: Owner, Maintainer, Developer, Reporter, Guest
 
-### Labels (24 entities)
-- Fields: id, name, description, color, textColor, scoped (boolean)
-- 10 unscoped labels: bug, feature, enhancement, documentation, security, performance, infrastructure, needs-triage, ready-for-dev, tech-debt, UX, regression, breaking-change
-- 11 scoped labels across 3 scopes: priority:: (critical/high/medium/low), status:: (in-progress/review/blocked/done), workflow:: (design/backend/frontend)
+### Labels (20 labels)
+Fields: id, name, description, color, textColor, scoped
+Types: Regular labels (bug, feature, documentation, performance, security, UX, backend, frontend, devops, tech-debt, needs-investigation, breaking-change) and scoped labels (priority::critical/high/medium/low, status::to-do/in-progress/review/done)
 
-### Milestones (6 entities)
-- Fields: id, title, description, startDate, dueDate, state (active/closed), createdAt
-- States: v4.0 Release (closed), v4.1 Patch (closed), v4.2 Release (active, current), v4.3 Release (active), v5.0 Major Release (active), Backlog (active, no dates)
+### Milestones (7 milestones)
+Fields: id, title, description, startDate, dueDate, status (active/closed)
+Milestones: v1.0 Foundation (closed), v1.1 Stability (closed), v1.2 Hotfixes (closed), v2.0 API Overhaul (active), v2.1 Integrations (active), v3.0 Enterprise (active), Backlog (active)
 
-### Iteration Cadences (2 entities)
-- Fields: id, title, description, durationWeeks, autoSchedule, createdAt
-- Cadences: Sprint Cycle (2-week), Monthly Planning (4-week)
+### Iteration Cadences (2 cadences)
+Fields: id, title, description, durationWeeks, autoSchedule, startDate
 
-### Iterations (8 entities)
-- Fields: id, cadenceId, title, startDate, endDate, state (closed/current/upcoming), createdAt
-- Sprint Cycle: Sprint 22–27 (22–25 closed, 26 current, 27 upcoming)
-- Monthly Planning: March 2026 (current), April 2026 (upcoming)
+### Iterations (13 iterations)
+Fields: id, cadenceId, title, startDate, endDate, status (closed/current/upcoming)
+Engineering Sprints: Sprint 1-8 (2-week cadence)
+Design Cycles: Design Cycle 1-5 (3-week cadence)
 
-### Epics (12 entities)
-- Fields: id, title, description, state (opened/closed), authorId, labels (array of label IDs), confidential, startDate, dueDate, parentEpicId, createdAt, updatedAt
-- Hierarchy: "API v3 - Breaking Changes" is child of "API v3 Migration"
-- States: 10 open, 2 closed (Performance Optimization Q1, Data Export/Import)
-- Key epics: User Authentication Overhaul, API v3 Migration, Mobile Responsive Redesign, CI/CD Pipeline Improvements, Security Audit Remediation, Dark Mode Implementation
+### Epics (10 epics)
+Fields: id, title, description, status, startDate, dueDate, labels, authorId, confidential, childIssueIds, childEpicIds, createdAt, updatedAt
+Epics: User Authentication Overhaul, API v3 Migration, Performance Optimization Phase 2, Mobile Responsive Redesign, CI/CD Pipeline Modernization, Accessibility Compliance, Data Export & Reporting (closed), Enterprise SSO Integration (confidential), Search Infrastructure Upgrade, Notification System Revamp
 
-### Issues (100 entities)
-- Fields: id, iid, title, description, state (opened/closed), type (issue/incident/task), authorId, assignees (array), labels (array), milestoneId, iterationId, epicId, weight, dueDate, confidential, timeEstimate (seconds), timeSpent (seconds), createdAt, updatedAt, closedAt, closedBy, upvotes, downvotes, subscribed, relatedIssues (array of {issueId, linkType}), activities (array)
-- 30 hand-crafted issues with full descriptions and activities
-- 70 generated issues with realistic titles and varied attributes
-- Distribution: ~67 open, ~33 closed
-- Types: issue, incident, task
-- Related issues use link types: blocks, is_blocked_by, relates_to
-- Activities: comments, status_change, label_add, assignment, milestone_change, time_spent
+### Issues (130 issues)
+Fields: id, title, description, type (issue/incident/task), status (open/closed), authorId, assigneeIds (array), labelIds (array), milestoneId, iterationId, weight, dueDate, confidential, timeEstimate (seconds), timeSpent (seconds), createdAt, updatedAt, closedAt, relatedIssues (array of {issueId, type})
+Distribution: 101 open, 29 closed; types: issue, incident, task
 
-### Boards (2 entities)
-- Fields: id, name, createdAt, lists (array of {id, type, labelId, title, position})
-- Development Board: Open, To Do (ready-for-dev), In Progress (status::in-progress), Review (status::review), Done
-- Bug Triage Board: Open, Critical, High, Medium, Low, Closed
+### Comments (20 seed comments)
+Fields: id, issueId, authorId, body, createdAt, updatedAt, type
 
-### Issue Templates (3 entities)
-- Fields: id, name, content (markdown template)
-- Templates: Bug Report, Feature Request, Task
+### Activity Log (15 seed entries)
+Fields: id, issueId, userId, action, detail, createdAt
+Action types: created_issue, closed_issue, reopened_issue, assigned, unassigned, added_label, removed_label, changed_label, changed_milestone, changed_iteration
+
+### Boards (1 board)
+Fields: id, name, lists (array of {id, type, title, position, labelId})
+Board "Development Board" lists: Open (backlog), To Do (status::to-do), In Progress (status::in-progress), Review (status::review), Done (status::done), Closed
+
+### Notifications (20 seed notifications)
+Fields: id, userId, type, issueId, actorId, read, createdAt, message
 
 ### Notification Settings
-- Fields: level (global/watch/participating/disabled), email (object with boolean flags for each event type)
+Fields: level (global/watch/on_mention/disabled), email (bool), web (bool)
 
-### Notification Feed (10 entities)
-- Fields: id, type (assigned/mentioned/status_change/label_change/new_comment/milestone_change), issueId, actorId, message, read, createdAt
+### Issue Templates (3 templates)
+Fields: id, name, content (Markdown)
+Templates: Bug Report, Feature Request, Task
 
-## Available Form Controls
+### Project
+Fields: id, name, path, description, visibility, createdAt
 
-### Dropdowns (Custom HTML, no native <select>)
-- Single-select dropdowns with optional search
-- Multi-select dropdowns with checkmarks and search
-- Used for: Author, Assignee, Labels, Milestone, Iteration, Epic, Board selector, Sort, Type, Notification level, Issue template
+## Navigation Structure
+
+**Sidebar navigation** (always visible, fixed left):
+- Issues → Issues list (default view)
+- Boards → Kanban board view
+- Labels → Labels management
+- Milestones → Milestones list
+- Iterations → Iterations by cadence
+- Epics → Epics list
+- Roadmap → Timeline view
+- Time tracking → Time tracking report
+- Notifications → Notification feed
+
+**Issue detail** — accessed by clicking any issue row in lists or board cards
+**New issue** — accessed via "New issue" button on issues list
+**Milestone detail** — accessed by clicking a milestone card
+**Iteration detail** — accessed by clicking an iteration card
+**Epic detail** — accessed by clicking an epic card
+
+## Available Form Controls, Dropdowns, Toggles, and Their Options
+
+### Dropdowns (all custom-built, searchable)
+- **Author filter**: Any author + all 12 users
+- **Assignee filter**: Any assignee + all 12 users
+- **Label filter**: All 20 labels (multi-select with color swatches)
+- **Milestone filter**: Any milestone + 7 milestones
+- **Sort**: Newest, Oldest, Recently updated, Least recently updated, Due date (earliest/latest), Priority (highest/lowest), Weight (highest/lowest)
+- **Issue template**: No template, Bug Report, Feature Request, Task
+- **Issue type**: Issue, Incident, Task
+- **Iteration cadence** (in create form): Engineering Sprints, Design Cycles
+- **Notification level**: Global, Watch, On mention, Disabled
+- **Roadmap zoom**: Weeks, Months, Quarters
+- **Board filter assignee**: Any assignee + all 12 users
+- **Board filter milestone**: Any milestone + all milestones
+- **Related issue type**: Related to, Blocks, Is blocked by
 
 ### Toggles
-- Custom toggle switches for: Confidential, Subscribed, Email notification settings
+- Confidential issue toggle (issue detail sidebar + new issue form)
 
 ### Text Inputs
-- Standard text inputs for: Issue title, Label name, Milestone title, Iteration title, Epic title, Weight (number), Due date (YYYY-MM-DD pattern)
-- Textareas for: Issue description, Comment box, Milestone description, Epic description
+- Issue title, description (textarea with Markdown)
+- Comment editor (textarea with Markdown + quick actions)
+- Weight (numeric, 0-99)
+- Due date (YYYY-MM-DD text input)
+- Time estimate/spend (e.g., "4h 30m")
+- Search input (issues list, epics list)
+- Label name, description, color hex
+- Milestone title, description, start date, due date
+- Iteration title, start date, end date
+- Epic title, description, start date, due date
 
 ### Color Picker
-- Grid of 32 preset color swatches + hex text input with live preview
-- Used in label create/edit modals
-
-### Checkboxes
-- Custom styled checkboxes for: Issue selection, Select all, Confidential toggle in create forms
-
-### Date Inputs
-- Text-based date inputs (not native date pickers) with YYYY-MM-DD format
-- Used for: Due date, Start date, End date (milestones, iterations, epics)
+- 20 preset colors + custom hex input
 
 ## Seed Data Summary
 
-- **12 users**: Sarah Chen (Owner, current), Marcus Johnson (Maintainer), Priya Patel (Developer), Alex Kim (Developer), Jordan Williams (Developer), Elena Rodriguez (Maintainer), David Thompson (Developer), Lisa Wang (Reporter), Omar Hassan (Developer), Rachel Green (Reporter), Kai Nakamura (Maintainer), Sophie Martin (Developer, blocked)
-- **24 labels**: 13 unscoped + 11 scoped across priority/status/workflow scopes
-- **6 milestones**: 2 closed (v4.0, v4.1), 3 active with dates (v4.2, v4.3, v5.0), 1 backlog without dates
-- **8 iterations**: 6 in Sprint Cycle (4 closed, 1 current, 1 upcoming), 2 in Monthly Planning (1 current, 1 upcoming)
-- **12 epics**: 10 open, 2 closed; 1 parent-child relationship; varied date ranges across 2025-2026
-- **100 issues**: ~67 open, ~33 closed; varied types (issue/incident/task), weights (1-8), priorities, milestones, iterations, epics; 30 with detailed descriptions and activities
-- **2 boards**: Development Board (5 lists), Bug Triage Board (6 lists)
-- **3 issue templates**: Bug Report, Feature Request, Task
-- **10 notification feed entries**: Mix of assigned, mentioned, status changes, label changes, comments
+### Users (12)
+Sarah Chen (Owner), Marek Kowalski (Maintainer), Ana Garcia (Maintainer), Jun Nakamura (Developer), Priya Sharma (Developer), Tom Ramirez (Developer), Li Wei (Developer), Emily Okonkwo (Developer), Karl Fischer (Reporter), Natalie Moreau (Reporter), David Kim (Developer), Ravi Singh (Guest)
+
+Current user: Sarah Chen (id: 1)
+
+### Issues (130)
+- 101 open, 29 closed
+- Types: 125 issues, 1 incident, 4 tasks
+- Spread across milestones: v1.0 (7 closed), v1.1 (8 closed), v1.2 (2 closed), v2.0 API Overhaul (34 issues), v2.1 Integrations (19 issues), v3.0 Enterprise (11 issues), Backlog (19 issues), no milestone (remaining)
+- Weight range: 1-13 (Fibonacci-like)
+- Time tracking: many issues have estimates and time spent
+- Some issues are confidential (issues #46, #57, #58, #59)
+- Issues have related issues (blocks, is_blocked_by, related_to relationships)
+
+### Labels (20)
+Regular: bug, feature, documentation, performance, security, UX, backend, frontend, devops, tech-debt, needs-investigation, breaking-change
+Scoped: priority::critical/high/medium/low, status::to-do/in-progress/review/done
+
+### Milestones (7)
+v1.0 Foundation (closed), v1.1 Stability (closed), v1.2 Hotfixes (closed), v2.0 API Overhaul (active), v2.1 Integrations (active), v3.0 Enterprise (active), Backlog (active, no dates)
+
+### Epics (10)
+User Authentication Overhaul, API v3 Migration, Performance Optimization Phase 2, Mobile Responsive Redesign, CI/CD Pipeline Modernization, Accessibility Compliance, Data Export & Reporting (closed), Enterprise SSO Integration (confidential), Search Infrastructure Upgrade, Notification System Revamp
+
+### Iterations (13 across 2 cadences)
+Engineering Sprints: Sprint 1-5 (closed), Sprint 6 (current), Sprint 7-8 (upcoming)
+Design Cycles: Design Cycle 1-3 (closed), Design Cycle 4 (current), Design Cycle 5 (upcoming)
+
+### Board
+Development Board with 6 lists: Open, To Do, In Progress, Review, Done, Closed

@@ -1,500 +1,362 @@
-/* ============================================================
-   GitLab Plan & Track — Reusable Components
-   ============================================================ */
+// GitLab Plan & Track — Reusable UI Components
+const Components = (() => {
 
-const Components = {
+    // ─── Avatar ───────────────────────────────────────────────────
+    function avatar(user, size = 24) {
+        if (!user) return '';
+        const initials = user.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+        return `<span class="avatar" style="width:${size}px;height:${size}px;background:${user.avatar_color};font-size:${Math.floor(size * 0.45)}px" title="${_esc(user.name)}" data-user-id="${user.id}">${initials}</span>`;
+    }
 
-    // ── Escaping ───────────────────────────────────────────
-    escapeHtml(str) {
-        if (str == null) return '';
-        return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
-    },
+    function avatarStack(userIds, size = 24, max = 3) {
+        const users = userIds.map(id => AppState.getUser(id)).filter(Boolean);
+        if (users.length === 0) return '<span class="text-muted">Unassigned</span>';
+        let html = '<span class="avatar-stack">';
+        users.slice(0, max).forEach(u => { html += avatar(u, size); });
+        if (users.length > max) {
+            html += `<span class="avatar avatar-more" style="width:${size}px;height:${size}px;font-size:${Math.floor(size * 0.4)}px">+${users.length - max}</span>`;
+        }
+        html += '</span>';
+        return html;
+    }
 
-    escapeAttr(str) {
-        if (str == null) return '';
-        return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
-    },
-
-    // ── Avatars ────────────────────────────────────────────
-    avatar(user, size = 32) {
-        if (!user) return `<span class="avatar" style="width:${size}px;height:${size}px;font-size:${size*0.4}px">?</span>`;
-        const initials = user.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
-        const colors = ['#e74c3c','#3498db','#2ecc71','#f39c12','#9b59b6','#1abc9c','#e67e22','#34495e','#e91e63','#00bcd4','#8bc34a','#ff5722'];
-        const color = colors[user.id % colors.length];
-        return `<span class="avatar" style="width:${size}px;height:${size}px;font-size:${size*0.4}px;background:${color}" title="${this.escapeAttr(user.name)}">${initials}</span>`;
-    },
-
-    // ── Badges ─────────────────────────────────────────────
-    badge(text, type = 'default') {
-        return `<span class="badge badge-${type}">${this.escapeHtml(text)}</span>`;
-    },
-
-    stateBadge(state) {
-        if (state === 'opened') return '<span class="badge badge-open">Open</span>';
-        if (state === 'closed') return '<span class="badge badge-closed">Closed</span>';
-        return this.badge(state);
-    },
-
-    typeBadge(type) {
-        const icons = { issue: '&#9679;', incident: '&#9888;', task: '&#9745;' };
-        return `<span class="badge badge-type badge-type-${type}">${icons[type] || ''} ${this.escapeHtml(type)}</span>`;
-    },
-
-    labelChip(label) {
+    // ─── Label Badge ──────────────────────────────────────────────
+    function labelBadge(label, removable = false, context = '') {
         if (!label) return '';
-        return `<span class="label-chip" style="background:${label.color};color:${label.textColor}" title="${this.escapeAttr(label.description)}">${this.escapeHtml(label.name)}</span>`;
-    },
+        const removeBtn = removable ? `<button class="label-remove" data-action="remove-label" data-label-id="${label.id}" data-context="${context}">&times;</button>` : '';
+        return `<span class="label-badge" style="background:${label.color};color:${label.textColor}" data-label-id="${label.id}" title="${_esc(label.description || label.name)}">${_esc(label.name)}${removeBtn}</span>`;
+    }
 
-    priorityIcon(labels) {
-        const prioLabels = labels.filter(lid => [11,12,13,14].includes(lid));
-        if (prioLabels.length === 0) return '';
-        const map = { 11: { cls: 'critical', text: '!!' }, 12: { cls: 'high', text: '!' }, 13: { cls: 'medium', text: '-' }, 14: { cls: 'low', text: '...' } };
-        const p = map[prioLabels[0]];
-        return p ? `<span class="priority-indicator priority-${p.cls}" title="Priority: ${p.cls}">${p.text}</span>` : '';
-    },
+    function labelBadges(labelIds, removable = false, context = '') {
+        return labelIds.map(id => labelBadge(AppState.getLabel(id), removable, context)).join('');
+    }
 
-    // ── Custom Dropdown ────────────────────────────────────
-    dropdown(id, options, selectedValue, opts = {}) {
-        const { placeholder = 'Select...', searchable = false, multi = false, small = false } = opts;
-        const selected = options.find(o => o.value === selectedValue);
-        const displayText = selected ? selected.label : placeholder;
-        const sizeClass = small ? 'dropdown-sm' : '';
-        return `
-            <div class="custom-dropdown ${sizeClass}" id="${id}" data-dropdown-id="${id}" data-value="${this.escapeAttr(selectedValue || '')}">
-                <div class="dropdown-trigger" tabindex="0">
-                    <span class="dropdown-display">${this.escapeHtml(displayText)}</span>
-                    <span class="dropdown-arrow">&#9662;</span>
-                </div>
-                <div class="dropdown-menu" style="display:none">
-                    ${searchable ? `<div class="dropdown-search-wrap"><input type="text" class="dropdown-search" placeholder="Search..." data-dropdown-search="${id}"></div>` : ''}
-                    <div class="dropdown-items">
-                        ${options.map(o => `
-                            <div class="dropdown-item${o.value === selectedValue ? ' selected' : ''}" data-value="${this.escapeAttr(o.value)}" data-dropdown-for="${id}">
-                                ${o.color ? `<span class="dropdown-item-color" style="background:${o.color}"></span>` : ''}
-                                <span class="dropdown-item-label">${this.escapeHtml(o.label)}</span>
-                                ${o.description ? `<span class="dropdown-item-desc">${this.escapeHtml(o.description)}</span>` : ''}
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            </div>`;
-    },
+    // ─── Custom Dropdown ──────────────────────────────────────────
+    function dropdown(config) {
+        const { id, label, value, options, placeholder, searchable, multi, className } = config;
+        const displayValue = value
+            ? (Array.isArray(value) ? value.map(v => {
+                const opt = options.find(o => o.value === v);
+                return opt ? opt.label : v;
+            }).join(', ') : (() => { const opt = options.find(o => o.value === value); return opt ? opt.label : value; })())
+            : (placeholder || 'Select...');
 
-    multiSelectDropdown(id, options, selectedValues, opts = {}) {
-        const { placeholder = 'Select...', searchable = true } = opts;
-        const selectedLabels = options.filter(o => selectedValues.includes(o.value)).map(o => o.label);
-        const displayText = selectedLabels.length > 0 ? selectedLabels.join(', ') : placeholder;
-        return `
-            <div class="custom-dropdown multi-dropdown" id="${id}" data-dropdown-id="${id}" data-multi="true">
-                <div class="dropdown-trigger" tabindex="0">
-                    <span class="dropdown-display">${this.escapeHtml(displayText)}</span>
-                    <span class="dropdown-arrow">&#9662;</span>
-                </div>
-                <div class="dropdown-menu" style="display:none">
-                    ${searchable ? `<div class="dropdown-search-wrap"><input type="text" class="dropdown-search" placeholder="Search..." data-dropdown-search="${id}"></div>` : ''}
-                    <div class="dropdown-items">
-                        ${options.map(o => `
-                            <div class="dropdown-item${selectedValues.includes(o.value) ? ' selected' : ''}" data-value="${this.escapeAttr(o.value)}" data-dropdown-for="${id}" data-multi-item="true">
-                                <span class="dropdown-check">${selectedValues.includes(o.value) ? '&#10003;' : ''}</span>
-                                ${o.color ? `<span class="dropdown-item-color" style="background:${o.color}"></span>` : ''}
-                                <span class="dropdown-item-label">${this.escapeHtml(o.label)}</span>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            </div>`;
-    },
+        let html = `<div class="dropdown-wrapper ${className || ''}" id="${id}-wrapper">`;
+        if (label) html += `<label class="dropdown-label">${label}</label>`;
+        html += `<div class="custom-dropdown" id="${id}" data-dropdown-id="${id}" data-multi="${!!multi}">`;
+        html += `<div class="dropdown-trigger" data-action="toggle-dropdown" data-dropdown="${id}">`;
+        html += `<span class="dropdown-value">${_esc(displayValue)}</span>`;
+        html += `<span class="dropdown-arrow">&#9662;</span>`;
+        html += `</div>`;
+        html += `<div class="dropdown-menu" id="${id}-menu">`;
+        if (searchable) {
+            html += `<div class="dropdown-search"><input type="text" class="dropdown-search-input" data-dropdown="${id}" placeholder="Search..." /></div>`;
+        }
+        html += `<div class="dropdown-options">`;
+        options.forEach(opt => {
+            const selected = multi
+                ? (Array.isArray(value) && value.includes(opt.value))
+                : (value === opt.value);
+            const checkMark = selected ? '<span class="dropdown-check">&#10003;</span>' : '<span class="dropdown-check"></span>';
+            const colorSwatch = opt.color ? `<span class="color-swatch" style="background:${opt.color}"></span>` : '';
+            const avatarHtml = opt.avatar ? avatar(opt.avatar, 20) : '';
+            html += `<div class="dropdown-item${selected ? ' selected' : ''}" data-action="select-dropdown-item" data-dropdown="${id}" data-value="${opt.value}" data-label="${_esc(opt.label)}">${checkMark}${colorSwatch}${avatarHtml}<span class="dropdown-item-label">${_esc(opt.label)}</span></div>`;
+        });
+        if (options.length === 0) {
+            html += `<div class="dropdown-empty">No options</div>`;
+        }
+        html += `</div></div></div>`;
+        html += `</div>`;
+        return html;
+    }
 
-    // ── Modal ──────────────────────────────────────────────
-    showModal(title, bodyHtml, footerHtml, opts = {}) {
-        const overlay = document.getElementById('modalOverlay');
-        const container = document.getElementById('modalContainer');
-        if (!overlay || !container) return;
-        const { width = '560px' } = opts;
-        container.style.maxWidth = width;
-        container.innerHTML = `
-            <div class="modal-header">
-                <h3>${this.escapeHtml(title)}</h3>
-                <button class="modal-close" data-action="closeModal">&times;</button>
+    // ─── Custom Date Picker ───────────────────────────────────────
+    function datePicker(config) {
+        const { id, label, value, placeholder } = config;
+        let html = `<div class="date-picker-wrapper" id="${id}-wrapper">`;
+        if (label) html += `<label class="field-label">${label}</label>`;
+        html += `<div class="date-picker" id="${id}">`;
+        html += `<input type="text" class="date-input" id="${id}-input" value="${value || ''}" placeholder="${placeholder || 'YYYY-MM-DD'}" data-action="date-input" data-picker="${id}" />`;
+        html += `<button class="date-clear" data-action="clear-date" data-picker="${id}" title="Clear date">&times;</button>`;
+        html += `</div>`;
+        html += `</div>`;
+        return html;
+    }
+
+    // ─── Modal Dialog ─────────────────────────────────────────────
+    function modal(config) {
+        const { id, title, body, footer, size } = config;
+        return `<div class="modal-overlay" id="${id}" data-action="close-modal-overlay" data-modal="${id}">
+            <div class="modal ${size ? 'modal-' + size : ''}" onclick="event.stopPropagation()">
+                <div class="modal-header">
+                    <h3>${title}</h3>
+                    <button class="modal-close" data-action="close-modal" data-modal="${id}">&times;</button>
+                </div>
+                <div class="modal-body">${body}</div>
+                ${footer ? `<div class="modal-footer">${footer}</div>` : ''}
             </div>
-            <div class="modal-body">${bodyHtml}</div>
-            ${footerHtml ? `<div class="modal-footer">${footerHtml}</div>` : ''}
-        `;
-        overlay.classList.add('active');
-    },
-
-    closeModal() {
-        const overlay = document.getElementById('modalOverlay');
-        if (overlay) overlay.classList.remove('active');
-        AppState.activeModal = null;
-        AppState.modalData = null;
-    },
-
-    confirm(title, message, onConfirm, opts = {}) {
-        const { confirmText = 'Confirm', confirmClass = 'btn-danger' } = opts;
-        this.showModal(title,
-            `<p>${message}</p>`,
-            `<button class="btn btn-secondary" data-action="closeModal">Cancel</button>
-             <button class="btn ${confirmClass}" data-action="confirmAction">${confirmText}</button>`
-        );
-        window._pendingConfirmAction = onConfirm;
-    },
-
-    // ── Toast ──────────────────────────────────────────────
-    showToast(message, type = 'info', duration = 4000) {
-        const container = document.getElementById('toastContainer');
-        if (!container) return;
-        const toast = document.createElement('div');
-        toast.className = `toast toast-${type}`;
-        toast.innerHTML = `<span>${this.escapeHtml(message)}</span><button class="toast-close">&times;</button>`;
-        container.appendChild(toast);
-        toast.querySelector('.toast-close').onclick = () => toast.remove();
-        setTimeout(() => { if (toast.parentNode) toast.remove(); }, duration);
-    },
-
-    // ── Tabs ───────────────────────────────────────────────
-    tabs(id, items, activeTab) {
-        return `<div class="tabs" id="${id}">
-            ${items.map(t => `
-                <button class="tab-btn${t.key === activeTab ? ' active' : ''}" data-tab="${t.key}" data-tab-group="${id}">
-                    ${this.escapeHtml(t.label)}${t.count !== undefined ? ` <span class="tab-count">${t.count}</span>` : ''}
-                </button>
-            `).join('')}
         </div>`;
-    },
+    }
 
-    // ── Search ─────────────────────────────────────────────
-    searchInput(id, value, placeholder = 'Search...') {
-        return `<div class="search-input-wrap">
-            <span class="search-icon">&#128269;</span>
-            <input type="text" class="search-input" id="${id}" value="${this.escapeAttr(value || '')}" placeholder="${placeholder}" data-search-id="${id}">
+    // ─── Toast ────────────────────────────────────────────────────
+    function toast(message, type = 'info') {
+        if (!message) return '';
+        const icons = { info: 'i', success: '\u2713', warning: '!', error: '\u2717' };
+        return `<div class="toast toast-${type}"><span class="toast-icon">${icons[type] || 'i'}</span><span class="toast-message">${_esc(message)}</span></div>`;
+    }
+
+    // ─── Progress Bar ─────────────────────────────────────────────
+    function progressBar(percent, showLabel = true) {
+        return `<div class="progress-bar">
+            <div class="progress-fill" style="width:${percent}%"></div>
+            ${showLabel ? `<span class="progress-label">${percent}%</span>` : ''}
         </div>`;
-    },
+    }
 
-    // ── Pagination ─────────────────────────────────────────
-    pagination(currentPage, totalPages, total) {
-        if (totalPages <= 1) return '';
-        let pages = '';
-        const maxVisible = 7;
-        let start = Math.max(1, currentPage - 3);
-        let end = Math.min(totalPages, start + maxVisible - 1);
-        if (end - start < maxVisible - 1) start = Math.max(1, end - maxVisible + 1);
-
-        pages += `<button class="page-btn${currentPage === 1 ? ' disabled' : ''}" data-page="${currentPage - 1}" ${currentPage === 1 ? 'disabled' : ''}>&laquo; Prev</button>`;
-        if (start > 1) {
-            pages += `<button class="page-btn" data-page="1">1</button>`;
-            if (start > 2) pages += '<span class="page-ellipsis">...</span>';
-        }
-        for (let p = start; p <= end; p++) {
-            pages += `<button class="page-btn${p === currentPage ? ' active' : ''}" data-page="${p}">${p}</button>`;
-        }
-        if (end < totalPages) {
-            if (end < totalPages - 1) pages += '<span class="page-ellipsis">...</span>';
-            pages += `<button class="page-btn" data-page="${totalPages}">${totalPages}</button>`;
-        }
-        pages += `<button class="page-btn${currentPage === totalPages ? ' disabled' : ''}" data-page="${currentPage + 1}" ${currentPage === totalPages ? 'disabled' : ''}>Next &raquo;</button>`;
-
-        return `<div class="pagination">
-            <span class="pagination-info">Showing ${(currentPage-1)*AppState.issuesPerPage + 1}–${Math.min(currentPage*AppState.issuesPerPage, total)} of ${total}</span>
-            <div class="pagination-controls">${pages}</div>
-        </div>`;
-    },
-
-    // ── Progress Bar ───────────────────────────────────────
-    progressBar(percentage, opts = {}) {
-        const { showLabel = true, size = 'normal', color = '#2ecc71' } = opts;
-        return `<div class="progress-bar progress-bar-${size}">
-            <div class="progress-fill" style="width:${percentage}%;background:${color}"></div>
-            ${showLabel ? `<span class="progress-label">${percentage}%</span>` : ''}
-        </div>`;
-    },
-
-    // ── Time tracking bar ──────────────────────────────────
-    timeTrackingBar(estimate, spent) {
-        if (!estimate && !spent) return '<span class="text-muted">No time tracked</span>';
-        const estStr = estimate ? this.formatDuration(estimate) : 'None';
-        const spentStr = spent ? this.formatDuration(spent) : '0h';
-        const pct = estimate ? Math.min(100, Math.round((spent / estimate) * 100)) : 0;
-        const overBudget = estimate && spent > estimate;
+    // ─── Time Tracking Bar ────────────────────────────────────────
+    function timeTrackingBar(estimate, spent) {
+        if (!estimate && !spent) return '<span class="text-muted">No time tracking</span>';
+        const estimateStr = AppState.formatTime(estimate);
+        const spentStr = AppState.formatTime(spent);
+        const percent = estimate > 0 ? Math.min(100, Math.round((spent / estimate) * 100)) : (spent > 0 ? 100 : 0);
+        const overBudget = spent > estimate && estimate > 0;
         return `<div class="time-tracking">
             <div class="time-tracking-bar">
-                <div class="time-tracking-fill${overBudget ? ' over-budget' : ''}" style="width:${pct}%"></div>
+                <div class="time-tracking-fill${overBudget ? ' over-budget' : ''}" style="width:${percent}%"></div>
             </div>
             <div class="time-tracking-labels">
                 <span>Spent: ${spentStr}</span>
-                <span>Est: ${estStr}</span>
+                <span>Est: ${estimateStr}</span>
             </div>
         </div>`;
-    },
+    }
 
-    // ── Form Components ────────────────────────────────────
-    formField(id, label, inputHtml, opts = {}) {
-        const { helpText, error, required } = opts;
-        return `<div class="form-field${error ? ' has-error' : ''}" id="field-${id}">
-            <label class="form-label" for="${id}">${this.escapeHtml(label)}${required ? ' <span class="required">*</span>' : ''}</label>
-            ${inputHtml}
-            ${helpText ? `<div class="form-help">${this.escapeHtml(helpText)}</div>` : ''}
-            ${error ? `<div class="form-error">${this.escapeHtml(error)}</div>` : ''}
+    // ─── Status Badge ─────────────────────────────────────────────
+    function statusBadge(status) {
+        const cls = status === 'open' ? 'status-open' : 'status-closed';
+        const icon = status === 'open' ? '\u25CB' : '\u25CF';
+        return `<span class="status-badge ${cls}">${icon} ${status.charAt(0).toUpperCase() + status.slice(1)}</span>`;
+    }
+
+    function issueTypeBadge(type) {
+        const icons = { issue: '\u25CB', incident: '\u26A0', task: '\u2713' };
+        return `<span class="issue-type-badge issue-type-${type}">${icons[type] || '\u25CB'} ${type}</span>`;
+    }
+
+    // ─── Pagination ───────────────────────────────────────────────
+    function pagination(page, totalPages, total) {
+        if (totalPages <= 1) return '';
+        let html = `<div class="pagination">`;
+        html += `<span class="pagination-info">Showing ${((page - 1) * 20) + 1}\u2013${Math.min(page * 20, total)} of ${total}</span>`;
+        html += `<div class="pagination-controls">`;
+        html += `<button class="btn btn-sm" data-action="page" data-page="${page - 1}" ${page <= 1 ? 'disabled' : ''}>&laquo; Prev</button>`;
+
+        const range = _paginationRange(page, totalPages);
+        range.forEach(p => {
+            if (p === '...') {
+                html += `<span class="pagination-ellipsis">...</span>`;
+            } else {
+                html += `<button class="btn btn-sm${p === page ? ' btn-active' : ''}" data-action="page" data-page="${p}">${p}</button>`;
+            }
+        });
+
+        html += `<button class="btn btn-sm" data-action="page" data-page="${page + 1}" ${page >= totalPages ? 'disabled' : ''}>Next &raquo;</button>`;
+        html += `</div></div>`;
+        return html;
+    }
+
+    function _paginationRange(current, total) {
+        if (total <= 7) return Array.from({ length: total }, (_, i) => i + 1);
+        const range = [];
+        range.push(1);
+        if (current > 3) range.push('...');
+        for (let i = Math.max(2, current - 1); i <= Math.min(total - 1, current + 1); i++) {
+            range.push(i);
+        }
+        if (current < total - 2) range.push('...');
+        range.push(total);
+        return range;
+    }
+
+    // ─── Issue Row ────────────────────────────────────────────────
+    function issueRow(issue) {
+        const author = AppState.getUser(issue.authorId);
+        const milestone = issue.milestoneId ? AppState.getMilestone(issue.milestoneId) : null;
+        const dueDate = issue.dueDate ? _formatDate(issue.dueDate) : '';
+        const isOverdue = issue.dueDate && issue.status === 'open' && new Date(issue.dueDate) < new Date();
+
+        let html = `<tr class="issue-row" data-action="view-issue" data-issue-id="${issue.id}">`;
+        html += `<td class="issue-checkbox-cell"><input type="checkbox" class="issue-checkbox" data-issue-id="${issue.id}" onclick="event.stopPropagation()" /></td>`;
+        html += `<td class="issue-title-cell">
+            <div class="issue-title-row">
+                ${issue.confidential ? '<span class="confidential-icon" title="Confidential">&#128274;</span>' : ''}
+                <span class="issue-title-text">${_esc(issue.title)}</span>
+                <span class="issue-id">#${issue.id}</span>
+            </div>
+            <div class="issue-meta-row">
+                ${labelBadges(issue.labelIds.slice(0, 5))}
+                ${issue.labelIds.length > 5 ? `<span class="label-more">+${issue.labelIds.length - 5}</span>` : ''}
+            </div>
+        </td>`;
+        html += `<td class="issue-status-cell">${statusBadge(issue.status)}</td>`;
+        html += `<td class="issue-assignee-cell">${avatarStack(issue.assigneeIds, 22, 2)}</td>`;
+        html += `<td class="issue-milestone-cell">${milestone ? _esc(milestone.title) : ''}</td>`;
+        html += `<td class="issue-weight-cell">${issue.weight || ''}</td>`;
+        html += `<td class="issue-due-cell${isOverdue ? ' overdue' : ''}">${dueDate}</td>`;
+        html += `<td class="issue-created-cell">${_formatDate(issue.createdAt)}</td>`;
+        html += `</tr>`;
+        return html;
+    }
+
+    // ─── Issue Card (for boards) ──────────────────────────────────
+    function issueCard(issue) {
+        return `<div class="board-card" draggable="true" data-issue-id="${issue.id}" data-action="view-issue">
+            <div class="board-card-header">
+                ${issue.confidential ? '<span class="confidential-icon">&#128274;</span>' : ''}
+                <span class="board-card-title">${_esc(issue.title)}</span>
+            </div>
+            <div class="board-card-labels">${labelBadges(issue.labelIds.filter(lid => {
+                const l = AppState.getLabel(lid);
+                return l && !l.name.startsWith('status::');
+            }).slice(0, 3))}</div>
+            <div class="board-card-footer">
+                <span class="board-card-id">#${issue.id}</span>
+                ${issue.weight ? `<span class="board-card-weight" title="Weight">\u2696 ${issue.weight}</span>` : ''}
+                <span class="board-card-assignees">${avatarStack(issue.assigneeIds, 20, 2)}</span>
+            </div>
         </div>`;
-    },
+    }
 
-    textInput(id, value, opts = {}) {
-        const { placeholder = '', type = 'text', disabled = false } = opts;
-        return `<input type="${type}" class="form-input" id="${id}" name="${id}" value="${this.escapeAttr(value || '')}" placeholder="${this.escapeAttr(placeholder)}" ${disabled ? 'disabled' : ''}>`;
-    },
-
-    textarea(id, value, opts = {}) {
-        const { placeholder = '', rows = 6 } = opts;
-        return `<textarea class="form-textarea" id="${id}" name="${id}" rows="${rows}" placeholder="${this.escapeAttr(placeholder)}">${this.escapeHtml(value || '')}</textarea>`;
-    },
-
-    numberInput(id, value, opts = {}) {
-        const { min, max, placeholder = '' } = opts;
-        return `<input type="number" class="form-input form-input-sm" id="${id}" name="${id}" value="${value != null ? value : ''}" ${min != null ? `min="${min}"` : ''} ${max != null ? `max="${max}"` : ''} placeholder="${this.escapeAttr(placeholder)}">`;
-    },
-
-    checkbox(id, label, checked, opts = {}) {
-        return `<label class="custom-checkbox" for="${id}">
-            <input type="checkbox" id="${id}" ${checked ? 'checked' : ''}>
-            <span class="checkbox-mark"></span>
-            <span class="checkbox-label">${this.escapeHtml(label)}</span>
-        </label>`;
-    },
-
-    toggle(id, checked) {
-        return `<label class="toggle-switch" for="${id}">
-            <input type="checkbox" id="${id}" ${checked ? 'checked' : ''}>
-            <span class="toggle-slider"></span>
-        </label>`;
-    },
-
-    // ── Color Picker (custom) ──────────────────────────────
-    colorPicker(id, selectedColor) {
+    // ─── Color Picker ─────────────────────────────────────────────
+    function colorPicker(id, selectedColor) {
         const colors = [
-            '#d9534f', '#e74c3c', '#c0392b', '#b71c1c',
-            '#e91e63', '#9b59b6', '#8e44ad', '#673ab7',
-            '#3f51b5', '#428bca', '#2980b9', '#3498db',
-            '#00bcd4', '#1abc9c', '#009688', '#27ae60',
-            '#2ecc71', '#5cb85c', '#8bc34a', '#cddc39',
-            '#f0ad4e', '#f39c12', '#e67e22', '#ff9800',
-            '#ff5722', '#795548', '#95a5a6', '#607d8b',
-            '#2c3e50', '#34495e', '#333333', '#000000'
+            '#d9534f', '#e24329', '#fc6d26', '#fca326', '#f0ad4e',
+            '#5cb85c', '#1aaa55', '#2da160', '#1abc9c', '#428bca',
+            '#1f75cb', '#6b4fbb', '#9b59b6', '#e44d2a', '#34495e',
+            '#7f8c8d', '#95a5a6', '#c0392b', '#e67e22', '#3498db',
         ];
-        return `<div class="color-picker" id="${id}">
-            <div class="color-grid">
-                ${colors.map(c => `<div class="color-swatch${c === selectedColor ? ' selected' : ''}" data-color="${c}" style="background:${c}" title="${c}"></div>`).join('')}
-            </div>
-            <div class="color-input-wrap">
-                <input type="text" class="form-input form-input-sm color-hex-input" id="${id}-hex" value="${selectedColor || '#428bca'}" placeholder="#hex" maxlength="7">
-                <div class="color-preview" style="background:${selectedColor || '#428bca'}"></div>
-            </div>
+        let html = `<div class="color-picker" id="${id}">`;
+        colors.forEach(c => {
+            html += `<button class="color-swatch-btn${c === selectedColor ? ' selected' : ''}" data-action="select-color" data-color="${c}" data-picker="${id}" style="background:${c}"></button>`;
+        });
+        html += `<div class="color-custom"><input type="text" class="color-input" id="${id}-input" value="${selectedColor || '#428bca'}" placeholder="#hex" data-action="color-input" data-picker="${id}" /></div>`;
+        html += `</div>`;
+        return html;
+    }
+
+    // ─── Tabs ─────────────────────────────────────────────────────
+    function tabs(items, activeId) {
+        let html = `<div class="tabs">`;
+        items.forEach(item => {
+            html += `<button class="tab${item.id === activeId ? ' active' : ''}" data-action="switch-tab" data-tab="${item.id}">${item.label}${item.count !== undefined ? ` <span class="tab-count">${item.count}</span>` : ''}</button>`;
+        });
+        html += `</div>`;
+        return html;
+    }
+
+    // ─── Empty State ──────────────────────────────────────────────
+    function emptyState(message, actionLabel, actionData) {
+        let html = `<div class="empty-state">`;
+        html += `<div class="empty-state-icon">\u2690</div>`;
+        html += `<p class="empty-state-message">${message}</p>`;
+        if (actionLabel) {
+            html += `<button class="btn btn-primary" ${actionData || ''}>${actionLabel}</button>`;
+        }
+        html += `</div>`;
+        return html;
+    }
+
+    // ─── Confirm Dialog ───────────────────────────────────────────
+    function confirmDialog(id, title, message, confirmLabel, confirmAction) {
+        return modal({
+            id,
+            title,
+            body: `<p>${message}</p>`,
+            footer: `<button class="btn" data-action="close-modal" data-modal="${id}">Cancel</button>
+                     <button class="btn btn-danger" data-action="${confirmAction}" data-modal="${id}">${confirmLabel}</button>`,
+        });
+    }
+
+    // ─── Sidebar Section ──────────────────────────────────────────
+    function sidebarSection(title, content, collapsible = false) {
+        return `<div class="sidebar-section">
+            <div class="sidebar-section-header">${title}</div>
+            <div class="sidebar-section-content">${content}</div>
         </div>`;
-    },
+    }
 
-    // ── Date Input (custom text) ───────────────────────────
-    dateInput(id, value, opts = {}) {
-        const { placeholder = 'YYYY-MM-DD' } = opts;
-        return `<input type="text" class="form-input form-input-sm date-input" id="${id}" name="${id}" value="${this.escapeAttr(value || '')}" placeholder="${placeholder}" pattern="\\d{4}-\\d{2}-\\d{2}">`;
-    },
+    // ─── Helpers ──────────────────────────────────────────────────
+    function _esc(str) {
+        if (str == null) return '';
+        return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
 
-    // ── Empty State ────────────────────────────────────────
-    emptyState(title, description, actionHtml) {
-        return `<div class="empty-state">
-            <div class="empty-state-icon">&#128196;</div>
-            <h3>${this.escapeHtml(title)}</h3>
-            <p>${this.escapeHtml(description)}</p>
-            ${actionHtml || ''}
-        </div>`;
-    },
+    function _formatDate(dateStr) {
+        if (!dateStr) return '';
+        const d = new Date(dateStr);
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+    }
 
-    // ── Breadcrumb ─────────────────────────────────────────
-    breadcrumb(items) {
-        return `<nav class="breadcrumb" id="breadcrumb">
-            ${items.map((item, i) => {
-                if (i === items.length - 1) return `<span class="breadcrumb-current">${this.escapeHtml(item.label)}</span>`;
-                return `<a class="breadcrumb-link" data-action="navigate" data-section="${item.section}" ${item.params ? `data-params='${JSON.stringify(item.params)}'` : ''}>${this.escapeHtml(item.label)}</a><span class="breadcrumb-sep">/</span>`;
-            }).join('')}
-        </nav>`;
-    },
+    function _formatDateTime(dateStr) {
+        if (!dateStr) return '';
+        const d = new Date(dateStr);
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const hours = d.getHours().toString().padStart(2, '0');
+        const minutes = d.getMinutes().toString().padStart(2, '0');
+        return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()} ${hours}:${minutes}`;
+    }
 
-    // ── Info/Warning/Error Boxes ───────────────────────────
-    infoBox(msg) { return `<div class="alert alert-info">${msg}</div>`; },
-    warningBox(msg) { return `<div class="alert alert-warning">${msg}</div>`; },
-    errorBox(msg) { return `<div class="alert alert-danger">${msg}</div>`; },
-    successBox(msg) { return `<div class="alert alert-success">${msg}</div>`; },
-
-    // ── Date/Time Formatting ───────────────────────────────
-    formatDate(isoStr) {
-        if (!isoStr) return '';
-        const d = new Date(isoStr);
-        return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-    },
-
-    formatDateTime(isoStr) {
-        if (!isoStr) return '';
-        const d = new Date(isoStr);
-        return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-    },
-
-    timeAgo(isoStr) {
-        if (!isoStr) return '';
+    function _timeAgo(dateStr) {
         const now = new Date();
-        const d = new Date(isoStr);
-        const diffMs = now - d;
-        const diffMins = Math.floor(diffMs / 60000);
-        if (diffMins < 1) return 'just now';
-        if (diffMins < 60) return `${diffMins}m ago`;
-        const diffHrs = Math.floor(diffMins / 60);
-        if (diffHrs < 24) return `${diffHrs}h ago`;
-        const diffDays = Math.floor(diffHrs / 24);
-        if (diffDays < 30) return `${diffDays}d ago`;
-        const diffMonths = Math.floor(diffDays / 30);
-        if (diffMonths < 12) return `${diffMonths}mo ago`;
-        return `${Math.floor(diffMonths / 12)}y ago`;
-    },
+        const d = new Date(dateStr);
+        const diff = Math.floor((now - d) / 1000);
+        if (diff < 60) return 'just now';
+        if (diff < 3600) return `${Math.floor(diff / 60)}m ago`;
+        if (diff < 86400) return `${Math.floor(diff / 3600)}h ago`;
+        if (diff < 2592000) return `${Math.floor(diff / 86400)}d ago`;
+        return _formatDate(dateStr);
+    }
 
-    formatDuration(seconds) {
-        if (!seconds || seconds <= 0) return '0h';
-        const h = Math.floor(seconds / 3600);
-        const m = Math.floor((seconds % 3600) / 60);
-        if (h > 0 && m > 0) return `${h}h ${m}m`;
-        if (h > 0) return `${h}h`;
-        return `${m}m`;
-    },
-
-    // ── Markdown-lite renderer ─────────────────────────────
-    renderMarkdown(text) {
+    function renderMarkdown(text) {
         if (!text) return '';
-        let html = this.escapeHtml(text);
+        let html = _esc(text);
         // Code blocks
-        html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+        html = html.replace(/```(\w*)\n([\s\S]*?)```/g, '<pre><code>$2</code></pre>');
         // Inline code
         html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
         // Bold
-        html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
         // Italic
-        html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>');
-        // Headers
-        html = html.replace(/^## (.+)$/gm, '<h4>$1</h4>');
-        html = html.replace(/^# (.+)$/gm, '<h3>$1</h3>');
+        html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+        // Headings
+        html = html.replace(/^### (.+)$/gm, '<h4>$1</h4>');
+        html = html.replace(/^## (.+)$/gm, '<h3>$1</h3>');
+        html = html.replace(/^# (.+)$/gm, '<h2>$1</h2>');
         // Checklists
-        html = html.replace(/^- \[x\] (.+)$/gm, '<div class="checklist-item checked"><span class="checklist-box">&#10003;</span> $1</div>');
-        html = html.replace(/^- \[ \] (.+)$/gm, '<div class="checklist-item"><span class="checklist-box"></span> $1</div>');
+        html = html.replace(/- \[x\] (.+)/g, '<div class="checklist-item checked"><span class="check-box">&#9745;</span> $1</div>');
+        html = html.replace(/- \[ \] (.+)/g, '<div class="checklist-item"><span class="check-box">&#9744;</span> $1</div>');
         // Lists
         html = html.replace(/^- (.+)$/gm, '<li>$1</li>');
-        html = html.replace(/^(\d+)\. (.+)$/gm, '<li>$2</li>');
+        // Paragraphs
+        html = html.replace(/\n\n/g, '</p><p>');
+        html = html.replace(/\n/g, '<br>');
         // Mentions
         html = html.replace(/@(\w+)/g, '<span class="mention">@$1</span>');
-        // Labels
-        html = html.replace(/~"([^"]+)"/g, '<span class="mention-label">~$1</span>');
-        // Line breaks
-        html = html.replace(/\n/g, '<br>');
-        return html;
-    }
-};
-
-// ── Global dropdown behavior ───────────────────────────────
-document.addEventListener('click', function(e) {
-    // Toggle dropdown
-    const trigger = e.target.closest('.dropdown-trigger');
-    if (trigger) {
-        const dd = trigger.closest('.custom-dropdown');
-        const menu = dd.querySelector('.dropdown-menu');
-        // Close others
-        document.querySelectorAll('.dropdown-menu').forEach(m => {
-            if (m !== menu) m.style.display = 'none';
-        });
-        menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
-        const searchInput = menu.querySelector('.dropdown-search');
-        if (searchInput) setTimeout(() => searchInput.focus(), 10);
-        e.stopPropagation();
-        return;
+        // Issue refs
+        html = html.replace(/#(\d+)/g, '<span class="issue-ref" data-action="view-issue" data-issue-id="$1">#$1</span>');
+        return `<p>${html}</p>`;
     }
 
-    // Select dropdown item
-    const item = e.target.closest('.dropdown-item');
-    if (item) {
-        const dd = item.closest('.custom-dropdown');
-        const isMulti = dd.dataset.multi === 'true';
-
-        if (isMulti) {
-            item.classList.toggle('selected');
-            const check = item.querySelector('.dropdown-check');
-            check.innerHTML = item.classList.contains('selected') ? '&#10003;' : '';
-            // Collect selected values
-            const selectedValues = Array.from(dd.querySelectorAll('.dropdown-item.selected')).map(i => i.dataset.value);
-            dd.dispatchEvent(new CustomEvent('dropdown-change', { detail: { values: selectedValues, id: dd.dataset.dropdownId }, bubbles: true }));
-            // Update display
-            const labels = Array.from(dd.querySelectorAll('.dropdown-item.selected .dropdown-item-label')).map(l => l.textContent);
-            dd.querySelector('.dropdown-display').textContent = labels.length > 0 ? labels.join(', ') : 'Select...';
-            e.stopPropagation();
-            return;
-        }
-
-        // Single select
-        dd.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('selected'));
-        item.classList.add('selected');
-        dd.dataset.value = item.dataset.value;
-        dd.querySelector('.dropdown-display').textContent = item.querySelector('.dropdown-item-label').textContent;
-        dd.querySelector('.dropdown-menu').style.display = 'none';
-        dd.dispatchEvent(new CustomEvent('dropdown-change', { detail: { value: item.dataset.value, id: dd.dataset.dropdownId }, bubbles: true }));
-        e.stopPropagation();
-        return;
-    }
-
-    // Close all dropdowns when clicking elsewhere
-    document.querySelectorAll('.dropdown-menu').forEach(m => m.style.display = 'none');
-});
-
-// Dropdown search filtering
-document.addEventListener('input', function(e) {
-    if (e.target.classList.contains('dropdown-search')) {
-        const query = e.target.value.toLowerCase();
-        const dd = e.target.closest('.custom-dropdown');
-        dd.querySelectorAll('.dropdown-item').forEach(item => {
-            const label = item.querySelector('.dropdown-item-label').textContent.toLowerCase();
-            item.style.display = label.includes(query) ? '' : 'none';
-        });
-    }
-});
-
-// Color picker behavior
-document.addEventListener('click', function(e) {
-    const swatch = e.target.closest('.color-swatch');
-    if (swatch) {
-        const picker = swatch.closest('.color-picker');
-        picker.querySelectorAll('.color-swatch').forEach(s => s.classList.remove('selected'));
-        swatch.classList.add('selected');
-        const hexInput = picker.querySelector('.color-hex-input');
-        const preview = picker.querySelector('.color-preview');
-        if (hexInput) hexInput.value = swatch.dataset.color;
-        if (preview) preview.style.background = swatch.dataset.color;
-    }
-});
-
-document.addEventListener('input', function(e) {
-    if (e.target.classList.contains('color-hex-input')) {
-        const picker = e.target.closest('.color-picker');
-        const preview = picker.querySelector('.color-preview');
-        if (preview && /^#[0-9a-fA-F]{6}$/.test(e.target.value)) {
-            preview.style.background = e.target.value;
-        }
-    }
-});
-
-// Modal close on overlay click and Escape
-document.addEventListener('click', function(e) {
-    if (e.target.id === 'modalOverlay') {
-        Components.closeModal();
-    }
-});
-
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        const modal = document.getElementById('modalOverlay');
-        if (modal && modal.classList.contains('active')) {
-            Components.closeModal();
-        }
-        document.querySelectorAll('.dropdown-menu').forEach(m => m.style.display = 'none');
-    }
-});
+    return {
+        avatar, avatarStack,
+        labelBadge, labelBadges,
+        dropdown, datePicker,
+        modal, toast, progressBar, timeTrackingBar,
+        statusBadge, issueTypeBadge,
+        pagination, issueRow, issueCard,
+        colorPicker, tabs, emptyState,
+        confirmDialog, sidebarSection,
+        _esc, _formatDate, _formatDateTime, _timeAgo, renderMarkdown,
+    };
+})();
